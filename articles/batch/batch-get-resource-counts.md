@@ -4,12 +4,12 @@ description: Conte o estado das tarefas do Lote Azure e calcule os nódosos para
 ms.date: 09/07/2018
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: e063ef56deeb7fa0f2a217f48b1c23a810a9d890
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726694"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780161"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorize as soluções do Lote contando tarefas e nódosos por estado
 
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Você pode usar um padrão semelhante para REST e outras línguas apoiadas para obter contagens de nó para piscinas.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo discute os recursos primários do Lote, tais como piscinas, nós de computação, empregos e tarefas, e fornece uma visão geral das características do serviço.
-
+* Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * Para obter informações sobre a aplicação de filtros a consultas que listam os recursos do Lote, consulte [Criar consultas para listar os recursos](batch-efficient-list-queries.md)do Lote de forma eficiente .
 
 

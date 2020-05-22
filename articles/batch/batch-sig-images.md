@@ -3,12 +3,12 @@ title: Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
 description: Crie um pool de Lote com a Galeria de Imagem Partilhada para fornecer imagens personalizadas para calcular os nódosos que contêm o software e os dados que precisa para a sua aplicação. As imagens personalizadas são uma forma eficiente de configurar os nódosos de cálculo para executar as suas cargas de trabalho do Lote.
 ms.topic: article
 ms.date: 08/28/2019
-ms.openlocfilehash: 1a26aaecc5da0ef348b720919b04d86f8fcfbc70
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 1f03d637ffc6e443fdd429ca7fd647603b668cc1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743582"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780492"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
 
@@ -83,7 +83,7 @@ Depois de ter criado com sucesso a sua imagem gerida, precisa de criar uma Galer
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Crie uma piscina a partir de uma imagem partilhada usando o Azure CLI
 
-Para criar uma piscina a partir da sua Imagem `az batch pool create` Partilhada utilizando o Azure CLI, utilize o comando. Especifique o `--image` ID de imagem partilhada no campo. Certifique-se de que o tipo OS e o SKU correspondem às versões especificadas por`--node-agent-sku-id`
+Para criar uma piscina a partir da sua Imagem Partilhada utilizando o Azure CLI, utilize o `az batch pool create` comando. Especifique o ID de imagem partilhada no `--image` campo. Certifique-se de que o tipo OS e o SKU correspondem às versões especificadas por`--node-agent-sku-id`
 
 > [!NOTE]
 > Tens de autenticar usando o Azure AD. Se utilizar o auth de chave partilhada, terá um erro de autenticação.  
@@ -218,4 +218,4 @@ Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
+* Para uma visão geral aprofundada do Lote, consulte o fluxo de [trabalho e os recursos](batch-service-workflow-features.md)do serviço batch .

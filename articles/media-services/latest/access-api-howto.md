@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/15/2020
+ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 6e1ab30e8b4cf44f7d1f82fd94fb9bf854915557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9788c4663908497b51fbaaf7f824125d857e7c81
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79478256"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774417"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Media  
 

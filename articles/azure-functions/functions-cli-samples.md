@@ -1,17 +1,16 @@
 ---
 title: Exemplos da CLI do Azure - Funções do Azure
 description: Exemplos da CLI do Azure - Funções do Azure
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239645"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779549"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 
@@ -21,9 +20,9 @@ A tabela seguinte inclui ligações para scripts bash de Funções do Azure que 
 
 | Criar aplicação | Descrição |
 |---|---|
-| [Criar uma aplicação de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Cria uma aplicação de funções num plano de Consumo.  |
-| [Criar uma aplicação de função Python sem servidor](scripts/functions-cli-create-serverless-python.md) | Crie uma aplicação de funções num plano do Serviço de Aplicações dedicado. |
-| [Criar uma aplicação de função num plano Premium escalável](scripts/functions-cli-create-premium-plan.md) | Crie uma aplicação de funções num plano do Serviço de Aplicações dedicado. |
+| [Criar uma aplicação de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Crie uma aplicação de função num plano de consumo.  |
+| [Criar uma aplicação de função Python sem servidor](scripts/functions-cli-create-serverless-python.md) | Crie uma aplicação de função Python num plano de consumo. |
+| [Criar uma aplicação de função num plano Premium escalável](scripts/functions-cli-create-premium-plan.md) | Crie uma aplicação de função num plano Premium. |
 | [Criar uma aplicação de função num plano dedicado (App Service)](scripts/functions-cli-create-app-service-plan.md) | Crie uma aplicação de funções num plano do Serviço de Aplicações dedicado. |
 
 | Integrar | Descrição|

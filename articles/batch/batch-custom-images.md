@@ -3,12 +3,12 @@ title: Fornecer uma piscina personalizada a partir de uma imagem gerida
 description: Crie um pool de Lote a partir de um recurso de imagem gerido para fornecer nódos de computação com o software e dados para a sua aplicação.
 ms.topic: article
 ms.date: 09/16/2019
-ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b08c6a609516bcebaca64cf1c186d75887b098e3
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117323"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780212"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Use uma imagem gerida para criar uma piscina de máquinas virtuais
 
@@ -21,7 +21,7 @@ Para criar uma imagem personalizada para as máquinas virtuais do seu Pool Batch
 
 - **Um recurso de imagem gerido.** Para criar um conjunto de máquinas virtuais usando uma imagem personalizada, você precisa ter ou criar um recurso de imagem gerido na mesma subscrição Azure e região como a conta Batch. A imagem deve ser criada a partir de instantâneos do disco osso do VM e opcionalmente dos seus discos de dados anexados. Para obter mais informações e passos para preparar uma imagem gerida, consulte a secção seguinte.
   - Use uma imagem personalizada única para cada piscina que cria.
-  - Para criar uma piscina com a imagem utilizando as APIs do lote, `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`especifique o ID de **recurso** da imagem, que é do formulário . Para utilizar o portal, use o **nome** da imagem.  
+  - Para criar uma piscina com a imagem utilizando as APIs do lote, especifique o ID de **recurso** da imagem, que é do formulário `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` . Para utilizar o portal, use o **nome** da imagem.  
   - O recurso de imagem gerido deve existir durante toda a vida útil da piscina para permitir a escala e pode ser removido após a eliminação da piscina.
 
 - Autenticação do **Diretório Ativo Azure (AAD).** A API do cliente Batch deve utilizar a autenticação AAD. O suporte do Lote Azure para AAD está documentado em soluções de [serviço Authenticate Batch com Diretório Ativo](batch-aad-auth.md).
@@ -107,10 +107,10 @@ A criação de um recurso de imagem gerido diretamente com o Packer só pode ser
 
 Certifique-se de que o recurso utilizado para criar a imagem gerida existe para a vida útil de qualquer piscina que refira a imagem personalizada. Se não o fizer, pode resultar em falhas na atribuição de piscinas e/ou falhas de redimensionação.
 
-Se a imagem ou o recurso subjacente forremovido, `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`poderá obter um erro semelhante ao: . Se tiver este erro, certifique-se de que o recurso subjacente não foi removido.
+Se a imagem ou o recurso subjacente forremovido, poderá obter um erro semelhante ao: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed` . Se tiver este erro, certifique-se de que o recurso subjacente não foi removido.
 
 Para obter mais informações sobre a utilização do Packer para criar um VM, consulte [Construir uma imagem Linux com packer](../virtual-machines/linux/build-image-with-packer.md) ou construir uma imagem do Windows com [packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
+- Para uma visão geral aprofundada do Lote, consulte o fluxo de [trabalho e os recursos](batch-service-workflow-features.md)do serviço batch .

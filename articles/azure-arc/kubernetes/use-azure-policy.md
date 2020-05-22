@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utilize a Política Azure para aplicar configurações de cluster em escala
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 64be872e4e76545c015378417410cbbfad95ebfd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c017e9422733069ffd93f6dff72ecb884da057c4
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680666"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779955"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utilize a Política Azure para aplicar configurações de cluster à escala (Pré-visualização)
 
@@ -64,4 +64,4 @@ Após a criação da atribuição de políticas, para qualquer novo `connectedCl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use a Política Azure para governar a configuração do cluster](./use-azure-policy.md)
+* [Configurar monitor azure para contentores com arc habilitado clusters Kubernetes](./deploy-azure-monitor-for-containers.md)

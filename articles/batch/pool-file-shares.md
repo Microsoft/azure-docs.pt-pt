@@ -3,12 +3,12 @@ title: Partilha de ficheiros Azure para piscinas de Lotes Azure
 description: Como montar uma partilha de Ficheiros Azure a partir de nódos de computação numa piscina linux ou Windows em Azure Batch.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 0aa8c8f6dcf1114688e6abaf1a17f2e8af6fa4fe
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723498"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780276"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Use uma partilha de ficheiros Azure com uma piscina de lote
 
@@ -170,8 +170,7 @@ batch_service_client.task.add(job_id, task)
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para outras opções para ler e escrever dados em Batch, consulte a visão geral da [funcionalidade do Lote](batch-api-basics.md) e persista a saída de trabalho e [tarefas](batch-task-output.md).
-
+* Para outras opções para ler e escrever dados em Lote, consulte [persist a saída de trabalho e tarefa](batch-task-output.md).
 * Consulte também o conjunto de [ferramentas](https://github.com/Azure/batch-shipyard/tree/master/recipes) do Estaleiro de [Lote,](https://github.com/Azure/batch-shipyard) que inclui receitas do Estaleiro para implantar sistemas de ficheiros para cargas de carga de contentores de lote.

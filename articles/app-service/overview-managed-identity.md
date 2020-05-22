@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 3c9cc96af42c6cfb83b43e3a0c56f16bdb917025
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0bb17ab98dc17bbe7623467451acc65a126bcaf1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649109"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779976"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -39,6 +39,11 @@ Para configurar uma identidade gerida no portal, primeiro criará uma aplicaçã
 4. Dentro do separador designado pelo **Sistema,** mude o **Estado** para **o ligado**. Clique em **Guardar**.
 
     ![Identidade gerida no Serviço de Aplicações](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+
+
+> [!NOTE] 
+> Para encontrar a identidade gerida para a sua web ou aplicação de slot no portal Azure, vá à secção de definições do Utilizador em aplicações da Enterprise.
+
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
@@ -343,7 +348,7 @@ const getToken = function(resource, cb) {
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import os

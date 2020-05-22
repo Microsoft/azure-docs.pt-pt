@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189186"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779170"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
 
@@ -58,7 +58,7 @@ Os tipos de dados suportados são:
 
 | Tipo de dados | Descrição |
 |---|---|
-| **bool** | Um tipo de dados com `true` `false`um de dois estados: ou . |
+| **bool** | Um tipo de dados com um de dois estados: `true` ou `false` . |
 | **dataTempo** | Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | **double** | Um ponto flutuante De precisão dupla 64 [bits IEEE 754.](https://ieeexplore.ieee.org/document/8766229) |
 | **string** | Valores de texto, compostos por caracteres Unicode.          |
@@ -78,6 +78,17 @@ Recomendamos que utilize as seguintes melhores práticas:
 * [Planeie as suas necessidades](time-series-insights-update-plan.md) de escala calculando a sua taxa de ingestão antecipada e verificando se se enquadra na taxa suportada abaixo.
 
 * Compreenda como otimizar e moldar os seus dados JSON, bem como as limitações atuais na pré-visualização, lendo [como moldar a JSON para ingresso e consulta](./time-series-insights-update-how-to-shape-events.md).
+
+* Utilize a ingestão de streaming apenas em tempo real e dados recentes, o streaming de dados históricos não é suportado.
+
+#### <a name="historical-data-ingestion"></a>Ingestão de Dados Históricos
+
+A utilização do gasoduto de streaming para importar dados históricos não é atualmente suportada na Pré-visualização da Série de Tempo Azure. Se precisar de importar dados passados para o seu ambiente, siga as orientações abaixo:
+
+* Não transmita dados ao vivo e históricos em paralelo. A ingestão de dados fora de ordem resultará num desempenho de consulta degradado.
+* Ingerir dados históricos de forma ordenada pelo tempo para melhor desempenho.
+* Mantenha-se dentro dos limites de taxa de entrada abaixo.
+* Desative a Warm Store se os dados forem mais antigos do que o período de retenção da Loja Quente.
 
 ### <a name="ingress-scale-and-preview-limitations"></a>Escala de ingresso e limitações de pré-visualização
 
@@ -101,7 +112,7 @@ Por padrão, a pré-visualização time Series Insights pode ingerir dados de en
  
 * **Exemplo 1:**
 
-    A Transportes De Contoso tem 100.000 dispositivos que emitem um evento três vezes por minuto. O tamanho de um evento é de 200 bytes. Estão a usar um Hub com quatro divisórias como fonte do evento Time Series Insights.
+    A Transportes De Contoso tem 100.000 dispositivos que emitem um evento três vezes por minuto. O tamanho de um evento é de 200 bytes. Estão a usar um Hub IoT com quatro divisórias como fonte do evento Time Series Insights.
 
     * A taxa de ingestão para o seu ambiente Time Series Insights seria: **100.000 dispositivos * 200 bytes/evento * (3/60 evento/seg) = 1 MBps**.
     * A taxa de ingestão por partição seria de 0,25 MBps.
@@ -179,7 +190,7 @@ Visualização de visualizações de visualizações da Série de Tempo Azure e 
 > [!IMPORTANT]
 > Durante a pré-visualização, poderá experimentar um período de até 60 segundos antes de os dados se tornarem disponíveis. Se sentir uma latência significativa para além dos 60 segundos, por favor envie um bilhete de apoio através do portal Azure.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 Esta secção descreve detalhes do Armazenamento Azure relevantes para a Pré-visualização de Insights da Série De Tempo Azure.
 
@@ -201,7 +212,7 @@ Para garantir a consulta de desempenho e disponibilidade de dados, não edite ou
 
 Além de aceder aos seus dados do explorador de [pré-visualização](./time-series-insights-update-explorer.md) da Time Series Insights e da Consulta da Série de [Tempo,](./time-series-insights-update-tsq.md)também poderá querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados na loja de frio. Por exemplo, pode ler, transformar e limpar dados num caderno jupyter, depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
 
-Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os dados de Pré-visualização da Série Time Insights. Pode então ler dados selecionados com base no tempo `PT=Time` de criação do ficheiro Parquet localizado na pasta descrita abaixo na secção de formato de [ficheiro Parquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
+Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os dados de Pré-visualização da Série Time Insights. Pode então ler dados selecionados com base no tempo de criação do ficheiro Parquet localizado na pasta descrita abaixo na secção de formato de `PT=Time` [ficheiro Parquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
 
 #### <a name="data-deletion"></a>Eliminação de dados
 
@@ -215,28 +226,28 @@ Para mais informações sobre o tipo de ficheiro Parquet, leia a documentação 
 
 Time Series Insights Preview armazena cópias dos seus dados da seguinte forma:
 
-* A primeira cópia inicial é dividida pelo tempo de ingestão e armazena os dados aproximadamente por ordem de chegada. Estes dados residem `PT=Time` na pasta:
+* A primeira cópia inicial é dividida pelo tempo de ingestão e armazena os dados aproximadamente por ordem de chegada. Estes dados residem na `PT=Time` pasta:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* A segunda cópia, reparticionada é agrupada `PT=TsId` por IDs da Série Do Tempo e reside na pasta:
+* A segunda cópia, reparticionada é agrupada por IDs da Série Do Tempo e reside na `PT=TsId` pasta:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-Em ambos os casos, a propriedade temporal do ficheiro Parquet corresponde ao tempo de criação de bolhas. Os dados `PT=Time` na pasta são preservados sem alterações uma vez que esteja escrito no ficheiro. Os dados `PT=TsId` na pasta serão otimizados para consulta ao longo do tempo e não são estáticos.
+Em ambos os casos, a propriedade temporal do ficheiro Parquet corresponde ao tempo de criação de bolhas. Os dados na `PT=Time` pasta são preservados sem alterações uma vez que esteja escrito no ficheiro. Os dados na `PT=TsId` pasta serão otimizados para consulta ao longo do tempo e não são estáticos.
 
 > [!NOTE]
 >
 > * `<YYYY>`mapas para uma representação de quatro dígitos.
 > * `<MM>`mapas para uma representação de dois dígitos meses.
-> * `<YYYYMMDDHHMMSSfff>`mapas para uma representação de carimbo`YYYY`de tempo com`MM`quatro dígitos ano`DD`( ), dois`HH`dígitos (),`MM`dia de dois`SS`dígitos ( ),`fff`dois dígitos de minuto ( ), dois dígitos segundo ( e milissegundo de três dígitos ).
+> * `<YYYYMMDDHHMMSSfff>`mapas para uma representação de carimbo de tempo com quatro dígitos ano `YYYY` ( ), dois dígitos `MM` (), dia de dois dígitos `DD` ( ), dois `HH` dígitos de minuto ( ), dois `MM` dígitos segundo ( e `SS` milissegundo de três dígitos `fff` ).
 
 Os eventos de pré-visualização da Série Time Insights são mapeados para conteúdos de ficheiros Parquet da seguinte forma:
 
 * Cada evento mapeia para uma única fila.
 * Cada linha inclui a coluna de **carimbo** sinuoso com um carimbo de tempo de evento. A propriedade do carimbo do tempo nunca é nula. Não se incorre no **evento, o tempo que** apropriedade do carimbo de tempo não é especificado na fonte do evento. O carimbo de tempo armazenado está sempre na UTC.
-* Todas as linhas incluem a(s) coluna(s) da Série de Tempo (TSID), tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade `_string` TSID inclui o sufixo.
-* Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam `_string` com (string), `_bool` (Boolean), `_datetime` (data), ou `_double` (duplo), dependendo do tipo de propriedade.
+* Todas as linhas incluem a(s) coluna(s) da Série de Tempo (TSID), tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade TSID inclui o `_string` sufixo.
+* Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_string` (string), `_bool` (Boolean), `_datetime` (data), ou `_double` (duplo), dependendo do tipo de propriedade.
 * Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
 ## <a name="next-steps"></a>Passos seguintes

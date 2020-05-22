@@ -4,12 +4,12 @@ description: Como escolher entre os tamanhos vm disponíveis para os nódosos de
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a299ce05caa02432f96dfbb5eb675bc2d6f82ab5
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723719"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779159"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para comum de cafés em uma piscina de lote azure
 
@@ -84,7 +84,7 @@ As piscinas de lote na configuração do Serviço Cloud suportam todos os [taman
 
 * **Configuração** da piscina - Em geral, tem mais opções de tamanho VM quando cria uma piscina na configuração da Máquina Virtual, em comparação com a configuração do Cloud Service.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
+* Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * Para obter informações sobre a utilização de tamanhos vm intensivos de computação, consulte [Utilize instâncias capazes de RDMA ou gpu-habilitadas em piscinas](batch-pool-compute-intensive-sizes.md)de lote .

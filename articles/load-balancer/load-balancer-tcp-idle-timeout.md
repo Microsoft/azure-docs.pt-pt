@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09d15877088fb6356419a9d31f8bef3164e76029
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456833"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780608"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configure as definições de tempo de tempo inativa do TCP para o Equilíbrio de Carga Sinuoso Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "79456833"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr para criar uma ligação com o `Connect-AzAccount` Azure.
 
 ## <a name="tcp-idle-timeout"></a>TCP Idle Timeout
 O Equilíbrio de Carga Azure tem um intervalo de tempo inativo de 4 minutos a 30 minutos. Por defeito, está definido para 4 minutos. Se um período de inatividade for superior ao valor de tempo limite, não há garantiade que a sessão de TCP ou HTTP seja mantida entre o cliente e o seu serviço na nuvem.
@@ -42,6 +42,10 @@ A tCP mantém-se viva para cenários em que a vida útil da bateria não é um c
 ![Intervalo de tempo para tcp](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 As seguintes secções descrevem como alterar as definições de tempo inativo para os recursos públicos de IP e de equilíbrio de carga.
+
+>[!NOTE]
+> O tempo inativo da TCP não afeta as regras de equilíbrio de carga no protocolo UDP.
+
 
 ## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configure o tempo de tempo tCP para o seu IP público de nível de exemplo para 15 minutos
 

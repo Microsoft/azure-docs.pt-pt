@@ -1,5 +1,5 @@
 ---
-title: Auditoria de SQL do Azure
+title: Auditoria Azure SQL para Base de Dados Azure SQL e Azure Synapse Analytics
 description: Utilize a auditoria da base de dados Azure SQL para rastrear os eventos da base de dados num registo de auditoria.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 57c4b22dfe6ef6cf44be64a4b5c042403f64ccf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ff888cb1a2f2486fec7b387d9f9f02029b03aab
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096661"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779074"
 ---
-# <a name="azure-sql-auditing"></a>Auditoria de SQL do Azure
+# <a name="azure-sql-auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria Azure SQL para Base de Dados Azure SQL e Azure Synapse Analytics
 
 A auditoria da Azure [SQL Database](sql-database-technical-overview.md) e [da Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos de base de dados e escreve-os num registo de auditoria na sua conta de armazenamento Azure, log Analytics espaço de trabalho ou Hubs de Eventos. 
 
@@ -174,7 +174,7 @@ Se optou por escrever registos de auditoria numa conta de armazenamento Azure, e
 - Utilize a função do sistema **sys.fn_get_audit_file** (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Utilize **ficheiros de auditoria** de fusão no Estúdio de Gestão de Servidores SQL (começando com SSMS 17):
-    1. No menu SSMS, selecione **Ficheiros** > de Auditoria de Fusão**Abertas** > de**Ficheiros**.
+    1. No menu SSMS, selecione **Ficheiros**de Auditoria de Fusão  >  **Abertas**de  >  **Ficheiros**.
 
         ![Painel de navegação](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. A caixa de diálogo **Add Audit Files** abre. Selecione uma das opções **Add** para escolher se deve fundir ficheiros de auditoria a partir de um disco local ou importá-los a partir do Armazenamento Azure. É-lhe exigido que forneça os seus dados de Armazenamento Azure e a chave da conta.

@@ -3,7 +3,7 @@ title: Exemplo de modelo - crie uma instância gerida na Base de Dados Azure SQL
 description: Utilize este script de exemplo Azure PowerShell para criar uma instância gerida na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: seo-dt-2019
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: e5be8c9441be5ca441a5c0f7c4444c2edbdc7a95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eccc3dcb2731183719833ae99f475eb27e6a05c1
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811228"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774511"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Use powerShell com modelo de Gestor de Recursos Azure para criar uma instância gerida na Base de Dados Azure SQL
 

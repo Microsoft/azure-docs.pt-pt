@@ -4,12 +4,12 @@ description: Como criar um pool de Lote numa rede virtual Azure para que os nós
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ca9a8bb60ecbea38da7dfdb44123d7201d6a112
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 5e973968e3396fbe714be5540244b867b7092e00
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726286"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779584"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Crie uma piscina de Lote Azure numa rede virtual
 
@@ -62,7 +62,7 @@ Quando adicionar uma rota definida pelo utilizador, defina a rota para cada pref
 > [!WARNING]
 > Os endereços IP do serviço de lote podem ser alterados ao longo do tempo. Para evitar uma interrupção devido a uma alteração de endereço IP, sugerimos que estabeleça um processo periódico para atualizar automaticamente os endereços IP do serviço de lote e mantê-los atualizados na tabela de rotas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
-- Para mais informações sobre a criação de uma rota definida pelo utilizador, consulte [Criar uma rota definida pelo utilizador - portal Azure](../virtual-network/tutorial-create-route-table-portal.md).
+- Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
+- Para obter informações sobre a criação de uma rota definida pelo utilizador, consulte [Criar uma rota definida pelo utilizador - portal Azure](../virtual-network/tutorial-create-route-table-portal.md).

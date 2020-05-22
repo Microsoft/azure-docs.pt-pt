@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: b688341b8814c52523821851bef4d7600105cafd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c8b0d83be0ae464563a06c9307303ee7a5af527f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675870"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779786"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs do Windows
 
@@ -134,10 +134,10 @@ Cada evento está agendado um tempo mínimo no futuro com base no tipo de evento
 
 ### <a name="event-scope"></a>Âmbito do evento     
 Os eventos agendados são entregues a:
- - Máquinas virtuais autónomas
- - Todas as máquinas virtuais em um serviço de nuvem      
- - Todas as máquinas virtuais em um conjunto de disponibilidade      
- - Todas as máquinas virtuais em um grupo de colocação de conjunto de escala (incluindo lote)        
+ - Máquinas virtuais autónomas.
+ - Todas as máquinas virtuais num serviço de nuvem.     
+ - Todas as máquinas virtuais num conjunto de disponibilidade.     
+ - Todas as máquinas virtuais num grupo de colocação de conjuntos de escala (incluindo lote).       
 
 Como resultado, deve verificar o `Resources` campo no caso para identificar quais VMs vão ser impactados. 
 

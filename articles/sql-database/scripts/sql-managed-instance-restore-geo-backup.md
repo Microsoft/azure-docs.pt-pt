@@ -3,7 +3,7 @@ title: PowerShell exemplo Restaurar Geo-backup - Base de Dados Azure SQL
 description: Script de exemplo Azure PowerShell para restaurar uma Base de Dados de Instância Gerida Azure SQL a partir de uma cópia de segurança georedundante.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62ed66c52375eb72394949fff384d012af49a7d7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74304082"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774501"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Use powerShell para restaurar uma base de dados de instância gerida para outra geo-região
 

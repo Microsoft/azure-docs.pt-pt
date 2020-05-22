@@ -1,15 +1,14 @@
 ---
 title: Tutorial - Use a biblioteca de clientes do Lote Azure para Node.js
 description: Aprenda os conceitos básicos do Azure Batch e crie uma solução simples com Node.js.
-ms.assetid: ''
 ms.topic: tutorial
 ms.date: 05/22/2017
-ms.openlocfilehash: 57b411e3c9c96aab31e85c4022a5954f7215cf02
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724212"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780182"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
@@ -344,8 +343,8 @@ O código adiciona várias tarefas ao conjunto e cada uma das tarefas é executa
 
 O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Reveja o artigo [Descrição geral das funcionalidades do Azure Batch](batch-api-basics.md), que recomendamos se não estiver familiarizado com o serviço.
+- Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Veja [Batch Node.js reference](/javascript/api/overview/azure/batch) (Referência de Node.js do Batch) para explorar a API do Batch.
 

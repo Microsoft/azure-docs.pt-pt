@@ -4,12 +4,12 @@ description: Utilize a funcionalidade de pacotes de aplicação do Lote Azure pa
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61e94ade21d8dd6fad2ba10dff87d4ba10333e3a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: fd5821a7876cc99be41fbb2c5b095b931653c345
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726881"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780318"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nódosos com pacotes de aplicação do Lote
 
@@ -68,7 +68,7 @@ Com os pacotes de aplicação, a tarefa inicial do seu pool não tem de especifi
 Pode utilizar o [portal Azure][portal] ou as APIs de Gestão de Lotes para gerir os pacotes de aplicação na sua conta Batch. Nas próximas secções, primeiro mostramos como ligar uma conta de Armazenamento, depois discutir a adição de aplicações e pacotes e geri-las com o portal.
 
 ### <a name="link-a-storage-account"></a>Link uma conta de Armazenamento
-Para utilizar pacotes de aplicação, tem primeiro de ligar uma [conta de Armazenamento Azure](batch-api-basics.md#azure-storage-account) à sua conta Batch. Se ainda não configurar uma conta de Armazenamento, o portal Azure apresenta um aviso na primeira vez que clica em **Aplicações** na sua conta 'Lote'.
+Para utilizar pacotes de aplicação, tem primeiro de ligar uma [conta de Armazenamento Azure](accounts.md#azure-storage-accounts) à sua conta Batch. Se ainda não configurar uma conta de Armazenamento, o portal Azure apresenta um aviso na primeira vez que clica em **Aplicações** na sua conta 'Lote'.
 
 
 
@@ -170,7 +170,7 @@ Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes 
 
 ![Atualizar ou eliminar pacote no portal Azure][7]
 
-**Atualização**
+**Atualizar**
 
 Quando clicar em **Atualizar,** o **pacote 'Actualizar'** é apresentado. Esta janela é semelhante à janela **do pacote de aplicações,** no entanto apenas o campo de seleção do pacote está ativado, permitindo especificar um novo ficheiro ZIP para carregar.
 
@@ -285,9 +285,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Consulte as definições de [Ambiente para tarefas](batch-api-basics.md#environment-settings-for-tasks) na visão geral da funcionalidade do [Lote](batch-api-basics.md) para obter mais informações sobre as definições ambientais do nó computacional.
-> 
-> 
+> Para obter mais informações sobre as definições ambientais do nó computacional, consulte as definições do [Ambiente para tarefas](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar os pacotes de aplicações de um conjunto
 Se uma piscina existente já tiver sido configurada com um pacote de aplicação, pode especificar um novo pacote para a piscina. Se especificar uma nova referência de pacote para uma piscina, aplicam-se:
@@ -332,7 +330,7 @@ foreach (ApplicationSummary app in applications)
 ## <a name="wrap-up"></a>Embrulhar
 Com pacotes de aplicações, pode ajudar os seus clientes a selecionar as aplicações para os seus trabalhos e especificar a versão exata a utilizar ao processar trabalhos com o seu serviço ativado pelo Batch. Também pode fornecer a capacidade de os seus clientes fazerem upload e rastrearem as suas próprias aplicações no seu serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * A [API do Lote REST][api_rest] também fornece suporte para trabalhar com pacotes de aplicação. Por exemplo, consulte o elemento [aplicaçãoPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar pacotes a instalar utilizando a API REST. Consulte [as Aplicações][rest_applications] para obter informações sobre como obter informações sobre a aplicação utilizando a API do Lote REST.
 * Saiba gerir programáticamente as contas e quotas do [Lote Azure com a Batch Management .NET](batch-management-dotnet.md). A biblioteca [Batch Management .NET][api_net_mgmt] pode ativar funcionalidades de criação e eliminação de conta para a sua aplicação ou serviço de lote.
 

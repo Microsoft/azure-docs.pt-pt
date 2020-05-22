@@ -8,18 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bca450022322db7a7569fa1dc7ce80ec75a9ce69
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588263"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774316"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Autenticação de acesso aos recursos da Rede de Eventos Azure
 Este artigo fornece informações sobre os seguintes cenários:  
 
 - Autenticar clientes que publicam eventos para tópicos da Grelha de Eventos Azure usando a Assinatura de Acesso Partilhado (SAS) ou chave. 
-- Proteja o seu ponto final do webhook utilizando o Azure Ative Directory (Azure AD) para autenticar a Rede de Eventos para **entregar** eventos ao ponto final.
+- Proteja o ponto final do webhook que é usado para receber eventos da Event Grid usando o Azure Ative Directory (Azure AD) ou um segredo partilhado.
 
 ## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Autenticar clientes editoriais usando SAS ou chave
 Os tópicos personalizados utilizam a Assinatura de Acesso Partilhado (SAS) ou a autenticação chave. Recomendamos o SAS, mas a autenticação chave fornece uma programação simples, e é compatível com muitos editores de webhook existentes.
@@ -89,12 +89,12 @@ Todos os eventos ou dados escritos em disco pelo serviço Event Grid são encrip
 As seguintes secções descrevem como autenticar a entrega do evento em pontos finais do webhook. Você precisa usar um mecanismo de aperto de mão de validação independentemente do método que você usar. Consulte a entrega do [evento Webhook](webhook-event-delivery.md) para mais detalhes. 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Utilização de Diretório Ativo Azure (Azure AD)
-Pode garantir o seu ponto final do webhook utilizando o Azure Ative Directory (Azure AD) para autenticar e autorizar a Rede de Eventos a entregar eventos aos seus pontos finais. Você precisará criar uma Aplicação AD Azure, criar um papel e princípio de serviço na sua aplicação autorizando a Grelha de Eventos, e configurar a subscrição do evento para usar a Aplicação AD Azure. [Saiba como configurar o Diretório Ativo Azure com a Grelha de Eventos.](secure-webhook-delivery.md)
+Pode fixar o ponto final do webhook que é usado para receber eventos da Rede de Eventos utilizando o Azure AD. Você precisará criar uma aplicação Azure AD, criar uma função e serviço principal na sua aplicação autorizando a Rede de Eventos, e configurar a subscrição do evento para usar a aplicação Azure AD. Saiba como configurar o [Diretório Ativo Azure com grelha](secure-webhook-delivery.md)de eventos.
 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Usando o segredo do cliente como parâmetro de consulta
-Pode fixar o ponto final do webhook adicionando parâmetros de consulta ao URL do webhook ao criar uma Subscrição de Eventos. Estabeleça um destes parâmetros de consulta como um segredo de cliente, como um [sinal de acesso](https://en.wikipedia.org/wiki/Access_token) ou um segredo partilhado. O webhook pode usar o segredo para reconhecer que o evento vem da Grelha de Eventos com permissões válidas. A Grelha de Eventos incluirá estes parâmetros de consulta em cada entrega de eventos ao webhook. Se o segredo do cliente for atualizado, a subscrição do evento também precisa de ser atualizada. Para evitar falhas de entrega durante esta rotação secreta, faça com que o webhook aceite segredos antigos e novos por uma duração limitada. 
+Também pode fixar o seu ponto final do webhook adicionando parâmetros de consulta ao URL de destino webhook especificado como parte da criação de uma Subscrição de Eventos. Estabeleça um dos parâmetros de consulta para ser um segredo de cliente, como um [sinal de acesso](https://en.wikipedia.org/wiki/Access_token) ou um segredo partilhado. O serviço De Rede de Eventos inclui todos os parâmetros de consulta em cada pedido de entrega de eventos ao webhook. O serviço webhook pode recuperar e validar o segredo. Se o segredo do cliente for atualizado, a subscrição do evento também precisa de ser atualizada. Para evitar falhas de entrega durante esta rotação secreta, faça com que o webhook aceite segredos antigos e novos por uma duração limitada antes de atualizar a subscrição do evento com o novo segredo. 
 
-Como os parâmetros de consulta podem conter segredos de cliente, eles são tratados com cuidado extra. São armazenados como encriptados e não acessíveis aos operadores de serviço. Não estão registados como parte dos registos/vestígios de serviço. Ao editar a Subscrição do Evento, os parâmetros de consulta não são apresentados ou devolvidos a menos que o parâmetro [---incluído-final-final-url-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) seja usado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Como os parâmetros de consulta podem conter segredos de cliente, eles são tratados com cuidado extra. São armazenados como encriptados e não são acessíveis aos operadores de serviço. Não estão registados como parte dos registos/vestígios de serviço. Ao recuperar as propriedades de Subscrição de Eventos, os parâmetros de consulta de destino não são devolvidos por padrão. Por exemplo: [--incluir o](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parâmetro de url de ponto final completo deve ser utilizado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Para obter mais informações sobre a entrega de eventos aos webhooks, consulte a entrega de [eventos webhook](webhook-event-delivery.md)
 

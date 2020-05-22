@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: 19ccdf85e1753bea202c5c157919ab4e8ff96d06
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ff38f923f7b33c4bc893246970c1e47d33e59269
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660252"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780421"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapeie um domínio personalizado existente para azure Spring Cloud
 Serviço de Nomedistribuído (DNS) é uma técnica para armazenar nomes de nó de rede em toda uma rede. Este tutorial mapeia um domínio, como www.contoso.com, usando um registo CNAME. Ele protege o domínio personalizado com um certificado e mostra como impor a Segurança da Camada de Transporte (TLS), também conhecida como Camada de Tomadas Seguras (SSL). 
@@ -37,6 +37,30 @@ Para fazer o upload do seu certificado para o cofre da chave:
 1. Clique em **Criar**.
 
     ![Certificado de importação 1](./media/custom-dns-tutorial/import-certificate-a.png)
+
+Para conceder ao Azure Spring Cloud acesso ao seu cofre chave antes de importar certificado:
+1. Vá ao seu cofre chave.
+1. No painel de navegação à esquerda, clique em **Access Police**.
+1. No menu superior, clique em **Adicionar Política de Acesso**.
+1. Preencha a informação e clique em **Adicionar** botão e, em seguida, **guardar** a polícia de acesso.
+
+| Permissão secreta | Permissão de certificado | Selecione principal |
+|--|--|--|
+| Obter, Lista | Obter, Lista | Azure Spring Cloud Domain-Management |
+
+![Certificado de importação 2](./media/custom-dns-tutorial/import-certificate-b.png)
+
+Ou, você pode usar o AZURE CLI para conceder acesso azure Spring Cloud ao cofre chave.
+
+Obtenha a identificação do objeto através do seguinte comando.
+```
+az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+```
+
+Grant Azure Spring Cloud leia o acesso ao cofre da chave, substitua o id do objeto no seguinte comando.
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+``` 
 
 Para importar certificado para azure Spring Cloud:
 1. Vá para a sua instância de serviço. 
@@ -145,7 +169,7 @@ az spring-cloud app update -name <app-name> --https-only <true|false> -g <resour
 
 Quando a operação estiver concluída, navegue para qualquer um dos URLs HTTPS que apontem para a sua aplicação. Note que os URLs http não funcionam.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [O que é o cofre de chave do Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Importar um certificado](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Lance a sua App Spring Cloud utilizando o Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)

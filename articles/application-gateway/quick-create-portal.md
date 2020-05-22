@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/09/2020
+ms.date: 05/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 17adc800bd5a2ae53e27350c7e0d588eaeee4a8f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6415657d68e10b63e357f3c1353bb66fc9c8262
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241403"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779435"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 
@@ -209,7 +209,7 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 Embora o IIS não seja necessário para criar o gateway da aplicação, instalou-o neste arranque rápido para verificar se o Azure criou com sucesso o portal de aplicações. Utilize o IIS para testar o gateway de aplicação:
 
-1. Encontre o endereço IP público para o gateway da aplicação na sua página **'Visão Geral'.** ![Registre o endereço](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) IP público da aplicação Ou, pode selecionar **Todos os recursos,** introduzir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **'Overview'.**
+1. Encontre o endereço IP público para o gateway da aplicação na sua página **'Visão Geral'.** ![ Registre o endereço IP público da aplicação ](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Ou, pode selecionar **Todos os recursos,** introduzir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **'Overview'.**
 2. Copie o endereço IP público e, em seguida, cole-o na barra de endereços do seu navegador para navegar nesse endereço IP.
 3. Verifique a resposta. Uma resposta válida verifica que o gateway da aplicação foi criado com sucesso e pode ligar-se com sucesso ao backend.
 
@@ -231,4 +231,4 @@ Para eliminar o grupo de recursos:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure](./tutorial-manage-web-traffic-cli.md)
+> [Tutorial: Configure um portal de aplicação com rescisão de TLS utilizando o portal Azure](create-ssl-portal.md)

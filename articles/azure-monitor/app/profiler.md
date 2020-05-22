@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121202"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778562"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Aplicativos de serviço de aplicações Azure ao vivo com Insights de Aplicação
 
@@ -63,9 +63,9 @@ Se quiser ativar o perfil para outras nuvens, pode utilizar as definições da a
 
 ## <a name="disable-profiler"></a>Perfilde desativação
 
-Para parar ou reiniciar o Profiler para uma instância de uma aplicação individual, no âmbito do **Web Jobs,** vá ao recurso da aplicação. Para eliminar o Profiler, vá a **Extensões**.
+Para parar ou reiniciar o Profiler para uma instância de uma aplicação individual, em **WebJobs** e parar o trabalho web chamado ApplicationInsightsProfiler3. Mesmo que o perfilseja desativado utilizando o interruptor na página Insights da Aplicação, tal como descrito acima, o processo do perfil continuará a ser executado. O profiler verificará se está ativado. Se estiver desativado, irá dormir por um período de tempo antes de verificar novamente. Não faz perfis se for desativado. Se desativar este trabalho web, o processo de perfis não funcionará de todo, mesmo para verificar se está ativado.
 
-![Desativar o Profiler para um trabalho na web][disable-profiler-webjob]
+  ![Desativar o Profiler para um trabalho na web][disable-profiler-webjob]
 
 Recomendamos que tenha o Profiler habilitado em todas as suas aplicações para descobrir quaisquer problemas de desempenho o mais cedo possível.
 

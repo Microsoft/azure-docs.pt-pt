@@ -6,18 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: f9f789d2f2c6c21e38f241b445c72b330c689a8d
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930425"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779861"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Quickstart: Implementar uma instância de contentor estoque em Azure usando um modelo de Gestor de Recursos
 
-Utilize instâncias de contentores Azure para executar recipientes Docker sem servidor em Azure com simplicidade e velocidade. Implemente uma aplicação para um contentor a pedido quando não precisar de uma plataforma de orquestração de contentores completa como o Serviço Azure Kubernetes.
-
-Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para implantar um recipiente Docker isolado e disponibilizar a sua aplicação web com um endereço IP público. 
+Utilize instâncias de contentores Azure para executar recipientes Docker sem servidor em Azure com simplicidade e velocidade. Implemente uma aplicação para um contentor a pedido quando não precisar de uma plataforma de orquestração de contentores completa como o Serviço Azure Kubernetes. Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para implantar um recipiente Docker isolado e disponibilizar a sua aplicação web com um endereço IP público.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,9 +29,9 @@ Nenhum.
 
 ### <a name="review-the-template"></a>Reveja o modelo
 
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip).
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
-[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
 O seguinte recurso é definido no modelo:
 
@@ -85,7 +83,7 @@ Utilize o portal Azure ou uma ferramenta como o [Azure CLI](container-instances-
 
 Ver os registos de uma instância de contentor é útil quando estiver a resolver problemas no contentor ou na aplicação nele executada.
 
-Para ver os registos do recipiente, em **Definições,** selecione**registos**de **contentores** > . Deverá ver o pedido HTTP GET gerado quando visualizou a aplicação no seu browser.
+Para ver os registos do recipiente, em **Definições,** selecione registos de **contentores**  >  **Logs**. Deverá ver o pedido HTTP GET gerado quando visualizou a aplicação no seu browser.
 
 ![Registos de contentor no portal do Azure](media/container-instances-quickstart-template/aci-logs.png)
 

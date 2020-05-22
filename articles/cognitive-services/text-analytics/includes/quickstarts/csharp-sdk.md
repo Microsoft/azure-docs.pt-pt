@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 2fa2e40ba2a7fe84b6df57bfb711d01332b8f523
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0e98a10573a2e3abda255c325845190ed5067bb3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81275386"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778287"
 ---
 <a name="HOLTop"></a>
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-[v3 Documentação de referência](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [v3 Biblioteca código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | fonte[v3 Pacote v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [v3 Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3 Documentação](https://aka.ms/azsdk-net-textanalytics-ref-docs)  |  de referência [v3 Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics)  |  fonte da biblioteca [pacote v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics)  |  [v3 Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-[v2 Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [v2 Código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | da biblioteca[v2 Pacote v2 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [v2 Amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[v2 Documentação](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview)  |  de referência [v2 Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  fonte da biblioteca [pacote v2 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [v2 Amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 ---
 
@@ -32,9 +32,9 @@ ms.locfileid: "81275386"
 
 * Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * O [Estúdio Visual IDE](https://visualstudio.microsoft.com/vs/)
-* Assim que tiver a <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="sua subscrição"  target="_blank">Azure, crie um recurso Text Analytics criar um recurso <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Text Analytics no portal Azure para obter a sua chave e ponto final.  Depois de ser implantado, clique em **ir para o recurso**.
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" crie um recurso Text "  target="_blank"> Analytics criar um recurso Text Analytics no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final.  Depois de ser implantado, clique em **ir para o recurso**.
     * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API textanalytics. Vaicolar a chave e o ponto final no código abaixo no arranque rápido.
-    * Você pode usar o nível de preços gratuitos (`F0`) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
+    * Você pode usar o nível de preços gratuitos ( `F0` ) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -44,14 +44,14 @@ Utilizando o Visual Studio IDE, crie uma nova aplicação de consola .NET Core. 
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre selecione **Browse,** verifique **Incluir pré-lançamento**, e procurar `Azure.AI.TextAnalytics`por . Selecione a versão, `1.0.0-preview.4`e depois **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
+Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre **selecione Browse,** verifique **Incluir pré-lançamento**, e procurar `Azure.AI.TextAnalytics` por . Selecione `1.0.0-preview.4` a versão, e depois **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
 
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs)que contém os exemplos de código neste arranque rápido. 
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre, `Microsoft.Azure.CognitiveServices.Language.TextAnalytics` **selecione Navegar** e procurar . Clique nele e, em seguida, **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
+Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre, **selecione Navegar** e procurar `Microsoft.Azure.CognitiveServices.Language.TextAnalytics` . Clique nele e, em seguida, **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
 
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/samples/TextAnalytics/synchronous/Program.cs)que contém os exemplos de código neste arranque rápido. 
@@ -60,7 +60,7 @@ Instale a biblioteca do cliente clicando corretamente sobre a solução no **Sol
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Abra o ficheiro *program.cs* `using` e adicione as seguintes diretivas:
+Abra o ficheiro *program.cs* e adicione as `using` seguintes diretivas:
 
 ```csharp
 using Azure;
@@ -78,7 +78,7 @@ private static readonly AzureKeyCredential credentials = new AzureKeyCredential(
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
-Substitua o `Main` método da aplicação. Definirá os métodos aqui chamados mais tarde.
+Substitua o método da `Main` aplicação. Definirá os métodos aqui chamados mais tarde.
 
 ```csharp
 static void Main(string[] args)
@@ -98,7 +98,7 @@ static void Main(string[] args)
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Abra o ficheiro *program.cs* `using` e adicione as seguintes diretivas:
+Abra o ficheiro *program.cs* e adicione as `using` seguintes diretivas:
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
@@ -111,7 +111,7 @@ private static readonly string key = "<replace-with-your-text-analytics-key-here
 private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
 ```
 
-Substitua o `Main` método da aplicação. Definirá os métodos aqui chamados mais tarde.
+Substitua o método da `Main` aplicação. Definirá os métodos aqui chamados mais tarde.
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
 
@@ -119,9 +119,9 @@ Substitua o `Main` método da aplicação. Definirá os métodos aqui chamados m
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente Text `TextAnalyticsClient` Analytics é um objeto que autentica o Azure usando a sua chave, e fornece funções para aceitar texto como cordas únicas ou como um lote. Pode enviar sms para a API sincronicamente, ou assincronicamente. O objeto de resposta conterá as informações de análise de cada documento que enviar. 
+O cliente Text Analytics é um objeto que autentica o Azure usando a `TextAnalyticsClient` sua chave, e fornece funções para aceitar texto como cordas únicas ou como um lote. Pode enviar sms para a API sincronicamente, ou assincronicamente. O objeto de resposta conterá as informações de análise de cada documento que enviar. 
 
-Se estiver a `3.0-preview` utilizar a versão do serviço, pode utilizar uma instância opcional `TextAnalyticsClientOptions` para inicializar o cliente com várias definições predefinidas (por exemplo, idioma padrão ou sugestão de país). Também pode autenticar utilizando um símbolo do Diretório Ativo Azure. 
+Se estiver a utilizar a versão `3.0-preview` do serviço, pode utilizar uma instância opcional `TextAnalyticsClientOptions` para inicializar o cliente com várias definições predefinidas (por exemplo, a indicação de idioma padrão ou país/região). Também pode autenticar utilizando um símbolo do Diretório Ativo Azure. 
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -143,7 +143,7 @@ var client = new TextAnalyticsClient(endpoint, credentials);
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie `ApiKeyServiceClientCredentials` uma nova classe para armazenar as credenciais e adicioná-las aos pedidos do cliente. Dentro dele, crie `ProcessHttpRequestAsync()` uma sobreposição para `Ocp-Apim-Subscription-Key` que adicione a sua chave ao cabeçalho.
+Crie uma nova `ApiKeyServiceClientCredentials` classe para armazenar as credenciais e adicioná-las aos pedidos do cliente. Dentro dele, crie uma sobreposição para `ProcessHttpRequestAsync()` que adicione a sua chave ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
 [!code-csharp[Client class](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=clientClass)]
 
@@ -157,7 +157,7 @@ Crie um método para instantaneamente o objeto [TextAnalyticsClient](https://doc
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma `SentimentAnalysisExample()` nova função chamada que leve o `AnalyzeSentiment()` cliente que criou anteriormente, e chame a sua função. O `Response<DocumentSentiment>` objeto devolvido conterá o rótulo de sentimento e a pontuação de todo o documento de entrada, bem como uma análise de sentimento para cada frase se for bem sucedida. Se houve um erro, vai `RequestFailedException`lançar um .
+Crie uma nova função chamada `SentimentAnalysisExample()` que leve o cliente que criou anteriormente, e chame a sua `AnalyzeSentiment()` função. O objeto devolvido conterá o rótulo de `Response<DocumentSentiment>` sentimento e a pontuação de todo o documento de entrada, bem como uma análise de sentimento para cada frase se for bem sucedida. Se houve um erro, vai lançar um `RequestFailedException` .
 
 ```csharp
 static void SentimentAnalysisExample(TextAnalyticsClient client)
@@ -201,7 +201,7 @@ Document sentiment: Positive
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma `SentimentAnalysisExample()` nova função chamada que leve o cliente que criou anteriormente, e chame a sua função [de Sentimento.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) O objeto ["SentimentResult"](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) `Score` devolvido conterá `errorMessage` o sentimento se for bem sucedido, e um se não. 
+Crie uma nova função chamada `SentimentAnalysisExample()` que leve o cliente que criou anteriormente, e chame a sua função [de Sentimento.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) O objeto ["SentimentResult"](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) devolvido conterá o sentimento `Score` se for bem sucedido, e um se `errorMessage` não. 
 
 Uma pontuação que está perto de 0 indica um sentimento negativo, enquanto uma pontuação que está mais perto de 1 indica um sentimento positivo.
 
@@ -218,10 +218,10 @@ Sentiment Score: 0.87
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 
-Crie uma `LanguageDetectionExample()` nova função chamada que leve o `DetectLanguage()` cliente que criou anteriormente, e chame a sua função. O `Response<DetectedLanguage>` objeto devolvido conterá a linguagem detetada juntamente com o seu nome e o código ISO-6391. Se houve um erro, vai `RequestFailedException`lançar um .
+Crie uma nova função chamada `LanguageDetectionExample()` que leve o cliente que criou anteriormente, e chame a sua `DetectLanguage()` função. O objeto devolvido `Response<DetectedLanguage>` conterá a linguagem detetada juntamente com o seu nome e o código ISO-6391. Se houve um erro, vai lançar um `RequestFailedException` .
 
 > [!Tip]
-> Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar `countryHint` o parâmetro para especificar um código de país de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este `countryHint = ""`comportamento pode redefinir este parâmetro definindo este valor para uma cadeia vazia . Para definir um padrão `TextAnalyticsClientOptions.DefaultCountryHint` diferente, detete a propriedade e passe-a durante a inicialização do cliente.
+> Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar o `countryHint` parâmetro para especificar um código país/região de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este comportamento pode redefinir este parâmetro definindo este valor para uma cadeia vazia `countryHint = ""` . Para definir um padrão diferente, detete a `TextAnalyticsClientOptions.DefaultCountryHint` propriedade e passe-a durante a inicialização do cliente.
 
 ```csharp
 static void LanguageDetectionExample(TextAnalyticsClient client)
@@ -241,10 +241,10 @@ Language:
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma `languageDetectionExample()` nova função chamada que leve o cliente que criou anteriormente, e ligue para a sua função [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) O objeto [Idioma Devolvido Result](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) conterá a `DetectedLanguages` lista de `errorMessage` idiomas detetados em caso de sucesso, e um se não. Imprima a primeira língua devolvida.
+Crie uma nova função chamada `languageDetectionExample()` que leve o cliente que criou anteriormente, e ligue para a sua função [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) O objeto [Idioma Devolvido Result](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) conterá a lista de idiomas detetados em `DetectedLanguages` caso de sucesso, e um se `errorMessage` não. Imprima a primeira língua devolvida.
 
 > [!Tip]
-> Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar `countryHint` o parâmetro para especificar um código de país de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este `countryHint = ""` comportamento pode redefinir este parâmetro definindo este valor para uma cadeia vazia .
+> Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar o `countryHint` parâmetro para especificar um código país/região de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este comportamento pode redefinir este parâmetro definindo este valor para uma cadeia vazia `countryHint = ""` .
 
 [!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=languageDetection)]
 
@@ -262,11 +262,11 @@ Language: English
 
 
 > [!NOTE]
-> Novo em `3.0-preview`versão:
+> Novo em `3.0-preview` versão:
 > * A ligação de entidades é agora separada do reconhecimento da entidade.
 
 
-Crie uma `EntityRecognitionExample()` nova função chamada que leve o `RecognizeEntities()` cliente que criou anteriormente, ligue para a sua função e iterar através dos resultados. O `Response<IReadOnlyCollection<CategorizedEntity>>` objeto devolvido conterá a lista de entidades detetadas. Se houve um erro, vai `RequestFailedException`lançar um .
+Crie uma nova função chamada `EntityRecognitionExample()` que leve o cliente que criou anteriormente, ligue para a sua `RecognizeEntities()` função e iterar através dos resultados. O objeto devolvido `Response<IReadOnlyCollection<CategorizedEntity>>` conterá a lista de entidades detetadas. Se houve um erro, vai lançar um `RequestFailedException` .
 
 ```csharp
 static void EntityRecognitionExample(TextAnalyticsClient client)
@@ -294,7 +294,7 @@ Named Entities:
 
 ## <a name="entity-linking"></a>Ligação de entidades
 
-Crie uma `EntityLinkingExample()` nova função chamada que leve o `RecognizeLinkedEntities()` cliente que criou anteriormente, ligue para a sua função e iterar através dos resultados. O `Response<IReadOnlyCollection<LinkedEntity>>` devolvido representa a lista de entidades detetadas. Se houve um erro, vai `RequestFailedException`lançar um . Uma vez que as entidades ligadas são identificadas de `LinkedEntity` forma única, `LinkedEntityMatch` as ocorrências da mesma entidade são agrunadas sob um objeto como uma lista de objetos.
+Crie uma nova função chamada `EntityLinkingExample()` que leve o cliente que criou anteriormente, ligue para a sua `RecognizeLinkedEntities()` função e iterar através dos resultados. O devolvido `Response<IReadOnlyCollection<LinkedEntity>>` representa a lista de entidades detetadas. Se houve um erro, vai lançar um `RequestFailedException` . Uma vez que as entidades ligadas são identificadas de forma única, as ocorrências da mesma entidade são agrunadas sob um `LinkedEntity` objeto como uma lista de `LinkedEntityMatch` objetos.
 
 ```csharp
 static void EntityLinkingExample(TextAnalyticsClient client)
@@ -365,7 +365,7 @@ Linked Entities:
 > [!NOTE]
 > Na versão 2.1, a ligação da entidade está incluída na resposta NER.
 
-Crie uma `RecognizeEntitiesExample()` nova função chamada que leve o cliente que criou anteriormente, e ligue para a função de [Entidades.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) Iterar através dos resultados. O objeto de dispôs [EntidadesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) `Entities` conterá a `errorMessage` lista de entidades detetadas em caso de sucesso, e um se não. Para cada entidade detetada, imprima o seu nome Tipo, Sub-Tipo, Wikipédia (se existirem) bem como as localizações do texto original.
+Crie uma nova função chamada `RecognizeEntitiesExample()` que leve o cliente que criou anteriormente, e ligue para a função de [Entidades.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) Iterar através dos resultados. O objeto de dispôs [EntidadesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) conterá a lista de entidades detetadas em `Entities` caso de sucesso, e um `errorMessage` se não. Para cada entidade detetada, imprima o seu nome Tipo, Sub-Tipo, Wikipédia (se existirem) bem como as localizações do texto original.
 
 [!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=entityRecognition)]
 
@@ -376,7 +376,7 @@ Crie uma `RecognizeEntitiesExample()` nova função chamada que leve o cliente q
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma `KeyPhraseExtractionExample()` nova função chamada que leve o `ExtractKeyPhrases()` cliente que criou anteriormente, e chame a sua função. O `<Response<IReadOnlyCollection<string>>` objeto devolvido conterá a lista de frases-chave detetadas. Se houve um erro, vai `RequestFailedException`lançar um .
+Crie uma nova função chamada `KeyPhraseExtractionExample()` que leve o cliente que criou anteriormente, e chame a sua `ExtractKeyPhrases()` função. O objeto devolvido `<Response<IReadOnlyCollection<string>>` conterá a lista de frases-chave detetadas. Se houve um erro, vai lançar um `RequestFailedException` .
 
 ```csharp
 static void KeyPhraseExtractionExample(TextAnalyticsClient client)
@@ -403,7 +403,7 @@ Key phrases:
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma `KeyPhraseExtractionExample()` nova função chamada que leve o cliente que criou anteriormente e chame a sua função [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) O resultado conterá a lista de `KeyPhrases` frases-chave `errorMessage` detetadas em caso de sucesso, e um se não. Imprima as frases-chave detetadas.
+Crie uma nova função chamada `KeyPhraseExtractionExample()` que leve o cliente que criou anteriormente e chame a sua função [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) O resultado conterá a lista de frases-chave detetadas em `KeyPhrases` caso de sucesso, e um `errorMessage` se não. Imprima as frases-chave detetadas.
 
 [!code-csharp[Key phrase extraction example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=keyPhraseExtraction)]
 

@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 296c8e2dfe99e3b0aea66f364ac6f6d9b2f60a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272496"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779219"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar a aplicação do Serviço de Aplicações eliminada com o PowerShell
 
@@ -29,7 +29,7 @@ Alguns clientes podem encontrar um problema em que a recuperação da lista de a
 
 ## <a name="list-deleted-apps"></a>Lista de aplicações eliminadas
 
-Para obter a coleção de aplicações apagadas, pode utilizar. `Get-AzDeletedWebApp`
+Para obter a coleção de aplicações apagadas, pode `Get-AzDeletedWebApp` utilizar.
 
 Para mais detalhes sobre uma aplicação específica eliminada pode utilizar:
 
@@ -48,14 +48,16 @@ As informações detalhadas incluem:
 - **Tempo de eliminação**: Quando foi a aplicação eliminada  
 
 ## <a name="restore-deleted-app"></a>Restaurar a aplicação eliminada
+>[!NOTE]
+> `Restore-AzDeletedWebApp`não é suportado para aplicações de função.
 
-Uma vez identificada a aplicação que pretende restaurar, `Restore-AzDeletedWebApp`pode restaurá-la utilizando .
+Uma vez identificada a aplicação que pretende restaurar, pode restaurá-la utilizando `Restore-AzDeletedWebApp` .
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> As ranhuras de implementação não são restauradas como parte da sua aplicação. Se precisar restaurar uma ranhura de `-Slot <slot-name>` preparação, use a bandeira.
+> As ranhuras de implementação não são restauradas como parte da sua aplicação. Se precisar restaurar uma ranhura de preparação, use a `-Slot <slot-name>` bandeira.
 >
 
 As inputs para o comando são:
@@ -64,7 +66,7 @@ As inputs para o comando são:
 - **Nome**: Nome para a aplicação, deve ser globalmente único.
 - **TargetAppServicePlanName**: Plano de serviço de aplicações ligado à app
 
-Por `Restore-AzDeletedWebApp` padrão, restaurará tanto a configuração da sua aplicação como um conteúdo. Se quiser apenas restaurar o `-RestoreContentOnly` conteúdo, utilize a bandeira com este comando.
+Por `Restore-AzDeletedWebApp` padrão, restaurará tanto a configuração da sua aplicação como um conteúdo. Se quiser apenas restaurar o conteúdo, utilize a `-RestoreContentOnly` bandeira com este comando.
 
 > [!NOTE]
 > Se a aplicação foi hospedada e depois eliminada de um Ambiente de Serviço de Aplicações, então só pode ser restaurada se o ambiente de serviço de aplicação correspondente ainda existir.

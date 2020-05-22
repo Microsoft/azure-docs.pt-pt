@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77211439"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778297"
 ---
 ## <a name="general-entity-types"></a>Tipos de entidades gerais:
 
@@ -22,11 +22,11 @@ ms.locfileid: "77211439"
 Reconhecer nomes de pessoas em texto.
 
 Idiomas:
-* Pré-visualização `Czech` `Chinese-Simplified`pública, `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , `Danish` `Korean`, `Norwegian (Bokmål)` `Polish`, , , , , , , , , , , `Portuguese (Portugal)` `Arabic``Turkish`
+* Pré-visualização pública, , , , , , , , , , , , , `Arabic` `Czech` , `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` , `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` , `Spanish` `Swedish``Turkish`
 
 | Nome do subtipo | Descrição                                                      | Disponível a partir da versão modelo |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| N/D          | Nomes de pessoas reconhecidas, por exemplo, `Bill Gates``Marie Curie` | `2019-10-01`                          | 
+| N/D          | Nomes de pessoas reconhecidas, por `Bill Gates` exemplo,`Marie Curie` | `2019-10-01`                          | 
 
 ### <a name="persontype"></a>PersonType
 Tipo de trabalho ou papel detido por uma pessoa.
@@ -36,7 +36,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                                                                | Disponível a partir da versão modelo |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Tipos de `civil engineer`trabalho, por exemplo, `salesperson`, `chef`, `librarian``nursing aide` | `2020-02-01`                           |
+| N/D          | Tipos de trabalho, por `civil engineer` `salesperson` exemplo, `chef` , `librarian` ,`nursing aide` | `2020-02-01`                           |
 
 ### <a name="location"></a>Localização
 
@@ -44,12 +44,12 @@ Marcos naturais e humanos, estruturas, características geográficas e entidades
 
 Idiomas:
 
-* Pré-visualização `Czech` `Chinese-Simplified`pública, `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , `Danish` `Korean`, `Norwegian (Bokmål)` `Polish`, , , , , , , , , , , `Portuguese (Portugal)` `Arabic``Turkish`
+* Pré-visualização pública, , , , , , , , , , , , , `Arabic` `Czech` , `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` , `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` , `Spanish` `Swedish``Turkish`
 
 | Nome do subtipo              | Descrição                                                                              | Disponível a partir da versão modelo |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D                       | locais, por `Atlantic Ocean` `library`exemplo, , `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
-| Entidade Geopolítica (GPE) - Apenas em inglês| Cidades, países, estados, `South Africa`por exemplo, `Seattle` `Pennsylvania``Tokyo` | `2020-02-01`                           |
+| N/D                       | locais, por `Atlantic Ocean` `library` exemplo, `Eiffel Tower` ,`Statue of Liberty`  | `2019-10-01`                           |
+| Entidade Geopolítica (GPE) - Apenas em inglês| Cidades, países/regiões, estados, por `Seattle` `Pennsylvania` exemplo, `South Africa``Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
@@ -57,11 +57,11 @@ Organizações reconhecidas, corporações, agências e outros grupos de pessoas
 
 Idiomas: 
 
-* Pré-visualização `Czech` `Chinese-Simplified`pública, `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , `Danish` `Korean`, `Norwegian (Bokmål)` `Polish`, , , , , , , , , , , `Portuguese (Portugal)` `Arabic``Turkish`
+* Pré-visualização pública, , , , , , , , , , , , , `Arabic` `Czech` , `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` , `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` , `Spanish` `Swedish``Turkish`
 
 | Nome do subtipo | Descrição                                                                                             | Disponível a partir da versão modelo |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | organizações, por `Microsoft` `NASA`exemplo, , `National Oceanic and Atmospheric Administration``VOA` | `2019-10-01`                           |
+| N/D          | organizações, por `Microsoft` `NASA` exemplo, `National Oceanic and Atmospheric Administration` ,`VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>Evento  
 
@@ -73,7 +73,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                                            | Disponível a partir da versão modelo |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Eventos `wedding` `hurricane`como, `car accident` `solar eclipse`, ,`American Revolution` | `2020-02-01`                           |
+| N/D          | Eventos `wedding` `hurricane` como, `car accident` , , `solar eclipse``American Revolution` | `2020-02-01`                           |
 
 ### <a name="product"></a>Produto  
 
@@ -85,7 +85,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                                                        | Disponível a partir da versão modelo |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Por `Microsoft Surface laptop`exemplo, `sunglasses` `motorcycle`, `bag`,`Xbox` | `2020-02-01`                           |
+| N/D          | Por exemplo, `Microsoft Surface laptop` `sunglasses` , `motorcycle` , `bag``Xbox` | `2020-02-01`                           |
 | Computação    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
 ### <a name="skill"></a>Habilidade  
@@ -112,7 +112,7 @@ Idiomas:
 |--------------|------------------------------------------------|----------------------------------------|
 | N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2019-10-01`                           |
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 
 Endereço de e-mail. 
 
@@ -124,7 +124,7 @@ Idiomas:
 |--------------|--------------------------------------------------|----------------------------------------|
 | N/D          | Endereço de e-mail, por exemplo`support@contoso.com` | `2019-10-01`                           |
 
-### <a name="url"></a>do IdP
+### <a name="url"></a>URL
 
 URLs de Internet.
 
@@ -156,12 +156,12 @@ Entidades de data e hora.
 
 Idiomas:
 
-* Pré-visualização `English` `French`pública: `Chinese-Simplified`, , e `German``Spanish`
+* Pré-visualização pública: `Chinese-Simplified` `English` , , `French` `German` e`Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
 | N/D         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Date  | `May 2nd, 2017`, `05/02/2017`       |
+| Data  | `May 2nd, 2017`, `05/02/2017`       |
 | Hora     | `8:15`, `6AM`              |
 | DataRange    | `August 2nd to August 5th`         |
 | Intervalo de tempo   | `4-6PM`, `10:00AM to Noon`          |
@@ -176,7 +176,7 @@ Números e quantidades numéricas.
 
 Idiomas:
 
-* Pré-visualização `English` `French`pública: `Chinese-Simplified`, , e `German``Spanish`
+* Pré-visualização pública: `Chinese-Simplified` `English` , , `French` `German` e`Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
@@ -184,6 +184,6 @@ Idiomas:
 | Percentagem  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Idade         | `90 day old`, `30 years old` |
-| Moeda    | `$10.99`, `€30.00`           |
+| Moeda    | `$10.99`, `&euro;30.00`           |
 | Dimensão   | `10 miles`, `40 cm`          |
 | Temperatura | `32 degrees`, `10°C`         |

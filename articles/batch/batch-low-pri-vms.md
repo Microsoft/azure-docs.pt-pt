@@ -5,21 +5,21 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39c4674da2ddf63c5fab8b39e16a0cc0d9f299ac
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726592"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780187"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
 O Azure Batch oferece máquinas virtuais de baixa prioridade (VMs) para reduzir o custo das cargas de trabalho do Lote. Os VMs de baixa prioridade tornam possível novos tipos de cargas de trabalho do Lote, permitindo que uma grande quantidade de energia computacional seja utilizada para um custo muito baixo.
- 
+
 Os VMs de baixa prioridade tiram partido da capacidade excedentária em Azure. Quando especifica VMs de baixa prioridade nas suas piscinas, o Lote Azure pode utilizar este excedente, quando disponível.
- 
+
 A compensação pela utilização de VMs de baixa prioridade é que esses VMs podem não estar disponíveis para serem atribuídos ou podem ser antecipados a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VM de baixa prioridade são mais adequados para certos tipos de cargas de trabalho. Utilize VMs de baixa prioridade para cargas de trabalho de processamento de lote e assíncronos onde o tempo de conclusão do trabalho é flexível e o trabalho é distribuído por muitos VMs.
- 
+
 Os VM de baixa prioridade são oferecidos a um preço significativamente reduzido em comparação com os VMs dedicados. Para obter detalhes sobre preços, consulte [o Preço do Lote](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
@@ -28,7 +28,6 @@ Os VM de baixa prioridade são oferecidos a um preço significativamente reduzid
 > As piscinas do Lote Azure começarão a suportar Os VMs spot dentro de alguns meses após a sua disponibilização geral, com novas versões das [APIs e ferramentas](https://docs.microsoft.com/azure/batch/batch-apis-tools)do Lote. Uma vez disponível o suporte spot VM, os VMs de baixa prioridade serão depreciados - continuarão a ser suportados utilizando as atuais versões APIs e ferramentas durante pelo menos 12 meses, para permitir tempo suficiente para a migração para VMs spot. 
 >
 > Os VMs spot não serão suportados para piscinas de configuração de serviço em [nuvem.](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) Para utilizar Os VMs spot, as piscinas do Cloud Service terão de ser migradas para piscinas de configuração de [máquinas virtuais.](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)
-
 
 ## <a name="use-cases-for-low-priority-vms"></a>Utilize casos para VMs de baixa prioridade
 
@@ -72,8 +71,7 @@ O Azure Batch fornece várias capacidades que facilitam o consumo e beneficiam d
     A quota para VMs de baixa prioridade é superior à quota para VMs dedicados, porque os VM sde de baixa prioridade custam menos. Para mais informações, consulte quotas e limites de [serviço do Lote.](batch-quota-limit.md#resource-quotas)    
 
 > [!NOTE]
-> Os VMs de baixa prioridade não são atualmente suportados para as contas do Lote criadas no modo de [subscrição](batch-api-basics.md#account)do utilizador .
->
+> Os VMs de baixa prioridade não são atualmente suportados para as contas do Lote criadas no modo de [subscrição](accounts.md)do utilizador .
 
 ## <a name="create-and-update-pools"></a>Criar e atualizar piscinas
 
@@ -181,8 +179,8 @@ Para ver as métricas no portal Azure:
 
 ![Métricas para nódeos de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
+* Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Comece a planear a mudança de VMs de baixa prioridade para VMs spot. Se utilizar VMs de baixa prioridade com piscinas de configuração do **Cloud Service,** planeie mudar-se para piscinas de **configuração de Máquina Virtual.**

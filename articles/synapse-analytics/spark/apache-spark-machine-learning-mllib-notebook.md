@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 25d11d2cf41f8653c5a54007f121c1251bb24b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096304"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774448"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Construa uma aplicação de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -54,7 +54,7 @@ Nos seguintes passos, desenvolve-se um modelo para prever se uma determinada via
     import matplotlib.pyplot as plt
     from datetime import datetime
     from dateutil import parser
-    from pyspark.sql.functions import unix_timestamp
+    from pyspark.sql.functions import unix_timestamp, date_format, col, when
     from pyspark.ml import Pipeline
     from pyspark.ml import PipelineModel
     from pyspark.ml.feature import RFormula
@@ -159,9 +159,9 @@ plt.suptitle('')
 plt.show()
 ```
 
-![Lote de](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![dispersão](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![de enredo de bigode de caixa histograma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
+![Lote de ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
+ ![ ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
+ ![ dispersão de enredo de bigode de caixa histograma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
 ## <a name="preparing-the-data"></a>Preparar os dados
 
@@ -239,6 +239,9 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 
 Agora que existem dois DataFrames, a próxima tarefa é criar a fórmula do modelo e executá-la contra o dataframe de treino, em seguida, validá-lo contra o dataFrame de teste. Deve experimentar diferentes versões da fórmula do modelo para ver o impacto de diferentes combinações.
 
+> [!Note]
+> Para salvar o modelo, necessitará da função RBAC do Colaborador de Dados Do Blob de Armazenamento Azure. Sob a sua conta de armazenamento, navegue para o Controlo de Acesso (IAM) e selecione Adicionar a atribuição de funções. Atribuir a função RBAC do Colaborador de Dados blob de armazenamento ao seu servidor de base de dados SQL. Só os membros com privilégio proprietário podem executar este passo. Para várias funções incorporadas para os recursos Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+
 ```python
 ## Create a new LR object for the model
 logReg = LogisticRegression(maxIter=10, regParam=0.3, labelCol = 'tipped')
@@ -290,7 +293,7 @@ plt.show()
 
 Depois de ter terminado de executar a aplicação, desligue o caderno para libertar os recursos fechando o separador ou selecionando **a Sessão final** do painel de estado na parte inferior do caderno.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral: Apache Spark no Azure Synapse Analytics](apache-spark-overview.md)
 

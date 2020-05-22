@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 82bdb177cf4d9c400d1b13ba7178658089950557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62c66f8b787d27b72216eb08b87352d8dbf272fb
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314341"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774351"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -34,7 +34,7 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
    > [!Important]
    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
    > * As contas pessoais do Google e da Microsoft (Outlook/Live) só podem ser utilizadas para contas de teste. As contas ligadas ao Azure necessitam do Azure AD.
-   > * Só pode haver uma conta ativa por e-mail. Se um utilizador tentar user@gmail.com iniciar sessão com user@gmail.com o LinkedIn e mais tarde com o Google, este apresentará uma página de erro, dizendo que o utilizador já existe.
+   > * Só pode haver uma conta ativa por e-mail. Se um utilizador tentar iniciar sessão com o user@gmail.com LinkedIn e mais tarde com user@gmail.com o Google, este apresentará uma página de erro, dizendo que o utilizador já existe.
 
 2. Subscreva.
 
@@ -116,7 +116,7 @@ O seguinte fragmento de código C# demonstra a utilização de todas as APIs do 
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
 var accountId = "..."; 
-var location = "westus2";
+var location = "westus2"; // replace with the account's location, or with “trial” if this is a trial account
 var apiKey = "..."; 
 
 System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

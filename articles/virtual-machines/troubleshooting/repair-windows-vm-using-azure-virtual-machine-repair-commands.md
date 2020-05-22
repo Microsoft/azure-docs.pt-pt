@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 97c4461fd2abd39e75838f67ab5d34bd52a79459
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6520d508a025aeeecf0c1890224a0691eae09f74
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715618"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774433"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows com os comandos de reparação da Máquina Virtual do Azure
 
@@ -81,6 +81,7 @@ Para obter documentação e instruções adicionais, consulte [az vm repair](htt
 4. Execute `az vm repair run`. Este comando executará o script de reparação especificado no disco anexo através do VM de reparação.  Se o guia de resolução de problemas que estiver a utilizar especificar um run-id, por favor, utilize-o aqui, caso contrário poderá utilizar para ver scripts de `az vm repair list-scripts` reparação disponíveis.
 
    ```azurecli-interactive
+
    az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
    ```
 
@@ -100,7 +101,7 @@ CLI do Azure
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se tiver problemas de ligação ao seu VM, consulte [ligações RDP de Troubleshoot a um VM Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
 * Para problemas com o acesso a aplicações em execução no seu VM, consulte problemas de conectividade de [aplicações troubleshoot em máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).

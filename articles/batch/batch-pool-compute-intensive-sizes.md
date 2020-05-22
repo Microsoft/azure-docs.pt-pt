@@ -3,12 +3,12 @@ title: Use VMs Azure intensivos com lote
 description: Como aproveitar os tamanhos das máquinas virtuais HPC e GPU nas piscinas do Lote Azure. Conheça as dependências do OS e veja vários exemplos de cenário.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 04e39678c77604bca4194bebc7968c5c43fb019c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724093"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779751"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize instâncias DE RDMA ou GPU em piscinas de lotes
 
@@ -79,7 +79,7 @@ Para configurar um tamanho de VM especializado para a sua piscina de Lote, tem v
 
 * Crie uma [imagem Personalizada do Windows ou Do Linux VM](batch-sig-images.md) na qual instalou controladores, software ou outras definições necessárias para o tamanho VM. 
 
-* Crie um pacote de [aplicação](batch-application-packages.md) Batch a partir de um controlador ou instalador de aplicações com fecho, e configure o Batch para implantar a embalagem em nós de piscina e instalar uma vez quando cada nó for criado. Por exemplo, se o pacote de aplicação for um instalador, crie uma linha de comando de [tarefa](batch-api-basics.md#start-task) inicial para instalar silenciosamente a aplicação em todos os nós da piscina. Considere utilizar um pacote de aplicação e uma tarefa de início de piscina se a sua carga de trabalho depender de uma versão específica do condutor.
+* Crie um pacote de [aplicação](batch-application-packages.md) Batch a partir de um controlador ou instalador de aplicações com fecho, e configure o Batch para implantar a embalagem em nós de piscina e instalar uma vez quando cada nó for criado. Por exemplo, se o pacote de aplicação for um instalador, crie uma linha de comando de [tarefa](jobs-and-tasks.md#start-task) inicial para instalar silenciosamente a aplicação em todos os nós da piscina. Considere utilizar um pacote de aplicação e uma tarefa de início de piscina se a sua carga de trabalho depender de uma versão específica do condutor.
 
   > [!NOTE] 
   > A tarefa inicial deve ser executada com permissões elevadas (administração) e deve esperar pelo sucesso. As tarefas de longa duração aumentarão o tempo para fornecer uma piscina de lote.
@@ -161,7 +161,7 @@ Utilizando o portal Batch APIs ou Azure, crie uma piscina utilizando esta imagem
 | **Comunicação Internade ativada** | Verdadeiro |
 | **Tarefas max por nó** | 1 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para executar trabalhos de MPI numa piscina de Lote Azure, consulte os exemplos [do Windows](batch-mpi.md) ou [Linux.](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/)
 

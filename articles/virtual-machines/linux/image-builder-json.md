@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: c13ace67f18b619d5ad86106ecb648db722be9fa
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792450"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779335"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Crie um modelo de construtor de imagem Azure 
 
@@ -54,7 +54,7 @@ Este é o formato de modelo básico:
 
 ## <a name="type-and-api-version"></a>Tipo e versão API
 
-O `type` é do tipo de `"Microsoft.VirtualMachineImages/imageTemplates"`recurso, que deve ser . O `apiVersion` irá mudar ao longo do tempo `"2019-05-01-preview"` à medida que a API muda, mas deve ser para pré-visualização.
+O `type` é do tipo de recurso, que deve ser `"Microsoft.VirtualMachineImages/imageTemplates"` . O irá mudar ao longo do tempo à `apiVersion` medida que a API muda, mas deve ser `"2019-05-01-preview"` para pré-visualização.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -222,8 +222,8 @@ Se você descobrir que precisa de mais tempo para as personalizações para comp
 
 O Image Builder suporta vários 'personalizadores'. Os personalizadores são funções que são usadas para personalizar a sua imagem, como executar scripts ou reiniciar servidores. 
 
-Ao `customize`utilizar: 
-- Pode utilizar vários personalizadores, mas `name`devem ter um exclusivo.
+Ao `customize` utilizar: 
+- Pode utilizar vários personalizadores, mas devem ter um `name` exclusivo.
 - Os personalizadores executam na ordem especificada no modelo.
 - Se um personalizador falhar, todo o componente de personalização falhará e reportará um erro.
 - É fortemente aconselhável testar o script cuidadosamente antes de usá-lo num modelo. Depurar o guião por si só será mais fácil.
@@ -287,7 +287,7 @@ Personalize propriedades:
     * Para gerar o sha256Checksum, utilizando um terminal em mac/linux executado:`sha256sum <fileName>`
 
 
-Para que os comandos sejam executados com privilégios de super utilizador, devem ser pré-fixados com `sudo`.
+Para que os comandos sejam executados com privilégios de super utilizador, devem ser pré-fixados com `sudo` .
 
 > [!NOTE]
 > Ao executar o personalizador de conchas com fonte RHEL ISO, você precisa garantir que as suas primeiras alças de concha de personalização se registem com um servidor de direito red hat antes de qualquer personalização ocorrer. Uma vez concluída a personalização, o script deve desregistar-se com o servidor de direito.
@@ -314,7 +314,7 @@ Personalize propriedades:
 - **Tipo**: WindowsRestart
 - **reiniciar Comando** - Comando para executar o reinício (opcional). A predefinição é `'shutdown /r /f /t 0 /c \"packer restart\"'`.
 - **reiniciarCheckCommand** – Comando para verificar se o reinício foi bem sucedido (opcional). 
-- **reiniciar Timeout** - Tempo de reinício especificado como uma cadeia de magnitude e unidade. Por exemplo, `5m` (5 `2h` minutos) ou (2 horas). O padrão é: '5m'
+- **reiniciar Timeout** - Tempo de reinício especificado como uma cadeia de magnitude e unidade. Por exemplo, `5m` (5 minutos) ou `2h` (2 horas). O padrão é: '5m'
 
 ### <a name="linux-restart"></a>Reinício do Linux  
 No entanto, não existe um personalizador Linux Restart, se estiver a instalar controladores ou componentes que exijam um reinício, pode instalá-los e invocar um reinício utilizando o personalizadora Shell, existindo um intervalo de 20min SSH para o VM de construção.
@@ -385,7 +385,7 @@ Isto é suportado por diretórios windows e caminhos linux, mas existem algumas 
 Se houver um erro ao tentar descarregar o ficheiro, ou colocá-lo num diretório especificado, o passo personalizado falhará, e isso estará no registo de personalização.log.
 
 > [!NOTE]
-> O personalizador de ficheiros só é adequado para pequenos downloads de ficheiros, < de 20MB. Para downloads de ficheiros maiores, utilize um script ou um comando `wget` `curl`inline, `Invoke-WebRequest`o código de utilização para descarregar ficheiros, tais como, Linux ou Windows, .
+> O personalizador de ficheiros só é adequado para pequenos downloads de ficheiros, < de 20MB. Para downloads de ficheiros maiores, utilize um script ou um comando inline, o código de utilização para descarregar ficheiros, tais como, Linux `wget` ou `curl` Windows, `Invoke-WebRequest` .
 
 Os ficheiros do personalizador de ficheiros podem ser descarregados a partir do Armazenamento Azure utilizando [mSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
@@ -425,13 +425,24 @@ Se o Azure Image Builder criar uma imagem personalizada do Windows com sucesso, 
 
 #### <a name="default-sysprep-command"></a>Comando Sysprep padrão
 ```powershell
-echo '>>> Waiting for GA to start ...'
+Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
+while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-echo '>>> Sysprepping VM ...'
-if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
-while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
+Write-Output '>>> Sysprepping VM ...'
+if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
+}
+& $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
+while($true) {
+  $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
+  Write-Output $imageState
+  if ($imageState -eq 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { break }
+  Start-Sleep -s 5
+}
+Write-Output '>>> Sysprep complete ...'
 ```
 #### <a name="default-linux-deprovision-command"></a>Comando de deprovisionamento Deprovision Linux padrão
 
@@ -457,7 +468,7 @@ O Azure Image Builder suporta três alvos de distribuição:
 
 Pode distribuir uma imagem para ambos os tipos de alvo na mesma configuração, por favor, consulte [exemplos](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Como pode ter mais do que um alvo para distribuir, o Image Builder mantém um `runOutputName`estado para cada alvo de distribuição que pode ser acedido consultando o .  O `runOutputName` é um objeto que pode consultar a distribuição de posts para obter informações sobre essa distribuição. Por exemplo, pode consultar a localização do VHD, ou regiões para as quais a versão de imagem foi replicada, ou a versão SIG Image criada. Esta é uma propriedade de todos os alvos de distribuição. O `runOutputName` deve ser único em cada alvo de distribuição. Aqui está um exemplo, isto é consultar uma distribuição da Galeria de Imagem Partilhada:
+Como pode ter mais do que um alvo para distribuir, o Image Builder mantém um estado para cada alvo de distribuição que pode ser acedido consultando o `runOutputName` .  O é um objeto que pode consultar a `runOutputName` distribuição de posts para obter informações sobre essa distribuição. Por exemplo, pode consultar a localização do VHD, ou regiões para as quais a versão de imagem foi replicada, ou a versão SIG Image criada. Esta é uma propriedade de todos os alvos de distribuição. O `runOutputName` deve ser único em cada alvo de distribuição. Aqui está um exemplo, isto é consultar uma distribuição da Galeria de Imagem Partilhada:
 
 ```bash
 subscriptionID=<subcriptionID>
@@ -510,7 +521,7 @@ A saída de imagem será um recurso de imagem gerido.
  
 Distribuir propriedades:
 - **tipo** – managedImage 
-- **imageId** – Id de recurso da imagem de\<destino, formato esperado: /subscrições/ subscriçãoId\<>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/ imageName>
+- **imageId** – Id de recurso da imagem de destino, formato esperado: /subscrições/ \< subscriçãoId>/resourceGroups/ \< destinationResourceGroupName>/providers/Microsoft.Compute/images/imageName \<>
 - **localização** - localização da imagem gerida.  
 - **runOutputName** – nome único para identificar a distribuição.  
 - **artefactoSTags** - Utilizador opcional especificado etiquetas de par de valor chave.
@@ -550,7 +561,7 @@ Antes de poder distribuir para a Galeria de Imagem, tem de criar uma galeria e u
 Distribua propriedades para galerias de imagem partilhada:
 
 - **tipo** - sharedImage  
-- **galleryImageId** – ID da galeria de imagens partilhadas. O formato é:\</subscrições/ subscriçõesId\<>/resourceGroups/ resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** – ID da galeria de imagens partilhadas. O formato é: /subscrições/ \< subscriçãoId>/resourceGroups/ \< resourceGroupName>/providers/Microsoft.Compute/galleries/ \< sharedImageGalleryName>/images/ \< imageGalleryName>.
 - **runOutputName** – nome único para identificar a distribuição.  
 - **artefactoSTags** - Utilizador opcional especificado etiquetas de par de valor chave.
 - **replicaçõesRegiões** - Conjunto de regiões para replicação. Uma das regiões deve ser a região onde a Galeria está implantada.
@@ -580,7 +591,7 @@ Distribuir parâmetros VHD:
 - **runOutputName** – nome único para identificar a distribuição.  
 - **tags** - Etiquetas de pares de valor chave especificadas pelo utilizador opcional.
  
-O Azure Image Builder não permite que o utilizador especifique a `runOutputs` localização da conta de armazenamento, mas pode consultar o estado do local.  
+O Azure Image Builder não permite que o utilizador especifique a localização da conta de armazenamento, mas pode consultar o estado do `runOutputs` local.  
 
 ```azurecli-interactive
 az resource show \

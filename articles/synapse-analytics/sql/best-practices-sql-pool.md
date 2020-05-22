@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3dc111fe62cbae857f3369165ba29cf40e90342
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6af79a37369fe5775c402af011f4ba59807595d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427799"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780438"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Boas práticas para piscinas SQL em Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Informações adicionais sobre estatísticas podem ser encontradas nas estatíst
 
 ## <a name="group-insert-statements-into-batches"></a>Agrupar instruções INSERT em lotes
 
-Uma carga única para uma tabela pequena com `INSERT INTO MyLookup VALUES (1, 'Type 1')`uma declaração INSERT, como pode ser a melhor abordagem dependendo das suas necessidades. No entanto, se precisar de carregar milhares ou milhões de filas ao longo do dia, é provável que os inserções singleton não sejam os ideais.
+Uma carga única para uma tabela pequena com uma declaração INSERT, como `INSERT INTO MyLookup VALUES (1, 'Type 1')` pode ser a melhor abordagem dependendo das suas necessidades. No entanto, se precisar de carregar milhares ou milhões de filas ao longo do dia, é provável que os inserções singleton não sejam os ideais.
 
 Uma forma de resolver este problema é desenvolver um processo que escreva para um ficheiro, e depois outro processo para carregar periodicamente este ficheiro. Consulte o artigo [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para mais informações.
 
@@ -59,7 +59,7 @@ Os carregamentos do PolyBase podem ser executados com CTAS ou INSERT INTO. O CTA
 
 Para maximizar a entrada ao utilizar ficheiros de texto Gzip, separe ficheiros em 60 ou mais ficheiros para maximizar o paralelismo da sua carga. Para um débito total mais rápido, considere carregar dados em simultâneo. Informações adicionais para os tópicos relevantes para esta secção estão incluídas nos seguintes artigos:
 
-- [Dados de carga](data-loading-overview.md)
+- [Carregar dados](data-loading-overview.md)
 - [Guia para utilizar o PolyBase](data-loading-best-practices.md)
 - [Padrões e estratégias de carregamento de piscina SQL Azure](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Dados de carga com fábrica de dados azure](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -169,7 +169,7 @@ Para obter informações adicionais sobre as classes de recursos, consulte as cl
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Use uma classe de recursos mais pequena para aumentar a conmoeda
 
-Se notar um longo atraso nas consultas dos utilizadores, os seus utilizadores podem estar a funcionar em classes de recursos maiores. Este cenário promove o consumo de faixas de condivisões, o que pode fazer com que outras consultas façam fila.  Para determinar se as consultas dos `SELECT * FROM sys.dm_pdw_waits` utilizadores estão na fila, corra para ver se alguma linha é devolvida.
+Se notar um longo atraso nas consultas dos utilizadores, os seus utilizadores podem estar a funcionar em classes de recursos maiores. Este cenário promove o consumo de faixas de condivisões, o que pode fazer com que outras consultas façam fila.  Para determinar se as consultas dos utilizadores estão na fila, corra `SELECT * FROM sys.dm_pdw_waits` para ver se alguma linha é devolvida.
 
 As [classes de Recursos para gestão](../sql-data-warehouse/resource-classes-for-workload-management.md) de carga de trabalho e [artigos sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) fornecer-lhe-ão mais informações.
 
@@ -179,7 +179,7 @@ As piscinas SQL têm vários DMVs que podem ser usados para monitorizar a execu�
 
 - [Monitorizar a carga de trabalho com DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-- [LABEL](develop-label.md)
+- [ETIQUETA](develop-label.md)
 - [OPÇÃO](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -193,7 +193,7 @@ As piscinas SQL têm vários DMVs que podem ser usados para monitorizar a execu�
 
 Consulte também o artigo de Resolução de [Problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para questões e soluções comuns.
 
-Se precisar de informações não fornecidas neste artigo, utilize a "Search for docs" no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O Fórum de [Piscina SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de Piscina SQL.  
+Se precisar de informações não fornecidas neste artigo, utilize o **Filtro por título** no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O Fórum de [Piscina SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de Piscina SQL.  
 
 Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  Se você prefere fazer suas perguntas sobre Stack Overflow, também temos uma [piscina Azure SQL Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

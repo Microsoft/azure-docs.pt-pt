@@ -3,7 +3,7 @@ title: DNS personalizados de instância gerida
 description: Este tópico descreve opções de configuração para um DNS personalizado com uma Instância Gerida por Base de Dados SQL Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
-ms.openlocfilehash: 9c98176413f858d236902c332553d47f749aa3c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b27d316114b84434a84fc8226eba9328a803dc8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247083"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774369"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar um DNS Personalizado para a Instância Gerida de Base de Dados SQL do Azure
 
@@ -25,7 +25,7 @@ Uma instância gerida por base de dados Azure SQL deve ser implantada dentro de 
 Como a Managed Instance utiliza o mesmo DNS para o seu funcionamento interno, configure o servidor DNS personalizado para que possa resolver nomes de domínio público.
 
 > [!IMPORTANT]
-> Utilize sempre um nome de domínio totalmente qualificado (FQDN) para o servidor de correio, a instância do Servidor SQL e para outros serviços, mesmo que estejam dentro da sua zona privada de DNS. Por exemplo, `smtp.contoso.com` utilize para `smtp` o seu servidor de correio porque não resolve corretamente. A criação de um servidor ou replicação ligado que referencia VMs SQL dentro da mesma rede virtual também requer um FQDN e um sufixo DNS padrão. Por exemplo, `SQLVM.internal.cloudapp.net`. Para mais informações, consulte a [resolução de nomes que utiliza o seu próprio servidor DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+> Utilize sempre um nome de domínio totalmente qualificado (FQDN) para o servidor de correio, a instância do Servidor SQL e para outros serviços, mesmo que estejam dentro da sua zona privada de DNS. Por exemplo, utilize para o seu servidor de `smtp.contoso.com` correio porque não resolve `smtp` corretamente. A criação de um servidor ou replicação ligado que referencia VMs SQL dentro da mesma rede virtual também requer um FQDN e um sufixo DNS padrão. Por exemplo, `SQLVM.internal.cloudapp.net`. Para mais informações, consulte a [resolução de nomes que utiliza o seu próprio servidor DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
 > Atualizar servidores DNS da rede virtual não afetará imediatamente a Instância Gerida. A configuração DNS de instância gerida é atualizada após o termo do contrato de arrendamento DHCP ou após a atualização da plataforma, o que ocorrer primeiro. **Os utilizadores são aconselhados a definir a configuração de DNS da rede virtual antes de criar a sua primeira Instância Gerida.**

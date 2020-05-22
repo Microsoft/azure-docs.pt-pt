@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778293"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidades de informação pessoal:
 
@@ -25,7 +25,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                               | Disponível a partir da versão modelo |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| N/D          | Nomes reconhecidos, por exemplo, `Bill Gates``Marie Curie` | `2020-02-01`                           |
+| N/D          | Nomes reconhecidos, por `Bill Gates` exemplo,`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
@@ -37,7 +37,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                                                                       | Disponível a partir da versão modelo|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/D          | organizações, por `Microsoft` `NASA`exemplo,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| N/D          | organizações, por `Microsoft` `NASA` exemplo,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Número de Telefone
 
@@ -51,7 +51,7 @@ Idiomas:
 |--------------|------------------------------------------------|----------------------------------------|
 | N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2020-02-01`                           |
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 
 Endereço de e-mail. 
 
@@ -63,7 +63,7 @@ Idiomas:
 |--------------|--------------------------------------------------|----------------------------------------|
 | N/D          | Endereço de e-mail, por exemplo`support@contoso.com` | `2020-02-01`                           |
 
-### <a name="url"></a>do IdP
+### <a name="url"></a>URL
 
 URLs de Internet.
 
@@ -109,7 +109,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                   | Disponível a partir da versão modelo |
 |--------------|-------------------------------|----------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>Coordenadas de GPS da UE
 
@@ -127,7 +127,7 @@ Idiomas:
 
 Informações identificáveis do Azure, incluindo informações de autenticação e cordas de ligação. 
 
-* Disponível a partir `2019-10-01`da versão modelo.
+* Disponível a partir da versão `2019-10-01` modelo.
 
 Idiomas:
 
@@ -149,7 +149,7 @@ Idiomas:
 
 ### <a name="identification"></a>Identificação
 
-* Disponível a partir `2019-10-01`da versão modelo.
+* Disponível a partir da versão `2019-10-01` modelo.
 
 Idiomas:
 
@@ -164,9 +164,9 @@ Idiomas:
 | Cartão de Crédito                | Números de cartão de crédito.                                                       |
 | Código IBAN                  | Códigos IBAN para informações de instrução de pagamento.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Identificação específica do governo e do país
+#### <a name="government-and-countryregion-specific-identification"></a>Identificação específica do governo e do país/região
 
-As entidades abaixo são agruparadas e listadas por país:
+As entidades abaixo são agruparadas e listadas por país/região:
 
 Argentina
 * Número de Identidade Nacional (DNI)
@@ -322,7 +322,7 @@ Reino Unido
 * Número do Seguro Nacional (NINO)
 * Número do Serviço Nacional de Saúde (SNS)
 
-Estados Unidos
+Estados Unidos da América
 * Número de Segurança Social (SSN)
 * Identificação da carta de condução
 * ID do passaporte

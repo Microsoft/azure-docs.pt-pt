@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422365"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774347"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
@@ -49,7 +49,7 @@ Se tiver um agente Azure a funcionar, pode utilizar a [extensão do script perso
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
 >   No entanto, assim que a apólice for aplicada novamente, será expulso da sessão remota. A solução permanente para este problema é modificar a política aplicada neste computador.
@@ -90,7 +90,7 @@ Se tiver um agente Azure a funcionar, pode utilizar a [extensão do script perso
 
 Siga estes passos para utilizar o [Registo Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  No vM de resolução de problemas, inicie o editor de registo, e depois vá ao Registo de Rede de**Rede De Conecteção** **de Ficheiros** > .
+1.  No vM de resolução de problemas, inicie o editor de registo, e depois vá ao Registo de Rede **de Rede De**  >  **Conecteção**de Ficheiros .
 
 2.  Abra o ramo TARGET *MACHINE*\SYSTEM e especifique os seguintes valores:
 

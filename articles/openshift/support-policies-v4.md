@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 593cca5fbf0aa6e4c162e541560763c50cbc067e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711419"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774397"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de apoio openshift do chapéu vermelho azure
 
@@ -29,6 +29,8 @@ Certas configurações para os clusters OpenShift 4 do Chapéu Vermelho Azure po
 * Não remova ou modifique o serviço de registo de serviço Saque de Serviço Azure Red Hat OpenShift (mdsd pods).
 * Não remova ou modifique o cluster 'arosvc.azurecr.io' retire segredo.
 * Todas as máquinas virtuais do cluster devem ter acesso direto à Internet, pelo menos para o Gestor de Recursos Azure (ARM) e para os pontos finais de registo de serviços (Genebra).  Não é suportada nenhuma forma de procuração HTTPS.
+* Não modifique a configuração DNS da rede virtual do cluster. O resolver DeS DNS de Azure por defeito deve ser utilizado.
+* Não sobreponha nenhum dos objetos MachineConfig do cluster (por exemplo, a configuração kubelet) de qualquer forma.
 * O serviço Azure Red Hat OpenShift acede ao seu cluster através do Private Link Service.  Não remova ou modifique o acesso ao serviço.
 * Os nós de computação não RHCOS não são suportados. Por exemplo, não se pode usar um nó de cálculo RHEL.
 
@@ -66,3 +68,11 @@ O Azure Red Hat OpenShift 4 suporta as instâncias do nó dos trabalhadores nos 
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### <a name="master-nodes"></a>Mestres de narizes
+
+|Série|Tamanho|vCPU|Memória: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

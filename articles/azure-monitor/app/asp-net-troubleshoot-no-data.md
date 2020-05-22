@@ -2,13 +2,13 @@
 title: Resolução de problemas sem dados - Application Insights para .NET
 description: Não estás a ver dados em Insights de Aplicação Azure? Tente aqui.
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 2770888c6cfacedcf186ed1612718133cc1ba363
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802591"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778682"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Informações de aplicação para .NET/.NET Core
 
@@ -26,7 +26,7 @@ ms.locfileid: "80802591"
 
 *Estou a sentir perda de dados na App consola ou na Web App quando a aplicação está prestes a parar.*
 
-* O canal SDK mantém a telemetria no tampão e envia-as em lotes. Se o pedido estiver desligado, poderá ter de ligar explicitamente para [flush()](api-custom-events-metrics.md#flushing-data). O `Flush()` comportamento depende do [canal](telemetry-channels.md#built-in-telemetry-channels) usado.
+* O canal SDK mantém a telemetria no tampão e envia-as em lotes. Se o pedido estiver desligado, poderá ter de ligar explicitamente para [flush()](api-custom-events-metrics.md#flushing-data). O comportamento depende `Flush()` do [canal](telemetry-channels.md#built-in-telemetry-channels) usado.
 
 ## <a name="no-data-from-my-server"></a>Nenhum dado do meu servidor
 *Instalei a minha aplicação no meu servidor web, e agora não vejo nenhuma telemetria. Funcionou bem na minha máquina de dev.*
@@ -127,13 +127,13 @@ Correção:
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * No portal Informações de Aplicação, abra [a Pesquisa de Diagnóstico.](../../azure-monitor/app/diagnostic-search.md) Os dados geralmente aparecem aqui primeiro.
 * Clique no botão Refresh. A lâmina refresca-se periodicamente, mas também pode fazê-lo manualmente. O intervalo de atualização é mais longo para intervalos de tempo maiores.
-* Verifique a correspondência das teclas de instrumentação. Na lâmina principal da sua aplicação no portal Application Insights, no **"Drop-down" do Essentials,** veja a **chave de instrumentação**. Em seguida, no seu projeto no Estúdio Visual, `<instrumentationkey>`abra ApplicationInsights.config e encontre o . Verifique se as duas chaves são iguais. Se não:  
+* Verifique a correspondência das teclas de instrumentação. Na lâmina principal da sua aplicação no portal Application Insights, no **"Drop-down" do Essentials,** veja a **chave de instrumentação**. Em seguida, no seu projeto no Estúdio Visual, abra ApplicationInsights.config e encontre o `<instrumentationkey>` . Verifique se as duas chaves são iguais. Se não:  
   * No portal, clique em Insights de Aplicação e procure o recurso da aplicação com a chave certa; ou
   * No Visual Studio Solution Explorer, clique no projeto e escolha Insights de Aplicação, Configure. Redefinir a aplicação para enviar telemetria para o recurso certo.
   * Se não encontrar as chaves correspondentes, verifique se está a usar as mesmas credenciais de entrada no Estúdio Visual como no portal.
 * No painel de [instrumentos domésticos do Microsoft Azure,](https://portal.azure.com)veja o mapa de Saúde de Serviço. Se houver algumas indicações de alerta, aguarde até que voltem ao OK e, em seguida, feche e reabra a sua lâmina de aplicação Application Insights.
 * Verifique também [o nosso blog de status](https://blogs.msdn.microsoft.com/servicemap-status/).
-* Escreveu algum código para o [SDK](../../azure-monitor/app/api-custom-events-metrics.md) do lado do servidor `TelemetryClient` que possa `TelemetryContext`alterar a chave de instrumentação em casos ou em? Ou escreveu um [filtro ou uma configuração de amostragem](../../azure-monitor/app/api-filtering-sampling.md) que pode estar a filtrar demasiado?
+* Escreveu algum código para o [SDK](../../azure-monitor/app/api-custom-events-metrics.md) do lado do servidor que possa alterar a chave de instrumentação em `TelemetryClient` casos ou `TelemetryContext` em? Ou escreveu um [filtro ou uma configuração de amostragem](../../azure-monitor/app/api-filtering-sampling.md) que pode estar a filtrar demasiado?
 * Se editou ApplicationInsights.config, verifique cuidadosamente a configuração de [TelemettryInitializers e TelemettryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Um tipo ou parâmetro de nome incorreto pode fazer com que o SDK não envie dados.
 
 ## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Não há dados sobre visualizações de página, navegadores, utilização
@@ -143,7 +143,7 @@ Os dados provêm de scripts nas páginas web.
 
 * Se adicionou insights de aplicação a um projeto web existente, [tem de adicionar os scripts à mão](../../azure-monitor/app/javascript.md).
 * Certifique-se de que o Internet Explorer não está a exibir o seu site no modo de compatibilidade.
-* Utilize a funcionalidade de depuração do navegador (F12 em alguns navegadores, `dc.services.visualstudio.com`depois escolha a Rede) para verificar se os dados estão a ser enviados para .
+* Utilize a funcionalidade de depuração do navegador (F12 em alguns navegadores, depois escolha a Rede) para verificar se os dados estão a ser enviados para `dc.services.visualstudio.com` .
 
 ## <a name="no-dependency-or-exception-data"></a>Sem dados de dependência ou exceção
 Ver [telemetria de dependência](../../azure-monitor/app/asp-net-dependencies.md) e [telemetria de exceção.](asp-net-exceptions.md)
@@ -211,7 +211,7 @@ Siga estas instruções para capturar registos de resolução de problemas para 
 
 A versão mais recente do Microsoft.ApplicationInsights.AspNetCore é de 2.8.2, e refere-se à versão 2.11.2 do Microsoft.ApplicationInsights. Daí que a versão do Microsoft.AspNet.ApplicationInsights.HostingStartup a instalar deve ser 2.11.2
 
-2. Modifique `ConfigureServices` o `Startup.cs` método na sua classe.:
+2. Modifique `ConfigureServices` o método na sua `Startup.cs` classe.:
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
@@ -247,6 +247,14 @@ Pode modificar estes parâmetros conforme necessário:
 Para mais informações,
 - [Gravando vestígios de desempenho com PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Fontes de evento sinuosas de aplicação](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="collect-logs-with-dotnet-trace"></a>Recolher registos com traços de dotnet
+
+Um método alternativo de recolha de registos para resolução de problemas que pode ser particularmente útil para ambientes baseados em linux é[`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)
+
+```bash
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+```
 
 ## <a name="how-to-remove-application-insights"></a>Como remover insights de aplicação
 

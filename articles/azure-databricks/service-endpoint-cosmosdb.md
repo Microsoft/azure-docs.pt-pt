@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18c2b0f03f9ac2155c441580d62d6085581de12
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74706154"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779605"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar tijolos de dados Azure com um ponto final cosmos DB
 
@@ -60,7 +60,7 @@ Antes de começar, faça o seguinte:
    |Subscrição|*sua assinatura*|
    |Grupo de Recursos|*seu grupo de recursos*|
    |Nome da Conta|db-vnet-service-endpoint|
-   |API|Core (SQL)|
+   |API|Núcleo (SQL)|
    |Localização|E.U.A. Oeste|
    |Redundância Geográfica|Desativar|
    |Escritas de várias regiões|Ativar|
@@ -98,7 +98,7 @@ Antes de começar, faça o seguinte:
 
     ![Cosmos DB Data Migration Tool fonte de informação](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
 
-3. No separador **Informação do Alvo,** insera a corda de ligação. O formato `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`de corda de ligação é . O AccountEndpoint e o AccountKey estão incluídos na cadeia de ligação primária que guardou na secção anterior. Aprete `Database=<your database name>` até ao fim da corda de ligação e selecione **Verificar**. Em seguida, adicione o nome da Coleção e a chave de partição.
+3. No separador **Informação do Alvo,** insera a corda de ligação. O formato de corda de ligação é `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>` . O AccountEndpoint e o AccountKey estão incluídos na cadeia de ligação primária que guardou na secção anterior. Aprete `Database=<your database name>` até ao fim da corda de ligação e selecione **Verificar**. Em seguida, adicione o nome da Coleção e a chave de partição.
 
     ![Cosmos DB Data Migration Tool target information](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
 
@@ -107,8 +107,6 @@ Antes de começar, faça o seguinte:
 ## <a name="create-a-cluster-and-add-library"></a>Criar um cluster e adicionar biblioteca
 
 1. Navegue para o seu serviço Azure Databricks no [portal Azure](https://portal.azure.com) e selecione **Launch Workspace**.
-
-   ![Lançar espaço de trabalho databricks](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. Criar um novo aglomerado. Escolha um Nome de Cluster e aceite as definições predefinidas restantes.
 

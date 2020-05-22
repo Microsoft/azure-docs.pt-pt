@@ -4,12 +4,12 @@ description: Introdução rápida aos cmdlets do Azure PowerShell que pode utili
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3baa69f7ad51be59390a12c62797ff78250db9c0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726558"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779613"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerir os recursos do Batch com os cmdlets do PowerShell
 
@@ -114,7 +114,7 @@ Quando utiliza muitos destes cmdlets, além de transmitir um objeto de BatchCont
 
 ### <a name="create-a-batch-pool"></a>Criar um conjunto do Batch
 
-Quando criar ou atualizar um conjunto do Batch, selecione a configuração de serviços cloud ou a configuração de máquina virtual para o sistema operativo nos nós de computação (veja [Descrição geral da funcionalidade do Batch](batch-api-basics.md#pool)). Se especificar a configuração de serviços cloud, a imagem dos nós de computação é feita com uma das [versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se optar pela configuração de máquina virtual, pode especificar uma das imagens de VM do Linux ou Windows suportadas que estão disponíveis no [Markteplace das Máquinas Virtuais do Azure][vm_marketplace] ou fornecer uma imagem personalizada que tenha preparado.
+Ao criar ou atualizar um pool de Lote, selecione a configuração dos serviços em nuvem ou a configuração da máquina virtual para o sistema operativo nos nós de computação (ver [Nós e piscinas).](nodes-and-pools.md#configurations) Se especificar a configuração de serviços cloud, a imagem dos nós de computação é feita com uma das [versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se optar pela configuração de máquina virtual, pode especificar uma das imagens de VM do Linux ou Windows suportadas que estão disponíveis no [Markteplace das Máquinas Virtuais do Azure][vm_marketplace] ou fornecer uma imagem personalizada que tenha preparado.
 
 Quando executar **o New-AzBatchPool,** passe as definições do sistema operativo num objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o seguinte snippet cria uma piscina de lote com tamanho Standard_A1 nós de computação na configuração da máquina virtual, imagem com Ubuntu Server 18.04-LTS. Neste caso, o parâmetro **VirtualMachineConfiguration** especifica a variável *$configuration* como o objeto PSVirtualMachineConfiguration. O parâmetro **BatchContext** especifica uma variável *$context* definida anteriormente como objeto BatchAccountContext.
 
@@ -293,7 +293,7 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 > [!TIP]
 > Pode implementar vários pacotes de aplicações nos nós de computação num conjunto. Se pretender *adicionar* um pacote de aplicação ao invés de substituir os pacotes implementados atualmente, omita a linha `$pool.ApplicationPackageReferences.Clear()` acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter exemplos e a sintaxe detalhada dos cmdlets, veja a [Referência de cmdlets do Azure Batch](/powershell/module/az.batch).
 * Para obter mais informações sobre as aplicações e os pacotes de aplicações no Batch, veja [Implementar aplicações em nós de computação com pacotes de aplicações do Batch](batch-application-packages.md).

@@ -3,12 +3,12 @@ title: Configure pontos finais do nó na piscina do Lote Azure
 description: Como configurar ou desativar o acesso às portas SSH ou RDP em nódeos de computação numa piscina de Lote Azure.
 ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 4b990e4223f37f71d453cd91b9b3a20bd70d0bbb
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723515"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780295"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configure ou desative o acesso remoto aos nódosos de computação numa piscina de Lote Azure
 
@@ -118,9 +118,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
+- Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Para obter mais informações sobre as regras da NSG em Azure, consulte o tráfego da [rede Filter com grupos](../virtual-network/security-overview.md)de segurança da rede .
-
-- Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
-

@@ -4,12 +4,12 @@ description: Ative a escala automática numa piscina de nuvem para ajustar dinam
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 786bd594b3344ce144893161ade9d53d1bddf358
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726813"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780235"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para a escala de cafés de computação em uma piscina de lote
 
@@ -22,7 +22,7 @@ Você pode ativar a escala automática quando uma piscina é criada, ou em uma p
 Este artigo discute as várias entidades que compõem as suas fórmulas de escala automática, incluindo variáveis, operadores, operações e funções. Discutimos como obter vários recursos computacionais e métricas de tarefa dentro do Lote. Pode utilizar estas métricas para ajustar a contagem de nódoas do seu pool com base no uso do recurso e no estado de tarefa. Em seguida, descrevemos como construir uma fórmula e permitir a escala automática numa piscina utilizando tanto o Lote REST como as APIs .NET. Finalmente, terminamos com algumas fórmulas de exemplo.
 
 > [!IMPORTANT]
-> Quando criar uma conta 'Lote', pode especificar a configuração da [conta,](batch-api-basics.md#account)que determina se os pools são atribuídos numa subscrição de serviço do Batch (o predefinido) ou na subscrição do utilizador. Se criou a sua conta De Lote com a configuração padrão do Serviço de Lote, então a sua conta está limitada a um número máximo de núcleos que podem ser usados para processamento. O serviço de lote escala sinos de cálculo apenas até esse limite de núcleo. Por esta razão, o serviço Batch não pode atingir o número-alvo de nós de cálculo especificados por uma fórmula de escala automática. Consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter informações sobre visualização e aumento das quotas de conta.
+> Quando criar uma conta 'Lote', pode especificar a configuração da [conta,](accounts.md)que determina se os pools são atribuídos numa subscrição de serviço do Batch (o predefinido) ou na subscrição do utilizador. Se criou a sua conta De Lote com a configuração padrão do Serviço de Lote, então a sua conta está limitada a um número máximo de núcleos que podem ser usados para processamento. O serviço de lote escala sinos de cálculo apenas até esse limite de núcleo. Por esta razão, o serviço Batch não pode atingir o número-alvo de nós de cálculo especificados por uma fórmula de escala automática. Consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter informações sobre visualização e aumento das quotas de conta.
 >
 >Se criou a sua conta com a configuração de Subscrição do Utilizador, então a sua conta partilha na quota central para a subscrição. Para obter mais informações, veja [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
 >
@@ -727,7 +727,7 @@ string formula = string.Format(@"
     ", now, 4);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * O uso de [recursos computacionais do Maximize Azure Batch com tarefas de nó simultânea](batch-parallel-node-tasks.md) contém detalhes sobre como pode executar várias tarefas simultaneamente nos nós de computação na sua piscina. Além da autoscalcificação, esta funcionalidade pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, poupando-lhe dinheiro.
 * Para outro reforço de eficiência, certifique-se de que a aplicação Batch consulta o serviço Batch da forma mais ideal. Consulte [o serviço Azure Batch de forma eficiente](batch-efficient-list-queries.md) para aprender a limitar a quantidade de dados que cruzam o fio quando se consulta o estado de milhares de potenciais nódos os nossos comíveis ou tarefas.

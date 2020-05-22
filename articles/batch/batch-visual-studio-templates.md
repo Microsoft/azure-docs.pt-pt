@@ -4,21 +4,19 @@ description: Saiba como os modelos do projeto Visual Studio podem ajudá-lo a im
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0dac39d1ff463dc4ba5efae50c7fc1ea9d36c829
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725827"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779518"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Use modelos de projeto do Estúdio Visual para lançar soluções de lote
 
 Os modelos do Estúdio Visual do Gestor **de Emprego** e do Processador de **Tarefas** para o Batch fornecem código para ajudá-lo a implementar e executar as suas cargas de trabalho intensivas em Computação no Lote com o menor esforço. Este documento descreve estes modelos e fornece orientações para como usá-los.
 
 > [!IMPORTANT]
-> Este artigo discute apenas informações aplicáveis a estes dois modelos, e assume que está familiarizado com o serviço De lote e conceitos-chave relacionados com ele: piscinas, nós de computação, empregos e tarefas, tarefas de gestor de emprego, variáveis ambientais e outras informações relevantes. Pode encontrar mais informações no [Basics of Azure Batch](batch-technical-overview.md) e [No lote para desenvolvedores](batch-api-basics.md).
-> 
-> 
+> Este artigo discute apenas informações aplicáveis a estes dois modelos, e assume que está familiarizado com o serviço De lote e conceitos-chave relacionados com ele: piscinas, nós de computação, empregos e tarefas, tarefas de gestor de emprego, variáveis ambientais e outras informações relevantes. Pode encontrar mais informações em [Basics of Azure Batch](batch-technical-overview.md) e Batch fluxo de [trabalho e recursos.](batch-service-workflow-features.md) 
 
 ## <a name="high-level-overview"></a>Descrição geral de alto nível
 Os modelos do Gestor de Emprego e do Processador de Tarefas podem ser usados para criar dois componentes úteis:
@@ -69,7 +67,7 @@ O modelo do Gestor de Emprego ajuda-o a implementar uma tarefa de gestor de empr
 * Submeta essas tarefas para executar em Batch.
 
 > [!NOTE]
-> Para obter mais informações sobre as tarefas do gestor de emprego, consulte a visão geral da [funcionalidade do Lote para os desenvolvedores.](batch-api-basics.md#job-manager-task)
+> Para obter mais informações sobre as tarefas do gestor de emprego, consulte [Jobs e tarefas.](jobs-and-tasks.md#job-manager-task)
 > 
 > 
 
@@ -188,7 +186,7 @@ Uma tarefa de gestor de emprego que é implementada com o modelo de Gestor de Em
 
 No caso de falha na tarefa do gestor de emprego, algumas tarefas podem ainda ter sido adicionadas ao serviço antes do erro ocorrer. Estas tarefas serão executadas normalmente. Consulte "Job Splitter Failure" acima para discutir este caminho de código.
 
-Toda a informação devolvida por exceções está escrita em ficheiros stdout.txt e stderr.txt. Para mais informações, consulte [o Error Handling](batch-api-basics.md#error-handling).
+Toda a informação devolvida por exceções está escrita em ficheiros stdout.txt e stderr.txt. Para mais informações, consulte [o Error Handling](error-handling.md).
 
 ### <a name="client-considerations"></a>Considerações de clientes
 Esta secção descreve alguns requisitos de implementação do cliente ao invocar um gestor de emprego com base neste modelo. Consulte [como passar parâmetros e variáveis ambientais do código do cliente](#pass-environment-settings) para obter detalhes sobre a passagem de parâmetros e configurações ambientais.
@@ -424,7 +422,7 @@ parâmetros.json, e se encontrá-lo carrega-lo como o dicionário de parâmetros
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Persistir na produção de trabalho e tarefa sintetizar para o Armazenamento Azure
 Outra ferramenta útil no desenvolvimento da solução de lote é as Convenções de [Ficheiros de Lote Azure][nuget_package]. Utilize esta biblioteca de classe .NET (atualmente em pré-visualização) nas suas aplicações Batch .NET para armazenar e recuperar facilmente as saídas de tarefas de e para o Armazenamento Azure. O trabalho e a saída de tarefas do [Lote Azure Persist](batch-task-output.md) contêm uma discussão completa sobre a biblioteca e a sua utilização.
 

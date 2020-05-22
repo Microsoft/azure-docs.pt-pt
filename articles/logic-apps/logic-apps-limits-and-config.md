@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/04/2020
-ms.openlocfilehash: 1dfb1b43eadebbfc7128c5a2451668be8a99329f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.date: 05/23/2020
+ms.openlocfilehash: 29c5cdf418c4b7acfc7c3c510c3e76d956268fdf
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402542"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780356"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -154,7 +154,7 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 | Name | Limite de multi-inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar este limite, consulte [manuseie mensagens grandes com pedaços](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não suportar a chunking ou mesmo o limite de predefinição. <p><p>- Os conectores como as AS2, X12 e EDIFACT têm os seus [próprios limites de mensagem B2B](#b2b-protocol-limits). <br>- Os conectores ISE utilizam o limite ISE e não os seus limites de conectores não ISE. |
-| Tamanho da mensagem com pedaço | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa ou permitem a sua configuração de tempo de execução. <p><p>Se estiver a utilizar um ISE, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de chunking até ao limite do motor, por exemplo, consulte a [referência aPi do conector Azure Blob.](https://docs.microsoft.com/connectors/azureblob/) Para obter mais informações sobre chunking, consulte [Manuseie mensagens grandes com chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamanho da mensagem com pedaço | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa ou permitem a sua configuração de tempo de execução. <p><p>Se estiver a utilizar um ISE, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de chunking até ao limite do motor, por exemplo, consulte a [referência aPi do conector Azure Blob.](https://docs.microsoft.com/connectors/azureblob/) Para obter mais informações sobre chunking, consulte [Manuseie mensagens grandes com chunking](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Limites de carácter
@@ -207,7 +207,7 @@ Aqui estão os limites para conectores personalizados que você pode criar a par
 | Name | Limite |
 |------|-------|
 | Identidades geridas por app lógica | Quer a identidade atribuída ao sistema quer 1 identidade atribuída ao utilizador |
-| Número de aplicações lógicas que têm uma identidade gerida numa subscrição azure por região | 250 |
+| Número de aplicações lógicas que têm uma identidade gerida numa subscrição azure por região | 500 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -244,7 +244,7 @@ Para preços, consulte [preços de Apps Lógicas.](https://azure.microsoft.com/p
 |----------|------|-------|----------|
 | Acordos comerciais EDI | 10 | 1 | 1,000 |
 | Parceiros comerciais EDI | 25 | 2 | 1,000 |
-| Maps | 25 | 500 | 1,000 |
+| Mapas | 25 | 500 | 1,000 |
 | Esquemas | 25 | 500 | 1,000 |
 | Assemblagens | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 1,000 |

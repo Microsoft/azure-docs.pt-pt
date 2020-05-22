@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205114"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780518"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para fornecimento automático de utilizadores
 
@@ -141,7 +141,6 @@ Depois de configurar o fornecimento, utilize os seguintes recursos para monitori
 * **InvalidLookupReference:** Ao fornecer certos atributos, como Department and Location in ServiceNow, os valores já devem existir numa tabela de referência no ServiceNow. Por exemplo, você pode ter duas localizações (Seattle, Los Angeles) e três departamentos (Vendas, Finanças, Marketing) na tabela de nomes de mesa de **inserção** no ServiceNow. Se tentar fornecer um utilizador onde o seu departamento é "Sales" e a localização for "Seattle" ele será provisionado com sucesso. Se tentar fornecer a um utilizador com "Vendas" e localização "LA" o utilizador não será provisionado. A localização LA deve ser adicionada à tabela de referência no ServiceNow ou o atributo do utilizador em Azure AD deve ser atualizado para corresponder ao formato no ServiceNow. 
 * **EntryJoiningPropertyValueIs Missing:** Reveja os [mapeamentos](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) do atributo para identificar o atributo correspondente. Este valor deve estar presente no utilizador ou grupo que está a tentar fornecer. 
 * Reveja a [API serviceNow SOAP](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para compreender quaisquer requisitos ou limitações (por exemplo, formato para especificar código de país para um utilizador)
-* Algumas implementações serviceNow requerem permitir gamas IP para o serviço de provisionamento De AD Azure. As gamas IP reservadas para o serviço de provisionamento De AD Azure podem ser consultadas [aqui](https://www.microsoft.com/download/details.aspx?id=56519) no âmbito do "AzureActiveDirectoryDomainServices".
 * Os pedidos de fornecimento são enviados por padrão para https://{your-instance-name}.service-now.com/{table-name} . Se necessitar de um URL de inquilino personalizado, pode fornecer todo o URL no campo de nomes da instância.
 
 ## <a name="additional-resources"></a>Recursos adicionais

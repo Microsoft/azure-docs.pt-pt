@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: dce7db9fc508c70d79be62a7e97b3bf52a316b22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95567a177635dc7d7ed03404487e62c76db8bdac
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76983703"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779128"
 ---
 # <a name="track-models-metrics-with-mlflow-and-azure-machine-learning-preview"></a>Track models métricas com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -44,7 +44,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, você rastreia as métri
  O MLflow Tracking oferece funcionalidades de armazenamento de madeira métrica e de artefactos que só estão disponíveis de outra forma através do [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | Rastreio de&nbsp;MLflow <!--& Deployment--> | Pitão de aprendizagem de máquina sdk azure |  ClI de aprendizagem automática azure | Azure Machine Learning studio|
+| | Rastreio de MLflow &nbsp; <!--& Deployment--> | Pitão de aprendizagem de máquina sdk azure |  ClI de aprendizagem automática azure | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Gerir o espaço de trabalho |   | ✓ | ✓ | ✓ |
 | Utilizar lojas de dados  |   | ✓ | ✓ | |
@@ -67,7 +67,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, você rastreia as métri
 
 O Rastreio de MLflow com o Azure Machine Learning permite-lhe armazenar as métricas e artefactos registados das suas corridas locais para o seu espaço de trabalho azure machine learning.
 
-Instale `azureml-mlflow` o pacote para utilizar o MLflow Tracking com o Azure Machine Learning nas suas experiências executadas localmente num Caderno Jupyter ou editor de código.
+Instale o `azureml-mlflow` pacote para utilizar o MLflow Tracking com o Azure Machine Learning nas suas experiências executadas localmente num Caderno Jupyter ou editor de código.
 
 ```shell
 pip install azureml-mlflow
@@ -76,9 +76,9 @@ pip install azureml-mlflow
 >[!NOTE]
 >O espaço de nome sinuoso azureml.contrib muda frequentemente, uma vez que trabalhamos para melhorar o serviço. Como tal, qualquer coisa neste espaço de nome deve ser considerada como uma pré-visualização, e não totalmente suportada pela Microsoft.
 
-Importe `mlflow` [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) as e classes para aceder ao URI de rastreio da MLflow e configure o seu espaço de trabalho.
+Importe as `mlflow` e classes para aceder ao URI de rastreio da [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) MLflow e configure o seu espaço de trabalho.
 
-No seguinte código, `get_mlflow_tracking_uri()` o método atribui um endereço URI `ws`único `set_tracking_uri()` de rastreio ao espaço de trabalho, e aponta o MLflow tracking URI para esse endereço.
+No seguinte código, o método atribui um endereço URI único de rastreio ao espaço de `get_mlflow_tracking_uri()` `ws` trabalho, e `set_tracking_uri()` aponta o MLflow tracking URI para esse endereço.
 
 ```Python
 import mlflow
@@ -92,7 +92,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 >[!NOTE]
 >O URI de rastreio é válido até uma hora ou menos. Se reiniciar o seu script após algum tempo inativo, use a Get_mlflow_tracking_uri API para obter um novo URI.
 
-Detete o nome `set_experiment()` da experiência MLflow e inicie o seu treino com `start_run()`. Em `log_metric()` seguida, utilize para ativar a API de registo de registo de MLflow e comece a registar as métricas de treino.
+Detete o nome da experiência MLflow `set_experiment()` e inicie o seu treino com `start_run()` . Em seguida, utilize para ativar a API de registo de registo de `log_metric()` MLflow e comece a registar as métricas de treino.
 
 ```Python
 experiment_name = 'experiment_with_mlflow'
@@ -108,7 +108,7 @@ O Rastreio de MLflow com o Azure Machine Learning permite-lhe armazenar as métr
 
 As corridas remotas permitem-lhe treinar os seus modelos em computaçãos mais poderosas, como gpu ativado por máquinas virtuais, ou clusters machine learning compute. Consulte os alvos de cálculo para o treino de modelos para aprender sobre [diferentes](how-to-set-up-training-targets.md) opções de computação.
 
-Configure o seu ambiente de [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) corrida de computação e treino com a classe. `mlflow` Inclua `azureml-mlflow` e pip pacotes [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) na secção do ambiente. Em [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) seguida, construa com a sua computação remota como o alvo da computação.
+Configure o seu ambiente de corrida de computação e treino com a [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) classe. Inclua `mlflow` e `azureml-mlflow` pip pacotes na secção do [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) ambiente. Em seguida, construa [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) com a sua computação remota como o alvo da computação.
 
 ```Python
 from azureml.core.environment import Environment
@@ -130,7 +130,7 @@ src.run_config.target = 'my-remote-compute-compute'
 src.run_config.environment = mlflow_env
 ```
 
-No seu roteiro `mlflow` de treino, importe para usar as APIs de registo de MLflow e comece a registar as suas métricas de execução.
+No seu roteiro de treino, importe `mlflow` para usar as APIs de registo de MLflow e comece a registar as suas métricas de execução.
 
 ```Python
 import mlflow
@@ -139,7 +139,7 @@ with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-Com esta configuração de ensaio `Experiment.submit('train.py')` e formação, utilize o método para submeter uma execução. Este método configura automaticamente o MLflow tracking URI e direciona a exploração madeireira do MLflow para o seu Espaço de Trabalho.
+Com esta configuração de ensaio e formação, utilize o `Experiment.submit('train.py')` método para submeter uma execução. Este método configura automaticamente o MLflow tracking URI e direciona a exploração madeireira do MLflow para o seu Espaço de Trabalho.
 
 ```Python
 run = exp.submit(src)
@@ -266,26 +266,9 @@ runid = runs[0].id
 model_save_path = 'model'
 ```
 
-### Create Docker image
+### Deploy the model
 
-The `mlflow.azureml.build_image()` function builds a Docker image from the saved model in a framework-aware manner. It automatically creates the framework-specific inferencing wrapper code and specifies package dependencies for you. Specify the model path, your workspace, run ID and other parameters.
-
-The following code builds a docker image using *runs:/<run.id>/model* as the model_uri path for a Scikit-learn experiment.
-
-```python
-import mlflow.azureml
-
-azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.format(runid, model_save_path),
-                                                      workspace=ws,
-                                                      model_name='sklearn-model',
-                                                      image_name='sklearn-image',
-                                                      synchronous=True)
-```
-The creation of the Docker image can take several minutes. 
-
-### Deploy the Docker image 
-
-After the image is created, use the Azure Machine Learning SDK to deploy the image as a web service.
+Use the Azure Machine Learning SDK to deploy the model as a web service.
 
 First, specify the deployment configuration. Azure Container Instance (ACI) is a suitable choice for a quick dev-test deployment, while Azure Kubernetes Service (AKS) is suitable for scalable production deployments.
 
@@ -304,30 +287,21 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Then, deploy the image by using the Azure Machine Learning SDK [deploy_from_image()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
-webservice = Webservice.deploy_from_image( image=azure_image, 
-                                           workspace=ws, 
-                                           name='diabetes-model-1', 
-                                           deployment_config=aci_config)
+(webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
+                      workspace=ws,
+                      model_name='sklearn-model', 
+                      service_name='diabetes-model-1', 
+                      deployment_config=aci_config, 
+                      tags=None, mlflow_home=None, synchronous=True)
 
 webservice.wait_for_deployment(show_output=True)
 ```
 #### Deploy to AKS
 
-To deploy to AKS, first create an AKS cluster and bring over the Docker image you want to deploy. For this example, bring over the previously created image from the ACI deployment.
-
-To get the image from the previous ACI deployment use the [Image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) class. 
-
-```python
-from azureml.core.image import Image
-
-# Get the image by name, you can change this based on the image you want to deploy
-myimage = Image(workspace=ws, name='sklearn-image') 
-```
-
-Create an AKS cluster using the [ComputeTarget.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
+To deploy to AKS, first create an AKS cluster. Create an AKS cluster using the [ComputeTarget.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -351,26 +325,25 @@ Set up your deployment configuration with the [deploy_configuration()](https://d
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
-from azureml.core.image import ContainerImage
 
 # Set the web service configuration (using default here with app insights)
-aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
+aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
 
-# Unique service name
-service_name ='aks-service'
-```
 
-Then, deploy the image by using the Azure Machine Learning SDK [deploy_from_image()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Then, deploy the image by using the Azure Machine Learning SDK [deploy()](Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
 
 ```python
 # Webservice creation using single command
-aks_service = Webservice.deploy_from_image( workspace=ws, 
-                                            name=service_name,
-                                            deployment_config = aks_config
-                                            image = myimage,
-                                            deployment_target = aks_target)
+from azureml.core.webservice import AksWebservice, Webservice
+(webservice, model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
+                      workspace=ws,
+                      model_name='sklearn-model', 
+                      service_name='my-aks', 
+                      deployment_config=aks_config, 
+                      tags=None, mlflow_home=None, synchronous=True)
 
-aks_service.wait_for_deployment(show_output=True)
+
+webservice.wait_for_deployment()
 ```
 
 The service deployment can take several minutes.

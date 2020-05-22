@@ -2,13 +2,13 @@
 title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d6d98062e2228c22302b250ab3c7bb9683bff232
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/21/2020
+ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715924"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780570"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -129,7 +129,7 @@ As possíveis utilizações da lista* são mostradas na tabela seguinte.
 | Tipo de recurso | Nome da função |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servidores | [listaGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.AppConfiguration] | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
+| Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft.AppConfiguration/configuraçãoStores | ListKeys |
 | Microsoft.Automation/automationAccounts | [listaKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
@@ -202,7 +202,7 @@ As possíveis utilizações da lista* são mostradas na tabela seguinte.
 | Microsoft.Network/applicationSecurityGroups | listIpConfiguras |
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft.OperationalInsights/espaços de trabalho | [listaKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft.OperationalInsights/espaços de trabalho | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft.PolicyInsights/remediações | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
@@ -350,6 +350,8 @@ Para obter o símbolo SAS, passe um objeto pelo tempo de validade. O prazo de va
     }
 }
 ```
+
+Para um exemplo de listKeyValue, consulte [Quickstart: Implementação automática de VM com configuração de aplicações e modelo de gestor](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values)de recursos .
 
 ## <a name="providers"></a>fornecedores
 
@@ -1045,7 +1047,7 @@ O identificador é devolvido no seguinte formato:
 
 Você usa esta função para obter o ID de recursos para um recurso que é implantado para o inquilino. O ID devolvido difere dos valores devolvidos por outras funções de ID de recurso, não incluindo os valores do grupo de recursos ou da subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
 * Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .

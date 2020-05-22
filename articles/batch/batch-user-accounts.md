@@ -1,15 +1,15 @@
 ---
 title: Executar tarefas sob contas de utilizador
-description: É útil ser capaz de configurar a conta de utilizador sob a qual pretende que uma tarefa seja executada. Aprenda os tipos de contas de utilizador e como configurá-las.
+description: Aprenda os tipos de contas de utilizador e como configurá-las.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1bd31f9d4881bdc489988d3f955e7143eaf7759
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726269"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779499"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas sob contas de utilizador em Lote
 
@@ -40,7 +40,7 @@ Tanto uma conta de utilizador automático como uma conta de utilizador nomeada t
 
 Se uma tarefa for submetida à mesma conta que foi utilizada para executar uma tarefa inicial, a tarefa tem acesso de leitura-escrita ao diretório de tarefas inpartidas. Da mesma forma, se uma tarefa for submetida à mesma conta que foi utilizada para executar uma tarefa de preparação de emprego, a tarefa tem acesso de leitura-escrita ao diretório de tarefas de preparação de emprego. Se uma tarefa for submetida a uma conta diferente da tarefa inicial ou da tarefa de preparação do trabalho, a tarefa só leu o acesso ao respetivo diretório.
 
-Para obter mais informações sobre o acesso a ficheiros e diretórios a partir de uma tarefa, consulte Desenvolver soluções de [computação paralela em larga escala com o Batch](batch-api-basics.md#files-and-directories).
+Para obter mais informações sobre o acesso a ficheiros e diretórios a partir de uma tarefa, consulte [Ficheiros e diretórios](files-and-directories.md).
 
 ## <a name="elevated-access-for-tasks"></a>Acesso elevado para tarefas 
 
@@ -320,6 +320,7 @@ A versão de serviço do Batch 2017-01-01.4.0 introduz uma alteração de rutura
 | `run_elevated`não especificado | Nenhuma atualização necessária                                                                                                                                  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
+* Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
+* Saiba mais sobre [ficheiros e diretórios](files-and-directories.md) em Azure Batch.

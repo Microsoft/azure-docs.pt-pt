@@ -1,14 +1,14 @@
 ---
 title: O Lote Azure tem grandes empregos paralelos na nuvem
 description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho em larga e escala e de HPC
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116354"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779556"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -74,7 +74,7 @@ O diagrama seguinte mostra os passos num fluxo de trabalho comum do Batch, com u
 
 Tenha em atenção que esta é apenas uma forma de utilizar o Batch, e este cenário descreve apenas algumas das suas funcionalidades. Por exemplo, pode executar [múltiplas tarefas em paralelo](batch-parallel-node-tasks.md) em cada nó de computação. Ou utilizar [tarefas de preparação e conclusão de trabalhos](batch-job-prep-release.md) para preparar os nós para os trabalhos e limpá-los posteriormente. 
 
-Veja [Descrição geral das funcionalidades do Batch para programadores](batch-api-basics.md) para obter informações mais detalhadas sobre conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch. Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
+Consulte o fluxo de trabalho do [serviço batch e os recursos primários](batch-service-workflow-features.md) para uma visão geral de características como piscinas, nós, empregos e tarefas. Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Passos seguintes
 

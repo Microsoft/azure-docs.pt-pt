@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado por Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: dd4e03ac6bdf2e4554f07f2aa5ffca78b1ed1230
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 690955f0e7d18f9a784b4c9a2fa1733442cb70dc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725623"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780026"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ligue um cluster Kubernetes ativado por Arco Azure (Pré-visualização)
 
@@ -25,7 +25,7 @@ Verifique se tem os seguintes requisitos prontos:
 
 * Um aglomerado de Kubernetes que está em funcionamento
 * Vai precisar de acesso com kubeconfig e acesso a administração de clusters. 
-* O utilizador ou o diretor de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões 'Read' e 'Write' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'.
+* O utilizador ou o diretor de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões 'Read' e 'Write' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Azure Arc for Kubernetes Onboarding" com estas permissões pode ser utilizada para atribuições de funções no utilizador ou principal de serviço utilizado com o Azure CLI para embarque.
 * Versão mais recente das extensões de configuração *conectadas k8s* e *k8s*
 
 ## <a name="supported-regions"></a>Regiões suportadas
@@ -216,7 +216,7 @@ O portal Azure elimina o `Microsoft.Kubernetes/connectedcluster` recurso em Azur
 
 Para remover os agentes no aglomerado é necessário executar `az connectedk8s delete` ou `helm uninstall azurearcfork8s` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use GitOps num cluster conectado](./use-gitops-connected-cluster.md)
 * [Use a Política Azure para governar a configuração do cluster](./use-azure-policy.md)

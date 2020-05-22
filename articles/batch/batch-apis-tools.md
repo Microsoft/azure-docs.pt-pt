@@ -4,12 +4,12 @@ description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvol
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e345e91b2f7d66f014427770614efe42b5fb7a44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f4138398e28797d8acb6517f33f7f97f2054a93
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232688"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780261"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -18,24 +18,24 @@ O processamento de cargas de trabalho paralelas com o Azure Batch é geralmente 
 Pode processar de forma eficaz cargas de trabalho em grande escala para a sua organização ou fornecer um front-end de serviço aos seus clientes para que eles possam executar tarefas — a pedido ou com base numa agenda — em um, centenas ou mesmo em milhares de nós. Também pode utilizar o Azure Batch como parte de um fluxo de trabalho maior, gerido por ferramentas como o [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
-> Quando estiver pronto para aprofundar a API do Batch para uma maior compreensão das funcionalidades que fornece, veja [Descrição geral da funcionalidade Batch para desenvolvedores](batch-api-basics.md).
+> Para saber mais sobre as funcionalidades e fluxo de trabalho utilizados no Lote Azure, consulte o fluxo de [trabalho e as funcionalidades](batch-service-workflow-features.md)do serviço batch.
 > 
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Contas do Azure para desenvolvimento do Batch
 Quando desenvolver soluções do Batch, irá utilizar as seguintes contas na subscrição do Azure:
 
-* **Conta** de lote - Os recursos do Lote Azure, incluindo piscinas, nós de computação, empregos e tarefas, estão associados a uma conta de [Lote](batch-api-basics.md#account)Azure . Quando a aplicação faz um pedido com o serviço do Batch, autentica o pedido com o nome de conta do Azure Batch, o URL da conta e uma tecla de acesso ou um token do Azure Active Directory. Pode [criar uma conta do Batch](batch-account-create-portal.md) no portal do Azure ou através de programação.
-* **Conta de armazenamento** - o Batch inclui suporte incorporado para trabalhar com ficheiros no [Armazenamento do Azure][azure_storage]. Quase todos os cenários do Batch utilizam o Armazenamento de blobs para testar os programas que as tarefas executam e os dados que processam, e para o armazenamento de dados de saída por elas gerados. Para obter opções de armazenamento no Batch, consulte a [descrição geral da funcionalidade do Batch](batch-api-basics.md#azure-storage-account).
+* **Conta** de lote - Os recursos do Lote Azure, incluindo piscinas, nós de computação, empregos e tarefas, estão associados a uma conta de [Lote](accounts.md)Azure . Quando a aplicação faz um pedido com o serviço do Batch, autentica o pedido com o nome de conta do Azure Batch, o URL da conta e uma tecla de acesso ou um token do Azure Active Directory. Pode [criar uma conta do Batch](batch-account-create-portal.md) no portal do Azure ou através de programação.
+* **Conta de armazenamento** - o Batch inclui suporte incorporado para trabalhar com ficheiros no [Armazenamento do Azure][azure_storage]. Quase todos os cenários do Batch utilizam o Armazenamento de blobs para testar os programas que as tarefas executam e os dados que processam, e para o armazenamento de dados de saída por elas gerados. Cada conta de Lote está geralmente associada a uma conta de armazenamento correspondente.
 
 ## <a name="batch-service-apis"></a>APIs de serviço do Batch
 
 As suas aplicações e serviços podem emitir chamadas diretas de API REST ou utilizar uma ou mais das bibliotecas de cliente seguintes para executar e gerir as cargas de trabalho do Azure Batch.
 
-| API | Referência da API | Transferência | Tutorial | Exemplos de código | Mais Informações |
+| API | Referência da API | Download | Tutorial | Exemplos de código | Mais Informações |
 | --- | --- | --- | --- | --- | --- |
 | **REST do Batch** |[docs.microsoft.com][batch_rest] |N/D |- |- | [Versões Suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **.NET do Batch** |[docs.microsoft.com][api_net] |[Nuget][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de lançamento](https://aka.ms/batch-net-dataplane-changelog) |
+| **.NET do Batch** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de lançamento](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Tutorial](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Leia-me](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Tutorial](batch-nodejs-get-started.md) |- | [Leia-me](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Leia-me][api_sample_java] | [Leia-me](https://github.com/Azure/azure-batch-sdk-for-java)|
@@ -44,10 +44,10 @@ As suas aplicações e serviços podem emitir chamadas diretas de API REST ou ut
 
 As APIs do Azure Resource Manager para o Batch concedem acesso programático às contas do Batch. Ao utilizar estas APIs, pode gerir, através de programação, contas, quotas, pacotes de aplicações e outros recursos do Batch através do fornecedor Microsoft.Batch.  
 
-| API | Referência da API | Transferência | Tutorial | Exemplos de código |
+| API | Referência da API | Download | Tutorial | Exemplos de código |
 | --- | --- | --- | --- | --- |
 | **REST de Gestão de Lotes** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Gestão de Batch .NET** |[docs.microsoft.com][api_net_mgmt] |[Nuget][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
+| **Gestão de Batch .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Python de Gestão de Lotes** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
 | **Node.js de Gestão de Lotes** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
 | **Java de Gestão de Lotes** |- |[Maven][api_java_mgmt_jar] |- |- |
@@ -74,7 +74,7 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e dep
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
+* Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
 * Transfira as [amostras de código no GitHub][github_samples] para ver como tanto o C# como o Python pode interagir com o Batch para agendar e processar amostras de cargas de trabalho.
 

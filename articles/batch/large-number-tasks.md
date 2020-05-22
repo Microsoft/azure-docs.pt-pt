@@ -3,12 +3,12 @@ title: Submeter um grande número de tarefas
 description: Como submeter eficientemente um número muito grande de tarefas num único trabalho do Lote Azure
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 42b7d0586139b3d03569374615945047b42a2520
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 46ab5e8879167a1808c51d4c4cd5c7071cb67cff
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725691"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778944"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Submeta um grande número de tarefas a um trabalho de Lote
 
@@ -41,7 +41,7 @@ O tamanho máximo da recolha de tarefas que pode adicionar numa única chamada d
 
 Pode levar algum tempo para adicionar uma grande coleção de tarefas a um trabalho - por exemplo, até 1 minuto para adicionar 20.000 tarefas através da API .NET. Dependendo da API do lote e da sua carga de trabalho, pode melhorar a produção de tarefa modificando um ou mais dos seguintes:
 
-* **Tamanho da tarefa** - Adicionar tarefas grandes demora mais tempo do que adicionar as mais pequenas. Para reduzir o tamanho de cada tarefa numa coleção, pode simplificar a linha de comando de tarefas, reduzir o número de variáveis ambientais ou lidar com os requisitos para a execução de tarefas de forma mais eficiente. Por exemplo, em vez de utilizar um grande número de ficheiros de recursos, instale dependências de tarefas utilizando uma [tarefa](batch-api-basics.md#start-task) inicial na piscina ou utilize um pacote de [aplicação](batch-application-packages.md) ou [um recipiente Docker](batch-docker-container-workloads.md).
+* **Tamanho da tarefa** - Adicionar tarefas grandes demora mais tempo do que adicionar as mais pequenas. Para reduzir o tamanho de cada tarefa numa coleção, pode simplificar a linha de comando de tarefas, reduzir o número de variáveis ambientais ou lidar com os requisitos para a execução de tarefas de forma mais eficiente. Por exemplo, em vez de utilizar um grande número de ficheiros de recursos, instale dependências de tarefas utilizando uma [tarefa](jobs-and-tasks.md#start-task) inicial na piscina ou utilize um pacote de [aplicação](batch-application-packages.md) ou [um recipiente Docker](batch-docker-container-workloads.md).
 
 * **Número de operações paralelas** - Dependendo da API do lote, aumente a produção aumentando o número máximo de operações simultâneas pelo cliente Batch. Configure esta definição utilizando a propriedade [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) na API .NET ou o `threads` parâmetro de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) na extensão Batch Python SDK. (Esta propriedade não está disponível no Batch Python SDK.) Por padrão, esta propriedade está definida para 1, mas deforma-a mais para melhorar a entrada de operações. Você troca o aumento da entrada, consumindo largura de banda da rede e algum desempenho cpu. A entrada de tarefas aumenta até 100 vezes a `MaxDegreeOfParallelism` ou `threads` . Na prática, deve fixar o número de operações simultâneas abaixo de 100. 
  
@@ -198,7 +198,7 @@ except Exception as e:
     raise e
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a utilização da extensão CLI do lote Azure com [modelos CLI do lote](batch-cli-templates.md).
 * Saiba mais sobre a [extensão Batch Python SDK](https://pypi.org/project/azure-batch-extensions/).
