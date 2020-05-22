@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73502248"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745151"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Quais as novidades no Firewall de Aplicação Web do Azure?
 
@@ -28,7 +28,7 @@ O Firewall de aplicação web azure é atualizado de forma contínua. Para se ma
 |Funcionalidade  |Descrição  |Data adicionada  |
 |---------|---------|---------|
 |Regras de Mitigação do Bot (pré-visualização)|Pode ativar uma regra de Mitigação de Bots, juntamente com o conjunto de regras de CRS que escolher. | Novembro de 2019 |
-|Integração GeoDB (pré-visualização)|Agora pode criar regras personalizadas que restringem o tráfego por país de origem. | Novembro de 2019 |
+|Integração GeoDB (pré-visualização)|Agora pode criar regras personalizadas que restringem o tráfego por país/região de origem. | Novembro de 2019 |
 |Política WAF por site/per-URI (pré-visualização)|A WAF-v2 apoia agora a aplicação de uma política aos ouvintes, bem como regras baseadas em caminhos. Ver [Criar a política waf](create-waf-policy-ag.md). | Novembro de 2019 |
 |Regras personalizadas de WAF |O Gateway de aplicações WAF_v2 agora suporta a criação de regras personalizadas. Consulte [as regras personalizadas do Application Gateway](custom-waf-rules-overview.md). |Junho de 2019 |
 |Lista de configuração e exclusão de WAF     |Adicionámos mais opções para o ajudar a configurar o seu WAF e a reduzir falsos positivos. Consulte os limites de tamanho do pedido de firewall de [aplicação Web e listas de exclusão](application-gateway-waf-configuration.md) para mais informações.|Dezembro de 2018|

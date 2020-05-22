@@ -3,12 +3,12 @@ title: Instalar Azure Backup Server no Azure Stack
 description: Neste artigo, aprenda a usar o Servidor de Backup Azure para proteger ou fazer backup de cargas de trabalho em Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77583440"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747442"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -57,7 +57,7 @@ Se partilhada com outras máquinas virtuais, o tamanho da conta de armazenamento
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Configurar o armazenamento temporário de disco de backup azure
 
-Cada máquina virtual Azure Stack vem com armazenamento temporário de `D:\`disco, que está disponível para o utilizador como volume . A área de paragem local necessária pelo Azure `D:\`Backup pode ser configurada `C:\`para residir em , e a localização da cache pode ser colocada em . Desta forma, nenhum armazenamento precisa de ser esculpido longe dos discos de dados ligados à máquina virtual do Servidor de Backup Azure.
+Cada máquina virtual Azure Stack vem com armazenamento temporário de disco, que está disponível para o utilizador como volume `D:\` . A área de paragem local necessária pelo Azure Backup pode ser configurada para residir `D:\` em , e a localização da cache pode ser colocada em `C:\` . Desta forma, nenhum armazenamento precisa de ser esculpido longe dos discos de dados ligados à máquina virtual do Servidor de Backup Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenar dados de backup no disco local e em Azure
 
@@ -91,7 +91,7 @@ A máquina virtual do Servidor de Backup Azure deve ser unida a um domínio. Um 
 
 Ao escolher um servidor para o Servidor de Backup Azure, comece com um Datacenter Do Windows Server 2012 R2 ou imagem da galeria DoCenter Do Windows Server 2016. O artigo, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar com a máquina virtual recomendada. Os requisitos mínimos recomendados para a máquina virtual do servidor (VM) devem ser: Padrão A2 com dois núcleos e RAM de 3,5-GB.
 
-Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. O artigo, [Instalar dPM como uma máquina virtual Azure,](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))ajuda a explicar estas nuances. Antes de colocar a máquina, leia completamente este artigo.
+Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. A matriz de [proteção para MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) ajuda a explicar estas nuances. Antes de colocar a máquina, leia completamente este artigo.
 
 > [!NOTE]
 > O Azure Backup Server foi concebido para funcionar numa máquina virtual dedicada e unifamiliar. Não é possível instalar o Servidor de Backup Azure em:
@@ -112,7 +112,7 @@ A opção de replicação de armazenamento de cofre saqueada de Serviços de Rec
 Para editar a definição de replicação de armazenamento:
 
 1. Selecione o seu cofre para abrir o painel do cofre e o menu Definições. Se o menu **Definições** não abrir, clique em **todas as definições** no painel do cofre.
-2. No menu **Definições,** clique na**configuração** de backup da **infraestrutura** > de backup para abrir o menu de **configuração de backup.** No menu **de configuração de backup,** escolha a opção de replicação de armazenamento para o seu cofre.
+2. No menu **Definições,** clique na configuração de backup da **infraestrutura**de backup para abrir o menu de  >  **Backup Configuration** **configuração de backup.** No menu **de configuração de backup,** escolha a opção de replicação de armazenamento para o seu cofre.
 
     ![Lista de cofres de cópia de segurança](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -243,7 +243,7 @@ O Azure Backup Server partilha o código com o Gestor de Proteção de Dados. Ve
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    A localização do risco é necessária para voltar até Azure. Certifique-se de que o tamanho da localização do risco é equivalente a pelo menos 5% dos dados previstos para serem apoiados até ao Azure. Para a proteção do disco, os discos separados devem ser configurados assim que a instalação estiver concluída. Para mais informações sobre piscinas de armazenamento, consulte [piscinas de armazenamento configure e armazenamento em disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    A localização do risco é necessária para voltar até Azure. Certifique-se de que o tamanho da localização do risco é equivalente a pelo menos 5% dos dados previstos para serem apoiados até ao Azure. Para a proteção do disco, os discos separados devem ser configurados assim que a instalação estiver concluída. Para mais informações sobre piscinas de armazenamento, consulte Preparar o [armazenamento de dados.](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)
 
 6. No ecrã definições de **segurança,** forneça uma senha forte para contas restritas de utilizadores locais e clique em **Next**.
 
@@ -318,7 +318,7 @@ A primeira cópia de reserva é mantida no armazenamento anexada à máquina do 
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
-O Azure Backup Server requer conectividade com o serviço de backup Azure para que o produto funcione com sucesso. Para validar se a máquina tem a conectividade ```Get-DPMCloudConnection``` com o Azure, utilize o cmdlet na consola PowerShell do Servidor de Backup Azure. Se a saída do cmdlet for TRUE, então existe conectividade, caso contrário não há conectividade.
+O Azure Backup Server requer conectividade com o serviço de backup Azure para que o produto funcione com sucesso. Para validar se a máquina tem a conectividade com o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola PowerShell do Servidor de Backup Azure. Se a saída do cmdlet for TRUE, então existe conectividade, caso contrário não há conectividade.
 
 Ao mesmo tempo, a subscrição do Azure tem de estar num estado saudável. Para saber o estado da sua subscrição e geri-la, inscreva-se no portal de [subscrição](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -326,10 +326,10 @@ Assim que souber o estado da conectividade Azure e da subscrição do Azure, pod
 
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restaurar de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
-| A conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| A conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
 | A conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | A conectividade perdida > 15 dias |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
 

@@ -1,22 +1,22 @@
 ---
 title: Visão geral da Gestão de Atualização de Automação Azure
-description: Visão geral da funcionalidade Update Management que gere as atualizações para as suas máquinas Windows e Linux.
+description: Este artigo fornece uma visão geral da funcionalidade Update Management que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/20/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba4ce84dca85ea1e3f2385ac280bd82c16aa8fb3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b064e22b56d63055cede400fa2b06cee96d21664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714768"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745304"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
 Pode utilizar a Update Management no Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas Windows e Linux em Azure, em ambientes no local e noutros ambientes em nuvem. Pode avaliar rapidamente o estado das atualizações disponíveis em todas as máquinas do agente e gerir o processo de instalação de atualizações necessárias para servidores.
 
-Pode ativar a Gestão de Atualizações para máquinas virtuais (VMs) utilizando os seguintes métodos:
+Pode ativar a Gestão de Atualizações para VMs das seguintes formas:
 
 * A partir da sua [conta Azure Automation](automation-onboard-solutions-from-automation-account.md) para uma ou mais máquinas Azure.
 * Manualmente para máquinas não-Azure.
@@ -31,7 +31,7 @@ Um modelo de Gestor de [Recursos Azure](automation-update-management-deploy-temp
 > [!NOTE]
 > Não é possível utilizar uma máquina configurada com Gestão de Atualização para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft. 
 
-## <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
+## <a name="about-update-management"></a>Sobre gestão de atualizações
 
 As máquinas geridas pela Update Management utilizam as seguintes configurações para realizar avaliações e atualizar as implementações:
 
@@ -44,7 +44,7 @@ O diagrama que se segue ilustra como a Atualização de Gestão avalia e aplica 
 
 ![Fluxo de trabalho de Gestão de Atualização](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-A Gestão de Atualizações pode ser utilizada para integrar máquinas de forma nativa em múltiplas subscrições no mesmo inquilino.
+A Atualização Gestão pode ser usada para implantar máquinas de forma nativa em múltiplas subscrições no mesmo inquilino.
 
 Depois de um pacote ser lançado, leva 2 a 3 horas para o patch aparecer para as máquinas Linux para avaliação. Para as máquinas Windows, o patch demora 12 a 15 horas para que o patch apareça para avaliação depois de lançado.
 
@@ -74,7 +74,7 @@ Ter uma máquina registada para Gestão de Atualizações em mais de um espaço 
 
 ### <a name="supported-client-types"></a>Tipos de clientes suportados
 
-A tabela seguinte lista os sistemas operativos suportados para avaliações de atualizações. Remendar requer um Trabalhador Híbrido do Livro de Corridas. Para obter informações sobre os requisitos do Trabalhador do Livro de Execução Híbrido, consulte [A implantação de um Trabalhador](automation-windows-hrw-install.md) do Livro híbrido do Windows e implante um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
+A tabela seguinte lista os sistemas operativos suportados para avaliações de atualizações. Remendar requer um Trabalhador Híbrido do Livro de Corridas. Para obter informações sobre os requisitos do Trabalhador do Livro de Execução Híbrido, consulte A implantação de um Trabalhador do [Livro de Corridas Híbrido do Windows](automation-windows-hrw-install.md) e de um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > A avaliação da atualização das máquinas Linux só é suportada em certas regiões, tal como listado na conta de Automação e na tabela de [mapeamento do](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)espaço de trabalho Log Analytics. 
@@ -89,8 +89,7 @@ A tabela seguinte lista os sistemas operativos suportados para avaliações de a
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)      |Os agentes linux exigem acesso a um repositório de atualização.         |
 
 > [!NOTE]
-> Os conjuntos de escala de máquinas virtuais Azure podem ser geridos através da Atualização. A Atualização Management trabalha nas próprias instâncias e não na imagem base. Terá de agendar as atualizações de forma incremental, para que nem todas as instâncias vm sejam atualizadas de uma só vez.
-> Pode adicionar nódosos para conjuntos de escala de máquinavirtual seguindo os degraus sob [bordo de uma máquina não Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> Os conjuntos de escala de máquinas virtuais Azure podem ser geridos através da Atualização. A Atualização Management trabalha nas próprias instâncias e não na imagem base. Terá de agendar as atualizações de forma incremental, para que nem todas as instâncias vm sejam atualizadas de uma só vez. Pode adicionar nódosos para conjuntos de escala de máquinavirtual seguindo os passos sob [adicionar uma máquina não Azure para Alterar rastreio e inventário](automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes não suportados
 
@@ -98,11 +97,9 @@ A tabela que se segue enumera sistemas operativos não suportados:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.<br> Para o Azure Windows Virtual Desktop (WVD), o método recomendado<br> para gerir atualizações é [o Windows Update for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) para a gestão de patchde seleções do cliente Windows 10. |
+|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.        |
 |Windows Server 2016 Nano Server     | Não suportado.       |
 |Nódosos de serviço Azure Kubernetes | Não suportado. Utilize o processo de correção descrito em Aplicar atualizações de [segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)](../aks/node-updates-kured.md)|
-
-
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 
@@ -112,7 +109,7 @@ As seguintes informações descrevem os requisitos específicos do cliente do si
 
 Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS, ou necessitam de acesso ao Microsoft Update. Para obter informações sobre como instalar o agente Log Analytics para windows, consulte [Connect Windows computers to Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-Pode utilizar a Atualização de Gestão com o Microsoft Endpoint Configuration Manager. Para saber mais sobre cenários de integração, consulte Integrar o Gestor de [Configuração com gestão de atualizações.](updatemgmt-mecmintegration.md#configuration) O [agente Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente do Seu Gestor de Configuração. 
+Pode utilizar a Atualização de Gestão com o Microsoft Endpoint Configuration Manager. Para saber mais sobre cenários de integração, consulte Integrar a [Gestão de Atualizações com o Gestor](updatemgmt-mecmintegration.md)de Configuração do Ponto Final do Windows . O [agente Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente do Seu Gestor de Configuração. 
 
 Por predefinição, os VMs do Windows que são implementados a partir do Mercado Azure estão definidos para receber atualizações automáticas do Windows Update Service. Este comportamento não muda quando adiciona VMs do Windows ao seu espaço de trabalho. Se não gerir ativamente as atualizações utilizando a Atualização, aplica-se o comportamento predefinido (para aplicar automaticamente atualizações).
 
@@ -239,7 +236,7 @@ Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necess
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integrar gestão de atualizações com gestor de configuração
 
-Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerir Computadores, servidores e dispositivos móveis também dependem da força e maturidade do Gestor de Configuração para ajudar a gerir as atualizações de software. Para aprender a integrar a Gestão de Atualizações com o Gestor de Configuração, consulte [O Gestor de Configuração Integrado com Gestão de Atualizações.](updatemgmt-mecmintegration.md)
+Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerir Computadores, servidores e dispositivos móveis também dependem da força e maturidade do Gestor de Configuração para ajudar a gerir as atualizações de software. Para saber como integrar a Gestão de Atualizações com o Gestor de Configuração, consulte [a Gestão de Atualizações Integradas com o Gestor](updatemgmt-mecmintegration.md)de Configuração do Ponto Final do Windows .
 
 ## <a name="third-party-updates-on-windows"></a>Atualizações de terceiros no Windows
 
@@ -251,10 +248,10 @@ Um modelo de Gestor de [Recursos](automation-update-management-deploy-template.m
 
 Aqui estão as formas de ativar a Gestão de Atualizações e selecionar máquinas para ser geridas:
 
-* [De uma máquina virtual.](automation-onboard-solutions-from-vm.md)
-* [Desde a navegação em várias máquinas.](automation-onboard-solutions-from-browse.md)
-* [A partir de uma conta de Automação Azure.](automation-onboard-solutions.md)
+* [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
+* [Desde navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
+* [A partir de uma conta azure Automation](automation-onboard-solutions.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Reveja as [FAQ](automation-faq.md) de Automação Azure para analisar questões comuns sobre gestão de atualizações.
+[A Automação Azure frequentemente fez perguntas](automation-faq.md)

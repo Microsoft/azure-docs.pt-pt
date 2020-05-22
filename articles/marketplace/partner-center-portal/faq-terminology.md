@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791481"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744570"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
 
@@ -51,7 +51,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Cidade do Cliente| Cliente| O nome da cidade fornecido pelo cliente. A cidade pode ser diferente da cidade na assinatura Azure de um cliente.||
 | Linguagem de comunicação do cliente  | Cliente| A linguagem preferida pelo cliente para a comunicação.||
 | Nome da empresa cliente | Cliente, Encomenda | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura Azure de um cliente.|  |
-| País cliente | Cliente, Encomenda | O nome do país fornecido pelo cliente. O país pode ser diferente do país na subscrição do Azure de um cliente.|  |
+| País/Região cliente | Cliente, Encomenda | O nome país/região fornecido pelo cliente. País/região poderia ser diferente do país/região na subscrição azure de um cliente.|  |
 | E-mail do cliente| Cliente| O endereço de e-mail fornecido pelo cliente final. O e-mail pode ser diferente do endereço de e-mail na Subscrição Azure de um cliente.||
 | Primeiro nome do cliente| Cliente| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na Subscrição Azure de um cliente.| |
 | ID de Cliente | Cliente, Encomenda | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace.|  |

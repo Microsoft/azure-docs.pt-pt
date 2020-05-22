@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com modelos'
 description: Neste arranque rápido, você usa um modelo de Gestor de Recursos para criar uma atribuição de política para identificar recursos não conformes.
-ms.date: 03/16/2020
+ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82187788"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757454"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes utilizando um modelo de Gestor de Recursos
 
@@ -30,7 +30,7 @@ Neste arranque rápido, cria-se uma atribuição de políticas e atribui-se uma 
 
 O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
 O recurso definido no modelo é:
 
@@ -47,10 +47,10 @@ O recurso definido no modelo é:
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Nome | Valor |
+   | Name | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
-   | Grupo de recursos | Selecione **Criar novo,** especificar um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart\<Date in\>MMDD rg_. |
+   | Grupo de recursos | Selecione **Criar novo,** especificar um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart \< Date in MMDD \> rg_. |
    | Localização | selecione uma região. Por exemplo, **Centro dos EUA.** |
    | Nome de atribuição de políticas | Especifique um nome de atribuição de apólices. Pode utilizar o visor de definição de política, se quiser. Por exemplo, **VMs de auditoria que não utilizam discos geridos**. |
    | Nome Rg | Especifique um nome de grupo de recursos para onde pretende atribuir a apólice. Neste arranque rápido, utilize o valor predefinido [nome do Grupo de **recursos].** **[recursosGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |

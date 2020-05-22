@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 697c038a2fefdde8e488dad23a4e38e0b2b7b288
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77e75caf836c4f7d142b0b5c23327d73afa6a77
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415856"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744630"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -55,7 +55,7 @@ O Centro de Segurança emprega análises de segurança avançadas, que ultrapass
 
 * **Inteligência integrada**de ameaças : A Microsoft tem uma enorme quantidade de inteligência global de ameaças. A telemetria flui de várias fontes, tais como Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, a Microsoft Digital Crimes Unit (DCU) e o Microsoft Security Response Center (MSRC). Os investigadores também recebem informações de inteligência de ameaças que são partilhadas entre os principais fornecedores de serviços na nuvem e feeds de outros terceiros. O Centro de Segurança do Azure pode utilizar estas informações para alertá-lo de ameaças de pessoas mal-intencionadas conhecidas.
 
-* **Análise comportamental**: A análise comportamental é uma técnica que analisa e compara dados a uma coleção de padrões conhecidos. No entanto, estes padrões não são simples assinaturas. São determinados através de algoritmos complexos de machine learning aplicados a conjuntos de dados gigantescos. Também são determinados através de uma análise cuidada de comportamentos maliciosos pelos analistas especialistas. O Azure Security Center pode usar análises comportamentais para identificar recursos comprometidos com base na análise de registos de máquinas virtuais, registos de dispositivos de rede virtual, troncos de tecido, lixeiras de colisão e outras fontes.
+* **Análise comportamental**: A análise comportamental é uma técnica que analisa e compara dados a uma coleção de padrões conhecidos. No entanto, estes padrões não são simples assinaturas. São determinados através de algoritmos complexos de machine learning aplicados a conjuntos de dados gigantescos. Também são determinados através de uma análise cuidada de comportamentos maliciosos pelos analistas especialistas. O Centro de Segurança do Azure pode utilizar a análise comportamental para identificar recursos comprometidos com base na análise de registos de máquina virtual, registos dos dispositivos de rede virtual, registos de recursos de infraestrutura e outras origens.
 
 * **Deteção de anomalias**: O Centro de Segurança Azure também utiliza a deteção de anomalias para identificar ameaças. Em contraste com a análise comportamental (que depende de padrões conhecidos derivados de grandes conjuntos de dados), a deteção de anomalias é mais "personalizada" e foca-se em linhas de base específicas das suas implementações. O machine Learning é utilizado para determinar a atividade normal das suas implementações e, em seguida, são geradas regras para definir condições de valores atípicos que podem representar um evento de segurança.
 

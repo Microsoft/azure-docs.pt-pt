@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35be2e0b7b5a24261cd8ee15b1964b953c1a3327
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277096"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747715"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -105,7 +105,7 @@ Pode escolher entre as seguintes definições:
      > [!NOTE]
      > Esta é a opção preferida se se ter esquecido da palavra-passe do administrador do dispositivo e não conseguir ligar através da opção 1 ou 2.
 
-4. **Mudar de linguagem** Esta opção permite alterar o idioma do ecrã na interface Do Windows PowerShell. As línguas apoiadas são inglês, japonês, russo, francês, sul-coreano, espanhol, italiano, alemão, chinês e português brasileiro.
+4. **Mudar de linguagem** Esta opção permite alterar o idioma do ecrã na interface Do Windows PowerShell. As línguas apoiadas são inglês, japonês, russo, francês, sul-coreano, espanhol, italiano, alemão, chinês e português.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Ligue-se remotamente ao StorSimple utilizando o Windows PowerShell para storSimple
 
@@ -158,8 +158,8 @@ Segue-se uma breve descrição dos tipos de Ajuda para esta interface Windows Po
 ### <a name="to-get-help-for-a-cmdlet"></a>Para obter ajuda para um cmdlet
 
 * Para obter ajuda para qualquer cmdlet ou função, use o seguinte comando:`Get-Help <cmdlet-name>`
-* Para obter ajuda on-line para qualquer cmdlet, `-Online` use o cmdlet anterior com o parâmetro:`Get-Help <cmdlet-name> -Online`
-* Para obter a ajuda `–Full` completa, pode utilizar o parâmetro `–Examples` e, por exemplo, utilizar o parâmetro.
+* Para obter ajuda on-line para qualquer cmdlet, use o cmdlet anterior com o `-Online` parâmetro:`Get-Help <cmdlet-name> -Online`
+* Para obter a ajuda completa, pode utilizar o `–Full` parâmetro e, por exemplo, utilizar o `–Examples` parâmetro.
 
 ### <a name="to-update-help"></a>Para atualizar a Ajuda
 
@@ -169,10 +169,10 @@ Pode atualizar facilmente a Ajuda na interface Windows PowerShell. Execute os se
 1. Inicie o Windows PowerShell com a executar como opção **de administrador.**
 2. No pedido de comando, escreva:`Update-Help`
 3. Os ficheiros de Ajuda atualizados serão instalados.
-4. Depois de instalados os ficheiros ajuda, escreva: `Get-Help Get-Command`. Isto apresentará uma lista de cmdlets para os quais a Ajuda está disponível.
+4. Depois de instalados os ficheiros ajuda, escreva: `Get-Help Get-Command` . Isto apresentará uma lista de cmdlets para os quais a Ajuda está disponível.
 
 > [!NOTE]
-> Para obter uma lista de todos os cmdlets disponíveis num espaço de `Get-Command` execução, faça login na opção de menu correspondente e faça o cmdlet.
+> Para obter uma lista de todos os cmdlets disponíveis num espaço de execução, faça login na opção de menu correspondente e faça o `Get-Command` cmdlet.
 
 
 ## <a name="next-steps"></a>Passos seguintes

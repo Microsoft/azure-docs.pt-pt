@@ -1,18 +1,18 @@
 ---
-title: Como consultar os registos dos VMs de início/paragem durante o horário de folga
-description: Este artigo descreve como consultar os dados de registo gerados por VMs Start/Stop durante a solução off-hours do Azure Monitor.
+title: Registos de consultas de VMs de arranque/paragem de automação Azure durante o horário de folga
+description: Este artigo diz como usar o Monitor Azure para consultar os dados de registo gerados por VMs Start/Stop durante o horário de folga.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 49b573c5cd0125ba378f01db05b925f8e5eef3eb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864237"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743715"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Como consultar os registos dos VMs de início/paragem durante o horário de folga
+# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Registos de consultas a partir de VMs de início/paragem durante o horário de folga
 
 A Azure Automation encaminha dois tipos de registos para o espaço de trabalho linked Log Analytics: registos de emprego e fluxos de trabalho. Este artigo analisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Monitor Azure.
 
@@ -60,7 +60,7 @@ Quando efetua qualquer pesquisa de registo que retorne os registos da categoria 
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 
-A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos de trabalhos que esta solução recolhe.
+A tabela seguinte fornece pesquisas de registo de amostras para registos de trabalho recolhidos por VMs start/stop durante o horário de folga.
 
 |Consulta | Descrição|
 |----------|----------|
@@ -71,4 +71,6 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os **VMs de início/paragem durante a** solução off-hours não incluem um conjunto predefinido de alertas. Reveja os [alertas de registo Create](../azure-monitor/platform/alerts-log.md) com o Monitor Azure para aprender a criar alertas falhados de trabalho para apoiar os seus DevOps ou processos e procedimentos operacionais.
+* [Criar alertas de log com o Monitor Azure](../azure-monitor/platform/alerts-log.md)
+* [Configurar VMs stop/start durante o horário de folga](automation-solution-vm-management-config.md)
+* [Problemas Iniciar/Parar VMs durante problemas fora de horas](troubleshoot/start-stop-vm.md)

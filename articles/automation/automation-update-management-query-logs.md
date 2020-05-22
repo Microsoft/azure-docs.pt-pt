@@ -1,30 +1,30 @@
 ---
-title: Registos de Gestão de Atualização De Consulta Azure
-description: Este artigo descreve como consultar os registos para Gestão de Atualizações no seu espaço de trabalho Log Analytics.
+title: Registos de Gestão de Atualização de Automação Do Azure
+description: Este artigo diz como consultar os registos para Gestão de Atualizações no seu espaço de trabalho Log Analytics.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2e9a97dac4d69ea4e470a932cb446d83b425dde
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617429"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745278"
 ---
-# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Registos de atualizações de consulta para Gestão de Atualizações em Registos de Monitores Azure
+# <a name="query-update-management-logs"></a>Consultar os registos da Gestão de Atualizações
 
-Além dos detalhes fornecidos na solução De Gestão de Atualizações, pode pesquisar contra os registos armazenados no seu espaço de trabalho Log Analytics. A partir da página de solução, no painel esquerdo, selecione **Logs**. A página de Pesquisa de Registos abre.
+Além dos detalhes fornecidos durante a implementação da Atualização, pode pesquisar os registos armazenados no seu espaço de trabalho Log Analytics. Para pesquisar os registos da sua conta Automation, selecione **a gestão de Atualizações** e abra o espaço de trabalho do Log Analytics associado à sua implementação.
 
-Também pode aprender a personalizar as consultas ou usá-las de diferentes clientes. Consulte [log Analytics pesquisar documentação DaPI](https://dev.loganalytics.io/).
+Também pode personalizar as consultas de registo ou usá-las de diferentes clientes. Consulte [log Analytics pesquisar documentação DaPI](https://dev.loganalytics.io/).
 
-## <a name="update-records"></a>Registos de atualizações
+## <a name="query-update-records"></a>Registos de atualização de consulta
 
 Update Management recolhe registos de VMs Windows e Linux e os tipos de dados que aparecem nos resultados de pesquisa de registo. As seguintes secções descrevem os registos.
 
-### <a name="required-updates"></a>Atualizações necessárias
+### <a name="query-required-updates"></a>Consultas necessárias atualizações
 
-É criado um `RequiredUpdate` registo com um tipo de maquete que representa as atualizações exigidas por uma máquina. Estes registos têm as propriedades na tabela seguinte:
+É criado um registo com um tipo de maquete `RequiredUpdate` que representa as atualizações exigidas por uma máquina. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição | 
 |----------|-------------|
@@ -33,19 +33,19 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. | 
 | Produto | Os produtos para os quais a atualização é aplicável. | 
 | PublishDate | A data em que a atualização está pronta para ser descarregada e instalada a partir do Windows Update. |
-| Server | | 
+| Servidor | | 
 | SourceHealthServiceId | Identificador único que representa o ID do agente do Windows de Log Analytics. |
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador único que representa as suas organizações exemplo de Diretório Ativo Azure. | 
 | TimeGenerated | Data e hora em que o disco foi criado. | 
 | Tipo | *Atualizar* | 
 | Classificação de Atualização | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Update rollups*<br> *Pacotes de funcionalidades*<br> *Service packs*<br> *Atualizações de definições*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas e de segurança*<br> *Outros* |
-| AtualizaçõesGravidade | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> *Crítica*<br> *Importante*<br> *Moderado*<br> *Baixa* |
+| AtualizaçõesGravidade | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderado*<br> *Baixa* |
 | Título de atualização | O título da atualização.|
 
-### <a name="update"></a>Atualizar
+### <a name="query-update-record"></a>Registo de Atualização de Consulta
 
-É criado um `Update` registo com um tipo de maquete que representa as atualizações disponíveis e o seu estado de instalação para uma máquina. Estes registos têm as propriedades na tabela seguinte:
+É criado um registo com um tipo de maquete que representa as atualizações disponíveis e o seu estado de `Update` instalação para uma máquina. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição | 
 |----------|-------------|
@@ -55,7 +55,7 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | Computador | Nome de domínio totalmente qualificado da máquina de reportagem. |
 | ComputadorAmbiente | O ambiente. Os valores possíveis são Azure ou Non-Azure. |
 | MSRCBulletinID | Número de identificação do boletim de segurança. | 
-| MSRCSeverity | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> Crítica<br> Importante<br> Moderado<br> Baixa |  
+| MSRCSeverity | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> Crítico<br> Importante<br> Moderado<br> Baixa |  
 | KBID | Id do artigo base de conhecimento para a atualização do Windows. |
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
 | UpdateID | Identificador único da atualização de software. |
@@ -67,7 +67,7 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | VMUUID | Identificador único para a máquina virtual. |
 | MG | Identificador único para o grupo de gestão ou espaço de trabalho Log Analytics. | 
 | TenantId | Identificador único que representa o exemplo da sua organização de Diretório Ativo Azure. | 
-| SourceSystem | O sistema de origem para o registo. O valor `OperationsManager`é. | 
+| SourceSystem | O sistema de origem para o registo. O valor `OperationsManager` é. | 
 | TimeGenerated | Data e hora da criação de discos. | 
 | SourceComputerId | Identificador único que representa o computador de origem. | 
 | Título | O título da atualização. |
@@ -80,9 +80,9 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | Recurso | Nome do recurso. | 
 | ResourceType | O tipo de recurso. | 
 
-### <a name="update-agent"></a>Agente de Atualização
+### <a name="query-update-agent-record"></a>Registo do Agente de Atualização de Consulta
 
-É criado um `UpdateAgent` registo com um tipo de que fornece detalhes do agente de atualização na máquina. Estes registos têm as propriedades na tabela seguinte:
+É criado um registo com um tipo de que `UpdateAgent` fornece detalhes do agente de atualização na máquina. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição | 
 |----------|-------------|
@@ -92,18 +92,18 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | DaysinceLastUpdateBucket | | 
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
 | OSVersion | A versão do sistema operativo. |
-| Server | |
+| Servidor | |
 | SourceHealthServiceId | Identificador único que representa o ID do agente do Windows de Log Analytics. |
-| SourceSystem | O sistema de origem para o registo. O valor `OperationsManager`é. | 
+| SourceSystem | O sistema de origem para o registo. O valor `OperationsManager` é. | 
 | TenantId | Identificador único que representa o exemplo da sua organização de Diretório Ativo Azure. |
 | TimeGenerated | Data e hora da criação de discos. |
 | Tipo | Tipo de disco. O valor é Update. | 
 | WindowsUpdateAgentVersion | Versão do agente Windows Update. |
 | WSUSServer | Erros se o agente windows Update tiver algum problema, para ajudar na resolução de problemas. |
 
-### <a name="update-deployment-status"></a>Estado de implementação de atualização 
+### <a name="query-update-deployment-status-record"></a>Registo do Estado de Implementação da Atualização de Consulta
 
-É criado um `UpdateRunProgress` registo com um tipo de que fornece o estado de implementação da atualização de uma implementação programada por máquina. Estes registos têm as propriedades na tabela seguinte:
+É criado um registo com um tipo de que fornece o `UpdateRunProgress` estado de implementação da atualização de uma implementação programada por máquina. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição | 
 |----------|-------------|
@@ -122,20 +122,20 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | ResourceProvider | O fornecedor de recursos. | 
 | ResourceType | Tipo de recurso. | 
 | SourceComputerId | Identificador único que representa o computador de origem. | 
-| SourceSystem | Sistema de origem para o registo. O valor `OperationsManager`é. |
+| SourceSystem | Sistema de origem para o registo. O valor `OperationsManager` é. |
 | StartTime | Hora da atualização estar programada para ser instalada. |
 | SubscriptionId | Identificador exclusivo da subscrição do Azure. | 
 | SucceededOnRetry | Valor indicando se a execução da atualização falhou na primeira tentativa e a operação atual é uma tentativa de retry. |
 | TimeGenerated | Data e hora da criação de discos. |
 | Título | O título da atualização. |
-| Tipo | O tipo de atualização. O valor `UpdateRunProgress`é. |
+| Tipo | O tipo de atualização. O valor `UpdateRunProgress` é. |
 | Atualização | Identificador único da atualização de software. |
 | VMUUID | Identificador único para a máquina virtual. |
 | ResourceId | Identificador único para o recurso associado ao registo. |
 
-### <a name="update-summary"></a>Resumo da atualização 
+### <a name="query-update-summary-record"></a>Registo resumo da atualização de consulta
 
-É criado um `UpdateSummary` registo com um tipo de máquina que fornece resumo de atualização por máquina. Estes registos têm as propriedades na tabela seguinte:
+É criado um registo com um tipo de máquina que fornece resumo de `UpdateSummary` atualização por máquina. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição | 
 |----------|-------------|
@@ -156,11 +156,11 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 | Reiniciar gastos | É verdade que se estiver pendente um recomeço, ou falso de outra forma. |
 | SecurityUpdatesMissing | Contagem de atualizações de segurança em falta que são aplicáveis.| 
 | SourceComputerId | Identificador único para a máquina virtual. |
-| SourceSystem | Sistema de origem para o registo. O valor `OpsManager`é. | 
+| SourceSystem | Sistema de origem para o registo. O valor `OpsManager` é. | 
 | SubscriptionId | Identificador exclusivo da subscrição do Azure. |
 | TimeGenerated | Data e hora da criação de discos. |
 | TotalUpdatesMissing | Número total de atualizações em falta aplicáveis. | 
-| Tipo | Tipo de disco. O valor `UpdateSummary`é. |
+| Tipo | Tipo de disco. O valor `UpdateSummary` é. |
 | VMUUID | Identificador único para a máquina virtual. |
 | WindowsUpdateAgentVersion | Versão do agente Windows Update. |
 | WindowsUpdateSetting | Estado do agente Deactualização do Windows. Os valores possíveis são:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
@@ -171,7 +171,7 @@ Update Management recolhe registos de VMs Windows e Linux e os tipos de dados qu
 
 As seguintes secções fornecem consultas de registo de amostras para registos de atualização que são recolhidos para Gestão de Atualizações.
 
-### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirme que as máquinas não-Azure estão a bordo
+### <a name="confirm-that-non-azure-machines-are-enabled-for-update-management"></a>Confirme que as máquinas não-Azure estão ativadas para gestão de atualizações
 
 Para confirmar que as máquinas ligadas diretamente estão a comunicar com os registos do Monitor Azure, faça uma das seguintes pesquisas de registo.
 
@@ -197,7 +197,7 @@ Num computador Windows, pode rever as seguintes informações para verificar a c
 Se o agente não conseguir comunicar com os registos do Monitor Azure e o agente estiver configurado para comunicar com a internet através de um servidor de firewall ou proxy, confirme que a firewall ou servidor proxy está corretamente configurada. Para saber como verificar se a firewall ou o servidor proxy está corretamente configurado, consulte a [configuração da rede para o agente Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Se os seus sistemas Linux estiverem configurados para comunicar com um proxy ou Log Analytics Gateway e estiver a embarcar nesta solução, atualize as permissões *proxy.conf* para conceder ao grupo omiuser a permissão de leitura no ficheiro utilizando os seguintes comandos:
+> Se os seus sistemas Linux estiverem configurados para comunicar com um proxy ou Log Analytics Gateway e estiver a ativar a Atualização de Gestão, atualize as `proxy.conf` permissões para conceder ao grupo omiuser a permissão de leitura no ficheiro utilizando os seguintes comandos:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Utilize pesquisas de registo nos [registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md) para visualizar dados de atualização detalhados.
-* [Crie alertas](automation-tutorial-update-management.md#configure-alerts) para o estado de implementação da atualização.
+* [Registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md)
+* [Configurar alertas](automation-tutorial-update-management.md#configure-alerts)

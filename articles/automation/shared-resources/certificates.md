@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9542fe6cb574b36b03151a50a0352c9175a22b55
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ebd4bf0ff91342229edb4295489f0cbd0970699a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711470"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745032"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gerir certificados na Automação Azure
 
@@ -163,8 +163,9 @@ cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
 print cert
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Utilizar módulos na Automatização do Azure](modules.md)
-* [Execução de runbooks na Automatização do Azure](../automation-runbook-execution.md)
-* [Visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md) 
+* Para saber mais sobre os cmdlets usados para aceder a certificados, consulte [Gerir módulos em Automação Azure](modules.md).
+* Para obter informações gerais sobre livros de execução, consulte a execução do Livro de [Corridas na Automação Azure.](../automation-runbook-execution.md)
+* Para mais detalhes sobre as configurações do DSC, consulte a visão geral da Configuração do Estado da [Automatização do Azure](../automation-dsc-overview.md). 
+

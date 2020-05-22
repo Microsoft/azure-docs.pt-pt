@@ -1,18 +1,18 @@
 ---
-title: Visão geral do rastreio de mudanças e inventário na automação azure
-description: Alterar o Rastreio e O Inventário ajuda-o a identificar as alterações de software e de serviço da Microsoft que ocorrem no seu ambiente.
+title: Visão geral de rastreio e inventário de alterações de automatização azure
+description: Este artigo descreve a funcionalidade Change Tracking and Inventory, que o ajuda a identificar alterações de software e de serviço da Microsoft que ocorrem no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ab091ba413a8429a8fea131c643cceee7007f927
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787180"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744369"
 ---
-# <a name="overview-of-change-tracking-and-inventory"></a>Visão geral do rastreio e inventário de alterações
+# <a name="change-tracking-and-inventory-overview"></a>Alterar visão geral do rastreio e do inventário
 
 Este artigo apresenta-o ao Change Tracking and Inventory in Azure Automation. Esta funcionalidade rastreia alterações em máquinas virtuais e infraestrutura de servidores para ajudá-lo a identificar problemas operacionais e ambientais com software gerido pelo Gestor de Pacotes de Distribuição. Os itens que são rastreados por Change Tracking e Inventário incluem: 
 
@@ -50,13 +50,13 @@ Outras limitações:
 Change Tracking and Inventory está atualmente a ter os seguintes problemas:
 
 * As atualizações hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
-* Os daemons linux podem mostrar um estado mudado, mesmo que não tenha ocorrido nenhuma mudança. Este problema surge devido à `SvcRunLevels` forma como os dados no registo de [Configuração](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) do Monitor Azure são capturados.
+* Os daemons linux podem mostrar um estado mudado, mesmo que não tenha ocorrido nenhuma mudança. Este problema surge devido à forma como os `SvcRunLevels` dados no registo de [Configuração](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) do Monitor Azure são capturados.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 O Rastreio e Inventário de Alterações é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões do sistema operativo Windows que são suportadas oficialmente são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. Alguns sistemas operativos Linux também são suportados. Consulte a [visão geral do agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 
 Alterar o Rastreio e o Inventário requer especificamente os endereços de rede listados na tabela seguinte. As comunicações para estes endereços utilizam a porta 443.
 
@@ -136,7 +136,7 @@ Alterar rastreio e inventário faz uso da Monitorização de Integridade do Fich
 Alterar rastreio e inventário suporta a recursição, o que lhe permite especificar wildcards para simplificar o rastreio entre diretórios. A recursion também fornece variáveis ambientais que lhe permitem rastrear ficheiros em ambientes com nomes de unidade múltiplos ou dinâmicos. A lista que se segue inclui informações comuns que deve saber ao configurar a recursão:
 
 * Os wildcards são necessários para rastrear vários ficheiros.
-* Os wildcards só podem ser utilizados no último segmento de um caminho, por exemplo, **c:\ficheiro de\\pasta*** ou **/etc/*.conf**.
+* Os wildcards só podem ser utilizados no último segmento de um caminho, por exemplo, ** \\ c:\ficheiro de pasta*** ou **/etc/*.conf**.
 * Se uma variável ambiental tem um caminho inválido, a validação é bem sucedida, mas o caminho falha durante a execução.
 * Evite nomes de caminhos gerais ao definir o caminho, uma vez que este tipo de definição pode fazer com que muitas pastas sejam atravessadas.
 
@@ -184,17 +184,18 @@ Uma capacidade chave de Change Tracking and Inventory está a alertar sobre alte
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfiguraçãoChange <br>&#124; onde configChangeType == "Ficheiros" e\\FileSystemPath contém\\" c: controladores do sistema de janelas32\\\\"|Útil para rastrear alterações em ficheiros críticos do sistema.|
-|ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath\\==\\\\"c:\\\\windows system32 drivers etc hosts"|Útil para rastrear modificações em ficheiros de configuração chave.|
+|ConfiguraçãoChange <br>&#124; onde configChangeType == "Ficheiros" e FileSystemPath contém " c: \\ controladores do sistema de \\ \\ janelas32 \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
+|ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ windows \\ system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração chave.|
 |ConfiguraçãoChange <br>&#124; onde configChangeType == "Serviços Microsoft" e SvcName contém "w3svc" e SvcState == "Parou"|Útil para rastrear alterações nos serviços críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Daemons" e SvcName contém "ssh" e SvcState!= "Running"|Útil para rastrear alterações nos serviços críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde configChangeType == "Software" e ChangeCategory == "Adicionado"|Útil para ambientes que precisam de configurações de software bloqueados.|
 |ConfiguraçãoData <br>&#124; onde o SoftwareName contém "Monitoring Agent" e CurrentVersion!= "8.0.11081.0"|Útil para ver quais as máquinas que têm versão de software desatualizada ou não conforme instalada. Esta consulta relata o último estado de configuração relatado, mas não reporta alterações.|
-|ConfiguraçãoChange <br>&#124; onde registryKey ==\\\\@"HKEY_LOCAL_MACHINE SOFTWARE Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para rastrear alterações em teclas antivírus cruciais.|
-|ConfiguraçãoChange <br>&#124; onde o RegistoKey\\contém\\serviços\\\\de\\controlo\\partilhado de parâmetros de acesso partilhados do sistema de acesso partilhado HKEY_LOCAL_MACHINE do sistema de acesso partilhado do sistema de acesso ao sistema de acesso @".| Útil para rastrear alterações nas definições de firewall.|
+|ConfiguraçãoChange <br>&#124; onde registryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE \\ Microsoft \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em teclas antivírus cruciais.|
+|ConfiguraçãoChange <br>&#124; onde o RegistoKey contém serviços de controlo partilhado de parâmetros de acesso partilhados por parte do sistema de acesso partilhado do sistema de acesso partilhado @"HKEY_LOCAL_MACHINE system \\ \\ CurrentControlSet \\ \\ \\ \\ Services"| Útil para rastrear alterações nas definições de firewall.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para trabalhar com o Change Tracking e Inventário nos seus livros de execução, consulte Gerir o Rastreio e O Inventário de [Alterações](change-tracking-file-contents.md).
-* Para resolver erros com rastreio e inventário de alterações, consulte Rastreio e Inventário de Resolução de Resolução de [Problemas](automation-tutorial-troubleshoot-changes.md).
-* Utilize as pesquisas de [registo nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md) para visualizar dados de rastreio de alterações detalhadas.
+* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
+* [Pesquisas de log nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md)
+* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
+* [Mudanças de resolução de problemas num VM Azure](automation-tutorial-troubleshoot-changes.md)

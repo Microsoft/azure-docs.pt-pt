@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863438"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745550"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
 Este artigo fornece os passos para que possa proteger o tráfego de saída do seu cluster HDInsight utilizando o Azure Firewall. Os passos abaixo assumem que está a configurar uma Firewall Azure para um cluster existente. Se estiver a implantar um novo cluster atrás de uma firewall, crie primeiro o seu cluster HDInsight e sub-rede. Em seguida, siga os passos deste guia.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Fundo
 
 Os clusters HDInsight são normalmente implantados numa rede virtual. O cluster tem dependências de serviços fora daquela rede virtual.
 
@@ -53,7 +53,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
 1. Selecione a nova firewall **Test-FW01** do portal Azure.
 
-1. Navegar para **configurações** > **Regras** > **De aplicação coleção** > de regras **+ Adicionar coleção de regras de aplicação**.
+1. Navegar para **configurações**  >  **Regras**  >  **De aplicação coleção**de regras + Adicionar coleção de regras de  >  **aplicação**.
 
     ![Título: Adicionar coleção de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -79,7 +79,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Substitua-o `storage_account_name` pelo nome da sua conta de armazenamento. Se o seu cluster for apoiado pelo WASB, adicione uma regra para WASB. Para utilizar apenas ligações https, certifique-se de que [a "transferência segura necessária"](../storage/common/storage-require-secure-transfer.md) está ativada na conta de armazenamento. |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Substitua-o pelo nome da sua conta de `storage_account_name` armazenamento. Se o seu cluster for apoiado pelo WASB, adicione uma regra para WASB. Para utilizar apenas ligações https, certifique-se de que [a "transferência segura necessária"](../storage/common/storage-require-secure-transfer.md) está ativada na conta de armazenamento. |
 
    ![Título: Introduzir detalhes da recolha da regra da aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -89,7 +89,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
 Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
-1. Continuando a partir do passo anterior, navegue para **a recolha** > de regras da Rede + Adicione a recolha de regras da**rede.**
+1. Continuando a partir do passo anterior, navegue para a recolha de **regras da Rede**+ Adicione a recolha de regras da  >  **rede.**
 
 1. No ecrã de recolha de **regras da rede Add,** forneça as seguintes informações:
 
@@ -115,7 +115,8 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
     | Name | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na secção Etiquetas de Serviço para SQL que lhe permitirá registar e auditar o tráfego SQL. A menos que tenha configurado os pontos finais do serviço para o Servidor SQL na subnet HDInsight, que irá contornar a firewall. |
-
+    | Rule_8 | TCP | * | Azure Monitor | * | (opcional) Os clientes que planeiam utilizar a função de escala automática devem adicionar esta regra. |
+    
    ![Título: Introduzir a recolha de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Selecione **Adicionar**.
@@ -134,9 +135,9 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 1. Selecione o seu firewall Azure **Test-FW01**. Copie o **endereço IP privado** listado na página **'Overview'.** Para este exemplo, usaremos um **endereço de amostra de 10.0.2.4**.
 
-1. Em seguida, navegue para todas**as tabelas** de rota**de** > rede de **serviços** > e **crie tabela de rotas.**
+1. Em seguida, navegue para **todas as tabelas**de rota de rede de serviços  >  **Networking**  >  **Route tables** e **crie tabela de rotas.**
 
-1. A partir da sua nova rota, navegue para**Rotas** >  **de Definições** > **+ Adicionar**. Adicione as seguintes rotas:
+1. A partir da sua nova rota, navegue para **Rotas de Definições**  >  **Routes**  >  **+ Adicionar**. Adicione as seguintes rotas:
 
 | Nome da rota | Prefixo de endereço | Tipo de salto seguinte | Endereço do próximo salto |
 |---|---|---|---|
@@ -184,11 +185,11 @@ Para conhecer os limites de escala do Firewall Azure e solicitar aumentos, consu
 
 ## <a name="access-to-the-cluster"></a>Acesso ao cluster
 
-Depois de ter a firewall configurada com sucesso,`https://CLUSTERNAME-int.azurehdinsight.net`pode utilizar o ponto final interno para aceder ao Ambari a partir de dentro da rede virtual.
+Depois de ter a firewall configurada com sucesso, pode utilizar o ponto final interno para `https://CLUSTERNAME-int.azurehdinsight.net` aceder ao Ambari a partir de dentro da rede virtual.
 
-Para utilizar o ponto`https://CLUSTERNAME.azurehdinsight.net`final do público (`CLUSTERNAME-ssh.azurehdinsight.net`) ou ssh endpoint ( ), certifique-se de que você tem as rotas certas na tabela de rotas e regras DE NSG para evitar a questão de encaminhamento assimétrico explicado [aqui](../firewall/integrate-lb.md). Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e `internet`também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como . Se o encaminhamento não estiver bem configurado, verá um erro de tempo.
+Para utilizar o ponto final do público `https://CLUSTERNAME.azurehdinsight.net` ( ) ou ssh endpoint ( `CLUSTERNAME-ssh.azurehdinsight.net` ), certifique-se de que você tem as rotas certas na tabela de rotas e regras DE NSG para evitar a questão de encaminhamento assimétrico explicado [aqui](../firewall/integrate-lb.md). Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como `internet` . Se o encaminhamento não estiver bem configurado, verá um erro de tempo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)
-* [Configurar aparelho virtual de rede](./network-virtual-appliance.md)
+* [Configurar aplicação virtual de rede](./network-virtual-appliance.md)

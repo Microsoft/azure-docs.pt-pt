@@ -8,16 +8,16 @@ ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 7d1d27cede6c593150d3937bb3aa0ca59394eea9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7e2b522d475a49f694a8cb57bf57f62900948b0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062171"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743196"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inscreva-se usando informações de verificação ou segurança em duas etapas
 

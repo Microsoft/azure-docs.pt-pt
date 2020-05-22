@@ -4,12 +4,12 @@ description: Fornece um resumo das definições de suporte e limitações para o
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec267053a0bc675d05e6488665f77467da9370e0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680705"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746843"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte de migração Azure
 
@@ -43,7 +43,7 @@ Migração do Servidor do Azure Migrate | ND | [VMs migratórios,](tutorial-migr
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar as bases de dados do SQL Server no local. | ND
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura virtual de ambiente de trabalho (VDI) | ND
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs VMs, Hiper-VMs, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho em nuvem pública | ND
+[Movere](https://www.movere.io/) | Avaliar VMs VMs, Hiper-VMs, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho em nuvem pública | ND
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | VMs migratórios VMWare, VMs Hiper-V, VMs Xen, VMs KVM, máquinas físicas, cargas de trabalho em nuvem pública 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. | ND
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avaliar VMs VMware, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública e bases de dados do Servidor SQL. | ND
@@ -87,16 +87,16 @@ França | França Central
 Japão |  Japão Leste ou Japão Oeste
 Coreia | Coreia Central ou Coreia do Sul
 Reino Unido | Reino Unido Sul ou Reino Unido Oeste
-Estados Unidos | Centro dos EUA ou Oeste DOS EUA 2
+Estados Unidos da América | Centro dos EUA ou Oeste DOS EUA 2
 
 
 ## <a name="supported-geographies-azure-government"></a>Geografias apoiadas (Governo Azure)
 
 **Tarefa** | **Geografia** | **Detalhes**
 --- | --- | ---
-Criar o projeto | Estados Unidos | Metadados são armazenados em US Gov Arizona, EUA Gov Virginia
-Avaliação do objetivo | Estados Unidos | Regiões-alvo: US Gov Arizona, EUA Gov Virginia, EUA Gov Texas
-Replicação do alvo | Estados Unidos | Regiões-alvo: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
+Criar o projeto | Estados Unidos da América | Metadados são armazenados em US Gov Arizona, EUA Gov Virginia
+Avaliação do objetivo | Estados Unidos da América | Regiões-alvo: US Gov Arizona, EUA Gov Virginia, EUA Gov Texas
+Replicação do alvo | Estados Unidos da América | Regiões-alvo: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 
 ## <a name="vmware-assessment-and-migration"></a>Avaliação e migração vMware

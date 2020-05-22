@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e06fe95b48468616dce913e19c430dc2818719
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80384233"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744871"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar dPDK numa máquina virtual Linux
 
@@ -50,7 +50,7 @@ As seguintes distribuições do Mercado Azure são suportadas:
 
 **Suporte personalizado de kernel**
 
-Para qualquer versão linux kernel que não esteja listada, consulte [Patches para construir um kernel Linux afinado em Azure.](https://github.com/microsoft/azure-linux-kernel) Para mais informações, [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)também pode contactar. 
+Para qualquer versão linux kernel que não esteja listada, consulte [Patches para construir um kernel Linux afinado em Azure.](https://github.com/microsoft/azure-linux-kernel) Para mais informações, também pode [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com) contactar. 
 
 ## <a name="region-support"></a>Suporte de região
 
@@ -109,10 +109,10 @@ zypper \
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Configurar o ambiente da máquina virtual (uma vez)
 
 1. [Descarregue o mais recente DPDK](https://core.dpdk.org/download). Versão 18.11 LTS ou 19.11 LTS é necessária para o Azure.
-2. Construa o config predefinido com `make config T=x86_64-native-linuxapp-gcc`.
-3. Ative pmDs Mellanox no config `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`gerado com .
-4. Compilar `make`com.
-5. Instale `make install DESTDIR=<output folder>`com .
+2. Construa o config predefinido com `make config T=x86_64-native-linuxapp-gcc` .
+3. Ative pmDs Mellanox no config gerado com `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config` .
+4. Compilar `make` com.
+5. Instale com `make install DESTDIR=<output folder>` .
 
 ## <a name="configure-the-runtime-environment"></a>Configure o ambiente de tempo de execução
 
@@ -126,20 +126,20 @@ Depois de reiniciar, executar os seguintes comandos uma vez:
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   * Crie um diretório `mkdir /mnt/huge`para montagem com .
-   * Monte páginas `mount -t hugetlbfs nodev /mnt/huge`enormes com.
-   * Verifique se as páginas `grep Huge /proc/meminfo`enormes estão reservadas com.
+   * Crie um diretório para montagem com `mkdir /mnt/huge` .
+   * Monte páginas enormes `mount -t hugetlbfs nodev /mnt/huge` com.
+   * Verifique se as páginas enormes estão reservadas `grep Huge /proc/meminfo` com.
 
      > [NOTA] Existe uma maneira de modificar o ficheiro de larvas para que as páginas enormes sejam reservadas no arranque seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Quando estiver a utilizar uma máquina virtual Azure Linux, modifique os ficheiros em vez de **/etc/config/grub.d,** para reservar páginas enormes através de reboots.
 
-2. MAC & endereços `ifconfig –a` IP: Utilize para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. As interfaces *VF* estão a funcionar como interfaces subordinadas das interfaces *NETVSC.*
+2. MAC & endereços IP: Utilize `ifconfig –a` para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. As interfaces *VF* estão a funcionar como interfaces subordinadas das interfaces *NETVSC.*
 
 3. Endereços PCI
 
-   * Utilize `ethtool -i <vf interface name>` para descobrir qual o endereço PCI a utilizar para *VF*.
+   * Utilize para descobrir qual o `ethtool -i <vf interface name>` endereço PCI a utilizar para *VF*.
    * Se o *eth0* tiver ativado a rede acelerada, certifique-se de que o testpmd não assume acidentalmente o dispositivo *vf* pci para o *eth0*. Se a aplicação DPDK assumir acidentalmente a interface da rede de gestão e fizer com que perca a ligação SSH, utilize a consola em série para parar a aplicação DPDK. Também pode utilizar a consola em série para parar ou ligar a máquina virtual.
 
-4. Carregue *ibuverbos* em `modprobe -a ib_uverbs`cada reinicialização com . Apenas para sles 15, `modprobe -a mlx4_ib`também carregue *mlx4_ib* com .
+4. Carregue *ibuverbos* em cada reinicialização com `modprobe -a ib_uverbs` . Apenas para sles 15, também carregue *mlx4_ib* com `modprobe -a mlx4_ib` .
 
 ## <a name="failsafe-pmd"></a>PMD de segurança
 
@@ -149,7 +149,7 @@ Se executar uma aplicação DPDK sobre o PMD de segurança, garante que a aplica
 
 ## <a name="run-testpmd"></a>Executar testpmd
 
-Para executar o testpmd `sudo` no modo raiz, utilize antes do comando *testpmd.*
+Para executar o testpmd no modo raiz, utilize `sudo` antes do comando *testpmd.*
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Verificação de sanidade, inicialização do adaptador failsafe
 
@@ -172,9 +172,9 @@ Para executar o testpmd `sudo` no modo raiz, utilize antes do comando *testpmd.*
    -- -i
    ```
 
-   Se estiver a fazer testes com mais de dois `--vdev` NICs, `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`o argumento segue este padrão: .
+   Se estiver a fazer testes com mais de dois NICs, o `--vdev` argumento segue este padrão: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>` .
 
-3.  Depois de começar, `show port info all` corra para verificar a informação do porto. Deve ver uma ou duas portas DPDK que são net_failsafe (não *net_mlx4).*
+3.  Depois de começar, corra `show port info all` para verificar a informação do porto. Deve ver uma ou duas portas DPDK que são net_failsafe (não *net_mlx4).*
 4.  Usa `start <port> /stop <port>` para iniciar o trânsito.
 
 Os comandos anteriores iniciam o *teste* em modo interativo, que é recomendado para a experimentação de comandos testpmd.
@@ -213,7 +213,7 @@ Os seguintes comandos imprimem periodicamente os pacotes por segunda estatístic
      --stats-period <display interval in seconds>
    ```
 
-Quando estiver a executar os comandos anteriores numa máquina `app/test-pmd/txonly.c` virtual, mude *IP_SRC_ADDR* e *IP_DST_ADDR* para combinar com o endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são retirados antes de chegarem ao recetor.
+Quando estiver a executar os comandos anteriores numa máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* `app/test-pmd/txonly.c` para corresponder ao endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são retirados antes de chegarem ao recetor.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>Avançado: Remetente único/único forwardr
 Os seguintes comandos imprimem periodicamente os pacotes por segunda estatística:
@@ -249,7 +249,7 @@ Os seguintes comandos imprimem periodicamente os pacotes por segunda estatístic
      --stats-period <display interval in seconds>
     ```
 
-Quando estiver a executar os comandos anteriores numa máquina `app/test-pmd/txonly.c` virtual, mude *IP_SRC_ADDR* e *IP_DST_ADDR* para combinar com o endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são retirados antes de chegarem ao avançado. Não poderá ter uma terceira máquina a receber tráfego encaminhada, porque o avançado *testpmd* não modifica os endereços da camada 3, a menos que faça algumas alterações de código.
+Quando estiver a executar os comandos anteriores numa máquina virtual, altere *IP_SRC_ADDR* e *IP_DST_ADDR* `app/test-pmd/txonly.c` para corresponder ao endereço IP real das máquinas virtuais antes de compilar. Caso contrário, os pacotes são retirados antes de chegarem ao avançado. Não poderá ter uma terceira máquina a receber tráfego encaminhada, porque o avançado *testpmd* não modifica os endereços da camada 3, a menos que faça algumas alterações de código.
 
 ## <a name="references"></a>Referências
 

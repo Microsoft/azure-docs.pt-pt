@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: c95ae2e48a7d5a3b9e9e28b1d4e14b670205c043
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062290"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741175"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 
@@ -42,7 +42,7 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 | Verificação de dois fatores | Um processo de verificação que requer que utilize especificamente apenas duas peças de informação de verificação, como uma palavra-passe e um PIN. A aplicação Microsoft Authenticator suporta tanto a verificação padrão de dois fatores como o sem palavras-de-cartaz. |
 | Multi-Factor Authentication (MFA) | Toda a verificação de dois fatores é a autenticação de vários fatores, exigindo que utilize *pelo menos* duas peças de informação de verificação, com base nos requisitos da sua organização. |
 | Conta Microsoft (também chamada, MSA) | Cria as suas próprias contas pessoais, para ter acesso aos seus produtos microsoft orientados para o consumidor e serviços na nuvem, tais como Outlook, OneDrive, Xbox LIVE ou Office 365. A sua conta Microsoft é criada e armazenada no sistema de conta de identidade de consumo da Microsoft que é gerido pela Microsoft. |
-| Conta escolar ou profissional | A sua organização cria o seu alain@contoso.comtrabalho ou conta escolar (como) para permitir o acesso a recursos internos e potencialmente restritos, como o Microsoft Azure, Windows Intune e Office 365. |
+| Conta escolar ou profissional | A sua organização cria o seu trabalho ou conta escolar alain@contoso.com (como) para permitir o acesso a recursos internos e potencialmente restritos, como o Microsoft Azure, Windows Intune e Office 365. |
 | Código de verificação | O código de seis dígitos que aparece na aplicação autenticadora, em cada conta adicionada. O código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes. Isto também é conhecido como uma senha única (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Como a verificação de dois fatores funciona com a app
@@ -63,11 +63,11 @@ Se utilizar um PIN para completar o processo de autenticação, pode configurar 
 
 Dependendo do tipo de conta, a sua organização pode decidir que deve usar a verificação de dois fatores, ou poderá decidir por si mesmo.
 
-- **Trabalho ou conta escolar.** Se está a usar uma conta de alain@contoso.comtrabalho ou de escola (por exemplo), cabe à sua organização utilizar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Para obter mais informações sobre a adição do seu trabalho ou conta escolar à aplicação Microsoft Authenticator, consulte [Adicionar o seu trabalho ou contas escolares](user-help-auth-app-add-work-school-account.md).
+- **Trabalho ou conta escolar.** Se está a usar uma conta de trabalho ou de escola (por exemplo), cabe à sua organização utilizar a alain@contoso.com verificação de dois fatores, juntamente com os métodos de verificação específicos. Para obter mais informações sobre a adição do seu trabalho ou conta escolar à aplicação Microsoft Authenticator, consulte [Adicionar o seu trabalho ou contas escolares](user-help-auth-app-add-work-school-account.md).
 
-- **Conta pessoal da Microsoft.** Pode optar por configurar uma verificação de dois fatores alain@outlook.compara as suas contas pessoais da Microsoft (por exemplo, ). Para mais informações sobre a adição da sua conta pessoal da Microsoft, consulte [Adicionar as suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).
+- **Conta pessoal da Microsoft.** Pode optar por configurar uma verificação de dois fatores para as suas contas pessoais da Microsoft (por exemplo, alain@outlook.com ). Para mais informações sobre a adição da sua conta pessoal da Microsoft, consulte [Adicionar as suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).
 
-- **Conta não Microsoft.** Pode optar por configurar uma verificação de dois fatores alain@gmail.compara as suas contas não Microsoft (por exemplo, ). As suas contas não Microsoft podem não utilizar o termo, verificação de dois fatores, mas deverá ser capaz de encontrar a funcionalidade dentro das definições de **Segurança** ou **de Iniciar Sessão.** A aplicação Microsoft Authenticator funciona com quaisquer contas que suportem os padrões TOTP. Para obter mais informações sobre a adição das suas contas não Microsoft, consulte [Adicionar as suas contas não Microsoft](user-help-auth-app-add-non-ms-account.md).
+- **Conta não Microsoft.** Pode optar por configurar uma verificação de dois fatores para as suas contas não Microsoft (por exemplo, alain@gmail.com ). As suas contas não Microsoft podem não utilizar o termo, verificação de dois fatores, mas deverá ser capaz de encontrar a funcionalidade dentro das definições de **Segurança** ou **de Iniciar Sessão.** A aplicação Microsoft Authenticator funciona com quaisquer contas que suportem os padrões TOTP. Para obter mais informações sobre a adição das suas contas não Microsoft, consulte [Adicionar as suas contas não Microsoft](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="in-this-section"></a>Nesta secção
 

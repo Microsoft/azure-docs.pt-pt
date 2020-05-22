@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b3733dfc32dae21ddcf4c5f73cddf9ad6b7fc59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334075"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746010"
 ---
 # <a name="localization-support-in-azure-maps"></a>Apoio à localização no Azure Maps
 
@@ -25,7 +25,7 @@ O Azure Maps apoia várias línguas e pontos de vista baseados em país/região.
 O Azure Maps foi localizado em línguas de variedades em todos os seus serviços. A tabela seguinte fornece os códigos linguísticos suportados para cada serviço.  
   
 
-| ID         | Nome                   |  Maps | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
+| ID         | Name                   |  Mapas | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -142,12 +142,12 @@ Certifique-se de que configura o parâmetro **'Ver'** conforme necessário para 
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-Por predefinição, o parâmetro View está definido para **Unificado,** mesmo que não o tenha definido no pedido. Determine a localização dos seus utilizadores. Em seguida, defina corretamente o parâmetro **'Vista'** para esse local. Em alternativa, pode definir 'View=Auto', que devolverá os dados do mapa com base no endereço IP do pedido.  O parâmetro **View** in Azure Maps deve ser utilizado de acordo com as leis aplicáveis, incluindo as leis sobre mapeamento do país onde mapas, imagens e outros dados e conteúdos de terceiros que está autorizado a aceder através do Azure Maps são disponibilizados.
+Por predefinição, o parâmetro View está definido para **Unificado,** mesmo que não o tenha definido no pedido. Determine a localização dos seus utilizadores. Em seguida, defina corretamente o parâmetro **'Vista'** para esse local. Em alternativa, pode definir 'View=Auto', que devolverá os dados do mapa com base no endereço IP do pedido.  O parâmetro **View** in Azure Maps deve ser utilizado de acordo com as leis aplicáveis, incluindo as leis sobre mapeamento do país/região onde mapas, imagens e outros dados e conteúdos de terceiros que está autorizado a aceder através do Azure Maps são disponibilizados.
 
 
 A tabela seguinte fornece pontos de vista apoiados.
 
-| Vista         | Descrição                            |  Maps | Pesquisa | Controlo de mapas JS |
+| Vista         | Descrição                            |  Mapas | Pesquisa | Controlo de mapas JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirados Árabes Unidos (Vista Árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (Visão Argentina)           |   ✓   |    ✓   |     ✓          |

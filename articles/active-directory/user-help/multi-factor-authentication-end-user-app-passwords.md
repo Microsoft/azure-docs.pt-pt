@@ -9,16 +9,16 @@ ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/13/2019
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5f81181ac3107307a352cdbcd0b5cc4a555deacb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62723e56bf78a4d80a6e026185d50537fdfa847f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253224"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738900"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir senhas de aplicação para verificação em duas etapas
 
@@ -42,11 +42,11 @@ Durante o seu processo inicial de registo de verificação de dois fatores, é-l
 
 Pode criar e eliminar palavras-passe de aplicações, com base na forma como utiliza a verificação de dois fatores:
 
-- **A sua organização utiliza verificação de dois fatores e a página adicional de verificação de segurança.** Se estiver a utilizar o seu trabalho alain@contoso.comou conta escolar (por exemplo, ) com verificação de dois fatores na sua organização, pode gerir as suas palavras-passe da sua aplicação a partir da página adicional de [verificação](https://account.activedirectory.windowsazure.com/Proofup.aspx)de segurança . Para obter instruções detalhadas, consulte [Criar e eliminar palavras-passe](#create-and-delete-app-passwords-from-the-additional-security-verification-page) da aplicação utilizando a página adicional de verificação de segurança neste artigo.
+- **A sua organização utiliza verificação de dois fatores e a página adicional de verificação de segurança.** Se estiver a utilizar o seu trabalho ou conta escolar (por exemplo, alain@contoso.com ) com verificação de dois fatores na sua organização, pode gerir as suas palavras-passe da sua aplicação a partir da página adicional de [verificação](https://account.activedirectory.windowsazure.com/Proofup.aspx)de segurança . Para obter instruções detalhadas, consulte [Criar e eliminar palavras-passe](#create-and-delete-app-passwords-from-the-additional-security-verification-page) da aplicação utilizando a página adicional de verificação de segurança neste artigo.
 
-- **A sua organização usa a verificação de dois fatores e o portal office 365.** Se estiver a usar o seu trabalho alain@contoso.comou conta escolar (como, por exemplo), verificação de dois fatores e aplicações do Office 365 na sua organização, pode gerir as suas palavras-passe da sua aplicação a partir da página do [portal Office 365](https://www.office.com). Para obter instruções detalhadas, consulte Criar e eliminar senhas de [aplicação utilizando o portal Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
+- **A sua organização usa a verificação de dois fatores e o portal office 365.** Se estiver a usar o seu trabalho ou conta escolar (como, por exemplo), alain@contoso.com verificação de dois fatores e aplicações do Office 365 na sua organização, pode gerir as suas palavras-passe da sua aplicação a partir da página do [portal Office 365](https://www.office.com). Para obter instruções detalhadas, consulte Criar e eliminar senhas de [aplicação utilizando o portal Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
 
-- **Está a usar a verificação de dois fatores com uma conta pessoal da Microsoft.** Se estiver a utilizar uma conta pessoal alain@outlook.comda Microsoft (por exemplo, ) com verificação de dois fatores, pode gerir as suas palavras-passe da aplicação a partir da [página de bases](https://account.microsoft.com/security/)da Segurança . Para obter instruções detalhadas, consulte [A utilização de palavras-passe de aplicativos com aplicações que não suportam a verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
+- **Está a usar a verificação de dois fatores com uma conta pessoal da Microsoft.** Se estiver a utilizar uma conta pessoal da Microsoft (por exemplo, alain@outlook.com ) com verificação de dois fatores, pode gerir as suas palavras-passe da aplicação a partir da [página de bases](https://account.microsoft.com/security/)da Segurança . Para obter instruções detalhadas, consulte [A utilização de palavras-passe de aplicativos com aplicações que não suportam a verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
 ## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>Criar e eliminar senhas de aplicação a partir da página adicional de verificação de segurança
 

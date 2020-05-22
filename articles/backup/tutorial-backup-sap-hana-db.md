@@ -3,12 +3,12 @@ title: Tutorial - Back up Bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução em Azure VM para um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79501447"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747215"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Back up Bases de dados SAP HANA em um VM Azure
 
@@ -29,9 +29,14 @@ Certifique-se de que faz o seguinte antes de configurar as cópias de segurança
 * Permita a conectividade do VM para a internet, para que possa chegar ao Azure, conforme descrito no procedimento de conectividade da [rede de configuração](#set-up-network-connectivity) abaixo.
 * Deve existir uma chave na **loja hdbuser** que preencha os seguintes critérios:
   * Deve estar presente na loja de **hdbusers** padrão
-  * Para o MDC, a chave deve apontar para a porta SQL do **NAMESERVER**. No caso da SDC deve apontar para a porta SQL do **INDEXSERVER**
+  * Para o MDC, a chave deve apontar para a porta SQL do **NAMESERVER**. No caso da SDC, deve apontar para a porta SQL do **INDEXSERVER**
   * Deve ter credenciais para adicionar e eliminar utilizadores
 * Execute o script de configuração de cópia de segurança SAP HANA (script pré-registo) na máquina virtual onde hana está instalada, como utilizador raiz. [Este guião](https://aka.ms/scriptforpermsonhana) prepara o sistema HANA para cópia de segurança. Consulte o [what the pre-registration script does](#what-the-pre-registration-script-does) section to understand more about the pre-registration script.
+
+>[!NOTE]
+>O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de uma base de dados SAP HANA em funcionamento num VM Azure.
+>
+>Modifique a política manualmente conforme necessário.
 
 ## <a name="set-up-network-connectivity"></a>Configurar a conectividade da rede
 
@@ -116,7 +121,7 @@ hdbuserstore list
 A saída de comando deve apresentar a tecla {SID}{DBNAME} com o utilizador apresentado como AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Certifique-se de que tem um conjunto `/usr/sap/{SID}/home/.hdb/`único de ficheiros SSFS em baixo . . Só deve haver uma pasta neste caminho.
+> Certifique-se de que tem um conjunto único de ficheiros SSFS em `/usr/sap/{SID}/home/.hdb/` baixo . . Só deve haver uma pasta neste caminho.
 
 ## <a name="create-a-recovery-service-vault"></a>Criar um cofre de serviço de recuperação
 

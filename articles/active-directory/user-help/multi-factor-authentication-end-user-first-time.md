@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 5a7f0e10b23bf1a541fe83c3112962c38f7e1331
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47220bc721092005c7e4d65a00eb933cd5c49a8c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062562"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746770"
 ---
 # <a name="what-is-the-additional-verification-page"></a>O que é a página Verificação adicional?
 
@@ -24,18 +24,18 @@ Recebeu um e-mail de uma pessoa do departamento de TI ou do seu chefe a dizer qu
 A verificação de dois fatores é mais segura do que apenas uma palavra-passe porque se baseia em duas formas de autenticação: algo que sabe, e algo que tem consigo. O algo que os utilizadores sabem é a palavra-passe. O algo que têm é um telefone ou dispositivo que costumam utilizar. A verificação de dois fatores pode ajudar a impedir que hackers maliciosos finjam ser você, porque mesmo que eles tenham a sua senha, as probabilidades são de que eles não têm o seu dispositivo também.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem utilizar a verificação alain@contoso.comde dois fatores com uma conta de trabalho ou de escola (por exemplo, ). Se for um administrador à procura de informações sobre como ativar a verificação de dois fatores para os seus colaboradores ou outros utilizadores, consulte a documentação de autenticação do [Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/authentication/).
+>Este artigo destina-se a utilizadores que tentem utilizar a verificação de dois fatores com uma conta de trabalho ou de escola (por exemplo, alain@contoso.com ). Se for um administrador à procura de informações sobre como ativar a verificação de dois fatores para os seus colaboradores ou outros utilizadores, consulte a documentação de autenticação do [Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Quem decide se usa este recurso?
 
 Dependendo do tipo de conta, a sua organização pode decidir que deve usar a verificação de dois fatores, ou poderá decidir por si mesmo.
 
-- **Trabalho ou conta escolar.** Se está a usar uma conta de alain@contoso.comtrabalho ou de escola (por exemplo), cabe à sua organização utilizar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente.
+- **Trabalho ou conta escolar.** Se está a usar uma conta de trabalho ou de escola (por exemplo), cabe à sua organização utilizar a alain@contoso.com verificação de dois fatores, juntamente com os métodos de verificação específicos. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente.
 
-- **Conta pessoal da Microsoft.** Pode optar por configurar uma verificação de dois fatores alain@outlook.compara as suas contas pessoais da Microsoft (por exemplo, ). Se tiver problemas com a verificação de dois fatores e a sua conta pessoal da Microsoft, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft . Como escolhe se utiliza esta funcionalidade, pode ligá-la e desligá-la sempre que quiser.
+- **Conta pessoal da Microsoft.** Pode optar por configurar uma verificação de dois fatores para as suas contas pessoais da Microsoft (por exemplo, alain@outlook.com ). Se tiver problemas com a verificação de dois fatores e a sua conta pessoal da Microsoft, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft . Como escolhe se utiliza esta funcionalidade, pode ligá-la e desligá-la sempre que quiser.
 
     >[!Note]
-    >Se estiver a ter problemas com a verificação de dois fatores e uma das suas contas pessoais da Microsoft (por exemplo), danielle@outlook.compode experimentar as sugestões sobre como utilizar a [verificação em duas etapas com](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification)a sua conta Microsoft .
+    >Se estiver a ter problemas com a verificação de dois fatores e uma das suas contas pessoais da Microsoft (por exemplo), danielle@outlook.com pode experimentar as sugestões sobre como utilizar [a verificação em duas etapas com](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification)a sua conta Microsoft .
 
 ## <a name="access-the-additional-security-verification-page"></a>Aceda à página adicional de verificação de segurança
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: b9ced5d4a81effcd73e0243d09bb83ed0fe7667c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253701"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747641"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>VARIÁVEIs HTTP para motor de regras Azure CDN
 As variáveis HTTP fornecem os meios através dos quais pode recuperar metadados de pedido e resposta http. Estes metadados podem então ser utilizados para alterar dinamicamente um pedido ou uma resposta. A utilização de variáveis HTTP limita-se às seguintes características do motor:
@@ -34,13 +34,13 @@ As variáveis HTTP fornecem os meios através dos quais pode recuperar metadados
 A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é devolvido quando os metadados GEO (por exemplo, código postal) não estão disponíveis para um pedido específico.
 
 
-| Nome | Variável | Descrição | Valor da amostra |
+| Name | Variável | Descrição | Valor da amostra |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) | %{geo_asnum} | Indica o número as do solicitador. <br /><br />**Depreciado:** %{virt_dst_asnum}. <br />Esta variável foi depreciada a favor de %{geo_asnum}. Embora uma regra que usa esta variável depreciada continue a funcionar, deve atualizá-la para usar a nova variável. | AS15133 |
 | Cidade (Requester) | %{geo_city} | Indica a cidade do solicitado. | Los Angeles |
 | Continente (Requester) | %{geo_continent} | Indica o continente do solicitado através da sua abreviatura. <br />Os valores válidos são: <br />AF: África<br />AS: Ásia<br />UE: Europa<br />NA: América do Norte<br />OC: Oceânia<br />SA: América do Sul<br /><br />**Depreciado:** %{virt_dst_continent}. <br />Esta variável foi depreciada a favor de %{geo_continent}. <br />Embora uma regra que usa esta variável depreciada continue a funcionar, deve atualizá-la para usar a nova variável.| N/D |
 | Valor cookie | %{cookie_Cookie} | Devolve o valor correspondente à chave de cookies identificada pelo termo Cookie. | Utilização da amostra: <br />%{cookie__utma}<br /><br />Valor da amostra:<br />111662281.2.10.1222100123 |
-| País (Requester) | %{geo_country} | Indica o país de origem do solicitado através do seu código de país. <br />**Depreciado:** %{virt_dst_country}. <br /><br />Esta variável foi depreciada a favor de %{geo_country}. Embora uma regra que usa esta variável depreciada continue a funcionar, deve atualizá-la para usar a nova variável. | EUA |
+| País/Região (Requester) | %{geo_country} | Indica o país/região de origem do solicitado através do seu código país/região. <br />**Depreciado:** %{virt_dst_country}. <br /><br />Esta variável foi depreciada a favor de %{geo_country}. Embora uma regra que usa esta variável depreciada continue a funcionar, deve atualizá-la para usar a nova variável. | EUA |
 | Área de mercado designada (Requester) | %{geo_dma_code} |Indica o mercado dos meios de comunicação social do solicitado pelo seu código de região. <br /><br />Este campo só se aplica a pedidos originários dos Estados Unidos.| 745 |
 | Método de Pedido http | %{request_method} | Indica o método de pedido http. | GET |
 | Código de Estado HTTP | %{status} | Indica o código de estado HTTP para a resposta. | 200 |
@@ -52,9 +52,9 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 | Código Postal (Requester) | %{geo_postal_code} | Indica o código postal do solicitador. | 90210 |
 | Cadeia de consulta encontrada | %{is_args} | O valor desta variável varia de acordo com se o pedido contém uma corda de consulta.<br /><br />- Consulta de Corda Encontrada: ?<br />- Sem corda de consulta: NULO | ? |
 | Parâmetro de corda de consulta encontrado | %{is_amp} | O valor desta variável varia de acordo com se o pedido contém pelo menos um parâmetro de corda de consulta.<br /><br />- Parâmetro encontrado: &<br />- Sem Parâmetros: NULO | & |
-| Valor do parâmetro de corda de consulta | %{arg_&lt;parâmetro&gt;} | Devolve o valor correspondente ao parâmetro de corda &lt;de&gt; consulta identificado pelo termo parâmetro. | Utilização da amostra: <br />%{arg_language}<br /><br />Parâmetro de corda de consulta de amostra: <br />?language=en<br /><br />Valor da amostra: en |
+| Valor do parâmetro de corda de consulta | %{arg_ &lt; parâmetro &gt; } | Devolve o valor correspondente ao parâmetro de corda de consulta identificado pelo &lt; &gt; termo parâmetro. | Utilização da amostra: <br />%{arg_language}<br /><br />Parâmetro de corda de consulta de amostra: <br />?language=en<br /><br />Valor da amostra: en |
 | Valor de corda de consulta | %{query_string} | Indica todo o valor de cadeia de consulta definido no URL de pedido. |key1=val1&key2=val2&key3=val3 |
-| Domínio de remetente | %{referring_domain} | Indica o domínio definido no cabeçalho de pedido do Remetente. | <> www.google.com |
+| Domínio de remetente | %{referring_domain} | Indica o domínio definido no cabeçalho de pedido do Remetente. | <www.google.com> |
 | Região (Requester) | %{geo_region} | Indica a região do solicitado (por exemplo, estado ou província) através da sua abreviatura alfanumérica. | CA |
 | Valor do cabeçalho de pedido | %{http_RequestHeader} | Devolve o valor correspondente ao cabeçalho de pedido identificado pelo termo RequestHeader. <br /><br />Se o nome do cabeçalho de pedido contiver um traço (por exemplo, User-Agent), substitua-o por um sublinhado (por exemplo, User_Agent).| Utilização da amostra: %{http_Connection}<br /><br />Valor da amostra: Keep-Alive | 
 | Anfitrião de Pedido | %{host} | Indica o anfitrião definido no URL de pedido. | <www.mydomain.com> |
@@ -62,8 +62,8 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 | Regime de Pedidos | %{esquema} | Indica o esquema de pedido. |http |
 | Pedido URI (Relativo) | %{request_uri} | Indica o caminho relativo, incluindo a cadeia de consulta, definido no pedido URI. | /marketing/foo.js?loggedin=true |
 | Pedido URI (Parente sem corda de consulta) | %{uri} | Indica o caminho relativo para o conteúdo solicitado. <br /><br/>Informação-chave:<br />- Este caminho relativo exclui a corda de consulta.<br />- Este caminho relativo reflete reescritas de URL. Um URL será reescrito nas seguintes condições:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Rewrite Feature: Esta função reescreve o caminho relativo definido no pedido URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Edge CNAME: Este tipo de pedido é reescrito para o URL CDN correspondente. |/800001/corigin/rewrittendir/foo.js |
-| URI do pedido | %{pedido} | Descreve o pedido. <br />Sintaxe: &lt;&gt; &lt;método&gt; &lt;HTTP caminho relativo http protocolo&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
-| Valor do cabeçalho de resposta | %{resp_&lt;ResponseHeader&gt;} | Devolve o valor correspondente ao cabeçalho &lt;de&gt; resposta identificado pelo termo ResponseHeader. <br /><br />Se o nome do cabeçalho de resposta contiver um traço (por exemplo, User-Agent), substitua-o por um sublinhado (por exemplo, User_Agent). | Utilização da amostra: %{resp_Content_Length}<br /><br />Valor da amostra: 100 |
+| URI do pedido | %{pedido} | Descreve o pedido. <br />Sintaxe: &lt; método HTTP caminho relativo http &gt; &lt; &gt; &lt; protocolo&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
+| Valor do cabeçalho de resposta | %{resp_ &lt; ResponseHeader &gt; } | Devolve o valor correspondente ao cabeçalho de resposta identificado pelo &lt; termo &gt; ResponseHeader. <br /><br />Se o nome do cabeçalho de resposta contiver um traço (por exemplo, User-Agent), substitua-o por um sublinhado (por exemplo, User_Agent). | Utilização da amostra: %{resp_Content_Length}<br /><br />Valor da amostra: 100 |
 
 ## <a name="usage"></a>Utilização
 O quadro seguinte descreve a sintaxe adequada para especificar uma variável HTTP.
@@ -71,9 +71,9 @@ O quadro seguinte descreve a sintaxe adequada para especificar uma variável HTT
 
 | Sintaxe | Exemplo | Descrição |
 | ------ | -------- | ---------- |
-| %{&lt;HTTPVariável&gt;} | %{host} | Utilize esta sintaxe para obter todo &lt;o&gt;valor correspondente ao httpvariável especificado . |
-| %{&lt;HTTPVariableDelimiter&gt;} | %{host,} | Utilize esta sintaxe para definir o caso para &lt;todo o&gt;valor correspondente ao httpvariabledelimiter especificado . |
-| %{&lt;HTTPVariableDelimiterExpression&gt;} | %{host/=^www\.([^\.]+)\.\.([^+])/cdn.$2.$3:80} | Utilize uma expressão &lt;regular para HTTPVariableDelimiterExpression&gt; para substituir, excluir ou manipular o valor de uma variável HTTP. |
+| %{ &lt; HTTPVariável &gt; } | %{host} | Utilize esta sintaxe para obter todo o valor correspondente ao httpvariável especificado &lt; &gt; . |
+| %{ &lt; HTTPVariableDelimiter &gt; } | %{host,} | Utilize esta sintaxe para definir o caso para todo o valor correspondente ao &lt; httpvariabledelimiter especificado &gt; . |
+| %{ &lt; HTTPVariableDelimiterExpression &gt; } | %{host/=^www \. ([^ \. ]+) \. ([^+])/cdn.$2.$3:80} \. | Utilize uma expressão regular para &lt; HTTPVariableDelimiterExpression para substituir, excluir ou manipular o &gt; valor de uma variável HTTP. |
 
 Os nomes variáveis HTTP apenas suportam caracteres alfabéticos e sublinham. Converter caracteres não apoiados em sublinhados.
 
@@ -160,15 +160,15 @@ Informação-chave:
 
 O exemplo seguinte baseia-se no seguinte URL de pedido de amostra:
 
-https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
+https: \/ /cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 A seguinte corda demonstra vários métodos para manipular variáveis:
 
-https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
+https: \/ /www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
 Com base no URL de pedido de amostra, a manipulação variável acima referida produzirá o seguinte valor:
 
-https:\//www.mydomain.com/mobile/marketing/proposal.htm
+https: \/ /www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Remoção de padrões
@@ -224,7 +224,7 @@ Informação-chave:
 
 - O valor reescrito pode consistir em qualquer combinação de texto e estes espaços reservados.
 
-    No exemplo anterior, o nome de `cdn.$2.$3:80` anfitrião é reescrito para (por exemplo, cdn.mydomain.com:80).
+    No exemplo anterior, o nome de anfitrião é reescrito `cdn.$2.$3:80` para (por exemplo, cdn.mydomain.com:80).
 
 - O caso de um espaço reservado padrão (por exemplo, $1) pode ser modificado através das seguintes bandeiras:
      - U: Maiúsculo o valor expandido.

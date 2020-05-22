@@ -3,12 +3,12 @@ title: Visão geral da cópia de segurança offline
 description: Conheça os componentes da cópia de segurança offline. Incluem cópiade segurança offline baseada na Caixa de Dados Azure e cópia de segurança offline com base no serviço de importação/exportação Azure.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160926"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744642"
 ---
 # <a name="overview-of-offline-backup"></a>Visão geral da cópia de segurança offline
 
@@ -73,11 +73,11 @@ A tabela seguinte compara as duas opções disponíveis para que possa fazer as 
 | Segurança (dados, dispositivo e serviço)                           | [Dados](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) - AES 256 bits encriptados <br> [Dispositivo](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) - Caso acidentado, interface proprietária, baseada na credencial para copiar dados <br> [Serviço](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) - Protegido por funcionalidades de segurança Azure | Dados - BitLocker encriptado                                 |
 | Fornecimento temporário de localização de encenação                     | Não é necessária                                                | Mais ou igual ao tamanho estimado dos dados de backup        |
 | Regiões suportadas                                           | [Regiões de discos azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Regiões da Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Regiões de serviços de importação/exportação de Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Transporte marítimo de corta-mato                                     | Não suportado  <br>    Endereço de origem e centro de dados Azure deve estar no mesmo país* | Suportado                                                    |
+| Transporte marítimo de corta-mato                                     | Não suportado  <br>    Endereço de origem e centro de dados Azure deve estar no mesmo país/região* | Suportado                                                    |
 | Transferir logística (entrega, transporte, recolha)           | Totalmente gerido pela Microsoft                                     | Cliente gerido                                            |
 | Preços                                                      | [Preços da Caixa de Dados Azure](https://azure.microsoft.com/pricing/details/databox/) <br> [Preços do disco da Caixa de Dados Azure](https://azure.microsoft.com/pricing/details/databox/disk/) | [Preços do serviço de importação/exportação de Azure](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-*Se o seu país não tem um datacenter Azure, precisa enviar os seus discos para um datacenter Azure noutro país.
+*Se o seu país/região não tiver um datacenter Azure, precisa enviar os seus discos para um datacenter Azure noutro país/região.
 
 ## <a name="next-steps"></a>Passos seguintes
 

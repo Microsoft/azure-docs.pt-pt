@@ -2,16 +2,20 @@
 title: Exportação contínua de telemetria a partir de Insights de Aplicação [ Microsoft Docs
 description: Exportar dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregá-lo a partir daí.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298292"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744868"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de alguma forma especializada? A Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código que precise para processá-lo.  
+
+> [!NOTE]
+> A exportação contínua é suportada apenas para os recursos clássicos da Application Insights. [Os recursos de Insights de Aplicação baseados no espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) devem utilizar [configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+>
 
 Antes de configurar a exportação contínua, existem algumas alternativas que talvez deseja considerar:
 
@@ -55,7 +59,7 @@ Pode haver um atraso de cerca de uma hora antes que os dados apareçam no armaze
 
 Uma vez concluída a primeira exportação, encontrará uma estrutura semelhante à seguinte no seu recipiente de armazenamento Azure Blob: (Isto variará consoante os dados que está a recolher.)
 
-|Nome | Descrição |
+|Name | Descrição |
 |:----|:------|
 | [Disponibilidade](export-data-model.md#availability) | Relatórios de disponibilidade de [testes web](../../azure-monitor/app/monitor-web-app-availability.md).  |
 | [Evento](export-data-model.md#events) | Eventos personalizados gerados pelo [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 

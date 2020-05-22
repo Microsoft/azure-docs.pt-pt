@@ -8,15 +8,15 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625413"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744519"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Veja e procure a sua recente atividade de inscrição na página My Sign-ins (pré-visualização)
 
@@ -30,7 +30,7 @@ Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escola
 
 ## <a name="view-your-recent-sign-in-activity"></a>Ver a sua atividade de início de sessão recente
 
-1. Inscreva-se na sua conta de trabalho https://myaccount.microsoft.com/ ou escola e depois vá para a sua página.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá para a sua https://myaccount.microsoft.com/ página.
 
 2. Selecione **My Sign-ins (pré-visualização)** do painel de navegação esquerdo ou selecione o link de **atividade recente da Revisão** a partir do bloco My **sign-ins (pré-visualização).**
 
@@ -56,7 +56,7 @@ Se vir um insessão mal sucedido, com uma nota no âmbito da atividade da Sessã
 
 Pode pesquisar a sua recente atividade de inscrição por qualquer uma das informações disponíveis. Por exemplo, pode pesquisar a sua recente atividade de sessão através do sistema operativo, localização, app, e assim por diante.
 
-1. Na página de **atividades recentes do Reveja,** escreva as informações que pretende procurar na barra **de Pesquisa.** Por exemplo, `My Account` digite para procurar por toda a atividade recolhida pela aplicação My Account.
+1. Na página de **atividades recentes do Reveja,** escreva as informações que pretende procurar na barra **de Pesquisa.** Por exemplo, digite `My Account` para procurar por toda a atividade recolhida pela aplicação My Account.
 
 2. Selecione o botão **'Procurar'** para começar a procurar.
 

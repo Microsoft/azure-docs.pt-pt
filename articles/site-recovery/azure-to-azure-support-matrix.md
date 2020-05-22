@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs Azure para uma
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 2fc2a32c47991b9b3615417dfb8f50ca3e7c988f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 8101f00f4ffc3735becbad2ecde26f5a208ff4a1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983504"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744824"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -20,7 +20,7 @@ Este artigo resume o apoio e os pré-requisitos para a recuperação de desastre
 
 **Implementação** |  **Suporte**
 --- | ---
-**Portal Azure** | Suportado.
+**Portal do Azure** | Suportado.
 **PowerShell** | Suportado. [Saiba mais](azure-to-azure-powershell.md)
 **API REST** | Suportado.
 **CLI** | Atualmente, não é suportado
@@ -41,7 +41,7 @@ Este artigo resume o apoio e os pré-requisitos para a recuperação de desastre
 Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geográfico. Os clusters geográficos são definidos mantendo em mente a latência e a soberania dos dados.
 
 
-**Aglomerado geográfico** | **Regiões de Azure**
+**Aglomerado geográfico** | **Regiões do Azure**
 -- | --
 América | Canadá Leste, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste DOS 2, Centro dos EUA
 Europa | Reino Unido Oeste, Reino Unido Sul, Norte da Europa, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste
@@ -261,7 +261,7 @@ Equilibrador de Carga Interna | Suportado | Associe o equilibrador de carga reco
 Endereço IP público | Suportado | Associe um endereço IP público existente com o NIC. Ou criar um endereço IP público e associá-lo ao NIC usando um script de Automação Azure num plano de recuperação.
 NSG em NIC | Suportado | Associe o NSG ao NIC utilizando um script de Automação Azure num plano de recuperação.
 NSG na sub-rede | Suportado | Associe o NSG à subnet utilizando um script de Automação Azure num plano de recuperação.
-Endereço IP reservado (estático) | Suportado | Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao VM falhado.<br/><br/> Se a sub-rede alvo não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na subnet está reservado para o VM.<br/><br/> Também pode especificar um endereço IP fixo e uma sub-rede em **itens replicados Definições** > De**definições** > **Compute e** > **Network Network Network interfaces**.
+Endereço IP reservado (estático) | Suportado | Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao VM falhado.<br/><br/> Se a sub-rede alvo não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na subnet está reservado para o VM.<br/><br/> Também pode especificar um endereço IP fixo e uma sub-rede em **itens replicados Definições**De  >  **definições**  >  **Compute e**  >  **Network Network Network interfaces**.
 Endereço IP dinâmico | Suportado | Se o NIC na fonte tiver um endereço IP dinâmico, o NIC no VM falhado também é dinâmico por padrão.<br/><br/> Pode modificá-lo para um endereço IP fixo, se necessário.
 Vários endereços IP | Não suportado | Quando falha um VM que tem um NIC com vários endereços IP, apenas o endereço IP primário do NIC na região de origem é mantido. Para atribuir vários endereços IP, pode adicionar VMs a um plano de [recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano, ou pode fazer a alteração manualmente ou com um script após a falha.
 Gestor de Tráfego     | Suportado | Pode configurar regularmente o Traffic Manager para que o tráfego seja encaminhado para o ponto final da região de origem e para o ponto final na região alvo em caso de falha.
@@ -273,6 +273,8 @@ VPN ligação site-to-site para as instalações<br/><br/>(com ou sem ExpressRou
 Ligação VNET a VNET    | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
 Pontos Finais de Serviço de Rede Virtual | Suportado | Se estiver a restringir o acesso à rede virtual às contas de armazenamento, certifique-se de que os serviços confiáveis da Microsoft têm acesso à conta de armazenamento.
 Redes aceleradas | Suportado | A ligação acelerada deve ser ativada no VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Eletrodoméstico da Rede Palo Alto | Não suportado | Com aparelhos de terceiros, existem muitas vezes restrições impostas pelo fornecedor dentro da Máquina Virtual. A Recuperação do Site Azure precisa de agente, extensões e conectividade de saída para estar disponível. Mas o aparelho não permite que qualquer atividade de saída seja configurada dentro da Máquina Virtual.
+IPv6  | Não suportado | Configurações mistas que incluem iPv4 e IPv6 também não são suportadas. Por favor, liberte a sub-rede da gama IPv6 antes de qualquer operação de recuperação do site.
 
 
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426386"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747624"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partição de saída de blob personalizada Azure Stream Analytics
 
@@ -77,10 +77,10 @@ As seguintes fichas de especificador de formato podem ser utilizadas apenas ou e
 |{data:MM}|Mês de 01 a 12|01|
 |{data:M}|Mês de 1 a 12|1|
 |{data:dd}|Dia de 01 a 31|02|
-|{data:d}|Dia de 1 a 12|2|
+|{data:d}|Dia de 1 a 31|2|
 |{data:HH}|Hora usando o formato 24 horas, de 00 a 23|10|
-|{data:mm}|Minutos de 00 a 24|06|
-|{data:m}|Minutos de 0 a 24|6|
+|{data:mm}|Minutos de 00 a 60|06|
+|{data:m}|Minutos de 0 a 60|6|
 |{data:ss}|Segundos de 00 a 60|08|
 
 Se não desejar utilizar padrões de DataTime personalizados, pode adicionar o token {date} e/ou {time} ao Prefixo path para gerar uma queda com formatos DateTime incorporados.
@@ -89,9 +89,9 @@ Se não desejar utilizar padrões de DataTime personalizados, pode adicionar o t
 
 ### <a name="extensibility-and-restrictions"></a>Extebilidade e restrições
 
-Pode usar o máximo de `{datetime:<specifier>}`fichas, como quiser no padrão do caminho até chegar ao limite de caracteres Path Prefix. Os especificadores de formato não podem ser combinados num único token para além das combinações já listadas pela data e pela hora. 
+Pode usar o máximo de fichas, `{datetime:<specifier>}` como quiser no padrão do caminho até chegar ao limite de caracteres Path Prefix. Os especificadores de formato não podem ser combinados num único token para além das combinações já listadas pela data e pela hora. 
 
-Para uma divisão `logs/MM/dd`de caminho de:
+Para uma divisão de caminho `logs/MM/dd` de:
 
 |Expressão válida   |Expressão inválida   |
 |----------|-----------|
@@ -101,7 +101,7 @@ Pode utilizar o mesmo especificador de formato várias vezes no Prefixo do Camin
 
 ### <a name="hive-streaming-conventions"></a>Convenções de streaming de colmeias
 
-Os padrões de percurso personalizados para armazenamento de bolhas podem ser usados `column=` com a convenção hive streaming, que espera que as pastas sejam rotuladas com o nome da pasta.
+Os padrões de percurso personalizados para armazenamento de bolhas podem ser usados com a convenção hive streaming, que espera que as pastas sejam rotuladas `column=` com o nome da pasta.
 
 Por exemplo, `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
 

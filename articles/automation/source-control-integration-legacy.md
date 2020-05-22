@@ -1,18 +1,18 @@
 ---
-title: Integração de Controlo de Fontes na Automação Azure - Legado
-description: Este artigo descreve a integração do controlo de fontes com o GitHub na Automação Azure.
+title: Utilizar a integração de Controlo de Fontes na Automação Azure - Legado
+description: Este artigo diz como usar a integração de controlo de origem.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: fac6a3b55f4a9150e827682cb3a134c203231978
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855356"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744953"
 ---
-# <a name="source-control-integration-in-azure-automation---legacy"></a>Integração de controlo de fontes na Automação Azure - Legado
+# <a name="use-source-control-integration-in-azure-automation---legacy"></a>Utilize a integração de controlo de fontes na Automação Azure - Legado
 
 > [!NOTE]
 > Há uma nova experiência para o controlo de fontes. Para saber mais sobre a nova experiência, consulte [Source Control (Preview)](source-control-integration.md).
@@ -24,7 +24,7 @@ O Controlo de Origem permite-lhe premir o código da Azure Automation para contr
 > [!NOTE]
 > O Controlo de Origem suporta puxar e empurrar os livros de [execução powerShell Workflow,](automation-runbook-types.md#powershell-workflow-runbooks) bem como os livros de [execução PowerShell](automation-runbook-types.md#powershell-runbooks). [Os livros gráficos](automation-runbook-types.md#graphical-runbooks) ainda não são suportados.
 
-## <a name="configuring-source-control"></a>Configurar o controlo de fonte
+## <a name="configure-source-control"></a>Configurar o controlo de fonte
 
 Existem dois passos simples necessários para configurar o controlo de fonte para a sua conta Automation, e apenas um se já tiver uma conta GitHub. 
 
@@ -47,7 +47,7 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Automação 
    | Caminho da pasta runbook |O percurso da pasta do livro de execução especifica o caminho no repositório GitHub a partir do qual pretende empurrar ou puxar o seu código. Deve ser introduzido no formato /nome da **pasta/subpasta**. Apenas os livros de execução no caminho da pasta do livro de execução serão sincronizados na sua conta Automation. Os livros de execução nas subpastas do percurso das pastas do livro de execução **NÃO** serão sincronizados. Utilize **/** para sincronizar todos os livros sob o repositório. |
 3. Por exemplo, se tiver um repositório chamado **PowerShellScripts** que contenha uma pasta chamada **RootFolder**, que contém uma pasta chamada **SubPasta**. Pode utilizar as seguintes cordas para sincronizar cada nível de pasta:
 
-   1. Para sincronizar os livros de reprodução do **/** **repositório,** o caminho das pastas do livro de corridas é .
+   1. Para sincronizar os livros de reprodução do **repositório,** o caminho das pastas do livro de corridas é **/** .
    2. Para sincronizar os livros de execução da **RootFolder,** o caminho da pasta do livro de execução é **/RootFolder**.
    3. Para sincronizar os livros de execução da **SubPasta,** o caminho da pasta do livro de execução é **/RootFolder/SubFolder**.
 4. Depois de configurar os parâmetros, são apresentados na página de Controlo de Origem Configurar.  
@@ -64,7 +64,7 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Automação 
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
      | `Type`  |String |
-     | `Value` |{"Branch":\<*O seu nome de filial* \<>"RunbookFolderPath": Rota\<da pasta de*execução*>"ProviderType":*tem um valor 1 para o GitHub*>"Repositório":\<*Nome do seu repositório*>"Nome de utilizador":\<O nome de utilizador do*GitHub*>} |
+     | `Value` |{"Ramo": \< *O seu nome de filial*>"RunbookFolderPath": Rota da pasta de \< *resta*>"Fornecedor": tem um valor 1 para o \< *GitHub*>"Repositório": Nome do seu \< *repositório*>"Username": O nome de utilizador do \< *GitHub*>} |
 
    * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor encriptado seguro do seu OAuthToken.  
 
@@ -76,11 +76,11 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Automação 
 
      ![Uma janela mostrando variáveis de controlo de origem](media/source-control-integration-legacy/automation-Variables.png)  
 
-   * O Controlo de Fontes de **Automação** é adicionado como uma aplicação autorizada à sua conta GitHub. Para ver a aplicação, a partir da sua página inicial do GitHub, navegue para **perfilar** > **Aplicações**de**Definições** > . Esta aplicação permite à Azure Automation sincronizar o seu repositório GitHub a uma conta De automação.  
+   * O Controlo de Fontes de **Automação** é adicionado como uma aplicação autorizada à sua conta GitHub. Para ver a aplicação, a partir da sua página inicial do GitHub, navegue para **perfilar**  >  Aplicações de**Settings**  >  **Definições**. Esta aplicação permite à Azure Automation sincronizar o seu repositório GitHub a uma conta De automação.  
 
      ![Definições de aplicação no GitHub](media/source-control-integration-legacy/automation-GitApplication.png)
 
-## <a name="using-source-control-in-automation"></a>Utilização do controlo de fontes na Automação
+## <a name="use-source-control-in-automation"></a>Use o controlo de fonte sinuoso na Automação
 
 O check-in do livro de reparações permite-lhe empurrar as alterações que etrôs para um livro de execução em Azure Automation para o seu repositório de controlo de fonte. Abaixo estão os passos para verificar em um livro de execução:
 
@@ -124,15 +124,13 @@ O botão de sincronização na página de Sincronização do Repositório permit
 
 ![Uma janela mostrando todos os registos de um trabalho de sincronização de controlo de fonte suspensa](media/source-control-integration-legacy/automation-AllLogs.png)
 
-## <a name="disconnecting-source-control"></a>Desligar o controlo de fontes
+## <a name="disconnect-source-control"></a>Desligar o controlo de fonte
 
 Para desligar da sua conta GitHub, abra a página de Sincronização do Repositório e clique em **Desligar**. Uma vez desligado o controlo de fonte, os livros de execução que foram sincronizados mais cedo ainda permanecem na sua conta Desmitar, mas a página de Sincronização do Repositório não será ativada.  
 
   ![Uma janela que mostra o botão Desligar para desligar o controlo de origem](media/source-control-integration-legacy/automation-Disconnect.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-
-Para obter mais informações sobre a integração do controlo de fontes, consulte os seguintes recursos:  
 
 * [Automação Azure: Integração de Controlo de Fontes na Automação Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Automação Azure: Integração do Controlo de Fontes do Livro de Execução utilizando O Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  

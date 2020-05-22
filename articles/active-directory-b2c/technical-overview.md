@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332539"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739104"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e característica do Diretório Ativo Azure B2C
 
@@ -63,7 +63,7 @@ Um utilizador com uma conta de consumo pode iniciar sessão com múltiplas ident
 
 ![Identidades da conta de consumo](media/technical-overview/identities.png)<br/>*Figura: Uma única conta de consumidor com múltiplas identidades em Azure AD B2C*
 
-O Azure AD B2C permite-lhe gerir atributos comuns de perfis de conta de consumo como nome de exibição, apelido, nome próprio, cidade e outros. Também pode estender o esquema Azure AD para armazenar informações adicionais sobre os seus utilizadores. Por exemplo, o seu país ou residência, a linguagem preferida e as preferências como se querem subscrever uma newsletter ou permitir a autenticação de vários fatores.
+O Azure AD B2C permite-lhe gerir atributos comuns de perfis de conta de consumo como nome de exibição, apelido, nome próprio, cidade e outros. Também pode estender o esquema Azure AD para armazenar informações adicionais sobre os seus utilizadores. Por exemplo, o seu país/região ou residência, a linguagem preferida e as preferências como se querem subscrever uma newsletter ou permitir a autenticação de vários fatores.
 
 Saiba mais sobre os tipos de conta de utilizador em Azure AD B2C em [visão geral das contas dos utilizadores no Diretório Ativo Azure B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ Para ajudá-lo a configurar rapidamente as tarefas de identidade mais comuns, o 
 Pode configurar configurações de fluxo do utilizador como estas para controlar comportamentos de experiência de identidade nas suas aplicações:
 
 * Tipos de conta utilizados para iniciar sessão, tais como contas sociais como um Facebook, ou contas locais que usam um endereço de e-mail e senha para iniciar sessão
-* Atributos a recolher junto do consumidor, tais como primeiro nome, código postal ou país de residência
+* Atributos a recolher junto do consumidor, tais como o primeiro nome, código postal ou país/região de residência
 * Azure Multi-Factor Authentication (MFA)
 * Personalização da interface do utilizador
 * Conjunto de reclamações num símbolo que a sua aplicação recebe após o utilizador completar o fluxo do utilizador
@@ -136,7 +136,7 @@ Saiba mais sobre políticas personalizadas [em políticas personalizadas no Dire
 
 O Azure AD B2C suporta os [protocolos OpenID Connect e OAuth 2.0](protocols-overview.md) para viagens de utilizador. Na implementação do OpenID Connect do Azure AD B2C, a sua aplicação começa o percurso do utilizador através da emissão de pedidos de autenticação para o Azure AD B2C.
 
-O resultado de um pedido ao Azure AD B2C é um símbolo de segurança, como um símbolo de [identificação ou ficha](tokens-overview.md)de acesso . Este símbolo de segurança define a identidade do utilizador. Os tokens são recebidos de pontos finais Azure AD B2C como o `/token` ponto final ou `/authorize` o ponto final. Com estas fichas, pode aceder a reclamações que podem ser usadas para validar uma identidade e permitir o acesso a recursos seguros.
+O resultado de um pedido ao Azure AD B2C é um símbolo de segurança, como um símbolo de [identificação ou ficha](tokens-overview.md)de acesso . Este símbolo de segurança define a identidade do utilizador. Os tokens são recebidos de pontos finais Azure AD B2C como o `/token` ponto final ou o ponto `/authorize` final. Com estas fichas, pode aceder a reclamações que podem ser usadas para validar uma identidade e permitir o acesso a recursos seguros.
 
 Para identidades externas, o Azure AD B2C apoia a federação com qualquer Fornecedor de identidade OAuth 1.0, OAuth 2.0, OpenID Connect, SAML e WS-Fed.
 

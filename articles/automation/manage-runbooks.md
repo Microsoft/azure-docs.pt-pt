@@ -1,23 +1,20 @@
 ---
 title: Gerir livros de corridas na Automação Azure
-description: Este artigo descreve como gerir livros de corridas na Azure Automation. Abrange operações básicas e adiciona algumas boas práticas.
+description: Este artigo diz como gerir livros de corridas na Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: cd89314b0d847909bf4196361e471b71ebb9b6e9
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 28ddd2a2d75ab8a57dfc3176eefd703f6c43d0b6
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995496"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745058"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
 Pode adicionar um livro de execução à Azure Automation, criando um novo ou importando um existente a partir de um ficheiro ou da [Galeria Runbook.](automation-runbook-gallery.md) Este artigo fornece informações para a gestão de um livro de execução importado de um ficheiro. Você pode encontrar todos os detalhes de acesso a livros e módulos comunitários em [Runbook e galerias de módulos para Automação Azure](automation-runbook-gallery.md).
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="create-a-runbook"></a>Criar um runbook
 
@@ -38,7 +35,7 @@ Crie um novo livro de execução na Azure Automation utilizando o portal Azure o
 
 ### <a name="create-a-runbook-with-powershell"></a>Crie um livro de corridas com a PowerShell
 
-Utilize o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de execução vazio. Utilize `Type` o parâmetro para especificar um dos `New-AzAutomationRunbook`tipos de livro definidopara .
+Utilize o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de execução vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidopara `New-AzAutomationRunbook` .
 
 O exemplo que se segue mostra como criar um novo livro vazio.
 
@@ -80,7 +77,7 @@ Pode utilizar o seguinte procedimento para importar um ficheiro de script para a
 
 ### <a name="import-a-runbook-with-windows-powershell"></a>Importar um livro de corridas com o Windows PowerShell
 
-Utilize o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro script como um rascunho de livro de execução. Se o livro de execução já existir, `Force` a importação falha a menos que utilize o parâmetro com o cmdlet.
+Utilize o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro script como um rascunho de livro de execução. Se o livro de execução já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
 
 O exemplo que se segue mostra como importar um ficheiro de script num livro de corridas.
 
@@ -195,7 +192,7 @@ Se o seu livro de execução normalmente estiver dentro de uma restrição de te
 
 ## <a name="work-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
 
-O seu livro de execução deve poder trabalhar com [subscrições](automation-runbook-execution.md#subscriptions). Por exemplo, para lidar com várias subscrições, o livro de execução utiliza o cmdlet [Desactivação-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro livro de corridas que funciona na mesma caixa de areia. O livro de`AzContext` execução também utiliza o parâmetro no módulo Az cmdlets e passa-lhe o contexto adequado.
+O seu livro de execução deve poder trabalhar com [subscrições](automation-runbook-execution.md#subscriptions). Por exemplo, para lidar com várias subscrições, o livro de execução utiliza o cmdlet [Desactivação-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro livro de corridas que funciona na mesma caixa de areia. O livro de execução também utiliza o `AzContext` parâmetro no módulo Az cmdlets e passa-lhe o contexto adequado.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -234,7 +231,7 @@ Para usar um script personalizado:
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#output-stream) e aviso [e erro](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo Verbose](automation-runbook-output-and-messages.md#message-streams) só são apresentadas no painel `Continue`de saída se a variável [VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) estiver definida para .
+Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos de [saída](automation-runbook-output-and-messages.md#use-the-output-stream) e [de aviso e erro](automation-runbook-output-and-messages.md#monitor-message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo verbose](automation-runbook-output-and-messages.md#monitor-message-streams) só são apresentadas no painel de saída se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) estiver definida para `Continue` .
 
 Mesmo que o projeto de versão esteja a ser executado, o livro de execução ainda executa normalmente e executa quaisquer ações contra recursos no ambiente. Por esta razão, só deve testar livros de execução sobre recursos não produtivos.
 
@@ -308,7 +305,7 @@ Em alternativa, pode ver detalhes de resumo de trabalho para um livro de execuç
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar os estatutos de trabalho usando o PowerShell
 
-Utilize o cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro `Start-AzAutomationRunbook`de corridas utilizando, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
+Utilize o cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de corridas `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
 
 O exemplo seguinte obtém o último trabalho para um livro de amostras e mostra o seu estado, os valores previstos para os parâmetros do livro de execução e a saída de trabalho.
 
@@ -341,6 +338,6 @@ foreach($item in $output)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para aprender sobre o processamento de livro de corridas, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
-* Para saber mais sobre a edição de livros de execução PowerShell e PowerShell Workflow com um editor textual, consulte [Edit textual runbooks em Azure Automation](automation-edit-textual-runbook.md).
-* Para saber mais sobre a autoria de um livro gráfico, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
+* [Execução de runbooks na Automatização do Azure](automation-runbook-execution.md)
+* [Editar livros de texto na Automação Azure](automation-edit-textual-runbook.md)
+* [Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)

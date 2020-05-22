@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e5369247fc1e31bafb158e83a54bf8badf721d0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81378837"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747213"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Utilize o seu número de telefone como nome de utilizador (pré-visualização)
 

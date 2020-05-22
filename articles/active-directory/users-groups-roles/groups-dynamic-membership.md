@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582897"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744696"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Diretório Ativo do Azure
 
@@ -54,7 +54,7 @@ Para obter mais instruções passo a passo, consulte [Criar ou atualizar um grup
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Sintaxe de regra para uma única expressão
 
-Uma única expressão é a forma mais simples de uma regra de adesão e só tem as três partes acima mencionadas. Uma regra com uma única expressão `Property Operator Value`é semelhante a esta: , onde a sintaxe para a propriedade é o nome de objeto.propriedade.
+Uma única expressão é a forma mais simples de uma regra de adesão e só tem as três partes acima mencionadas. Uma regra com uma única expressão é semelhante a esta: `Property Operator Value` , onde a sintaxe para a propriedade é o nome de objeto.propriedade.
 
 Segue-se um exemplo de uma regra de adesão devidamente construída com uma única expressão:
 
@@ -118,16 +118,16 @@ Seguem-se as propriedades do utilizador que pode utilizar para criar uma única 
 | streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress -eq "value") |
 | surname |Qualquer valor de cadeia ou *nulo* |(user.surname -eq "value") |
 | telefoneNúmero |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
-| utilizaçãoLocalização |Dois código de país com letras |(user.usageLocation -eq "US") |
-| userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eqalias@domain" ") |
+| utilizaçãoLocalização |Dois código país/região com letras |(user.usageLocation -eq "US") |
+| userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eq alias@domain " ") |
 | userType |membro convidado *nulo* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades da coleção de cordas tipo
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| outros Mails |Qualquer valor de cadeia |(user.otherMails -contémalias@domain" |
-| proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(user.proxyAddresss -contém "SMTP: alias@domain") |
+| outros Mails |Qualquer valor de cadeia |(user.otherMails -contém alias@domain " |
+| proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(user.proxyAddresss -contém "SMTP: alias@domain ") |
 
 Para as propriedades utilizadas para as regras do dispositivo, consulte [Regras para dispositivos](#rules-for-devices).
 
@@ -145,7 +145,7 @@ A tabela seguinte lista todos os operadores apoiados e a sua sintaxe para uma ú
 | Contains |- contém |
 | Não Corresponder |-notMatch |
 | Match |-jogo |
-| Entrada | - em |
+| Em | - em |
 | Não em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Utilização dos operadores -in e -notIn
@@ -185,8 +185,8 @@ Ao especificar um valor dentro de uma expressão, é importante utilizar a sinta
 
 * As cotações duplas são opcionais a menos que o valor seja uma corda.
 * As operações de cordas e regex não são sensíveis ao caso.
-* Quando um valor de cadeia contém cotações duplas, \` ambas as cotações devem ser \`escapadas usando o personagem, por exemplo, user.department -eq "Sales"\`é a sintaxe adequada quando "Vendas" é o valor.
-* Também pode efetuar controlos Nulos, `user.department -eq null`utilizando o nulo como valor, por exemplo, .
+* Quando um valor de cadeia contém cotações duplas, ambas as cotações devem ser escapadas usando o \` personagem, por exemplo, user.department -eq \` \` "Sales" é a sintaxe adequada quando "Vendas" é o valor.
+* Também pode efetuar controlos Nulos, utilizando o nulo como valor, por exemplo, `user.department -eq null` .
 
 ### <a name="use-of-null-values"></a>Utilização de valores nulos
 
@@ -252,7 +252,7 @@ Propriedades de vários valores são coleções de objetos do mesmo tipo. Podem 
 | Propriedades | Valores | Utilização |
 | --- | --- | --- |
 | planos atribuídos | Cada objeto da coleção expõe as seguintes propriedades de cordas: capabilityStatus, serviço, servicePlanId |user.designadoSPlanos -any (designadoPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -e designadoPlan.capabilityStatus -eq "Habilitado") |
-| proxyAddresses| SMTP: alias@domain SMTP:alias@domain | (user.proxyAddresss -any\_ (-contém "contoso")) |
+| proxyAddresses| SMTP: alias@domain SMTP:alias@domain | (user.proxyAddresss -any \_ (-contém "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Usando os operadores - qualquer e -todos os operadores
 
@@ -279,11 +279,11 @@ A seguinte expressão seleciona todos os utilizadores que tenham qualquer plano 
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore-_-syntax"></a>Usando a\_sintaxe de sublinhado
+### <a name="using-the-underscore-_-syntax"></a>Usando a \_ sintaxe de sublinhado
 
-A sintaxe de sublinhado\_corresponde a ocorrências de um valor específico numa das propriedades de recolha de cordas multivalorizadas para adicionar utilizadores ou dispositivos a um grupo dinâmico. É utilizado com os operadores.
+A sintaxe de sublinhado \_ corresponde a ocorrências de um valor específico numa das propriedades de recolha de cordas multivalorizadas para adicionar utilizadores ou dispositivos a um grupo dinâmico. É utilizado com os operadores.
 
-Aqui está um exemplo de\_usar o sublinhado ( ) numa regra para adicionar membros com base em user.proxyAddress (funciona o mesmo para user.otherMails). Esta regra adiciona qualquer utilizador com endereço proxy que contenha "contoso" ao grupo.
+Aqui está um exemplo de usar o sublinhado ( \_ ) numa regra para adicionar membros com base em user.proxyAddress (funciona o mesmo para user.otherMails). Esta regra adiciona qualquer utilizador com endereço proxy que contenha "contoso" ao grupo.
 
 ```
 (user.proxyAddresses -any (_ -contains "contoso"))
@@ -347,7 +347,7 @@ Os atributos de extensão e as propriedades de extensão personalizada são supo
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-As propriedades de [extensão personalizada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) sincronizadas a partir de No local, o `user.extension_[GUID]_[Attribute]`Windows Server AD ou a partir de uma aplicação SaaS conectada e são do formato de, onde:
+As propriedades de [extensão personalizada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) sincronizadas a partir de No local, o Windows Server AD ou a partir de uma aplicação SaaS conectada e são do formato `user.extension_[GUID]_[Attribute]` de, onde:
 
 * [GUID] é o identificador único em Azure AD para a aplicação que criou o imóvel em Azure AD
 * [Atributo] é o nome da propriedade tal como foi criado

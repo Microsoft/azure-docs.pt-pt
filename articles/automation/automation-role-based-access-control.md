@@ -1,24 +1,21 @@
 ---
-title: Controlo de acesso baseado em funções na Automatização do Azure
-description: O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Este artigo descreve como configurar o RBAC na Automatização do Azure.
+title: Gerir permissões de funções e segurança na Automação Azure
+description: Este artigo diz como usar o controlo de acesso baseado em papéis (RBAC), que permite a gestão de acesso aos recursos do Azure.
 keywords: rbac de automatização, controlo de acesso baseado em funções , rbac do azure
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: a49f2596df91c44deafa1be83483f8972e223742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cdde8d1142ec47f835e4a06e7fe2e843d796a3a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535575"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743918"
 ---
-# <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
+# <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
 
 O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Utilizando o [RBAC,](../role-based-access-control/overview.md)pode segregar tarefas dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores, grupos e aplicações de que necessitam para desempenhar em seu trabalho. Pode conceder acesso baseado em papéis aos utilizadores utilizando o portal Azure, ferramentas Azure Command-Line ou APIs de Gestão Azure.
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="roles-in-automation-accounts"></a>Funções nas contas de Automação
 
@@ -32,7 +29,7 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 | Operador de Automatização |A função Do Operador de Automação permite-lhe visualizar o nome e as propriedades do livro de execução e criar e gerir empregos para todos os livros de execução numa conta de Automação. Esta função é útil se quiser proteger os recursos da sua conta Automation, como credenciais de ativos e livros de execução de serem vistos ou modificados, mas ainda assim permitir que os membros da sua organização executem estes livros de execução. |
 |Operador de trabalho de automação|A função de Operador de Trabalho automational permite-lhe criar e gerir postos de trabalho para todos os livros de execução numa conta de Automação.|
 |Operador de livro de automação|A função de Operador de Executo Automation Runbook permite-lhe visualizar o nome e as propriedades de um livro de execução.|
-| Contribuidor do Log Analytics | A função Log Analytics Contributor permite-lhe ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VMs, as chaves da conta de armazenamento de leitura para poder configurar a recolha de registos do armazenamento Azure, criar e configurar contas de Automação, adicionar soluções e configurar diagnósticos Azure em todos os recursos do Azure.|
+| Contribuidor do Log Analytics | A função Log Analytics Contributor permite-lhe ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VMs, as chaves da conta de armazenamento de leitura para poder configurar a recolha de registos a partir do armazenamento Azure, criar e configurar contas de Automação, adicionar funcionalidades de Automação Azure e configurar diagnósticos Azure em todos os recursos do Azure.|
 | Leitor do Log Analytics | A função Log Analytics Reader permite-lhe visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização. Isto inclui visualizar a configuração de diagnósticos Azure em todos os recursos do Azure. |
 | Colaborador de Monitorização | A função De Colaborador de Monitorização permite-lhe ler todos os dados de monitorização e definições de monitorização da atualização.|
 | Leitor de Monitorização | A função Monitoring Reader permite-lhe ler todos os dados de monitorização. |
@@ -130,7 +127,7 @@ Uma função de Operador de Resta de Automação é concedida no âmbito do Livr
 
 ### <a name="log-analytics-contributor"></a>Contribuidor do Log Analytics
 
-Um Colaborador de Log Analytics pode ler todos os dados de monitorização e editar definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VMs; chaves da conta de armazenamento de leitura para poder configurar a recolha de registos do Armazenamento Azure; criação e configuração de contas de Automação; adicionando soluções; e configurar diagnósticos Azure em todos os recursos do Azure. O quadro seguinte mostra as permissões concedidas para o papel:
+Um Colaborador de Log Analytics pode ler todos os dados de monitorização e editar definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VMs; chaves da conta de armazenamento de leitura para poder configurar a recolha de registos do Armazenamento Azure; criação e configuração de contas de Automação; adicionando funcionalidades; e configurar diagnósticos Azure em todos os recursos do Azure. O quadro seguinte mostra as permissões concedidas para o papel:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
@@ -142,7 +139,7 @@ Um Colaborador de Log Analytics pode ler todos os dados de monitorização e edi
 |Microsoft.Insights/alertRules/*|Leia/escreva/apague as regras de alerta.|
 |Microsoft.Insights/diagnósticoDefinições/*|Ler/escrever/eliminar as definições de diagnóstico.|
 |Microsoft.OperationalInsights/*|Gerencie os registos do Monitor Azure.|
-|Microsoft.OperationsManagement/*|Gerir soluções em espaços de trabalho.|
+|Microsoft.OperationsManagement/*|Gerir funcionalidades de Automação Azure em espaços de trabalho.|
 |Microsoft.Recursos/implementações/*|Criar e gerir as implementações de grupos de recursos.|
 |Microsoft.Recursos/subscrições/grupos de recursos/implementações/*|Criar e gerir as implementações de grupos de recursos.|
 |Microsoft.Storage/storageAccounts/listKeys/action|Lista de chaves da conta de armazenamento.|
@@ -207,11 +204,11 @@ Um Administrador de Acesso ao Utilizador pode gerir o acesso dos utilizadores ao
 |Microsoft.Authorization/*|Gerir a autorização|
 |Microsoft.Support/*|Criar e gerir bilhetes de apoio|
 
-## <a name="onboarding-permissions"></a>Permissões de embarque
+## <a name="feature-setup-permissions"></a>Permissões de configuração de funcionalidades
 
-As seguintes secções descrevem as permissões mínimas necessárias para o embarque de máquinas virtuais para as soluções de rastreio de alterações ou de atualização.
+As seguintes secções descrevem as permissões mínimas necessárias para permitir as funcionalidades de Gestão e Desbloqueio de Alterações de Atualização.
 
-### <a name="permissions-for-onboarding-from-a-vm"></a>Permissões para embarque a partir de um VM
+### <a name="permissions-for-enabling-update-management-and-change-tracking-and-inventory-from-a-vm"></a>Permissões para permitir gestão de atualizações e rastreio de alterações e inventário de um VM
 
 |**Ação**  |**Permissão**  |**Âmbito mínimo**  |
 |---------|---------|---------|
@@ -231,9 +228,9 @@ As seguintes secções descrevem as permissões mínimas necessárias para o emb
 | Verificação do espaço de trabalho de embarque para VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscrição         |
 | Registe o fornecedor Log Analytics |Microsoft.Insights/register/action | Subscrição|
 
-<sup>1</sup> Esta permissão é necessária para embarcar através da experiência do portal VM.
+<sup>1</sup> Esta permissão é necessária para ativar funcionalidades através da experiência do portal VM.
 
-### <a name="permissions-for-onboarding-from-automation-account"></a>Permissões para embarque na conta Automation
+### <a name="permissions-for-enabling-update-management-and-change-tracking-and-inventory-from-an-automation-account"></a>Permissões para permitir gestão de atualizações e rastreio de alterações e inventário a partir de uma conta de Automação
 
 |**Ação**  |**Permissão** |**Âmbito mínimo**  |
 |---------|---------|---------|
@@ -248,7 +245,7 @@ As seguintes secções descrevem as permissões mínimas necessárias para o emb
 |Criar/editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Criar/editar config de âmbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 | Registe o fornecedor Log Analytics |Microsoft.Insights/register/action | Subscrição|
-|**Passo 2 - VMs a bordo**     |         |         |
+|**Passo 2 - Ativar Múltiplos VMs**     |         |         |
 |Lâmina VMOnboarding - Criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
 |Criar /editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabalho        |
 |Criar/editar o config de âmbito de aplicação  | Microsoft.OperationalInsights/workspaces/write   | Área de trabalho|
@@ -314,7 +311,7 @@ Pode remover a permissão de acesso para um utilizador que não esteja a gerir a
 
 Também pode configurar o acesso baseado em funções a uma conta Automation utilizando os [seguintes cmdlets Azure PowerShell:](../role-based-access-control/role-assignments-powershell.md)
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC que estão disponíveis no Diretório Ativo Azure. Pode utilizar este cmdlet `Name` com o parâmetro para enumerar todas as ações que uma função específica pode desempenhar.
+[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC que estão disponíveis no Diretório Ativo Azure. Pode utilizar este cmdlet com o `Name` parâmetro para enumerar todas as ações que uma função específica pode desempenhar.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -333,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista atribuições de funções Azure AD RBAC no âmbito especificado. Sem parâmetros, este cmdlet devolve todas as atribuições de funções efetuadas ao abrigo da subscrição. Utilize `ExpandPrincipalGroups` o parâmetro para listar as atribuições de acesso ao utilizador especificado, bem como os grupos a que o utilizador pertence.
+[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista atribuições de funções Azure AD RBAC no âmbito especificado. Sem parâmetros, este cmdlet devolve todas as atribuições de funções efetuadas ao abrigo da subscrição. Utilize o `ExpandPrincipalGroups` parâmetro para listar as atribuições de acesso ao utilizador especificado, bem como os grupos a que o utilizador pertence.
 
 **Exemplo:** Utilize o seguinte cmdlet para listar todos os utilizadores e suas funções dentro de uma conta Automation.
 
@@ -385,7 +382,7 @@ Utilize [a Remoção-AzRoleAssignment](https://docs.microsoft.com/powershell/mod
 Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-No exemplo anterior, `sign-in ID of a user you wish to remove` `SubscriptionID`substitua, `Resource Group Name` `Automation account name` e com os detalhes da sua conta. Escolha **sim** quando solicitado a confirmar antes de continuar a remover as atribuições de funções do utilizador.
+No exemplo anterior, `sign-in ID of a user you wish to remove` `SubscriptionID` substitua, e com os detalhes da sua `Resource Group Name` `Automation account name` conta. Escolha **sim** quando solicitado a confirmar antes de continuar a remover as atribuições de funções do utilizador.
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Experiência do utilizador para função de Operador de Automação - Conta de Automação
 
@@ -428,6 +425,6 @@ Quando um utilizador designado para a função de Operador de Automação no âm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre formas de configurar o RBAC para a Automação Azure, consulte a gestão do [RBAC com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Para mais detalhes sobre formas de iniciar um livro de corridas, consulte Iniciar um livro de [corridas](automation-starting-a-runbook.md).
-* Para obter informações sobre os tipos de livro de execução, consulte os tipos de livro de [execução da Automatização Azure](automation-runbook-types.md).
+* [Gerir o RBAC com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Starting a Runbook in Azure Automation](start-runbooks.md) (Iniciar um Runbook na Automatização do Azure)
+* [Tipos de livro de execução da Automação Azure](automation-runbook-types.md)

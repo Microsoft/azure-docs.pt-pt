@@ -1,51 +1,51 @@
 ---
-title: Gerir uma máquina virtual do Azure com a recolha de inventário | Microsoft Docs
-description: Gerir uma máquina virtual com a recolha de inventário
+title: Gerir a recolha de inventário da Azure Automation a partir de VMs [ Microsoft Docs
+description: Este artigo diz como gerir a recolha de inventário de VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventário, automatização,alteração, controlo
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5142286bc50620d5a12a0722b3c4f9b8b75f5b73
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617374"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745271"
 ---
-# <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
+# <a name="manage-inventory-collection-from-vms"></a>Gerir a recolha de inventário a partir de VMs
 
-Pode ativar o controlo de inventário para uma máquina virtual do Azure a partir da página de recursos da máquina virtual. Pode recolher e visualizar as seguintes informações de inventário nos seus computadores:
+Pode ativar o rastreio de inventário de um VM Azure a partir da página de recursos da máquina. Pode recolher e visualizar as seguintes informações de inventário nos seus computadores:
 
-- Software Windows (aplicações do Windows e atualizações do Windows), serviços, ficheiros e chaves de registo
-- Daemons e ficheiros de software Linux (pacotes)
+- Atualizações do Windows, aplicações do Windows, serviços, ficheiros e chaves de registo
+- Pacotes de software Linux, daemons e ficheiros
 
-Este método fornece uma interface de utilizador baseada no browser para definir e configurar a recolha de inventário.
+O Rastreio e Inventário de Alterações de Automação Azure fornece uma interface de utilizador baseada no navegador para configurar e configurar a recolha de inventário.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita.](https://azure.microsoft.com/free/)
 
-Este artigo assume que tem um VM para configurar a solução. Se não tiver uma máquina virtual do Azure, [crie uma máquina virtual](../virtual-machines/windows/quick-create-portal.md).
+Este artigo assume que tem um VM para ativar com o Change Tracking e O Inventário. Se não tiver um VM Azure, pode [criar um VM](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Ativar a recolha de inventário a partir da página de recursos da máquina virtual
+## <a name="enable-inventory-collection-from-the-vm-resource-page"></a>Ativar a recolha de inventário a partir da página de recursos VM
 
 1. No painel esquerdo do portal do Azure, selecione **Máquinas virtuais**.
-2. Na lista de máquinas virtuais, selecione uma máquina virtual.
+2. Na lista de VMs, selecione uma máquina.
 3. No menu **Recurso,** em **Operações,** selecione **Inventário**.
 4. Selecione um espaço de trabalho de Log Analytics para armazenar os seus registos de dados.
     Se não existir uma área de trabalho disponível para essa região, é-lhe pedido para criar uma área de trabalho predefinida e uma conta de automatização.
-5. Para iniciar a inclusão do seu computador, selecione **Ativar**.
+5. Para começar a ativar o computador, selecione **Ativar**.
 
    ![Ver opções de inclusão](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Uma barra de estado notifica-o de que a solução está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante este tempo, pode fechar a janela, ou pode mantê-la aberta e anota quando a solução está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
+    Uma barra de estado notifica que a funcionalidade de Rastreio e Inventário de Alterações está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante este tempo, pode fechar a janela, ou pode mantê-la aberta e anota quando a funcionalidade está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
 
-   ![Ver a solução de inventário imediatamente após a inclusão](./media/automation-vm-inventory/inventory-onboarded.png)
+   ![Ver o inventário](./media/automation-vm-inventory/inventory-onboarded.png)
 
 Quando a implementação estiver concluída, a barra de estado desaparece. O sistema ainda está a recolher dados de inventário e os dados podem não estar visíveis. Um conjunto completo de dados pode demorar 24 horas.
 
@@ -57,7 +57,7 @@ Por predefinição, o software, os serviços do Windows e os daemons Linux estã
 2. Para adicionar uma nova definição de recolha, vá para a categoria de definição que pretende adicionar selecionando o **windows registry,** **Windows Files**ou o separador **Ficheiros Linux.**
 3. Selecione a categoria apropriada e clique em **Adicionar** no topo da página.
 
-As tabelas seguintes fornecem informações sobre cada imóvel que podem ser configuradas para as várias categorias.
+As seguintes secções fornecem informações sobre cada propriedade que podem ser configuradas para as várias categorias.
 
 ### <a name="windows-registry"></a>Registo do Windows
 
@@ -110,14 +110,14 @@ Se quiser criar um novo grupo de máquinas, clique + **Crie um grupo de máquina
 
 ![Criar novo grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 
-## <a name="disconnect-your-virtual-machine-from-management"></a>Desligar a máquina virtual da gestão
+## <a name="disconnect-your-vm-from-management"></a>Desligue o seu VM da gestão
 
-Para remover a máquina virtual da gestão de inventário:
+Para remover o seu VM da gestão de inventário:
 
-1. No painel esquerdo do portal do Azure, selecione **Log Analytics** e, em seguida, selecione a área de trabalho que utilizou quando efetuou a inclusão da máquina virtual.
+1. No painel esquerdo do portal Azure, selecione **Log Analytics**, e, em seguida, selecione o espaço de trabalho que utilizou ao ativar o seu VM para rastreio e inventário de alterações.
 2. Na página Log Analytics, abra o menu **Recurso.**
 3. Selecione **Máquinas Virtuais** sob **fontes**de dados do espaço de trabalho .
-4. Na lista, selecione a máquina virtual que quer desligar. A máquina virtual tem uma marca de verificação verde junto a **Esta área de trabalho** na coluna **Ligação OMS**.
+4. Na lista, selecione o VM que pretende desligar. A máquina tem uma marca de verificação verde ao lado **deste espaço** de trabalho na coluna **De Ligação OMS.**
 
    >[!NOTE]
    >A Suite de Gestão de Operações (OMS) é agora referida como registos do Monitor Azure.
@@ -127,5 +127,6 @@ Para remover a máquina virtual da gestão de inventário:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre a gestão de alterações nas definições de ficheiros e do registo nas suas máquinas virtuais, veja [Controlar as alterações de software com a solução Controlo de Alterações](../log-analytics/log-analytics-change-tracking.md).
-* Para saber como gerir o Windows e atualizações de pacotes nas suas máquinas virtuais, consulte a [solução De Gestão de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
+* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
+* [Acompanhe as mudanças de software no seu ambiente com Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* [Gestão de Atualizações em Azure.](../operations-management-suite/oms-solution-update-management.md)

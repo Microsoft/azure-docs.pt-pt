@@ -6,18 +6,18 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168653"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746994"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador Azure Cosmos - Notas de lançamento e descarregamento de informações
 
 Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma lista de atualizações de funcionalidades que foram feitas em cada lançamento. Também lista a versão mais recente do emulador para descarregar e usar.
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Download
 
 | | |
 |---------|---------|
@@ -25,6 +25,15 @@ Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma list
 |**Introdução**|[Desenvolver localmente com o emulador Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2110"></a>2.11.0
+
+- Esta versão introduz suporte para a produção de escala automática. Estas novas funcionalidades incluem a capacidade de definir um nível de produção máximo personalizado nas unidades de pedido (RU/s), permitir a escala automática em bases de dados e contentores existentes, e suporte programático através de SDKs DB Azure Cosmos.
+- Corrija um problema enquanto consulta através de uma grande quantidade de documentos (mais de 1GB) se o emulador falhará com o código de estado de erro interno 500.
+
+### <a name="292"></a>2.9.2
+
+- Esta versão corrige um bug ao mesmo tempo que permite suporte para a versão 3.2 do ponto final do MongoDb. Também adiciona suporte para gerar vestígios ETL para fins de resolução de problemas usando WPR em vez de LOGMAN.
 
 ### <a name="291"></a>2.9.1
 

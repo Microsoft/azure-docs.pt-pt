@@ -3,12 +3,12 @@ title: Faça uma base de dados SAP HANA para Azure com Backup Azure
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço De backup Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: d0b002c4043bacb451d5d837c48f8bdf33949e86
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714632"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745420"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -131,6 +131,11 @@ Uma política de reserva define quando os backups são tomados, e quanto tempo s
 * Uma apólice é criada ao nível do cofre.
 * Vários cofres podem usar a mesma política de reserva, mas tens de aplicar a política de reserva a cada cofre.
 
+>[!NOTE]
+>O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de uma base de dados SAP HANA em funcionamento num VM Azure.
+>
+>Modifique a política manualmente conforme necessário.
+
 Especifique as definições de política da seguinte forma:
 
 1. Em **nome de Política,** insira um nome para a nova política.
@@ -201,7 +206,7 @@ Se quiser obter uma cópia de segurança local (usando o HANA Studio) de uma bas
     * Definir **enable_auto_log_backup** para **Sim.**
     * Definir **log_backup_using_backint** para **true**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como restaurar as bases de [dados SAP HANA em execução em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Saiba como gerir as bases de [dados SAP HANA que são apoiadas usando o Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

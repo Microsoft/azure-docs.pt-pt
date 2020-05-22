@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 7e4ec8a5772f0fbc1c0e67ba07a172daeac9b91b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5abb373d4b3f9c66b2dc2f103e4a89ef0dc5af89
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657898"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744835"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o mercado comercial da Microsoft
 
@@ -40,7 +40,7 @@ O mercado comercial é um ponto de partida para a colaboração e capacitação 
 
 O mercado comercial está disponível em 141 regiões, por plano. 
 
-Gerimos o pagamento de impostos em muitos países e fornecemos acesso à nossa rede global de revendedores. Você pode usar o Contrato de Cliente da Microsoft ou Acordo de Empresa de um cliente para vender a organizações sem ter que criar uma nova relação de compra.
+Gerimos o pagamento de impostos em muitos países/regiões, e fornecemos acesso à nossa rede global de revendedores. Você pode usar o Contrato de Cliente da Microsoft ou Acordo de Empresa de um cliente para vender a organizações sem ter que criar uma nova relação de compra.
 
 Para saber mais, veja o vídeo no [Why sell através do marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
 
@@ -225,7 +225,7 @@ Não, os gastos do Azure pré-pagos ou patrocinados não podem ser usados para c
 
 A conta de utilizador deve ter permissões *do Proprietário* ou *do Colaborador* na subscrição do Azure.
 
-### <a name="in-what-countries-can-customers-purchase-from-microsoft-appsource-and-azure-marketplace"></a>Em que países os clientes podem comprar da Microsoft AppSource e do Azure Marketplace?
+### <a name="in-what-countriesregions-can-customers-purchase-from-microsoft-appsource-and-azure-marketplace"></a>Em que países/regiões os clientes podem comprar da Microsoft AppSource e do Azure Marketplace?
 
 Os clientes podem obter soluções do mercado comercial em 141 locais em todo o mundo.
 
@@ -262,7 +262,7 @@ Se o plano for alterado para uma subscrição existente, o termo permanece inalt
 
 ### <a name="what-could-block-a-customer-from-completing-a-purchase"></a>O que poderia impedir um cliente de concluir uma compra?
 
-Para o Microsoft AppSource, o cliente deve ter um cartão de crédito com um endereço de faturação no mesmo país que a sua instância Azure AD, e o administrador da AD Azure do cliente deve garantir que o sistema não impede a autenticação no Microsoft AppSource.
+Para o Microsoft AppSource, o cliente deve ter um cartão de crédito com um endereço de faturação no mesmo país/região que a sua instância Azure AD, e o administrador da AD Azure do cliente deve garantir que o sistema não impede a autenticação no Microsoft AppSource.
 
 Para o Azure Marketplace, o cliente deve ter uma subscrição Azure ativa e uma conta de utilizador com permissões *do Proprietário* ou *do Colaborador* nessa subscrição. O administrador do Azure do cliente deve garantir que a Política Azure não entra em conflito com a oferta que está a ser utilizada, e que a gestão de custos não pode ser criada para desativar o Azure Marketplace.
 

@@ -8,15 +8,15 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7de8a5bcc2f7883b00ec25e2674b1dc6bd6871c9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81454490"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747278"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurar as suas informações de Segurança a partir de um pedido de início de sessão
 
@@ -136,7 +136,7 @@ Ao utilizar palavras-passe de aplicativos, é importante lembrar:
 
 1. Depois de terminar as secções anteriores do assistente, selecione **Next** e complete a secção de **palavra-passe** da App.
 
-2. Digite o nome da aplicação que `Outlook 2010`precisa da palavra-passe, por exemplo, e depois selecione **Next**.
+2. Digite o nome da aplicação que precisa da palavra-passe, por `Outlook 2010` exemplo, e depois selecione **Next**.
 
     ![Adicione o nome da palavra-passe da aplicação no assistente](media/security-info/app-password-app-password.png)
 

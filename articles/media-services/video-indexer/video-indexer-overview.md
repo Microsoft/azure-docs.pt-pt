@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788858"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744609"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
 
@@ -70,8 +70,8 @@ A lista que se segue mostra as ideias que pode obter dos seus vídeos utilizando
 
 ### <a name="audio-insights"></a>Insights áudio
 
-* **Transcrição áudio**: Converte a fala em texto em 12 idiomas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, mandarim chinês, japonês, árabe, russo, português brasileiro, hindi e coreano.
-* **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês mandarim, japonês, russo e português brasileiro. Se a língua não pode ser identificada com confiança, o Indexer de vídeo assume que a língua falada é inglês. Para mais informações, consulte o modelo de [identificação da língua.](language-identification-model.md)
+* **Transcrição áudio**: Converte a fala em texto em 12 idiomas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, mandarim chinês, japonês, árabe, russo, português, hindi e coreano.
+* **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês mandarim, japonês, russo e português. Se a língua não pode ser identificada com confiança, o Indexer de vídeo assume que a língua falada é inglês. Para mais informações, consulte o modelo de [identificação da língua.](language-identification-model.md)
 * **Identificação e transcrição da fala multi-idioma (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro mediático para ser transcrito e, em seguida, combina a transcrição de volta a uma transcrição unificada. Para mais informações, consulte [Automaticamente identificar e transcrever conteúdo multilingues.](multi-language-identification-transcription.md)
 * **Closed captioning** (Legendas): cria legendas em três formatos: VTT, TTML e SRT.
 * **Processamento de dois canais:** O Auto deteta transcrição separada e funde-se numa única linha temporal.
@@ -114,7 +114,7 @@ Se estiver a usar o site, os insights são adicionados como metadados e são vis
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os artigos seguintes:
+Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os seguintes artigos:
 
 - [Começar com o site do Indexer de Vídeo.](video-indexer-get-started.md)
 - [Processe o conteúdo com o Indexer de Vídeo REST API](video-indexer-use-apis.md).

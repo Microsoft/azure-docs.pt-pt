@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264924"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745763"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -342,7 +342,7 @@ Em comparação com um circuito Standard ExpressRoute, um circuito local tem o m
 O ExpressRoute Local também tem os mesmos limites de recursos (por exemplo, o número de VNets por circuito) que o Standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Onde está disponível o ExpressRoute Local e quais as regiões de Azure a que cada local de observação está mapeado?
-O ExpressRoute Local está disponível nos locais onde uma ou duas regiões Azure estão próximas. Não está disponível num local onde não exista nenhuma região de Azure nesse estado ou província ou país. Por favor, consulte os mapeamentos exatos [na página Locais](expressroute-locations-providers.md).  
+O ExpressRoute Local está disponível nos locais onde uma ou duas regiões Azure estão próximas. Não está disponível num local onde não exista região de Azure nesse estado ou província ou país/região. Por favor, consulte os mapeamentos exatos [na página Locais](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>Rota expressa para o Escritório 365
 

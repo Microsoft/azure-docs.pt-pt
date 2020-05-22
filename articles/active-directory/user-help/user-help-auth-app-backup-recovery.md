@@ -7,16 +7,16 @@ manager: daveba
 ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 2ac761355fc528fe3e4b4b5f05ee0a6e317ff99a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f78ef7ddf48612728c0409b0f904c0964e2272b5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78298005"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741598"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Back up e recuperar credenciais de conta usando a app Microsoft Authenticator
 

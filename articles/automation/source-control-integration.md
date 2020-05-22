@@ -1,25 +1,22 @@
 ---
-title: Integração de controlo de código fonte da Automatização do Azure
-description: Este artigo descreve a integração do controlo de fontes com o GitHub na Automação Azure.
+title: Utilize a integração de controlo de fontes na Automação Azure
+description: Este artigo diz como sincronizar a Azure Automation source control com outros repositórios.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 166902978d1641458f18aeee6269c8d819e85233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248cbd42d86371742ad4985b515d70d022722385
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132931"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744932"
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
+# <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
  A integração do controlo de fontes na Automatização Azure suporta a sincronização de uma direção única do seu repositório de controlo de fonte. O controlo de fonte supõe-lhe manter os seus livros de execução na sua conta Automation atualizados com scripts no seu repositório de controlo de fonte GitHub ou Azure Repos. Esta funcionalidade facilita a promoção de código que foi testado no seu ambiente de desenvolvimento para a sua conta de Automação de Produção.
  
  A integração do controlo de fontes permite-lhe colaborar facilmente com a sua equipa, rastrear alterações e reverter para versões anteriores dos seus livros de execução. Por exemplo, o controlo de fontes permite sincronizar diferentes ramos no controlo de origem com as suas contas de desenvolvimento, teste e produção Automation. 
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="source-control-types"></a>Tipos de controlo de fontes
 
@@ -33,12 +30,12 @@ A Azure Automation suporta três tipos de controlo de fonte:
 
 * Um repositório de controlo de fonte (GitHub ou Azure Repos)
 * Uma [conta Run As](manage-runas-account.md)
-* Os [mais recentes módulos Azure](automation-update-azure-modules.md) na `Az.Accounts` sua conta Automation, `AzureRM.Profile`incluindo o módulo (módulo Az equivalente a)
+* Os [mais recentes módulos Azure](automation-update-azure-modules.md) na sua conta Automation, incluindo o `Az.Accounts` módulo (módulo Az equivalente `AzureRM.Profile` a)
 
 > [!NOTE]
 > Os trabalhos de sincronização do controlo de fontes são executados sob a conta de Automação do utilizador e são faturados ao mesmo ritmo que outros trabalhos de Automação.
 
-## <a name="configuring-source-control"></a>Configurar o controlo de fonte
+## <a name="configure-source-control"></a>Configurar o controlo de fonte
 
 Esta secção diz como configurar o controlo de origem para a sua conta Desmótica. Pode utilizar o portal Azure ou o PowerShell.
 
@@ -90,7 +87,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Criar ligação de controlo de fontes para O Pinos (Git)
 
 > [!NOTE]
-> O Azure Repos (Git) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` URL mais antigo é depreciado, mas ainda suportado. O novo formato é preferido.
+> O Azure Repos (Git) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` é depreciado, mas ainda suportado. O novo formato é preferido.
 
 
 ```powershell-interactive
@@ -100,7 +97,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Criar ligação de controlo de fontes para o Azure Repos (TFVC)
 
 > [!NOTE]
-> O Azure Repos (TFVC) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato `https://<accountname>.visualstudio.com/<projectname>/_versionControl` URL mais antigo é depreciado, mas ainda suportado. O novo formato é preferido.
+> O Azure Repos (TFVC) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_versionControl` é depreciado, mas ainda suportado. O novo formato é preferido.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -137,9 +134,9 @@ A lista que se segue define as permissões mínimas de PAT necessárias para o A
 | `Work items` | Leitura    |
 | `Service connections` | Ler, consultar, gerir<sup>1</sup>    |
 
-<sup>1</sup> `Service connections` A permissão só é necessária se tiver ativado a sincronização automática.
+<sup>1</sup> A `Service connections` permissão só é necessária se tiver ativado a sincronização automática.
 
-## <a name="synchronizing"></a>Sincronização
+## <a name="synchronize-with-source-control"></a>Sincronizar com controlo de fonte
 
 Siga estes passos para sincronizar com o controlo de origem. 
 
@@ -161,7 +158,7 @@ Siga estes passos para sincronizar com o controlo de origem.
     Azure Automation Source Control.
     Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
 
-    Setting AzureRmEnvironment.
+    Setting AzEnvironment.
 
     Getting AzureRunAsConnection.
 
@@ -187,7 +184,7 @@ Siga estes passos para sincronizar com o controlo de origem.
 
 6. O registo adicional está disponível selecionando **Todos os Registos** na página de Resumo do Sumário de Sincronização de Controlo de Origem. Estas entradas de registo adicionais podem ajudá-lo a resolver problemas que podem surgir ao utilizar o controlo de origem.
 
-## <a name="disconnecting-source-control"></a>Desligar o controlo de fontes
+## <a name="disconnect-source-control"></a>Desligar o controlo de fonte
 
 Para desligar de um repositório de controlo de fonte:
 
@@ -197,11 +194,11 @@ Para desligar de um repositório de controlo de fonte:
 
 3. Na página Resumo do Controlo de Fontes, clique em **Eliminar**.
 
-## <a name="handling-encoding-issues"></a>Lidar com questões de codificação
+## <a name="handle-encoding-issues"></a>Lidar com questões de codificação
 
 Se várias pessoas estiverem a editar livros de execução no seu repositório de controlo de fontes utilizando diferentes editores, podem ocorrer questões de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
-## <a name="updating-the-pat"></a>Atualizar o PAT
+## <a name="update-the-pat"></a>Atualizar o PAT
 
 Atualmente, não é possível utilizar o portal Azure para atualizar o PAT no controlo de fontes. Quando o pat estiver expirado ou revogado, pode atualizar o controlo de fonte com um novo sinal de acesso de uma destas formas:
 
@@ -210,4 +207,5 @@ Atualmente, não é possível utilizar o portal Azure para atualizar o PAT no co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os tipos de livro de corridas e as suas vantagens e limitações, consulte os tipos de livro de [execução da Automação Azure](automation-runbook-types.md).
+* [Automação Azure: Integração de Controlo de Fontes na Automação Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Automação Azure: Integração do Controlo de Fontes do Livro de Execução utilizando O Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  

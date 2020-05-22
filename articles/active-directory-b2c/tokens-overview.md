@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7725a9ddd1d9559166360b27bd8a5371d8c0557e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638252"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757624"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Diretório Ativo Azure B2C
 
@@ -37,8 +37,8 @@ As seguintes fichas são utilizadas na comunicação com o Azure AD B2C:
 
 Uma [aplicação registada](tutorial-register-applications.md) recebe tokens e comunica com o Azure AD B2C enviando pedidos para estes pontos finais:
 
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Os símbolos de segurança que a sua aplicação recebe do Azure AD B2C podem vir dos `/authorize` `/token` pontos finais ou finais. Quando os tokens de ID são adquiridos a partir do `/authorize` ponto final, é feito usando o [fluxo implícito](implicit-flow-single-page-application.md), que é frequentemente usado para utilizadores que satisfazem em aplicações web baseadas em JavaScript. Quando os tokens de ID são adquiridos a partir do ponto final, é feito usando o fluxo de código de `/token` [autorização](openid-connect.md#get-a-token), que mantém o token escondido do navegador.
 

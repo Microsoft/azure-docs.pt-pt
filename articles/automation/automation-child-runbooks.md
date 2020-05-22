@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac3f24e06553fd037ef5deaf374690fb92b0fa8c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 5c562fb43966fda203e92cc5003ef3c85945364b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715822"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742837"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 
@@ -35,7 +35,7 @@ Quando invoca um runbook inline, este é executado na mesma tarefa que o runbook
 
 Quando um livro de execução é publicado, qualquer livro infantil que ele chama já deve ser publicado. A razão é que a Azure Automation constrói uma associação com qualquer livro infantil quando compila um livro de corridas. Se os livros infantis ainda não foram publicados, o livro de execução dos pais parece publicar corretamente, mas gera uma exceção quando é iniciado. Se isso acontecer, pode reeditar o livro de execução dos pais para fazer referência adequada aos livros de gestão de crianças. Não é necessário reeditar o livro de execução dos pais se algum livro de corridas para crianças for alterado porque a associação já foi criada.
 
-Os parâmetros de um livro infantil chamado inline podem ser de qualquer tipo de dados, incluindo objetos complexos. Não existe [serialização JSON](start-runbooks.md#runbook-parameters), como existe quando se inicia o livro de execução utilizando o portal Azure ou com o cmdlet [Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook)
+Os parâmetros de um livro infantil chamado inline podem ser de qualquer tipo de dados, incluindo objetos complexos. Não existe [serialização JSON](start-runbooks.md#work-with-runbook-parameters), como existe quando se inicia o livro de execução utilizando o portal Azure ou com o cmdlet [Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook)
 
 ### <a name="runbook-types"></a>Tipos de runbooks
 
@@ -80,7 +80,7 @@ A saída do livro de crianças não regressa ao livro de corridas dos pais de fo
 
 Se não quiser que o livro de corridas dos pais seja bloqueado à espera, pode iniciar o livro de corridas para crianças `Start-AzAutomationRunbook` usando sem o `Wait` parâmetro. Neste caso, o seu livro de execução deve utilizar [o Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) para aguardar a conclusão do trabalho. Também deve utilizar [get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) e [Get-AzAutomationJobOutputOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) para recuperar os resultados.
 
-Os parâmetros para um livro infantil iniciado com um cmdlet são fornecidos como um hashtable, como descrito nos [parâmetros Runbook](start-runbooks.md#runbook-parameters). Só podem ser utilizados tipos simples de dados. Se o runbook tiver um parâmetro com um tipo de dados complexo, tem de ser chamado inline.
+Os parâmetros para um livro infantil iniciado com um cmdlet são fornecidos como um hashtable, como descrito nos [parâmetros Runbook](start-runbooks.md#work-with-runbook-parameters). Só podem ser utilizados tipos simples de dados. Se o runbook tiver um parâmetro com um tipo de dados complexo, tem de ser chamado inline.
 
 O contexto de subscrição pode perder-se ao iniciar os livros de execução de crianças como trabalhos separados. Para que o livro de execução infantil execute cmdlets de módulo Az contra uma subscrição específica do Azure, a criança deve autenticar a esta subscrição independentemente do livro-mãe.
 
@@ -115,7 +115,7 @@ Start-AzAutomationRunbook `
     –Parameters $params –Wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Iniciar um livro de corridas na Automação Azure](start-runbooks.md)
+* [Starting a Runbook in Azure Automation](start-runbooks.md) (Iniciar um Runbook na Automatização do Azure)
 * [Saída de livro de execução e mensagens na Automação Azure](automation-runbook-output-and-messages.md)

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c0644a84b917acff60060a0c48f8e9aac30e16
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366347"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746225"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações apache hadoop de terceiros no Azure HDInsight
 
@@ -31,7 +31,7 @@ A seguinte lista mostra as aplicações publicadas:
 |[Dataiku DSS no HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop |Dataiku DSS numa plataforma de ciência de dados da empresa que permite que cientistas de dados e analistas de dados colaborem para projetar e executar novos produtos e serviços de dados de forma mais eficiente, transformando dados brutos em previsões impactantes. |
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |Manter dados consistentes num ambiente distribuído é um desafio massivo de operações de dados. A WANdisco Fusion, uma plataforma de software de classe empresarial, resolve este problema permitindo a consistência de dados não estruturada em qualquer ambiente. |
 |[H2O SparklingWater para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water suporta os seguintes algoritmos distribuídos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Deteção de Anomalias, Autoencoders. |
-|[Striim para integração de dados em tempo real para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.hdinsightintegration) |Hadoop,HBase,Tempestade,Faísca,Kafka |Striim (pronuncia-se "stream") é uma plataforma de integração de dados de streaming de ponta a ponta + plataforma de inteligência, permitindo a ingestão contínua, processamento e análise de fluxos de dados díspares. |
+|[Striim para integração de dados em tempo real para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop,HBase,Tempestade,Faísca,Kafka |Striim (pronuncia-se "stream") é uma plataforma de integração de dados de streaming de ponta a ponta + plataforma de inteligência, permitindo a ingestão contínua, processamento e análise de fluxos de dados díspares. |
 |[Análise do BigData acelerador da Empresa Jumbune](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop |A um nível elevado, Jumbune ajuda as empresas por, 1. Accelerating Tez, MapReduce & Spark engine based Hive, Java, Scala workload performance. 2. Monitorização proactiva do cluster do hadoop, 3. Estabelecer a gestão da qualidade dos dados no sistema de ficheiros distribuídos. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop,HBase,Faísca |Powered by Apache Kylin, Kyligence Enterprise Enables BI on Big Data. Como motor oLAP da empresa em Hadoop, a Kyligence Enterprise capacita o analista de negócios ao arquiteto BI em Hadoop com o armazém de dados padrão da indústria e a metodologia BI. |
 |[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto é um motor de consulta SQL distribuído rápido e escalável. Projetado para a separação de armazenamento e computação, Presto é perfeito para consulta de dados em Armazenamento de Lagos De Dados Azure, Armazenamento Azure Blob, SQL e NoSQL bases de dados, e outras fontes de dados. |
@@ -52,7 +52,7 @@ O procedimento seguinte mostra-lhe como instalar aplicações do HDInsight num c
 **Instale uma aplicação HDInsight**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. A partir do menu esquerdo, navegue para **todos os serviços** > **Analytics** > **HDInsight clusters**.
+2. A partir do menu esquerdo, navegue para **todos os serviços**  >  **Analytics**  >  **HDInsight clusters**.
 3. Selecione um cluster HDInsight da lista.  Se não tiver um, tem de criá-lo.  Veja [Create clusters (Criar clusters)](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 
    
@@ -76,7 +76,7 @@ O portal mostra uma lista das aplicações do HDInsight instaladas relativas a u
 **Lista de propriedades de aplicação E exibição HDInsight**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. A partir do menu esquerdo, navegue para **todos os serviços** > **Analytics** > **HDInsight clusters**.
+2. A partir do menu esquerdo, navegue para **todos os serviços**  >  **Analytics**  >  **HDInsight clusters**.
 3. Selecione um cluster HDInsight da lista.
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 
    

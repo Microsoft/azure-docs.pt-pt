@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314349"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747770"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall de aplicação web azure no gateway de aplicação azure
 
@@ -72,7 +72,7 @@ Esta secção descreve os benefícios fundamentais que a WAF no Gateway de Aplic
 - Limites de tamanho de pedido configuráveis com limites inferiores e superiores.
 - As listas de exclusão permitem-lhe omiti-lo de determinados atributos de pedido de uma avaliação waf. Um exemplo comum são as fichas inseridas no Diretório Ativo que são usadas para campos de autenticação ou palavra-passe.
 - Crie regras personalizadas para atender às necessidades específicas das suas aplicações.
-- Tráfego de geofiltração para permitir ou bloquear certos países de ter acesso às suas aplicações. (pré-visualização)
+- Tráfego geo-filtrante para permitir ou bloquear certos países/regiões de ter acesso às suas aplicações. (pré-visualização)
 - Proteja as suas aplicações de bots com a regra de mitigação do bot. (pré-visualização)
 
 ## <a name="waf-policy"></a>Política waf
@@ -125,7 +125,7 @@ No modo Depontuação de Anomalias, o tráfego que corresponda a qualquer regra 
 
 |Gravidade  |Valor  |
 |---------|---------|
-|Crítica     |5|
+|Crítico     |5|
 |Erro        |4|
 |Aviso      |3|
 |Aviso prévio       |2|

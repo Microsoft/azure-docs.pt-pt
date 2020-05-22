@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929133"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745450"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Assegurar ativos da Azure CDN com autenticação simbólica
 
@@ -33,7 +33,7 @@ A autenticação simbólica é um mecanismo que permite evitar que a Rede de Ent
 
 A autenticação simbólica verifica que os pedidos são gerados por um site fidedigno, exigindo pedidos para conter um valor simbólico que detém informações codificadas sobre o solicitador. O conteúdo só é servido a um solicitador se as informações codificadas satisfizerem os requisitos; caso contrário, os pedidos são negados. Pode configurar os requisitos utilizando um ou mais dos seguintes parâmetros:
 
-- País: Permitir ou negar pedidos originários dos países/regiões especificados pelo seu [código de país](/previous-versions/azure/mt761717(v=azure.100)).
+- País/Região: Permitir ou negar pedidos originários dos países/regiões especificados pelo seu [código país/região](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Permitir apenas pedidos que correspondam ao ativo ou caminho especificado.
 - Anfitrião: Permitir ou negar pedidos que utilizem os anfitriões especificados no cabeçalho do pedido.
 - Remetente: Permitir ou negar o pedido do referido remetente.
@@ -100,31 +100,31 @@ O fluxograma seguinte descreve como o Azure CDN valida um pedido de cliente quan
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
-      >    <td>Atribui um tempo de validade a um símbolo, após o qual o símbolo expira. Os pedidos apresentados após o prazo de validade são negados. Este parâmetro utiliza uma marca de tempo Unix, que se baseia no número `1/1/1970 00:00:00 GMT`de segundos desde a época unix padrão de . (Pode utilizar ferramentas online para converter entre o tempo padrão e o tempo Unix.)> 
-      >    Por exemplo, se quiser que o `12/31/2016 12:00:00 GMT`símbolo expire a , `1483185600`insira o valor da marca Unix, . 
+      >    <td>Atribui um tempo de validade a um símbolo, após o qual o símbolo expira. Os pedidos apresentados após o prazo de validade são negados. Este parâmetro utiliza uma marca de tempo Unix, que se baseia no número de segundos desde a época unix padrão de `1/1/1970 00:00:00 GMT` . (Pode utilizar ferramentas online para converter entre o tempo padrão e o tempo Unix.)> 
+      >    Por exemplo, se quiser que o símbolo expire a , `12/31/2016 12:00:00 GMT` insira o valor da marca Unix, `1483185600` . 
       > </tr>
       > <tr>
       >    <td><b>ec_url_allow</b></td> 
       >    <td>Permite-lhe adaptar fichas a um determinado ativo ou caminho. Restringe o acesso a pedidos cujo URL começa com um caminho relativo específico. Os URLs são sensíveis aos casos. Insere vários caminhos separando cada caminho com uma vírem; não adicionar espaços. Dependendo dos seus requisitos, pode configurar diferentes valores para fornecer diferentes níveis de acesso.> 
-      >    Por exemplo, para `http://www.mydomain.com/pictures/city/strasbourg.png`o URL, estes pedidos são permitidos para os seguintes valores de entrada: 
+      >    Por exemplo, para o `http://www.mydomain.com/pictures/city/strasbourg.png` URL, estes pedidos são permitidos para os seguintes valores de entrada: 
       >    <ul>
-      >       <li>Valor `/`de entrada : Todos os pedidos são permitidos.</li>
-      >       <li>Valor `/pictures`de entrada, são permitidos os seguintes pedidos: <ul>
+      >       <li>Valor de entrada `/` : Todos os pedidos são permitidos.</li>
+      >       <li>Valor de `/pictures` entrada, são permitidos os seguintes pedidos: <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valor `/pictures/`de entrada : Só `/pictures/` são permitidos pedidos que contenham o caminho. Por exemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Valor `/pictures/city/strasbourg.png`de entrada : Apenas são permitidos pedidos para este caminho específico e ativo.</li>
+      >       <li>Valor de entrada `/pictures/` : Só são permitidos pedidos que contenham o `/pictures/` caminho. Por exemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Valor de entrada `/pictures/city/strasbourg.png` : Apenas são permitidos pedidos para este caminho específico e ativo.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Só permite pedidos originários de um ou mais países/regiões especificados. Os pedidos originários de todos os outros países/regiões são negados. Utilize um [código de país ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de duas letras para cada país e separe cada um com uma vírposta; não adicionar um espaço. Por exemplo, se quiser permitir o acesso a partir `US,FR`dos Estados Unidos e da França, entre .</td>
+      >    <td>Só permite pedidos originários de um ou mais países/regiões especificados. Os pedidos originários de todos os outros países/regiões são negados. Utilize um código de duas letras [ISO 3166 país/região](/previous-versions/azure/mt761717(v=azure.100)) para cada país/região e separe cada um com uma vírposta; não adicionar um espaço. Por exemplo, se quiser permitir o acesso a partir dos Estados Unidos e da França, `US,FR` entre .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nega pedidos originários de um ou mais países/regiões especificados. São permitidos pedidos originários de todos os outros países/regiões. A implementação é a mesma que o parâmetro <b>ec_country_allow.</b> Se um código de país estiver presente nos parâmetros <b>ec_country_allow</b> e <b>ec_country_deny,</b> o parâmetro <b>ec_country_allow</b> tem precedência.</td>
+      >    <td>Nega pedidos originários de um ou mais países/regiões especificados. São permitidos pedidos originários de todos os outros países/regiões. A implementação é a mesma que o parâmetro <b>ec_country_allow.</b> Se um código país/região estiver presente nos parâmetros <b>ec_country_allow</b> e <b>ec_country_deny,</b> o parâmetro <b>ec_country_allow</b> tem precedência.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -134,9 +134,9 @@ O fluxograma seguinte descreve como o Azure CDN valida um pedido de cliente quan
       >       <li>Um nome de anfitrião ou um nome de anfitrião e um caminho.</li>
       >       <li>Vários referantes. Para adicionar vários referores, separe cada remetente com uma vírem; não adicionar um espaço. Se especificar um valor de remetente, mas a informação do remetente não é enviada no pedido devido à configuração do navegador, o pedido é negado por predefinição.</li> 
       >       <li>Pedidos com informação de remetente em falta ou em branco. Por padrão, o parâmetro <b>ec_ref_allow</b> bloqueia este tipo de pedidos. Para permitir estes pedidos, introduza o texto, "em falta", ou introduza um valor em branco (utilizando uma vírgula de rasto).</li> 
-      >       <li>Subdomínios. Para permitir subdomínios, introduza\*um asterisco ( ). Por exemplo, para permitir que `contoso.com`todos `*.contoso.com`os subdomínios de , insira .</li>
+      >       <li>Subdomínios. Para permitir subdomínios, introduza um asterisco \* ( ). Por exemplo, para permitir que todos os subdomínios de `contoso.com` , insira `*.contoso.com` .</li>
       >    </ul> 
-      >    Por exemplo, para permitir o `www.contoso.com`acesso a pedidos `contoso2.com`de todos os subdomínios sob `www.contoso.com,*.contoso.com,missing`, e pedidos com remetedores em branco ou em falta, insira .</td>
+      >    Por exemplo, para permitir o acesso a pedidos de `www.contoso.com` todos os subdomínios sob `contoso2.com` , e pedidos com remetedores em branco ou em falta, insira `www.contoso.com,*.contoso.com,missing` .</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
@@ -144,7 +144,7 @@ O fluxograma seguinte descreve como o Azure CDN valida um pedido de cliente quan
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 
-      >    <td>Apenas permite pedidos do protocolo especificado. Valores `http`válidos são, `https`ou `http,https`.</td>
+      >    <td>Apenas permite pedidos do protocolo especificado. Valores válidos `http` `https` são, ou `http,https` .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_proto_deny</b></td>
@@ -195,7 +195,7 @@ O fluxograma seguinte descreve como o Azure CDN valida um pedido de cliente quan
    - PHP
    - Perl
    - Java
-   - Python 
+   - Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Funcionalidades do CDN azure e preços do fornecedor
 

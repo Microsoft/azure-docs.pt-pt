@@ -1,16 +1,16 @@
 ---
 title: Execução de runbooks na Automatização do Azure
-description: Descreve os detalhes de como um livro de execução na Automatização Azure é processado.
+description: Este artigo diz que fornece uma visão geral do processamento de livros de execução na Automação Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5785377830f7e2cfb159a3090d19b1cd35b07a61
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994747"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743901"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -29,9 +29,6 @@ O diagrama seguinte mostra o ciclo de vida de um trabalho de livro de corridas p
 ![Estatuto de Emprego - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="runbook-execution-environment"></a>Ambiente de execução de livro de corridas
 
@@ -103,7 +100,7 @@ Os registos disponíveis para o agente Log Analytics e a conta **de nxautomation
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automação registo de trabalhadores
 
 >[!NOTE]
->O utilizador **da nxautomation** a bordo como parte da Atualização executa apenas livros de execução assinados.
+>O utilizador **de nxautomation** ativado como parte da Atualização executa apenas livros de execução assinados.
 
 ## <a name="runbook-permissions"></a>Permissões do Runbook
 
@@ -157,9 +154,9 @@ Esta secção descreve algumas formas de lidar com exceções ou problemas inter
 
 ### <a name="erroractionpreference"></a>ErrorActionPreference
 
-A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro não terminando. Os erros de terminação terminam `ErrorActionPreference`sempre e não são afetados por .
+A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro não terminando. Os erros de terminação terminam sempre e não são afetados por `ErrorActionPreference` .
 
-Quando o livro `ErrorActionPreference`de execução utiliza , `PathNotFound` um erro normalmente não terminante, como o da cmdlet [Get-ChildItem,](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) impede que o livro de execução esteja concluído. O exemplo que se `ErrorActionPreference`segue mostra a utilização de . O comando final [de Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nunca executa, à medida que o guião para.
+Quando o livro de execução utiliza `ErrorActionPreference` , um erro normalmente não terminante, como `PathNotFound` o da cmdlet [Get-ChildItem,](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) impede que o livro de execução esteja concluído. O exemplo que se segue mostra a utilização de `ErrorActionPreference` . O comando final [de Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nunca executa, à medida que o guião para.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -189,7 +186,7 @@ catch
 
 ### <a name="throw"></a>Arremesso
 
-[O lançamento](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de terminação. Este mecanismo pode ser útil ao definir a sua própria lógica num livro de corridas. Se o guião cumprir um critério que deve `throw` detê-lo, pode usar a declaração para parar. O exemplo seguinte utiliza esta declaração para mostrar um parâmetro de função necessário.
+[O lançamento](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de terminação. Este mecanismo pode ser útil ao definir a sua própria lógica num livro de corridas. Se o guião cumprir um critério que deve detê-lo, pode usar a `throw` declaração para parar. O exemplo seguinte utiliza esta declaração para mostrar um parâmetro de função necessário.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -205,7 +202,7 @@ Os seus livros devem lidar com erros. A Azure Automation suporta dois tipos de e
 
 Os erros de terminação impedem a execução do livro quando ocorrem. O livro para com um estatuto de trabalho de Falhado.
 
-Erros não terminadores permitem que um script continue mesmo depois de ocorrerem. Um exemplo de um erro não terminante é aquele que `Get-ChildItem` ocorre quando um livro de execução usa o cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, lança um erro e continua para a próxima pasta. O erro neste caso não define o estado do trabalho do livro de execução para falhado, e o trabalho pode até estar concluído. Para forçar um livro de ruma para parar `ErrorAction Stop` num erro não terminante, pode utilizar o cmdlet.
+Erros não terminadores permitem que um script continue mesmo depois de ocorrerem. Um exemplo de um erro não terminante é aquele que ocorre quando um livro de execução usa o `Get-ChildItem` cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, lança um erro e continua para a próxima pasta. O erro neste caso não define o estado do trabalho do livro de execução para falhado, e o trabalho pode até estar concluído. Para forçar um livro de ruma para parar num erro não terminante, pode utilizar `ErrorAction Stop` o cmdlet.
 
 ## <a name="calling-processes"></a>Processos de chamada
 
@@ -217,7 +214,7 @@ Os trabalhos de livros de corridas em caixas de areia Azure não podem aceder a 
 
 ## <a name="webhooks"></a>Webhooks
 
-Os serviços externos, por exemplo, a Azure DevOps Services e a GitHub, podem iniciar um livro de execução na Azure Automation. Para fazer este tipo de arranque, o serviço utiliza um [webhook](automation-webhooks.md) através de um único pedido HTTP. A utilização de um webhook permite que os livros de execução sejam iniciados sem a implementação de uma solução full Azure Automation. 
+Os serviços externos, por exemplo, a Azure DevOps Services e a GitHub, podem iniciar um livro de execução na Azure Automation. Para fazer este tipo de arranque, o serviço utiliza um [webhook](automation-webhooks.md) através de um único pedido HTTP. A utilização de um webhook permite que os livros de execução sejam iniciados sem a implementação de uma funcionalidade full Azure Automation. 
 
 ## <a name="shared-resources"></a><a name="fair-share"></a>Recursos partilhados
 
@@ -231,7 +228,6 @@ A utilização de livros infantis diminui o tempo total para que o livro de exec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar a trabalhar com um livro de corridas, consulte [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
-* Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
+* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

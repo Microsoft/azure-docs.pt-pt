@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 0380330c2cfd4b0a72dcc158a0d6e051d5547b31
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857015"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744817"
 ---
-# <a name="payout-summaries"></a>Resumos de pagamento
+# <a name="payout-summaries"></a>Resumos de dividendos
 
 O resumo do Pagamento mostra-lhe detalhes sobre o dinheiro que ganhou com a Microsoft. Também lhe permite saber quando receberá os pagamentos e quanto será pago.
 
@@ -64,22 +64,22 @@ Para ver mais detalhes sobre um ganho, selecione a seta para baixo no lado direi
 
 Para exportar qualquer um dos dados de transação nesta página, selecione **Export e** siga as instruções na página de dados da Export. Os ficheiros exportados da página do Histórico de Transações mostram dados em moeda de transação, ganhos em moeda de transação e dólares americanos, e o valor pago em pagamento à moeda.
 
-## <a name="payment-status"></a>Estado de pagamento
+## <a name="payment-status"></a>Estado dos pagamentos
 
 | Estatuto de ganho           | Razão                                                                                                                                      | Ação do parceiro necessária?                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| Não processado              | O ganho é elegível para pagamento. Permanece neste estado por um período de arrefecimento, tal como definido no guia do programa para o programa incentivo. | No                                                         |
-| A seguir                 | Ordem de pagamento gerada pendente de revisões internas antes do pagamento ser processado                                                               | No                                                         |
+| Não processado              | O ganho é elegível para pagamento. Permanece neste estado por um período de arrefecimento, tal como definido no guia do programa para o programa incentivo. | Não                                                         |
+| A seguir                 | Ordem de pagamento gerada pendente de revisões internas antes do pagamento ser processado                                                               | Não                                                         |
 | Fatura fiscal pendente      | A sua fatura fiscal é incompleta ou inválida                                                                                                  | Precisa atualizar a sua fatura de imposto antes de ser pago |
 | Rejeitado durante revisão   | O pagamento foi rejeitado durante a revisão                                                                                                     | Contacte o [suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais informações                      |
 | Falhou                   | O pagamento falhou devido a um erro do sistema da Microsoft                                                                                         | Contacte o [suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais informações                      |
-| Em curso              | O pagamento está em andamento                                                                                                                 | No                                                         |
-| Pagamento incorreto        | A recuperação de pagamentos está em andamento                                                                                                       | No                                                         |
-| Enviados                     | O pagamento foi enviado para o seu banco.                                                                                                     | No                                                         |
-| Reprocessamento             | O pagamento encontrou um erro do sistema da Microsoft e está a ser reprocessado                                                                  | No                                                         |
-| Invertido                 | O pagamento foi revertido pelo seu banco e será enviado novamente no próximo ciclo de pagamentos                                                     | No                                                         |
+| Em curso              | O pagamento está em andamento                                                                                                                 | Não                                                         |
+| Pagamento incorreto        | A recuperação de pagamentos está em andamento                                                                                                       | Não                                                         |
+| Enviados                     | O pagamento foi enviado para o seu banco.                                                                                                     | Não                                                         |
+| Reprocessamento             | O pagamento encontrou um erro do sistema da Microsoft e está a ser reprocessado                                                                  | Não                                                         |
+| Invertido                 | O pagamento foi revertido pelo seu banco e será enviado novamente no próximo ciclo de pagamentos                                                     | Não                                                         |
 | Fatura fiscal rejeitada     | A sua fatura fiscal foi rejeitada durante a revisão. Todos os pagamentos pendentes estarão suspensos até que a revisão da fatura fiscal esteja concluída.                 | Contacte o [suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais informações                      |
-| Fatura fiscal em revisão | A sua fatura fiscal está a ser revista. O seu pagamento será liberado assim que a fatura do imposto tiver sido aprovada.                                   | No                                                         |
+| Fatura fiscal em revisão | A sua fatura fiscal está a ser revista. O seu pagamento será liberado assim que a fatura do imposto tiver sido aprovada.                                   | Não                                                         |
 | Rejected                 | O pagamento foi rejeitado pelo seu banco.                                                                                                      | Contacte o seu banco para obter mais informações.                             |
 |||
 
@@ -112,7 +112,7 @@ Esta opção fornece um download dos pagamentos recebidos no seu banco para um d
 | currencyCode             | Pagar ao código cambial                                                                                                                      |
 | pagamentoMétodo            | O método usado para pagar ao parceiro, por exemplo, transferência bancária electrónica, nota de crédito                                                     |
 | paymentID                | Identificador único para o pagamento. Este número é geralmente visível no seu extrato bancário (aplicável apenas aos pagamentos SAP).              |
-| pagamentoEstatuto            | Estado de pagamento                                                                                                                            |
+| pagamentoEstatuto            | Estado dos pagamentos                                                                                                                            |
 | pagamentoStatusDescription | Descrição amigável do estado do pagamento                                                                                                    |
 | pagamentoData              | O pagamento da data foi enviado da Microsoft                                                                                                      |
 |||
@@ -129,7 +129,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | participanteId                  | A identidade primária do sócio que ganha ao abrigo do programa                                                                            | Todos                                                            |
 | participanteIdType              | Id do programa principal para programas de incentivo e vendedor IF para programas de loja e Mercado Azure                                          | Todos                                                            |
 | nome de participante                | Nome do parceiro de ganhos                                                                                                              | Todos                                                            |
-| parceiroCountryCode             | Localização/país do parceiro de ganhos                                                                                                  | Todos                                                            |
+| parceiroCountryCode             | Localização/país/região do parceiro de ganhos                                                                                                  | Todos                                                            |
 | programaNome                    | Nome do programa de incentivo/loja                                                                                                             | Todos                                                            |
 | transaçãoId                  | Identificador único para a transação                                                                                                    | Todos                                                            |
 | transaçãoMoeda            | Moeda em que ocorreu a transação original do cliente (esta não é a moeda de localização do parceiro)                                     | Todos                                                            |
@@ -154,7 +154,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | reivindicaçãoId                        | Identificador único para reclamação                                                                                                              | Incentivos - alguns programas apenas                                |
 | planId                         | Identificador único para plano                                                                                                               | Incentivos - alguns programas apenas                                |
 | pagamentoId                      | Identificador único para o pagamento. Este número é geralmente visível no seu extrato bancário                                                 | Pagamentos SAP apenas                                              |
-| pagamentoEstatuto                  | Estado de pagamento                                                                                                                           | Todos                                                            |
+| pagamentoEstatuto                  | Estado dos pagamentos                                                                                                                           | Todos                                                            |
 | pagamentoStatusDescription       | Descrição amigável do estado do pagamento                                                                                                   | Todos                                                            |
 | customerId                     | Sempre estará em branco                                                                                                                     | Programas de incentivo apenas (exceção: OEM) e Azure Marketplace |
 | nome do cliente                   | Sempre estará em branco                                                                                                                     | Programas de incentivo apenas (exceção: OEM) e Azure Marketplace |
@@ -183,7 +183,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | lojaFee                       | O valor retido pela Microsoft como uma taxa para tornar a app ou add-on disponível na Loja                                           | Armazenar apenas                                                     |
 | transacçãoPaymentMethod       | Instrumento de pagamento ao cliente utilizado para a transação, tais como Card, Mobile Carrier Billing ou PayPal                                | Loja e Mercado Azure                                    |
 | tpan                           | Indica a rede de anúncios de terceiros                                                                                                     | Loja - Anúncios apenas                                               |
-| clientePaís                | País cliente                                                                                                                         | Loja e Mercado Azure                                    |
+| clientePaís                | País/região cliente                                                                                                                         | Loja e Mercado Azure                                    |
 | clienteCity                   | Cidade cliente                                                                                                                            | Loja e Mercado Azure                                    |
 | clienteEstado                  | Estado do cliente                                                                                                                           | Loja e Mercado Azure                                    |
 | clienteZip                    | Código postal/postal do cliente                                                                                                                 | Loja e Mercado Azure                                    |
@@ -234,7 +234,7 @@ O histórico de transações de antes de 1 de julho de 2019 é tratado separadam
 | Impostos Retidos          | Montante do imposto sobre o rendimento retido (ot incluído no ficheiro **CSV Reservado)**                                                                                                |
 | Payment                 | App Procede menos qualquer retenção na retenção na taxa de rendimento aplicável (valor mostrado na Moeda de Transação). Não incluído no ficheiro CSV **Reservado.**                               |
 | Taxa FX                 | Taxa de câmbio utilizada para converter moeda de transação em moeda de pagamento                                                                                         |
-| Moeda de pagamento        | Moeda em que o seu pagamento é feito                                                                                                                                       |
+| Moeda de Pagamento        | Moeda em que o seu pagamento é feito                                                                                                                                       |
 | Pagamento Convertido       | Valor de pagamento convertido em Moeda de Pagamento utilizando a Taxa FX                                                                                                         |
 | Modelo de remessa fiscal         | Parte responsável pela reemissão de impostos (impostos sobre vendas, utilização ou IVA/GST)                                                                                                   |
 | Hora da data da elegibilidade   | A data e a hora em que as receitas da transação se tornam elegíveis para pagamento (UTC). Quando um pagamento é criado, inclui receitas de transação com uma Data de Elegibilidade Hora antes da data de criação do pagamento (apenas incluído no ficheiro CSV **Reservado).** |
@@ -243,4 +243,4 @@ O histórico de transações de antes de 1 de julho de 2019 é tratado separadam
 
 ## <a name="next-step"></a>Próximo passo
 
-- [Detalhes da política de pagamento](./payout-policy-details.md)
+- [Detalhes da política de dividendos](./payout-policy-details.md)

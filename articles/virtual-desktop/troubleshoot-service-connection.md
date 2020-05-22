@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6298b3a9c5769b1d82f89956736b451935b2c5d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612644"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747703"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
 
@@ -42,36 +42,6 @@ Get-AzRoleAssignment -SignInName <userupn>
 Confirme que o utilizador está a iniciar sessão com as credenciais corretas.
 
 Se o cliente da web estiver a ser utilizado, confirme que não existem problemas de credenciais em cache.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Máquinas virtuais multissessões do Windows 10 Enterprise não respondem
-
-Se uma máquina virtual não responder e não conseguir aceder através de RDP, terá de a resolver com a funcionalidade de diagnóstico, verificando o estado do hospedeiro.
-
-Para verificar o estado do anfitrião, execute este cmdlet:
-
-```powershell
-Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
-```
-
-Se o estado `NoHeartBeat`do anfitrião for , isso significa que o VM não está a responder e o agente não pode comunicar com o serviço de ambiente de trabalho virtual do Windows.
-
-```powershell
-Name            : 0301HP/win10pd-0.contoso.com 
-LastHeartBeat   : 4/8/2020 1:48:35 AM 
-AllowNewSession : True 
-Status          : Available 
-
-Name            : 0301HP/win10pd-1.contoso.com 
-LastHeartBeat   : 4/8/2020 1:45:44 AM 
-AllowNewSession : True 
-Status          : NoHeartBeat
-```
-
-Há algumas coisas que pode fazer para corrigir o estado NoHeartBeat.
-
-### <a name="update-fslogix"></a>Atualizar FSLogix
-
-Se o seu FSLogix não estiver atualizado, especialmente se for versão 2.9.7205.27375 de frxdrvvt.sys, pode causar um impasse. Certifique-se de [atualizar o FSLogix para a versão mais recente](https://go.microsoft.com/fwlink/?linkid=2084562).
 
 ## <a name="next-steps"></a>Passos seguintes
 

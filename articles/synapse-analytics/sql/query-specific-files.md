@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 40a8e2c153ec3d8e7b4007340b9433a38f9ccc89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431556"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744207"
 ---
 # <a name="using-file-metadata-in-queries"></a>Utilização de metadados de ficheiros em consultas
 
@@ -22,14 +22,11 @@ O serviço De consulta a pedido SQL pode endereçar vários ficheiros e pastas c
 
 Por vezes, pode ser necessário saber qual o ficheiro ou fonte de pasta que se correlaciona a uma linha específica no conjunto de resultados.
 
-Pode utilizar `filepath` a `filename` função e devolver os nomes dos ficheiros e/ou o caminho no conjunto de resultados. Ou pode usá-los para filtrar dados com base no nome do ficheiro e/ou no caminho da pasta. Estas funções são descritas na [função](develop-storage-files-overview.md#filename-function) de nome de ficheiro da secção sintaxe e na [função de pathpath](develop-storage-files-overview.md#filepath-function). Abaixo encontrará pequenas descrições ao longo de amostras.
+Pode utilizar a função e devolver os nomes dos `filepath` `filename` ficheiros e/ou o caminho no conjunto de resultados. Ou pode usá-los para filtrar dados com base no nome do ficheiro e/ou no caminho da pasta. Estas funções são descritas na [função](develop-storage-files-overview.md#filename-function) de nome de ficheiro da secção sintaxe e na [função de pathpath](develop-storage-files-overview.md#filepath-function). Abaixo encontrará pequenas descrições ao longo de amostras.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de ler o resto deste artigo, reveja os seguintes pré-requisitos:
-
-- [Configuração pela primeira vez](query-data-storage.md#first-time-setup)
-- [Pré-requisitos](query-data-storage.md#prerequisites)
+O seu primeiro passo é **criar uma base de dados** com uma fonte de dados que referencia a conta de armazenamento. Em seguida, inicialize os objetos executando o script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
 
 ## <a name="functions"></a>Funções
 
@@ -41,15 +38,15 @@ A amostra seguinte lê os ficheiros de dados do Táxi Amarelo de NYC para os úl
 
 ```sql
 SELECT
-    r.filename() AS [filename]
+    nyc.filename() AS [filename]
     ,COUNT_BIG(*) AS [rows]
-FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-        FORMAT='PARQUET') AS [r]
-GROUP BY
-    r.filename()
-ORDER BY
-    [filename];
+FROM  
+    OPENROWSET(
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) nyc
+GROUP BY nyc.filename();
 ```
 
 O exemplo que se segue mostra como o *nome de ficheiro ()* pode ser usado na cláusula WHERE para filtrar os ficheiros a ler. Acede a toda a pasta na parte OPENROWSET da consulta e filtra ficheiros na cláusula WHERE.
@@ -61,10 +58,14 @@ SELECT
     r.filename() AS [filename]
     ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-    FORMAT='PARQUET') AS [r]
+    BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
+        PARSER_VERSION = '2.0',
+        FIRSTROW = 2) 
+        WITH (C1 varchar(200) ) AS [r]
 WHERE
-    r.filename() IN ('yellow_tripdata_2017-10.parquet', 'yellow_tripdata_2017-11.parquet', 'yellow_tripdata_2017-12.parquet')
+    r.filename() IN ('yellow_tripdata_2017-10.csv', 'yellow_tripdata_2017-11.csv', 'yellow_tripdata_2017-12.csv')
 GROUP BY
     r.filename()
 ORDER BY
@@ -85,28 +86,14 @@ SELECT
     r.filepath() AS filepath
     ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
+        BULK 'csv/taxi/yellow_tripdata_2017-1*.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
+        PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id INT,
-        pickup_datetime DATETIME2,
-        dropoff_datetime DATETIME2,
-        passenger_count SMALLINT,
-        trip_distance FLOAT,
-        rate_code SMALLINT,
-        store_and_fwd_flag SMALLINT,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-        payment_type SMALLINT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        vendor_id INT
     ) AS [r]
 GROUP BY
     r.filepath()
@@ -125,28 +112,14 @@ SELECT
     ,r.filepath(2) AS [month]
     ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv',
+        BULK 'csv/taxi/yellow_tripdata_*-*.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
+        PARSER_VERSION = '2.0',        
         FIRSTROW = 2
     )
 WITH (
-    vendor_id INT,
-    pickup_datetime DATETIME2,
-    dropoff_datetime DATETIME2,
-    passenger_count SMALLINT,
-    trip_distance FLOAT,
-    rate_code SMALLINT,
-    store_and_fwd_flag SMALLINT,
-    pickup_location_id INT,
-    dropoff_location_id INT,
-    payment_type SMALLINT,
-    fare_amount FLOAT,
-    extra FLOAT,
-    mta_tax FLOAT,
-    tip_amount FLOAT,
-    tolls_amount FLOAT,
-    improvement_surcharge FLOAT,
-    total_amount FLOAT
+    vendor_id INT
 ) AS [r]
 WHERE
     r.filepath(1) IN ('2017')

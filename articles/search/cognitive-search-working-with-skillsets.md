@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2b336451bde559ce773a9b611bc98b4de3f11871
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652741"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744797"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos de skillset e composição em Pesquisa Cognitiva Azure
 
@@ -26,9 +26,9 @@ Um skillset é um recurso reutilizável na Pesquisa Cognitiva Azure que especifi
 
 Um skillset tem três propriedades:
 
-+   ```skills```, uma recolha de competências não ordenada para as quais a plataforma determina a sequência de execução com base nas inputs necessárias para cada habilidade
-+   ```cognitiveServices```, a chave dos serviços cognitivos necessária para a faturação das capacidades cognitivas invocadas
-+   ```knowledgeStore```, a conta de armazenamento onde os seus documentos enriquecidos serão projetados
++    ```skills```, uma recolha de competências não ordenada para as quais a plataforma determina a sequência de execução com base nas inputs necessárias para cada habilidade
++    ```cognitiveServices```, a chave dos serviços cognitivos necessária para a faturação das capacidades cognitivas invocadas
++    ```knowledgeStore```, a conta de armazenamento onde os seus documentos enriquecidos serão projetados
 
 
 
@@ -43,7 +43,7 @@ Uma vez que um documento está no oleoduto de enriquecimento, é representado co
 
 |Modo Fonte de Dados\Parsing|Predefinição|JSON, JSON Lines & CSV|
 |---|---|---|
-|Armazenamento de Blobs|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
+|Blob Storage|/documento/conteúdo<br>/documento/normalized_images/*<br>…|/documento/{key1}<br>/documento/{key2}<br>…|
 |SQL|/documento/{column1}<br>/documento/{column2}<br>…|N/D |
 |BD do Cosmos|/documento/{key1}<br>/documento/{key2}<br>…|N/D|
 
@@ -54,14 +54,14 @@ Para o resto deste documento, vamos assumir que estamos a trabalhar com o exempl
 
 ### <a name="context"></a>Contexto
 Cada habilidade requer um contexto. Um contexto determina:
-+   O número de vezes que a habilidade executa, com base nos nós selecionados. Para valores de contexto de recolha de tipo, adicionar um ```/*``` no final resultará na invoque da habilidade uma vez para cada instância na coleção. 
-+   Onde na árvore de enriquecimento as saídas de habilidade são adicionadas. As saídas são sempre adicionadas à árvore como crianças do nó de contexto. 
-+   Forma das inputs. Para coleções de vários níveis, definir o contexto para a coleção dos pais afetará a forma da entrada para a habilidade. Por exemplo, se tiver uma árvore de enriquecimento com uma lista de países, cada um enriquecido com uma lista de estados que contêm uma lista de códigos postal.
++    O número de vezes que a habilidade executa, com base nos nós selecionados. Para valores de contexto de recolha de tipo, adicionar um ```/*``` no final resultará na invoque da habilidade uma vez para cada instância na coleção. 
++    Onde na árvore de enriquecimento as saídas de habilidade são adicionadas. As saídas são sempre adicionadas à árvore como crianças do nó de contexto. 
++    Forma das inputs. Para coleções de vários níveis, definir o contexto para a coleção dos pais afetará a forma da entrada para a habilidade. Por exemplo, se tiver uma árvore de enriquecimento com uma lista de países/regiões, cada um enriquecido com uma lista de estados que contêm uma lista de códigos postal.
 
-|Contexto|Entrada|Forma de entrada|Invocação de Habilidades|
+|Contexto|Input|Forma de entrada|Invocação de Habilidades|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Uma lista de todos os códigos postal do país |Uma vez por país |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Uma lista de códigos postais no estado | Uma vez por combinação de país e estado|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Uma lista de todos os códigos postal no país/região |Uma vez por país/região |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Uma lista de códigos postais no estado | Uma vez por combinação de país/região e estado|
 
 ### <a name="sourcecontext"></a>Contexto de Origem
 

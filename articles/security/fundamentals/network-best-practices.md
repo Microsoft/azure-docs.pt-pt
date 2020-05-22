@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548308"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757828"
 ---
 # <a name="azure-best-practices-for-network-security"></a>As melhores práticas do Azure para a segurança da rede
 Este artigo discute uma coleção de boas práticas azure para melhorar a segurança da sua rede. Estas boas práticas derivam da nossa experiência com o networking Azure e as experiências de clientes como você.
@@ -74,7 +74,7 @@ As redes precisam de evoluir a partir das defesas tradicionais porque as redes p
 As melhores práticas são:
 
 **Boas práticas**: Dar acesso condicional a recursos baseados em dispositivo, identidade, garantia, localização da rede e muito mais.  
-**Detalhe**: [O Acesso Condicional Azure AD](/azure/active-directory/conditional-access/overview) permite-lhe aplicar os controlos de acesso adequados implementando decisões automatizadas de controlo de acesso com base nas condições exigidas. Para mais informações, consulte [Gerir o acesso à gestão do Azure com Acesso Condicional.](../../role-based-access-control/conditional-access-azure-management.md)
+**Detalhe**: [O Acesso Condicional Azure AD](../../active-directory/conditional-access/overview.md) permite-lhe aplicar os controlos de acesso adequados implementando decisões automatizadas de controlo de acesso com base nas condições exigidas. Para mais informações, consulte [Gerir o acesso à gestão do Azure com Acesso Condicional.](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md)
 
 **Boas práticas**: Permitir o acesso à porta apenas após a aprovação do fluxo de trabalho.  
 **Detalhe:** Pode utilizar [o acesso VM just-in-time no Azure Security Center](../../security-center/security-center-just-in-time.md) para bloquear o tráfego de entrada nos seus VMs Azure, reduzindo a exposição a ataques, proporcionando um fácil acesso à ligação aos VMs quando necessário.

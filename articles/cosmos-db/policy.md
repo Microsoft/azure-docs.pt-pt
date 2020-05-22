@@ -1,17 +1,17 @@
 ---
 title: Use a Política Azure para implementar a governação e os controlos dos recursos db da Azure Cosmos
-description: Aprenda a usar a Política Azure para implementar a governação e os controlos dos recursos db da Cosmos.
+description: Aprenda a usar a Política Azure para implementar a governação e os controlos dos recursos DB da Azure Cosmos.
 author: plzm
 ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 6b8823b586ae0d0d9f6a2c50286aa754a9ab8025
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665160"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747384"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use a Política Azure para implementar a governação e os controlos dos recursos db da Azure Cosmos
 
@@ -32,7 +32,7 @@ Na altura de selecionar uma definição de política, insira `Cosmos DB` no camp
 > [!TIP]
 > Também pode utilizar os nomes de definição de política incorporados mostrados no painel **Definições Disponíveis** com modelos Azure PowerShell, Azure CLI ou ARM para criar atribuições políticas.
 
-:::image type="content" source="./media/policy/available-definitions.png" alt-text="Pesquisa de definições políticas integradas da Cosmos DB":::
+:::image type="content" source="./media/policy/available-definitions.png" alt-text="Pesquisa de definições políticas integradas da Azure Cosmos DB":::
 
 ## <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
@@ -115,7 +115,7 @@ A imagem mostra os seguintes resultados de avaliação de conformidade:
 - Zero de uma conta Azure Cosmos DB no âmbito especificado estão em conformidade com a atribuição de políticas para verificar se os recursos foram mobilizados para regiões permitidas.
 - Um em cada dois recursos de base de dados da Azure Cosmos DB ou recursos de recolha no âmbito especificado estão em conformidade com a atribuição de políticas para verificar se a provisão prevista excede o limite máximo especificado.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Pesquisa de definições políticas integradas da Cosmos DB":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Pesquisa de definições políticas integradas da Azure Cosmos DB":::
 
 Para remediar os recursos não conformes, consulte o remediado com o artigo da [Política Azure.](../governance/policy/how-to/remediate-resources.md)
 

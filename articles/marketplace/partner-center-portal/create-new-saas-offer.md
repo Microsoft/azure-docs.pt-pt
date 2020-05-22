@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 81b36532d09985d1e50fb3d0394d054d9a5e8250
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: eb7f527885d1d49fe09407c3cbce109a098056f9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701173"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744663"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Criar uma nova oferta SaaS no mercado comercial
 
@@ -340,7 +340,7 @@ Esta página permite configurar os mercados em que este plano estará disponíve
 
 #### <a name="markets-optional"></a>Mercados (opcional)
 
-Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione **mercados Edit** e selecione a caixa de verificação para qualquer local de mercado onde pretenda disponibilizar este plano. Esta página inclui uma caixa de pesquisa e opção para selecionar países "Tax Remitted", em que a Microsoft atribui as vendas e utiliza o imposto em seu nome.
+Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione **mercados Edit** e selecione a caixa de verificação para qualquer local de mercado onde pretenda disponibilizar este plano. Esta página inclui uma caixa de pesquisa e opção para selecionar países/regiões "Tax Remitted", em que a Microsoft atribui as vendas e utiliza o imposto em seu nome.
 
 Se já definiu preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço do novo mercado será calculado de acordo com as taxas de câmbio atuais. Reveja o preço de cada mercado antes de publicar. Ver preços utilizando o link "Preços de exportação (xlsx)" depois de guardar as suas alterações.
 

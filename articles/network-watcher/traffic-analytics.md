@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981550"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747537"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -168,7 +168,7 @@ Registe o fornecedor Azure Insights, caso ainda não esteja registado para a sua
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Se ainda não tem uma conta de Armazenamento Azure para armazenar registos de fluxo snSG, tem de criar uma conta de armazenamento. Pode criar uma conta de armazenamento com o comando que se segue. Antes de executar `<replace-with-your-unique-storage-account-name>` o comando, substitua-o por um nome único em todas as localizações do Azure, entre 3-24 caracteres de comprimento, utilizando apenas números e letras minúsculas. Também pode alterar o nome do grupo de recursos, se necessário.
+Se ainda não tem uma conta de Armazenamento Azure para armazenar registos de fluxo snSG, tem de criar uma conta de armazenamento. Pode criar uma conta de armazenamento com o comando que se segue. Antes de executar o comando, `<replace-with-your-unique-storage-account-name>` substitua-o por um nome único em todas as localizações do Azure, entre 3-24 caracteres de comprimento, utilizando apenas números e letras minúsculas. Também pode alterar o nome do grupo de recursos, se necessário.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -196,7 +196,7 @@ Selecione as seguintes opções, como mostrado na imagem:
 
     ![Seleção de conta de armazenamento, espaço de trabalho log Analytics e habilitação traffic analytics](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repita os passos anteriores para quaisquer outros NSGs para os quais deseje ativar a análise do tráfego. Os dados dos registos de fluxo são enviados para o espaço de trabalho, por isso certifique-se de que as leis e regulamentos locais do seu país permitem o armazenamento de dados na região onde existe o espaço de trabalho. Se tiver definido diferentes intervalos de processamento para diferentes NSGs, os dados serão recolhidos em intervalos diferentes. Por exemplo: Pode optar por ativar o intervalo de processamento de 10 minutos para VNETs críticos e 1 hora para VNETs não críticos.
+Repita os passos anteriores para quaisquer outros NSGs para os quais deseje ativar a análise do tráfego. Os dados dos registos de fluxo são enviados para o espaço de trabalho, por isso certifique-se de que as leis e regulamentos locais do seu país/região permitem o armazenamento de dados na região onde existe o espaço de trabalho. Se tiver definido diferentes intervalos de processamento para diferentes NSGs, os dados serão recolhidos em intervalos diferentes. Por exemplo: Pode optar por ativar o intervalo de processamento de 10 minutos para VNETs críticos e 1 hora para VNETs não críticos.
 
 Também pode configurar análises de tráfego utilizando o [cmdlet Set-AzNetworkWatcherConfigFlowPowerShell](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) powerShell no Azure PowerShell. Corra `Get-Module -ListAvailable Az` para encontrar a sua versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
 

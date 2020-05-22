@@ -8,17 +8,17 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/04/2019
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e2e6585bac100a09f3f98037e90b24738e22816f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68d7b06aa6473a99422d8cfb51f6e3a465933a0f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063871"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747394"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registe o seu dispositivo pessoal na rede da sua organização
 Registe o seu dispositivo pessoal (normalmente um telefone ou tablet) na rede da sua organização. Depois de registado o seu dispositivo, poderá aceder aos recursos restritos da sua organização.

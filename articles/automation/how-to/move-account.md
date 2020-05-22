@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62291505aae35b6fe334e2bdb53335a1ea3fe20b
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714547"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746623"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mova a sua conta De Automação Azure para outra subscrição
 
@@ -155,6 +155,6 @@ Quando o movimento estiver concluído, verifique se as capacidades listadas abai
 |Gestão de atualizações|Verifique se vê as suas máquinas e que estão saudáveis.</br>Executar uma implementação de atualização de software de teste.|[Gestão de atualização de resolução de problemas](../troubleshoot/update-management.md)|
 |Recursos partilhados|Verifique se vê todos os seus recursos partilhados, tais como [credenciais](../shared-resources/credentials.md) e [variáveis.](../shared-resources/variables.md)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Movimentar recursos em Azure](../../azure-resource-manager/management/move-support-resources.md)
+Para aprender sobre a movimentação de recursos em Azure, consulte [os recursos move em Azure.](../../azure-resource-manager/management/move-support-resources.md)

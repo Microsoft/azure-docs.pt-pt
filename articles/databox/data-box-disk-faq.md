@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77918942"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745803"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados azure: Perguntas frequentes
 
@@ -36,7 +36,7 @@ R.  O serviço Azure Data Box foi concebido para ingestão de dados offline. Est
 ### <a name="q-what-are-azure-data-box-disks"></a>P. O que são os discos do Azure Data Box Disk?
 R. Os discos do Azure Data Box Disk permitem a transferência rápida, económica e segura de terabytes de dados de e para o Azure. A Microsoft envia-lhe um a cinco discos, com uma capacidade de armazenamento máxima de 35 TB. Pode configurar, ligar e desbloquear facilmente estes discos através do serviço Data Box no portal do Azure.  
 
-Os discos são encriptados com a Encriptação de Unidade BitLocker da Microsoft e as suas chaves de encriptação são geridas no portal do Azure. Depois, os dados são copiados dos servidores do cliente. No datacenter, a Microsoft migra os seus dados da unidade para a cloud através de uma ligação de carregamento de rede rápida e privada e carrega-os para o Azure.
+Os discos são encriptados com a Encriptação de Unidade BitLocker da Microsoft e as suas chaves de encriptação são geridas no portal do Azure. Em seguida, copia os dados dos servidores do cliente. No datacenter, a Microsoft migra os seus dados da unidade para a cloud através de uma ligação de carregamento de rede rápida e privada e carrega-os para o Azure.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>P. Quando devo utilizar os discos do Data Box Disk?
 R. Se tiver 40 TB (ou menos) de dados e quiser transferi-los para o Azure, pode tirar partido dos discos do Data Box Disk.
@@ -56,8 +56,8 @@ R.  Para ver onde estão atualmente disponíveis os Discos da Caixa de Dados, v�
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com os discos do Data Box Disk?
 R. Data Box Disk é apoiado para todas as regiões dos EUA, Canadá, Austrália, Europa Ocidental e Norte da Europa, Coreia e Japão. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>P. O meu Disco de Caixa de Dados atravessará as fronteiras do país durante o transporte?
-R. O Data Box Disk é enviado de dentro do mesmo país que o seu destino e não atravessará quaisquer fronteiras internacionais. A única exceção é para as encomendas na União Europeia (UE), onde os discos podem ser enviados de e para qualquer país da UE.
+### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>P. Será que o meu Disco de Caixa de Dados atravessará as fronteiras país/região durante o transporte?
+R. O Data Box Disk é enviado de dentro do mesmo país/região que o seu destino e não atravessará quaisquer fronteiras internacionais. A única exceção é para as encomendas na União Europeia (UE), onde os discos podem ser enviados de e para qualquer país/região da UE.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contactar se me deparar com problemas com os discos do Data Box Disk?
 R. Se encontrar algum problema com discos de caixa de dados, [contacte o Suporte da Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -138,7 +138,7 @@ R.  Para acelerar o processo de cópia:
 
 - Crie um VHDx local num armazenamento rápido ou crie um VHD vazio no HDD/SSD (mais lento).
 - Monte-o numa VM.
-- Copie os ficheiros para o disco da VM.
+- Copiar ficheiros para o disco do VM.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>P. Posso utilizar várias contas de armazenamento com os discos do Data Box Disk?
 R.  Não. Atualmente, só é suportada uma conta de armazenamento, geral ou clássica, para os discos do Data Box Disk. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. Atualmente, apenas são apoiadas as contas de armazenamento nos EUA, na Europa Ocidental e no Norte da Europa na nuvem pública de Azure.
@@ -159,7 +159,7 @@ R. Os Ficheiros Azure são suportados com o Disco da Caixa de Dados, mas não fu
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>P. Quanto tempo depois de devolver os discos é que posso aceder aos meus dados no Azure? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>P. Quando posso aceder aos meus dados em Azure assim que enviar os discos de volta? 
 R.  Quando o estado da encomenda para Cópia de Dados aparecer como concluído, deverá conseguir aceder aos seus dados de imediato.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Depois do carregamento, onde é que os meus dados ficam localizados no Azure?

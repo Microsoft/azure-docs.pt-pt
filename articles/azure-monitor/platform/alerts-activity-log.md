@@ -4,12 +4,12 @@ description: Crie alertas de registo de atividade utilizando o portal Azure, um 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132398"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744272"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividade utilizando o Monitor Azure  
 
@@ -37,7 +37,7 @@ Pode utilizar o portal Azure para criar e modificar as regras de alerta de regis
 
 Utilize o seguinte procedimento.
 
-1. No portal Azure, selecione **Monitor** > **Alerts**.
+1. No portal Azure, **Monitor**selecione  >  **Monitor Alerts**.
 2. Selecione **Nova regra** de alerta no canto superior esquerdo da janela **Alertas.**
 
      ![Nova regra de alerta](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -48,7 +48,7 @@ Utilize o seguinte procedimento.
 
 3. Sob a condição de **alerta Defina,** forneça as seguintes informações e selecione **Feito:**
 
-   - **Alvo de alerta:** Para visualizar e selecionar o alvo para o novo alerta, utilize **o Filtro por filtro de subscrição** / por tipo de**recurso**. Selecione o grupo de recursos ou recursos da lista apresentada.
+   - **Alvo de alerta:** Para visualizar e selecionar o alvo para o novo alerta, utilize **o Filtro por filtro de subscrição**por tipo de  /  **recurso**. Selecione o grupo de recursos ou recursos da lista apresentada.
 
      > [!NOTE]
      > 
@@ -67,6 +67,11 @@ Utilize o seguinte procedimento.
      **Adicionar ecrã de critérios**
 
      ![Adicionar critérios](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  Para termos regras de alta qualidade e eficazes, pedimos que adicione pelo menos mais uma condição às regras com o sinal "Tudo Administrativo". 
+     > Como parte da definição do alerta deve preencher uma das descidas: "Nível de evento", "Status" ou "Iniciado por" e por isso a regra será mais específica.
 
      - **Tempo de história**: Os eventos disponíveis para a operação selecionada podem ser traçados ao longo das últimas 6, 12 ou 24 horas ou durante a última semana.
 
@@ -103,7 +108,7 @@ Uma simples analogia para compreender as condições em que as regras de alerta 
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Ver e gerir no portal Azure
 
-1. No portal Azure, selecione **Monitor** > **Alerts**. **Selecione Gerir as regras** de alerta no canto superior esquerdo da janela.
+1. No portal Azure, **Monitor**selecione  >  **Monitor Alerts**. **Selecione Gerir as regras** de alerta no canto superior esquerdo da janela.
 
     ![Gere regras do alerta](media/alerts-activity-log/manage-alert-rules.png)
 
@@ -127,7 +132,7 @@ Uma simples analogia para compreender as condições em que as regras de alerta 
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Para criar uma regra de alerta de registo de atividade utilizando um `microsoft.insights/activityLogAlerts`modelo de Gestor de Recursos Azure, cria-se um recurso do tipo . Depois preenchetodas as propriedades relacionadas. Aqui está um modelo que cria uma regra de alerta de registo de atividade:
+Para criar uma regra de alerta de registo de atividade utilizando um modelo de Gestor de Recursos Azure, cria-se um recurso do tipo `microsoft.insights/activityLogAlerts` . Depois preenchetodas as propriedades relacionadas. Aqui está um modelo que cria uma regra de alerta de registo de atividade:
 
 ```json
 {

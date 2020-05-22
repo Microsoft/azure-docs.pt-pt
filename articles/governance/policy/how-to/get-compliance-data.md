@@ -3,12 +3,12 @@ title: Obter dados de conformidade de políticas
 description: As avaliações e efeitos da Política Azure determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 1c75f078cb80d5e2dbc00a69817d223d4818d55b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684517"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747090"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenha dados de conformidade dos recursos do Azure
 
@@ -191,7 +191,7 @@ Utilize o ARMClient ou uma ferramenta similar para manusear a autenticação no 
 Com a API REST, a resumição pode ser realizada por recipiente, definição ou atribuição. Aqui está um exemplo de resumição a nível de subscrição usando o resumo da Visão de Política Azure [para subscrição:](/rest/api/policy-insights/policystates/summarizeforsubscription)
 
 ```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
 A saída resume a subscrição. Na saída de exemplo abaixo, a conformidade resumida está em **valor.results.nonCompliantResources** e **value.results.nonCompliantPolicies**. Este pedido fornece mais detalhes, incluindo cada atribuição que compõem os números não conformes e as informações de definição para cada atribuição. Cada objeto político na hierarquia fornece uma **consultaResultsUri** que pode ser usada para obter detalhes adicionais a esse nível.
@@ -204,7 +204,7 @@ A saída resume a subscrição. Na saída de exemplo abaixo, a conformidade resu
         "@odata.id": null,
         "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
         "results": {
-            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
+            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
             "nonCompliantResources": 15,
             "nonCompliantPolicies": 1
         },
@@ -212,7 +212,7 @@ A saída resume a subscrição. Na saída de exemplo abaixo, a conformidade resu
             "policyAssignmentId": "/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77",
             "policySetDefinitionId": "",
             "results": {
-                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
+                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
                 "nonCompliantResources": 15,
                 "nonCompliantPolicies": 1
             },
@@ -221,7 +221,7 @@ A saída resume a subscrição. Na saída de exemplo abaixo, a conformidade resu
                 "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "effect": "deny",
                 "results": {
-                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
                     "nonCompliantResources": 15
                 }
             }]
@@ -235,7 +235,7 @@ A saída resume a subscrição. Na saída de exemplo abaixo, a conformidade resu
 No exemplo acima, **value.policyAssignments.policyDefinitions.results.queryResultsUri** fornece uma amostra Uri para todos os recursos não conformes para uma definição de política específica. Olhando para o valor **$filter,** isCompliant é igual (eq) a falso, PolicyAssignmentId é especificado para a definição de política, e, em seguida, o próprio PolicyDefinitionId. A razão para incluir o PolicyAssignmentId no filtro é porque o PolicyDefinitionId pode existir em várias missões políticas ou de iniciativa com diferentes âmbitos. Especificando tanto o PolicyAssignmentId como o PolicyDefinitionId, podemos ser explícitos nos resultados que procuramos. Anteriormente, para os PolicyStates usámos **o mais recente**, que automaticamente define uma janela de **e** **para o** tempo das últimas 24 horas.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
 ```
 
 A resposta de exemplo abaixo foi aparada a um único recurso não conforme para a brevidade. A resposta detalhada tem vários dados sobre o recurso, a política ou iniciativa, e a atribuição. Note que também pode ver que parâmetros de atribuição foram passados para a definição de política.
@@ -281,7 +281,7 @@ A resposta de exemplo abaixo foi aparada a um único recurso não conforme para 
 Quando um recurso é criado ou atualizado, um resultado de avaliação de políticas é gerado. Os resultados são _chamados eventos políticos._ Utilize o seguinte Uri para ver os recentes eventos políticos associados à subscrição.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2018-04-04
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
 ```
 
 Os resultados assemelham-se ao seguinte exemplo:

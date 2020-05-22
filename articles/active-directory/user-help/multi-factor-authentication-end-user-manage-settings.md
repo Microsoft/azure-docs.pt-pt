@@ -9,15 +9,15 @@ ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/20/2020
 ms.author: curtand
-ms.openlocfilehash: 5949f04ecc28a88e340a9c2de530031793f193a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9304f4a958360d01d404d9b510feb5659e5436d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253250"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746748"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Altere o seu método de verificação de dois fatores e as definições
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7de57c9a69e60e8c342e067ff1e95a0f2cfadec8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: f975abcd05b92dd57eb736f076b63c88b4bf6769
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699314"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747260"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -258,9 +258,14 @@ Forneça o URL para a página web de configuração que permite ao cliente confi
 
 ### <a name="crm-package"></a>Pacote CRM
 
-No **URL do seu** campo de localização do pacote, introduza o URL de uma conta de Armazenamento Azure que contenha o pacote CRM carregado .zip file. Este URL deve incluir uma chave SAS apenas para leitura para permitir que a Microsoft recolha o seu pacote para verificação.
+No **URL do seu** campo de localização do pacote, introduza o URL de uma conta de Armazenamento Azure Blob que contenha o pacote CRM carregado .zip file. Inclua uma tecla SAS apenas para ler no URL para que a Microsoft possa recolher o seu pacote para verificação.
 
-Verifique a caixa rotulada **Há mais de um pacote CRM no meu ficheiro**de pacote, se aplicável. Em caso afirmativo, certifique-se de incluir todos os pacotes no seu ficheiro .zip.
+> [!IMPORTANT]
+> Para evitar um bloco de publicação, certifique-se de que a data de validade no URL do seu armazenamento Blob não expirou. Pode rever a data acedendo à sua apólice. Recomendamos que o **prazo de validade** seja de pelo menos um mês no futuro.
+
+Selecione a caixa rotulada **Há mais de um pacote CRM no meu ficheiro**de pacote, se aplicável. Em caso afirmativo, certifique-se de incluir todos os pacotes no seu ficheiro .zip.
+
+Para obter informações detalhadas sobre como construir o seu pacote e atualizar a sua estrutura, consulte [passo 3: Crie um pacote AppSource para a sua aplicação](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### <a name="crm-package-availability"></a>Disponibilidade de pacote crm
 

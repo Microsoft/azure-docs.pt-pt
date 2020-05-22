@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ee9a9d404e9a08d8b795a3d73907e84d25b73107
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77063327"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739758"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Azure Active Directory
 
@@ -43,7 +43,7 @@ Existem quatro tipos principais de aplicações que pode adicionar às suas **ap
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Gerir o risco com políticas de Acesso Condicional
 
-Acoplamento de um único sinal de Acesso [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) (SSO) azure acessar proporciona elevados níveis de segurança para aceder a aplicações. As capacidades de segurança incluem proteção de identidade em escala em nuvem, controlo de acesso baseado em risco, autenticação de vários fatores nativos e políticas de acesso condicional. Estas capacidades permitem políticas de controlo granular com base em aplicações ou em grupos que precisam de níveis mais elevados de segurança.
+Acoplamento de um único sinal de Acesso [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) (SSO) azure acessar proporciona elevados níveis de segurança para aceder a aplicações. As capacidades de segurança incluem proteção de identidade em escala em nuvem, controlo de acesso baseado em risco, autenticação de vários fatores nativos e políticas de acesso condicional. Estas capacidades permitem políticas de controlo granular com base em aplicações ou em grupos que precisam de níveis mais elevados de segurança.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Aumentar a produtividade com o início de sessão único
 

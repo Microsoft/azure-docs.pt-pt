@@ -3,12 +3,12 @@ title: Variáveis de ambiente de runtime de tarefas
 description: Orientação variável de ambiente de execução de tarefas e referência para Azure Batch Analytics.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 2027716283ca4910f45ae3e32111896ef0045ce8
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726762"
+ms.locfileid: "83745335"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis ambientais de tempo de execução do Lote Azure
 
@@ -48,7 +48,7 @@ As linhas de comando executadas por tarefas em nódeos computacionais não são 
 | AZ_BATCH_JOB_ID                 | O ID do trabalho ao qual a tarefa pertence. | Todas as tarefas exceto começar a tarefa. | lotejob001 |
 | AZ_BATCH_JOB_PREP_DIR           | O percurso completo do diretório de [tarefas][files_dirs] de preparação de emprego no nó. | Todas as tarefas exceto iniciar tarefas e tarefas de preparação de emprego. Só disponível se o trabalho estiver configurado com uma tarefa de preparação de emprego. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | Todo o percurso do [diretório][files_dirs] de trabalho de preparação de trabalho no nó. | Todas as tarefas exceto iniciar tarefas e tarefas de preparação de emprego. Só disponível se o trabalho estiver configurado com uma tarefa de preparação de emprego. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | O endereço IP e o porto do nó computacional em que se executa a principal tarefa de uma [tarefa em várias instâncias.][multi_instance] | Tarefas primárias e subtarefas em várias instâncias. | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | O endereço IP e o porto do nó computacional em que se executa a principal tarefa de uma [tarefa em várias instâncias.][multi_instance] Não utilize a porta aqui especificada para comunicação MPI ou NCCL - está reservada para o serviço Azure Batch. Utilize a variável MASTER_PORT em vez disso, quer definindo-a com um valor passado através do argumento da linha de comando (a porta 6105 é uma boa escolha por defeito), ou utilizando os conjuntos AML de valor se o fizer. | Tarefas primárias e subtarefas em várias instâncias. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | A identificação do nó a que a tarefa é atribuída. | Todas as tarefas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Sim, `true` o nó atual é um nó dedicado. Se, `false` é um nó de baixa [prioridade.](batch-low-pri-vms.md) | Todas as tarefas. | `true` |
 | AZ_BATCH_NODE_LIST              | A lista de nódosos que são atribuídos a uma [tarefa em várias instâncias][multi_instance] no formato `nodeIP;nodeIP` . | Tarefas primárias e subtarefas em várias instâncias. | `10.0.0.4;10.0.0.5` |

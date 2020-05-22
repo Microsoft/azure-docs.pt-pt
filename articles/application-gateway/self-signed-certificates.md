@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0e930116447ded51616651751bba7482b638ca1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311949"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745487"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gere um certificado auto-assinado do Azure Application Gateway com uma raiz personalizada CA
 
@@ -67,7 +67,7 @@ Crie o seu certificado CA raiz utilizando o OpenSSL.
    ```
    Os comandos anteriores criam o certificado de raiz. Vai usar isto para assinar o seu certificado de servidor.
 
-1. Quando solicitado, digite a palavra-passe para a chave raiz, e as informações organizacionais para o CA personalizado, tais como Country, State, Org, OU, e o nome de domínio totalmente qualificado (este é o domínio do emitente).
+1. Quando solicitado, digite a palavra-passe para a chave raiz, e as informações organizacionais para o CA personalizado, tais como País/Região, Estado, Org, U, e o nome de domínio totalmente qualificado (este é o domínio do emitente).
 
    ![criar certificado de raiz](media/self-signed-certificates/root-cert.png)
 
@@ -88,7 +88,7 @@ Utilize o seguinte comando para gerar a chave para o certificado do servidor.
 A RSE é uma chave pública que é dada a uma AC ao solicitar um certificado. A AC emite o certificado para este pedido específico.
 
 > [!NOTE]
-> O NC (Nome Comum) para o certificado do servidor deve ser diferente do domínio do emitente. Por exemplo, neste caso, o NC `www.contoso.com` para o emitente `www.fabrikam.com`é e o NC do certificado de servidor é .
+> O NC (Nome Comum) para o certificado do servidor deve ser diferente do domínio do emitente. Por exemplo, neste caso, o NC para o emitente é `www.contoso.com` e o NC do certificado de servidor é `www.fabrikam.com` .
 
 
 1. Utilize o seguinte comando para gerar a RSE:
@@ -97,7 +97,7 @@ A RSE é uma chave pública que é dada a uma AC ao solicitar um certificado. A 
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. Quando solicitado, digite a palavra-passe para a chave raiz, e as informações organizacionais para o CA personalizado: País, Estado, Org, OU, e o nome de domínio totalmente qualificado. Este é o domínio do site e deve ser diferente do emitente.
+1. Quando solicitado, digite a palavra-passe para a chave raiz, e as informações organizacionais para o CA personalizado: País/Região, Estado, Org, OU, e o nome de domínio totalmente qualificado. Este é o domínio do site e deve ser diferente do emitente.
 
    ![Certificado de servidor](media/self-signed-certificates/server-cert.png)
 

@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 48644f2f8148a7aa1974be0d7f761e9b3a55612d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783516"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746210"
 ---
-# <a name="payout-summary-overview"></a>Resumo do resumo do pagamento
+# <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 
 O resumo do [Pagamento](./payout-summary.md) mostra-lhe detalhes sobre o dinheiro que ganhou com a Microsoft. Também lhe permite saber quando receberá os pagamentos e quanto será pago.
 
@@ -70,7 +70,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | participanteId | A identidade primária do sócio que ganha ao abrigo do programa |
 | participanteIdType | Id do programa para programas de incentivo e vendedor se o programa for para programas de loja e Mercado Azure |
 | nome de participante | Nome do parceiro de ganhos |
-| parceiroCountryCode | Localização/país do parceiro de ganhos |
+| parceiroCountryCode | Localização/país/região do parceiro de ganhos |
 | programaNome | Nome do programa de incentivo/loja |
 | transaçãoId | Identificador único para a transação |
 | transaçãoMoeda | Moeda em que ocorreu a transação original do cliente (não é a moeda de localização do parceiro) |
@@ -89,11 +89,11 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | cálculoDatade | Data em que o ganho foi calculado no sistema |
 | earningExchangeRate | Taxa de câmbio utilizada para mostrar o valor correspondente do USD |
 | exchangeRateDate | Data de câmbio utilizada para calcular o Valor Ganho USD |
-| pagamentoAmountWOTax | Valor de ganho (sem imposto) em Pagamento apenas para &quot;pagamentos enviados&quot; |
+| pagamentoAmountWOTax | Valor de ganho (sem imposto) em Pagamento apenas para &quot; &quot; pagamentos enviados |
 | pagamentoMoeda | Pague à moeda escolhida pelo parceiro no perfil de Pagamento. Mostrado apenas para pagamentos enviados |
 | pagamentoSExchangeRate | Taxa de câmbio utilizada para calcular pagamentoAmountWOTax em moeda de pagamento utilizando ExchangeRateDate |
 | pagamentoId | Identificador único para o pagamento. Este número é visível no seu extrato bancário |
-| pagamentoEstatuto | Estado de pagamento |
+| pagamentoEstatuto | Estado dos pagamentos |
 | pagamentoStatusDescription | Descrição do estado do pagamento |
 | customerId | Sempre estará em branco |
 | nome do cliente | Sempre estará em branco |
@@ -113,15 +113,15 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | lojaFee | O valor retido pela Microsoft como uma taxa para disponibilizar a app ou adicionar no mercado comercial. |
 | transacçãoPaymentMethod | Instrumento de pagamento ao cliente utilizado para a transação (como Card, Mobile Carrier Billing e PayPal) |
 | tpan | Rede de anúncios de terceiros |
-| clientePaís | País cliente |
+| clientePaís | País/região cliente |
 | clienteCity | Cidade cliente |
 | clienteEstado | Estado do cliente |
 | clienteZip | Código postal/postal do cliente |
 | TenantID | A identificação do Inquilino |
 | externalReferenceId | Identificador único para o programa |
 | externalReferenceIdLabel | Etiqueta de identificador única |
-| transaçõesCountryCode | Código do país em que a transação aconteceu |
-| impostosPaís | País do cliente |
+| transaçõesCountryCode | Código país/região em que a transação aconteceu |
+| impostosPaís | País/região do cliente |
 | impostosEstado | Estado do cliente |
 | taxCity | Cidade do cliente |
 | taxZipCode | Código postal/postal do cliente |
@@ -132,7 +132,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | Assetid | O identificador único para as encomendas do cliente para o seu serviço de marketplace. Representa os itens da linha de compra. Pode haver vários bens. |
 | OrderId | Refere-se à fatura de um cliente |
 | LineItemId | Linha individual na fatura de um cliente |
-| País cliente | O nome do país fornecido pelo cliente. Isto pode ser diferente do país na subscrição do Azure de um cliente. |
+| País/Região cliente | O nome país/região fornecido pelo cliente. Isto poderia ser diferente do país/região na Subscrição Azure de um cliente. |
 | Endereço de e-mail do cliente | O endereço de e-mail fornecido pelo cliente. Isto poderia ser diferente do endereço de e-mail na Subscrição Azure de um cliente. |
 | SkuId | SKU ID conforme definido durante a publicação. Uma oferta pode ter muitos SKUs, mas um SKU só pode ser associado a uma única oferta. |
 
@@ -144,4 +144,4 @@ Para suporte de faturação, contacte o suporte da [editora](https://partner.mic
 
 ## <a name="next-step"></a>Próximo passo
 
-- [Resumos de pagamento](./payout-summary.md)
+- [Resumos de dividendos](./payout-summary.md)

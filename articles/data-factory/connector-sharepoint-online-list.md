@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 02b88ae0fa0473ad3d11346f0443582d80e75f5d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 90ceb2b716df429eaf4541f13cfa96cb9e0eac7d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691132"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745223"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista Online SharePoint utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -55,8 +55,8 @@ O conector SharePoint List Online utiliza a autenticação principal do serviço
     1. Open SharePoint Online link site por exemplo `https://[your_site_url]/_layouts/15/appinv.aspx` (substitua o nome do inquilino e do site).
     2. Pesquise o ID de aplicação que registou, preencha os campos vazios e clique em "Criar".
 
-        - Domínio da aplicação: localhost.com
-        - URL de redirecionamento:https://www.localhost.com
+        - Domínio da aplicação:`localhost.com`
+        - URL de redirecionamento:`https://www.localhost.com`
         - Pedido de Permissão XML:
 
         ```xml

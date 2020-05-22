@@ -1,41 +1,41 @@
 ---
 title: Gerir o rastreio e o inventário de alterações na automação azure
-description: Este artigo diz como usar o Change Tracking e o Inventário para rastrear as alterações de software e de serviço da Microsoft que ocorrem no seu ambiente.
+description: Este artigo diz como usar o Change Tracking e o Inventário para rastrear as mudanças de software e o serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 8e5ee8df1dfd250a6713d832bf176daecdaef7ea
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779302"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744395"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
-Quando adiciona uma nova chave de ficheiros ou registos para rastrear, a Automatização Azure permite-o para a funcionalidade de Rastreio e Inventário de [Alterações.](change-tracking.md) Este artigo inclui procedimentos para trabalhar com esta funcionalidade.
+A Azure Automation permite a funcionalidade de rastreio e inventário de [alterações](change-tracking.md) para máquinas no seu ambiente. A funcionalidade rastreia e disponibiliza alterações nas teclas de registo, ficheiros, conteúdos e similares. Este artigo inclui procedimentos para trabalhar com esta funcionalidade.
 
 ## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Ativar a funcionalidade completa de rastreio e inventário de alterações
 
-Se tiver ativado a Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM),](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)pode utilizar a funcionalidade completa de Rastreio e Inventário de Alterações, conforme descrito abaixo. As suas definições não são removidas por este processo.
+Se tiver ativado a Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM),](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)pode utilizar a funcionalidade completa de Rastreio e Inventário de Alterações para as suas máquinas, conforme descrito abaixo. As suas definições não são removidas por este processo.
 
 > [!NOTE]
 > Ativar a funcionalidade completa de rastreio e inventário de alterações pode causar encargos adicionais. Ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Retire a solução de monitorização navegando para o espaço de trabalho e localizando-a na [lista de soluções de monitorização instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Clique no nome da solução para abrir a sua página sumária e, em seguida, clique em **Delete**, conforme detalhado em [Remover uma solução de monitorização](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Para reativar o Rastreio e O Inventário de Alterações, navegue para a conta Desativação e selecione **o rastreio** de alteração sob gestão de **configuração**.
+3. Para reativar o Rastreio e O Inventário de Alterações, navegue para a conta Desativação e selecione **'Change tracking'** ou **Inventário** sob gestão de **configuração**.
 4. Escolha o espaço de trabalho e a conta de Automação do Log Analytics, confirme as definições do espaço de trabalho e clique em **Ativar**.
 
-## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Máquinas de bordo para alterar rastreio e inventário
+## <a name="enable-machines-for-change-tracking-and-inventory"></a><a name="onboard"></a>Ativar máquinas para rastreio e inventário de alterações
 
-Para começar a rastrear alterações, deve ativar o Rastreio de Alterações e O Inventário na Automação Azure. Aqui estão as formas recomendadas e suportadas de embarcar nas suas máquinas para esta funcionalidade: 
+Para começar a rastrear alterações, deve ativar o Rastreio de Alterações e O Inventário na Automação Azure. Aqui estão as formas recomendadas e suportadas de ativar esta funcionalidade para as suas máquinas: 
 
-* [A bordo de uma máquina virtual](automation-onboard-solutions-from-vm.md)
-* [A bordo da navegação de várias máquinas](automation-onboard-solutions-from-browse.md)
-* [A bordo da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
-* [A bordo de um livro de execução da Automação Azure](automation-onboard-solutions.md)
+* [Ativar a partir de uma máquina virtual](automation-onboard-solutions-from-vm.md)
+* [Ativar a partir da navegação de várias máquinas](automation-onboard-solutions-from-browse.md)
+* [Ativar a partir da sua conta Deautomação](automation-onboard-solutions-from-automation-account.md)
+* [Ativar num livro de execução da Automação Azure](automation-onboard-solutions.md)
 
 ## <a name="track-files"></a>Rastrear ficheiros
 
@@ -53,7 +53,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |Ativado     | É verdade se a definição for aplicada, e falsa de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
     |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-    |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temp\\\*.txt**. Também pode utilizar variáveis ambientais, tais como `%winDir%\System32\\\*.*`.       |
+    |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temp \\ \* .txt**. Também pode utilizar variáveis ambientais, tais como `%winDir%\System32\\\*.*` .       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são File e Diretório.        |    
     |Recursão     | É verdade que se a recursion é usada quando se procura o item a ser rastreado, e Falso de outra forma.        |    
     |Carregar conteúdo de ficheiro | Fiel ao upload do conteúdo do ficheiro em alterações rastreadas, e Falso de outra forma.|
@@ -164,7 +164,7 @@ O exemplo seguinte mostra que o ficheiro **C:\windows\system32\drivers\etc\hosts
 Vamos usar este exemplo para discutir os passos para criar alertas sobre uma mudança.
 
 1. Na sua conta De automatização, selecione **'Localizar rastreio sob** gestão de **configuração'** e, em seguida, selecione **Log Analytics**. 
-2. Na pesquisa de Registos, procure alterações de conteúdo `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`no ficheiro dos **anfitriões** com a consulta . Esta consulta procura uma alteração de conteúdo para ficheiros com um caminho totalmente qualificado contendo a palavra "anfitriões". Também pode solicitar um ficheiro específico alterando a parte do caminho `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`para a sua forma totalmente qualificada, por exemplo, utilizando .
+2. Na pesquisa de Registos, procure alterações de conteúdo no ficheiro dos **anfitriões** com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` . Esta consulta procura uma alteração de conteúdo para ficheiros com um caminho totalmente qualificado contendo a palavra "anfitriões". Também pode solicitar um ficheiro específico alterando a parte do caminho para a sua forma totalmente qualificada, por exemplo, utilizando `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"` .
 
 3. Depois da consulta devolver os resultados desejados, clique em **Nova regra** de alerta na pesquisa de registo para abrir a página de criação de alerta. Também pode navegar para esta página através do **Monitor Azure** no portal Azure. 
 
@@ -178,6 +178,6 @@ Vamos usar este exemplo para discutir os passos para criar alertas sobre uma mud
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para o básico de Change Tracking and Inventory, consulte [a visão geral do rastreio e inventário de alterações.](change-tracking.md)
-* Para resolver as mudanças para um VM Azure, consulte problemas de rastreio e inventário de resolução de [problemas.](troubleshoot/change-tracking.md)
-* Utilize as pesquisas de [registo nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md) para visualizar dados de rastreio de alterações detalhadas.
+* [Alterar visão geral do rastreio e do inventário](change-tracking.md)
+* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
+* [Pesquisas de log nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md)

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 30ca03633b9b0788235439204a3c1926fe6b6a6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a07c419ecaa0cb0ec05c7c392a4d5ed9b0bfa491
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429983"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747416"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
@@ -91,7 +91,7 @@ Aqui está a orientação geral sobre a utilização de pontos de vista material
 
 Antes de começar a criar vistas materializadas, é importante ter uma compreensão profunda da sua carga de trabalho em termos de padrões de consulta, importância, frequência e o tamanho dos dados resultantes.  
 
-Os utilizadores podem executar explicações WITH_RECOMMENDATIONS <SQL_statement> para as vistas materializadas recomendadas pelo optimizador de consultas.  Uma vez que estas recomendações são específicas da consulta, uma visão materializada que beneficia uma única consulta pode não ser o ideal para outras consultas na mesma carga de trabalho.  
+Os utilizadores podem executar WITH_RECOMMENDATIONS <SQL_statement> EXPLICA para as vistas materializadas recomendadas pelo optimizador de consultas.  Uma vez que estas recomendações são específicas da consulta, uma visão materializada que beneficia uma única consulta pode não ser o ideal para outras consultas na mesma carga de trabalho.  
 
 Avalie estas recomendações com as suas necessidades de carga de trabalho em mente.  As vistas ideais materializadas são aquelas que beneficiam o desempenho da carga de trabalho.  
 
@@ -153,7 +153,7 @@ Para utilizar o resultado em cache, a forma da consulta de cache solicitando dev
 
 ## <a name="example"></a>Exemplo
 
-Este exemplo usa uma consulta semelhante a TPCDS que encontra clientes que gastam mais dinheiro através de catálogo do que nas lojas. Identifica também os clientes preferidos e o seu país de origem.   A consulta envolve a seleção dos registos TOP 100 da UNIÃO de três declarações sub-SELECIONADAs envolvendo SUM() e GROUP BY.
+Este exemplo usa uma consulta semelhante a TPCDS que encontra clientes que gastam mais dinheiro através de catálogo do que nas lojas. Identifica também os clientes preferidos e o seu país/região de origem.   A consulta envolve a seleção dos registos TOP 100 da UNIÃO de três declarações sub-SELECIONADAs envolvendo SUM() e GROUP BY.
 
 ```sql
 WITH year_total AS (

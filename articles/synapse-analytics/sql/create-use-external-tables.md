@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 039fdda4ab8fe636c1eab926c477aea420b59de8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f4919bb6856703c5bb5f1c798a8bcf5b2a108cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647482"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747672"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Crie e utilize tabelas externas em SQL on-demand (pré-visualização) utilizando o Azure Synapse Analytics
 
@@ -112,7 +112,7 @@ CREATE EXTERNAL TABLE Taxi (
 
 Pode utilizar [tabelas externas](develop-tables-external-tables.md) nas suas consultas da mesma forma que as utiliza em consultas do SQL Server.
 
-A seguinte consulta demonstra isso usando a tabela externa *da população* que criamos na secção anterior. Devolve nomes de países com a sua população em 2019 por ordem descendente.
+A seguinte consulta demonstra isso usando a tabela externa *da população* que criamos na secção anterior. Devolve nomes de país/região com a sua população em 2019 por ordem descendente.
 
 > [!NOTE]
 > Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou.
@@ -130,6 +130,6 @@ ORDER BY
     [population] DESC;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como armazenar os resultados de uma consulta ao armazenamento consulte os [resultados](../sql/create-external-table-as-select.md)da consulta da Loja para o armazenamento .

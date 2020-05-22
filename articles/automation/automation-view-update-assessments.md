@@ -1,18 +1,18 @@
 ---
-title: Ver avaliações de atualizações de atualização de automação do Azure
-description: Este artigo descreve como visualizar avaliações de atualização para atualizações.
+title: Ver avaliações de atualizações da Automação Azure
+description: Este artigo diz como visualizar avaliações de atualização para implementações de Gestão de Atualizações.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c66f54b8b01b5131defce6e709af52f9b2732d1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617388"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745241"
 ---
-# <a name="view-azure-automation-update-management-update-assessments"></a>Ver avaliações de atualizações de atualização de automação do Azure
+# <a name="view-update-assessments"></a>Ver avaliações de atualizações
 
 Na sua conta Azure Automation, selecione **Update Management** para ver o estado das suas máquinas.
 
@@ -28,7 +28,7 @@ Selecione **as atualizações Em falta** para visualizar a lista de atualizaçõ
 
 ![Atualizações em falta](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de atualizações
+## <a name="work-with-update-classifications"></a>Trabalhar com classificações de atualização
 
 As tabelas seguintes listam as classificações de atualização suportadas na Gestão de Atualizações, com uma definição para cada classificação.
 
@@ -64,4 +64,4 @@ Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necess
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de visualizar quaisquer avaliações de atualização, pode agendar uma implementação de atualização seguindo os passos nas atualizações e patches do [Manage para os seus VMs Azure](automation-tutorial-update-management.md).
+[Gerencie atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md)

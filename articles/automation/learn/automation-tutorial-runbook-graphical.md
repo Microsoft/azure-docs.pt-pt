@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: e3061b1c8650f24775a1e9ea8f328a5270263476
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714530"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744742"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Criar um livro de execução gráfico
 
@@ -349,9 +349,10 @@ Agora pode modificar o livro de execução para que apenas tente iniciar o VM se
 
 31. Inicie o livro de corridas com o VM parado e a máquina deve arrancar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Autoria gráfica em Automação Azure](../automation-graphical-authoring-intro.md)
-* [Criar runbook do PowerShell](automation-tutorial-runbook-textual-powershell.md)
-* [Criar um runbook de fluxo de trabalho do PowerShell](automation-tutorial-runbook-textual.md)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Para saber mais sobre autoria gráfica, consulte [Autor um livro gráfico em Automação Azure](../automation-graphical-authoring-intro.md).
+* Para começar com os livros de execução da PowerShell, consulte [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
+* Para começar com os livros de execução powerShell Workflow, consulte [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

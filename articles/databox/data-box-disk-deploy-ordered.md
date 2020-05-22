@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 91177c67c9d24f73934381704bca8259af31adca
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858629"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746082"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Encomende um disco de caixa de dados Azure
 
@@ -23,6 +23,7 @@ O Azure Data Box Disk é uma solução na cloud híbrida que permite importar os
 Este tutorial descreve como pode encomendar um disco do Azure Data Box Disk. Neste tutorial, ficará a saber mais sobre:
 
 > [!div class="checklist"]
+>
 > * Encomendar um disco do Data Box Disk
 > * Controlar a encomenda
 > * Cancelar a encomenda
@@ -38,21 +39,22 @@ Antes de ser implementado, preencha os seguintes pré-requisitos de configuraç�
 ### <a name="for-device"></a>Para o dispositivo
 
 Antes de começar, certifique-se de que:
-- Tem um computador cliente disponível a partir do qual pode copiar os dados. O computador cliente tem de:
-    - Executar um [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Ter outro [software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente Windows.  
+
+* Tem um computador cliente disponível a partir do qual pode copiar os dados. O computador cliente tem de:
+  * Executar um [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+  * Ter outro [software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente Windows.  
 
 ## <a name="order-data-box-disk"></a>Encomendar o Data Box Disk
 
 Inscreva-se em:
 
-- O portal Azure neste https://portal.azure.com URL: encomendar disco de caixa de dados.
-- Ou, o portal do Governo https://portal.azure.usAzure nesta URL: . Para mais detalhes, vá ao [Governo De Connect para azure usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* O portal Azure neste URL: encomendar disco de caixa de https://portal.azure.com dados.
+* Ou, o portal do Governo Azure nesta URL: https://portal.azure.us . Para mais detalhes, vá ao [Governo De Connect para azure usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 Tome os seguintes passos para encomendar Disco de Caixa de Dados.
 
 1. No canto superior esquerdo do portal, clique em **+ Criar um recurso**e procure *Azure Data Box*. Clique em **Azure Data Box**.
-    
+
    ![Pesquisar o Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
 2. Clique em **Criar**.
@@ -65,15 +67,14 @@ Tome os seguintes passos para encomendar Disco de Caixa de Dados.
     |---|---|
     |Subscrição|Selecione a subscrição para o qual o serviço Data Box está ativado.<br> A subscrição está ligada à sua conta de faturação. |
     |Tipo de transferência| Importar para o Azure|
-    |País de origem | Selecione o país/região onde os dados residem atualmente.|
+    |País/região fonte | Selecione o país/região onde os dados residem atualmente.|
     |Região do Azure de destino|Selecione a região do Azure para onde pretende transferir os dados.|
-
   
-5.  Selecione **Data Box Disk**. A capacidade máxima da solução para uma encomenda única de 5 discos é 35 TB. Pode criar várias encomendas para tamanhos de dados maiores.
+4. Selecione **Data Box Disk**. A capacidade máxima da solução para uma encomenda única de 5 discos é 35 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
      ![Selecionar a opção Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
-6.  Em **Encomenda**, especifique os **Detalhes da encomenda**. Introduza ou selecione as seguintes informações.
+5. Em **Encomenda**, especifique os **Detalhes da encomenda**. Introduza ou selecione as seguintes informações.
 
     |Definição|Valor|
     |---|---|
@@ -98,33 +99,34 @@ Tome os seguintes passos para encomendar Disco de Caixa de Dados.
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box envia os VHDs para a conta de armazenamento de encenação e depois converte-os em discos geridos e desloca-se para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
-13. Clique em **Seguinte**.
+6. Clique em **Seguinte**.
 
     ![Fornecer os detalhes da encomenda](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito. Os clientes que usam o serviço no Japão, Singapura, Coreia e Europa Ocidental têm a opção de selecionar o envio autogerido enquanto fazem a encomenda. Depois de a encomenda ser feita com sucesso, receberá um e-mail com instruções para recolher o dispositivo do centro de dados do Azure designado.
+7. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
+
+   Após a encomenda ser processada, receberá uma notificação por e-mail. Para obter mais informações sobre o envio autogerido, consulte [Use o envio autogerido](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Fornecer o endereço de envio](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
-15. Em **Detalhes de notificação**, especifique os endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados. 
+8. Em **Detalhes de notificação**, especifique os endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
 
     Recomendamos que utilize um e-mail de grupo para continuar a receber notificações se um administrador sair do grupo.
 
-16. Reveja o **Resumo** das informações relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
+9. Reveja o **Resumo** das informações relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
 
-17. Clique em **Encomendar**. A encomenda demora alguns minutos a ser criada.
+10. Clique em **Encomendar**. A encomenda demora alguns minutos a ser criada.
 
- 
 ## <a name="track-the-order"></a>Controlar a encomenda
 
 Depois de fazer a encomenda, pode controlar o estado da encomenda a partir do portal do Azure. Vá para a sua encomenda e, em seguida, aceda a **Descrição Geral** para ver o estado. O portal mostra a tarefa no estado **Encomendado**.
 
-![Estado do disco do Data Box Disk encomendado](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
+![Estado do disco do Data Box Disk encomendado](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
 
 Se os discos não estiverem disponíveis, receberá uma notificação. Se os discos estiverem disponíveis, a Microsoft identifica os discos para envio e prepara o pacote de discos. Durante a preparação dos discos, as ações seguintes ocorrem:
 
-- Os discos são encriptados com a encriptação AES-128 BitLocker.  
-- Os discos são bloqueados para impedir qualquer acesso não autorizado aos mesmos.
-- A chave de acesso que desbloqueia os discos é gerada durante este processo.
+* Os discos são encriptados com a encriptação AES-128 BitLocker.  
+* Os discos são bloqueados para impedir qualquer acesso não autorizado aos mesmos.
+* A chave de acesso que desbloqueia os discos é gerada durante este processo.
 
 Quando a preparação dos discos estiver concluída, o portal mostra a encomenda no estado **Processado**.
 
@@ -134,18 +136,18 @@ A Microsoft prepara e expede então os seus discos através de uma operadora reg
 
 Para cancelar esta encomenda, no portal do Azure, aceda a **Descrição Geral** e clique em **Cancelar** na barra de comando.
 
-Só pode cancelar quando os discos tiverem sido encomendados e a encomenda estiver a ser processada para envio. Assim que a encomenda for processada, já não pode cancelar a encomenda.
+Só é possível cancelar quando os discos são encomendados, e a encomenda está a ser processada para envio. Assim que a encomenda for processada, já não pode cancelar a encomenda.
 
 ![Cancelar encomenda](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
 Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em **Eliminar** na barra de comandos.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
+>
 > * Encomendar o Data Box Disk
 > * Controlar a encomenda
 > * Cancelar a encomenda

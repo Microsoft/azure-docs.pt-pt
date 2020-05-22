@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e344eb37af4fc1fae35a1f0c036ed1582054ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77209737"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747425"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrar uma aplicação Android do Google Maps
 
@@ -52,7 +52,7 @@ Para exibir um mapa utilizando o Google Maps SDK para Android, serão feitos os 
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-1.  Adicione uma chave API do Google Maps dentro da secção de aplicação do ficheiro **google\_maps\_api.xml:**
+1.  Adicione uma chave API do Google Maps dentro da secção de aplicação do ficheiro **google \_ maps \_ api.xml:**
     
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -67,7 +67,7 @@ Para exibir um mapa utilizando o Google Maps SDK para Android, serão feitos os 
             android:layout_height="match_parent"/>
     ```
 
-1.  No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhar todos os métodos de ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe do mapa. Recupere `MapView` uma instância do `getMapAsync(OnMapReadyCallback)` fragmento do mapa utilizando o método. O `MapView` sistema de mapas e a vista inicializam automaticamente. Editar o ficheiro **MainActivity.java** da seguinte forma:
+1.  No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhar todos os métodos de ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe do mapa. Recupere uma `MapView` instância do fragmento do mapa utilizando o `getMapAsync(OnMapReadyCallback)` método. O `MapView` sistema de mapas e a vista inicializam automaticamente. Editar o ficheiro **MainActivity.java** da seguinte forma:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -182,7 +182,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
         > O Azure Maps Android SDK é regularmente atualizado e melhorado. Pode ver o [Get iniciado com o controlo](how-to-use-android-map-control-library.md) de mapas Android para obter o mais recente número da versão Do Azure Maps. Além disso, pode definir o número da versão de "0.2" para "0+" para que o seu código aponte sempre para a versão mais recente.
     
     4. Vá ao **Ficheiro** na barra de ferramentas e clique em **Sync Project com Ficheiros Gradle**.
-3. Adicione um fragmento de mapa \> à \> \_atividade principal (atividade de layout de recursos principal.xml):
+3. Adicione um fragmento de mapa à atividade principal (atividade de layout de recursos \> \> \_ principal.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -207,7 +207,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
     * Detete as informações de autenticação do Seu Azure Maps
     * Obtenha a instância de controlo do mapa no método **onCreate**
 
-     Desloque as `AzureMaps` informações `setSubscriptionKey` de `setAadProperties` autenticação na classe utilizando os ou métodos. Esta atualização global, certifique-se de que adiciona as suas informações de autenticação a todas as visualizações.
+     Desloque as informações de autenticação na `AzureMaps` classe utilizando os ou `setSubscriptionKey` `setAadProperties` métodos. Esta atualização global, certifique-se de que adiciona as suas informações de autenticação a todas as visualizações.
 
     O controlo do mapa contém os seus próprios métodos de ciclo de vida para gerir o ciclo de vida OpenGL do Android. Estes métodos devem ser chamados diretamente da atividade contida. Para chamar corretamente os métodos de ciclo de vida do controlo do mapa, deve substituir os seguintes métodos de ciclo de vida na Atividade que contém o controlo do mapa. Ligue para o respetivo método de controlo de mapas.
 
@@ -314,11 +314,11 @@ Note que o controlo do Azure Maps suporta a ampliação mais e proporciona mais 
 
 ## <a name="localizing-the-map"></a>Localização do mapa
 
-A localização é importante se o seu público estiver espalhado por vários países ou falar línguas diferentes.
+A localização é importante se o seu público estiver espalhado por vários países/regiões ou falar línguas diferentes.
 
 **Antes: Google Maps**
 
-Adicione o seguinte `onCreate` código ao método para definir a linguagem do mapa. O código deve ser adicionado antes de definir a visão de contexto do mapa. O código linguístico "fr" limita a língua ao francês.
+Adicione o seguinte código ao `onCreate` método para definir a linguagem do mapa. O código deve ser adicionado antes de definir a visão de contexto do mapa. O código linguístico "fr" limita a língua ao francês.
 
 ```java
 String languageToLoad = "fr";
@@ -338,7 +338,7 @@ Aqui está um exemplo do Google Maps com o idioma definido para "fr".
 
 **Depois: Mapas Azure**
 
-O Azure Maps fornece três formas diferentes de definir a linguagem e a visão regional do mapa. A primeira opção é passar a informação linguística e de visão regional para a `AzureMaps` classe. Esta opção `setLanguage` utiliza `setView` a estática e os métodos a nível global. Ou seja, a linguagem padrão e a vista regional estão definidas em todos os controlos do Azure Maps carregados na sua aplicação. Este exemplo define o francês utilizando o código linguístico "fr-FR".
+O Azure Maps fornece três formas diferentes de definir a linguagem e a visão regional do mapa. A primeira opção é passar a informação linguística e de visão regional para a `AzureMaps` classe. Esta opção utiliza a estática `setLanguage` e `setView` os métodos a nível global. Ou seja, a linguagem padrão e a vista regional estão definidas em todos os controlos do Azure Maps carregados na sua aplicação. Este exemplo define o francês utilizando o código linguístico "fr-FR".
 
 ```java
 static {
@@ -365,7 +365,7 @@ A segunda opção é passar a linguagem e ver informações para o código XML d
     />
 ```
 
-A terceira opção é programar a visão `setStyle` do mapa linguístico e regional usando o método dos mapas. Esta opção atualiza a linguagem e a vista regional sempre que o código executa.
+A terceira opção é programar a visão do mapa linguístico e regional usando o método dos `setStyle` mapas. Esta opção atualiza a linguagem e a vista regional sempre que o código executa.
 
 ```java
 mapControl.onReady(map -> {
@@ -388,7 +388,7 @@ Mapas dinâmicos tanto no Azure Maps como no Google Maps podem ser transferidos 
 
 **Antes: Google Maps**
 
-A câmara do controlo de mapas do Google `moveCamera` Maps pode ser deslocada programáticamente utilizando o método. O `moveCamera` método permite especificar o centro do mapa e um nível de zoom. O `setMapType` método altera o tipo de mapa para visualização.
+A câmara do controlo de mapas do Google Maps pode ser deslocada programáticamente utilizando o `moveCamera` método. O `moveCamera` método permite especificar o centro do mapa e um nível de zoom. O `setMapType` método altera o tipo de mapa para visualização.
 
 ```java
 @Override
@@ -425,7 +425,7 @@ A vista inicial do mapa pode ser definida em atributos XML no controlo do mapa.
     />
 ```
 
-A vista do mapa pode `setCamera` ser `setStyle` programada utilizando os mapas e métodos.
+A vista do mapa pode ser programada utilizando os mapas `setCamera` e `setStyle` métodos.
 
 ```java
 mapControl.onReady(map -> {
@@ -451,7 +451,7 @@ Os dados de pontos são muitas vezes renderizados usando uma imagem no mapa. Est
 
 **Antes: Google Maps**
 
-Com o Google Maps, os `addMarker` marcadores são adicionados usando o método dos mapas.
+Com o Google Maps, os marcadores são adicionados usando o método dos `addMarker` mapas.
 
 ```java
 @Override
@@ -495,13 +495,13 @@ Imagens personalizadas podem ser usadas para representar pontos num mapa. O mapa
 <center>
 
 ![imagem de pushpin amarelo](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-ylw\_pushpin.png</center>
+ylw \_ pushpin.png</center>
 
 Em ambos os exemplos, a imagem acima é adicionada à pasta drawable dos recursos das apps.
 
 **Antes: Google Maps**
 
-Com o Google Maps, as imagens personalizadas podem ser usadas para marcadores. Carregue imagens personalizadas `icon` utilizando a opção do marcador. Para alinhar o ponto da imagem com `anchor` a coordenada, utilize a opção. A âncora é relativa às dimensões da imagem. Neste caso, a âncora tem 0,2 unidades de largura e 1 unidade de altura.
+Com o Google Maps, as imagens personalizadas podem ser usadas para marcadores. Carregue imagens personalizadas utilizando a opção do `icon` marcador. Para alinhar o ponto da imagem com a coordenada, utilize a `anchor` opção. A âncora é relativa às dimensões da imagem. Neste caso, a âncora tem 0,2 unidades de largura e 1 unidade de altura.
 
 ```java
 @Override
@@ -520,7 +520,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Depois: Mapas Azure**
 
-As camadas de símbolo no Azure Maps suportam imagens personalizadas, mas primeiro, a imagem precisa de ser carregada para os recursos do mapa e atribuiuma identificação única. Em seguida, a camada de símbolo precisa de referenciar este ID. Offset o símbolo para alinhar com o `iconOffset` ponto correto na imagem utilizando a opção. O ícone compensado está em pixels. Por padrão, a compensação é relativa ao centro inferior da imagem, mas `iconAnchor` este valor de compensação pode ser ajustado utilizando a opção. Este exemplo define `iconAnchor` a `"center"`opção para . Usa um ícone offset para mover a imagem cinco pixels para a direita e 15 pixels para alinhacom o ponto da imagem do pino.
+As camadas de símbolo no Azure Maps suportam imagens personalizadas, mas primeiro, a imagem precisa de ser carregada para os recursos do mapa e atribuiuma identificação única. Em seguida, a camada de símbolo precisa de referenciar este ID. Offset o símbolo para alinhar com o ponto correto na imagem utilizando a `iconOffset` opção. O ícone compensado está em pixels. Por padrão, a compensação é relativa ao centro inferior da imagem, mas este valor de compensação pode ser ajustado utilizando a `iconAnchor` opção. Este exemplo define a `iconAnchor` opção para `"center"` . Usa um ícone offset para mover a imagem cinco pixels para a direita e 15 pixels para alinhacom o ponto da imagem do pino.
 
 ```java
 mapControl.onReady(map -> {
@@ -552,7 +552,7 @@ As polilinhas são usadas para representar uma linha ou caminho no mapa. Os segu
 
 **Antes: Google Maps**
 
-Com o Google Maps, renderiza uma polilinha usando a `PolylineOptions` classe. Adicione a polilinha ao `addPolyline` mapa utilizando o método. Despolete a `color` cor do traçado utilizando a opção. Defina a largura `width` do traçado utilizando a opção. Adicione uma matriz `pattern` de traço síptero utilizando a opção.
+Com o Google Maps, renderiza uma polilinha usando a `PolylineOptions` classe. Adicione a polilinha ao mapa utilizando o `addPolyline` método. Despolete a cor do traçado utilizando a `color` opção. Defina a largura do traçado utilizando a `width` opção. Adicione uma matriz de traço síptero utilizando a `pattern` opção.
 
 ```java
 @Override
@@ -580,7 +580,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Depois: Mapas Azure**
 
-Nos Mapas Azure, os `LineString` `MultiLineString` polilines são chamados ou objetos. Adicione estes objetos a uma fonte de dados e torne-os usando uma camada de linha. Defina a largura `strokeWidth` do traçado utilizando a opção. Adicione uma matriz `strokeDashArray` de traço síptero utilizando a opção.
+Nos Mapas Azure, os polilines são chamados `LineString` ou `MultiLineString` objetos. Adicione estes objetos a uma fonte de dados e torne-os usando uma camada de linha. Defina a largura do traçado utilizando a `strokeWidth` opção. Adicione uma matriz de traço síptero utilizando a `strokeDashArray` opção.
 
 A largura do traçado e as unidades "pixel" do conjunto de traços no Azure Maps Web SDK, é a mesma que no serviço do Google Maps. Ambos aceitam os mesmos valores para produzir os mesmos resultados.
 
@@ -617,7 +617,7 @@ Os polígonos são usados para representar uma área no mapa. Os próximos exemp
 
 **Antes: Google Maps**
 
-Com o Google Maps, renderiza `PolygonOptions` um polígono usando a classe. Adicione o polígono ao `addPolygon` mapa utilizando o método. Detete as cores `fillColor` de `strokeColor` enchimento e traçado utilizando as e opções, respectivamente. Defina a largura `strokeWidth` do traçado utilizando a opção.
+Com o Google Maps, renderiza um polígono usando a `PolygonOptions` classe. Adicione o polígono ao mapa utilizando o `addPolygon` método. Detete as cores de enchimento e traçado utilizando as `fillColor` e `strokeColor` opções, respectivamente. Defina a largura do traçado utilizando a `strokeWidth` opção.
 
 ```java
 @Override
@@ -645,7 +645,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Depois: Mapas Azure**
 
-No Azure Maps, adicione `Polygon` e `MultiPolygon` objetos a uma fonte de dados e os torne no mapa usando camadas. Renderizar a área de um polígono numa camada de polígono. Descontete o contorno de um polígono usando uma camada de linha. Defina a cor e `strokeColor` `strokeWidth` a largura do traçado utilizando as opções e opções.
+No Azure Maps, adicione e objetos a uma fonte de `Polygon` dados e os torne no mapa usando `MultiPolygon` camadas. Renderizar a área de um polígono numa camada de polígono. Descontete o contorno de um polígono usando uma camada de linha. Defina a cor e a largura do traçado utilizando as `strokeColor` opções e `strokeWidth` opções.
 
 As unidades de largura de traçado e de traço "pixel" no Azure Maps Web SDK alinham-se com as respetivas unidades no Google Maps. Ambos aceitam os mesmos valores e produzem os mesmos resultados.
 
@@ -689,7 +689,7 @@ Os seguintes exemplos sobrepõem uma camada de azulejos de radar meteorológico 
 
 **Antes: Google Maps**
 
-Com o Google Maps, uma camada de azulejopode ser sobreposta em cima do mapa. Usa `TileOverlayOptions` a aula. Adicione a camada de azulejos `addTileLauer` ao mapa utilizando o método. Para tornar os azulejos `transparency` semi-transparentes, a opção está definida para 0,2, ou 20% transparente.
+Com o Google Maps, uma camada de azulejopode ser sobreposta em cima do mapa. Usa a `TileOverlayOptions` aula. Adicione a camada de azulejos ao mapa utilizando o `addTileLauer` método. Para tornar os azulejos semi-transparentes, a `transparency` opção está definida para 0,2, ou 20% transparente.
 
 ```java
 @Override
@@ -722,7 +722,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Depois: Mapas Azure**
 
-Uma camada de azulejo pode ser adicionada ao mapa de forma semelhante a qualquer outra camada. Um URL formatado que tem espaços reservados x, y e zoom; `{x}`, `{y}` `{z}` é utilizado, respectivamente, para dizer à camada onde aceder aos azulejos. Além disso, camadas de `{quadkey}` `{bbox-epsg-3857}`azulejos `{subdomain}` em suporte Azure Maps, e espaços reservados. Para tornar a camada de azulejosemi-transparente, é utilizado um valor de opacidade de 0,8. Opacidade e transparência, embora similares, usam valores invertidos. Para converter entre ambas as opções, subtraia o seu valor do número um.
+Uma camada de azulejo pode ser adicionada ao mapa de forma semelhante a qualquer outra camada. Um URL formatado que tem espaços reservados x, y e zoom; `{x}`, `{y}` `{z}` é utilizado, respectivamente, para dizer à camada onde aceder aos azulejos. Além disso, camadas de azulejos em suporte Azure `{quadkey}` `{bbox-epsg-3857}` Maps, e `{subdomain}` espaços reservados. Para tornar a camada de azulejosemi-transparente, é utilizado um valor de opacidade de 0,8. Opacidade e transparência, embora similares, usam valores invertidos. Para converter entre ambas as opções, subtraia o seu valor do número um.
 
 > [!TIP]
 > No Azure Maps, é conveniente renderizar camadas abaixo de outras camadas, incluindo camadas de mapas base. Além disso, é muitas vezes desejável tornar camadas de azulejos abaixo dos rótulos do mapa para que sejam fáceis de ler. O `map.layers.add` método leva um segundo parâmetro que é a identificação da camada na qual inserir a nova camada abaixo. Para inserir uma camada de azulejos abaixo das etiquetas do mapa, pode ser utilizado o seguinte código:`map.layers.add(myTileLayer, "labels");`
@@ -748,7 +748,7 @@ Tanto o Azure Maps como o Google Maps têm opções para sobrepor dados de tráf
 
 **Antes: Google Maps**
 
-Com o Google Maps, os dados de fluxo de tráfego podem ser `setTrafficEnabled` sobrepostos em cima do mapa, passando para o método do mapa.
+Com o Google Maps, os dados de fluxo de tráfego podem ser sobrepostos em cima do mapa, passando para o método do `setTrafficEnabled` mapa.
 
 ```java
 @Override

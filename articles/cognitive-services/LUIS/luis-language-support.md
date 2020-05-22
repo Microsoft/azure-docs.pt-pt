@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69ff3aa3f649b054192f9dd001af83dc8dbc2317
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591051"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745697"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio à língua e à região para o LUIS
 
@@ -32,7 +32,7 @@ LUIS entende as expressões nas seguintes línguas:
 
 | Linguagem |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglês Americano |`en-US` | ✔ | ✔  |✔|✔|
+| Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Neerlandês |`nl-NL` |✔|-|-|✔|

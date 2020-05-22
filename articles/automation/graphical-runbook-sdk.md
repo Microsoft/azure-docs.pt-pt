@@ -1,28 +1,28 @@
 ---
-title: Utilize o livro gráfico Azure Automation SDK
-description: Este artigo descreve como usar o livro gráfico Azure Automation SDK.
+title: Utilize o livro gráfico Azure Automation SDK (pré-visualização)
+description: Este artigo diz como usar o livro gráfico Azure Automation SDK (pré-visualização).
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 886ce03b6e107d871879ff40bdc5de9ceb97c7c3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b0733cd4f71a734511d5085473047eb7a6d030d3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690743"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744339"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Utilize o livro gráfico Azure Automation SDK
+# <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Utilize o livro gráfico Azure Automation SDK (pré-visualização)
 
 [Os livros gráficos](automation-graphical-authoring-intro.md) ajudam a gerir as complexidades do código de fluxo de trabalho do Windows PowerShell ou powerShell. O SDK de autoria gráfica da Microsoft Azure Automation permite aos desenvolvedores criar e editar livros gráficos para utilização com a Azure Automation. Este artigo descreve passos básicos na criação de um livro gráfico a partir do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Importe `Orchestrator.GraphRunbook.Model.dll` o pacote para o seu projeto.
+Importar o `Orchestrator.GraphRunbook.Model.dll` pacote descarregando o [SDK](https://www.microsoft.com/download/details.aspx?id=50734).
 
 ## <a name="create-a-runbook-object-instance"></a>Criar uma instância de objeto de livro de execução
 
-Referenciar `Orchestrator.GraphRunbook.Model` o conjunto e `Orchestrator.GraphRunbook.Model.GraphRunbook` criar uma instância da classe:
+Referenciar o `Orchestrator.GraphRunbook.Model` conjunto e criar uma instância da `Orchestrator.GraphRunbook.Model.GraphRunbook` classe:
 
 ```csharp
 using Orchestrator.GraphRunbook.Model;
@@ -33,7 +33,7 @@ var runbook = new GraphRunbook();
 
 ## <a name="add-runbook-parameters"></a>Adicionar parâmetros de livro
 
-Objetos `Orchestrator.GraphRunbook.Model.Parameter` instantâneos e adicioná-los ao livro de corridas:
+`Orchestrator.GraphRunbook.Model.Parameter`Objetos instantâneos e adicioná-los ao livro de corridas:
 
 ```csharp
 runbook.AddParameter(
@@ -89,7 +89,7 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-As atividades são implementadas `Orchestrator.GraphRunbook.Model` pelas seguintes aulas no espaço de nome.
+As atividades são implementadas pelas seguintes aulas no `Orchestrator.GraphRunbook.Model` espaço de nome.
 
 |Classe  |Atividade  |
 |---------|---------|
@@ -101,7 +101,7 @@ As atividades são implementadas `Orchestrator.GraphRunbook.Model` pelas seguint
 > [!NOTE]
 > Não derive as suas próprias atividades das aulas fornecidas. A Azure Automation não pode usar livros de execução com tipos de atividade salfator.
 
-Deve fornecer `CommandActivity` `InvokeRunbookActivity` e parâmetros como descritores de valor, não valores diretos. Os descritores de valor especificam como produzir os valores reais do parâmetro. Os seguintes descritores de valor são fornecidos atualmente:
+Deve fornecer `CommandActivity` e `InvokeRunbookActivity` parâmetros como descritores de valor, não valores diretos. Os descritores de valor especificam como produzir os valores reais do parâmetro. Os seguintes descritores de valor são fornecidos atualmente:
 
 
 |Descritor  |Definição  |
@@ -130,15 +130,15 @@ runbook.AddLink(
 
 ## <a name="save-the-runbook-to-a-file"></a>Guarde o livro de execução para um ficheiro
 
-Utilize `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` para serializar um livro de execução numa corda:
+Utilize para serializar um livro de `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` execução numa corda:
 
 ```csharp
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
 Pode guardar esta corda para um ficheiro com a extensão **.graphrunbook.** O livro de execução correspondente pode ser importado para a Automação Azure.
-O formato serializado pode mudar `Orchestrator.GraphRunbook.Model.dll`nas futuras versões de . Prometemos retrocompatibilidade: qualquer livro de corridas serializado `Orchestrator.GraphRunbook.Model.dll` com uma versão mais antiga pode ser desserializado por qualquer versão mais recente. A compatibilidade para a frente não está garantida: um livro de corridas serializado com uma versão mais recente pode não ser desserializável por versões mais antigas.
+O formato serializado pode mudar nas futuras versões de `Orchestrator.GraphRunbook.Model.dll` . Prometemos retrocompatibilidade: qualquer livro de corridas serializado com uma versão mais antiga `Orchestrator.GraphRunbook.Model.dll` pode ser desserializado por qualquer versão mais recente. A compatibilidade para a frente não está garantida: um livro de corridas serializado com uma versão mais recente pode não ser desserializável por versões mais antigas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os livros gráficos na Automação Azure, consulte [a introdução da autoria gráfica.](automation-graphical-authoring-intro.md)
+[Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)

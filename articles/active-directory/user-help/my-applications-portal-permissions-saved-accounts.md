@@ -8,16 +8,16 @@ ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: bac33386371b13950163727497cabd0f262df135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4249f753181ea4b54d7e1e1f098717ef669bae4a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77022414"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744032"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de candidatura no portal My Apps
 

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: a265278652c16b4682707470d183a02a55b9a0ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77069222"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745473"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Tiroteio de problemas do Analisador de Internet Azure
 
@@ -25,7 +25,7 @@ Este artigo contém passos de resolução de problemas para questões comuns do 
 ## <a name="azure-portal"></a>Portal do Azure
 **"Não foi gerado um cartão de pontuação para a combinação de filtro seletiva" na secção Scorecards**
 - Os cartões de pontuação são gerados diariamente (no final de cada dia, hora utc).
-- Os cartões de pontuação só são gerados se forem recolhidas mais de 100 medições para a combinação de filtros selecionada (Teste, Período de Tempo, País, etc.).
+- Os cartões de pontuação só são gerados se forem recolhidas mais de 100 medições para a combinação de filtros selecionada (Teste, Período de Tempo, País/Região, etc.).
 
 **"Contagem total de medição" é zero para um ou ambos os pontos finais num teste**
 - As séries temporais e as contagens de medição são calculadas uma vez por hora, por isso terá de esperar pelo menos esse tempo para que novos dados de medição apareçam.

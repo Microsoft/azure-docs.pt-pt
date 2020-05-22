@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2a5928d8326c4a0628ebc1bfb7eec3cd20f9254
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606210"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747509"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um Tempo de Integração Azure-SSIS
 
@@ -42,7 +42,7 @@ As seguintes limitações aplicam-se apenas às configurações personalizadas p
 
 - Se quiser utilizar *gacutil.exe* no seu script para instalar conjuntos na cache de montagem global (GAC), precisa de fornecer *gacutil.exe* como parte da sua configuração personalizada. Ou pode utilizar a cópia fornecida no nosso recipiente de *Pré-visualização Pública,* discutida mais tarde na secção "Instruções".
 
-- Se quiser fazer referência a uma subpasta no seu script, *msiexec.exe* não suporta a `.\` notação para fazer referência à pasta raiz. Utilize um comando `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` como `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`o de .
+- Se quiser fazer referência a uma subpasta no seu script, *msiexec.exe* não suporta a `.\` notação para fazer referência à pasta raiz. Utilize um comando como o `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 
 - As ações administrativas, ou ações ocultas de rede que são criadas automaticamente pelo Windows, não são atualmente suportadas no IR Azure-SSIS.
 
@@ -54,7 +54,7 @@ As seguintes limitações aplicam-se apenas às configurações personalizadas p
 
 Para personalizar o seu IR Azure-SSIS, precisa dos seguintes itens:
 
-- [Uma subscrição do Azure.](https://azure.microsoft.com/)
+- [Uma subscrição azure](https://azure.microsoft.com/)
 
 - [Fornecer o seu IR Azure-SSIS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 
@@ -68,7 +68,7 @@ Para personalizar o seu IR Azure-SSIS, precisa dos seguintes itens:
 
    * Deve ter um ficheiro de script chamado *main.cmd,* que é o ponto de entrada da sua configuração personalizada.  
    * Para garantir que o script pode ser executado silenciosamente, recomendamos que o teste primeiro na sua máquina local.  
-   * Se pretender que registos adicionais gerados por outras ferramentas (por exemplo, *msiexec.exe*) `CUSTOM_SETUP_SCRIPT_LOG_DIR`sejam enviados para o seu recipiente, especifique a variável ambiente predefinida, como a pasta de registo nos seus scripts (por exemplo, *msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\instalar.log*).
+   * Se pretender que registos adicionais gerados por outras ferramentas (por exemplo, *msiexec.exe*) sejam enviados para o seu recipiente, especifique a variável ambiente predefinida, `CUSTOM_SETUP_SCRIPT_LOG_DIR` como a pasta de registo nos seus scripts (por exemplo, *msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\instalar.log).*
 
 1. Descarregue, instale e abra o [Azure Storage Explorer.](https://storageexplorer.com/) Para tal:
 
@@ -123,7 +123,7 @@ Para personalizar o seu IR Azure-SSIS, precisa dos seguintes itens:
 
      * Se selecionar o **HEDDA do oh22. Componente IO,** pode instalar o [HEDDA. Componente](https://hedda.io/ssis-component/) de qualidade/limpeza de dados IO a partir de oh22 no seu IR Azure-SSIS após a compra do seu serviço. A versão integrada atual é **de 1.0.13**.
 
-     * Se selecionar o componente **SQLPhonetics.NET do oh22,** pode instalar o [componente SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) qualidade/correspondência de dados a partir de oh22 no seu Ir Azure-SSIS, introduzindo a chave de licença de produto que adquiriu na **caixa-chave da Licença.** A versão integrada atual é **de 1.0.43**.
+     * Se selecionar o componente **SQLPhonetics.NET do oh22,** pode instalar o [componente SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) qualidade/correspondência de dados a partir de oh22 no seu Ir Azure-SSIS, introduzindo a chave de licença de produto que adquiriu na **caixa-chave da Licença.** A versão integrada atual é **de 1.0.43**.
 
      * Se selecionar o componente de Toolkit de **Integração SSIS da KingswaySoft,** pode instalar o conjunto de ferramentas de [integração SSIS toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) de conectores para aplicações CRM/ERP/marketing/colaboração, tais como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. da KingswaySoft no seu Ir Azure-SSIS, introduzindo a chave de licença de produto que adquiriu na **caixa-chave** da Licença. A versão integrada atual é **2019.2.**
 
@@ -135,7 +135,7 @@ Para personalizar o seu IR Azure-SSIS, precisa dos seguintes itens:
 
    ![Configurações avançadas com configurações personalizadas](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
 
-1. Quando configurar ou reconfigurar o seu IR Azure-SSIS com powerShell, pode adicionar `Set-AzDataFactoryV2IntegrationRuntime` ou remover as configurações personalizadas executando o cmdlet antes de iniciar o seu IR Azure-SSIS.
+1. Quando configurar ou reconfigurar o seu IR Azure-SSIS com powerShell, pode adicionar ou remover as configurações personalizadas executando o `Set-AzDataFactoryV2IntegrationRuntime` cmdlet antes de iniciar o seu IR Azure-SSIS.
    
    ```powershell
    $ResourceGroupName = "[your Azure resource group name]"
@@ -299,7 +299,7 @@ Para personalizar o seu IR Azure-SSIS, precisa dos seguintes itens:
    
       Quando configurar ou reconfigurar o seu IR Azure-SSIS utilizando o UI da Fábrica de Dados, selecione o Tempo de Funcionamento de **Integração Azure-SSIS com configurações/instalações de componentes adicionais,** verifique a caixa na secção **Definições Avançadas** e, em seguida, introduza o SAS URI do seu recipiente na caixa **De configuração Personalizada SAS URI.**
    
-      Quando configurar ou reconfigurar o seu IR Azure-SSIS com powerShell, execute o `Set-AzDataFactoryV2IntegrationRuntime` cmdlet com o SAS URI do seu recipiente como valor para `SetupScriptContainerSasUri` o parâmetro.
+      Quando configurar ou reconfigurar o seu IR Azure-SSIS com powerShell, execute o `Set-AzDataFactoryV2IntegrationRuntime` cmdlet com o SAS URI do seu recipiente como valor para o `SetupScriptContainerSasUri` parâmetro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

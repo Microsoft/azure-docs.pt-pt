@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bc439e3244be63bff1c54d3230eda17dfb9d88d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253446"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745599"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN da Verizon Premium governa condições de correspondência do motor
 
@@ -30,7 +30,7 @@ Por exemplo, pode utilizar uma condição de correspondência para:
 
 A condição de jogo Always aplica um conjunto de funcionalidades padrão a todos os pedidos.
 
-Nome | Objetivo
+Name | Objetivo
 -----|--------
 [Sempre](#always) | Aplica um conjunto de funcionalidades padrão a todos os pedidos.
 
@@ -38,7 +38,7 @@ Nome | Objetivo
 
 A condição de correspondência do Dispositivo identifica pedidos feitos a partir de um dispositivo móvel com base nas suas propriedades.  
 
-Nome | Objetivo
+Name | Objetivo
 -----|--------
 [Dispositivo](#device) | Identifica pedidos feitos a partir de um dispositivo móvel com base nas suas propriedades.
 
@@ -46,7 +46,7 @@ Nome | Objetivo
 
 As condições de correspondência de localização identificam pedidos com base na localização do solicitador.
 
-Nome | Objetivo
+Name | Objetivo
 -----|--------
 [Número as](#as-number) | Identifica pedidos originários de uma determinada rede.
 [País](#country) | Identifica pedidos originários dos países/regiões especificados.
@@ -55,7 +55,7 @@ Nome | Objetivo
 
 As condições de correspondência origin identificam pedidos que apontam para o armazenamento da Rede de Entrega de Conteúdos ou um servidor de origem do cliente.
 
-Nome | Objetivo
+Name | Objetivo
 -----|--------
 [Origem CDN](#cdn-origin) | Identifica pedidos de conteúdo armazenados no armazenamento da Rede de Entrega de Conteúdos.
 [Origem do Cliente](#customer-origin) | Identifica pedidos de conteúdo armazenados num servidor específico de origem do cliente.
@@ -64,7 +64,7 @@ Nome | Objetivo
 
 As condições de correspondência do Pedido identificam pedidos com base nas suas propriedades.
 
-Nome | Objetivo
+Name | Objetivo
 -----|--------
 [Endereço IP do Cliente](#client-ip-address) | Identifica pedidos originários de um determinado endereço IP.
 [Parâmetro de cookies](#cookie-parameter) | Verifica os cookies associados a cada pedido pelo valor especificado.
@@ -81,7 +81,7 @@ Nome | Objetivo
 
 As condições de correspondência do URL identificam pedidos com base nos seus URLs.
 
-Nome | Objetivo
+Name | Objetivo
 -----|--------
 [Diretório de caminhos URL](#url-path-directory) | Identifica pedidos pelo seu caminho relativo.
 [Extensão do caminho do URL](#url-path-extension) | Identifica pedidos pela extensão do nome do ficheiro.
@@ -112,7 +112,7 @@ A condição de jogo Always aplica um conjunto de funcionalidades padrão a todo
 
 A rede AS Number é definida pelo seu número de sistema autónomo (ASN). 
 
-A opção **Match**/**Does Match** determina as condições em que a condição de jogo do número AS é satisfeita:
+A opção **Match** / **Does Match** determina as condições em que a condição de jogo do número AS é satisfeita:
 
 - **Fósforos**: Requer que a ASN da rede de clientes corresponda a uma das ASNs especificadas. 
 - **Não Corresponde**: Requer que a ASN da rede de clientes não corresponda a nenhuma das ASNs especificadas.
@@ -157,7 +157,7 @@ Informação-chave:
 
 ### <a name="client-ip-address"></a>Endereço IP do Cliente
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do Endereço IP do Cliente é satisfeita:
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do Endereço IP do Cliente é satisfeita:
 
 - **Fósforos**: Requer que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
 - **Não Corresponde**: Requer que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
@@ -186,7 +186,7 @@ Informação-chave:
 
 ### <a name="cookie-parameter"></a>Parâmetro de cookies
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do Parâmetro de Cookie é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do Parâmetro de Cookie é satisfeita.
 
 - **Fósforos**: Requer um pedido para conter o cookie especificado com um valor que corresponda a pelo menos um dos valores definidos nesta condição de jogo.
 - **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
@@ -220,7 +220,7 @@ Informação-chave:
 
 A condição de correspondência do Parameter De Cookie Regex define um nome e valor de cookies. Pode utilizar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) para definir o valor desejado pelo cookie.
 
-A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo do Parameter Regex é cumprido.
+A opção **Match**Does Not / **Match** determina as condições em que o estado de jogo do Parameter Regex é cumprido.
 
 - **Fósforos**: Requer um pedido para conter o cookie especificado com um valor que corresponda à expressão regular especificada.
 - **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
@@ -253,7 +253,7 @@ Informação-chave:
 
 Pode especificar um país através do seu código de país. 
 
-A opção **Match**/**Does Match** determina as condições em que a condição de jogo do País é satisfeita:
+A opção **Match** / **Does Match** determina as condições em que a condição de jogo do País é satisfeita:
 
 - **Fósforos**: Requer o pedido para conter os valores de código do país especificados. 
 - **Não Colhe**: Requer que o pedido não contenha os valores de código do país especificados.
@@ -279,9 +279,9 @@ Esta condição de jogo permite-lhe realizar uma infinidade de personalizações
 - Url Path Wildcard match: Delineie a condição de [correspondência do URL Path Wildcard](#url-path-wildcard) para o diretório que será fixado. 
     Anexar um asterisco ao fim do caminho relativo para garantir que o acesso a todos os seus filhos será restringido por esta regra.
 
-- Jogo de país: Definir a condição de jogo do País para o conjunto desejado de países.
-  - Permitir: Definir a condição de correspondência do País para **Não Corresponder** para permitir apenas aos países especificados o acesso aos conteúdos armazenados no local definido pela condição de correspondência do URL Path Wildcard.
-  - Bloco: Delineie a condição de correspondência do País para **as partidas** para impedir que os países especificados acedam aos conteúdos armazenados no local definido pela condição de correspondência do URL Path Wildcard.
+- Jogo de país: Definir a condição de jogo do País para o conjunto desejado de países/regiões.
+  - Permitir: Definir a condição de correspondência do País para **Não Corresponder** para permitir apenas o acesso aos países/regiões especificados aos conteúdos armazenados no local definido pela condição de correspondência do URL Path Wildcard.
+  - Bloco: Delineie a condição de correspondência do País para **as partidas** para bloquear os países/regiões especificados de aceder a conteúdos armazenados no local definido pela condição de correspondência do URL Path Wildcard.
 
 - Recurso Deny Access (403): Ativar a [função De acesso a negar (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) para replicar a parte de permitir ou bloquear a funcionalidade de filtragem do país.
 
@@ -311,7 +311,7 @@ Informação-chave:
 
 A condição de correspondência do Dispositivo identifica pedidos feitos a partir de um dispositivo móvel com base nas suas propriedades. A deteção de dispositivos móveis é conseguida através da [WURFL](http://wurfl.sourceforge.net/). 
 
-A opção **Match**/**Does Match** determina as condições em que a condição de correspondência do Dispositivo é satisfeita:
+A opção **Match** / **Does Match** determina as condições em que a condição de correspondência do Dispositivo é satisfeita:
 
 - **Fósforos**: Requer que o dispositivo do soliciter corresponda ao valor especificado. 
 - **Não Colhe**: Requer que o dispositivo do soliciter não corresponda ao valor especificado.
@@ -351,7 +351,7 @@ Nome da marca | %{wurfl_cap_brand_name} | Uma corda que indica o nome da marca d
 Dispositivo OS | %{wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | iOS
 Versão do SO do dispositivo | %{wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do sistema operativo instalado no dispositivo. | 1.0.1
 Orientação Dupla | %{wurfl_cap_dual_orientation} | Um Boolean que indica se o dispositivo suporta uma orientação dupla. | true
-HTML DTD preferido | %{wurfl_cap_html_preferred_dtd} | Uma cadeia que indica a definição de tipo de documento preferido do dispositivo móvel (DTD) para o conteúdo HTML. | nenhuma<br/>xhtml_basic<br/>html5
+HTML DTD preferido | %{wurfl_cap_html_preferred_dtd} | Uma cadeia que indica a definição de tipo de documento preferido do dispositivo móvel (DTD) para o conteúdo HTML. | nenhum<br/>xhtml_basic<br/>html5
 Imagem Inlining | %{wurfl_cap_image_inlining} | Um Boolean que indica se o dispositivo suporta imagens codificadas base64. | false
 É Android | %{wurfl_vcap_is_android} | Um Boolean que indica se o dispositivo utiliza o Sistema Operativo Android. | true
 É IOS | %{wurfl_vcap_is_ios} | Um Boolean que indica se o dispositivo utiliza o iOS. | false
@@ -398,7 +398,7 @@ Informação-chave:
 
 O nome do anfitrião associado ao remetente através do qual o conteúdo foi solicitado determina se a condição de Domínio De Referir é satisfeita.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de jogo do Domínio De Referir é satisfeita:
+A opção **Match** / **Does Not Match** determina as condições em que a condição de jogo do Domínio De Referir é satisfeita:
 
 - **Fósforos**: Requer o nome do anfitrião de remetente para corresponder aos valores especificados. 
 - **Não Corresponder**: Requer que o nome do anfitrião de reparação não corresponda ao valor especificado.
@@ -424,7 +424,7 @@ Informação-chave:
 
 ### <a name="request-header-literal"></a>Pedido cabeçalho literal
 
-A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo literal do Cabeçalho de Pedido é cumprido.
+A opção **Match** / **Does Not Match** determina as condições em que o estado de jogo literal do Cabeçalho de Pedido é cumprido.
 
 - **Fósforos**: Requer o pedido para conter o cabeçalho especificado. O seu valor deve corresponder ao que está definido nesta condição de jogo.
 - **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
@@ -449,7 +449,7 @@ Informação-chave:
 
 ### <a name="request-header-regex"></a>Pedido de cabeçalho Regex
 
-A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo do Cabeçalho Regex de Pedido é cumprido.
+A opção **Match**Does Not / **Match** determina as condições em que o estado de jogo do Cabeçalho Regex de Pedido é cumprido.
 
 - **Fósforos**: Requer o pedido para conter o cabeçalho especificado. O seu valor deve corresponder ao padrão definido na [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada .
 - **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
@@ -480,7 +480,7 @@ Informação-chave:
 
 ### <a name="request-header-wildcard"></a>Pedir Header Wildcard
 
-A opção **Match**/**Does Not Match** determina as condições em que o estado de jogo do Cabeçalho de Pedido wildcard é cumprido.
+A opção **Match** / **Does Not Match** determina as condições em que o estado de jogo do Cabeçalho de Pedido wildcard é cumprido.
 
 - **Fósforos**: Requer o pedido para conter o cabeçalho especificado. O seu valor deve corresponder, pelo menos, a um dos valores definidos nesta condição de jogo.
 - **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
@@ -565,7 +565,7 @@ Informação-chave:
 
 Identifica um pedido pelo seu percurso relativo, que exclui o nome do ficheiro do ativo solicitado.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do Diretório do Caminho de URL é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do Diretório do Caminho de URL é satisfeita.
 
 - **Fósforos**: Requer o pedido para conter um caminho URL relativo, excluindo o nome do ficheiro, que corresponda ao padrão de URL especificado.
 - **Não Colhe**: Requer o pedido para conter um caminho URL relativo, excluindo o nome do ficheiro, que não corresponda ao padrão de URL especificado.
@@ -577,23 +577,23 @@ Informação-chave:
    Os seguintes valores estão disponíveis para o **Relativo à** opção:
   - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de anfitrião do CDN. 
 
-  Por exemplo:\/http: /wpc.0001. &lt;&gt;domínio/**800001/myorigin/myfolder**/index.htm
+  Por exemplo: http: \/ /wpc.0001. &lt; domínio &gt; / **800001/myorigin/myfolder**/index.htm
 
-  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma \*vez que o .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
+  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma vez que o \* .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
 
-  Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder**/index.htm 
+  Por exemplo: https: \/ / &lt; endpoint &gt; .azureedge.net/**myfolder**/index.htm 
 
-  Este URL aponta para o seguinte nome de\/anfitrião Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder**/index.htm
+  Este URL aponta para o seguinte nome de anfitrião Verizon CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/myorigin/**myfolder**/index.htm
 
 - Um URL CNAME de borda é reescrito para um URL CDN antes da comparação de URL.
 
     Por exemplo, ambos os URLs seguintes apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
-  - URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
+  - URL CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/CustomerOrigin/path/asset.htm
     
-  - URL Edge CNAME:\//&lt;http: endpoint&gt;.azureedge.net/path/asset.htm
+  - URL Edge CNAME: http: \/ / &lt; endpoint &gt; .azureedge.net/path/asset.htm
     
     Informações adicionais:
-  - Domínio personalizado:\/https: /my.domain.com/path/asset.htm
+  - Domínio personalizado: https: \/ /my.domain.com/path/asset.htm
     
     - Caminho de URL (relativo à raiz): /800001/CustomerOrigin/path/
     
@@ -623,7 +623,7 @@ Informação-chave:
 
 Identifica pedidos pela extensão do ficheiro do ativo solicitado.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência de extensão do caminho do URL é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência de extensão do caminho do URL é satisfeita.
 
 - **Fósforos**: Requer o URL do pedido para conter uma extensão de ficheiro que corresponda exatamente ao padrão especificado.
 
@@ -666,7 +666,7 @@ Esta condição de jogo é satisfeita quando encontra URLs que terminam com as s
 
 Identifica pedidos pelo nome do ficheiro do ativo solicitado. Para efeitos desta condição de correspondência, um nome de ficheiro consiste no nome do ativo solicitado, um período e na extensão do ficheiro (por exemplo, index.html).
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do nome de ficheiro do caminho URL é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do nome de ficheiro do caminho URL é satisfeita.
 
 - **Fósforos**: Requer o pedido para conter um nome de ficheiro no seu caminho URL que corresponda ao padrão especificado.
 - **Não Colhe**: Requer o pedido de contenção de um nome de ficheiro no seu percurso URL que não corresponda ao padrão especificado.
@@ -697,7 +697,7 @@ Informação-chave:
 
 Compara o caminho url de um pedido, incluindo o nome do ficheiro, com o valor especificado.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência literal do CAMINHO URL é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência literal do CAMINHO URL é satisfeita.
 
 - **Fósforos**: Requer o pedido para conter um caminho URL que corresponda ao padrão especificado.
 - **Não Colhe**: Requer o pedido para conter um caminho URL que não corresponda ao padrão especificado.
@@ -709,20 +709,20 @@ Informação-chave:
     Os seguintes valores estão disponíveis para o **Relativo à** opção:
   - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de anfitrião do CDN.
 
-    Por exemplo:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm de** domínio
+    Por exemplo: http: \/ /wpc.0001. &lt; &gt; / **800001/myorigin/myfolder/index.htm de** domínio
 
-  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma \*vez que o .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
+  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma vez que o \* .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
 
-    Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder/index.htm**
+    Por exemplo: https: \/ / &lt; endpoint &gt; .azureedge.net/**myfolder/index.htm**
 
-  Este URL aponta para o seguinte nome de\/anfitrião Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder/index.htm**
+  Este URL aponta para o seguinte nome de anfitrião Verizon CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/myorigin/**myfolder/index.htm**
 
 - Um URL CNAME de borda é reescrito para um URL CDN antes de uma comparação de URL.
 
 Por exemplo, ambos os seguintes URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho url:
 
-- URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
-- URL Edge CNAME:\//&lt;http: endpoint&gt;.azureedge.net/path/asset.htm
+- URL CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/CustomerOrigin/path/asset.htm
+- URL Edge CNAME: http: \/ / &lt; endpoint &gt; .azureedge.net/path/asset.htm
 
     Informações adicionais:
     
@@ -746,7 +746,7 @@ Por exemplo, ambos os seguintes URLs apontam para o mesmo ativo e, portanto, tê
 
 Compara o caminho url de um pedido com a [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada .
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do URL Path Regex é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do URL Path Regex é satisfeita.
 
 - **Fósforos**: Requer o pedido de contenção de um caminho URL que corresponda à expressão regular especificada.
 - **Não Colhe**: Requer o pedido de contenção de um caminho URL que não corresponda à expressão regular especificada.
@@ -757,9 +757,9 @@ Informação-chave:
 
     Por exemplo, ambos os URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
 
-     - URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/CustomerOrigin/path/asset.htm
 
-     - URL Edge CNAME:\/http: /my.domain.com/path/asset.htm
+     - URL Edge CNAME: http: \/ /my.domain.com/path/asset.htm
 
     Informações adicionais:
     
@@ -781,7 +781,7 @@ Informação-chave:
 
 Compara o caminho de URL relativo de um pedido com o padrão wildcard especificado.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do URL Path Wildcard é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do URL Path Wildcard é satisfeita.
 
 - **Fósforos**: Requer o pedido para conter um caminho URL que corresponda ao padrão wildcard especificado.
 - **Não Colhe**: Requer o pedido para conter um caminho URL que não corresponda ao padrão wildcard especificado.
@@ -793,19 +793,19 @@ Informação-chave:
    Esta opção pode ter os seguintes valores:
      - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de anfitrião do CDN.
 
-       Por exemplo:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm de** domínio
+       Por exemplo: http: \/ /wpc.0001. &lt; &gt; / **800001/myorigin/myfolder/index.htm de** domínio
 
-     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma \*vez que o .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
+     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso ao conteúdo (por exemplo, /000001 ou /800001/myorigin). Uma vez que o \* .azureedge.net CNAME é criado em relação ao diretório de origem no nome de anfitrião da Verizon CDN por padrão, os utilizadores de CDN Azure devem usar o valor **Origem.** 
 
-       Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder/index.htm**
+       Por exemplo: https: \/ / &lt; endpoint &gt; .azureedge.net/**myfolder/index.htm**
 
-     Este URL aponta para o seguinte nome de\/anfitrião Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder/index.htm**
+     Este URL aponta para o seguinte nome de anfitrião Verizon CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/myorigin/**myfolder/index.htm**
 
 - Um URL CNAME de borda é reescrito para um URL CDN antes da comparação de URL.
 
     Por exemplo, ambos os seguintes URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho url:
-     - URL CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
-     - URL Edge CNAME:\//&lt;http: endpoint&gt;.azureedge.net/path/asset.htm
+     - URL CDN: http://wpc.0001.&lt ;domain &gt; /800001/CustomerOrigin/path/asset.htm
+     - URL Edge CNAME: http: \/ / &lt; endpoint &gt; .azureedge.net/path/asset.htm
     
     Informações adicionais:
     
@@ -835,7 +835,7 @@ Valor                   | Relativamente a    | Resultado
 /80ABCD/origem/texto/*   | Raiz           | Este padrão é acompanhado quando o ativo solicitado satisfaz os seguintes critérios: <br />- Deve residir numa origem do cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "text" ou numa das suas subpastas recursivas.
 */css/* */js/*          | Raiz ou Origem | Este padrão é combinado por todos os URLs CDN ou CNAME de borda que contenham uma pasta css ou js.
 *.jpg *.gif *.png       | Raiz ou Origem | Este padrão é combinado por todos os URLs CDN ou CNAME de borda que terminam com .jpg, .gif ou .png. Uma forma alternativa de especificar este padrão é com a condição de correspondência de [extensão do caminho do URL](#url-path-extension).
-/images/* /media/*      | Origem         | Este padrão é combinado por CDN ou URLs CNAME de borda cujo caminho relativo começa com uma pasta de "imagens" ou "media". <br />- URL CDN:\/http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de\/borda da amostra: http: /cdn.mydomain.com/images/sales/event1.png
+/images/* /media/*      | Origem         | Este padrão é combinado por CDN ou URLs CNAME de borda cujo caminho relativo começa com uma pasta de "imagens" ou "media". <br />- URL CDN: http: \/ /wpc.0001. &lt; domínio &gt; /800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda da amostra: http: \/ /cdn.mydomain.com/images/sales/event1.png
 
 [De volta ao topo](#reference-for-rules-engine-match-conditions)
 
@@ -847,7 +847,7 @@ Valor                   | Relativamente a    | Resultado
 
 Compara a corda de consulta de um pedido com o valor especificado.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência literal de consulta url é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência literal de consulta url é satisfeita.
 
 - **Fósforos**: Requer o pedido para conter uma cadeia de consulta url que corresponda à corda de consulta especificada.
 - **Não Colhe**: Requer o pedido de contenção de uma cadeia de consulta url que não corresponda à corda de consulta especificada.
@@ -884,7 +884,7 @@ Informação-chave:
 
 Identifica pedidos que contenham o parâmetro de corda de consulta especificado. Este parâmetro está definido para um valor que corresponde a um padrão especificado. Os parâmetros de cadeia de consulta (por exemplo, parâmetro=valor) no URL de pedido determinam se esta condição é satisfeita. Esta condição de correspondência identifica um parâmetro de corda de consulta pelo seu nome e aceita um ou mais valores para o valor do parâmetro. 
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do parâmetro de consulta url é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do parâmetro de consulta url é satisfeita.
 
 - **Partidas**: Requer um pedido para conter o parâmetro especificado com um valor que corresponda a pelo menos um dos valores definidos nesta condição de jogo.
 - **Não Corresponder**: Requer que o pedido satisfaça qualquer um dos seguintes critérios:
@@ -953,11 +953,11 @@ Informação-chave:
 
 O exemplo que se segue demonstra como esta opção funciona em situações específicas:
 
-Nome  | Valor |  Resultado
+Name  | Valor |  Resultado
 ------|-------|--------
 Utilizador  | João   | Este padrão é combinado quando a corda de consulta para um URL solicitado é "?user=joe".
 Utilizador  | *     | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro do Utilizador.
-Email | João\* | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro de e-mail que começa com "Joe".
+E-mail | João\* | Este padrão é combinado quando a corda de consulta para um URL solicitado contém um parâmetro de e-mail que começa com "Joe".
 
 [De volta ao topo](#reference-for-rules-engine-match-conditions)
 
@@ -969,7 +969,7 @@ Email | João\* | Este padrão é combinado quando a corda de consulta para um U
 
 Identifica pedidos que contenham o parâmetro de corda de consulta especificado. Este parâmetro está definido para um valor que corresponda a uma [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions)especificada .
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência do URL Query Regex é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência do URL Query Regex é satisfeita.
 
 - **Fósforos**: Requer o pedido de contenção de uma cadeia de consulta url que corresponda à expressão regular especificada.
 - **Não Colhe**: Requer o pedido de contenção de uma cadeia de consulta url que não corresponda à expressão regular especificada.
@@ -991,7 +991,7 @@ Informação-chave:
 
    Note que os símbolos percentuais devem ser escapados.
 
-- Personagens especiais de expressão regular \^de fuga dupla (por exemplo, $.+) para incluir um backslash na expressão regular.
+- Personagens especiais de expressão regular de fuga dupla (por exemplo, \^ $.+) para incluir um backslash na expressão regular.
 
    Por exemplo:
 
@@ -1017,7 +1017,7 @@ Informação-chave:
 
 Compara o(s) valor especificado com a corda de consulta do pedido.
 
-A opção **Match**/**Does Not Match** determina as condições em que a condição de correspondência url Consulta Wildcard é satisfeita.
+A opção **Match** / **Does Not Match** determina as condições em que a condição de correspondência url Consulta Wildcard é satisfeita.
 
 - **Fósforos**: Requer o pedido para conter uma cadeia de consulta URL que corresponda ao valor wildcard especificado.
 - **Não Colhe**: Requer o pedido de contenção de uma cadeia de consulta url que não corresponda ao valor wildcard especificado.
@@ -1053,10 +1053,10 @@ Informação-chave:
 
 O exemplo que se segue demonstra como esta opção funciona em situações específicas:
 
- Nome                 | Descrição
+ Name                 | Descrição
  ---------------------|------------
 utilizador=joe              | Este padrão é combinado quando a corda de consulta para um URL solicitado é "?user=joe".
-\*utilizador=\* \*optout=\* | Este padrão é combinado quando a consulta de URL cDN contém o utilizador ou o parâmetro optout.
+\*utilizador= \* \* optout=\* | Este padrão é combinado quando a consulta de URL cDN contém o utilizador ou o parâmetro optout.
 
 [De volta ao topo](#reference-for-rules-engine-match-conditions)
 

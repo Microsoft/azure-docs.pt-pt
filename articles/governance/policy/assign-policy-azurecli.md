@@ -3,12 +3,12 @@ title: 'Quickstart: Nova atribuição de política com o Azure CLI'
 description: Neste arranque rápido, utiliza o Azure CLI para criar uma missão da Política Azure para identificar recursos não conformes.
 ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1d93cdb4dfa1c82e8004af4052c22bba60f3a3a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75978313"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745747"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes com o Azure CLI
 
@@ -67,7 +67,7 @@ Para obter mais informações sobre identificações de atribuição de polític
 Em seguida, execute o seguinte comando para obter os ID dos recursos que não estão em conformidade produzidos num ficheiro de JSON:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Os resultados assemelham-se ao seguinte exemplo:

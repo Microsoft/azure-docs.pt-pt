@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: bdef440fb8273dbbc5053d1c4eb6607fba0cdab3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780502"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744561"
 ---
 # <a name="getting-paid-in-commercial-marketplace"></a>Ser pago no mercado comercial
 
@@ -30,7 +30,7 @@ A taxa Loja é aplicada a todas as vendas de ofertas recolhidas pelo mercado com
 
 ## <a name="price-tiers"></a>Níveis de preços
 
-O nível de preço(s) que seleciona define o preço de venda em todos os países onde escolhe distribuir a sua oferta. Também pode utilizar funcionalidades de preços adicionais, como escolher preços diferentes para diferentes mercados.
+O nível de preço(s) que seleciona define o preço de venda em todos os países/regiões onde opta por distribuir a sua oferta. Também pode utilizar funcionalidades de preços adicionais, como escolher preços diferentes para diferentes mercados.
 
 Pode oferecer gratuitamente a sua aplicação, ou pode escolher um preço que os clientes devem pagar para adquirir a sua oferta. Os níveis de preços começam em 0,99 USD, com incrementos adicionais (1,09 USD, 1,19 USD, e assim por diante). Os incrementos entre os níveis de preço aumentam à medida que o preço aumenta.
 

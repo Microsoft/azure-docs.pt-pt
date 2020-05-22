@@ -3,12 +3,12 @@ title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Aprenda a visualizar, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "81381668"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747483"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerencie os seus recursos com grupos de gestão
 
@@ -29,7 +29,7 @@ Pode alterar o nome do grupo de gestão utilizando o portal PowerShell ou o Azur
 
 1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os grupos** > de gestão de**serviços**.
+1. Selecione **todos os grupos**de gestão de  >  **serviços**.
 
 1. Selecione o grupo de gestão que gostaria de mudar o nome.
 
@@ -76,7 +76,7 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
 1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os grupos** > de gestão de**serviços**.
+1. Selecione **todos os grupos**de gestão de  >  **serviços**.
 
 1. Selecione o grupo de gestão que gostaria de eliminar.
 
@@ -119,7 +119,7 @@ Pode ver qualquer grupo de gestão em que tenha um papel RBAC direto ou herdado.
 
 1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os grupos** > de gestão de**serviços**.
+1. Selecione **todos os grupos**de gestão de  >  **serviços**.
 
 1. A página da hierarquia do grupo de gestão vai carregar. Esta página é onde você pode explorar todos os grupos de gestão e subscrições a que você tem acesso. A seleção do nome de grupo leva-o a um nível na hierarquia. A navegação funciona da mesma forma que um explorador de ficheiros.
 
@@ -223,7 +223,7 @@ Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em
 
 1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os grupos** > de gestão de**serviços**.
+1. Selecione **todos os grupos**de gestão de  >  **serviços**.
 
 1. Selecione o grupo de gestão que planeia ser o pai.
 
@@ -239,7 +239,7 @@ Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em
 
 1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os grupos** > de gestão de**serviços**.
+1. Selecione **todos os grupos**de gestão de  >  **serviços**.
 
 1. Selecione o grupo de gestão que está a planear que é o pai atual.  
 
@@ -289,7 +289,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 1. Inicie sessão no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **todos os grupos** > de gestão de**serviços**.
+1. Selecione **todos os grupos**de gestão de  >  **serviços**.
 
 1. Selecione o grupo de gestão que planeia ser o pai.
 
@@ -344,7 +344,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Co
 O mesmo caminho de âmbito é utilizado na recuperação de uma definição de política num grupo de gestão.
 
 ```http
-GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: de3f553fd001b06d56663f63402da2489f35877d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ceaa44429d105c2a6a1d0883ab29ed11b63ad497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649166"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736080"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para Gestão de API
 
@@ -1096,7 +1096,7 @@ As identidades geridas podem ser usadas para obter certificados do Cofre chave a
 
 **Orientação**: Validar cópias de segurança através da realização de um teste de restauro do serviço e dos certificados de cópias de segurança.
 
-* [Como chamar a Operação de Restauro de Gestão aPi](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Como chamar a Operação de Restauro de Gestão aPi](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 * [Como restaurar os certificados do Cofre de Chaves Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

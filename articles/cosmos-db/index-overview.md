@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 921a11d8846c868436365fe400852eac0f7dcd3e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fb3467e60ada92c90a84d8e89f6b5f5e94ca42e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712099"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746416"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
 
@@ -179,14 +179,14 @@ Enquanto um predicado de filtro utilizar um dos tipos de índice, o motor de con
 
 Os caminhos extraídos ao indexar os dados facilitam a procura do índice no processamento de uma consulta. Ao combinar a `WHERE` cláusula de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem à consulta predicada muito rapidamente.
 
-Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . O predicado da consulta (filtragem em itens, onde qualquer localização tem "França" como seu país) corresponderia ao caminho realçado a vermelho abaixo:
+Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . O predicado da consulta (filtragem em itens, onde qualquer local tem "França" como seu país/região) corresponderia ao caminho realçado a vermelho abaixo:
 
 ![Combinando um caminho específico dentro de uma árvore](./media/index-overview/matching-path.png)
 
 > [!NOTE]
 > Uma `ORDER BY` cláusula que encomenda por uma única propriedade precisa *sempre* de um índice de alcance e falhará se o caminho que refere não tiver um. Da mesma forma, uma `ORDER BY` consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre indexação nos seguintes artigos:
 

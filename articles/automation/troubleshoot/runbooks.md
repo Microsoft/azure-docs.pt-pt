@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 586e560f25d12ed8076fcc76810c5a5fb84736dc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680900"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744321"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Problemas de livro de resolução de problemas
 
@@ -45,7 +45,7 @@ Quando receber erros durante a execução do livro de corridas na Automatizaçã
     * [Renovar o certificado](../manage-runas-account.md#cert-renewal) se a conta Executar Como conta tiver expirado.
     * [Renove o webhook](../automation-webhooks.md#renew-a-webhook) se estiver a tentar utilizar um webhook expirado para iniciar o livro de execução.
     * [Verifique o estado](../automation-runbook-execution.md#job-statuses) do trabalho para determinar os estados atuais do livro de corridas e algumas possíveis causas do problema.
-    * [Adicione uma saída adicional](../automation-runbook-output-and-messages.md#message-streams) ao livro de execução para identificar o que acontece antes da suspensão do livro de execução.
+    * [Adicione uma saída adicional](../automation-runbook-output-and-messages.md#monitor-message-streams) ao livro de execução para identificar o que acontece antes da suspensão do livro de execução.
     * [Lide com quaisquer exceções](../automation-runbook-execution.md#exceptions) que sejam lançadas pelo seu trabalho.
 
 1. Faça este passo se o trabalho do livro ou o ambiente no Trabalhador do Livro Híbrido não responder.
@@ -465,7 +465,7 @@ O gancho que está a tentar ligar está desativado ou expirado.
 
 ### <a name="resolution"></a>Resolução
 
-Se o webhook estiver desativado, pode reecê-lo através do portal Azure. Se o webhook tiver expirado, tem de apagar e recriá-lo. Só pode [renovar um webhook](../automation-webhooks.md#renew-a-webhook) se ainda não tiver expirado. 
+Se o webhook estiver desativado, pode reativar através do portal Azure. Se o webhook tiver expirado, tem de apagar e recriá-lo. Só pode [renovar um webhook](../automation-webhooks.md#renew-a-webhook) se ainda não tiver expirado. 
 
 ## <a name="scenario-429-the-request-rate-is-currently-too-large"></a><a name="429"></a>Cenário: 429: A taxa de pedido é atualmente demasiado grande
 
@@ -479,7 +479,7 @@ Recebe a seguinte mensagem de erro ao executar o `Get-AzAutomationJobOutput` cmd
 
 ### <a name="cause"></a>Causa
 
-Este erro pode ocorrer ao recuperar a saída de trabalho de um livro de execução que tem muitos [fluxos verbosos](../automation-runbook-output-and-messages.md#verbose-stream).
+Este erro pode ocorrer ao recuperar a saída de trabalho de um livro de execução que tem muitos [fluxos verbosos](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
 
 ### <a name="resolution"></a>Resolução
 

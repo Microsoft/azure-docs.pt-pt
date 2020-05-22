@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e637aec3c5105bb9628a854b0d4c73988e60daaf
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 24ff69e76736ffa93cecb795be563f172c422355
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714513"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744755"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -78,8 +78,8 @@ Em alternativa, pode desligar o seu espaço de trabalho a partir da sua conta Au
 1. No espaço de trabalho, selecione **Conta de Automação** em **Recursos Relacionados.** 
 2. Na página da Conta de Automação, selecione **Conta Unlink**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral da Gestão de Atualizações](../automation-update-management.md)
-* [Alterar visão geral do rastreio e do inventário](../change-tracking.md)
-* [VMs de arranque/paragem durante a visão geral fora de horas](../automation-solution-vm-management.md)
+* Saiba mais sobre a Gestão de Atualizações na visão geral da [Gestão de Atualizações.](../automation-update-management.md)
+* Saiba mais sobre o rastreio de alterações e o inventário na visão geral do rastreio e do inventário de [alterações.](../change-tracking.md)
+* Saiba mais sobre os VMs de início/paragem durante as horas de [arranque/paragem de VMs durante a visão geral do horário de folga](../automation-solution-vm-management.md).

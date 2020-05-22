@@ -1,23 +1,20 @@
 ---
 title: Gerencie pré-scripts e pós-scripts na sua implementação de Atualização em Azure
-description: Este artigo descreve como configurar e gerir pré-scripts e pós-scripts para implementações de atualizações.
+description: Este artigo diz como configurar e gerir pré-scripts e pós-scripts para implementações de atualizações.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f55ebb3270fdd97a1fdbbf5a56f9703c08933f9f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: df7a544601d723170b43b3fbf8466daa6a98be6e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855333"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745119"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerir pré-scripts e pós-scripts
 
 Pré-scripts e pós-scripts são livros de execução para executar na sua conta De automação Azure antes (pré-tarefa) e depois (pós-tarefa) uma implementação de atualização. Pré-scripts e pós-scripts funcionam no contexto Azure, não localmente. Os pré-scripts são executados no início da implementação da atualização. Os pós-scripts são executados no final da implementação e após quaisquer reboots que estejam configurados.
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos pré-script e pós-script
 
@@ -41,7 +38,7 @@ Os parâmetros pré-script e pós-script não suportam tipos booleanos, objetos 
 
 Se precisar de outro tipo de objeto, pode lançá-lo para outro tipo com a sua própria lógica no livro de execução.
 
-Além dos parâmetros padrão do `SoftwareUpdateConfigurationRunContext` livro de execução, é fornecido o parâmetro (fio JSON tipo). Se definir o parâmetro no seu livro de execução pré-script ou pós-script, é automaticamente transmitido pela implementação da atualização. O parâmetro contém informações sobre a implementação da atualização, que é um subconjunto de informações devolvidas pela API de Configurações de [Atualizações](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)de Software . As secções abaixo definem as propriedades associadas.
+Além dos parâmetros padrão do livro de execução, é fornecido o `SoftwareUpdateConfigurationRunContext` parâmetro (fio JSON tipo). Se definir o parâmetro no seu livro de execução pré-script ou pós-script, é automaticamente transmitido pela implementação da atualização. O parâmetro contém informações sobre a implementação da atualização, que é um subconjunto de informações devolvidas pela API de Configurações de [Atualizações](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)de Software . As secções abaixo definem as propriedades associadas.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
@@ -51,7 +48,7 @@ Além dos parâmetros padrão do `SoftwareUpdateConfigurationRunContext` livro d
 |Configuração de SoftwareRunid     | A identificação única para a corrida.        |
 |Configurações de Configurações de Atualizações de Software     | Uma coleção de propriedades relacionadas com a configuração da atualização de software.         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | Os sistemas operativos direcionados para a implementação da atualização.         |
-|SoftwareUpdateConfigurationSettings.duração     | A duração máxima da `PT[n]H[n]M[n]S` execução da atualização de acordo com o ISO8601; também chamou a janela de manutenção.          |
+|SoftwareUpdateConfigurationSettings.duração     | A duração máxima da implementação da atualização é de acordo com o `PT[n]H[n]M[n]S` ISO8601; também chamada de janela de manutenção.          |
 |Configurações de Configurações de Atualizações de Software.Windows     | Uma coleção de propriedades relacionadas com computadores Windows.         |
 |Configurações de Configurações de SoftwareUpdate.Windows.exclusouKbNumbers     | Uma lista de KBs que estão excluídos da implementação da atualização.        |
 |Configurações de Configurações de SoftwareUpdate.Windows.incluiuClassificações de Atualizações     | Atualize as classificações selecionadas para a implementação da atualização.        |
@@ -94,7 +91,7 @@ Um exemplo completo com todas as propriedades pode ser encontrado em: [Obtenha c
 > [!NOTE]
 > O `SoftwareUpdateConfigurationRunContext` objeto pode conter entradas duplicadas para máquinas. Isto pode fazer com que pré-scripts e pós-scripts possam ser executados várias vezes na mesma máquina. Para contornar este comportamento, utilize `Sort-Object -Unique` para selecionar apenas nomes VM únicos.
 
-## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Usando um pré-script ou pós-script em uma implementação
+## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Use um pré-script ou pós-script numa implementação
 
 Para utilizar um pré-script ou pós-script numa implementação de atualização, comece por criar uma implementação de atualização. Selecione **Pré-scripts + Post-Scripts**. Esta ação abre a página **Select Pre-scripts + Post-scripts.**
 
@@ -120,7 +117,7 @@ Ao selecionar a execução da atualização, são mostrados detalhes adicionais 
 
 es no seu roteiro.
 
-## <a name="stopping-a-deployment"></a>Parar uma implantação
+## <a name="stop-a-deployment"></a>Parar uma implantação
 
 Se quiser parar uma implantação com base num pré-script, tem de [lançar](automation-runbook-execution.md#throw) uma exceção. Se não o fizeres, a implantação e o pós-guião continuarão a funcionar. O seguinte código de corte mostra como lançar uma exceção.
 
@@ -137,9 +134,7 @@ foreach($summary in $finalStatus)
 }
 ```
 
-
-
-## <a name="interacting-with-machines"></a>Interagindo com máquinas
+## <a name="interact-with-machines"></a>Interagir com máquinas
 
 Pré-scripts e pós-tarefas funcionam como livros de execução na sua conta Automation e não diretamente nas máquinas da sua implementação. As pré-tarefas e pós-tarefas também funcionam no contexto Azure e não têm acesso a máquinas não-Azure. As seguintes secções mostram como pode interagir diretamente com as máquinas, sejam elas VMs Azure ou máquinas não Azure.
 
@@ -161,9 +156,9 @@ As pré-tarefas e pós-tarefas funcionam no contexto Azure e não têm acesso a 
 * Um livro de corridas que você quer executar localmente
 * Um livro de pais
 
-Para interagir com máquinas não-Azure, um livro-mãe é executado no contexto Azure. Este livro de corridas chama um livro de corridas para crianças com o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Deve especificar `RunOn` o parâmetro e fornecer o nome do Trabalhador do Livro Híbrido para que o script seja executado. Consulte o exemplo do livro de execução [Update Management – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Para interagir com máquinas não-Azure, um livro-mãe é executado no contexto Azure. Este livro de corridas chama um livro de corridas para crianças com o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Deve especificar o parâmetro e fornecer o nome do Trabalhador do `RunOn` Livro Híbrido para que o script seja executado. Consulte o exemplo do livro de execução [Update Management – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
-## <a name="aborting-patch-deployment"></a>Abortar a implantação de patch
+## <a name="abort-patch-deployment"></a>Abortar a implantação de patch
 
 Se o seu pré-script devolver um erro, talvez queira abortar a sua implementação. Para isso, tens de [lançar](/powershell/module/microsoft.powershell.core/about/about_throw) um erro no teu guião por qualquer lógica que constitua um fracasso.
 
@@ -250,7 +245,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Vá ao seguinte tutorial para aprender a gerir atualizações para as suas máquinas virtuais windows:
-
-> [!div class="nextstepaction"]
-> [Gerir atualizações e correções para as VMs Windows do Azure](automation-tutorial-update-management.md)
+* [Gerencie atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md)

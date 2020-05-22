@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f9fafc4b03d5ce18fcfedcffaf2d81f847537865
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598641"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744667"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Ligação Azure Synapse para Azure Cosmos DB: Casos de utilização de análises em tempo real
 
@@ -106,7 +106,7 @@ A Azure Synapse Link permite ao Azure Cosmos DB não só alimentar cargas de tra
 
 A imagem que se segue mostra padrões de carga de trabalho usando Azure Cosmos DB: ![ Azure Synapse Link para padrões de carga de trabalho do Azure Cosmos DB](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
 
-Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operações globais em 20 países para ilustrar os benefícios de escolher o Azure Cosmos DB como a única base de dados em tempo real que alimenta os requisitos transacionais e analíticos de uma plataforma de gestão de inventário.
+Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operações globais em 20 países/regiões para ilustrar os benefícios de escolher o Azure Cosmos DB como a única base de dados em tempo real que alimenta os requisitos transacionais e analíticos de uma plataforma de gestão de inventário.
 
 * O principal negócio da CompanyXYZ depende do sistema de gestão de inventário – portanto, a disponibilidade & fiabilidade são requisitos fundamentais do pilar. Benefícios da utilização do Azure Cosmos DB:
 

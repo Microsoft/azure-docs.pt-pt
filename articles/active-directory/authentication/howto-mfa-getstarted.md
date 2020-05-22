@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451130"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757609"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure
 
@@ -51,11 +51,11 @@ O seu plano de lançamento do MFA deve incluir uma implantação piloto seguida 
 
 É fundamental informar os utilizadores, nas comunicações planeadas, sobre as próximas alterações, os requisitos de registo do Azure MFA e quaisquer ações necessárias para o utilizador. Recomendamos que as comunicações sejam desenvolvidas em conjunto com representantes da sua organização, tais como departamentos de Comunicação, Gestão de Mudanças ou Recursos Humanos.
 
-A Microsoft fornece [modelos](https://aka.ms/mfatemplates) de comunicação e [documentação de utilizador final](../user-help/security-info-setup-signin.md) para ajudar a redigir as suas comunicações. Pode enviar os [https://myprofile.microsoft.com](https://myprofile.microsoft.com) utilizadores para se registarem diretamente selecionando os links **de Informação** de Segurança nessa página.
+A Microsoft fornece [modelos](https://aka.ms/mfatemplates) de comunicação e [documentação de utilizador final](../user-help/security-info-setup-signin.md) para ajudar a redigir as suas comunicações. Pode enviar os utilizadores [https://myprofile.microsoft.com](https://myprofile.microsoft.com) para se registarem diretamente selecionando os links **de Informação** de Segurança nessa página.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-A autenticação multifactor Azure é implementada através da aplicação de políticas com acesso condicional. Uma política de [acesso condicional](../conditional-access/overview.md) pode exigir que os utilizadores realizem a autenticação de vários fatores quando determinados critérios são cumpridos, tais como:
+A autenticação multifactor Azure é implementada através da aplicação de políticas com acesso condicional. Uma política de acesso condicional pode exigir que os utilizadores realizem a autenticação de vários fatores quando determinados critérios são cumpridos, tais como:
 
 * Todos os utilizadores, um utilizador específico, membro de um grupo ou função atribuída
 * Aplicação em nuvem específica a ser acedida
@@ -114,7 +114,7 @@ Os administradores podem escolher os métodos de [autenticação](../authenticat
 Uma notificação push é enviada para a aplicação Microsoft Authenticator no seu dispositivo móvel. O utilizador vê a notificação e seleciona **Aprovar** para completar a verificação. As notificações push através de uma aplicação móvel fornecem a opção menos intrusiva para os utilizadores. São também a opção mais fiável e segura porque utilizam uma ligação de dados em vez de telefonia.
 
 > [!NOTE]
-> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a **Notificação através** do método de aplicação móvel em **dispositivos Android** não funciona nesse país. Devem ser disponibilizados métodos alternativos para esses utilizadores.
+> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a **Notificação através** do método de aplicação móvel em **dispositivos Android** não funciona nesse país/região. Devem ser disponibilizados métodos alternativos para esses utilizadores.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 
@@ -122,7 +122,7 @@ Uma aplicação móvel como a aplicação Microsoft Authenticator gera um novo c
 
 ### <a name="call-to-phone"></a>Chamada para telefone
 
-É colocada uma chamada de voz automatizada ao utilizador. O utilizador atende a **#** chamada e pressiona o teclado do telefone para aprovar a sua autenticação. A chamada para o telefone é um ótimo método de backup para notificação ou código de verificação a partir de uma aplicação móvel.
+É colocada uma chamada de voz automatizada ao utilizador. O utilizador atende a chamada e pressiona **#** o teclado do telefone para aprovar a sua autenticação. A chamada para o telefone é um ótimo método de backup para notificação ou código de verificação a partir de uma aplicação móvel.
 
 ### <a name="text-message-to-phone"></a>Mensagem de texto para telefone
 
@@ -221,14 +221,14 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="plan-conditional-access-policies"></a>Políticas de Acesso Condicional do Plano
 
-Para planear a sua estratégia de política de Acesso Condicional, que determinará quando são necessários MFA e outros controlos, consulte [o What is Conditional Access in Azure Ative Directory?](../conditional-access/overview.md)
+Para planear a sua estratégia de política de acesso condicional, que determinará quando são necessários MFA e outros controlos, consulte [as políticas comuns](../conditional-access/concept-conditional-access-policy-common.md)de acesso condicional.
 
 É importante que evite ser inadvertidamente trancado fora do seu inquilino Azure AD. Pode mitigar o impacto desta falta inadvertida de acesso [administrativo, criando duas ou mais contas](../users-groups-roles/directory-emergency-access.md) de acesso de emergência no seu inquilino e excluindo-as da sua política de Acesso Condicional.
 
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 1. Selecione **Nova política.**
    ![Criar uma política de acesso condicional para permitir o MFA para utilizadores do portal Azure em grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Forneça um nome significativo para a sua política.
@@ -282,7 +282,7 @@ Se tiver uma instância NPS implantada e já em uso, referência [Integre a infr
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Prepare NPS para utilizadores que não estejam matriculados para MFA
 
-Escolha o que acontece quando os utilizadores que não estão matriculados com MFA tentam autenticar. Utilize a definição `REQUIRE_USER_MATCH` de registo `HKLM\Software\Microsoft\AzureMFA` na trajetória de registo para controlar o comportamento da funcionalidade. Esta definição tem uma única opção de configuração.
+Escolha o que acontece quando os utilizadores que não estão matriculados com MFA tentam autenticar. Utilize a definição de registo `REQUIRE_USER_MATCH` na trajetória de registo para controlar o comportamento da `HKLM\Software\Microsoft\AzureMFA` funcionalidade. Esta definição tem uma única opção de configuração.
 
 | Chave | Valor | Predefinição |
 | --- | --- | --- |
@@ -324,7 +324,7 @@ Em cada servidor AD FS, no computador local My Store, haverá um certificado Azu
 
 Se o período de validade dos seus certificados estiver perto da expiração, [gere e verifique um novo certificado MFA em cada servidor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-As seguintes orientações detalham como gerir os certificados Azure MFA nos seus servidores AD FS. Quando configurar AD FS com MFA Azure, os `New-AdfsAzureMfaTenantCertificate` certificados gerados através do cmdlet PowerShell são válidos por dois anos. Renovar e instalar os certificados renovados antes da expiração de interrupções otadas no serviço MFA.
+As seguintes orientações detalham como gerir os certificados Azure MFA nos seus servidores AD FS. Quando configurar AD FS com MFA Azure, os certificados gerados através do `New-AdfsAzureMfaTenantCertificate` cmdlet PowerShell são válidos por dois anos. Renovar e instalar os certificados renovados antes da expiração de interrupções otadas no serviço MFA.
 
 ## <a name="implement-your-plan"></a>Implementar o seu plano
 

@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 96106882c1c43c322afbf6517209621557de9d25
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c239c16103dc0c1f847c5d4354aed89a143a28c6
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592071"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745498"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -41,7 +41,7 @@ Antes de iniciar este tutorial, você deveria ter passado pelo tutorial anterior
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um dispositivo Linux AMD64 [que executa o Edge Azure IoT](quickstart-linux.md).
-  * Dispositivos ARM, como Raspberry Pis, não podem executar o Servidor SQL. Se pretender utilizar o SQL num dispositivo ARM, pode inscrever-se para experimentar [o Azure SQL Edge](https://azure.microsoft.com/services/azure-sql-edge/) na pré-visualização.
+  * Dispositivos ARM, como Raspberry Pis, não podem executar o Servidor SQL. Se pretender utilizar o SQL num dispositivo ARM, pode inscrever-se para experimentar [o Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) na pré-visualização.
 * Um registo de contentores, como o Registo de [Contentores Azure.](https://docs.microsoft.com/azure/container-registry/)
 * [Código de estúdio visual](https://code.visualstudio.com/) configurado com as [ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.

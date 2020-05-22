@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 423d65cc77cb06a6084ad9ad56f3d7274e057ffb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726082"
+ms.locfileid: "83746514"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Apoio à linguagem e voz para o serviço da Fala
 
@@ -140,7 +140,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 | <sup>1</sup>`ar-EG` | Árabe (Egito) | Mulheres | "ar-EG-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | "ar-SA-Naayf" |
 | `bg-BG` | Búlgaro | Homens |  "bg-BG-Ivan" |
-| `ca-ES` | Catalão (Espanha) | Mulheres |  "ca-ES-HerenaRUS" |
+| `ca-ES` | Catalão | Mulheres |  "ca-ES-HerenaRUS" |
 | `cs-CZ` | Checo | Homens | "cs-CZ-Jakub" |
 | `da-DK` | Dinamarquês | Mulheres |  "da-DK-HelleRUS" |
 | `de-AT` | Alemão (Áustria) | Homens | "de-AT-Michael" |
@@ -313,7 +313,7 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Galês                   | `cy`          |
 | Maia yucateca            | `yua`         |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha a subscrição do teste do serviço Speech](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como reconhecer o discurso em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

@@ -1,20 +1,20 @@
 ---
 title: Tipos de livro de execução da Automação Azure
-description: Descreve os diferentes tipos de livros de execução que pode utilizar na Automação Azure e considerações para determinar que tipo usar.
+description: Este artigo descreve os tipos de livros de execução que pode utilizar na Automação Azure e considerações para determinar que tipo usar.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 390f14e8369f206b2f5ffce74f0775b33e313021
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c7b036e7adca1fe92425659ebd099feaa3891556
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714989"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743831"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de livro de execução da Automação Azure
 
-O serviço de automação de processos Azure Automation suporta vários tipos de livros de execução, tal como definidos na tabela seguinte. Para conhecer o ambiente de automação de processos, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
+A funcionalidade de Automação de Automação Azure suporta vários tipos de livros de execução, tal como definidos na tabela a seguir. Para conhecer o ambiente de automação de processos, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
 
 | Tipo | Descrição |
 |:--- |:--- |
@@ -28,9 +28,6 @@ Tenha em conta as seguintes considerações ao determinar qual o tipo a utilizar
 
 * Não é possível converter livros de execução de tipo gráfico para texto, ou o contrário.
 * Existem limitações ao utilizar livros de diferentes tipos como livros infantis. Para mais informações, consulte livros [infantis em Automação Azure](automation-child-runbooks.md).
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="graphical-runbooks"></a>Livros gráficos
 
@@ -116,9 +113,9 @@ Os livros de python compilam sob python 2. Pode editar diretamente o código do 
 * Apenas python 2 é suportado atualmente. Quaisquer funções específicas python 3 falham.
 * Para utilizar bibliotecas de terceiros, deve [importar os pacotes](python-packages.md) para a conta Automation.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre a autoria de um livro gráfico, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
-* Para compreender as diferenças entre powerShell e powerShell fluxos de trabalho para livros de execução, consulte [Learning Windows PowerShell Workflow](automation-powershell-workflow.md).
-* Para obter mais informações sobre como criar ou importar um livro de execução, consulte [Gerir livros de execução em Automação Azure](manage-runbooks.md).
-* Para saber mais sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
+* [Conheça o fluxo de trabalho powerShell para a automação azure](automation-powershell-workflow.md)
+* [Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)
+* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)

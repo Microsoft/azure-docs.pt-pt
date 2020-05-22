@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691664"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744783"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analise dados em Azure Data Lake Storage Gen1 usando Power BI
 Neste artigo, aprende-se a usar o Power BI Desktop para analisar e visualizar dados armazenados no Azure Data Lake Storage Gen1.
@@ -81,15 +81,15 @@ Antes de começar este tutorial, tem de ter o seguinte:
         ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Criar visualizações")
 16. Ao selecionar um país/região específico a partir dos filtros de nível de página, pode agora ver o número de condutores em cada cidade do país/região selecionado. Por exemplo, sob o separador **Visualizações,** sob **filtros de nível de página,** selecione **Brasil**.
     
-    ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "Selecionar país/região")
+    ![Selecionar país/região](./media/data-lake-store-power-bi/select-country.png "Selecionar país/região")
 17. O gráfico de tartes é automaticamente atualizado para exibir os condutores nas cidades do Brasil.
     
-    ![Motoristas em um país](./media/data-lake-store-power-bi/driver-per-country.png "Condutores por país/região")
+    ![Condutores num país/região](./media/data-lake-store-power-bi/driver-per-country.png "Condutores por país/região")
 18. A partir do menu **'Ficheiro',** clique em **Guardar** para guardar a visualização como ficheiro Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicar relatório ao serviço Power BI
 Depois de ter criado as visualizações no Power BI Desktop, pode partilhá-la com outras publicando-as no serviço Power BI. Para obter instruções sobre como fazê-lo, consulte [Publicar a partir de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Analise dados em Data Lake Storage Gen1 usando data lake analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

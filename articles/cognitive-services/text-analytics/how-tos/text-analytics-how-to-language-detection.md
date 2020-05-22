@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70387797"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745576"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar linguagem com Análise de Texto
 
@@ -25,7 +25,7 @@ Esta funcionalidade é útil para arquivos de conteúdo que recolhem texto arbit
 
 A funcionalidade de Deteção de Línguas pode detetar uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais ou culturais. A lista exata de idiomas para esta funcionalidade não é publicada.
 
-Se tiver conteúdo expresso num idioma menos utilizado, pode experimentar a funcionalidade deteção de idiomas para ver se devolve um código. A resposta para línguas que não `unknown`podem ser detetadas é.
+Se tiver conteúdo expresso num idioma menos utilizado, pode experimentar a funcionalidade deteção de idiomas para ver se devolve um código. A resposta para línguas que não podem ser detetadas `unknown` é.
 
 > [!TIP]
 > O Text Analytics também fornece uma imagem de recipiente Docker baseada em Linux para deteção de idiomas, para que possa [instalar e executar o recipiente Text Analytics](text-analytics-how-to-install-containers.md) perto dos seus dados.
@@ -155,9 +155,9 @@ Uma pontuação positiva igual a 1,0 expressa o nível de confiança mais elevad
 
 ### <a name="ambiguous-content"></a>Conteúdo ambíguo
 
-Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar `countryHint` o parâmetro para especificar um código de país de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este `countryHint = ""` comportamento pode redefinir este parâmetro definindo este valor para uma cadeia vazia .
+Em alguns casos, pode ser difícil desambiguar línguas com base na entrada. Pode utilizar o `countryHint` parâmetro para especificar um código país/região de 2 letras. Por padrão, a API está a usar os "EUA" como país padrãoHint, para remover este comportamento pode redefinir este parâmetro definindo este valor para uma cadeia vazia `countryHint = ""` .
 
-Por exemplo, "Impossível" é comum tanto ao inglês como ao francês e, se for dado com um contexto limitado, a resposta basear-se-á na sugestão do país "EUA". Se o texto tiver origem em França, este país poderá ser dado como sugestão.
+Por exemplo, "Impossível" é comum tanto ao inglês como ao francês e, se for dado com um contexto limitado, a resposta basear-se-á na sugestão "eua" país/região. Se o texto tiver origem em França, este país poderá ser dado como sugestão.
 
 **Input**
 
@@ -209,7 +209,7 @@ O serviço tem agora um contexto adicional para fazer um melhor julgamento:
     }
 ```
 
-Se o analisador não conseguir analisar a `(Unknown)`entrada, ela devolve . Um exemplo é se submeter um bloco de texto que consiste exclusivamente em algarismos árabes.
+Se o analisador não conseguir analisar a entrada, ela devolve `(Unknown)` . Um exemplo é se submeter um bloco de texto que consiste exclusivamente em algarismos árabes.
 
 ```json
     {
@@ -269,10 +269,10 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para deteção de linguagem
 
 + [A deteção](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) de idiomas está disponível para uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais ou culturais.
 + Os documentos da JSON no organismo de pedido incluem uma identificação e texto.
-+ O pedido do `/languages` POST é para um ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que é válido para a sua subscrição.
++ O pedido do POST é para um ponto final usando uma chave de `/languages` acesso personalizada e um ponto [final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que é válido para a sua subscrição.
 + A saída de resposta consiste em identificadores linguísticos para cada id de documento. A saída pode ser transmitida para qualquer aplicação que aceite a JSON. As aplicações exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
  [Visão geral do Text Analytics](../overview.md) [frequentemente feita sperguntas (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)

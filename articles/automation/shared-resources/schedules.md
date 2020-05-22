@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 848be71764bb503879c34ed6667a43909ef19c13
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713442"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744985"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Automação Azure
 
@@ -196,7 +196,7 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 -Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Utilizar módulos na Automatização do Azure](modules.md)
-* [Execução de runbooks na Automatização do Azure](../automation-runbook-execution.md)
+* Para saber mais sobre os cmdlets usados para aceder aos horários, consulte [Gerir módulos em Automação Azure](modules.md).
+* Para obter informações gerais sobre livros de execução, consulte a execução do Livro de [Corridas na Automação Azure.](../automation-runbook-execution.md)

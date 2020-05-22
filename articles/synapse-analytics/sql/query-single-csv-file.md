@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0e4208f4f9a01bc42d4c6134ec3ec4fb1cb19fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431595"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744285"
 ---
 # <a name="query-csv-files"></a>Consultas de ficheiros CSV
 
@@ -176,7 +176,7 @@ WHERE
 ```
 
 > [!NOTE]
-> Esta consulta falharia se o ESCAPECHAR não fosse especificado, uma vez que a vírposta em "Slov, enia" seria tratada como delimitador de campo em vez de parte do nome do país. "Slov, enia" seria tratado como duas colunas. Portanto, a linha em particular teria uma coluna mais do que as outras linhas, e uma coluna mais do que definiu na cláusula COM.
+> Esta consulta falharia se o ESCAPECHAR não fosse especificado, uma vez que a vírposta em "Slov, enia" seria tratada como delimitador de campo em vez de parte do nome país/região. "Slov, enia" seria tratado como duas colunas. Portanto, a linha em particular teria uma coluna mais do que as outras linhas, e uma coluna mais do que definiu na cláusula COM.
 
 ## <a name="tab-delimited-files"></a>Ficheiros deslimitados por separadores
 
@@ -210,7 +210,7 @@ WHERE
 
 Até agora, especificou o esquema de ficheiros CSV usando WITH e enumerando todas as colunas. Só pode especificar as colunas de que realmente precisa na sua consulta utilizando um número de ordinal para cada coluna necessária. Também omitirá colunas sem interesse.
 
-A seguinte consulta devolve o número de nomes de países distintos num ficheiro, especificando apenas as colunas necessárias:
+A seguinte consulta devolve o número de nomes distintos de país/região num ficheiro, especificando apenas as colunas necessárias:
 
 > [!NOTE]
 > Veja a cláusula COM na consulta abaixo e note que há "2" (sem citações) no final da fila onde define a coluna *[country_name].* Significa que a coluna *[country_name]* é a segunda coluna do ficheiro. A consulta ignorará todas as colunas do ficheiro, exceto a segunda.

@@ -6,19 +6,19 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692415"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745406"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand (pré-visualização) com power BI Desktop & criar um relatório
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -51,10 +51,7 @@ Crie a base de dados de demonstração (e deixe cair uma base de dados existente
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
-BEGIN
-    DROP DATABASE Demo
-END;
+DROP DATABASE IF EXISTS Demo
 GO
 
 -- Create new database
@@ -62,30 +59,23 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## <a name="2---create-credential"></a>2 - Criar credencial
+## <a name="2---create-data-source"></a>2 - Criar fonte de dados
 
-É necessária uma credencial para que o serviço SQL on-demand aceda a ficheiros armazenados. Crie a credencial para uma conta de armazenamento que esteja localizada na mesma região que o seu ponto final. Embora a SQL a pedido possa aceder a contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto final na mesma região proporciona um melhor desempenho.
+Uma fonte de dados é necessária para que o serviço SQL on-demand aceda a ficheiros armazenados. Crie a fonte de dados para uma conta de armazenamento localizada na mesma região que o seu ponto final. Embora a SQL a pedido possa aceder a contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto final na mesma região proporciona um melhor desempenho.
 
-Crie a credencial executando o seguinte script Transact-SQL (T-SQL):
+Criar a fonte de dados executando o seguinte script Transact-SQL (T-SQL):
 
 ```sql
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
-GO
-
--- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = '';
-GO
+-- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+CREATE EXTERNAL DATA SOURCE AzureOpenData
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
 
 ## <a name="3---prepare-view"></a>3 - Preparar vista
 
 Crie a visão com base nos dados externos de demonstração para que o Power BI consuma, executando o seguinte script Transact-SQL (T-SQL):
 
-Crie `usPopulationView` a vista `Demo` dentro da base de dados com a seguinte consulta:
+Crie a vista `usPopulationView` dentro da base de dados com a seguinte `Demo` consulta:
 
 ```sql
 DROP VIEW IF EXISTS usPopulationView;
@@ -96,7 +86,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        BULK 'censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        DATA_SOURCE = 'AzureOpenData',
         FORMAT='PARQUET'
     ) AS uspv;
 ```
@@ -118,11 +109,11 @@ Crie o relatório para o Power BI Desktop utilizando os seguintes passos:
 
    ![Abra a aplicação de ambiente de trabalho Do Power BI e selecione obter dados.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Selecione Base**de Dados SQL** **Azure** > Azure . 
+2. Selecione **Base**de Dados  >  **SQL Azure Azure**. 
 
    ![Selecione fonte de dados.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 
-3. Digite o nome do servidor onde **Server** a base de `Demo` dados está localizada no campo Server e, em seguida, digite o nome da base de dados. Selecione a opção **Import** e, em seguida, selecione **OK**. 
+3. Digite o nome do servidor onde a base de dados está localizada no campo **Server** e, em seguida, digite o nome da base de `Demo` dados. Selecione a opção **Import** e, em seguida, selecione **OK**. 
 
    ![Selecione base de dados no ponto final.](./media/tutorial-connect-power-bi-desktop/step-2-db.png)
 
@@ -137,11 +128,11 @@ Crie o relatório para o Power BI Desktop utilizando os seguintes passos:
         ![Utilize o login SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
-5. Selecione `usPopulationView`a vista e, em seguida, selecione **Carregar**. 
+5. Selecione a vista `usPopulationView` e, em seguida, **selecione Carregar**. 
 
    ![Selecione uma Visualização na base de dados selecionada.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
 
-6. Aguarde a operação e, em seguida, `There are pending changes in your queries that haven't been applied`aparecerá um pop-up afirmando . Selecione **Aplicar alterações**. 
+6. Aguarde a operação e, em seguida, aparecerá um pop-up afirmando `There are pending changes in your queries that haven't been applied` . Selecione **Aplicar alterações**. 
 
    ![Clique em alterar alterações.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
 
@@ -163,7 +154,7 @@ Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passo
 1. Eliminar a credencial da conta de armazenamento
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+   DROP EXTENAL DATA SOURCE AzureOpenData
    ```
 
 2. Apagar a vista

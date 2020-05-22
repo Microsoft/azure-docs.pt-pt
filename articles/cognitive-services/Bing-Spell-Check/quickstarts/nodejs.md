@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72afc4f6e03b24e545ad18948119d418970cddf3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382864"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747579"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Node.js
 
@@ -30,7 +30,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito. Desaperte a `https`estrito e exija. Em seguida, crie variáveis para o anfitrião, caminho e chave de subscrição do seu ponto final da API. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito. Desaperte a estrito e `https` exija. Em seguida, crie variáveis para o anfitrião, caminho e chave de subscrição do seu ponto final da API. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```javascript
     'use strict';
@@ -41,7 +41,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Crie variáveis para os seus parâmetros de pesquisa e o texto que pretende verificar. Anexar o seu `mkt=`código de mercado depois de . O código de mercado é o país de onde faz o pedido. Além disso, apende `&mode=`o seu modo de verificação ortográfica depois de . O modo `proof` é ou (apanha a `spell` maioria dos erros ortográficos/gramaticais) ou (captura a maioria da ortografia, mas não tantos erros gramaticais).
+2. Crie variáveis para os seus parâmetros de pesquisa e o texto que pretende verificar. Anexar o seu código de mercado depois `mkt=` de . O código de mercado é o país/região de onde faz o pedido. Além disso, apende o seu modo de verificação ortográfica depois `&mode=` de . O modo é `proof` ou (apanha a maioria dos erros ortográficos/gramaticais) ou (captura a `spell` maioria da ortografia, mas não tantos erros gramaticais).
 
     ```javascript
     let mkt = "en-US";
@@ -52,7 +52,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-the-request-parameters"></a>Criar os parâmetros de pedido
 
-Crie os parâmetros de pedido `POST` criando um novo objeto com um método. Adicione o seu caminho, apertou o seu caminho final e a corda de consulta. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição ao cabeçalho.
+Crie os parâmetros de pedido criando um novo objeto com um `POST` método. Adicione o seu caminho, apertou o seu caminho final e a corda de consulta. Adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
 ```javascript
 let request_params = {
@@ -69,7 +69,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>Criar um processador de resposta
 
-Crie uma `response_handler` função chamada para retirar a resposta JSON da API, e imprimi-la. Criar uma variável para o corpo de resposta. Anexar a resposta `data` quando uma `response.on()`bandeira é recebida, utilizando . Quando `end` uma bandeira for recebida, imprima o corpo JSON para a consola.
+Crie uma função chamada `response_handler` para retirar a resposta JSON da API, e imprimi-la. Criar uma variável para o corpo de resposta. Anexar a resposta quando uma `data` bandeira é recebida, utilizando `response.on()` . Quando uma `end` bandeira for recebida, imprima o corpo JSON para a consola.
 
 ```javascript
 let response_handler = function (response) {
@@ -89,7 +89,7 @@ let response_handler = function (response) {
 
 ## <a name="send-the-request"></a>Enviar o pedido
 
-Ligue para a `https.request()` API utilizando os parâmetros do seu pedido e o manipulador de resposta. Escreva o seu texto para a API e termine o pedido depois.
+Ligue para a API utilizando `https.request()` os parâmetros do seu pedido e o manipulador de resposta. Escreva o seu texto para a API e termine o pedido depois.
 
 ```javascript
 let req = https.request (request_params, response_handler);

@@ -3,12 +3,12 @@ title: Matriz de suporte de cópia de segurança do SAP HANA
 description: Neste artigo, conheça os cenários e limitações suportados quando utilizar o backup Azure para apoiar as bases de dados SAP HANA em VMs Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 20519562151a70c9fd8e8fe5d86ce912e615b460
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5dcbfa67ce69a3dad1c263427ea3a0e34e8cef18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660131"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747342"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -35,6 +35,12 @@ O Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para o
 | **Configurações especiais** |                                                              | SAP HANA + Tiering Dinâmico <br>  Clonagem através de LaMa        |
 
 ------
+
+>[!NOTE]
+>O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de uma base de dados SAP HANA em funcionamento num VM Azure.
+>
+>Modifique a política manualmente conforme necessário.
+
 
 > [!NOTE]
 > Agora pode monitorizar os trabalhos de [backup e restaurar](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) (para a mesma máquina) os trabalhos desencadeados por clientes nativos da HANA (SAP HANA Studio/ Cockpit/ DBA Cockpit) no portal Azure.

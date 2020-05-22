@@ -5,17 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/30/2020
-ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/19/2020
+ms.openlocfilehash: 5ab71ee67b66cacbcd1b23fa35d6f424021fa9cc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731905"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757541"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminar e recuperar o espaço de trabalho do Azure Log Analytics
 
-Este artigo explica o conceito de eliminação suave do espaço de trabalho Azure Log Analytics e como recuperar o espaço de trabalho eliminado. 
+Este artigo explica o conceito de eliminação suave do espaço de trabalho Azure Log Analytics e como recuperar o espaço de trabalho eliminado.
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Considerações ao apagar um espaço de trabalho
 
@@ -45,12 +45,12 @@ Pode eliminar um espaço de trabalho utilizando [powerShell,](https://docs.micro
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Para entrar, vá ao [portal Azure.](https://portal.azure.com) 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho e clique em **Apagar** a partir da parte superior do painel médio.
-   ![Eliminar a opção do painel de propriedades do Espaço de Trabalho](media/delete-workspace/log-analytics-delete-workspace.png)
-4. Quando a janela da mensagem de confirmação aparecer pedindo-lhe que confirme a eliminação do espaço de trabalho, clique **em Sim**.
-   ![Confirmar a supressão do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+4. Uma página de confirmação aparece que mostra a ingestão de dados para o espaço de trabalho durante a semana passada. Digite o nome do espaço de trabalho para confirmar e, em seguida, clique em **Apagar**.
+
+   ![Confirmar a supressão do espaço de trabalho](media/delete-workspace/workspace-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
@@ -81,7 +81,7 @@ O espaço de trabalho permanente pode ser atualmente realizado através da API R
 >
 > Pode adquirir o símbolo usando:
 > - [Registos de aplicações](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
-> - Navegue para o portal Azure utilizando a consola do desenvolvedor (F12) no navegador. Olhar num dos casos do **lote?** **Request Headers** Isto estará na *autorização padrão: <token>Bearer *. Copie e adicione isto à sua chamada API, como mostram os exemplos.
+> - Navegue para o portal Azure utilizando a consola do desenvolvedor (F12) no navegador. Olhar num dos casos do **lote?** **Request Headers** Isto estará na *autorização padrão: <token> Bearer *. Copie e adicione isto à sua chamada API, como mostram os exemplos.
 > - Navegue para o site de documentação Azure REST. pressione **Experimente** em qualquer API, copie o token do Portador e adicione-o à sua chamada API.
 Para eliminar permanentemente o seu espaço de trabalho, utilize os espaços de [trabalho - Elimine]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) a chamada REST API com uma etiqueta de força:
 >
@@ -92,10 +92,27 @@ Para eliminar permanentemente o seu espaço de trabalho, utilize os espaços de 
 Onde 'eyJ0eXAiOiJKV1Qi...' representa o símbolo de autorização completa.
 
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
+Ao eliminar um espaço de trabalho de Log Analytics acidental ou intencionalmente, o serviço coloca o espaço de trabalho num estado de eliminação suave tornando-o inacessível a qualquer operação. O nome do espaço de trabalho apagado é preservado durante o período de eliminação suave e não pode ser usado para criar um novo espaço de trabalho. Após o período de eliminação suave, o espaço de trabalho não é recuperável, está programado para eliminação permanente e seu nome que lançou e pode ser usado para criar um novo espaço de trabalho.
 
-Se tiver permissões do Colaborador para o grupo de subscrição e recursos onde o espaço de trabalho estava associado antes da operação de eliminação suave, pode recuperá-lo durante o seu período de eliminação suave, incluindo os seus dados, configuração e agentes conectados. Após o período de eliminação suave, o espaço de trabalho não é recuperável e atribuído para eliminação permanente. Os nomes dos espaços de trabalho eliminados são preservados durante o período de eliminação suave e não podem ser utilizados quando se tenta criar um novo espaço de trabalho.  
+Pode recuperar o seu espaço de trabalho durante o período de eliminação suave, incluindo os seus dados, configuração e agentes conectados. É necessário dispor de permissões do Colaborador para o grupo de subscrição e recursos onde o espaço de trabalho foi localizado antes da operação de eliminação suave. A recuperação do espaço de trabalho é realizada criando um espaço de trabalho log Analytics com os detalhes do espaço de trabalho eliminado, incluindo:
 
-Pode recuperar o seu espaço de trabalho criando um espaço de trabalho com os detalhes do espaço de trabalho eliminado, estes incluem *ID de subscrição,* *nome do Grupo de Recursos,* *Nome do Espaço de Trabalho* e *Região.* Se o seu grupo de recursos também foi eliminado e não existe, crie um grupo de recursos com o mesmo nome que foi usado antes do aeliminar, então crie um espaço de trabalho usando qualquer um destes métodos: [portal Azure,](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
+- ID da subscrição
+- Nome do Grupo de Recursos
+- Nome da área de trabalho
+- Região
+
+### <a name="azure-portal"></a>Portal do Azure
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+2. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**. Veja a lista de espaços de trabalho que tem no âmbito selecionado.
+3. Clique em **Recuperar** no menu superior esquerdo para abrir uma página com espaços de trabalho em estado de eliminação suave que pode ser recuperado.
+
+   ![Recuperar espaço de trabalho](media/delete-workspace/recover-menu.png)
+
+4. Selecione o espaço de trabalho e clique em **Recuperar** para recuperar esse espaço de trabalho.
+
+   ![Recuperar espaço de trabalho](media/delete-workspace/recover-workspace.png)
+
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e5973ed505a43ca56a0f11e3603e05eeed0952fd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657763"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747540"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
@@ -159,7 +159,7 @@ As vistas materializadas permitem alterações de dados nas tabelas base.  Os da
 
 ## <a name="example"></a>Exemplo
 
-Este exemplo usa uma consulta semelhante ao TPCDS que encontra clientes que gastam mais dinheiro através de catálogo do que nas lojas, identificam os clientes preferidos e o seu país de origem.   A consulta envolve a seleção dos registos TOP 100 da UNIÃO de três declarações sub-SELECIONADAs envolvendo SUM() e GROUP BY.
+Este exemplo usa uma consulta semelhante ao TPCDS que encontra clientes que gastam mais dinheiro através de catálogo do que nas lojas, identificam os clientes preferidos e o seu país/região de origem.   A consulta envolve a seleção dos registos TOP 100 da UNIÃO de três declarações sub-SELECIONADAs envolvendo SUM() e GROUP BY.
 
 ```sql
 WITH year_total AS (

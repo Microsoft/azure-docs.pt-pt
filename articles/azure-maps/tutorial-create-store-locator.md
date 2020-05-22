@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333847"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746051"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja utilizando o Azure Maps
 
-Este tutorial guia-o através do processo de criação de um simples localizador de loja utilizando o Azure Maps. Os localizadores de loja são comuns. Muitos dos conceitos que são utilizados neste tipo de aplicações aplicam-se a muitos outros tipos de aplicações. Oferecer um localizador de loja aos clientes é uma obrigação para a maioria das empresas que vendem diretamente aos consumidores. Neste tutorial, ficará a saber como:
+Este tutorial guia-o através do processo de criação de um simples localizador de loja utilizando o Azure Maps. Os localizadores de loja são comuns. Muitos dos conceitos que são utilizados neste tipo de aplicações aplicam-se a muitos outros tipos de aplicações. Oferecer um localizador de loja aos clientes é uma obrigação para a maioria das empresas que vendem diretamente aos consumidores. Neste tutorial, vai aprender a:
     
 > [!div class="checklist"]
 > * Crie uma nova página web utilizando a API de Controlo de Mapas Azure.
@@ -58,7 +58,7 @@ As molduras de arame mostram uma aplicação bastante simples. A aplicação tem
 * O layout da página ajusta-se com base na largura do ecrã do dispositivo.  
 * Um cabeçalho mostra o logotipo da loja.  
 * O utilizador pode utilizar uma caixa de pesquisa e um botão de pesquisa para procurar um local, como um endereço, código postal ou cidade. 
-* Um `keypress` evento adicionado à caixa de pesquisa desencadeia uma pesquisa se o utilizador premir O Enter. Esta funcionalidade é muitas vezes negligenciada, mas cria uma melhor experiência do utilizador.
+* Um evento adicionado à caixa de `keypress` pesquisa desencadeia uma pesquisa se o utilizador premir O Enter. Esta funcionalidade é muitas vezes negligenciada, mas cria uma melhor experiência do utilizador.
 * Quando o mapa se move, a distância até cada local a partir do centro do mapa é calculada. A lista de resultados é atualizada para exibir os locais mais próximos na parte superior do mapa.  
 * Quando seleciona um resultado na lista de resultados, o mapa está centrado na localização selecionada e as informações sobre a localização aparecem numa janela pop-up.  
 * A seleção de uma localização específica no mapa também despoleta uma janela pop-up.
@@ -115,7 +115,7 @@ Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.micro
 
 Para criar a interface do utilizador, adicione código para *indexar.html:*
 
-1. Adicione as `meta` seguintes `head` etiquetas ao *índice.html*. A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor `http-equiv` diz ao Internet Explorer e microsoft Edge para usar as versões mais recentes do navegador. E, a `meta` última etiqueta especifica um viewport que funciona bem para layouts responsivos.
+1. Adicione as `meta` seguintes etiquetas ao `head` *índice.html*. A etiqueta define o conjunto de `charset` caracteres (UTF-8). O valor diz `http-equiv` ao Internet Explorer e microsoft Edge para usar as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
 
     ```HTML
     <meta charset="utf-8">
@@ -143,7 +143,7 @@ Para criar a interface do utilizador, adicione código para *indexar.html:*
     <script src="index.js"></script>
     ```
 
-1. No corpo do documento, `header` adicione uma etiqueta. Dentro `header` da etiqueta, adicione o logótipo e o nome da empresa.
+1. No corpo do documento, adicione uma `header` etiqueta. Dentro da `header` etiqueta, adicione o logótipo e o nome da empresa.
 
     ```HTML
     <header>
@@ -152,7 +152,7 @@ Para criar a interface do utilizador, adicione código para *indexar.html:*
     </header>
     ```
 
-1. Adicione `main` uma etiqueta e crie um painel de pesquisa que tenha uma caixa de texto e um botão de pesquisa. Além `div` disso, adicione referências para o mapa, o painel de listas e o botão DE GPS my location.
+1. Adicione uma etiqueta e crie um painel de `main` pesquisa que tenha uma caixa de texto e um botão de pesquisa. Além disso, adicione `div` referências para o mapa, o painel de listas e o botão DE GPS my location.
 
     ```HTML
     <main>
@@ -170,7 +170,7 @@ Para criar a interface do utilizador, adicione código para *indexar.html:*
 
 Quando terminar, *o index.html* deve parecer [este exemplo index.html ficheiro](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
 
-O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abra *o index.css* e adicione-lhe o seguinte código. O `@media` estilo define opções de estilo alternativas para usar quando a largura do ecrã é inferior a 700 pixels.  
+O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abra *o index.css* e adicione-lhe o seguinte código. O estilo define opções de `@media` estilo alternativas para usar quando a largura do ecrã é inferior a 700 pixels.  
 
    ```CSS
     html, body {
@@ -397,12 +397,12 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
 
 1. Adicione código ao *index.js*. O código seguinte inicializa o mapa. Adicionámos um [ouvinte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar até que a página termine de carregar. Depois, ligámos eventos para monitorizar o carregamento do mapa e dar funcionalidade ao botão de pesquisa e ao botão de localização My.
 
-   Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa, em seguida, pressiona a entrada, inicia-se uma pesquisa confusa contra a consulta do utilizador. Passe numa série de valores iso 2 do país para a opção `countrySet` de limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
+   Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa, em seguida, pressiona a entrada, inicia-se uma pesquisa confusa contra a consulta do utilizador. Passar num conjunto de valores ISO 2 país/região para a opção de `countrySet` limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
   
    Uma vez terminada a pesquisa, pegue o primeiro resultado e coloque a câmara do mapa sobre essa área. Quando o utilizador selecionar o botão My Location, recupere a localização do utilizador utilizando a API de Geolocalização HTML5. Esta API está incorporada no navegador. Então, centro o mapa sobre a sua localização.  
 
    > [!Tip]
-   > Quando se usa janelas pop-up, o `Popup` melhor é criar uma única instância e reutilizar a instância atualizando o seu conteúdo e posição. Para `Popup`cada caso que adiciona ao seu código, vários elementos DOM são adicionados à página. Quanto mais elementos DOM existem numa página, mais coisas o navegador tem de acompanhar. Se houver muitos itens, o navegador pode tornar-se lento.
+   > Quando se usa janelas pop-up, o melhor é criar uma única `Popup` instância e reutilizar a instância atualizando o seu conteúdo e posição. Para cada `Popup` caso que adiciona ao seu código, vários elementos DOM são adicionados à página. Quanto mais elementos DOM existem numa página, mais coisas o navegador tem de acompanhar. Se houver muitos itens, o navegador pode tornar-se lento.
 
     ```JavaScript
     function initialize() {
@@ -453,7 +453,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -510,7 +510,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     window.onload = initialize;
     ```
 
-1. No ouvinte do `ready` mapa, adicione um controlo de zoom e um marcador HTML para exibir o centro de uma área de pesquisa.
+1. No ouvinte do mapa, adicione um controlo de `ready` zoom e um marcador HTML para exibir o centro de uma área de pesquisa.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -527,7 +527,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     map.markers.add(centerMarker);
     ```
 
-1. No ouvinte do `ready` mapa, adicione uma fonte de dados. Em seguida, faça uma chamada para carregar e analisar o conjunto de dados. Ativar o agrupamento na fonte de dados. Agrupamento sinuoso nos grupos de fonte de dados que se sobrepõem a pontos num cluster. Os clusters separam-se em pontos individuais à medida que o utilizador faz zoom. Este comportamento proporciona uma melhor experiência do utilizador e melhora o desempenho.
+1. No ouvinte do mapa, adicione uma fonte de `ready` dados. Em seguida, faça uma chamada para carregar e analisar o conjunto de dados. Ativar o agrupamento na fonte de dados. Agrupamento sinuoso nos grupos de fonte de dados que se sobrepõem a pontos num cluster. Os clusters separam-se em pontos individuais à medida que o utilizador faz zoom. Este comportamento proporciona uma melhor experiência do utilizador e melhora o desempenho.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -542,9 +542,9 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     loadStoreData();
     ```
 
-1. Depois de carregar o conjunto de `ready` dados no ouvinte do mapa, defina um conjunto de camadas para renderizar os dados. Uma camada de bolha é usada para renderizar pontos de dados agrupados. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolha. Uma segunda camada de símbolo torna um ícone personalizado para localizações individuais no mapa.
+1. Depois de carregar o conjunto de dados no ouvinte do `ready` mapa, defina um conjunto de camadas para renderizar os dados. Uma camada de bolha é usada para renderizar pontos de dados agrupados. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolha. Uma segunda camada de símbolo torna um ícone personalizado para localizações individuais no mapa.
 
-   Adicione `mouseover` `mouseout` e eventos às camadas de bolha e ícone para alterar o cursor do rato quando o utilizador paira sobre um cluster ou ícone no mapa. Adicione `click` um evento à camada de bolha de cluster. Este `click` evento amplia no mapa dois níveis e centra o mapa sobre um cluster quando o utilizador seleciona qualquer cluster. Adicione `click` um evento à camada de ícone. Este `click` evento exibe uma janela pop-up que mostra os detalhes de um café quando um utilizador seleciona um ícone de localização individual. Adicione um evento ao mapa para monitorizar quando o mapa estiver terminado de movimento. Quando este evento disparar, atualize os itens no painel da lista.  
+   Adicione `mouseover` e `mouseout` eventos às camadas de bolha e ícone para alterar o cursor do rato quando o utilizador paira sobre um cluster ou ícone no mapa. Adicione um `click` evento à camada de bolha de cluster. Este `click` evento amplia no mapa dois níveis e centra o mapa sobre um cluster quando o utilizador seleciona qualquer cluster. Adicione um `click` evento à camada de ícone. Este `click` evento exibe uma janela pop-up que mostra os detalhes de um café quando um utilizador seleciona um ícone de localização individual. Adicione um evento ao mapa para monitorizar quando o mapa estiver terminado de movimento. Quando este evento disparar, atualize os itens no painel da lista.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -962,7 +962,7 @@ Neste tutorial, você aprende a criar um localizador de loja básico usando O Az
 Para saber mais sobre a cobertura e as capacidades do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Níveis de zoom e grelha de azulejos](zoom-levels-and-tile-grid.md)
+> [Níveis de zoom e grelha de mosaico](zoom-levels-and-tile-grid.md)
 
 Para ver mais exemplos de código e uma experiência interativa de programação:
 

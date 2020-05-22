@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 32ec35094740f05a2c2a6f17ab5dafa29d30a0f1
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628815"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747245"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurar mensagens de texto como o seu método de verificação
 
@@ -38,7 +38,7 @@ Dependendo das configurações da sua organização, poderá utilizar mensagens 
 
 ### <a name="to-set-up-text-messages"></a>Para configurar mensagens de texto
 
-1. Inscreva-se na sua conta de trabalho https://myaccount.microsoft.com/ ou escola e depois vá para a sua página.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá para a sua https://myaccount.microsoft.com/ página.
 
     ![A minha página de Perfil, mostrando links de informação de segurança destacados](media/security-info/securityinfo-myprofile-page.png)
 

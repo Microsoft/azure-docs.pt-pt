@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: aa76a5773a20a103ceec075a58c79fac691eec6f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382970"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747332"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e C #
 
@@ -24,7 +24,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017 ou mais tarde.](https://www.visualstudio.com/downloads/)
-* Para `Newtonsoft.Json` instalar como um pacote NuGet em estúdio Visual:
+* Para instalar `Newtonsoft.Json` como um pacote NuGet em estúdio Visual:
     1. No **Solution Explorer,** clique à direita no ficheiro Solução.
     1. Selecione **Gerir pacotes NuGet para solução**.
     1. Procure `Newtonsoft.Json` e instale o pacote.
@@ -34,7 +34,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova `SpellCheckSample` solução de consola nomeada no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. Crie uma nova solução de consola nomeada `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
     
     ```csharp
     using System;
@@ -62,7 +62,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     }
     ```
 
-3. Crie uma variável para os seus parâmetros de pesquisa. Anexar o seu `mkt=`código de mercado depois de . O código de mercado é o país de onde faz o pedido. Além disso, apende `&mode=`o seu modo de verificação ortográfica depois de . O modo `proof` é ou (apanha a `spell` maioria dos erros ortográficos/gramaticais) ou (captura a maioria da ortografia, mas não tantos erros gramaticais).
+3. Crie uma variável para os seus parâmetros de pesquisa. Anexar o seu código de mercado depois `mkt=` de . O código de mercado é o país/região de onde faz o pedido. Além disso, apende o seu modo de verificação ortográfica depois `&mode=` de . O modo é `proof` ou (apanha a maioria dos erros ortográficos/gramaticais) ou (captura a `spell` maioria da ortografia, mas não tantos erros gramaticais).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,7 +70,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-send-a-spell-check-request"></a>Criar e enviar um pedido de verificação ortográfica
 
-1. Crie uma função assíncrona chamada `SpellCheck()` para enviar um pedido à API. Crie `HttpClient`um e adicione a `Ocp-Apim-Subscription-Key` sua chave de subscrição ao cabeçalho. Em seguida, execute os seguintes passos dentro da função.
+1. Crie uma função assíncrona chamada `SpellCheck()` para enviar um pedido à API. Crie um `HttpClient` e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho. Em seguida, execute os seguintes passos dentro da função.
 
     ```csharp
     async static void SpellCheck()
@@ -89,7 +89,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     string uri = host + path + params_;
     ```
 
-3. Crie uma `KeyValuePair` lista com um objeto que contenha o seu texto e use-o para criar um `FormUrlEncodedContent` objeto. Detete a informação do cabeçalho e utilize `PostAsync()` para enviar o pedido.
+3. Crie uma lista com um `KeyValuePair` objeto que contenha o seu texto e use-o para criar um `FormUrlEncodedContent` objeto. Detete a informação do cabeçalho e utilize `PostAsync()` para enviar o pedido.
 
     ```csharp
     var values = new Dictionary<string, string>();
@@ -103,7 +103,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ### <a name="get-the-client-id-header"></a>Obtenha o cabeçalho de identificação do cliente
 
-Se a resposta `X-MSEdge-ClientID` contiver um cabeçalho, obtenha o valor e imprima-o.
+Se a resposta contiver um `X-MSEdge-ClientID` cabeçalho, obtenha o valor e imprima-o.
 
 ``` csharp
 string client_id;
@@ -127,7 +127,7 @@ Console.WriteLine(jsonObj);
 
 ## <a name="call-the-spell-check-function"></a>Ligue para a função de verificação de feitiços
 
-Na função principal do `SpellCheck()`seu projeto, ligue .
+Na função principal do seu projeto, ligue `SpellCheck()` .
 
 ```csharp
 static void Main(string[] args)

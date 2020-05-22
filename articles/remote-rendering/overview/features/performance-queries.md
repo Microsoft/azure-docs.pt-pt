@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 9a28dee2d1e6d1355b729a56e8eeb8447e4ed8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682029"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757471"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -35,9 +35,9 @@ A ilustração mostra como:
 
 ## <a name="frame-statistics-queries"></a>Consultas estatísticas de quadros
 
-As estatísticas de quadros fornecem algumas informações de alto nível para o último quadro, como a latência. Os dados fornecidos `FrameStatistics` na estrutura são medidos do lado do cliente, pelo que a API é uma chamada sincronizada:
+As estatísticas de quadros fornecem algumas informações de alto nível para o último quadro, como a latência. Os dados fornecidos na estrutura são medidos do lado do cliente, pelo que `FrameStatistics` a API é uma chamada sincronizada:
 
-````c#
+```cs
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
@@ -46,9 +46,20 @@ void QueryFrameData(AzureSession session)
         // do something with the result
     }
 }
-````
+```
 
-O objeto `FrameStatistics` recuperado contém os seguintes membros:
+```cpp
+void QueryFrameData(ApiHandle<AzureSession> session)
+{
+    FrameStatistics frameStatistics;
+    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        // do something with the result
+    }
+}
+```
+
+O objeto recuperado `FrameStatistics` contém os seguintes membros:
 
 | Membro | Explicação |
 |:-|:-|
@@ -65,17 +76,17 @@ O objeto `FrameStatistics` recuperado contém os seguintes membros:
 
 A soma de todos os valores de latência é tipicamente muito maior do que o tempo de trabalho disponível a 60 Hz. Isto é OK, porque vários quadros estão em voo em paralelo, e novos pedidos de fotogramas são iniciados à taxa de fotogramas desejada, como mostra a ilustração. No entanto, se a latência se tornar demasiado grande, afeta a qualidade da [reprojecção tardia](../../overview/features/late-stage-reprojection.md)e pode comprometer a experiência global.
 
-`videoFramesReceived`, `videoFrameReusedCount`e `videoFramesDiscarded` pode ser usado para medir o desempenho da rede e do servidor. Se `videoFramesReceived` for `videoFrameReusedCount` baixo e for alto, isto pode indicar congestionamento de rede ou fraco desempenho do servidor. Um `videoFramesDiscarded` valor elevado também indica congestionamento da rede.
+`videoFramesReceived`, e pode ser usado para medir o desempenho da `videoFrameReusedCount` `videoFramesDiscarded` rede e do servidor. Se `videoFramesReceived` for baixo e for `videoFrameReusedCount` alto, isto pode indicar congestionamento de rede ou fraco desempenho do servidor. Um valor elevado `videoFramesDiscarded` também indica congestionamento da rede.
 
-Por`timeSinceLastPresent`último, `videoFrameMinDelta`e `videoFrameMaxDelta` dar uma ideia da variação dos quadros de vídeo e das chamadas locais. Alta variação significa taxa de fotogramas inestável.
+Por último, `timeSinceLastPresent` e dar uma ideia da `videoFrameMinDelta` `videoFrameMaxDelta` variação dos quadros de vídeo e das chamadas locais. Alta variação significa taxa de fotogramas inestável.
 
-Nenhum dos valores acima dá indicação clara de latência pura da rede (as setas vermelhas na ilustração), porque `latencyPoseToReceive`a hora exata em que o servidor está ocupado a renderização precisa de ser subtraída do valor da ida e volta . A parte do lado do servidor da latência geral é informação que não está disponível para o cliente. No entanto, o parágrafo seguinte explica como este valor é aproximado `networkLatency` através de entrada adicional do servidor e exposto através do valor.
+Nenhum dos valores acima dá indicação clara de latência pura da rede (as setas vermelhas na ilustração), porque a hora exata em que o servidor está ocupado a renderização precisa de ser subtraída do valor da ida e volta `latencyPoseToReceive` . A parte do lado do servidor da latência geral é informação que não está disponível para o cliente. No entanto, o parágrafo seguinte explica como este valor é aproximado através de entrada adicional do servidor e exposto através do `networkLatency` valor.
 
 ## <a name="performance-assessment-queries"></a>Consultas de avaliação de desempenho
 
 As consultas de *avaliação* de desempenho fornecem informações mais aprofundadas sobre a carga de trabalho do CPU e da GPU no servidor. Uma vez que os dados são solicitados ao servidor, a consulta de um instantâneo de desempenho segue o padrão asincronizado habitual:
 
-``` cs
+```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
 
 void QueryPerformanceAssessment(AzureSession session)
@@ -92,7 +103,21 @@ void QueryPerformanceAssessment(AzureSession session)
 }
 ```
 
-Ao contrário `FrameStatistics` do objeto, o `PerformanceAssessment` objeto contém informações do lado do servidor:
+```cpp
+void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+{
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
+    {
+        // do something with the result:
+        PerformanceAssessment result = *res->Result();
+        // ...
+
+    });
+}
+```
+
+Ao contrário do `FrameStatistics` objeto, o `PerformanceAssessment` objeto contém informações do lado do servidor:
 
 | Membro | Explicação |
 |:-|:-|
@@ -102,7 +127,7 @@ Ao contrário `FrameStatistics` do objeto, o `PerformanceAssessment` objeto cont
 | utilizaçãoGPU | Utilização total de GPU do servidor em percentagem |
 | memoryCPU | Total de utilização da memória principal do servidor em percentagem |
 | memoryGPU | Total de utilização dedicada da memória de vídeo em percentagem da GPU do servidor |
-| redeLatency | A latência média da rede de ida e volta em milissegundos. Na ilustração acima, isto corresponde à soma das setas vermelhas. O valor é calculado subtraindo o tempo `latencyPoseToReceive` real `FrameStatistics`de renderização do servidor a partir do valor de . Embora esta aproximação não seja exata, dá alguma indicação da latência da rede, isolada dos valores de latência calculados no cliente. |
+| redeLatency | A latência média da rede de ida e volta em milissegundos. Na ilustração acima, isto corresponde à soma das setas vermelhas. O valor é calculado subtraindo o tempo real de renderização do servidor a partir do `latencyPoseToReceive` valor de `FrameStatistics` . Embora esta aproximação não seja exata, dá alguma indicação da latência da rede, isolada dos valores de latência calculados no cliente. |
 | polígonosRenderizados | O número de triângulos renderizados numa só moldura. Este número também inclui os triângulos que são abatidos mais tarde durante a renderização. Isto significa que este número não varia muito entre diferentes posições da câmara, mas o desempenho pode variar drasticamente, dependendo da taxa de abate do triângulo.|
 
 Para ajudá-lo a avaliar os valores, cada porção vem com uma classificação de qualidade como **Great,** **Good**, **Mediocre,** ou **Bad**.
@@ -110,9 +135,9 @@ Esta métrica de avaliação fornece uma indicação aproximada da saúde do ser
 
 ## <a name="statistics-debug-output"></a>Produção de depuração estatística
 
-A `ARRServiceStats` classe envolve tanto as estatísticas de quadros como as consultas de avaliação de desempenho e fornece uma funcionalidade conveniente para devolver as estatísticas como valores agregados ou como uma cadeia pré-construída. O código seguinte é a forma mais fácil de mostrar estatísticas do lado do servidor na sua aplicação de cliente.
+A classe é uma classe C# que envolve tanto as estatísticas de quadros como as consultas de avaliação de `ARRServiceStats` desempenho e fornece uma funcionalidade conveniente para devolver estatísticas como valores agregados ou como uma cadeia pré-construída. O código seguinte é a forma mais fácil de mostrar estatísticas do lado do servidor na sua aplicação de cliente.
 
-``` cs
+```cs
 ARRServiceStats _stats = null;
 
 void OnConnect()
@@ -142,9 +167,9 @@ O código acima preenche a etiqueta de texto com o seguinte texto:
 
 ![Saída de cordas ArrServiceStats](./media/arr-service-stats.png)
 
-A `GetStatsString` API forma uma série de todos os valores, mas cada valor `ARRServiceStats` único também pode ser consultado programáticamente a partir da instância.
+A `GetStatsString` API forma uma série de todos os valores, mas cada valor único também pode ser consultado programáticamente a partir da `ARRServiceStats` instância.
 
-Há também variantes dos membros, que agregam os valores ao longo do tempo. Consulte os membros `*Avg` `*Max`com `*Total`sufixo, ou . O `FramesUsedForAverage` membro indica quantos quadros foram usados para esta agregação.
+Há também variantes dos membros, que agregam os valores ao longo do tempo. Consulte os membros com sufixo, `*Avg` `*Max` ou `*Total` . O membro `FramesUsedForAverage` indica quantos quadros foram usados para esta agregação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0c5bfb6632a22a890ac2387f06464c18be7dd714
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699055"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747800"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
@@ -58,7 +58,7 @@ O valor percentual próximo do Total de Encomendas representa a quantidade de cr
 
 ### <a name="orders-by-geography"></a>Encomendas por geografia
 
-As Encomendas por mapa de **calor de geografia** exibem uma contagem das suas encomendas num mapa mundial e mostram lugares mapeados com base no País do Cliente. Este mapa de calor funciona da mesma forma que o **[Cliente por mapa de calor de geografia.](./customer-dashboard.md#customer-by-geography)**
+As Encomendas por mapa de **calor de geografia** exibem uma contagem das suas encomendas num mapa mundial e mostram lugares mapeados com base no País/Região do Cliente. Este mapa de calor funciona da mesma forma que o **[Cliente por mapa de calor de geografia.](./customer-dashboard.md#customer-by-geography)**
 
 ![Partner Center Analisar encomendas por geografia](./media/orders-by-geography.png)
 
@@ -103,7 +103,7 @@ A tabela de detalhes da Ordem apresenta uma lista numerada das 1000 encomendas d
 - Cada coluna na grelha é ordenada.
 - Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
 - Se os registos forem superiores a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
-- Os filtros podem ser aplicados na **tabela de detalhes** da Encomenda para mostrar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo Country, do tipo de licença Azure, do tipo de licença marketplace, do tipo de oferta, do estado da Encomenda, dos trilhos gratuitos, do ID de subscrição do Marketplace, do ID do cliente e do nome da Empresa.
+- Os filtros podem ser aplicados na **tabela de detalhes** da Encomenda para mostrar apenas os dados que lhe interessam. Os dados podem ser filtrados por Country/Region, tipo de licença Azure, tipo de licença marketplace, tipo de oferta, estado de encomenda, trilhos gratuitos, ID de subscrição do Marketplace, ID do cliente e nome da empresa.
 - Uma vez que as ofertas saaS adquiridas através do Azure Marketplace ou appSource não requerem uma subscrição azure, o ID de subscrição do Marketplace aparecerá como 0000000000-0000-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000na na secção de dados de **encomendas detalhadas.**
 
 #### <a name="orders-page-filters"></a>Encomendas Filtros de página

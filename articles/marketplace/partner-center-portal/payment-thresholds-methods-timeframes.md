@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 29b6b47a30760887fb01700e50ecdeb5dd307ad4
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858177"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745019"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Limiares, métodos e períodos de tempo de pagamento
 
@@ -38,70 +38,70 @@ Normalmente enviaremos qualquer pagamento que seja devido num dado mês até ao 
 
 Estes são os países e regiões em que os métodos de pagamento acima referidos são utilizados para cada mercado. O limiar de pagamento em todos os casos é $50 USD.
 
-| País | Azure Marketplace | Loja, Publicidade, Mixer e Minecraft | Office | Pagamentos PayPal  |
+| País/Região | Azure Marketplace | Loja, Publicidade, Mixer e Minecraft | Office | Pagamentos PayPal  |
 | --- | --- | --- | --- | --- |
 | Afeganistão | Sim | Sim | Não | Não |
 | Albânia | Sim | Sim | Sim | Sim |
 | Argélia | Sim | Sim | Sim | Sim |
 | Andorra | Não | Não | Sim | Sim |
-| Angola | Sim | Sim | Sim | No |
-| Antígua e Barbuda | Sim | Sim | No | Sim |
+| Angola | Sim | Sim | Sim | Não |
+| Antígua e Barbuda | Sim | Sim | Não | Sim |
 | Argentina | Sim | Sim | Sim | Sim |
 | Arménia | Sim | Sim | Não | Não |
 | Austrália | Sim | Sim | Sim | Sim |
 | Áustria | Sim | Sim | Sim | Sim |
-| Azerbaijão | Sim | Sim | Sim | No |
+| Azerbaijão | Sim | Sim | Sim | Não |
 | Barém | Sim | Sim | Sim | Sim |
-| Bangladeche | Sim | Sim | Sim | No |
-| Bielorrússia | Sim | Sim | Sim | No |
+| Bangladesh | Sim | Sim | Sim | Não |
+| Bielorrússia | Sim | Sim | Sim | Não |
 | Bélgica | Sim | Sim | Sim | Sim |
-| Benim | Sim | Sim | Sim | No |
-| Bolívia | Sim | Sim | Sim | No |
+| Benim | Sim | Sim | Sim | Não |
+| Bolívia | Sim | Sim | Sim | Não |
 | Bósnia e Herzegovina | Sim | Sim | Sim | Sim |
-| Botsuana | Sim | Sim | No | Sim |
+| Botsuana | Sim | Sim | Não | Sim |
 | Brasil | Sim | Sim | Sim | Sim |
 | Bulgária | Sim | Sim | Sim | Sim |
-| Burkina Faso | Sim | Sim | Sim | No |
-| Burundi | Sim | Sim | Sim | No |
-| Camboja | Sim | Sim | Sim | No |
-| Camarões | Sim | Sim | Sim | No |
+| Burkina Faso | Sim | Sim | Sim | Não |
+| Burundi | Sim | Sim | Sim | Não |
+| Camboja | Sim | Sim | Sim | Não |
+| Camarões | Sim | Sim | Sim | Não |
 | Canadá | Sim | Sim | Sim | Sim |
-| República Centro-Africana | Sim | Sim | Sim | No |
-| Chade | Sim | Sim | Sim | No |
+| República Centro-Africana | Sim | Sim | Sim | Não |
+| Chade | Sim | Sim | Sim | Não |
 | Chile | Sim | Sim | Sim | Sim |
-| China | No | Sim | Sim | Sim |
+| China | Não | Sim | Sim | Sim |
 | Colômbia | Sim | Sim | Sim | Sim |
 | Comoros | Sim | Sim | Não | Não |
-| República Democrática do Congo | Sim | Sim | Sim | No |
-| Congo, República de | Sim | Sim | Sim | No |
+| República Democrática do Congo | Sim | Sim | Sim | Não |
+| Congo, República de | Sim | Sim | Sim | Não |
 | Costa Rica | Sim | Sim | Sim | Sim |
-| Costa do Marfim | Sim | Sim | Sim | No |
-| Croácia | Sim | Sim | Sim | No |
+| Costa do Marfim | Sim | Sim | Sim | Não |
+| Croácia | Sim | Sim | Sim | Não |
 | Chipre | Sim | Sim | Sim | Sim |
 | República Checa | Sim | Sim | Sim | Sim |
 | Dinamarca | Sim | Sim | Sim | Sim |
-| Dominica | Sim | Sim | No | Sim |
+| Dominica | Sim | Sim | Não | Sim |
 | República Dominicana | Sim | Sim | Sim | Sim |
 | Equador | Sim | Sim | Sim | Sim |
 | Egito | Sim | Sim | Sim | Sim |
-| El Salvador | Sim | Sim | Sim | Sim |
-| Eritreia | Sim | Sim | Sim | No |
+| Salvador | Sim | Sim | Sim | Sim |
+| Eritreia | Sim | Sim | Sim | Não |
 | Estónia | Sim | Sim | Sim | Sim |
-| Etiópia | Sim | Sim | Sim | No |
+| Etiópia | Sim | Sim | Sim | Não |
 | Ilhas Fiji | Sim | Sim | Não | Não |
 | Finlândia | Sim | Sim | Sim | Sim |
 | França | Sim | Sim | Sim | Sim |
 | Geórgia | Sim | Sim | Sim | Sim |
 | Alemanha | Sim | Sim | Sim | Sim |
-| Gana | Sim | Sim | Sim | No |
+| Gana | Sim | Sim | Sim | Não |
 | Grécia | Sim | Sim | Sim | Sim |
 | Guatemala | Sim | Sim | Sim | Sim |
-| Guiné | Sim | Sim | Sim | No |
-| Haiti | Sim | Sim | Sim | No |
+| Guiné | Sim | Sim | Sim | Não |
+| Haiti | Sim | Sim | Sim | Não |
 | Honduras | Sim | Sim | Sim | Sim |
 | RAE de Hong Kong | Sim | Sim | Sim | Sim |
 | Hungria | Sim | Sim | Sim | Sim |
-| Islândia | Sim | Sim | Sim | No |
+| Islândia | Sim | Sim | Sim | Não |
 | Índia | Sim | Sim | Sim | Sim |
 | Indonésia | Sim | Sim | Sim | Sim |
 | Iraque | Sim | Sim | Não | Não |
@@ -113,87 +113,87 @@ Estes são os países e regiões em que os métodos de pagamento acima referidos
 | Jordânia | Sim | Sim | Sim | Sim |
 | Cazaquistão | Sim | Sim | Sim | Sim |
 | Quénia | Sim | Sim | Sim | Sim |
-| Coreia (Sul) | Sim | Sim | Sim | No |
-| Kuwait | Sim | Sim | Sim | Sim |
-| Quirguistão | Não | Não | Sim | No |
-| Laos | Sim | Sim | Sim | No |
-| Letónia | Sim | Sim | Sim | No |
+| Coreia (Sul) | Sim | Sim | Sim | Não |
+| Koweit | Sim | Sim | Sim | Sim |
+| Quirguistão | Não | Não | Sim | Não |
+| Laos | Sim | Sim | Sim | Não |
+| Letónia | Sim | Sim | Sim | Não |
 | Líbano | Sim | Sim | Não | Não |
-| Libéria | Sim | Sim | Sim | No |
-| Liechtenstein | Sim | Sim | Sim | Sim |
-| Lituânia | Sim | Sim | Sim | No |
+| Libéria | Sim | Sim | Sim | Não |
+| Listenstaine | Sim | Sim | Sim | Sim |
+| Lituânia | Sim | Sim | Sim | Não |
 | Luxemburgo | Sim | Sim | Sim | Sim |
-| Macedónia | No | Sim | Sim | No |
-| Madagáscar | Sim | Sim | Sim | No |
-| Malawi | Sim | Sim | Sim | Sim |
+| Macedónia | Não | Sim | Sim | Não |
+| Madagáscar | Sim | Sim | Sim | Não |
+| Maláui | Sim | Sim | Sim | Sim |
 | Malásia | Sim | Sim | Sim | Sim |
-| Mali | Sim | Sim | Sim | No |
+| Mali | Sim | Sim | Sim | Não |
 | Malta | Sim | Sim | Sim | Sim |
-| Maurícia | Sim | Sim | No | Sim |
+| Maurícias | Sim | Sim | Não | Sim |
 | México | Sim | Sim | Sim | Sim |
 | Mónaco | Sim | Sim | Não | Não |
-| Mongólia | Sim | Sim | Sim | No |
-| Montenegro | Sim | Sim | Sim | No |
-| Marrocos | Sim | Sim | Sim | No |
+| Mongólia | Sim | Sim | Sim | Não |
+| Montenegro | Sim | Sim | Sim | Não |
+| Marrocos | Sim | Sim | Sim | Não |
 | Moçambique | Sim | Sim | Sim | Sim |
-| Nepal | Sim | Sim | Sim | No |
+| Nepal | Sim | Sim | Sim | Não |
 | Holanda, The | Sim | Sim | Sim | Sim |
 | Nova Zelândia | Sim | Sim | Sim | Sim |
 | Nicarágua | Sim | Sim | Sim | Sim |
-| Níger | Sim | Sim | Sim | No |
-| Nigéria | Sim | Sim | Sim | No |
+| Níger | Sim | Sim | Sim | Não |
+| Nigéria | Sim | Sim | Sim | Não |
 | Noruega | Sim | Sim | Sim | Sim |
 | Omã | Sim | Sim | Sim | Sim |
-| Paquistão | Sim | Sim | Sim | No |
+| Paquistão | Sim | Sim | Sim | Não |
 | Panamá | Sim | Sim | Sim | Sim |
-| Paraguai | Sim | Sim | Sim | No |
+| Paraguai | Sim | Sim | Sim | Não |
 | Peru | Sim | Sim | Sim | Sim |
 | Filipinas | Sim | Sim | Sim | Sim |
 | Polónia | Sim | Sim | Sim | Sim |
 | Portugal | Sim | Sim | Sim | Sim |
-| Porto Rico | Não | Não | Sim | No |
+| Porto Rico | Não | Não | Sim | Não |
 | Catar | Sim | Sim | Sim | Sim |
-| Roménia | Sim | Sim | Sim | No |
-| Rússia | Sim | Sim | No | Sim |
-| Ruanda | Sim | Sim | Sim | No |
-| São Vicente e Granadinas | No | Sim | Não | Não |
+| Roménia | Sim | Sim | Sim | Não |
+| Rússia | Sim | Sim | Não | Sim |
+| Ruanda | Sim | Sim | Sim | Não |
+| São Vicente e Granadinas | Não | Sim | Não | Não |
 | Arábia Saudita | Sim | Sim | Sim | Sim |
-| Senegal | Sim | Sim | Sim | No |
-| Sérvia | Sim | Sim | Sim | No |
-| Serra Leoa | Sim | Sim | Sim | No |
+| Senegal | Sim | Sim | Sim | Não |
+| Sérvia | Sim | Sim | Sim | Não |
+| Serra Leoa | Sim | Sim | Sim | Não |
 | Singapura | Sim | Sim | Sim | Sim |
 | Eslováquia | Sim | Sim | Sim | Sim |
 | Eslovénia | Sim | Sim | Sim | Sim |
-| Somália | Sim | Sim | Sim | No |
+| Somália | Sim | Sim | Sim | Não |
 | África do Sul | Sim | Sim | Sim | Sim |
 | Espanha | Sim | Sim | Sim | Sim |
-| Sri Lanka | Sim | Sim | Sim | No |
+| Sri Lanca | Sim | Sim | Sim | Não |
 | Suécia | Sim | Sim | Sim | Sim |
-| Suíça | Sim | Sim | Sim | No |
-| Taiwan | No | Sim | Sim | Sim |
+| Suíça | Sim | Sim | Sim | Não |
+| Taiwan | Não | Sim | Sim | Sim |
 | Tajiquistão | Sim | Sim | Não | Não |
-| Tanzânia | Sim | Sim | Sim | No |
+| Tanzânia | Sim | Sim | Sim | Não |
 | Tailândia | Sim | Sim | Sim | Sim |
-| Timor-Leste | Sim | Sim | Sim | No |
-| Togo | Sim | Sim | Sim | No |
+| Timor-Leste | Sim | Sim | Sim | Não |
+| Togo | Sim | Sim | Sim | Não |
 | Tonga | Sim | Sim | Não | Não |
 | Trindade e Tobago | Sim | Sim | Sim | Sim |
-| Tunísia | Sim | Sim | Sim | No |
-| Turquia | Sim | Sim | Sim | No |
+| Tunísia | Sim | Sim | Sim | Não |
+| Turquia | Sim | Sim | Sim | Não |
 | Turquemenistão | Sim | Sim | Não | Não |
-| Uganda | Sim | Sim | Sim | No |
+| Uganda | Sim | Sim | Sim | Não |
 | Ucrânia | Sim | Sim | Não | Não |
 | Emirados Árabes Unidos | Sim | Sim | Sim | Sim |
 | Reino Unido | Sim | Sim | Sim | Sim |
-| Estados Unidos | Sim | Sim | Sim | Sim |
+| Estados Unidos da América | Sim | Sim | Sim | Sim |
 | Uruguai | Sim | Sim | Sim | Sim |
-| Uzbequistão | Sim | Sim | Não | Não |
+| Usbequistão | Sim | Sim | Não | Não |
 | Venezuela | Sim | Sim | Sim | Sim |
 | Vietname | Sim | Sim | Sim | Sim |
-| Zâmbia | Sim | Sim | Sim | No |
-| Zimbabué | Sim | Sim | Sim | No |
+| Zâmbia | Sim | Sim | Sim | Não |
+| Zimbabué | Sim | Sim | Sim | Não |
 | | |
 
 ## <a name="next-step"></a>Próximo passo
 
-- [Resumo do resumo do pagamento](./payout-summary-overview.md)
+- [Descrição geral do resumo de dividendos](./payout-summary-overview.md)

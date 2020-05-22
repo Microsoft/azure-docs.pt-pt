@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 63774f2f6b600b1f60aefea84e1d5ea0abd63cbb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628389"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744457"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como o seu método de verificação
 
@@ -53,7 +53,7 @@ Dependendo das configurações da sua organização, poderá utilizar chamadas t
 
 ### <a name="to-set-up-phone-calls"></a>Para configurar chamadas telefónicas
 
-1. Inscreva-se na sua conta de trabalho https://myaccount.microsoft.com/ ou escola e depois vá para a sua página.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá para a sua https://myaccount.microsoft.com/ página.
 
     ![A minha página de Perfil, mostrando links de informação de segurança destacados](media/security-info/securityinfo-myprofile-page.png)
 

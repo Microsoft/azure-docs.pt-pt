@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659285"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745376"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações dos contentores de compreensão linguística (LUIS)
 
@@ -46,9 +46,9 @@ Configurações de aplicativos não suportados|Detalhes|
 
 Os recipientes LUIS suportam um subconjunto das [línguas suportadas](luis-language-support.md#languages-supported) pelo PRÓPRIO LUIS. Os recipientes LUIS são capazes de compreender as expressões nas seguintes línguas:
 
-| Idioma | Região | Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem | Região | Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglês Americano | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Inglês (Estados Unidos) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Francês (França) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Francês (Canadá) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |

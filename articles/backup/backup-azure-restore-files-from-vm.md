@@ -3,12 +3,12 @@ title: Recuperar ficheiros e pastas da cópia de segurança Azure VM
 description: Neste artigo, aprenda a recuperar ficheiros e pastas de um ponto de recuperação de máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0c518c080f3789d36d2ca600ade23a0b4b2ab385
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652104"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757981"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -142,14 +142,23 @@ Para enumerar todos os volumes lógicos, nomes e seus caminhos num grupo de volu
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
+
+O ```lvdisplay``` comando também mostra se os grupos de volume estão ativos não estão. Se o grupo de volume estiver marcado como inativo, tem de ser ativado novamente para ser montado. Se o grupo de volume for mostrado como inativo, utilize o seguinte comando para o ativar.
+
+```bash
+#!/bin/bash
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+Depois de o nome do grupo de volume estar ativo, execute o ```lvdisplay``` comando mais uma vez para ver todos os atributos relevantes.
 
 Para montar os volumes lógicos no caminho da sua escolha:
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Para arrays RAID

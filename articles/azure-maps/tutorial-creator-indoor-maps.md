@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a49661ca8776f04d98cc04bbe7a07b8c388f91ee
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681688"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745924"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -215,7 +215,7 @@ Um azulejo é um conjunto de azulejos vetoriais que renderizam no mapa. Os tiles
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. O corpo de resposta será entregue em formato GeoJSON e conterá todas as coleções no conjunto de dados. Para a simplicidade, o exemplo aqui só mostra a `unit` coleção. Para ver um exemplo que contém todas as coleções, consulte [WFS Descrever Coleções API](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Para saber mais sobre qualquer coleção, pode clicar em qualquer um dos URLs dentro do `link` elemento.
+3. O corpo de resposta será entregue em formato GeoJSON e conterá todas as coleções no conjunto de dados. Para a simplicidade, o exemplo aqui só mostra a `unit` coleção. Para ver um exemplo que contém todas as coleções, consulte [WFS Descrever Coleções API](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Para saber mais sobre qualquer coleção, pode clicar em qualquer um dos URLs dentro do `link` elemento.
 
     ```json
     {
@@ -285,7 +285,7 @@ Um azulejo é um conjunto de azulejos vetoriais que renderizam no mapa. Os tiles
 
 1. Na aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Pedido**. Insira um **nome De Pedido** e selecione uma coleção. Clique em **Guardar**
 
-2. Faça um pedido **de POST** para a [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Utilize o `datasetId` conjunto de dados que contém o estado que pretende modificar. O pedido deve parecer o seguinte URL:
+2. Faça um pedido **de POST** para a [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Utilize o `datasetId` conjunto de dados que contém o estado que pretende modificar. O pedido deve parecer o seguinte URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}

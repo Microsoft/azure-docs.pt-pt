@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: cb4d2faafacf8ba4d8bbe519d92c950cd56e32fd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bc21ba73ef7e8f5879af2b15787449315f36a3f8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857067"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745325"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -22,6 +22,7 @@ O Azure Data Box é uma solução híbrida que permite importar os dados no loca
 Este tutorial descreve como pode encomendar um Azure Data Box. Neste tutorial, ficará a saber mais sobre:
 
 > [!div class="checklist"]
+>
 > * Pré-requisitos para implementar o Data Box
 > * Encomendar um Data Box
 > * Controlar a encomenda
@@ -38,8 +39,9 @@ Conclua os pré-requisitos de configuração seguintes para o serviço e disposi
 ### <a name="for-device"></a>Para o dispositivo
 
 Antes de começar, certifique-se de que:
-- Deve ter um computador anfitrião ligado à rede do datacenter. O Data Box irá copiar os dados desse computador. O computador anfitrião tem de executar um sistema operativo suportado, conforme descrito em [Requisitos de sistema do Azure Data Box](data-box-system-requirements.md).
-- O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, pode ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas.
+
+* Deve ter um computador anfitrião ligado à rede do datacenter. O Data Box irá copiar os dados desse computador. O computador anfitrião tem de executar um sistema operativo suportado, conforme descrito em [Requisitos de sistema do Azure Data Box](data-box-system-requirements.md).
+* O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, pode ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas.
 
 ## <a name="order-data-box"></a>Encomendar o Data Box
 
@@ -47,18 +49,18 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
 1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão neste URL: [https://portal.azure.com](https://portal.azure.com).
 2. Clique em **+ Criar um recurso** e procure *Azure Data Box*. Clique em **Azure Data Box**.
-    
+
    [![Procurar Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. Clique em **Criar**.
 
-4. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e clique em **Aplicar**. 
+4. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e clique em **Aplicar**.
 
     |Definição  |Valor  |
     |---------|---------|
     |Subscrição     | Selecione uma subscrição EA, CSP ou Azure Sponsorship para o serviço Data Box. <br> A subscrição está ligada à sua conta de faturação.       |
     |Tipo de transferência     | Selecione **Importar para o Azure**.        |
-    |País de origem     |   Selecione o país/região onde os dados residem atualmente.         |
+    |País/região fonte    |    Selecione o país/região onde os dados residem atualmente.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados.        |
 
 5. Selecione **Data Box**. A capacidade máxima utilizável para uma única encomenda é de 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.
@@ -66,11 +68,11 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
       [![Selecione opção Data Box 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. Em **Encomenda**, especifique os **Detalhes da encomenda**. Introduza ou selecione as informações seguintes e clique em **Seguinte**.
-    
+
     |Definição  |Valor  |
     |---------|---------|
     |Nome     |  Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.      |
-    |Grupo de recursos     |   Utilize um grupo de recursos existente ou crie um novo. <br> Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto.         |
+    |Grupo de recursos     |    Utilize um grupo de recursos existente ou crie um novo. <br> Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto.         |
     |Região do Azure de destino     | Selecione uma região para a sua conta de armazenamento. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).        |
     |Destino de armazenamento     | Escolha entre a conta de armazenamento ou os discos geridos ou ambos. <br> Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. <br> Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**. <br>As contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço Data Box funcione com contas de armazenamento protegidas, ative os serviços fidedignos nas definições de firewall de rede da conta de armazenamento. Para mais informações, consulte como adicionar a Caixa de [Dados Azure como um serviço de confiança](../storage/common/storage-network-security.md#exceptions).|
 
@@ -88,16 +90,19 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito. Os clientes que usam o serviço no Japão, Singapura, Coreia e Europa Ocidental têm a opção de selecionar o envio autogerido enquanto fazem a encomenda. Depois de a encomenda ser feita com sucesso, receberá um e-mail com instruções para recolher o dispositivo do centro de dados do Azure designado. Clique em **Seguida,** uma vez que os detalhes de envio tenham sido validados com sucesso.
+7. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
 
-8. Em **Detalhes de notificação**, especifique os endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
+   Depois de a encomenda ser feita com sucesso, se o envio autogerido tiver sido selecionado, receberá uma notificação por e-mail. Para obter mais informações sobre o envio autogerido, consulte [Use o envio autogerido](data-box-portal-customer-managed-shipping.md).
+
+8. Clique em **Seguida,** uma vez que os detalhes de envio tenham sido validados com sucesso.
+
+9. Em **Detalhes de notificação**, especifique os endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
 
     Recomendamos que utilize um e-mail de grupo para continuar a receber notificações se um administrador sair do grupo.
 
-9. Reveja o **Resumo** das informações relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
+10. Reveja o **Resumo** das informações relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
 
-10. Clique em **Encomendar**. A encomenda demora alguns minutos a ser criada.
-
+11. Clique em **Encomendar**. A encomenda demora alguns minutos a ser criada.
 
 ## <a name="track-the-order"></a>Controlar a encomenda
 
@@ -105,10 +110,10 @@ Depois de fazer a encomenda, pode controlar o estado da encomenda a partir do po
 
 Se o dispositivo não estiver disponível, receberá uma notificação. Se o dispositivo estiver disponível, a Microsoft identifica-o para envio e prepara o envio. Durante a preparação do dispositivo, ocorrem as ações seguintes:
 
-- São criadas Partilhas SMB para cada conta de armazenamento associada ao dispositivo.
-- Para cada partilha, são geradas credenciais de acesso, como nome de utilizador e palavra-passe.
-- A palavra-passe do dispositivo, que ajuda a desbloqueá-lo, também é gerada.
-- O Data Box está bloqueado para impedir o acesso não autorizado ao dispositivo a qualquer momento.
+* São criadas Partilhas SMB para cada conta de armazenamento associada ao dispositivo.
+* Para cada partilha, são geradas credenciais de acesso, como nome de utilizador e palavra-passe.
+* A palavra-passe do dispositivo, que ajuda a desbloqueá-lo, também é gerada.
+* O Data Box está bloqueado para impedir o acesso não autorizado ao dispositivo a qualquer momento.
 
 Quando a preparação do dispositivo estiver concluída, o portal mostra a encomenda no estado **Processado**.
 
@@ -123,7 +128,7 @@ Em seguida, a Microsoft prepara e expede os seus dispositivos através de uma tr
 Para cancelar esta encomenda, no portal do Azure, aceda a **Descrição Geral** e clique em **Cancelar** na barra de comando.
 
 Depois de efetuar uma encomenda, pode cancelá-la a qualquer momento antes de o estado desta ser marcado como processado.
- 
+
 Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em **Eliminar** na barra de comandos.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -131,6 +136,7 @@ Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
+>
 > * Pré-requisitos para implementar o Data Box
 > * Encomendar o Data Box
 > * Controlar a encomenda
@@ -140,5 +146,3 @@ Avance para o tutorial seguinte para saber como configurar o Data Box.
 
 > [!div class="nextstepaction"]
 > [Configurar o Azure Data Box](./data-box-deploy-set-up.md)
-
-

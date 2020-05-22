@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta com REST API'
 description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implementar artefactos utilizando a API REST.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80676572"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745102"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Defina e atribua um projeto azure com API REST
 
@@ -16,8 +16,8 @@ Aprender a criar e atribuir esquemas permite a definição de padrões comuns pa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-- Registe `Microsoft.Blueprint` o fornecedor de recursos. Para obter instruções, consulte [os fornecedores e tipos](../../azure-resource-manager/management/resource-providers-and-types.md)de recursos.
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Registe o fornecedor de `Microsoft.Blueprint` recursos. Para obter instruções, consulte [os fornecedores e tipos](../../azure-resource-manager/management/resource-providers-and-types.md)de recursos.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -44,7 +44,7 @@ $authHeader = @{
 }
 
 # Invoke the REST API
-$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2016-06-01'
+$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2020-01-01'
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
@@ -124,7 +124,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de função no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades são alinhadas com o identificador de definição de função e as identidades do principal são transmitidas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo _Contributor_ utiliza o papel integrado do `b24988ac-6180-42a0-ab88-20f7382dd24c`Contribuinte com um GUID de .
+1. Adicione a atribuição de função no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades são alinhadas com o identificador de definição de função e as identidades do principal são transmitidas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo utiliza o papel integrado do _Contribuinte_ com um GUID de `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
    - URI da API REST
 
@@ -144,7 +144,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema. Este exemplo utiliza a etiqueta Apply e o seu valor padrão `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`para grupos de recursos _integrados_ na política com um GUID de .
+1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados na política com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
    - URI da API REST
 
@@ -172,7 +172,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o seu valor padrão `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`para grupos de recursos _integrados_ na política com um GUID de .
+1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados na política com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
    - URI da API REST
 
@@ -286,7 +286,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza o papel _do_ Proprietário `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`incorporado com um GUID de .
+1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza o papel _do Proprietário_ incorporado com um GUID de `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` .
 
    - URI da API REST
 
@@ -329,7 +329,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 - `{YourMG}`- Substitua com a identificação do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`estático , mas o id principal do serviço varia de acordo com o inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
+1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o id principal do serviço varia de acordo com o inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
    - URI da API REST
 
@@ -391,7 +391,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
    - Identidade gerida atribuída ao utilizador
 
      Uma atribuição de plantas também pode usar uma [identidade gerida atribuída pelo utilizador.](../../active-directory/managed-identities-azure-resources/overview.md)
-     Neste caso, a parte de **identidade** do órgão de pedido muda da seguinte forma. `{yourRG}` Substitua `{userIdentity}` e com o nome do grupo de recursos e o nome da sua identidade gerida atribuída pelo utilizador, respectivamente.
+     Neste caso, a parte de **identidade** do órgão de pedido muda da seguinte forma. Substitua e com o nome do grupo de recursos e o nome da sua identidade gerida atribuída pelo `{yourRG}` `{userIdentity}` utilizador, respectivamente.
 
      ```json
      "identity": {

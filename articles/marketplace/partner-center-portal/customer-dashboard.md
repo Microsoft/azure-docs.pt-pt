@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 37569eba0d351fdedcd68042af2e33b0e3947faa
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b8492a6740eb9acfa20fbbe5dd5beed5e985fafc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701513"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744580"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard do Cliente na análise do mercado comercial
 
@@ -52,9 +52,9 @@ Existem três tipos de **clientes:** novos, existentes e agitados.
 
 ### <a name="customer-by-geography"></a>Cliente por geografia
 
-O gráfico **de geografia do Cliente** mostra as contagens de todos os clientes e clientes adquiridos durante a gama de datas selecionadas e são mapeados com base no País de Cliente. A luz para a cor escura no mapa representa o baixo a alto valor da contagem de clientes. Clique num disco na tabela para ampliar um país.
+O gráfico **cliente por geografia** mostra as contagens de todos os clientes e clientes adquiridos durante a gama de datas selecionadas e são mapeados com base no País/Região cliente. A luz para a cor escura no mapa representa o baixo a alto valor da contagem de clientes. Clique num disco na tabela para ampliar um país/região.
 
-O mapa de calor exibe a contagem do cliente e % por país cliente. Pode mover o mapa para ver a localização exata e ampliar para um local específico. Este mapa tem uma grelha suplementar que lhe permite ver a % dos clientes por localização, bem como os clientes recém-adicionados a esse local.
+O mapa de calor apresenta a contagem de clientes e % por país/região cliente. Pode mover o mapa para ver a localização exata e ampliar para um local específico. Este mapa tem uma grelha suplementar que lhe permite ver a % dos clientes por localização, bem como os clientes recém-adicionados a esse local.
 
 ### <a name="customer-trends"></a>Tendências do cliente
 
@@ -97,7 +97,7 @@ A tabela de detalhes do **Cliente** apresenta uma lista numerada dos 1000 client
 - Cada coluna na grelha é ordenada.
 - Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
 - Se o número de registos for superior a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
-- Os filtros podem ser aplicados na tabela para visualizar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo nome da empresa, ID do cliente, ID de subscrição do mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País cliente/Estado/Cidade/Zip, Idioma do Cliente, e assim por diante.
+- Os filtros podem ser aplicados na tabela para visualizar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo nome da empresa, ID do cliente, ID de subscrição do mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País cliente/Região/Estado/Cidade/Zip, Linguagem do Cliente, e assim por diante.
 - Quando uma oferta é comprada por um cliente protegido, a informação em **Dados Detalhados** do Cliente será mascarada (**************).
 
 ### <a name="customer-page-filters"></a>Filtros de página do cliente

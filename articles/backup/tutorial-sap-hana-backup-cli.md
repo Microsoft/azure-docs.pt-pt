@@ -3,12 +3,12 @@ title: Tutorial - Backup SAP HANA DB em Azure usando CLI
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução num Azure VM para um cofre dos Serviços de Recuperação de Backup Azure usando o Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78206627"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747297"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Back up Bases de dados SAP HANA em um Azure VM usando Azure CLI
 
@@ -141,6 +141,11 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 ```
 
 A lista de trabalho de [backup az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet lista todos os trabalhos de backup (programado ou a pedido) que tenham executado ou estejam atualmente em funcionamento na base de dados protegida, além de outras operações como registo, configuração de cópia de segurança, eliminação de dados de backup, etc.
+
+>[!NOTE]
+>O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de uma base de dados SAP HANA em funcionamento num VM Azure.
+>
+>Modifique a política manualmente conforme necessário.
 
 ## <a name="trigger-an-on-demand-backup"></a>Desencadear um reforço a pedido
 

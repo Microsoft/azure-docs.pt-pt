@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: bdd8104200bf21507e978abacf600c4780bb3808
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636672"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744167"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -53,14 +53,6 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
     > O sensor ATP do Microsoft Defender é ativado automaticamente nos servidores do Windows que utilizam o Security Center.
 
     Quando o Microsoft Defender ATP deteta uma ameaça, desencadeia um alerta. O alerta está no painel do Centro de Segurança. A partir do painel de instrumentos, pode sondar para a consola ATP do Microsoft Defender e realizar uma investigação detalhada para descobrir o alcance do ataque. Para obter mais informações sobre o Microsoft Defender ATP, consulte [os servidores do Bordo para o serviço ATP do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-* **Análise de dump de colisão** <a name="windows-dump"></a> - Quando o software se despenha, um depósito de lixo captura uma parte da memória no momento do acidente.
-
-    Um acidente pode ter sido causado por malware ou conter malware. Para evitar ser detetado por produtos de segurança, várias formas de malware utilizam um ataque sem ficheiros, o que evita escrever em disco ou encriptar componentes de software escritos em disco. Este tipo de ataque é difícil de detetar usando abordagens tradicionais baseadas em disco.
-
-    No entanto, ao utilizar a análise da memória, pode detetar este tipo de ataque. Ao analisar a memória no depósito de colisão, o Centro de Segurança pode detetar as técnicas que o ataque está a usar. Por exemplo, o ataque pode estar a tentar explorar vulnerabilidades no software, aceder a dados confidenciais e persistir subrepticiamente dentro de uma máquina comprometida. O Centro de Segurança faz este trabalho com o mínimo impacto de desempenho para os anfitriões.
-
-    Para obter detalhes sobre os alertas de análise de despejo de colisão, consulte a [tabela de alertas de Referência](alerts-reference.md#alerts-windows).
 
 * **Deteção de ataque sem ficheiros** <a name="windows-fileless"></a> - Ataques sem ficheiro sem registo que visam os seus pontos finais são comuns. Para evitar a deteção, ataques sem ficheiro injetam cargas maliciosas na memória. As cargas dos atacantes persistem na memória de processos comprometidos e realizam uma vasta gama de atividades maliciosas.
 
