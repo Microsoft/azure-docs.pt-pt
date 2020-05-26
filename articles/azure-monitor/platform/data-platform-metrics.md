@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a02b3df02d455db8a7dfd21f63d659f75a66e446
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457319"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799955"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
@@ -32,7 +32,7 @@ A tabela seguinte enumera as diferentes formas de utilizar dados métricos no Mo
 |  |  |
 |:---|:---|
 | Analisar | Use o explorador de [métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
-| Visualizar | Pin um gráfico do explorador de métricas para um [painel de instrumentos Azure.](../learn/tutorial-app-dashboards.md)<br>Crie um [livro](../app/usage-workbooks.md) para combinar com vários conjuntos de dados num relatório interativo. Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboard e combinar com outras fontes de dados. |
+| Visualizar | Pin um gráfico do explorador de métricas para um [painel de instrumentos Azure.](../learn/tutorial-app-dashboards.md)<br>Crie um [livro](../platform/workbooks-overview.md) para combinar com vários conjuntos de dados num relatório interativo. Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboard e combinar com outras fontes de dados. |
 | Alerta | Configure uma regra de [alerta métrico](alerts-metric.md) que envie uma notificação ou tome [medidas automatizadas](action-groups.md) quando o valor métrico cruza um limiar. |
 | Automatizar |  Utilize a [escala automática](autoscale-overview.md) para aumentar ou diminuir os recursos com base num valor métrico que cruze um limiar. |
 | Exportar | [Route Metrics to Logs](resource-logs-collect-storage.md) para analisar dados em Métricas de Monitor Azure juntamente com dados em Registos de Monitor estoque e para armazenar valores métricos por mais de 93 dias.<br>Stream Metrics para um Hub de [Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-los para sistemas externos. |

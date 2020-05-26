@@ -161,8 +161,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Solicitar alterações
       href: 'https://feedback.azure.com/forums/327234-data-lake'
-    - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-lake-analytics.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'
     - name: Calculadora de preços

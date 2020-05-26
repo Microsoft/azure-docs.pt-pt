@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
-ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188773"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798104"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -41,7 +41,7 @@ Ao conceber fluxos de dados de mapeamento, pode fazer um teste de cada transform
 
 Um Tempo de Integração com mais núcleos aumenta o número de nós nos ambientes de computação Spark e fornece mais poder de processamento para ler, escrever e transformar os seus dados. A Df Data Flows utiliza a Spark para o motor de computação. O ambiente Spark funciona muito bem com recursos otimizados pela memória.
 * Experimente um cluster **Compute Otimizado** se quiser que a sua taxa de processamento seja superior à sua taxa de entrada.
-* Experimente um cluster **Otimizado** de Memória se quiser cache mais dados na memória. A memória otimizada tem um preço-ponto por núcleo mais elevado do que o Compute Otimizado, mas provavelmente resultará em velocidades de transformação mais rápidas.
+* Experimente um cluster **Otimizado** de Memória se quiser cache mais dados na memória. A memória otimizada tem um preço-ponto por núcleo mais elevado do que o Compute Otimizado, mas provavelmente resultará em velocidades de transformação mais rápidas. Se experimentar erros de memória ao executar os seus fluxos de dados, mude para uma configuração de Iv-Fi otimizada pela memória.
 
 ![Novo IR](media/data-flow/ir-new.png "Novo IR")
 
@@ -140,6 +140,10 @@ Por exemplo, se tiver uma lista de ficheiros de dados a partir de julho de 2019 
 ```DateFiles/*_201907*.txt```
 
 Ao utilizar wildcarding, o seu pipeline conterá apenas uma atividade de Fluxo de Dados. Isto funcionará melhor do que um Lookup contra a Blob Store que, em seguida, iterates em todos os ficheiros combinados usando um ForEach com uma atividade de Fluxo de Dados executar no seu interior.
+
+O gasoduto Para Cada em modo paralelo irá gerar vários clusters girando-se em clusters de trabalho para cada atividade de fluxo de dados executada. Isto pode causar estrangulamento do serviço Azure com um elevado número de execuções simultâneas. No entanto, a utilização do Fluxo de Dados de Execução dentro de um For Each com conjunto sequencial no gasoduto evitará estrangulamentos e exaustão de recursos. Isto obrigará a Data Factory a executar cada um dos seus ficheiros contra um fluxo de dados sequencialmente.
+
+Recomenda-se que, se utilizar para cada um com um fluxo de dados em sequência, utilize a definição TTL no Tempo de Funcionamento da Integração Azure. Isto porque cada ficheiro incorrerá num tempo completo de arranque de cluster de 5 minutos dentro do seu iterator.
 
 ### <a name="optimizing-for-cosmosdb"></a>Otimização para CosmosDB
 
