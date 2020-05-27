@@ -5,19 +5,19 @@ author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/26/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 929fa936cdb864fd9b84f8feba55ef01ae6fed9c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: d7028018501c5e6580d7345938a739ccc983ff48
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984710"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873263"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrar a sua aplicação para utilizar o Azure Cosmos DB Java SDK v4
 
 > [!IMPORTANT]  
-> Para mais informações sobre este SDK, consulte as notas de lançamento do Azure Cosmos DB Java SDK v4, [o repositório Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos) [as dicas](performance-tips-java-sdk-v4-sql.md)de desempenho do Azure Cosmos DB Java SDK v4 e o guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md)Azure Cosmos DB Java SDK v4.
+> Para mais informações sobre este SDK, consulte as notas de [lançamento](sql-api-sdk-java-v4.md)do Azure Cosmos DB Java SDK v4, [repositório Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos)Dicas de [desempenho](performance-tips-java-sdk-v4-sql.md)do Azure Cosmos DB Java SDK v4 e guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md)Azure Cosmos DB Java SDK v4.
 >
 
 Este artigo explica como atualizar a sua aplicação Java existente que está a usar um Azure Cosmos DB Java SDK mais antigo para o mais recente Azure Cosmos DB Java SDK 4.0 para Core (SQL) API. Azure Cosmos DB Java SDK v4 corresponde ao `com.azure.cosmos` pacote. Pode utilizar as instruções neste doc se estiver a migrar a sua aplicação de qualquer um dos seguintes SDKs Azure Cosmos DB Java: 
@@ -57,13 +57,13 @@ Seguem-se as alterações de nível API em Azure Cosmos DB Java SDK 4.x.x em com
 
 ![Convenções de nomeação Azure Cosmos DB Java SDK](./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png)
 
-* O Azure Cosmos DB Java SDK 3.x e 4.0 remetem os recursos do cliente como `Cosmos<resourceName>`. Por `CosmosClient`exemplo, `CosmosDatabase` `CosmosContainer`. . Enquanto na versão 2.x.x, os SDKs Azure Cosmos DB Java não têm um esquema uniforme de nomeação.
+* O Azure Cosmos DB Java SDK 3.x e 4.0 remetem os recursos do cliente como `Cosmos<resourceName>` . Por exemplo, `CosmosClient` `CosmosDatabase` . `CosmosContainer` . Enquanto na versão 2.x.x, os SDKs Azure Cosmos DB Java não têm um esquema uniforme de nomeação.
 
 * Azure Cosmos DB Java SDK 3.x.x e 4.0 oferecem APIs Sync e Async.
 
-  * **Java SDK 4.0** : Todas as classes pertencem à Sync API a menos que o nome da classe seja anexado com `Async` seguinte `Cosmos`.
+  * **Java SDK 4.0** : Todas as classes pertencem à Sync API a menos que o nome da classe seja anexado `Async` com seguinte `Cosmos` .
 
-  * **Java SDK 3.x:** Todas as classes pertencem à API Async, `Async` a `Cosmos`menos que o nome da classe seja anexado após .
+  * **Java SDK 3.x:** Todas as classes pertencem à API Async, a menos que o nome da classe seja anexado `Async` após `Cosmos` .
 
   * **Async Java SDK 2.x:** Os nomes de classe são semelhantes ao Sync Java SDK 2.x, no entanto o nome começa com *Async*.
 
@@ -79,7 +79,7 @@ Na versão 2.x.x do Azure Cosmos DB Java SDK, todas as operações em recursos e
 
 ### <a name="representing-documents"></a>Documentos representativos
 
-Em Azure Cosmos DB Java SDK 4.0, `JsonNodes` POJO's personalizados e são as duas opções para ler e escrever os documentos da Azure Cosmos DB.
+Em Azure Cosmos DB Java SDK 4.0, POJO's personalizados e `JsonNodes` são as duas opções para ler e escrever os documentos da Azure Cosmos DB.
 
 No Azure Cosmos DB Java SDK 3.x,x, o `CosmosItemProperties` objeto é exposto pela API pública e serviu como representação documental. Esta classe já não é exposta publicamente na versão 4.0.
 
@@ -88,7 +88,7 @@ No Azure Cosmos DB Java SDK 3.x,x, o `CosmosItemProperties` objeto é exposto pe
 * Os pacotes Azure Cosmos DB Java SDK 4.0 começam com`com.azure.cosmos`
   * Pacotes Azure Cosmos DB Java SDK 3.x.x começam com pacotes`com.azure.data.cosmos`
 
-* Azure Cosmos DB Java SDK 4.0 coloca `com.azure.cosmos.models`várias classes num pacote aninhado. Alguns destes pacotes incluem:
+* Azure Cosmos DB Java SDK 4.0 coloca várias classes num pacote aninhado. `com.azure.cosmos.models` Alguns destes pacotes incluem:
 
   * `CosmosContainerResponse`
   * `CosmosDatabaseResponse`
@@ -102,9 +102,9 @@ No Azure Cosmos DB Java SDK 3.x,x, o `CosmosItemProperties` objeto é exposto pe
 
 ### <a name="accessors"></a>Acessórios
 
-Azure Cosmos DB Java SDK `get` 4.0 expõe e `set` métodos de acesso aos membros da instância. Por exemplo, `CosmosContainer` o `container.getId()` `container.setId()` exemplo tem e métodos.
+Azure Cosmos DB Java SDK 4.0 expõe `get` e `set` métodos de acesso aos membros da instância. Por exemplo, o `CosmosContainer` exemplo tem `container.getId()` e `container.setId()` métodos.
 
-Isto é diferente do Azure Cosmos DB Java SDK 3.x.x que expõe uma interface fluente. Por exemplo, `CosmosSyncContainer` um `container.id()` exemplo tem que está `id` sobrecarregado para obter ou definir o valor.
+Isto é diferente do Azure Cosmos DB Java SDK 3.x.x que expõe uma interface fluente. Por exemplo, um `CosmosSyncContainer` exemplo tem que está sobrecarregado para obter ou definir o `container.id()` `id` valor.
 
 ## <a name="code-snippet-comparisons"></a>Comparações de códigos
 

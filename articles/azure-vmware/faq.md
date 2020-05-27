@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das questões comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 6d8e87dd52871b82109ccc794af04244efe95b06
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854596"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873306"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre a pré-visualização da Azure VMware Solution (AVS)
 
@@ -17,7 +17,7 @@ Respostas para perguntas frequentes sobre a Azure VMware Solution (AVS).
 
 ## <a name="general"></a>Geral
 
-**O que é a Solução VMware no Azure (AVS)?**
+**O que é a Solução Azure VMware (AVS)?**
 
 À medida que as empresas prosseguem estratégias de modernização de TI para melhorar a agilidade do negócio, reduzir custos e acelerar a inovação, as plataformas híbridas de nuvem surgiram como principais facilitadores da transformação digital dos clientes. O AVS combina o software Software Defined Data Center (SDDC) da VMware com o ecossistema global de serviços em nuvem do Microsoft Azure. A solução AVS é conseguida para atender aos requisitos de desempenho, disponibilidade, segurança e conformidade.
 
@@ -45,7 +45,7 @@ As integrações específicas e os casos de utilização podem ser avaliados cas
 
 **Posso migrar vSphere VMs de ambientes no local para nuvens privadas AVS?**
 
-Sim. A migração vM e a vMotion podem ser usadas para mover VMs parahttps://kb.vmware.com/s/article/210695uma nuvem privada se o vCenter transversal padrão [requisitos vMotion][ ] for cumprido.
+Sim. A migração vM e a vMotion podem ser usadas para mover VMs para uma nuvem privada se o vCenter transversal padrão [requisitos https://kb.vmware.com/s/article/210695 vMotion][ ] for cumprido.
 
 **É necessária uma versão específica da vSphere em ambientes no local?**
 
@@ -66,6 +66,35 @@ Não existe qualquer alteração à atual Solução Azure VMware pela CloudSimpl
 **Posso migrar da Azure VMware Solution by CloudSimple para esta nova solução?**
 
 Sim, a Azure VMware Solution suporta a migração utilizando ferramentas VMware familiares como o HCX. Para os clientes interessados em migrar para a nova solução, por favor trabalhe com a sua equipa de conta Microsoft para explorar opções e suporte disponível.
+
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Como solicito um aumento de quota de acolhimento para uma solução Azure VMware existente?**
+
+Pode solicitar um aumento de quota [submetendo um pedido](..\azure-portal\supportability\how-to-create-azure-support-request.md)de apoio. A equipa de Gestão de Quotas avalia o pedido e aprova-o no prazo de três dias úteis.  
+
+> [!IMPORTANT]
+> Antes de poder solicitar um aumento de quota, certifique-se de que regista o fornecedor de [recursos **Microsoft.AVS** ](tutorial-create-private-cloud.md) no portal Azure.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Para obter formas adicionais de registar o fornecedor de recursos, consulte os fornecedores e tipos de [recursos do Azure.](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types)
+
+1. No seu portal Azure, sob **ajuda + suporte,** crie um **novo pedido** de apoio e forneça as seguintes informações para o bilhete:
+   - **Tipo de emissão:** Técnico
+   - **Subscrição:** O seu ID de subscrição
+   - **Serviço:**  Solução Azure VMware 
+   - **Resumo:** Aumento de quota
+   - **Tipo de problema:** Problemas de Gestão de Capacidades
+   - **Subtipo de problemas:** Pedido do Cliente para quota/capacidade adicional de anfitrião
+
+1. Na Descrição do bilhete de apoio, no separador Details, forneça o seguinte:
+   - Número de nós adicionais   
+   - Nó SKU
+   - Região
+
+   > [!NOTE] 
+   > Por defeito, será concedido um mínimo de quatro nós.
+
+1. Clique em **Rever + Criar** para submeter o pedido.
 
 ## <a name="compute-network-and-storage"></a>Computação, rede e armazenamento
 

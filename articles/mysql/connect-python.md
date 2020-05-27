@@ -9,13 +9,13 @@ ms.custom:
 - seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/09/2020
-ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 827a34999cc3f4d90344915a9b57492a0f31bafe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067902"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870034"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Quickstart: Use Python para conectar e consultar dados com base de dados Azure para MySQL
 
@@ -28,6 +28,9 @@ Este tópico pressupõe que está familiarizado com o desenvolvimento usando Pyt
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma base de dados Azure para servidor MySQL. [Crie uma base de dados Azure para servidor MySQL utilizando o portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [crie uma base de dados Azure para o servidor MySQL utilizando o Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
+> [!IMPORTANT] 
+> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
+
 ## <a name="install-python-and-the-mysql-connector"></a>Instalar o Python e o conector de MySQL
 
 Instale python e o conector MySQL para Python no seu computador utilizando os seguintes passos: 
@@ -35,13 +38,13 @@ Instale python e o conector MySQL para Python no seu computador utilizando os se
 > [!NOTE]
 > Este quickstart usa uma abordagem de consulta SQL crua para ligar ao MySQL. Se estiver a usar uma estrutura web, utilize o conector recomendado para a estrutura, por exemplo, [o cliente mysql client](https://pypi.org/project/mysqlclient/) para django.
 
-1. Descarregue e instale [Python 3.7 ou superior](https://www.python.org/downloads/) para o seu SISTEMA. Certifique-se de adicionar `PATH`Python ao seu, porque o conector MySQL requer isso.
+1. Descarregue e instale [Python 3.7 ou superior](https://www.python.org/downloads/) para o seu SISTEMA. Certifique-se de adicionar Python ao `PATH` seu, porque o conector MySQL requer isso.
    
-1. Abra um pedido `bash` de comando ou concha `python -V` e verifique a sua versão Python executando com o interruptor V superior.
+1. Abra um pedido de comando ou `bash` concha e verifique a sua versão Python executando com o interruptor V `python -V` superior.
    
-1. O `pip` instalador de pacotes está incluído nas versões mais recentes da Python. Atualize `pip` a versão `pip install -U pip`mais recente executando . 
+1. O instalador de `pip` pacotes está incluído nas versões mais recentes da Python. Atualize `pip` a versão mais recente executando `pip install -U pip` . 
    
-   Se `pip` não estiver instalado, pode descarregar e `get-pip.py`instalá-lo com . Para mais informações, consulte [Instalação](https://pip.pypa.io/en/stable/installing/). 
+   Se `pip` não estiver instalado, pode descarregar e instalá-lo com `get-pip.py` . Para mais informações, consulte [Instalação](https://pip.pypa.io/en/stable/installing/). 
    
 1. Utilizar `pip` para instalar o conector MySQL para Python e suas dependências:
    
@@ -70,12 +73,12 @@ Obtenha a informação de ligação que precisa para ligar à Base de Dados Azur
 Para cada exemplo de código neste artigo:
 
 1. Crie um novo ficheiro num editor de texto.
-1. Adicione o exemplo de código ao ficheiro. No código, substitua `<myadmin>` `<mypassword>`os `<mydemoserver>` `<mydatabase>` espaços reservados e os espaços reservados com os valores do seu servidor MySQL e base de dados.
+1. Adicione o exemplo de código ao ficheiro. No código, substitua os espaços reservados e os `<mydemoserver>` `<myadmin>` espaços `<mypassword>` `<mydatabase>` reservados com os valores do seu servidor MySQL e base de dados.
 1. Guarde o ficheiro numa pasta de projeto com uma extensão *.py,* como *C:\pythonmysql\createtable.py* ou */home/username/pythonmysql/createtable.py*.
-1. Para executar o código, abra `bash` um pedido de comando ou concha `cd pythonmysql`e mude o diretório para a pasta do projeto, por exemplo . Digite `python` o comando seguido pelo `python createtable.py`nome do ficheiro, por exemplo, e prima Enter. 
+1. Para executar o código, abra um pedido de comando ou `bash` concha e mude o diretório para a pasta do projeto, por exemplo `cd pythonmysql` . Digite o `python` comando seguido pelo nome do ficheiro, por `python createtable.py` exemplo, e prima Enter. 
    
    > [!NOTE]
-   > No Windows, se *python.exe* não for encontrado, poderá ter de adicionar o caminho Python à variável ambiental `C:\python27\python.exe createtable.py`PATH, ou fornecer o caminho completo para *python.exe*, por exemplo .
+   > No Windows, se *python.exe* não for encontrado, poderá ter de adicionar o caminho Python à variável ambiental PATH, ou fornecer o caminho completo para *python.exe*, por exemplo `C:\python27\python.exe createtable.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
 
@@ -138,7 +141,7 @@ Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **S
 
 O código importa a biblioteca mysql.connector e utiliza a função de [ligação()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de Dados Azure para mySQL utilizando os [argumentos](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) na coleção config. O código utiliza um cursor na ligação e o método [cursor.executar executa()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) a consulta SQL contra a base de dados MySQL. 
 
-O código lê as linhas de dados utilizando o método [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) , `for` mantém o resultado definido numa linha de recolha e utiliza um iterator para circular sobre as linhas.
+O código lê as linhas de dados utilizando o método [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) , mantém o resultado definido numa linha de recolha e utiliza um `for` iterator para circular sobre as linhas.
 
 ```python
 import mysql.connector

@@ -3,13 +3,13 @@ title: 'Quickstart: Implementar um cluster de serviço Azure Kubernetes'
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação e monitorize o desempenho no Serviço Azure Kubernetes (AKS) usando o PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 05/12/2020
-ms.openlocfilehash: 91a28b935e0972daa181ffc4eb4d6d9595e4b3e1
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/26/2020
+ms.openlocfilehash: a89f76344e48d5af8c71c5a674a94767795b41a9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83717976"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871479"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes utilizando powerShell
 
@@ -26,9 +26,6 @@ Este guia de introdução parte do princípio de que possui conhecimentos básic
 Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se ligue à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/Connect-AzAccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [Instalar o Azure PowerShell][install-azure-powershell].
-
-> [!IMPORTANT]
-> Este artigo utiliza uma versão de pré-visualização do módulo Az.AKS PowerShell. Deve instalá-lo separadamente do módulo Az PowerShell utilizando o seguinte comando: `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview` . Uma vez que a versão de pré-visualização do módulo Az.AKS PowerShell esteja geralmente disponível, torna-se parte das futuras versões do módulo Az PowerShell e disponível de forma nativa dentro da Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -257,7 +254,7 @@ Neste arranque rápido, imagens de contentores pré-criadas foram usadas para cr
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. Também pode [aceder ao painel web da Kubernetes][kubernetes-dashboard] para o seu cluster AKS.
 

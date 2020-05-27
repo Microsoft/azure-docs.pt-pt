@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas comuns ao permitir e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 9fcf14bf42fc843a126fea269038087ee7fb0c6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1242aa0e6c8255d778da55b0e574f3d12f61c381
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382052"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872020"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Tiroteio em problemas em Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Se tiver algum problema ao utilizar espaços Azure Dev, crie um [problema no rep
 
 Para resolver problemas de forma mais eficaz, pode ajudar a criar registos mais detalhados para revisão.
 
-Para a extensão do `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` Estúdio Visual, detete a variável ambiente para 1. Certifique-se de reiniciar o Visual Studio para que a variável ambiental faça efeito. Uma vez ativados, os registos `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` detalhados são escritos para o seu diretório.
+Para o Estúdio Visual, detete a `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` variável ambiente para 1. Certifique-se de reiniciar o Visual Studio para que a variável ambiental faça efeito. Uma vez ativados, os registos detalhados são escritos para o seu `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` diretório.
 
-No CLI, pode obter mais informações durante `--verbose` a execução do comando utilizando o interruptor. Também pode procurar registos mais `%TEMP%\Azure Dev Spaces`detalhados. Num Mac, o diretório *TEMP* pode `echo $TMPDIR` ser encontrado correndo de uma janela terminal. Num computador Linux, o diretório `/tmp` *TEMP* é geralmente . Além disso, verifique se a exploração madeireira está ativada no ficheiro de [configuração DoClI Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+No CLI, pode obter mais informações durante a execução do comando utilizando o `--verbose` interruptor. Também pode procurar registos mais `%TEMP%\Azure Dev Spaces` detalhados. Num Mac, o diretório *TEMP* pode ser encontrado correndo `echo $TMPDIR` de uma janela terminal. Num computador Linux, o diretório *TEMP* é geralmente `/tmp` . Além disso, verifique se a exploração madeireira está ativada no ficheiro de [configuração DoClI Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 A Azure Dev Spaces também funciona melhor quando depura uma única instância, ou pod. O `azds.yaml` ficheiro contém uma definição, *réplicaCount,* que indica o número de cápsulas que a Kubernetes executa para o seu serviço. Se alterar a *réplicaCount* para configurar a sua aplicação para executar várias cápsulas para um determinado serviço, o debugger liga-se à primeira cápsula, quando listada alfabeticamente. O debugger liga-se a uma vagem diferente quando a cápsula original recicla, possivelmente resultando em comportamento inesperado.
 
@@ -78,7 +78,7 @@ Para corrigir este problema, [atualize a sua configuração de mancha](../aks/op
 
 ### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Erro "Azure Dev Spaces CLI não instalado sem instalação corretamente" ao executar az aks use-dev-spaces
 
-Uma atualização para o Azure Dev Spaces CLI alterou a sua trajetória de instalação. Se estiver a utilizar uma versão do Azure CLI antes de 2.0.63, poderá ver este erro. Para exibir a sua versão do `az --version`Azure CLI, utilize .
+Uma atualização para o Azure Dev Spaces CLI alterou a sua trajetória de instalação. Se estiver a utilizar uma versão do Azure CLI antes de 2.0.63, poderá ver este erro. Para exibir a sua versão do Azure CLI, utilize `az --version` .
 
 ```azurecli
 az --version
@@ -89,9 +89,9 @@ azure-cli                         2.0.60 *
 ...
 ```
 
-Apesar da mensagem `az aks use-dev-spaces` de erro ao correr com uma versão do Azure CLI antes de 2.0.63, a instalação tem sucesso. Pode continuar a `azds` usar sem problemas.
+Apesar da mensagem de erro ao correr `az aks use-dev-spaces` com uma versão do Azure CLI antes de 2.0.63, a instalação tem sucesso. Pode continuar a usar `azds` sem problemas.
 
-Para corrigir este problema, atualize a instalação do [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) para 2.0.63 ou posteriormente. Esta atualização irá resolver a `az aks use-dev-spaces`mensagem de erro que recebe quando estiver a correr . Em alternativa, pode continuar a utilizar a sua versão atual do Azure CLI e do Azure Dev Spaces CLI.
+Para corrigir este problema, atualize a instalação do [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) para 2.0.63 ou posteriormente. Esta atualização irá resolver a mensagem de erro que recebe quando estiver a correr `az aks use-dev-spaces` . Em alternativa, pode continuar a utilizar a sua versão atual do Azure CLI e do Azure Dev Spaces CLI.
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Erro "Incapaz de chegar ao kube-apiserver"
 
@@ -106,27 +106,27 @@ Certifique-se de que o servidor API está disponível executando comandos kubect
 ### <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Aviso "Dockerfile não podia ser gerado devido a linguagem não suportada"
 A Azure Dev Spaces oferece apoio nativo para C# e Node.js. Quando executa `azds prep` um diretório com código escrito numa destas línguas, o Azure Dev Spaces cria automaticamente um Dockerfile apropriado para si.
 
-Ainda pode utilizar espaços Azure Dev com código escrito noutras línguas, mas precisa `azds up` de criar manualmente o Dockerfile antes de ser utilizado pela primeira vez.
+Ainda pode utilizar espaços Azure Dev com código escrito noutras línguas, mas precisa de criar manualmente o Dockerfile antes de ser utilizado `azds up` pela primeira vez.
 
 Se a sua aplicação estiver escrita numa linguagem que a Azure Dev Spaces não suporta de forma nativa, precisa de fornecer um Dockerfile apropriado para construir uma imagem de contentor que execute o seu código. O Docker fornece uma [lista das melhores práticas para escrever Ficheiros Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) e uma [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) que pode ajudá-lo a escrever um Dockerfile que se adequa às suas necessidades.
 
-Uma vez que tenha um Dockerfile `azds up` apropriado no lugar, você corre para executar a sua aplicação em Espaços Azure Dev.
+Uma vez que tenha um Dockerfile apropriado no lugar, você corre `azds up` para executar a sua aplicação em Espaços Azure Dev.
 
 ## <a name="common-issues-when-starting-or-stopping-services-with-azure-dev-spaces"></a>Questões comuns ao iniciar ou parar serviços com espaços Azure Dev
 
 ### <a name="error-config-file-not-found"></a>Erro "Ficheiro Config não encontrado:"
 
-Ao `azds up`correr, pode ver este erro. Ambos `azds up` `azds prep` devem ser executados a partir do diretório raiz do projeto que você quer executar no seu espaço de v.
+Ao `azds up` correr, pode ver este erro. Ambos `azds up` devem `azds prep` ser executados a partir do diretório raiz do projeto que você quer executar no seu espaço de v.
 
 Para resolver este problema:
 1. Mude o seu diretório atual para a pasta raiz que contém o seu código de serviço. 
-1. Se não tiver um ficheiro _azds.yaml_ na pasta `azds prep` de código, corra para gerar ativos de Docker, Kubernetes e Azure Dev Spaces.
+1. Se não tiver um ficheiro _azds.yaml_ na pasta de código, corra para gerar ativos de `azds prep` Docker, Kubernetes e Azure Dev Spaces.
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Timeout no "Waiting for container image build..." passo com nódosos virtuais AKS
 
 Este tempo de tempo ocorre quando se tenta usar a Dev Spaces para executar um serviço que está configurado para funcionar num [nó virtual AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). A Tualmente, a Dev Spaces não suporta serviços de construção ou depuração em nódos virtuais.
 
-Se correr `azds up` com `--verbose` o interruptor ou ativar o registo verbose no Estúdio Visual, verá detalhes adicionais:
+Se correr com o interruptor ou ativar o `azds up` `--verbose` registo verbose no Estúdio Visual, verá detalhes adicionais:
 
 ```cmd
 azds up --verbose
@@ -150,9 +150,9 @@ Este erro ocorre se o cliente Helm já não puder falar com a cápsula Tiller qu
 
 Para corrigir este problema, reinicie os nós do agente no seu cluster.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Erro "liberte o\<nome\> \>-\<de\>-\<serviço de identificação do\>nome de serviço falhado: o \<nome\>de serviço dos\<serviços ' já existe" ou "Puxe o acesso negado para o nome do serviço , o repositório não existe ou pode exigir 'login de estivador'"
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Erro "liberte o nome de serviço de identificação do nome de serviço falhado: o \< \> - \< nome de \> - \< \> serviço dos serviços \< ' já existe" ou "Puxe o acesso negado para o nome do serviço , o \> \< \> repositório não existe ou pode exigir 'login de estivador'"
 
-Estes erros podem ocorrer se misturar comandos `helm install`direct `helm upgrade`helm `helm delete`(tais como, ou ) `azds up` `azds down`com comandos Dev Spaces (como e) dentro do mesmo espaço de dev. Ocorrem porque a Dev Spaces tem a sua própria instância Tiller, que entra em conflito com a sua própria instância Tiller que funciona no mesmo espaço de dev.
+Estes erros podem ocorrer se misturar comandos direct helm (tais `helm install` como, `helm upgrade` ou ) com `helm delete` comandos Dev Spaces (como `azds up` `azds down` e) dentro do mesmo espaço de dev. Ocorrem porque a Dev Spaces tem a sua própria instância Tiller, que entra em conflito com a sua própria instância Tiller que funciona no mesmo espaço de dev.
 
 É bom usar comandos Helm e Dev Spaces contra o mesmo aglomerado AKS, mas cada espaço de nome habilitado para espaços de V deve usar um ou outro.
 
@@ -176,9 +176,9 @@ configurations:
 
 Estás a usar uma imagem do Docker de um registo privado que requer autenticação.
 
-Para corrigir este problema, pode permitir que a Dev Spaces autenticae e retire imagens deste registo privado utilizando [imagensPullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets). Para utilizar a imagemPullSecrets, [crie um segredo Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) no espaço de nome onde está a usar a imagem. Em seguida, forneça o segredo `azds.yaml`como uma imagemPullSecret em .
+Para corrigir este problema, pode permitir que a Dev Spaces autenticae e retire imagens deste registo privado utilizando [imagensPullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets). Para utilizar a imagemPullSecrets, [crie um segredo Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) no espaço de nome onde está a usar a imagem. Em seguida, forneça o segredo como uma imagemPullSecret em `azds.yaml` .
 
-Abaixo está um exemplo de uma `azds.yaml`imagem especificandoPullSecrets em .
+Abaixo está um exemplo de uma imagem especificandoPullSecrets em `azds.yaml` .
 
 ```yaml
 kind: helm-release
@@ -203,13 +203,13 @@ install:
 ```
 
 > [!IMPORTANT]
-> A definição `azds.yaml` de imagemPullSecrets em irá `values.yaml`sobrepor a imagemPullSecrets especificada na .
+> A definição de imagemPullSecrets em irá sobrepor a `azds.yaml` imagemPullSecrets especificada na `values.yaml` .
 
 ### <a name="error-service-cannot-be-started"></a>Erro "O serviço não pode ser iniciado."
 
 Pode ver este erro quando o seu código de serviço não começar. A causa está frequentemente no código do utilizador. Para obter mais informações de diagnóstico, ative a exploração madeireira mais detalhada ao iniciar o seu serviço.
 
-A partir da linha `--verbose` de comando, utilize o para permitir uma exploração mais detalhada. Também pode especificar um `--output`formato de saída utilizando . Por exemplo:
+A partir da linha de comando, utilize o para permitir uma `--verbose` exploração mais detalhada. Também pode especificar um formato de saída utilizando `--output` . Por exemplo:
 
 ```cmd
 azds up --verbose --output json
@@ -261,7 +261,7 @@ Este erro ocorre porque a Azure Dev Spaces não suporta atualmente construções
 
 Ao utilizar o [Azure Dev Spaces para ligar o seu cluster AKS à sua máquina](how-to/connect.md)de desenvolvimento, poderá encontrar um problema em que o tráfego de rede não seja encaminhado entre a sua máquina de desenvolvimento e o seu cluster AKS.
 
-Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces reencaminha o `hosts` tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento, modificando o ficheiro da sua máquina de desenvolvimento. A Azure Dev Spaces `hosts` cria uma entrada no endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da rede direta para o tráfego de rede direto entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com o porto do serviço Kubernetes que está a substituir, o Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0:80*, o que os conflitos causarão um conflito para a porta 80 em todos os IPs locais.
+Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces reencaminha o tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento, modificando o ficheiro da sua máquina de `hosts` desenvolvimento. A Azure Dev Spaces cria uma entrada no `hosts` endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da rede direta para o tráfego de rede direto entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com o porto do serviço Kubernetes que está a substituir, o Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0:80*, o que os conflitos causarão um conflito para a porta 80 em todos os IPs locais.
 
 Para corrigir este problema, é necessário parar quaisquer serviços ou processos que entrem em conflito com o serviço do Porto do Serviço Kubernetes que está a tentar substituir. Pode utilizar ferramentas, como *netstat,* para inspecionar quais os serviços ou processos da sua máquina de desenvolvimento em conflito.
 
@@ -272,7 +272,7 @@ Por exemplo, parar e desativar o serviço *Windows BranchCache:*
 * Opcionalmente, pode desativá-lo definindo o *tipo de Arranque* para *Desativado*.
 * Clique em *OK*.
 
-### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Erro "no AzureAssignedIdentity encontrado para pod:azds/azds-webhook-deployment-id\<\> em estado designado"
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Erro "no AzureAssignedIdentity encontrado para pod:azds/azds-webhook-deployment-id \< \> em estado designado"
 
 Ao executar um serviço com a Azure Dev Spaces num cluster AKS com uma [identidade gerida](../aks/use-managed-identity.md) e identidades geridas por pod sabotadas, o processo pode ser suspenso após o passo de instalação do *gráfico.* [pod managed identities](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) Se inspecionar o *webhook azds-injector* no espaço do nome *azds,* poderá ver este erro.
 
@@ -293,7 +293,7 @@ spec:
     azds.io/uses-cluster-identity: "true"
 ```
 
-O ficheiro acima cria um objeto *De exceção AzurePodIdentityException* para o *azds-injector-webhook*. Para implantar este `kubectl`objeto, utilize:
+O ficheiro acima cria um objeto *De exceção AzurePodIdentityException* para o *azds-injector-webhook*. Para implantar este objeto, `kubectl` utilize:
 
 ```cmd
 kubectl apply -f webhookException.yaml
@@ -354,7 +354,7 @@ spec:
   Selector: my-label-value
 ```
 
-Para implantar os *objetos AzureIdentity* e `kubectl` *AzureIdentityBinding,* utilize:
+Para implantar os *objetos AzureIdentity* e *AzureIdentityBinding,* `kubectl` utilize:
 
 ```cmd
 kubectl apply -f clusteridentity.yaml
@@ -412,9 +412,9 @@ Para corrigir este problema, instale a extensão do [Código VS para espaços Az
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Erro "Valor 'cwd' inválido '/src'. O sistema não pode encontrar o ficheiro especificado." ou "lançamento: programa '/src/[caminho para projeto binário]" não existe"
 
-Pode ver este erro ao executar o debugger do Código do Estúdio Visual. Por predefinição, a `src` extensão do Código VS utiliza como diretório de trabalho para o projeto no recipiente. Se atualizou o `Dockerfile` seu para especificar um diretório de trabalho diferente, poderá ver este erro.
+Pode ver este erro ao executar o debugger do Código do Estúdio Visual. Por predefinição, a extensão do Código VS utiliza como diretório de `src` trabalho para o projeto no recipiente. Se atualizou o seu para especificar um diretório de `Dockerfile` trabalho diferente, poderá ver este erro.
 
-Para corrigir este problema, atualize o `launch.json` ficheiro sob o `.vscode` subdiretório da sua pasta de projeto. Altere `configurations->cwd` a diretiva para apontar para `WORKDIR` o mesmo diretório que o definido no do seu `Dockerfile`projeto. Também pode ter de `configurations->program` atualizar a diretiva.
+Para corrigir este problema, atualize o `launch.json` ficheiro sob o `.vscode` subdiretório da sua pasta de projeto. Altere a `configurations->cwd` diretiva para apontar para o mesmo diretório que o definido no do seu `WORKDIR` `Dockerfile` projeto. Também pode ter de atualizar a `configurations->program` diretiva.
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro "O programa de tubos 'azds' saiu inesperadamente com o código 126."
 
@@ -428,15 +428,15 @@ Este erro ocorre quando o nó que executa a cápsula com a aplicação Node.js a
 
 Uma suposições temporárias para esta questão é aumentar o valor de *fs.inotify.max_user_watches* em cada nó do cluster e reiniciar o nó para que as alterações entrem em vigor.
 
-## <a name="other-common-issues"></a>Outras questões comuns
+## <a name="other-common-issues"></a>Outros problemas comuns
 
 ### <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Erro "azds" não é reconhecido como um comando interno ou externo, programa operável ou ficheiro de lote
 
-Este erro pode `azds.exe` acontecer se não estiver instalado ou configurado corretamente.
+Este erro pode acontecer se `azds.exe` não estiver instalado ou configurado corretamente.
 
 Para resolver este problema:
 
-1. Verifique a localização %ProgramFiles%/Microsoft SDKs\Azure\Azure\Azure Dev Spaces CLI para `azds.exe`. Se estiver lá, adicione essa localização à variável ambiental PATH.
+1. Verifique a localização %ProgramFiles%/Microsoft SDKs\Azure\Azure\Azure Dev Spaces CLI para `azds.exe` . Se estiver lá, adicione essa localização à variável ambiental PATH.
 2. Se `azds.exe` não estiver instalado, execute o seguinte comando:
 
     ```azurecli
@@ -451,7 +451,7 @@ Precisa de acesso *do Proprietário* ou *colaborador* na sua subscrição Azure 
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
-Para corrigir este problema, utilizando uma conta com acesso ao *Proprietário* `Microsoft.DevSpaces` ou *Colaborador* à subscrição do Azure, registe manualmente o espaço de nome:
+Para corrigir este problema, utilizando uma conta com acesso ao *Proprietário* ou *Colaborador* à subscrição do Azure, registe manualmente o espaço de `Microsoft.DevSpaces` nome:
 
 ```azurecli
 az provider register --namespace Microsoft.DevSpaces
@@ -459,7 +459,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>Novas cápsulas não estão a começar
 
-O inicializador Kubernetes não pode aplicar o PodSpec para novas cápsulas devido a alterações de permissão RBAC na função *cluster-admin* no cluster. O novo casulo também pode ter um PodSpec inválido, por exemplo, a conta de serviço associada à cápsula já não existe. Para ver as cápsulas *Pending* que se encontram em estado pendente `kubectl get pods` devido à questão do inicializador, utilize o comando:
+O inicializador Kubernetes não pode aplicar o PodSpec para novas cápsulas devido a alterações de permissão RBAC na função *cluster-admin* no cluster. O novo casulo também pode ter um PodSpec inválido, por exemplo, a conta de serviço associada à cápsula já não existe. Para ver as cápsulas que se encontram em estado *pendente* devido à questão do inicializador, utilize o `kubectl get pods` comando:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -479,7 +479,7 @@ kubectl delete InitializerConfiguration azds
 
 Depois de ter removido a configuração do *inicializador azds* do controlador Azure Dev Spaces, utilize `kubectl delete` para remover quaisquer cápsulas num estado *pendente.* Depois de todas as cápsulas pendentes terem sido removidas, recoloque as suas cápsulas.
 
-Se as novas cápsulas *Pending* continuarem presas num estado `kubectl delete` pendente após uma recolocação, utilize para remover quaisquer cápsulas num estado *pendente.* Depois de todas as cápsulas pendentes terem sido removidas, elimine o controlador do cluster e reinstale-o:
+Se as novas cápsulas continuarem presas num estado *pendente* após uma recolocação, utilize `kubectl delete` para remover quaisquer cápsulas num estado *pendente.* Depois de todas as cápsulas pendentes terem sido removidas, elimine o controlador do cluster e reinstale-o:
 
 ```bash
 azds remove -g <resource group name> -n <cluster name>
@@ -508,7 +508,7 @@ Para atualizar a função RBAC do utilizador para o controlador:
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nome DNS falha para um URL público associado a um serviço Dev Spaces
 
-Pode configurar um ponto final de URL público `--enable-ingress` para `azds prep` o seu serviço, `Publicly Accessible` especificando o interruptor para o comando, ou selecionando a caixa de verificação no Estúdio Visual. O nome DNS público é registado automaticamente quando executa o seu serviço em Espaços Dev. Se este nome DNS não estiver registado, verá que uma *Página não pode ser exibida* ou o Site não pode ser *atingido* erro no seu navegador na web quando se conecta ao URL público.
+Pode configurar um ponto final de URL público para o seu serviço, especificando o `--enable-ingress` interruptor para o `azds prep` comando, ou selecionando a caixa de `Publicly Accessible` verificação no Estúdio Visual. O nome DNS público é registado automaticamente quando executa o seu serviço em Espaços Dev. Se este nome DNS não estiver registado, verá que uma *Página não pode ser exibida* ou o Site não pode ser *atingido* erro no seu navegador na web quando se conecta ao URL público.
 
 Para resolver este problema:
 
@@ -529,14 +529,14 @@ Para resolver este problema:
 
 Pode ver este erro ao tentar aceder ao seu serviço. Por exemplo, quando você vai ao URL do serviço em um navegador. Este erro significa que a porta do contentor não está disponível. Isto pode pelas seguintes razões:
 
-* O contentor ainda está em fase de construção e implantação. Este problema pode surgir `azds up` se executar ou iniciar o desordeiro, e depois tentar aceder ao recipiente antes de ser implantado com sucesso.
+* O contentor ainda está em fase de construção e implantação. Este problema pode surgir se executar `azds up` ou iniciar o desordeiro, e depois tentar aceder ao recipiente antes de ser implantado com sucesso.
 * A configuração da porta não é consistente em todo o seu _Dockerfile,_ Helm Chart, e qualquer código de servidor que abra uma porta.
 
 Para resolver este problema:
 
 1. Se o recipiente estiver em processo de construção/implantação, pode esperar 2-3 segundos e tentar aceder novamente ao serviço. 
 1. Verifique a configuração da sua porta nos seguintes ativos:
-    * **[Gráfico de leme](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em `azds prep` valores.yaml andaimes por comando.
+    * ** [Gráfico de leme:](https://docs.helm.sh)** Especificado pelo `service.port` e `deployment.containerPort` em valores.yaml andaimes por `azds prep` comando.
     * Quaisquer portas abertas no código de aplicação, por exemplo no Nó.js:`var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>O tipo ou nome do espaço de nome "MyLibrary" não foi encontrado
@@ -545,10 +545,10 @@ Um projeto da biblioteca que estás a usar não pode ser encontrado. Com a Dev S
 
 Para resolver este problema:
 
-1. Modifique `azds.yaml` o ficheiro para definir o contexto de construção para o nível de solução.
-2. Modifique `Dockerfile` `Dockerfile.develop` os ficheiros e ficheiros `.csproj`para se referir aos ficheiros do projeto, por exemplo, corretamente em relação ao novo contexto de construção.
-3. Adicione `.dockerignore` um no mesmo diretório que o `.sln` ficheiro.
-4. Atualize `.dockerignore` o com entradas adicionais conforme necessário.
+1. Modifique o `azds.yaml` ficheiro para definir o contexto de construção para o nível de solução.
+2. Modifique os `Dockerfile` ficheiros e `Dockerfile.develop` ficheiros para se referir aos ficheiros do projeto, por `.csproj` exemplo, corretamente em relação ao novo contexto de construção.
+3. Adicione um `.dockerignore` no mesmo diretório que o `.sln` ficheiro.
+4. Atualize o `.dockerignore` com entradas adicionais conforme necessário.
 
 Pode encontrar um exemplo [aqui.](https://github.com/sgreenmsft/buildcontextsample)
 
@@ -556,7 +556,7 @@ Pode encontrar um exemplo [aqui.](https://github.com/sgreenmsft/buildcontextsamp
 
 Quando executa um serviço num espaço de v, a cápsula desse serviço é [injetada com recipientes adicionais para instrumentação](how-dev-spaces-works-cluster-setup.md#prepare-your-aks-cluster) e todos os recipientes de uma cápsula precisam de ter limites de recursos e pedidos definidos para a Autoscalização Horizontal Pod.
 
-Para corrigir este problema, aplique um pedido de recurso e limite aos recipientes de Dev Spaces injetados. Os pedidos e limites de recursos podem ser aplicados para o `azds.io/proxy-resources` recipiente injetado (devspaces-proxy) adicionando a anotação à especificação do seu casulo. O valor deve ser fixado num objeto JSON que represente a secção de recursos da especificação do recipiente para o proxy.
+Para corrigir este problema, aplique um pedido de recurso e limite aos recipientes de Dev Spaces injetados. Os pedidos e limites de recursos podem ser aplicados para o recipiente injetado (devspaces-proxy) adicionando a `azds.io/proxy-resources` anotação à especificação do seu casulo. O valor deve ser fixado num objeto JSON que represente a secção de recursos da especificação do recipiente para o proxy.
 
 Abaixo está um exemplo de uma anotação de recursos proxy que deve ser aplicada à especificação do seu casulo.
 ```
@@ -567,7 +567,7 @@ azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"}
 
 Você pode ter um cluster AKS existente e espaço de nome com cápsulas de corrida onde você deseja ativar O Espaço Azure Dev.
 
-Para ativar o Azure Dev Spaces num espaço de `use-dev-spaces` nome `kubectl` existente num cluster AKS, corra e use para reiniciar todas as cápsulas nesse espaço de nome.
+Para ativar o Azure Dev Spaces num espaço de nome existente num cluster AKS, corra `use-dev-spaces` e use para reiniciar todas as `kubectl` cápsulas nesse espaço de nome.
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
@@ -589,22 +589,22 @@ Para permitir a Azure Dev Spaces num cluster AKS para o qual o tráfego de saíd
 | cloudflare.docker.com | HTTPS:443 | Para puxar imagens alpinas linux e outras imagens do Azure Dev Spaces |
 | gcr.io | HTTP:443 | Para puxar imagens de leme/leme|
 | storage.googleapis.com | HTTP:443 | Para puxar imagens de leme/leme|
-| azds-<guid>. <location>.azds.io | HTTPS:443 | Para comunicar com os serviços de backend da Azure Dev Spaces para o seu controlador. O FQDN exato pode ser encontrado no "dataplaneFqdn" em %USERPROFILE%\.azds\settings.json|
+| Azds. <guid> <location> . . azds.io | HTTPS:443 | Para comunicar com os serviços de backend da Azure Dev Spaces para o seu controlador. O FQDN exato pode ser encontrado no "dataplaneFqdn" em %USERPROFILE% \. azds\settings.json|
 
-### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Erro "Não consegui \<encontrar\> o \<cluster\>na subscrição de subscriçãoId"
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Erro "Não consegui encontrar o \< cluster \> na \< subscrição de subscriçãoId" \>
 
 Pode ver este erro se o seu ficheiro kubeconfig estiver direcionado para um cluster ou subscrição diferente do que está a tentar utilizar com a ferramenta do lado do cliente do Azure Dev Spaces. A ferramenta do lado do cliente Azure Dev Spaces replica o comportamento do *kubectl*, que utiliza [um ou mais ficheiros kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) para selecionar e comunicar com o cluster.
 
 Para resolver este problema:
 
-* Utilize `az aks use-dev-spaces -g <resource group name> -n <cluster name>` para atualizar o contexto atual. Este comando também permite a Azure Dev Spaces no seu cluster AKS se ainda não estiver ativado. Em alternativa, pode `kubectl config use-context <cluster name>` utilizar para atualizar o contexto atual.
-* Utilize `az account show` para mostrar a subscrição atual do Azure que está a visar e verificar se está correta. Pode alterar a subscrição que `az account set`está a ser alvo usando .
+* Utilize `az aks use-dev-spaces -g <resource group name> -n <cluster name>` para atualizar o contexto atual. Este comando também permite a Azure Dev Spaces no seu cluster AKS se ainda não estiver ativado. Em alternativa, pode utilizar `kubectl config use-context <cluster name>` para atualizar o contexto atual.
+* Utilize `az account show` para mostrar a subscrição atual do Azure que está a visar e verificar se está correta. Pode alterar a subscrição que está a ser alvo usando `az account set` .
 
 ### <a name="error-using-dev-spaces-after-rotating-aks-certificates"></a>Erro utilizando Espaços Dev após rotação de certificados AKS
 
-Depois [de rodar os certificados no seu cluster AKS,](../aks/certificate-rotation.md)certas operações, tais como `azds space list` e `azds up` falharão. Também precisa de atualizar os certificados no seu controlador Azure Dev Spaces depois de rodar os certificados no seu cluster.
+Depois [de rodar os certificados no seu cluster AKS,](../aks/certificate-rotation.md)certas operações, tais como e `azds space list` `azds up` falharão. Também precisa de atualizar os certificados no seu controlador Azure Dev Spaces depois de rodar os certificados no seu cluster.
 
-Para corrigir este problema, certifique-se de que `az aks get-credentials` o seu `azds controller refresh-credentials` *kubeconfig* tem os certificados atualizados utilizando e, em seguida, executar o comando. Por exemplo:
+Para corrigir este problema, certifique-se de que o seu *kubeconfig* tem os certificados atualizados utilizando `az aks get-credentials` e, em seguida, executar o `azds controller refresh-credentials` comando. Por exemplo:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

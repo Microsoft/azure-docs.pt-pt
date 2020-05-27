@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta powerShell'
 description: Neste arranque rápido, siga os passos para ativar o módulo De recursos para o Azure PowerShell e execute a sua primeira consulta.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e98ca5974ba46d4d908cfe6dd8c04d3f6ba33a2a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240661"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872010"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Azure PowerShell
 
@@ -54,7 +54,7 @@ O módulo De Recurso Graph para PowerShell é **Az.ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
+Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolve os primeiros cinco recursos Azure com o **Nome** e **O Tipo** de Recursos de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com o cmdlet `Search-AzGraph`:
 
@@ -76,7 +76,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
    ```
 
    > [!NOTE]
-   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
 1. Atualize a consulta para primeiro `order by` propriedade **Nome** e, em seguida, `limit` os cinco resultados principais:
 
@@ -85,10 +85,10 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
    Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
    ```
 
-Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
+Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
 > [!NOTE]
-> Se a consulta não devolver os resultados de uma subscrição `Search-AzGraph` a que já tem acesso, note que a cmdlet falha nas subscrições no contexto predefinido. Para ver a lista de IDs de subscrição `(Get-AzContext).Account.ExtendedProperties.Subscriptions` que fazem parte do contexto padrão executar isto Se desejar pesquisar em `Search-AzGraph` todas as subscrições a que tem acesso, pode definir os PSDefaultParâmetrometerValues para cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, note que a `Search-AzGraph` cmdlet falha nas subscrições no contexto predefinido. Para ver a lista de IDs de subscrição que fazem parte do contexto padrão executar isto Se desejar pesquisar em todas as subscrições a `(Get-AzContext).Account.ExtendedProperties.Subscriptions` que tem acesso, pode definir os PSDefaultParâmetrometerValues para `Search-AzGraph` cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -107,7 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, adicionou o módulo De recursos gráficos ao seu ambiente Azure PowerShell e executa a sua primeira consulta. Para saber mais sobre a linguagem do gráfico de recursos, continue na página de detalhes da linguagem da consulta.
+Neste arranque rápido, adicionou o módulo De recursos gráficos ao seu ambiente Azure PowerShell e executa a sua primeira consulta. Para saber mais sobre a linguagem do Graph de Recursos, continue na página de detalhes da linguagem da consulta.
 
 > [!div class="nextstepaction"]
 > [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)

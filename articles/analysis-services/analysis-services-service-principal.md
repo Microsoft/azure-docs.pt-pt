@@ -4,15 +4,15 @@ description: Aprenda a criar um principal de serviço para automatizar tarefas a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ea9b978cce22ae6d99cbce5b4b85558f2a47b59
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699072"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871179"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -110,5 +110,7 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Passos seguintes
 [Inscreva-se na Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Atualizar com o Logic Apps](analysis-services-refresh-logic-app.md)  
+[Atualizar com a Automatização do Azure](analysis-services-refresh-azure-automation.md)  
 [Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)  
 [Automatizar o espaço de trabalho power bi premium e tarefas de conjunto de dados com os principais de serviço](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

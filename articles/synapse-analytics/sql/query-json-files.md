@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 870d4f053b85c70e800c352aaf908899b7863082
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7a8c9083ecbadbf63cf0ac65dc1803b478e939fe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828377"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873391"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta De ficheiros JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -70,7 +70,7 @@ FROM
 
 ## <a name="query-json-files-using-json_value"></a>Consultar ficheiros JSON usando JSON_VALUE
 
-A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por artigos selecionados:*
+A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados:*
 
 ```sql
 SELECT
@@ -119,7 +119,7 @@ WHERE
 
 ## <a name="query-json-files-using-openjson"></a>Consultar ficheiros JSON usando OPENJSON
 
-A seguinte consulta utiliza [O OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Irá recuperar objetos e propriedades dentro de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por artigos selecionados:*
+A seguinte consulta utiliza [O OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Irá recuperar objetos e propriedades dentro de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados:*
 
 ```sql
 SELECT

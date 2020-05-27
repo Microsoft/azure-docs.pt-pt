@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores,
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: e6fa490285582c827b8704496fb7a20a7eb9cfbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1aa2545f3bd4e7558c99a31dca43f65510bab59e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166024"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872145"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Quickstart: Debug e iterate em Kubernetes: Visual Studio & .NET Core - Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Os Espaços Azure Dev também lhe permitem depurar e iterar usando:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
-- Visual Studio 2019 no Windows com a carga de trabalho do Desenvolvimento Azure instalada. Também pode utilizar o Visual Studio 2017 no Windows com a carga de trabalho de Desenvolvimento Web e [ferramentas de estúdio visual para Kubernetes instaladas.](https://aka.ms/get-vsk8stools) Se não tiver o Visual Studio instalado, descarregue-o [aqui.](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
+- Visual Studio 2019 no Windows com a carga de trabalho do Desenvolvimento Azure instalada. Se não tiver o Visual Studio instalado, descarregue-o [aqui.](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster de serviço Azure Kubernetes
 
@@ -94,7 +94,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-No exemplo acima, o `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`URL público é . 
+No exemplo acima, o URL público é `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/` . 
 
 Selecione **Debug** e **comece a depurar**. Após alguns segundos, o seu serviço começará e o Visual Studio abrirá um navegador com o URL público do serviço. Se um navegador não abrir automaticamente, navegue para o URL público do seu serviço num browser e interaja com o serviço que funciona no seu espaço de dev.
 
@@ -102,7 +102,7 @@ Este processo pode ter desativado o acesso público ao seu serviço. Para permit
 
 ## <a name="update-code"></a>Atualizar código
 
-Se o Visual Studio ainda estiver ligado ao seu espaço de dev, clique no botão stop. Alterar `Controllers/HomeController.cs` a linha 20 para:
+Se o Visual Studio ainda estiver ligado ao seu espaço de dev, clique no botão stop. Alterar a linha 20 `Controllers/HomeController.cs` para:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -120,7 +120,7 @@ Abra o seu serviço num browser e note que não é apresentada nenhuma mensagem.
 
 Enquanto executa o seu serviço em Kubernetes com um debugger anexado, você tem acesso total a informações dedepuração tais como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Retire o ponto de rutura colocando o `Controllers/HomeController.cs` cursor na linha 20 e batendo *em F9*.
+Retire o ponto de rutura colocando o cursor na linha 20 `Controllers/HomeController.cs` e batendo *em F9*.
 
 ## <a name="clean-up-your-azure-resources"></a>Limpe os seus recursos Azure
 

@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929252"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873386"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Resolução de problemas Azure Machine Learning Azure Kubernetes Service e implantação de instâncias de contentores Azure
 
@@ -102,7 +102,7 @@ Se encontrar problemas em implementar um modelo para ACI ou AKS, tente implement
 > [!WARNING]
 > As implementações de serviços web locais não são suportadas para cenários de produção.
 
-Para implementar localmente, modifique o seu código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implementação. Em `Model.deploy()` seguida, use para implementar o serviço. O exemplo seguinte implementa um modelo (contido na variável modelo) como um serviço web local:
+Para implementar localmente, modifique o seu código para usar para criar uma configuração de `LocalWebservice.deploy_configuration()` implementação. Em seguida, use `Model.deploy()` para implementar o serviço. O exemplo seguinte implementa um modelo (contido na variável modelo) como um serviço web local:
 
 ```python
 from azureml.core.environment import Environment
@@ -146,7 +146,7 @@ Para obter mais informações sobre a personalização do seu ambiente Python, c
 
 ### <a name="update-the-service"></a>Atualizar o serviço
 
-Durante os testes locais, `score.py` poderá ter de atualizar o ficheiro para adicionar registo ou tentar resolver quaisquer problemas que tenha descoberto. Para recarregar alterações `score.py` no `reload()`ficheiro, utilize . Por exemplo, o código seguinte recarrega o script para o serviço e, em seguida, envia dados para o mesmo. Os dados são obtidos utilizando o ficheiro atualizado: `score.py`
+Durante os testes locais, poderá ter de atualizar o `score.py` ficheiro para adicionar registo ou tentar resolver quaisquer problemas que tenha descoberto. Para recarregar alterações no `score.py` ficheiro, utilize `reload()` . Por exemplo, o código seguinte recarrega o script para o serviço e, em seguida, envia dados para o mesmo. Os dados são obtidos utilizando o `score.py` ficheiro atualizado:
 
 > [!IMPORTANT]
 > O `reload` método só está disponível para destacamentos locais. Para obter informações sobre a atualização de uma implementação para outro alvo de cálculo, consulte a secção de atualização dos [modelos Deploy](how-to-deploy-and-where.md#update).
@@ -157,7 +157,7 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> O script é recarregado a partir `InferenceConfig` do local especificado pelo objeto utilizado pelo serviço.
+> O script é recarregado a partir do local especificado pelo `InferenceConfig` objeto utilizado pelo serviço.
 
 Para alterar o modelo, dependências da Conda ou configuração de implementação, utilize [a atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). O exemplo seguinte atualiza o modelo utilizado pelo serviço:
 
@@ -180,10 +180,15 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+## <a name="container-cannot-be-scheduled"></a>O contentor não pode ser programado
+
+Ao implementar um serviço para um alvo de computação do Serviço Azure Kubernetes, o Azure Machine Learning tentará agendar o serviço com a quantidade de recursos solicitada. Se, após 5 minutos, não houver nódisponíveis no cluster com a quantidade adequada de recursos disponíveis, a implantação falhará com a mensagem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Pode resolver este erro adicionando mais nós, alterando o SKU dos seus nós ou alterando os requisitos de recursos do seu serviço. 
+
+A mensagem de erro normalmente indica qual o recurso de que precisa mais - por exemplo, se vir uma mensagem de erro indicando `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` que significa que o serviço requer GPUs e existem 3 nós no cluster que não têm GPUs disponíveis. Isto poderia ser abordado adicionando mais nós se estiver a usar um GPU SKU, mudando para um GpU habilitado sKU se não estiver ou mudar o seu ambiente para não necessitar de GPUs.  
 
 ## <a name="service-launch-fails"></a>Lançamento de serviço falha
 
-Depois de a imagem ser construída com sucesso, o sistema tenta iniciar um recipiente utilizando a sua configuração de implantação. Como parte do processo de arranque `init()` do recipiente, a função no seu script de pontuação é invocada pelo sistema. Se houver exceções não `init()` apanhadas na função, poderá ver o erro **crashLoopBackOff** na mensagem de erro.
+Depois de a imagem ser construída com sucesso, o sistema tenta iniciar um recipiente utilizando a sua configuração de implantação. Como parte do processo de arranque do recipiente, a função no seu script de `init()` pontuação é invocada pelo sistema. Se houver exceções não apanhadas na `init()` função, poderá ver o erro **crashLoopBackOff** na mensagem de erro.
 
 Utilize a informação na secção [de registo Supor a secção de registo supor](#dockerlog) os registos.
 
@@ -198,13 +203,13 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Este exemplo imprime o caminho `/var/azureml-app`local (em relação a) no recipiente onde o seu script de pontuação espera encontrar o ficheiro ou pasta do modelo. Em seguida, pode verificar se o ficheiro ou pasta está de facto onde se espera que esteja.
+Este exemplo imprime o caminho local (em relação a) no recipiente onde o seu script de `/var/azureml-app` pontuação espera encontrar o ficheiro ou pasta do modelo. Em seguida, pode verificar se o ficheiro ou pasta está de facto onde se espera que esteja.
 
 A definição do nível de registo para O DEBUG pode provocar o registo de informações adicionais, o que pode ser útil para identificar a falha.
 
 ## <a name="function-fails-runinput_data"></a>Falha na função: executar(input_data)
 
-Se o serviço for implementado com sucesso, mas falhar quando publica dados no ponto final `run(input_data)` da pontuação, pode adicionar uma declaração de captura de erros na sua função de modo a que dereta uma mensagem de erro detalhada. Por exemplo:
+Se o serviço for implementado com sucesso, mas falhar quando publica dados no ponto final da pontuação, pode adicionar uma declaração de captura de erros na sua função de modo a que dereta uma mensagem de `run(input_data)` erro detalhada. Por exemplo:
 
 ```python
 def run(input_data):
@@ -223,7 +228,7 @@ def run(input_data):
 
 ## <a name="http-status-code-502"></a>Código de estado HTTP 502
 
-Um código de estado 502 indica que o serviço `run()` lançou uma exceção ou se despenhou no método do ficheiro score.py. Utilize as informações deste artigo para depurar o ficheiro.
+Um código de estado 502 indica que o serviço lançou uma exceção ou se despenhou no `run()` método do ficheiro score.py. Utilize as informações deste artigo para depurar o ficheiro.
 
 ## <a name="http-status-code-503"></a>Código de estado HTTP 503
 
@@ -233,16 +238,16 @@ Há duas coisas que podem ajudar a prevenir 503 códigos de estado:
 
 * Altere o nível de utilização ao qual a autoscalcificação cria novas réplicas.
     
-    Por padrão, a utilização do alvo de autoscalcificação está fixada em 70%, o que significa que o serviço pode lidar com picos em pedidos por segundo (RPS) até 30%. Pode ajustar o alvo de `autoscale_target_utilization` utilização definindo o alvo para um valor mais baixo.
+    Por padrão, a utilização do alvo de autoscalcificação está fixada em 70%, o que significa que o serviço pode lidar com picos em pedidos por segundo (RPS) até 30%. Pode ajustar o alvo de utilização definindo o alvo `autoscale_target_utilization` para um valor mais baixo.
 
     > [!IMPORTANT]
     > Esta mudança não faz com que as réplicas sejam criadas *mais rapidamente*. Em vez disso, são criados num limiar de utilização mais baixo. Em vez de esperar até que o serviço seja 70% utilizado, mudar o valor para 30% faz com que as réplicas sejam criadas quando ocorre uma utilização de 30%.
     
-    Se o serviço web já estiver a utilizar as réplicas max atuais `autoscale_max_replicas` e ainda estiver a ver 503 códigos de estado, aumente o valor para aumentar o número máximo de réplicas.
+    Se o serviço web já estiver a utilizar as réplicas max atuais e ainda estiver a ver 503 códigos de estado, aumente o `autoscale_max_replicas` valor para aumentar o número máximo de réplicas.
 
 * Mude o número mínimo de réplicas. O aumento das réplicas mínimas proporciona uma piscina maior para lidar com os picos de entrada.
 
-    Para aumentar o número mínimo `autoscale_min_replicas` de réplicas, definida para um valor mais elevado. Pode calcular as réplicas necessárias utilizando o seguinte código, substituindo valores por valores específicos do seu projeto:
+    Para aumentar o número mínimo de réplicas, definida `autoscale_min_replicas` para um valor mais elevado. Pode calcular as réplicas necessárias utilizando o seguinte código, substituindo valores por valores específicos do seu projeto:
 
     ```python
     from math import ceil
@@ -264,7 +269,7 @@ Há duas coisas que podem ajudar a prevenir 503 códigos de estado:
     > [!NOTE]
     > Se receber picos de pedido maiores do que as novas réplicas mínimas podem suportar, poderá voltar a receber 503s. Por exemplo, à medida que o tráfego para o seu serviço aumenta, poderá ter de aumentar as réplicas mínimas.
 
-Para obter mais `autoscale_target_utilization` `autoscale_max_replicas`informações `autoscale_min_replicas` sobre a definição , e para, consulte a referência do módulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)
+Para obter mais informações sobre a definição `autoscale_target_utilization` `autoscale_max_replicas` , e `autoscale_min_replicas` para, consulte a referência do módulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)
 
 ## <a name="http-status-code-504"></a>Código de estado HTTP 504
 
@@ -277,7 +282,7 @@ Pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.p
 Em alguns casos, poderá ser necessário depurar interativamente o código Python contido na implementação do seu modelo. Por exemplo, se o script de entrada estiver a falhar e a razão não puder ser determinada por registo saqueado adicional. Utilizando o Código do Estúdio Visual e as Ferramentas Python para Estúdio Visual (PTVSD), pode anexar-se ao código que funciona dentro do recipiente Docker.
 
 > [!IMPORTANT]
-> Este método de depuração não `Model.deploy()` `LocalWebservice.deploy_configuration` funciona quando se utiliza e implementa um modelo localmente. Em vez disso, deve criar uma imagem utilizando o método [Model.package().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)
+> Este método de depuração não funciona quando se utiliza `Model.deploy()` e `LocalWebservice.deploy_configuration` implementa um modelo localmente. Em vez disso, deve criar uma imagem utilizando o método [Model.package().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)
 
 As implementações locais do serviço web requerem uma instalação de Docker em funcionamento no seu sistema local. Para obter mais informações sobre a utilização do Docker, consulte a [Documentação do Docker](https://docs.docker.com/).
 
@@ -295,7 +300,7 @@ As implementações locais do serviço web requerem uma instalação de Docker e
 
     1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, __selecione configurações abertas__. Um ficheiro chamado __Launch.json__ abre.
 
-    1. No ficheiro __launch.json,__ encontre a `"configurations": [`linha que contém , e insira o seguinte texto após a sua:
+    1. No ficheiro __launch.json,__ encontre a linha que contém `"configurations": [` , e insira o seguinte texto após a sua:
 
         ```json
         {
@@ -322,7 +327,7 @@ As implementações locais do serviço web requerem uma instalação de Docker e
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>Criar uma imagem que inclua PTVSD
 
-1. Modifique o ambiente de condomínio para a sua implementação de modo a que inclua PTVSD. O exemplo que se segue `pip_packages` demonstra adicioná-lo utilizando o parâmetro:
+1. Modifique o ambiente de condomínio para a sua implementação de modo a que inclua PTVSD. O exemplo que se segue demonstra adicioná-lo utilizando o `pip_packages` parâmetro:
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -338,7 +343,7 @@ As implementações locais do serviço web requerem uma instalação de Docker e
         f.write(myenv.serialize_to_string())
     ```
 
-1. Para iniciar o PTVSD e esperar por uma ligação quando `score.py` o serviço começar, adicione o seguinte à parte superior do seu ficheiro:
+1. Para iniciar o PTVSD e esperar por uma ligação quando o serviço começar, adicione o seguinte à parte superior do seu `score.py` ficheiro:
 
     ```python
     import ptvsd
@@ -349,10 +354,10 @@ As implementações locais do serviço web requerem uma instalação de Docker e
     print("Debugger attached...")
     ```
 
-1. Crie uma imagem baseada na definição ambiental e puxe a imagem para o registo local. Durante a depuração, é melhor efazer alterações nos ficheiros da imagem sem ter de o recriar. Para instalar um editor de texto (vim) `Environment.docker.base_image` `Environment.docker.base_dockerfile` na imagem do Docker, utilize as propriedades e propriedades:
+1. Crie uma imagem baseada na definição ambiental e puxe a imagem para o registo local. Durante a depuração, é melhor efazer alterações nos ficheiros da imagem sem ter de o recriar. Para instalar um editor de texto (vim) na imagem do Docker, utilize as `Environment.docker.base_image` propriedades e `Environment.docker.base_dockerfile` propriedades:
 
     > [!NOTE]
-    > Este exemplo pressupõe que `ws` aponta para o seu `model` espaço de trabalho azure Machine Learning, e que é o modelo que está a ser implementado. O `myenv.yml` ficheiro contém as dependências da conda criadas no passo 1.
+    > Este exemplo pressupõe que aponta para o seu espaço de `ws` trabalho azure Machine Learning, e que é o modelo que `model` está a ser implementado. O `myenv.yml` ficheiro contém as dependências da conda criadas no passo 1.
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies
@@ -375,18 +380,18 @@ As implementações locais do serviço web requerem uma instalação de Docker e
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Para facilitar o funcionao com a imagem, utilize o seguinte comando para adicionar uma etiqueta. Substitua-a `myimagepath` pelo valor de localização do passo anterior.
+1. Para facilitar o funcionao com a imagem, utilize o seguinte comando para adicionar uma etiqueta. `myimagepath`Substitua-a pelo valor de localização do passo anterior.
 
     ```bash
     docker tag myimagepath debug:1
     ```
 
-    Para o resto dos passos, pode consultar `debug:1` a imagem local como em vez do valor total do caminho da imagem.
+    Para o resto dos passos, pode consultar a imagem local como `debug:1` em vez do valor total do caminho da imagem.
 
 ### <a name="debug-the-service"></a>Depurar o serviço
 
 > [!TIP]
-> Se definir um prazo para a ligação `score.py` PTVSD no ficheiro, deve ligar o Código VS à sessão de depuração antes que o prazo expire. Inicie o Código VS, `score.py`abra a cópia local de , despolete um ponto de rutura e prepare-o antes de utilizar os passos nesta secção.
+> Se definir um prazo para a ligação PTVSD no `score.py` ficheiro, deve ligar o Código VS à sessão de depuração antes que o prazo expire. Inicie o Código VS, abra a cópia local de `score.py` , despolete um ponto de rutura e prepare-o antes de utilizar os passos nesta secção.
 >
 > Para obter mais informações sobre depuração e definição de pontos de rutura, consulte [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -415,13 +420,13 @@ Para efazer alterações nos ficheiros na imagem, pode anexar-se ao recipiente d
     docker exec -it debug /bin/bash
     ```
 
-1. Para encontrar os ficheiros utilizados pelo serviço, utilize o seguinte comando da concha `/var/azureml-app`de batida no recipiente se o diretório predefinido for diferente de:
+1. Para encontrar os ficheiros utilizados pelo serviço, utilize o seguinte comando da concha de batida no recipiente se o diretório predefinido for diferente `/var/azureml-app` de:
 
     ```bash
     cd /var/azureml-app
     ```
 
-    A partir daqui, pode usar `score.py` vim para editar o ficheiro. Para obter mais informações sobre o uso do vim, consulte [O editor da Vim.](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)
+    A partir daqui, pode usar vim para editar o `score.py` ficheiro. Para obter mais informações sobre o uso do vim, consulte [O editor da Vim.](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)
 
 1. Normalmente, as alterações num recipiente não são persistidas. Para evitar quaisquer alterações que faça, utilize o seguinte comando, antes de sair da concha começou no degrau acima (isto é, em outra concha):
 
@@ -429,7 +434,7 @@ Para efazer alterações nos ficheiros na imagem, pode anexar-se ao recipiente d
     docker commit debug debug:2
     ```
 
-    Este comando cria uma `debug:2` nova imagem chamada que contém as suas edidas.
+    Este comando cria uma nova imagem chamada `debug:2` que contém as suas edidas.
 
     > [!TIP]
     > Terá de parar o recipiente atual e começar a utilizar a nova versão antes de as alterações entrarem em vigor.

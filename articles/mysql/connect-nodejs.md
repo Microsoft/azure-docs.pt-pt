@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: a8c4f84fe958c1b2762509432596fea772e39d7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 38ac57ca49608a528b8f810dac7967562f83d7d0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067940"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870144"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Node.js para ligar e consultar dados na Base de Dados Azure para MySQL
 
@@ -25,6 +25,9 @@ Este tópico pressupõe que está familiarizado com o desenvolvimento usando Nod
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma base de dados Azure para servidor MySQL. [Crie uma base de dados Azure para servidor MySQL utilizando o portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [crie uma base de dados Azure para o servidor MySQL utilizando o Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT] 
+> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Instalar Node.js e o conector de MySQL
 
@@ -43,7 +46,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    "C:\Program Files\nodejs\npm" list
    ```
 
-5. Verifique a instalação `npm list` verificando o texto de saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
+5. Verifique a instalação verificando o texto de `npm list` saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 
@@ -53,7 +56,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    sudo apt-get install -y nodejs npm
    ```
 
-2. Execute os seguintes comandos `mysqlnodejs` para criar uma pasta de projeto e instale o pacote mysql nessa pasta.
+2. Execute os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instale o pacote mysql nessa pasta.
 
    ```bash
    mkdir nodejsmysql
@@ -71,7 +74,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. Execute os seguintes comandos `mysqlnodejs` para criar uma pasta de projeto e instale o pacote mysql nessa pasta.
+2. Execute os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instale o pacote mysql nessa pasta.
 
    ```bash
    mkdir nodejsmysql
@@ -80,7 +83,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    npm list
    ```
 
-3. Verifique a instalação `npm list` verificando o texto de saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
+3. Verifique a instalação verificando o texto de `npm list` saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 
@@ -95,8 +98,8 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 ## <a name="running-the-javascript-code-in-nodejs"></a>Executar o código JavaScript no Node.js
 
 1. Cole o código JavaScript em ficheiros de texto e, em seguida, guarde-o numa pasta de projeto com a extensão de ficheiro .js, tal como (C:\nodejsmysql\createtable.js ou /home/username/nodejsmysql/createtable.js).
-2. Abra o pedido de comando ou a concha de `cd nodejsmysql`bater e, em seguida, mude o diretório para a pasta do projeto .
-3. Para executar a aplicação, insira o comando `node createtable.js`do nó seguido pelo nome do ficheiro, como .
+2. Abra o pedido de comando ou a concha de bater e, em seguida, mude o diretório para a pasta do projeto `cd nodejsmysql` .
+3. Para executar a aplicação, insira o comando do nó seguido pelo nome do ficheiro, como `node createtable.js` .
 4. No Windows, se a aplicação node não estiver no caminho de variável do seu ambiente, poderá ter de utilizar o caminho completo para iniciá-la, como, por exemplo, `"C:\Program Files\nodejs\node.exe" createtable.js`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados

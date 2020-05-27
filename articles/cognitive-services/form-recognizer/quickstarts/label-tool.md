@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691343"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871383"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
@@ -143,6 +143,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
     > * Valores de etiqueta à medida que aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se estem por várias linhas.
     > * Não inclua chaves nos seus campos marcados &mdash; apenas os valores.
     > * Os dados da tabela devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com um rótulo diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
+    > * Para eliminar uma etiqueta aplicada, selecione o retângulo na vista do documento e prima a tecla de exclusão.
 
 ![Janela principal do editor da ferramenta de rotulagem de amostra](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Os seguintes tipos de valor e variações são atualmente suportados:
     * padrão, `dmy` `mdy` ,`ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Consulte estas regras para a formatação de datas:
+> 
+> Os seguintes caracteres podem ser usados como delimitadores de data DMY: `, - / . \` . O Espaço Branco não pode ser usado como delimitador. Por exemplo:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> O dia e o mês podem ser escritos como um ou dois dígitos, e o ano pode ser de dois ou quatro dígitos:
+> * 1-1-2020
+> * 1-01-20
+>
+> Se uma cadeia de data DMY tiver oito dígitos, o delimitador é opcional:
+> * 01012020
+> * 01 01 2020
+>
+> O mês também pode ser escrito como o seu nome completo ou curto. Se o nome for utilizado, os caracteres delimitadores são opcionais:
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 Jan 2020
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 

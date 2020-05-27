@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 7a017f9485ec847c0a2c045e4c511b6a68db0cb2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889934"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873329"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizando o conjunto de normas no seu dashboard de conformidade regulamentar
 
@@ -29,7 +29,7 @@ O Azure Security Center compara continuamente a configuração dos seus recursos
 
 As normas do setor, as normas regulamentares e os critérios de referência estão representados no Centro de Segurança como pacotes de *conformidade.*  Cada pacote é uma iniciativa definida na Política Do Azure. Para ver os dados de conformidade mapeados como avaliações no seu dashboard, adicione um pacote de conformidade ao seu grupo de gestão ou subscrição a partir da página de política de **Segurança.** (Saiba mais sobre a Política azure e iniciativas no [trabalho com políticas](tutorial-security-policy.md)de segurança .)
 
-Quando abordou um padrão ou referência ao seu âmbito selecionado, o padrão aparece no seu painel de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Também pode descarregar relatórios sumários para qualquer uma das normas que tenham sido a bordo.
+Quando você tem um padrão ou referência ao seu âmbito selecionado, atribui a iniciativa ao âmbito e a norma aparece no seu dashboard de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Também pode descarregar relatórios sumários para qualquer uma das normas que tenham sido a bordo.
 
 A Microsoft também rastreia os padrões regulamentares em si e melhora automaticamente a sua cobertura em alguns dos pacotes ao longo do tempo. Quando a Microsoft lança novos conteúdos para a iniciativa (novas políticas que mapeiam para mais controlos no padrão), o conteúdo adicional aparece automaticamente no seu dashboard.
 

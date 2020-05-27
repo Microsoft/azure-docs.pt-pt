@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b8492a6740eb9acfa20fbbe5dd5beed5e985fafc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dcb9f554b214813439ab8753cf21e7d11a0fba56
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744580"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872558"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard do Cliente na análise do mercado comercial
 
@@ -99,6 +99,7 @@ A tabela de detalhes do **Cliente** apresenta uma lista numerada dos 1000 client
 - Se o número de registos for superior a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
 - Os filtros podem ser aplicados na tabela para visualizar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo nome da empresa, ID do cliente, ID de subscrição do mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País cliente/Região/Estado/Cidade/Zip, Linguagem do Cliente, e assim por diante.
 - Quando uma oferta é comprada por um cliente protegido, a informação em **Dados Detalhados** do Cliente será mascarada (**************).
+- Os detalhes da dimensão do cliente, tais como Nome da Empresa, Nome do Cliente e Email do Cliente estão a nível de ID da organização, não no Azure Marketplace ou nível de transação AppSource.
 
 ### <a name="customer-page-filters"></a>Filtros de página do cliente
 

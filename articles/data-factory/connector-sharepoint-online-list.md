@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 90ceb2b716df429eaf4541f13cfa96cb9e0eac7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745223"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871921"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista Online SharePoint utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,7 +52,7 @@ O conector SharePoint List Online utiliza a autenticação principal do serviço
     > [!NOTE]
     > Esta operação requer permissão do proprietário do site SharePoint Online. Você pode encontrar o proprietário indo para a página inicial do site - > clique nos "x membros" no canto direito - > verificar quem tem o papel de "Proprietário".
 
-    1. Open SharePoint Online link site por exemplo `https://[your_site_url]/_layouts/15/appinv.aspx` (substitua o nome do inquilino e do site).
+    1. Open SharePoint Link de site online, por exemplo, `https://[your_site_url]/_layouts/15/appinv.aspx` (substitua o URL do site).
     2. Pesquise o ID de aplicação que registou, preencha os campos vazios e clique em "Criar".
 
         - Domínio da aplicação:`localhost.com`
@@ -81,12 +81,12 @@ As seguintes propriedades são suportadas para um serviço ligado à Lista Onlin
 
 | **Propriedade**        | **Descrição**                                              | **Necessário** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| tipo                | A propriedade do tipo deve ser definida para: **SharePointOnlineList**.  | Sim          |
-| siteUrl             | O url do site Online SharePoint, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Sim          |
-| serviçoPrincipalId  | O ID de Aplicação (cliente) da aplicação registada no Diretório Ativo azure. | Sim          |
-| serviçoPrincipalKey | A chave da aplicação. Marque este campo como um **SecureString** para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim          |
-| inquilinoId            | A identificação do inquilino sob a qual o seu pedido reside.          | Sim          |
-| connectVia          | O Tempo de [Integração](concepts-integration-runtime.md) para utilizar para ligar à loja de dados. Saiba mais com [os Pré-Requisitos,](#prerequisites)no início deste artigo. Se não especificado, é utilizado o tempo de execução de integração azure padrão. | Não           |
+| tipo                | A propriedade do tipo deve ser definida para: **SharePointOnlineList**.  | Yes          |
+| siteUrl             | O url do site Online SharePoint, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Yes          |
+| serviçoPrincipalId  | O ID de Aplicação (cliente) da aplicação registada no Diretório Ativo azure. | Yes          |
+| serviçoPrincipalKey | A chave da aplicação. Marque este campo como um **SecureString** para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Yes          |
+| inquilinoId            | A identificação do inquilino sob a qual o seu pedido reside.          | Yes          |
+| connectVia          | O Tempo de [Integração](concepts-integration-runtime.md) para utilizar para ligar à loja de dados. Saiba mais com [os Pré-Requisitos,](#prerequisites)no início deste artigo. Se não especificado, é utilizado o tempo de execução de integração azure padrão. | No           |
 
 **Exemplo:**
 
@@ -114,8 +114,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Sim |
-| nome da lista | O nome da Lista Online SharePoint. | Sim |
+| tipo | A propriedade do **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Yes |
+| nome da lista | O nome da Lista Online SharePoint. | Yes |
 
 **Exemplo**
 
@@ -147,9 +147,9 @@ Para copiar dados da Lista Online SharePoint, as seguintes propriedades são sup
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** da fonte de atividade de cópia deve ser definida para **SharePointOnlineListSource**. | Sim |
-| consulta | Opções personalizadas de consulta OData para filtrar dados. Exemplo: `"$top=10&$select=Title,Number"`. | Não |
-| httpRequestTimeout | O prazo (em segundo) para o pedido http para obter uma resposta. Predefinido é de 300 (5 minutos). | Não |
+| tipo | A propriedade do **tipo** da fonte de atividade de cópia deve ser definida para **SharePointOnlineListSource**. | Yes |
+| consulta | Opções personalizadas de consulta OData para filtrar dados. Exemplo: `"$top=10&$select=Title,Number"`. | No |
+| httpRequestTimeout | O prazo (em segundo) para o pedido http para obter uma resposta. Predefinido é de 300 (5 minutos). | No |
 
 **Exemplo**
 
@@ -189,16 +189,16 @@ Quando copia dados da Lista Online sharePoint, os seguintes mapeamentos são uti
 
 | **Tipo de dados online SharePoint**                 | **Tipo de dados OData**                                  | **Tipo de dados provisórios da Azure Data Factory** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Uma linha de texto                             | Edm.String                                           | String                                   |
-| Várias linhas de texto                          | Edm.String                                           | String                                   |
-| Escolha (menu à escolha)                    | Edm.String                                           | String                                   |
+| Uma linha de texto                             | Edm.String                                           | Cadeia                                   |
+| Várias linhas de texto                          | Edm.String                                           | Cadeia                                   |
+| Escolha (menu à escolha)                    | Edm.String                                           | Cadeia                                   |
 | Número (1, 1.0, 100)                            | Edm.Double                                           | Double                                   |
 | Moeda ($, ¥, €)                              | Edm.Double                                           | Double                                   |
 | Data e Hora                                   | Edm.DateTime                                         | DateTime                                 |
 | Procura (informação já neste site)       | Edm.Int32                                            | Int32                                    |
 | Sim/Não (caixa de verificação)                              | Edm.Boolean                                          | Booleano                                  |
 | Pessoa ou Grupo                                 | Edm.Int32                                            | Int32                                    |
-| Hiperligação ou Imagem                            | Edm.String                                           | String                                   |
+| Hiperligação ou Imagem                            | Edm.String                                           | Cadeia                                   |
 | Calculado (cálculo com base noutras colunas) | Edm.String / Edm.Double / Edm.DateTime / Edm.Boolean | Corda / Duplo / Data / Boolean     |
 | Anexo                                      | Não suportado                                        |                                          |
 | Resultado da Tarefa                                    | Não suportado                                        |                                          |

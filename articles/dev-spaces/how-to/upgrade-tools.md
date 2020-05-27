@@ -5,12 +5,12 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 description: Saiba como atualizar as ferramentas de linha de comando Azure Dev Spaces, extensão do Código do Estúdio Visual e extensão do Estúdio Visual
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contentores Azure, contentores
-ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265236"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873490"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Como atualizar as ferramentas Azure Dev Spaces
 
@@ -35,11 +35,9 @@ az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group>
 
 Uma vez instalada, a extensão atualiza-se automaticamente. Poderá ser necessário recarregar a extensão para utilizar as novas funcionalidades. No Código VS, abra o painel de **extensões,** escolha as extensões **dos Espaços Azure Dev** e escolha **recarregar**.
 
-## <a name="update-the-visual-studio-extension"></a>Atualizar a extensão do Estúdio Visual
+## <a name="update-visual-studio"></a>Update Visual Studio
 
-Tal como acontece com outras extensões e atualizações, o Visual Studio irá notificá-lo quando houver uma atualização disponível para as Ferramentas de Estúdio Visual para Kubernetes, que inclui os Espaços Azure Dev. Procure um ícone de bandeira na parte superior direita do ecrã.
-
-Para atualizar as ferramentas no Estúdio Visual, escolha o item do menu **Tools > Extensions and Updates** e, no lado esquerdo, escolha **Atualizações**. Encontre **ferramentas de estúdio visuais para Kubernetes** e escolha o botão **Update.**
+A Azure Dev Spaces faz parte da carga de trabalho do Desenvolvimento Azure e está incluída em todas as atualizações do Visual Studio.
 
 ## <a name="next-steps"></a>Passos seguintes
 

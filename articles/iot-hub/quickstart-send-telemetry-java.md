@@ -13,13 +13,13 @@ ms.custom:
 - seo-java-august2019
 - seo-java-september2019
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: 954fe6f92b68d011aaff0fff7925b3409ee628cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: 225b9407bff4294288bb4834cbb0d919698b78c6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769110"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873182"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Quickstart: Envie telemetria para um hub Azure IoT e leia-o com uma aplicação Java
 
@@ -117,7 +117,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** num editor de texto à sua escolha.
 
-    Substitua o `connString` valor da variável pela cadeia de ligação do dispositivo de que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.java**.
+    Substitua o valor da `connString` variável pela cadeia de ligação do dispositivo de que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.java**.
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compile a aplicação de dispositivo simulado:
 
@@ -133,7 +133,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação de dispositivo simulado envia telemetria para o seu hub IoT:
 
-    ![Saída da telemetria enviada pelo dispositivo para o seu hub IoT](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
+    ![Saída da telemetria enviada pelo dispositivo para o seu hub IoT](media/quickstart-send-telemetry-java/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
@@ -145,9 +145,9 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     | Variável | Valor |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com os Hubs de Eventos que fez uma nota anterior. |
-    | `eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com hubs de eventos que fez uma nota anterior. |
-    | `iotHubSasKey`                | Substitua o valor da variável pela chave primária de serviço que fez uma nota anterior. |
+    | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | Substitua o valor da variável pelo ponto final compatível com os Hubs de Eventos que fez uma nota anterior. |
+    | `EVENT_HUBS_COMPATIBLE_PATH`     | Substitua o valor da variável pelo caminho compatível com hubs de eventos que fez uma nota anterior. |
+    | `IOT_HUB_SAS_KEY`                | Substitua o valor da variável pela chave primária de serviço que fez uma nota anterior. |
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compilar a aplicação back-end:
 
@@ -163,7 +163,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação back-end recebe telemetria enviada pelo dispositivo simulado para o hub:
 
-    ![Saída como aplicação back-end recebe telemetria enviada para o seu hub IoT](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
+    ![Saída como aplicação back-end recebe telemetria enviada para o seu hub IoT](media/quickstart-send-telemetry-java/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

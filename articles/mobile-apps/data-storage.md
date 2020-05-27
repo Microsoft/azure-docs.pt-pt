@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: 166847325fa9094136f1c2a143f1751420f05f66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb76151a3f952f932cc533b771283b5d45382366
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240918"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873454"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Armazenar, sincronizar e consultar dados de aplicações móveis da nuvem
 Independentemente do tipo de aplicação que constrói, provavelmente gerará e processará dados. Os utilizadores da sua aplicação têm altas expectativas. Querem que a aplicação funcione de forma rápida e perfeita, em todas as circunstâncias. A maioria das aplicações também funcionam em vários dispositivos. Pode aceder à sua aplicação a partir de um ambiente de trabalho ou de um dispositivo móvel. Vários utilizadores podem utilizar a aplicação ao mesmo tempo e partilhar dados com a expectativa de obter acesso instantâneo e em tempo real aos dados.
@@ -22,21 +22,6 @@ Os utilizadores da sua aplicação nem sempre terão conectividade com a Interne
 A Microsoft fornece uma variedade de serviços que eliminam a necessidade de girar servidores, escolher a sua base de dados ou preocupar-se com escala ou segurança para fornecer a experiência mais rica possível. Estes serviços proporcionam uma excelente experiência de desenvolvimento que permite armazenar dados de aplicações na nuvem utilizando APIs SQL ou NoSQL. Também pode sincronizar dados em todos os dispositivos e permitir que a aplicação funcione com ou sem uma ligação de rede para ajudar a construir aplicações escaláveis e robustas.
 
 Utilize os seguintes serviços para gerir e armazenar dados de aplicações móveis na nuvem.
-
-## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center Data](/appcenter/data/) é um serviço de gestão de dados. Permite que as aplicações gerem, persistam e sincroniem dados de aplicações na nuvem em diferentes dispositivos e plataformas em cenários online e offline. Construído em cima do Azure Cosmos DB, o App Center Data escala à medida que a sua base de utilizadores e o número de aplicações crescem. Garante baixa latência, alta disponibilidade e alta escalabilidade para todos os seus dados.
-
-**Principais funcionalidades**
-- Fornecimento fácil para uma nova base de dados Azure Cosmos DB ou uma base de dados Azure Cosmos DB existente do portal Visual Studio App Center.
-- Suporte de base de dados NoSQL para armazenar facilmente, sincronizar e consultar dados de aplicação.
-- Construído em cima do Azure Cosmos DB, este serviço herda a maioria das principais funcionalidades oferecidas pela Azure Cosmos DB e pode escalar globalmente para atender às suas necessidades de negócio.
-- Capacidades de sincronização online e offline para sincronizar dados entre dispositivos.
-- SDKs de clientes móveis que pode usar para gerir facilmente dados de aplicações privadas.
-- Suporte de plataforma para iOS, Android, Xamarin e React Native.
-
-**Referências**
-- [Inscreva-se no Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Começar com dados do App Center](/appcenter/data/getting-started)
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é um serviço de base de dados multimodelo distribuído globalmente. Podeusá-lo para construir aplicações à escala do planeta. Com o Azure Cosmos DB, você pode escalar earmazenamento ereto de escala elástica e independente em várias regiões azure em todo o mundo. Pode aproveitar o acesso rápido de dados de um dígito, utilizando as suas superfícies API favoritas. Estas superfícies incluem SQL, MongoDB, Cassandra, Tabelas ou Gremlin. A Azure Cosmos DB fornece exclusivamente acordos abrangentes de nível de serviço (SLAs) para a entrada, latência, disponibilidade e consistência.

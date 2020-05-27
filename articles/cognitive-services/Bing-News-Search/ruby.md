@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ce1ef2b6c586ddd688bacb755d7c6f2ffd16a0a5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ad52116e11f9d89bf55a23692ae4e27f53b51319
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448538"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873409"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando Ruby e a Bing News Search REST API
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing e receber uma resposta JSON. Esta simples aplicação JavaScript envia uma consulta de pesquisa para a API e processa os resultados.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação Ruby envia uma consulta de pesquisa para a API e processa a resposta JSON.
 
-Embora esta aplicação esteja escrita em Python, a API é um serviço Web restful compatível com a maioria dos idiomas de programação. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. 
+
+O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +34,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web restf
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Importe os seguintes pacotes para o seu ficheiro de código.
+1. Importe os seguintes pacotes no seu ficheiro de código:
 
     ```ruby
     require 'net/https'
@@ -40,7 +42,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web restf
     require 'json'
     ```
 
-2. Crie variáveis para o ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e termo de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```ruby
     accessKey = "enter key here"
@@ -51,7 +53,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web restf
 
 ## <a name="format-and-make-an-api-request"></a>Formatar e fazer um pedido de API
 
-Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido da API. Em seguida, envie o pedido.
+Utilize as variáveis do passo anterior para formatar um URL de pesquisa para o pedido de API. Então, envie o pedido.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,7 +66,7 @@ end
 
 ## <a name="process-and-print-the-json-response"></a>Processar e imprimir a resposta json
 
-Após a resposta ser recebida, pode analisar o JSON, e imprimir tanto o corpo de resposta como os seus cabeçalhos:
+Após a resposta ser recebida, analise o JSON e, em seguida, imprima tanto o corpo de resposta como os seus cabeçalhos.
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -78,7 +80,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="json-response"></a>Resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -177,4 +179,4 @@ puts JSON::pretty_generate(JSON(response.body))
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação de página de sinalização](tutorial-bing-news-search-single-page-app.md)
+> [Criar uma aplicação web de página única](tutorial-bing-news-search-single-page-app.md)

@@ -8,31 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 62e975121c05bd4fde2438480f7042b0957a9c82
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475609"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873121"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Quickstart: Envie uma consulta à API local de pesquisa de negócios bing em C #
 
-Use este quickstart para começar a enviar pedidos para a API local de pesquisa de negócios Bing, que é um Serviço Cognitivo Azure. Embora esta aplicação simples esteja escrita em C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer pedidos HTTP e analisar jSON.
+Use este quickstart para aprender a enviar pedidos para a API de Pesquisa De Negócios Local Bing, que é um Serviço Cognitivo Azure. Embora esta aplicação simples esteja escrita em C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer pedidos HTTP e analisar jSON.
 
-Esta aplicação de exemplo obtém dados de `hotel in Bellevue`resposta local da API para a consulta de pesquisa .
+Esta aplicação de exemplo obtém dados de resposta local da API para uma consulta de pesquisa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2019.](https://www.visualstudio.com/downloads/)
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
-
-Você deve ter uma [conta De Serviços Cognitivos API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de pesquisa bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido.  Consulte também [preços de serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada utilizando [o Mono](https://www.mono-project.com/).
+* Uma [conta de API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa bing. Para este início rápido, o [julgamento gratuito](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente. Guarde a chave API fornecida quando ativar o seu teste gratuito. Para mais informações, consulte [Preços dos Serviços Cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>Criar o pedido 
 
-O seguinte código `WebRequest`cria um , define o cabeçalho da chave de acesso, e adiciona uma corda de consulta para "restaurante em Bellevue".  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
+O seguinte código cria `WebRequest` um, define o cabeçalho da chave de acesso, e adiciona uma corda de consulta para *restaurante em Bellevue*.  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -54,10 +53,10 @@ O seguinte código `WebRequest`cria um , define o cabeçalho da chave de acesso,
 
 ## <a name="run-the-complete-application"></a>Executar a aplicação completa
 
-O Bing Local Business Search API devolve os resultados de pesquisa localizados do motor de busca Bing.
-1. Crie uma nova solução de consola no Visual Studio (a Edição da Comunidade é suficiente).
+O seguinte código utiliza a API de pesquisa de negócios local Bing para devolver os resultados de pesquisa localizados do motor de busca Bing. Pode utilizar este código seguindo estes passos:
+1. Criar uma nova solução de consola no Estúdio Visual (a Edição Comunitária é suficiente).
 2. Substitua Program.cs pelo código fornecido abaixo.
-3. Substitua o valor do accessKey por uma chave de acesso válida para a sua subscrição.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```csharp
@@ -210,5 +209,5 @@ namespace localSearch
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Pesquisa de negócios locais Java quickstart](local-search-java-quickstart.md)
-- [Local Business Search Node quickstart](local-search-node-quickstart.md)
+- [Local Business Search Node.js quickstart](local-search-node-quickstart.md)
 - [Pesquisa de negócios local Python quickstart](local-search-python-quickstart.md)

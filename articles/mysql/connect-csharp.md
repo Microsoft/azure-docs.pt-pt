@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: 715be66e1b7d1c9270600dd3f11ee16d9aa1885d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 8b2873944aec82d3df7d0a3bf127f19578eecf83
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067980"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871497"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar .NET (C#) para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação C#. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com C# e que nunca trabalhou com a Base de Dados do Azure para MySQL.
@@ -26,6 +26,9 @@ Este guia de início rápido utiliza os recursos criados em qualquer um desTes g
 Também tem de:
 - Instalar [.NET](https://www.microsoft.com/net/download). Siga os passos no artigo ligado para instalar o .NET especificamente para a sua plataforma (Windows, Ubuntu Linux ou macOS). 
 - Instalar [o Estúdio Visual.](https://www.visualstudio.com/downloads/)
+
+> [!IMPORTANT] 
+> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## <a name="create-a-c-project"></a>Criar um projeto em C#
 Numa linha de comandos, execute:

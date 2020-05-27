@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553ecc971235b5ba7d55a2dcb6963200919a3480
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853454"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870939"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o fornecimento de nuvem azure AD Connect
 Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Connect cloud provisioning como a sua solução de identidade.
@@ -60,18 +60,13 @@ Executar a [ferramenta IdFix](https://docs.microsoft.com/office365/enterprise/pr
         | **8080** (opcional) | Os agentes reportam o seu estado a cada 10 minutos sobre o porto 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal Azure AD. |
      
    - Se a sua firewall aplicar regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
-   - Se a sua firewall ou proxy permitir especificar sufixos seguros, adicione ligações a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
+   - Se a sua firewall ou proxy permitir especificar sufixos seguros, adicione ligações a \* .msappproxy.net e \* .servicebus.windows.net. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
    - Os seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para registo inicial. Abra a sua firewall para os URLs também.
-   - Para validação de certificados, desbloqueie os seguintes\.URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www microsoft.com:80. Estes URLs são usados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
+   - Para validação de certificados, desbloqueie os seguintes URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www \. microsoft.com:80. Estes URLs são usados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
 
-### <a name="verify-the-port"></a>Verifique a porta
-Para verificar se o Azure está a ouvir na porta 443 e que o seu agente pode comunicar com ele, utilize o seguinte URL:
+>[!NOTE]
+> A instalação do agente de fornecimento de nuvem no Windows Server Core não é suportada.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-Este teste verifica que os seus agentes podem comunicar com azure sobre a porta 443. Abra um navegador e vá para o URL anterior a partir do servidor onde o agente está instalado.
-
-![Verificação da viabilidade portuária](media/how-to-install/verify2.png)
 
 ### <a name="additional-requirements"></a>Requisitos adicionais
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 

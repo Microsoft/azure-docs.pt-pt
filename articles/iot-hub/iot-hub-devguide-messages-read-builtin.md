@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.custom: amqp
-ms.openlocfilehash: bf7c4118e17727c6c8141570ab146026d5383059
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996939"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872695"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -55,16 +55,16 @@ No portal, o campo final compatível com o Event Hub contém uma cadeia completa
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
-| Espaço de nomes | espaço abcd1234nome |
+| Espaço de Nomes | espaço abcd1234nome |
 
 Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as permissões **ServiceConnect** para se ligar ao Centro de Eventos especificado.
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Hub de Eventos incorporado que o IoT Hub expõe incluem:
 
-| Idioma | SDK | Exemplo |
+| Linguagem | SDK | Exemplo |
 | -------- | --- | ------ |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início Rápido](quickstart-send-telemetry-dotnet.md) |
- Java | https://github.com/Azure/azure-event-hubs-java | [Início Rápido](quickstart-send-telemetry-java.md) |
+ Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início Rápido](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Início Rápido](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 

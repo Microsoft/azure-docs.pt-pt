@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612066"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873050"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leia a entrada em qualquer formato utilizando desserializers personalizados .NET
 
@@ -20,9 +20,9 @@ Os desserializers personalizados .NET permitem que o seu trabalho de Análise de
 
 ## <a name="net-custom-deserializer"></a>.NET desserializer personalizado
 
-A seguir são as amostras de código que `StreamDeserializer<T>`definem o desserializador personalizado e implementam .
+A seguir são as amostras de código que definem o desserializador personalizado e implementam `StreamDeserializer<T>` .
 
-`UserDefinedOperator`é a classe base para todos os operadores de streaming personalizados. Ele inicializa `StreamingContext`, que fornece um contexto que inclui mecanismo sinuoso para a publicação de diagnósticos para os quais você precisará dedepusar quaisquer problemas com o seu desserializer.
+`UserDefinedOperator`é a classe base para todos os operadores de streaming personalizados. Ele inicializa `StreamingContext` , que fornece um contexto que inclui mecanismo sinuoso para a publicação de diagnósticos para os quais você precisará dedepusar quaisquer problemas com o seu desserializer.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -33,19 +33,19 @@ A seguir são as amostras de código que `StreamDeserializer<T>`definem o desser
 
 O seguinte código é a desserialização para os dados de streaming. 
 
-Erros skippable devem ser `IStreamingDiagnostics` emitidos utilizando o `UserDefinedOperator`método inicializar. Todas as exceções serão tratadas como erros e o desserializer será recriado. Depois de um certo número de erros, o trabalho irá para um estado falhado.
+Erros skippable devem ser emitidos utilizando `IStreamingDiagnostics` o `UserDefinedOperator` método inicializar. Todas as exceções serão tratadas como erros e o desserializer será recriado. Depois de um certo número de erros, o trabalho irá para um estado falhado.
 
-`StreamDeserializer<T>`desserializa um fluxo em `T`objeto de tipo . Devem ser satisfeitas as seguintes condições:
+`StreamDeserializer<T>`desserializa um fluxo em objeto de tipo `T` . Devem ser satisfeitas as seguintes condições:
 
 1. T é uma classe ou uma estrutura.
 1. Todos os campos públicos em T são ou
     1. Um dos [sbyte, byte, short, ushort, int, uint, long, DateTime, string, float, double] ou seus equivalentes nulos.
     1. Outra estrutura ou classe seguindo as mesmas regras.
-    1. Um conjunto `T2` de tipos que seguem as mesmas regras.
-    1. IList`T2` onde T2 segue as mesmas regras.
+    1. Um conjunto de tipos `T2` que seguem as mesmas regras.
+    1. IList `T2` onde T2 segue as mesmas regras.
     1. Não tem nenhum tipo recursivo.
 
-O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`devolve uma `T` coleção de instâncias.
+O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`devolve uma coleção de `T` instâncias.
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -112,7 +112,7 @@ message MessageBodyProto {
 }
 ```
 
-A `protoc.exe` partir do **Google.Protobuf.Tools** NuGet gera um ficheiro .cs com a definição. O ficheiro gerado não é mostrado aqui.
+A `protoc.exe` partir do **Google.Protobuf.Tools** NuGet gera um ficheiro .cs com a definição. O ficheiro gerado não é mostrado aqui. Deve certificar-se de que a versão do Protobuf Nuget que utiliza no seu projeto Stream Analytics corresponde à versão Protobuf que foi utilizada para gerar a entrada. 
 
 O seguinte código é a implementação de desserializer assumindo que o ficheiro gerado está incluído no projeto. Esta implementação é apenas um invólucro fino sobre o ficheiro gerado.
 
@@ -219,7 +219,7 @@ O seguinte código Javascript é um exemplo do formato de serialização de dese
 }  
 ```
 
-`serializationClassName`deve ser uma classe `StreamDeserializer<T>`que implementa. Isto é descrito na secção seguinte.
+`serializationClassName`deve ser uma classe que `StreamDeserializer<T>` implementa. Isto é descrito na secção seguinte.
 
 ## <a name="region-support"></a>Suporte de região
 

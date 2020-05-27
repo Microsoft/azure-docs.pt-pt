@@ -2,14 +2,14 @@
 title: 'Quickstart: Language Understanding (LUIS) autor de biblioteca de clientes'
 description: Comece com a biblioteca de clientes luis com este arranque rápido. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 ms.topic: quickstart
-ms.date: 01/14/2020
+ms.date: 05/22/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 614d40bb3e5bc8b83a2307b89cd517fdf7913dbe
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: dab36a7688e510b4a23f285deedf7d670cd78d10
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77524449"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871282"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Quickstart: Language Understanding (LUIS) autor de biblioteca de clientes
 
@@ -33,6 +33,6 @@ Inicie-se com a biblioteca de clientes do Language Understanding (LUIS). Siga es
 >[Use o SDK para consultar o ponto final da previsão](sdk-query-prediction-endpoint.md)
 
 * [O que é a API de Compreensão linguística (LUIS) ?](what-is-luis.md)
-* [O que há de novo?](whats-new.md)
+* [Novidades](whats-new.md)
 * [Intenções,](luis-concept-intent.md) [entidades,](luis-concept-entity-types.md)e [declarações de exemplo,](luis-concept-utterance.md)e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
 * O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).

@@ -11,19 +11,19 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450994"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870967"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de senha de autosserviço do Azure Ative Diretório
 
 > [!IMPORTANT]
 > Este plano de implementação oferece orientação e boas práticas para implementar o reset de senha de autosserviço azure AD (SSPR).
 >
-> **Se for e terminar utilizador e precisar de voltar [https://aka.ms/sspr](https://aka.ms/sspr)à sua conta, vá para **.
+> **Se for e terminar utilizador e precisar de voltar [https://aka.ms/sspr](https://aka.ms/sspr) à sua conta, vá para **.
 
 [O Reset de Passwords self-Service (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é uma funcionalidade azure Ative Directory (AD) que permite aos utilizadores redefinir as suas palavras-passe sem contactar o pessoal de TI para obter ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou da hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de apoio para as questões mais comuns relacionadas com a palavra-passe.
 
@@ -109,7 +109,7 @@ Nota: Para utilizadores que tenham sincronização de [hash password (PHS)](http
 
 Pode ajudar os utilizadores a registarem-se rapidamente, implementando o SSPR ao lado de outra aplicação ou serviço popular na organização. Esta ação gerará um grande volume de inscrições e conduzirá o registo.
 
-Antes de implementar o SSPR, pode optar por determinar o número e o custo médio de cada chamada de reset de palavra-passe. Você pode usar este post de envio de dados para mostrar o valor que a SSPR está a trazer para a organização.
+Antes de implementar o SSPR, pode optar por determinar o número e o custo médio de cada chamada de reset de palavra-passe. Pode utilizar este post de implementação de dados para mostrar o valor que a SSPR está a trazer para a organização.
 
 #### <a name="enable-combined-registration-for-sspr-and-mfa"></a>Permitir o registo combinado de SSPR e MFA
 
@@ -154,14 +154,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Reset de palavra-passe de autosserviço ativado | **Grupo selecionado** para piloto / **Tudo** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para se registar | Sempre mais 1 do que o necessário para reset |
 |   | Métodos de autenticação necessários para redefinir | Um ou dois |
-| **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
+| **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Personalização** | Personalizar link de helpdesk | Sim |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
+| **Personalização** | Personalizar link de helpdesk | Yes |
 |   | E-mail ou URL de helpdesk personalizado | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Escreva palavras-passe para a AD no local | Sim |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
+| **Integração no local** | Escreva palavras-passe para a AD no local | Yes |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 

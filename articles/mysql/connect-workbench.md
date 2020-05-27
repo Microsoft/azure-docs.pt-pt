@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: 9572a8ca3d42288099482245d1fc7800cebd1ea3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 5/26/2020
+ms.openlocfilehash: 1e2dd26e2b954bebd7bac15991b2b5aef9def88d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652256"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870048"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o MySQL Workbench para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação do MySQL Workbench. 
@@ -21,6 +21,9 @@ Este guia de introdução explica como se pode ligar a uma Base de Dados do Azur
 Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+> [!IMPORTANT] 
+> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-mysql-workbench"></a>Instalar MySQL Workbench
 Transfira e instale o MySQL Workbench no seu computador a partir do [site do MySQL](https://dev.mysql.com/downloads/workbench/).
@@ -106,6 +109,6 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
 Agora, ligou-se à Base de Dados do Azure para MySQL com o MySQL Workbench e consultou dados com linguagem do SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./concepts-migrate-import-export.md)

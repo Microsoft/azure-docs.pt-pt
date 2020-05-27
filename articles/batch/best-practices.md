@@ -1,30 +1,22 @@
 ---
 title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução De Lote Azure.
-ms.date: 04/03/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7d2add5fb30e3efdfb761364babf2211c3c254f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725810"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871364"
 ---
 # <a name="azure-batch-best-practices"></a>Boas práticas do Lote Azure
 
-Este artigo discute uma coleção de boas práticas para a utilização do serviço Azure Batch de forma eficaz e eficiente. Estas boas práticas derivam da nossa experiência com o Batch e as experiências dos clientes do Batch. É importante entender este artigo para evitar armadilhas de design, potenciais problemas de desempenho e anti-padrões enquanto desenvolve para, e usando, Batch.
-
-Neste artigo, aprenderá:
-
-> [!div class="checklist"]
-> - Quais são as melhores práticas
-> - Por que deve usar as melhores práticas
-> - O que pode acontecer se não seguir as melhores práticas
-> - Como seguir as melhores práticas
+Este artigo discute uma coleção de boas práticas para usar o serviço Azure Batch de forma eficaz e eficiente, com base na experiência da vida real com o Batch. Leia este artigo para evitar armadilhas de design, potenciais problemas de desempenho e anti-padrões enquanto desenvolve para, e usando, Batch.
 
 ## <a name="pools"></a>Conjuntos
 
-Os pools de lotes são os recursos computacionais para a execução de trabalhos no serviço Batch. As seguintes secções fornecem orientações sobre as melhores práticas a seguir ao trabalhar com piscinas de Lote.
+[Piscinas](nodes-and-pools.md#pools) são os recursos computacionais para executar trabalhos no serviço Batch. As seguintes secções fornecem recomendações para trabalhar com piscinas de lote.
 
 ### <a name="pool-configuration-and-naming"></a>Configuração e nomeação da piscina
 
@@ -61,98 +53,121 @@ As falhas de atribuição de piscinas podem ocorrer em qualquer ponto durante a 
 
 ### <a name="unplanned-downtime"></a>Período de indisponibilidade não planeado
 
-É possível que as piscinas de Batch experimentem eventos de inatividade em Azure. Isto é importante ter em mente ao planear e desenvolver o seu cenário ou fluxo de trabalho para o Lote.
+É possível que as piscinas de Batch experimentem eventos de inatividade em Azure. Tenha isto em mente ao planear e desenvolver o seu cenário ou fluxo de trabalho para o Lote.
 
-No caso de um nó falhar, o Batch tenta automaticamente recuperar estes nós computacionais em seu nome. Isto pode desencadear o reagendamento de qualquer tarefa de execução no nó recuperado. Consulte [o Design para retentar](#designing-for-retries-and-re-execution) para saber mais sobre tarefas interrompidas.
+No caso de um nó falhar, o Batch tenta automaticamente recuperar estes nós computacionais em seu nome. Isto pode desencadear o reagendamento de qualquer tarefa de execução no nó recuperado. Consulte [o Design para retentar](#design-for-retries-and-re-execution) para saber mais sobre tarefas interrompidas.
 
-- **Dependência da região de Azure** É aconselhável não depender de uma única região azure se tiver uma carga de trabalho sensível ao tempo ou à produção. Embora raros, há questões que podem afetar toda uma região. Por exemplo, se o seu processamento precisar de começar num momento específico, considere escalar a piscina na sua região primária muito antes da hora de *início.* Se essa balança de piscina falhar, pode voltar a escalar uma piscina numa região de reserva (ou regiões). Piscinas em várias contas em diferentes regiões fornecem uma cópia de segurança pronta e facilmente acessível se algo correr mal com outra piscina. Para mais informações, consulte [Design a sua aplicação para alta disponibilidade](high-availability-disaster-recovery.md).
+### <a name="azure-region-dependency"></a>Dependência da região de Azure
+
+É aconselhável não depender de uma única região azure se tiver uma carga de trabalho sensível ao tempo ou à produção. Embora raros, há questões que podem afetar toda uma região. Por exemplo, se o seu processamento precisar de começar num momento específico, considere escalar a piscina na sua região primária muito antes da hora de *início.* Se essa balança de piscina falhar, pode voltar a escalar uma piscina numa região de reserva (ou regiões). Piscinas em várias contas em diferentes regiões fornecem uma cópia de segurança pronta e facilmente acessível se algo correr mal com outra piscina. Para mais informações, consulte [Design a sua aplicação para alta disponibilidade](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Tarefas
 
-Um trabalho é um recipiente projetado para conter centenas, milhares, ou mesmo milhões de tarefas.
+Um [trabalho](jobs-and-tasks.md#jobs) é um recipiente projetado para conter centenas, milhares, ou mesmo milhões de tarefas. Siga estas orientações ao criar empregos.
 
-- **Colocar muitas tarefas num trabalho** Usar um trabalho para executar uma única tarefa é ineficiente. Por exemplo, é mais eficiente usar um único trabalho contendo 1000 tarefas em vez de criar 100 postos de trabalho que contêm 10 tarefas cada. Gerir 1000 postos de trabalho, cada um com uma única tarefa, seria a abordagem menos eficiente, lenta e mais cara a tomar.
+### <a name="fewer-jobs-more-tasks"></a>Menos empregos, mais tarefas
 
-    Não desenhe uma solução de Lote que exija milhares simultaneamente de empregos ativos. Não existe quota para tarefas, pelo que executar o maior número possível de tarefas no âmbito do menor número de postos de trabalho utiliza eficazmente as quotas de emprego e de horário de [trabalho.](batch-quota-limit.md#resource-quotas)
+Usar um trabalho para executar uma única tarefa é ineficiente. Por exemplo, é mais eficiente usar um único trabalho contendo 1000 tarefas em vez de criar 100 postos de trabalho que contêm 10 tarefas cada. Gerir 1000 postos de trabalho, cada um com uma única tarefa, seria a abordagem menos eficiente, lenta e mais cara a tomar.
 
-- **Vida útil** Um trabalho de Lote tem uma vida indefinida até ser apagado do sistema. O estado de um trabalho designa se pode aceitar mais tarefas para agendar ou não. Um trabalho não se move automaticamente para o estado concluído a menos que explicitamente terminado. Isto pode ser automaticamente acionado através da propriedade [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) ou [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Por isso, certifique-se de não conceber uma solução de Lote que exija milhares de empregos simultaneamente ativos. Não existe quota para tarefas, pelo que executar muitas tarefas com o menor número possível de postos de trabalho utiliza eficazmente as suas quotas de emprego e de horário de [trabalho.](batch-quota-limit.md#resource-quotas)
+
+### <a name="job-lifetime"></a>Vida útil
+
+Um trabalho de Lote tem uma vida indefinida até ser apagado do sistema. O seu estado designa se pode aceitar mais tarefas para agendar ou não.
+
+Um trabalho não se move automaticamente para o estado concluído a menos que explicitamente terminado. Isto pode ser automaticamente acionado através da propriedade [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) ou [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
 
 Existe uma quota de emprego ativo e de horário de [trabalho.](batch-quota-limit.md#resource-quotas) Os postos de trabalho e os horários de trabalho em estado concluído não contam para esta quota.
 
 ## <a name="tasks"></a>Tarefas
 
-As tarefas são unidades individuais de trabalho que compõem um trabalho. As tarefas são submetidas pelo utilizador e programadas pelo Batch para calcular os nódosos. Existem várias considerações de design a fazer ao criar e executar tarefas. As seguintes secções explicam cenários comuns e como projetar as suas tarefas para lidar com problemas e executar de forma eficiente.
+[As tarefas](jobs-and-tasks.md#tasks) são unidades individuais de trabalho que compõem um trabalho. As tarefas são submetidas pelo utilizador e programadas pelo Batch para calcular os nódosos. Existem várias considerações de design a fazer ao criar e executar tarefas. As seguintes secções explicam cenários comuns e como projetar as suas tarefas para lidar com problemas e executar de forma eficiente.
 
-- **Guarde os dados de tarefas como parte da tarefa.**
-    Os nóóis computacionais são pela sua natureza efémera. Existem muitas funcionalidades em Lote, como autopool e autoescala que facilitam o desaparecimento dos nódosos. Quando os nós saem da piscina (devido a um redimensionado, ou uma eliminação de piscina) todos os ficheiros desses nós também são eliminados. Por isso, recomenda-se que antes de uma tarefa se complete, ele move a sua saída para fora do nó que está a funcionar e para uma loja durável, da mesma forma que se uma tarefa falha, deve mover os registos necessários para diagnosticar a falha numa loja durável. O Batch tem suporte integrado Azure Storage para carregar dados através [do OutputFiles,](batch-task-output-files.md)bem como uma variedade de sistemas de ficheiros partilhados, ou pode realizar o upload nas suas tarefas.
+### <a name="save-task-data"></a>Guardar dados de tarefas
 
-### <a name="task-lifetime"></a>Vida útil da tarefa
+Os nóóis computacionais são pela sua natureza efémera. Existem muitas funcionalidades em Lote, como autopool e autoescala que facilitam o desaparecimento dos nódosos. Quando os nós saem da piscina (devido a um redimensionado, ou uma eliminação de piscina) todos os ficheiros desses nós também são eliminados. Por isso, uma tarefa deve retirar a sua saída do nó que está a funcionar e para uma loja durável antes de estar concluída. Da mesma forma, se uma tarefa falhar, deve mover os registos necessários para diagnosticar a falha numa loja durável.
 
-- **Elimine as tarefas quando estiverem completas.**
-    Eliminar tarefas quando já não forem necessárias ou definir uma restrição de tarefa de [retençãoTempo.](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) Se `retentionTime` estiver definido, o Lote limpa automaticamente o espaço do disco utilizado pela tarefa quando a `retentionTime` tarefa expirar.
+O Batch tem suporte integrado Azure Storage para carregar dados através [do OutputFiles,](batch-task-output-files.md)bem como uma variedade de sistemas de ficheiros partilhados, ou pode realizar o upload nas suas tarefas.
 
-    Apagar tarefas realiza duas coisas. Garante que não tem uma acumulação de tarefas no trabalho, tornando a consulta/encontrar a tarefa em que está mais interessado (porque terá de filtrar as tarefas concluídas). Também limpa os dados de tarefacorrespondentes no nó (desde que `retentionTime` ainda não tenha sido atingido). Isto garante que os seus nós não se enchem de dados de tarefas e estão sem espaço para o disco.
+### <a name="manage-task-lifetime"></a>Gerir a vida útil da tarefa
 
-### <a name="task-submission"></a>Submissão de tarefas
+Eliminar tarefas quando já não forem necessárias ou definir uma restrição de tarefa de [retençãoTempo.](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) Se `retentionTime` estiver definido, o Lote limpa automaticamente o espaço do disco utilizado pela tarefa quando a `retentionTime` tarefa expirar.
 
-- **Envie um grande número de tarefas numa coleção.**
-    As tarefas podem ser submetidas individualmente ou em coleções. Submeta tarefas em [coleções](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) até 100 de cada vez ao fazer a submissão a granel de tarefas para reduzir o tempo de sobrecarga e submissão.
+Apagar tarefas realiza duas coisas. Garante que não tem uma acumulação de tarefas no trabalho, o que pode dificultar a consulta/encontrar a tarefa em que está interessado (porque terá de filtrar as tarefas concluídas). Também limpa os dados de tarefacorrespondentes no nó (desde que `retentionTime` ainda não tenha sido atingido). Isto ajuda a garantir que os seus nós não se preenchem com dados de tarefas e que se esgotem o espaço do disco.
 
-### <a name="task-execution"></a>Execução de tarefas
+### <a name="submit-large-numbers-of-tasks-in-collection"></a>Submeter um grande número de tarefas na recolha
 
-- **Escolher as suas tarefas max por nó** O lote suporta a subscrição de tarefas sobresubscritas em nós (executando mais tarefas do que um nó tem núcleos). Cabe-lhe a si garantir que as suas tarefas "encaixem" nos nódosos da sua piscina. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina `maxTasksPerNode = 8` com).
+As tarefas podem ser submetidas individualmente ou em coleções. Submeta tarefas em [coleções](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) até 100 de cada vez ao fazer a submissão a granel de tarefas para reduzir o tempo de sobrecarga e submissão.
 
-### <a name="designing-for-retries-and-re-execution"></a>Desenho para retries e reexecução
+### <a name="set-max-tasks-per-node-appropriately"></a>Definir tarefas max por nó adequadamente
+
+O lote suporta a subscrição de tarefas sobresubscritas em nós (executando mais tarefas do que um nó tem núcleos). Cabe-lhe a si garantir que as suas tarefas "encaixem" nos nódosos da sua piscina. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina `maxTasksPerNode = 8` com).
+
+### <a name="design-for-retries-and-re-execution"></a>Conceção para retries e reexecução
 
 As tarefas podem ser automaticamente novamente experimentadas pelo Batch. Existem dois tipos de repetições: controladas pelo utilizador e internas. As repetições controladas pelo utilizador são especificadas pelo [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)da tarefa . Quando um programa especificado na tarefa sai com um código de saída não zero, a tarefa é novamente experimentada até ao valor do `maxTaskRetryCount` .
 
 Embora rara, uma tarefa pode ser novamente experimentada internamente devido a falhas no nó de computação, tais como não ser capaz de atualizar o estado interno ou uma falha no nó enquanto a tarefa está em execução. A tarefa será novamente experimentada no mesmo nó de cálculo, se possível, até um limite interno antes de desistir da tarefa e adiar a tarefa a ser reagendada pelo Batch, potencialmente num nó de cálculo diferente.
 
-- **Construir tarefas duráveis** As tarefas devem ser concebidas para resistir à falha e acomodar a retentativa. Isto é especialmente importante para tarefas de longo prazo. Para isso, certifique-se de que as tarefas geram o mesmo resultado único, mesmo que sejam executados mais de uma vez. Uma maneira de o conseguir é fazer com que as suas tarefas "procurem objetivos". Outra forma é garantir que as suas tarefas são idempotentes (as tarefas terão o mesmo resultado, independentemente do número de vezes que são executadas).
+Não existem diferenças de design ao executar as suas tarefas em nódos dedicados ou de baixa prioridade. Se uma tarefa é preempted enquanto corre num nó de baixa prioridade ou interrompida devido a uma falha num nó dedicado, ambas as situações são atenuadas ao conceber a tarefa de resistir ao fracasso.
 
-    Um exemplo comum é uma tarefa de copiar ficheiros para um nó de cálculo. Uma abordagem simples é uma tarefa que copia todos os ficheiros especificados cada vez que funciona, o que é ineficiente e não é construído para resistir à falha. Em vez disso, crie uma tarefa para garantir que os ficheiros estão no nó computacional; uma tarefa que não recopia ficheiros que já estão presentes. Desta forma, a tarefa retoma onde ficou parada se fosse interrompida.
+### <a name="build-durable-tasks"></a>Construir tarefas duráveis
 
-- **Nódoreos** de baixa prioridade Não existem diferenças de design ao executar as suas tarefas em nódos dedicados ou de baixa prioridade. Se uma tarefa é preempted enquanto corre num nó de baixa prioridade ou interrompida devido a uma falha num nó dedicado, ambas as situações são atenuadas ao conceber a tarefa de resistir ao fracasso.
+As tarefas devem ser concebidas para resistir à falha e acomodar a retentativa. Isto é especialmente importante para tarefas de longo prazo. Para isso, certifique-se de que as tarefas geram o mesmo resultado único, mesmo que sejam executados mais de uma vez. Uma maneira de conseguir isto é fazer com que as suas tarefas "procurem objetivos". Outra forma é garantir que as suas tarefas são idempotentes (as tarefas terão o mesmo resultado, independentemente do número de vezes que são executadas).
 
-- **Tempo de execução de tarefas** Evite tarefas com pouco tempo de execução. Tarefas que só duram um a dois segundos não são as ideais. Deve tentar fazer uma quantidade significativa de trabalho numa tarefa individual (10 segundos no mínimo, até horas ou dias). Se cada tarefa estiver a executar por um minuto (ou mais), então o horário de cima como uma fração do tempo total do cálculo é pequeno.
+Um exemplo comum é uma tarefa de copiar ficheiros para um nó de cálculo. Uma abordagem simples é uma tarefa que copia todos os ficheiros especificados cada vez que funciona, o que é ineficiente e não é construído para resistir à falha. Em vez disso, crie uma tarefa para garantir que os ficheiros estão no nó computacional; uma tarefa que não recopia ficheiros que já estão presentes. Desta forma, a tarefa retoma onde ficou parada se fosse interrompida.
+
+### <a name="avoid-short-execution-time"></a>Evite o curto tempo de execução
+
+Tarefas que só duram um a dois segundos não são as ideais. Deve tentar fazer uma quantidade significativa de trabalho numa tarefa individual (10 segundos no mínimo, até horas ou dias). Se cada tarefa estiver a executar por um minuto (ou mais), então o horário de cima como uma fração do tempo total do cálculo é pequeno.
+
 
 ## <a name="nodes"></a>Nós
 
-- **Iniciar tarefas deve ser idempotente** À semelhança de outras tarefas, a tarefa de início do nó deve ser idempotente, uma vez que será reexecutada sempre que as botas do nó. Uma tarefa idempotente é simplesmente uma que produz um resultado consistente quando executada várias vezes.
+Um [nó computacional](nodes-and-pools.md#nodes) é uma máquina virtual Azure (VM) ou vM de serviço em nuvem que se dedica a processar uma parte da carga de trabalho da sua aplicação. Siga estas orientações quando trabalhar com os nódosos.
 
-- **Gerencie serviços de longo prazo através da interface de serviços do sistema operativo.**
-    Às vezes, é necessário executar outro agente ao lado do agente Batch no nó, por exemplo, recolher dados do nó e denunciá-lo. Recomendamos que estes agentes sejam implantados como serviços de SO, como um serviço Windows ou um `systemd` serviço Linux.
+### <a name="idempotent-start-tasks"></a>Tarefas de início idempotentes
 
-    Ao executar estes serviços, não devem ter fechaduras de ficheiros em quaisquer ficheiros em diretórios geridos pelo Batch no nó, porque caso contrário o Batch não poderá eliminar esses diretórios devido às fechaduras dos ficheiros. Por exemplo, se instalar um serviço Windows numa tarefa inicial, em vez de lançar o serviço diretamente a partir do diretório de trabalho de tarefa inicial, copie os ficheiros noutrolocal (se os ficheiros existirem apenas saltar a cópia). Instale o serviço a partir desse local. Quando o Batch repetir a sua tarefa inicial, eliminará o diretório de tarefa inicial e irá criá-lo novamente. Isto funciona porque o serviço tem fechaduras de ficheiros no outro diretório e não no diretório de trabalho de tarefa inicial.
+Tal como acontece com outras tarefas, a tarefa de [início](jobs-and-tasks.md#start-task) do nó deve ser idempotente, pois será reexecutada sempre que as botas do nó. Uma tarefa idempotente é simplesmente uma que produz um resultado consistente quando executada várias vezes.
 
-- **Evite criar junções de diretório sintetmente no Windows** As junções de diretório, por vezes chamadas de ligações rígidas de diretório, são difíceis de lidar durante a tarefa e limpeza de emprego. Utilize symlinks (soft-links) em vez de ligações duras.
+### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerir serviços de longo prazo através da interface de serviços do sistema operativo
 
-- **Recolher os registos do agente Batch se houver um problema** Se notar um problema que envolva o comportamento de um nó ou tarefas em funcionamento num nó, é aconselhável recolher os registos do agente Batch antes de negociar os nós em questão. Os registos do agente Batch podem ser recolhidos utilizando os registos de serviço upload batch API. Estes registos podem ser fornecidos como parte de um bilhete de suporte para a Microsoft e ajudarão na resolução e resolução de problemas.
+Às vezes há a necessidade de executar outro agente ao lado do agente Batch no nó. Por exemplo, pode querer recolher dados do nó e denunciá-lo. Recomendamos que estes agentes sejam implantados como serviços de SO, como um serviço Windows ou um `systemd` serviço Linux.
 
-## <a name="security"></a>Segurança
+Ao executar estes serviços, não devem ter fechaduras de ficheiros em quaisquer ficheiros em diretórios geridos pelo Batch no nó, porque caso contrário o Batch não poderá eliminar esses diretórios devido às fechaduras dos ficheiros. Por exemplo, se instalar um serviço Windows numa tarefa inicial, em vez de lançar o serviço diretamente a partir do diretório de trabalho de tarefa inicial, copie os ficheiros em outro lugar (ou se os ficheiros existirem apenas saltar a cópia). Em seguida, instale o serviço a partir desse local. Quando o Batch repetir a sua tarefa inicial, eliminará o diretório de tarefa inicial e irá criá-lo novamente. Isto funciona porque o serviço tem fechaduras de ficheiros no outro diretório, não o diretório de trabalho de tarefa inicial.
 
-### <a name="security-isolation"></a>Isolamento de segurança
+### <a name="avoid-creating-directory-junctions-in-windows"></a>Evite criar junções de diretório sintetmente no Windows
 
-Para efeitos de isolamento, se o seu cenário requer isolar empregos uns dos outros, então deve isolar estes empregos colocando-os em piscinas separadas. Uma piscina é o limite de isolamento de segurança em Batch, e por padrão, duas piscinas não são visíveis ou capazes de comunicar entre si. Evite utilizar contas de lote separadas como meio de isolamento.
+As junções de diretório, por vezes chamadas de ligações rígidas de diretório, são difíceis de lidar durante a tarefa e limpeza de emprego. Utilize symlinks (soft-links) em vez de ligações duras.
 
-## <a name="moving"></a>Movendo-se
+### <a name="collect-the-batch-agent-logs"></a>Recolher os registos do agente Batch
 
-### <a name="move-batch-account-across-regions"></a>Mover a conta batch através de regiões
+Se notar um problema que envolva o comportamento de um nó ou tarefas em funcionamento num nó, colete os registos do agente Batch antes de deslocar os nós em questão. Os registos do agente Batch podem ser recolhidos utilizando os registos de serviço upload batch API. Estes registos podem ser fornecidos como parte de um bilhete de suporte para a Microsoft e ajudarão na resolução e resolução de problemas.
 
-Existem vários cenários em que você gostaria de mover a sua conta de Lote existente de uma região para outra. Por exemplo, talvez queira mover-se para outra região como parte do planeamento de recuperação de desastres.
+## <a name="isolation-security"></a>Segurança de isolamento
 
-As contas do Lote Azure não podem ser transferidas de uma região para outra. No entanto, pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente da sua conta Batch.  Em seguida, pode encenar o recurso noutra região exportando a conta do Lote para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantar o modelo para a nova região. Depois de fazer o upload do modelo para a nova região, terá de recriar certificados, horários de trabalho e pacotes de aplicações. Para comprometer as alterações e completar o movimento da conta 'Lote', lembre-se de eliminar a conta original do Lote ou o grupo de recursos.
+Para efeitos de isolamento, se o seu cenário requer isolar empregos uns dos outros, faça-o colocando-os em piscinas separadas. Uma piscina é o limite de isolamento de segurança em Batch, e por padrão, duas piscinas não são visíveis ou capazes de comunicar entre si. Evite utilizar contas de lote separadas como meio de isolamento.
+
+## <a name="moving-batch-accounts-across-regions"></a>Contas de Lote em Movimento em regiões
+
+Existem cenários em que pode ser útil mover uma conta de Lote existente de uma região para outra. Por exemplo, talvez queira mover-se para outra região como parte do planeamento de recuperação de desastres.
+
+As contas do Lote Azure não podem ser transferidas diretamente de uma região para outra. No entanto, pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente da sua conta Batch. Em seguida, pode encenar o recurso noutra região exportando a conta do Lote para um modelo, modificando os parâmetros para combinar com a região de destino, e, em seguida, implantando o modelo para a nova região.
+
+Depois de fazer o upload do modelo para a nova região, terá de recriar certificados, horários de trabalho e pacotes de aplicações. Para comprometer as alterações e completar o movimento da conta 'Lote', lembre-se de eliminar a conta original do Lote ou o grupo de recursos.
 
 Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [Quickstart: Crie e implemente modelos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)do Gestor de Recursos Azure utilizando o portal Azure .
 
-## <a name="connectivity-to-the-batch-service"></a>Conectividade com o Serviço de Lote
+## <a name="connectivity"></a>Conectividade
+
+Reveja as seguintes orientações ao considerar a conectividade nas suas soluções De Lote.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de Segurança de Rede (NSGs) e Rotas Definidas pelo Utilizador (UDRs)
 
 Ao fornecer piscinas de [lotes numa rede virtual,](batch-virtual-network.md)certifique-se de que está a seguir de perto as orientações relativas à utilização da etiqueta de `BatchNodeManagement` serviço, portas, protocolos e direção da regra.
-A utilização da etiqueta de serviço é altamente recomendada e não os endereços IP do serviço de lote subjacentes, uma vez que estes podem mudar ao longo do tempo. A utilização direta dos endereços IP do serviço de lote pode manifestar-se como instabilidade, interrupções ou interrupções para as suas piscinas de Lote, uma vez que o serviço de lote atualiza os endereços IP utilizados ao longo do tempo. Se está atualmente a utilizar endereços IP do serviço de lote nas suas regras NSG, é aconselhável mudar para a utilização da etiqueta de serviço.
+A utilização da etiqueta de serviço é altamente recomendada, em vez de utilizar os endereços IP do serviço de lote subjacentes. Isto porque os endereços IP podem mudar ao longo do tempo. A utilização direta de endereços IP do serviço de lote pode causar instabilidade, interrupções ou interrupções para as suas piscinas de Lote.
 
-Para as Rotas Definidas pelo Utilizador, certifique-se de que tem um processo em vigor para atualizar periodicamente os endereços IP do serviço de lote na tabela de rotas à medida que estes mudam ao longo do tempo. Para saber como obter a lista de endereços IP do serviço de lote, consulte [as etiquetas](../virtual-network/service-tags-overview.md)de serviço no local . Os endereços IP do serviço de lote serão associados com a etiqueta de `BatchNodeManagement` serviço (ou a variante regional que corresponde à região da sua conta Batch).
+Para as Rotas Definidas pelo Utilizador (UDRs), certifique-se de que tem um processo em vigor para atualizar periodicamente os endereços IP do serviço de lote na tabela de rotas, uma vez que estes endereços mudam ao longo do tempo. Para saber como obter a lista de endereços IP do serviço de lote, consulte [as etiquetas de serviço no local](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de lote serão associados com a etiqueta de `BatchNodeManagement` serviço (ou a variante regional que corresponde à região da sua conta Batch).
 
 ### <a name="honoring-dns"></a>Homenagem ao DNS
 
@@ -164,3 +179,25 @@ Se os seus pedidos receberem respostas http de nível 5xx e houver um cabeçalho
 
 Certifique-se de que os seus clientes de serviço saem com as devidas políticas de retry para rejulgar automaticamente os seus pedidos, mesmo durante o funcionamento normal e não exclusivamente durante os períodos de manutenção do serviço. Estas políticas de repetição devem abranger um intervalo de pelo menos 5 minutos. As capacidades automáticas de retry são fornecidas com vários SDKs de lote, tais como a [classe .NET RetryPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
+## <a name="batch-node-underlying-dependencies"></a>Dependências subjacentes ao nó do lote
+
+Considere as seguintes dependências e restrições ao conceber as suas soluções De Lote.
+
+### <a name="system-created-resources"></a>Recursos criados pelo sistema
+
+O Azure Batch cria e gere um conjunto de utilizadores e grupos no VM, que não devem ser alterados. São os seguintes:
+
+#### <a name="windows"></a>Windows
+
+- Um utilizador chamado **PoolNonAdmin**
+- Um grupo de utilizadores chamado **WATaskCommon**
+
+#### <a name="linux"></a>Linux
+
+- Um utilizador chamado **_azbatch**
+
+### <a name="file-cleanup"></a>Limpeza de ficheiros
+
+O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são executadas, uma vez que o seu tempo de retenção expira. Quaisquer ficheiros escritos fora deste diretório são [da sua responsabilidade limpar](#manage-task-lifetime) para evitar encher espaço em disco. 
+
+A limpeza automatizada para o diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, altere o diretório para esse serviço para um diretório separado que não seja gerido pelo Batch.

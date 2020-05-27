@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 911172bd6ef9c08419e74828657c8bdb2f8d1b30
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4b72f94548a5222fcb950141e983007efde7fe4e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930646"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871193"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configure firewalls de armazenamento Azure e redes virtuais
 
@@ -223,7 +223,7 @@ Pode gerir as regras de rede virtual para contas de armazenamento através do po
     ```
 
     > [!TIP]
-    > Para adicionar uma regra para uma sub-rede num VNet pertencente a outro inquilino DaD Azure, utilize\<um\>ID de\<sub-rede\>totalmente qualificado no formulário "/subscrições/ subscrição-ID\</recursosGroups/\>resourceGroup/resourceGroup/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/ subnet-name ".
+    > Para adicionar uma regra para uma sub-rede num VNet pertencente a outro inquilino DaD Azure, utilize um ID de sub-rede totalmente qualificado no formulário "/subscrições/ \< subscrição-ID \> \< /recursosGroups/ \> resourceGroup/resourceGroup/providers/Microsoft.Network/virtualNetworks/ \< vNet-name \> \< /subnets/ subnet-name \> ".
     >
     > Você pode usar o parâmetro de **subscrição** para recuperar o ID da subnet para um VNet pertencente a outro inquilino Azure AD.
 
@@ -237,7 +237,7 @@ Pode gerir as regras de rede virtual para contas de armazenamento através do po
 > [!IMPORTANT]
 > Certifique-se de [que estabelece a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras da rede não têm qualquer efeito.
 
-## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de uma gama IP da Internet
+## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de um intervalo de IP da Internet
 
 Pode configurar contas de armazenamento para permitir o acesso a partir de gamas específicas de endereços IP da Internet pública. Esta configuração permite o acesso a serviços específicos baseados na Internet e redes no local e bloqueia o tráfego geral da Internet.
 
@@ -246,7 +246,7 @@ Fornecer gamas de endereços de internet permitidas utilizando [notação CIDR](
    > [!NOTE]
    > Não são suportadas gamas de endereços pequenas utilizando tamanhos de prefixo "/31" ou "/32". Estas gamas devem ser configuradas utilizando regras individuais de endereço IP.
 
-As regras da rede IP só são permitidas para endereços IP da **internet pública.** As gamas de endereços IP reservadas para redes privadas (tal como definidas no [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidas nas regras ip. As redes privadas incluem endereços que começam com _10.*_, _172.16.*_ - _172.31.*_ e _192.168.*_.
+As regras da rede IP só são permitidas para endereços IP da **internet pública.** As gamas de endereços IP reservadas para redes privadas (tal como definidas no [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidas nas regras ip. As redes privadas incluem endereços que começam com _10.*_, _172.16.*_  -  _172.31.*_ e _192.168.*_.
 
    > [!NOTE]
    > As regras da rede IP não têm qualquer efeito sobre os pedidos originários da mesma região do Azure que a conta de armazenamento. Utilize regras de [rede virtuais](#grant-access-from-a-virtual-network) para permitir pedidos na mesma região.
@@ -276,7 +276,7 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes Selecionadas**.
 
-1. Para garantir o acesso a uma gama IP da Internet, introduza o endereço IP ou a gama de endereços (em formato CIDR) no âmbito do Alcance do**Endereço** **firewall** > .
+1. Para garantir o acesso a uma gama IP da Internet, introduza o endereço IP ou a gama de endereços (em formato CIDR) no âmbito do Alcance do Endereço **firewall**  >  **Address Range**.
 
 1. Para remover uma regra de rede IP, clique no ícone do caixote do lixo ao lado do intervalo de endereços.
 
@@ -392,6 +392,7 @@ A definição de **serviços fidedignos** da Microsoft... permite também que um
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registos | As Tarefas ACR podem aceder a contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/fábricas        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
 | Azure Data Share               | Microsoft.DataShare/contas           | Permite o acesso a contas de armazenamento através da Data Share. |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que aplicações lógicas acedam a contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados do Azure Machine Learning escrevem saída seleção, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite a importação e exportação de dados de instâncias específicas da Base de Dados SQL utilizando a PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |

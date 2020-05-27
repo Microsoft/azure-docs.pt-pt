@@ -1,18 +1,18 @@
 ---
 title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: a6cdfea7e0520aa704e70a12784f7a7ba5d6aa6d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82161113"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871111"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
-Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para a gestão de recursos delegados da Azure, permitindo que os seus recursos delegados (subscrições e/ou grupos de recursos) sejam acedidos e geridos através do seu próprio inquilino azure Ative Directory (Azure AD). Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que [gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para consolidar a sua experiência de gestão.
+Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para a gestão de recursos delegados da Azure, permitindo que os seus recursos delegados (subscrições e/ou grupos de recursos) sejam acedidos e geridos através do seu próprio inquilino azure Ative Directory (Azure AD). Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que [gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
 
 Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado se inscreve no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão sem ter que iniciar sessão em cada inquilino de cliente individual.
 

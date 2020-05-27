@@ -8,33 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e6911c51ecfe1c8f6924bf403e9ad00e14558a09
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a3f5e915aa68761ca9fbb99b7955adb32e4c99cf
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448485"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869968"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Quickstart: Procure notícias usando C# e a Bing News Search REST API
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing e veja a resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa de notícias para a API, e exibe a resposta. O código completo desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação C# envia uma consulta de pesquisa de notícias para a API, e exibe a resposta JSON. 
 
-Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+
+O código completo desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017 ou mais tarde.](https://www.visualstudio.com/downloads/)
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. criar uma nova solução de consola C# no Estúdio Visual. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. Crie uma nova solução de consola C# no Estúdio Visual. Em seguida, adicione os seguintes espaços de nome ao ficheiro de código principal:
     
     ```csharp
     using System;
@@ -44,30 +46,33 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
     using System.Collections.Generic;
     ```
 
-2. Crie variáveis para o ponto final de API, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o ponto final de API, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```csharp
     const string accessKey = "enter key here";
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-   ## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Crie uma estrutura para formatar a resposta bing news search
+   
+## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Crie uma estrutura para formatar a resposta bing news search
 
-1. Defina uma estrutura `SearchResult` para conter os resultados da pesquisa de imagens e as informações do cabeçalho JSON.
+Defina uma estrutura para conter os resultados da pesquisa de `SearchResult` notícias e informações sobre cabeçalho sontetizadores JSON.
 
-    ```csharp
-    struct SearchResult
-    {
-        public String jsonResult;
-        public Dictionary<String, String> relevantHeaders;
-    }
-    ```
+```csharp
+struct SearchResult
+{
+    public String jsonResult;
+    public Dictionary<String, String> relevantHeaders;
+}
+```
 
 ## <a name="create-and-handle-a-news-search-request"></a>Criar e lidar com um pedido de pesquisa de notícias
 
-Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defina o tipo de retorno para a estrutura `SearchResult` criada anteriormente. No método, execute os seguintes passos:
+1. Crie um método nomeado `BingNewsSearch()` para chamar a API, e detetete o tipo de retorno para a `SearchResult` estrutura criada anteriormente. 
 
-1. Construa o URI do pedido de pesquisa. Tenha em atenção que o termo de pesquisa `toSearch` tem de ser formatado antes de ser anexado à cadeia.
+   Adicione código a este método nos passos que se seguem.
+
+1. Construa o URI do pedido de pesquisa. O `toSearch` termo de pesquisa deve ser formatado antes de ser anexado à corda.
 
     ```csharp
     static SearchResult BingNewsSearch(string toSearch){
@@ -76,7 +81,7 @@ Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defi
     //...
     ```
 
-2. Execute o pedido Web e obtenha a resposta como uma cadeia JSON.
+1. Execute o pedido Web e obtenha a resposta como uma cadeia JSON.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -85,7 +90,7 @@ Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defi
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
     ```
 
-3. Crie o objeto do resultado de pesquisa e extraia os cabeçalhos HTTP do Bing. Em seguida, devolva `searchResult`.
+1. Crie o objeto do resultado de pesquisa e extraia os cabeçalhos HTTP do Bing. Então, `searchResult` volte.
 
     ```csharp
     // Create the result object for return
@@ -106,16 +111,16 @@ Crie um método com o nome `BingNewsSearch` para efetuar a chamada à API e defi
 
 ## <a name="process-the-response"></a>Processar a resposta
 
-1. No método principal, chame `BingNewsSearch()` e armazene a resposta devolvida. Em seguida, anule a serialização do JSON para um objeto. Pode então ver os valores da resposta.
+No método principal, chame `BingNewsSearch()` e armazene a resposta devolvida. Em seguida, desserialize o JSON num objeto onde possa ver os valores da resposta.
 
-    ```csharp
-    SearchResult result = BingNewsSearch(searchTerm);
-    //deserialize the JSON response
-    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
-    Console.WriteLine(jsonObj["value"][0])
-    ```
+```csharp
+SearchResult result = BingNewsSearch(searchTerm);
+//deserialize the JSON response
+dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
+Console.WriteLine(jsonObj["value"][0])
+```
 
-## <a name="json-response"></a>Resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 

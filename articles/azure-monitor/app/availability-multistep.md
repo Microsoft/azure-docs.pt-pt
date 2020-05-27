@@ -2,14 +2,13 @@
 title: Monitor com testes web em várias etapas - Azure Application Insights
 description: Configurar testes web em várias etapas para monitorizar as suas aplicações web com insights de aplicação azure
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.reviewer: sdash
-ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655945"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873354"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
@@ -17,13 +16,16 @@ Pode monitorizar uma sequência gravada de URLs e interações com um website at
 
 > [!NOTE]
 > Os testes web em várias etapas dependem de ficheiros webtest do Estúdio Visual. Foi [anunciado](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que o Visual Studio 2019 será a última versão com funcionalidade webtest. É importante entender que, embora não sejam adicionadas novas funcionalidades, a funcionalidade webtest no Visual Studio 2019 ainda está suportada e continuará a ser suportada durante o ciclo de vida de suporte do produto. A equipa de produtos do Azure Monitor abordou [aqui](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)questões relativas ao futuro dos testes de disponibilidade em várias etapas.  
+> </br>
+> Os testes web em várias etapas **não são suportados** na nuvem do [Governo de Azure.](https://docs.microsoft.com/azure/azure-government/)
+
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
 * Visual Studio 2017 Enterprise ou maior.
 * Ferramentas de desempenho web do Estúdio Visual e ferramentas de teste de carga.
 
-Para localizar as ferramentas de teste pré-requisitos. Lance o **Instalador** > **Individual components** > de Estúdio Visual Componentes Individuais**Depurando e testando** > **ferramentas**de desempenho web e de teste de carga .
+Para localizar as ferramentas de teste pré-requisitos. Lance o **Instalador de Estúdio Visual**  >  **Componentes Individuais**  >  **Depurando e testando**ferramentas de desempenho  >  **web e de teste de carga**.
 
 ![Screenshot do instalador do Estúdio Visual UI com componentes individuais selecionados com uma caixa de verificação ao lado do item para ferramentas de desempenho web e de teste de carga](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -39,7 +41,7 @@ Para obter orientações sobre a criação de testes web do Visual Studio, consu
 
 ## <a name="upload-the-web-test"></a>Faça upload do teste web
 
-1. In the Application Insights portal on the Availability pane select **Create Test** > **Test type** > **Multi-step web test**.
+1. In the Application Insights portal on the Availability pane select **Create Test**  >  **Test type**  >  **Multi-step web test**.
 
 2. Defina os locais de teste, frequência e parâmetros de alerta.
 
@@ -63,8 +65,8 @@ Para obter orientações sobre a criação de testes web do Visual Studio, consu
 |Definição| Explicação
 |----|----|----|
 |**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas quase em tempo real. Configurar este tipo de alerta é feito após a criação do seu teste de disponibilidade.  |
-|**Clássica** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
-|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o número **de pontos-limite** = de localização de localização**de pontos de ensaio - 2, com um mínimo de cinco locais de teste.**|
+|**Clássico** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
+|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o número **de pontos-limite**de localização de localização  =  **de pontos de ensaio - 2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="configuration"></a>Configuração
 

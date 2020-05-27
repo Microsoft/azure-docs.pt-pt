@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta Azure CLI'
 description: Neste arranque rápido, siga os passos para ativar a extensão do Graph de Recursos para o Azure CLI e faça a sua primeira consulta.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c7c3a37c2fc5b6aebaa42cacba71897684b2207
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240668"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871979"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Azure CLI
 
@@ -69,7 +69,7 @@ Com a extensão da CLI do Azure adicionada ao seu ambiente escolhido, é altura 
    ```
 
    > [!NOTE]
-   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
 1. Atualize a consulta para primeiro `order by` propriedade **Nome** e, em seguida, `limit` os cinco resultados principais:
 
@@ -78,7 +78,7 @@ Com a extensão da CLI do Azure adicionada ao seu ambiente escolhido, é altura 
    az graph query -q 'Resources | project name, type | order by name asc | limit 5'
    ```
 
-Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
+Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -91,7 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, adicionou a extensão do Graph de Recursos ao seu ambiente Azure CLI e executa a sua primeira consulta. Para saber mais sobre a linguagem do gráfico de recursos, continue na página de detalhes da linguagem da consulta.
+Neste arranque rápido, adicionou a extensão do Graph de Recursos ao seu ambiente Azure CLI e executa a sua primeira consulta. Para saber mais sobre a linguagem do Graph de Recursos, continue na página de detalhes da linguagem da consulta.
 
 > [!div class="nextstepaction"]
 > [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)

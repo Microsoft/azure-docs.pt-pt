@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/26/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1e51c4e9d0c3da8b6ad76b4b45869ea8b2394008
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77372339"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871294"
 ---
 Utilize a biblioteca de clientes autoras (LUIS) autorada da python para:
 
@@ -24,57 +24,16 @@ Utilize a biblioteca de clientes autoras (LUIS) autorada da python para:
 * Adicione funcionalidades, como uma lista de frases.
 * Treine e publique uma aplicação.
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Biblioteca Código de autor](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [autor (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
+[Documentação de](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python)  |  referência Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis)  |  [Pacote de autoria (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conta do portal de Compreensão da Linguagem (LUIS): [Criar uma gratuitamente](https://www.luis.ai).
-* [Python 3.x](https://www.python.org/)
+* Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* A versão atual de [Python 3.x.](https://www.python.org/)
+* Assim que tiver a sua assinatura Azure, [crie um recurso de autor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) de Compreensão linguística no portal Azure para obter a sua chave e ponto final. Aguarde que se desloque e clique no botão **De recurso Go.**
+    * Necessitará da chave e do ponto final do recurso que [cria](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) para ligar a sua aplicação à autoria da Compreensão da Linguagem. Vaicolar a chave e o ponto final no código abaixo no arranque rápido. Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço.
 
 ## <a name="setting-up"></a>Configuração
-
-### <a name="get-your-language-understanding-luis-starter-key"></a>Obtenha a sua chave de arranque de Compreensão linguística (LUIS)
-
-Obtenha a sua [chave de arranque](../luis-how-to-azure-subscription.md#starter-key) criando um recurso de autor LUIS. Mantenha a chave, e a região da chave para o próximo passo.
-
-### <a name="create-an-environment-variable"></a>Criar uma variável ambiental
-
-Utilizando a sua chave, e a região para a chave, crie duas variáveis ambientais para autenticação:
-
-* `LUIS_AUTHORING_KEY`- A chave de recursos para autenticar os seus pedidos.
-* `LUIS_REGION`- A região associada à sua chave. Por exemplo, `westus`.
-
-Utilize as instruções para o seu sistema operativo.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_REGION <replace-with-your-luis-region>
-```
-
-Depois de adicionar a variável ambiente, reinicie a janela da consola.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_REGION=<replace-with-your-luis-region>
-```
-
-Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Edite `.bash_profile`a sua , e adicione a variável ambiental:
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_REGION=<replace-with-your-luis-region>
-```
-
-Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela da consola para que as alterações entrem em vigor.
-***
 
 ### <a name="install-the-python-library-for-luis"></a>Instale a biblioteca Python para LUIS
 
@@ -146,7 +105,7 @@ Utilize o [método modelo.add_intent](https://docs.microsoft.com/python/api/azur
 
 Embora as entidades não sejam necessárias, encontram-se na maioria das aplicações. A entidade extrai informação da expressão do utilizador, necessária para plenar a intenção do utilizador. Existem vários tipos de entidades [pré-construídas](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-prebuilt-app-id--version-id--prebuilt-extractor-names--custom-headers-none--raw-false----operation-config-) e personalizadas, cada uma com os seus próprios modelos de objeto de transformação de dados (DTO).  Entidades pré-construídas comuns para adicionar à sua aplicação incluem [número](../luis-reference-prebuilt-number.md), [dataV2](../luis-reference-prebuilt-datetimev2.md), [geografiaV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
 
-Este **método** add_entities `Location` criou uma entidade `Class` simples com `Flight` duas funções, uma entidade simples, uma entidade composta e acrescenta várias entidades pré-construídas.
+Este **método add_entities** criou uma entidade simples com duas `Location` funções, uma `Class` entidade simples, uma entidade composta e acrescenta `Flight` várias entidades pré-construídas.
 
 É importante saber que as entidades não estão marcadas com uma intenção. Podem e geralmente aplicam-se a muitas intenções. Apenas as expressões dos utilizadores exemplo estão marcadas para uma intenção específica e única.
 
@@ -182,7 +141,7 @@ Publique a aplicação LUIS utilizando o método [app.publish.](https://docs.mic
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o `python` pedido com o comando no seu ficheiro de arranque rápido.
+Execute o pedido com o `python` comando no seu ficheiro de arranque rápido.
 
 ```console
 python quickstart-file.py

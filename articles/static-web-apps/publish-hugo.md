@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a6ea758de7f471cb15462d1ebadaecf24c851c70
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773463"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870699"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publique um site Hugo para a Pré-visualização de aplicações da Web Estática do Azure
 
@@ -153,12 +153,12 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Abra a aplicação Hugo num editor de texto e abra o ficheiro _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml._
 
-1. Substitua a linha `- uses: actions/checkout@v1` (linha 18) pela seguinte, para construir a aplicação Hugo.
+1. Substitua a linha `- uses: actions/checkout@v2` (linha 18) pela seguinte, para construir a aplicação Hugo.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

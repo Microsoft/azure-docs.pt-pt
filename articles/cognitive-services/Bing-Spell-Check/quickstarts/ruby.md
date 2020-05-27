@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9f5f841bd7fd33d4d6c7dcd1a1f7ab754610b973
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448420"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869898"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Ruby
 
-Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell Check REST usando Ruby. Este simples pedido envia um pedido à API e devolve uma lista de palavras que não reconheceu, seguidas de correções sugeridas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell Check REST usando Ruby. Este simples pedido envia um pedido à API e devolve uma lista de correções sugeridas. 
+
+Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. O código fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +32,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell C
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro Ruby no seu editor favorito ou IDE, e adicione os seguintes requisitos. 
+1. Crie um novo ficheiro Ruby no seu editor favorito ou IDE, e adicione os seguintes requisitos: 
 
     ```ruby
     require 'net/http'
@@ -38,7 +40,11 @@ Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell C
     require 'json'
     ```
 
-2. Crie variáveis para a sua chave de subscrição, ponto final URI e caminho. Crie os parâmetros de `mkt=` pedido, aparando `&mode` o `proof` parâmetro ao seu mercado e ao modo de prova. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para a sua chave de subscrição, ponto final URI e caminho. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Crie os parâmetros do seu pedido:
+
+   a. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
+
+   b. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais). 
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -59,7 +65,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell C
    })
    ```
 
-2. Crie um pedido utilizando o URI construído acima. Adicione a chave `Ocp-Apim-Subscription-Key` ao cabeçalho.
+2. Crie um pedido utilizando o URI construído anteriormente. Adicione a chave ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -84,13 +90,11 @@ Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell C
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Construa e gereno seu projeto.
+Construa e gereno seu projeto. Se estiver a utilizar a linha de comando, utilize o seguinte comando para executar a aplicação:
 
-Se estiver a utilizar a linha de comando, utilize o seguinte comando para executar a aplicação.
-
-```bash
-ruby <FILE_NAME>.rb
-```
+   ```bash
+   ruby <FILE_NAME>.rb
+   ```
 
 ## <a name="example-json-response"></a>Exemplo resposta JSON
 
@@ -137,7 +141,7 @@ ruby <FILE_NAME>.rb
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única](../tutorials/spellcheck.md)
+> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

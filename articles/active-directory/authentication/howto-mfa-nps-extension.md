@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199558"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871227"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Multi-Factor Authentication do Azure
 
@@ -205,9 +205,12 @@ Se o seu certificado de computador anterior tiver expirado e tiver sido gerado u
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Passos adicionais do Governo da Microsoft Azure
 
-Para os clientes que utilizam a nuvem do Governo Azure, são necessários os seguintes passos de configuração adicionais em cada servidor NPS:
+Para os clientes que utilizam a nuvem do Governo Azure, são necessários os seguintes passos de configuração adicionais em cada servidor NPS.
 
-1. Editor **de Registo** Aberto no servidor NPS.
+> [!IMPORTANT]
+> Apenas configure estas definições de registo se for cliente do Governo Azure.
+
+1. Se é cliente do Governo Azure, abram **o Editor de Registo** no servidor NPS.
 1. Navegue para `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Desdefinir os seguintes valores-chave:
 
     | Chave do registo       | Valor |

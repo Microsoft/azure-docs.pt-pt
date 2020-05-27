@@ -2,13 +2,13 @@
 title: 'Quickstart: Criar, treinar e publicar base de conhecimento - QnA Maker'
 description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. Este artigo inclui um exemplo de criação de uma base de conhecimento qnA Maker a partir de uma simples página web de FAQ, para responder a perguntas QnA Maker.
 ms.topic: conceptual
-ms.date: 02/08/2020
-ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756819"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871396"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Criar, treinar e publicar a sua base de conhecimento qnA Maker
 
@@ -17,7 +17,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 > * Um [recurso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) QnA Maker criado no portal Azure. Lembre-se do id do Diretório Ativo Azure, Subscrição, nome de recurso QnA que selecionou quando criou o recurso.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Crie a sua primeira base de conhecimento qnA Maker
@@ -34,8 +34,8 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 1. No **Passo 3,** selecione o seu diretório Ativo, subscrição, serviço (recurso) e o idioma para todas as bases de conhecimento criadas no serviço.
 
-   ![Screenshot de selecionar uma base de conhecimento de serviço QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
-
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot de selecionar uma base de conhecimento de serviço QnA Maker":::
+    
 1. No **passo 3,** nomeie a sua base de conhecimentos **My Sample QnA KB**.
 
 1. No **passo 4,** configure as definições com a tabela seguinte:
@@ -64,9 +64,9 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Adicione a pergunta como texto e a resposta formatada com marcação.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Adicione a pergunta como texto e a resposta formatada com marcação.":::
 
-    O símbolo de `*`marcação, é usado para pontos de bala. É `\n` usado para uma nova linha.
+    O símbolo de marcação, é usado para pontos de `*` bala. É `\n` usado para uma nova linha.
 
     A página **edita** mostra o markdown. Quando utilizar o painel **de teste** mais tarde, verá a marcação corretamente exibida.
 
@@ -81,7 +81,7 @@ Na parte superior direita, selecione **Guardar e treinar** para salvar as suas e
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Introduza uma consulta de utilizador exemplo na caixa de texto. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Introduza uma consulta de utilizador exemplo na caixa de texto.":::
 
 1. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é utilizada para testar as suas alterações na base de conhecimentos antes de publicar a sua base de conhecimentos.
 
@@ -89,7 +89,7 @@ Na parte superior direita, selecione **Guardar e treinar** para salvar as suas e
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-Ao publicar uma base de conhecimento, o conteúdo `test` da `prod` sua base de conhecimentos passa do índice para um índice na pesquisa Azure.
+Ao publicar uma base de conhecimento, o conteúdo da sua base de conhecimentos passa do `test` índice para um índice na pesquisa `prod` Azure.
 
 ![Screenshot de mover o conteúdo da sua base de conhecimento](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
@@ -131,7 +131,7 @@ Quando fazalterações na base de conhecimentos e republique, não precisa de to
 
     O chat bot responde com uma resposta da sua base de conhecimento.
 
-    ![Introduza uma consulta de utilizador no chat web de teste.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Introduza uma consulta de utilizador no chat web de teste.":::
 
 ## <a name="what-did-you-accomplish"></a>O que conseguiu?
 

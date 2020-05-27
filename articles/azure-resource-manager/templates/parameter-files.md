@@ -3,12 +3,12 @@ title: Criar ficheiro de parâmetros
 description: Crie ficheiro de parâmetro para passar em valores durante a implementação de um modelo de Gestor de Recursos Azure
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682900"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873069"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro sinuoso do Gestor de Recursos
 
@@ -193,7 +193,7 @@ Para implantar em diferentes ambientes, crie mais de um ficheiro de parâmetros.
 
 Pode utilizar parâmetros inline e um ficheiro de parâmetro local na mesma operação de implantação. Por exemplo, pode especificar alguns valores no ficheiro parâmetro local e adicionar outros valores inline durante a implementação. Se fornecer valores para um parâmetro tanto no ficheiro de parâmetro local como na linha de dentro, o valor inline tem precedência.
 
-No entanto, quando utiliza um ficheiro de parâmetro externo, não pode passar outros valores, quer em linha quer a partir de um ficheiro local. Todos os parâmetros inline são ignorados. Forneça todos os valores dos parâmetros no ficheiro externo.
+É possível usar um ficheiro de parâmetro externo, fornecendo o URI ao ficheiro. Quando faz isto, não pode passar outros valores, seja inline ou de um ficheiro local. Todos os parâmetros inline são ignorados. Forneça todos os valores dos parâmetros no ficheiro externo.
 
 ## <a name="parameter-name-conflicts"></a>Conflitos de nome de parâmetros
 

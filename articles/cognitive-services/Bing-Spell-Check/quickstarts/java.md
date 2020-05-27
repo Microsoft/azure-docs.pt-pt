@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735118"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869815"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Java
 
-Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido java envia um pedido à API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
+Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido java envia um pedido à API e devolve uma lista de correções sugeridas. 
+
+Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +33,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-initialize-an-application"></a>Criar e inicializar uma aplicação
 
-1. Crie um novo Projeto Java no seu IDE favorito ou editor com um nome de classe à sua escolha e, em seguida, importe os seguintes pacotes.
+1. Crie um novo Projeto Java no seu IDE favorito ou editor com um nome de classe à sua escolha, e depois importe os seguintes pacotes:
 
     ```java
     import java.io.*;
@@ -40,7 +42,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Crie variáveis para o anfitrião, caminho e chave de subscrição do Ponto Final da API. Em seguida, crie variáveis para o seu mercado, o texto que pretende soletrar verificar e uma corda para o modo de verificação ortográfica. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o anfitrião, caminho e chave de subscrição do Ponto Final da API. Em seguida, crie variáveis para o seu mercado, o texto que pretende soletrar verificar e uma corda para o modo de verificação ortográfica. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -55,7 +57,11 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Criar uma função chamada `check()` para criar e enviar o pedido de API. Dentro dele, siga estes passos. Crie uma corda para os parâmetros de pedido. anexar o parâmetro à sua cadeia de `?mkt=` mercado e o parâmetro para o seu modo de `&mode=` verificação ortográfica.  
+1. Criar uma função chamada `check()` para criar e enviar o pedido de API. Dentro desta função, adicione o código especificado nos próximos passos. Crie uma corda para os parâmetros de pedido:
+
+   a. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. 
+
+   b. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. 
 
    ```java
    public static void check () throws Exception {
@@ -64,14 +70,14 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
    }
    ```
 
-2. Crie um URL combinando a cadeia de hospedeiro, caminho e parâmetros do ponto final. Criar um `HttpsURLConnection` novo objeto.
+2. Crie um URL combinando a cadeia de anfitriões, caminho e parâmetros do ponto final. Criar um `HttpsURLConnection` novo objeto.
 
     ```java
     URL url = new URL(host + path + params);
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Abra uma ligação com o URL. Detete o método de pedido para `POST` . Adicione os parâmetros do seu pedido. Certifique-se de adicionar a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+3. Abra uma ligação com o URL. Defina o método de pedido e `POST` adicione os parâmetros de pedido. Certifique-se de adicionar a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```java
     connection.setRequestMethod("POST");
@@ -91,7 +97,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="format-and-read-the-api-response"></a>Formato e leia a resposta da API
 
-1. Adicione este método à sua classe. Forma o JSON para uma saída mais legível.
+1. Adicione o `prettify()` método à sua classe, que formata o JSON para uma saída mais legível.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +123,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="call-the-api"></a>Chamar a API
 
-Na função principal da sua aplicação, ligue para o seu método de verificação() acima criado.
+Na função principal da sua aplicação, ligue para o seu `check()` método criado anteriormente.
 ```java
         public static void main(String[] args) {
             try {
@@ -131,19 +137,19 @@ Na função principal da sua aplicação, ligue para o seu método de verificaç
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Construa e gereno seu projeto.
+Construa e gereno seu projeto. Se estiver a utilizar a linha de comando, utilize os seguintes comandos para construir e executar a aplicação:
 
-Se estiver a utilizar a linha de comando, utilize os seguintes comandos para construir e executar a aplicação.
+1. Construir a aplicação:
 
-**Construir:**
-```bash
-javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
-```
+   ```bash
+   javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+   ```
 
-**Executar:**
-```bash
-java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
-```
+2. Execute a aplicação:
+
+   ```bash
+   java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+   ```
 
 ## <a name="example-json-response"></a>Exemplo resposta JSON
 
@@ -193,4 +199,4 @@ java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta no portal'
 description: Neste arranque rápido, siga os passos para executar a sua primeira consulta a partir do portal Azure usando o Azure Resource Graph Explorer.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74406804"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872090"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Explorador de Gráficos de Recursos Azure
 
@@ -26,28 +26,28 @@ Abra o [portal Azure](https://portal.azure.com) para encontrar e utilizar o Expl
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Resource Graph Explorer**.
 
-1. Na **parte** de consulta 1 da janela, `Resources | project name, type | limit 5` introduza a consulta e selecione Consulta de **execução**.
+1. Na **parte** de consulta 1 da janela, introduza a consulta `Resources | project name, type | limit 5` e selecione Consulta de **execução**.
 
    > [!NOTE]
-   > Como este exemplo de consulta não fornece um `order by`modificador tipo como, executar esta consulta várias vezes é provável que produza um conjunto diferente de recursos por pedido.
+   > Como este exemplo de consulta não fornece um modificador tipo `order by` como, executar esta consulta várias vezes é provável que produza um conjunto diferente de recursos por pedido.
 
 1. Reveja a resposta de consulta no separador **Resultados.** Selecione o separador **Mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e a duração da consulta. Os erros, caso existam, são apresentados sob este separador.
 
-1. Atualize a `order by` consulta à `Resources | project name, type | limit 5 | order by name asc`propriedade **Nome:** . Em seguida, selecione **A consulta de execução**.
+1. Atualize a consulta à `order by` propriedade **Nome:** `Resources | project name, type | limit 5 | order by name asc` . Em seguida, selecione **A consulta de execução**.
 
    > [!NOTE]
-   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
-1. Atualize a consulta `order by` para primeiro `limit` a propriedade **Nome** e, em seguida, para os cinco melhores resultados: `Resources | project name, type | order by name asc | limit 5`. Em seguida, selecione **A consulta de execução**.
+1. Atualize a consulta para primeiro `order by` a propriedade **Nome** e, em seguida, para os `limit` cinco melhores resultados: `Resources | project name, type | order by name asc | limit 5` . Em seguida, selecione **A consulta de execução**.
 
-Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e como esperado - encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
+Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
 ### <a name="schema-browser"></a>Navegador Schema
 
 O navegador schema está localizado no painel esquerdo do Resource Graph Explorer. Esta lista de recursos mostra todos os tipos de _recursos_ do Azure que são ambos apoiados pelo Azure Resource Graph e que existem num inquilino a que você tem acesso. Expandir um tipo de recurso ou subpropriedades mostram propriedades infantis que podem ser usadas para criar uma consulta de Gráfico de Recursos.
 
-Selecionando o `where type =="<resource type>"` tipo de recurso coloca-se na caixa de consulta. A seleção de uma `where <propertyName> == "INSERT_VALUE_HERE"` das propriedades da criança adiciona-se à caixa de consulta.
-O navegador schema é uma ótima maneira de descobrir propriedades para uso em consultas. Certifique-se de que substitui o _VALOR\_\_DE INSERÇÃO AQUI_ pelo seu próprio valor, ajuste a consulta com condições, operadores e funções para obter os resultados pretendidos.
+Selecionando o tipo de recurso `where type =="<resource type>"` coloca-se na caixa de consulta. A seleção de uma das propriedades da criança `where <propertyName> == "INSERT_VALUE_HERE"` adiciona-se à caixa de consulta.
+O navegador schema é uma ótima maneira de descobrir propriedades para uso em consultas. Certifique-se de que substitui o _VALOR DE INSERÇÃO \_ \_ AQUI_ pelo seu próprio valor, ajuste a consulta com condições, operadores e funções para obter os resultados pretendidos.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico da consulta do Gráfico de Recursos
 
@@ -97,7 +97,7 @@ Para fornecer exemplos de consultas de gráficos de recursos e como o Resource G
   [![Imagem de exemplo para #2 do Painel de Amostras](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
-> Contagens e gráficos no exemplo acima, as imagens do dashboard variam consoante o seu ambiente Azure.
+> Contagens e gráficos no exemplo acima, as imagens do dashboard variam dependendo do seu ambiente Azure.
 
 1. Selecione e baixe o painel de dados que pretende avaliar.
 
@@ -119,7 +119,7 @@ Se desejar remover os dashboards do Resource Graph da amostra do seu portal Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, usaste o Azure Resource Graph Explorer para executar a tua primeira consulta e olhaste para os exemplos do dashboard alimentados pelo Resource Graph. Para saber mais sobre a linguagem do gráfico de recursos, continue na página de detalhes da linguagem da consulta.
+Neste arranque rápido, usaste o Azure Resource Graph Explorer para executar a tua primeira consulta e olhaste para os exemplos do dashboard alimentados pelo Resource Graph. Para saber mais sobre a linguagem do Graph de Recursos, continue na página de detalhes da linguagem da consulta.
 
 > [!div class="nextstepaction"]
 > [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)
