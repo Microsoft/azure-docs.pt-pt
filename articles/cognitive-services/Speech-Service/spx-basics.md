@@ -1,7 +1,7 @@
 ---
-title: Básicos SPX - Serviço de fala
+title: Básicos cli da fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a utilizar a ferramenta de linha de comando SPX para trabalhar com o SDK do Discurso sem código e configuração mínima.
+description: Aprenda a usar a ferramenta de comando Do Discurso CLI para trabalhar com o Serviço de Fala sem código e configuração mínima.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 31c1d50962b2710fbeb249c61c8b3c144762be43
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 2e75e177c1a5af13c1907b3a1abc9218096e8d45
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715652"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800671"
 ---
-# <a name="learn-the-basics-of-spx"></a>Conheça o básico do SPX
+# <a name="learn-the-basics-of-the-speech-cli"></a>Conheça o básico do Discurso CLI
 
-Neste artigo, você aprende os padrões básicos de utilização do SPX, uma ferramenta de linha de comando para usar o serviço De Fala sem escrever código. Você pode testar rapidamente as principais características do serviço de Fala, sem criar ambientes de desenvolvimento ou escrever qualquer código, para ver se os seus casos de uso podem ser adequadamente cumpridos. Além disso, o SPX está pronto para a produção e pode ser usado para automatizar fluxos de trabalho simples no serviço De Fala, utilizando `.bat` ou shell scripts.
+Neste artigo, você aprende os padrões básicos de uso do Speech CLI, uma ferramenta de linha de comando para usar o serviço de Fala sem escrever código. Você pode testar rapidamente as principais características do serviço de Fala, sem criar ambientes de desenvolvimento ou escrever qualquer código, para ver se os seus casos de uso podem ser adequadamente cumpridos. Além disso, o Speech CLI está pronto para a produção e pode ser usado para automatizar fluxos de trabalho simples no serviço de Fala, usando `.bat` ou shell scripts.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -31,15 +31,15 @@ Esta secção mostra alguns comandos SPX básicos que são muitas vezes úteis p
 spx recognize --microphone
 ```
 
-Depois de entrar no comando, o SPX começará a ouvir áudio no dispositivo de entrada ativa atual e parará depois de premir `ENTER` . O discurso gravado é então reconhecido e convertido em texto na saída da consola. A síntese de texto-a-fala também é fácil de fazer usando SPX. 
+Depois de entrar no comando, o SPX começará a ouvir áudio no dispositivo de entrada ativa atual e parará depois de premir `ENTER` . O discurso gravado é então reconhecido e convertido em texto na saída da consola. A síntese texto-a-fala também é fácil de fazer usando o CLI da fala. 
 
 Executar o seguinte comando tomará o texto introduzido como entrada e produza a fala sintetizada para o dispositivo de saída ativo atual.
 
 ```shell
-spx synthesize --text "Testing synthesis using SPX" --speakers
+spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 ```
 
-Além do reconhecimento e síntese da fala, também pode fazer tradução de fala com SPX. Semelhante ao comando de reconhecimento de voz acima, execute o seguinte comando para capturar áudio do microfone predefinido e execute a tradução para texto na linguagem alvo.
+Além do reconhecimento da fala e da síntese, também pode fazer tradução da fala com o Discurso CLI. Semelhante ao comando de reconhecimento de voz acima, execute o seguinte comando para capturar áudio do microfone predefinido e execute a tradução para texto na linguagem alvo.
 
 ```shell
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
@@ -59,7 +59,7 @@ Os comandos na secção anterior são ótimos para ver rapidamente como funciona
 
 ## <a name="batch-speech-recognition"></a>Reconhecimento da fala do lote
 
-Se tiver um diretório de ficheiros áudio, é fácil com o SPX executar rapidamente o reconhecimento da fala em lote. Basta executar o seguinte comando, apontando para o seu diretório com o `--files` comando. Neste exemplo, `\*.wav` anexa-se ao diretório para reconhecer todos os `.wav` ficheiros presentes no dir. Além disso, especifique o `--threads` argumento para executar o reconhecimento em 10 linhas paralelas.
+Se tiver um diretório de ficheiros áudio, é fácil com o Talk CLI executar rapidamente o reconhecimento da fala em lote. Basta executar o seguinte comando, apontando para o seu diretório com o `--files` comando. Neste exemplo, `\*.wav` anexa-se ao diretório para reconhecer todos os `.wav` ficheiros presentes no dir. Além disso, especifique o `--threads` argumento para executar o reconhecimento em 10 linhas paralelas.
 
 > [!NOTE]
 > O `--threads` argumento também pode ser usado na próxima secção para `spx synthesize` comandos, e os fios disponíveis dependerão do CPU e da sua percentagem de carga atual.
@@ -76,11 +76,11 @@ A saída de discurso reconhecida é escrita para `speech_output.tsv` usar o `--o
 
 ## <a name="batch-text-to-speech-synthesis"></a>Síntese de texto-fala do lote
 
-A maneira mais fácil de executar o texto-a-fala do lote é criar um novo `.tsv` ficheiro (separado de separados) e alavancar o `--foreach` comando em SPX. Considere o seguinte `text_synthesis.tsv` ficheiro:
+A maneira mais fácil de executar o texto-a-fala do lote é criar um novo `.tsv` ficheiro (separado de separados) e alavancar o `--foreach` comando no CLI da fala. Considere o seguinte `text_synthesis.tsv` ficheiro:
 
     audio.output    text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
  Em seguida, executa um comando para `text_synthesis.tsv` apontar, executar síntese em cada `text` campo, e escrever o resultado para o caminho correspondente `audio.output` como um `.wav` arquivo. 
@@ -99,7 +99,7 @@ No entanto, se tiver um `.tsv` ficheiro como o seguinte exemplo, com cabeçalhos
 
     wav_path    str_text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
 Pode substituir estes nomes de campo com os argumentos corretos utilizando a seguinte sintaxe na `--foreach` chamada. Esta é a mesma chamada que acima.
@@ -108,6 +108,6 @@ Pode substituir estes nomes de campo com os argumentos corretos utilizando a seg
 spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.tsv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Complete o [reconhecimento](./quickstarts/speech-to-text-from-microphone.md) da fala ou [a síntese da fala](./quickstarts/text-to-speech.md) começa rapidamente usando o SDK.

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789849"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798580"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
@@ -86,7 +86,7 @@ Os leads são clientes que estão a implantar os seus produtos a partir do Marke
 
 **Onde posso arranjar ajuda para preparar o meu destino principal?** 
 
-Você pode encontrar documentação no [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou enviar um bilhete de suporte na Ajuda e [suporte](https://partner.microsoft.com/support/v2/?stage=1). Selecione tipo de oferta e gestão de chumbo. 
+Você pode encontrar documentação no [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou enviar um bilhete de suporte na Ajuda e [suporte](https://aka.ms/marketplacepublishersupport). Selecione tipo de oferta e gestão de chumbo. 
 
 **Sou obrigado a configurar um destino de chumbo para publicar uma oferta no Marketplace?**
 
@@ -116,7 +116,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 \<Oferta nome> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844. \< Nome da oferta> 
 
 oid = 00Do00000000ZHog 
 
@@ -183,7 +183,7 @@ O chumbo só é escrito quando seleciona o armazenamento Azure BLOB como destino
 
 **Recebi um e-mail do Marketplace, por que não encontro a pista no meu CRM?**  
 
-É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade não passamos dados pessoais identificáveis do domínio .edu. Envie um bilhete de apoio na [Ajuda e suporte.](https://partner.microsoft.com/support/v2/?stage=1)
+É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade não passamos dados pessoais identificáveis do domínio .edu. Envie um bilhete de apoio na [Ajuda e suporte.](https://aka.ms/marketplacepublishersupport)
 
 **Configurei a Azure Table/Azure BLOB como o meu destino principal, como posso ver as pistas?** 
 
@@ -193,7 +193,7 @@ Pode aceder à bolha ou à tabela do portal Azure, ou pode descarregar e instala
 
 Sim, siga as instruções para configurar a Tabela Azure + Função na documentação [aqui .](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) 
 
-**Configurei a Salesforce como o meu destino principal, por que não encontro as pistas?** 
+**Configurei a Salesforce como o meu destino principal, por que não encontro as pistas?**
 
 Verifique se o formulário web para chumbo é um campo obrigatório baseado numa lista de escolhas. Se sim, mude o campo para um campo de texto não obrigatório.  
  

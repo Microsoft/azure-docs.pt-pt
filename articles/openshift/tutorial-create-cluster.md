@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 86e1bc088c3e4327fbd0b9ad4a05e7c42c3fb776
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773496"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800171"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster OpenShift 4 do chapéu vermelho azure
 
@@ -28,7 +28,6 @@ Se optar por instalar e utilizar o CLI localmente, este tutorial requer que este
 
 Para criar um cluster OpenShift de chapéu vermelho Azure, verifique as seguintes permissões na sua conta Azure e no utilizador:
 
-[!div class="mx-tdBreakAll"]
 |Permissões|Grupo de Recursos que contém o VNet|Execução do utilizador`az aro create`|Diretor de serviço passou como`–client-id`|
 |----|:----:|:----:|:----:|
 |**Administrador de Acesso do Utilizador**|X|X| |

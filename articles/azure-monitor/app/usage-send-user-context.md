@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670938"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797688"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envie IDs de contexto do utilizador para permitir experiências de utilização em Insights de Aplicação Azure
 
@@ -22,7 +22,7 @@ Os Insights de Aplicação permitem-lhe monitorizar e rastrear os seus utilizado
 - [Utilizadores, Sessões, Eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Funis](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Cohorts
-- [Livros](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Livros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 Para acompanhar o que um utilizador faz ao longo do tempo, o Application Insights necessita de um ID para cada utilizador ou sessão. Inclua as seguintes IDs em todos os eventos ou visualizações de página personalizadas.
 
@@ -134,4 +134,4 @@ namespace MvcWebRole.Telemetry
     - [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Livros](../../azure-monitor/app/usage-workbooks.md)
+    - [Livros](../../azure-monitor/platform/workbooks-overview.md)

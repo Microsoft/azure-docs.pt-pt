@@ -1,16 +1,16 @@
 ---
-title: Aprenda política azure para Kubernetes
-description: Saiba como a Política Azure utiliza o Rego e o Open Policy Agent para gerir os clusters que gerem kubernetes em Azure ou no local.
+title: Pré-visualização - Aprenda política azure para Kubernetes
+description: Saiba como a Política Azure utiliza o Rego e o Open Policy Agent para gerir os clusters que gerem kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 738b6ae0a2482d1229fdbfe89d0c3dd99a33ec6e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: fb66510b55f9d3f08ab8e058bb8f67fb1954db6f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772765"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800346"
 ---
-# <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender a política azure para os clusters kubernetes
+# <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a Política Azure para os clusters kubernetes (pré-visualização)
 
 A Política Azure alarga o [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, um webhook do controlador de _admissão_ para [o Open Policy Agent](https://www.openpolicyagent.org/) (OPA), para aplicar aplicações e salvaguardas em escala nos seus clusters de forma centralizada e consistente. A Política Azure permite gerir e reportar sobre o estado de conformidade dos seus clusters Kubernetes a partir de um lugar. O complemento decreta as seguintes funções:
 
@@ -21,7 +21,7 @@ A Política Azure alarga o [Gatekeeper](https://github.com/open-policy-agent/gat
 A Política Azure para kubernetes apoia os seguintes ambientes de cluster:
 
 - [Serviço de Kubernetes do Azure (AKS)](../../../aks/intro-kubernetes.md)
-- [Arco Azure habilitado Kubernetes](../../../azure-arc/kubernetes/overview.md)
+- [Kubernetes ativado pelo Azure Arc](../../../azure-arc/kubernetes/overview.md)
 - [Motor AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as s
 
 1. Configure o seu cluster Kubernetes e instale o complemento:
    - [Serviço de Kubernetes do Azure (AKS)](#install-azure-policy-add-on-for-aks)
-   - [Arco Azure habilitado Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+   - [Kubernetes ativado pelo Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Motor AKS](#install-azure-policy-add-on-for-aks-engine)
 
 1. [Compreender a linguagem política azure para Kubernetes](#policy-language)
@@ -49,6 +49,9 @@ Antes de instalar o Add-on de Política Azure ou ativar qualquer uma das funcion
 1. Precisa da versão Azure CLI 2.0.62 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 1. Registe os fornecedores de recursos e as funcionalidades de pré-visualização.
+
+   > [!CAUTION]
+   > Ao registar uma funcionalidade numa subscrição, não pode desregistar essa funcionalidade. Depois de ativar algumas funcionalidades de pré-visualização, podem ser utilizadas predefinições para todos os clusters AKS e depois criados na subscrição. Não ative funcionalidades de pré-visualização nas subscrições de produção. Utilize uma subscrição separada para testar funcionalidades de pré-visualização e recolher feedback.
 
    - Portal Azure:
 

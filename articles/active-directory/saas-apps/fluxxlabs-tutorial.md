@@ -11,99 +11,75 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: e624520a9d1f39bc8115ac72e9df0398065928f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 198e93fe03c78313dfd64da9b58f2aa9098343f2
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67102380"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799280"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração de Diretório Sonárte Azure com a Fluxx Labs
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com fluxx Labs
 
-Neste tutorial, aprende-se a integrar o Fluxx Labs com o Azure Ative Directory (Azure AD).
-Integrar o Fluxx Labs com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar fluxx Labs com O Diretório Ativo Azure (Azure AD). Quando integrar o Fluxx Labs com o Azure AD, pode:
 
-* Pode controlar em Azure AD quem tem acesso aos Laboratórios Fluxx.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos nos Laboratórios Fluxx (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Controlo em Azure AD que tem acesso a Fluxx Labs.
+* Permita que os seus utilizadores sejam automaticamente inscritos nos Laboratórios Fluxx com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com o Fluxx Labs, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Fluxx Labs única subscrição ativada por sinal
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A assinatura ativada por um único sinal (SSO) do Fluxx Labs (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 * Fluxx Labs suporta **IDP** iniciado SSO
+* Assim que configurar o Fluxx Labs, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
 ## <a name="adding-fluxx-labs-from-the-gallery"></a>Adicionar Fluxx Labs da galeria
 
 Para configurar a integração dos Fluxx Labs em Azure AD, você precisa adicionar Fluxx Labs da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar Fluxx Labs da galeria, execute os seguintes passos:**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **de galeria,** digite **Fluxx Labs** na caixa de pesquisa.
+1. Selecione **Fluxx Labs** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+## <a name="configure-and-test-azure-ad-single-sign-on-for-fluxx-labs"></a>Configure e teste Azure AD único sign-on para Fluxx Labs
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com Fluxx Labs utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado nos Laboratórios Fluxx.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar o Azure AD SSO com o Fluxx Labs, complete os seguintes blocos de construção:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure Fluxx Labs SSO](#configure-fluxx-labs-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    1. **[Crie o utilizador de teste Fluxx Labs](#create-fluxx-labs-test-user)** - para ter uma contrapartida de B.Simon em Fluxx Labs que está ligada à representação do utilizador da AD Azure.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, digite **Fluxx Labs,** selecione **Fluxx Labs** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **fluxx Labs,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-     ![Fluxx Labs na lista de resultados](common/search-new-app.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
-
-Nesta secção, configura e testa um único sign-on azure com a Fluxx Labs com base num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado nos Laboratórios Fluxx.
-
-Para configurar e testar o único sign-on azure ad com o Fluxx Labs, você precisa completar os seguintes blocos de construção:
-
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure O Sign-On Único dos Laboratórios Fluxx](#configure-fluxx-labs-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Crie o utilizador de teste Fluxx Labs](#create-fluxx-labs-test-user)** - para ter uma contrapartida de Britta Simon em Fluxx Labs que está ligada à representação do utilizador da AD Azure.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
-
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
-
-Para configurar o único sign-on azure ad com o Fluxx Labs, execute os seguintes passos:
-
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **fluxx Labs,** selecione **Single sign-on**.
-
-    ![Configurar um único link de sinalização](common/select-sso.png)
-
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
-
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
-
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
-
-4. Na configuração de um único sign-on com a página **SAML,** execute os seguintes passos:
-
-    ![Fluxox Labs Domínio e URLs informações únicas de inscrição](common/idp-intiated.png)
+1. Na configuração de um único sign-on com a página **SAML,** execute os seguintes passos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
@@ -120,23 +96,47 @@ Para configurar o único sign-on azure ad com o Fluxx Labs, execute os seguintes
     | Pré-produção | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de suporte ao cliente da [Fluxx Labs](mailto:travis@fluxxlabs.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de suporte ao cliente da [Fluxx Labs](https://fluxx.zendesk.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-6. Na secção **set Up Fluxx Labs,** copie os URL(s) adequados de acordo com o seu requisito.
+1. Na secção **set Up Fluxx Labs,** copie os URL(s) adequados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-    b. Identificador Azure AD
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. Clique em **Criar**.
 
-### <a name="configure-fluxx-labs-single-sign-on"></a>Configure Fluxx Labs Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+
+Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concedendo acesso aos Laboratórios Fluxx.
+
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Fluxx Labs**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+
+## <a name="configure-fluxx-labs-sso"></a>Configure Fluxx Labs SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Fluxx Labs como administrador.
 
@@ -144,7 +144,7 @@ Para configurar o único sign-on azure ad com o Fluxx Labs, execute os seguintes
 
     ![Configuração de Laboratórios Fluxx](./media/fluxxlabs-tutorial/config1.png)
 
-3. No Painel de Administração, selecione**integrações** de **plug-ins** > e, em seguida, selecione **SAML SSO-(Deficiente)**
+3. No Painel de Administração, selecione integrações de **plug-ins**  >  **Integrations** e, em seguida, selecione **SAML SSO-(Deficiente)**
 
     ![Configuração de Laboratórios Fluxx](./media/fluxxlabs-tutorial/config2.png)
 
@@ -166,62 +166,12 @@ Para configurar o único sign-on azure ad com o Fluxx Labs, execute os seguintes
 
     g. Abra o seu certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo na sua área de receita e, em seguida, cole-o na caixa de texto do Certificado de Fornecedor de **Identidade.**
 
-    h. Em **Nome identificador Formato** de `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`texto, introduza o valor .
+    h. Em **Nome identificador Formato** de texto, introduza o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` .
 
     i. Clique em **Guardar**.
 
     > [!NOTE]
     > Uma vez guardado o conteúdo, o campo aparecerá em branco para a segurança, mas o valor foi guardado na configuração.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
-
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entrar **BrittaSimon.**
-  
-    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
-
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso aos Laboratórios Fluxx.
-
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Fluxx Labs**.
-
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **Fluxx Labs**.
-
-    ![A ligação Fluxx Labs na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
-
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
 ### <a name="create-fluxx-labs-test-user"></a>Criar o utilizador de teste fluxx Labs
 
@@ -247,17 +197,22 @@ Para permitir que os utilizadores de Anúncios Azure inscrevam-se nos Laboratór
 
     b. Clique em **Guardar**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Quando clicar no azulejo Fluxx Labs no Painel de Acesso, deve ser automaticamente inscrito nos Laboratórios Fluxx para os quais configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Experimente os Laboratórios Fluxx com AD Azure](https://aad.portal.azure.com/)
+
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o Fluxx Labs com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

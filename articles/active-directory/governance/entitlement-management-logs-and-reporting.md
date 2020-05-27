@@ -16,12 +16,12 @@ ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87bb08e08bca3a9f715590098cfaa22ce7da8017
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380175"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799511"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da Azure AD no Monitor Azure
 
@@ -158,7 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Pode reautenticar e associar a sua sessão PowerShell `Connect-AzAccount –Subscription $subs[0].id`a essa subscrição utilizando um comando como . Para saber mais sobre como autenticar o Azure a partir da PowerShell, incluindo não interactivamente, consulte [O Sign in com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
+Pode reautenticar e associar a sua sessão PowerShell a essa subscrição utilizando um comando como `Connect-AzAccount –Subscription $subs[0].id` . Para saber mais sobre como autenticar o Azure a partir da PowerShell, incluindo não interactivamente, consulte [O Sign in com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
 Se tiver vários espaços de trabalho log analytics nessa subscrição, então o cmdlet [Get-AzOperationalInsightsWorkspace devolve](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) a lista de espaços de trabalho. Depois pode encontrar aquele que tem os registos da AD Azure. O `CustomerId` campo devolvido por este cmdlet é o mesmo que o valor do "Workspace Id" exibido no portal Azure na visão geral do espaço de trabalho Log Analytics.
@@ -189,5 +189,5 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Passos seguintes:
-- [Criar relatórios interativos com livros do Monitor Azure](../../azure-monitor/app/usage-workbooks.md) 
+- [Criar relatórios interativos com livros do Monitor Azure](../../azure-monitor/platform/workbooks-overview.md) 
 

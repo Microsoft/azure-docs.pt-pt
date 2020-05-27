@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 2387f14a537c15c891bff968573bf4d698c01770
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211306"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797662"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorização do seu serviço de cofre chave com Monitor Azure para cofre de chaves (pré-visualização)
 O Monitor Azure para o Cofre de Chaves (pré-visualização) fornece uma monitorização abrangente dos seus cofres chave, fornecendo uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -212,4 +212,4 @@ Pode editar o livro de trabalho existente, através da utilização do modo de e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 5ae33a69b2c5ec728a8c711ced20419a773dca78
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: b5bdbb76a822f8b6d5134da819828b3dee518165
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979331"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806418"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -251,4 +251,4 @@ Inicie a aplicação, abra o seu browser favorito, aponte-o para o URL público 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[!INCLUDE [footer](footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

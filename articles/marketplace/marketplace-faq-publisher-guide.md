@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 5abb373d4b3f9c66b2dc2f103e4a89ef0dc5af89
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1eae45eea35a118be51dc1e2f95055238212560d
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744835"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800660"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o mercado comercial da Microsoft
 
@@ -71,7 +71,7 @@ Para mais informações, consulte [Welcome to the commercial marketplace](https:
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Como posso obter assistência de apoio para o mercado comercial?
 
-Para contactar a nossa equipa de suporte da editora do mercado, pode [enviar um bilhete](https://partner.microsoft.com/support/v2/?stage=1) de apoio a partir do Partner Center. 
+Para contactar a nossa equipa de suporte da editora do mercado, pode [enviar um bilhete](https://aka.ms/marketplacepublishersupport) de apoio a partir do Partner Center. 
 
 Pode também [participar do nosso fórum comunitário ativo](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222) para aprender sobre as melhores práticas e partilhar informações.
 

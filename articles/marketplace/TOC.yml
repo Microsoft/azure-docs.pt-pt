@@ -324,17 +324,17 @@
               href: ./partner-center-portal/create-azure-container-technical-assets.md
             - name: Criar uma oferta do Azure Container
               href: ./partner-center-portal/create-azure-container-offer.md
-        - name: Oferta de Máquina Virtual
+        - name: Oferta de máquina virtual
           items:
-            - name: Criar uma oferta de Máquina Virtual do Azure
+            - name: Criar uma oferta de máquina virtual do Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Criar recursos técnicos de VM do Azure
+            - name: Criar um recurso técnico de VM do Azure
               items:
-                - name: Criar recursos técnicos de VM do Azure
+                - name: Criar um recurso técnico de VM do Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: FAQ dos recursos técnicos de VM do Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certificar imagens de VM do Azure
+                - name: Certificar uma imagem de VM do Azure
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: URI de SAS
                   items:

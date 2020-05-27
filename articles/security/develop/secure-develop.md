@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a36ac44fa861b902bfcc370472a2a87e036e5de6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655009"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800279"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo apresentamos atividades e controlos de segurança a considerar quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a considerar durante as fases de implementação e verificação do Ciclo de Vida de Desenvolvimento de Segurança da Microsoft [(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
@@ -38,7 +38,7 @@ Antes de verificar o código, procedia [a revisões](https://docs.microsoft.com/
 
 ### <a name="perform-static-code-analysis"></a>Efetuar a análise de código estático
 
-[A análise de código estático](https://www.owasp.org/index.php/Static_Code_Analysis) (também conhecida como análise de *código fonte)* é geralmente realizada como parte de uma revisão de código. A análise de código estático geralmente refere-se a ferramentas de análise de código estáticos para encontrar potenciais vulnerabilidades no código não corrente, utilizando técnicas como [a verificação de manchas](https://en.wikipedia.org/wiki/Taint_checking) e análise de fluxo de [dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[A análise de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (também conhecida como análise de *código fonte)* é geralmente realizada como parte de uma revisão de código. A análise de código estático geralmente refere-se a ferramentas de análise de código estáticos para encontrar potenciais vulnerabilidades no código não corrente, utilizando técnicas como [a verificação de manchas](https://en.wikipedia.org/wiki/Taint_checking) e análise de fluxo de [dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 O Azure Marketplace oferece ferramentas para [programar](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) que realizam análises estáticas de código e ajudam com avaliações de código.
 

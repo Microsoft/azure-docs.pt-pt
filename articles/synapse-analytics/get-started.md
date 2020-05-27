@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 29e5ba149a99f350b8ad9244605470d8b9b61597
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e826075d2f0032f796ebe6d2c8648130e5b453b7
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749501"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800896"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Começando com Azure Synapse Analytics
 
@@ -172,7 +172,7 @@ Temos dados disponíveis numa base de dados de piscinaS SQL. Agora colocamos num
 * **Selecione Adicionar código** para adicionar uma célula de código portátil e colar o texto abaixo:
 
     ```scala
-    %% spark
+    %%spark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")

@@ -4,12 +4,12 @@ description: Saiba como criar uma conta do Azure Batch no portal do Azure a exec
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: adc333498e0b3074aaa40d40e076ae62c1759524
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 6cccef176e3e5ba0f4774a5897f082c4847a4005
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778598"
+ms.locfileid: "83800258"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -52,6 +52,9 @@ Para obter informações sobre as contas e cenários do Lote, consulte o fluxo d
 ## <a name="view-batch-account-properties"></a>Ver propriedades da conta do Batch
 
 Depois de a conta ter sido criada, selecione a mesma para aceder às respetivas definições e propriedades. Pode aceder a todas as definições e propriedades da conta através do menu à esquerda.
+
+> [!NOTE]
+> O nome da conta Batch é a sua identificação e não pode ser alterado. Se precisar de alterar o nome de uma conta Batch, terá de apagar a conta e criar uma nova com o nome pretendido.
 
 ![Página Conta do Batch no portal do Azure][account_blade]
 

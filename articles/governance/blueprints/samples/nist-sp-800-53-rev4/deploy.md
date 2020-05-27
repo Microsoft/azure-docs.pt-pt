@@ -1,14 +1,14 @@
 ---
 title: Implementar a amostra de plantas NIST SP 800-53 R4
 description: Desloque os passos para a amostra de planta NIST SP 800-53 R4, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 11/18/2019
+ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 04412f8047d8ed5de8199f7fd8b1200afa9c5518
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546612"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816017"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implementar a amostra de plantas NIST SP 800-53 R4
 
@@ -19,7 +19,7 @@ Para implantar a amostra de plantas Azure NIST SP 800-53 R4, devem ser tomadas a
 > - Marque a sua cópia da amostra como **Publicado**
 > - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
@@ -93,18 +93,18 @@ A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização\]: AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Log Analytics workspace ID para que os VMs devem ser configurados para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o que os VMs devem ser configurados.|
-|\[Pré-visualização\]: AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)|
-|\[Pré-visualização\]: AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser excluídos do grupo de Administradores VM do Windows|Uma lista separada do ponto-e-vírgula dos membros que deve ser excluída no grupo local dos administradores. Ex: Administrador; myUser1; myUser2|
-|\[Pré-visualização\]: AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de Administradores VM do Windows|Uma lista separada do ponto-e-vírgula dos membros que deve ser incluída no grupo local administradores. Ex: Administrador; myUser1; myUser2|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala De VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Log Analytics espaço de trabalho para VMs Linux|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala VM windows (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMs do Windows|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Log Analytics workspace ID para que os VMs devem ser configurados para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o que os VMs devem ser configurados.|
+|\[Pré-visualização \] : AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)|
+|\[Pré-visualização \] : AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser excluídos do grupo de Administradores VM do Windows|Uma lista separada do ponto-e-vírgula dos membros que deve ser excluída no grupo local dos administradores. Ex: Administrador; myUser1; myUser2|
+|\[Pré-visualização \] : AuditnS SP 800-53 R4 controles e implementa extensões vm específicas para apoiar requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de Administradores VM do Windows|Uma lista separada do ponto-e-vírgula dos membros que deve ser incluída no grupo local administradores. Ex: Administrador; myUser1; myUser2|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala SM (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala De VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala SM (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Log Analytics espaço de trabalho para VMs Linux|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização \] : Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala seletivas VM Do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala VM windows (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala seletivas VM Do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMs do Windows|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
 |Implementar proteção avançada de ameaças em contas de armazenamento|Atribuição de política|Efeito|Informações sobre efeitos políticos podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md)|
 |Implementar auditoria sql|Atribuição de política|O valor nos dias do período de retenção (0 indica retenção ilimitada)|Dias de retenção (opcional, 180 dias se não especificados)|
 |Implementar auditoria sql|Atribuição de política|Nome do grupo de recursos para conta de armazenamento para auditoria de servidor SQL|A auditoria escreve eventos de base de dados para um registo de auditoria na sua conta de Armazenamento Azure (será criada uma conta de armazenamento em cada região onde é criado um Servidor SQL que será partilhado por todos os servidores dessa região). Importante - para o bom funcionamento da Auditoria não apague ou mude o nome do grupo de recursos ou das contas de armazenamento.|
@@ -116,8 +116,8 @@ A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 Agora que reviu os passos para implementar a amostra de plantas NIST SP 800-53 R4, visite os seguintes artigos para saber sobre a planta e o mapeamento de controlo:
 
 > [!div class="nextstepaction"]
-> [Plano NIST SP 800-53 R4 - Visão geral](./index.md)
-> [NIST SP 800-53 R4 - Mapeamento de controlo](./control-mapping.md)
+> [Plano NIST SP 800-53 R4 - Visão geral](./index.md) 
+>  [NIST SP 800-53 R4 - Mapeamento](./control-mapping.md) de controlo
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

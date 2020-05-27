@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c23360360f97babebe9efe8afecc6a27052faad5
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758435"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800754"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objetos para bolhas de bloco (pré-visualização)
 
@@ -54,7 +54,7 @@ Quando se cria uma regra de replicação, por defeito apenas são copiadas novas
 
 Também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar bolhas de blocos por prefixo. Quando especificar um prefixo, apenas as bolhas correspondentes a esse prefixo no recipiente de origem serão copiadas para o recipiente de destino.
 
-Os recipientes de origem e destino devem existir antes de poder especificar em regra. Depois de criar a política de replicação, o recipiente de destino torna-se apenas de leitura. Qualquer tentativa de escrever para o recipiente de destino falha com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier.md) numa bolha no contentor de destino para movê-la para um nível de acesso diferente. Por exemplo, pode mover bolhas no contentor de destino para o nível de arquivo para economizar custos.
+Os recipientes de origem e destino devem existir antes de poder especificar em regra. Depois de criar a política de replicação, o recipiente de destino torna-se apenas de leitura. Qualquer tentativa de escrever para o recipiente de destino falha com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no contentor de destino para movê-la para um nível de acesso diferente. Por exemplo, pode mover bolhas no contentor de destino para o nível de arquivo para economizar custos.
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 

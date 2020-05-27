@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77660875"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797455"
 ---
 # <a name="metric-chart-examples"></a>Exemplos de gráficos métricos 
 
@@ -52,5 +52,5 @@ No picker métrico, selecione a sua conta de armazenamento e a métrica **de Tra
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [os livros](../../azure-monitor/app/usage-workbooks.md) de trabalho do Monitor Azure
+* Saiba mais sobre [os livros](../../azure-monitor/platform/workbooks-overview.md) de trabalho do Monitor Azure
 * Saiba mais sobre [o Metric Explorer](metrics-charts.md)

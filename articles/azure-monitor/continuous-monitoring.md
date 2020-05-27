@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667198"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797605"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com o Monitor Azure
 
@@ -74,7 +74,7 @@ Um aspeto crítico da monitorização é notificar proactivamente os administrad
 Garantir que o seu desenvolvimento e operações têm acesso à mesma telemetria e ferramentas que lhes permite visualizar padrões em todo o seu ambiente e minimizar o seu tempo médio para detetar (MTTD) e tempo médio para restaurar (MTTR).
 
 - Prepare [dashboards personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) com base em métricas e registos comuns para as diferentes funções da sua organização. Os dashboards podem combinar dados de todos os recursos do Azure.
-- Prepare livros de [trabalho](../azure-monitor/app/usage-workbooks.md) para garantir a partilha de conhecimentos entre desenvolvimento e operações. Estes poderiam ser preparados como relatórios dinâmicos com gráficos métricos e consultas de registo, ou mesmo como guias de resolução de problemas preparados por desenvolvedores ajudando o apoio ao cliente ou operações para lidar com problemas básicos.
+- Prepare livros de [trabalho](../azure-monitor/platform/workbooks-overview.md) para garantir a partilha de conhecimentos entre desenvolvimento e operações. Estes poderiam ser preparados como relatórios dinâmicos com gráficos métricos e consultas de registo, ou mesmo como guias de resolução de problemas preparados por desenvolvedores ajudando o apoio ao cliente ou operações para lidar com problemas básicos.
 
 ## <a name="continuously-optimize"></a>Otimizar continuamente
  A monitorização é um dos aspetos fundamentais da popular filosofia Build-Measure-Learn, que recomenda o acompanhamento contínuo das suas métricas de comportamento do utilizador e, em seguida, esforçando-se por otimizá-los através de iterações de planeamento. O Azure Monitor ajuda-o a recolher métricas e registos relevantes para o seu negócio e a adicionar novos pontos de dados na próxima implementação, conforme necessário.

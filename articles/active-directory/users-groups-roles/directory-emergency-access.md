@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74028135"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816187"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência em Azure AD
 
@@ -39,12 +39,12 @@ Uma organização pode precisar de usar uma conta de acesso de emergência nas s
 
 ## <a name="create-emergency-access-accounts"></a>Criar contas de acesso de emergência
 
-Crie duas ou mais contas de acesso de emergência. Estas contas devem ser contas apenas \*na nuvem que utilizam o domínio .onmicrosoft.com e que não são federadas ou sincronizadas a partir de um ambiente no local.
+Crie duas ou mais contas de acesso de emergência. Estas contas devem ser contas apenas na nuvem que utilizam o \* domínio .onmicrosoft.com e que não são federadas ou sincronizadas a partir de um ambiente no local.
 
 Ao configurar estas contas, devem ser cumpridos os seguintes requisitos:
 
 - As contas de acesso de emergência não devem ser associadas a qualquer utilizador individual da organização. Certifique-se de que as suas contas não estão ligadas a telemóveis fornecidos por funcionários, fichas de hardware que viajem com funcionários individuais ou outras credenciais específicas dos funcionários. Esta precaução abrange casos em que um empregado individual é inacessível quando a credencial é necessária. É importante garantir que quaisquer dispositivos registados sejam mantidos num local conhecido e seguro que tenha múltiplos meios de comunicação com a AD Azure.
-- O mecanismo de autenticação utilizado para uma conta de acesso de emergência deve ser distinto do utilizado pelas suas outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se o seu administrador normal entrar é através de MFA no local, então o Azure MFA seria um mecanismo diferente.  No entanto, se o Azure MFA é a sua principal parte da autenticação para as suas contas administrativas, então considere uma abordagem diferente para estas, como usar o Acesso Condicional com um fornecedor de MFA de terceiros.
+- O mecanismo de autenticação utilizado para uma conta de acesso de emergência deve ser distinto do utilizado pelas suas outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se o seu administrador normal entrar é através de MFA no local, então o Azure MFA seria um mecanismo diferente.  No entanto, se o Azure MFA é a sua principal parte da autenticação para as suas contas administrativas, considere uma abordagem diferente para estas, como utilizar o Acesso Condicional com um fornecedor de MFA de terceiros através de [controlos personalizados.](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
 - O dispositivo ou a credencial não devem caducar ou estar no âmbito da limpeza automatizada devido à falta de utilização.  
 - Deve tornar a atribuição de funções de Administrador Global permanente para as suas contas de acesso de emergência. 
 
@@ -79,7 +79,7 @@ As organizações devem monitorizar a atividade de login e de registo de auditor
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtenha IDs de objeto das contas de vidro de rutura
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta atribuída ao cargo de administrador do Utilizador.
-1. Selecione > **Utilizadores**de **Diretório Ativo Azure**.
+1. Selecione **Utilizadores de Diretório Ativo Azure**  >  **Users**.
 1. Procure a conta de break-glass e selecione o nome do utilizador.
 1. Copie e guarde o atributo de ID do objeto para que possa usá-lo mais tarde.
 1. Repita os passos anteriores para a segunda conta de break-glass.
@@ -89,7 +89,7 @@ As organizações devem monitorizar a atividade de login e de registo de auditor
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta atribuída à função de Colaborador de Monitorização no Monitor Azure.
 1. Selecione **todos os serviços**", introduza "log analytics" em Search e, em seguida, selecione espaços de **trabalho Log Analytics**.
 1. Selecione uma área de trabalho.
-1. No seu espaço de trabalho, selecione **Alertas** > **Nova regra de alerta**.
+1. No seu espaço de trabalho, selecione **Alertas**  >  **Nova regra de alerta**.
     1. No âmbito **do Recurso,** verifique se a subscrição é aquela com a qual pretende associar a regra de alerta.
     1. Em **condições,** **selecione Adicionar**.
     1. Selecione **procurar registo personalizado** sob o nome do **sinal**.

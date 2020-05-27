@@ -4,12 +4,12 @@ description: Como criar um pool de Lote numa rede virtual Azure para que os nós
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e973968e3396fbe714be5540244b867b7092e00
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779584"
+ms.locfileid: "83797508"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Crie uma piscina de Lote Azure numa rede virtual
 
@@ -49,13 +49,13 @@ Uma vez criado o seu VNet e atribuído uma sub-rede a ele, pode criar uma piscin
 
 Pode ter requisitos na sua organização para redirecionar (força) tráfego ligado à Internet da subnet de volta ao local de instalação para inspeção e exploração madeireira. Pode ter permitido um túnel forçado para as subredes no seu VNet.
 
-Para garantir que os seus nós de computação de piscina Azure Batch funcionam num VNet que tenha forçado a colocação de túneis, deve adicionar as seguintes [rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
+Para garantir que os seus nós de computação de piscina Azure Batch funcionam numa VNet que tenha forçado a colocação de túneis, deve adicionar as seguintes [rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md) (UDR) para essa sub-rede:
 
-* O serviço Batch precisa de comunicar com os nossos nódos de cálculo de piscina para tarefas de agendamento. Para ativar esta comunicação, adicione uma rota definida pelo utilizador para cada endereço IP utilizado pelo serviço 'Lote' na região onde existe a sua conta Batch. Para saber como obter a lista de endereços IP do serviço Batch, consulte [as etiquetas de serviço no local](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de lote serão associados com a etiqueta de `BatchNodeManagement` serviço (ou a variante regional que corresponde à região da sua conta Batch).
+* O serviço Batch precisa de comunicar com os nossos nódos de cálculo de piscina para tarefas de agendamento. Para ativar esta comunicação, adicione um UDR para cada endereço IP utilizado pelo serviço Batch na região onde existe a sua conta Batch. Para saber como obter a lista de endereços IP do serviço Batch, consulte [as etiquetas de serviço no local](../virtual-network/service-tags-overview.md).
 
 * Certifique-se de que o tráfego de saída para o Armazenamento Azure (especificamente, URLs do formulário , e ) não está bloqueado através do `<account>.table.core.windows.net` seu aparelho de rede no `<account>.queue.core.windows.net` `<account>.blob.core.windows.net` local.
 
-Quando adicionar uma rota definida pelo utilizador, defina a rota para cada prefixo de endereço IP do Lote e coloque o **tipo de lúpulo seguinte** na **Internet**. Veja o seguinte exemplo:
+Quando adicionar um UDR, defina a rota para cada prefixo de endereço IP do Lote e coloque o **tipo de lúpulo seguinte** na **Internet**. Veja o seguinte exemplo:
 
 ![Rota definida pelo utilizador](./media/batch-virtual-network/user-defined-route.png)
 

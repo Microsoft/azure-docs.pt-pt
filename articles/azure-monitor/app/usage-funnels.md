@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671057"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797819"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descubra como os clientes estão a usar a sua aplicação com funils de insights de aplicação
 
@@ -46,7 +46,7 @@ A imagem anterior inclui cinco áreas destacadas. Estas são características de
   * [Visão geral do uso](usage-overview.md)
   * [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
   * [Retenção](usage-retention.md)
-  * [Livros](../../azure-monitor/app/usage-workbooks.md)
+  * [Livros](../../azure-monitor/platform/workbooks-overview.md)
   * [Adicionar contexto de utilizador](usage-send-user-context.md)
   * [Exportar para o Power BI](../../azure-monitor/app/export-power-bi.md )
 

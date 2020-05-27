@@ -4,23 +4,23 @@ description: Este artigo fornece uma visão geral e benefícios fundamentais da 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79498590"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797367"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introdução ao Azure Cosmos DB etcd API (pré-visualização)
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft para aplicações críticas para atividades. Oferece distribuição global chave na mão, escala elástico de produção e armazenamento, latências milissegundos de um dígito no percentil 99, e garantia de alta disponibilidade, tudo apoiado por SLA's líderes do setor.
 
-[Etcd](https://github.com/etcd-io/etcd) é uma loja de chaves/valor distribuída. Em [Kubernetes,](https://kubernetes.io/)etcé é usado para armazenar o estado e a configuração dos clusters Kubernetes. Garantir a disponibilidade, fiabilidade e desempenho do etcd é crucial para a saúde geral do cluster, escalabilidade, disponibilidade de elasticidade e desempenho de um cluster Kubernetes. 
+[Etcd](https://github.com/etcd-io/etcd) é uma loja de chaves/valor distribuída. Em [Kubernetes,](https://kubernetes.io/)etcé é usado para armazenar o estado e a configuração dos clusters Kubernetes. Garantir a disponibilidade, fiabilidade e desempenho do etcd é crucial para a saúde geral do cluster, escalabilidade, disponibilidade de elasticidade e desempenho de um cluster Kubernetes.
 
-A API etcd em Azure Cosmos DB permite-lhe usar o Azure Cosmos DB como reserva para [Azure Kubernetes.](../aks/index.yml) A API etcd em Azure Cosmos DB está atualmente em pré-visualização. A Azure Cosmos DB implementa o protocolo de arame etcd. Com a API etcd em Azure Cosmos DB, os desenvolvedores obterão automaticamente Kubernetes altamente fiáveis, [disponíveis,](high-availability.md) [distribuídos globalmente.](distribute-data-globally.md) Esta API permite que os desenvolvedores dimensionem a gestão estatal de Kubernetes num serviço PaaS nativo totalmente gerido em nuvem. 
+A API etcd em Azure Cosmos DB permite-lhe usar o Azure Cosmos DB como reserva para Azure Kubernetes. A API etcd em Azure Cosmos DB está atualmente em pré-visualização. A Azure Cosmos DB implementa o protocolo de arame etcd. Com a API etcd em Azure Cosmos DB, os desenvolvedores obterão automaticamente Kubernetes altamente fiáveis, [disponíveis,](high-availability.md) [distribuídos globalmente.](distribute-data-globally.md) Esta API permite que os desenvolvedores dimensionem a gestão estatal de Kubernetes num serviço PaaS nativo totalmente gerido em nuvem. 
 
 > [!NOTE]
 > Ao contrário de outras APIs em Azure Cosmos DB, não é possível fornecer uma conta API etcd através do portal Azure, CLI ou SDKs. Pode fornecer uma conta API etcd implantando apenas o modelo de Gestor de Recursos; para etapas detalhadas, consulte [Como fornecer Azure Kubernetes com](bootstrap-kubernetes-cluster.md) artigo da Azure Cosmos DB. A Azure Cosmos DB etcD API está atualmente em pré-visualização limitada. Pode [inscrever-se para a pré-visualização,](https://aka.ms/cosmosetcdapi-signup)preenchendo o formulário de inscrição.
