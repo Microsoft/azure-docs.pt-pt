@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventário, automatização,alteração, controlo
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5142286bc50620d5a12a0722b3c4f9b8b75f5b73
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745271"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830621"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gerir a recolha de inventário a partir de VMs
 
@@ -112,7 +112,7 @@ Se quiser criar um novo grupo de máquinas, clique + **Crie um grupo de máquina
 
 ## <a name="disconnect-your-vm-from-management"></a>Desligue o seu VM da gestão
 
-Para remover o seu VM da gestão de inventário:
+Para remover o seu VM da gestão de Rastreio de Alterações e Inventário:
 
 1. No painel esquerdo do portal Azure, selecione **Log Analytics**, e, em seguida, selecione o espaço de trabalho que utilizou ao ativar o seu VM para rastreio e inventário de alterações.
 2. Na página Log Analytics, abra o menu **Recurso.**
@@ -127,6 +127,6 @@ Para remover o seu VM da gestão de inventário:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
-* [Acompanhe as mudanças de software no seu ambiente com Change Tracking](../log-analytics/log-analytics-change-tracking.md).
-* [Gestão de Atualizações em Azure.](../operations-management-suite/oms-solution-update-management.md)
+* Para mais detalhes sobre o trabalho com a funcionalidade, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* Para saber mais sobre o rastreio de alterações de software, consulte as mudanças de [software track no seu ambiente com Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* Para resolver problemas gerais com a funcionalidade, consulte problemas de rastreio e inventário de resolução de [problemas.](troubleshoot/change-tracking.md)

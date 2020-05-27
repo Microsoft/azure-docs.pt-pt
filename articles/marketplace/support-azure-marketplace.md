@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 624bce67e01a0d7dbee382ed77a833705ecd5c89
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800372"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828105"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Suporte para o mercado comercial da Microsoft
 
@@ -32,7 +32,7 @@ Abra um bilhete com o suporte da [editora do mercado](https://aka.ms/marketplace
 
 | Canal de suporte | Descrição |  
 |:--- |:--- |  
-| Fóruns da MSDN: Marketplace localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Fórum da Microsoft Developer Network. |  
+| Fóruns da MSDN: Marketplace localizado na [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/products/azure) | Fórum da Microsoft Developer Network. |  
 | Stack Overflow: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow ambiente para obter soluções e fazer perguntas sobre tudo o que está relacionado com o Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Gestor de recursos azure localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Máquinas virtuais em Azure localizadas em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Transbordo de pilhas: Contentores em Azure localizados em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Recursos de marketing  

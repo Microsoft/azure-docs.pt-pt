@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34ed6d043f713aa55bfe464c48d4332364df805d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f1897a4f58276bbac2a7de673544e592a562562
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680383"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826677"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -68,11 +68,11 @@ Para configurar um perfil técnico REST API com autenticação básica HTTP, cri
 Depois de criar as chaves necessárias, configure os metadados de perfil técnico REST API para fazer referência às credenciais.
 
 1. No seu diretório de trabalho, abra o ficheiro de política de extensão (TrustFrameworkExtensions.xml).
-1. Procure o perfil técnico rest API. Por `REST-ValidateProfile`exemplo, `REST-GetProfile`ou .
-1. Localize `<Metadata>` o elemento.
-1. Mude o Tipo `Basic`de *Autenticação* para .
-1. Alterar a *AllowInsecureAuthInProduction* para `false`.
-1. Imediatamente após o `</Metadata>` elemento de fecho, adicione o seguinte corte XML:
+1. Procure o perfil técnico rest API. Por `REST-ValidateProfile` exemplo, ou `REST-GetProfile` .
+1. Localize o `<Metadata>` elemento.
+1. Mude o Tipo de *Autenticação* para `Basic` .
+1. Alterar a *AllowInsecureAuthInProduction* para `false` .
+1. Imediatamente após o elemento de `</Metadata>` fecho, adicione o seguinte corte XML:
     ```xml
     <CryptographicKeys>
         <Key Id="BasicAuthenticationUsername" StorageReferenceId="B2C_1A_RestApiUsername" />
@@ -113,7 +113,7 @@ A autenticação do certificado de cliente é uma autenticação mútua baseada 
 
 Para ambientes não produtivos, se ainda não tiver um certificado, pode usar um certificado auto-assinado. No Windows, pode utilizar o cmdlet [New SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) da PowerShell para gerar um certificado.
 
-1. Execute este comando PowerShell para gerar um certificado auto-assinado. Modifique `-Subject` o argumento conforme apropriado para a sua candidatura e nome de inquilino Azure AD B2C. Também pode ajustar `-NotAfter` a data para especificar uma expiração diferente para o certificado.
+1. Execute este comando PowerShell para gerar um certificado auto-assinado. Modifique o argumento conforme apropriado para a sua candidatura e nome de `-Subject` inquilino Azure AD B2C. Também pode ajustar a `-NotAfter` data para especificar uma expiração diferente para o certificado.
     ```PowerShell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
@@ -124,9 +124,9 @@ Para ambientes não produtivos, se ainda não tiver um certificado, pode usar um
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. Open **Gerir certificados de utilizador** > **Certificados** > **pessoais** > **do utilizador** > yourappname.yourtenant.onmicrosoft.com *.*
-1. Selecione o certificado > **Ação** > **Todas as Tarefas** > **Exportação**.
-1. **Selecione Yes** > **Next** > **Yes, exporte a chave** > privada**Seguinte**.
+1. Open **Gerir certificados de utilizador**  >  **Certificados pessoais do utilizador**  >  **Personal**  >  **Certificates**  >  *yourappname.yourtenant.onmicrosoft.com*.
+1. Selecione o certificado > **Ação**  >  **Todas as Tarefas**  >  **Exportação**.
+1. **Selecione Yes**  >  **Next**  >  **Yes, exporte a chave privada**  >  **Seguinte**.
 1. Aceite as predefinições para formato de ficheiro de **exportação**.
 1. Forneça uma senha para o certificado.
 
@@ -149,11 +149,11 @@ Para ambientes não produtivos, se ainda não tiver um certificado, pode usar um
 Depois de criar a chave necessária, configure os metadados de perfil técnico REST API para fazer referência ao certificado de cliente.
 
 1. No seu diretório de trabalho, abra o ficheiro de política de extensão (TrustFrameworkExtensions.xml).
-1. Procure o perfil técnico rest API. Por `REST-ValidateProfile`exemplo, `REST-GetProfile`ou .
-1. Localize `<Metadata>` o elemento.
-1. Mude o Tipo `ClientCertificate`de *Autenticação* para .
-1. Alterar a *AllowInsecureAuthInProduction* para `false`.
-1. Imediatamente após o `</Metadata>` elemento de fecho, adicione o seguinte corte XML:
+1. Procure o perfil técnico rest API. Por `REST-ValidateProfile` exemplo, ou `REST-GetProfile` .
+1. Localize o `<Metadata>` elemento.
+1. Mude o Tipo de *Autenticação* para `ClientCertificate` .
+1. Alterar a *AllowInsecureAuthInProduction* para `false` .
+1. Imediatamente após o elemento de `</Metadata>` fecho, adicione o seguinte corte XML:
     ```xml
     <CryptographicKeys>
        <Key Id="ClientCertificate" StorageReferenceId="B2C_1A_RestApiClientCertificate" />
@@ -208,7 +208,7 @@ Os seguintes passos demonstram como usar as credenciais do cliente para obter um
 
 Uma reclamação fornece armazenamento temporário de dados durante uma execução política Azure AD B2C. O [esquema das alegações](claimsschema.md) é o lugar onde declaras as tuas alegações. O sinal de acesso deve ser guardado numa alegação a utilizar mais tarde. 
 
-1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
 1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
 1. Adicione as seguintes reclamações ao elemento **ClaimsSchema.**  
@@ -241,7 +241,7 @@ Para o ServiceUrl, substitua o seu nome de inquilino pelo nome do seu inquilino 
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.microsoft.com/oauth2/v2.0/token</Item>
+    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token</Item>
     <Item Key="AuthenticationType">Basic</Item>
      <Item Key="SendClaimsIn">Form</Item>
   </Metadata>
@@ -265,13 +265,13 @@ Para o ServiceUrl, substitua o seu nome de inquilino pelo nome do seu inquilino 
 Para apoiar a autenticação simbólica do portador na sua política personalizada, modifique o perfil técnico rest API com o seguinte:
 
 1. No seu diretório de trabalho, abra o ficheiro de política de extensão *TrustFrameworkExtensions.xml.*
-1. Procure o `<TechnicalProfile>` nó que `Id="REST-API-SignUp"`inclui .
-1. Localize `<Metadata>` o elemento.
+1. Procure o `<TechnicalProfile>` nó que inclui `Id="REST-API-SignUp"` .
+1. Localize o `<Metadata>` elemento.
 1. Alterar o Tipo de *Autenticação* para *o Portador,* da seguinte forma:
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Altere ou adicione o *UseClaimAsBearerToken* ao *bearerToken,* da seguinte forma. O *bearerToken* é o nome da alegação de que o token `SecureREST-AccessToken`portador será recuperado (a alegação de saída de ).
+1. Altere ou adicione o *UseClaimAsBearerToken* ao *bearerToken,* da seguinte forma. O *bearerToken* é o nome da alegação de que o token portador será recuperado (a alegação de saída de `SecureREST-AccessToken` ).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
@@ -319,10 +319,10 @@ Crie uma chave de política para armazenar o valor simbólico do portador.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
 1. Selecione **Teclas de política**e, em seguida, selecione **Adicionar**.
-1. Para **Opções,** escolha. `Manual`
+1. Para **Opções,** `Manual` escolha.
 1. Introduza um **nome** para a chave política. Por exemplo, `RestApiBearerToken`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
-1. Para **a utilização da chave,** selecione `Encryption`.
+1. Para **a utilização da chave,** selecione `Encryption` .
 1. Selecione **Criar**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Configure o seu perfil técnico REST API para utilizar a chave política do token do portador
@@ -330,11 +330,11 @@ Crie uma chave de política para armazenar o valor simbólico do portador.
 Depois de criar a chave necessária, configure os metadados de perfil técnico REST API para fazer referência ao token do portador.
 
 1. No seu diretório de trabalho, abra o ficheiro de política de extensão (TrustFrameworkExtensions.xml).
-1. Procure o perfil técnico rest API. Por `REST-ValidateProfile`exemplo, `REST-GetProfile`ou .
-1. Localize `<Metadata>` o elemento.
-1. Mude o Tipo `Bearer`de *Autenticação* para .
-1. Alterar a *AllowInsecureAuthInProduction* para `false`.
-1. Imediatamente após o `</Metadata>` elemento de fecho, adicione o seguinte corte XML:
+1. Procure o perfil técnico rest API. Por `REST-ValidateProfile` exemplo, ou `REST-GetProfile` .
+1. Localize o `<Metadata>` elemento.
+1. Mude o Tipo de *Autenticação* para `Bearer` .
+1. Alterar a *AllowInsecureAuthInProduction* para `false` .
+1. Imediatamente após o elemento de `</Metadata>` fecho, adicione o seguinte corte XML:
     ```xml
     <CryptographicKeys>
        <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />

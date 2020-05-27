@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 6a838455bfda47dee55e8726e5eab071d2dfe4f7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121155"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827527"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre chave
 
@@ -233,4 +233,4 @@ Para obter mais informações sobre o registo de utilização para o Cofre chave
 
 Para mais informações sobre o uso de chaves e segredos com o Cofre de Chaves Azure, consulte [chaves e segredos.](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-Se tiver dúvidas sobre o Cofre chave, visite os [fóruns.](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+Se tiver dúvidas sobre o Key Vault, visite a página de perguntas do [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

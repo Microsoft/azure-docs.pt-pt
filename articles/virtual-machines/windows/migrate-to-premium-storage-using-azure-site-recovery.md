@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 071596557de00c9dfb2afaa5751d9331c21ada99
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: ee6800d2d0f589c43c96b240a74a86db488e0b46
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866280"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827799"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
 
@@ -74,7 +74,7 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre de serviços de recuperação
 
 1. Abra o [portal Azure.](https://portal.azure.com)
-2. Selecione **Criar uma**cópia de segurança de > **gestão** > de recursos e recuperação do**site (OMS)**. Em alternativa, pode selecionar O > **Abóbada** > **Add**de Serviços de Recuperação de **Navegação**.
+2. Selecione **Criar uma**cópia de segurança de gestão de recursos e recuperação do  >  **Management**  >  **site (OMS)**. Em alternativa, pode **Browse**selecionar O  >  **Abóbada**de Serviços de Recuperação de Navegação  >  **Add**.
    >[!NOTE]
    >Backup e Recuperação do Site anteriormente fazia parte da [suite OMS.](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand)
 1. Especifique uma região para a qual os VMs serão replicados. Para efeitos de migração na mesma região, selecione a região onde estão as suas Fontes de VMs e as suas contas de armazenamento de origem. 
@@ -82,7 +82,7 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 ### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolha os seus objetivos de proteção 
 
 1. No VM onde pretende instalar o servidor de configuração, abra o [portal Azure](https://portal.azure.com).
-2. Vá aos **cofres dos serviços**de recuperação > **Definições** > **Local De recuperação** > Passo 1: Preparar objetivo de**proteção de****infraestruturas** > .
+2. Vá aos **cofres dos serviços**de recuperação  >  **Definições**  >  **Local De recuperação**Passo 1: Preparar objetivo de  >  **Step 1: Prepare Infrastructure**  >  **proteção de**infraestruturas .
 
    ![Navegação para o painel de objetivos de proteção][2]
 
@@ -92,7 +92,7 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 
 ### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Passo 3: Configurar o ambiente de origem (servidor de configuração)
 
-1. Baixe a **Configuração Unificada de Recuperação** do Site Azure e a chave de registo do cofre indo para a **infraestrutura** > prepare**preparar** > as panelas add**server.** 
+1. Baixe a **Configuração Unificada de Recuperação** do Site Azure e a chave de registo do cofre indo para a **infraestrutura prepare preparar**as panelas add  >  **Prepare source**  >  **server.** 
  
    Vai precisar da chave de registo do cofre para executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
@@ -125,7 +125,7 @@ Pode utilizar a Recuperação do Site para migrar VMs Azure IaaS entre regiões 
 
 ### <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
 
-Selecione Prepare o**Target**de **infraestrutura** > e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
+Selecione Prepare o Target de **infraestrutura**  >  **Target**e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
 
 ![Painel de alvo][10]
 
@@ -154,7 +154,7 @@ Para verificar se o seu servidor de configuração está associado com sucesso �
    O VM falhado terá dois discos temporários: um do VM primário e o outro criado durante o fornecimento do VM na região de recuperação. Para excluir o disco temporário antes da replicação, instale o serviço de mobilidade antes de ativar a replicação. Para saber mais sobre como excluir o disco temporário, consulte [Excluir discos da replicação](../../site-recovery/vmware-walkthrough-overview.md).
 
 2. Ative a replicação da seguinte forma:
-   1. Selecione **Replicate Application** > **Source**. Depois de ter ativado a replicação pela primeira vez, selecione **+Replicate** no cofre para permitir a replicação de máquinas adicionais.
+   1. Selecione **Replicate Application**  >  **Source**. Depois de ter ativado a replicação pela primeira vez, selecione **+Replicate** no cofre para permitir a replicação de máquinas adicionais.
    2. No passo 1, configura a **Fonte** como servidor de processos.
    3. No passo 2, especifique o modelo de implementação pós-falha, uma conta de armazenamento premium para migrar, uma conta de armazenamento padrão para guardar registos e uma rede virtual para não o fazer.
    4. No passo 3, adicione VMs protegidos por endereço IP. (Pode precisar de um endereço IP interno para encontrá-los.)
@@ -175,14 +175,14 @@ Pode escolher um modelo de implementação pós-falha de acordo com a sua necess
 
 ### <a name="step-8-run-a-test-failover"></a>Passo 8: Executar um teste failover
 
-Para verificar se a sua replicação está completa, selecione a sua instância de Recuperação do Site e, em seguida, selecione**Itens Replicados**de **Definições** > . Verá o estado e a percentagem do seu processo de replicação. 
+Para verificar se a sua replicação está completa, **Settings**selecione a sua instância de Recuperação do Site e, em seguida, selecione  >  **Itens Replicados**de Definições . Verá o estado e a percentagem do seu processo de replicação. 
 
 Depois de concluída a replicação inicial, execute uma falha no teste para validar a sua estratégia de replicação. Para obter etapas detalhadas de uma falha de teste, consulte [Executar uma falha de teste na Recuperação do Local](../../site-recovery/vmware-walkthrough-overview.md). 
 
 > [!NOTE]
 > Antes de executar qualquer falha, certifique-se de que os seus VMs e estratégia de replicação cumprem os requisitos. Para obter mais informações sobre a execução de um teste failover, consulte [Test failover to Azure in Site Recovery](../../site-recovery/site-recovery-test-failover-to-azure.md).
 
-Pode ver o estado do seu teste falhar em **Definições** > **Jobs** > *YOUR_FAILOVER_PLAN_NAME*. No painel, pode ver uma desagregação dos passos e resultados de sucesso/falha. Se o teste falhar em qualquer passo, selecione o passo para verificar a mensagem de erro. 
+Pode ver o estado do seu teste falhar em **Definições**  >  **Jobs**  >  *Jobs YOUR_FAILOVER_PLAN_NAME*. No painel, pode ver uma desagregação dos passos e resultados de sucesso/falha. Se o teste falhar em qualquer passo, selecione o passo para verificar a mensagem de erro. 
 
 ### <a name="step-9-run-a-failover"></a>Passo 9: Executar uma falha
 
@@ -205,7 +205,7 @@ A Recuperação do Site criará uma instância VM cujo tipo é o mesmo ou semelh
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 * [Monitorizar e resolução de problemas para máquinas virtuais e servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Fórum de Recuperação de Sites do Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Microsoft Q&Uma página de perguntas para a Recuperação do Site Microsoft Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## <a name="next-steps"></a>Passos seguintes
 

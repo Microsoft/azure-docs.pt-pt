@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743337"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826609"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar a reposição da palavra-passe a partir do ecrã de login do Windows
 
@@ -30,7 +30,7 @@ Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode permitir que os utili
 - Alguns fornecedores de credenciais de terceiros são conhecidos por causar problemas com esta funcionalidade.
 - Desativar a UAC através da modificação da chave de [registo EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) é conhecida por causar problemas.
 - Esta funcionalidade não funciona para redes com autenticação de rede 802.1x implementada e a opção "Execute imediatamente antes do início do utilizador". Para redes com autenticação de rede 802.1x implementada, recomenda-se utilizar a autenticação da máquina para ativar esta funcionalidade.
-- As máquinas híbridas Azure AD devem ter linha de conectividade de rede para um controlador de domínio para usar a nova palavra-passe e atualizar credenciais em cache.
+- As máquinas híbridas Azure AD devem ter linha de conectividade de rede para um controlador de domínio para usar a nova palavra-passe e atualizar credenciais em cache. Isto significa que os dispositivos devem estar na rede interna da organização ou numa VPN com acesso à rede a um controlador de domínio no local. 
 - Se utilizar uma imagem, antes de executar a sysprep certifique-se de que a cache web é limpa para o Administrador incorporado antes de executar o passo CopyProfile. Mais informações sobre este passo podem ser encontradas no artigo de suporte [Desempenho pobre ao utilizar o perfil de utilizador padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - As seguintes definições são conhecidas por interferirem na capacidade de utilização e redefinição de palavras-passe nos dispositivos Windows 10
     - Se ctrl+Alt+Del for exigido por política em versões do Windows 10 antes do v1809, a **palavra-passe Reset** não funcionará.
@@ -53,7 +53,7 @@ Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode permitir que os utili
 - **Os utilizadores devem registar-se para o SSPR antes de utilizarem esta funcionalidade**
 - Requisitos de procuração de rede
    - Dispositivos Windows 10 
-       - Porto 443 `passwordreset.microsoftonline.com` para e`ajax.aspnetcdn.com`
+       - Porto 443 para `passwordreset.microsoftonline.com` e`ajax.aspnetcdn.com`
        - Os dispositivos Windows 10 suportam apenas a configuração de proxy ao nível da máquina
 - Executar pelo menos o Windows 10, versão abril 2018 Update (v1803), e os dispositivos devem ser:
     - Azure AD associado
@@ -66,7 +66,7 @@ Implementar a alteração da configuração para ativar a reposição de palavra
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Criar uma política de configuração de dispositivos no Intune
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) e clique em **Intune**.
-1. Criar um novo perfil de configuração do dispositivo indo para os**perfis** > de **configuração** > do dispositivo**Criar perfil**
+1. Criar um novo perfil de configuração do dispositivo indo para os perfis de **configuração do dispositivo**  >  **Profiles**  >  **Criar perfil**
    - Dê um nome relevante ao perfil
    - Opcionalmente, indique uma descrição relevante do perfil
    - Plataforma **Windows 10 e posterior**
@@ -97,7 +97,7 @@ O registo de auditoria do Azure AD irá incluir informações sobre o endereço 
 
 ![Exemplo: Reset de palavra-passe do Windows 7 no registo de auditoria da AD Azure](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã `defaultuser1` de login de um dispositivo Windows 10, é criada uma conta temporária de baixo privilégio chamada. Esta conta é utilizada para manter o processo de reset da palavra-passe seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para iniciar sessão do dispositivo e será automaticamente removida após o utilizador redefinir a sua palavra-passe. Vários `defaultuser` perfis podem existir, mas podem ser ignorados com segurança.
+Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã de login de um dispositivo Windows 10, é criada uma conta temporária de baixo privilégio `defaultuser1` chamada. Esta conta é utilizada para manter o processo de reset da palavra-passe seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para iniciar sessão do dispositivo e será automaticamente removida após o utilizador redefinir a sua palavra-passe. Vários `defaultuser` perfis podem existir, mas podem ser ignorados com segurança.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Reset de senha do Windows 7, 8 e 8.1
 
@@ -141,8 +141,8 @@ Se for necessário um registo adicional, pode ser alterada uma chave de registo 
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para permitir a exploração `REG_DWORD: "EnableLogging"`verbosa, crie um , e coloque-o em 1.
-- Para desativar a `REG_DWORD: "EnableLogging"` exploração madeireira verbosa, altere o para 0.
+- Para permitir a exploração verbosa, crie um `REG_DWORD: "EnableLogging"` , e coloque-o em 1.
+- Para desativar a exploração madeireira verbosa, altere o `REG_DWORD: "EnableLogging"` para 0.
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 

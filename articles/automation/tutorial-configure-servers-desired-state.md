@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 93fb896dfc373a7402bbb3d1a38a655088d27fdf
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a45aa8299d61e89f2a21bc9c53de3a88f88cbb93
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735920"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827901"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurar computadores para um estado pretendido
 
@@ -26,8 +26,6 @@ A Configuração do Estado da Automatização Azure permite especificar configur
 Para este tutorial, utilizamos uma [configuração DSC](/powershell/scripting/dsc/configurations/configurations) simples que garante que o IIS está instalado no VM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-Para concluir este tutorial, precisa de:
 
 - Uma conta de Automatização do Azure. Para obter instruções sobre como criar uma conta Run As de Automatização do Azure, veja [Conta Run As do Azure](automation-sec-configure-azure-runas-account.md).
 - Um VM (não clássico) do Gestor de Recursos Azure executa o Windows Server 2008 R2 ou mais tarde. Para obter instruções sobre a criação de um VM, consulte [Criar a sua primeira máquina virtual Windows no portal Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
@@ -163,9 +161,10 @@ Para desregistar um nó do serviço de configuração do Estado da Automatizaç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md)
-* [Ativar a configuração do Estado da Automação Azure](automation-dsc-onboarding.md)
-* [Compilar configurações na Configuração do Estado da Automação Azure](automation-dsc-compile.md)
-* [Cmdlets de Configuração do Estado da Automação Azure](/powershell/module/azurerm.automation/#automation)
-* [Preços de configuração do Estado da Automação Azure](https://azure.microsoft.com/pricing/details/automation/)
-- [Configurar a implantação contínua com chocolatey](automation-dsc-cd-chocolatey.md)
+- Para começar, veja [Get started com Azure Automation State Configuration](automation-dsc-getting-started.md).
+- Para aprender a ativar os nós, consulte a Configuração do Estado da [Automatização Do Automação Do Ativo .](automation-dsc-onboarding.md)
+- Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de DSC compile na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
+- Para ver um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [A implantação contínua com chocolatey](automation-dsc-cd-chocolatey.md).
+- Para obter informações sobre preços, consulte os preços de configuração do Estado da [Automatização do Azure](https://azure.microsoft.com/pricing/details/automation/).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

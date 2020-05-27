@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261167"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827300"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização Azure AD Connect: Faça uma alteração na configuração padrão
 O objetivo deste artigo é acompanhá-lo sobre como fazer alterações na configuração padrão no Diretório Ativo Azure (Azure AD) Ligar sincronização. Fornece passos para alguns cenários comuns. Com este conhecimento, deverá ser capaz de fazer alterações simples na sua própria configuração com base nas suas próprias regras de negócio.
@@ -48,7 +48,7 @@ Na parte inferior estão botões para agir com uma regra de sincronização sele
 As alterações mais comuns são os fluxos de atributos. Os dados do seu diretório de origem podem não ser os mesmos que em Azure AD. No exemplo desta secção, certifique-se de que o nome dado de um utilizador está sempre em *caso adequado*.
 
 ### <a name="disable-the-scheduler"></a>Desativar o programador
-O [programador](how-to-connect-sync-feature-scheduler.md) funciona a cada 30 minutos por defeito. Certifique-se de que não começa enquanto estiver a fazer alterações e a resolver problemas com as suas novas regras. Para desativar temporariamente o programador, inicie a PowerShell e corra `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+O [programador](how-to-connect-sync-feature-scheduler.md) funciona a cada 30 minutos por defeito. Certifique-se de que não começa enquanto estiver a fazer alterações e a resolver problemas com as suas novas regras. Para desativar temporariamente o programador, inicie a PowerShell e corra `Set-ADSyncScheduler -SyncCycleEnabled $false` .
 
 ![Desativar o programador](./media/how-to-connect-sync-change-the-configuration/schedulerdisable.png)  
 
@@ -107,7 +107,7 @@ Abra o Serviço de **Sincronização** a partir do menu **Iniciar.** Os passos n
 ![Pesquisa de metaversos](./media/how-to-connect-sync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Ativar o programador
-Se tudo estiver como esperado, pode voltar a ativar o programador. Da PowerShell, `Set-ADSyncScheduler -SyncCycleEnabled $true`corra.
+Se tudo estiver como esperado, pode voltar a ativar o programador. Da PowerShell, `Set-ADSyncScheduler -SyncCycleEnabled $true` corra.
 
 ## <a name="other-common-attribute-flow-changes"></a>Outras alterações comuns do fluxo de atributos
 A secção anterior descrevia como fazer alterações num fluxo de atributos. Nesta secção, são dados alguns exemplos adicionais. Os passos para como criar a regra de sincronização são abreviados, mas você pode encontrar os passos completos na secção anterior.
@@ -144,7 +144,7 @@ O atributo do userPrincipalName no Ative Directory nem sempre é conhecido pelos
 Por exemplo, a empresa Contoso tem dois diretórios Azure AD, um para produção e outro para testes. Eles querem que os utilizadores no seu inquilino de teste utilizem outro sufixo no ID de inscrição:  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
 
-Nesta expressão, pegue tudo à @-sign esquerda da primeira (Palavra) e concatena com uma corda fixa.
+Nesta expressão, pegue tudo à esquerda da primeira @-sign (Palavra) e concatena com uma corda fixa.
 
 ### <a name="convert-a-multi-value-attribute-to-single-value"></a>Converter um atributo de vários valores para um valor único
 Alguns atributos no Diretório Ativo são multivalorizados no esquema, embora pareçam de valor único em Utilizadores e Computadores de Diretório Ativo. Um exemplo é o atributo de descrição:  
@@ -200,7 +200,7 @@ Por predefinição, o atributo userType não está ativado para sincronização 
 
 - A Azure AD só aceita dois valores para o atributo UserType: **Membro** e **Convidado**.
 - Se o atributo userType não estiver ativado para sincronização no Azure AD Connect, os utilizadores de AD Azure criados através da sincronização do diretório teriam o atributo userType definido para **Membro**.
-- A Azure AD não permite que o atributo userType sobre os utilizadores de AD Azure existentes seja alterado pelo Azure AD Connect. Só pode ser definido durante a criação dos utilizadores da AD Azure e alterado através da [Powershell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Antes da versão 1.5.30.0, o Azure AD não permitiu que o atributo userType sobre os utilizadores de AD Azure existentes fosse alterado pelo Azure AD Connect. Em versões mais antigas, só poderia ser definida durante a criação dos utilizadores de Anúncios Azure e [alterada através da Powershell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Antes de permitir a sincronização do atributo UserType, deve primeiro decidir como o atributo é derivado do Diretório Ativo no local. Seguem-se as abordagens mais comuns:
 
@@ -208,9 +208,9 @@ Antes de permitir a sincronização do atributo UserType, deve primeiro decidir 
 
     Se escolher esta abordagem, deve certificar-se de que o atributo designado é preenchido com o valor correto para todos os objetos de utilizador existentes no diretório ativo no local que são sincronizados com a AD Azure antes de permitir a sincronização do atributo userType.
 
-- Em alternativa, pode obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como **Guest** se o seu atributo de utilizador <em>@partners.fabrikam123.org</em>adprincipalname no local terminar com a parte de domínio . 
+- Em alternativa, pode obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como **Guest** se o seu atributo de utilizador adprincipalname no local terminar com a parte de domínio <em>@partners.fabrikam123.org</em> . 
 
-    Como mencionado anteriormente, o Azure AD Connect não permite que o atributo userType sobre os utilizadores ad ad existentes seja alterado pelo Azure AD Connect. Por isso, deve garantir que a lógica que decidiu é consistente com a forma como o atributo userType já está configurado para todos os utilizadores de Anúncios Azure existentes no seu inquilino.
+    Como mencionado anteriormente, as versões mais antigas do Azure AD Connect não permitem que o atributo userType sobre os utilizadores de AD Azure existentes seja alterado pelo Azure AD Connect. Por isso, deve garantir que a lógica que decidiu é consistente com a forma como o atributo userType já está configurado para todos os utilizadores de Anúncios Azure existentes no seu inquilino.
 
 Os passos para permitir a sincronização do atributo UserType podem ser resumidos como:
 
@@ -229,8 +229,8 @@ Os passos para permitir a sincronização do atributo UserType podem ser resumid
 Para evitar a exportação de alterações não intencionais para a AD Azure, certifique-se de que não ocorre sincronização enquanto estiver no meio da atualização das regras de sincronização. Para desativar o programador de sincronização incorporado:
 
  1. Inicie uma sessão powerShell no servidor Azure AD Connect.
- 2. Desative a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- 3. Abra o Gestor de Serviços de Sincronização **indo** > iniciar o Serviço de**Sincronização.**
+ 2. Desative a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false` .
+ 3. Abra o Gestor de Serviços de Sincronização **indo**iniciar o Serviço de  >  **Sincronização.**
  4. Vá ao separador **Operações** e confirme que não há nenhuma operação com um estado em *curso*.
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Passo 2: Adicione o atributo de origem ao esquema de conector AD no local
@@ -257,14 +257,14 @@ Por predefinição, o atributo userType não é importado para o Espaço de Liga
 ### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Passo 4: Criar uma regra de sincronização de entrada para fluir o valor do atributo a partir do diretório ativo no local
 A regra de sincronização de entrada permite que o valor do atributo flua do atributo de origem do Diretório Ativo no local para o metaverso:
 
-1. Abra o Editor de Regras de Sincronização indo para **iniciar** > o Editor de Regras de**Sincronização.**
+1. Abra o Editor de Regras de Sincronização indo para **iniciar**o Editor de Regras de  >  **Sincronização.**
 2. Desloque o filtro de procura **Direção** para estar **a caminho**de entrada .
 3. Clique no novo botão de **regra Adicionar** para criar uma nova regra de entrada.
 4. Sob o separador **Descrição,** forneça a seguinte configuração:
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Forneça um nome* | Por exemplo, *dentro de AD – User UserType* |
+    | Name | *Forneça um nome* | Por exemplo, *dentro de AD – User UserType* |
     | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Escolha o conector AD no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
@@ -286,11 +286,11 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | --- | --- | --- | --- | --- |
     | Direct | UserType | extensãoAtribuir1 | Desselecionado | Atualizar |
 
-    Noutro exemplo, pretende obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como Guest se o seu atributo de utilizador <em>@partners.fabrikam123.org</em>adprincipalname no local terminar com a parte de domínio . Pode implementar uma expressão como esta:
+    Noutro exemplo, pretende obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como Guest se o seu atributo de utilizador adprincipalname no local terminar com a parte de domínio <em>@partners.fabrikam123.org</em> . Pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    | Expressão | UserType | IIF (IsPresent([userprincipalname]), IIF(CBool(LCase([userprincipalName])"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar o utilizador")) | Desselecionado | Atualizar |
+    | Expression | UserType | IIF (IsPresent([userprincipalname]), IIF(CBool(LCase([userprincipalName])" @partners.fabrikam123.org ")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar o utilizador")) | Desselecionado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de entrada.
 
@@ -306,7 +306,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Forneça um nome* | Por exemplo, *out to AAD – User UserType* |
+    | Name | *Forneça um nome* | Por exemplo, *out to AAD – User UserType* |
     | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o conector AAD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
@@ -389,7 +389,7 @@ Pode utilizar os seguintes passos para verificar as alterações durante a execu
 Reativar o programador de sincronização incorporado:
 
 1. Inicie uma sessão powerShell.
-2. Reativar a sincronização programada executando `Set-ADSyncScheduler -SyncCycleEnabled $true`o cmdlet .
+2. Reativar a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
 ## <a name="next-steps"></a>Passos seguintes

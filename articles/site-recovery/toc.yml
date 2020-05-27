@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: Eliminar um cofre
               href: delete-vault.md
+    - name: Suporte do Site Recovery para Grupos de Colocação por Proximidade
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: Recuperação após desastre para aplicações
       items:
         - name: Acerca da recuperação após desastre de aplicações no local
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blogue
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Fórum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: Percurso de aprendizagem
       href: /learn/azure/
     - name: Preços

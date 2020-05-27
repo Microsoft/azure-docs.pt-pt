@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 9133a7087285aa6e01a2431bf1a65dfa3c6f8857
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189101"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827969"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Tecido de Serviço Azure para criar clusters de tecido de serviço em quaisquer máquinas virtuais ou computadores que executem o Windows Server. Isto significa que pode implementar e executar aplicações de Tecido de Serviço em qualquer ambiente que contenha um conjunto de computadores Windows Server interligados, seja nas instalações ou com qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de tecido de serviço chamado pacote de Servidor Windows autónomo. Os clusters tradicionais de tecido de serviço em Azure estão disponíveis como um serviço gerido, enquanto os clusters autónomos de tecido de serviço são self-service. Para mais informações sobre as diferenças, consulte [Comparar os clusters De Tecido solado azure e autónomos.](./service-fabric-deploy-anywhere.md)
@@ -25,7 +25,7 @@ Este artigo percorre-o através dos passos para criar um cluster autónomo de Te
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Obtenha suporte para o tecido de serviço para o pacote Do Servidor windows
-* Pergunte à comunidade sobre o pacote autónomo service Fabric para o Windows Server no [fórum Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
+* Pergunte à comunidade sobre o pacote autónomo service Fabric para o Windows Server no Microsoft Q&Uma página de perguntas para tecido de [serviço Azure](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
 * Abra um bilhete para [Apoio Profissional para Tecido de Serviço.](https://support.microsoft.com/oas/default.aspx?prid=16146)  Saiba mais sobre o Suporte Profissional da Microsoft [aqui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Também pode obter suporte para este pacote como parte do [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * Para mais detalhes, consulte as opções de suporte do [Tecido de Serviço Azure.](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)
@@ -109,7 +109,7 @@ O administrador do cluster que irá implementar e configurar o cluster tem de te
 
 #### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Cenário C: Criar um cluster offline (desligado da Internet)
 O pacote de tempo de funcionação do Tecido de Serviço é automaticamente descarregado na criação do cluster. Ao implantar um cluster para máquinas não ligadas à internet, terá de descarregar separadamente o pacote de tempo de funcionamento do Tecido de Serviço e fornecer-lhe o caminho na criação de clusters.
-O pacote de tempo de execução pode ser descarregado separadamente, a partir de outra máquina ligada à internet, no [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie o pacote de tempo de funcionamento para onde está `CreateServiceFabricCluster.ps1` a `-FabricRuntimePackagePath` implantar o cluster offline e crie o cluster correndo com o parâmetro incluído, como mostra este exemplo: 
+O pacote de tempo de execução pode ser descarregado separadamente, a partir de outra máquina ligada à internet, no [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie o pacote de tempo de funcionamento para onde está a implantar o cluster offline e crie o cluster correndo `CreateServiceFabricCluster.ps1` com o `-FabricRuntimePackagePath` parâmetro incluído, como mostra este exemplo: 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Passo 3: Visualizar o cluster utilizando o explorador de tecido de serviço
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o seu cluster e gerir aplicações.  Service Fabric Explorer é um serviço que funciona no cluster, a `http://localhost:19080/Explorer`que você acede usando um navegador navegando para .
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o seu cluster e gerir aplicações.  Service Fabric Explorer é um serviço que funciona no cluster, a que você acede usando um navegador navegando para `http://localhost:19080/Explorer` .
 
 O dashboard do cluster fornece uma descrição geral do cluster, incluindo um resumo de aplicações e do estado de funcionamento do nó. A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pode inspecionar as aplicações que têm um código implementado nesse nó.
 
@@ -172,9 +172,9 @@ Este script pode ser executado em qualquer máquina que tenha acesso ao administ
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Dados de telemetria recolhidos e como optar por não o fazer
-Como padrão, o produto recolhe telemetria no uso do Tecido de Serviço para melhorar o produto. O Analisador de Boas Práticas que funciona como parte [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)da configuração verifica a conectividade de . Se não for alcançável, a configuração falha a menos que opte por não telemetria.
+Como padrão, o produto recolhe telemetria no uso do Tecido de Serviço para melhorar o produto. O Analisador de Boas Práticas que funciona como parte da configuração verifica a conectividade de [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) . Se não for alcançável, a configuração falha a menos que opte por não telemetria.
 
-1. O gasoduto de telemetria tenta [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) carregar os seguintes dados para uma vez por dia. É um upload de melhor esforço e não tem impacto na funcionalidade do cluster. A telemetria só é enviada do nó que dirige o gerente de failover primária. Nenhum outro nó envia telemetria.
+1. O gasoduto de telemetria tenta carregar os seguintes dados para [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) uma vez por dia. É um upload de melhor esforço e não tem impacto na funcionalidade do cluster. A telemetria só é enviada do nó que dirige o gerente de failover primária. Nenhum outro nó envia telemetria.
 2. A telemetria consiste no seguinte:
 
 * Número de serviços

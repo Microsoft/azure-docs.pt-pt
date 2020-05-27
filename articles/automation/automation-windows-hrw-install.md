@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3a27cee7a94ee6f33c399d10f90e47ec574e7380
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e4b8bcf2b6ed5ab9c1160df49b1a6082aaf02f65
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744183"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830468"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de resta híbrida do Windows
 
@@ -204,5 +204,5 @@ Para remover um grupo híbrido runbook worker, você primeiro precisa remover o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Executar runbooks numa Função de Trabalho de Runbook Híbrida](automation-hrw-run-runbooks.md)
-* [Problemas problemas híbridos do trabalhador do livro de corridas](troubleshoot/hybrid-runbook-worker.md#windows)
+* Para aprender a configurar os seus livros de execução para automatizar processos no seu centro de dados no local ou em outro ambiente em nuvem, consulte [run run run book em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Para aprender a resolver os seus Trabalhadores híbridos, consulte problemas do Trabalhador do Livro Híbrido de [Troubleshoot.](troubleshoot/hybrid-runbook-worker.md#general)

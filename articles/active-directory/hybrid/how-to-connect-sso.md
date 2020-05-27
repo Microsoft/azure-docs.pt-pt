@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 401f8239cded04b6342b706242e970e39118d73d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77483759"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827170"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Ative Directory Seamless Single Sign-On
 
@@ -36,7 +36,7 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 ![Insígnia única sem emenda](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO sem emenda necessita que o dispositivo do utilizador seja **apenas unido** ao domínio, mas não é utilizado em dispositivos [adessimos](../devices/concept-azure-ad-join-hybrid.md) [azure](../devices/concept-azure-ad-join.md) ad ou hybrid Azure. SSO on Azure AD juntou-se e Hybrid Azure AD juntou-se a obras com base no [token de atualização primária.](../devices/concept-primary-refresh-token.md)
+>O SSO sem emenda necessita que o dispositivo do utilizador seja **apenas unido** ao domínio, mas não é utilizado em dispositivos [adessimos](../devices/concept-azure-ad-join-hybrid.md) [azure](../devices/concept-azure-ad-join.md) ad ou hybrid Azure. A SSO on Azure AD juntou-se, a Hybrid Azure AD juntou-se, e os dispositivos registados da Azure AD funcionam com base no [token de atualização primária.](../devices/concept-primary-refresh-token.md)
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -51,10 +51,10 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 
 ## <a name="feature-highlights"></a>Destaques de recurso
 
-- O nome de utilizador de entrada de entrada pode`userPrincipalName`ser o nome de utilizador padrão no`Alternate ID`local ( ) ou outro atributo configurado no Azure AD Connect (). Ambos os casos funcionam porque `securityIdentifier` o Seamless SSO utiliza a reclamação no bilhete Kerberos para procurar o objeto de utilizador correspondente em Azure AD.
+- O nome de utilizador de entrada de entrada pode ser o nome de utilizador padrão no local `userPrincipalName` ( ) ou outro atributo configurado no Azure AD Connect `Alternate ID` (). Ambos os casos funcionam porque o Seamless SSO utiliza a `securityIdentifier` reclamação no bilhete Kerberos para procurar o objeto de utilizador correspondente em Azure AD.
 - SSO sem emenda é uma característica oportunista. Se falhar por qualquer motivo, a experiência de entrada no utilizador remonta ao seu comportamento regular - ou seja, o utilizador precisa de introduzir a sua palavra-passe na página de entrada.
-- Se uma aplicação `https://myapps.microsoft.com/contoso.com`(por exemplo, ) reencaminha um `domain_hint` parâmetro (OpenID Connect) ou `whr` `login_hint` (SAML) - identificando o seu inquilino, ou parâmetro - identificando o utilizador, no seu pedido de entrada de anúncios da AD Azure, os utilizadores são automaticamente inscritos sem que eles entrem nos nomes de utilizador ou palavras-passe.
-- Os utilizadores também obtêm uma experiência de inscrição `https://contoso.sharepoint.com`silenciosa se uma aplicação (por exemplo, ) enviar pedidos de inscrição `https://login.microsoftonline.com/<tenant_ID>/<..>` para os pontos finais da Azure `https://login.microsoftonline.com/common/<...>`AD criados como inquilinos - isto é, `https://login.microsoftonline.com/contoso.com/<..>` ou - em vez do ponto final comum da Azure AD - isto é, .
+- Se uma aplicação (por exemplo, `https://myapps.microsoft.com/contoso.com` ) reencaminha um `domain_hint` parâmetro (OpenID Connect) ou `whr` (SAML) - identificando o seu inquilino, ou `login_hint` parâmetro - identificando o utilizador, no seu pedido de entrada de anúncios da AD Azure, os utilizadores são automaticamente inscritos sem que eles entrem nos nomes de utilizador ou palavras-passe.
+- Os utilizadores também obtêm uma experiência de inscrição silenciosa se uma aplicação (por exemplo, ) enviar pedidos de inscrição para os `https://contoso.sharepoint.com` pontos finais da Azure AD criados como inquilinos - `https://login.microsoftonline.com/contoso.com/<..>` isto é, ou - em `https://login.microsoftonline.com/<tenant_ID>/<..>` vez do ponto final comum da Azure AD - isto é, `https://login.microsoftonline.com/common/<...>` .
 - A assinatura é apoiada. Isto permite que os utilizadores escolham outra conta Azure AD para iniciar sessão, em vez de serem automaticamente assinados na utilização de SSO SSO sem emenda automaticamente.
 - Os clientes do Office 365 Win32 (Outlook, Word, Excel, entre outros) com versões 16.0.8730.xxxx e acima são suportados utilizando um fluxo não interativo. Para o OneDrive, terá de ativar a [função de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de inscrição silenciosa.
 - Pode ser ativado via Azure AD Connect.

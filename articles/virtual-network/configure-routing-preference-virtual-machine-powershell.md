@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 1b23340840c2b88ea3f4f9927364bd3e01d8d55a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8325d63881c72a795e3b9e9a6d1d8498c84972ad
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598445"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829329"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configure a preferência de encaminhamento para um VM utilizando o Azure PowerShell
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como criar uma máquina virtual com um IP público que es
 ## <a name="register-the-feature-for-your-subscription"></a>Registe a funcionalidade para a sua subscrição
 A função De Preferência de Encaminhamento está atualmente em pré-visualização. Registe a funcionalidade para a sua subscrição da seguinte forma:
 ```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos

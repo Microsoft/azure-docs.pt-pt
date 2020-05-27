@@ -279,8 +279,8 @@
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
-    - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-devtestlabs.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'
     - name: Vídeos

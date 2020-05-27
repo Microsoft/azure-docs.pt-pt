@@ -57,6 +57,8 @@
           href: automation-create-account-template.md
         - name: Configurar a autenticação com o Amazon Web Services
           href: automation-config-aws-account.md
+        - name: Configurar a autenticação com o Azure Active Directory
+          href: automation-use-azure-ad.md
         - name: Gerir uma conta Run As de Automatização
           href: manage-runas-account.md
         - name: Gerir permissões e segurança de funções
@@ -297,8 +299,8 @@
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-automation.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calculadora de preços

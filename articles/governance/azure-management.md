@@ -1,14 +1,14 @@
 ---
 title: Visão geral da Gestão Azure - Governança Azure
 description: Visão geral das áreas de gestão das aplicações e recursos do Azure com ligações a conteúdos em ferramentas de gestão Azure.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75980907"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828152"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de Gestão em Azure
 
@@ -18,7 +18,7 @@ Gestão refere-se aos processos e tarefas necessários para manter as suas aplic
 
 O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para manter qualquer aplicação ou recurso. Estas diferentes áreas podem ser consideradas como um ciclo de vida. Cada área é necessária em sucessão contínua ao longo do tempo de vida de um recurso. Este ciclo de vida de recursos começa com a implantação inicial, através da operação contínua, e finalmente quando aposentado.
 
-![Disciplinas de Gestão em Azure](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplinas de Gestão em Azure" border="false":::
 
 Nenhum serviço Azure preenche completamente os requisitos de uma determinada área de gestão. Em vez disso, cada um é realizado por vários serviços trabalhando em conjunto. Alguns serviços, como o Application Insights, fornecem uma funcionalidade de monitorização direcionada para aplicações web. Outros, como os registos do Azure Monitor, armazenam dados de gestão de outros serviços. Esta funcionalidade permite-lhe analisar dados de diferentes tipos recolhidos por diferentes serviços.
 
@@ -36,7 +36,9 @@ A automatização destas tarefas permite eliminar o despedimento, minimizando o 
 ## <a name="govern"></a>Governação
 
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure. A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.
-A governação no Azure é implementada principalmente com dois serviços. [A Política Azure](./policy/overview.md) permite-lhe criar, atribuir e gerir definições políticas para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões corporativos. [A Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite-lhe acompanhar o uso e as despesas em nuvem para os seus recursos Azure e outros fornecedores de nuvem.
+A governação no Azure é implementada principalmente com dois serviços. [A Política Azure](./policy/overview.md) permite-lhe criar, atribuir e gerir definições políticas para impor regras para os seus recursos.
+Esta funcionalidade mantém esses recursos em conformidade com os seus padrões corporativos.
+[A Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite-lhe acompanhar o uso e as despesas em nuvem para os seus recursos Azure e outros fornecedores de nuvem.
 
 ## <a name="secure"></a>Proteger
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2541e9e10103d66c6c2fb6978c3029d61b813eab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614970"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827476"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo pessoal de atribuição de piscina de anfitrião do ambiente de trabalho
 
@@ -75,6 +75,18 @@ Para atribuir um utilizador a um anfitrião de sessão específico, execute o se
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
+
+## <a name="remove-a-user-assignment"></a>Remover uma atribuição de utilizador
+
+Pode querer remover uma atribuição de utilizador porque o utilizador já não precisa do ambiente de trabalho pessoal, o utilizador deixou a empresa ou pretende reutilizar o ambiente de trabalho para outra pessoa.
+
+Atualmente, a única maneira de remover a atribuição do utilizador para um ambiente de trabalho pessoal é remover totalmente o anfitrião da sessão. Para remover o anfitrião da sessão, execute este cmdlet:
+
+```powershell
+Remove-RdsSessionHost
+```
+
+Se precisar de adicionar o anfitrião da sessão de volta à piscina pessoal do anfitrião do ambiente de trabalho, desinstale o Windows Virtual Desktop nessa máquina e siga os passos em [Create a host pool com powerShell](create-host-pools-powershell-2019.md) para voltar a registar o anfitrião da sessão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

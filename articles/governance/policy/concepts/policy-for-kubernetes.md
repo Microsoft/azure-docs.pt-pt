@@ -3,12 +3,12 @@ title: Pré-visualização - Aprenda política azure para Kubernetes
 description: Saiba como a Política Azure utiliza o Rego e o Open Policy Agent para gerir os clusters que gerem kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb66510b55f9d3f08ab8e058bb8f67fb1954db6f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800346"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828632"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a Política Azure para os clusters kubernetes (pré-visualização)
 
@@ -403,7 +403,7 @@ Encontre as definições políticas incorporadas para gerir o seu cluster utiliz
 
 1. Definir **valores de parâmetros** 
 
-   - Para excluir os espaços de nome kubernetes da avaliação de políticas, especifique a lista de espaços de nome em **exclusões**de espaço de nome paraparâmetros . É recomendado excluir: _kube-system_ 
+   - Para excluir os espaços de nome kubernetes da avaliação de políticas, especifique a lista de espaços de nome em **exclusões**de espaço de nome paraparâmetros . Recomenda-se excluir: _sistema kube,_ _sistema gatekeeper_e _arco azul._
 
 1. Selecione **Rever + criar**.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 183fe1604cc363a9121d5eef3737751c54e9bdf1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 45878ea947803b04cd5cd6e471f701c21f2c26fa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229720"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826354"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com um fornecedor SAML Salesforce utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -43,13 +43,13 @@ Este artigo mostra-lhe como ativar o início de sessão para utilizadores de uma
 1. Na página do **Fornecedor de Identidade,** os Fornecedores de **Serviços selecionados são agora criados através de Aplicações Conectadas. Clique aqui.**
 2. Em **Informações Básicas,** introduza os valores necessários para a sua aplicação conectada.
 3. Em definições de **aplicações web,** verifique a caixa **Ativas SAML.**
-4. No campo **ID da Entidade,** introduza o seguinte URL. Certifique-se de que `your-tenant` substitui o valor pelo nome do seu inquilino Azure AD B2C.
+4. No campo **ID da Entidade,** introduza o seguinte URL. Certifique-se de que substitui o valor `your-tenant` pelo nome do seu inquilino Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
-6. No campo **URL ACS,** introduza o seguinte URL. Certifique-se de que `your-tenant` substitui o valor pelo nome do seu inquilino Azure AD B2C.
+6. No campo **URL ACS,** introduza o seguinte URL. Certifique-se de que substitui o valor `your-tenant` pelo nome do seu inquilino Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
@@ -93,7 +93,7 @@ Você precisa armazenar o certificado que criou no seu inquilino Azure AD B2C.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
 5. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
-6. Para **Opções,** escolha. `Upload`
+6. Para **Opções,** `Upload` escolha.
 7. Introduza um **Nome** para a política. Por exemplo, SAMLSigningCert. O prefixo `B2C_1A_` é automaticamente adicionado ao nome da sua chave.
 8. Navegue e selecione o certificado B2CSigningCert.pfx que criou.
 9. Introduza a **Palavra-passe** para o certificado.
@@ -150,7 +150,7 @@ Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao 
 
 1. Atualize o valor da **PartnerEntity** com o URL de metadados Salesforce que copiou anteriormente.
 1. Atualize o valor de ambas as instâncias do **StorageReferenceId** para o nome da chave do seu certificado de assinatura. Por exemplo, B2C_1A_SAMLSigningCert.
-1. Localize `<ClaimsProviders>` a secção e adicione o seguinte corte XML. Se a sua `SM-Saml-idp` política já contiver o perfil técnico, salte para o próximo passo. Para mais informações, consulte [a gestão da sessão de inscrição única](custom-policy-reference-sso.md).
+1. Localize a `<ClaimsProviders>` secção e adicione o seguinte corte XML. Se a sua política já contiver o `SM-Saml-idp` perfil técnico, salte para o próximo passo. Para mais informações, consulte [a gestão da sessão de inscrição única](custom-policy-reference-sso.md).
 
     ```XML
     <ClaimsProvider>
@@ -182,7 +182,7 @@ Por esta altura, já configuraste a sua política para que o Azure AD B2C saiba 
 Neste momento, o fornecedor de identidade foi criado, mas não está disponível em nenhum dos ecrãs de inscrição ou inscrição. Para disponibilizá-lo, cria-se uma duplicação de uma viagem de utilizador de modelo existente e, em seguida, modificá-la de modo a que também tenha o fornecedor de identidade Salesforce.
 
 1. Abra o ficheiro *TrustFrameworkBase.xml* a partir do pacote de arranque.
-2. Encontre e copie todo o conteúdo `Id="SignUpOrSignIn"`do elemento **UserJourney** que inclui .
+2. Encontre e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"` .
 3. Abra as *Extensões TrustFramework.xml* e encontre o elemento **UserJourneys.** Se o elemento não existir, adicione um.
 4. Colhe todo o conteúdo do elemento **UserJourney** que copiou em criança do elemento **UserJourneys.**
 5. Mude o nome da identificação da viagem do utilizador. Por exemplo, `SignUpSignInSalesforce`.
@@ -191,8 +191,8 @@ Neste momento, o fornecedor de identidade foi criado, mas não está disponível
 
 O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade num ecrã de inscrição ou de inscrição. Se adicionar um elemento **ClaimsProviderSelection** para uma conta LinkedIn, aparece um novo botão quando um utilizador aterra na página.
 
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na viagem de utilizador que acabou de criar.
-2. Em **ClaimsProviderSelects,** adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para `SalesforceExchange`um valor adequado, por exemplo:
+1. Encontre o elemento **OrchestrationStep** que inclui na viagem de utilizador que acabou de `Order="1"` criar.
+2. Em **ClaimsProviderSelects,** adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para um valor adequado, por `SalesforceExchange` exemplo:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
@@ -209,7 +209,7 @@ Agora que tens um botão no lugar, tens de ligá-lo a uma ação. Neste caso, a 
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
 
-    Atualize o valor do **TechnicalProfileReferenceId** para o **ID** do perfil técnico que criou anteriormente. Por exemplo, `LinkedIn-OAUTH`.
+    Atualize o valor do **TechnicalProfileReferenceId** para o **ID** do perfil técnico que criou anteriormente. Por exemplo, `salesforce` ou `LinkedIn-OAUTH`.
 
 3. Guarde o ficheiro *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 

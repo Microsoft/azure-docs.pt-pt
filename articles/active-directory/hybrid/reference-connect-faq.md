@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77149818"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827153"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Ative Directory Connect FAQ
 
@@ -218,7 +218,7 @@ Sim, ainda precisa de fazer upgrade para a versão 1.1.750.0 ou mais tarde. Ativ
 Não é necessário saber o nome de utilizador e a palavra-passe que foi inicialmente utilizado para atualizar o Azure AD Connect. Utilize qualquer conta Azure AD que tenha o papel de Administrador Global.
 
 **P: Como posso encontrar qual a versão do Azure AD Connect que estou a usar?**  
-Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo e procure a versão instalada do Microsoft Azure AD Connect selecionando Programas e **Funcionalidades** > **Programs and Features**de Programas, como mostrado aqui:
+Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo **Programs**e procure a versão instalada do Microsoft Azure AD Connect selecionando  >  **Programas e Funcionalidades**de Programas, como mostrado aqui:
 
 ![Versão Azure AD Connect no Painel de Controlo](./media/reference-connect-faq/faq1.png)
 
@@ -265,9 +265,9 @@ Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Co
 
 * Procure no KB soluções técnicas para problemas comuns de correção de rutura seletivas sobre suporte para Azure AD Connect.
 
-[Fóruns de Diretório Ativo Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Q&Uma página de perguntas para O Diretório Ativo do Azure](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
-* Procure perguntas e respostas técnicas ou faça as suas próprias perguntas indo para [a comunidade ad.](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)
+* Procure perguntas e respostas técnicas ou faça as suas próprias perguntas indo para [a comunidade ad.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 [Obter suporte para o Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 

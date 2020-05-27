@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7568a8a80550677e1608e1a8a52ebeacce765c81
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68568281"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826422"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 
@@ -143,9 +143,9 @@ Utilize pontos de vista de gestão dinâmica (DMVs) em SQL DB para monitorizar o
 
 Estes DMVs são particularmente úteis:
 
-* **sys.dm\_\_transações\_ativas trans**: Listas atualmente ativas e o seu estado. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações infantis que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída têm o mesmo valor da UOW. Consulte a [documentação do DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
-* **sys.dm\_\_transtransas\_** de base de dados tran : Fornece informações adicionais sobre transações, tais como a colocação da transação no registo. Consulte a [documentação do DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
-* **sys.dm\_\_tran locks**: Fornece informações sobre os cadeados que são atualmente detidos por transações em curso. Consulte a [documentação do DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
+* **sys.dm \_ \_ \_ transações ativas tran**: Listas atualmente ativas e o seu estado. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações infantis que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída têm o mesmo valor da UOW. Consulte a [documentação do DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
+* **sys.dm \_ \_ \_ transtransas**de base de dados tran : Fornece informações adicionais sobre transações, tais como colocação da transação no registo. Consulte a [documentação do DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
+* **sys.dm \_ \_ tran locks**: Fornece informações sobre os cadeados que são atualmente detidos por transações em curso. Consulte a [documentação do DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
 
 ## <a name="limitations"></a>Limitações
 
@@ -157,7 +157,7 @@ As seguintes limitações aplicam-se atualmente às transações elásticas de b
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para perguntas, contacte-nos no fórum de bases de [dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de funcionalidades, por favor adicione-os ao fórum de feedback da Base de [Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para perguntas, contacte-nos no Microsoft Q&Uma página de perguntas para a Base de [Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) e para pedidos de funcionalidades, por favor adicione-as ao fórum de feedback da Base de [Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

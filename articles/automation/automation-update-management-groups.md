@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 792f69c900853d76dc260ad1de2e635e47bb2b4a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744391"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830944"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utilizar grupos dinâmicos com a Gestão de Atualizações
 
@@ -49,4 +49,4 @@ Um grupo dinâmico para máquinas não-Azure utiliza pesquisas guardadas, també
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Gerencie atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md)
+Para trabalhar com a Atualização, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).

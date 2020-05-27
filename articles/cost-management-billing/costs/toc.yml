@@ -10,7 +10,7 @@
       items:
         - name: Começar a analisar os custos
           href: quick-acm-cost-analysis.md
-        - name: Criar um orçamento com um modelo
+        - name: Criar um orçamento - Modelo ARM
           href: quick-create-budget-template.md
           displayName: 'ARM template, resource manager template'
     - name: Tutoriais

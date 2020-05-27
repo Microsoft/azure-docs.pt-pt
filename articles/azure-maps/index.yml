@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 83a51c7dff6d616297c7f558b20e7d1934c668d6
+  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83589266"
+  ms.lasthandoff: 05/25/2020
+  ms.locfileid: "83829891"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -68,7 +68,7 @@ landingContent:
       url: tutorial-creator-indoor-maps.md
   - linkListType: how-to-guide
     links:
-    - text: Gerir mapas do interior do Criador
+    - text: Gerir Criador
       url: how-to-manage-creator.md
     - text: Implementar Estilo dinâmico para mapas do interior
       url: indoor-map-dynamic-styling.md

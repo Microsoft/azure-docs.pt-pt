@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 618ef7329d28dc8006a338d8326d790a6a9d3554
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f697cf205af9bdfaadfe20e123bcf0b4935c90f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650455"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829992"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Resolução de problemas Synapse SQL em Azure Synapse Analytics
 
@@ -80,6 +80,6 @@ Para mais ajuda na procura de solução para o seu problema, aqui estão outros 
 * [Pedidos de funcionalidades](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+* [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 * [Fórum de Transbordo de Pilhas](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)
