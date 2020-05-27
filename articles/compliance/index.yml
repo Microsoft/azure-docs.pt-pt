@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 05/06/2020
-  ms.openlocfilehash: 0cf23d39aa350b18aa1db338626465a7f2512fda
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 6ce314c514369c44957687f9a1aa8e93e8e55d26
+  ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83658340"
+  ms.lasthandoff: 05/21/2020
+  ms.locfileid: "83743296"
 conceptualContent:
   title: Ofertas de conformidade
   items:
@@ -361,7 +361,7 @@ additionalContent:
         url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
       - text: UK NHS e UK OFFICIAL (G-Cloud)
         url: ../governance/blueprints/samples/ukofficial/index.md
-    - title: Guias de segurança, privacidade e conformidade
+    - title: Guias de privacidade e conformidade de País/Região
       links:
       - text: Requisitos de segurança e privacidade da Austrália
         url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
