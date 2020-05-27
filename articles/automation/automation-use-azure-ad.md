@@ -4,12 +4,12 @@ description: Este artigo diz como usar a Azure AD dentro da Azure Automation com
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1361ecf3ab7b726310df9e3b1040e0726d7658e2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 017341fd72329d0538a3cf2a6ec20d03ee6152cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745259"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830570"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Utilizar o Azure AD para autenticar no Azure
 
@@ -159,7 +159,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir credenciais na Automação Azure](shared-resources/credentials.md)
-* [Utilizar módulos na Automatização do Azure](shared-resources/modules.md)
-* [Starting a Runbook in Azure Automation](start-runbooks.md) (Iniciar um Runbook na Automatização do Azure)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* Para mais detalhes sobre a utilização da credencial, consulte [Gerir credenciais em Automação Azure](shared-resources/credentials.md).
+* Para obter informações sobre módulos, consulte [Gerir módulos em Automação Azure.](shared-resources/modules.md)
+* Se precisar de iniciar um livro de corridas, consulte [Iniciar um livro de corridas em Automação Azure](start-runbooks.md).
+* Para mais detalhes da PowerShell, consulte [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

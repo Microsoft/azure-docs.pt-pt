@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478978"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835551"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar um pedido de suporte do Azure
 
@@ -106,7 +106,7 @@ Um agente de suporte entrará em contacto consigo utilizando o método indicado.
 
 ## <a name="all-support-requests"></a>Todos os pedidos de apoio
 
-Pode visualizar os detalhes e o estado dos pedidos de apoio **indo para Ajudar + apoiar** >  **Todos os pedidos**de suporte .
+Pode visualizar os detalhes e o estado dos pedidos de apoio **indo para Ajudar + apoiar**Todos os pedidos de  >   **suporte**.
 
 ![Todos os pedidos de apoio](./media/how-to-create-azure-support-request/allrequestslower.png)
 
@@ -128,5 +128,5 @@ Para saber mais sobre opções de suporte de autoajuda em Azure, veja este víde
 
 * [Envie-nos o seu feedback e sugestões](https://feedback.azure.com/forums/266794-support-feedback)
 * Envolva-se connosco no [Twitter](https://twitter.com/azuresupport)
-* Obtenha ajuda dos seus pares nos fóruns da [MSDN](https://social.msdn.microsoft.com/Forums/azure)
+* Obtenha ajuda dos seus pares na página de [perguntas do Microsoft Q&A](https://docs.microsoft.com/answers/products/azure)
 * Saiba mais em [FaQ de suporte azure](https://azure.microsoft.com/support/faq)

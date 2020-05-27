@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f114dd0428e13b3e1a205fea353b38b1f8a6f97
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74792122"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835364"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtenha mais dados, itens ou registos usando paginação em Aplicações Lógicas Azure
 
@@ -27,7 +27,7 @@ Ligar a definição de paginação recupera páginas de resultados com base no t
 
 Aqui está uma lista com apenas alguns dos conectores onde você pode exceder o tamanho da página padrão para ações específicas:
 
-* [Armazenamento Azure Blob](https://docs.microsoft.com/connectors/azureblob/)
+* [Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
 * [Excel](https://docs.microsoft.com/connectors/excel/)
 * [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
@@ -62,7 +62,7 @@ Para determinar se uma ação suporta paginação no Logic App Designer, verifiq
 
 ## <a name="workflow-definition---pagination"></a>Definição de fluxo de trabalho - paginação
 
-Quando liga a paginação para uma ação que suporta esta capacidade, a `"paginationPolicy"` definição de `"minimumItemCount"` fluxo de trabalho `"runtimeConfiguration"` da sua aplicação lógica inclui a propriedade juntamente com a propriedade da ação, por exemplo:
+Quando liga a paginação para uma ação que suporta esta capacidade, a definição de fluxo de trabalho da sua aplicação lógica inclui a `"paginationPolicy"` propriedade juntamente com a `"minimumItemCount"` propriedade da `"runtimeConfiguration"` ação, por exemplo:
 
 ```json
 "actions": {
@@ -84,4 +84,4 @@ Quando liga a paginação para uma ação que suporta esta capacidade, a `"pagin
 
 ## <a name="get-support"></a>Obter suporte
 
-Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).

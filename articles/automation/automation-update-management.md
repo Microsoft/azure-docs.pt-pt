@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: b064e22b56d63055cede400fa2b06cee96d21664
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a48841a1c1f5225e5ce53c46c69bd3d29f6fe59
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745304"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830706"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -254,4 +254,14 @@ Aqui estão as formas de ativar a Gestão de Atualizações e selecionar máquin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[A Automação Azure frequentemente fez perguntas](automation-faq.md)
+* Para mais detalhes sobre o trabalho com a Atualização, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
+* Se precisar de direcionar um grupo VM dinâmico para atualizações, consulte [Utilizar grupos dinâmicos com Gestão](automation-update-management-groups.md)de Atualizações .
+* Para ativar a funcionalidade utilizando um modelo de Gestor de Recursos Azure, consulte a Enable Update Management utilizando o modelo do Gestor de [Recursos Azure](automation-update-management-deploy-template.md).
+* Para ativar a funcionalidade a partir de um livro de execução, consulte a Enable Update Management a partir de um livro de [execução](automation-onboard-solutions.md).
+* Para ativar a funcionalidade a partir de uma conta Automation, consulte [A Gestão de Atualização ativa da conta Automation](automation-onboard-solutions-from-automation-account.md).
+* Para ativar a funcionalidade navegando no portal Azure, consulte [a Enable Update Management a partir do portal Azure](automation-onboard-solutions-from-browse.md).
+* Para ativar a funcionalidade a partir de um VM Azure, consulte [a Enable Update Management a partir de um Azure VM](automation-onboard-solutions-from-vm.md).
+* Se precisar de pesquisar registos armazenados no seu espaço de trabalho log Analytics, consulte os registos de Gestão de [Atualização](automation-update-management-query-logs.md)de Consultas .
+* Para resolver erros de funcionalidades, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).
+* Para resolver os erros do agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
+* Para resolver os erros do agente de atualização do Linux, consulte problemas de agente de [atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).

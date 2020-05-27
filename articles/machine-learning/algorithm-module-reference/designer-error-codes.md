@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684688"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833818"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 
@@ -628,7 +628,7 @@ Também pode acontecer que uma coluna de etiquetas esteja presente no conjunto d
 ## <a name="error-0033"></a>Erro 0033  
  A exceção ocorre se o argumento for Infinito.  
 
- Este erro na Aprendizagem automática azure ocorre se o argumento for infinito. Receberá este erro se o `double.NegativeInfinity` argumento `double.PositiveInfinity`for ou .  
+ Este erro na Aprendizagem automática azure ocorre se o argumento for infinito. Receberá este erro se o argumento for `double.NegativeInfinity` ou `double.PositiveInfinity` .  
 
 **Resolução:** Modificar o argumento especificado para ser um valor válido.  
 
@@ -712,7 +712,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Resolução:** Este erro é causado por muitas condições e não existe uma solução específica.  
  A tabela seguinte contém mensagens genéricas para este erro, que são seguidas por uma descrição específica da circunstância. 
 
- Se não houver detalhes disponíveis, [envie feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) e forneça informações sobre os módulos que geraram o erro e as condições conexas.
+ Se não houver detalhes disponíveis, o [Microsoft Q&uma página](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) de perguntas para enviar feedback e fornecer informações sobre os módulos que geraram o erro e as condições relacionadas.
 
 |Mensagens de Exceção|
 |------------------------|
@@ -1106,7 +1106,7 @@ Consulte os seguintes artigos para obter ajuda com consultas da Hive para aprend
 
  Se houver uma mensagem gerada por SQL reportada pela exceção do módulo, tome medidas com base no erro relatado. Por exemplo, as mensagens de erro incluem, por vezes, orientações específicas sobre o erro provável:
 + Nenhuma coluna ou base de *dados em falta,* indicando que pode ter dado um nome de coluna errado. Se tiver a certeza de que o nome da coluna está correto, tente utilizar parênteses ou aspas para encerrar o identificador da coluna.
-+ *Erro lógico SQL perto \<da\>palavra-chave SQL,* indicando que pode ter um erro de sintaxe antes da palavra-chave especificada
++ *Erro lógico SQL perto \< Palavra-chave \> SQL*, indicando que pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de Exceção|
@@ -1163,7 +1163,7 @@ Este erro no Azure Machine Learning ocorre quando se está a tentar descomar dad
 
 O manuseamento de erros para este evento foi introduzido numa versão anterior do Azure Machine Learning que permitiu uma maior personalização dos métodos de fixação. Atualmente, todos os métodos de fixação baseiam-se numa seleção de uma lista de abandono, pelo que, tecnicamente, não deverá continuar a ser possível obter este erro.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Mensagens de Exceção|
 |------------------------|
@@ -1283,7 +1283,7 @@ O manuseamento de erros para este evento foi introduzido numa versão anterior d
 |Mensagens de Exceção|
 |------------------------|
 |Erro durante a avaliação do script.|
-|O seguinte erro ocorreu durante a avaliação do script, por favor, consulte o registo de saída para obter mais informações:<br />---------- Início da mensagem de erro do ---------- intérprete {script_language}<br />{mensagem}<br />---------- Mensagem final de erro do ---------- intérprete {script_language}|
+|O seguinte erro ocorreu durante a avaliação do script, por favor, consulte o registo de saída para obter mais informações:<br />---------- Início da mensagem de erro do ---------- script_language} script_language<br />{mensagem}<br />---------- Mensagem final de erro do ---------- intérprete {script_language}|
 
 
 ## <a name="error-0090"></a>Erro 0090  
@@ -1326,7 +1326,7 @@ O manuseamento de erros para este evento foi introduzido numa versão anterior d
 |Mensagens de Exceção|  
 |------------------------|  
 |Tipo de parâmetro não suportado.|  
-|Tipo de parâmetro não{0}suportado ' especificado.|  
+|Tipo de parâmetro não {0} suportado ' especificado.|  
 
 
 ## <a name="error-0107"></a>Erro 0107  

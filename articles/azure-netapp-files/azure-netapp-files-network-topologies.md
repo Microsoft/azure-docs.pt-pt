@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: b-juche
-ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.author: ramakk
+ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667864"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797436"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -36,10 +36,12 @@ Deve compreender algumas considerações quando planeia a rede Deficheiros Azure
 As funcionalidades abaixo não são suportadas atualmente para ficheiros Azure NetApp: 
 
 * Grupos de segurança de rede (NSGs) aplicados à subnet delegada
-* Rotas definidas pelo utilizador (UDRs) com prefixo de endereço como subnet de ficheiros Azure NetApp
+* Rotas definidas pelo utilizador (UDRs) aplicadas à sub-rede delegada
 * Políticas azure (por exemplo, políticas de nomeação personalizada) na interface De Ficheiros Azure NetApp
 * Balanceadores de carga para tráfego de Ficheiros Azure NetApp
-* Os Ficheiros Azure NetApp não são suportados com o Azure Virtual WAN
+* WAN Virtual do Azure 
+* Gateways de rede virtual redundantes da zona (Gateway SKUs com Az) 
+* GWs de rede virtual ativa/ativa 
 
 As seguintes restrições de rede aplicam-se aos Ficheiros Azure NetApp:
 
@@ -55,7 +57,7 @@ A tabela seguinte descreve as topoologias da rede suportadas pelos Ficheiros Azu
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Conectividade ao volume em um VNet local    |    Sim    |         |
 |    Conectividade ao volume em um VNet peered (Mesma região)    |    Sim    |         |
-|    Conectividade ao volume num VNet peered (região transversal ou peering global)    |    Não    |    Nenhuma    |
+|    Conectividade ao volume num VNet peered (região transversal ou peering global)    |    Não    |    Nenhum    |
 |    Conectividade a um volume sobre gateway ExpressRoute    |    Sim    |         |
 |    Conectividade desde as instalações até um volume em um VNet falado sobre gateway ExpressRoute e VNet espreitando com trânsito de gateway    |    Sim    |        |
 |    Conectividade desde as instalações até um volume em um VNet falado sobre gateway VPN    |    Sim    |         |
@@ -82,9 +84,10 @@ Se o VNet for espreitado por outro VNet, não pode expandir o espaço de endere�
 
 ### <a name="udrs-and-nsgs"></a>UDRs e NSGs
 
-As rotas definidas pelo utilizador (UDRs) e os grupos de segurança da rede (NSGs) não são suportadas em subredes delegadas para ficheiros Azure NetApp.
+As rotas definidas pelo utilizador (UDRs) e os grupos de segurança da rede (NSGs) não são suportadas em subredes delegadas para ficheiros Azure NetApp. No entanto, pode aplicar UDRs e NSGs a outras subredes, mesmo dentro do mesmo VNet que a subnet delegada nos Ficheiros Azure NetApp.
 
-Como suposição, pode aplicar NSGs a outras subredes que permitam ou negam o tráfego de e para a subnet dedelegado dos Ficheiros Azure NetApp.  
+* Os UDRs definem então os fluxos de tráfego das outras subredes para a subnet delegada dos Ficheiros Azure Net. Isto ajuda a garantir que este está alinhado com o fluxo de tráfego de volta dos Ficheiros Azure NetApp para as outras subredes utilizando as rotas do sistema.  
+* Os NSGs permitem ou negam o tráfego de e para a subnet do Azure Net Files. 
 
 ## <a name="azure-native-environments"></a>Ambientes nativos de Azure
 

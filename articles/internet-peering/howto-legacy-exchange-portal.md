@@ -3,17 +3,17 @@ title: Converter um legado Exchange peering para um recurso Azure usando o porta
 titleSuffix: Azure
 description: Converter um legado Exchange peering para um recurso Azure usando o portal Azure
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 87a7a6bca608f1748d3b659eabdc3e941b537377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/21/2020
+ms.author: derekol
+ms.openlocfilehash: ca26189709405ca6dc0d2954bd98f0d933963bf4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678565"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800832"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Converter um legado Exchange peering para um recurso Azure usando o portal Azure
 
@@ -26,8 +26,30 @@ Se preferir, pode completar este guia utilizando o [PowerShell](howto-legacy-exc
 
 ## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Converter um legado Exchange peering para um recurso Azure
 
-### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Inscreva-se no portal e selecione a sua subscrição
-[!INCLUDE [Account](./includes/account-portal.md)]
+Como Fornecedor de Intercâmbio de Internet, pode criar um pedido de peering direto [criando um Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+
+1. Na página **Criar uma página de Peering,** no separador **Basics,** preencha as caixas como mostrado aqui:
+
+>    [!div class="mx-imgBorder"]
+>   ![Registar Peering Service](./media/setup-basics-tab.png)
+
+* Selecione a sua Assinatura Azure.
+
+* Para o grupo Recursos, pode escolher um grupo de recursos existente da lista de drop-down ou criar um novo grupo selecionando criar novos. Vamos criar um novo grupo de recursos para este exemplo.
+
+* O nome corresponde ao nome do recurso e pode ser tudo o que escolher.
+
+* A região é selecionada automaticamente se escolher um grupo de recursos existente. Se escolheu criar um novo grupo de recursos, também precisa escolher a região do Azure onde pretende que o recurso resida.
+
+>[!NOTE]
+    A região onde reside um grupo de recursos é independente do local onde pretende criar o peering com a Microsoft. Mas é uma boa prática organizar os seus recursos de observação dentro de grupos de recursos que residem nas regiões mais próximas de Azure. Por exemplo, para os olhinhos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou LESTE US2.
+
+* Selecione o seu ASN na caixa **PeerASN.**
+
+>[!IMPORTANT]  
+    Só pode escolher um ASN com Validação state como Aprovado antes de submeter um pedido de peering. Se acabou de apresentar o seu pedido de PeerAsn, aguarde cerca de 12 horas para que a associação ASN seja aprovada. Se o ASN que selecionar estiver pendente de validação, verá uma mensagem de erro. Se não vir o ASN que precisa de escolher, verifique se selecionou a subscrição correta. Em caso afirmativo, verifique se já criou o PeerAsn utilizando a **[assinatura Associate Peer ASN para a assinatura Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+
+* Selecione **Seguinte: Configuração** para continuar.
 
 ### <a name="convert-legacy-exchange-peering"></a><a name=create></a>Converter o legado Exchange peering
 

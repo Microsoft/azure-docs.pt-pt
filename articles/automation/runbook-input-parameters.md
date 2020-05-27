@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: cda803c886a3db9099a8c47bb70a582b6a1f6d52
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c996c51583d81905e7853323166407e38ae79225
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745045"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830043"
 ---
 # <a name="configure-runbook-input-parameters"></a>Configurar parâmetros de entrada do runbook
 
@@ -357,5 +357,5 @@ Agora pode ligar para o livro de execução da sua máquina local utilizando o A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Editar livros de texto na Automação Azure](automation-edit-textual-runbook.md)
-* [Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)
+* Para preparar um livro textual, consulte [editar livros de texto em Automação Azure](automation-edit-textual-runbook.md).
+* Para preparar um livro de execução gráfico, consulte os livros de execução gráfico sinuosos [em Automação Azure.](automation-graphical-authoring-intro.md)

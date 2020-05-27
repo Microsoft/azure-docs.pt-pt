@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793228"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834531"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Crie declarações de switch que executam ações de fluxo de trabalho com base em valores específicos em Aplicações Lógicas Azure
 
@@ -42,7 +42,7 @@ Por exemplo, suponha que quer uma aplicação lógica que tome diferentes passos
 
 1. Para este exemplo, adicione uma declaração de comutação no final do seu fluxo de trabalho da amostra. Depois do último passo, escolha **novo passo.**
 
-   Quando pretender adicionar uma declaração de troca entre passos, mova o ponteiro sobre a seta onde pretende adicionar a declaração do interruptor. Escolha o sinal**+** de **mais** () que aparece e, em seguida, escolha Adicionar uma **ação**.
+   Quando pretender adicionar uma declaração de troca entre passos, mova o ponteiro sobre a seta onde pretende adicionar a declaração do interruptor. Escolha o **sinal de mais** **+** () que aparece e, em seguida, escolha **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, introduza "switch" como filtro. Selecione esta ação: **Switch - Controlo**
 
@@ -57,7 +57,7 @@ Por exemplo, suponha que quer uma aplicação lógica que tome diferentes passos
 
    ![Selecione "SelectedOption"](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-1. Para tratar dos casos em `Approve` `Reject`que o aprovador seleciona ou, adicione outro caso entre **Case** e **Default**. 
+1. Para tratar dos casos em que o aprovador seleciona `Approve` `Reject` ou, adicione outro caso entre **Case** e **Default**. 
 
    ![Adicione outro caso](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
 
@@ -67,7 +67,7 @@ Por exemplo, suponha que quer uma aplicação lógica que tome diferentes passos
    |--------|--------------------|--------|
    | Caso 1 | **Aprovar** | Adicione o Outlook Enviar uma ação **de e-mail** para enviar detalhes sobre o item RSS apenas quando o aprovador selecionado **Aprovar**. |
    | Caso 2 | **Rejeitar** | Adicione o Outlook Enviar uma ação **de e-mail** para notificar outros aprovadores de que o item RSS foi rejeitado. |
-   | Predefinição | Nenhuma | Não é necessária nenhuma ação. Neste exemplo, o caso **Predefinido** está vazio porque o **SelectedOption** tem apenas duas opções. |
+   | Predefinição | Nenhum | Não é necessária nenhuma ação. Neste exemplo, o caso **Predefinido** está vazio porque o **SelectedOption** tem apenas duas opções. |
    |||
 
    ![Declaração de comutação acabada](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -115,13 +115,13 @@ Agora que criou uma aplicação lógica usando uma declaração de comutação, 
 | `"Switch"`         | O nome da declaração da switch, que pode mudar o nome para a legibilidade |
 | `"type": "Switch"` | Especifica que a ação é uma declaração de comutação |
 | `"expression"`     | Neste exemplo, especifica a opção selecionada do aprovador que é avaliada em cada caso, como declarado posteriormente na definição |
-| `"cases"` | Define vários casos. Para cada `"Case_*"` caso, é o nome padrão para esse caso, que pode mudar o nome para a legibilidade |
-| `"case"` | Especifica o valor do caso, que deve ser um valor constante e único que a declaração da switch utiliza para comparação. Se nenhum caso corresponder ao resultado da `"default"` expressão da switch, as ações na secção são executadas. | 
+| `"cases"` | Define vários casos. Para cada caso, `"Case_*"` é o nome padrão para esse caso, que pode mudar o nome para a legibilidade |
+| `"case"` | Especifica o valor do caso, que deve ser um valor constante e único que a declaração da switch utiliza para comparação. Se nenhum caso corresponder ao resultado da expressão da switch, as ações na `"default"` secção são executadas. | 
 | | | 
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades ou sugestões, visite o site de feedback do utilizador das [Aplicações Lógicas Do Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes

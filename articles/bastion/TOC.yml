@@ -64,8 +64,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blogue
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Fórum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
     - name: SLA de pré-visualização
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: SLA

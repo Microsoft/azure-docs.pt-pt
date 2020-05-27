@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 1bcc13db3f503c80fda71a2104d0ff8d99e67df6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198001"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799871"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU AMD em VMs da série N executando Windows
 
@@ -38,13 +38,9 @@ Para especificações básicas, capacidades de armazenamento e detalhes do disco
 
 1. Ligue-se por Remote Desktop a cada VM da série NVv4.
 
-2. Se é um cliente de pré-visualização NVv4, por favor pare o VM e espere que este se mude para o estado Stop(Deallocated).
+2. Faça o download e instale o mais recente controlador.
 
-3. Por favor, inicie o VM e baixe o mais recente [Utilitário de Limpeza AMD](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Desinstale o condutor existente executando "amdcleanuputility-x64.exe". Não utilize qualquer utilitário de limpeza existente que tenha sido instalado com o controlador anterior.  
-
-4. Faça o download e instale o mais recente controlador.
-
-5. Reiniciar o VM.
+3. Reiniciar o VM.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 

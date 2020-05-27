@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: a257b294c105ca153a57afe90db95a1bd1b753e8
-  ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+  ms.openlocfilehash: e379515ea34206e21f80ceb23a465858d6d4da81
+  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/06/2020
-  ms.locfileid: "80678319"
+  ms.lasthandoff: 05/21/2020
+  ms.locfileid: "83773224"
 landingContent:
 - title: Acerca do Azure Remote Rendering
   linkLists:
@@ -58,9 +58,11 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Configurar um projeto do Unity do zero
+    - text: 'Unity: configurar um projeto de raiz'
       url: tutorials/unity/project-setup.md
-    - text: Trabalhar com entidades remotas no Unity
+    - text: 'Unity: trabalhar com entidades remotas'
       url: tutorials/unity/working-with-remote-entities.md
-    - text: Alterar o ambiente e os materiais
+    - text: 'Unity: Alterar o ambiente e os materiais'
       url: tutorials/unity/changing-environment-and-materials.md
+    - text: 'C++ Nativo: integrar o Remote Rendering numa Aplicação do HoloLens Holográfico'
+      url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

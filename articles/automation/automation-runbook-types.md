@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7b036e7adca1fe92425659ebd099feaa3891556
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743831"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836571"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de livro de execução da Automação Azure
 
@@ -115,7 +115,7 @@ Os livros de python compilam sob python 2. Pode editar diretamente o código do 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
-* [Conheça o fluxo de trabalho powerShell para a automação azure](automation-powershell-workflow.md)
-* [Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* Para saber sobre os livros de execução da PowerShell, consulte [Tutorial: Crie um livro de execução PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Para saber mais sobre os livros de execução powerShell Workflow, consulte [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
+* Para aprender sobre livros gráficos, consulte [Tutorial: Crie um livro de execução gráfico](learn/automation-tutorial-runbook-graphical.md).
+* Para aprender sobre os livros de corridas python, consulte [Tutorial: Crie um livro de corridas Python](learn/automation-tutorial-runbook-textual-python2.md).

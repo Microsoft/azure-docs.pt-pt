@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965672"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833936"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 
@@ -142,7 +142,7 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. Reparem no DiskName e no LUN.
 
     ![Nome de discoAndLUN][2]
-1. Ambiente de trabalho remoto no VM. Em seguida, vá para **computer management** | **device manager** | **disk drives**. Veja as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Ambiente de trabalho remoto no VM. Em seguida, vá para **computer management**  |  **device manager**disk  |  **drives**. Veja as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
     ![Propriedades VirtualDisk][3]
 1. O número lun aqui é uma referência ao número LUN que especifica ao anexar o VHD ao VM.
@@ -271,7 +271,7 @@ $pass = "mycomplexpwd4*"
 $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
 #Add Data and Log Disks to VM Config
-#Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
+#Note the size specified '-DiskSizeInGB 1023', this attaches 2 x P30 Premium Storage Disk Type
 #Utilising the Premium Storage enabled Storage account
 
 $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passo 2: Aumentar as falhas \<permitidas nos recursos Opcional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passo 2: Aumentar as falhas permitidas nos recursos \< Opcional>
 
 Em certos recursos que pertencem ao seu Grupo Sempre Em Disponibilidade existem limites para quantas falhas podem ocorrer num período, onde o serviço de cluster tenta reiniciar o grupo de recursos. Recomenda-se que aumente isto enquanto estiver a passar por este procedimento, uma vez que se não falhar manualmente e acionar falhas, desligando as máquinas, pode aproximar-se deste limite.
 
@@ -691,7 +691,7 @@ Seria prudente duplicar o subsídio de falência, fazê-lo no Failover Cluster M
 
 Alterar as Falhas Máximas para 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: Recurso de endereço \<IP de adição para grupo de cluster opcional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: Recurso de endereço IP de adição para> opcionais do grupo cluster \<
 
 Se tiver apenas um endereço IP para o Cluster Group e este estiver alinhado com a subnet cloud, tenha cuidado, se acidentalmente desligar todos os nós de cluster na nuvem dessa rede, então o recurso IP cluster e o Cluster Network Name não podem ficar on-line. Nesta situação, evita atualizações a outros recursos de cluster.
 
@@ -1249,7 +1249,7 @@ Para adicionar o endereço IP, consulte o Apêndice, passo 14.
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Armazenamento Azure Premium](../disks-types.md)
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
+* [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)
 * [Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->

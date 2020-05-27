@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 28ddd2a2d75ab8a57dfc3176eefd703f6c43d0b6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745058"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834701"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
@@ -338,6 +338,8 @@ foreach($item in $output)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Execução de runbooks na Automatização do Azure](automation-runbook-execution.md)
-* [Editar livros de texto na Automação Azure](automation-edit-textual-runbook.md)
-* [Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)
+* Para conhecer detalhes da gestão do livro de corridas, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
+* Para preparar um livro de execução PowerShell, consulte [editar livros de texto em Automação Azure](automation-edit-textual-runbook.md).
+* Para ajudar a escrever um livro de execução powerShell Workflow, consulte [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md).
+* Para mais detalhes sobre a escrita de livros gráficos, consulte [os livros de execução gráficos autor em Automação Azure.](automation-graphical-authoring-intro.md)
+* Para resolver problemas com a execução do livro de corridas, consulte problemas de runbook da [Troubleshoot.](troubleshoot/runbooks.md)

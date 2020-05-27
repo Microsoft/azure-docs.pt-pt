@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/20/2020
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c3082fbd7c02cbb075fd118f8e6021ac951e8e3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737678"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798249"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
 
@@ -71,7 +72,7 @@ Os sinais comuns que o Acesso Condicional pode ter em conta na tomada de uma dec
 
 ## <a name="commonly-applied-policies"></a>Políticas geralmente aplicadas
 
-Muitas organizações têm preocupações comuns de acesso que as políticas de Acesso Condicional podem ajudar com tais:
+Muitas organizações têm [preocupações comuns](concept-conditional-access-policy-common.md) de acesso que as políticas de Acesso Condicional podem ajudar com tais:
 
 - Exigir a autenticação de vários fatores para utilizadores com funções administrativas
 - Exigir a autenticação de vários fatores para tarefas de gestão do Azure
@@ -96,12 +97,8 @@ Os clientes com [licenças empresariais Microsoft 365](/office365/servicedescrip
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Construção de uma política de acesso condicional peça por peça](concept-conditional-access-policies.md)
-
-Para aprender a implementar o Acesso Condicional no seu ambiente, consulte [Planize a sua implementação de Acesso Condicional no Diretório Ativo Azure](plan-conditional-access.md).
-
-[Conheça a Proteção de Identidade](../identity-protection/overview-v2.md)
-
-[Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[Saiba mais sobre o Microsoft Intune](/intune/index)
+- [Construção de uma política de acesso condicional peça por peça](concept-conditional-access-policies.md)
+- [Planear a implementação do Acesso Condicional](plan-conditional-access.md)
+- [Conheça a Proteção de Identidade](../identity-protection/overview-v2.md)
+- [Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Saiba mais sobre o Microsoft Intune](/intune/index)

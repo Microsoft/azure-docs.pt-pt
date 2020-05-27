@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fac6a3b55f4a9150e827682cb3a134c203231978
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744953"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828938"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Utilize a integração de controlo de fontes na Automação Azure - Legado
 
@@ -132,5 +132,5 @@ Para desligar da sua conta GitHub, abra a página de Sincronização do Reposit�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Automação Azure: Integração de Controlo de Fontes na Automação Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Automação Azure: Integração do Controlo de Fontes do Livro de Execução utilizando O Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* Para integrar o controlo de fontes na Automação Azure, consulte [A Automatização do Azure: Integração de Controlo de Fontes na Automação Azure.](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* Para integrar o controlo de fonte de livro de execução com o Visual Studio Online, consulte [o Azure Automation: Integrando](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)o Controlo de Fontes do Livro de Corridas utilizando o Visual Studio Online .  

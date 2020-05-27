@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para backup azure usando log analytics e livros de trabalho Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cd6e0e55f471da83d15e26252b0730ab00f20d3c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713833"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797536"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -18,7 +18,7 @@ Um requisito comum para os administradores de backup é obter insights sobre bac
 - Auditoria de backups e restauros.
 - Identificando as principais tendências em diferentes níveis de granularidade.
 
-Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) e [livros de trabalho Azure.](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e visualizar relatórios de Backup Azure.
+Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) e [livros de trabalho Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e visualizar relatórios de Backup Azure.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -133,6 +133,6 @@ Os widgets no relatório Backup são alimentados por consultas Kusto, que funcio
 
 - Além disso, o [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em uma rota de depreciação. Isto significa que se tiver escrito quaisquer consultas ou automatizações personalizadas com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre monitorização e reportagem com O Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)

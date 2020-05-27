@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248986"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826915"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Ligue para um webhook com um alerta métrico clássico no Monitor Azure
 
@@ -26,7 +26,7 @@ Para adicionar ou atualizar o webhook URI, no [portal Azure,](https://portal.azu
 
 ![Adicione um painel de regra de alerta](./media/alerts-webhooks/Alertwebhook.png)
 
-Também pode configurar um alerta para publicar num webhook URI utilizando [cmdlets Azure PowerShell,](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts)um [CLI de plataforma cruzada](../../azure-monitor/platform/cli-samples.md#work-with-alerts)ou [APIs REST DO Monitor Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Também pode configurar um alerta para publicar num webhook URI utilizando [cmdlets Azure PowerShell,](../samples/powershell-samples.md#create-metric-alerts)um [CLI de plataforma cruzada](../samples/cli-samples.md#work-with-alerts)ou [APIs REST DO Monitor Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
 O webhook pode autenticar utilizando uma autorização baseada em token. O webhook URI é guardado com uma identificação simbólica. Por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -74,7 +74,7 @@ A operação POST contém a seguinte carga útil e esquema JSON para todos os al
 | contexto |S | |O contexto de alerta. |
 | carimbo de data/hora |S | |O momento em que o alerta foi desencadeado. |
 | ID |S | |Cada regra de alerta tem uma identificação única. |
-| nome |S | |O nome do alerta. |
+| name |S | |O nome do alerta. |
 | descrição |S | |Uma descrição do alerta. |
 | condiçãoTipo |S |Métrica, Evento |São apoiados dois tipos de alertas: métrica e evento. Os alertas métricos baseiam-se numa condição métrica. Os alertas de eventos baseiam-se num evento no registo de atividade. Use este valor para verificar se o alerta é baseado numa métrica ou num evento. |
 | condição |S | |Os campos específicos para verificar com base no valor do tipo de **condição.** |

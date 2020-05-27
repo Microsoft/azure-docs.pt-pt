@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db133f52a99bd716c2228add0573e8d44255c9e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cf05532f81d70d4d7b09de2ccbf9807273a85330
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736522"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799582"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Visão geral da autenticação multi-factor Azure para a sua organização
 
@@ -32,7 +32,7 @@ Então, como é que a sua organização liga o MFA mesmo de graça, antes de se 
 
 Os clientes que utilizam os benefícios gratuitos da Azure AD podem utilizar falhas de [segurança](../fundamentals/concept-fundamentals-security-defaults.md) para permitir a autenticação de vários fatores no seu ambiente.
 
-## <a name="office-365-business-premium-e3-or-e5"></a>Escritório 365 Business Premium, E3 ou E5
+## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 ou E5
 
 Para clientes com escritório 365, existem duas opções:
 

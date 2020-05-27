@@ -53,12 +53,26 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
-    - name: Funcionalidades de programador
-      href: batch-api-basics.md
+    - name: Fluxo de trabalho e recursos do serviço Batch
+      displayName: developer features
+      href: batch-service-workflow-features.md
+      items:
+        - name: Contas do Batch
+          displayName: storage account
+          href: accounts.md
+        - name: Nós e conjuntos
+          displayName: 'compute node, application package, scaling, schedule, os'
+          href: nodes-and-pools.md
+        - name: Trabalhos e tarefas
+          displayName: Batch job
+          href: jobs-and-tasks.md
+        - name: Ficheiros e diretórios
+          displayName: Batch file
+          href: files-and-directories.md
     - name: APIs e ferramentas
       href: batch-apis-tools.md
-    - name: Detetar e processar erros de serviço do Batch
-      href: batch-retry-after-errors.md
+    - name: Deteção e processamento de erros
+      href: error-handling.md
     - name: Melhores práticas
       href: best-practices.md
     - name: Quotas e limites
@@ -91,6 +105,10 @@
           href: batch-aad-auth-management.md
         - name: Acesso seguro ao Key Vault com o Batch
           href: credential-access-key-vault.md
+        - name: Utilizar certificados com o Batch
+          href: batch-certificates.md
+    - name: Utilizar pacotes de aplicações
+      href: batch-application-packages.md
     - name: Copiar ficheiros e aplicações para nós de conjunto
       items:
         - name: Copiar aplicações e dados para conjuntos de nós

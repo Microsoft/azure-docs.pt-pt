@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44fe626abd71c13b7f16aa07c4ddf261ff3cacea
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715431"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835211"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
@@ -74,8 +74,7 @@ O serviço de georeplicação automation não é acessível diretamente a client
 
 4. Importe os livros de execução para a sua conta de Automação na região secundária.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre ativos seguros na Automatização Azure, consulte [encriptar ativos seguros na Automação Azure.](automation-secure-asset-encryption.md)
-
+* Para saber mais sobre ativos seguros na Automatização Azure, consulte [encriptação de ativos seguros na Automação Azure.](automation-secure-asset-encryption.md)
 * Para saber mais sobre a geo-replicação, consulte [Criar e utilizar geo-replicação ativa.](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication)

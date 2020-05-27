@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 4b47fa873df88bf85c4c56c9f2ac94fce16c63be
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743652"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829159"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 
@@ -176,4 +176,4 @@ Quando a sua implementação de atualização for bem sucedida, recebe um e-mail
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral da Gestão de Atualizações](automation-update-management.md)
+* Para mais detalhes sobre a Gestão de Atualizações, consulte a visão geral da [Gestão de Atualizações](automation-update-management.md).

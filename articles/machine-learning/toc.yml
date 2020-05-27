@@ -74,6 +74,8 @@
           href: tutorial-setup-vscode-extension.md
         - name: Preparar e implementar um modelo de classificação de imagens do TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Criar uma área de trabalho com um modelo do Resource Manager
+      href: tutorial-resource-manager-workspace.md
 - name: Amostras
   items:
     - name: Jupyter Notebooks

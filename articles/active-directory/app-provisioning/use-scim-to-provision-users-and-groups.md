@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 65bbb35d041a48e68d01a50e88e42fbeb73f2ea6
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2fbdf947eb36e1591cc9da52a85e389be63c8535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864288"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826660"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final sCIM e configure o fornecimento de utilizadores com a AD Azure
 
@@ -149,21 +149,21 @@ No âmbito da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.in
 * Suporta a criação de utilizadores e, opcionalmente, também grupos, de acordo com a secção [3.3 do protocolo SCIM.](https://tools.ietf.org/html/rfc7644#section-3.3)  
 * Suporta modificar utilizadores ou grupos com pedidos patch, de acordo com a [secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Suporta a recuperação de um recurso conhecido para um utilizador ou grupo criado anteriormente, de acordo com a [secção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores `id` são recuperados pelos `username` `externalid`seus e questionados pelos `displayName`seus e , e os grupos são questionados por .  
+* Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` e questionados pelos seus `username` e , e os `externalid` grupos são questionados por `displayName` .  
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Apoia os grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Aceita um único símbolo do portador para autenticação e autorização da Azure AD para o seu pedido.
 
 Siga estas orientações gerais ao implementar um ponto final do SCIM para garantir a compatibilidade com a AD Azure:
 
-* `id`é uma propriedade necessária para todos os recursos. Cada resposta que derreta um recurso `ListResponse` deve garantir que cada recurso tem esta propriedade, exceto com zero membros.
-* A resposta a um pedido de `ListResponse`consulta/filtro deve ser sempre a .
+* `id`é uma propriedade necessária para todos os recursos. Cada resposta que derreta um recurso deve garantir que cada recurso tem esta propriedade, exceto `ListResponse` com zero membros.
+* A resposta a um pedido de consulta/filtro deve ser sempre a `ListResponse` .
 * Os grupos são opcionais, mas apenas apoiados se a implementação do SCIM apoiar os pedidos do PATCH.
 * Não é necessário incluir todo o recurso na resposta patch.
 * O Microsoft Azure AD utiliza apenas os seguintes operadores:  
     - `eq`
     - `and`
-* Não exija uma correspondência sensível a casos em elementos `op` estruturais no SCIM, em particular os valores de funcionamento do PATCH, tal como definidos em https://tools.ietf.org/html/rfc7644#section-3.5.2. A AD Azure emite os `Add` `Replace`valores `Remove`de 'op' como , e .
+* Não exija uma correspondência sensível a casos em elementos estruturais no SCIM, em particular os valores de funcionamento do `op` PATCH, tal como definidos em https://tools.ietf.org/html/rfc7644#section-3.5.2 . A AD Azure emite os valores de 'op' como `Add` `Replace` , e `Remove` .
 * O Microsoft Azure AD solicita que um utilizador e um grupo aleatórios garantam que o ponto final e as credenciais são válidos. Também é feito como parte do fluxo de **Conexão de Teste** no [portal Azure.](https://portal.azure.com) 
 * O atributo em que os recursos podem ser consultados deve ser definido como um atributo correspondente na aplicação no [portal Azure](https://portal.azure.com). Para mais informações, consulte [Personalizar os mapeamentos de atributos](customize-application-attributes.md) de fornecimento de utilizadores
 
@@ -191,36 +191,36 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 > Para compreender como e quando o serviço de fornecimento de utilizadores da AD Azure emite as operações descritas abaixo, consulte os ciclos de [provisionamento da secção: Inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) em Como funciona o [provisionamento](how-provisioning-works.md).
 
 [Operações de Utilizador](#user-operations)
-  - [Criar utilizador](#create-user) [(Resposta](#response)[de Pedido)](#request) / 
-  - [Obter Utilizador](#get-user) [(Resposta](#response-1)[de Pedido)](#request-1) / 
-  - [Obtenha o Utilizador por consulta](#get-user-by-query) [(Resposta](#response-2)[de Pedido)](#request-2) / 
-  - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) [(Resposta de](#response-3)[Pedido)](#request-3)
-/ 
-  - [Utilizador atualizado [propriedades de vários valores]](#update-user-multi-valued-properties) ([Resposta](#response-4)de[Pedido)](#request-4) /  
-  - [Utilizador atualizado [propriedades de valor único]](#update-user-single-valued-properties) ([Resposta](#response-5)de[Pedido)](#request-5)
-/  
-  - [Desativar o utilizador](#disable-user) [(Resposta de](#response-14)[Pedido)](#request-14) / 
-
-  - [Eliminar o utilizador](#delete-user) [(Resposta](#response-6)[de Pedido)](#request-6) / 
-
+  - [Criar utilizador](#create-user) (Resposta[de Pedido)](#request)  /  [Response](#response)
+  - [Obter Utilizador](#get-user) (Resposta[de Pedido)](#request-1)  /  [Response](#response-1)
+  - [Obtenha o Utilizador por consulta](#get-user-by-query) (Resposta de[Pedido)](#request-2)  /  [Response](#response-2)
+  - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) (Resposta[de Pedido)](#request-3) 
+/  [Response](#response-3)
+  - [Utilizador atualizado [propriedades de vários valores]](#update-user-multi-valued-properties) ( Resposta de[Request](#request-4)  /   [Response](#response-4)Pedido)
+  - [Utilizador atualizado [propriedades de valor único]](#update-user-single-valued-properties) ( Resposta de[Request](#request-5) 
+/  [Response](#response-5)Pedido) 
+  - [Desativar o utilizador](#disable-user) (Resposta[de Pedido)](#request-14)  / 
+ [Response](#response-14)
+  - [Eliminar o utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  / 
+ [Response](#response-6)
 
 
 [Operações de Grupo](#group-operations)
-  - [Criar grupo](#create-group) [(Resposta de](#response-7) [Pedido)](#request-7) / 
-  - [Obter Grupo](#get-group) [(Resposta](#response-8) [de Pedido)](#request-8) / 
-  - [Obtenha grupo por displayName](#get-group-by-displayname) [(Resposta de](#response-9)[Pedido)](#request-9) / 
-  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) ( [Resposta](#response-10)de[Pedido)](#request-10) /
- 
-  - [Grupo de Atualização [Adicionar Membros]](#update-group-add-members) ([Resposta](#response-11) [de Pedido)](#request-11) /
-
-  - [Grupo de Atualização [Remover Membros]](#update-group-remove-members) ([Resposta](#response-12) [de Pedido)](#request-12) /
-
-  - [Eliminar grupo](#delete-group) [(Resposta de](#response-13)[Pedido)](#request-13) /
-
+  - [Criar grupo](#create-group) [(Resposta](#request-7)  /  [de](#response-7)Pedido)
+  - [Obter Grupo](#get-group) [(Resposta de Pedido)](#request-8)  /  [Response](#response-8)
+  - [Obtenha grupo por displayName](#get-group-by-displayname) [Request](#request-9)  /  [(Resposta de](#response-9)Pedido)
+  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) ( Resposta de[Pedido)](#request-10) /
+  [Response](#response-10)
+  - [Grupo de Atualização [Adicionar Membros]](#update-group-add-members) ( [Resposta de Pedido)](#request-11)  /
+ [Response](#response-11)
+  - [Grupo de Atualização [Remover Membros]](#update-group-remove-members) ( [Resposta de Pedido)](#request-12)  /
+ [Response](#response-12)
+  - [Eliminar grupo](#delete-group) [(Resposta](#request-13)  /
+ [de](#response-13)Pedido)
 
 ### <a name="user-operations"></a>Operações de Utilizador
 
-* Os utilizadores podem ser `userName` `email[type eq "work"]` consultados ou atributos.  
+* Os utilizadores podem ser consultados `userName` ou `email[type eq "work"]` atributos.  
 
 #### <a name="create-user"></a>Criar Utilizador
 
@@ -551,7 +551,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 ### <a name="group-operations"></a>Operações de Grupo
 
 * Os grupos serão sempre criados com uma lista de membros vazios.
-* Os grupos podem ser `displayName` consultados pelo atributo.
+* Os grupos podem ser consultados pelo `displayName` atributo.
 * A atualização ao pedido do patch do grupo deve produzir um *HTTP 204 No Content* na resposta. Devolver um corpo com uma lista de todos os membros não é aconselhável.
 * Não é necessário apoiar a devolução de todos os membros do grupo.
 
@@ -803,7 +803,7 @@ Para mais informações sobre HTTPS em ASP.NET Core use o seguinte link: [Impor 
 
 Os pedidos do Azure Ative Directory incluem um token oAuth 2.0 bearer. Qualquer serviço que receba o pedido deve autenticar o emitente como sendo o Azure Ative Directory para o esperado inquilino do Diretório Ativo Azure.
 
-No símbolo, o emitente é identificado por uma `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`reivindicação do ISS, como . Neste exemplo, o endereço base do `https://sts.windows.net`valor da reclamação, identifica o Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422,_ é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido.
+No símbolo, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, identifica o `https://sts.windows.net` Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422,_ é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido.
 
 O público do símbolo será o ID do modelo de aplicação para a aplicação na galeria, cada uma das candidaturas registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O símbolo gerado pelo serviço de provisionamento Da Azure Só deve ser utilizado para testes. Não deve ser utilizado em ambientes de produção.
 
@@ -1127,7 +1127,7 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
 
 1. Inscreva-se no [portal de Diretório Ativo Azure.](https://aad.portal.azure.com) Note que pode ter acesso a um teste gratuito para O Diretório Ativo Azure com licenças P2, inscrevendo-se no programa de [desenvolvimento](https://developer.microsoft.com/office/dev-program)
 2. Selecione **aplicações Enterprise** a partir do painel esquerdo. É apresentada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas a partir da galeria.
-3. Selecione **+ Nova aplicação** > **Todas as** > **aplicações não-galeria**.
+3. Selecione **+ Nova aplicação**  >  **Todas as**  >  **aplicações não-galeria**.
 4. Introduza um nome para a sua aplicação e selecione **Adicionar** para criar um objeto de aplicação. A nova aplicação é adicionada à lista de aplicações empresariais e abre-se para o seu ecrã de gestão de aplicações.
 
    ![Screenshot mostra a galeria de aplicações da AD Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
@@ -1215,15 +1215,11 @@ Para ajudar a impulsionar a consciencialização e a procura da nossa integraç�
 
 * **Disponibilidade de vendas e apoio ao cliente.** Certifique-se de que as suas equipas de vendas e suporte estão conscientes e podem falar com as capacidades de integração. Informe a sua equipa de vendas e suporte, forneça-lhes PERGUNTAS DE INFORMAÇÃO e inclua a integração nos seus materiais de vendas. 
 * **Post de blog e/ou comunicado de imprensa.** Crie uma publicação de blogue ou um comunicado de imprensa que descreva a integração conjunta, os benefícios e como começar. [Exemplo: Imprivata e Azure Ative Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
-* **Redes sociais.** Aproveite as suas redes sociais como o Twitter, Facebook ou LinkedIn para promover a integração aos seus clientes. Certifique-se @AzureAD de incluir para que possamos retweetar o seu post. [Exemplo: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
+* **Redes sociais.** Aproveite as suas redes sociais como o Twitter, Facebook ou LinkedIn para promover a integração aos seus clientes. Certifique-se de incluir para @AzureAD que possamos retweetar o seu post. [Exemplo: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
 * **Site de marketing.** Crie ou atualize as suas páginas de marketing (por exemplo, página de integração, página de parceiros, página de preços, etc.) para incluir a disponibilidade da integração conjunta. [Exemplo: Página de integração de pingboard](https://pingboard.com/org-chart-for), [página de integração smartsheet,](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad) [página de preços Monday.com](https://monday.com/pricing/) 
 * **Documentação técnica.** Crie um artigo do centro de ajuda ou documentação técnica sobre como os clientes podem começar. [Exemplo: Envoy + Microsoft Azure Ative Directory integração.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
 * **Comunicação com o cliente.** Alerte os clientes da nova integração através da comunicação do seu cliente (newsletters mensais, campanhas de email, notas de lançamento de produtos). 
-
-### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Permitir endereços IP utilizados pelo serviço de provisionamento Da Azure Para efazer pedidos sCIM
-
-Certas aplicações permitem o tráfego de entrada na sua aplicação. Para que o serviço de provisionamento da AD Azure funcione como esperado, os endereços IP utilizados devem ser permitidos. Para obter uma lista de endereços IP para cada etiqueta/região de serviço, consulte o ficheiro JSON - [Gamas Ip Azure e etiquetas](https://www.microsoft.com/download/details.aspx?id=56519)de serviço – Nuvem Pública . Pode descarregar e programar estes IPs na sua firewall, conforme necessário. As gamas IP reservadas para o provisionamento de AD Azure podem ser encontradas em "AzureActiveDirectoryDomainServices".
 
 ## <a name="related-articles"></a>Artigos relacionados
 

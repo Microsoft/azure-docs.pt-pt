@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954367"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829788"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de falhar as suas máquinas virtuais para o Azure, pode falhar as máquinas virtuais no local. Para falhar, é necessário reproteger a máquina virtual de Azure para o local no local. Para este processo, precisa de um servidor-alvo principal no local para receber o tráfego. 
@@ -27,7 +27,7 @@ Se a sua máquina virtual protegida for uma máquina virtual do Windows, então 
 ## <a name="overview"></a>Descrição geral
 Este artigo fornece instruções para como instalar um alvo principal do Linux.
 
-Publique comentários ou perguntas no final deste artigo ou no Fórum de Serviços de [Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique comentários ou perguntas no final deste artigo ou no [Microsoft Q&Uma página de perguntas para os Serviços de Recuperação do Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -160,7 +160,7 @@ Para obter o ID para cada disco rígido SCSI numa máquina virtual Linux, o **di
 
 3. Selecione o separador **Opções.**
 
-4. No painel esquerdo, selecione **Advanced** > **General**e, em seguida, selecione o botão Parâmetros de **Configuração** na parte inferior-direita do ecrã.
+4. No painel esquerdo, selecione **Advanced**  >  **General**e, em seguida, selecione o botão Parâmetros de **Configuração** na parte inferior-direita do ecrã.
 
     ![Parâmetro de configuração aberta](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -244,7 +244,7 @@ Utilize os seguintes passos para criar um disco de retenção:
 
     ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Forforte a unidade e, em seguida, crie um sistema de ficheiros na nova unidade: **mkfs.ext4 /dev/mapper/\<Id multipata do disco **de retenção>.
+3. Forforte a unidade e, em seguida, crie um sistema de ficheiros na nova unidade: **mkfs.ext4 /dev/mapper/ \< Id multipata do disco **de retenção>.
     
     ![Sistema de ficheiros](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Utilize os seguintes passos para criar um disco de retenção:
     
     Selecione **Inserir** para começar a editar o ficheiro. Crie uma nova linha e, em seguida, insira o seguinte texto. Editar o ID multipata do disco com base no ID multipata realçado do comando anterior.
 
-    **/dev/mapper/\<Retenção discos multipatia> /mnt/retenção ext4 rw 0 0 0**
+    **/dev/mapper/ \< Retenção de discos multipatia id> /mnt/retenção ext4 rw 0 0 0**
 
     Selecione **Esc**, e, em seguida, **escreva :wq** (escreva e desista) para fechar a janela do editor.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 465ca1d012c6d2057e33fe1460e794e4d5966be6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431677"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831216"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programáticamente um monitor de trabalho stream analytics
 
@@ -144,7 +144,7 @@ O seguinte código permite a monitorização de um trabalho **existente** no Str
 > 
 > Todos os trabalhos da Stream Analytics (e todos os outros recursos Do Azure) nessa mesma região partilham esta conta de armazenamento para armazenar dados de monitorização. Se fornecer uma conta de armazenamento diferente, pode causar efeitos colaterais não intencionais na monitorização dos seus outros trabalhos stream analytics ou outros recursos Azure.
 > 
-> O nome da conta de `<YOUR STORAGE ACCOUNT NAME>` armazenamento que utiliza para substituir no seguinte código deve ser uma conta de armazenamento que esteja na mesma subscrição que o trabalho stream Analytics que está a permitir a monitorização.
+> O nome da conta de armazenamento que utiliza para substituir no seguinte código deve ser uma conta de `<YOUR STORAGE ACCOUNT NAME>` armazenamento que esteja na mesma subscrição que o trabalho stream Analytics que está a permitir a monitorização.
 > 
 > 
 >    ```csharp
@@ -169,7 +169,7 @@ O seguinte código permite a monitorização de um trabalho **existente** no Str
 
 ## <a name="get-support"></a>Obter suporte
 
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 

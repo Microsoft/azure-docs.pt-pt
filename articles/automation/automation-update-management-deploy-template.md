@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 9e4396a1def5b032077c1c15c2d10b7f3452853f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743467"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830996"
 ---
-# <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações utilizando o modelo de Gestor de Recursos Azure
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações com o modelo do Azure Resource Manager
 
 Pode utilizar um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/template-syntax.md) para ativar a funcionalidade de Gestão de Atualização de Automação Azure no seu grupo de recursos. Este artigo fornece um modelo de amostra que automatiza o seguinte:
 
@@ -241,10 +241,9 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem a Atualização ativada, pode ativar VMs para gestão, avaliações de atualização de revisão e implementação de atualizações para os colocar em conformidade.
-
-- A partir da sua [conta Azure Automation](automation-onboard-solutions-from-automation-account.md) para uma ou mais máquinas Azure e manualmente para máquinas não-Azure
-
-- Para um único Azure VM a partir da página de máquina virtual no portal Azure. Este cenário está disponível para [VMs Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
-
-- Para [vários VMs Azure](manage-update-multi.md) selecionando-os a partir da página de **máquinas virtuais** no portal Azure 
+* Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
+* Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
+* Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
+* Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .
+* Para resolver problemas com o agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
+* Para resolver problemas com o agente de atualização linux, consulte problemas de agente de[atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).

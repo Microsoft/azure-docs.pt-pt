@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f14bf383037bf937629d4307e7a1fb04825d2a7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cc7babdb7b64b12ecc9ef4590a91c7a3683a6558
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743779"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799791"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Enviar um e-mail a partir de um runbook
 
@@ -18,7 +18,7 @@ Pode enviar um e-mail a partir de um livro de execução com [sendGrid](https://
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/ember-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Uma conta SendGrid.](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account)
 * [Conta de automação](automation-offering-get-started.md) com módulos **Az.**
 * [Executar Como conta](automation-create-runas-account.md) para armazenar e executar o livro de execução.

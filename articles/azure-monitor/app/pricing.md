@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 82ea6a27d5bd75c180928f6a8b5c9742c54ea5a1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199046"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834429"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "83199046"
 
 Application Insights é projetado para obter tudo o que você precisa para monitorizar a disponibilidade, desempenho e uso das suas aplicações web, quer estejam hospedados no Azure ou no local. Application Insights suporta línguas e quadros populares, tais como .NET, Java e Node.js, e integra-se com processos e ferramentas de DevOps como Azure DevOps, Jira e PagerDuty. É importante entender o que determina os custos de monitorização das suas aplicações. Neste artigo, revemos o que impulsiona os custos de monitorização da sua aplicação e como pode monitorizá-los e controlá-los proativamente.
 
-Se tiver dúvidas sobre como funciona o preço para A Aplicação Insights, pode colocar uma pergunta no nosso [fórum.](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc)
+Se tiver dúvidas sobre como funciona o preço para Insights de Aplicação, pode publicar uma pergunta na nossa página de [perguntas do Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
 ## <a name="pricing-model"></a>Modelo preços
 

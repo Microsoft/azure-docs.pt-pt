@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20f2e0e4dec7602b69a24ed1eccd0c4ec946038b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5fc374cdb60d20896ef01c34f57897c902bbe532
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744905"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828870"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starting a Runbook in Azure Automation (Iniciar um Runbook na Automatização do Azure)
 
@@ -179,7 +179,6 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
-* [Descrição geral das Funções de Trabalho de Runbook Híbridas](automation-hybrid-runbook-worker.md)
-* [Criar runbooks modulares](automation-child-runbooks.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* Para mais detalhes sobre a gestão do livro de corridas, consulte [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
+* Para mais detalhes da PowerShell, consulte [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Para resolver problemas com a execução do livro de corridas, consulte problemas de runbook da [Troubleshoot.](troubleshoot/runbooks.md)

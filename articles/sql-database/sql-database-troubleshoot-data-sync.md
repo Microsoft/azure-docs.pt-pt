@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79d7bd57ff4ba5533caba1927703ea545e077f2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382897"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830434"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolução de problemas de Sincronização de Dados SQL
 
@@ -39,7 +39,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 - [Vejo uma degradação significativa no desempenho](#sync-perf)
 
-- [Vejo esta mensagem: "Não posso inserir \<o valor NULO na coluna>. Coluna não permite nulos. O que isto significa, e como posso consertá-lo?](#sync-nulls)
+- [Vejo esta mensagem: "Não posso inserir o valor NULO na \< coluna>. Coluna não permite nulos. O que isto significa, e como posso consertá-lo?](#sync-nulls)
 
 - [Como é que o Data Sync lida com referências circulares? Isto é, quando os mesmos dados são sincronizados em múltiplos grupos de sincronização, e continua a mudar como resultado?](#sync-circ)
 
@@ -78,7 +78,7 @@ Qualquer uma das seguintes condições pode resultar em um grupo de sincronizaç
     1. Se o estado de serviço estiver **parado,** clique no nome do serviço e, em seguida, selecione **Iniciar**.
 
 > [!NOTE]
-> Se as informações anteriores não moverem o seu grupo de sincronização para fora do estado de processamento, o Microsoft Support pode redefinir o estado do seu grupo de sincronização. Para que o seu estado de grupo de sincronização seja reposto, no [fórum azure SQL Database, crie](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)um post. No post, inclua o seu ID de subscrição e o ID do grupo de sincronização para o grupo que precisa de ser reiniciado. Um engenheiro do Microsoft Support responderá ao seu post e informá-lo-á quando o estado foi reposto.
+> Se as informações anteriores não moverem o seu grupo de sincronização para fora do estado de processamento, o Microsoft Support pode redefinir o estado do seu grupo de sincronização. Para que o seu estado de grupo de sincronização seja reposto, no Microsoft Q&Uma página de perguntas para a Base de [Dados Azure SQL, crie](https://docs.microsoft.com/answers/topics/azure-sql-database.html)uma publicação. No post, inclua o seu ID de subscrição e o ID do grupo de sincronização para o grupo que precisa de ser reiniciado. Um engenheiro do Microsoft Support responderá ao seu post e informá-lo-á quando o estado foi reposto.
 
 ### <a name="i-see-erroneous-data-in-my-tables"></a><a name="sync-baddata"></a>Vejo dados errados nas minhas tabelas
 
@@ -104,7 +104,7 @@ O seu desempenho degrada-se significativamente, possivelmente ao ponto de nem se
 
 - **Resolução**. A melhor solução é a prevenção. Certifique-se de que não tem referências circulares nos seus grupos de sincronização. Qualquer linha sincronizada por um grupo de sincronização não pode ser sincronizada por outro grupo de sincronização.
 
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Vejo esta mensagem: "Não posso inserir \<o valor NULO na coluna>. Coluna não permite nulos. O que isto significa, e como posso consertá-lo? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Vejo esta mensagem: "Não posso inserir o valor NULO na \< coluna>. Coluna não permite nulos. O que isto significa, e como posso consertá-lo? 
 Esta mensagem de erro indica que ocorreu um dos dois seguintes problemas:
 -  Uma mesa não tem uma chave primária. Para corrigir este problema, adicione uma chave primária a todas as tabelas que está a sincronizar.
 -  Há uma cláusula WHERE na sua declaração de CREATE INDEX. Data Sync não lida com esta condição. Para corrigir este problema, remova a cláusula WHERE ou faça manualmente as alterações em todas as bases de dados. 
@@ -138,7 +138,7 @@ Para resolver problemas com o agente cliente, consulte problemas de [Agente de S
 
 - **Porque.** A mensagem "disco fora do espaço" pode aparecer se os ficheiros restantes precisarem de ser eliminados. Isto pode ser causado por software antivírus, ou os ficheiros estão abertos quando se tenta a eliminação de operações.
 
-- **Resolução**. Elimine manualmente os ficheiros de sincronização`del \*sync\* /s`que se encontram na pasta %temp% (). Em seguida, elimine os subdiretórios na pasta %temporário%.
+- **Resolução**. Elimine manualmente os ficheiros de sincronização que se encontram na pasta %temp% `del \*sync\* /s` (). Em seguida, elimine os subdiretórios na pasta %temporário%.
 
 > [!IMPORTANT]
 > Não apague ficheiros enquanto a sincronização estiver em andamento.
@@ -193,7 +193,7 @@ A sua tentativa de apagar um grupo de sincronização falha. Qualquer um dos seg
 
 - **Resolução**. Conceda credenciais de log-on-as-a-service na conta de utilizador:
 
-  1. Vá para **iniciar** > **ferramentas administrativas** > **do Painel** > de Controlo Política**de Segurança** > **Local** > **Gestão de Direitos dos Utilizadores.**
+  1. Vá para **iniciar**  >  **ferramentas administrativas do Painel de Controlo**Política de Segurança  >  **Administrative Tools**  >  **Local Security Policy**  >  **Local**  >  **Gestão de Direitos dos Utilizadores.**
   1. Selecione **Iniciar sessão como serviço**.
   1. Na caixa de diálogo **Properties,** adicione a conta de utilizador.
   1. Selecione **Apply** (Aplicar) e **OK**.

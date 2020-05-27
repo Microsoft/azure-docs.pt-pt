@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256864"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835806"
 ---
 # <a name="troubleshoot-the-process-server"></a>Resolução de problemas no servidor de processos
 
@@ -51,15 +51,15 @@ O servidor de processogera uma série de alertas de saúde. Estes alertas, e as 
 
 **Tipo de alerta** | **Erro** | **Resolução de problemas**
 --- | --- | --- 
-![Bom estado de funcionamento][green] | Nenhuma  | O servidor de processos está conectado e saudável.
+![Bom estado de funcionamento][green] | Nenhum  | O servidor de processos está conectado e saudável.
 ![Aviso][yellow] | Os serviços especificados não estão a funcionar. | 1. Verifique se os serviços estão em funcionamento.<br/> 2. Se os serviços estiverem a funcionar como esperado, siga as instruções abaixo para resolver problemas de [conectividade e replicação.](#check-connectivity-and-replication)
 ![Aviso][yellow]  | A utilização do CPU > 80% nos últimos 15 minutos. | 1. Não adicione máquinas novas.<br/>2. Verifique se o número de VMs que usam o servidor de processo saca-se aos [limites definidos,](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>3. Siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).
-![Crítica][red] |  A utilização do CPU > 95% nos últimos 15 minutos. | 1. Não adicione máquinas novas.<br/>2. Verifique se o número de VMs que usam o servidor de processo saca-se aos [limites definidos,](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>3. Siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).<br/> 4. Se o problema persistir, execute o [Planificador](https://aka.ms/asr-v2a-deployment-planner) de Implementação para a replicação vMware/servidor físico.
+![Crítico][red] |  A utilização do CPU > 95% nos últimos 15 minutos. | 1. Não adicione máquinas novas.<br/>2. Verifique se o número de VMs que usam o servidor de processo saca-se aos [limites definidos,](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>3. Siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).<br/> 4. Se o problema persistir, execute o [Planificador](https://aka.ms/asr-v2a-deployment-planner) de Implementação para a replicação vMware/servidor físico.
 ![Aviso][yellow] | O uso da memória > 80% nos últimos 15 minutos. |  1. Não adicione máquinas novas.<br/>2. Verifique se o número de VMs que usam o servidor de processo saca-se aos [limites definidos,](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>3. Siga todas as instruções associadas ao aviso.<br/> 4. Se o problema persistir, siga as instruções abaixo para resolver problemas de [conectividade e replicação.](#check-connectivity-and-replication)
-![Crítica][red] | O uso da memória > 95% nos últimos 15 minutos. | 1. Não adicione novas máquinas e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/> 2. Siga todas as instruções associadas ao aviso.<br/> 3. 4. Se o problema continuar, siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).<br/> 4. Se o problema persistir, execute o [Planificador](https://aka.ms/asr-v2a-deployment-planner) de Implementação para problemas de replicação vMware/servidor físico.
+![Crítico][red] | O uso da memória > 95% nos últimos 15 minutos. | 1. Não adicione novas máquinas e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/> 2. Siga todas as instruções associadas ao aviso.<br/> 3. 4. Se o problema continuar, siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).<br/> 4. Se o problema persistir, execute o [Planificador](https://aka.ms/asr-v2a-deployment-planner) de Implementação para problemas de replicação vMware/servidor físico.
 ![Aviso][yellow] | Espaço livre de pasta cache < 30% nos últimos 15 minutos. | 1. Não adicione novas máquinas e considere a criação de um servidor de [processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>2. Verifique se o número de VMs que utilizam o servidor de processo sais às [diretrizes](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).
-![Crítica][red] |  Espaço livre < 25% nos últimos 15 minutos | 1. Siga as instruções associadas ao aviso para este problema.<br/> 2. 3. Siga as instruções abaixo para resolver problemas de [conectividade e problemas](#check-connectivity-and-replication)de replicação .<br/> 3. Se o problema persistir, execute o [Planificador](https://aka.ms/asr-v2a-deployment-planner) de Implementação para a replicação vMware/servidor físico.
-![Crítica][red] | Nenhum batimento cardíaco do servidor de processos por 15 minutos ou mais. O serviço tmansvs não está a comunicar com o servidor de configuração. | 1) Verifique se o servidor de processo está a funcionar.<br/> 2. Verifique se o tmassvc está a funcionar no servidor de processos.<br/> 3. Siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).
+![Crítico][red] |  Espaço livre < 25% nos últimos 15 minutos | 1. Siga as instruções associadas ao aviso para este problema.<br/> 2. 3. Siga as instruções abaixo para resolver problemas de [conectividade e problemas](#check-connectivity-and-replication)de replicação .<br/> 3. Se o problema persistir, execute o [Planificador](https://aka.ms/asr-v2a-deployment-planner) de Implementação para a replicação vMware/servidor físico.
+![Crítico][red] | Nenhum batimento cardíaco do servidor de processos por 15 minutos ou mais. O serviço tmansvs não está a comunicar com o servidor de configuração. | 1) Verifique se o servidor de processo está a funcionar.<br/> 2. Verifique se o tmassvc está a funcionar no servidor de processos.<br/> 3. Siga as instruções abaixo para resolver problemas de [conectividade e replicação](#check-connectivity-and-replication).
 
 
 ![Chave de mesa](./media/vmware-physical-azure-troubleshoot-process-server/table-key.png)
@@ -113,7 +113,7 @@ Verifique se nenhum software antivírus na máquina replicada está a bloquear a
 3. Verifique se a ligação foi bem sucedida.
 
 
-**Conectividade** | **Detalhes** | **Ação**
+**Conetividade** | **Detalhes** | **Ação**
 --- | --- | ---
 **Sucesso** | A Telnet mostra um ecrã em branco e o servidor de processos é acessível. | Não são necessárias mais ações.
 **Sem sucesso** | Não pode ligar-se. | Certifique-se de que a porta de entrada 9443 é permitida no servidor de processos. Por exemplo, se tiver uma rede de perímetro ou uma sub-rede por ecrã. Verifique a conectividade de novo.
@@ -235,7 +235,7 @@ Verifique se a firewall baseada no endereço IP no servidor de processo está a 
 
     a) Pesquisa por **Microsoft Azure Backup**.
 
-    b) Abra **a Cópia de Segurança Microsoft Azure**e selecione **Action** > **Change Properties**.
+    b) Abra **a Cópia de Segurança Microsoft Azure**e selecione **Action**  >  **Change Properties**.
 
     c) No **separador Proxy Configuração,** o endereço proxy deve ser o mesmo que o endereço proxy que está mostrado nas definições de registo. Caso contrário, mude-o para o mesmo endereço.
 
@@ -246,7 +246,7 @@ Aumente a largura de banda entre o servidor de processo e o Azure e verifique se
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de mais ajuda, publique a sua pergunta no fórum de recuperação do [site Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) 
+Se precisar de mais ajuda, publique a sua pergunta no [Microsoft Q&Uma página de perguntas para a Recuperação do Site Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

@@ -125,8 +125,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blogue
       href: 'https://azure.microsoft.com/blog/topics/networking/'
-    - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
     - name: Calculadora de preços

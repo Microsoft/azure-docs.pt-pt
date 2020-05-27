@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 248cbd42d86371742ad4985b515d70d022722385
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744932"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828887"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
@@ -123,7 +123,7 @@ A tabela que se segue define as permissões PAT mínimas necessárias para o Git
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Permissões mínimas de PAT para Azure Repos
 
-A lista que se segue define as permissões mínimas de PAT necessárias para o Azure Repos. Para obter mais informações sobre a criação de um PAT em Azure Repos, consulte [O acesso authenticado com fichas de acesso pessoal.](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
+A lista que se segue define as permissões mínimas de PAT necessárias para o Azure Repos. Para obter mais informações sobre a criação de um PAT em Azure Repos, consulte [O acesso authenticado com fichas de acesso pessoal.](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
 
 | Âmbito  |  Tipo de acesso  |
 |---------| ----------|
@@ -196,16 +196,16 @@ Para desligar de um repositório de controlo de fonte:
 
 ## <a name="handle-encoding-issues"></a>Lidar com questões de codificação
 
-Se várias pessoas estiverem a editar livros de execução no seu repositório de controlo de fontes utilizando diferentes editores, podem ocorrer questões de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se várias pessoas estiverem a editar livros de execução no seu repositório de controlo de fontes utilizando diferentes editores, podem ocorrer questões de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues)
 
 ## <a name="update-the-pat"></a>Atualizar o PAT
 
 Atualmente, não é possível utilizar o portal Azure para atualizar o PAT no controlo de fontes. Quando o pat estiver expirado ou revogado, pode atualizar o controlo de fonte com um novo sinal de acesso de uma destas formas:
 
 * Utilize a [API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Utilize o cmdlet [Update-AzAutomationSourceControl.](/powershell/module/az.automation/update-azautomationsourcecontrol)
+* Utilize o cmdlet [Update-AzAutomationSourceControl.](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Automação Azure: Integração de Controlo de Fontes na Automação Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Automação Azure: Integração do Controlo de Fontes do Livro de Execução utilizando O Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* Para integrar o controlo de fontes na Automação Azure, consulte [A Automatização do Azure: Integração de Controlo de Fontes na Automação Azure.](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* Para integrar o controlo de fonte de livro de execução com o Visual Studio Online, consulte [o Azure Automation: Integrando](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)o Controlo de Fontes do Livro de Corridas utilizando o Visual Studio Online .

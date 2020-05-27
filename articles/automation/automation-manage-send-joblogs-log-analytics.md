@@ -3,14 +3,14 @@ title: Reencaminhar dados de tarefa da Automatização do Azure para os registos
 description: Este artigo diz como enviar o estado de trabalho e fluxos de trabalho do livro para os registos do Monitor Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/05/2019
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6cd1983a6aa1ea942fb6f3154d8bb99e255f51e9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715448"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835257"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
 
@@ -46,11 +46,11 @@ Para encontrar o ID de recursos para o seu espaço de trabalho Log Analytics, ex
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Se tiver mais de uma conta de Automação ou espaço de trabalho na saída dos comandos anteriores, encontre o nome que precisa para configurar e copiar o valor para o ID do recurso.
+Se tiver mais do que uma conta de Automação ou espaço de trabalho na saída dos comandos anteriores, pode encontrar o nome e outras propriedades relacionadas que fazem parte da identificação completa de recursos da sua conta Automation, executando o seguinte:
 
-1. No portal Azure, selecione a sua conta De automação a partir da lâmina da **conta Automation** e selecione Todas **as definições**. 
-2. A partir da lâmina **de todas as definições,** em definições de **conta,** selecione **Propriedades**.  
-3. Na lâmina **Propriedades,** note as propriedades abaixo mostradas.
+1. No portal Azure, selecione a sua conta De automação na página Contas de **Automação.** 
+2. Na página da conta Automatizada selecionada, em Definições de **Conta,** selecione **Propriedades**.  
+3. Na página **Propriedades,** note os detalhes abaixo indicados.
 
     ![Propriedades da conta de automação](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
@@ -105,11 +105,11 @@ Os diagnósticos da Azure Automation criam dois tipos de registos em registos do
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Instale a integração com os registos do Monitor Azure
 
 1. No seu computador, inicie o Windows PowerShell a partir do ecrã **Iniciar.**
-2. Executar os seguintes comandos PowerShell e editar os valores para `[your resource ID]` e `[resource ID of the log analytics workspace]` com os valores da secção anterior.
+2. Executar os seguintes comandos PowerShell e editar os valores para `$automationAccountId` e `$workspaceId` com os valores da secção anterior.
 
    ```powershell-interactive
-   $workspaceId = "[resource ID of the log analytics workspace]"
-   $automationAccountId = "[resource ID of your Automation account]"
+   $workspaceId = "resource ID of the log analytics workspace"
+   $automationAccountId = "resource ID of your Automation account"
 
    Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
@@ -139,14 +139,16 @@ Para ver os registos, faça a seguinte consulta:`AzureDiagnostics | where Resour
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envie um e-mail quando um trabalho de livro de recortes falhar ou suspender
 
-Um dos principais clientes pede é a capacidade de enviar um e-mail ou um texto quando algo corre mal com um trabalho de livro de corridas.
+Os seguintes passos mostram como configurar alertas no Monitor Azure para notificá-lo quando algo corre mal com um trabalho de livro de corridas.
 
 Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os registos de trabalho do livro de execução que devem invocar o alerta. Clique no botão **Alerta** para criar e configurar a regra de alerta.
 
 1. A partir da página de visualização geral do espaço de trabalho Log Analytics, clique em **ver registos**.
+
 2. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Também pode agrupar pelo nome do livro de corridas utilizando:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se configurar registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. O nome da conta de automação pode ser encontrado no `Resource` campo na procura de `JobLogs` .
+
 3. Para abrir o ecrã de **regra Criar,** clique em **Nova Regra** de Alerta no topo da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [alertas de registo no Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Encontre todos os empregos que tenham concluído com erros
@@ -154,7 +156,9 @@ Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os
 Além de alertar sobre falhas, pode descobrir quando um trabalho de livro tem um erro não terminante. Nestes casos, a PowerShell produz um fluxo de erros, mas os erros não terminadores não fazem com que o seu trabalho suspenda ou falhe.
 
 1. No seu espaço de trabalho Log Analytics, clique em **Registos**.
+
 2. No campo de consulta, escreva `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` .
+
 3. Clique no botão **'Procurar'.**
 
 ### <a name="view-job-streams-for-a-job"></a>Ver fluxos de trabalho para um trabalho
@@ -180,10 +184,10 @@ $automationAccountId = "[resource ID of your Automation account]"
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para ajudar a resolver problemas no Log Analytics, consulte [a resolução de problemas porque é que o Log Analytics já não está a recolher dados](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
-* Para saber mais sobre como construir diferentes consultas de pesquisa e rever os registos de trabalho da Automation com registos do Monitor Azure, consulte as pesquisas de [registo em registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md).
-* Para entender como criar e recuperar mensagens de saída e erro a partir de livros de execução, consulte a saída do Livro de [Ensaios e as mensagens](automation-runbook-output-and-messages.md).
+* Para aprender a construir consultas de pesquisa e rever os registos de trabalho da Automation com registos do Monitor Azure, consulte [as pesquisas de registo em registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md).
+* Para compreender a criação e recuperação de mensagens de saída e erro dos livros de execução, consulte a saída do livro de [execução Monitor](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução do livro de corridas, como monitorizar os trabalhos de livro de corridas, e outros detalhes técnicos, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
 * Para saber mais sobre os registos do Monitor Do Azure e as fontes de recolha de dados, consulte a Recolha de dados de [armazenamento do Azure em toda a visão geral dos registos do Monitor Do Azure.](../azure-monitor/platform/collect-azure-metrics-logs.md)
+* Para ajudar a resolver problemas no Log Analytics, consulte [a resolução de problemas porque é que o Log Analytics já não está a recolher dados](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

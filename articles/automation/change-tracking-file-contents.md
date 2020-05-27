@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e5ee8df1dfd250a6713d832bf176daecdaef7ea
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4b8bf6a3f583e4c17f61e0a46911990ac5cc827c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744395"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830485"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
@@ -178,6 +178,5 @@ Vamos usar este exemplo para discutir os passos para criar alertas sobre uma mud
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Alterar visão geral do rastreio e do inventário](change-tracking.md)
-* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
-* [Pesquisas de log nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md)
+* Se precisar de pesquisar registos armazenados no seu espaço de trabalho Log Analytics, consulte as pesquisas de [registo nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md).
+* Para resolver problemas de funcionalidades, consulte problemas de rastreio e inventário de alterações de resolução de [problemas.](troubleshoot/change-tracking.md)

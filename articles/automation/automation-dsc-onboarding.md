@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: a2693803603e053f06c8b6886c6f6639f0859461
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f30d15615e4f3c738d969d068bf2864df23e7cdb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713153"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836911"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Ativar a configuração do Estado da Automação Azure
 
@@ -22,7 +22,7 @@ Este tópico descreve como pode configurar as suas máquinas para gestão com a 
 
 ## <a name="enable-azure-vms"></a>Ativar VMs Azure
 
-A Configuração do Estado da Automação Azure permite facilmente ativar os VMs Azure para a gestão de configuração, utilizando o portal Azure, os modelos do Gestor de Recursos Azure ou powerShell. Sob o capot, e sem que um administrador tenha de se transformar num VM, a extensão de configuração de configuração de configuração de estado desejada Azure VM regista o VM com configuração do Estado da Automação Azure. Uma vez que a extensão Azure funciona assincronicamente, as medidas para acompanhar o seu progresso ou resolução de problemas são fornecidas na configuração de [Troubleshoot VM para configuração do Estado](#troubleshoot-vm-setup-for-state-configuration).
+A Configuração do Estado da Automação Azure permite facilmente ativar os VMs Azure para a gestão de configuração, utilizando o portal Azure, os modelos do Gestor de Recursos Azure ou powerShell. Sob o capot, e sem que um administrador tenha de se transformar num VM, a extensão de configuração de configuração de configuração de estado desejada Azure VM regista o VM com configuração do Estado da Automação Azure. Uma vez que a extensão Azure funciona assincronicamente, são fornecidas medidas para acompanhar o seu progresso no [estado de verificação da configuração vm](#check-status-of-vm-setup).
 
 > [!NOTE]
 >A implantação de DSC para um nó Linux utiliza a pasta **/tmp.** Módulos como `nxautomation` são temporariamente descarregados para verificação antes de os instalarem nos locais apropriados. Para garantir que os módulos se instalam corretamente, o agente Log Analytics para o Linux necessita de permissões de leitura/escrita na pasta **/tmp.**<br><br>
@@ -307,27 +307,26 @@ Depois de registar uma máquina como nó DSC na Configuração do Estado da Auto
 
 Pode voltar a registar um nó assim que registou o nó inicialmente, utilizando qualquer um dos métodos descritos neste documento. Não é necessário desregistar um nó da Configuração do Estado da Automação Azure antes de o reregistar.
 
-## <a name="troubleshoot-vm-setup-for-state-configuration"></a>Configuração vm de resolução de problemas para configuração do Estado
+## <a name="check-status-of-vm-setup"></a>Verifique o estado da configuração da VM
 
 A Configuração do Estado permite-lhe facilmente ativar os VMs do Windows Azure para a gestão da configuração. Sob o capot, a extensão de configuração de configuração do Estado Desejada Azure VM é utilizada para registar o VM com configuração do Estado de Automação Azure. Uma vez que a extensão de Configuração estatal desejada azure VM corre assincronicamente, acompanhar o seu progresso e resolver a sua execução pode ser importante.
 
 > [!NOTE]
 > Qualquer método que permita aos VMs do Windows Azure para configuração estatal que utilize a extensão de configuração de configuração do Estado Desejada Azure VM pode demorar até uma hora para a Automação Azure mostrar VMs como registados. Este atraso deve-se à instalação de WMF 5 no VM pela extensão de configuração de configuração de estado desejada Azure VM, que é necessária para ativar VMs para configuração do Estado.
 
-Para resolver problemas ou visualizar o estado da extensão de configuração de configuração do Estado Desejada Do Estado Azure VM:
+Para ver o estado da extensão de configuração de configuração do Estado Desejada Do Estado Do Azure VM:
 
 1. No portal Azure, navegue até ao VM que está a ser ativado.
 2. Clique em **Extensões** em **Definições**. 
 3. Agora selecione **DSC** ou **DSCForLinux,** dependendo do seu sistema operativo. 
 4. Para mais detalhes, pode clicar em **Ver estado detalhado**.
 
-Para obter mais informações sobre resolução de problemas, consulte [Troubleshoot Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Próximos passos
-
-- Para começar, veja O Início com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).
-- Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de compilação na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
+- Para começar, veja [Get started com Azure Automation State Configuration](automation-dsc-getting-started.md).
+- Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de DSC compile na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
 - Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Para obter informações sobre preços, consulte os preços de configuração do Estado da [Automatização do Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Para um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte o Exemplo de [Utilização: Implantação contínua em máquinas virtuais utilizando a configuração do Estado da Automação Azure e](automation-dsc-cd-chocolatey.md)o Chocolatey .
+- Para um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte A [implantação contínua com chocolatey](automation-dsc-cd-chocolatey.md).
+- Para obter informações sobre resolução de problemas, consulte [Troubleshoot Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).

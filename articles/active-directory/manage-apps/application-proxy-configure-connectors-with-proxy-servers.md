@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28915967dc7697c08b2bbd7118f7e2377418045d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 088a87f4c4eb200cfeecff1d2513fefdb0088a38
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647255"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827052"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -204,4 +204,4 @@ Se vir outros códigos de resposta, como o 407 ou o 502, isso significa que o re
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender os conectores de procuração de aplicação da AD Azure](application-proxy-connectors.md)
-* Se tiver problemas com problemas de conectividade de conector, faça a sua pergunta no [fórum azure Ative Diretório](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) ou crie um bilhete com a nossa equipa de apoio.
+* Se tiver problemas com problemas de conectividade de conector, faça a sua pergunta no Microsoft Q&Uma página de [perguntas para o Azure Ative Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ou crie um bilhete com a nossa equipa de suporte.

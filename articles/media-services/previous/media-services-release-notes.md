@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edea04e15fe5b844654f250a22a05a753f0df123
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474839"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836401"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -27,15 +27,15 @@ Estas notas de lançamento para a Azure Media Services resumem as alterações d
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de problemas que o afetam. Para relatar um problema ou fazer perguntas, submeta um post no [Fórum MSDN]da Azure Media Services . 
+Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de problemas que o afetam. Para relatar um problema ou fazer perguntas, submeta um post no [Fórum MSDN da Azure Media Services]. 
 
-## <a name="known-issues"></a><a id="issues"/>Problemas conhecidos
+## <a name="known-issues"></a><a id="issues"/>Questões conhecidas
 ### <a name="media-services-general-issues"></a><a id="general_issues"/>Questões gerais dos Serviços de Media
 
 | Problema | Descrição |
 | --- | --- |
 | Vários cabeçalhos http comuns não são fornecidos na API REST. |Se desenvolver aplicações de Serviços de Media utilizando a API REST, verifica que alguns campos comuns de cabeçalho http (incluindo CLIENTE-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID) não são suportados. Os cabeçalhos serão adicionados numa futura atualização. |
-| Por centérico não é permitido. |A Media Services utiliza o valor da propriedade IAssetFile.Name ao construir `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`URLs para o conteúdo de streaming (por exemplo, ). Por esta razão, não é permitida a codificação por cento. O valor da propriedade Name não pode ter nenhum dos seguintes [caracteres reservados](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)por cento : !*'(:@&=+$,/?%#[]". Além disso, só pode haver um "." para a extensão do nome do ficheiro. |
+| Por centérico não é permitido. |A Media Services utiliza o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters` ). Por esta razão, não é permitida a codificação por cento. O valor da propriedade Name não pode ter nenhum dos seguintes [caracteres reservados](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)por cento : !*'(:@&=+$,/?%#[]". Além disso, só pode haver um "." para a extensão do nome do ficheiro. |
 | O método ListBlobs que faz parte da versão 3.x do Azure Storage SDK falha. |A Media Services gera URLs SAS com base na versão [2012-02-12.](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) Se pretender utilizar o SDK de armazenamento para listar bolhas num recipiente de bolha, utilize o método [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) que faz parte da versão 2.x do Storage SDK. |
 | O mecanismo de estrangulamento dos Serviços de Media restringe o uso de recursos para aplicações que fazem pedidos excessivos ao serviço. O serviço pode devolver o código de estado "Service Inavailable" 503 HTTP. |Para mais informações, consulte a descrição do código de estado 503 HTTP nos códigos de erro dos [Serviços de Media](media-services-encoding-error-codes.md). |
 | Quando se consultam entidades, um limite de 1.000 entidades é devolvido de uma só vez porque a versão 2 do REST público limita os resultados da consulta a 1.000 resultados. |Use Skip and Take (.NET)/top (REST) conforme descrito [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -573,7 +573,7 @@ A seguinte funcionalidade foi nova no lançamento de novembro do SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Fórum Azure Media Services MSDN]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Referência da Azure Media Services REST API]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Metadados de entrada]: https://msdn.microsoft.com/library/azure/dn783120.aspx

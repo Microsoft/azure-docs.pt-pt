@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530058"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834310"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho na Base de Dados Azure para MariaDB
 **Explicar** é uma ferramenta útil para otimizar consultas. A declaração de EXPLICAÇÃO pode ser usada para obter informações sobre como as declarações do SQL são executadas. A saída seguinte mostra um exemplo da execução de uma declaração de EXPLICA.
@@ -166,4 +166,4 @@ O EXPLAIN mostra agora que o MariaDB é capaz de usar o índice combinado para e
 A utilização de EXPLAIN e de diferentes tipos de Índices pode aumentar significativamente o desempenho. Ter um índice em cima da mesa não significa necessariamente que mariaDB seria capaz de usá-lo para as suas consultas. Valide sempre os seus pressupostos usando o EXPLAIN e otimize as suas consultas utilizando índices.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para encontrar respostas dos pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite o [fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) ou [stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Para encontrar respostas dos pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite o [Microsoft Q&Uma página](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) de perguntas ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: ab091ba413a8429a8fea131c643cceee7007f927
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744369"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835109"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar visão geral do rastreio e do inventário
 
@@ -195,7 +195,10 @@ Uma capacidade chave de Change Tracking and Inventory está a alertar sobre alte
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
-* [Pesquisas de log nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md)
-* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
-* [Mudanças de resolução de problemas num VM Azure](automation-tutorial-troubleshoot-changes.md)
+* Para mais detalhes sobre o trabalho com o Change Tracking e Inventário, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* Para ativar a funcionalidade a partir de um livro de execução, consulte ativar o [rastreio e o inventário de alterações a partir de um livro](automation-enable-changes-from-runbook.md)de execução .
+* Para ativar a funcionalidade a partir de uma conta Automation, consulte [Enable Change Tracking and Inventory a partir de uma conta De automação](automation-enable-changes-from-auto-acct.md).
+* Para ativar a funcionalidade navegando no portal Azure, consulte [Enable Change Tracking and Inventory from Azure portal](automation-onboard-solutions-from-browse.md).
+* Para ativar a funcionalidade a partir de um VM Azure, consulte [Enable Change Tracking and Inventory a partir de um Azure VM](automation-enable-changes-from-vm.md).
+* Se precisar de pesquisar registos armazenados no seu espaço de trabalho Log Analytics, consulte as pesquisas de [registo nos registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md).
+* Para resolver problemas de funcionalidades, consulte problemas de rastreio e inventário de alterações de resolução de [problemas.](troubleshoot/change-tracking.md)

@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff92ae0763a7e8cc10e89b0eb1a73fdbed6323b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76987027"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834225"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar com ferramentas de base de dados elásticas
 
@@ -132,7 +132,7 @@ Para mais informações sobre ferramentas de base de dados elásticas, consulte 
   * [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Anúncio de Escala Elástica](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Canal 9: [Vídeo de visão geral da escala elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: Fórum de Base de [Dados Azure SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Fórum de discussão: Microsoft Q&Uma página de perguntas para base de [dados Azure SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
 * Para medir o desempenho: Contadores de [desempenho para gestor de mapas de fragmentos](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190338"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800506"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -36,7 +36,7 @@ O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benef�
 
 Você receberá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Descrições detalhadas de todos os benefícios do programa podem ser encontradas no deck do [programa Marketplace Rewards](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Descrições detalhadas de todos os benefícios do programa podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 
 Os seus passos para começar são fáceis:
 
@@ -56,7 +56,7 @@ Os seus passos para começar são fáceis:
 2. Como utilizar os benefícios de patrocínio do Azure será partilhado através de um e-mail à medida que desbloquear estes benefícios.
 
 >[!Note]
->Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, procurando no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Suporte.](https://partner.microsoft.com/support/v2/?stage=1)
+>Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, procurando no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Suporte.](https://aka.ms/marketplacepublishersupport)
 
 O âmbito das atividades disponíveis para si expande-se à medida que cultiva as suas ofertas no mercado. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um e-mail auto-servido de recursos e boas práticas.
 
@@ -68,7 +68,7 @@ O quadro abaixo resume os requisitos de elegibilidade para ofertas de lista e ex
 
 ![Benefícios go-to-market](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Mercado para parceiros transatas
 
@@ -89,7 +89,7 @@ Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor d
 
 \*O limiar de venda de lugares aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
 
-Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 
 Além dos benefícios de recompensas, os parceiros de aplicações empresariais com as ofertas da Dynamics publicadas no Microsoft AppSource têm uma programação suplementar disponível através do [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Isto inclui suporte técnico, de marketing e vendas especializado para as necessidades dos parceiros de aplicações empresariais.
 
@@ -97,7 +97,7 @@ Além dos benefícios de recompensas, os parceiros de aplicações empresariais 
 
 ### <a name="publisher-agreement"></a>Acordo de Editor
 
-Todas as atividades descritas nesta página estão abrangidas pelo acordo de editor de [marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) e estão de acordo com o Programa de Benefícios Comerciais Addendum.
+Todas as atividades descritas nesta página estão abrangidas pelo acordo de editor de [marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e estão de acordo com o Programa de Benefícios Comerciais Addendum.
 
 ### <a name="cancellation-policy"></a>Política de cancelamento
 
@@ -122,6 +122,6 @@ Se criou a sua oferta no [Partner Center,](https://partner.microsoft.com/dashboa
 
 Reveja os [recursos de autosserviço de que dispõe.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Inscreva-se no [fórum comunitário Microsoft AppSource e Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) e conheça os tópicos relevantes ou junte-se à discussão.
+Inscreva-se no [fórum comunitário Microsoft AppSource e Azure Marketplace](https://aka.ms/MarketplaceCommunity) e conheça os tópicos relevantes ou junte-se à discussão.
 
 ---

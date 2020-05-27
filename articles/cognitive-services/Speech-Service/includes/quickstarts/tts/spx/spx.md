@@ -5,21 +5,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/18/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 65d314634648582bfcd7bd4c787c7b9e3184093a
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 8a3fd674e1b8b9ba93a9bfb026daaa714aac5780
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715252"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806273"
 ---
-## <a name="run-the-spx-tool"></a>Executar a ferramenta SPX
+## <a name="run-the-speech-cli"></a>Executar o ClI do Discurso
 
-Agora está pronto para executar a ferramenta SPX para sintetizar o discurso a partir de texto.
+Agora estás pronto para executar o Discurso CLI para sintetizar o discurso a partir do texto.
 
-Da linha de comando, mude para o diretório que contém o ficheiro binário da ferramenta SPX e escreva:
+Da linha de comando, mude para o diretório que contém o ficheiro binário CLI da fala, e escreva:
 
 ```bash
 spx synthesize --text "The speech synthesizer greets you!"
 ```
 
-A ferramenta SPX produzirá linguagem natural em inglês através do altifalante do computador.
+O Speech CLI produzirá linguagem natural em inglês através do altifalante do computador.

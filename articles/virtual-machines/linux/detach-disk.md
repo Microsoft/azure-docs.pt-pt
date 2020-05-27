@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74036376"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830009"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Linux
 
@@ -106,12 +106,10 @@ O disco permanece no armazenamento, mas já não está ligado a uma máquina vir
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados com o portal
 
 1. No menu esquerdo, selecione **Máquinas Virtuais**.
-2. Selecione a máquina virtual que tem o disco de dados que pretende desprender e clique em **Parar** para desalojar o VM.
-3. No painel da máquina virtual, selecione **Discos**.
-4. Na parte superior do painel de **discos,** **selecione Editar**.
-5. No painel **de Discos,** à extrema direita do disco de dados que ![gostaria de](./media/detach-disk/detach.png) separar, clique no botão de desapego de imagem do botão Detach.
-5. Depois de removido o disco, clique em Guardar na parte superior do painel.
-6. No painel virtual da máquina, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar o VM.
+1. Na lâmina da máquina virtual, selecione **Discos**.
+1. Na parte superior da lâmina **dos Discos,** selecione **Editar**.
+1. Na lâmina **dos Discos,** à extrema direita do disco de dados que gostaria de desprender, clique no botão de ![ desapego de imagem do botão ](./media/detach-disk/detach.png) Detach.
+1. Depois de removido o disco, clique em **Guardar** na parte superior da lâmina.
 
 O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/17/2018
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b65422a9baf33a2b55de9f1bdfcc85918616d65
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264482"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800739"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker no Red Hat Enterprise Linux em Azure
 
@@ -206,7 +206,7 @@ O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Mic
 1. Clique nas inscrições da App
 1. Clique em Novo Registo
 1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
-2. Selecione Tipo de Aplicação Tipo "Web",\/introduza um URL de inscrição (por exemplo http: /localhost) e clique em Adicionar  
+2. Selecione Tipo de Aplicação Tipo "Web", introduza um URL de inscrição (por exemplo http: \/ /localhost) e clique em Adicionar  
    O URL de inscrição não é usado e pode ser qualquer URL válido
 1. Selecione Certificados e Segredos e, em seguida, clique em novo segredo de cliente
 1. Introduza uma descrição para uma nova tecla, selecione "Nunca expira" e clique em Adicionar
@@ -273,6 +273,9 @@ Utilize o seguinte comando para configurar o dispositivo de vedação.
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
+
+> [!TIP]
+>O Agente da Cerca Azure requer conectividade de saída para pontos finais públicos, conforme documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs usando o ILB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## <a name="next-steps"></a>Passos seguintes
 

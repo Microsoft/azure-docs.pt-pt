@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edc2b1d7d6a97dd7d7ec35dadf946b5b8581bd06
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851161"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833137"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um dashboard de análise em tempo real para dados de streaming
 
@@ -35,11 +35,11 @@ Antes de começar, certifique-se de que tem o seguinte:
 ## <a name="add-power-bi-output"></a>Adicionar saída power BI
 No tutorial de deteção de fraudes em tempo real, a saída é enviada para o armazenamento da Blob Azure. Nesta secção, adicione uma saída que envia informações para o Power BI.
 
-1. No portal Azure, abra o trabalho de Streaming Analytics que criou anteriormente. Se usou o nome sugerido, o `sa_frauddetection_job_demo`trabalho chama-se.
+1. No portal Azure, abra o trabalho de Streaming Analytics que criou anteriormente. Se usou o nome sugerido, o trabalho `sa_frauddetection_job_demo` chama-se.
 
 2. No menu esquerdo, selecione **Saídas** sob **topologia de trabalho**. Em seguida, selecione **+ Adicione** e escolha **Power BI** a partir do menu dropdown.
 
-3. Selecione **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e selecione **Autorizar**:
+3. Selecione **+ Adicionar**  >  **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e selecione **Autorizar**:
 
    |**Definição**  |**Valor sugerido**  |
    |---------|---------|
@@ -74,10 +74,10 @@ Para mais informações sobre os conjuntos de dados power BI, consulte a referê
 
 2. Clique na caixa **de consulta.** 
 
-3. Introduza a seguinte consulta. Esta consulta é semelhante à consulta de auto-join que criou no tutorial de deteção de fraudes. A diferença é que esta consulta envia resultados`CallStream-PowerBI`para a nova saída que criou ( ). 
+3. Introduza a seguinte consulta. Esta consulta é semelhante à consulta de auto-join que criou no tutorial de deteção de fraudes. A diferença é que esta consulta envia resultados para a nova saída que criou `CallStream-PowerBI` ( ). 
 
     >[!NOTE]
-    >Se não nomeou a `CallStream` entrada no tutorial de deteção `CallStream` de fraudes, substitua o seu nome nas cláusulas **FROM** e **JOIN** na consulta.
+    >Se não nomeou a entrada `CallStream` no tutorial de deteção de fraudes, substitua o seu nome `CallStream` nas cláusulas **FROM** e **JOIN** na consulta.
 
    ```SQL
    /* Our criteria for fraud:
@@ -114,7 +114,7 @@ Esta secção é opcional, mas recomendada.
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Na página **Consulta** para o seu trabalho de Streaming Analytics, clique nos pontos ao lado da `CallStream` entrada e, em seguida, selecione dados da amostra a partir da **entrada**.
+2. Na página **Consulta** para o seu trabalho de Streaming Analytics, clique nos pontos ao lado da `CallStream` entrada e, em seguida, selecione **dados da amostra a partir da entrada**.
 
 3. Especifique que deseja três minutos de dados e clique em **OK**. Aguarde até receber uma notificação a indicar que foi criada uma amostra dos dados.
 
@@ -137,11 +137,11 @@ O seu trabalho de Streaming Analytics começa a procurar chamadas fraudulentas n
 
     ![Localização do conjunto de dados de streaming em Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. No seu espaço ** + &nbsp;** de trabalho, clique em Criar .
+2. No seu espaço de trabalho, clique em ** + &nbsp; Criar**.
 
     ![O botão Criar no espaço de trabalho Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
-3. Crie um novo `Fraudulent Calls`painel de instrumentos e nomeie-o.
+3. Crie um novo painel de instrumentos e nomeie-o. `Fraudulent Calls`
 
     ![Crie um dashboard e dê-lhe um nome no espaço de trabalho power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
@@ -228,14 +228,14 @@ Dada esta configuração, pode alterar a consulta original para a seguinte:
 ```
 
 ### <a name="renew-authorization"></a>Renovar a autorização
-Se a palavra-passe tiver mudado desde que o seu trabalho foi criado ou autenticado pela última vez, precisa de reautenticar a sua conta Power BI. Se a autenticação de vários fatores azure estiver configurada no seu inquilino azure Ative Directory (Azure AD), também precisa de renovar a autorização do Power BI de duas em duas semanas. Se não renovar, poderá ver sintomas como a falta de `Authenticate user error` saída de emprego ou um registo de operação.
+Se a palavra-passe tiver mudado desde que o seu trabalho foi criado ou autenticado pela última vez, precisa de reautenticar a sua conta Power BI. Se a autenticação de vários fatores azure estiver configurada no seu inquilino azure Ative Directory (Azure AD), também precisa de renovar a autorização do Power BI de duas em duas semanas. Se não renovar, poderá ver sintomas como a falta de saída de emprego ou um `Authenticate user error` registo de operação.
 
 Da mesma forma, se um trabalho começar após o termo do token, ocorre um erro e o trabalho falha. Para resolver este problema, pare o trabalho que está a decorrer e vá para a sua saída de Power BI. Para evitar a perda de dados, selecione o link **de autorização Renovar** e, em seguida, reinicie o seu trabalho a partir do tempo de **paragem.**
 
 Depois de a autorização ter sido renovada com o Power BI, aparece um alerta verde na área de autorização para refletir que o problema foi resolvido.
 
 ## <a name="get-help"></a>Obter ajuda
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

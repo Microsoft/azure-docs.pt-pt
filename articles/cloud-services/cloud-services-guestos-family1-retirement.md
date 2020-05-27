@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68359578"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835636"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de SO convidado de Família 1
 A reforma da Família OS 1 foi anunciada pela primeira vez em 1 de junho de 2013.
@@ -23,7 +23,7 @@ A reforma da Família OS 1 foi anunciada pela primeira vez em 1 de junho de 2013
 
 **3 de novembro de 2014** O apoio alargado à Guest OS Family 1 terminou e está totalmente aposentado. Todos os serviços ainda na Família 1 serão afetados. Podemos parar esses serviços a qualquer momento. Não há garantias de que os seus serviços continuem a funcionar a menos que os atualize manualmente.
 
-Se tiver dúvidas adicionais, visite os [Cloud Services Forums](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou contacte o [suporte azure](https://azure.microsoft.com/support/options/).
+Se tiver dúvidas adicionais, visite o Microsoft Q&Uma página de [perguntas para serviços](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) de nuvem ou contacte o [suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Está afetado?
 Os seus Serviços cloud são afetados se qualquer um dos seguintes se aplicar:

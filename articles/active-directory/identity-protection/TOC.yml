@@ -40,7 +40,7 @@
           href: howto-identity-protection-graph-api.md
     - name: Fornecer feedback sobre deteções de riscos
       href: howto-identity-protection-risk-feedback.md
-    - name: Perguntas mais frequentes
+    - name: FAQs
       href: troubleshooting-identity-protection-faq.md
 - name: Referência
   items:
@@ -50,8 +50,8 @@
   items:
     - name: Fórum de comentários do Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Atualizações de serviço

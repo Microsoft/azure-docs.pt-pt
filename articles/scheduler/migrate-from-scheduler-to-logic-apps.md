@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899116"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826065"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar tarefas do Azure Scheduler para o Azure Logic Apps
 
@@ -53,7 +53,7 @@ Você pode executar vários trabalhos únicos criando apenas uma aplicação ló
 
    Para os passos básicos, siga [o Quickstart: Crie a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-1. Na caixa de `when a http request` pesquisa, introduza para encontrar o gatilho do Pedido. A partir da lista de gatilhos, selecione este gatilho: **Quando um pedido HTTP é recebido**
+1. Na caixa de pesquisa, `when a http request` introduza para encontrar o gatilho do Pedido. A partir da lista de gatilhos, selecione este gatilho: **Quando um pedido HTTP é recebido**
 
    ![Adicionar gatilho "Pedido"](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -80,7 +80,7 @@ Você pode executar vários trabalhos únicos criando apenas uma aplicação ló
 
 1. Sob o gatilho, selecione **Próximo passo**.
 
-1. Na caixa de `delay until` pesquisa, introduza como filtro. Na lista de ações, selecione esta ação: **Atrase até**
+1. Na caixa de pesquisa, introduza `delay until` como filtro. Na lista de ações, selecione esta ação: **Atrase até**
 
    Esta ação interrompe o fluxo de trabalho da sua aplicação lógica até uma data e hora especificadas.
 
@@ -114,9 +114,9 @@ Para executar manualmente ou desencadear um trabalho único, envie uma chamada p
 
 Por exemplo, utilizando a aplicação Postman, pode criar um pedido post com as definições semelhantes a esta amostra e, em seguida, selecionar **Enviar** para fazer o pedido.
 
-| Método de pedido | do IdP | Corpo | Cabeçalhos |
+| Método de pedido | URL | Corpo | Cabeçalhos |
 |----------------|-----|------|---------|
-| **POST** | <*endpoint-URL*> | **cru** <p>**JSON (aplicação/json)** <p>Na caixa **crua,** introduza a carga útil que pretende enviar no pedido. <p>**Nota:** Esta definição configura automaticamente os **valores cabeçalhos.** | **Chave**: Tipo de conteúdo <br>**Valor**: aplicação/json |
+| **Publicar** | <*endpoint-URL*> | **cru** <p>**JSON (aplicação/json)** <p>Na caixa **crua,** introduza a carga útil que pretende enviar no pedido. <p>**Nota:** Esta definição configura automaticamente os **valores cabeçalhos.** | **Chave**: Tipo de conteúdo <br>**Valor**: aplicação/json |
 |||||
 
 ![Envie pedido para desencadear manualmente a sua aplicação lógica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -239,7 +239,7 @@ Se a sua subscrição Azure tiver um plano de suporte pago, pode criar um pedido
 
 **Comunidade**
 
-* [Fórum de Aplicações lógicas azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
+* [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Passos seguintes

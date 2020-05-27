@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 33b2ca8db75acff1ce423aa50087961cce6092b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 122725bff616a49d27981b88f465e04418db9526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418410"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826117"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -34,9 +34,9 @@ Se é novo na Data Factory, consulte [introdução à Azure Data Factory](introd
 ## <a name="overview"></a>Descrição geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que, em conjunto, desempenham uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente aponta ou refere os dados que pretende utilizar nas suas **atividades** como inputs e saídas. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados de Blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de Blobs a partir dos quais a atividade deve ler os dados.
 
-Antes de criar um conjunto de dados, deve criar um [**serviço ligado**](concepts-linked-services.md) para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Pense desta forma; o conjunto de dados representa a estrutura dos dados dentro das lojas de dados ligadas, e o serviço ligado define a ligação à fonte de dados. Por exemplo, um serviço ligado ao Armazenamento Azure liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta dentro dessa conta de armazenamento Azure que contém as bolhas de entrada a serem processadas.
+Antes de criar um conjunto de dados, deve criar um [**serviço ligado**](concepts-linked-services.md) para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Pense desta forma; o conjunto de dados representa a estrutura dos dados dentro das lojas de dados ligadas, e o serviço ligado define a ligação à fonte de dados. Por exemplo, um serviço ligado ao Armazenamento Azure liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta dentro dessa conta de Armazenamento Azure que contém as bolhas de entrada a serem processadas.
 
-Aqui está um cenário de amostra. Para copiar dados do armazenamento Blob para uma base de dados SQL, cria dois serviços ligados: Azure Storage e Azure SQL Database. Em seguida, crie dois conjuntos de dados: conjunto de dados Azure Blob (que se refere ao serviço ligado ao Armazenamento Azure) e conjunto de dados da tabela Azure SQL (que se refere ao serviço ligado à Base de Dados Azure SQL). Os serviços ligados ao Armazenamento Azure e à Base de Dados Azure SQL contêm cordas de ligação que a Data Factory utiliza no prazo de execução para se ligarem ao seu Armazenamento Azure e à base de dados Azure SQL, respectivamente. O conjunto de dados Azure Blob especifica o recipiente blob e a pasta blob que contém as bolhas de entrada no seu armazenamento Blob. O conjunto de dados da tabela Azure SQL especifica a tabela SQL na sua base de dados SQL para a qual os dados serão copiados.
+Aqui está um cenário de amostra. Para copiar dados do armazenamento Blob para uma Base de Dados SQL, cria dois serviços ligados: Armazenamento Azure e Base de Dados Azure SQL. Em seguida, crie dois conjuntos de dados: conjunto de dados Azure Blob (que se refere ao serviço ligado ao Armazenamento Azure) e conjunto de dados da tabela Azure SQL (que se refere ao serviço ligado à Base de Dados Azure SQL). Os serviços ligados ao Armazenamento Azure e à Base de Dados Azure SQL contêm cordas de ligação que a Data Factory utiliza no prazo de execução para se ligarem ao seu Armazenamento Azure e à base de dados Azure SQL, respectivamente. O conjunto de dados Azure Blob especifica o recipiente blob e a pasta blob que contém as bolhas de entrada no seu armazenamento Blob. O conjunto de dados da tabela Azure SQL especifica a tabela SQL na sua Base de Dados SQL a que os dados serão copiados.
 
 O diagrama seguinte mostra as relações entre o oleoduto, a atividade, o conjunto de dados e o serviço ligado na Fábrica de Dados:
 
@@ -72,7 +72,7 @@ A tabela seguinte descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
+name | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
 tipo | Tipo de conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais detalhes, consulte [os tipos de Conjunto de Dados](#dataset-type). | Sim |
 estrutura | Esquema do conjunto de dados. Para mais detalhes, consulte [dataset schema](#dataset-structure-or-schema). | Não |
 typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, mesa Azure SQL). Para mais detalhes sobre os tipos suportados e suas propriedades, consulte o [tipo dataset](#dataset-type). | Sim |
@@ -117,14 +117,14 @@ A tabela seguinte descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
+name | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
 tipo | Tipo de conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais detalhes, consulte [os tipos de Conjunto de Dados](#dataset-type). | Sim |
 schema | Esquema do conjunto de dados. Para mais detalhes, consulte conjuntos de [dados compatíveis](#dataset-type)com o Data Flow . | Não |
 typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, mesa Azure SQL). Para mais detalhes sobre os tipos suportados e suas propriedades, consulte o [tipo dataset](#dataset-type). | Sim |
 
 
 ## <a name="dataset-example"></a>Exemplo de conjunto de dados
-No exemplo seguinte, o conjunto de dados representa uma tabela chamada MyTable numa base de dados SQL.
+No exemplo seguinte, o conjunto de dados representa uma tabela chamada MyTable numa Base de Dados SQL.
 
 ```json
 {
@@ -183,10 +183,10 @@ Cada coluna na estrutura contém as seguintes propriedades:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-nome | Nome da coluna. | Sim
+name | Nome da coluna. | Sim
 tipo | Tipo de dados da coluna. Data Factory suporta os seguintes tipos de dados provisórios como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan** | Não
-cultura | . Cultura baseada em NET a utilizar quando o `Datetime` tipo `Datetimeoffset`é um tipo .NET: ou . A predefinição é `en-us`. | Não
-formato | Cadeia de formato a utilizar quando o `Datetime` `Datetimeoffset`tipo é do tipo .NET: ou . Consulte as [cordas de data e formato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) de tempo personalizados sobre como formatar a data. | Não
+cultura | . Cultura baseada em NET a utilizar quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. | Não
+formato | Cadeia de formato a utilizar quando o tipo é do tipo .NET: `Datetime` ou `Datetimeoffset` . Consulte as [cordas de data e formato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) de tempo personalizados sobre como formatar a data. | Não
 
 ### <a name="example"></a>Exemplo
 No exemplo seguinte, suponha que os dados blob de origem estão no formato CSV e contém três colunas: userid, name e lastlogindate. São do tipo Int64, String e Datetime com um formato de data personalizada usando nomes franceses abreviados para o dia da semana.
@@ -207,7 +207,7 @@ Defina a estrutura do conjunto de dados Blob da seguinte forma, juntamente com a
 As seguintes diretrizes ajudam-no a entender quando incluir informações estruturais e o que incluir na secção de **estrutura.** Saiba mais sobre como os dados da fábrica de dados mapeiam dados de origem para afundar e quando especificar informações estruturais de [Schema e mapeamento](copy-activity-schema-and-type-mapping.md)de tipo .
 
 - **Para obter fontes de dados de esquemas fortes,** especifique a secção da estrutura apenas se quiser que as colunas de origem do mapa afundem colunas, e os seus nomes não são os mesmos. Este tipo de fonte de dados estruturada armazena esquema de dados e tipo informação juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem SQL Server, Oracle e Azure SQL Database.<br/><br/>Como a informação do tipo já está disponível para fontes de dados estruturadas, não deve incluir informações de tipo quando incluir a secção da estrutura.
-- **Para fontes de dados de esquemas não/fracas, por exemplo, ficheiros de texto no armazenamento de blob,** inclua a estrutura quando o conjunto de dados é uma entrada para uma atividade de cópia, e os tipos de dados de dados de origem devem ser convertidos para tipos nativos para o lavatório. E inclua estrutura quando quiser mapear colunas de origem para afundar colunas.
+- **Para fontes de dados de esquemas não/fracas, por exemplo, o ficheiro**de texto no armazenamento de blob , inclua a estrutura quando o conjunto de dados é uma entrada para uma atividade de cópia, e os tipos de dados de origem devem ser convertidos para tipos nativos para o lavatório. E incluir estrutura quando quiser mapear colunas de origem para afundar colunas
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Pode criar conjuntos de dados utilizando uma destas ferramentas ou SDKs: [.NET API,](quickstart-create-data-factory-dot-net.md) [PowerShell,](quickstart-create-data-factory-powershell.md) [REST API,](quickstart-create-data-factory-rest-api.md)Modelo de Gestor de Recursos Azure e portal Azure

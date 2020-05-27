@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5dbdc4baea0973797427672c9171b4bf841086f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701384"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834915"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Também pode utilizar o [Emulador Db Azure Cosmos](local-emulator.md) para desen
 
 Para fazer uma pergunta técnica, pode colocar num destes dois fóruns de perguntas e respostas:
 
-* [Fórum do MSDN](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Transbordo de pilhas.](https://stackoverflow.com/questions/tagged/azure-cosmosdb) Stack Overflow é o melhor para questões de programação. Certifique-se de que a sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e forneça o máximo de [detalhes possível, tornando a questão clara e responsável.](https://stackoverflow.com/help/how-to-ask)
 
 Para solicitar novas funcionalidades, crie um novo pedido na [voz do Utilizador.](https://feedback.azure.com/forums/263030-azure-cosmos-db)
@@ -199,7 +199,7 @@ Sim, porque o Azure Cosmos DB é um serviço RESTful, as ligações de recursos 
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Uma instância local de SQL API está disponível?
 
-Yes. O [Emulador DB azure Cosmos](local-emulator.md) proporciona uma emulação de alta fidelidade do serviço Cosmos DB. Suporta funcionalidades idênticas à Azure Cosmos DB, incluindo suporte para a criação e consulta de documentos JSON, recolhas de fornecimento e escalagem, e execução de procedimentos e gatilhos armazenados. Você pode desenvolver e testar aplicações usando o Emulator Db Azure Cosmos, e implantá-los para Azure à escala global, fazendo uma única alteração de configuração para o ponto final de ligação para Azure Cosmos DB.
+Sim. O [Emulador DB azure Cosmos](local-emulator.md) proporciona uma emulação de alta fidelidade do serviço Cosmos DB. Suporta funcionalidades idênticas à Azure Cosmos DB, incluindo suporte para a criação e consulta de documentos JSON, recolhas de fornecimento e escalagem, e execução de procedimentos e gatilhos armazenados. Você pode desenvolver e testar aplicações usando o Emulator Db Azure Cosmos, e implantá-los para Azure à escala global, fazendo uma única alteração de configuração para o ponto final de ligação para Azure Cosmos DB.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que são longos valores de ponto flutuante num documento arredondado quando visto do explorador de dados no portal.
 

@@ -74,7 +74,7 @@
       href: team-data-science-process-for-data-scientists.md
     - name: Para DevOps
       href: team-data-science-process-for-devops.md
-- name: Como
+- name: Procedimento
   items:
     - name: Configurar ambientes de ciência de dados
       href: environment-setup.md
@@ -216,8 +216,8 @@
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
     - name: Recursos Microsoft relacionados
       items:
-        - name: Fórum do MSDN
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+        - name: Página de perguntas das Perguntas e Respostas da Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
         - name: Vídeos

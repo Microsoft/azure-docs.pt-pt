@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74791483"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831590"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações baseadas no estado do grupo utilizando âmbitos em Aplicações Lógicas Azure
 
@@ -64,7 +64,7 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Nome de ligação** | BingMapsConnection | Indique um nome para a ligação. | 
-      | **Chave API** | <*sua chave-bing-maps*> | Introduza a chave do Mapas Bing que recebeu anteriormente. | 
+      | **Chave de API** | <*sua chave-bing-maps*> | Introduza a chave do Mapas Bing que recebeu anteriormente. | 
       ||||  
 
    1. Configurar a ação de **rota Get** como mostrado a tabela abaixo desta imagem:
@@ -77,12 +77,12 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*começar*> | Insira a origem da sua rota. | 
       | **Waypoint 2** | <*fim*> | Entre no destino da sua rota. | 
-      | **Avoid** | Nenhuma | Insira itens para evitar no seu percurso, tais como autoestradas, portagens, e assim por diante. Para obter valores possíveis, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** | Nenhum | Insira itens para evitar no seu percurso, tais como autoestradas, portagens, e assim por diante. Para obter valores possíveis, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar o seu percurso, como distância, tempo com informações de tráfego atuais, e assim por diante. Este exemplo usa este valor: "timeWithTraffic" | 
       | **Distance unit** | <*sua preferência*> | Introduza a unidade de distância para calcular o seu percurso. Este exemplo usa este valor: "Mile" | 
       | **Travel mode** | Driving | Insira o modo de viagem para o seu percurso. Este exemplo usa este valor "Driving" | 
-      | **Transit Date-Time** | Nenhuma | Aplica-se apenas ao modo de trânsito. | 
-      | **Tipo de data de trânsito** | Nenhuma | Aplica-se apenas ao modo de trânsito. | 
+      | **Transit Date-Time** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
       ||||  
 
 1. [Adicione uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifica se o tempo de viagem atual com tráfego excede um tempo especificado. 
@@ -130,7 +130,7 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
 
       ![Selecione "Tráfego de Duração do Tráfego"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. Depois de o campo se resolver ao formato```,```JSON, ```60``` adicione uma **vírvia** ( ) seguida do número para converter o valor no Tráfego de **Duração** do Tráfego de segundos a minutos. 
+   1. Depois de o campo se resolver ao formato JSON, adicione uma **vírvia** ( ) seguida do número para converter o valor no Tráfego de Duração do ```,``` ```60``` **Tráfego** de segundos a minutos. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -161,7 +161,7 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
 1. Adicione uma mira no local de fluxo de trabalho que deseja. Por exemplo, para adicionar um espaço entre os passos existentes no fluxo de trabalho de aplicações lógicas, siga estes passos: 
 
    1. Mova o ponteiro sobre a seta onde pretende adicionar o âmbito. 
-   Escolha o sinal**+** de **mais** ( ) > Adicionar uma **ação**.
+   Escolha o **sinal de mais** ( ) > Adicionar uma **+** **ação**.
 
       ![Adicione um âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -196,14 +196,14 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
 
    1. Para ambas as linhas, selecione **é igual ao** do operador. 
    
-   1. Para os valores de comparação, na primeira fila, entre. `Failed` 
-   Na segunda fila, `Aborted`entre. 
+   1. Para os valores de comparação, na primeira fila, `Failed` entre. 
+   Na segunda fila, `Aborted` entre. 
 
       Quando estiver pronto, a condição terá o aspeto deste exemplo:
 
       ![Adicione expressão que verifique o estado do âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-      Agora, defina a `runAfter` propriedade da condição para que a condição verifique o estado de âmbito e execute a ação correspondente que você define em etapas posteriores.
+      Agora, defina a propriedade da condição para que `runAfter` a condição verifique o estado de âmbito e execute a ação correspondente que você define em etapas posteriores.
 
    1. Na condição se o **âmbito falhar,** escolha o botão **elipse** (...) e, em seguida, escolha **configurar correr atrás**de .
 
@@ -388,7 +388,7 @@ Se estiver a trabalhar em visualização de código, pode definir uma estrutura 
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do utilizador das [Aplicações Lógicas Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes

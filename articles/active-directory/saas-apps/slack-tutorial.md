@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a125637bd155ac11a544afeee1d371d080bb72eb
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799034"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com A Folga
 
@@ -104,6 +104,9 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     | -----|---------|
     | endereço de e-mail | user.userprincipalname |
     | | |
+
+> [!NOTE]
+    > Para configurar a configuração do prestador de serviços (SP), tem de clicar em **Expandir** ao lado de **Opções Avançadas** na página de configuração SAML. Na caixa de **emitente** do prestador de serviços, introduza o URL do espaço de trabalho. O padrão é slack.com. 
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 

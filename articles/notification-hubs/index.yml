@@ -9,12 +9,12 @@ metadata:
   author: sethmanheim
   ms.author: sethm
   ms.date: 03/11/2020
-  ms.openlocfilehash: bed452fcababb3a712da95e3041bdeec71116773
-  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+  ms.openlocfilehash: f531b33043dde14c9158a15276b4b829c95e5ca2
+  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80289112"
+  ms.lasthandoff: 05/25/2020
+  ms.locfileid: "83834667"
 landingContent:
 - title: Acerca do Hubs de Notificação do Azure
   linkLists:
@@ -82,5 +82,5 @@ landingContent:
       url: notification-hubs-push-notification-faq.md
     - text: Opções de suporte
       url: https://azure.microsoft.com/support/options/
-    - text: Fóruns do MSDN
-      url: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
+    - text: Página de perguntas das Perguntas e Respostas da Microsoft
+      url: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html

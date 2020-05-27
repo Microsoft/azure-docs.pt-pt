@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: a6002ed173ca5358df4257f4c8b41c88bcf60ad8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418385"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826184"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
 
@@ -68,7 +68,7 @@ A tabela seguinte descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
+name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
 tipo | Tipo de serviço ligado. Por exemplo: Armazenamento Azure (loja de dados) ou AzureBatch (computação). Consulte a descrição do typeProperties. | Sim |
 typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e suas propriedades de tipo, consulte a tabela do tipo de conjunto de [dados](concepts-datasets-linked-services.md#dataset-type) neste artigo. Navegue para o artigo de conector da loja de dados para saber sobre propriedades do tipo específicas de uma loja de dados. <br/><br/> Para os tipos de cálculo suportados e suas propriedades de tipo, consulte [serviços ligados à Compute.](compute-linked-services.md) | Sim |
 connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não especificado, utiliza o tempo de funcionar de integração azure padrão. | Não

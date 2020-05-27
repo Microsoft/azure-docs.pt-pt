@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 95563e816fa4f0931e547b6bd163dce23c338a44
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749124"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832032"
 ---
 # <a name="work-with-scope-configurations-for-update-management"></a>Trabalhar com configurações de âmbito para Gestão de Atualizações
 
@@ -52,12 +52,7 @@ Quando um computador é adicionado à Atualização management, também é adici
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações gerais sobre a funcionalidade, consulte a [visão geral da Gestão de Atualizações](automation-update-management.md).
 * Para trabalhar com a funcionalidade, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Para utilizar uma conta Automation para ativar a funcionalidade, consulte [A Gestão de Atualização ativada a partir de uma conta De automação](automation-onboard-solutions-from-automation-account.md).
-* Para navegar no portal Azure para ativar a funcionalidade, consulte [a Enable Update Management a partir do portal Azure](automation-onboard-solutions-from-browse.md).
-* Para utilizar um livro de execução para ativar a funcionalidade, consulte [a Ativação de Gestão de Atualizações a partir de um livro](automation-onboard-solutions.md)de execução .
-* Para utilizar um VM Azure para ativar a funcionalidade, consulte [a Enable Update Management a partir de um Azure VM](automation-onboard-solutions-from-vm.md).
 * Para resolver erros de funcionalidades, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).
 * Para resolver os erros do agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
 * Para resolver os erros do agente de atualização do Linux, consulte problemas de agente de [atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).

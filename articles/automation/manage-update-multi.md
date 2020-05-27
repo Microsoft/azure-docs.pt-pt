@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 864b6793f65c69c83c0e26d01a10e156b1094889
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741030"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834633"
 ---
 # <a name="manage-updates-for-multiple-vms"></a>Gerir atualizações de várias VMs
 
@@ -182,4 +182,4 @@ Para ver informações detalhadas sobre os erros da implementação, selecione *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Consultar os registos da Gestão de Atualizações](automation-update-management-query-logs.md)
+* Se precisar de pesquisar registos de atualização, consulte os registos de Gestão de [Atualização](automation-update-management-query-logs.md)de Consultas .

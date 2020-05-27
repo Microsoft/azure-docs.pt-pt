@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/19/2019
 ms.author: danis
-ms.openlocfilehash: 989e265c83cb2a71d93453b0c3bcbc3e41079447
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9e42229b08d7817b64c66c4ab23877c837339475
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701592"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827323"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para o [cloud-init](https://cloudinit.readthedocs.io) configurar uma máquina virtual (VM) ou conjuntos de escala de máquina virtual no tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram aprovisionados pelo Azure.  
@@ -53,11 +53,12 @@ Existem duas fases para disponibilizar o init em nuvem para o endossado Linux di
 | Editor / Versão | Oferta | SKU | Versão | imagem cloud-init pronto | suporte de pacote cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim | sim - suporte da versão do pacote: *18.2-1.1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 7.7 suportem cloud-init, esta será removida 1 de setembro de 2020) | sim - suporte da versão do pacote: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-LVM | n/a| não - atualizações de imagem para completar o final de maio| sim - suporte da versão do pacote: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7.7 | n/a| não - atualizações de imagem para completar o final de maio | sim - suporte da versão do pacote: *18.5-3.el7*|
-|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.2020051912 | não - atualizações de imagem em voo, até final de maio  | sim - suporte da versão do pacote: *18.5-3.el7*|
-|RedHat 7.7 (Gen2) |rhel-byos | rhel-lvm77 | 7.7.2020051913 |não - atualizações de imagem em voo, até final de maio  | sim - suporte da versão do pacote: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 7.7 suportem cloud-init, esta será removida 1 de setembro de 2020) | sim - suporte da versão do pacote: *18.5-6.el7*|
+|RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | não - atualizações de imagem em voo, até final de maio | sim - suporte da versão do pacote: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | não - atualizações de imagem em voo, até final de maio | sim - suporte da versão do pacote: *18.5-6.el7*|
+|RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | não - atualizações de imagem em voo, até final de maio | sim - suporte da versão do pacote: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | não - atualizações de imagem em voo, até final de maio | sim - suporte da versão do pacote: *18.5-6.el7*|
+|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | não - atualizações de imagem em voo, até final de maio  | sim - suporte da versão do pacote: *18.5-6.el7*|
 |RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportem cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020|
 |RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportem cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020 |
 

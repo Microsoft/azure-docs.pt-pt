@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bbc9fe8d53f231f590dba7e2bd493633c39a1383
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6b8343d08962d8ce749e1160b0226b68571571f8
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701516"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815728"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Monitor Azure para a sua aplicação Python
 
@@ -254,13 +254,13 @@ Para obter mais detalhes sobre como modificar a telemetria rastreada antes de se
 
 Por padrão, o exportador de métricas enviará um conjunto de métricas padrão para o Monitor Azure. Pode desativar isto colocando a `enable_standard_metrics` bandeira no construtor do exportador de `False` métricas.
 
-    ```python
-    ...
-    exporter = metrics_exporter.new_metrics_exporter(
-      enable_standard_metrics=False,
-      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
-    ...
-    ```
+```python
+...
+exporter = metrics_exporter.new_metrics_exporter(
+  enable_standard_metrics=False,
+  connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+...
+```
 Abaixo está uma lista de métricas padrão que são atualmente enviadas:
 
 - Memória Disponível (bytes)
@@ -338,8 +338,8 @@ Para obter mais detalhes sobre como modificar a telemetria rastreada antes de se
 
 4. O exportador enviará dados de registo para o Monitor Azure. Pode encontrar os dados em `traces` . 
 
-> [!NOTE]
-> `traces`neste contexto não é o mesmo que `Tracing` . `traces`refere-se ao tipo de telemetria que verá no Monitor Azure ao utilizar o `AzureLogHandler` . `Tracing`refere-se a um conceito no OpenCensus e diz respeito ao [rastreio distribuído.](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)
+    > [!NOTE]
+    > `traces`neste contexto não é o mesmo que `Tracing` . `traces`refere-se ao tipo de telemetria que verá no Monitor Azure ao utilizar o `AzureLogHandler` . `Tracing`refere-se a um conceito no OpenCensus e diz respeito ao [rastreio distribuído.](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)
 
 5. Para formatar as suas mensagens de registo, pode utilizar na API de registo python `formatters` incorporada . [logging API](https://docs.python.org/3/library/logging.html#formatter-objects)
 
@@ -371,8 +371,8 @@ Para obter mais detalhes sobre como modificar a telemetria rastreada antes de se
     ```
 
 6. Também pode adicionar propriedades personalizadas às suas mensagens de registo no argumento de palavra-chave *extra* utilizando o campo custom_dimensions. Estes aparecerão como pares de valor-chave `customDimensions` no Monitor Azure.
-> [!NOTE]
-> Para que esta funcionalidade funcione, é necessário passar um dicionário para o campo custom_dimensions. Se passar em argumentos de qualquer outro tipo, o madeireiro ignorá-los-á.
+    > [!NOTE]
+    > Para que esta funcionalidade funcione, é necessário passar um dicionário para o campo custom_dimensions. Se passar em argumentos de qualquer outro tipo, o madeireiro ignorá-los-á.
 
     ```python
     import logging
@@ -395,25 +395,25 @@ Para obter mais detalhes sobre como modificar a telemetria rastreada antes de se
 
 OpenCensus Python não rastreia e envia `exception` telemetria automaticamente. São enviados através da utilização de `AzureLogHandler` exceções através da biblioteca de madeira Python. Pode adicionar propriedades personalizadas, tal como com a exploração madeireira normal.
 
-    ```python
-    import logging
-    
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    logger.addHandler(AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+```python
+import logging
 
-    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
-    # Use properties in exception logs
-    try:
-        result = 1 / 0  # generate a ZeroDivisionError
-    except Exception:
-        logger.exception('Captured an exception.', extra=properties)
-    ```
+logger = logging.getLogger(__name__)
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+)
+
+properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+# Use properties in exception logs
+try:
+    result = 1 / 0  # generate a ZeroDivisionError
+except Exception:
+    logger.exception('Captured an exception.', extra=properties)
+```
 Uma vez que deve registar exceções explicitamente, cabe ao utilizador registar exceções não tratadas. O OpenCensus não coloca restrições na forma como um utilizador quer fazê-lo, desde que registem explicitamente uma telemetria de exceção.
 
 #### <a name="sampling"></a>Amostragem

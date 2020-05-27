@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: b26498357db6b1bc006c27285546fd0f3ebe6c4a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743794"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830128"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Encriptação de recursos seguros na Automatização do Azure
 
@@ -189,8 +189,8 @@ Para revogar o acesso às chaves geridas pelo cliente, utilize a PowerShell ou o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o cofre de chave do Azure?](../key-vault/general/overview.md)
-- [Gerir certificados na Automação Azure](shared-resources/certificates.md)
-- [Gerir credenciais na Automação Azure](shared-resources/credentials.md)
-- [Gerir variáveis na Automação Azure](shared-resources/variables.md)
-- [Gerir ligações na Automação Azure](automation-connections.md)
+- Para entender o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](../key-vault/general/overview.md)
+- Para trabalhar com certificados, consulte [Gerir certificados em Automação Azure.](shared-resources/certificates.md)
+- Para lidar com credenciais, consulte [Gerir credenciais na Automação Azure.](shared-resources/credentials.md)
+- Para utilizar variáveis de Automação, [Gerencie variáveis em Automação Azure.](shared-resources/variables.md)
+- Para obter ajuda ao trabalhar com ligações, consulte [Gerir ligações em Automação Azure](automation-connections.md).

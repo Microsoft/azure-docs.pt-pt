@@ -5,14 +5,14 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: df2de44c2c8831fa4319b80484a119052434f8fb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2be702ec6e820fe71dd8d2da7aa4cf831b52402e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749110"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828258"
 ---
-# <a name="unlink-workspace-from-automation-account-for-change-tracking-and-inventory"></a>Desvincular o espaço de trabalho da conta da Automação para rastreio de alterações e inventário
+# <a name="unlink-workspace-from-automation-account"></a>Desassociar uma área de trabalho da conta de Automatização
 
 Pode decidir não integrar a sua conta de Automação com um espaço de trabalho log Analytics ao permitir operações de Rastreio e Inventário de [Alterações.](change-tracking.md) Este artigo diz-lhe para desligar o espaço de trabalho da sua conta.
 
@@ -37,7 +37,5 @@ Em alternativa, pode desligar o seu espaço de trabalho Log Analytics a partir d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
-* [Remover VMs do Rastreio e Inventário de Alterações](automation-remove-vms-from-change-tracking.md)
-* [Mudanças de resolução de problemas num VM Azure](automation-tutorial-troubleshoot-changes.md)
-* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
+* Para trabalhar com o Change Tracking e Inventário, consulte Gerir o Rastreio e O Inventário de [Alterações](change-tracking-file-contents.md).
+* Para resolver problemas de funcionalidades gerais, consulte problemas de rastreio e inventário de mudança de resolução de [problemas.](troubleshoot/change-tracking.md)

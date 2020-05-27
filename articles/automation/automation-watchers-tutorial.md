@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 1c41437773cf45e51e90dc55ad37e198c77f4373
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744153"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830587"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Rastreie ficheiros atualizados com uma tarefa de observador
 
@@ -170,4 +170,3 @@ Siga este link para saber mais sobre a autoria do seu próprio livro de corridas
 
 > [!div class="nextstepaction"]
 > [Criar runbook do PowerShell](learn/automation-tutorial-runbook-textual-powershell.md)
-

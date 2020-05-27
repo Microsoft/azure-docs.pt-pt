@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270579"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831624"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
@@ -50,7 +50,7 @@ Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do 
 2. Entre o gatilho RSS e a ação de e-mail, adicione um loop "Foreach". 
 
    1. Para adicionar um laço entre passos, mova o ponteiro sobre a seta entre esses degraus. 
-   Escolha o sinal**+** de **mais** () que aparece e, em seguida, selecione Adicionar uma **ação**.
+   Escolha o **sinal de mais** **+** () que aparece e, em seguida, **selecione Adicionar uma ação**.
 
       ![Selecione "Adicionar uma ação"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -81,7 +81,7 @@ Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do 
 
 ## <a name="foreach-loop-definition-json"></a>Definição de loop "Foreach" (JSON)
 
-Se estiver a trabalhar em vista de código para `Foreach` a sua aplicação lógica, pode definir o loop na definição JSON da sua aplicação lógica, por exemplo:
+Se estiver a trabalhar em vista de código para a sua aplicação lógica, pode definir o `Foreach` loop na definição JSON da sua aplicação lógica, por exemplo:
 
 ``` json
 "actions": {
@@ -130,7 +130,7 @@ Por padrão, os ciclos num ciclo "Foreach" funcionam em paralelo. Para executar 
 
    ![Ligue o controlo da concurrency](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-Se estiver a trabalhar com a definição JSON da `Sequential` sua aplicação lógica, pode utilizar a opção adicionando o `operationOptions` parâmetro, por exemplo:
+Se estiver a trabalhar com a definição JSON da sua aplicação lógica, pode utilizar a `Sequential` opção adicionando o `operationOptions` parâmetro, por exemplo:
 
 ``` json
 "actions": {
@@ -232,7 +232,7 @@ A partir das 8:00 da manhã de cada dia, esta aplicação lógica de exemplo inc
 
       | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
-      | **Para** | *\<>de\@domínio de endereço de e-mail* | O endereço de e-mail do destinatário. Para testes, utilize o seu próprio endereço de e-mail. | 
+      | **Para** | *\<>de domínio de endereço de e-mail \@* | O endereço de e-mail do destinatário. Para testes, utilize o seu próprio endereço de e-mail. | 
       | **Assunto** | Valor atual para "Limite" é **Limite** | Especifique o assunto do e-mail. Para este exemplo, certifique-se de que inclui a variável **Limite.** | 
       | **Corpo** | <*e-mail-conteúdo*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Para este exemplo, insira o texto que quiser. | 
       |||| 
@@ -259,7 +259,7 @@ Para alterar estes limites predefinidos, escolha **Mostrar opções avançadas**
 
 ## <a name="until-definition-json"></a>Definição "Até" (JSON)
 
-Se estiver a trabalhar em vista de código para `Until` a sua aplicação lógica, pode definir um loop na definição JSON da sua aplicação lógica, por exemplo:
+Se estiver a trabalhar em vista de código para a sua aplicação lógica, pode definir um `Until` loop na definição JSON da sua aplicação lógica, por exemplo:
 
 ``` json
 "actions": {
@@ -297,11 +297,11 @@ Se estiver a trabalhar em vista de código para `Until` a sua aplicação lógic
 }
 ```
 
-Este ciclo de exemplo "Até" chama um ponto final HTTP, que cria um recurso. O laço para quando o corpo `Completed` de resposta HTTP retorna com o estado. Para evitar laços intermináveis, o laço também para se alguma destas condições acontecer:
+Este ciclo de exemplo "Até" chama um ponto final HTTP, que cria um recurso. O laço para quando o corpo de resposta HTTP retorna com `Completed` o estado. Para evitar laços intermináveis, o laço também para se alguma destas condições acontecer:
 
-* O loop correu 10 vezes `count` mais especificado pelo atributo. O padrão é 60 vezes. 
+* O loop correu 10 vezes mais especificado pelo `count` atributo. O padrão é 60 vezes. 
 
-* O loop funcionou durante duas `timeout` horas, conforme especificado pelo atributo no formato ISO 8601. O padrão é de uma hora.
+* O loop funcionou durante duas horas, conforme especificado pelo `timeout` atributo no formato ISO 8601. O padrão é de uma hora.
   
 ``` json
 "actions": {
@@ -335,7 +335,7 @@ Este ciclo de exemplo "Até" chama um ponto final HTTP, que cria um recurso. O l
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, site de feedback do utilizador das [Aplicações Lógicas Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes

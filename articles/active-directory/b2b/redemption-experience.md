@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585900"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826099"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Redenção do convite de colaboração Azure Ative Directory B2B
 
@@ -42,9 +42,9 @@ Como alternativa ao e-mail de convite, pode dar a um hóspede um link direto par
 
 > [!IMPORTANT]
 > O link direto deve ser específico do inquilino. Por outras palavras, deve incluir uma identificação do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde está localizada a aplicação partilhada. Um URL comum como https://myapps.microsoft.com não vai funcionar para um hóspede porque vai redirecionar para o seu inquilino para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
- > - Painel de acesso a aplicativos: https://myapps.microsoft.com/?tenantid=&lt .id inquilino&gt; 
- > - Painel de acesso a apps para um domínio verificado: https://myapps.microsoft.com/&lt ;domínio verificado&gt;
- > - Portal https://portal.azure.com/&lt Azure:&gt;
+ > - Painel de acesso a aplicações:`https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Painel de acesso a aplicações para um domínio verificado:`https://myapps.microsoft.com/<;verified domain>`
+ > - Portal Azure:`https://portal.azure.com/<tenant id>`
  > - Aplicativo individual: ver como usar um [link de acesso direto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Há alguns casos em que o e-mail de convite é recomendado por um link direto. Se estes casos especiais forem importantes para a sua organização, recomendamos que convide os utilizadores usando métodos que ainda enviam o e-mail de convite:

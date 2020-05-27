@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 94f11e306f866496d4ae03dad03b070d26d616e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1857d3ee8b607d91b6fdd13b4499518d06fb9913
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75439000"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834548"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -25,8 +25,6 @@ ms.locfileid: "75439000"
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo de gestor de recursos](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
->
->
 
 
 > [!NOTE]
@@ -117,7 +115,7 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dado
         }
     }
     ```
-    Substitua o **nome da conta** pelo nome da sua conta de armazenamento do Azure e a **chave da conta** pela chave de acesso da conta de armazenamento do Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
+    Substitua o nome da **conta** pelo nome da sua conta de Armazenamento Azure e chave de **conta** pela chave de acesso da conta De armazenamento Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
 2. No Azure PowerShell, mude para a pasta ADFGetStarted.
 3. Pode utilizar o cmdlet **New-AzDataFactoryLinkedService** que cria um serviço ligado. Este cmdlet e outros cmdlets de Fábrica de Dados que utiliza neste tutorial exige que passe valores para os parâmetros *ResourceGroupName* e *DataFactoryName.* Em alternativa, pode utilizar o **Get-AzDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *O Nome* do Grupo de Recursos e *DataFactoryName* cada vez que executa um cmdlet. Executar o seguinte comando para atribuir a saída do cmdlet **Get-AzDataFactory** a uma variável **$df.**
 
@@ -170,7 +168,7 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
    * Pode utilizar **o seu próprio cluster HDInsight** em vez de utilizar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
    * O cluster HDInsight cria um **recipiente predefinido** no armazenamento blob especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado ao HDInsight a pedido, é criado um cluster HDInsight sempre que uma fatia é processada, a menos que exista um cluster ao vivo existente **(timeToLive).** O cluster é eliminado automaticamente quando o processamento é concluído.
 
-       À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf**your datafactoryname**-**linkedname**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
+       À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf**your datafactoryname** - **linkedname**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
 
      Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 2. Executar o **cmdlet New-AzDataFactoryLinkedService** que cria o serviço ligado chamado HDInsightOnDemandLinkedService.
@@ -315,7 +313,7 @@ Neste passo, irá criar o seu primeiro pipeline com uma atividade **HDInsightHiv
     ```
     No fragmento JSON, está a criar um pipeline que consiste numa única atividade que utiliza o Ramo de Registo para processar Dados num cluster do HDInsight.
 
-    O ficheiro do Script de ramo de registo **partitionweblogs.hql** é armazenado na conta de armazenamento do Azure (especificado pelo scriptLinkedService, denominado **StorageLinkedService**) e na pasta **script** no contentor **adfgetstarted**.
+    O ficheiro de script da Hive, **partitionweblogs.hql,** é armazenado na conta De armazenamento Azure (especificado pelo scriptLinkedService, chamado **StorageLinkedService),** e na pasta de **scripts** no contentor **adfgetstarted**.
 
     A secção **define** é utilizada para especificar as definições do tempo de execução que são transmitidas ao script do Hive como valores de configuração do Hive(por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
