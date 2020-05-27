@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06dfca4fc59ba6ff32714d7a92b0d4a65e262de5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789261"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826014"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorize e gerea recursos sharePoint com aplicações lógicas azure
 
@@ -66,7 +66,7 @@ Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas
    Na lista de ações, selecione a ação que deseja.
 
    Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. 
-   Escolha o sinal**+** de mais () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal de mais **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Quando lhe pedirem para iniciar sessão, forneça as informações de ligação necessárias. Se estiver a utilizar o SharePoint Server, **certifique-se**de que seleciona o Connect através da gateway de dados no local . Quando tiver terminado, escolha **Create** (Criar).
 
@@ -78,7 +78,7 @@ Para detalhes técnicos sobre gatilhos, ações e limites, descritos pela descri
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos seguintes

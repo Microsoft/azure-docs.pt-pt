@@ -3,13 +3,13 @@ title: Histórico de implantação
 description: Descreve como ver as operações de implantação do Gestor de Recursos Azure com o portal PowerShell, Azure CLI e REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460301"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816289"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com o Gestor de Recursos Azure
 
@@ -145,22 +145,22 @@ Para obter a mensagem de estado das operações falhadas, utilize o seguinte com
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para visualizar as operações de implantação para implantação para um grupo de recursos, utilize o comando da lista de operações do [grupo az.](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list)
+Para visualizar as operações de implantação para implantação para um grupo de recursos, utilize o comando da lista de grupos de operações de [implantação az.](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) Deve ter Azure CLI 2.6.0 ou mais tarde.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
 Para visualizar operações falhadas, filtrar as operações com o estado **falhado.**
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
 Para obter a mensagem de estado das operações falhadas, utilize o seguinte comando:
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
 
 # <a name="http"></a>[HTTP](#tab/http)

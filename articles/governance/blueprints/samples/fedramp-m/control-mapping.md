@@ -1,20 +1,20 @@
 ---
 title: FedRAMP Controlos moderados de amostras de plantas
 description: Mapeamento de controlo da amostra de plantas moderadas fedRAMP. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 10/31/2019
+ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c95b47034fbf18f2588e2c4134729162c9bb7cc5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77150483"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816272"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controlo da amostra de plantas moderadas fedRAMP
 
 O seguinte artigo detalha como o Azure Blueprints FedRAMP Modera a amostra de plantas para os controlos moderados da FedRAMP. Para obter mais informações sobre os controlos, consulte a [Base de Controlos](https://www.fedramp.gov/)de Segurança FedRAMP .
 
-Os seguintes mapeamentos são para os controlos **moderados da FedRAMP.** Utilize a navegação à direita para saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa da [Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra a **Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[\]Pré-visualização : Audite os controlos moderados da FedRAMP e implemente extensões vm específicas para apoiar os requisitos** de auditoria iniciativa política incorporada.
+Os seguintes mapeamentos são para os controlos **moderados da FedRAMP.** Utilize a navegação à direita para saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa da [Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra a **Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ Pré-visualização \] : Audite os controlos moderados da FedRAMP e implemente extensões vm específicas para apoiar os requisitos** de auditoria iniciativa política incorporada.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições de [Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a política do** Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por quaisquer definições de Política Azure neste momento. Portanto, o cumprimento na Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de plano de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-m/control-mapping.md).
@@ -65,8 +65,8 @@ Ter apenas um proprietário de assinatura Azure não permite o despedimento admi
 
 Esta planta ajuda-o a monitorizar e controlar o acesso remoto atribuindo definições de [Política Azure](../../../policy/overview.md) para monitorizar que a depuração remota para aplicação do Serviço de Aplicações Azure é desligada e definições de políticas que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas. Esta planta também atribui uma definição de Política Azure que o ajuda a monitorizar o acesso ilimitado a contas de armazenamento. Monitorizar estes indicadores pode ajudá-lo a garantir que os métodos de acesso remoto satisfaçam a sua política de segurança.
 
-- \[Pré-visualização\]: Audite VMs Linux que permitem ligações remotas a partir de contas sem senhas
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- \[Pré-visualização \] : Audite VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - Auditoria sem restrições ao acesso da rede às contas de armazenamento
 - Depuração remota deve ser desligada para App API
 - Depuração remota deve ser desligada para app de função
@@ -85,13 +85,13 @@ Esta planta atribui definições de [Política Azure](../../../policy/overview.m
 
 Este plano ajuda-o a garantir que os eventos do sistema são registados atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam definições de registo nos recursos do Azure. Estas definições de políticas auditam e impõem a implantação do agente Log Analytics em máquinas virtuais Azure e configuração de definições de auditoria para outros tipos de recursos Azure. Estas definições de política também auditam a configuração de registos de diagnóstico para fornecer informações sobre as operações que são realizadas dentro dos recursos do Azure. Adicionalmente, a auditoria e a Segurança Avançada de Dados estão configuradas nos servidores SQL.
 
-- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada
-- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
-- \[Pré-visualização\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)
-- \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
-- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)
-- \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
+- \[Pré-visualização : Implementação de agente de \] análise de registo de auditoria - Imagem VM (OS) não listada
+- \[Pré-visualização : Implementação de agente de \] análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
+- \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala SM (VMSS)
+- \[Pré-visualização \] : Implementar o Agente de Análise de Registo para VMs Linux
+- \[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala seletivas VM Do Windows (VMSS)
+- \[Pré-visualização \] : Implementar o agente de análise de registo para VMs do Windows
 - Definição de diagnóstico de auditoria
 - A auditoria no servidor SQL deve ser ativada
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
@@ -141,29 +141,29 @@ Este plano ajuda-o a restringir e controlar o acesso atribuindo uma definição 
 
 Esta planta atribui definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas e/ou têm permissões incorretas definidas no ficheiro passwd. Esta planta também atribui definições de política que auditam a configuração do tipo de encriptação de palavra-passe para máquinas virtuais windows. Monitorizar estes indicadores ajuda-o a garantir que os autenticadores do sistema cumprem a política de identificação e autenticação da sua organização.
 
-- \[Pré-visualização\]: Audite VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
-- \[Pré-visualização\]: Audite VMs Linux que tenham contas sem senhas
-- \[Pré-visualização\]: Auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que tenham contas sem senhas
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
+- \[Pré-visualização \] : Audite VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
+- \[Pré-visualização \] : Audite VMs Linux que tenham contas sem senhas
+- \[Pré-visualização \] : Auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs Linux que tenham contas sem senhas
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão do Autenticador / Autenticação baseada em palavra-passe
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A consciencialização das máquinas virtuais em violação da política de força da palavra-passe ajuda-o a tomar medidas corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumpram a política de passwords da sua organização.
 
-- \[Pré-visualização\]: Auditar VMs do Windows que permitem a reutilização das 24 senhas anteriores
-- \[Pré-visualização\]: Auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
-- \[Pré-visualização\]: Auditar VMs windows que não tenham uma idade mínima de senha de 1 dia
-- \[Pré-visualização\]: Audite VMs windows que não tenham a definição de complexidade da palavra-passe ativada
-- \[Pré-visualização\]: Auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
-- \[Pré-visualização\]: Auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que permitam a reutilização das 24 senhas anteriores
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
-- \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
+- \[Pré-visualização \] : Auditar VMs do Windows que permitem a reutilização das 24 senhas anteriores
+- \[Pré-visualização \] : Auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
+- \[Pré-visualização \] : Auditar VMs windows que não tenham uma idade mínima de senha de 1 dia
+- \[Pré-visualização \] : Audite VMs windows que não tenham a definição de complexidade da palavra-passe ativada
+- \[Pré-visualização \] : Auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- \[Pré-visualização \] : Auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que permitam a reutilização das 24 senhas anteriores
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
 ## <a name="ra-5-vulnerability-scanning"></a>Digitalização de vulnerabilidadeRA-5
 
@@ -260,13 +260,13 @@ Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo proteção 
 
 Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a segurança de registos e dados através dos recursos do Azure. Especificamente, as políticas atribuídas auditoria e aplicação do agente Log Analytics, e definições de segurança melhoradas para bases de dados SQL, contas de armazenamento e recursos de rede. Estas capacidades podem ajudá-lo a detetar comportamentos anómalos e indicadores de ataques para que possa tomar as medidas adequadas.
 
-- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada
-- \[Pré-visualização\]: Implementação de agente de análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
-- \[Pré-visualização\]: Audit Log Analytics Workspace for VM - Report Mismatch
-- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)
-- \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
-- \[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)
-- \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
+- \[Pré-visualização : Implementação de agente de \] análise de registo de auditoria - Imagem VM (OS) não listada
+- \[Pré-visualização : Implementação de agente de \] análise de registo de auditoria em VMSS - Imagem VM (OS) não listada
+- \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala SM (VMSS)
+- \[Pré-visualização \] : Implementar o Agente de Análise de Registo para VMs Linux
+- \[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala seletivas VM Do Windows (VMSS)
+- \[Pré-visualização \] : Implementar o agente de análise de registo para VMs do Windows
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
 - A segurança avançada de dados deve ser ativada nos seus servidores SQL
 - Implementar segurança avançada de dados em servidores SQL
@@ -283,8 +283,8 @@ Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a seguran�
 Agora que reviu o mapeamento de controlo do projeto FedRAMP Moderado, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 
 > [!div class="nextstepaction"]
-> [FedRAMP Projeto moderado - Visão geral](./index.md)
-> [FodRAMP Plano moderado - Implementar passos](./deploy.md)
+> [FedRAMP Projeto moderado - Visão geral](./index.md) 
+>  [Planta moderada FodRAMP - Desdobrar passos](./deploy.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

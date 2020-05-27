@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 02/01/2020
+ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77915644"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816374"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicação web azure na porta da frente do Azure
 
@@ -26,7 +26,7 @@ A WAF evita ataques maliciosos perto das fontes de ataque, antes de entrarem na 
 
 ## <a name="waf-policy-and-rules"></a>Política e regras da WAF
 
-Pode configurar uma política waf e associar essa política a uma ou mais frentes front door para proteção. Uma política de WAF consiste em dois tipos de regras de segurança:
+Pode configurar uma [política waf](waf-front-door-create-portal.md) e associar essa política a uma ou mais frentes front door para proteção. Uma política de WAF consiste em dois tipos de regras de segurança:
 
 - regras personalizadas que são da autoria do cliente.
 
