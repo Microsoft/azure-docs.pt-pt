@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8ee9ddbd8a2d0ecbe8e2f13e6421cec177c7ce69
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 4695164e7bcbc63b852f2f4364cdccbc8ea7d8c4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594207"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849319"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 O Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
@@ -39,7 +39,7 @@ A criação de um ponto final privado para a sua conta de armazenamento resultar
 - **Uma zona privada de DNS**: Se nunca tiver implantado um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo DNS Um registo para a conta de armazenamento nesta zona dNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo registo A para a conta de armazenamento à zona DNS existente. A implementação de uma zona DNS é opcional, por muito recomendada que seja, e necessária se estiver a montar as suas ações de ficheiro Azure com um diretor de serviço aD ou utilizar a API FileREST.
 
 > [!Note]  
-> Este artigo utiliza a conta de armazenamento DNS sufixo para as regiões públicas de Azure, `core.windows.net`. Este comentário também se aplica às nuvens soberanas do Azure, como a nuvem do Governo dos EUA azure e a nuvem azure china - apenas substitua os sufixos apropriados para o seu ambiente. 
+> Este artigo utiliza a conta de armazenamento DNS sufixo para as regiões públicas de Azure, `core.windows.net` . Este comentário também se aplica às nuvens soberanas do Azure, como a nuvem do Governo dos EUA azure e a nuvem azure china - apenas substitua os sufixos apropriados para o seu ambiente. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Navegue para a conta de armazenamento para a qual gostaria de criar um ponto final privado. Na tabela de conteúdos para a conta de armazenamento, selecione **ligações de ponto final privado,** e depois **+ ponto final privado** para criar um novo ponto final privado. 
@@ -60,13 +60,13 @@ A lâmina de **Configuração** permite-lhe selecionar a rede virtual específic
 
 Clique em **Rever + criar** para criar o ponto final privado. 
 
-Se tiver uma máquina virtual dentro da sua rede virtual, ou tiver configurado o reencaminhadod DNS como descrito [aqui,](storage-files-networking-dns.md)pode testar que o seu ponto final privado foi configurado corretamente executando os seguintes comandos da PowerShell, da linha de comando ou do terminal (funciona para Windows, Linux ou macOS). Deve substituir `<storage-account-name>` pelo nome da conta de armazenamento apropriada:
+Se tiver uma máquina virtual dentro da sua rede virtual, ou tiver configurado o reencaminhadod DNS como descrito [aqui,](storage-files-networking-dns.md)pode testar que o seu ponto final privado foi configurado corretamente executando os seguintes comandos da PowerShell, da linha de comando ou do terminal (funciona para Windows, Linux ou macOS). Deve substituir pelo nome da conta de `<storage-account-name>` armazenamento apropriada:
 
 ```
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
-Se tudo tiver funcionado com sucesso, deverá `192.168.0.5` ver a seguinte saída, onde está o endereço IP privado do ponto final privado na sua rede virtual (saída mostrada para Windows):
+Se tudo tiver funcionado com sucesso, deverá ver a seguinte saída, onde `192.168.0.5` está o endereço IP privado do ponto final privado na sua rede virtual (saída mostrada para Windows):
 
 ```Output
 Server:  UnKnown
@@ -79,7 +79,7 @@ Aliases:  storageaccount.file.core.windows.net
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à subnet de rede virtual à qual pretende adicionar o ponto final privado. Substitua, `<vnet-resource-group-name>` `<storage-account-resource-group-name>` `<storage-account-name>` `<vnet-name>`, `<vnet-subnet-name>` , e abaixo:
+Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à subnet de rede virtual à qual pretende adicionar o ponto final privado. `<storage-account-resource-group-name>`Substitua, , , e `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>` `<vnet-subnet-name>` abaixo:
 
 ```PowerShell
 $storageAccountResourceGroupName = "<storage-account-resource-group-name>"
@@ -147,7 +147,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
         -ErrorAction Stop
 ```
 
-A criação de uma zona Privada de DNS Azure `storageaccount.file.core.windows.net` permite o nome original da conta de armazenamento, como resolver o IP privado dentro da rede virtual. Embora opcional na perspetiva da criação de um ponto final privado, é explicitamente necessário para a montagem da partilha de ficheiros Azure utilizando um diretor de utilizador ad ou aceder através da API REST.  
+A criação de uma zona Privada de DNS Azure permite o nome original da conta de armazenamento, como `storageaccount.file.core.windows.net` resolver o IP privado dentro da rede virtual. Embora opcional na perspetiva da criação de um ponto final privado, é explicitamente necessário para a montagem da partilha de ficheiros Azure utilizando um diretor de utilizador ad ou aceder através da API REST.  
 
 ```PowerShell
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -224,7 +224,7 @@ $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.fil
 Resolve-DnsName -Name $storageAccountHostName
 ```
 
-Se tudo tiver funcionado com sucesso, deve `192.168.0.5` ver a seguinte saída, onde está o endereço IP privado do ponto final privado na sua rede virtual:
+Se tudo tiver funcionado com sucesso, deve ver a seguinte saída, onde `192.168.0.5` está o endereço IP privado do ponto final privado na sua rede virtual:
 
 ```Output
 Name                             Type   TTL   Section    NameHost
@@ -240,7 +240,7 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à subnet de rede virtual à qual pretende adicionar o ponto final privado. Substitua, `<vnet-resource-group-name>` `<storage-account-resource-group-name>` `<storage-account-name>` `<vnet-name>`, `<vnet-subnet-name>` , e abaixo:
+Para criar um ponto final privado para a sua conta de armazenamento, primeiro precisa de obter uma referência à sua conta de armazenamento e à subnet de rede virtual à qual pretende adicionar o ponto final privado. `<storage-account-resource-group-name>`Substitua, , , e `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>` `<vnet-subnet-name>` abaixo:
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"
@@ -272,7 +272,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Para criar um ponto final privado, primeiro deve garantir que a política de rede de pontos finais privados da subnet está definida para desativar. Então pode criar um ponto `az network private-endpoint create` final privado com o comando
+Para criar um ponto final privado, primeiro deve garantir que a política de rede de pontos finais privados da subnet está definida para desativar. Então pode criar um ponto final privado com o `az network private-endpoint create` comando
 
 ```bash
 # Disable private endpoint network policies
@@ -300,7 +300,7 @@ privateEndpoint=$(az network private-endpoint create \
     tr -d '"')
 ```
 
-A criação de uma zona Privada de DNS Azure `storageaccount.file.core.windows.net` permite o nome original da conta de armazenamento, como resolver o IP privado dentro da rede virtual. Embora opcional na perspetiva da criação de um ponto final privado, é explicitamente necessário para a montagem da partilha de ficheiros Azure utilizando um diretor de utilizador ad ou aceder através da API REST.  
+A criação de uma zona Privada de DNS Azure permite o nome original da conta de armazenamento, como `storageaccount.file.core.windows.net` resolver o IP privado dentro da rede virtual. Embora opcional na perspetiva da criação de um ponto final privado, é explicitamente necessário para a montagem da partilha de ficheiros Azure utilizando um diretor de utilizador ad ou aceder através da API REST.  
 
 ```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -400,7 +400,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Se tudo tiver funcionado com sucesso, deve `192.168.0.5` ver a seguinte saída, onde está o endereço IP privado do ponto final privado na sua rede virtual:
+Se tudo tiver funcionado com sucesso, deve ver a seguinte saída, onde `192.168.0.5` está o endereço IP privado do ponto final privado na sua rede virtual. Note que, ainda deve usar storageaccount.file.core.windows.net para contar a sua participação no ficheiro insread do caminho privatelink.
 
 ```Output
 Server:         127.0.0.53
@@ -431,7 +431,7 @@ Na parte superior da página, selecione o botão de rádio **das redes Seleciona
 ![Screenshot das Firewalls e lâmina de redes virtuais com os limites apropriados no lugar](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-O seguinte comando PowerShell negará todo o tráfego para o ponto final da conta de armazenamento. Note que este `-Bypass` comando tem `AzureServices`o parâmetro definido para . Isto permitirá que serviços de primeira parte confiáveis, como o Azure File Sync, acedam à conta de armazenamento através do ponto final público.
+O seguinte comando PowerShell negará todo o tráfego para o ponto final da conta de armazenamento. Note que este comando tem o `-Bypass` parâmetro definido para `AzureServices` . Isto permitirá que serviços de primeira parte confiáveis, como o Azure File Sync, acedam à conta de armazenamento através do ponto final público.
 
 ```PowerShell
 # This assumes $storageAccount is still defined from the beginning of this of this guide.
@@ -444,7 +444,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-O seguinte comando CLI negará todo o tráfego para o ponto final da conta de armazenamento. Note que este `-bypass` comando tem `AzureServices`o parâmetro definido para . Isto permitirá que serviços de primeira parte confiáveis, como o Azure File Sync, acedam à conta de armazenamento através do ponto final público.
+O seguinte comando CLI negará todo o tráfego para o ponto final da conta de armazenamento. Note que este comando tem o `-bypass` parâmetro definido para `AzureServices` . Isto permitirá que serviços de primeira parte confiáveis, como o Azure File Sync, acedam à conta de armazenamento através do ponto final público.
 
 ```bash
 # This assumes $storageAccountResourceGroupName and $storageAccountName 
@@ -471,7 +471,7 @@ Check **Allow trust serviços microsoft para aceder a esta conta de serviço** p
 ![Screenshot das Firewalls e da lâmina de redes virtuais com uma rede virtual específica permitida a aceder à conta de armazenamento através do ponto final público](media/storage-files-networking-endpoints/restrict-public-endpoint-1.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Para restringir o acesso ao ponto final da conta de armazenamento a redes virtuais específicas utilizando pontos finais de serviço, precisamos primeiro de recolher informações sobre a conta de armazenamento e a rede virtual. `<storage-account-resource-group>`Preencha, `<storage-account-name>` `<vnet-resource-group-name>`, `<vnet-name>`e `<subnet-name>` recolha desta informação.
+Para restringir o acesso ao ponto final da conta de armazenamento a redes virtuais específicas utilizando pontos finais de serviço, precisamos primeiro de recolher informações sobre a conta de armazenamento e a rede virtual. `<storage-account-resource-group>` `<storage-account-name>` Preencha, `<vnet-resource-group-name>` , e recolha `<vnet-name>` `<subnet-name>` desta informação.
 
 ```PowerShell
 $storageAccountResourceGroupName = "<storage-account-resource-group>"
@@ -501,7 +501,7 @@ if ($null -eq $subnet) {
 }
 ```
 
-Para que o tráfego da rede virtual seja autorizado pelo tecido da rede Azure a chegar ao ponto `Microsoft.Storage` final da conta de armazenamento, a subnet da rede virtual deve ter o ponto final do serviço exposto. Os seguintes comandos PowerShell `Microsoft.Storage` adicionarão o ponto final de serviço à sub-rede se ainda não estiver lá.
+Para que o tráfego da rede virtual seja autorizado pelo tecido da rede Azure a chegar ao ponto final da conta de armazenamento, a subnet da rede virtual deve ter o ponto final do `Microsoft.Storage` serviço exposto. Os seguintes comandos PowerShell adicionarão o `Microsoft.Storage` ponto final de serviço à sub-rede se ainda não estiver lá.
 
 ```PowerShell
 $serviceEndpoints = $subnet | `
@@ -545,7 +545,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Para restringir o acesso ao ponto final da conta de armazenamento a redes virtuais específicas utilizando pontos finais de serviço, precisamos primeiro de recolher informações sobre a conta de armazenamento e a rede virtual. `<storage-account-resource-group>`Preencha, `<storage-account-name>` `<vnet-resource-group-name>`, `<vnet-name>`e `<subnet-name>` recolha desta informação.
+Para restringir o acesso ao ponto final da conta de armazenamento a redes virtuais específicas utilizando pontos finais de serviço, precisamos primeiro de recolher informações sobre a conta de armazenamento e a rede virtual. `<storage-account-resource-group>` `<storage-account-name>` Preencha, `<vnet-resource-group-name>` , e recolha `<vnet-name>` `<subnet-name>` desta informação.
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group>"
@@ -574,7 +574,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Para que o tráfego da rede virtual seja autorizado pelo tecido da rede Azure a chegar ao ponto `Microsoft.Storage` final da conta de armazenamento, a subnet da rede virtual deve ter o ponto final do serviço exposto. Os seguintes comandos CLI `Microsoft.Storage` adicionarão o ponto final de serviço à sub-rede se ainda não estiver lá.
+Para que o tráfego da rede virtual seja autorizado pelo tecido da rede Azure a chegar ao ponto final da conta de armazenamento, a subnet da rede virtual deve ter o ponto final do `Microsoft.Storage` serviço exposto. Os seguintes comandos CLI adicionarão o ponto final de `Microsoft.Storage` serviço à sub-rede se ainda não estiver lá.
 
 ```bash
 serviceEndpoints=$(az network vnet subnet show \

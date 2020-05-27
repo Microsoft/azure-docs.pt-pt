@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6748ef520b3d03727aca045660f7563f75b200d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d9374f83110176e6705e2c6cca6c7794738a8c6e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828343"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848843"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Encriptação de disco azure para máquinas virtuais do Windows FAQ
 
@@ -48,8 +48,6 @@ O artigo de encriptação de [disco azure](disk-encryption-overview.md) lista os
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Posso encriptar volumes de arranque e dados com encriptação de disco azure?
 
 Pode encriptar os volumes de arranque e dados, mas não pode encriptar os dados sem primeiro encriptar o volume de SO.
-
-Depois de ter encriptado o volume de S, a encriptação incapacitante no volume de SO não é suportada.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Posso encriptar um volume não montado com encriptação de disco azure?
 

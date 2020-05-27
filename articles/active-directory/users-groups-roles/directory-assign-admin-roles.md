@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15de41dc2dce4cae0a6155bfce8a8a2001b9a8b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798805"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860601"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -306,6 +306,21 @@ Os utilizadores desta função podem monitorizar todas as notificações no Cent
 ### <a name="message-center-reader"></a>[Leitor de centro de mensagens](#message-center-reader-permissions)
 
 Os utilizadores desta função podem monitorizar notificações e atualizações de saúde consultivas no [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para a sua organização em serviços configurados como Exchange, Intune e Microsoft Teams. Os leitores do Centro de Mensagens recebem semanalmente e-mails de publicações, atualizações e podem partilhar posts de centros de mensagens no Office 365. No Azure AD, os utilizadores atribuídos a esta função só terão acesso apenas a leitura sacana em serviços da Azure AD, como utilizadores e grupos. Esta função não tem acesso a visualização, criação ou gestão de bilhetes de apoio.
+
+### <a name="modern-commerce-administrator"></a>[Administrador de Comércio Moderno](#modern-commerce-administrator-permissions)
+Não utilizar. Esta função é automaticamente atribuída ao Comércio, e não é destinada ou suportada para qualquer outra utilização. Veja os detalhes abaixo.
+
+A função de Administrador de Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração da Microsoft 365 e ver as entradas de navegação à esquerda para **Home,** **Billing**e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) do comércio atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas, ou para o acesso a contas de faturação e perfis de faturação. 
+
+Os utilizadores com a função de Administrador de Comércio Moderno normalmente têm permissões administrativas noutros sistemas de compra da Microsoft, mas não têm funções de administrador global ou administrador de faturação usadas para aceder ao centro de administração. 
+
+**Quando é atribuída a função de Administrador de Comércio Moderno?**
+* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por si próprios. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Administrador de Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automate) através [da PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para mais informações, consulte [faQ de compra de self-service](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Compras no mercado comercial da Microsoft** – Similar à compra de self-service, quando um utilizador compra um produto ou serviço da Microsoft AppSource ou do Azure Marketplace, a função de Administrador de Comércio Moderno é atribuída se não tiver a função de administrador a Nível Global ou de Administração de Faturação. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte o [mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)   
+* **Propostas da Microsoft** – Uma proposta é uma oferta formal da Microsoft para que a sua organização compre produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de faturação na AD Azure, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Administrador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem utilizar funcionalidades que sejam autorizadas pelo seu papel específico de comércio. 
+* **Funções específicas do comércio** – Alguns utilizadores são atribuídos a funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Administrador de Comércio Moderno para que possa aceder ao centro de administração.  
+
+Se a função de Administrador de Comércio Moderno não for atribuída a um utilizador, perde o acesso ao centro de administração da Microsoft 365. Se eles estivessem a gerir quaisquer produtos, para si ou para a sua organização, eles não seriam capazes de geri-los. Isto pode incluir a atribuição de licenças, alterações de métodos de pagamento, pagamento de contas ou outras tarefas para gestão de subscrições. 
 
 ### <a name="network-administrator"></a>[Administrador de Rede](#network-administrator-permissions)
 
@@ -1318,6 +1333,23 @@ Pode ler mensagens e atualizações para a sua organização apenas no Office 36
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
 
+### <a name="modern-commerce-administrator-permissions"></a>Permissões do Administrador do Comércio Moderno
+Pode gerir compras comerciais para uma empresa, departamento ou equipa. 
+
+> [!NOTE]
+> Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
+>
+>
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.commerce.billing/partners/read | Leia a propriedade do parceiro da O365 Billing. |
+| microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Gerencie todos os aspetos do Centro de Serviços de Licenciamento de Volume. |
+| microsoft.directy/organization/basic/update | Atualizar propriedades básicas sobre organização em Azure Ative Directory. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+
+
 ### <a name="network-administrator-permissions"></a>Permissões do Administrador de Rede
 Pode gerir as localizações da rede e rever as ideias de design de rede da empresa para o Microsoft 365 Software como aplicações de Serviço.
 
@@ -1842,6 +1874,7 @@ Administrador de Licença | Administrador de licença | 4d6ac14f-3453-41d0-bef9-
 Administrador de Serviço Lync | Administrador do Skype para Empresas | 75941009-915a-4869-abe7-691bff18279e
 Leitor de privacidade do Centro de Mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b5b
 Leitor de centro de mensagens | Leitor de centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Administrador de Comércio Moderno | Administrador de Comércio Moderno | d24aef57-1500-4070-84db-2666f29cf966
 Administrador de Rede | Administrador de rede | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrador de aplicações de escritório | Administrador de aplicações de escritório | 2b745bdf-0803-4d80-aa65-822c4493daac
 Suporte de parceiro tier1 | Não mostrado porque não deve ser usado | 4ba39ca4-527c-499a-b93d-d9b492c50246

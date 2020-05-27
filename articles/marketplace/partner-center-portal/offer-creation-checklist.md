@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281345"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850016"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista de verificação de criação de ofertas de SaaS
 
@@ -58,7 +58,7 @@ A página de configuração da oferta é onde você pode optar por diferentes ca
 | Canais  | Opcional. Predefinição: Não optou pelo canal CSP (revendedor).  |
 | Versão de Teste | Opcional. Predefinição: Sem acionamento de teste ativado.  |
 | Tipo de Test Drive | Necessário se ativar um test drive. Predefinição: Nenhum selecionado. Opções: Gestor de Recursos Azure, Dynamics 365 para Business Central, Dynamics 365 para envolvimento com clientes, Dinâmica 365 para Operações, Aplicação Lógica, Power BI.  |
-| Lead Management - ligue-se a um sistema CRM | Necessário se vender através da Microsoft, ou se a listagem de ofertas como "Contacte-me". Predefinição: sem sistema CRM ligado. Opções CRM: Mesa Azure, Blob Azure, Dynamics CRM on-line, Ponto final da HTTPs, Marketo, Salesforce  |
+| Os cabos do cliente - ligue-se a um sistema CRM | Necessário se vender através da Microsoft, ou se a listagem de ofertas como "Contacte-me". Predefinição: sem sistema CRM ligado. Opções CRM: Mesa Azure, Blob Azure, Dynamics CRM on-line, Ponto final da HTTPs, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Página Propriedades
 
@@ -78,7 +78,7 @@ A página de listagem é onde fornece o texto e as imagens que os clientes vêem
 
 | **Nome do campo**    | **Notas**   |
 | :---------------- | :-----------| 
-| Nome  | Obrigatório, máximo 50 chars. |
+| Name  | Obrigatório, máximo 50 chars. |
 | Resumo  | Obrigatório, máximo 100 chars. | 
 | Descrição  | Obrigatório, no máximo 3000 chars. |
 | Iniciar instruções  | Obrigatório, no máximo 3000 chars. |
@@ -88,7 +88,7 @@ A página de listagem é onde fornece o texto e as imagens que os clientes vêem
 | URL de Materiais de Marketing do Programa CSP  | Opcional. |
 | Links úteis Título + URL  | Opcional. |
 | Título de documentos comprovando + arquivo  | Obrigatório, min 1 e máx. Deve ser formato de ficheiro PDF. |
-| Capturas de Ecrã  | Necessário, min 1 screenshot e máx. quatro ou mais recomendados. Deve ser 1280 X 720 em formato PNG. |
+| Capturas de ecrã  | Necessário, min 1 screenshot e máx. quatro ou mais recomendados. Deve ser 1280 X 720 em formato PNG. |
 | Logotipos de loja (Pequeno, Médio, Grande, Largo, Herói)  | Pequeno (48 X 48) e Grande (216 X 216) necessários; outros tamanhos opcionais, mas recomendados: Médio (90 x 90), Largura (255 x 115), Herói (815 x 290). Deve estar em formato PNG. |
 | Nome dos vídeos + URL + miniatura  | Opcional, recomendado, max 4 vídeos. A miniatura deve ser de 1280 x 720 em formato PNG. O vídeo deve ser hospedado no YouTube ou no Vimeo. |
 | Contactos (Programa CSP, Engenharia, Suporte)  | Contacto de engenharia e suporte necessário (Nome, e-mail e número de telefone); Contacto do Programa CSP opcional, mas recomendado. |

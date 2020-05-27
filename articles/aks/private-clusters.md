@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: a09781efd58c29acbd8ca445b58b89c04daa94f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674369"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849693"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviço Azure Kubernetes
 
@@ -102,7 +102,8 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 * As gamas autorizadas IP não podem ser aplicadas ao ponto final do servidor api privado, aplicam-se apenas ao servidor público da API
 * As Zonas de Disponibilidade são atualmente suportadas para determinadas regiões, ver o início deste documento 
 * [As limitações][private-link-service] do serviço Azure Private Link aplicam-se a clusters privados.
-* Nenhum apoio à integração de Azure DevOps fora da caixa com clusters privados
+* Nenhum suporte para nós virtuais em um cluster privado para girar instâncias privadas de contentores Azure (ACI) em uma rede virtual azure privada
+* Nenhum suporte para agentes anfitriões da Microsoft azure DevOps com clusters privados. Considere usar [agentes auto-hospedados.][devops-agents] 
 * Para os clientes que precisam de permitir que o Registo de Contentores do Azure trabalhe com AKS privados, a rede virtual de registo de contentores deve ser espreitada com a rede virtual do cluster de agentes.
 * Nenhum suporte atual para espaços Azure Dev
 * Nenhum apoio para converter os aglomerados AKS existentes em clusters privados
@@ -120,4 +121,4 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

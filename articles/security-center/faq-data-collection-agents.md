@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436187"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849047"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -49,6 +49,22 @@ Windows ou Linux IaaS VMs qualificam-se se:
 - O VM está em estado de execução.
 - O Windows ou o [Linux Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) estão instalados.
 - O VM não é utilizado como um aparelho como firewall de aplicação web ou firewall de próxima geração.
+
+
+## <a name="where-is-the-default-log-analytics-workspace-created"></a>Onde é criado o espaço de trabalho padrão log Analytics?
+
+A localização do espaço de trabalho padrão depende da sua região de Azure:
+
+- Para VMs nos Estados Unidos e Brasil o local do espaço de trabalho é os Estados Unidos
+- Para VMs no Canadá, a localização do espaço de trabalho é o Canadá
+- Para VMs na Europa, a localização do espaço de trabalho é a Europa
+- Para VMs no Reino Unido, a localização do espaço de trabalho é o Reino Unido
+- Para VMs no Leste asiático e sudeste asiático, a localização do espaço de trabalho é a Ásia
+- Para vMs na Coreia, o local do espaço de trabalho é a Coreia
+- Para VMs na Índia, a localização do espaço de trabalho é a Índia
+- Para VMs no Japão, a localização do espaço de trabalho é o Japão
+- Para VMs na China, o local do espaço de trabalho é a China
+- Para VMs na Austrália, a localização do espaço de trabalho é a Austrália
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Posso apagar os espaços de trabalho por defeito criados pelo Security Center?

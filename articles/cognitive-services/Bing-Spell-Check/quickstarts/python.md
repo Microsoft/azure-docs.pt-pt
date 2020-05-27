@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 3350ff4bc810666f7b772607c2983d86902f5ffc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7f1da47d913b76edb42aab82f588a2b218eac854
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744049"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869341"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Python
 
-Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido python envia um pedido à API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
+Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido python envia um pedido à API e devolve uma lista de correções sugeridas. 
+
+Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. O código fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,14 +31,14 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="initialize-the-application"></a>Inicializar a aplicação
 
-1. Crie um novo ficheiro Python no seu IDE ou editor favorito e adicione a seguinte declaração de importação.
+1. Crie um novo ficheiro Python no seu IDE ou editor favorito e adicione as seguintes declarações de importação:
 
    ```python
    import requests
    import json
    ```
 
-2. Crie variáveis para o texto que pretende soletrar, a sua chave de subscrição e o seu ponto final de Verificação de Feitiços bing. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o texto que pretende soletrar, a sua chave de subscrição e o seu ponto final de Verificação de Feitiços bing. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -52,8 +54,12 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     data = {'text': example_text}
     ```
 
-2. Adicione os parâmetros para o seu pedido. Anexar o seu código de mercado depois `mkt=` de . O código de mercado é o país/região de onde faz o pedido. Além disso, apende o seu modo de verificação ortográfica depois `&mode=` de . O modo é `proof` ou (apanha a maioria dos erros ortográficos/gramaticais) ou (captura a `spell` maioria da ortografia, mas não tantos erros gramaticais).
+2. Adicione os parâmetros para o seu pedido: 
 
+   a. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
+
+   b. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais). 
+ 
     ```python
     params = {
         'mkt':'en-us',
@@ -61,7 +67,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
         }
     ```
 
-3. Adicione um cabeçalho e a sua chave de `Content-Type` subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+3. Adicione um `Content-Type` cabeçalho e a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```python
     headers = {
@@ -72,13 +78,13 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="send-the-request-and-read-the-response"></a>Envie o pedido e leia a resposta
 
-1. Envie o pedido post utilizando a biblioteca de pedidos.
+1. Envie o pedido do POST utilizando a biblioteca de pedidos.
 
     ```python
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Obtenha a resposta json, e imprima.a.
+2. Obtenha a resposta json e imprima-a.
 
     ```python
     json_response = response.json()
@@ -88,7 +94,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Se estiver a utilizar a linha de comando, utilize o seguinte comando para executar a aplicação.
+Se estiver a utilizar a linha de comando, utilize o seguinte comando para executar a aplicação:
 
 ```bash
 python <FILE_NAME>.py
@@ -139,7 +145,7 @@ python <FILE_NAME>.py
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única](../tutorials/spellcheck.md)
+> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

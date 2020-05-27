@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203415"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848928"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Granel cria utilizadores no Diretório Ativo do Azure
 
@@ -39,7 +39,7 @@ Descarregue e preencha o modelo CSV de carregamento a granel para ajudá-lo a cr
 As linhas num modelo CSV descarregado são as seguintes:
 
 - **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
-- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `Name [displayName] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt; *o nome item* &gt; [PropertyName] &lt; *exigido ou em branco* &gt; . Por exemplo, `Name [displayName] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
 - **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
 
 ### <a name="additional-guidance"></a>Orientações adicionais
@@ -52,7 +52,7 @@ As linhas num modelo CSV descarregado são as seguintes:
 ## <a name="to-create-users-in-bulk"></a>Para criar utilizadores a granel
 
 1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta que é administradora de utilizador na organização.
-1. No Azure AD, selecione **Users** > **Bulk criar**.
+1. No Azure AD, selecione **Users**  >  **Bulk criar**.
 1. Na página de criação de **utilizador a Granel,** selecione **Download** para receber um ficheiro de valores separados de vírpostas (CSV) válidos e, em seguida, adicione adicionar aos utilizadores que pretende criar.
 
    ![Selecione um ficheiro CSV local no qual lista os utilizadores que pretende adicionar](./media/users-bulk-add/upload-button.png)
@@ -66,7 +66,7 @@ As linhas num modelo CSV descarregado são as seguintes:
 1. Quando o seu ficheiro passar a validação, selecione **Submeter** para iniciar a operação a granel Do Azure que importa os novos utilizadores.
 1. Quando a operação de importação estiver concluída, verá uma notificação do estado de trabalho da operação a granel.
 
-Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Bulk.** O ficheiro contém a razão de cada erro.
+Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Bulk.** O ficheiro contém a razão de cada erro. A submissão do ficheiro deve coincidir com o modelo fornecido e incluir os nomes exatos da coluna.
 
 ## <a name="check-status"></a>Verificar o estado
 

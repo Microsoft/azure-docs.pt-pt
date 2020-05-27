@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b9ce5110a03ec4d67b3e8af6d9b18e5ad6836af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c921b05dd98c55c8e7db8beac93d1b724de1cd7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869307"
 ---
 # <a name="using-transactions-in-sql-pool"></a>Utilização de transações em piscina SQL
 
@@ -92,7 +92,7 @@ Para otimizar e minimizar a quantidade de dados escritos no registo, consulte o 
 O pool SQL utiliza a função XACT_STATE() para reportar uma transação falhada utilizando o valor -2. Este valor significa que a transação falhou e está marcada apenas para reversão.
 
 > [!NOTE]
-> O uso de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o Servidor SQL. O SQL Server utiliza o valor -1 para representar uma transação não comprometedora. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como não comprometedor. Por `SELECT 1/0` exemplo, provocaria um erro, mas não forçaria uma transação num estado não comprometedor. O SQL Server também permite leituras na transação não comprometedora. No entanto, a piscina SQL não permite que faça isso. Se ocorrer um erro dentro de uma transação de pool SQL, entrará automaticamente no estado -2 e não poderá efazer mais declarações selecionadas até que a declaração tenha sido relançada. Por isso, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
+> O uso de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o Servidor SQL. O SQL Server utiliza o valor -1 para representar uma transação não comprometedora. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como não comprometedor. Por exemplo, `SELECT 1/0` provocaria um erro, mas não forçaria uma transação num estado não comprometedor. O SQL Server também permite leituras na transação não comprometedora. No entanto, a piscina SQL não permite que faça isso. Se ocorrer um erro dentro de uma transação de pool SQL, entrará automaticamente no estado -2 e não poderá efazer mais declarações selecionadas até que a declaração tenha sido relançada. Por isso, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
 
 Por exemplo, no SQL Server pode ver uma transação que se parece com a seguinte:
 
@@ -206,4 +206,4 @@ São os seguintes:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre otimização de transações, consulte [as melhores práticas de Transações.](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) São também fornecidos guias adicionais de boas práticas para [piscina SQL](best-practices-sql-pool.md) e [SQL on-demand (pré-visualização)](on-demand-workspace-overview.md).
+Para saber mais sobre otimização de transações, consulte [as melhores práticas de Transações.](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) São também fornecidos guias adicionais de boas práticas para [piscina SQL](best-practices-sql-pool.md) e [SQL on-demand (pré-visualização)](best-practices-sql-on-demand.md).

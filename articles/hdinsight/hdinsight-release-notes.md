@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 458925dd9f7f7386a9159256fdb024d027f7016c
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/12/2020
+ms.openlocfilehash: b7489c49b7469feacfd5b982615419741d286998
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929320"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849710"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -48,13 +48,13 @@ Nenhuma mudança de comportamento para esta libertação. Para se preparar para 
 ## <a name="upcoming-changes"></a>Próximas alterações
 As seguintes alterações acontecerão nos próximos lançamentos. 
 
-### <a name="deprecate-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Deprecate Spark 2.1 e 2.2 no cluster HDInsight 3.6 Spark
+### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Depreciação da Faísca 2.1 e 2.2 no cluster HDInsight 3.6 Spark
 A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Spark com A Spark 2.1 e 2.2 no HDInsight 3.6. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte.
 
-### <a name="deprecate-spark-23-in-hdinsight-40-spark-cluster"></a>Deprecate Spark 2.3 no cluster HDInsight 4.0 Spark
+### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Depreciação da Faísca 2.3 no cluster HDInsight 4.0 Spark
 A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Spark com a Spark 2.3 no HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte.
 
-### <a name="deprecate-kafka-11-in-hdinsight-40-kafka-cluster"></a>Deprecate Kafka 1.1 no cluster HDInsight 4.0 Kafka
+### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Depreciação de Kafka 1.1 no cluster HDInsight 4.0 Kafka
 A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte.
 
 ### <a name="hbase-20-to-216"></a>HBase 2.0 a 2.1.6
@@ -62,6 +62,9 @@ No próximo lançamento do HDInsight 4.0, a versão HBase será atualizada da ve
 
 ### <a name="spark-240-to-244"></a>Faísca 2.4.0 a 2.4.4
 No próximo lançamento do HDInsight 4.0, a versão Spark será atualizada da versão 2.4.0 para 2.4.4
+
+### <a name="kafka-210-to-211"></a>Kafka 2.1.0 a 2.1.1
+No próximo lançamento do HDInsight 4.0, a versão Kafka será atualizada da versão 2.1.0 para 2.1.1
 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>É necessário um VM mínimo de 4 núcleos para o nó de cabeça 
 É necessário um VM mínimo de 4 núcleos para o Nó de Cabeça para garantir a elevada disponibilidade e fiabilidade dos clusters HDInsight. A partir de 6 de abril de 2020, os clientes só podem escolher 4 núcleos ou acima de VM como Head Node para os novos clusters HDInsight. Os aglomerados existentes continuarão a funcionar como esperado. 

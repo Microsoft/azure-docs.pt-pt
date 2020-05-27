@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b7226e5ae8c468339e02dbe87e279266e4609da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0aab6957f6078a59aafd0c9967b0d88e97e50cda
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063481"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849438"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para mySQL usando o portal Azure
 
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá a criar e gerir réplicas de leitura na Base de D
 
 Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 
-1. Assine no [portal Azure.](https://portal.azure.com/)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como mestre. Esta ação abre a página **de visão geral.**
 
@@ -52,7 +52,7 @@ Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 7. Selecione **OK** para confirmar a criação da réplica.
 
 > [!NOTE]
-> As réplicas de leitura são criadas com a mesma configuração do servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de ter sido criada. Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou superiores ao do mestre para garantir que a réplica é capaz de acompanhar o mestre.
+> As réplicas de leitura são criadas com a mesma configuração do servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de ter sido criada. O servidor de réplica supor-se sempre no mesmo grupo de recursos e na mesma subscrição que o servidor principal. Se quiser criar um servidor de réplica para um grupo de recursos diferente ou uma subscrição diferente, pode [mover o servidor](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) de réplica após a criação. Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou superiores ao do mestre para garantir que a réplica é capaz de acompanhar o mestre.
 
 Uma vez criado o servidor de réplica, pode ser visto a partir da lâmina de **replicação.**
 

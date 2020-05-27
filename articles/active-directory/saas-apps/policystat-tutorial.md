@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68943449"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Diretório Ativo Azure com o PolicyStat
 
@@ -80,10 +80,9 @@ Para configurar e testar o único signo do Azure AD com o PolicyStat, é necess�
 
 1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
 2. **[Configure PolicyStat Single Sign-On](#configure-policystat-single-sign-on)** - para configurar as definições de início de sessão individuais no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create PolicyStat test user](#create-policystat-test-user)** - para ter uma contrapartida de Britta Simon no PolicyStat que está ligada à representação azure AD do utilizador.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+3. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+4. **[Create PolicyStat test user](#create-policystat-test-user)** - para ter uma contrapartida de Britta Simon no PolicyStat que está ligada à representação azure AD do utilizador.
+5. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
@@ -124,7 +123,7 @@ Para configurar o único signo da Azure AD com o PolicyStat, execute os seguinte
 
 6. Além de acima, a aplicação PolicyStat espera que poucos atributos sejam retransmitidos na resposta SAML. Na secção **Reivindicações** do Utilizador no diálogo **de Atributos** do Utilizador, execute os seguintes passos para adicionar atributo token SAML, conforme indicado no quadro abaixo:
 
-    | Nome | Atributo fonte |
+    | Name | Atributo fonte |
     |------------------- | -------------------- |
     | uid | ExtractmailPrefix([correio]) |
 
@@ -164,25 +163,7 @@ Para configurar o único signo da Azure AD com o PolicyStat, execute os seguinte
    
     ![Menu administrador](./media/policystat-tutorial/ic808633.png "Menu administrador")
 
-3. Na secção **configuração,** selecione **Ativar uma integração de sinal único**.
-   
-    ![Configuração de inscrição única](./media/policystat-tutorial/ic808634.png "Configuração de inscrição única")
-
-4. Clique em **Atributos de Configuração**, e depois, na secção **Atributos de Configuração,** execute os seguintes passos:
-   
-    ![Configuração de inscrição única](./media/policystat-tutorial/ic808635.png "Configuração de inscrição única")
-   
-    a. Na caixa de texto **Username Attribute,** escreva **uid**.
-
-    b. Na caixa de texto **De Nome Próprio Atributo,** escreva **o primeiro nome** da **utilizadora Britta**.
-
-    c. Na caixa de texto **De Último Nome Atributo,** escreva **o apelido** do utilizador **Simon**.
-
-    d. Na caixa de texto **email Atributo,** digite o endereço de **e-mail** do utilizador. `BrittaSimon@contoso.com`
-
-    e. Clique em **Guardar Alterações**.
-
-5. Clique nos **metadados do IDP**e, em seguida, na secção **metadados do idp,** execute os seguintes passos:
+3. Clique nos **metadados do IDP**e, em seguida, na secção **metadados do idp,** execute os seguintes passos:
    
     ![Configuração de inscrição única](./media/policystat-tutorial/ic808636.png "Configuração de inscrição única")
    
@@ -190,33 +171,26 @@ Para configurar o único signo da Azure AD com o PolicyStat, execute os seguinte
 
     b. Clique em **Guardar Alterações**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
+4. Clique em **Atributos de Configuração**, e depois, na secção **Atributos de Configuração,** execute os seguintes passos:
+   
+    a. Na caixa de texto **Username Attribute,** escreva **uid**.
 
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
+    b. Na caixa de texto **de atributo de primeiro nome,** digite o nome de reivindicação do Primeiro Nome atributo do Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+    c. Na caixa de texto **De Último Nome Atributo,** digite o nome de reclamação do Apelido Atributo do Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    d. Na caixa de texto **email Attribute,** escreva o nome de reclamação do Email Attribute do Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-2. Selecione **Novo utilizador** na parte superior do ecrã.
+    e. Clique em **Guardar Alterações**.
 
-    ![Novo botão de utilizador](common/new-user.png)
+5. Na secção **configuração,** selecione **Ativar uma integração de sinal único**.
+   
+    ![Configuração de inscrição única](./media/policystat-tutorial/ic808634.png "Configuração de inscrição única")
 
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entrar **BrittaSimon.**
-  
-    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
-
-    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, permite que britta Simon utilize um único sign-on Azure, concedendo acesso ao PolicyStat.
+Nesta secção, permite que a sua própria conta utilize um único signo do Azure, concedendo acesso ao PolicyStat.
 
 1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **PolicyStat**.
 
@@ -234,7 +208,7 @@ Nesta secção, permite que britta Simon utilize um único sign-on Azure, conced
 
     ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. Nos diálogos **de Utilizadores e grupos** selecione a sua conta na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
 6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
@@ -260,4 +234,3 @@ Quando clicar no azulejo PolicyStat no Painel de Acesso, deverá ser automaticam
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

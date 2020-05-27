@@ -6,14 +6,14 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: bdef440fb8273dbbc5053d1c4eb6607fba0cdab3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744561"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849030"
 ---
-# <a name="getting-paid-in-commercial-marketplace"></a>Ser pago no mercado comercial
+# <a name="getting-paid-in-the-commercial-marketplace"></a>Ser pago no mercado comercial
 
 Aqui está uma informação importante sobre receber o pagamento pelas suas ofertas, addons e ganhos publicitários.
 
@@ -43,17 +43,15 @@ Você também tem a opção de inserir um preço gratuito da sua escolha em moed
 
 Tenha em mente que o preço que selecionar pode incluir vendas ou imposto sobre o valor acrescentado que os seus clientes devem pagar. Para mais detalhes, consulte [os detalhes do Imposto sobre a oferta paga.](tax-details-paid-transactions.md)
 
-
 ## <a name="payout-reporting"></a>Relatórios de pagamento
 
 Pode aceder a detalhes sobre as suas informações de pagamento e relatórios de descarregamento no resumo do **Pagamento** do [Partner Center](https://partner.microsoft.com/dashboard). Para mais detalhes sobre as informações aqui mostradas e como categorizamos o dinheiro que ganha, consulte a [síntese do Pagamento.](payout-summary-overview.md)
-
 
 ## <a name="payout-time-frame"></a>Prazo de pagamento
 
 Os pagamentos são feitos mensalmente (desde que o limiar de pagamento aplicável tenha sido cumprido e não tenha colocado o seu pagamento em espera como descrito abaixo). Normalmente enviaremos qualquer pagamento devido num dado mês até ao 15º dia desse mês. Note que os pagamentos geralmente demoram entre 3 a 10 dias úteis adicionais para chegar à sua conta de pagamento. Para mais detalhes, consulte [os limiares de pagamento, métodos e prazos.](payment-thresholds-methods-timeframes.md)
 
-##  <a name="payout-hold-status"></a>Estatuto de detenção de pagamento
+## <a name="payout-hold-status"></a>Estatuto de detenção de pagamento
 
 Por padrão, enviaremos pagamentos mensalmente, como descrito acima. No entanto, tem a opção de colocar os seus pagamentos para um programa em espera, o que nos impedirá de enviar pagamentos para a sua conta. Se optar por colocar os seus pagamentos em espera, continuaremos a registar qualquer receita que ganhe e forneceros os detalhes do seu resumo do **Pagamento.** No entanto, não enviaremos quaisquer pagamentos para a sua conta até que retire o porão.
 

@@ -3,12 +3,12 @@ title: Configurar link privado
 description: Criar um ponto final privado num registo de contentores e permitir o acesso a um link privado numa rede virtual local
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: 93cdbab8bcdaa9787373407fe8d6619dd5fd49c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701411"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850050"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Link Privado Azure para um registo de contentores Azure 
 
@@ -299,7 +299,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Desativar o acesso público - portal
 
 1. No portal, navegue para o registo do seu contentor e selecione **Definições > Networking**.
-1. No separador de **acesso público,** em **Permitir o acesso do público,** selecione **Disabled**. Em seguida, selecione **Guardar**.
+1. No separador de **acesso público,** em **Permitir o acesso à rede pública,** selecione **Disabled**. Em seguida, selecione **Guardar**.
 
 ## <a name="validate-private-link-connection"></a>Validar a ligação de ligação privada
 

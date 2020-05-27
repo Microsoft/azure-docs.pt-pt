@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs Azure para uma
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 8101f00f4ffc3735becbad2ecde26f5a208ff4a1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 970046f000a844ce6ee7207ad1bb33f4a327a63d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744824"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848112"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -231,6 +231,7 @@ Armazenamento fresco e quente | Não suportado | Os discos de máquinas virtuais
 Firewalls de armazenamento azure para redes virtuais  | Suportado | Se restringir o acesso virtual à rede a contas de armazenamento, ative [permitir serviços microsoft fidedignos](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Contas de armazenamento V2 de propósito geral (nível quente e fresco) | Suportado | Os custos de transação aumentam substancialmente em comparação com as contas de armazenamento V1 de finalidade geral
 Geração 2 (bota UEFI) | Suportado
+Discos NVMe | Não suportado
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue os alvos de escalabilidade e desempenho do disco VM para Os VMs [linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessárias, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga os alvos de escalabilidade e desempenho do disco para os seus VMs de origem.

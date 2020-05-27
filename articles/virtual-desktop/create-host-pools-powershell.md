@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 474eb4f5247aeb77edce0ebfde1611bf2deef493
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0a4d0c22318399370b9ec11046c33a4eb5460eb3
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930408"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860125"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -114,7 +114,7 @@ Para registar os agentes do Windows Virtual Desktop, faça o seguinte em cada m�
 1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais que forneceu ao criar a máquina virtual.
 2. Descarregue e instale o Windows Virtual Desktop Agent.
    - Descarregue o [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Execute o instalador. Quando o instalador lhe pedir o sinal de registo, insira o valor que obteve do **cmdlet Export-RdsRegistrationInfo.**
+   - Execute o instalador. Quando o instalador lhe pedir o sinal de registo, insira o valor que obteve do **cmdlet Export-AzWVDRegistrationInfo.**
 3. Descarregue e instale o Bootloader do Agente de Ambiente de Trabalho Virtual do Windows.
    - Descarregue o [Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)do Agente de Ambiente de Trabalho Virtual do Windows .
    - Execute o instalador.

@@ -8,25 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6ae8afefae9a539812748c0ae5380ddaf1fb084c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 693b8209498f07928c811fd084eaf259bcbcb5ff
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382672"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849642"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Quickstart: Procure vídeos usando a API e node.js de pesquisa de vídeo bing
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de vídeo bing e veja um resultado de pesquisa a partir da resposta JSON. Esta simples aplicação JavaScript envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esta aplicação esteja escrita no JavaScript e utilize o Node.js, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) com processamento de erros e anotações de código adicionais.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação JavaScript envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita no JavaScript e utilize o Node.js, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. 
+
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Node.js](https://nodejs.org/en/download/)
+* [Node.js.](https://nodejs.org/en/download/)
 
-* O módulo Request para JavaScript
-    * Pode instalar este módulo usando`npm install request`
+* O módulo Request para JavaScript. Instale este módulo utilizando `npm install request` .
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -39,7 +40,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
     let https = require('https');
     ```
 
-2. Crie variáveis para o seu ponto final de API, chave de subscrição e seu termo de pesquisa. `host`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o seu ponto final de API, chave de subscrição e termo de pesquisa. Para o `host` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -50,7 +51,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
 
 ## <a name="create-a-response-handler"></a>Criar um processador de resposta
 
-1. Crie uma `response_handler` função chamada para obter uma resposta JSON da API. Criar uma variável para o corpo de resposta. Anexar a resposta `data` quando uma `response.on()`bandeira é recebida, utilizando .
+1. Crie uma função chamada `response_handler` para obter uma resposta JSON da API. Criar uma variável para o corpo de resposta. Anexar a resposta quando uma `data` bandeira é recebida utilizando `response.on()` .
 
     ```javascript
     let response_handler = function (response) {
@@ -61,39 +62,40 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
     };
     ```
     
-   1. Quando `end` estiver sinalizado, utilize `response.on()` para armazenar os cabeçalhos relacionados com bing (começando com `bingapis` ou `x-msedge-`). Em seguida, analise `JSON.parse()`o JSON usando, convertê-lo em uma corda com `JSON.stringify()`, e imprima-o.
+1. Nesta função, utilize `response.on()` quando `end` for sinalizado para armazenar os cabeçalhos relacionados com bing (começando com `bingapis` ou `x-msedge-` ). Parse o JSON `JSON.parse()` usando, convertê-lo em uma corda com `JSON.stringify()` , e imprima-o.
 
-       ```javascript
-       response.on('end', function () {
-           for (var header in response.headers)
-               // header keys are lower-cased by Node.js
-               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                    console.log(header + ": " + response.headers[header]);
-           body = JSON.stringify(JSON.parse(body), null, '  ');
-           //JSON Response body
-           console.log(body);
-       });
-       ```
+    ```javascript
+    response.on('end', function () {
+        for (var header in response.headers)
+            // header keys are lower-cased by Node.js
+            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                 console.log(header + ": " + response.headers[header]);
+        body = JSON.stringify(JSON.parse(body), null, '  ');
+        //JSON Response body
+        console.log(body);
+    });
+    ```
 
 ## <a name="create-and-send-the-search-request"></a>Criar e enviar o pedido de pesquisa
 
-1. Criar uma `bing_video_search()`função chamada . Adicione os parâmetros para o seu pedido, incluindo o nome do anfitrião e os cabeçalhos. Codifique o seu termo de pesquisa e `?q=` adere-o ao parâmetro do seu percurso com o parâmetro. Em seguida, `req.end()`envie o pedido com .
+Criar uma função chamada `bing_video_search()` . Adicione os parâmetros para o seu pedido, incluindo o nome do anfitrião e os cabeçalhos. Codifique o seu termo de pesquisa e adere-o ao parâmetro do seu percurso com o `?q=` parâmetro. Em seguida, envie o pedido com `req.end()` .
 
-    ```javascript
-    let bing_video_search = function (search_term) {
-      console.log('Searching videos for: ' + term);
-      let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search_term),
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-        let req = https.request(request_params, response_handler);
-        req.end();
-    }
-    ```
+```javascript
+let bing_video_search = function (search_term) {
+  console.log('Searching videos for: ' + term);
+let request_params = {
+    method : 'GET',
+    hostname : host,
+    path : path + '?q=' + encodeURIComponent(search_term),
+    headers : {
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+    let req = https.request(request_params,
+      response_handler);
+    req.end();
+}
+```
 
 ## <a name="json-response"></a>Resposta JSON
 

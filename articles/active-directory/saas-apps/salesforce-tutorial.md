@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78967712"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849200"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Azure Ative Directory integração individual (SSO) com a Salesforce
 
@@ -93,8 +93,14 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     Conta empresarial:`https://<subdomain>.my.salesforce.com`
 
     Conta de desenvolvimento:`https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. Na caixa de texto **URL resposta,** escreva o valor utilizando o seguinte padrão:
 
-    b. Na caixa de texto **identificador,** digite o valor utilizando o seguinte padrão:
+    Conta empresarial:`https://<subdomain>.my.salesforce.com`
+
+    Conta de desenvolvimento:`https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. Na caixa de texto **identificador,** digite o valor utilizando o seguinte padrão:
 
     Conta empresarial:`https://<subdomain>.my.salesforce.com`
 
@@ -119,7 +125,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -229,7 +235,7 @@ Quando clicar no azulejo Salesforce no Painel de Acesso, deverá ser automaticam
 
 1. Finalmente, após o início do início do sessão, a página inicial da aplicação será exibida.
 
-    ![Aplicação](media/salesforce-tutorial/mobile-app5.png) ![móvel Salesforce Salesforce](media/salesforce-tutorial/mobile-app6.png)
+    ![Aplicação móvel ](media/salesforce-tutorial/mobile-app5.png) ![ Salesforce Salesforce](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

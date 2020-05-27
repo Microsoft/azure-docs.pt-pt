@@ -3,12 +3,12 @@ title: Como desativar funções em Funções Azure
 description: Aprenda a desativar e ativar funções em Funções Azure.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 8922edb7aaa41bcf50dcce5257b6600f1bde224a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115575"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848744"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desativar funções em Funções Azure
 
@@ -122,7 +122,8 @@ ou
 
 No segundo exemplo, a função é desativada quando existe uma definição de aplicação que é chamada IS_DISABLED e está definida para `true` ou 1.
 
-Pode editar o ficheiro no portal Azure ou utilizar os botões **Activae** e **Desativação** na página **de visão geral** da função. O interruptor do portal funciona alterando o ficheiro *função.json.*
+>[!IMPORTANT]  
+>O portal utiliza agora as definições de aplicação para desativar as funções v1.x. Quando uma definição de aplicação entra em conflito com o ficheiro função.json, pode ocorrer um erro. Deve remover a `disabled` propriedade do ficheiro função.json para evitar erros. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2019
-ms.openlocfilehash: 0e91bc9c994a48b335c3ccb7373a9f4f5dc6d1e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 11fb2b7785540f24b0a8318428da01a4edd5cb5b
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605093"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860635"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho de Log Analytics com o Azure CLI 2.0
 
@@ -117,6 +117,14 @@ Os seguintes parâmetros estabelecem um valor predefinido:
 A implementação pode demorar alguns minutos a concluir. Quando termina, vê-se uma mensagem semelhante à seguinte que inclui o resultado:
 
 ![Resultado do exemplo quando a implementação está completa](media/quick-create-workspace-cli/template-output-01.png)
+
+## <a name="troubleshooting"></a>Resolução de problemas
+Quando se cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de soft-delete,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do espaço de trabalho:
+1. Se fornecer o mesmo nome de espaço de trabalho, grupo de recursos, subscrição e região que no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
+2. Se utilizar o mesmo nome de espaço de trabalho, mas um grupo de recursos diferentes, subscrição ou região, terá um erro O nome do espaço de *trabalho 'workspace-name' não é único,* nem *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:
+   * [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho
+   * [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho
+   * Criar um novo espaço de trabalho usando o mesmo nome de espaço de trabalho
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que tem um espaço de trabalho disponível, pode configurar a recolha de telemetria de monitorização, executar pesquisas de registo para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e insights analíticos.  

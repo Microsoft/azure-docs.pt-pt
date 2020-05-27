@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176095"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869724"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -60,7 +60,7 @@ Ao implementar o Azure File Sync, recomendamos:
 - Prestando atenção às limitações iops de uma conta de armazenamento ao implementar ações de ficheiros Azure. Idealmente, você mapearia as partilhas de ficheiros 1:1 com contas de armazenamento, no entanto isso pode nem sempre ser possível devido a vários limites e restrições, tanto da sua organização como do Azure. Quando não for possível ter apenas uma parte de ficheiro implantada numa conta de armazenamento, considere quais as ações que serão altamente ativas e quais as ações que serão menos ativas para garantir que as ações de ficheiro mais quentes não sejam colocadas na mesma conta de armazenamento em conjunto.
 
 ## <a name="windows-file-server-considerations"></a>Considerações de servidor de ficheiros do Windows
-Para ativar a capacidade de sincronização no Windows Server, tem de instalar o agente descarregado rentreficheiro Sinifáto Azure. O agente Azure File Sync fornece `FileSyncSvc.exe`dois componentes principais: o serviço de fundo Windows responsável pela monitorização de `StorageSync.sys`alterações nos pontos finais do servidor e início de sessões de sincronização, e , um filtro de sistema de ficheiros que permite o tiering em nuvem e a rápida recuperação de desastres.  
+Para ativar a capacidade de sincronização no Windows Server, tem de instalar o agente descarregado rentreficheiro Sinifáto Azure. O agente Azure File Sync fornece dois componentes principais: o serviço de fundo Windows responsável pela monitorização de alterações nos pontos finais do servidor e início de sessões de sincronização, e , um filtro de sistema de ficheiros que permite o `FileSyncSvc.exe` `StorageSync.sys` tiering em nuvem e a rápida recuperação de desastres.  
 
 ### <a name="operating-system-requirements"></a>Requisitos do sistema operativo
 O Azure File Sync é suportado com as seguintes versões do Windows Server:
@@ -275,7 +275,7 @@ O Azure File Sync não opera com o NTFS Encrypted File System (NTFS EFS) ou com 
 ### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
 
 > [!NOTE]
-> O serviço Azure File Sync removerá o suporte para TLS1.0 e 1.1 em agosto de 2020. Todas as versões suportadas do agente DoFicheiro Azure Sync já utilizam O TLS1.2 por padrão. A utilização de uma versão anterior do TLS poderia ocorrer se o TLS1.2 fosse desativado no seu servidor ou se usasse um proxy. Se estiver a utilizar um proxy, recomendamos que verifique a configuração do proxy. As regiões de serviço azure File Sync adicionadas após 5/1/2020 só irão suportar TLS1.2 e o apoio a TLS1.0 e 1.1 será removido das regiões existentes em agosto de 2020.  Para mais informações, consulte o guia de resolução de [problemas.](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync)
+> O serviço Azure File Sync removerá o suporte para TLS1.0 e 1.1 no dia 1 de agosto de 2020. Todas as versões suportadas do agente DoFicheiro Azure Sync já utilizam O TLS1.2 por padrão. A utilização de uma versão anterior do TLS poderia ocorrer se o TLS1.2 fosse desativado no seu servidor ou se usasse um proxy. Se estiver a utilizar um proxy, recomendamos que verifique a configuração do proxy. As regiões de serviço azure File Sync adicionadas após 5/1/2020 só irão suportar TLS1.2 e o apoio a TLS1.0 e 1.1 será removido das regiões existentes no dia 1 de agosto de 2020.  Para mais informações, consulte o guia de resolução de [problemas.](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync)
 
 O agente Azure File Sync comunica com o seu Serviço de Sincronização de Armazenamento e partilha de ficheiros Azure utilizando o protocolo De sincronização de ficheiros Azure e o protocolo FileREST, ambos utilizando sempre HTTPS sobre a porta 443. O Azure File Sync não envia pedidos não encriptados em HTTP. 
 
@@ -354,7 +354,7 @@ Se tiver um servidor de ficheiros Windows existente, o Azure File Sync pode ser 
 
 - Crie pontos finais do servidor para a sua antiga partilha de ficheiros e a sua nova partilha de ficheiros e deixe o Sync do Ficheiro Azure sincronizar os dados entre os pontos finais do servidor. A vantagem desta abordagem é que torna muito fácil subscrever demasiado o armazenamento no seu novo servidor de ficheiros, uma vez que o Azure File Sync está ciente de um tiering em nuvem. Quando estiver pronto, pode cortar os utilizadores finais para a partilha de ficheiros no novo servidor e remover o ponto final do servidor da antiga partilha de ficheiros.
 
-- Crie um ponto final do servidor apenas no novo servidor `robocopy`de ficheiros e copie os dados a partir da antiga partilha de ficheiros utilizando . Dependendo da topologia das partilhas de ficheiros no seu novo servidor (quantas ações tem em cada volume, quão livre é `robocopy` cada volume, etc.), poderá ter de fornecer temporariamente armazenamento adicional, pois espera-se que do seu antigo servidor para o seu novo servidor dentro do seu datacenter no local seja concluído mais rapidamente do que o Azure File Sync irá mover dados para o Azure.
+- Crie um ponto final do servidor apenas no novo servidor de ficheiros e copie os dados a partir da antiga partilha de ficheiros utilizando `robocopy` . Dependendo da topologia das partilhas de ficheiros no seu novo servidor (quantas ações tem em cada volume, quão livre é cada volume, etc.), poderá ter de fornecer temporariamente armazenamento adicional, pois espera-se que do seu antigo servidor para o seu novo servidor dentro do `robocopy` seu datacenter no local seja concluído mais rapidamente do que o Azure File Sync irá mover dados para o Azure.
 
 Também é possível utilizar a Data Box para migrar dados para uma implementação de Sincronização de Ficheiros Azure. Na maior parte das vezes, quando os clientes querem usar a Data Box para ingerir dados, fazem-no porque pensam que vai aumentar a velocidade da sua implantação ou porque ajudará com cenários de largura de banda limitados. Embora seja verdade que a utilização de uma Caixa de Dados para ingerir dados na sua implementação do Sync de Ficheiros Azure diminuirá a utilização da largura de banda, é provável que seja mais rápida para a maioria dos cenários prosseguir um upload de dados online através de um dos métodos acima descritos. Para saber mais sobre como utilizar a Data Box para ingerir dados na sua implementação de Sincronização de Ficheiros Azure, consulte os [dados migrate para o Sync de Ficheiros Azure com](storage-sync-offline-data-transfer.md)a Caixa de Dados Azure .
 

@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68976867"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860992"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Quickstart: Criar um Catálogo de Dados Azure
 
@@ -22,6 +22,9 @@ Este quickstart ajuda-o a começar a criar um Catálogo de Dados Azure.
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!Note]
+> Devido aos requisitos de segurança do Azure, o Azure Data Catalog tem enforado a Segurança da Camada de Transporte (TLS) 1.2. TLS 1.0 e TLS 1.1 foram desativados. Pode encontrar erros com a ferramenta de registo se a sua máquina não for atualizada para TLS 1.2. Consulte a Ativação de Segurança da Camada de [Transporte (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) para atualizar a sua máquina para TLS 1.2.
 
 Para começar, é preciso ter:
 
@@ -34,7 +37,7 @@ Para configurar o Data Catalog, deve ser o proprietário ou coproprietário de u
 
 Pode aprovisionar apenas um catálogo de dados por organização (domínio do Azure Active Directory). Portanto, se o proprietário ou coproprietário de uma subscrição Azure que pertence a este domínio Azure Ative Diretório já criou um catálogo, então não pode criar um catálogo novamente mesmo que tenha várias subscrições Azure. Para testar se um catálogo de dados foi criado por um utilizador no seu domínio do Azure Active Directory, aceda à [home page do Catálogo de Dados do Azure](http://azuredatacatalog.com) e verifique se vê o catálogo. Se já tiver sido criado um catálogo para si, ignore o procedimento seguinte e avance para a próxima secção.
 
-1.  > Vá ao [portal Azure Crie](https://portal.azure.com)um**recurso** e selecione Data **Catalog**.
+1. Vá ao [portal Azure](https://portal.azure.com)  >  **Crie um recurso** e selecione Data **Catalog**.
 
     ![Catálogo de dados Azure cria botão](media/data-catalog-get-started/data-catalog-create.png)
 

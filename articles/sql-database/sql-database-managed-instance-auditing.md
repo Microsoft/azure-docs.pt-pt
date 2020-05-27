@@ -12,15 +12,15 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/27/2020
-ms.openlocfilehash: 7656944af16db650ec1fea36f0bdefc81b99922e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/26/2020
+ms.openlocfilehash: 66c2c5e52ef81f74f7177af897f33eec4ae1779e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654621"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860648"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância gerida da Base de Dados SQL do Azure
+# <a name="azure-sql-database-managed-instance-auditing"></a>Base de Dados Azure SQL geriu auditoria de instâncias
 
 [A](sql-database-managed-instance.md) auditoria de exemplo gerido rastreia eventos de base de dados e escreve-os num registo de auditoria na sua conta de armazenamento Azure. A auditoria também:
 
@@ -37,7 +37,9 @@ A secção seguinte descreve a configuração da auditoria na sua instância ger
    1. Navegue até ao Armazém Azure onde pretende armazenar os seus registos de auditoria.
 
       > [!IMPORTANT]
-      > Utilize uma conta de armazenamento na mesma região que a instância gerida para evitar leituras/escritos transversais. Se a sua conta de armazenamento estiver por trás de uma Rede Virtual ou de uma Firewall, consulte o [acesso do Grant a partir de uma rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Utilize uma conta de armazenamento na mesma região que a instância gerida para evitar leituras/escritos transversais. 
+      > - Se a sua conta de armazenamento estiver por trás de uma Rede Virtual ou de uma Firewall, consulte o [acesso do Grant a partir de uma rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, por favor note que a retenção só se aplicará aos registos escritos após a alteração do valor de retenção (os registos escritos durante o período em que a retenção foi definida para ilimitado são preservados, mesmo após a retenção ser ativada).
 
    1. Na conta de armazenamento, vá ao **Overview e** clique em **Blobs**.
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: sukishen
-ms.openlocfilehash: 17db9d615dcdd78ca50f88b5dad72d596bf29276
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 9b935c1f612e7634bad86818cd8331fba0078a9d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402483"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860584"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitetura de conectividade SD-WAN com Bluee Virtual WAN
 
@@ -39,7 +39,7 @@ O CPE SD-WAN continua a ser o local onde a otimização do tráfego, bem como a 
 
 Neste modelo, alguma otimização de tráfego proprietária do fornecedor com base nas características de tráfego em tempo real pode não ser suportada porque a conectividade com o WAN virtual é sobre iPsec e o IPsec VPN é terminado no gateway Virtual WAN VPN. Por exemplo, a seleção dinâmica de caminhos no cpe da sucursal é viável devido ao dispositivo de ramificação que troca várias informações de pacotes de rede com outro nó SD-WAN, identificando assim a melhor ligação para usar para vários tráfegos priorizados dinamicamente no ramo. Esta funcionalidade pode ser útil em áreas onde é necessária a otimização da última milha (filial do Microsoft POP mais próximo).
 
-Com o Virtual WAN, os utilizadores podem obter a Azure Path Selection, que é a seleção de caminhos baseado seleções baseadas em políticas em várias ligações ISP desde o CPE do ramo até aos gateways VVpN virtual WAN. O WAN virtual permite a configuração de múltiplas ligações (caminhos) a partir do mesmo CPE de filial SD-WAN; cada ligação representa uma ligação de túnel duplo de um IP público único do CPE SD-WAN a duas instâncias diferentes de gateway VPN Blue WAN Azure. Os fornecedores SD-WAN podem implementar o caminho mais ideal para o Azure, com base nas políticas de tráfego definidas pelo seu motor de política nas ligações CPE.
+Com o Virtual WAN, os utilizadores podem obter a Azure Path Selection, que é a seleção de caminhos baseado seleções baseadas em políticas em várias ligações ISP desde o CPE do ramo até aos gateways VVpN virtual WAN. O WAN virtual permite a configuração de múltiplas ligações (caminhos) a partir do mesmo CPE de filial SD-WAN; cada ligação representa uma ligação de túnel duplo de um IP público único do CPE SD-WAN a duas instâncias diferentes de gateway VPN Blue WAN Azure. Os fornecedores SD-WAN podem implementar o caminho mais ideal para o Azure, com base nas políticas de tráfego definidas pelo seu motor de política nas ligações CPE. Na extremidade Azure, todas as ligações que entram são tratadas igualmente.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modelo interligação indireta
 

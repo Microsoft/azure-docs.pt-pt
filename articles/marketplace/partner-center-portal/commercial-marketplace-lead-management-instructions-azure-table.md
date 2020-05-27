@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791022"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848024"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads do mercado comercial
 
@@ -151,7 +151,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
 
     1. **Para**: Inserir um endereço de e-mail para todos os que receberão esta notificação.
     1. **Assunto**: Forneça um assunto para o e-mail. Um exemplo é **novas pistas!**
-    1. **Corpo**: Adicione o texto que pretende incluir em cada e-mail (opcional) e, em seguida, colá-lo em `body('Get_entities')?['value']`.
+    1. **Corpo**: Adicione o texto que pretende incluir em cada e-mail (opcional) e, em seguida, colá-lo em `body('Get_entities')?['value']` .
 
     >[!NOTE]
     >Pode inserir pontos de dados estáticos ou dinâmicos adicionais para o corpo deste e-mail.
@@ -182,8 +182,9 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Vá à página de **configuração** da Oferta para a sua oferta.
 
-1. Selecione **Ligar** sob a secção de gestão de **chumbo.**
-     ![Gestão de oportunidades potenciais](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+1. Sob a secção **de comandos do Cliente,** selecione **Connect**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Lideranças de clientes":::
 
 1. Na janela pop-up de detalhes da **Ligação,** **selecione Azure Table** para o **destino Lead**. 
      ![Gestão de chumbo, detalhes de ligação](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c0883e91d5e806fb166c3ddeafc4ce130ff3f66f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210846"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860907"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivar para o que há de novo no Centro de Segurança Azure?
 
-As notas de lançamento primárias [O que há de novo no Azure Ative Directory?](release-notes.md)
+As principais novidades [no Azure Security Center?](release-notes.md)
 
 Esta página fornece-lhe informações sobre:
 

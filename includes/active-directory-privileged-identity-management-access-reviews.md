@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67476260"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868090"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Criar uma ou mais avaliações de acesso
 
@@ -36,13 +36,14 @@ ms.locfileid: "67476260"
     ![Âmbito dos utilizadores para rever a adesão à função](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > A seleção de mais de uma função criará múltiplas avaliações de acesso. Por exemplo, a seleção de cinco funções criará cinco avaliações de acesso separadas.
+    > - As funções aqui selecionadas incluem [funções permanentes e elegíveis.](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+    > - A seleção de mais de uma função criará múltiplas avaliações de acesso. Por exemplo, a seleção de cinco funções criará cinco avaliações de acesso separadas.
 
-    Se está a criar uma revisão de acesso das funções da AD Azure, o seguinte mostra um exemplo da lista de membros da Review.
+    Se está a criar uma revisão de acesso das **funções da AD Azure,** o seguinte mostra um exemplo da lista de membros da Review.
 
     ![Reveja o painel de membros listando funções azure AD que pode selecionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Se está a criar uma revisão de acesso das funções de recurso Azure, o seguinte mostra um exemplo da lista de membros da Review.
+    Se está a criar uma revisão de acesso das funções de **recurso Azure,** a imagem que se segue mostra um exemplo da lista de membros da Review.
 
     ![Reveja o painel de membros listando funções de recursos do Azure que pode selecionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 

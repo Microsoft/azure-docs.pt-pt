@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado por Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 690955f0e7d18f9a784b4c9a2fa1733442cb70dc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 962b6a17743ea2beed1e16503739c55c83babbce
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780026"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860550"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ligue um cluster Kubernetes ativado por Arco Azure (Pré-visualização)
 
@@ -154,7 +154,7 @@ Helm release deployment succeeded
 Enumerar os seus clusters conectados:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Saída:**
@@ -218,5 +218,5 @@ Para remover os agentes no aglomerado é necessário executar `az connectedk8s d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use GitOps num cluster conectado](./use-gitops-connected-cluster.md)
+* [Utilizar o GitOps num cluster ligado](./use-gitops-connected-cluster.md)
 * [Use a Política Azure para governar a configuração do cluster](./use-azure-policy.md)

@@ -3,12 +3,12 @@ title: Regras de acesso à firewall
 description: Configure as regras para aceder a um registo de contentores Azure por trás de uma firewall, permitindo o acesso a ("whitelisting") nomes de domínio de ponto final de dados e endereços IP específicos do serviço.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 109764a5697920547230530de41a3e5acfe0117d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701934"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849995"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure regras para aceder a um registo de contentores Azure atrás de uma firewall
 
@@ -137,7 +137,7 @@ Para ativar pontos finais de dados utilizando o portal:
 
 Os pontos finais ou pontos finais dos dados aparecem no portal.
 
-![Pontos finais de dados dedicados no portal](./media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png)
+:::image type="content" source="media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png" alt-text="Pontos finais de dados dedicados no portal":::
 
 ### <a name="azure-cli"></a>CLI do Azure
 

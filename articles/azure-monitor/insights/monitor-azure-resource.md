@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8072dec6b5f5dbd35c86573dd43d3925a271bc43
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249272"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849676"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorização de recursos Azure com o Monitor Azure
 Quando se tem aplicações críticas e processos de negócio baseados nos recursos do Azure, pretende monitorizar esses recursos para a sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitorização gerados pelos recursos do Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -49,7 +49,7 @@ Pode haver custos do Monitor Azure associados aos seguintes. Ver preços do [Mon
 - Aceder às métricas através da API.
 
 ## <a name="monitoring-data"></a>Monitorizar dados
-Os recursos em Azure geram [registos](../platform/data-platform-logs.md) e [métricas mostrados](../platform/data-platform-metrics.md) no seguinte diagrama. Consulte a documentação de cada serviço Azure para os dados específicos que geram e quaisquer soluções ou insights adicionais que forneçam.
+Os recursos em Azure geram [registos](../platform/data-platform-logs.md) e [métricas mostrados](../platform/data-platform-metrics.md) no diagrama seguinte. Consulte a documentação de cada serviço Azure para os dados específicos que geram e quaisquer soluções ou insights adicionais que forneçam.
 
 ![Descrição geral](media/monitor-azure-resource/logs-metrics.png)
 

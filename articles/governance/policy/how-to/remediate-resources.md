@@ -3,12 +3,12 @@ title: Identificar recursos em não conformidade
 description: Este guia acompanha-o através da remediação de recursos que não estão em conformidade com as políticas da Política Azure.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195235"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849965"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não conformes com a Política Azure
 
@@ -72,11 +72,11 @@ $resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
-A `$assignment` variável agora contém a identificação principal da identidade gerida juntamente com os valores padrão devolvidos na criação de uma atribuição de política. Pode ser acedido `$assignment.Identity.PrincipalId`através de .
+A `$assignment` variável agora contém a identificação principal da identidade gerida juntamente com os valores padrão devolvidos na criação de uma atribuição de política. Pode ser acedido através `$assignment.Identity.PrincipalId` de .
 
 ### <a name="grant-defined-roles-with-powershell"></a>Grant papéis definidos com powerShell
 
-A nova identidade gerida deve completar a replicação através do Azure Ative Directory antes de poder ser-lhe concedidas as funções necessárias. Uma vez concluída a replicação, o exemplo `$policyDef` seguinte iteita a definição de política para os **roleDefinitionIds** e utiliza a [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para conceder à nova identidade gerida as funções.
+A nova identidade gerida deve completar a replicação através do Azure Ative Directory antes de poder ser-lhe concedidas as funções necessárias. Uma vez concluída a replicação, o exemplo seguinte iteita a definição de política `$policyDef` para os **roleDefinitionIds** e utiliza a [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para conceder à nova identidade gerida as funções.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -109,7 +109,7 @@ Para adicionar um papel à identidade gerida da atribuição, siga estes passos:
    /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
    ```
 
-   O nome da identidade gerida é a última parte do `2802056bfc094dfb95d4d7a5` ID do recurso de atribuição, que está neste exemplo. Copie esta parte do ID do recurso de atribuição.
+   O nome da identidade gerida é a última parte do ID do recurso de atribuição, que está `2802056bfc094dfb95d4d7a5` neste exemplo. Copie esta parte do ID do recurso de atribuição.
 
 1. Navegue para o recurso ou para o contentor-mãe de recursos (grupo de recursos, subscrição, grupo de gestão) que precisa da definição de função adicionada manualmente.
 
@@ -157,7 +157,7 @@ Os recursos utilizados através de uma tarefa de **reparação** são adicionado
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Criar uma tarefa de reparação através do Azure CLI
 
-Para criar uma tarefa de **reparação** `az policy remediation` com o Azure CLI, utilize os comandos. `{subscriptionId}` Substitua-a pelo `{myAssignmentId}` id de subscrição e pelo seu **implementadoIfNotExists** ou **modifique** o ID de atribuição de políticas.
+Para criar uma tarefa de **reparação** com o Azure CLI, utilize os `az policy remediation` comandos. Substitua-a pelo id de `{subscriptionId}` subscrição e `{myAssignmentId}` pelo seu **implementadoIfNotExists** ou **modifique** o ID de atribuição de políticas.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -170,7 +170,7 @@ Para outros comandos e exemplos de reparação, consulte os comandos de [repara�
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Criar uma tarefa de reparação através do Azure PowerShell
 
-Para criar uma tarefa de **reparação** `Start-AzPolicyRemediation` com a Azure PowerShell, utilize os comandos. `{subscriptionId}` Substitua-a pelo `{myAssignmentId}` id de subscrição e pelo seu **implementadoIfNotExists** ou **modifique** o ID de atribuição de políticas.
+Para criar uma tarefa de **reparação** com a Azure PowerShell, utilize os `Start-AzPolicyRemediation` comandos. Substitua-a pelo id de `{subscriptionId}` subscrição e `{myAssignmentId}` pelo seu **implementadoIfNotExists** ou **modifique** o ID de atribuição de políticas.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -180,6 +180,10 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 ```
 
 Para outras cmdlets de reparação e exemplos, consulte o módulo [Az.PolicyInsights.](/powershell/module/az.policyinsights/#policy_insights)
+
+### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Criar uma tarefa de reparação durante a atribuição de políticas no portal Azure
+
+Uma forma simplificada de criar uma tarefa de reparação é fazê-lo a partir do portal Azure durante a atribuição de políticas. Se a definição de política para atribuir for um **efeito implementIfNotExists** ou **modificador,** o assistente no separador Remediation oferece uma opção de tarefa de **reparação** _Criar._ Se esta opção for selecionada, uma tarefa de repescasão é criada ao mesmo tempo que a atribuição de políticas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

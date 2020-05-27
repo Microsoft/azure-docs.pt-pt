@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 75baddbefc2babf73fee18cafe07177a3f0fb6f2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 1a027eb4cb3351934738319f342afac8d8407e6f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701027"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848809"
 ---
 # <a name="create-an-azure-container-offer"></a>Criar uma oferta de contentores Azure
 
@@ -59,7 +59,7 @@ Esta página mostra diferentes links com base no estado atual da oferta. Por exe
 
 Siga estes passos para configurar a sua oferta.
 
-### <a name="connect-lead-management--optional"></a>Conectar gestão de chumbo - opcional
+### <a name="customer-leads--optional"></a>Suportes ao cliente – opcionais
 
 Ao publicar a sua oferta no mercado comercial com o Partner Center, pode ligá-la ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém expressa interesse ou utiliza o seu produto.
 

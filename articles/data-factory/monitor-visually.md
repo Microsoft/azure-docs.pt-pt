@@ -1,5 +1,5 @@
 ---
-title: Monitor visualmente Azure Data Factory
+title: Monitorizar visualmente o Azure Data Factory
 description: Saiba como monitorizar visualmente as fábricas de dados do Azure
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 9a81ab58335e968e5ce4816de85ed1b63bc93455
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699602"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860835"
 ---
-# <a name="visually-monitor-azure-data-factory"></a>Monitor visualmente Azure Data Factory
+# <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -142,7 +142,7 @@ Clicar no ícone abre um relatório de consumo dos recursos utilizados por esse 
 
 ![Monitorizar o consumo](media/monitor-visually/monitor-consumption-2.png)
 
-Pode ligar estes valores à calculadora de preços do Azure. ( https://azure.microsoft.com/pricing/details/data-factory/) estimar o custo da execução do gasoduto. Para obter mais informações sobre os preços da Fábrica de Dados Azure, consulte [a compreensão dos preços.](pricing-concepts.md)
+Pode ligar estes valores à calculadora de [preços Azure](https://azure.microsoft.com/pricing/details/data-factory/) para estimar o custo da execução do gasoduto. Para obter mais informações sobre os preços da Fábrica de Dados Azure, consulte [a compreensão dos preços.](pricing-concepts.md)
 
 > [!NOTE]
 > Estes valores devolvidos pela calculadora de preços são uma estimativa. Não reflete o valor exato que será cobrado pela Azure Data Factory 
@@ -168,9 +168,9 @@ Selecione o ícone **Informação** na parte inferior esquerda. Em seguida, sele
 
 ## <a name="alerts"></a>Alertas
 
-Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor**  >  **Monitor Alerts & Métricas** na página de monitorização da Fábrica de Dados para começar.
+Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor**  >  **Alerts & métricas** na página de monitorização da Fábrica de Dados para começar.
 
-![Página de Monitor de fábrica de dados](media/monitor-visually/alerts01.png)
+![Página de Monitor de fábrica de dados](media/monitor-visually/start-page.png)
 
 Para uma introdução de sete minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
 
@@ -178,33 +178,33 @@ Para uma introdução de sete minutos e demonstração desta funcionalidade, vej
 
 ### <a name="create-alerts"></a>Criar alertas
 
-1.  Selecione **Nova Regra de Alerta** para criar um novo alerta.
+1.  Selecione **Nova regra de alerta** para criar um novo alerta.
 
-    ![Novo botão de regra de alerta](media/monitor-visually/alerts02.png)
+    ![Novo botão de regra de alerta](media/monitor-visually/new-alerts.png)
 
 1.  Especifique o nome da regra e selecione a gravidade do alerta.
 
-    ![Caixas para nome de regra e gravidade](media/monitor-visually/alerts03.png)
+    ![Caixas para nome de regra e gravidade](media/monitor-visually/name-and-severity.png)
 
 1.  Selecione os critérios de alerta.
 
-    ![Caixa para critérios-alvo](media/monitor-visually/alerts04.png)
+    ![Caixa para critérios-alvo](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista de critérios](media/monitor-visually/alerts05.png)
+    ![Lista de critérios](media/monitor-visually/add-criteria-2.png)
 
 1.  Configure a lógica de alerta. Pode criar um alerta para a métrica selecionada para todos os oleodutos e atividades correspondentes. Também pode selecionar um determinado tipo de atividade, nome de atividade, nome do pipeline ou tipo de falha.
 
-    ![Opções para configurar lógica de alerta](media/monitor-visually/alerts06.png)
+    ![Opções para configurar lógica de alerta](media/monitor-visually/alert-logic.png)
 
 1.  Configure e-mails, SMS, push e notificações de voz para o alerta. Crie um grupo de ação, ou escolha um existente, para as notificações de alerta.
 
-    ![Opções para configurar notificações](media/monitor-visually/alerts07.png)
+    ![Opções para configurar notificações](media/monitor-visually/configure-notification-1.png)
 
-    ![Opções para adicionar uma notificação](media/monitor-visually/alerts08.png)
+    ![Opções para adicionar uma notificação](media/monitor-visually/configure-notification-2.png)
 
 1.  Crie a regra de alerta.
 
-    ![Opções para criar uma regra de alerta](media/monitor-visually/alerts09.png)
+    ![Opções para criar uma regra de alerta](media/monitor-visually/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

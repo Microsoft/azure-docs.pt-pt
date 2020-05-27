@@ -8,29 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053814"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869286"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Quickstart: Obtenha resultados de notícias usando a Bing News Search REST API e Go
 
 Este quickstart usa a linguagem Go para chamar a API de Pesquisa de Notícias Bing. Os resultados incluem nomes e URLs de fontes noticiosas identificadas pela cadeia de consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Instale os [binários Go](https://golang.org/dl/)
-* Instale a biblioteca go-spew para que seja uma impressora bonita para exibir resultados
-    * Instale esta biblioteca:`$ go get -u https://github.com/davecgh/go-spew`
+* Instale os [binários Go](https://golang.org/dl/).
+* Instale a biblioteca go-spew para utilizar uma impressora profunda e bonita para exibir os resultados. Utilize este comando para instalar a biblioteca: `$ go get -u https://github.com/davecgh/go-spew` .
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Criar um projeto e importar bibliotecas
 
-Crie um novo projeto Go no seu IDE ou editor. Em `net/http` seguida, importar `ioutil` para pedidos, `encoding/json` ler a resposta, e para lidar com o texto json de resultados. A biblioteca go-spew é necessária para analisar a JSON. 
+Crie um novo projeto Go no seu IDE ou editor. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, lidar com o texto `encoding/json` jSON de resultados, e a `go-spew` biblioteca para analisar os resultados da JSON. 
 
 ```go
 package main
@@ -45,9 +44,9 @@ import (
 
 ```
 
-## <a name="create-a-struct-to-format-the-news-search-results"></a>Criar uma estrutura para formatar os resultados da pesquisa de Notícias
+## <a name="create-a-struct-to-format-the-news-search-results"></a>Criar uma estrutura para formatar os resultados da pesquisa de notícias
 
-A estrutura `NewsAnswer` formata os dados apresentados na resposta. A resposta JSON é multinível e bastante complexa.  A seguinte implementação abrange o essencial.
+O `NewsAnswer` struct forma os dados fornecidos na resposta JSON, que é multinível e complexo. A seguinte implementação abrange o essencial:
 
 ```go
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +86,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
-O código seguinte declara a função principal e atribui variáveis necessárias. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+O código seguinte declara a função principal e atribui as variáveis necessárias. Confirme que o ponto final está correto e, em seguida, substitua o valor por uma chave de `token` subscrição válida da sua conta Azure. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 ```go
 func main() {
@@ -108,7 +107,7 @@ func main() {
 
 ## <a name="query-and-header"></a>Consulta e cabeçalho
 
-Adicione o fio de consulta e o cabeçalho da chave de acesso
+Adicione o fio de consulta e o cabeçalho da chave de acesso.
 
 ```go
 // Add the query to the request.  
@@ -121,9 +120,9 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>Obter pedido
+## <a name="get-request"></a>Pedido get
 
-Crie o cliente e envie o pedido de Obter. 
+Crie o cliente e envie o pedido GET. 
 
 ```go
 // Instantiate a client.  
@@ -139,7 +138,7 @@ if err != nil {
 
 ## <a name="send-the-request"></a>Enviar o pedido
 
-Envie o pedido e `ioutil`leia os resultados usando .
+Envie o pedido e leia os resultados utilizando `ioutil` .
 
 ```go
 resp, err := client.Do(req)
@@ -160,7 +159,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-A `Unmarshall` função extrai informações do texto JSON devolvido pela API de Pesquisa de Notícias.  Em seguida, pode exibir os nódosos dos resultados utilizando a `go-spew` impressora bonita.
+A `Unmarshall` função extrai informações do texto JSON devolvido pela API de Pesquisa de Notícias Bing. Em seguida, exibe os nós dos resultados com a `go-spew` impressora bonita.
 
 ```go
 // Create a new answer object 
@@ -181,7 +180,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Resultados
 
-Os resultados contêm nome e URL de cada resultado.
+A seguinte saída contém o nome e o URL de cada resultado:
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

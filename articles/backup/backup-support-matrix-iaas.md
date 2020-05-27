@@ -3,12 +3,12 @@ title: Matriz de suporte da cópia de segurança de uma VM do Azure
 description: Fornece um resumo das definições de suporte e limitações ao apoiar os VMs Azure com o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 01c81257ab2cc9882ec1d388702a00f58694a7e4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724263"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849421"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -172,7 +172,7 @@ Armazenamento compartilhado| Não é suportado o backup de VMs utilizando volume
 
 ### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Backup de máquinas virtuais Azure com até 32 discos
 
-O Azure Backup suporta agora a cópia de segurança dos VMs Azure com até 32 discos anexados.  Esta funcionalidade está em pré-visualização pública no Centro-Oeste dos EUA.  Se estiver interessado nesta funcionalidade noutras regiões, inscreva-se para a pré-visualização limitada escrevendo-nos em AskAzureBackupTeam@microsoft.com .  
+O Azure Backup suporta agora a cópia de segurança dos VMs Azure com até 32 discos anexados.  Esta característica está em pré-visualização pública nos EUA Centrais Ocidentais, Canadá Central, Ásia Sudeste, Brasil Sul, Canadá Leste, França Central, França Sul, Índia Central, Índia Sul, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, África do Sul Norte, Reino Unido Sul, Reino Unido Oeste, Austrália Leste.  Se estiver interessado nesta funcionalidade noutras regiões, inscreva-se para a pré-visualização limitada escrevendo-nos em AskAzureBackupTeam@microsoft.com .  
 
 >[!NOTE]
 >O Azure Backup apenas suporta até 16 discos para VMs Azure com discos não geridos ou VMs clássicos.
@@ -231,10 +231,10 @@ O backup suporta a compressão do tráfego de reserva, tal como resumido na tabe
 
 **Máquina** | **Compressa para MABS/DPM (TCP)** | **Compressa ao cofre (HTTPS)**
 --- | --- | ---
-No local máquinas Windows sem DPM/MABS | ND | ![Sim][green]
+No local máquinas Windows sem DPM/MABS | ND | ![Yes][green]
 VMs do Azure | ND | ND
-VMs no local/Azure com DPM | ![Sim][green] | ![Sim][green]
-VMs no local/Azure com MABS | ![Sim][green] | ![Sim][green]
+VMs no local/Azure com DPM | ![Yes][green] | ![Sim][green]
+VMs no local/Azure com MABS | ![Yes][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

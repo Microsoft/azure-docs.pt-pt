@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: f975abcd05b92dd57eb736f076b63c88b4bf6769
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e49ed542af140b28e8ebe58e5c8920d0959c9387
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747260"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848909"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -67,7 +67,7 @@ Enumere a sua oferta aos clientes com um link para um teste gratuito, fornecendo
 
 #### <a name="contact-me"></a>Contacte-me
 
-Recolha informações de contacto com o cliente ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM). Será solicitado ao cliente permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e fonte de mercado onde encontraram a sua oferta, serão enviados para o sistema CRM que configura. Para mais informações sobre a configuração do seu CRM, consulte [Connect lead management](#connect-lead-management). 
+Recolha informações de contacto com o cliente ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM). Será solicitado ao cliente permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e fonte de mercado onde encontraram a sua oferta, serão enviados para o sistema CRM que configura. Para mais informações sobre a configuração do seu CRM, consulte [os leads do Cliente](#customer-leads).
 
 Selecione **guardar rascunho** antes de continuar.
 
@@ -96,7 +96,7 @@ Selecione entre as seguintes opções:
 - [Práticas de Marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Visão geral das unidades de teste](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (certifique-se de que o seu bloqueador pop-up está desligado)
 
-## <a name="connect-lead-management"></a>Ligar a gestão de chumbo
+### <a name="customer-leads"></a>Lideranças de clientes
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789883"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849187"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Utilizar o Marketo para gerir os líderes do mercado comercial
 
@@ -59,8 +59,8 @@ Este artigo descreve como configurar o seu sistema Marketo CRM para processar os
 
     Outra forma de descobrir estes valores:
 
-    - O ID do servidor encontra-se no URL `serverID.marketo.com`da sua instância Marketo, por exemplo, .
-    - Obtenha o ID Munchkin da sua subscrição indo para o seu menu **Admin** > **Munchkin** no campo de ID `https://{Munchkin ID}.mktorest.com`da conta De **Munchkin,** ou a partir da primeira parte do seu subdomínio de hospedar Marketo REST API: .
+    - O ID do servidor encontra-se no URL da sua instância Marketo, por exemplo, `serverID.marketo.com` .
+    - Obtenha o ID Munchkin da sua subscrição indo para o seu menu **Admin**  >  **Munchkin** no campo de **ID da conta De Munchkin,** ou a partir da primeira parte do seu subdomínio de hospedar Marketo REST API: `https://{Munchkin ID}.mktorest.com` .
     - O id do formulário é o id do formulário Código Incorporado que criou no passo 7 para direcionar os cabos do mercado.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configure a sua oferta para enviar pistas para Marketo
@@ -71,9 +71,9 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Selecione a sua oferta e vá ao separador **oferta.**
 
-1. Sob a secção de **gestão de chumbo,** selecione **Connect**. 
+1. Sob a secção **de comandos do Cliente,** selecione **Connect**.
 
-    ![Secção de gestão de chumbo Botão de ligação](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Lideranças de clientes":::
 
 1. Na janela pop-up de detalhes da **Ligação,** selecione **Marketo** para o **destino Lead**.
 

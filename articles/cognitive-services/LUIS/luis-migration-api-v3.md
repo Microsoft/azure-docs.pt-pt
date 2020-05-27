@@ -4,12 +4,12 @@ description: As APIs de previsão de consulta foram alteradas. Utilize este guia
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653859"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849336"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final da previsão para v3
 
@@ -57,7 +57,7 @@ Se você sabe que nenhuma das suas aplicações ou integrações do seu cliente 
 
 ## <a name="not-supported"></a>Não suportado
 
-### <a name="bing-spell-check"></a>Verificação de Ortografia do Bing
+### <a name="bing-spell-check"></a>Verificação Ortográfica do Bing
 
 Esta API não é suportada no ponto final de previsão V3 - continue a utilizar o ponto final de previsão V2 API para correções ortográficas. Se necessitar de correção ortográfica durante a utilização da V3 API, faça com que a aplicação do cliente ligue para a API [bing spell check,](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) e altere o texto para a ortografia correta, antes de enviar o texto para a API LUIS.
 
@@ -283,4 +283,4 @@ A V2 API não será depreciada durante pelo menos 9 meses após a pré-visualiza
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize a documentação V3 API para atualizar as chamadas DE REST existentes para ASAP [de ponto final](https://aka.ms/luis-api-v3) LUIS.
+Utilize a documentação V3 API para atualizar as chamadas DE REST existentes para ASAP [de ponto final](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) LUIS.

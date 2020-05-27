@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f7335b92d7c26b33f9b156d434d895a1bca40c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835398"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849761"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos de autor na Automação Azure
 
@@ -268,7 +268,7 @@ A autoria gráfica guarda dados criados por qualquer atividade que não tenha um
 
 ## <a name="work-with-powershell-expressions"></a>Trabalhar com expressões PowerShell
 
-Uma das vantagens da autoria gráfica é que lhe permite construir um livro de corridas com o mínimo conhecimento da PowerShell. Atualmente, porém, você precisa saber um pouco de PowerShell para a população de certos valores de [parâmetros](#use-activities) e para definir condições de [ligação](#use-links-for-workflow). Esta secção fornece uma introdução rápida às expressões PowerShell. Todos os detalhes do PowerShell estão disponíveis na [Scripting com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
+Uma das vantagens da autoria gráfica é que lhe permite construir um livro de corridas com o mínimo conhecimento da PowerShell. Atualmente, porém, você precisa saber um pouco de PowerShell para a população de certos valores de [parâmetros](#use-activities) e para definir condições de [ligação](#use-links-for-workflow). Esta secção fornece uma introdução rápida às expressões PowerShell. Todos os detalhes do PowerShell estão disponíveis na [Scripting com o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>Use uma expressão PowerShell como fonte de dados
 

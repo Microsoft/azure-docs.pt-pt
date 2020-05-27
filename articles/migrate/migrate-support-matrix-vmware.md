@@ -3,12 +3,12 @@ title: Suporte de avaliação vmware em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação vmware VM com avaliação do servidor de migração Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a0d05c56670c54aca25232a86b5a0e89d2f0bcfd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0ec7006ce240df8c6e07afffa886e78ca9bc2a4d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983657"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849370"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação vmware 
 
@@ -39,7 +39,7 @@ Além de descobrir máquinas, a Server Assessment pode descobrir aplicações, p
 **credenciais vCenter** | A descoberta de aplicações necessita de uma conta vCenter Server com acesso apenas para leitura, e privilégios habilitados para Máquinas Virtuais > Operações de Hóspedes.
 **Credenciais VM** | Atualmente, a descoberta da aplicação suporta o uso de uma credencial para todos os servidores do Windows, e uma credencial para todos os servidores Linux.<br/><br/> Cria uma conta de utilizador convidado para VMs do Windows e uma conta de utilizador regular/normal (acesso não sudo) para todos os VMs Linux.
 **Ferramentas VMware** | As ferramentas VMware devem ser instaladas e em funcionamento em VMs que pretende descobrir. <br/> A versão das ferramentas VMware deve ser superior a 10.2.0.
-**PowerShell** | Os VMs devem ter a versão PowerShell 2.0 ou posteriormente instalada.
+**PowerShell** | Os VMs do Windows devem ter a versão PowerShell 2.0 ou posteriormente instalada.
 **Acesso portuário** | Nos anfitriões ESXi que executam VMs que pretende descobrir, o aparelho Azure Migrate deve poder ligar-se à porta 443 do TCP.
 **Limites** | Para a descoberta de aplicações, pode descobrir até 10000 VMs em cada aparelho Azure Migrate.
 
@@ -53,7 +53,7 @@ Além de descobrir máquinas, a Server Assessment pode descobrir aplicações, p
 **vCenter Server** | As máquinas que pretende descobrir e avaliar devem ser geridas pela versão vCenter Server 5.5, 6.0, 6.5 ou 6.7.
 **Permissões (avaliação)** | conta de leitura vCenter Server.
 **Permissões (descoberta de apps)** | conta vCenter Server com acesso apenas para leitura, e privilégios habilitados para **máquinas virtuais > Operações de Hóspedes**.
-**Permissões (visualização da dependência)** | conta vCenter Server com acesso apenas para leitura, e privilégios habilitados para**operações de hóspedes**de **máquinas** > virtuais .
+**Permissões (visualização da dependência)** | conta vCenter Server com acesso apenas para **Virtual machines**leitura, e privilégios habilitados para  >  **operações de hóspedes**de máquinas virtuais .
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
@@ -67,7 +67,7 @@ A Azure Migrate utiliza o [aparelho Migratório Azure](migrate-appliance.md) par
 
 ## <a name="port-access"></a>Acesso portuário
 
-**Dispositivo** | **Conexão**
+**Dispositivo** | **Ligação**
 --- | ---
 Aparelho | Ligações de entrada na porta TCP 3389 para permitir ligações remotas ao aparelho.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão de aparelhos utilizando o URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Ligações de saída na porta 443 (HTTPS), para enviar metadados de descoberta e desempenho para o Azure Migrate.
 vCenter Server | Ligações de entrada na porta TCP 443 para permitir que o aparelho recolha metadados de configuração e desempenho para avaliações. <br/><br/> O aparelho liga-se ao vCenter na porta 443 por defeito. Se o servidor vCenter ouvir uma porta diferente, pode modificar a porta quando configurar a descoberta.
@@ -105,7 +105,7 @@ Além de descobrir máquinas, a Server Assessment pode descobrir aplicações, p
 **Agentes necessários** | Não é necessário um agente nas máquinas que queira analisar.
 **Ferramentas VMware** | As Ferramentas VMware (mais tardar 10.2) devem ser instaladas e em funcionamento em cada VM que pretende analisar.
 **credenciais vCenter Server** | A visualização da dependência necessita de uma conta vCenter Server com acesso apenas para leitura, e privilégios habilitados para Máquinas Virtuais > Operações de Hóspedes. 
-**PowerShell** | Os VMs devem ter a versão PowerShell 2.0 ou superior instalada.
+**PowerShell** | Os VMs do Windows devem ter a versão PowerShell 2.0 ou superior instalada.
 **Acesso portuário** | Nos anfitriões ESXi que executam VMs que pretende analisar, o aparelho Azure Migrate deve poder ligar-se à porta 443 do TCP.
 
 

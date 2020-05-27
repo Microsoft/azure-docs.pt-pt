@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f8d55669798765cf24e13e95b261cbe4f0e9e3a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422134"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868110"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. A qualquer momento em que o Azure precise de capacidade de volta, a infraestrutura Azure despejará VMs spot. Por isso, os VMs spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes de v/teste, grandes cargas de trabalho de computação, e muito mais.
 
@@ -52,7 +52,7 @@ Os VMs spot podem ser implantados em qualquer região, exceto o Microsoft Azure 
 Os preços dos VMs spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços vm para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 
-Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, `0.98765`o valor seria um preço máximo de $0.98765 USD por hora. Se fixar o preço `-1`máximo para ser, o VM não será despejado com base no preço. O preço do VM será o preço atual para o local ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
+Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo para `-1` ser, o VM não será despejado com base no preço. O preço do VM será o preço atual para o local ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
 
 
 ##  <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -85,10 +85,10 @@ Com preços variáveis, você tem opção de definir um preço máximo, em dóla
 
 | Canais Azure               | Disponibilidade de VMs spot azure       |
 |------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pay As You Go                | Sim                               |
+| Contrato Enterprise         | Yes                               |
+| Pay As You Go                | Yes                               |
 | Provedor de Serviço sinuoso (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Contrato de Cliente da Microsoft | Sim                               |
+| Contrato de Cliente da Microsoft | Yes                               |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
 | Avaliação Gratuita                   | Não disponível                     |
@@ -96,7 +96,7 @@ Com preços variáveis, você tem opção de definir um preço máximo, em dóla
 
 **Q:** Onde posso fazer perguntas?
 
-**A:** Pode publicar e marcar `azure-spot` a sua pergunta no [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Pode publicar e marcar a sua pergunta `azure-spot` no Q&[A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 
 

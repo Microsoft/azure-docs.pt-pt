@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
-ms.openlocfilehash: 0b2f67424589958d5d81e01c2efee525311ee33c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 05/26/2020
+ms.openlocfilehash: a03fcf5748eaa215aa90b70dbd11e788e8beb3e4
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836373"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860975"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho de Log Analytics no Monitor Azure utilizando powerShell
 Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho log Analytics no Monitor Azure.  
@@ -211,6 +211,13 @@ No exemplo acima, o regexDelimiter foi definido como \\ "n" para a newline. O de
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> onde + é + ou um - <br> onde o tempo zzzz compensado | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> O T é uma letra literal T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
+## <a name="troubleshooting"></a>Resolução de problemas
+Quando se cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de soft-delete,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do espaço de trabalho:
+1. Se fornecer o mesmo nome de espaço de trabalho, grupo de recursos, subscrição e região que no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
+2. Se utilizar o mesmo nome de espaço de trabalho, mas um grupo de recursos diferentes, subscrição ou região, terá um erro O nome do espaço de *trabalho 'workspace-name' não é único,* nem *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:
+   * [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho
+   * [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho
+   * Criar um novo espaço de trabalho usando o mesmo nome de espaço de trabalho
 
 
 ## <a name="next-steps"></a>Passos seguintes

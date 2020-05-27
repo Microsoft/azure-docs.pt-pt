@@ -3,17 +3,17 @@ title: Internet peering vs. Peering Service
 titleSuffix: Azure
 description: Internet peering vs. Peering Service
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75775706"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849387"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Internet peering vs. Peering Service
 
@@ -38,15 +38,15 @@ Na figura acima de cada filial de uma empresa global conecta-se à localização
 
 **Peering Service benefícios ao cliente:**
 * Melhor encaminhamento público através da Internet para Microsoft Cloud Services para um desempenho e fiabilidade ótimos.
-* Capacidade de selecionar o SP preferido para ligar ao Microsoft Cloud.
+* Capacidade de selecionar o Fornecedor de Serviços preferido para ligar ao Microsoft Cloud.
 * Informações de tráfego, tais como relatórios de latência e monitorização prefixo.
 * Optimum Network Hops (AS Hops) do Microsoft Cloud.
 * Aanálise de rotas e estatísticas - Eventos para Border Gateway Protocol[(BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) rotas anomalias (deteção de fugas/sequestros) e encaminhamento sub-ideal.
 
 ## <a name="peering-service-partnership-requirements"></a>Requisitos de parceria de serviço de peering
-* Conectividade com o Microsoft Cloud num local mais próximo do cliente. Um fornecedor de serviços parceiro irá direcionar o tráfego do utilizador para a borda da Microsoft mais próxima do utilizador. Da mesma forma, no tráfego para o utilizador, a Microsoft irá encaminhar o tráfego (utilizando a etiqueta BGP) para o local de borda mais próximo do utilizador e o SP irá fornecer o tráfego ao utilizador.
+* Conectividade com o Microsoft Cloud num local mais próximo do cliente. Um fornecedor de serviços parceiro irá direcionar o tráfego do utilizador para a borda da Microsoft mais próxima do utilizador. Da mesma forma, no tráfego para o utilizador, a Microsoft irá encaminhar o tráfego (utilizando a etiqueta BGP) para o local de borda mais próximo do utilizador e o Prestador de Serviços irá fornecer o tráfego ao utilizador.
 * O parceiro manterá uma elevada conectividade disponível, alta e georedundante com a Microsoft Global Network.
-* O parceiro pode utilizar o seu peering existente para apoiar o Serviço de Peering se cumprir o requisito
+* O parceiro pode utilizar o seu peering existente para apoiar o Serviço de Peering se cumprir o requisito.
 
 ## <a name="faq"></a>FAQ
 Para perguntas frequentes, consulte [o Serviço de Peering - FAQ](service-faqs.md).

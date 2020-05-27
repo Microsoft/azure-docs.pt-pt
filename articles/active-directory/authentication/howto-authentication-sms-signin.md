@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 517ff16cd1cbf9bfe31404d3b1b3993a02d6dae9
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 450e6aa1b22806fbd4d142e47caee720d7f63648
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871566"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860176"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configure e ative os utilizadores para autenticação baseada em SMS utilizando o Diretório Ativo do Azure (pré-visualização)
 
@@ -38,9 +38,9 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 * Um inquilino azure Ative Diretório associado à sua subscrição.
     * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Você precisa de privilégios *de administrador global* no seu inquilino Azure AD para permitir a autenticação baseada em SMS.
-* Cada utilizador habilitado na política do método de autenticação de mensagens de texto deve ser licenciado, mesmo que não o utilize. Cada utilizador habilitado deve ter uma das seguintes licenças Azure AD, Office 365 ou Microsoft 365:
+* Cada utilizador habilitado na política do método de autenticação de mensagens de texto deve ser licenciado, mesmo que não o utilize. Cada utilizador ativado deve ter uma das seguintes licenças Azure AD, EMS, Microsoft 365:
     * [Azure AD Premium P1 ou P2][azuread-licensing]
-    * [Microsoft 365 (M365) F1 ou F3][m365-firstline-workers-licensing] ou [Office 365 F1][o365-f1] ou [F3][o365-f3]
+    * [Microsoft 365 (M365) F1 ou F3][m365-firstline-workers-licensing]
     * [Mobilidade Empresarial + Segurança (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 (M365) E3 ou E5][m365-licensing]
 
 ## <a name="limitations"></a>Limitações

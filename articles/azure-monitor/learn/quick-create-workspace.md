@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2019
-ms.openlocfilehash: 3c2e9d5634916c3713b7e3380c0496611d8f60a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: e6ef8fb7dfd98a509b0b89e049c70169dafbe134
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656284"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860567"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho log Analytics no portal Azure
 Utilize o menu de espaços de **trabalho Log Analytics** para criar um espaço de trabalho log Analytics utilizando o portal Azure. Um espaço de trabalho log Analytics é um ambiente único para dados de registo do Azure Monitor. Cada espaço de trabalho tem o seu próprio repositório e configuração de dados, e fontes de dados e soluções são configuradas para armazenar os seus dados num determinado espaço de trabalho. Necessita de um espaço de trabalho de Log Analytics se pretender recolher dados das seguintes fontes:
@@ -27,7 +27,7 @@ Para outras fontes, como VMs Azure e Windows ou VMs Linux no seu ambiente, consu
 *  [Recolher dados do computador híbrido Linux](../learn/quick-collect-linux-computer.md)
 *  [Recolher dados do computador híbrido windows](quick-collect-windows-computer.md)
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
@@ -50,6 +50,14 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 3. Depois de fornecer as informações necessárias no painel de trabalho de **Log Analytics,** clique em **OK**.  
 
 Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
+
+## <a name="troubleshooting"></a>Resolução de problemas
+Quando se cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de soft-delete,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do espaço de trabalho:
+1. Se fornecer o mesmo nome de espaço de trabalho, grupo de recursos, subscrição e região que no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
+2. Se utilizar o mesmo nome de espaço de trabalho, mas um grupo de recursos diferentes, subscrição ou região, terá um erro *Este nome de espaço de trabalho já está em uso. Por favor, tente outro.* Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:
+   - [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho
+   - [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho
+   - Criar um novo espaço de trabalho usando o mesmo nome de espaço de trabalho
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que tem um espaço de trabalho disponível, pode configurar a recolha de telemetria de monitorização, executar pesquisas de registo para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e insights analíticos. 

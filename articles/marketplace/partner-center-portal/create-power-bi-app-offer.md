@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9c31c6ca4ccb5ff328faa5db1803134aa6b0c873
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701129"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849098"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Criar um aplicativo Power BI para microsoft AppSource
 
@@ -62,7 +62,7 @@ Inclui links para realizar operações nesta oferta com base na seleção que fa
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
-### <a name="connect-lead-management"></a>Ligar a gestão de chumbo
+### <a name="customer-leads"></a>Lideranças de clientes
 
 Ao publicar a sua oferta no mercado com o Partner Center, deve ligá-la ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém expressa interesse ou utiliza o seu produto.
 
@@ -136,7 +136,7 @@ Selecione **Guardar rascunho** antes de continuar na secção seguinte, Oferta d
 
 Aqui irá definir os detalhes da oferta que são exibidos no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante.
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
 Selecione o idioma em que a sua oferta será listada. Atualmente, **o inglês (Estados Unidos)** é a única opção disponível.
 

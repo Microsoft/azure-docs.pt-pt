@@ -3,12 +3,12 @@ title: Implementar modelos de Gestor de Recursos usando ações gitHub
 description: Descreve como implementar modelos de Gestor de Recursos Azure utilizando as ações do GitHub.
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 5fe147a9c42e83d5e644b0c08dfa67de88ec05c0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82875197"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869188"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implementar modelos de Gestor de Recursos Azure utilizando ações gitHub
 
@@ -61,7 +61,7 @@ O script produz um objeto JSON semelhante a este:
 Copie a saída JSON e guarde-a como um segredo GitHub dentro do seu repositório GitHub. Consulte o [Pré-Requisito](#prerequisites) se ainda não tem um repositório.
 
 1. A partir do seu repositório GitHub, selecione o separador **Definições.**
-1. Selecione **Segredo** a partir do menu esquerdo.
+1. Selecione **Segredos** do menu esquerdo.
 1. Introduza os seguintes valores:
 
     - **Nome**: AZURE_CREDENTIALS

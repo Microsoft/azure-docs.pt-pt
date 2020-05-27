@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 57b6bf06e34068b5560829838eb9ee1315df6cde
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778168"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868064"
 ---
 Os discos partilhados azure (pré-visualização) são uma nova funcionalidade para discos geridos pelo Azure que permitem ligar simultaneamente um disco gerido a várias máquinas virtuais (VMs). A fixação de um disco gerido a vários VMs permite-lhe implementar aplicações agrupadas novas ou migratórias existentes para o Azure.
 
@@ -37,14 +37,14 @@ Os discos geridos partilhados não oferecem de forma nativa um sistema de fichei
 
 ### <a name="windows"></a>Windows
 
-A maioria do clustering baseado no Windows baseia-se no WSFC, que trata de todas as infraestruturas centrais para a comunicação do nó de cluster, permitindo que as suas aplicações tirem partido de padrões de acesso paralelos. O WSFC permite opções baseadas em CSV e não-CSV dependendo da sua versão do Windows Server. Para mais detalhes, consulte criar [um cluster failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+A maioria do clustering baseado no Windows baseia-se no WSFC, que trata de todas as infraestruturas centrais para a comunicação de nós de cluster, o que permite às suas aplicações tirar partido de padrões de acesso paralelos. O WSFC permite opções baseadas em CSV e não CSV consoante a versão do Windows Server. Para mais detalhes, veja [Criar um cluster de ativação pós-falha](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
 Algumas aplicações populares em execução no WSFC incluem:
 
-- Casos de cluster de falha do servidor SQL (FCI)
-- Servidor de ficheiros scale-out (SoFS)
-- Servidor de ficheiros para uso geral (carga de trabalho iW)
-- Disco de perfil do servidor de servidor de ambiente de trabalho remoto (RDS UPD)
+- Instâncias de Cluster de Ativação Pós-falha (FCI) do SQL Server
+- Servidor de Ficheiros de Escalamento Horizontal (SoFS)
+- Servidor de Ficheiros para Utilização Geral (carga de trabalho IW)
+- Disco de Perfil do Utilizador do Servidor de Ambiente de Trabalho Remoto (RDS UPD)
 - SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
@@ -85,7 +85,7 @@ O fluxo é o seguinte:
 
 Os discos ultra oferecem um acelerador adicional, para um total de dois aceleradores. Devido a isso, o fluxo de reservas de discos ultra pode funcionar como descrito na secção anterior, ou pode acelerar e distribuir o desempenho de forma mais granular.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Uma imagem de uma tabela que retrata o acesso ReadOnly ou Read/Write para Titular de Reserva, Registado e Outros.":::
 
 ## <a name="ultra-disk-performance-throttles"></a>Aceleradores de desempenho ultra-disco
 
@@ -119,22 +119,16 @@ Os exemplos seguintes retratam alguns cenários que mostram como o estrangulamen
 
 Segue-se um exemplo de um WSFC de 2 nós utilizando volumes partilhados agrupados. Com esta configuração, ambos os VMs têm acesso por escrito simultâneo ao disco, o que resulta na divisão do acelerador ReadWrite entre os dois VMs e o acelerador ReadOnly não utilizado.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV dois nó ultra exemplo":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV dois nó ultra exemplo":::
 
 #### <a name="two-node-cluster-without-cluster-share-volumes"></a>Dois cluster sem volumes de partilha de cluster
 
 Segue-se um exemplo de um WSFC de 2 nós que não está a usar volumes partilhados agrupados. Com esta configuração, apenas um VM tem acesso por escrito ao disco. Isto resulta no acelerador ReadWrite sendo utilizado exclusivamente para o VM primário e o acelerador ReadOnly apenas sendo utilizado pelo secundário.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV dois nosdes sem csv exemplo de disco ultra":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV dois nosdes sem csv exemplo de disco ultra":::
 
 #### <a name="four-node-linux-cluster"></a>Aglomerado de quatro nós Linux
 
 Segue-se um exemplo de um aglomerado linux de 4 nós com um único escritor e três leitores de escala. Com esta configuração, apenas um VM tem acesso por escrito ao disco. Isto resulta no acelerador ReadWrite sendo utilizado exclusivamente para o VM primário e o acelerador ReadOnly sendo dividido pelos VMs secundários.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Quatro exemplo sarquetes de nó ultra":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Quatro exemplo sarquetes de nó ultra":::

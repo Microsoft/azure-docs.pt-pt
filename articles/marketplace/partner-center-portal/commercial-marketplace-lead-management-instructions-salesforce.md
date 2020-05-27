@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7d64b8914fa0b109dfc662a97a7f84d94e3491ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789713"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849145"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configure a gestão de chumbo para a Salesforce
 
@@ -31,7 +31,7 @@ Este artigo descreve como configurar o seu sistema Salesforce para processar os 
 
        ![Configuração da Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
-    1. Na página **de Configuração,** vá às**definições** >  > de funcionalidades de **funcionalidades**de**plataforma marketing** > **Web-to-Lead**.
+    1. Na página **de Configuração,** vá às **definições**de funcionalidades de funcionalidades de  >  **Feature Settings**  >  **plataforma marketing**  >  **Web-to-Lead**.
 
         ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
@@ -41,7 +41,7 @@ Este artigo descreve como configurar o seu sistema Salesforce para processar os 
 
        ![Configuração clássica da Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
-    1. Na página **de Configuração, selecione** **Build** > **Customize** > **Leads** > **Web-to-Lead**.
+    1. Na página **de Configuração, selecione** **Build**  >  **Customize**  >  **Leads**  >  **Web-to-Lead**.
 
         ![Salesforce clássico Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
@@ -70,9 +70,9 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Selecione a sua oferta e vá ao separador **oferta.**
 
-1. Sob a secção de **gestão de chumbo,** selecione **Connect**. 
+1. Sob a secção **de comandos do Cliente,** selecione **Connect**.
 
-    ![Secção de gestão de chumbo Botão de ligação](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Lideranças de clientes":::
 
 1. Na janela pop-up de detalhes da **Ligação,** selecione **Salesforce** para o **destino Lead** e colá o `oid` valor do Formulário Web-to-Lead que criou no campo de identificador da **Organização.**
 

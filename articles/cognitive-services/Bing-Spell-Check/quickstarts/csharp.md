@@ -8,33 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: aa76a5773a20a103ceec075a58c79fac691eec6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3bb126dc31620515c54a653ef595bfc017aaac73
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747332"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869598"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e C #
 
-Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido de C# envia um pedido à API e devolve uma lista de correções sugeridas. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido de C# envia um pedido à API e devolve uma lista de correções sugeridas. 
+
+Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017 ou mais tarde.](https://www.visualstudio.com/downloads/)
-* Para instalar `Newtonsoft.Json` como um pacote NuGet em estúdio Visual:
-    1. No **Solution Explorer,** clique à direita no ficheiro Solução.
-    1. Selecione **Gerir pacotes NuGet para solução**.
-    1. Procure `Newtonsoft.Json` e instale o pacote.
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada utilizando [o Mono](https://www.mono-project.com/).
+* O pacote Newtonsoft.Json NuGet. 
+     
+   Para instalar este pacote em estúdio Visual:
+
+     1. No **Solution Explorer,** clique à direita no ficheiro Solução.
+     1. Selecione **Gerir pacotes NuGet para solução**.
+     1. Procure *newtonsoft.Json* e instale o pacote.
+
+* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova solução de consola nomeada `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. Crie uma nova solução de consola chamada SpellCheckSample no Estúdio Visual. Em seguida, adicione os seguintes espaços de nome no ficheiro de código principal:
     
     ```csharp
     using System;
@@ -46,7 +52,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     using Newtonsoft.Json;
     ```
 
-2. Crie variáveis para o ponto final da API, a sua chave de subscrição e o texto a ser verificado. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o ponto final da API, a sua chave de subscrição e o texto a ser verificado. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,7 +68,11 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     }
     ```
 
-3. Crie uma variável para os seus parâmetros de pesquisa. Anexar o seu código de mercado depois `mkt=` de . O código de mercado é o país/região de onde faz o pedido. Além disso, apende o seu modo de verificação ortográfica depois `&mode=` de . O modo é `proof` ou (apanha a maioria dos erros ortográficos/gramaticais) ou (captura a `spell` maioria da ortografia, mas não tantos erros gramaticais).
+3. Crie uma cadeia para os seus parâmetros de pesquisa: 
+
+   a. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
+
+   b. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,7 +80,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-send-a-spell-check-request"></a>Criar e enviar um pedido de verificação ortográfica
 
-1. Crie uma função assíncrona chamada `SpellCheck()` para enviar um pedido à API. Crie um `HttpClient` e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho. Em seguida, execute os seguintes passos dentro da função.
+1. Crie uma função assíncrona chamada `SpellCheck()` para enviar um pedido à API. Crie um `HttpClient` e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho. Dentro da função, siga os próximos passos.
 
     ```csharp
     async static void SpellCheck()
@@ -127,7 +137,7 @@ Console.WriteLine(jsonObj);
 
 ## <a name="call-the-spell-check-function"></a>Ligue para a função de verificação de feitiços
 
-Na função principal do seu projeto, ligue `SpellCheck()` .
+Na `Main()` função do seu projeto, `SpellCheck()` ligue.
 
 ```csharp
 static void Main(string[] args)
@@ -189,4 +199,4 @@ Construa e gereno seu projeto. Se estiver a usar o Visual Studio, prima **F5** p
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

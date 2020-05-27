@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 7562dc9a70fc462cb9d623a5184fb672a7f7ca39
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743921"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860261"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -51,7 +51,7 @@ Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os rec
 Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusivo, referenciado pelo respetivo nome de domínio completamente qualificado, no qual cria um ou mais hubs de eventos. Para criar um espaço de nomes no seu grupo de recursos com o portal, faça as ações seguintes:
 
 1. No portal do Azure, clique em **Criar um recurso** na parte superior esquerda do ecrã.
-2. Selecione **todos os serviços** no menu esquerdo e selecione **star ()`*`** ao lado de Event **Hubs** na categoria **Analytics.** Confirme que **o Event Hubs** é adicionado aos **FAVORITES** no menu de navegação esquerdo. 
+2. Selecione **todos os serviços** no menu esquerdo e selecione **star `*` ()** ao lado de **Event Hubs** na categoria **Analytics.** Confirme que **o Event Hubs** é adicionado aos **FAVORITES** no menu de navegação esquerdo. 
     
    ![Pesquisa de Centros de Eventos](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Selecione Centros de **Eventos** em **FAVORITOS** no menu de navegação esquerdo e selecione **Adicionar** na barra de ferramentas.
@@ -102,7 +102,7 @@ Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)

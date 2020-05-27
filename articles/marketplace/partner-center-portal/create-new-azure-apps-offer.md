@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 2885df9e64bdbfa21eaaa38f423b90554f767cd7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773292"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848792"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -128,7 +128,7 @@ Para conhecer os requisitos de publicação de cada plano de aplicação, consul
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
-A página de **configuração da Oferta** é onde pode configurar um test drive e gestão de chumbo para a sua oferta. 
+A página de **configuração da Oferta** é onde pode configurar um test drive e gestão de chumbo para a sua oferta.
 
 ### <a name="test-drive"></a>Test drive
 
@@ -141,7 +141,7 @@ Para obter informações adicionais, consulte [Test drive a sua oferta no mercad
 >[!Note]
 >Como todas as aplicações Azure são implementadas usando um modelo de Gestor de Recursos Azure, o único tipo de test drive disponível para uma aplicação Azure é um [test drive baseado em Recursos Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## <a name="lead-management"></a>Gestão de oportunidades potenciais
+### <a name="customer-leads"></a>Lideranças de clientes
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 

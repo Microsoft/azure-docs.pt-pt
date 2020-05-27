@@ -5,15 +5,15 @@ author: yegu-ms
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/23/2018
+ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: df8c827567e116e3be908221b9004eb455b24c8b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02430e2dfa68ff0ce4bf116666d72a46e1120746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010788"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848860"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Quickstart: Use Azure Cache para Redis com Java
 
@@ -53,7 +53,7 @@ Abra o ficheiro *pom.xml* e adicione uma dependência para [Jedis](https://githu
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>2.9.0</version>
+        <version>3.2.0</version>
         <type>jar</type>
         <scope>compile</scope>
     </dependency>
