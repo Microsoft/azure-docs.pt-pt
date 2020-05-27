@@ -3,34 +3,20 @@ title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692648"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648208"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
 Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal (https://ea.azure.com). O Azure EA Portal é um portal de gestão online que ajuda os clientes a gerir os custos dos seus serviços de EA do Azure. Para obter informações introdutórias sobre o Azure EA Portal, veja o artigo [Introdução ao Azure EA Portal](ea-portal-get-started.md).
-
-## <a name="add-a-new-enterprise-administrator"></a>Adicionar um novo administrador corporativo
-
-Os administradores corporativos têm muitos privilégios ao gerir uma inscrição de EA do Azure. O administrador do EA do Azure inicial foi criado quando o contrato de EA foi configurado. No entanto, pode adicionar ou remover novos administradores a qualquer momento. Apenas são adicionados novos administradores por administradores existentes. Para obter mais informações sobre como adicionar administradores corporativos adicionais, veja [Criar outro administrador corporativo](ea-portal-get-started.md#create-another-enterprise-administrator). Para obter mais informações sobre as funções e tarefas do perfil de faturação, veja [Funções e tarefas do perfil de faturação](understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-## <a name="update-user-state-from-pending-to-active"></a>Atualizar o estado do utilizador de pendente para ativo
-
-Quando são adicionados novos Proprietários de Conta (AO) a uma inscrição do EA do Azure pela primeira vez, o estado aparece como _Pendente_. Quando um novo proprietário de conta recebe o e-mail de boas-vindas de ativação, ele pode iniciar sessão para ativar a respetiva conta. Após ativar a conta, o estado da conta é atualizado de _Pendente_ para _Ativo_. O proprietário da conta tem de ler a mensagem “Aviso” e selecionar **Continuar**. Pode ser solicitado a novos utilizadores que introduzam o nome próprio e o apelido para criar uma Conta de Comércio. Nesse caso, têm de adicionar as informações necessárias para continuar e, em seguida, a conta é ativada.
-
-## <a name="add-a-department-admin"></a>Adicionar um Administrador de Departamento
-
-Após a criação de um departamento por um administrador do EA do Azure, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. São necessárias novas contas para que as subscrições do EA do Azure sejam criadas.
-
-Para obter mais informações sobre como adicionar um administrador de departamento, veja [Criar um administrador de departamento do EA do Azure](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associar uma conta a um departamento
 
@@ -114,108 +100,6 @@ Quando um utilizador é adicionado como um proprietário da conta através do Az
 
 De momento, a Oferta Dev/Test não é aplicável aos clientes Azure Gov.
 
-## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferir uma conta corporativa para uma nova inscrição
-
-Uma transferência de conta move um proprietário de conta de uma inscrição para outra. Todas as subscrições relacionadas do proprietário da conta serão movidas para a inscrição de destino. Utilize a transferência de conta se tiver várias inscrições ativas e quiser remover apenas determinados proprietários de conta.
-
-Esta secção destina-se a fins meramente informativos, pois a ação não pode ser executada por administradores da empresa. É necessário um pedido de suporte para transferir uma conta empresarial para uma inscrição nova.
-
-Tenha os seguintes pontos em mente ao transferir uma conta corporativa para uma nova inscrição:
-
-- Apenas as contas especificadas no pedido são transferidas. Se forem escolhidas todas as contas, serão todas transferidas.
-- A inscrição de origem retém o estado como ativo ou expandido. Pode continuar com a inscrição até que expire.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Ao pedir uma transferência de conta, forneça as seguintes informações:
-
-- O número da inscrição de destino, o nome da conta e o e-mail do proprietário da conta a transferir
-- Relativamente à inscrição de origem, o número de inscrição e a conta a ser transferida
-
-Outros pontos a ter em mente antes de uma transferência de conta:
-
-- É necessária a aprovação de um administrador de EA para a inscrição de origem e de destino
-- Se uma transferência de conta não atender aos seus requisitos, considere uma transferência de inscrição.
-- A transferência de conta transfere todos os serviços e subscrições relacionados com as contas específicas.
-- Uma vez concluída a transferência, a conta transferida aparece inativa na inscrição de origem e ativa na inscrição de destino.
-- A conta mostra a data de fim que corresponde à data de transferência efetiva na inscrição de origem e aparece como data de início na inscrição de destino.
-- Qualquer utilização ocorrida na conta antes da data de transferência efetiva permanece na inscrição de origem.
-
-
-## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferir inscrição corporativa para uma nova
-
-Considera-se uma transferência de inscrição quando:
-
-- O termo de alocação de uma inscrição atual tiver terminado.
-- Uma inscrição se encontra no estado expirado/alargado e é negociado um novo contrato.
-- Tem várias inscrições e pretende combinar todas as contas e a faturação numa única inscrição.
-
-Esta secção destina-se a fins meramente informativos, pois a ação não pode ser executada por administradores da empresa. É necessário um pedido de suporte para transferir uma inscrição empresarial para uma nova.
-
-Quando pede a transferência de uma inscrição corporativa inteira para uma inscrição, ocorrem as seguintes ações:
-
-- Todos os serviços, subscrições, contas, departamentos e toda a estrutura de inscrição, incluindo todos os administradores de departamentos do EA, são transferidos para uma inscrição de destino nova.
-- O estado da inscrição é definido para _Transferida_. A inscrição transferida está disponível apenas para fins de relatório de histórico de utilização.
-- Não pode adicionar funções ou subscrições a uma inscrição transferida. O estado Transferida impede a utilização adicional em relação à inscrição.
-- Qualquer saldo de alocação monetária restante no contrato é perdido, incluindo os termos futuros.
--    Se a inscrição da qual está a transferir tiver compras de RIs, a taxa das compras de RIs permanecerá na inscrição de origem. No entanto, os benefícios das RIs serão transferidos para utilização na nova inscrição.
--    A taxa de compra única do marketplace e todas as taxas fixas mensais já incorridas na antiga inscrição não serão transferidas para a nova inscrição. As taxas do marketplace baseadas no consumo serão transferidas.
-
-### <a name="effective-transfer-date"></a>Data de transferência efetiva
-
-O dia da transferência efetiva pode ser na data de início da inscrição de destino ou numa data posterior.
-
-A utilização da inscrição de origem é cobrada como alocação monetária ou utilização excedida. A utilização que ocorre após a data de transferência efetiva é transferida para a nova inscrição e cobrada em conformidade.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Ao pedir uma transferência de inscrição, forneça as seguintes informações:
-
-- Relativamente à inscrição de origem, o número de inscrição.
-- Relativamente à inscrição de destino, o número de inscrição para o qual transferir.
-- Relativamente à data efetiva da transferência de inscrição, pode ser uma data na ou após a data de início da inscrição de destino. A data escolhida não pode afetar a utilização de nenhuma fatura de utilização excedida já emitida.
-
-Outros pontos a ter em mente antes de uma transferência de inscrição:
-
-- É necessária a aprovação dos Administradores EA da inscrição de origem e de destino.
-- Se uma transferência de inscrição não atender aos seus requisitos, considere uma transferência de conta.
-- O estado da inscrição de origem será atualizado para transferido e só estará disponível para fins de relatório de histórico de utilização.
-
-### <a name="monetary-commitment"></a>Alocação monetária
-
-A alocação monetária não é transferível entre inscrições. Os saldos de alocação monetária são associados contratualmente à inscrição em que foi pedida. A alocação monetária não é transferida como parte do processo de transferência de inscrição ou conta.
-
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço é afetado pelas transferências de inscrições e de contas
-
-Não há tempo de inatividade durante a transferência da inscrição ou da conta. Pode ser concluída no mesmo dia do pedido se todas as informações necessárias forem fornecidas.
-
-## <a name="change-account-owner"></a>Alterar o Proprietário da Conta
-
-O Azure EA Portal pode transferir subscrições de um proprietário de conta para outro. Para obter mais informações, veja [Criar Proprietário de Conta](ea-portal-get-started.md#change-account-owner).
-
-## <a name="subscription-transfer-effects"></a>Efeitos da transferência da subscrição
-
-Quando uma subscrição do Azure é transferida para uma conta no mesmo inquilino do AAD, todos os utilizadores, grupos e principais de serviço que tinham o [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) para gerir recursos mantêm o respetivo acesso.
-
-Para visualizar os utilizadores com acesso RBAC à subscrição:
-
-1. No portal do Azure, abra as **Subscrições**.
-2. Selecione a subscrição que pretende visualizar e, em seguida, selecione **Controlo de acesso (IAM)** .
-3. Selecione **Atribuições de funções**. A página de atribuições de funções lista todos os utilizadores que têm acesso RBAC à subscrição.
-
-Se a subscrição for transferida para uma conta num inquilino do AAD diferente, todos os utilizadores, grupos e principais de serviço que tinham [RBAC](../../role-based-access-control/overview.md) para gerir recursos _perdem_ o respetivo acesso. Embora o acesso RBAC não esteja presente, o acesso à subscrição poderá estar disponível por meio de mecanismos de segurança, incluindo:
-
-- Certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../../cloud-services/cloud-services-certs-create.md).
-- Chaves de acesso dos serviços como o Armazenamento. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
-- Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
-
-Se o destinatário precisar de restringir o acesso aos recursos do Azure, deverá considerar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, selecione **Todos os recursos**.
-3. Selecione o recurso.
-4. Na página de recursos, selecione **Definições** para ver e atualizar os segredos existentes.
-
 ## <a name="delete-subscription"></a>Eliminar subscrição
 
 Para eliminar uma subscrição em que é o proprietário da conta:
@@ -260,60 +144,6 @@ Para adicionar um contacto:
 O novo contacto de notificação é apresentado na secção **Contato de Notificação**. Para alterar a frequência de notificação, selecione o contacto de notificação e selecione o símbolo de lápis à direita da linha selecionada. Defina a frequência como **diária**, **semanal**, **mensal** ou **nenhuma**.
 
 Pode suprimir _a aproximação da data de término do período de cobertura_ e _desativar e desaprovisionar as notificações do ciclo de vida de aproximação de data_. Desativar notificações de ciclo de vida suprime notificações sobre o período de cobertura e a data de término do contrato.
-
-## <a name="manage-partner-administrators"></a>Gerir administradores parceiros
-
-Cada administrador parceiro no Azure EA Portal pode adicionar ou remover outros administradores parceiros. Os administradores parceiros são associados às organizações parceiras das inscrições indiretas e não associados diretamente às inscrições.
-
-### <a name="add-a-partner-administrator"></a>Adicionar um administrador parceiro
-
-Para ver uma lista de todas as inscrições associadas à mesma organização parceira que o atual utilizador, selecione o separador **Inscrição** e selecione a caixa de inscrição pretendida.
-
-1. Inicie sessão como administrador parceiro.
-1. Selecione **Gerir** no painel de navegação esquerdo.
-1. Selecione o separador **Parceiro**.
-1. Selecione **+ Adicionar Administrador** e preencha o endereço de e-mail, o contacto de notificação e os detalhes da notificação.
-1. Selecione **Adicionar**.
-
-### <a name="remove-a-partner-administrator"></a>Remover um administrador parceiro
-
-Para ver uma lista de todas as inscrições associadas à mesma organização parceira que o atual utilizador, selecione o separador **Inscrição** e selecione a caixa de inscrição pretendida.
-
-1. Inicie sessão como administrador parceiro.
-1. Selecione **Gerir** no painel de navegação esquerdo.
-1. Selecione o separador **Parceiro**.
-1. Na secção Administrador, selecione a linha apropriada para o administrador que quer remover.
-1. Selecione o símbolo X à direita.
-1. Confirme a eliminação.
-
-## <a name="manage-partner-notifications"></a>Gerir notificações de parceiros
-
-Os Administradores de Parceiros podem gerir a frequência com que recebem notificações de utilização das respetivas inscrições. Recebem automaticamente notificações semanais do respetivo saldo não faturado. Podem alterar a frequência de notificações individuais para mensal, semanal, diária ou desligá-las completamente.
-
-Se uma notificação não for recebida por um utilizador, verifique se as definições de notificação do utilizador estão corretas com os passos a seguir.
-
-1. Inicie sessão no Azure EA Portal como Administrador de Parceiro.
-2. Selecione **Gerir** e, em seguida, o separador **Parceiro**.
-3. Veja a lista de administradores na secção Administrador.
-4. Para editar as preferências de notificação, passe o cursor sobre o administrador apropriado e selecione o símbolo de lápis.
-5. Aumente a frequência e a duração das notificações conforme necessário.
-6. Adicione um contacto, se necessário, e selecione **Adicionar**.
-7. Selecione **Guardar**.
-
-![Exemplo que mostra a caixa Adicionar Contacto ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## <a name="view-enrollments-for-partner-administrators"></a>Ver as inscrições do administradores parceiros
-
-Os administradores parceiros podem ver uma vista de lista de todas as inscrições diretas e indiretas no Azure EA Portal. As caixas que contêm uma descrição geral de cada inscrição serão apresentadas com o número da inscrição, o nome da inscrição, o saldo e os valores de utilização excedida.
-
-### <a name="view-a-list-of-enrollments"></a>Ver uma Lista de Inscrições
-
-1. Inicie sessão como administrador parceiro.
-1. Selecione **Gerir** no painel de navegação do lado esquerdo da página.
-1. Selecione o separador **Inscrição**.
-1. Selecione a caixa da inscrição.
-
-Uma vista de todas as inscrições permanece no topo da página, com caixas para cada inscrição. Adicionalmente, pode navegar entre as inscrições ao selecionar o número da inscrição atual no painel de navegação do lado esquerdo da página. Será apresentado um destaque que lhe permitirá procurar inscrições ou selecionar uma inscrição diferente ao escolher a caixa adequada.
 
 ## <a name="azure-sponsorship-offer"></a>Oferta Azure Sponsorship
 
