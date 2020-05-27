@@ -1,21 +1,14 @@
 ---
 title: 'Quickstart: Teste a base de conhecimento com questões de lote'
-titleSuffix: Azure Cognitive Services
-description: ''
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Utilize a ferramenta de teste de lote qnA Maker para testar as bases de conhecimento no seu recurso QnA Maker para respostas esperadas, pontuações de confiança e solicitações de várias voltas.
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756711"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873665"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Quickstart: Teste a base de conhecimento com perguntas de lote e respostas esperadas
 
@@ -25,8 +18,8 @@ Utilize a ferramenta de teste de lote qnA Maker para testar as bases de conhecim
 
 * Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Ou [cria um serviço QnA Maker](create-publish-knowledge-base.md) ou usa um serviço existente, que utiliza a língua inglesa.
-* Descarregue o [ficheiro de amostra `.docx` seleção de várias voltas](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
-* Descarregue a ferramenta de teste do `.zip` [lote,](https://aka.ms/qnamakerbatchtestingtool)extraia o ficheiro executável do ficheiro.
+* Descarregue o [ficheiro de amostra seleção de várias `.docx` voltas](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
+* Descarregue a ferramenta de teste do [lote,](https://aka.ms/qnamakerbatchtestingtool)extraia o ficheiro executável do `.zip` ficheiro.
 
 ## <a name="sign-into-qna-maker-portal"></a>Assine no portal QnA Maker
 
@@ -40,7 +33,7 @@ Utilize a ferramenta de teste de lote qnA Maker para testar as bases de conhecim
     * Nome de subscrição do Azure
     * Nome de serviço Azure QnA
     * Língua - a língua inglesa
-1. Insira `Multi-turn batch test quickstart` o nome como o nome da sua base de conhecimento.
+1. Insira o nome `Multi-turn batch test quickstart` como o nome da sua base de conhecimento.
 
 1. No **passo 4,** configure as definições com a tabela seguinte:
 
@@ -48,7 +41,7 @@ Utilize a ferramenta de teste de lote qnA Maker para testar as bases de conhecim
     |--|--|
     |**Ativar a extração de várias voltas a partir de URLs, ficheiros .pdf ou .docx.**|Assinalado|
     |**Texto de resposta padrão**| `Batch test - default answer not found.`|
-    |**+ Adicionar Ficheiro**|Selecione `.docx` a listagem de ficheiros descarregadonos pré-requisitos.|
+    |**+ Adicionar Ficheiro**|Selecione a listagem de `.docx` ficheiros descarregadonos pré-requisitos.|
     |**Chit-chat**|Selecionar **Profissional**|
 
 1. No **passo 5,** selecione **Criar o seu KB**.
@@ -63,16 +56,16 @@ Utilize a ferramenta de teste de lote qnA Maker para testar as bases de conhecim
     |Dados necessários| Exemplo|
     |--|--|
     |Anfitrião publicado|`https://YOUR-RESOURCE-NAME.azurewebsites.net`|
-    |Chave Publicada|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`(32 caracteres de `Endpoint` cadeia mostradas depois)|
-    |ID da Aplicação|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 caracteres de cadeia `POST`mostradas como parte de) |
+    |Chave Publicada|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`(32 caracteres de cadeia mostradas `Endpoint` depois)|
+    |ID da Aplicação|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 caracteres de cadeia mostradas como parte `POST` de) |
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Criar ficheiro de teste de lote com iDs de pergunta
 
-Para utilizar a ferramenta de teste do `batch-test-data-1.tsv` lote, crie um ficheiro nomeado com um editor de texto. O ficheiro tem de ter as seguintes colunas separadas por um separador.
+Para utilizar a ferramenta de teste do lote, crie um ficheiro nomeado com um editor de `batch-test-data-1.tsv` texto. O ficheiro tem de ter as seguintes colunas separadas por um separador.
 
 |Campos de ficheiros de entrada TSV|Notas|Exemplo|
 |--|--|--|
-|ID base de conhecimento|O seu ID da base de conhecimento encontrado na página De publicação. Teste várias bases de conhecimento no mesmo serviço de uma só vez num único ficheiro, utilizando diferentes IDs de base de conhecimento num único ficheiro.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 caracteres de cadeia `POST`mostradas como parte de) |
+|ID base de conhecimento|O seu ID da base de conhecimento encontrado na página De publicação. Teste várias bases de conhecimento no mesmo serviço de uma só vez num único ficheiro, utilizando diferentes IDs de base de conhecimento num único ficheiro.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(36 caracteres de cadeia mostradas como parte `POST` de) |
 |Pergunta|O texto de pergunta que um utilizador introduziria. 1.000 caracteres no máximo.|`How do I sign out?`|
 |Etiquetas de metadados|opcional|`topic:power`usa a _chave:formato de valor_|
 |Parâmetro superior|opcional|`25`|
@@ -99,7 +92,7 @@ Em seguida, adicione algumas perguntas, semelhantes a estas questões, mas não 
 > [!CAUTION]
 > Certifique-se de que cada coluna está separada apenas por um delimitador de separador. Os espaços de liderança ou de desfilar são adicionados aos dados da coluna e farão com que o programa lance exceções quando o tipo ou tamanho estiver incorreto.
 
-O ficheiro de teste do lote, quando aberto no Excel, parece a seguinte imagem. A identificação da base `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` de conhecimento foi substituída por segurança. Para o seu próprio teste de lote, certifique-se de que a coluna exibe o seu ID base de conhecimento.
+O ficheiro de teste do lote, quando aberto no Excel, parece a seguinte imagem. A identificação da base de conhecimento foi substituída `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` por segurança. Para o seu próprio teste de lote, certifique-se de que a coluna exibe o seu ID base de conhecimento.
 
 > [!div class="mx-imgBorder"]
 > ![Entrada primeira versão do ficheiro .tsv do teste do lote](../media/batch-test/batch-test-1-input.png)
@@ -108,17 +101,17 @@ O ficheiro de teste do lote, quando aberto no Excel, parece a seguinte imagem. A
 
 Executar o programa de teste do lote utilizando o seguinte formato CLI na linha de comando.
 
-`YOUR-RESOURCE-NAME` Substitua `ENDPOINT-KEY` e com os seus próprios valores para nome de serviço e chave de ponto final. Estes valores encontram-se na página **Definições** do portal QnA Maker.
+Substitua `YOUR-RESOURCE-NAME` e com os seus `ENDPOINT-KEY` próprios valores para nome de serviço e chave de ponto final. Estes valores encontram-se na página **Definições** do portal QnA Maker.
 
 ```console
 batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.net ENDPOINT-KEY out.tsv
 ```
-O teste completa e `out.tsv` gera o ficheiro:
+O teste completa e gera o `out.tsv` ficheiro:
 
 > [!div class="mx-imgBorder"]
 > ![Primeira versão de .tsv do teste de lote](../media/batch-test/batch-test-1-output.png)
 
-A identificação da base `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` de conhecimento foi substituída por segurança. Para o seu próprio teste de lote, a coluna exibe o seu ID base de conhecimento.
+A identificação da base de conhecimento foi substituída `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` por segurança. Para o seu próprio teste de lote, a coluna exibe o seu ID base de conhecimento.
 
 A produção de teste da pontuação de confiança, na 4ª coluna, mostra que as 3 principais perguntas devolveram uma pontuação de 100 como esperado, porque cada pergunta é exatamente a mesma que aparece na base de conhecimento. As últimas 3 perguntas, com nova redação da pergunta, não devolvem 100 como a pontuação de confiança. Para aumentar a pontuação tanto para o teste como para os seus utilizadores, é necessário adicionar mais perguntas alternativas à base de conhecimentos.
 
@@ -137,12 +130,12 @@ Utilize o gráfico seguinte para entender como encontrar os valores de campo par
 |Número da coluna|Coluna opcional|Localização dos dados|
 |--|--|--|
 |3|do IdP|Exportar base de conhecimentos existente para os pares de _chaves existentes:valores._|
-|4|superior|Recomenda-se `25` o valor predefinido.|
+|4|superior|`25`Recomenda-se o valor predefinido.|
 |5|Id conjunto de perguntas e respostas|Exportar base de conhecimento existente para valores de identificação. Note também que os IDs foram devolvidos no ficheiro de saída.|
 
 ## <a name="add-metadata-to-the-knowledge-base"></a>Adicione metadados à base de conhecimentos
 
-1. No portal QnA, na página **Edit,** `topic:power` adicione metadados das seguintes questões:
+1. No portal QnA, na página **Edit,** adicione metadados das `topic:power` seguintes questões:
 
     |Perguntas|
     |--|
@@ -152,7 +145,7 @@ Utilize o gráfico seguinte para entender como encontrar os valores de campo par
     Dois pares QnA têm o conjunto de metadados.
 
     > [!TIP]
-    > Para ver os metadados e os IDs QnA de cada conjunto, exporte a base de conhecimentos. Selecione a página **Definições** e, em seguida, selecione **Exportar** como ficheiro. `.xls` Encontre este ficheiro descarregado e abra com o Excel a rever para metadados e ID.
+    > Para ver os metadados e os IDs QnA de cada conjunto, exporte a base de conhecimentos. Selecione a página **Definições** e, em seguida, selecione **Exportar** como `.xls` ficheiro. Encontre este ficheiro descarregado e abra com o Excel a rever para metadados e ID.
 
 1. Selecione **Guardar e treinar,** e, em seguida, selecione a página **Publicar** e, em seguida, selecione o botão **Publicar.** Estas ações disponibilizam a alteração ao teste do lote. Descarregue a base de conhecimentos a partir da página **Definições.**
 
@@ -169,9 +162,9 @@ Existem dois cenários principais para o teste do lote:
 
 O procedimento seguinte pressupõe que o cenário é processar registos de chat com
 
-1. Crie um novo ficheiro de `batch-test-data-2.tsv`teste de lote para incluir dados opcionais, . Adicione as 6 linhas do ficheiro de entrada de teste original do lote e, em seguida, adicione os metadados, a parte superior e o id do par QnA para cada linha.
+1. Crie um novo ficheiro de teste de lote para incluir dados opcionais, `batch-test-data-2.tsv` . Adicione as 6 linhas do ficheiro de entrada de teste original do lote e, em seguida, adicione os metadados, a parte superior e o id do par QnA para cada linha.
 
-    Para simular o processo automatizado de verificação de novos textos a partir de registos `topic:power`de chat contra a base de conhecimentos, detete temetaos para cada coluna com o mesmo valor: .
+    Para simular o processo automatizado de verificação de novos textos a partir de registos de chat contra a base de conhecimentos, detete temetaos para cada coluna com o mesmo valor: `topic:power` .
 
     > [!div class="mx-imgBorder"]
     > ![Entrada segunda versão do ficheiro .tsv do teste do lote](../media/batch-test/batch-test-2-input.png)

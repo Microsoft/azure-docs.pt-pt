@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 26a4ae7d1a2ef253c0cb62f6bb53f83152676595
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e7c5e00f2e5565393ff46dbb06b30991ebcfc01f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590269"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873711"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -127,6 +127,16 @@ Se a sua aplicação alojada no VM de backend de um Balancer de carga estiver a 
 Se um Balancer de carga interno estiver configurado dentro de um VNet, e um dos VMs de backend participante estiver a tentar aceder à extremidade frontal interna do Balancer de Carga, podem ocorrer falhas quando o fluxo é mapeado para o VM originário. Este cenário não é suportado. Rever [limitações](concepts.md#limitations) para uma discussão detalhada.
 
 **Resolução** Existem várias formas de desbloquear este cenário, incluindo o uso de um proxy. Avaliar o Gateway de Aplicação ou outros proxies de terceiros (por exemplo, nginx ou haproxy). Para mais informações sobre o Gateway de Aplicação, consulte [a visão geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)
+
+**Detalhes** Os Equilibradores de Carga Interna não traduzem ligações originais de saída para a parte frontal de um Balancer interno de carga porque ambos estão no espaço de endereço IP privado. Os Balanceadores de Carga Pública fornecem [ligações](load-balancer-outbound-connections.md) de saída de endereços IP privados dentro da rede virtual para endereços IP públicos. Para os Equilibradores internos de carga, esta abordagem evita a possível exaustão da porta SNAT dentro de um espaço de endereço IP interno único, onde a tradução não é necessária.
+
+Um efeito colateral é que se um fluxo de saída de um VM na piscina traseira tentar um fluxo para a extremidade dianteira do Balancer de Carga interna na sua piscina _e_ for mapeado de volta para si mesmo, as duas pernas do fluxo não combinam. Como não combinam, o fluxo falha. O fluxo tem sucesso se o fluxo não mapear de volta para o mesmo VM na piscina traseira que criou o fluxo para a parte frontal.
+
+Quando o fluxo se mapeia de volta para si mesmo, o fluxo de saída parece ter origem do VM para a extremidade frontal e o fluxo de entrada correspondente parece ter origem do VM para si mesmo. Do ponto de vista do sistema operativo convidado, as partes de entrada e saída do mesmo fluxo não coincidem com a máquina virtual. A pilha de TCP não reconhecerá estas metades do mesmo fluxo que fazer parte do mesmo fluxo. A fonte e o destino não coincidem. Quando o fluxo mapeia qualquer outro VM na piscina traseira, as metades do fluxo correspondem e o VM pode responder ao fluxo.
+
+O sintoma para este cenário são os tempos de ligação intermitentes quando o fluxo volta ao mesmo backend que originou o fluxo. As sobras comuns incluem a inserção de uma camada proxy por trás do Balancer de Carga interna e a utilização de regras de estilo de retorno de servidor direto (DSR). Para mais informações, consulte [Multiple Frontends para Azure Load Balancer](load-balancer-multivip-overview.md).
+
+Pode combinar um Balancer de Carga interno com qualquer representante de terceiros ou utilizar o Gateway de [Aplicação](../application-gateway/application-gateway-introduction.md) interna para cenários de procuração com HTTP/HTTPS. Embora possa utilizar um Balancer de Carga pública para mitigar esta questão, o cenário resultante é propenso à exaustão de [SNAT](load-balancer-outbound-connections.md#snat). Evite esta segunda abordagem a menos que cuidadosamente gerida.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintoma: Não pode alterar a porta de backend para a regra LB existente de um equilibrista de carga que tem o Conjunto de Escala VM implantado na piscina de backend. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa : A porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde para equilibrador de carga referenciada por Conjunto de Balança VM.

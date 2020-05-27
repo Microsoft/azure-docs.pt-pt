@@ -3,13 +3,13 @@ title: Crie um recipiente Windows Server num cluster azure Kubernetes Service (A
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação num recipiente do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/12/2020
-ms.openlocfilehash: d488935a9f45d775578179cb58423d882a1cee27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 05/26/2020
+ms.openlocfilehash: c0c4849d76676cf165dbb051fbd904c28a98fa3b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725045"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873572"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Crie um recipiente Windows Server num cluster do Serviço Azure Kubernetes (AKS) utilizando o PowerShell
 
@@ -24,9 +24,6 @@ Este artigo assume uma compreensão básica dos conceitos kubernetes. Para mais 
 Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se ligue à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/Connect-AzAccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [Instalar o Azure PowerShell][install-azure-powershell].
-
-> [!IMPORTANT]
-> Este artigo utiliza uma versão de pré-visualização do módulo Az.AKS PowerShell. Deve instalá-lo separadamente do módulo Az PowerShell utilizando o seguinte comando: `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview` . Uma vez que a versão de pré-visualização do módulo Az.AKS PowerShell esteja geralmente disponível, torna-se parte das futuras versões do módulo Az PowerShell e disponível de forma nativa dentro da Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -237,7 +234,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não requer remoção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma aplicação de `ASP.NET` amostra num recipiente do Windows Server para o mesmo. [Aceda ao painel web da Kubernetes][kubernetes-dashboard] para o cluster que criou.
 

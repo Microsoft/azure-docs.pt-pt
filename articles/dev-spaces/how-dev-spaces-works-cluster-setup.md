@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve como funciona a criação de um cluster de serviço Azure Kubernetes para a Azure Dev Spaces
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 00f8262f3008ce9ba82726960f78d18395458a2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241728"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873551"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Como funciona a criação de um cluster para a Azure Dev Spaces
 
@@ -18,7 +18,7 @@ A Azure Dev Spaces fornece-lhe múltiplas formas de iterar e depurar rapidamente
 
 ## <a name="prepare-your-aks-cluster"></a>Prepare o seu cluster AKS
 
-Para preparar o seu cluster AKS para espaços Dev, verifique se o seu cluster AKS está numa região [apoiada pela Azure Dev Spaces][supported-regions] e está a executar kubernetes 1.10.3 ou mais tarde. Para ativar o Azure Dev Spaces no seu cluster a partir do portal Azure, navegue até ao seu cluster, clique em *Espaços Dev,* mude *os Espaços de Utilização* para *Sim*, e clique em *Guardar*. Também pode ativar os espaços Azure Dev `az aks use-dev-spaces`a partir do Azure CLI funcionando .
+Para preparar o seu cluster AKS para espaços Dev, verifique se o seu cluster AKS está numa região [apoiada pela Azure Dev Spaces][supported-regions] e está a executar kubernetes 1.10.3 ou mais tarde. Para ativar o Azure Dev Spaces no seu cluster a partir do portal Azure, navegue até ao seu cluster, clique em *Espaços Dev,* mude *os Espaços de Utilização* para *Sim*, e clique em *Guardar*. Também pode ativar os espaços Azure Dev a partir do Azure CLI funcionando `az aks use-dev-spaces` .
 
 Para um exemplo de criação de um cluster AKS para dev Spaces, veja o [desenvolvimento da equipa rapidamente.][quickstart-team]
 
@@ -78,15 +78,15 @@ A ferramenta do lado do cliente permite ao utilizador:
 
 Enquanto a sua aplicação está em execução, a ferramenta do lado do cliente também:
 * Recebe e exibe stdout e stderr da sua aplicação em execução no AKS.
-* Utiliza o [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) para permitir o\/acesso à web à sua aplicação usando http: /localhost.
+* Utiliza o [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) para permitir o acesso à web à sua aplicação usando http: \/ /localhost.
 * Anexa um desbugger à sua aplicação de execução no AKS.
 * Sincroniza o código fonte no seu espaço de dev quando é detetada uma alteração para construções incrementais, permitindo uma rápida iteração.
 * Permite-lhe ligar a sua máquina de desenvolvimento diretamente ao seu cluster AKS.
 
-Pode utilizar a ferramenta do lado do cliente a `azds` partir da linha de comando como parte do comando. Também pode utilizar a ferramenta do lado do cliente com:
+Pode utilizar a ferramenta do lado do cliente a partir da linha de comando como parte do `azds` comando. Também pode utilizar a ferramenta do lado do cliente com:
 
 * Código de estúdio visual utilizando a [extensão Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Estúdio Visual com [Ferramentas de Estúdio Visual para Kubernetes.](https://aka.ms/get-vsk8stools)
+* Estúdio Visual com a carga de trabalho do Desenvolvimento Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

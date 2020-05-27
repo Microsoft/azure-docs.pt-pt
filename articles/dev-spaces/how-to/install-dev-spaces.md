@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Aprenda a ativar o Azure Dev Spaces num cluster AKS e instale as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898955"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873523"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Ative a Azure Dev Spaces num cluster AKS e instale as ferramentas do lado do cliente
 
@@ -23,7 +23,7 @@ Antes de poder ativar a Dev Spaces utilizando o CLI, precisa de:
 * [O Azure CLI instalado][install-cli].
 * [Um aglomerado aks][create-aks-cli] numa [região apoiada.][supported-regions]
 
-Utilize `use-dev-spaces` o comando para ativar os Espaços Dev no seu cluster AKS e siga as instruções.
+Utilize o comando para ativar os `use-dev-spaces` Espaços Dev no seu cluster AKS e siga as instruções.
 
 ```azurecli
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
@@ -49,7 +49,7 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 O `use-dev-spaces` comando também instala o Azure Dev Spaces CLI.
 
-Para remover os Espaços Azure Dev do `azds remove` seu cluster AKS, utilize o comando. Por exemplo:
+Para remover os Espaços Azure Dev do seu cluster AKS, utilize o `azds remove` comando. Por exemplo:
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -84,7 +84,6 @@ Você pode usar as ferramentas do lado do cliente Azure Dev Spaces para interagi
 
 * No Código do [Estúdio Visual,][vscode]instale a [extensão Dos Espaços Azure Dev.][vscode-extension]
 * No [Visual Studio 2019,][visual-studio]instale a carga de trabalho do Desenvolvimento Azure.
-* No Visual Studio 2017, instale a carga de trabalho de Desenvolvimento Web e [ferramentas de estúdio visual para kubernetes.][visual-studio-k8s-tools]
 * Descarregue e instale o [Windows,][cli-win] [Mac][cli-mac]ou [Linux][cli-linux] CLI.
 
 ## <a name="next-steps"></a>Passos seguintes

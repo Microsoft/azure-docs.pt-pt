@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735628"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874044"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "82735628"
 
 ## <a name="get-object-ids"></a>Obter iDs de objeto
 
-Para atribuir uma função, precisa especificar a identificação do utilizador, grupo ou aplicação a que pretende atribuir a função. O ID tem `11111111-1111-1111-1111-111111111111`o formato: . Pode obter o ID utilizando o portal Azure, Azure PowerShell ou Azure CLI.
+Para atribuir uma função, precisa especificar a identificação do utilizador, grupo ou aplicação a que pretende atribuir a função. O ID tem o formato: `11111111-1111-1111-1111-111111111111` . Pode obter o ID utilizando o portal Azure, Azure PowerShell ou Azure CLI.
 
 ### <a name="user"></a>Utilizador
 
@@ -77,7 +77,7 @@ O modelo seguinte mostra uma forma básica de adicionar uma atribuição de fun�
 Para utilizar o modelo, deve fazer o seguinte:
 
 - Crie um novo ficheiro JSON e copie o modelo
-- Substitua-a `<your-principal-id>` pela identificação de um utilizador, grupo ou aplicação para atribuir a função a
+- `<your-principal-id>`Substitua-a pela identificação de um utilizador, grupo ou aplicação para atribuir a função a
 
 ```json
 {
@@ -173,7 +173,7 @@ Para utilizar o modelo, deve especificar as seguintes inputs:
 ```
 
 > [!NOTE]
-> Este modelo não é idempotente a menos que o mesmo `roleNameGuid` valor seja fornecido como parâmetro para cada implantação do modelo. Se `roleNameGuid` não for fornecido, por padrão, um novo GUID é gerado `Conflict: RoleAssignmentExists` em cada implementação e as implementações subsequentes falharão com um erro.
+> Este modelo não é idempotente a menos que o mesmo `roleNameGuid` valor seja fornecido como parâmetro para cada implantação do modelo. Se não `roleNameGuid` for fornecido, por padrão, um novo GUID é gerado em cada implementação e as implementações subsequentes falharão com um `Conflict: RoleAssignmentExists` erro.
 
 O âmbito da atribuição de funções é determinado a partir do nível da implantação. Aqui estão os exemplos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e a implementação do [grupo Az criar](/cli/azure/group/deployment#az-group-deployment-create) comandos para como iniciar a implementação num âmbito de grupo de recursos.
 
@@ -293,7 +293,7 @@ O seguinte mostra um exemplo da atribuição da função Do Colaborador a um uti
 
 ### <a name="new-service-principal"></a>Novo diretor de serviço
 
-Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a esse diretor de serviço, essa atribuição de funções pode falhar em alguns casos. Por exemplo, se criar uma nova identidade gerida e tentar atribuir uma função a esse diretor de serviço no mesmo modelo de Gestor de Recursos Azure, a atribuição de funções pode falhar. A razão para esta falha é provavelmente um atraso de replicação. O diretor de serviço é criado numa região; no entanto, a atribuição de funções pode ocorrer em uma região diferente que ainda não replicao o diretor de serviço. Para abordar este cenário, `principalType` deverá `ServicePrincipal` definir a propriedade para quando criar a atribuição de funções.
+Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a esse diretor de serviço, essa atribuição de funções pode falhar em alguns casos. Por exemplo, se criar uma nova identidade gerida e tentar atribuir uma função a esse diretor de serviço no mesmo modelo de Gestor de Recursos Azure, a atribuição de funções pode falhar. A razão para esta falha é provavelmente um atraso de replicação. O diretor de serviço é criado numa região; no entanto, a atribuição de funções pode ocorrer em uma região diferente que ainda não replicao o diretor de serviço. Para abordar este cenário, deverá definir a `principalType` propriedade para quando criar a atribuição de `ServicePrincipal` funções.
 
 O seguinte modelo demonstra:
 
@@ -358,6 +358,15 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 O seguinte mostra um exemplo da atribuição de funções do Colaborador a um novo diretor de serviço de identidade gerido após a implementação do modelo.
 
 ![Atribuição de funções para um novo diretor de serviço de identidade gerido](./media/role-assignments-template/role-assignment-template-msi.png)
+
+## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
+
+No Azure RBAC, para remover o acesso a um recurso Azure, remove-se a atribuição de funções. Não há uma maneira de remover uma atribuição de funções usando um modelo. Para remover uma atribuição de funções, deve utilizar outras ferramentas, tais como:
+
+- [Portal do Azure](role-assignments-portal.md#remove-a-role-assignment)
+- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
+- [CLI do Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Passos seguintes
 

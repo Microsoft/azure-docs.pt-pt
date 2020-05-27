@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cf12b279cf7bcb20aa655646ce34fb9df2bda016
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c13931c7ab7c084b635abb7080f97de6d4bf4bb
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76167675"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873898"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Quickstart: Pesquisar na web usando o Bing Web Search REST API e C #
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing e receber a resposta JSON. Esta aplicação C# envia um pedido de pesquisa à API, e mostra a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing. Esta aplicação C# envia um pedido de pesquisa para a API, e mostra a resposta JSON. Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+
+Este programa de exemplo neste quickstart utiliza apenas classes .NET Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,13 +32,11 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Uma chave de subscrição
 
-Este programa de exemplo utiliza apenas as classes do .NET Core.
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>Criar um projeto e declarar dependências
 
-Crie um projeto novo no Visual Studio ou no Mono. Em seguida, utilize este código para importar os espaços de nomes e tipos obrigatórios.
+Crie um projeto novo no Visual Studio ou no Mono. Utilize o seguinte código para importar os espaços e tipos de nomes necessários:
 
 ```csharp
 using System;
@@ -62,7 +62,13 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Tem de definir algumas variáveis para que possamos continuar.  `uriBase`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar `Program` este código à classe como referido acima.
+Tem de definir algumas variáveis para que possamos continuar. Adicione este código à `Program` classe que criou na secção anterior: 
+
+1. Para o `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
+
+2. Confirme que `uriBase` é válido e substitua o valor por `accessKey` uma chave de subscrição da sua conta Azure. 
+
+3. Opcionalmente, personalize a consulta de pesquisa substituindo o valor por `searchTerm` . 
 
 ```csharp
 // Enter a valid subscription key.
@@ -78,9 +84,9 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Declarar o método Principal
 
-O `Main()` método é necessário e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
+O `Main()` método é necessário e é o primeiro método invocado quando iniciar o programa. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
 
-Tenha em atenção que `main()` é dependente nos métodos que são criados nas próximas seções.
+O `main()` método depende dos métodos que se criam nas secções seguintes.
 
 ```csharp
 static void Main()
@@ -109,7 +115,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Criar uma estrutura para os resultados de pesquisa
 
-Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. É chamado ao fazer um pedido para a API de pesquisa web bing para criar um objeto de resultado.
+Crie uma estrutura que retorne os resultados da pesquisa com cabeçalhos relevantes. Ligue-lhe quando faz um pedido à API de Pesquisa web bing para criar um objeto de resultados.
 
 ```csharp
 // Returns search results with headers.
@@ -158,7 +164,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-Este método formata a resposta JSON, principalmente ao recuar e adicionar quebras de linha.
+Este método formata a resposta JSON, principalmente através do recuo e da adição de quebras de linha.
 
 ```csharp
 /// <summary>
@@ -235,9 +241,9 @@ static string JsonPrettyPrint(string json)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-O último passo consiste em executar o seu código! Se quiser comparar o seu código com o nosso, o [código de exemplo está disponível no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
+O último passo é executar o seu código. Se quiser comparar o seu código com o nosso, consulte o [código da amostra no GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs)
 
-## <a name="sample-response"></a>Resposta de amostra
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.  
 
@@ -366,6 +372,6 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicativo de pesquisa web bing Web API](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

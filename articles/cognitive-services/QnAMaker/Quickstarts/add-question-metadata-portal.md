@@ -1,20 +1,14 @@
 ---
 title: 'Quickstart: Adicione perguntas e resposta no portal QnA Maker'
 description: Este quickstart mostra como adicionar conjuntos de perguntas e respostas com metadados para que os seus utilizadores possam encontrar a resposta certa à sua pergunta.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756680"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873695"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Quickstart: Adicione perguntas e responda com o portal QnA Maker
 
@@ -22,7 +16,7 @@ Uma vez criada uma base de conhecimento, adicione conjuntos de perguntas e respo
 
 <a name="qna-table"></a>
 
-|Definir|Perguntas|Resposta|Metadados|
+|Definir|Perguntas|Resposta|Metadata|
 |--|--|--|--|
 |N.º 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |N.º 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -82,11 +76,11 @@ Adicionar metadados a um conjunto de perguntas e respostas permite ao seu client
 
 1. Selecione **as opções de visualização**e, em seguida, selecione **Mostrar metadados**.
 
-1. Para o par QnA acabou de adicionar, selecione Adicionar `service` etiquetas `search`de **metadados,** em seguida, adicionar o nome e o valor de . É assim: `service:search`.
+1. Para o par QnA acabou de adicionar, selecione Adicionar etiquetas de **metadados,** em seguida, adicionar o nome `service` e o valor de `search` . É assim: `service:search` .
 
-1. Adicione outra etiqueta de `link_in_answer` metadados `false`com o nome e o valor de . É assim: `link_in_answer:false`.
+1. Adicione outra etiqueta de metadados com o nome `link_in_answer` e o valor de `false` . É assim: `link_in_answer:false` .
 
-1. Procure a primeira resposta na `How large a knowledge base can I create?`mesa.
+1. Procure a primeira resposta na `How large a knowledge base can I create?` mesa.
 
 1. Adicione pares de metadados para as mesmas duas etiquetas de metadados:
 

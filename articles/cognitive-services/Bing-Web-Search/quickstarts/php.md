@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169732"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873831"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing e receber a resposta JSON. Este pedido node.js envia um pedido de pesquisa para a API, e mostra a resposta. Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing. Este pedido node.js envia um pedido de pesquisa para a API, e mostra a resposta JSON. Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 
 ## <a name="enable-secure-http-support"></a>Ativar o suporte HTTP seguro
 
-Antes de começar, encontre `php.ini` e anule os comentários desta linha:
+Antes de começarmos, localize php.ini e não comente esta linha:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,9 +41,13 @@ Antes de começar, encontre `php.ini` e anule os comentários desta linha:
 
 ## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis
 
-Crie um novo projeto PHP no seu IDE ou editor preferido. Não se esqueça de adicionar etiquetas de abertura e fecho, `<?php` e `?>`.
+1. Crie um novo projeto PHP no seu IDE ou editor preferido. Adicione as etiquetas de abertura e fecho: `<?php` e `?>` .
 
-Tem de definir algumas variáveis para que possamos continuar. `$endpoint`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `$term`.
+2. Para o `$endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
+
+3. Confirme que o `$endpoint` valor está correto e substitua o valor por uma chave de `$accesskey` subscrição válida da sua conta Azure. 
+
+4. Opcionalmente, personalize a consulta de pesquisa substituindo o valor por `$term` .
 
 ```php
 $accessKey = 'enter key here';
@@ -53,7 +57,7 @@ $term = 'Microsoft Cognitive Services';
 
 ## <a name="construct-a-request"></a>Construir um pedido
 
-Este código declara uma função chamada `BingWebSearch`, que é utilizada para criar pedidos para a API de Pesquisa na Web do Bing. Exige três argumentos: `$url`, `$key` e `$query`.
+Este código declara uma função chamada `BingWebSearch` que é usada para construir pedidos para a API de Pesquisa Web bing. Exige três argumentos: `$url`, `$key` e `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -113,7 +117,7 @@ if (strlen($accessKey) == 32) {
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-O último passo é validar o seu código e executá-lo! Se desejar comparar o seu código com o nosso, aqui está o programa concluído:
+O último passo é validar o seu código e executá-lo. Se desejar comparar o seu código com o nosso, aqui está o programa concluído:
 
 ```php
 <?php
@@ -155,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="sample-response"></a>Resposta de amostra
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.  
 
@@ -284,6 +288,6 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicativo de pesquisa web bing Web API](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

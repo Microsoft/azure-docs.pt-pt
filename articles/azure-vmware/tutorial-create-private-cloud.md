@@ -3,12 +3,12 @@ title: Tutorial - Implementar cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure utilizando a Azure VMWare Solution (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a192454367f2e6ca071e9cfe0a9f1a94868cbdb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: fc753f43563650357cf43c102e94f0057b62a406
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977709"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873741"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada AVS em Azure
 
@@ -16,7 +16,7 @@ A Azure VMware Solution (AVS) dá-lhe a capacidade de implantar um cluster vSphe
 
 Uma vez que o AVS não lhe permitirá gerir a sua nuvem privada com o seu vCenter no local no lançamento, terá de realizar uma configuração adicional e ligação a uma instância local vCenter, rede virtual e muito mais. Estes procedimentos e pré-requisitos conexos serão abordados nesta série tutorial.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma cloud privada do AVS
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
-Para utilizar a Solução Azure VMWare, tem primeiro de registar o fornecedor de recursos. O exemplo seguinte regista o fornecedor de recursos com a sua subscrição.
+Para utilizar a Solução Azure VMware, tem primeiro de registar o fornecedor de recursos. O exemplo seguinte regista o fornecedor de recursos com a sua subscrição.
 
 ```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -48,7 +48,7 @@ Pode criar uma nuvem privada AVS utilizando o [portal Azure](#azure-portal) ou u
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No portal Azure, selecione **+ Crie um novo recurso.** No **Search the Marketplace** tipo `Azure VMware Solution`de caixa de texto Marketplace , e selecione **Azure VMware Solution** da lista. Na janela **Azure VMware Solution,** selecione **Create**
+No portal Azure, selecione **+ Crie um novo recurso.** No tipo de caixa de texto **Marketplace** `Azure VMware Solution` , e **selecione Azure VMware Solution** da lista. Na janela **Azure VMware Solution,** selecione **Create**
 
 No separador **Basics,** introduza valores para os campos. A tabela seguinte mostra uma lista detalhada das propriedades.
 

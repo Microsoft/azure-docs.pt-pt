@@ -3,20 +3,20 @@ title: Tutorial - Saiba como aceder à sua nuvem privada
 description: Saiba como aceder a uma nuvem privada Azure VMware Solution (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: fcee332818c89d9c8b00795dca9e74f68260eefd
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740193"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873608"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Tutorial: Saiba como aceder a uma nuvem privada Azure VMware Solution (AVS)
 
 Durante a pré-visualização, o AVS não lhe permite gerir a sua nuvem privada com o seu vCenter no local. Você precisará realizar configuração adicional e conexão a uma instância vCenter local através de uma caixa de salto. 
 
-Neste tutorial, cria uma máquina virtual Windows para uma caixa de salto no grupo de recursos que criou no tutorial anterior [Tutorial: Configure a rede para a sua nuvem privada VMWare em Azure](tutorial-configure-networking.md) e assine no vCenter. Este é um VM na mesma rede virtual que criou e fornece acesso ao vCenter e ao NSX Manager. 
+Neste tutorial, cria uma máquina virtual Windows para uma caixa de salto no grupo de recursos que criou no tutorial anterior [Tutorial: Configure a rede para a sua nuvem privada VMware em Azure](tutorial-configure-networking.md) e assine no vCenter. Este é um VM na mesma rede virtual que criou e fornece acesso ao vCenter e ao NSX Manager. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma máquina virtual windows para usar para ligar ao vCenter
@@ -59,7 +59,7 @@ No portal Azure, selecione a sua nuvem privada e, em seguida, na visão **geral,
 
 Navegue para a máquina virtual que criou no passo anterior e ligue-se à máquina virtual. Para dar passos detalhados sobre como se conectar à máquina virtual, consulte [a ligação a uma máquina virtual](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine)
 
-No Windows VM, abra um navegador e navegue para os URLs de Manger vCenter e NSX-T em dois separadores. No separador vCenter, `cloudadmin@vmcp.local` introduza as credenciais do utilizador a partir do passo anterior.
+No Windows VM, abra um navegador e navegue para os URLs de Manger vCenter e NSX-T em dois separadores. No separador vCenter, introduza as `cloudadmin@vmcp.local` credenciais do utilizador a partir do passo anterior.
 
 :::image type="content" source="./media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Inscreva-se no vCenter de nuvem privada" border="true":::
 

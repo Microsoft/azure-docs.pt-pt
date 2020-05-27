@@ -1,21 +1,14 @@
 ---
 title: O que é o serviço QnA Maker?
-titleSuffix: Azure Cognitive Services
 description: QnA Maker é um serviço NLP baseado em nuvem que facilmente cria uma camada de conversação natural sobre os seus dados. Pode ser usado para encontrar a resposta mais adequada para qualquer entrada de linguagem natural, a partir da sua base de conhecimento personalizada (KB) de informação.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 02/21/2020
-ms.author: diberry
-ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052933"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873715"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço QnA Maker?
 

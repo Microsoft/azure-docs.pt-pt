@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar os Espaços Azure Dev e o Estúdio Visual para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: f3be10929a9a0df23529348f2c62e35f2ebaa850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a807af3ffe14da943786051a3ece03b777a0edf5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75770718"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873613"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Crie um espaço Dev Kubernetes: Visual Studio e .NET Core com Espaços Azure Dev
 
@@ -50,7 +50,7 @@ Neste guia, vai aprender a:
 1. Selecione **Rever + criar** e, em seguida, selecione **Criar** quando terminar.
 
 ## <a name="get-the-visual-studio-tools"></a>Obter as ferramentas do Visual Studio
-Instale a versão mais recente do [Visual Studio.](https://www.visualstudio.com/vs/) Para o Visual Studio 2019 no Windows é necessário instalar a carga de trabalho do Desenvolvimento Azure. Para o Visual Studio 2017 no Windows, é necessário instalar a carga de trabalho de ASP.NET e desenvolvimento web, bem como [ferramentas de estúdio visual para kubernetes.](https://aka.ms/get-azds-visualstudio)
+Instale a versão mais recente do [Visual Studio 2019](https://www.visualstudio.com/vs/) no Windows com a carga de trabalho do Desenvolvimento Azure.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Criar uma aplicação Web em execução num contentor
 
@@ -89,7 +89,7 @@ Se optar por um cluster que não tenha sido preparado para funcionar com o Azure
 Escolha **OK**.
 
 > [!IMPORTANT]
-> O processo de configuração dos `azds` Espaços Azure Dev removerá o espaço de nome no cluster, se existir.
+> O processo de configuração dos Espaços Azure Dev removerá o espaço de `azds` nome no cluster, se existir.
 
  Será iniciada uma tarefa em segundo plano para executar essa configuração. Esta operação demorará alguns minutos a ser concluída. Para ver se ainda está a ser criado, faça pairar o ponteiro sobre o ícone **Background tasks** (Tarefas em segundo plano) no canto inferior esquerdo da barra de tarefas, conforme mostrado na imagem abaixo.
 

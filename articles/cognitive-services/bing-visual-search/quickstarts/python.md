@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: b56f6743b642904349797ac5b6167194f7916b45
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7b33a857953b7f96180e306195dd0e8b21450556
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446595"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874002"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Quickstart: Obtenha insights de imagem usando a Bing Visual Search REST API e Python
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing e veja os resultados. Esta aplicação Python envia uma imagem para a API e exibe a informação que devolve. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing. Esta aplicação Python envia uma imagem para a API e exibe a informação que devolve. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,13 +29,13 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
 
 ## <a name="initialize-the-application"></a>Inicializar a aplicação
 
-1. Crie um novo ficheiro Python no seu IDE `import` ou editor favorito e adicione a seguinte declaração:
+1. Crie um novo ficheiro Python no seu IDE ou editor favorito e adicione a seguinte `import` declaração:
 
     ```python
     import requests, json
     ```
 
-2. Crie variáveis para a sua chave de subscrição, ponto final e o caminho para a imagem que está a carregar. `BASE_URI`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso:
+2. Crie variáveis para a sua chave de subscrição, ponto final e o caminho para a imagem que está a carregar. Pelo valor de , pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de `BASE_URI` [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```python
 
@@ -44,7 +44,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
     imagePath = 'your-image-path'
     ```
     
-    Ao fazer o upload de uma imagem `Content-Disposition` local, os dados do formulário devem incluir o cabeçalho. Deve definir `name` o parâmetro para "imagem", e `filename` pode definir o parâmetro em qualquer corda. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
+3. Ao fazer o upload de uma imagem local, os dados do formulário devem incluir o `Content-Disposition` cabeçalho. Defina o parâmetro `name` para "imagem", e coloque o `filename` parâmetro no nome de ficheiro da sua imagem. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -55,13 +55,13 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
     --boundary_1234-abcd--
     ```
 
-3. Crie um objeto de dicionário para guardar as informações do cabeçalho do seu pedido. Ligue a sua chave `Ocp-Apim-Subscription-Key`de subscrição à corda, como mostrado abaixo:
+4. Crie um objeto de dicionário para guardar as informações do cabeçalho do seu pedido. Ligue a sua chave de subscrição à corda `Ocp-Apim-Subscription-Key` .
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Crie outro dicionário para conter a sua imagem, que é aberta e carregada quando envia o pedido:
+5. Crie outro dicionário para conter a sua imagem, que é aberta e carregada quando envia o pedido.
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -69,27 +69,27 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
 
 ## <a name="parse-the-json-response"></a>Parse a resposta JSON
 
-1. Criar um `print_json()` método chamado a acolher a resposta da API e imprimir o JSON:
+Crie um método chamado `print_json()` a aceitar a resposta da API e imprima o JSON.
 
-    ```python
-    def print_json(obj):
-        """Print the object as json"""
-        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-    ```
+```python
+def print_json(obj):
+    """Print the object as json"""
+    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+```
 
 ## <a name="send-the-request"></a>Enviar o pedido
 
-1. Utilize `requests.post()` para enviar um pedido para a API de Pesquisa Visual Bing. Inclua a corda para o seu ponto final, cabeçalho e informações de arquivo. Imprimir `response.json()` `print_json()`com:
+Utilize para enviar um pedido para a API de `requests.post()` Pesquisa Visual Bing. Inclua a corda para o seu ponto final, cabeçalho e informações de arquivo. Imprimir `response.json()` com `print_json()` .
 
-    ```python
-    try:
-        response = requests.post(BASE_URI, headers=HEADERS, files=file)
-        response.raise_for_status()
-        print_json(response.json())
+```python
+try:
+    response = requests.post(BASE_URI, headers=HEADERS, files=file)
+    response.raise_for_status()
+    print_json(response.json())
     
-    except Exception as ex:
-        raise ex
-    ```
+except Exception as ex:
+    raise ex
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

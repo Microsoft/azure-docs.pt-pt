@@ -1,18 +1,18 @@
 ---
 title: Instale extensão de nuvem híbrida (HCX)
-description: Configurar a solução VMWare Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMWare Solution (AVS)
+description: Configurar a solução VMware Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMware Solution (AVS)
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 74bc0dece2fc565aebc6e5301ef7a36187d6a250
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: dc5f7f82b83c82538b2d5a7b4c87131afb3fcc20
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776476"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873657"
 ---
-# <a name="install-hcx-for-azure-vmware-solution"></a>Instale HCX para solução Azure VMWare
+# <a name="install-hcx-for-azure-vmware-solution"></a>Instale HCX para solução Azure VMware
 
-Neste artigo, passamos por procedimentos para configurar a solução VMWare Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMWare Solution (AVS). O HCX Advanced (instalação predefinida) suporta até três locais externos, onde cada site externo requer que um gestor ou conector da EMPRESA HCX seja instalado e ativado.
+Neste artigo, passamos por procedimentos para configurar a solução VMware Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMware Solution (AVS). O HCX Advanced (instalação predefinida) suporta até três locais externos, onde cada site externo requer que um gestor ou conector da EMPRESA HCX seja instalado e ativado.
 O HCX permite a migração das suas cargas de trabalho VMware para a nuvem e ou outros sites conectados através de vários tipos de migração apoiados por HCX incorporados. Se forem necessários mais de três sites, os clientes têm a opção de ativar o addon HCX Enterprise através do Suporte. A HCX Enterprise transporta encargos adicionais para os clientes após a disponibilidade geral (GA), mas fornece [funcionalidades adicionais](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 Reveja cuidadosamente Antes de [começar,](#before-you-begin) [requisitos](#software-version-requirements)de versão de software e [pré-requisitos](#prerequisites) primeiro. 
@@ -52,7 +52,7 @@ Os componentes de infraestrutura devem estar a executar a versão mínima necess
 
 * O alcance global deve ser configurado entre os circuitos AVS SDDC ER.
 
-* Todas as portas necessárias devem estar abertas entre as instalações e o AVS SDDC (ver [documentação VMWare HCX).](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)
+* Todas as portas necessárias devem estar abertas entre as instalações e o AVS SDDC (ver [documentação VMware HCX).](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)
 
 * Um endereço IP para hcx manager no local e um mínimo de dois endereços IP para o aparelho Interconnect (IX) e Extensão de Rede (NE).
 
@@ -270,4 +270,4 @@ Para verificar o estado do aparelho, selecione **Aparelhos Interconnect**  >  **
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Quando o aparelho interliga o Estado do **Túnel** estiver **ligado** e verde, está pronto para migrar e proteger os VMs AVS utilizando HCX. Consulte a [documentação do VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) e [as Máquinas Virtuais Migratórias com o VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) na documentação técnica da VMWare.
+Quando o aparelho interliga o Estado do **Túnel** estiver **ligado** e verde, está pronto para migrar e proteger os VMs AVS utilizando HCX. Consulte a [documentação do VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) e [as Máquinas Virtuais Migratórias com o VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) na documentação técnica da VMware.

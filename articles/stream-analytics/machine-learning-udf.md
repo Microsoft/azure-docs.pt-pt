@@ -7,19 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481974"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874073"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrar o Azure Stream Analytics com o Azure Machine Learning (Pré-visualização)
 
 Pode implementar modelos de machine learning como uma função definida pelo utilizador (UDF) nos seus trabalhos de Azure Stream Analytics para fazer pontuações em tempo real e previsões nos seus dados de entrada de streaming. [O Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) permite-lhe utilizar qualquer ferramenta popular de código aberto, como tensorflow, scikit-learn, ou PyTorch, para preparar, treinar e implementar modelos.
-
-> [!NOTE]
-> Esta funcionalidade encontra-se em pré-visualização pública. Só é possível aceder a esta funcionalidade no portal Azure utilizando o link de [pré-visualização](https://aka.ms/asaportalpreview)do portal Stream Analytics . Esta funcionalidade também está disponível na versão mais recente das [ferramentas Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +28,7 @@ Complete os seguintes passos antes de adicionar um modelo de aprendizagem autom�
 
 3. Certifique-se de que o seu serviço web aceita e devolve dados serializados da JSON.
 
-4. Implemente o seu modelo no [Serviço Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implementações de produção em larga escala. Se o serviço web não conseguir lidar com o número de pedidos provenientes do seu trabalho, o desempenho do seu trabalho em Stream Analytics será degradado, o que afeta a latência. Os modelos implantados em Casos de Contentores Azure não são suportados hoje, mas estarão disponíveis nos próximos meses.
+4. Implemente o seu modelo no [Serviço Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implementações de produção em larga escala. Se o serviço web não conseguir lidar com o número de pedidos provenientes do seu trabalho, o desempenho do seu trabalho em Stream Analytics será degradado, o que afeta a latência. Os modelos implantados em Instâncias de Contentores Azure só são suportados quando utiliza o portal Azure.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Adicione um modelo de aprendizagem automática ao seu trabalho
 
@@ -73,7 +70,7 @@ Stream Analytics apenas suporta passar um parâmetro para funções de Aprendiza
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>Passe vários parâmetros de entrada para a UDF
 
-Exemplos mais comuns de inputs para modelos de aprendizagem automática são matrizes dormentes e DataFrames. Pode criar uma matriz utilizando uma UDF JavaScript e criar um `WITH` DataFrame baseado em JSON utilizando a cláusula.
+Exemplos mais comuns de inputs para modelos de aprendizagem automática são matrizes dormentes e DataFrames. Pode criar uma matriz utilizando uma UDF JavaScript e criar um DataFrame baseado em JSON utilizando a `WITH` cláusula.
 
 ### <a name="create-an-input-array"></a>Criar um conjunto de entrada
 
@@ -110,7 +107,7 @@ O seguinte JSON é um pedido de exemplo:
 
 ### <a name="create-a-pandas-or-pyspark-dataframe"></a>Criar um Pandas ou PySpark DataFrame
 
-Pode utilizar `WITH` a cláusula para criar um DataFrame serializado JSON que pode ser passado como entrada para a uDF de aprendizagem automática Azure, como mostrado abaixo.
+Pode utilizar a `WITH` cláusula para criar um DataFrame serializado JSON que pode ser passado como entrada para a uDF de aprendizagem automática Azure, como mostrado abaixo.
 
 A seguinte consulta cria um DataFrame selecionando os campos necessários e utiliza o DataFrame como entrada para a UDF de Aprendizagem automática Azure.
 
