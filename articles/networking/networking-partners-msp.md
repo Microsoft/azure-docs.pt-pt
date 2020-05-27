@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 270afa70ca281762d9efabcd7663bf7504a469bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0db3d46edf1b6bb0b425235654824e26293eb4a9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654986"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800493"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros msp de Networking Azuring Azuring
 
@@ -42,6 +42,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços ge
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Avaliação de Networking Azure - 5 Dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[Prontidão em Nuvem - Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
 |[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Serviços Geridos azure por Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview)||[SD-WAN Virtual Edge Instalado por Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)||[mcr](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/megaport1582290752989.megaport_mcr?tab=Overview)||||
 |[Serviços oncore cloud]( https://www.oncore.cloud/services/ue-for-expressroute/)|[Fundações Enterprise Cloud: Workshop (~10 dias)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge para Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[Rota expressa gerida pela Orixcom](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Serviço de Consultoria de Rede Azure: Avaliação 1-Wk;](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure) [Serviço de Avaliação Azure: 1Semana](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
@@ -50,7 +51,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços ge
 |[Vigilante](https://vigilant.it/manage-cloud-service/)|[Verificação de saúde azure: avaliação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[Rota expressa: Implementação de 5 dias](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Rio Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Gerido VWAN Powered by Fortinet;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) [Vandis Gerido VWAN Powered by Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-As ofertas do Azure Marketplace, incluindo novos Serviços de Segurança Geridos e Serviços MEC geridos dos seguintes Parceiros DE MSP em Rede Azure estão no nosso roteiro: [Amdocs;](https://www.amdocs.com/) [AXESDN;](https://www.axesdn.com/en/azure-msp.html) [CenturyLink;](https://www.centurylink.com/business/networking/cloud-connectivity.html)  [Deutsche Telekom;](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406)  [ALCANCE IX;](https://www.ixreach.com/services/sdn-cloud-connect/)  [InterCloud;](https://intercloud.com/partners/microsoft-azure/)  [KINX;](https://www.kinx.net/service/cloud/?lang=en) [Megaport;](https://www.megaport.com/services/microsoft-expressroute/)  [OmniClouds;](https://omniclouds.com/services/)  [Sejong Telecom;](https://www.sejongtelecom.net/en/pages/service/cloud_ms)  [Tech Mahindra;](https://networkservices.techmahindra.com/pages/default.aspx) [Sem Fios Federado](https://www.federatedwireless.com/caas/)
+As ofertas do Azure Marketplace, incluindo novos Serviços de Segurança Geridos e Serviços MEC geridos dos seguintes Parceiros DE MSP em Rede Azure estão no nosso roteiro: [Amdocs;](https://www.amdocs.com/) [AXESDN;](https://www.axesdn.com/en/azure-msp.html) [CenturyLink;](https://www.centurylink.com/business/networking/cloud-connectivity.html)  [Deutsche Telekom;](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406)  [ALCANCE IX;](https://www.ixreach.com/services/sdn-cloud-connect/)  [InterCloud;](https://intercloud.com/partners/microsoft-azure/)  [KINX;](https://www.kinx.net/service/cloud/?lang=en) [OmniClouds;](https://omniclouds.com/services/)  [Sejong Telecom;](https://www.sejongtelecom.net/en/pages/service/cloud_ms)  [Tech Mahindra;](https://networkservices.techmahindra.com/pages/default.aspx) [Sem Fios Federado](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Parceiros ExpressRoute
 

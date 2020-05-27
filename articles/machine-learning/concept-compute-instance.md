@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 9f10825d8f22a7ddd9858e86dc2083ae47da9a69
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 8c03df8fb0cd8f5f092450ebe4c66266d2ff4293
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712762"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816357"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -67,7 +67,7 @@ Estas ferramentas e ambientes são instalados na instância computacional:
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-[SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>da PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
+[SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>da PyPI|Inclui a maioria dos pacotes extra sinuosos.  Para ver a lista completa, [abra uma janela terminal na sua instância de cálculo](how-to-run-jupyter-notebooks.md#terminal) e corra <br/> `conda list -n azureml_py36 azureml*` |
 |Outros pacotes PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes de condomínio|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizagem profunda|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -146,6 +146,6 @@ Quaisquer ficheiros portátil armazenados na partilha de ficheiros do espaço de
 Não podem ser criados novos VMs portátil. No entanto, ainda pode aceder e utilizar VMs portátil que criou, com funcionalidade completa. Os casos de computação podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * [Tutorial: Treinar o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.

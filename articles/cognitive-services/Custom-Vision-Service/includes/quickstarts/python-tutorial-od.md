@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: 6d9b88e997f211fd5b13a4ccb92d17a32ca7eaab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b339749a5c09bd1ddcdd4226e507ce3e01eee200
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696516"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806235"
 ---
 Este artigo mostra-lhe como começar a usar o Custom Vision SDK com Python para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão publicado do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
 
@@ -40,7 +40,7 @@ Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferid
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [Build a detetor).](../../get-started-build-detector.md)  
+Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [Build a detetor).](../../get-started-build-detector.md)  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -222,7 +222,7 @@ A saída da aplicação deverá aparecer na consola. Pode, em seguida, certifica
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisará treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O seguinte guia de treino trata da classificação da imagem, mas os seus princípios são semelhantes à deteção de objetos.
 

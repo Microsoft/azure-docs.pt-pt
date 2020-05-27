@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/11/2020
-ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199959"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800058"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorização do seu serviço de armazenamento com o Monitor Azure para Armazenamento
 
@@ -318,6 +318,6 @@ Para alterar o nome de um passo no livro guardado, selecione editar sob o degrau
 
 * Configure [alertas métricos](../platform/alerts-metric.md) e notificações de [saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertaautomatizado para ajudar na deteção de problemas.
 
-* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](../app/usage-workbooks.md)
+* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](../platform/workbooks-overview.md)
 
 * Para um guia aprofundado sobre a utilização de Storage Analytics e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o armazenamento do Azure, consulte [monitor, diagnóstico e resolução](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)de problemas do Armazenamento Microsoft Azure .

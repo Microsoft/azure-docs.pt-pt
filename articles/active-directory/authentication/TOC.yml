@@ -138,6 +138,8 @@
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Utilizar autenticação baseada em SMS (pré-visualização)
       href: howto-authentication-sms-signin.md
+    - name: Utilizar o início de sessão com endereço de e-mail (pré-visualização)
+      href: howto-authentication-use-email-signin.md
     - name: Bloqueio inteligente do Azure AD
       href: howto-password-smart-lockout.md
     - name: Autenticação baseada em certificado
@@ -223,8 +225,8 @@
   items:
     - name: Fórum de comentários do Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Atualizações de serviço

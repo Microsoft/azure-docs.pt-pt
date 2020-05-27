@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: fc0a82617346f60b90de34b379b4a0a114faf804
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658080"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799867"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviço de consultoria
 
@@ -74,7 +74,7 @@ Para o AppSource, as competências elegíveis estão listadas no quadro seguinte
 
 Recursos adicionais e apoio:
 
-* Mesa de [habilitação](https://partner.microsoft.com/campaigns/ced-nomination-form/)para a nuvem da Microsoft : Complete o formulário de nomeação do parceiro para a experiência guiada do balcão de ativação da nuvem para se conectar a um especialista em programas de nuvem que possa articular os benefícios da Microsoft Partner Network e servir de guia para a realização de competências.  
+* Mesa de [habilitação](https://aka.ms/CEDnominate)para a nuvem da Microsoft : Complete o formulário de nomeação do parceiro para a experiência guiada do balcão de ativação da nuvem para se conectar a um especialista em programas de nuvem que possa articular os benefícios da Microsoft Partner Network e servir de guia para a realização de competências.  
 * [Torne-se um parceiro power BI](https://powerbi.microsoft.com/become-a-partner/): Envie um pedido para ser listado na mostra power BI.
 
 Para mais informações sobre competências, vá à página de Competências da [Rede Microsoft Partner.](https://partner.microsoft.com/membership/competencies)

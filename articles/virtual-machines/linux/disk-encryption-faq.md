@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c49467451963ceb52f114430343fafb955ec4f7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: d28d7bd85326e8a4cf27dba1f3f605b64477c5aa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786993"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829943"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Encriptação de disco azure para máquinas virtuais Linux FAQ
 
@@ -158,7 +158,7 @@ O Azure Backup fornece um mecanismo para fazer backup e restaurar vm's encriptad
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Onde posso ir fazer perguntas ou dar feedback?
 
-Pode fazer perguntas ou fornecer feedback sobre o fórum de encriptação do [disco Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+Pode fazer perguntas ou fornecer feedback sobre o Microsoft Q&Uma página de [perguntas para encriptação de disco azure](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com a Encriptação do Disco Azure. Para mais informações sobre este serviço, consulte os seguintes artigos:

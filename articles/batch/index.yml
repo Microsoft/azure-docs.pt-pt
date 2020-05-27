@@ -9,12 +9,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 09/23/2019
-  ms.openlocfilehash: 72c72d8125d9d7d4e3f3e00ad0ee8d99acd501c0
-  ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+  ms.openlocfilehash: b07770c030c7265fb0dc95aa07e02cccaad41729
+  ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/21/2020
-  ms.locfileid: "83725708"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83779019"
 landingContent:
 - title: Acerca do Azure Batch
   linkLists:
@@ -40,8 +40,8 @@ landingContent:
       url: quick-run-python.md
   - linkListType: concept
     links:
-    - text: Funcionalidades de programador
-      url: batch-api-basics.md
+    - text: Descrição geral do fluxo de trabalho e das funcionalidades para programadores
+      url: batch-service-workflow-features.md
 - title: Guias passo a passo
   linkLists:
   - linkListType: tutorial

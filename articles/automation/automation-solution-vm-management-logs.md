@@ -5,14 +5,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 49b573c5cd0125ba378f01db05b925f8e5eef3eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743715"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827561"
 ---
-# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Registos de consultas a partir de VMs de início/paragem durante o horário de folga
+# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Consultar registos a partir da solução Iniciar/Parar VMs fora do horário de expediente
 
 A Azure Automation encaminha dois tipos de registos para o espaço de trabalho linked Log Analytics: registos de emprego e fluxos de trabalho. Este artigo analisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Monitor Azure.
 
@@ -71,6 +71,6 @@ A tabela seguinte fornece pesquisas de registo de amostras para registos de trab
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar alertas de log com o Monitor Azure](../azure-monitor/platform/alerts-log.md)
-* [Configurar VMs stop/start durante o horário de folga](automation-solution-vm-management-config.md)
-* [Problemas Iniciar/Parar VMs durante problemas fora de horas](troubleshoot/start-stop-vm.md)
+* Para configurar a funcionalidade, consulte Os [VMs de paragem/arranque do Configure durante](automation-solution-vm-management-config.md)as horas de folga .
+* Para obter informações sobre alertas de registo durante a implementação da funcionalidade, consulte Criar alertas de registo com o [Monitor Azure](../azure-monitor/platform/alerts-log.md).
+* Para resolver os erros de funcionalidade, consulte [Os VMs Start/Stop de Troubleshoot durante as questões fora de horas](troubleshoot/start-stop-vm.md).

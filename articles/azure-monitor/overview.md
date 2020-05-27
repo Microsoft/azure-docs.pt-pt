@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: cfdd0beac7d257a424d327df71602b4612c3da3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79536858"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800004"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -23,7 +23,7 @@ Apenas alguns exemplos do que pode fazer com o Monitor Azure incluem:
 - Correlacionar problemas de infraestruturas com [o Monitor Azure para VMs](insights/vminsights-overview.md) e [o Monitor Azure para Contentores.](insights/container-insights-overview.md)
 - Insto risa os seus dados de monitorização com [o Log Analytics](log-query/log-query-overview.md) para resolução de problemas e diagnósticos profundos.
 - Operações de suporte em escala com [alertas inteligentes](platform/alerts-smartgroups-overview.md) e [ações automatizadas.](platform/alerts-action-rules.md)
-- Crie visualizações com [tabliers](learn/tutorial-logs-dashboards.md) [E](app/usage-workbooks.md)Livros Azure.
+- Crie visualizações com [tabliers](learn/tutorial-logs-dashboards.md) [E](platform/workbooks-overview.md)Livros Azure.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 

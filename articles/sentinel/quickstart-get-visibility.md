@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067683"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798679"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Comece com Azure Sentinel
 
@@ -53,7 +53,7 @@ O corpo principal da página geral dá uma visão sobre o estado de segurança d
 
 ## <a name="use-built-in-workbooks"></a>Utilize livros embutidos<a name="dashboards"></a>
 
-Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que você mergulhe profundamente nos eventos gerados nesses serviços. Os livros incorporados incluem Azure AD, eventos de atividade azure e no local, que podem ser dados de Eventos Windows a partir de servidores, a partir de alertas de primeira parte, de qualquer terceiro, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados em eventos windows. Os livros baseiam-se em livros de trabalho do Monitor Azure para lhe proporcionar uma maior personalizabilidade e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [Livros de Trabalho.](../azure-monitor/app/usage-workbooks.md)
+Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que você mergulhe profundamente nos eventos gerados nesses serviços. Os livros incorporados incluem Azure AD, eventos de atividade azure e no local, que podem ser dados de Eventos Windows a partir de servidores, a partir de alertas de primeira parte, de qualquer terceiro, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados em eventos windows. Os livros baseiam-se em livros de trabalho do Monitor Azure para lhe proporcionar uma maior personalizabilidade e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [Livros de Trabalho.](../azure-monitor/platform/workbooks-overview.md)
 
 1. Em **Definições,** selecione Livros de **Trabalho**. Em **Instalação,** pode ver todo o seu livro de trabalho instalado. Em **Tudo,** pode ver toda a galeria de livros embutidos que estão disponíveis para instalação. 
 2. Procure um livro específico para ver toda a lista e descrição do que cada um oferece. 
@@ -67,7 +67,7 @@ Os livros incorporados fornecem dados integrados a partir das suas fontes de dad
       ![Painel de pal Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Pode personalizar os livros de trabalho ou ![editando o botão](./media/qs-get-visibility/edit-query-button.png)de consulta principal . Pode clicar no ![](./media/qs-get-visibility/go-to-la-button.png) botão botão para ir ao [Log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e selecionar dados de **azulejos Personalizados,** que lhe permite editar o filtro de tempo principal, ou remover os azulejos específicos do livro.
+Pode personalizar os livros de trabalho ou editando o botão de consulta principal ![ ](./media/qs-get-visibility/edit-query-button.png) . Pode clicar no botão botão ![ para ir ao Log Analytics para editar a consulta ](./media/qs-get-visibility/go-to-la-button.png) [lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e selecionar dados de **azulejos Personalizados,** que lhe permite editar o filtro de tempo principal, ou remover os azulejos específicos do livro.
 
 Para obter mais informações sobre o trabalho com consultas, consulte [Tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

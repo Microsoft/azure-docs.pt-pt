@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 436838cd099a837ec9f3ea3a743ca2fc2be44c01
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 199111d88d1d5d0dfd3b52f62ad60297e9771c20
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979336"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806339"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -186,4 +186,4 @@ node index.js
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[!INCLUDE [footer](footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

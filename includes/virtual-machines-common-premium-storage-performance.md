@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204479"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821504"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -121,7 +121,7 @@ Para obter mais informações sobre os tamanhos vm e sobre o IOPS, a entrada e a
 
 | &nbsp; | **IOPS** | **Débito** | **Latência** |
 | --- | --- | --- | --- |
-| **Cenário de Exemplo** |Aplicação Enterprise OLTP requer transações muito elevadas por segunda taxa. |Aplicação de armazenamento de dados empresariais processando grandes quantidades de dados. |Aplicações quase em tempo real que requerem respostas instantâneas aos pedidos dos utilizadores, como jogos online. |
+| **Cenário de exemplo** |Aplicação Enterprise OLTP requer transações muito elevadas por segunda taxa. |Aplicação de armazenamento de dados empresariais processando grandes quantidades de dados. |Aplicações quase em tempo real que requerem respostas instantâneas aos pedidos dos utilizadores, como jogos online. |
 | Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
 | **Tamanho IO** |O tamanho menor da IO produz iOPS mais elevado. |Maior tamanho iO para obter um rendimento mais alto. | &nbsp;|
 | **Tamanho VM** |Utilize um tamanho VM que ofereça IOPS maior do que o seu requisito de aplicação. |Utilize um tamanho VM com limite de entrada superior ao seu requisito de aplicação. |Utilize um tamanho VM que ofereça limites de escala superiores aos requisitos de aplicação. |
@@ -140,7 +140,7 @@ Um pedido de IO é uma unidade de operação de entrada/saída que a sua aplica�
 O tamanho de IO é um dos fatores mais importantes. O tamanho da IO é o tamanho do pedido de funcionamento de entrada/saída gerado pela sua aplicação. O tamanho da IO tem um impacto significativo no desempenho especialmente no IOPS e na largura de banda que a aplicação é capaz de alcançar. A fórmula seguinte mostra a relação entre IOPS, tamanho IO e largura de banda/saída.  
     ![](media/premium-storage-performance/image1.png)
 
-Algumas aplicações permitem alterar o seu tamanho de IO, enquanto algumas aplicações não. Por exemplo, o SQL Server determina o tamanho ideal da IO em si, e não fornece aos utilizadores nenhum botão para alterá-lo. Por outro lado, a Oracle fornece um parâmetro chamado [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) utilizando o qual pode configurar o tamanho do pedido de I/S da base de dados.
+Algumas aplicações permitem alterar o seu tamanho de IO, enquanto algumas aplicações não. Por exemplo, o SQL Server determina o tamanho ideal da IO em si, e não fornece aos utilizadores nenhum botão para alterá-lo. Por outro lado, a Oracle fornece um parâmetro chamado [DB \_ BLOCK \_ SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) utilizando o qual pode configurar o tamanho do pedido de I/S da base de dados.
 
 Se estiver a utilizar uma aplicação, que não lhe permite alterar o tamanho da IO, utilize as diretrizes deste artigo para otimizar o desempenho do KPI que é mais relevante para a sua aplicação. Por exemplo,
 
@@ -189,15 +189,15 @@ Como exemplo, suponha que um requisito de candidatura seja um máximo de 4.000 I
 *Custo de Funcionamento*  
 Em muitos casos, é possível que o seu custo total de operação utilizando o Armazenamento Premium seja inferior ao da utilização do Armazenamento Padrão.
 
-Por exemplo, considere uma aplicação que exija 16.000 IOPS. Para alcançar este desempenho, você\_precisará de um Standard D14 Azure IaaS VM, que pode dar um máximo de IOPS de 16.000 usando 32 discos de armazenamento padrão 1 TB. Cada disco de armazenamento padrão de 1-TB pode atingir um máximo de 500 IOPS. O custo estimado deste VM por mês será de $1.570. O custo mensal de 32 discos de armazenamento padrão será de $1.638. O custo total mensal estimado será de $3.208.
+Por exemplo, considere uma aplicação que exija 16.000 IOPS. Para alcançar este desempenho, você precisará de um \_ Standard D14 Azure IaaS VM, que pode dar um máximo de IOPS de 16.000 usando 32 discos de armazenamento padrão 1 TB. Cada disco de armazenamento padrão de 1-TB pode atingir um máximo de 500 IOPS. O custo estimado deste VM por mês será de $1.570. O custo mensal de 32 discos de armazenamento padrão será de $1.638. O custo total mensal estimado será de $3.208.
 
-No entanto, se acolheu a mesma aplicação no Armazenamento Premium, precisará de um tamanho VM menor e menos discos de armazenamento premium, reduzindo assim o custo global. Um\_VM Standard DS13 pode cumprir o requisito de 16.000 IOPS usando quatro discos P30. O DS13 VM tem um IOPS máximo de 25.600 e cada disco P30 tem um IOPS máximo de 5.000. No geral, esta configuração pode atingir 5.000 x 4 = 20.000 IOPS. O custo estimado deste VM por mês será de $1.003. O custo mensal de quatro discos de armazenamento premium P30 será de $544,34. O custo total mensal estimado será de $1.544.
+No entanto, se acolheu a mesma aplicação no Armazenamento Premium, precisará de um tamanho VM menor e menos discos de armazenamento premium, reduzindo assim o custo global. Um \_ VM Standard DS13 pode cumprir o requisito de 16.000 IOPS usando quatro discos P30. O DS13 VM tem um IOPS máximo de 25.600 e cada disco P30 tem um IOPS máximo de 5.000. No geral, esta configuração pode atingir 5.000 x 4 = 20.000 IOPS. O custo estimado deste VM por mês será de $1.003. O custo mensal de quatro discos de armazenamento premium P30 será de $544,34. O custo total mensal estimado será de $1.544.
 
 A tabela abaixo resume a repartição de custos deste cenário para o Armazenamento Standard e Premium.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Custo da VM por mês** |$1.570.58 (Standard\_D14) |$1.003.66 (Standard\_DS13) |
+| **Custo da VM por mês** |$1.570.58 (Standard \_ D14) |$1.003.66 (Standard \_ DS13) |
 | **Custo dos Discos por mês** |$1.638.40 (discos de 32 x 1 TB) |$544.34 (4 x Discos P30) |
 | **Custo Global por mês** |$3.208.98 |$1.544.34 |
 
@@ -237,7 +237,7 @@ VMs de alta escala que alavancam o Armazenamento Premium Azure têm uma tecnolog
 > [!WARNING]
 > O Caching do disco não é suportado para discos 4 TiB e maiores. Se vários discos estiverem ligados ao seu VM, cada disco inferior a 4 TiB suportará o cache.
 >
-> Alterar a definição de cache de um disco do Azure desanexa e anexa o disco de destino. Se for o disco do sistema operativo, o VM é reiniciado. Pare todas as aplicações/serviços que possam ser afetados por esta interrupção antes de alterar a definição da cache do disco.
+> Alterar a definição de cache de um disco do Azure desanexa e anexa o disco de destino. Se for o disco do sistema operativo, o VM é reiniciado. Pare todas as aplicações/serviços que possam ser afetados por esta interrupção antes de alterar a definição da cache do disco. Não seguir estas recomendações pode levar à corrupção de dados.
 
 Para saber mais sobre como funciona o BlobCache, consulte o post de blog Inside [Azure Premium Storage.](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 
@@ -252,7 +252,7 @@ Seguem-se as definições recomendadas de cache de disco para discos de dados,
 
 | **Definição de cache de disco** | **recomendação sobre quando usar esta definição** |
 | --- | --- |
-| Nenhuma |Configure o cache do hospedeiro como Nenhum para discos apenas escritos e de escrita pesados. |
+| Nenhum |Configure o cache do hospedeiro como Nenhum para discos apenas escritos e de escrita pesados. |
 | ReadOnly |Configure o cache do anfitrião como ReadOnly para discos de leitura e leitura. |
 | ReadWrite |Configure a cache do anfitrião como ReadWrite apenas se a sua aplicação lidar corretamente com a escrita de dados em cache para discos persistentes quando necessário. |
 
@@ -280,9 +280,9 @@ Como exemplo, pode aplicar estas diretrizes ao SQL Server em execução no Armaz
 
 Para todos os SSDs premium ou discos ultra com cache definido para **ReadOnly** ou **None,** deve desativar "barreiras" quando montar o sistema de ficheiros. Não é necessário barreiras neste cenário porque os escritos para discos de armazenamento premium são duráveis para estas definições de cache. Quando o pedido de escrita termina com sucesso, os dados foram escritos para a loja persistente. Para desativar as "barreiras", utilize um dos seguintes métodos. Escolha o do seu sistema de ficheiros:
   
-* Para **reutilizar fossas,** para `barrier=none` desativar as barreiras, utilize a opção de montagem. (Para permitir barreiras, utilize `barrier=flush`.)
-* Para **ext3/ext4**, para desativar as barreiras, utilize a opção `barrier=0` de montagem. (Para permitir barreiras, utilize `barrier=1`.)
-* Para **o XFS,** para desativar as barreiras, utilize a opção `nobarrier` de montagem. (Para permitir barreiras, utilize `barrier`.)
+* Para **reutilizar fossas,** para desativar as barreiras, utilize a `barrier=none` opção de montagem. (Para permitir barreiras, utilize `barrier=flush` .)
+* Para **ext3/ext4**, para desativar as barreiras, utilize a `barrier=0` opção de montagem. (Para permitir barreiras, utilize `barrier=1` .)
+* Para **o XFS,** para desativar as barreiras, utilize a `nobarrier` opção de montagem. (Para permitir barreiras, utilize `barrier` .)
 * Para discos de armazenamento premium com cache definido para **ReadWrite,** ative barreiras para a durabilidade da escrita.
 * Para que as etiquetas de volume persistam após o reinício do VM, deve atualizar /etc/fstab com as referências de identificador universalmente únicas (UUID) aos discos. Para mais informações, consulte [Adicionar um disco gerido a um VM Linux](../articles/virtual-machines/linux/add-disk.md).
 
@@ -384,3 +384,4 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 As provisões de armazenamento Azure Premium especificam o número de IOPS e De entrada, dependendo dos tamanhos vm e do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Passput acima destes limites do que o VM ou disco pode suportar, o Armazenamento Premium irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor entrada ou iOPS mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente ao exceder o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, disponibilize sempre recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos VM e Disqueacima. O benchmarking é a melhor maneira de descobrir que recursos você precisará para hospedar a sua aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
+

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 4dd42c6eabf02bc7a4eb956b9cd5ab2aec28176b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186208"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800796"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de parceiro sacial do Mercado Comercial e da atribuição do uso do cliente
 
@@ -37,10 +37,10 @@ A atribuição de utilização do cliente suporta três opções de implementaç
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-Um GUID é um identificador de referência único que tem 32 dígitos hexadecimais. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
+Um GUID é um identificador de referência único que tem 32 dígitos hexadecimais. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUIA](https://aka.ms/StoragePartners) que lhe enviará um GUIA do formato correto e pode ser reutilizado nos diferentes sistemas de rastreio.
 
 > [!NOTE]
-> É altamente recomendável que utilize o [formulário de gerador GUID do Azure Storage](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) para criar o seu GUID. Para mais informações, consulte as [nossas FAQ.](#faq)
+> É altamente recomendável que utilize o [formulário de gerador GUID do Azure Storage](https://aka.ms/StoragePartners) para criar o seu GUID. Para mais informações, consulte as [nossas FAQ.](#faq)
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
 
@@ -61,7 +61,7 @@ Depois de adicionar um GUID ao seu modelo ou no agente utilizador, e registar o 
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. Inscreva-se como editor de [marketplace comercial.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)
+1. Inscreva-se como editor de [marketplace comercial.](https://aka.ms/JoinMarketplace)
 
    * Os parceiros são obrigados a [ter um perfil no Partner Center.](https://docs.microsoft.com/azure/marketplace/become-publisher) É encorajado a listar a oferta no Azure Marketplace ou appSource.
    * Os parceiros podem registar vários GUIDs.
@@ -143,7 +143,7 @@ Para permitir a atribuição de utilização do cliente, quando conceber as suas
 
 #### <a name="example-the-python-sdk"></a>Exemplo: O Python SDK
 
-Para Python, use o atributo de **config.** Só pode adicionar o atributo a um UserAgent. Segue-se um exemplo:
+Para Python, use o atributo de **config.** Só pode adicionar o atributo a um UserAgent. Eis um exemplo:
 
 ![Adicione o atributo a um agente utilizador](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -169,7 +169,7 @@ Para mais informações, consulte [Azure SDK para Go](https://docs.microsoft.com
 
 ## <a name="use-terraform"></a>Usar terraforma
 
-O suporte à Terraform está disponível através do lançamento 1.21.0 da Azure Provider: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Este apoio aplica-se a todos os parceiros que implementem a sua solução via Terraform, bem como a todos os recursos utilizados e medidos pelo Fornecedor Azure (versão 1.21.0 ou posterior).
+O suporte à Terraform está disponível através do lançamento 1.21.0 da Azure Provider: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019) .  Este apoio aplica-se a todos os parceiros que implementem a sua solução via Terraform, bem como a todos os recursos utilizados e medidos pelo Fornecedor Azure (versão 1.21.0 ou posterior).
 
 O fornecedor Azure para a Terraform adicionou um novo campo opcional chamado [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) que é onde especifica o GUIA de rastreio que utiliza para a sua solução. O valor deste campo também pode ser obtido a partir da *Variável ambiente ARM_PARTNER_ID.*
 
@@ -230,7 +230,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Pode encontrar o relatório para atribuição de utilização[https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)do cliente no seu painel de instrumentos do Partner Center (). Para ver o relatório, tem de usar as credenciais do Centro parceiro para iniciar sessão. Se encontrar algum problema com relatório ou iniciar sessão, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
+Pode encontrar o relatório para atribuição de utilização do cliente no seu painel de instrumentos do Partner Center [https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure) (). Para ver o relatório, tem de usar as credenciais do Centro parceiro para iniciar sessão. Se encontrar algum problema com relatório ou iniciar sessão, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
 
 Escolha o modelo rastreado na lista de dropdown do Partner Association Type para ver o relatório.
 
@@ -238,15 +238,15 @@ Escolha o modelo rastreado na lista de dropdown do Partner Association Type para
 
 ## <a name="notify-your-customers"></a>Notifique os seus clientes
 
-Os parceiros devem informar os seus clientes sobre as implementações que utilizam a atribuição do uso do cliente. A Microsoft informa o uso do Azure que está associado a estas implementações ao parceiro. Os seguintes exemplos incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, \<substitua o PARTNER> pelo nome da sua empresa. Os parceiros devem certificar-se de que a notificação está alinhada com as suas políticas de privacidade e recolha de dados, incluindo opções para os clientes serem excluídos do rastreio.
+Os parceiros devem informar os seus clientes sobre as implementações que utilizam a atribuição do uso do cliente. A Microsoft informa o uso do Azure que está associado a estas implementações ao parceiro. Os seguintes exemplos incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, substitua o \< PARTNER> pelo nome da sua empresa. Os parceiros devem certificar-se de que a notificação está alinhada com as suas políticas de privacidade e recolha de dados, incluindo opções para os clientes serem excluídos do rastreio.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implementações de modelos de gestor de recursos
 
-Ao implementar este modelo, a Microsoft é \<capaz de identificar a instalação do software PARTNER> com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de https://www.microsoft.com/trustcenterprivacidade da Microsoft, que podem ser encontradas em .
+Ao implementar este modelo, a Microsoft é capaz de identificar a instalação do \< software PARTNER> com os recursos Azure que são implantados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificação para implementações De SDK ou API
 
-Quando implementa \<o partner> software, a \<Microsoft é capaz de identificar a instalação de software PARTNER> com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de https://www.microsoft.com/trustcenterprivacidade da Microsoft, que podem ser encontradas em .
+Quando implementa o \< PARTNER> software, a Microsoft é capaz de identificar a instalação de \< software PARTNER> com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter .
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -286,7 +286,7 @@ Também pode receber orientação técnica de um Consultor Técnico do Microsoft
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Como apresentar um pedido de consulta técnica
 
-1. Visite [os Serviços Técnicos parceiros.](https://partner.microsoft.com/training/partner-technical-services)
+1. Visite [os Serviços Técnicos parceiros.](https://aka.ms/TechnicalJourney)
 1. Selecione infraestrutura e gestão cloud, e uma nova página será aberta para você ver a viagem técnica.
 1. Em Serviços de Implantação, clique no botão enviar um pedido
 1. Inscreva-se na utilização da sua Conta MSA (conta MPN) ou da sua AAD (conta Partner Dashboard); com base nas suas credenciais de inscrição, será aberto um formulário de pedido online:
@@ -295,7 +295,7 @@ Também pode receber orientação técnica de um Consultor Técnico do Microsoft
     * Introduza um título e a descrição do problema (forneça o máximo de detalhes possível).
 1. Clique em Submeter
 
-Ver instruções passo a passo com imagens em [Utilizar Serviços Técnicos de Pré-venda e Implantação](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
+Ver instruções passo a passo com imagens em [Utilizar Serviços Técnicos de Pré-venda e Implantação](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>Passos seguintes
 
@@ -329,7 +329,7 @@ O formulário GUID Generator da Azure Storage é garantido para gerar um GUID do
 
 **Posso usar um VHD personalizado e privado para uma oferta de modelo de solução no Mercado Azure?**
 
-Não, não pode. A imagem virtual da máquina deve vir [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines)do Mercado Azure, ver: .
+Não, não pode. A imagem virtual da máquina deve vir do Mercado Azure, ver: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
 
 Você pode criar uma oferta VM no mercado usando o seu VHD personalizado e marcá-lo como Privado para que ninguém possa vê-lo. Em seguida, refira-se a este VM no seu modelo de solução.
 

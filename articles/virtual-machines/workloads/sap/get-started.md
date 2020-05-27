@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5991c6e073001e565a965a8db3cf32ca76d843f4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b95112146c0003f3fc5ea563e5561dc26ea064e8
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684416"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800729"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -111,6 +111,7 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 ## <a name="change-log"></a>Alterar Log
 
+- 05/21/2020: Alteração na configuração do [Pacemaker em SLES em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) e configuração do [Pacemaker no RHEL em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para adicionar uma ligação à [conectividade de ponto final público para VMs utilizando o Azure Standard ILB nos cenários SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Adicione mensagem importante para não utilizar o grupo de volume de raiz ao utilizar LVM para volumes relacionados com HANA em configurações de [armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 05/19/2020: Adicionar um novo SISTEMA suportado para HANA Grande Instância Tipo II em [Sistemas operativos compatíveis para grandes instâncias HANA].https://docs.microsoft.com/
 - azure/virtual-machines/workloads/sap/os-compatibilidade-matrix-hana-large-instância)

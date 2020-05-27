@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: bd9241e526d7cf42f0697afb8635c085a08c80d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: eece6f97e82f3800d4f59ac1849b34c2a1e4635b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606488"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800074"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformação de divisão condicional no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A transformação de divisão condicional encaminha linhas de dados para diferentes fluxos com base em condições correspondentes. A transformação de divisão condicional é semelhante a uma estrutura de decisão do CASO numa linguagem de programação. A transformação avalia expressões e, com base nos resultados, direciona a linha de dados para o fluxo especificado.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
 
 ## <a name="configuration"></a>Configuração
 
@@ -45,7 +47,7 @@ Utilize o construtor de expressão de fluxo de dados para introduzir uma express
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma `SplitByYear` transformação de `CleanData`divisão condicional chamada que acolhe o fluxo de entrada . Esta transformação tem `year < 1960` `year > 1980`duas condições divididas e. `disjoint`é falso porque os dados vão para a primeira condição correspondente. Cada linha correspondente à primeira `moviesBefore1960`condição vai para o fluxo de saída. Todas as linhas restantes correspondentes `moviesAFter1980`à segunda condição vão para o fluxo de saída . Todas as outras linhas `AllOtherMovies`fluem através do fluxo padrão .
+O exemplo abaixo é uma transformação de divisão condicional chamada `SplitByYear` que acolhe o fluxo de entrada `CleanData` . Esta transformação tem duas condições divididas `year < 1960` `year > 1980` e. `disjoint`é falso porque os dados vão para a primeira condição correspondente. Cada linha correspondente à primeira condição vai para o fluxo de `moviesBefore1960` saída. Todas as linhas restantes correspondentes à segunda condição vão para o fluxo de saída `moviesAFter1980` . Todas as outras linhas fluem através do fluxo padrão `AllOtherMovies` .
 
 Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
 

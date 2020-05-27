@@ -3,12 +3,12 @@ title: Tipos de recursos suportados através da Saúde dos Recursos Azure [ Micr
 description: Tipos de recursos suportados através da saúde dos recursos azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478900"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816103"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos do Azure
 Abaixo está uma lista completa de todos os controlos executados através da saúde dos recursos por tipos de recursos.
@@ -204,7 +204,7 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>A base de dados está a funcionar?</li></ul>|
 
-## <a name="microsoftsqlserverdatabases"></a>Microsoft.SQL/Server/bases de dados
+## <a name="microsoftsqlserversdatabases"></a>Microsoft.SQL/servidores/bases de dados
 |Cheques Executados|
 |---|
 |<ul><li>Houve registos na base de dados?</li></ul>|

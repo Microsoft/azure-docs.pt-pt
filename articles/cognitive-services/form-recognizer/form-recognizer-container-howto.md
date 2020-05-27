@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: a3860b2cedbdf8154658449349439f918775cb25
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 761cf5831bb2332ae8c3f7a9a8edee707e6810ee
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701884"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816340"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulário (Pré-visualização)
 
@@ -67,7 +67,7 @@ Esta chave é usada para iniciar o recipiente, e está disponível na página ch
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
 
-Preencha e submeta o formulário de [pedido](https://aka.ms/FormRecognizerContainerRequestAccess) para solicitar o acesso ao recipiente.
+Preencha e submeta o formulário de [pedido](https://aka.ms/cognitivegate) para solicitar o acesso ao recipiente.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

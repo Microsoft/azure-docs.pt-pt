@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: c30bd8a3bb4fa1085e56dd93c66c016c3612e352
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4fac94cc2f8f378b7e9d8e9485baed6a0ffa838b
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749138"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832168"
 ---
 # <a name="work-with-scope-configurations-for-change-tracking-and-inventory"></a>Trabalhar com configurações de âmbito para rastreio e inventário de alterações
 
@@ -52,11 +52,5 @@ Quando um computador é adicionado ao Change Tracking and Inventory, também é 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações gerais sobre a funcionalidade, consulte a visão geral do [Change Tracking e do Inventário](change-tracking.md).
-* Para trabalhar com a funcionalidade, consulte Gerir o Rastreio e O Inventário de [Alterações](change-tracking-file-contents.md).
-* Para utilizar uma conta De automatização para ativar a funcionalidade, consulte [o Enable Change Tracking and Inventory a partir de uma conta De automação](automation-enable-changes-from-auto-acct.md).
-* Para utilizar o portal Azure para ativar a funcionalidade, consulte [Enable Change Tracking and Inventory do portal Azure](automation-enable-changes-from-browse.md).
-* Para utilizar um livro de execução para ativar a funcionalidade, consulte ativar o [rastreio e o inventário de alterações a partir de um livro](automation-enable-changes-from-runbook.md)de execução .
-* Para utilizar um VM Azure para ativar a funcionalidade, consulte [enable Change Tracking and Inventory a partir de um VM Azure](automation-enable-changes-from-vm.md).
-* Para resolver problemas com o rastreio de mudanças e o inventário num VM, consulte as alterações de [Troubleshoot num VM Azure](automation-tutorial-troubleshoot-changes.md).
-* Para resolver problemas de funcionalidades, consulte problemas de rastreio e inventário de alterações de resolução de [problemas.](troubleshoot/change-tracking.md)
+* Para trabalhar com o Change Tracking e Inventário, consulte Gerir o Rastreio e O Inventário de [Alterações](change-tracking-file-contents.md).
+* Para resolver problemas de funcionalidades gerais, consulte problemas de rastreio e inventário de mudança de resolução de [problemas.](troubleshoot/change-tracking.md)

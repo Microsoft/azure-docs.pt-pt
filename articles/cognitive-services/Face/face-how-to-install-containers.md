@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: bd1449501cdc9483621a5408a3a4926afe90212f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702144"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815796"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar recipientes face (Pré-visualização)
 
@@ -38,7 +38,7 @@ Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes de se
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registo de contentores privados
 
-Preencha e submeta o formulário de [pedido](https://aka.ms/VisionContainersPreview) para solicitar o acesso ao recipiente. 
+Preencha e submeta o formulário de [pedido](https://aka.ms/cognitivegate) para solicitar o acesso ao recipiente. 
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 

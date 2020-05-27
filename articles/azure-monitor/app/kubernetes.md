@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 95c7205116808650c09f8b6fdd24844d9c0a6dbe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647879"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797891"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitorização de aplicações de instrumentação zero para Kubernetes hospedadas aplicações com Istio - DEPRECATED
 
@@ -18,7 +18,7 @@ ms.locfileid: "83647879"
 > Esta funcionalidade encontra-se atualmente a ser depreciada e deixará de ser suportada após o dia 1 de agosto de 2020.
 > Atualmente, a monitorização sem código só pode ser ativada para [java através de um agente autónomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Para outros idiomas, utilize os SDKs para monitorizar as suas aplicações em AKS: [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js,](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)e [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
-O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster Kubernetes para fornecer a monitorização da aplicação de caixa para qualquer aplicação hospedada pela Kubernetes. Com funcionalidades padrão de Insight de aplicação como O Mapa de [Aplicações](../../azure-monitor/app/app-map.md) para modelar as suas dependências, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para monitorização em tempo real, visualizações poderosas com o [dashboard padrão,](../../azure-monitor/app/overview-dashboard.md) [Explorador Métrico](../../azure-monitor/platform/metrics-getting-started.md)e Livros de [Trabalho](../../azure-monitor/app/usage-workbooks.md). Esta funcionalidade ajudará os utilizadores a detetar estrangulamentos de desempenho e hotspots de falha em todas as suas cargas de trabalho kubernetes dentro de um espaço de nome seleto de Kubernetes. Ao capitalizar os investimentos existentes em malha de serviço com tecnologias como a Istio, o Azure Monitor permite a monitorização automática de aplicações sem qualquer alteração ao código da sua aplicação.
+O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster Kubernetes para fornecer a monitorização da aplicação de caixa para qualquer aplicação hospedada pela Kubernetes. Com funcionalidades padrão de Insight de aplicação como O Mapa de [Aplicações](../../azure-monitor/app/app-map.md) para modelar as suas dependências, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para monitorização em tempo real, visualizações poderosas com o [dashboard padrão,](../../azure-monitor/app/overview-dashboard.md) [Explorador Métrico](../../azure-monitor/platform/metrics-getting-started.md)e Livros de [Trabalho](../../azure-monitor/platform/workbooks-overview.md). Esta funcionalidade ajudará os utilizadores a detetar estrangulamentos de desempenho e hotspots de falha em todas as suas cargas de trabalho kubernetes dentro de um espaço de nome seleto de Kubernetes. Ao capitalizar os investimentos existentes em malha de serviço com tecnologias como a Istio, o Azure Monitor permite a monitorização automática de aplicações sem qualquer alteração ao código da sua aplicação.
 
 > [!NOTE]
 > Esta é uma das muitas formas de realizar a monitorização de aplicações em Kubernetes.Também pode instrumentar qualquer aplicação hospedada em Kubernetes utilizando o [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) sem a necessidade de uma malha de serviço. Para monitorizar kubernetes sem instrumentar a aplicação com um SDK pode utilizar o método abaixo.

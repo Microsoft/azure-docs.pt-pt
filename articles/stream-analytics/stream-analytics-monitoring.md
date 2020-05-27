@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 11cb598420b4cecf803b17a78f14f9268e1c8be2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611896"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831284"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar as consultas
 
@@ -59,7 +59,7 @@ Outro ponto de dados interessante para monitorizar o seu trabalho é o momento d
 Desta vez é o tempo de candidatura (isto é, o tempo que utiliza o carimbo de tempo dos dados do evento) da mais recente saída do seu trabalho.
 
 ## <a name="get-help"></a>Obter ajuda
-Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

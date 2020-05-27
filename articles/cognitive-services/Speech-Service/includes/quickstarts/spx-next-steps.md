@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d8a6f1b290786a8f23e81587d22b5fd605a52d86
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 9e16c1907a2196627456f45491402df86e3eac43
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714699"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806232"
 ---
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Continue a explorar o básico para aprender sobre outras funcionalidades da ferramenta SPX.
+Continue a explorar o básico para aprender sobre outras características do Discurso CLI.
 
 > [!div class="nextstepaction"]
-> [Explore os fundamentos básicos da ferramenta SPX](../../spx-basics.md)
+> [Explore os fundamentos do Speech CLI](../../spx-basics.md)

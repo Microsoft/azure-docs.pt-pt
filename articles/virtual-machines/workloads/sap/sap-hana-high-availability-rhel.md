@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/31/2020
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: f1ae2c3c949e8bdbf30c8bef496177d56cd2dcbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed53b77587e307926689b2c20d7223212f3394d4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521398"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800267"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux
 
@@ -108,7 +108,7 @@ Para implementar o modelo, siga estes passos:
     * Tamanho do **sistema sap**: Introduza o número de SAPS que o novo sistema vai fornecer. Se não tem a certeza de quantos SAPS o sistema necessita, pergunte ao seu Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     * **Disponibilidade do Sistema**: Selecione **HA**.
     * **Nome de utilizador, palavra-passe de administrador ou chave SSH**: É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
-    * **ID sub-rede**: Se pretender implantar o VM numa VNet existente onde tenha uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente se parece com **/subscrições/\<ID de\<subscrição>/recursosGroups/\<nome de grupo de\<recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual>/subnets/ nome de sub-rede>**. Deixe vazio, se quiser criar uma nova rede virtual
+    * **ID sub-rede**: Se pretender implantar o VM numa VNet existente onde tenha uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente se parece com **/subscrições/ \< ID de subscrição>/recursosGroups/ nome de \< grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de \< rede virtual>/subnets/ nome de \< sub-rede>**. Deixe vazio, se quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implementação manual
 
@@ -119,9 +119,9 @@ Para implementar o modelo, siga estes passos:
 1. Criar um equilibrador de carga (interno). Recomendamos um [equilíbrio de carga padrão.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
    * Selecione a rede virtual criada no passo 2.
 1. Criar a máquina virtual 1.  
-   Utilize pelo menos a Red Hat Enterprise Linux 7.4 para sap HANA. Este exemplo utiliza o Red Hat Enterprise Linux 7.4 para a imagem <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> SAP HANA Selecione o conjunto de disponibilidade criado no passo 3.
+   Utilize pelo menos a Red Hat Enterprise Linux 7.4 para sap HANA. Este exemplo utiliza o Red Hat Enterprise Linux 7.4 para a imagem SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Selecione o conjunto de disponibilidade criado no passo 3.
 1. Criar a máquina virtual 2.  
-   Utilize pelo menos a Red Hat Enterprise Linux 7.4 para sap HANA. Este exemplo utiliza o Red Hat Enterprise Linux 7.4 para a imagem <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> SAP HANA Selecione o conjunto de disponibilidade criado no passo 3.
+   Utilize pelo menos a Red Hat Enterprise Linux 7.4 para sap HANA. Este exemplo utiliza o Red Hat Enterprise Linux 7.4 para a imagem SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Selecione o conjunto de disponibilidade criado no passo 3.
 1. Adicione discos de dados.
 1. Se utilizar um equilibrador de carga padrão, siga estes passos de configuração:
    1. Primeiro, crie uma piscina IP frontal:
@@ -263,10 +263,10 @@ Os passos nesta secção utilizam os seguintes prefixos:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Criar os volumes lógicos. Um volume linear é `lvcreate` criado `-i` quando se utiliza sem o interruptor. Sugerimos que crie um volume listrado para um melhor desempenho em I/S e alinhe os tamanhos das riscas com os valores documentados nas configurações de [armazenamento VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). O `-i` argumento deve ser o número dos `-I` volumes físicos subjacentes e o argumento é o tamanho das riscas. Neste documento, são utilizados dois volumes físicos `-i` para o volume de dados, pelo que o argumento da comutação está definido para **2**. O tamanho das riscas para o volume de dados é **de 256KiB**. Um volume físico é utilizado para o `-i` `-I` volume de registo, pelo que nenhum ou interruptor é explicitamente utilizado para os comandos de volume de registo.  
+   Criar os volumes lógicos. Um volume linear é criado quando se utiliza `lvcreate` sem o `-i` interruptor. Sugerimos que crie um volume listrado para um melhor desempenho em I/S e alinhe os tamanhos das riscas com os valores documentados nas configurações de [armazenamento VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). O `-i` argumento deve ser o número dos volumes físicos subjacentes e o argumento é o tamanho das `-I` riscas. Neste documento, são utilizados dois volumes físicos para o volume de dados, pelo que o argumento da `-i` comutação está definido para **2**. O tamanho das riscas para o volume de dados é **de 256KiB**. Um volume físico é utilizado para o volume de registo, pelo que nenhum `-i` ou `-I` interruptor é explicitamente utilizado para os comandos de volume de registo.  
 
    > [!IMPORTANT]
-   > Utilize `-i` o interruptor e detetetete-o para o número do volume físico subjacente quando utilizar mais de um volume físico para cada dados, registo ou volumes partilhados. Utilize `-I` o interruptor para especificar o tamanho das riscas, quando criar um volume listrado.  
+   > Utilize o `-i` interruptor e detetetete-o para o número do volume físico subjacente quando utilizar mais de um volume físico para cada dados, registo ou volumes partilhados. Utilize o `-I` interruptor para especificar o tamanho das riscas, quando criar um volume listrado.  
    > Consulte as configurações de [armazenamento VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para configurações de armazenamento recomendadas, incluindo tamanhos de listras e número de discos.  
 
    <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
@@ -291,7 +291,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
    <pre><code>sudo vi /etc/fstab
    </code></pre>
 
-   Insira a `/etc/fstab` seguinte linha no ficheiro:
+   Insira a seguinte linha no `/etc/fstab` ficheiro:
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
    /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
@@ -342,11 +342,11 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
 1. **[A]** RHEL para configuração HANA
 
-   Configure o RHEL conforme descrito na Nota SAP [2292690] e [2455582] e <https://access.redhat.com/solutions/2447641>.
+   Configure o RHEL conforme descrito na Nota SAP [2292690] e [2455582] e <https://access.redhat.com/solutions/2447641> .
 
 1. **[A]** Instalar o SAP HANA
 
-   Para instalar a replicação do <https://access.redhat.com/articles/3004101>sistema SAP HANA, siga .
+   Para instalar a replicação do sistema SAP HANA, siga <https://access.redhat.com/articles/3004101> .
 
    * Execute o programa **hdblcm** do DVD HANA. Introduza os seguintes valores no momento:
    * Escolha a instalação: Insira **1**.
@@ -424,14 +424,14 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
    Se estiver a utilizar o SAP HANA 2.0 ou o MDC, crie uma base de dados de inquilinos para o seu sistema SAP NetWeaver. Substitua o **NW1** pelo SID do seu sistema SAP.
 
-   Execute como <\>hanasid adm o seguinte comando:
+   Execute como <\> hanasid adm o seguinte comando:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configurar a replicação do sistema no primeiro nó:
 
-   Faça backup das bases de\>dados como <hanasid adm:
+   Faça backup das bases de dados como <\> hanasid adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -451,7 +451,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
 1. **[2]** Configurar a replicação do sistema no segundo nó:
     
-   Registe o segundo nó para iniciar a replicação do sistema. Executar o seguinte comando como\><hanasid adm:
+   Registe o segundo nó para iniciar a replicação do sistema. Executar o seguinte comando como <\> hanasid adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -530,7 +530,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
 1. **[1]** Configurar a replicação do sistema no primeiro nó.
 
-   Crie o local principal como\><hanasid adm:
+   Crie o local principal como <\> hanasid adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -538,7 +538,7 @@ Os passos nesta secção utilizam os seguintes prefixos:
 
 1. **[2]** Configurar a replicação do sistema no nó secundário.
 
-   Registe o local secundário como\><hanasid adm:
+   Registe o local secundário como <\> hanasid adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -641,7 +641,7 @@ Pode migrar o nó mestre SAP HANA executando o seguinte comando:
 <pre><code>[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
 </code></pre>
 
-Se definir, `AUTOMATED_REGISTER="false"`este comando deve migrar o nó mestre SAP HANA e o grupo que contém o endereço IP virtual para hn1-db-1.
+Se `AUTOMATED_REGISTER="false"` definir, este comando deve migrar o nó mestre SAP HANA e o grupo que contém o endereço IP virtual para hn1-db-1.
 
 Uma vez que a migração é feita, a saída 'sudo pcs status' parece-se com esta
 
@@ -705,12 +705,9 @@ Consulte o [artigo 79523](https://access.redhat.com/solutions/79523) da Base de 
 </code></pre>
 
 A máquina virtual deve agora reiniciar ou parar dependendo da configuração do seu cluster.
-Se definir `stonith-action` a configuração para o desligado, a máquina virtual é parada e os recursos são migrados para a máquina virtual em execução.
+Se definir a `stonith-action` configuração para o desligado, a máquina virtual é parada e os recursos são migrados para a máquina virtual em execução.
 
-> [!NOTE]
-> Pode levar até 15 minutos até as máquinas virtuais estarem novamente online.
-
-Depois de relançar a máquina virtual, o recurso SAP HANA `AUTOMATED_REGISTER="false"`não começa como secundário se definir . Neste caso, configure a instância HANA como secundária executando este comando:
+Depois de relançar a máquina virtual, o recurso SAP HANA não começa como secundário se definir `AUTOMATED_REGISTER="false"` . Neste caso, configure a instância HANA como secundária executando este comando:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -754,7 +751,7 @@ Pode testar uma falha manual parando o cluster no nó hn1-db-0:
 <pre><code>[root@hn1-db-0 ~]# pcs cluster stop
 </code></pre>
 
-Depois da falha, podes recomeçar o agrupamento. Se definir, `AUTOMATED_REGISTER="false"`o recurso SAP HANA no nó hn1-db-0 não começa como secundário. Neste caso, configure a instância HANA como secundária executando este comando:
+Depois da falha, podes recomeçar o agrupamento. Se `AUTOMATED_REGISTER="false"` definir, o recurso SAP HANA no nó hn1-db-0 não começa como secundário. Neste caso, configure a instância HANA como secundária executando este comando:
 
 <pre><code>[root@hn1-db-0 ~]# pcs cluster start
 [root@hn1-db-0 ~]# su - hn1adm
@@ -780,9 +777,29 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
+### <a name="test-a-manual-failover"></a>Teste uma falha manual
+
+Estado de recurso antes de iniciar o teste:
+
+<pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+    Started: [ hn1-db-0 hn1-db-1 ]
+Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Masters: [ hn1-db-0 ]
+    Slaves: [ hn1-db-1 ]
+Resource Group: g_ip_HN1_03
+    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
+    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+</code></pre>
+
+Pode testar uma falha manual parando o cluster no nó hn1-db-0:
+
+<pre><code>[root@hn1-db-0 ~]# pcs cluster stop
+</code></pre>
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
 * [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
 * [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
-* Para aprender como estabelecer alta disponibilidade e plano para recuperação de desastres de SAP HANA em Azure (grandes instâncias), consulte [SAP HANA (grandes instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md)
+* [Configurações de armazenamento VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)

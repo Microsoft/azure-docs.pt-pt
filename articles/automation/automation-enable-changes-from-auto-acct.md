@@ -5,14 +5,14 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 7aacf88315c19dc6e1016bf518343165492f9188
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 28c61e637a37c158dcd80c0f02b748b4813945fb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749096"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826847"
 ---
-# <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Ativar o Rastreio de Alterações e O Inventário a partir de uma conta de Automação
+# <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Ativar o Controlo de Alterações e Inventário a partir de uma conta de Automatização
 
 Este artigo descreve como pode utilizar a sua conta De automatização para ativar a funcionalidade de Rastreio e Inventário de [Alterações](change-tracking.md) para VMs no seu ambiente. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando o Change Tracking e o Inventory. 
 
@@ -69,20 +69,19 @@ As máquinas ou máquinas instaladas manualmente que já reportem ao seu espaço
 
     ![Pesquisas guardadas](media/automation-enable-changes-from-auto-acct/managemachines.png)
 
-4. Para ativar o Rastreio de Alterações e o Inventário de todas as máquinas disponíveis, selecione **Ativar todas as máquinas disponíveis** na página 'Gerir máquinas'. Esta ação desativa o controlo para adicionar máquinas individualmente. Esta tarefa adiciona todos os nomes das máquinas que reportam ao espaço de trabalho ao grupo de computador esguardado consulta de pesquisa. Quando selecionada, esta ação desativa o botão **Manage Machines.**
+3. Para ativar o Rastreio de Alterações e o Inventário de todas as máquinas disponíveis, selecione **Ativar todas as máquinas disponíveis** na página 'Gerir máquinas'. Esta ação desativa o controlo para adicionar máquinas individualmente. Esta tarefa adiciona todos os nomes das máquinas que reportam ao espaço de trabalho ao grupo de computador esguardado consulta de pesquisa. Quando selecionada, esta ação desativa o botão **Manage Machines.**
 
-5. Para ativar a funcionalidade para todas as máquinas disponíveis e futuras máquinas, selecione **Enable em todas as máquinas disponíveis e futuras**. Esta opção elimina as pesquisas e configurações de âmbito guardadas do espaço de trabalho e abre a funcionalidade para todas as máquinas Azure e não-Azure que estão a reportar ao espaço de trabalho. Quando selecionada, esta ação desativa o botão **Manage Machines** permanentemente, uma vez que não há outra configuração de âmbito.
+4. Para ativar a funcionalidade para todas as máquinas disponíveis e futuras máquinas, selecione **Enable em todas as máquinas disponíveis e futuras**. Esta opção elimina as pesquisas e configurações de âmbito guardadas do espaço de trabalho e abre a funcionalidade para todas as máquinas Azure e não-Azure que estão a reportar ao espaço de trabalho. Quando selecionada, esta ação desativa o botão **Manage Machines** permanentemente, uma vez que não há outra configuração de âmbito.
 
-6. Se necessário, pode adicionar as configurações de âmbito de volta adicionando as pesquisas guardadas iniciais. Para mais informações, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
+5. Se necessário, pode adicionar as configurações de âmbito de volta adicionando as pesquisas guardadas iniciais. Para mais informações, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
 
-7. Para ativar a funcionalidade para uma ou mais máquinas, **selecione Ativar as máquinas selecionadas** e clique **em Adicionar** ao lado de cada máquina para ativar a funcionalidade. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador saqueado a consulta de pesquisa para a funcionalidade.
+6. Para ativar a funcionalidade para uma ou mais máquinas, **selecione Ativar as máquinas selecionadas** e clique **em Adicionar** ao lado de cada máquina para ativar a funcionalidade. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador saqueado a consulta de pesquisa para a funcionalidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
-* [Trabalhar com configurações de âmbito para rastreio e inventário de alterações](automation-scope-configurations-change-tracking.md)
-* [Identificar o software numa VM](automation-tutorial-installed-software.md)
-* [Desvincular o espaço de trabalho da conta da Automação para rastreio de alterações e inventário](automation-unlink-workspace-change-tracking.md)
-* [Remover VMs do Rastreio e Inventário de Alterações](automation-remove-vms-from-change-tracking.md)
-* [Mudanças de resolução de problemas num VM Azure](automation-tutorial-troubleshoot-changes.md)
-* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
+* Para mais detalhes sobre a funcionalidade, consulte Gerir o Rastreio e O Inventário de [Alterações](change-tracking-file-contents.md).
+* Para obter informações sobre configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
+* Para aprender a utilizar a funcionalidade para identificar software instalado no seu ambiente, consulte [Descubra qual o software instalado nos seus VMs](automation-tutorial-installed-software.md).
+* Se não quiser integrar a sua conta de Automação com um espaço de trabalho log Analytics ao ativar a funcionalidade, consulte o espaço de [trabalho Unlink a partir da conta Automation](automation-unlink-workspace-change-tracking.md).
+* Quando terminar a implementação de alterações nos VMs, pode removê-las conforme descrito em [Remover VMs de Change Tracking e Inventory](automation-remove-vms-from-change-tracking.md).
+* Para resolver problemas gerais com a funcionalidade, consulte problemas de rastreio e inventário de resolução de [problemas.](troubleshoot/change-tracking.md)

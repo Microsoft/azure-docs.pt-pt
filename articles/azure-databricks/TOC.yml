@@ -1623,20 +1623,6 @@
                     - name: Descrição geral da autenticação de tokens do Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Obter um token do Azure AD com a Biblioteca de Autenticação do Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
-                      maintainContext: true
-                    - name: Obter um token do Azure AD com um principal de serviço
-                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
-                      maintainContext: true
-                    - name: Resolução de problemas dos tokens de acesso do Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
-                  maintainContext: true
-                - name: Tokens do Azure Active Directory
-                  items:
-                    - name: Descrição geral da autenticação de tokens do Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/index
-                      maintainContext: true
                     - name: Obter um token do Azure AD com a Biblioteca de Autenticação do AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true

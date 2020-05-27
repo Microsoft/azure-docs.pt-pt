@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 05/11/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 771f6dd265b2df686d00642d2063915dfab17a86
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 17c6e10b213cb1f3d2b20433a5511c27960cdb06
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722784"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816306"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteja os seus ciclos de vida de aprendizagem automática com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -87,6 +87,7 @@ Para utilizar um [alvo de **computação** de machine learning Azure gerido](con
 > * Verifique se as suas políticas de segurança ou bloqueios na subscrição ou grupo de recursos da rede virtual restringem as permissões para gerir a rede virtual. Se planeia proteger a rede virtual restringindo o tráfego, deixe algumas portas abertas para o serviço de computação. Para mais informações, consulte a secção de [portas requerida.](#mlcports)
 > * Se vai colocar vários casos de computação ou clusters numa rede virtual, poderá precisar de solicitar um aumento de quota para um ou mais dos seus recursos.
 > * Se as Contas de Armazenamento Azure para o espaço de trabalho também estiverem protegidas numa rede virtual, devem estar na mesma rede virtual que a instância ou cluster de computação de Machine Learning Azure. 
+> * Para que a funcionalidade Jupyter funcione, certifique-se de que a comunicação da tomada web não está desativada.
 
 > [!TIP]
 > A instância ou cluster de computação machine learning atribui automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual__. Para cada instância ou cluster de cálculo, o serviço atribui os seguintes recursos:
@@ -638,7 +639,7 @@ Para utilizar uma máquina virtual ou um cluster Azure HDInsight numa rede virtu
 1. Fixe o cluster VM ou HDInsight ao seu espaço de trabalho de Aprendizagem automática Azure. Para obter mais informações, consulte [Configurar os alvos do cálculo para a formação](how-to-set-up-training-targets.md)de modelos .
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar ambientes de preparação](how-to-set-up-training-targets.md)
 * [Configurar pontos finais privados](how-to-configure-private-link.md)

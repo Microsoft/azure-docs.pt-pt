@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: aa27ba30c7a403cf70396e219b0619e2e84b0d4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6603985df39afaa2fa2871977d6e577c04f7b569
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747738"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800038"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -28,8 +28,6 @@ O Monitor Azure garante que todos os dados são encriptados em repouso utilizand
 A utilização da encriptação do Azure Monitor é idêntica à forma como a [encriptação do Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   funciona.
 
 A CMK permite controlar o acesso aos seus dados e revogá-lo a qualquer momento. O armazenamento do Monitor Azure respeita sempre as alterações nas permissões-chave no prazo de uma hora. Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração CMK, mas o seu controlo sobre os dados sSD adere à [revogação da chave](#cmk-kek-revocation). Estamos a trabalhar para que os dados do SSD sejam encriptados com a CMK no segundo semestre de 2020.
-
-Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração CMK, mas o seu controlo sobre os dados sSD adere à [revogação da chave](#cmk-kek-revocation). Estamos a trabalhar para que os dados do SSD sejam encriptados com a CMK no segundo semestre de 2020.
 
 A capacidade cmk é entregue em clusters dedicados de Log Analytics. Para verificar se temos a capacidade necessária na sua região, exigimos que a sua subscrição seja previamente listada como uma lista branca. Utilize o seu contacto da Microsoft para obter a sua subscrição listada antes de começar a configurar a CMK.
 

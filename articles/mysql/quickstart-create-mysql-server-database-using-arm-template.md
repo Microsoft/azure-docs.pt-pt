@@ -1,19 +1,18 @@
 ---
 title: Crie um Azure DB para MySQL usando um modelo ARM
 description: Neste artigo, aprenda a criar uma Base de Dados Azure para servidor MySQL com integração de rede virtual, utilizando um modelo de Gestor de Recursos Azure.
-services: azure-resource-manager
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 6a007b14ad96efbef7fae0d606bf38b22383b0d4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773343"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800203"
 ---
 # <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>Quickstart: Use um modelo de Gestor de Recursos para criar uma Base de Dados Azure para servidor MySQL
 

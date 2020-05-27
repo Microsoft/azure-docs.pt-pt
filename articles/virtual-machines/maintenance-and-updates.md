@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250234"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815949"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção de máquinas virtuais no Azure
 
@@ -21,7 +21,7 @@ O Azure atualiza periodicamente a sua plataforma para melhorar a fiabilidade, de
 As atualizações raramente afetam os VMs hospedados. Quando as atualizações têm um efeito, o Azure escolhe o método menos impactante para atualizações:
 
 - Se a atualização não necessitar de um reboot, o VM é interrompido enquanto o anfitrião é atualizado, ou o VM é migrado em direto para um hospedeiro já atualizado. 
-- Se a manutenção necessitar de um reboot, é notificado da manutenção planeada. O Azure também fornece uma janela de tempo na qual você pode iniciar a manutenção por si mesmo, numa hora que funciona para si. A janela de auto-manutenção é normalmente de 30 dias, a menos que a manutenção seja urgente. O Azure está a investir em tecnologias para reduzir o número de casos em que a manutenção planeada da plataforma exige que os VMs sejam reiniciados. Para obter instruções sobre a gestão da manutenção planeada, consulte o manuseamento de notificações de manutenção planeadas utilizando o Azure [CLI,](maintenance-notifications-cli.md) [PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
+- Se a manutenção necessitar de um reboot, é notificado da manutenção planeada. O Azure também fornece uma janela de tempo na qual você pode iniciar a manutenção por si mesmo, numa hora que funciona para si. A janela de auto-manutenção é normalmente de 35 dias, a menos que a manutenção seja urgente. O Azure está a investir em tecnologias para reduzir o número de casos em que a manutenção planeada da plataforma exige que os VMs sejam reiniciados. Para obter instruções sobre a gestão da manutenção planeada, consulte o manuseamento de notificações de manutenção planeadas utilizando o Azure [CLI,](maintenance-notifications-cli.md) [PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
 
 Esta página descreve como o Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (interrupções), consulte [Gerir a disponibilidade de VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para [linux](./linux/manage-availability.md).
 
@@ -37,11 +37,11 @@ A maioria da manutenção de impacto não zero interrompe o VM por menos de 10 s
 
 A manutenção de conservação de memória funciona para mais de 90% dos VMs Azure. Não funciona para as séries G, M, N e H. O Azure utiliza cada vez mais tecnologias de migração ao vivo e melhora os mecanismos de manutenção de conservação da memória para reduzir as durações da pausa.  
 
-Estas operações de manutenção que não requerem um reboot são aplicadas um domínio de falha de cada vez. Param se receberem sinais de saúde. 
+Estas operações de manutenção que não requerem um reboot são aplicadas um domínio de falha de cada vez. Param se receberem sinais de saúde de aviso das ferramentas de monitorização da plataforma. 
 
 Este tipo de atualizações pode afetar algumas aplicações. Quando o VM é migrado ao vivo para um hospedeiro diferente, algumas cargas de trabalho sensíveis podem mostrar uma ligeira degradação de desempenho nos poucos minutos que antecedem a pausa vm. Para se preparar para a manutenção vm e reduzir o impacto durante a manutenção do Azure, tente [utilizar eventos agendados para Windows](./windows/scheduled-events.md) ou [Linux](./linux/scheduled-events.md) para tais aplicações. 
 
-Existe também uma funcionalidade, controlo de manutenção, na pré-visualização pública que pode ajudar a gerir a manutenção que não requer um reboot. Deve utilizar [anfitriões dedicados azure](./linux/dedicated-hosts.md) ou um [VM isolado.](../security/fundamentals/isolation-choices.md) O controlo de manutenção dá-lhe a opção de ignorar as atualizações da plataforma e aplicar as atualizações à sua escolha de tempo dentro de uma janela de rolamento de 35 dias. Para mais informações, consulte as atualizações de Controlo com controlo de [manutenção e o Azure CLI](maintenance-control-cli.md).
+Para um maior controlo em todas as atividades de manutenção, incluindo atualizações de impacto zero e rebootless, pode utilizar a função de Controlo de Manutenção. Deve utilizar [anfitriões dedicados azure](./linux/dedicated-hosts.md) ou um [VM isolado.](../security/fundamentals/isolation-choices.md) O controlo de manutenção dá-lhe a opção de ignorar todas as atualizações da plataforma e aplicar as atualizações à sua escolha de tempo dentro de uma janela de rolamento de 35 dias. Para mais informações, consulte as atualizações de Controlo com controlo de [manutenção e o Azure CLI](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Migração em direto

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f78161590c897e6337e8694acb9f8a6b34258246
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d2b9f705c73e667f34e46fdeed3c80af1e65fb12
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743806"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830111"
 ---
 # <a name="automation-account-authentication-overview"></a>Descrição geral da autenticação da conta de Automatização
 
@@ -47,6 +47,6 @@ Os livros de execução que funcionam num Trabalhador de Runbook Híbrido no seu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma conta de Automatização a partir do portal do Azure](automation-create-standalone-account.md)
-* [Criar uma conta de Automação usando o modelo de Gestor de Recursos Azure](automation-create-account-template.md)
-* [Autenticar com Serviços Web da Amazon (AWS)](automation-config-aws-account.md)
+* Para criar uma conta De automação a partir do portal Azure, consulte Criar uma conta autónoma da [Automação Azure](automation-create-standalone-account.md).
+* Se preferir criar a sua conta usando um modelo, consulte [Criar uma conta de Automação utilizando um modelo](automation-create-account-template.md)de Gestor de Recursos Azure .
+* Para autenticação utilizando os Serviços Web da Amazon, consulte os livros de [execução Authenticate com os Serviços Web da Amazon](automation-config-aws-account.md).

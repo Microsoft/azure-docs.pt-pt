@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: be34def3c7aacc5419071028a3d3085fe69103fa
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: c1f4b6b43f661251f764e65e5d5378952ab99d10
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83653472"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800864"
 landingContent:
 - title: Sobre o discurso-a-texto
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: batch-transcription.md
     - text: Noções básicas do reconhecimento de voz
       url: speech-to-text-basics.md
-    - text: Use SPX para o discurso-a-texto sem código
+    - text: Use o ClI da fala para o discurso-a-texto sem código
       url: spx-overview.md
   - linkListType: quickstart
     links:

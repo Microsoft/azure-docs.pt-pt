@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e61c8b9af04ce9157179d464c1a49ce685c6913f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744717"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830502"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
@@ -237,4 +237,4 @@ A imagem seguinte mostra o pedido enviado do Windows PowerShell e a resposta res
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use um alerta para desencadear um livro de execução da Automação Azure](automation-create-alert-triggered-runbook.md)
+* Para acionar um livro de execução a partir de um alerta, consulte Utilize um alerta para acionar um livro de [execução da Automação Azure](automation-create-alert-triggered-runbook.md).

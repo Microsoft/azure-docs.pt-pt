@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195404"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797584"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para o Azure Cosmos DB
 
@@ -124,4 +124,4 @@ Os livros de reprodução são guardados dentro de um grupo de recursos, quer na
 
 * Configure [alertas métricos](../platform/alerts-metric.md) e notificações de [saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertaautomatizado para ajudar na deteção de problemas.
 
-* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](../app/usage-workbooks.md)
+* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](../platform/workbooks-overview.md)

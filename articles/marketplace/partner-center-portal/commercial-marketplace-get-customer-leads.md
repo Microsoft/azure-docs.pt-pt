@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837333"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800936"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>O cliente lidera a sua oferta de marketplace comercial
 
@@ -48,9 +48,9 @@ Aqui estão lugares onde uma pista é gerada:
 
 ## <a name="understand-lead-data"></a>Compreender os dados de chumbo
 
-Cada chumbo que recebe durante o processo de aquisição do cliente tem dados em áreas específicas. O primeiro campo a ter `LeadSource` em conta é o campo, que segue este formato:**Oferta** **de Acção-Fonte** | .
+Cada chumbo que recebe durante o processo de aquisição do cliente tem dados em áreas específicas. O primeiro campo a ter em conta é o `LeadSource` campo, que segue este formato: **Oferta de Acção-Fonte**  |  **Offer**.
 
-**Fontes**: O valor para este campo é povoado com base no mercado que gerou o chumbo. Os valores possíveis são, `"AzureMarketplace"` `"AzurePortal"`e `"AppSource (SPZA)"`.
+**Fontes**: O valor para este campo é povoado com base no mercado que gerou o chumbo. Os valores possíveis `"AzureMarketplace"` `"AzurePortal"` são, e `"AppSource (SPZA)"` .
 
 **Ações**: O valor para este campo é povoado com base na ação que o cliente tomou no mercado que gerou o chumbo.
 
@@ -64,7 +64,7 @@ Os valores possíveis são:
 
 **Ofertas**: Pode ter várias ofertas no mercado comercial. O valor para este campo é povoado com base na oferta que gerou o chumbo. O ID da editora e o ID de oferta são ambos enviados neste campo e são valores que forneceu quando publicou a oferta para o mercado.
 
-Os seguintes exemplos mostram `publisherid.offerid`valores no formato esperado: 
+Os seguintes exemplos mostram valores no formato `publisherid.offerid` esperado: 
 
 - `checkpoint.check-point-r77-10sg-byol`
 - `bitnami.openedxcypress`
@@ -76,7 +76,7 @@ A informação do cliente é enviada através de vários campos. O exemplo que s
 
 - Primeiro nome: João
 - Apelido: Smith
-- E-mail:\@jsmith microsoft.com
+- E-mail: jsmith \@ microsoft.com
 - Telefone: 1234567890
 - País: EUA
 - Empresa: Microsoft
@@ -96,7 +96,7 @@ A informação do cliente é enviada através de vários campos. O exemplo que s
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Onde posso arranjar ajuda para preparar o meu destino principal?
 
-Siga os passos na secção [Ligue-se ao seu sistema CRM,](#connect-to-your-crm-system)ou envie um bilhete de apoio através da [Ajuda e suporte](https://partner.microsoft.com/support/v2/?stage=1)do Partner Center . Em seguida, selecione **Oferta Criação** > **O seu tipo de oferta** > Configuração de**gestão de chumbo**.
+Siga os passos na secção [Ligue-se ao seu sistema CRM,](#connect-to-your-crm-system)ou envie um bilhete de apoio através da [Ajuda e suporte](https://aka.ms/marketplacepublishersupport)do Partner Center . Em seguida, selecione **Oferta Criação**  >  **O seu tipo de oferta**Configuração de  >  **gestão de chumbo**.
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Sou obrigado a configurar um destino de chumbo para publicar uma oferta no mercado comercial?
 
@@ -133,7 +133,7 @@ O armazenamento Azure Blob já não é suportado como um destino de chumbo, pelo
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um e-mail do mercado comercial, mas por que não encontro a pista no meu CRM?
 
-É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não passamos informações pessoais do domínio .edu. Envie um bilhete de apoio através da [Ajuda e suporte do Partner Center.](https://partner.microsoft.com/support/v2/?stage=1)
+É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não passamos informações pessoais do domínio .edu. Envie um bilhete de apoio através da [Ajuda e suporte do Partner Center.](https://aka.ms/marketplacepublishersupport)
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei uma mesa Azure como o meu destino principal. Como posso ver as pistas?
 
@@ -155,11 +155,11 @@ Devido a políticas de informação pessoal, não podemos partilhar informaçõe
 
 Os dados da geração de chumbo são baixos. É menos de 1 GB para quase todos os editores. O custo depende do número de pistas recebidas. Por exemplo, se 1.000 pistas forem recebidas num mês, o custo é de cerca de 50 cêntimos. Para obter mais informações sobre os preços de armazenamento, consulte o preço geral do [Armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage/)
 
-Se a sua pergunta não for respondida, contacte o Suporte da Microsoft através da [Ajuda e suporte](https://aka.ms/marketplacepublishersupport)do Partner Center . Em seguida, selecione **Oferta Criação** > **O seu tipo de oferta** > Configuração de**gestão de chumbo**.
+Se a sua pergunta não for respondida, contacte o Suporte da Microsoft através da [Ajuda e suporte](https://aka.ms/marketplacepublishersupport)do Partner Center . Em seguida, selecione **Oferta Criação**  >  **O seu tipo de oferta**Configuração de  >  **gestão de chumbo**.
 
 ### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Estou a receber notificações de e-mail quando são recebidas novas pistas de clientes. Como posso configurar outra pessoa para receber estes e-mails?
 
-Aceda à sua oferta no Partner Center e vá à página de **configuração da Oferta** >**Edição**de **Gestão** > de Chumbo. Atualize os endereços de e-mail no campo de **email contacte.**
+Aceda à sua oferta no Partner Center e vá à página de **configuração da Oferta** > Edição de **Gestão de**  >  **Edit**Chumbo. Atualize os endereços de e-mail no campo de **email contacte.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

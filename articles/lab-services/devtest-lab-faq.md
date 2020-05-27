@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 8697c7a82e271919f8d5aaa48160aa93c833809b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: c5e5437db480646275a8bbe34e1a64c005a32a16
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996901"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827731"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -47,7 +47,7 @@ A nossa alça do Twitter:[@azlabservices](https://twitter.com/azlabservices)
 Se a sua pergunta não estiver listada aqui, avise-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
 - Poste uma pergunta no final desta FAQ.
-- Para chegar a um público mais vasto, publique uma pergunta no [fórum Azure DevTest Labs MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Envolva-se com a equipa azure DevTest Labs e outros membros da comunidade.
+- Para chegar a um público mais vasto, publique uma pergunta no [Microsoft Q&Uma página de perguntas para o Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Envolva-se com a equipa azure DevTest Labs e outros membros da comunidade.
 - Para pedidos de funcionalidades, envie os seus pedidos e ideias para a Voz do Utilizador do [Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>O que é uma conta microsoft?
@@ -327,7 +327,7 @@ O [repositório de artefactos públicos](https://github.com/Azure/azure-devtestl
 Como parte da estratégia global de governação e gestão de configurações da sua organização, recomendamos que utilize um repositório centralizado. Quando se utiliza vários repositórios, podem tornar-se silos de software não gerido ao longo do tempo. Com um repositório central, várias equipas podem consumir artefactos deste repositório para os seus projetos. Impõe normalização, segurança, facilidade de gestão e elimina a duplicação de esforços. Como parte da centralização, as seguintes ações são práticas recomendadas para a gestão e sustentabilidade a longo prazo:
 
 - Associe o Azure Repos ao mesmo inquilino do Azure Ative Directory que a assinatura Azure está a utilizar para autenticação e autorização.
-- Crie um `All DevTest Labs Developers` grupo nomeado em Azure Ative Directory que seja gerido centralmente. Qualquer desenvolvedor que contribua para o desenvolvimento de artefactos deve ser colocado neste grupo.
+- Crie um grupo nomeado `All DevTest Labs Developers` em Azure Ative Directory que seja gerido centralmente. Qualquer desenvolvedor que contribua para o desenvolvimento de artefactos deve ser colocado neste grupo.
 - O mesmo grupo azure Ative Diretório pode ser usado para fornecer acesso ao repositório Azure Repos e ao laboratório.
 - Em Azure Repos, a ramificação ou a forrking devem ser utilizadas para separar um repositório em desenvolvimento do repositório de produção primário. O conteúdo só é adicionado ao ramo principal com um pedido de puxão após uma revisão adequada do código. Uma vez que o revisor de código aprova a alteração, um desenvolvedor principal, responsável pela manutenção da sucursal principal, funde o código atualizado.
 

@@ -2,13 +2,13 @@
 title: Erros de modelo inválidos
 description: Descreve como resolver erros de modelo inválidos ao implementar modelos do Gestor de Recursos Do Azure.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154062"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832526"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolve errors for invalid template (Resolver erros de modelo inválido)
 
@@ -115,7 +115,7 @@ Acertar os segmentos pode ser complicado com os tipos de Gestor de Recursos que 
 
 ## <a name="solution-3---parameter-is-not-valid"></a>Solução 3 - parâmetro não é válido
 
-Se fornecer um valor parâmetro que não seja um dos valores permitidos, receberá uma mensagem semelhante ao seguinte erro:
+Se fornecer um valor de parâmetro que não seja um dos valores permitidos, receberá uma mensagem semelhante ao seguinte erro:
 
 ```
 Code=InvalidTemplate;
@@ -130,7 +130,7 @@ Verifique duas vezes os valores permitidos no modelo e forneça um durante a imp
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 - Demasiados grupos de recursos-alvo
 
-Se especificar mais de cinco grupos de recursos-alvo numa única implementação, recebe este erro. Considere consolidar o número de grupos de recursos na sua implementação ou implementar alguns dos modelos como implementações separadas. Para mais informações, consulte a Implantação de [recursos Azure para mais do que um grupo de subscrição ou recursos.](cross-resource-group-deployment.md)
+Pode ver este erro em implementações anteriores porque estava limitado a cinco grupos de recursos-alvo numa única implantação. Em maio de 2020, esse limite foi aumentado para 800 grupos de recursos. Para mais informações, consulte a Implantação de [recursos Azure para mais do que um grupo de subscrição ou recursos.](cross-resource-group-deployment.md)
 
 <a id="circular-dependency" />
 

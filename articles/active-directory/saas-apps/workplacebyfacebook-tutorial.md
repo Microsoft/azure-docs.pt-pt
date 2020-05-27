@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de84f2aee5f59d14ab70cb1687968643c4cdb31e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec1818fe4fa0a7ea2f57732a4230fd3c2732ba91
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79136385"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799241"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Azure Ative Directory integração individual de inscrição (SSO) com workplace by Facebook
 
@@ -113,7 +113,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -150,7 +150,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
     > [!NOTE]
     > Como parte do processo de autenticação SAML, o Workplace pode utilizar cordas de consulta de até 2,5 quilobytes de tamanho para passar parâmetros para a AD Azure.
 
-1. No painel de navegação esquerdo, navegue para o separador**autenticação** de **segurança.** > 
+1. No painel de navegação **Security**esquerdo, navegue para o  >  separador**autenticação** de segurança.
 
     ![Painel de Administração](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
@@ -206,7 +206,7 @@ Nesta secção, um utilizador chamado B.Simon é criado no Workplace pelo Facebo
 Não há ação para ti nesta secção. Se um utilizador não existir no Workplace pelo Facebook, um novo é criado quando se tenta aceder ao Workplace by Facebook.
 
 >[!Note]
->Se precisar de criar um utilizador manualmente, contacte o [Local de Trabalho pela equipa](https://workplace.fb.com/faq/) de suporte ao Cliente do Facebook
+>Se precisar de criar um utilizador manualmente, contacte o [Local de Trabalho pela equipa](https://www.workplace.com/help/work/) de suporte ao Cliente do Facebook
 
 ## <a name="test-sso"></a>Teste SSO 
 

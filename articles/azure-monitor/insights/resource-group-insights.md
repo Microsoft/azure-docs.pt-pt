@@ -7,16 +7,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663543"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798129"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorize grupos de recursos com monitor Azure (pré-visualização)
 
-As aplicações modernas são muitas vezes complexas e altamente distribuídas com muitas peças discretas que trabalham em conjunto para prestar um serviço. Reconhecendo esta complexidade, o Azure Monitor fornece informações de monitorização para grupos de recursos. Isto facilita a triagem e diagnóstico de quaisquer problemas que os seus recursos individuais encontrem, ao mesmo tempo que oferece contexto sobre a saúde e desempenho do grupo&mdash;de recursos e a sua aplicação&mdash;como um todo.
+As aplicações modernas são muitas vezes complexas e altamente distribuídas com muitas peças discretas que trabalham em conjunto para prestar um serviço. Reconhecendo esta complexidade, o Azure Monitor fornece informações de monitorização para grupos de recursos. Isto facilita a triagem e diagnóstico de quaisquer problemas que os seus recursos individuais encontrem, ao mesmo tempo que oferece contexto sobre a saúde e desempenho do grupo de recursos &mdash; e a sua aplicação como um &mdash; todo.
 
 ## <a name="access-insights-for-resource-groups"></a>Acesso a insights para grupos de recursos
 
@@ -117,6 +117,6 @@ O Azure Monitor para Grupos de Recursos conta com o sistema de gestão de alerta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Livros de Monitorização Azure](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Livros de Monitorização Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Alertas de monitor estoque](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

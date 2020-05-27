@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: f0a3ea3aebeb9c96d7ccfba9c883ae208d93a44e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657983"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800608"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -52,7 +52,7 @@ Para uma visão geral do programa Soluções Integradas, veja o [vídeo de visã
 
 ## <a name="submit-a-nomination"></a>Submeter uma nomeação
 
-Os parceiros que queiram participar no programa devem identificar outros parceiros com quem queiram trabalhar. Devem completar o formulário de nomeação de [soluções integradas.](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx) A equipa do programa Soluções Integradas analisa a nomeação e segue no prazo de 10 dias úteis. A equipa dá aprovação e próximos passos.
+Os parceiros que queiram participar no programa devem identificar outros parceiros com quem queiram trabalhar. Devem completar o formulário de nomeação de [soluções integradas.](https://aka.ms/AA5qicu) A equipa do programa Soluções Integradas analisa a nomeação e segue no prazo de 10 dias úteis. A equipa dá aprovação e próximos passos.
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
@@ -84,8 +84,8 @@ Depois da sua nomeação ser aprovada, utilize os recursos do programa ligados p
 
     Utilize estes recursos para o processo de desenvolvimento:
 
-    * [Guia de discussão de workshops de decisão de negócios](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
-    * [Guia de discussão do workshop de decisão técnica](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Guia de discussão de workshops de decisão de negócios](https://aka.ms/AA5qicx)
+    * [Guia de discussão do workshop de decisão técnica](https://aka.ms/AA5qid1)
     * [Vídeo quickstart: Workshops de Soluções Integradas](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identifique um gestor de projetos inter-parceiros para impulsionar o plano de projeto e a linha temporal que desenvolveu nos workshops de negócios e técnicos.
@@ -98,8 +98,8 @@ Depois da sua nomeação ser aprovada, utilize os recursos do programa ligados p
 
     * Um nome de solução combinada.
     * Uma descrição da listagem da solução integrada. Siga [as melhores práticas de listagem de ofertas.](./gtm-offer-listing-best-practices.md)
-    * Um pitch de uma página para os clientes. Utilize o [modelo de uma página](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
-    * Uma apresentação do cliente. Utilize o [modelo de apresentação](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
+    * Um pitch de uma página para os clientes. Utilize o [modelo de uma página](https://aka.ms/AA5s08a).
+    * Uma apresentação do cliente. Utilize o [modelo de apresentação](https://aka.ms/AA5s7ql).
     * Um logotipo para a solução combinada.
 
 ## <a name="publish-your-integrated-solution"></a>Publique a sua solução integrada

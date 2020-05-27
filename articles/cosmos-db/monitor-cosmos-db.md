@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: fcdc80e73d11bbc6d94e921548d346ee436b69ac
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 5056762dab18ae23980c7d3b3ebfbb3c3014fa56
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715686"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798698"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
 
@@ -34,7 +34,7 @@ As seguintes secções baseiam-se neste artigo descrevendo os dados específicos
 
 ## <a name="azure-monitor-for-azure-cosmos-db"></a>Monitor Azure para Azure Cosmos DB
 
-O Azure Monitor para o Azure Cosmos DB baseia-se na [funcionalidade de livros de livros do Azure Monitor](../azure-monitor/app/usage-workbooks.md) e utiliza os mesmos dados de monitorização recolhidos para o Cosmos DB descritos nas secções abaixo. Utilize o Monitor Azure para uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cosmos DB numa experiência interativa unificada, e aproveite as outras funcionalidades do Azure Monitor para análise detalhada e alerta. Para saber mais, consulte o explore Azure Monitor para o artigo [da Azure Cosmos DB.](../azure-monitor/insights/cosmosdb-insights-overview.md)
+O Azure Monitor para o Azure Cosmos DB baseia-se na [funcionalidade de livros de livros do Azure Monitor](../azure-monitor/platform/workbooks-overview.md) e utiliza os mesmos dados de monitorização recolhidos para o Cosmos DB descritos nas secções abaixo. Utilize o Monitor Azure para uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cosmos DB numa experiência interativa unificada, e aproveite as outras funcionalidades do Azure Monitor para análise detalhada e alerta. Para saber mais, consulte o explore Azure Monitor para o artigo [da Azure Cosmos DB.](../azure-monitor/insights/cosmosdb-insights-overview.md)
 
 > [!NOTE]
 > Ao criar recipientes, certifique-se de que não cria dois recipientes com o mesmo nome, mas invólucrodiferente. Isto porque algumas partes da plataforma Azure não são sensíveis a casos, o que pode resultar em confusão/colisão de telemetria e ações em contentores com tais nomes.
@@ -148,7 +148,7 @@ As consultas para recuperar métricas individuais utilizam o seguinte formato:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a referência de dados de monitorização do [Azure Cosmos DB](monitor-cosmos-db-reference.md) para uma referência dos registos e métricas criados pela Azure Cosmos DB.
 - Consulte [a Monitorização dos recursos do Azure com o Monitor Azure](../azure-monitor/insights/monitor-azure-resource.md) para obter mais informações sobre a monitorização dos recursos do Azure.

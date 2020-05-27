@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690621"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799371"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar os livros de trabalho do Azure Monitor para relatórios de Diretório Ativo Azure
 
@@ -42,13 +42,13 @@ Quer:
 
 - Obtenha informações mais profundas sobre consultas de login, o livro informa quantos utilizadores receberam ou negaram o acesso, bem como quantos utilizadores contornaram as políticas de Acesso Condicional ao aceder aos recursos.
 
-- Para ajudá-lo a resolver estas questões, o Azure Ative Directory fornece livros de acompanhamento. [Os livros Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos ricos.
+- Para ajudá-lo a resolver estas questões, o Azure Ative Directory fornece livros de acompanhamento. [Os livros Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos ricos.
 
 
 
 Este artigo:
 
-- Assume que está familiarizado com a forma [de criar relatórios interativos utilizando livros](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)monitor .
+- Assume que está familiarizado com a forma [de criar relatórios interativos utilizando livros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)monitor .
 
 - Explica como usar os livros monitor para compreender o efeito das suas políticas de Acesso Condicional, para resolver falhas de registo e identificar autenticações antigas.
  
@@ -83,7 +83,7 @@ Para aceder a livros:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Navegue para **o Azure Ative Directory** > **Monitoring** > **Books**. 
+1. Navegue para **o Azure Ative Directory**  >  **Monitoring**  >  **Books**. 
 
 1. Selecione um relatório ou modelo, ou na barra de ferramentas **selecione Open**. 
 
@@ -231,7 +231,7 @@ Este livro mostra as seguintes tendências de inscrição para deficientes:
 
 - Exigir declaração de privacidade
 
-- Outros
+- Outro
 
 
 Pode filtrar cada tendência pelas seguintes categorias:
@@ -302,4 +302,4 @@ Para ajudá-lo a resolver os seus sign-ins, o Azure Monitor dá-lhe uma avaria p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Crie relatórios interativos utilizando livros](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)monitor .
+[Crie relatórios interativos utilizando livros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)monitor .

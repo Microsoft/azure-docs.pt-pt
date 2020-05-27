@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/11/2020
-ms.openlocfilehash: 79bea443ea576ba0c17c1a8150c305d7cd2320ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/11/2020
+ms.openlocfilehash: 4a8c9c8088126a33b28bd36382536a8fe25ff0a7
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655793"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800478"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Aplicações, processos ou fluxos de trabalho CI/CD baseados em eventos de Aprendizagem Automática Azure (Pré-visualização)
 

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c7caa6c2b329d7d24d6c9a3008d884b396fc99ce
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ecd1c650456bf506f22366ca1d59a3634751b9e0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584914"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800240"
 ---
 # <a name="release-notes"></a>Notas de versão
 ## <a name="speech-sdk-1120-2020-may-release"></a>Discurso SDK 1.12.0: lançamento de 2020-maio
 
-**Consola de comando de serviços de discurso SPX Azure**
+**O Discurso Azure CLI**
 - **O SPX** é uma nova ferramenta de linha de comando que lhe permite realizar reconhecimento, síntese, tradução, transcrição de lote e gestão personalizada da fala a partir da linha de comando. Use-o para testar o serviço de Discurso Azure, ou para escrever as tarefas de serviço da Fala que precisa de executar. Descarregue a ferramenta e leia a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview)
 
 **Novas funcionalidades**

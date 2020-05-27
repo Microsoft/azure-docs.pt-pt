@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef321e82f1737df4b13d259824acd943a7eea440
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a15de41dc2dce4cae0a6155bfce8a8a2001b9a8b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649349"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798805"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -99,14 +99,6 @@ Todas as políticas da empresa Azure DevOps podem ser geridas pelos utilizadores
 ### <a name="azure-information-protection-administrator"></a>[Administrador de Proteção de Informação Azure](#azure-information-protection-administrator-permissions)
 
 Os utilizadores com esta função têm todas as permissões no serviço de Proteção de Informação Azure. Esta função permite configurar rótulos para a política de proteção de informação Azure, gerir modelos de proteção e ativar a proteção. Esta função não concede permissões no Centro de Proteção de Identidade, Gestão de Identidade Privilegiada, Gabinete de Monitorização 365 Saúde de Serviço, ou Office 365 Security & Compliance Center.
-
-### <a name="b2c-user-flow-administrator"></a>[Administrador de fluxo de utilizador B2C](#b2c-user-flow-administrator-permissions)
-
-Os utilizadores com esta função podem criar e gerir fluxos de utilizadores B2C (também chamados de políticas "incorporadas") no portal Azure.Ao criar ou editar fluxos de utilizadores, estes utilizadores podem alterar o conteúdo html/CSS/javascript da experiência do utilizador, alterar os requisitos de MFA por fluxo de utilizador, alterar reclamações no token e ajustar as definições de sessão para todas as políticas da organização Azure AD. Por outro lado, esta função não inclui a capacidade de rever os dados dos utilizadores, nem fazer alterações aos atributos que estão incluídos no esquema da organização.As alterações ao Quadro de Experiência de Identidade (também conhecida como Personalizada) também estão fora do âmbito desta função.
-
-### <a name="b2c-user-flow-attribute-administrator"></a>[Administrador de atributo de fluxo de utilizador B2C](#b2c-user-flow-attribute-administrator-permissions)
-
-Os utilizadores com esta função adicionam ou apagam atributos personalizados disponíveis para todos os fluxos de utilizadores na organização Azure AD.Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e impactar o comportamento de todos os fluxos de utilizadores e resultar indiretamente em alterações aos dados que podem ser solicitados aos utilizadores finais e, em última análise, enviados como alegações para aplicações.Esta função não pode editar fluxos de utilizadores.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrador de teclas B2C IEF](#b2c-ief-keyset-administrator-permissions)
 
@@ -214,6 +206,15 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft E
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador de Serviço de Intercâmbio". É "Administrador de Intercâmbio" no [portal Azure.](https://portal.azure.com) É "Exchange Online administrator" no [centro de administração](https://go.microsoft.com/fwlink/p/?LinkID=529144)exchange .
 
+
+### <a name="external-id-user-flow-administrator"></a>[Administrador externo de fluxo de utilizador de id](#external-id-user-flow-administrator-permissions)
+
+Os utilizadores com esta função podem criar e gerir fluxos de utilizadores B2C (também chamados de políticas "incorporadas") no portal Azure.Ao criar ou editar fluxos de utilizadores, estes utilizadores podem alterar o conteúdo html/CSS/javascript da experiência do utilizador, alterar os requisitos de MFA por fluxo de utilizador, alterar reclamações no token e ajustar as definições de sessão para todas as políticas da organização Azure AD. Por outro lado, esta função não inclui a capacidade de rever os dados dos utilizadores, nem fazer alterações aos atributos que estão incluídos no esquema da organização.As alterações ao Quadro de Experiência de Identidade (também conhecida como Personalizada) também estão fora do âmbito desta função.
+
+### <a name="external-id-user-flow-attribute-administrator"></a>[Administrador de atributo de fluxo de utilizador de id externo](#external-id-user-flow-attribute-administrator-permissions)
+
+Os utilizadores com esta função adicionam ou apagam atributos personalizados disponíveis para todos os fluxos de utilizadores na organização Azure AD.Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e impactar o comportamento de todos os fluxos de utilizadores e resultar indiretamente em alterações aos dados que podem ser solicitados aos utilizadores finais e, em última análise, enviados como alegações para aplicações.Esta função não pode editar fluxos de utilizadores.
+
 ### <a name="external-identity-provider-administrator"></a>[Administrador de Fornecedor de Identidade Externa](#external-identity-provider-administrator-permissions)
 
 Este administrador gere a federação entre organizações da AD Azure e fornecedores de identidade externa.Com esta função, os utilizadores podem adicionar novos fornecedores de identidade e configurar todas as definições disponíveis (por exemplo, via de autenticação, ID de serviço, recipientes-chave atribuídos).Este utilizador pode permitir à organização Azure AD confiar em autenticações de fornecedores de identidade externos.O impacto resultante nas experiências de utilizador final depende do tipo de organização:
@@ -237,8 +238,6 @@ Os utilizadores desta função podem ler configurações e informações adminis
 > [!NOTE]
 > O papel global dos leitores tem algumas limitações neste momento -
 >
->- [OneDrive centro de administração](https://admin.onedrive.com/) - O centro de administração OneDrive não suporta o papel do leitor Global.
->- [Portal Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - O leitor global não consegue ler o modo de provisionamento de uma aplicação empresarial.
 >- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler pedidos de bloqueio de clientes. Não encontrará o separador de pedidos de **bloqueio do Cliente** sob **suporte** no painel esquerdo do Centro de Administração M365.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - O leitor global não consegue ler registos de auditoria do SCC, fazer pesquisa de conteúdo ou ver Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader can read **Teams lifecycle**, **Analytics & reports**, IP phone device **management** and **App catalog**.
@@ -599,22 +598,6 @@ Pode gerir todos os aspetos do serviço de Proteção de Informação Azure.
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
-
-### <a name="b2c-user-flow-administrator-permissions"></a>Permissões do Administrador de Fluxo de Utilizador B2C
-
-Criar e gerir todos os aspetos dos fluxos de utilizadores.
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.aad.b2c/userFlows/allTasks | Leia e configure os fluxos de utilizadores no Diretório Ativo Azure B2C. |
-
-### <a name="b2c-user-flow-attribute-administrator-permissions"></a>Permissões do administrador do utilizador B2C
-
-Crie e gerencie o esquema de atributo disponível para todos os fluxos de utilizador.
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.aad.b2c/userAtributos/allTasks | Leia e configure os atributos dos utilizadores no Diretório Ativo Azure B2C. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Permissões do administrador de keyset B2C IEF
 
@@ -1030,6 +1013,22 @@ Pode gerir todos os aspetos do produto Exchange.
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+
+### <a name="external-id-user-flow-administrator-permissions"></a>Permissões externas do administrador de fluxo de utilizador de id
+
+Criar e gerir todos os aspetos dos fluxos de utilizadores.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Leia e configure os fluxos de utilizadores no Diretório Ativo Azure B2C. |
+
+### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Permissões do administrador de atributo de fluxo de utilizador de id externo
+
+Crie e gerencie o esquema de atributo disponível para todos os fluxos de utilizador.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.b2c/userAtributos/allTasks | Leia e configure os atributos dos utilizadores no Diretório Ativo Azure B2C. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>Permissões do Administrador do Fornecedor de Identidade Externa
 
@@ -1809,8 +1808,6 @@ Programador de Aplicações | Desenvolvedor de aplicações | CF1C38E5-3621-4004
 Administrador de Autenticação | Administrador de autenticação | c4e39bd9-1100-46d3-8c65-fb160da071f
 Administrador azure DevOps | Administrador da Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Administrador de Proteção de Informação Azure | Administrador de Proteção de Informação Azure | 7495fdc4-34c4-4d15-a289-98788ce399fd
-Administrador de fluxo de utilizador B2C | Administrador de fluxo de utilizador B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
-Administrador de atributo de fluxo de utilizador B2C | Administrador de atributo de fluxo de utilizador B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrador de teclas B2C IEF | Administrador de teclas B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
 Administrador de Política B2C IEF | Administrador de Política B2C IEF | 3edaf663-341e-4475-9f94-5c398ef6c070
 Administrador de Faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
@@ -1831,6 +1828,8 @@ Leitores de Diretório | Leitores de diretório | 88d8e3e3-8f55-4a1e-953a-9b9898
 Contas de Sincronização de Diretório | Não mostrado porque não deve ser usado | d29b2b05-8046-44ba-8758-1e26182fcf32
 Escritores de Diretório | Não mostrado porque não deve ser usado | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrador de Serviço de Intercâmbio | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrador externo de fluxo de utilizador de id | Administrador externo de fluxo de utilizador de id | 6e591065-9bad-43ed-90f3-e9424366d2f0
+Administrador de atributo de fluxo de utilizador de id externo | Administrador de atributo de fluxo de utilizador de id externo | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrador de Fornecedor de Identidade Externa | Administrador de Fornecedor de Identidade Externa | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Leitor Global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrador de Grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-02652fe8fa1c 

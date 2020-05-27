@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: Deteção de Território Doméstica
               href: configure-authentication-for-federated-users-portal.md
+        - name: Automatizar o início de sessão único baseado em SAML com as MS Graph APIs
+          href: application-saml-sso-configure-api.md
         - name: Migrar aplicações para o Azure AD
           items:
             - name: Recursos de migração

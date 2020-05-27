@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407164"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826473"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de passwords frequentemente perguntas
 
 Seguem-se algumas perguntas frequentes (FAQ) para todas as coisas relacionadas com o reset da palavra-passe.
 
-Se tiver uma pergunta geral sobre o Azure Ative Directory (Azure AD) e o reset de senha de autosserviço (SSPR) que não seja respondida aqui, pode pedir ajuda à comunidade no [fórum Azure AD.](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD) Membros da comunidade incluem engenheiros, gestores de produtos, MVPs e outros profissionais de TI.
+Se tiver uma pergunta geral sobre o Azure Ative Directory (Azure AD) e o reset de senha de autosserviço (SSPR) que não seja respondida aqui, pode pedir assistência à comunidade no Microsoft Q&Uma página de [perguntas para o Diretório Ativo do Azure](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Membros da comunidade incluem engenheiros, gestores de produtos, MVPs e outros profissionais de TI.
 
 Este FAQ é dividido nas seguintes secções:
 
@@ -36,7 +36,7 @@ Este FAQ é dividido nas seguintes secções:
 
 * **P: Os meus utilizadores podem registar os seus próprios dados de redefinição de palavra-passe?**
 
-  > **R:** Sim. Enquanto a redefinição da palavra-passe estiver ativada e estiveremhttps://aka.ms/ssprsetup) licenciadas, os utilizadores podem ir ao portal de registo de redefinição de passwords ( para registar as suas informações de autenticação. Os utilizadores também podem registar-se através do Painel de Acesso .https://myapps.microsoft.com) Para se registar através do Painel de Acesso, eles precisam selecionar a sua imagem de perfil, selecionar **Perfil,** e, em seguida, selecionar o Registo para a opção de **redefinição de palavra-passe.**
+  > **R:** Sim. Enquanto a redefinição da palavra-passe estiver ativada e estiverem licenciadas, os utilizadores podem ir ao portal de registo de redefinição de passwords ( para registar as suas informações de https://aka.ms/ssprsetup) autenticação. Os utilizadores também podem registar-se através do Painel de Acesso https://myapps.microsoft.com) . Para se registar através do Painel de Acesso, eles precisam selecionar a sua imagem de perfil, selecionar **Perfil,** e, em seguida, selecionar o Registo para a opção de **redefinição de palavra-passe.**
   >
   >
 * **P: Se eu ativar o reset de palavra-passe para um grupo e, em seguida, decidir enableit-lo para todos os meus utilizadores são obrigados a reregistar??**
@@ -101,7 +101,7 @@ Este FAQ é dividido nas seguintes secções:
   > Se não receber a notificação neste período de tempo:
   > * Verifique a sua pasta de lixo.
   > * Verifique se o número ou e-mail que está a ser contactado é o que espera.
-  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou *contoso.com do utilizador\@*. 
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou * \@ contoso.com do utilizador*. 
 * **P: Que idiomas são suportados por reset de palavra-passe?**
 
   > **A:** A palavra-passe repõe UI, Mensagens SMS e chamadas de voz estão localizadas nas mesmas línguas que são suportadas no Office 365.

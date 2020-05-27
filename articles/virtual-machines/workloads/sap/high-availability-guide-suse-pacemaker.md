@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2020
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811572"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800188"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 
@@ -303,7 +303,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    [...]
    </code></pre>
 
-   Criar `softdog` o ficheiro de configuração
+   Criar o `softdog` ficheiro de configuração
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -538,7 +538,7 @@ O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Mic
 1. Clique nas inscrições da App
 1. Clique em Novo Registo
 1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
-2. Selecione Tipo de Aplicação Tipo "Web",\/introduza um URL de inscrição (por exemplo http: /localhost) e clique em Adicionar  
+2. Selecione Tipo de Aplicação Tipo "Web", introduza um URL de inscrição (por exemplo http: \/ /localhost) e clique em Adicionar  
    O URL de inscrição não é usado e pode ser qualquer URL válido
 1. Selecione Certificados e Segredos e, em seguida, clique em novo segredo de cliente
 1. Introduza uma descrição para uma nova tecla, selecione "Nunca expira" e clique em Adicionar
@@ -598,6 +598,9 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
+
+> [!TIP]
+>O Agente da Cerca Azure requer conectividade de saída para pontos finais públicos, conforme documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs usando o ILB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## <a name="default-pacemaker-configuration-for-sbd"></a>Configuração padrão do Pacemaker para SBD
 

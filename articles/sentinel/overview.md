@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77581723"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800132"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -51,7 +51,7 @@ Para embarcar no Azure Sentinel, primeiro precisa de [se ligar às suas fontes](
 
 ## <a name="workbooks"></a>Livros
 
-Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
+Depois de [ligar as suas fontes](quickstart-onboard.md)de dados   ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/platform/workbooks-overview.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
