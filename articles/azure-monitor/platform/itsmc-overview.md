@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274544"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846533"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços DE TI
+# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
 
 ![Símbolo do conector de gestão do serviço de TI](media/itsmc-overview/itsmc-symbol.png)
 
-O Conector de Gestão de Serviços de TI (ITSMC) permite ligar o Azure e um produto/serviço de gestão de serviços de TI suportado (ITSM).
+O Conector de Gestão de Serviços de TI (ITSMC) permite ligar o Azure a um produto/serviço de Gestão de Serviços de TI (ITSM) suportado.
 
 Serviços Azure como log analytics e Azure Monitor fornecem ferramentas para detetar, analisar e resolver problemas com os seus recursos Azure e não-Azure. No entanto, os itens de trabalho relacionados com um problema residem tipicamente num produto/serviço ITSM. O conector ITSM fornece uma ligação bidirecional entre as ferramentas Azure e ITSM para ajudá-lo a resolver os problemas mais rapidamente.
 
@@ -57,7 +57,7 @@ Antes de criar uma ligação, tem de adicionar a Solução de Conector ITSM.
 3. Na secção **Workspace OMS,** selecione o espaço de trabalho Azure Log Analytics onde pretende instalar a solução.
    >[!NOTE]
    > * Como parte da transição em curso da Microsoft Operations Management Suite (OMS) para o Monitor Azure, os espaços de trabalho oMS são agora referidos como espaços de trabalho de Log Analytics.
-   > * O Conector ITSM só pode ser instalado em espaços de trabalho log Analytics nas seguintes regiões: Leste dos EUA, US2 Ocidental, Centro-Sul dos EUA, Oeste Dos EUA, Canadá Central, Europa Ocidental, Reino Unido do Sul, Sudeste Asiático, Japão Oriental, Índia Central, Sudeste da Austrália.
+   > * O Conector ITSM só pode ser instalado em espaços de trabalho log Analytics nas seguintes regiões: Leste dos EUA, OESTE DOS US2, Centro-Sul dos EUA, Oeste Dos EUA, Fairfax, Canadá Central, Europa Ocidental, Reino Unido do Sul, Sudeste Asiático, Japão Oriental, Índia Central, Sudeste da Austrália.
 
 4. Na secção Definições do Espaço de **Trabalho OMS,** selecione o Grupo de Recursos onde pretende criar o recurso de solução.
 
@@ -290,7 +290,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2. Se os dados do ServiceNow não estiverem a ser sincronizados no Log Analytics, certifique-se de que a instância ServiceNow não está a dormir. ServiceNow Dev Instances às vezes vão dormir quando estão inativos por um longo período. Caso contrário, informe o assunto.
 3. Se o Log Analytics alertar o fogo, mas os itens de trabalho não forem criados em produtos ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para qualquer outra informação genérica, procure nos seguintes locais:
    -  ITSMC: A solução mostra um resumo de ligações/itens de trabalho/computadores, etc. Clique no azulejo que mostra o Estado do **Conector,** que o leva a **Registar Pesquisa** com a consulta relevante. Veja os registos de registo com LogType_S como ERROR para obter mais informações.
-   - **Página de pesquisa de registo:** consulte os erros/informações relacionadas diretamente utilizando a consulta `*`ServiceDeskLog_CL`*`.
+   - **Página de pesquisa de registo:** consulte os erros/informações relacionadas diretamente utilizando a consulta `*` ServiceDeskLog_CL `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação da Aplicação Web do Gestor de Serviços de Resolução de Problemas
 1.  Em caso de problemas com a implementação de aplicações web, certifique-se de que tem permissões suficientes na subscrição mencionada para criar/implementar recursos.
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Contacte-nos
 
-Para quaisquer dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
+Para quaisquer dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
 ## <a name="next-steps"></a>Passos seguintes
 [Adicione produtos/serviços ITSM ao Conector](../../azure-monitor/platform/itsmc-connections.md)de Gestão de Serviços de TI.

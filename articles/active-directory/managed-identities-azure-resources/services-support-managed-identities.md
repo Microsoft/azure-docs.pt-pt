@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d76564443860ba0342651c2c1dbb90300c94be1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 550c025807b1ec3d0d5b8fb54f4b358c9f1ec6d3
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647309"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846040"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos Azure
 
@@ -107,7 +107,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Azure Data 
 - [Portal do Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [Rio SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 
 ### <a name="azure-functions"></a>Funções do Azure
@@ -124,8 +124,18 @@ Consulte a seguinte lista para configurar a identidade gerida para funções azu
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-iot-hub"></a>Azure IoT Hub
 
-### <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
+Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte a seguinte lista para configurar a identidade gerida para a Azure Data Factory V2 (em regiões onde disponível):
+
+- [Portal do Azure](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+
+### <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
 
 | Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -175,7 +185,7 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de Gestor de Recursos Azure](qs-configure-template-windows-vm.md)
+- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -192,7 +202,7 @@ Consulte a seguinte lista para configurar a identidade gerida para máquinas vir
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de Gestor de Recursos Azure](qs-configure-template-windows-vm.md)
+- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 

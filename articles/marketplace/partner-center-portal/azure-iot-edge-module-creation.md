@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 21fc51aef664b2ea9360c4d8ca8e722bb7bbb349
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 5798e3c9c2a345c5cf9d8fd254130b4252a696d8
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701148"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847978"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de móduloIOT Edge no Azure Marketplace
 
@@ -59,7 +59,7 @@ Esta página inclui links para realizar operações nesta oferta com base na sel
 
 Siga estes passos para configurar a sua oferta.
 
-### <a name="connect-lead-management"></a>Ligar a gestão de chumbo
+### <a name="customer-leads"></a>Lideranças de clientes
 
 Ao publicar a sua oferta no mercado com o Partner Center, pode ligá-la opcionalmente ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém expressa interesse ou utiliza o seu produto.
 

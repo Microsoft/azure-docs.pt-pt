@@ -11,15 +11,15 @@
   items:
     - name: Ver o acesso de um utilizador
       href: check-access.md
+    - name: Modelo ARM
+      displayName: Resource Manager
+      href: quickstart-role-assignments-template.md
 - name: Tutoriais
   items:
     - name: Conceder acesso a um utilizador - Portal
       href: quickstart-assign-role-user-portal.md
     - name: Conceder acesso a um utilizador - PowerShell
       href: tutorial-role-assignments-user-powershell.md
-    - name: Conceder acesso a um utilizador – Modelo do Resource Manager
-      displayName: 'ARM, resource manager template'
-      href: tutorial-role-assignments-user-template.md
     - name: Conceder acesso a um grupo - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Criar uma função personalizada - PowerShell
@@ -67,7 +67,8 @@
           href: role-assignments-cli.md
         - name: API REST
           href: role-assignments-rest.md
-        - name: Modelo
+        - name: Modelo ARM
+          displayName: Resource Manager
           href: role-assignments-template.md
     - name: Listar atribuições de negação
       items:
@@ -113,8 +114,8 @@
       href: /cli/azure/role?view=azure-cli-latest
     - name: API REST
       href: /rest/api/authorization/
-    - name: Modelos do Resource Manager
-      displayName: ARM
+    - name: Modelos de ARM
+      displayName: Resource Manager
       items:
         - name: Atribuições de Funções
           href: /azure/templates/microsoft.authorization/roleassignments

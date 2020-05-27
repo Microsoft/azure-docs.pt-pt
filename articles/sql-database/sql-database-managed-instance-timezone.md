@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 09/03/2019
-ms.openlocfilehash: 0dbed3db8e106b9bfe1b48ff2b9bc52840fc4c3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/25/2020
+ms.openlocfilehash: 37a7f08ff481a04c41adb9bbae9921b985936b4a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256097"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844442"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusos horários em Caso gerido pela base de dados Azure SQL
 
@@ -243,5 +243,6 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 ## <a name="see-also"></a>Consulte também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
 - [FUSO HORÁRIO (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
 - [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

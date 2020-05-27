@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113158"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845751"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integre a sua infraestrutura VPN com o Azure MFA utilizando a extensão do Servidor de Política de Rede para o Azure
 
@@ -230,7 +230,7 @@ Nesta secção, configura o seu servidor VPN para utilizar a autenticação RADI
 
 3. Na janela **de Encaminhamento e Acesso Remoto,** o nome do servidor de clique direito ** \<> (local)** e, em seguida, selecione **Propriedades**.
 
-4. No ** \<nome do servidor> janela propriedades (local),** selecione o separador **Segurança.**
+4. No nome do servidor> janela ** \< propriedades (local),** selecione o separador **Segurança.**
 
 5. No separador **Segurança,** sob **o fornecedor de autenticação,** selecione **autenticação RADIUS,** e, em seguida, selecione **Configurar**.
 
@@ -245,9 +245,9 @@ Nesta secção, configura o seu servidor VPN para utilizar a autenticação RADI
     b. Para o **segredo partilhado**, selecione **Change**e, em seguida, introduza a senha secreta partilhada que criou e gravou anteriormente.
 
     c. Na caixa **time-out (segundos),** introduza um valor de **30**.  
-    O valor do tempo é necessário para permitir tempo suficiente para completar o segundo fator de autenticação.
+    O valor do tempo é necessário para permitir tempo suficiente para completar o segundo fator de autenticação. Algumas VPNs ou regiões requerem configurações de tempo superiora a 30 segundos para impedir que os utilizadores recebem várias chamadas telefónicas. Se os utilizadores experimentarem este problema, aumente o valor **time-out (segundos)** em incrementos de 30 segundos até que o problema não se repita.
 
-    ![Adicione a janela radius server configurando o time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Adicione a janela radius server configurando o time-out](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Selecione **OK**.
 
@@ -376,7 +376,7 @@ Para utilizar o script, forneça a extensão com as suas credenciais administrat
 
     ![Executando o script de configuração AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
-    Se tiver um erro de segurança devido ao TLS, `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` ative o TLS 1.2 utilizando o comando a partir do seu pedido PowerShell.
+    Se tiver um erro de segurança devido ao TLS, ative o TLS 1.2 utilizando o `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` comando a partir do seu pedido PowerShell.
     
     Depois de o script verificar a instalação do módulo PowerShell, exibe a janela de entrada do módulo PowerShell do módulo PowerShell do Diretório Ativo Azure.
 

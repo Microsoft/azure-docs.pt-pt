@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22bec66467dc7a42470c3660b8505c4aa13557d4
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715788"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837166"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configure as definições de atualização do Windows para a Gestão de Atualização de Automação Do Azure
 
@@ -60,6 +60,6 @@ A Atualização Management suporta as definições do WSUS. Pode especificar fon
 
 Para restringir as máquinas ao serviço de atualização interna, não [se conecto a nenhuma localização](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations)da Internet do Windows Update . 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Gerencie atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md)
+Agende uma implementação de atualização seguindo as instruções em [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).

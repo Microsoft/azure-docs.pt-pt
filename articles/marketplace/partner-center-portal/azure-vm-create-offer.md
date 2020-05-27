@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 957d7911a1373504265c014e3ba141c150e60c2a
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a64908eb639a44c6bc9d742e84ebb4d01082d49d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800571"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847927"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Criar uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -73,7 +73,7 @@ A sua equipa de engenharia deve ter um conhecimento básico de compreensão e tr
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta do Azure Marketplace e no Azure PowerShell e no Azure CLI, se aplicável.
-- Utilize apenas letras minúsculas e números. O ID pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será *https://azuremarketplace.microsoft.com/marketplace/../test-offer-1* .
+- Utilize apenas letras minúsculas e números. O ID pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** O pseudónimo de oferta é o nome que é usado para a oferta no Partner Center.
@@ -96,7 +96,7 @@ Recursos adicionais de test drive:
 - [Melhores práticas de marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Descarregue a visão geral do Test Drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) Ficheiro PDF (certifique-se de que o seu bloqueador pop-up está desligado).
 
-### <a name="lead-management"></a>Gestão de oportunidades potenciais
+### <a name="customer-leads"></a>Lideranças de clientes
 
 Quando publicar a sua oferta para o mercado comercial com o Partner Center, conecte-a ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém expressa interesse ou utiliza o seu produto. É necessária uma ligação a um CRM se pretender ativar uma Unidade de Teste (ver a secção anterior). Caso contrário, a ligação a um CRM é opcional.
 

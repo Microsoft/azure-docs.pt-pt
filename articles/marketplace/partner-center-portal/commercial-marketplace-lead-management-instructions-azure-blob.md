@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792722"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845799"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento Azure Blob para gerir os leads do mercado comercial
 
@@ -74,9 +74,9 @@ ms.locfileid: "82792722"
 Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga os passos abaixo:
 
 1. Navegue na página de **configuração** da Oferta para a sua oferta.
-2. Selecione **Ligar** sob a secção de Gestão de Chumbo.
+2. Sob a secção **de comandos do Cliente,** selecione **Connect**.
 
-    ![Oferta de Ligação](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Lideranças de clientes":::
 
 3. Na janela pop-up de detalhes da Ligação, selecione **Azure Blob** para o Destino Principal.
 
@@ -85,7 +85,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 4. Forneça o nome do **recipiente** e a cadeia de **ligação à conta** de armazenamento que obteve de seguir estas instruções.
 
     * Exemplo de nome do recipiente:`marketplaceleadcontainer`
-    * Exemplo de linha `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![de ligação de conta de armazenamento: Detalhe de ligação](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Exemplo de linha de ligação de conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ Detalhe de ligação](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Selecione **Guardar**.
 

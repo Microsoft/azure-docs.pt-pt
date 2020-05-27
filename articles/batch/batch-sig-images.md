@@ -1,14 +1,14 @@
 ---
 title: Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
-description: Crie um pool de Lote com a Galeria de Imagem Partilhada para fornecer imagens personalizadas para calcular os nódosos que contêm o software e os dados que precisa para a sua aplicação. As imagens personalizadas são uma forma eficiente de configurar os nódosos de cálculo para executar as suas cargas de trabalho do Lote.
-ms.topic: article
-ms.date: 08/28/2019
-ms.openlocfilehash: 1f03d637ffc6e443fdd429ca7fd647603b668cc1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+description: As imagens personalizadas são uma forma eficiente de configurar os nódosos de cálculo para executar as suas cargas de trabalho do Lote.
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780492"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844493"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
 
@@ -24,50 +24,51 @@ A utilização de uma Imagem Partilhada poupa tempo na preparação dos nódos d
 
 A utilização de uma Imagem Partilhada configurada para o seu cenário pode fornecer várias vantagens:
 
-* **Use as mesmas imagens em todas as regiões.** Você pode criar réplicas de Imagem Partilhada em diferentes regiões para que todas as suas piscinas utilizem a mesma imagem.
-* **Configure o sistema operativo (OS).** Pode personalizar a configuração do disco do sistema operativo da imagem.
-* **Pré-instalação de aplicações.** As aplicações de pré-instalação no disco OS são mais eficientes e menos propensas a erros do que a instalação de aplicações após o fornecimento dos nós de computação com uma tarefa inicial.
-* **Copie grandes quantidades de dados uma vez.** Faça parte da imagem partilhada gerida, copiando-a para os discos de dados de uma imagem gerida. Isto só precisa de ser feito uma vez e disponibiliza dados para cada nó da piscina.
-* **Cultivar piscinas para tamanhos maiores.** Com a Galeria de Imagem Partilhada, pode criar piscinas maiores com as suas imagens personalizadas juntamente com mais réplicas de Imagem Partilhada.
-* **Melhor desempenho do que imagem personalizada.** Utilizando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência vm idle é até 30% mais curta.
-* **Versão de imagem e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagem contém informações sobre o porquê da imagem ter sido criada, para que ser o SISTEMA de Identificação e informações sobre o uso da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para mais informações, consulte definições de [imagem.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
+- **Use as mesmas imagens em todas as regiões.** Você pode criar réplicas de Imagem Partilhada em diferentes regiões para que todas as suas piscinas utilizem a mesma imagem.
+- **Configure o sistema operativo (OS).** Pode personalizar a configuração do disco do sistema operativo da imagem.
+- **Pré-instalação de aplicações.** As aplicações de pré-instalação no disco OS são mais eficientes e menos propensas a erros do que a instalação de aplicações após o fornecimento dos nós de computação com uma tarefa inicial.
+- **Copie grandes quantidades de dados uma vez.** Faça parte da imagem partilhada gerida, copiando-a para os discos de dados de uma imagem gerida. Isto só precisa de ser feito uma vez e disponibiliza dados para cada nó da piscina.
+- **Cultivar piscinas para tamanhos maiores.** Com a Galeria de Imagem Partilhada, pode criar piscinas maiores com as suas imagens personalizadas juntamente com mais réplicas de Imagem Partilhada.
+- **Melhor desempenho do que imagem personalizada.** Utilizando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência vm idle é até 30% mais curta.
+- **Versão de imagem e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagem contém informações sobre o porquê da imagem ter sido criada, para que ser o SISTEMA de Identificação e informações sobre o uso da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para mais informações, consulte definições de [imagem.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!NOTE]
 > Tens de autenticar usando o Azure AD. Se utilizar o auth de chave partilhada, terá um erro de autenticação.  
 
-* **Uma conta do Azure Batch.** Para criar uma conta Batch, consulte o batch quickstarts utilizando o [portal Azure](quick-create-portal.md) ou [o Azure CLI](quick-create-cli.md).
+- **Uma conta do Azure Batch.** Para criar uma conta Batch, consulte o batch quickstarts utilizando o [portal Azure](quick-create-portal.md) ou [o Azure CLI](quick-create-cli.md).
 
-* Uma imagem partilhada da Galeria de **Imagens.** Para criar uma Imagem Partilhada, é necessário ter ou criar um recurso de imagem gerido. A imagem deve ser criada a partir de instantâneos do disco osso do VM e opcionalmente dos seus discos de dados anexados. Para mais informações, consulte [Prepare uma imagem gerida](#prepare-a-managed-image).
+- Uma imagem partilhada da Galeria de **Imagens.** Para criar uma Imagem Partilhada, é necessário ter ou criar um recurso de imagem gerido. A imagem deve ser criada a partir de instantâneos do disco osso do VM e opcionalmente dos seus discos de dados anexados.
 
 > [!NOTE]
-> A sua Imagem Partilhada deve estar na mesma subscrição que a conta Batch. A sua Imagem Partilhada pode estar em diferentes regiões desde que tenha réplicas na mesma região que a sua conta Batch.
+> A sua Imagem Partilhada deve estar na mesma subscrição que a conta Batch. A imagem pode estar em diferentes regiões desde que tenha réplicas na mesma região que a sua conta Batch.
 
-## <a name="prepare-a-managed-image"></a>Preparar uma imagem gerida
+## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
 
-Em Azure, pode preparar uma imagem gerida a partir de:
+Em Azure, pode preparar uma imagem personalizada a partir de:
 
-* Instantâneos de um Sistema operativo e discos de dados de um Azure VM
-* Um Azure VM generalizado com discos geridos
-* Um VHD generalizado no local carregado para a nuvem
+- Instantâneos de um Sistema operativo e discos de dados de um Azure VM
+- Um Azure VM generalizado com discos geridos
+- Um VHD generalizado no local carregado para a nuvem
 
-Para escalar as piscinas de Lote de forma fiável com uma imagem personalizada, recomendamos a criação de uma imagem gerida usando *apenas* o primeiro método: utilizando instantâneos dos discos do VM. Veja os seguintes passos para preparar um VM, tire uma foto e crie uma imagem a partir do instantâneo.
+> [!NOTE]
+> Atualmente, o Batch apenas suporta imagens partilhadas generalizadas. Você não pode criar uma piscina de imagem personalizada a partir de uma imagem partilhada especializada neste momento.
+
+Os seguintes passos mostram como preparar um VM, tirar uma foto e criar uma imagem a partir do instantâneo.
 
 ### <a name="prepare-a-vm"></a>Preparar um VM
 
 Se está a criar um novo VM para a imagem, utilize uma imagem de primeira parte do Azure Marketplace apoiada pelo Batch como imagem base para a sua imagem gerida. Apenas as imagens da primeira festa podem ser usadas como imagem base. Para obter uma lista completa de referências de imagem do Azure Marketplace suportadas pelo Azure Batch, consulte a operação do agente de [nóso lista SKUs.](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)
 
 > [!NOTE]
-> Não pode usar uma imagem de terceiros que tenha licença adicional e termos de compra como imagem base. Para obter informações sobre estas imagens do Marketplace, consulte as orientações para Os VMs [linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) ou [Windows.](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-)
+> Não pode usar uma imagem de terceiros que tenha licença adicional e termos de compra como imagem base. Para obter informações sobre estas imagens do Marketplace, consulte as orientações para Os VMs [linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) ou [Windows.](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms)
 
-* Certifique-se de que o VM é criado com um disco gerido. Esta é a definição de armazenamento padrão quando cria um VM.
-* Não instale extensões Azure, como a extensão do Script Personalizado, no VM. Se a imagem contiver uma extensão pré-instalada, o Azure poderá encontrar problemas ao implantar a piscina do Lote.
-* Ao utilizar discos de dados anexados, é necessário montar e formatar os discos de dentro de um VM para os utilizar.
-* Certifique-se de que a imagem base de OS que fornece utiliza a unidade temporária predefinida. O agente do nó batch espera atualmente a unidade temporária padrão.
-* Uma vez que o VM esteja em execução, ligue-o via RDP (para Windows) ou SSH (para Linux). Instale qualquer software ou copiar dados desejados.  
+- Certifique-se de que o VM é criado com um disco gerido. Esta é a definição de armazenamento padrão quando cria um VM.
+- Não instale extensões Azure, como a extensão do Script Personalizado, no VM. Se a imagem contiver uma extensão pré-instalada, o Azure poderá encontrar problemas ao implantar a piscina do Lote.
+- Ao utilizar discos de dados anexados, é necessário montar e formatar os discos de dentro de um VM para os utilizar.
+- Certifique-se de que a imagem base de OS que fornece utiliza a unidade temporária predefinida. O agente do nó batch espera atualmente a unidade temporária padrão.
+- Uma vez que o VM esteja em execução, ligue-o via RDP (para Windows) ou SSH (para Linux). Instale qualquer software ou copiar dados desejados.  
 
 ### <a name="create-a-vm-snapshot"></a>Criar um instantâneo VM
 
@@ -212,10 +213,11 @@ Utilize os seguintes passos para criar uma piscina a partir de uma Imagem Partil
 
 Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma Imagem Partilhada, utilize a seguinte orientação.
 
-* **Números de réplica da Galeria de Imagem Partilhada.**  Para cada piscina com até 600 instâncias, recomendamos que guarde pelo menos uma réplica. Por exemplo, se estiver a criar uma piscina com 3000 VMs, deverá manter pelo menos 5 réplicas da sua imagem. Sempre sugerimos manter mais réplicas do que requisitos mínimos para um melhor desempenho.
+- **Números de réplica da Galeria de Imagem Partilhada.**  Para cada piscina com até 600 instâncias, recomendamos que guarde pelo menos uma réplica. Por exemplo, se estiver a criar uma piscina com 3000 VMs, deverá manter pelo menos 5 réplicas da sua imagem. Sempre sugerimos manter mais réplicas do que requisitos mínimos para um melhor desempenho.
 
-* **Redimensionar o tempo.** Se a sua piscina contiver um número fixo de nós (se não fizer escala automática), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo de redimensionação recomendado é de pelo menos 15 minutos. Por exemplo, o tempo de redimensionação recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
+- **Redimensionar o tempo.** Se a sua piscina contiver um número fixo de nós (se não fizer escala automática), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo de redimensionação recomendado é de pelo menos 15 minutos. Por exemplo, o tempo de redimensionação recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma visão geral aprofundada do Lote, consulte o fluxo de [trabalho e os recursos](batch-service-workflow-features.md)do serviço batch .
+- Para uma visão geral aprofundada do Lote, consulte o fluxo de [trabalho e os recursos](batch-service-workflow-features.md)do serviço batch .
+- Conheça a Galeria de [Imagem Partilhada.](../virtual-machines/windows/shared-image-galleries.md)

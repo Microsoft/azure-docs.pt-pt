@@ -11,19 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6189e2bc6c3c8f28b767902b525b03cb72968bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2377ca4b929200ecd0a3a7de01dd3a58be6b7863
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80652905"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845445"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurar o Servidor Multi-Factor Authentication do Azure para aplicações Web IIS
 
 Utilize a secção Autenticação do IIS do Servidor do Multi-Factor Authentication (MFA) do Azure que permite ativar e configurar a autenticação do IIS para integração com aplicações Web do Microsoft IIS. O Servidor do MFA do Azure instala um plug-in que pode filtrar os pedidos efetuados para o servidor Web do IIS para adicionar o Multi-Factor Authentication do Azure. O plug-in do IIS fornece suporte para Autenticação Baseada em Formulários e Autenticação HTTP Integrada do Windows. Também podem ser configurados IPs Fidedignos para excluir os endereços IP internos da autenticação de dois fatores.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes do dia 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes do dia 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume. Quando utiliza a autenticação azure multi-factor baseada na nuvem, não existe alternativa ao plugin IIS fornecido pelo Servidor de Autenticação Multi-Factor (MFA) Azure. Em vez disso, utilize o Proxy de Aplicação Web (WAP) com serviços da Federação de Diretórios Ativos (AD FS) ou proxy de aplicação do Diretório Ativo Azure.
 
 ![Autenticação IIS no Servidor MFA](./media/howto-mfaserver-iis/iis.png)
 
@@ -34,7 +34,7 @@ Para proteger uma aplicação Web IIS que utilize autenticação baseada em form
 1. No Servidor Multi-Factor Authentication do Azure, clique no ícone Autenticação do IIS no menu da esquerda.
 2. Clique no separador **Baseado em Formulários**.
 3. Clique em **Adicionar**.
-4. Para detetar automaticamente o nome de utilizador, a palavra-passe `https://localhost/contoso/auth/login.aspx`e as variáveis de domínio, introduza automaticamente o URL de Login (como) dentro da caixa de diálogo baseada em formulários de configuração automática e clique em **OK**.
+4. Para detetar automaticamente o nome de utilizador, a palavra-passe e as variáveis de domínio, introduza automaticamente o URL de Login `https://localhost/contoso/auth/login.aspx` (como) dentro da caixa de diálogo baseada em formulários de configuração automática e clique em **OK**.
 5. Marque a caixa **Exigir correspondência de utilizador Multi-Factor Authentication** se todos os utilizadores tiverem sido ou forem importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de utilizadores ainda não tiverem sido importados para o Servidor de e/ou estiverem excluídos da autenticação multifator, deixe a caixa desmarcada.
 6. Se as variáveis de página não puderem ser detetadas automaticamente, clique em **Especificar Manualmente** na caixa de diálogo Configurar Automaticamente Site Baseado em Formulário.
 7. Na caixa de diálogo Adicionar Web Site Baseado em Formulários, introduza o URL para a página de início de sessão no campo URL de Submissão e introduza um nome de Aplicação (opcional). O nome da Aplicação aparece nos relatórios do Multi-Factor Authentication do Azure e poderá ser apresentado nas mensagens de autenticação SMS ou da Aplicação Móvel.
@@ -58,7 +58,7 @@ Para proteger uma aplicação Web IIS que utilize autenticação HTTP integrada 
 1. No Servidor Multi-Factor Authentication do Azure, clique no ícone Autenticação do IIS no menu da esquerda.
 2. Clique no separador **HTTP**.
 3. Clique em **Adicionar**.
-4. Na caixa de diálogo Add Base URL, introduza o URL <http://localhost/owa>para o website onde é realizada a autenticação HTTP (como) e forneça um nome de Aplicação (opcional). O nome da Aplicação aparece nos relatórios do Multi-Factor Authentication do Azure e poderá ser apresentado nas mensagens de autenticação SMS ou da Aplicação Móvel.
+4. Na caixa de diálogo Add Base URL, introduza o URL para o website onde é realizada a autenticação HTTP (como) e forneça um nome de <http://localhost/owa> Aplicação (opcional). O nome da Aplicação aparece nos relatórios do Multi-Factor Authentication do Azure e poderá ser apresentado nas mensagens de autenticação SMS ou da Aplicação Móvel.
 5. Ajuste o tempo limite de inatividade e os tempos máximos de sessão, se a predefinição não for suficiente.
 6. Marque a caixa **Exigir correspondência de utilizador Multi-Factor Authentication** se todos os utilizadores tiverem sido ou forem importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de utilizadores ainda não tiverem sido importados para o Servidor de e/ou estiverem excluídos da autenticação multifator, deixe a caixa desmarcada.
 7. Selecione a caixa da **Cache de cookies**, se pretender.

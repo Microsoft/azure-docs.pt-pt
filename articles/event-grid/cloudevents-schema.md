@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 2e4de91034de0d036cd99e265949ba85a5939180
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: b62122e7ce981a73fe8b8b3028c123054e16330d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629332"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847604"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use CloudEvents v1.0 schema com grelha de eventos
 Além do seu [esquema de evento padrão,](event-schema.md)a Azure Event Grid apoia de forma nativa eventos na [implementação jSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [http protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados do evento.
@@ -61,7 +61,7 @@ Aqui está um exemplo de um evento de armazenamento De Blob Azure no formato Clo
 
 Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e `content-type`no esquema da Grelha de Eventos são os mesmos exceto para . Para o esquema CloudEvents, o `"content-type":"application/cloudevents+json; charset=utf-8"`valor do cabeçalho é . Para o esquema da Grelha de `"content-type":"application/json; charset=utf-8"`Eventos, o valor do cabeçalho é .
+Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e no esquema da Grelha de Eventos são os mesmos exceto `content-type` para . Para o esquema CloudEvents, o valor do cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"` . Para o esquema da Grelha de Eventos, o valor do cabeçalho é `"content-type":"application/json; charset=utf-8"` .
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Configure grelha de eventos para CloudEvents
 
@@ -192,7 +192,7 @@ module.exports = function (context, req) {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
-        context.res = { status: 200, body: { "ValidationResponse": code } };
+        context.res = { status: 200 };
         context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.net');
     }
     else

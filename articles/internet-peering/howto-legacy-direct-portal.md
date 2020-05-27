@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e49e4d5debe63b99039bbafbc14f7788367314f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 159e15a6be59991fba574e72dcaf2ed740fb10c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678838"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846180"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Converta um legado De espreitar diretamente para um recurso Azure utilizando o portal Azure
 
@@ -32,7 +32,28 @@ Se preferir, pode completar este guia utilizando o [PowerShell](howto-legacy-dir
 
 ### <a name="convert-a-legacy-direct-peering"></a><a name=create></a>Converter um legado de espreitar direto
 
-Pode converter ligações de observação de legados utilizando o recurso **Peering.**
+Como Fornecedor de Serviços de Internet, pode converter ligações de peering direto sinuosos, utilizando a [Criação de um Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+
+1. Na página **Criar uma página de Peering,** no separador **Basics,** preencha as caixas como mostrado aqui:
+
+    > [!div class="mx-imgBorder"] 
+    > ![Registar Peering Service](./media/setup-basics-tab.png)
+
+*    Selecione a sua Assinatura Azure.
+
+* Para o grupo Recursos, pode escolher um grupo de recursos existente da lista de drop-down ou criar um novo grupo selecionando criar novos. Vamos criar um novo grupo de recursos para este exemplo.
+
+* O nome corresponde ao nome do recurso e pode ser tudo o que escolher.
+
+* A região é selecionada automaticamente se escolher um grupo de recursos existente. Se escolheu criar um novo grupo de recursos, também precisa escolher a região do Azure onde pretende que o recurso resida.
+
+>[!NOTE]
+>A região onde reside um grupo de recursos é independente do local onde pretende criar o peering com a Microsoft. Mas é uma boa prática organizar os seus recursos de observação dentro de grupos de recursos que residem nas regiões mais próximas de Azure. Por exemplo, para os olhinhos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou LESTE US2.
+
+* Selecione o seu ASN na caixa **PeerASN.**
+
+>[!IMPORTANT] 
+>Só pode escolher um ASN com Validação state como Aprovado antes de submeter um pedido de peering. Se acabou de apresentar o seu pedido de PeerAsn, aguarde cerca de 12 horas para que a associação ASN seja aprovada. Se o ASN que selecionar estiver pendente de validação, verá uma mensagem de erro. Se não vir o ASN que precisa de escolher, verifique se selecionou a subscrição correta. Em caso afirmativo, verifique se já criou o PeerAsn utilizando a **[assinatura Associate Peer ASN para a assinatura Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 #### <a name="launch-the-resource-and-configure-basic-settings"></a>Lançar o recurso e configurar as definições básicas
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]

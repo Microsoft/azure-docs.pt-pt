@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983368"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847417"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo modelo
 
@@ -49,7 +49,7 @@ Utilize este módulo para medir a precisão de um modelo treinado. Fornece um co
 
 ## <a name="results"></a>Resultados
 
-Depois de executar O **Modelo de Avaliação,** clique no módulo e selecione resultados de **Avaliação visualize** para ver os resultados.
+Depois de executar O **Modelo de Avaliação,** selecione o módulo para abrir o painel de navegação **do Modelo de Avaliação** à direita.  Em seguida, escolha o separador **Saídas + Logs** e, nesse separador, a secção **saídas** de dados tem vários ícones.   O ícone **Visualizar** tem um ícone de gráfico de barras, e é uma primeira maneira de ver os resultados.
 
 Se ligar conjuntos de dados a ambas as inputs do Modelo de **Avaliação,** os resultados conterão métricas para ambos os conjuntos de dados, ou ambos os modelos.
 O modelo ou dados anexados à porta esquerda é apresentado primeiro no relatório, seguido das métricas para o conjunto de dados, ou modelo anexado na porta direita.  

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790988"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847823"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utilize um ponto final HTTPS para gerir os leads do mercado comercial
 
@@ -183,7 +183,7 @@ Este artigo explica como criar um novo fluxo no Power Automate para gerar o URL 
 
 Pode testar a sua configuração com [o Carteiro.](https://app.getpostman.com/app/download/win64) Um download online do Carteiro está disponível para Windows. 
 
-1. Inicie o Carteiro e selecione **New** > **Request** para configurar a sua ferramenta de teste. 
+1. Inicie o Carteiro e selecione **New**  >  **Request** para configurar a sua ferramenta de teste. 
 
    ![Pedido para configurar a sua ferramenta de teste](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
@@ -229,8 +229,9 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Selecione a sua oferta e vá ao separador **oferta.**
 
-1. Sob a secção de **gestão de chumbo,** selecione **Connect**. 
-    ![Botão de ligação de gestão de chumbo](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+1. Sob a secção **de comandos do Cliente,** selecione **Connect**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Lideranças de clientes":::
 
 1. Na janela de detalhes da **Ligação,** selecione **HTTPS Endpoint** para o **Destino de Chumbo**. Colar o URL HTTP POST do fluxo que criou seguindo passos anteriores no campo URL do **ponto final HTTPS.**
     ![Detalhes de ligação Contacte e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)

@@ -13,14 +13,14 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
-ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a8d9c5c0a24e59c8f6345666f8838aa4c41d0f9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263000"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845190"
 ---
-# <a name="national-clouds"></a>Nuvens nacionais
+# <a name="national-clouds"></a>Clouds nacionais
 
 Nuvens nacionais são casos fisicamente isolados de Azure. Estas regiões de Azure destinam-se a garantir que os requisitos de residência, soberania e conformidade dos dados sejam honrados dentro das fronteiras geográficas.
 
@@ -60,8 +60,8 @@ A tabela seguinte lista os URLs base para os pontos finais da AD Azure usados pa
 
 Pode fornecer pedidos à autorização da AD Azure ou pontos finais simbólicos utilizando o URL de base específico da região apropriado. Por exemplo, para a Alemanha Azure:
 
-  - Autorização ponto final `https://login.microsoftonline.de/common/oauth2/authorize`comum é .
-  - Símbolo ponto final `https://login.microsoftonline.de/common/oauth2/token`comum é .
+  - Autorização ponto final comum é `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
+  - Símbolo ponto final comum é `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
 
 Para pedidos de inquilino único, substitua "comum" nos URLs anteriores pelo seu ID ou nome de inquilino. Um exemplo é `https://login.microsoftonline.de/contoso.com`.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681301"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844510"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
@@ -48,7 +48,7 @@ Consulte a [lista das regiões disponíveis](../reference/regions.md) para o pre
 
 Os valores para **`arrAccountId`** e **`arrAccountKey`** podem ser encontrados no portal, conforme descrito nos seguintes passos:
 
-* Aceda ao [Portal do Azure](https://www.portal.azure.com)
+* Vá ao [portal Azure](https://www.portal.azure.com)
 * Encontre a sua "Conta de **Renderização Remota"** - deve estar na lista **de "Recursos Recentes".** Pode também procurá-lo na barra de pesquisa no topo. Nesse caso, certifique-se de que a subscrição que pretende utilizar é selecionada no filtro de subscrição Predefinido (ícone de filtro ao lado da barra de pesquisa):
 
 ![Filtro de assinatura](./media/azure-subscription-filter.png)
@@ -61,7 +61,7 @@ Para a tecla, selecione **Access Keys** no painel à esquerda. A página seguint
 
 ![Chaves de acesso Azure](./media/azure-account-primary-key.png)
 
-O valor **`arrAccountKey`** para pode ser a chave primária ou secundária.
+O valor para **`arrAccountKey`** pode ser a chave primária ou secundária.
 
 ## <a name="link-storage-accounts"></a>Contade armazenamento de ligação
 
@@ -81,9 +81,12 @@ Agora presume-se que tem uma conta de armazenamento. Navegue para a conta de arm
 
 ![Conta de armazenamento IAM](./media/azure-add-role-assignment.png)
 
-* O primeiro papel a atribuir é **proprietário** como mostrado na imagem acima. 
-* Selecione **Conta de Renderização Remota** a partir do * Atribuir acesso**ao** dropdown.
+* O primeiro papel a atribuir é **proprietário** como mostrado na imagem acima.
+* Selecione **Conta de Renderização Remota** a partir do acesso de atribuição **a** dropdown.
 * Selecione a sua conta de subscrição e renderização remota nas últimas descidas.
+
+> [!WARNING]
+> Caso a sua conta de renderização remota não esteja listada, consulte esta secção de resolução de [problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Repita a adição de novos papéis mais duas vezes para as respetivas seleções do abandono do **papel:**
 * **Contribuidor de Conta de Armazenamento**

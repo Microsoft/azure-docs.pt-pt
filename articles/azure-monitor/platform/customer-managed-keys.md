@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 6603985df39afaa2fa2871977d6e577c04f7b569
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800038"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845103"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -35,8 +35,10 @@ O modelo de preços dos [clusters Log Analytics](https://docs.microsoft.com/azu
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Como a CMK funciona no Monitor Azure
 
-O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar acesso ao seu Cofre chave Azure.A identidade gerida atribuída pelo sistema só pode ser associada a um único recurso Azure enquanto a identidade do cluster Log Analytics é suportada ao nível do cluster.Isto dita que a capacidade cmk é entregue num cluster dedicado log analytics.Para suportar a CMK em vários espaços de trabalho, um novo recurso do *Cluster*Log Analytics   funciona como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics.O armazenamento do cluster Log Analytics utiliza a identidade gerida que \' está associada ao recurso *Cluster*   para autenticar o seu Cofre chave Azure via Diretório Ativo Azure. 
-Após a configuração cmk, quaisquer dados ingeridos para espaços de trabalho associados ao seu recurso *Cluster*são encriptados com a   sua chave no Cofre chave. Pode dissociar espaços de trabalho do recurso *Cluster*a   qualquer momento.Novos dados são ingeridos no armazenamento do Log Analytics e encriptados com a chave da Microsoft, enquanto pode consultar os seus dados novos e antigos sem problemas.
+O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar acesso ao seu Cofre chave Azure. A identidade gerida atribuída pelo sistema só pode ser associada a um único recurso Azure enquanto a identidade do cluster Log Analytics é suportada ao nível do cluster -- Isto dita que a capacidade cmk é entregue num cluster dedicado log analytics. Para suportar a CMK em vários espaços de trabalho, um novo recurso do *Cluster* Log Analytics funciona como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics. O armazenamento do cluster Log Analytics utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar o seu Cofre chave Azure via Diretório Ativo Azure. 
+
+Após a configuração cmk, quaisquer dados ingeridos para espaços de trabalho associados ao seu recurso *Cluster* são encriptados com a sua chave no Cofre chave. Pode dissociar espaços de trabalho do recurso *Cluster* a qualquer momento. Novos dados são ingeridos no armazenamento do Log Analytics e encriptados com a chave da Microsoft, enquanto pode consultar os seus dados novos e antigos sem problemas.
+
 
 ![Visão geral da CMK](media/customer-managed-keys/cmk-overview-8bit.png)
 
@@ -118,6 +120,29 @@ A operação está em curso.
     "name": "operation-id", 
     "status" : "InProgress", 
     "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
+
+A operação de atualização de identificador chave está em andamento
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Updating", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+A eliminação de *recursos* cluster está em andamento -- Quando se elimina um recurso *cluster* que dispõe de espaços de trabalho associados, é realizada uma operação de desassociação para cada um dos espaços de trabalho em operações assíncronas que podem demorar algum tempo.
+Isto não é relevante quando elimina um *Cluster* sem espaço de trabalho associado -- Neste caso, o recurso *Cluster* é imediatamente eliminado.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Deleting", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
 }
 ```
 

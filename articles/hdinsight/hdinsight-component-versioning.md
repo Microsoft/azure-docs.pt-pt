@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 05/20/2020
-ms.openlocfilehash: 5f3b1fcb573358160707c0b29ad9e1806ea8e24c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 036548d61dbe6a6465ca28c72eacb48e61386577
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774295"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846227"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões Apache disponíveis para Azure HDInsight
 
@@ -43,15 +43,15 @@ As versões componentes associadas às versões de cluster HDInsight estão list
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.4, 2.3.1*   | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2,4           | 2.3.0, 2.2.0, 2.1.0         |
 | Apache Livy            | 0,5           | 0.4, 0.4, 0.3               |
-| Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0* (Ver a nota.)   |
+| Apache Kafka           | 2.1           | 1.1                        |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
-> O suporte para a versão 0.10 da Kafka expirou em março de 2019 devido a considerações de desempenho do sistema.
+> HDInsight 4.0: Spark 2.4 e Kafka 2.1 estão totalmente suportados. No entanto, a Faísca 2.3 e a Kafka 1.1 não são servida. HDInsight 3.6: Spark 2.3 e Kafka 1.1 estão totalmente suportados.  
 
 ## <a name="check-for-current-apache-component-version-information"></a>Verifique se existem informações atuais sobre a versão do componente Apache
 
@@ -91,14 +91,14 @@ Esta tabela lista as versões do HDInsight que não estão disponíveis no porta
 
 | Versão HDInsight | Versão HDP | SO da VM | Data da versão | Data de validade do suporte | Data de aposentadoria | Elevada disponibilidade |  Disponibilidade no portal Azure |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Sim |Não |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Sim |Não |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Sim |Não |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Sim |Não |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1 de março de 2016 |1 de abril de 2017 |Sim |Não |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de junho de 2016 |Sim |Não |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Sim |Não |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Sim |Não |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Yes |No |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Yes |No |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Yes |No |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Yes |No |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1 de março de 2016 |1 de abril de 2017 |Yes |No |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de junho de 2016 |Yes |No |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Yes |No |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Yes |No |
 | HDInsight 1.6 |HDP 1.1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |Não |Não |
 
 > [!NOTE]

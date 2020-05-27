@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: bbb3743251f2818ab1e4255b3dc6e7f4f9cbbcba
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275458"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846737"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Can't Access this Corporate Application" ao utilizar uma aplicação de procuração de aplicação
 
@@ -50,7 +50,7 @@ Ocorre um intervalo de entrada quando o serviço tenta chegar ao conector e não
 Um erro de gateway grave indica que o conector não consegue alcançar a aplicação de backend. certifique-se de que publicou a aplicação correta. Erros comuns que causam este erro são:
 
 - Um erro ou erro na URL interna
-- Não publicar a raiz da aplicação. Por exemplo, <http://expenses/reimbursement> publicar mas tentar aceder<http://expenses>
+- Não publicar a raiz da aplicação. Por exemplo, publicar <http://expenses/reimbursement> mas tentar aceder<http://expenses>
 - Problemas com a configuração da Delegação Limitada kerberos (KCD)
 - Problemas com a aplicação backend
 
@@ -71,7 +71,7 @@ Como primeiro passo rápido, verifique duas vezes e corrija o URL interno abrind
 Para verificar se a aplicação é atribuída a um Grupo de Conector de trabalho:
 
 1. Abra a aplicação no portal indo para **o Azure Ative Directory,** clicando em **Aplicações Empresariais,** em **seguida, todas as aplicações.** Abra a aplicação e, em seguida, selecione **Application Proxy** do menu esquerdo.
-1. Olhe para o campo do Grupo De Conector. Se não houver conectores ativos no grupo, verá um aviso. Se não vir avisos, avance para verificar se todas as portas necessárias são permitidas.
+1. Olhe para o campo do Grupo De Conector. Se não houver conectores ativos no grupo, verá um aviso. Se não vir avisos, avance para verificar se todas as portas necessárias são [permitidas.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to)
 1. Se o Grupo Connector estiver a mostrar errado, utilize a queda para selecionar o grupo correto e confirme que já não vê quaisquer avisos. Se o Grupo de Conectores pretendido estiver a mostrar, clique na mensagem de aviso para abrir a página com a gestão do Connector.
 1. A partir daqui, há algumas maneiras de perfurar mais:
 
@@ -83,7 +83,7 @@ Depois de utilizar estas medidas para garantir que a aplicação é atribuída a
 
 ## <a name="check-all-required-ports-are-open"></a>Verifique se todas as portas necessárias estão abertas
 
-Para verificar se todas as portas necessárias estão abertas, consulte a documentação sobre as portas de abertura. Se todas as portas necessárias estiverem abertas, passe para a secção seguinte.
+Para verificar se todas as portas necessárias estão abertas, consulte a [documentação sobre as portas](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to)de abertura . Se todas as portas necessárias estiverem abertas, passe para a secção seguinte.
 
 ## <a name="check-for-other-connector-errors"></a>Verifique se existem outros erros do Conector
 

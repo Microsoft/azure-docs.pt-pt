@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 4eb80f08db2fc8ceba434f1a4a31794d7b1d6d0d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 13e05a8771be162ebe37cc79fc93cfa404183d1d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698375"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846840"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -67,7 +67,7 @@ Enumere a sua oferta aos clientes com um link para um teste gratuito, fornecendo
 
 #### <a name="contact-me"></a>Contacte-me
 
-Recolha informações de contacto com o cliente ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM). Será solicitado ao cliente permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e fonte de mercado onde encontraram a sua oferta, serão enviados para o sistema CRM que configura. Para mais informações sobre a configuração do seu CRM, consulte [Connect lead management](#connect-lead-management).
+Recolha informações de contacto com o cliente ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM). Será solicitado ao cliente permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e fonte de mercado onde encontraram a sua oferta, serão enviados para o sistema CRM que configura. Para mais informações sobre a configuração do seu CRM, consulte [os leads do Cliente](#customer-leads).
 
 ### <a name="test-drive"></a>Test drive
 
@@ -94,7 +94,7 @@ Selecione entre as seguintes opções:
 - [Boas práticas técnicas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Visão geral](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; certifique-se de que o seu bloqueador pop-up está desligado)
 
-## <a name="connect-lead-management"></a>Ligar a gestão de chumbo
+### <a name="customer-leads"></a>Lideranças de clientes
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 

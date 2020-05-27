@@ -3,14 +3,14 @@ title: Visão geral da Gestão de Atualização de Automação Azure
 description: Este artigo fornece uma visão geral da funcionalidade Update Management que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4a48841a1c1f5225e5ce53c46c69bd3d29f6fe59
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4c27fa26b19b870f90f2e7d6ecd34f1f3c083323
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830706"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847333"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -97,7 +97,7 @@ A tabela que se segue enumera sistemas operativos não suportados:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.        |
+|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.<br> Para o Azure Windows Virtual Desktop (WVD), o método recomendado<br> para gerir atualizações é [o Windows Update for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) para a gestão de patchde seleções do cliente Windows 10. |
 |Windows Server 2016 Nano Server     | Não suportado.       |
 |Nódosos de serviço Azure Kubernetes | Não suportado. Utilize o processo de correção descrito em Aplicar atualizações de [segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)](../aks/node-updates-kured.md)|
 
@@ -167,9 +167,9 @@ O quadro seguinte descreve as fontes conectadas que a Atualização de Gestão s
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes Linux e inicia a instalação de atualizações necessárias sobre distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são encaminhados do grupo de gestão para o espaço de trabalho log Analytics. |
+| Agentes do Windows |Yes |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes Linux e inicia a instalação de atualizações necessárias sobre distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são encaminhados do grupo de gestão para o espaço de trabalho log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -255,13 +255,5 @@ Aqui estão as formas de ativar a Gestão de Atualizações e selecionar máquin
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para mais detalhes sobre o trabalho com a Atualização, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
-* Se precisar de direcionar um grupo VM dinâmico para atualizações, consulte [Utilizar grupos dinâmicos com Gestão](automation-update-management-groups.md)de Atualizações .
-* Para ativar a funcionalidade utilizando um modelo de Gestor de Recursos Azure, consulte a Enable Update Management utilizando o modelo do Gestor de [Recursos Azure](automation-update-management-deploy-template.md).
-* Para ativar a funcionalidade a partir de um livro de execução, consulte a Enable Update Management a partir de um livro de [execução](automation-onboard-solutions.md).
-* Para ativar a funcionalidade a partir de uma conta Automation, consulte [A Gestão de Atualização ativa da conta Automation](automation-onboard-solutions-from-automation-account.md).
-* Para ativar a funcionalidade navegando no portal Azure, consulte [a Enable Update Management a partir do portal Azure](automation-onboard-solutions-from-browse.md).
-* Para ativar a funcionalidade a partir de um VM Azure, consulte [a Enable Update Management a partir de um Azure VM](automation-onboard-solutions-from-vm.md).
-* Se precisar de pesquisar registos armazenados no seu espaço de trabalho log Analytics, consulte os registos de Gestão de [Atualização](automation-update-management-query-logs.md)de Consultas .
-* Para resolver erros de funcionalidades, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).
-* Para resolver os erros do agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
-* Para resolver os erros do agente de atualização do Linux, consulte problemas de agente de [atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).
+
+* A análise geralmente colocada perguntas sobre a Gestão de Atualizações na [Automação Azure frequentemente fez perguntas](automation-faq.md).

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791005"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847956"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 Customer Engagement
 
@@ -34,7 +34,7 @@ São necessárias as seguintes permissões de utilizador para completar os passo
 
 1. Descarregue a [solução Microsoft Marketplace Lead Writer](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip)e guarde-a localmente para o seu computador.
 
-1. Open Dynamics 365 Customer Engagement indo ao URL `https://tenant.crm.dynamics.com`para a sua instância De Dinâmica, como .
+1. Open Dynamics 365 Customer Engagement indo ao URL para a sua instância De Dinâmica, como `https://tenant.crm.dynamics.com` .
 
 1. Selecione o ícone de engrenagem na barra superior e, em seguida, **selecione Definições Avançadas**.
  
@@ -77,7 +77,7 @@ Para configurar o Diretório Ativo azure para a Dinâmica 365 Envolvimento com o
 1. Selecione **as inscrições** da App do painel esquerdo do Azure Ative Directory e, em seguida, selecione **Nova inscrição** nessa página.
 1. Introduza um nome significativo para o nome da aplicação.
 1. Nos tipos de **conta suportada,** selecione **Contas em qualquer diretório organizacional**.
-1. Em **Redirecione URI (opcional)**, selecione **Web** e introduza um URI, como `https://contosoapp1/auth`. 
+1. Em **Redirecione URI (opcional)**, selecione **Web** e introduza um URI, como `https://contosoapp1/auth` . 
 1. Selecione **Registar**.
 
     ![Registar uma página de candidatura](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
@@ -98,7 +98,7 @@ Para configurar o Diretório Ativo azure para a Dinâmica 365 Envolvimento com o
 
     ![Adicione o botão de permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-1. Depois de completar os passos 1 a 14 no portal Azure, vá à sua `https://tenant.crm.dynamics.com`instância de Envolvimento com o Cliente Dynamics 365 indo ao URL, como .
+1. Depois de completar os passos 1 a 14 no portal Azure, vá à sua instância de Envolvimento com o Cliente Dynamics 365 indo ao URL, como `https://tenant.crm.dynamics.com` .
 1. Selecione o ícone de engrenagem na barra superior e, em seguida, **selecione Definições Avançadas**.
 1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Segurança**.
 1. Na página **de Segurança,** selecione **Utilizadores**. Na página **Utilizadores,** selecione o drop-down dos **Utilizadores Ativados** e, em seguida, selecione Utilizadores de **Aplicação**.
@@ -139,7 +139,7 @@ Guarde estes valores porque terá de fornecer os valores do **Username** e **Pas
 
 O passo final é permitir ao utilizador que criou escrever as pistas.
 
-1. Open Dynamics 365 Customer Engagement indo ao URL `https://tenant.crm.dynamics.com`para a sua instância De Dinâmica, como .
+1. Open Dynamics 365 Customer Engagement indo ao URL para a sua instância De Dinâmica, como `https://tenant.crm.dynamics.com` .
 1. Selecione o ícone de engrenagem na barra superior e, em seguida, **selecione Definições Avançadas**.
 1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Segurança**.
 1. Na página **'Segurança',** selecione **Utilizadores** e selecione o utilizador que criou na secção "Configure user permissions" deste documento. Em seguida, selecione **'Gerir funções '**. 
@@ -172,22 +172,22 @@ O passo final é permitir ao utilizador que criou escrever as pistas.
 Para configurar as informações de gestão de chumbo para a sua oferta no portal editorial:
 
 1. Vá à página de **configuração** da Oferta para a sua oferta.
-1. Selecione **Ligar** sob a secção de gestão de **chumbo.**
+1. Sob a secção **de comandos do Cliente,** selecione **Connect**.
 
-    ![Secção de gestão de chumbo Botão de ligação](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Lideranças de clientes":::
 
 1. Na janela pop-up de detalhes da Ligação, selecione **Dynamics 365 Customer Engagement** para o destino principal.
 
     ![Caixa de destino de chumbo](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
-1. Introduza o **URL** para a instância `https://contoso.crm4.dynamics.com`Dynamics 365, tais como .
+1. Introduza o **URL** para a instância Dynamics 365, tais como `https://contoso.crm4.dynamics.com` .
 
 1. Selecione o método de **Autenticação,** quer azure Ative Diretório ou Office 365. 
-1. Se selecionou **o Diretório Ativo Azure,** introduza o `23456052-aaaa-bbbb-8662-1234df56788f`ID **(cliente) (por** exemplo, ) id do **Diretório** (por exemplo, `12345678-8af1-4asf-1234-12234d01db47`) e o segredo do **Cliente** (por exemplo, `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
+1. Se selecionou **o Diretório Ativo Azure,** introduza o **ID (cliente) (por** exemplo, `23456052-aaaa-bbbb-8662-1234df56788f` ) id do **Diretório** (por exemplo, `12345678-8af1-4asf-1234-12234d01db47` ) e o segredo do **Cliente** (por exemplo, `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` ).
 
     ![Autenticação com Diretório Ativo Azure selecionado](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-1. Se selecionou o **Office 365**, introduza o nome de `P@ssw0rd` **utilizador** (por exemplo) `contoso@contoso.onmicrosoft.com`e a **palavra-passe** (por exemplo, ).
+1. Se selecionou o **Office 365**, introduza o nome de **utilizador** (por exemplo) e `contoso@contoso.onmicrosoft.com` a **palavra-passe** (por exemplo, `P@ssw0rd` ).
 
     ![Caixa de nome do utilizador do Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 

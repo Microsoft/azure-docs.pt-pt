@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: bcc1c6ffe7cdec4aed325a67969235ae993a5109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b37f9be5eb3313cc451e65f90d7f2713c68806d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77614839"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845989"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada de ameaças para O Cosmos Db (Pré-visualização)
 
@@ -36,11 +36,15 @@ Advanced Threat Protection for Azure Cosmos DB deteta atividades anómalas que i
 
 - **Extração invulgar de dados**: Este alerta é desencadeado quando um cliente está a extrair uma quantidade invulgar de dados de uma conta Azure Cosmos DB. Este pode ser o sintoma de alguma exfiltração de dados realizada para transferir todos os dados armazenados na conta para uma loja de dados externo.
 
-## <a name="set-up-advanced-threat-protection"></a>Criar proteção avançada de ameaças
 
-### <a name="set-up-atp-using-the-portal"></a>Configurar ATP utilizando o portal
 
-1. Lance o portal [https://portal.azure.com](https://portal.azure.com/)Azure em .
+## <a name="configure-advanced-threat-protection"></a>Configurar o Advanced Threat Protection
+
+Pode configurar a proteção avançada contra ameaças de várias formas, descritas nas seguintes secções.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Lance o portal Azure em [https://portal.azure.com](https://portal.azure.com/) .
 
 2. A partir da conta Azure Cosmos DB, a partir do menu **Definições,** **selecione Advanced security**.
 
@@ -51,14 +55,14 @@ Advanced Threat Protection for Azure Cosmos DB deteta atividades anómalas que i
     * Clique na opção **de Proteção de Ameaças Avançadas** para defini-la para **ON**.
     * Clique em **Guardar** para guardar a política do Advanced Threat Protection nova ou atualizada.   
 
-### <a name="set-up-atp-using-rest-api"></a>Configurar ATP utilizando a API REST
+### <a name="rest-api"></a>[API REST](#tab/rest-api)
 
 Utilize comandos Rest API para criar, atualizar ou obter a definição avançada de proteção contra ameaças para uma conta Específica do Azure Cosmos DB.
 
 * [Proteção avançada de ameaças - Criar](https://go.microsoft.com/fwlink/?linkid=2099745)
 * [Proteção avançada de ameaças - Obter](https://go.microsoft.com/fwlink/?linkid=2099643)
 
-### <a name="set-up-atp-using-azure-powershell"></a>Configurar ATP usando O PowerShell Azure
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilize os seguintes cmdlets PowerShell:
 
@@ -66,12 +70,12 @@ Utilize os seguintes cmdlets PowerShell:
 * [Obter Proteção Avançada de Ameaças](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Deficiente Proteção avançada de ameaças](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
 
-### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
+### <a name="arm-template"></a>[Modelo ARM](#tab/arm-template)
 
-Utilize um modelo de Gestor de Recursos Azure para configurar cosmos DB com proteção de ameaça avançada ativada.
+Utilize um modelo de Gestor de Recursos Azure (ARM) para configurar cosmos DB com proteção de ameaça avançada ativada.
 Para mais informações, consulte [Criar uma Conta CosmosDB com Proteção avançada de Ameaças.](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)
 
-### <a name="using-azure-policy"></a>Usando a política azure
+### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Utilize uma Política Azure para permitir a Proteção Avançada de Ameaças para cosmos DB.
 
@@ -90,6 +94,9 @@ Utilize uma Política Azure para permitir a Proteção Avançada de Ameaças par
 
 
 1. Introduza os outros parâmetros e clique em **Atribuir**.
+
+
+
 
 ## <a name="manage-atp-security-alerts"></a>Gerir alertas de segurança ATP
 

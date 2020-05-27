@@ -4,21 +4,22 @@ description: Ligue-se em privado a uma Aplicação Web usando o Ponto Final Priv
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198824"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846958"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para aplicação web azure (pré-visualização)
 
 > [!Note]
+> Com a atualização de pré-visualização, lançámos a função de proteção de exfiltração de dados.
 > A pré-visualização está disponível nas regiões leste dos EUA e US 2 para todas as aplicações PremiumV2 Windows e Linux Web e Funções Elásticas Premium. 
 
 Pode utilizar o Private Endpoint para a sua Web App Azure para permitir que os clientes localizados na sua rede privada acedam de forma segura à aplicação sobre private link. O Private Endpoint utiliza um endereço IP do seu espaço de endereço Azure VNet. O tráfego de rede entre um cliente na sua rede privada e a Web App atravessa o VNet e um Link Privado na rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública.
@@ -27,6 +28,7 @@ Utilizar o Private Endpoint para a sua Web App permite-lhe:
 
 - Proteja a sua Aplicação Web configurando o Ponto Final Privado, eliminando a exposição pública.
 - Ligue-se de forma segura à Web App a partir de redes no local que se ligam à VNet utilizando um peering privado VPN ou ExpressRoute.
+- Evite qualquer exfiltração de dados do seu VNet. 
 
 Se precisa apenas de uma ligação segura entre o vNet e a sua Aplicação Web, um Ponto final de serviço é a solução mais simples. Se também precisa de chegar à aplicação web a partir do local através de um portal Azure, um VNet regionalmente peered, ou um VNet globalmente peered, Private Endpoint é a solução.  
 
@@ -52,7 +54,7 @@ Do ponto de vista da segurança:
 - O NIC do Private Endpoint não pode ter um NSG associado.
 - A Subnet que acolhe o Private Endpoint pode ter um NSG associado, mas deve desativar a aplicação das políticas de rede para o Ponto Final Privado: ver Políticas de [rede de desativação para pontos finais privados][disablesecuritype]. Como resultado, não é possível filtrar por nenhum NSG o acesso ao seu Ponto Final Privado.
 - Quando ativa o Private Endpoint para a sua Web App, a configuração de [restrições][accessrestrictions] de acesso da Aplicação Web não é avaliada.
-- Pode reduzir o risco de exfiltração de dados do VNet removendo todas as regras do NSG onde o destino é a marca de serviços internet ou Azure. Mas adicionar um Web App Private Endpoint na sua subnet permitirá que você chegue a qualquer Web App hospedada no mesmo carimbo de implementação e exposta à Internet.
+- Pode eliminar o risco de exfiltração de dados do VNet removendo todas as regras do NSG onde o destino é a marca de serviços internet ou Azure. Ao implementar um ponto final privado para uma Web App, só pode chegar a esta Web App específica através do Private Endpoint. Se tiver outra Web App, terá de implementar outro ponto final privado dedicado para esta outra Web App.
 
 Nos registos web HTTP da sua Web App, encontrará o IP de origem do cliente. Isto é implementado utilizando o protocolo TCP Proxy, reencaminhando a propriedade IP do cliente até à Web App. Para mais informações, consulte Obter informações sobre [ligação utilizando o TCP Proxy v2][tcpproxy].
 
@@ -77,7 +79,7 @@ Para obter detalhes sobre preços, consulte o preço do [Link Privado Azure][pri
 
 Quando utilizar a Função Azure em Plano Premium Elástico com Ponto Final Privado, para executar ou executar a função no portal Azure Web, tem de ter acesso direto à rede ou receberá um erro HTTP 403. Por outras palavras, o seu navegador deve ser capaz de chegar ao Ponto Final Privado para executar a função a partir do portal Azure Web. 
 
-Durante a pré-visualização apenas a ranhura de produção é exposta atrás do Private Endpoint, outras ranhuras são acessíveis apenas por Public Endpoint.
+Durante a pré-visualização, apenas a ranhura de produção é exposta por detrás do Ponto final privado, outras ranhuras devem ser alcançadas por Public Endpoint.
 
 Estamos a melhorar regularmente a funcionalidade Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792110"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846057"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
-A funcionalidade de réplica de leitura permite replicar dados de uma Base de Dados do Azure para servidor MySQL para um servidor só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, consulte a visão geral da replicação do [binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+A funcionalidade de réplica de leitura permite replicar dados de um servidor de Base de Dados do Azure para MySQL para um servidor só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, consulte a visão geral da replicação do [binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 As réplicas são novos servidores que geres similares à base de dados regular do Azure para servidores MySQL. Para cada réplica de leitura, você é cobrado para a computação provisionada em vCores e armazenamento em GB/mês.
 
@@ -61,7 +61,7 @@ No entanto, existem limitações a ter em conta:
 
 Se um servidor principal não tiver servidores de réplica existentes, o mestre reiniciará primeiro para se preparar para a replicação.
 
-Quando iniciar o fluxo de trabalho de réplica de réplica, é criada uma base de dados Azure em branco para o servidor MySQL. O novo servidor está cheio de dados que estavam no servidor principal. O tempo de criação depende da quantidade de dados sobre o mestre e o tempo desde o último backup semanal completo. O tempo pode variar de alguns minutos a várias horas.
+Quando iniciar o fluxo de trabalho de réplica de réplica, é criada uma base de dados Azure em branco para o servidor MySQL. O novo servidor está cheio de dados que estavam no servidor principal. O tempo de criação depende da quantidade de dados sobre o mestre e o tempo desde o último backup semanal completo. O tempo pode variar de alguns minutos a várias horas. O servidor de réplica supor-se sempre no mesmo grupo de recursos e na mesma subscrição que o servidor principal. Se quiser criar um servidor de réplica para um grupo de recursos diferente ou uma subscrição diferente, pode [mover o servidor](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) de réplica após a criação.
 
 Cada réplica está ativada para armazenamento [de automóveis.](concepts-pricing-tiers.md#storage-auto-grow) A função de crescimento automático permite que a réplica acompanhe os dados que lhe são replicados e evitar uma interrupção na replicação causada por erros fora de armazenamento.
 
@@ -85,7 +85,7 @@ No momento, introduza a palavra-passe para a conta de utilizador.
 
 A Base de Dados Azure para MySQL fornece o lag de **replicação em segundos** métrico no Monitor Azure. Esta métrica está disponível apenas para réplicas.
 
-Esta métrica é `seconds_behind_master` calculada utilizando a métrica disponível no comando da `SHOW SLAVE STATUS` MySQL.
+Esta métrica é calculada utilizando a `seconds_behind_master` métrica disponível no comando da MySQL. `SHOW SLAVE STATUS`
 
 Detete um alerta para informá-lo quando o lag de replicação atingir um valor que não é aceitável para a sua carga de trabalho.
 
@@ -148,7 +148,7 @@ O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-vari
 
 Para atualizar um dos parâmetros acima referidos no servidor principal, por favor, apague os servidores de réplicas, atualize o valor do parâmetro no mestre e recrie réplicas.
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 
 - Os identificadores globais de transações (GTID) não são suportados.
 - A criação de uma réplica de uma réplica não é suportada.

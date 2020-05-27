@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 175bfe63176b78c5aeafc7147c46dd5ab1110325
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71257965"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845972"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Principais alertas de serviço nos Serviços de Domínio de Diretório Ativo do Azure
 
@@ -40,7 +40,7 @@ Para verificar qual o diretor de serviço que falta e precisa de ser recriado, c
 1. Selecione **aplicações Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
 1. Procure cada uma das identificações de aplicação. Se não for encontrada nenhuma aplicação existente, siga as medidas de *Resolução* para criar o diretor de serviço ou reregistar o espaço de nome.
 
-    | ID da aplicação | Resolução |
+    | ID da Aplicação | Resolução |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um diretor de serviço desaparecido](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-registe o espaço de nome microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -102,7 +102,7 @@ Para recriar a aplicação Azure AD utilizada para a sincronização credencial,
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
 Depois de eliminar ambas as aplicações, a plataforma Azure recria-as automaticamente e tenta retomar a sincronização da palavra-passe. O Azure AD DS gerido a saúde do domínio atualiza-se automaticamente dentro de duas horas e remove o alerta.

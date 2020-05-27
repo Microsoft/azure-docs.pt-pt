@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 0e1bb015025c2ea9c720aca5d72faef01926cc33
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800014"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847366"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore o Monitor Azure para Azure Cache para Redis (pré-visualização)
 
@@ -34,8 +34,6 @@ Entrega:
 - **Análise de perfuração** de um cache azure particular para recurso Redis. Pode diagnosticar problemas e ver uma análise detalhada da utilização, falhas, capacidade e operações. Selecione qualquer uma destas categorias para ver uma visão aprofundada das informações relevantes.  
 
 - **Personalização** desta experiência, que é construída no topo dos modelos do livro Azure Monitor. A experiência permite alterar as métricas apresentadas e modificar ou definir limiares que se alinham com os seus limites. Pode guardar as alterações num livro personalizado e, em seguida, fixar gráficos de livro para os dashboards Azure.
-
-- **A personalização** desta experiência é construída no topo dos modelos de livro do Azure Monitor. A experiência permite-lhe alterar as métricas apresentadas e modificar ou definir limiares que se alinham com os seus limites. Pode guardar as alterações num livro personalizado e, em seguida, fixar gráficos de livro para os dashboards Azure.
 
 Esta funcionalidade não requer que ative ou configure nada. A informação azure Cache para redis é recolhida por padrão.
 

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79475897"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837217"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics no IoT Edge
  
@@ -188,7 +188,7 @@ Para criar um trabalho com dados de referência no Edge:
 
 3. Tenha um ficheiro de dados de referência pronto no dispositivo. Para um recipiente Windows, coloque o ficheiro de dados de referência na unidade local e partilhe a unidade local com o recipiente Docker. Para um recipiente Linux, crie um volume Docker e povoe o ficheiro de dados para o volume.
 
-4. Desloque o caminho do ficheiro. Para o windows host OS e windows `E:\<PathToFile>\v1.csv`container, use o caminho absoluto: . Para um recipiente de anfitriões windows OS e Linux ou um recipiente `<VolumeName>/file1.txt`Linux OS e Linux, utilize o caminho no volume: .
+4. Desloque o caminho do ficheiro. Para o windows host OS e windows container, use o caminho absoluto: `E:\<PathToFile>\v1.csv` . Para um recipiente de anfitriões windows OS e Linux ou um recipiente Linux OS e Linux, utilize o caminho no volume: `<VolumeName>/file1.txt` .
 
 ![Nova entrada de dados de referência para o trabalho do Azure Stream Analytics no IoT Edge](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
@@ -226,7 +226,7 @@ Esta informação da versão foi atualizada pela última vez em 2019-06-27:
       
       
 ## <a name="get-help"></a>Obter ajuda
-Para mais assistência, experimente o [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 

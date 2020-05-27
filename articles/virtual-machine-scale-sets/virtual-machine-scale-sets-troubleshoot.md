@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 11/16/2017
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 2ef50704d96cc51881594c778d1a4b109a1eae82
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 624f9bf512a28657808d9e2838149601c0bd2f99
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125150"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837234"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolver problemas de dimensionamento automático em Conjuntos de Dimensionamento de Máquinas Virtuais
 **Problema** – criou uma infraestrutura de autoscalcificação no Azure Resource Manager utilizando conjuntos de escala de máquinas virtuais – por exemplo, ao implementar um modelo como este: – tem as suas regras de https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale escala definidas e funciona muito bem, exceto por mais carga que coloque nos VMs, não faz escala automática.
@@ -73,7 +73,7 @@ Algumas coisas a considerar incluem:
     Se os dados não estiverem lá, implica que o problema está com a extensão de diagnóstico em execução nos VMs. Se os dados estiverem lá, implica que há um problema com as suas regras de escala, ou com o serviço Insights. Verifique o [estado do Azure](https://azure.microsoft.com/status/).
     
     Depois de passar por estes degraus, se ainda tiver problemas de escala automática, pode experimentar os seguintes recursos: 
-    * Leia os fóruns na [MSDN,](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows)ou [Stack transbordar](https://stackoverflow.com/questions/tagged/azure) 
+    * Leia os fóruns no [Microsoft Q&Uma página](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)de perguntas , ou Stack [transbordar](https://stackoverflow.com/questions/tagged/azure) 
     * Faça uma chamada de apoio. Esteja preparado para partilhar o modelo e uma visão dos seus dados de desempenho.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

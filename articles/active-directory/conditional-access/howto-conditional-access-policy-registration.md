@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d9eb3c8f34308271eb216cad25a5db4a62d03cb
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457914"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845378"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Assegurar o registo de informações de segurança
 
@@ -26,7 +26,7 @@ A segurança quando e como os utilizadores se registam para a Autenticação mul
 
 A seguinte política aplica-se a todos os utilizadores selecionados, que tentam registar-se utilizando a experiência de registo combinado, e bloqueiam o acesso a menos que estejam a ligar-se a partir de um local marcado como rede fidedigna.
 
-1. No **portal Azure,** navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo azure.
+1. No **portal Azure,** navegue até ao Acesso Condicional de Segurança **do Diretório Ativo**  >  **Security**  >  **Conditional Access**azure.
 1. Selecione **Nova política.**
 1. Em Nome, insira um nome para esta política. Por exemplo, Registo combinado de **Informações de Segurança em Redes Fidedignas**.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**, e selecione os utilizadores e grupos a que pretende que esta política se aplique.
@@ -35,14 +35,14 @@ A seguinte política aplica-se a todos os utilizadores selecionados, que tentam 
    > Os utilizadores devem estar habilitados para o [registo combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
 1. Em **aplicações ou ações cloud**, selecione as ações do **Utilizador,** verifique **registar informações de segurança**.
-1. Em **condições** > **locais**.
+1. Em **Conditions**  >  **condições locais**.
    1. Configurar **Sim.**
    1. Incluir **qualquer local**.
    1. Excluir **todos os locais fidedignos.**
    1. Selecione **Feito** na lâmina De Localização.
    1. Selecione **Feito** na lâmina Condições.
-1. Em **condições,** > **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
-1. Sob **controlos** > de acesso**Grant**.
+1. Em **condições,**  >  **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
+1. Sob **controlos**de acesso  >  **Grant**.
    1. Selecione **acesso ao bloco**.
    1. Em seguida, clique em **Selecionar**.
 1. Defina **Permitir política** como **Ativado**.
@@ -52,7 +52,7 @@ No passo 6 desta política, as organizações têm escolhas que podem fazer. A p
 
 Alguns podem optar por utilizar o estado do dispositivo em vez da localização no passo 6 acima:
 
-6. Em **condições** > **Estado do dispositivo (Pré-visualização)**.
+6. Em **condições**  >  **Estado do dispositivo (Pré-visualização)**.
    1. Configurar **Sim.**
    1. Incluir **todo o estado do dispositivo.**
    1. Excluir **dispositivo Hybrid Azure AD aderiu** e/ou **Dispositivo marcado como conforme**
@@ -61,6 +61,7 @@ Alguns podem optar por utilizar o estado do dispositivo em vez da localização 
 
 > [!WARNING]
 > Se utilizar o estado do dispositivo como condição na sua política, isso poderá afetar os utilizadores convidados no diretório. [O modo apenas de relatório](concept-conditional-access-report-only.md) pode ajudar a determinar o impacto das decisões políticas.
+> Note que o modo apenas de relatório não é aplicável para as políticas de CA com âmbito de "Ações de Utilizador".
 
 ## <a name="next-steps"></a>Passos seguintes
 

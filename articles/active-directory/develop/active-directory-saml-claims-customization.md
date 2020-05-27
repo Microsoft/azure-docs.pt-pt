@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 87a9632ec2433b8698e3ae3761ba733aa6bc63a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd99934ca74736c1f80bd47d701120398437e27a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885689"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845326"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar as reclamações emitidas no token SAML para aplicações empresariais
 
@@ -26,7 +26,7 @@ Hoje, o Azure Ative Directory (Azure AD) suporta um único sign-on (SSO) com a m
 
 Uma *alegação* é a informação que um fornecedor de identidade afirma sobre um utilizador dentro do token que emite para esse utilizador. Em [token SAML,](https://en.wikipedia.org/wiki/SAML_2.0)estes dados estão tipicamente contidos na Declaração de Atributo SAML. O ID exclusivo do utilizador está tipicamente representado no Sujeito SAML também chamado de Identificador de Nome.
 
-Por predefinição, a Azure AD emite um `NameIdentifier` token SAML na sua aplicação que contém uma reclamação com um valor do nome de utilizador (também conhecido como nome principal do utilizador) em Azure AD, que pode identificar exclusivamente o utilizador. O token SAML também contém reclamações adicionais que contêm o endereço de e-mail do utilizador, o primeiro nome e o apelido.
+Por predefinição, a Azure AD emite um token SAML na sua aplicação que contém uma reclamação com um valor do nome de `NameIdentifier` utilizador (também conhecido como nome principal do utilizador) em Azure AD, que pode identificar exclusivamente o utilizador. O token SAML também contém reclamações adicionais que contêm o endereço de e-mail do utilizador, o primeiro nome e o apelido.
 
 Para visualizar ou editar as reclamações emitidas no token SAML para a aplicação, abra a aplicação no portal Azure. Em seguida, abra a secção **de Atributos do Utilizador & Reivindicações.**
 
@@ -34,7 +34,7 @@ Para visualizar ou editar as reclamações emitidas no token SAML para a aplica�
 
 Existem duas razões possíveis para que possa ter de editar as reclamações emitidas no token SAML:
 
-* A aplicação `NameIdentifier` requer que a alegação ou nome idesem ser algo diferente do nome de utilizador (ou nome principal do utilizador) armazenado em Azure AD.
+* A aplicação requer que a `NameIdentifier` alegação ou nome idesem ser algo diferente do nome de utilizador (ou nome principal do utilizador) armazenado em Azure AD.
 * A aplicação foi escrita para exigir um conjunto diferente de URIs de reclamação ou valores de reclamação.
 
 ## <a name="editing-nameid"></a>Nome de edição
@@ -56,7 +56,7 @@ A partir do formato de identificação de **nome Escolha,** pode selecionar uma 
 
 | Formato NameID | Descrição |
 |---------------|-------------|
-| **Padrão** | A Azure AD utilizará o formato de origem predefinido. |
+| **Predefinição** | A Azure AD utilizará o formato de origem predefinido. |
 | **Persistente** | O Azure AD utilizará o Persistent como formato NameID. |
 | **Endereço de e-mail** | O Azure AD utilizará o EmailAddress como formato NameID. |
 | **Não especificado** | A Azure AD utilizará o formato NameID não especificado. |
@@ -66,11 +66,11 @@ O Nome Transitório também é suportado, mas não está disponível no dropdown
 
 ### <a name="attributes"></a>Atributos
 
-Selecione a fonte `NameIdentifier` desejada para a alegação (ou NameID). Pode selecionar entre as seguintes opções.
+Selecione a fonte desejada para a `NameIdentifier` alegação (ou NameID). Pode selecionar entre as seguintes opções.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
-| Email | Endereço de e-mail do utilizador |
+| E-mail | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal do utilizador (UPN) do utilizador |
 | onpremisessamaccount | Nome da conta SAM que foi sincronizado a partir do local Azure AD |
 | objectide | Objectid do utilizador em Azure AD |
@@ -100,8 +100,8 @@ Também pode utilizar as funções de transformação de sinistros.
 
 | Função | Descrição |
 |----------|-------------|
-| **ExtractmailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador a joe_smith@contoso.comser transmitida (por exemplo, "joe_smith" em vez de ). |
-| **Aderir** | Junta-se a um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionarjoe_smith@contoso.como e-mail ( ) como o valor do identificador joe_smith@contoso.onmicrosoft.comdo utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em . |
+| **ExtractmailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador a ser transmitida (por exemplo, "joe_smith" em vez de joe_smith@contoso.com ). |
+| **Aderir** | Junta-se a um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail ( joe_smith@contoso.com ) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em joe_smith@contoso.onmicrosoft.com . |
 | **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
 | **Toupper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 
@@ -119,7 +119,7 @@ Aplicar uma transformação a um atributo do utilizador:
 
 1. Na **reivindicação de Gestão,** selecione *Transformation* como fonte de reclamação para abrir a página de **transformação Gerir.**
 2. Selecione a função a partir do dropdown de transformação. Dependendo da função selecionada, terá de fornecer parâmetros e um valor constante para avaliar na transformação. Consulte a tabela abaixo para obter mais informações sobre as funções disponíveis.
-3. Para aplicar a transformação múltipla, clique em **Adicionar transformação**. Pode aplicar um máximo de duas transformações a uma reclamação. Por exemplo, pode primeiro extrair o `user.mail`prefixo de e-mail do . Em seguida, faça a caixa superior da corda.
+3. Para aplicar a transformação múltipla, clique em **Adicionar transformação**. Pode aplicar um máximo de duas transformações a uma reclamação. Por exemplo, pode primeiro extrair o prefixo de e-mail do `user.mail` . Em seguida, faça a caixa superior da corda.
 
    ![Editar o valor NameID (identificador de nome)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
@@ -127,11 +127,11 @@ Pode utilizar as seguintes funções para transformar reclamações.
 
 | Função | Descrição |
 |----------|-------------|
-| **ExtractmailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador a joe_smith@contoso.comser transmitida (por exemplo, "joe_smith" em vez de ). |
-| **Aderir** | Cria um novo valor juntando dois atributos. Opcionalmente, pode utilizar um separador entre os dois atributos. Para a transformação da reivindicação NameID, a adesão é restrita a um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionarjoe_smith@contoso.como e-mail ( ) como o valor do identificador joe_smith@contoso.onmicrosoft.comdo utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em . |
+| **ExtractmailPrefix()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador a ser transmitida (por exemplo, "joe_smith" em vez de joe_smith@contoso.com ). |
+| **Aderir** | Cria um novo valor juntando dois atributos. Opcionalmente, pode utilizar um separador entre os dois atributos. Para a transformação da reivindicação NameID, a adesão é restrita a um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail ( joe_smith@contoso.com ) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isto resultará em joe_smith@contoso.onmicrosoft.com . |
 | **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
 | **Toupper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
-| **Contém()** | Saídas um atributo ou constante se a entrada corresponder ao valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se pretender emitir uma reclamação onde o valor é o endereço@contoso.comde e-mail do utilizador se contiver o domínio " ", caso contrário, pretende-se obter o nome principal do utilizador. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.email<br/>*Valor*:@contoso.com"<br/>Parâmetro 2 (saída): user.email<br/>Parâmetro 3 (saída se não houver correspondência): user.userprincipalname |
+| **Contém()** | Saídas um atributo ou constante se a entrada corresponder ao valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se pretender emitir uma reclamação onde o valor é o endereço de e-mail do utilizador se contiver o domínio " @contoso.com ", caso contrário, pretende-se obter o nome principal do utilizador. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.email<br/>*Valor*: @contoso.com "<br/>Parâmetro 2 (saída): user.email<br/>Parâmetro 3 (saída se não houver correspondência): user.userprincipalname |
 | **EndWith()** | Produz um atributo ou constante se a entrada terminar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se pretender emitir uma reclamação em que o valor é o ID do empregado do utilizador se o ID do empregado terminar com "000", caso contrário, pretende-se obter um atributo de extensão. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.employeeid<br/>*Valor*: "000"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **Início Com** | Produz um atributo ou constante se a entrada começar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se quiser emitir uma reclamação em que o valor é o ID do utilizador se o país/região começar com "EUA", caso contrário, pretende obter um atributo de extensão. Para tal, configuraria os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.country<br/>*Valor*: "NÓS"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **Extrato() - Após a correspondência** | Devolve o substring depois de corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon", o valor correspondente é "Finance_", então a saída da reclamação é "BSimon". |
@@ -169,9 +169,9 @@ Para adicionar uma condição de reclamação:
 
 A ordem em que se adiciona as condições são importantes. A Azure AD avalia as condições de cima para baixo para decidir qual o valor a emitir na reclamação. 
 
-Por exemplo, Brita Simon é uma utilizadora convidada no inquilino contoso. Pertence a outra organização que também usa a AD Azure. Dada a configuração abaixo para a aplicação Fabrikam, quando Brita tentar assinar com Fabrikam, a Azure AD avaliará as condições seguintes.
+Por exemplo, Britta Simon é uma utilizadora convidada no inquilino contoso. Pertence a outra organização que também usa a AD Azure. Dada a configuração abaixo para a aplicação Fabrikam, quando Britta tentar assinar com Fabrikam, a Azure AD avaliará as condições seguintes.
 
-Primeiro, a Azure AD verifica se o `All guests`tipo de utilizador da Brita é . Uma vez que, isto é verdade, então a `user.extensionattribute1`AD Azure atribui a fonte para a reivindicação de . Em segundo lugar, a Azure AD verifica `AAD guests`se o tipo de utilizador da Brita é, `user.mail`uma vez que isso também é verdade, então a Azure AD atribui a fonte para a alegação de . Finalmente, a alegação é `user.email` emitida com valor para brita.
+Primeiro, a AD Azure verifica se o tipo de utilizador da Britta é `All guests` . Uma vez que, isto é verdade, então a AD Azure atribui a fonte para a reivindicação de `user.extensionattribute1` . Em segundo lugar, a Azure AD verifica se o tipo de utilizador da Britta `AAD guests` é, uma vez que isso também é verdade, então a AD Azure atribui a fonte para a alegação `user.mail` de . Finalmente, a alegação é emitida com valor `user.mail` para britta.
 
 ![Configuração condicional de sinistros](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

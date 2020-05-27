@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: ac5b7db6986afd260c5267bda83489b0ce8b606c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837431"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847638"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicar máquinas virtuais Azure em execução em Grupos de Colocação de Proximidade para outra região
 
@@ -187,5 +187,11 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
     ```
 8. Executar um [teste failover](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-8-run-a-test-failover).
 
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para executar reproteger e falhar para a VMware para o Azure, siga os passos [aqui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-prepare-failback)descritos .
+
+Para realizar a failover para Hyper-V para Azure siga os passos [aqui](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) descritos e para executar o failback, siga os passos [aqui](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-failback)descritos .
 
 Para mais informações, consulte [Failover na Recuperação](site-recovery-failover.md)do Site .

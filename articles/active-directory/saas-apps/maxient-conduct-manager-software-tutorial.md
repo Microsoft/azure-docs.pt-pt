@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec59aa830fe314332d17091f17ef81d4a1d65470
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833409"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com software maxient Conduct Manager
 
@@ -69,7 +69,7 @@ Configure e teste Azure AD SSO com software maxient Conduct Manager. Para que o 
 Para configurar e testar o Azure AD SSO com o Software Maxient Conduct Manager, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores autentiquem para utilização com o Software Maxient Conduct Manager
-    1. **[Atribua a todos os utilizadores a utilização da Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** - para permitir que todos na sua instituição possam autenticar.
+    1. **[Atribua a todos os utilizadores a utilização da Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - para permitir que todos na sua instituição possam autenticar.
 1. **[TestAzure AD Setup Com Maxient](#test-with-maxient)** - para verificar se a configuração funciona, e os atributos corretos estão sendo lançados
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD

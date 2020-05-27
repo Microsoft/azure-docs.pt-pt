@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/16/2018
-ms.openlocfilehash: c1bba6903fe1cb8cc5bae9a12153553594180b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 5acfef94a98f105a7cc09c5b72b65e8c228ed87d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418886"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844632"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transforme dados utilizando a atividade de streaming de Hadoop na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -71,22 +71,22 @@ Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data F
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| nome              | Nome da atividade                     | Sim      |
-| descrição       | Texto descrevendo para que a atividade é usada | Não       |
-| tipo              | Para a Atividade de Streaming de Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
-| linkedServiceName | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Sim      |
-| mapper            | Especifica o nome do mapeador executável | Sim      |
-| redutor           | Especifica o nome do redutor executável | Sim      |
-| combinador          | Especifica o nome do combinador executável | Não       |
-| ficheiroSLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar os programas Mapper, Combiner e Reducer a serem executados. Se não especificar este Serviço Linked, o Serviço Ligado ao Armazenamento Azure definido no Serviço Ligado ao HDInsight é utilizado. | Não       |
-| filePath          | Forneça uma variedade de caminhos para os programas Mapper, Combiner e Reducer armazenados no Armazenamento Azure referido saqueado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
-| entrada             | Especifica o caminho WASB para o ficheiro de entrada do Mapper. | Sim      |
-| saída            | Especifica o caminho WASB para o ficheiro de saída do Redutor. | Sim      |
-| getDebugInfo      | Especifica quando os ficheiros de registo são copiados para o Armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre ou falha. Valor predefinido: Nenhum. | Não       |
-| argumentos         | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| name              | Nome da atividade                     | Yes      |
+| descrição       | Texto descrevendo para que a atividade é usada | No       |
+| tipo              | Para a Atividade de Streaming de Hadoop, o tipo de atividade é HDInsightStreaming | Yes      |
+| linkedServiceName | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Yes      |
+| mapper            | Especifica o nome do mapeador executável | Yes      |
+| redutor           | Especifica o nome do redutor executável | Yes      |
+| combinador          | Especifica o nome do combinador executável | No       |
+| ficheiroSLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar os programas Mapper, Combiner e Reducer a serem executados. Apenas os serviços ligados ao **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são suportados aqui. Se não especificar este Serviço Linked, o Serviço Ligado ao Armazenamento Azure definido no Serviço Ligado ao HDInsight é utilizado. | No       |
+| filePath          | Forneça uma variedade de caminhos para os programas Mapper, Combiner e Reducer armazenados no Armazenamento Azure referido saqueado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Yes      |
+| entrada             | Especifica o caminho WASB para o ficheiro de entrada do Mapper. | Yes      |
+| saída            | Especifica o caminho WASB para o ficheiro de saída do Redutor. | Yes      |
+| getDebugInfo      | Especifica quando os ficheiros de registo são copiados para o Armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre ou falha. Valor predefinido: Nenhum. | No       |
+| argumentos         | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | No       |
 | define           | Especifique os parâmetros como par de chaves/valor para referência dentro do script da Colmeia. | Não       | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)

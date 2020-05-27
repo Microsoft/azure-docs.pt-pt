@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.reviewer: luleon
-ms.openlocfilehash: 4720da1c4bf49ba08a4bb207a85fc10402e1a3b0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: fd59dcdd566110d1df02333f5701c0c206442d5d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801703"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846465"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizar a configuração da aplicação SSO baseada em SAML com a Microsoft Graph API
 
@@ -334,11 +334,11 @@ Para além das alegações básicas, configure os seguintes pedidos para que a A
 
 | Nome de reclamação | Origem  |
 |---------|---------|
-| https://aws.amazon.com/SAML/Attributes/Role | designados| 
-| https://aws.amazon.com/SAML/Attributes/RoleSessionName | nome principal de utilizador |
-| https://aws.amazon.com/SAML/Attributes/SessionDuration | "900" |
+| `https://aws.amazon.com/SAML/Attributes/Role` | designados| 
+| `https://aws.amazon.com/SAML/Attributes/RoleSessionName` | nome principal de utilizador |
+| `https://aws.amazon.com/SAML/Attributes/SessionDuration` | "900" |
 | funções | designados |
-| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | nome principal de utilizador |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | nome principal de utilizador |
 
 #### <a name="request"></a>Pedir
 

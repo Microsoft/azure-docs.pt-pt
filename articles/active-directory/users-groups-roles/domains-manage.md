@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2619af2959aa7d475c3e6bab9c8db55212ed0af4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582961"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845955"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
 
@@ -49,6 +49,10 @@ Pode adicionar até 900 nomes de domínio geridos. Se estiver a configurar todos
 
 Se quiser adicionar um nome de domínio de terceiro nível, como 'europe.contoso.com' ao seu diretório, deve primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio é verificado automaticamente pela AD Azure. Para ver se o subdomínio que adicionou é verificado, refresque a lista de domínios no navegador.
 
+Nota
+
+Se já adicionou um domínio contoso.com a um inquilino da AD Azure, também pode adicionar o subdomínio europe.contoso.com a um segundo inquilino da AD Azure. Ao adicionar o subdomínio, será solicitado a adicionar um disco TXT no fornecedor de hospedagem DNS.
+
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>O que fazer se mudar o registo DNS para o seu nome de domínio personalizado
 
 Se alterar os registores dNS, não existem tarefas adicionais de configuração em Azure AD. Pode continuar a utilizar o nome de domínio com AD Azure sem interrupção. Se utilizar o seu nome de domínio personalizado com o Office 365, Intune ou outros serviços que dependem de nomes de domínio personalizados em Azure AD, consulte a documentação para esses serviços.
@@ -67,7 +71,7 @@ Tem de alterar ou eliminar qualquer recurso no seu diretório Azure AD antes de 
 
 ### <a name="forcedelete-option"></a>Opção ForceDelete
 
-Pode **eliminar** um nome de domínio no Centro de [Administração AD Azure](https://aad.portal.azure.com) ou utilizar a [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Estas opções usam uma operação assíncrona e atualizam todasuser@contoso.comas referências do nomeuser@contoso.onmicrosoft.comde domínio personalizado como " " ao nome inicial de domínio padrão como " ." 
+Pode **eliminar** um nome de domínio no Centro de [Administração AD Azure](https://aad.portal.azure.com) ou utilizar a [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Estas opções usam uma operação assíncrona e atualizam todas as referências do nome de domínio personalizado como " user@contoso.com " ao nome inicial de domínio padrão como " user@contoso.onmicrosoft.com ." 
 
 Para ligar para **forceDelete** no portal Azure, deve certificar-se de que existem menos de 1000 referências ao nome de domínio, e quaisquer referências em que o Exchange é o serviço de provisionamento devem ser atualizadas ou removidas no [Centro de Administração de Intercâmbio.](https://outlook.office365.com/ecp/) Isto inclui grupos de segurança ativados por correio de troca e listas distribuídas; para obter mais informações, consulte [A remoção de grupos de segurança ativados por correio](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não terá sucesso se qualquer uma das seguintes palavras for verdadeira:
 
@@ -90,10 +94,10 @@ Um erro é devolvido quando:
 **P: Porque é que a eliminação do domínio está a falhar com um erro que diz que tenho grupos dominados pela Exchange neste nome de domínio?** <br>
 **A:** Hoje em dia, certos grupos como os grupos de segurança ativados por correio e as listas distribuídas são provisionados pela Exchange e precisam de ser limpos manualmente no [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Pode haver proxyAddresses persistentes que dependem do nome de domínio personalizado e terão de ser atualizados manualmente para outro nome de domínio. 
 
-**P: Estou registado como administrador\@contoso.com mas não posso apagar o nome de domínio "contoso.com"?**<br>
-**A:** Não é possível fazer referência ao nome de domínio personalizado que está a tentar apagar no nome da sua conta de utilizador. Certifique-se de que a conta De Administrador Global está admin@contoso.onmicrosoft.coma utilizar o nome de domínio padrão inicial (.onmicrosoft.com) como . Inscreva-se numa conta de Administrador admin@contoso.onmicrosoft.com Global diferente que, como ou outro admin@fabrikam.comnome de domínio personalizado como "fabrikam.com" onde está a conta.
+**P: Estou registado como administrador contoso.com mas não posso apagar o nome de \@ domínio "contoso.com"?**<br>
+**A:** Não é possível fazer referência ao nome de domínio personalizado que está a tentar apagar no nome da sua conta de utilizador. Certifique-se de que a conta De Administrador Global está a utilizar o nome de domínio padrão inicial (.onmicrosoft.com) como admin@contoso.onmicrosoft.com . Inscreva-se numa conta de Administrador Global diferente que, como ou outro nome de admin@contoso.onmicrosoft.com domínio personalizado como "fabrikam.com" onde está a admin@fabrikam.com conta.
 
-**P: Cliquei no botão `In Progress` de domínio Eliminar e ver o estado da operação Delete. Quanto tempo demora? O que acontece se falhar?**<br>
+**P: Cliquei no botão de domínio Eliminar e ver `In Progress` o estado da operação Delete. Quanto tempo demora? O que acontece se falhar?**<br>
 **A:** A operação de domínio de exclusão é uma tarefa de fundo assíncrona que renomea todas as referências ao nome de domínio. Deve estar concluído dentro de um minuto ou dois. Se a eliminação do domínio falhar, certifique-se de que não tem:
 
 * Aplicativos configurados no nome de domínio com a appIdentifierURI

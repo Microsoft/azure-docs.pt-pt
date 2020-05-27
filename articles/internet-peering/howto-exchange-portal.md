@@ -6,14 +6,14 @@ services: internet-peering
 author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 5/21/2020
+ms.date: 5/2/2020
 ms.author: derekol
-ms.openlocfilehash: 62aec65498f75e51ecb1df15b525294aef026745
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 259ced3032eb43a946de7f1cf4dad9abb99d4a11
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800517"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845279"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Criar ou modificar um persparo de troca utilizando o portal Azure
 
@@ -33,14 +33,14 @@ Se preferir, pode completar este guia utilizando o [PowerShell](howto-exchange-p
 ### <a name="create-an-exchange-peering"></a><a name=create></a>Criar um persparo de troca
 
 
-Como Fornecedor de Intercâmbio de Internet, pode criar um pedido de peering direto [criando um Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+Como Fornecedor de Intercâmbio de Internet, pode criar um pedido de persparo de troca [criando um Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
 1. Na página **Criar uma página de Peering,** no separador **Basics,** preencha as caixas como mostrado aqui:
 
->    [!div class="mx-imgBorder"]
->   ![Registar Peering Service](./media/setup-basics-tab.png)
+    > [!div class="mx-imgBorder"] 
+    > ![Registar Peering Service](./media/setup-basics-tab.png)
 
-* Selecione a sua Assinatura Azure.
+*    Selecione a sua Assinatura Azure.
 
 * Para o grupo Recursos, pode escolher um grupo de recursos existente da lista de drop-down ou criar um novo grupo selecionando criar novos. Vamos criar um novo grupo de recursos para este exemplo.
 
@@ -49,12 +49,12 @@ Como Fornecedor de Intercâmbio de Internet, pode criar um pedido de peering dir
 * A região é selecionada automaticamente se escolher um grupo de recursos existente. Se escolheu criar um novo grupo de recursos, também precisa escolher a região do Azure onde pretende que o recurso resida.
 
 >[!NOTE]
-    A região onde reside um grupo de recursos é independente do local onde pretende criar o peering com a Microsoft. Mas é uma boa prática organizar os seus recursos de observação dentro de grupos de recursos que residem nas regiões mais próximas de Azure. Por exemplo, para os olhinhos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou LESTE US2.
+>A região onde reside um grupo de recursos é independente do local onde pretende criar o peering com a Microsoft. Mas é uma boa prática organizar os seus recursos de observação dentro de grupos de recursos que residem nas regiões mais próximas de Azure. Por exemplo, para os olhinhos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou LESTE US2.
 
 * Selecione o seu ASN na caixa **PeerASN.**
 
 >[!IMPORTANT] 
-Só pode escolher um ASN com Validação state como Aprovado antes de submeter um pedido de peering. Se acabou de apresentar o seu pedido de PeerAsn, aguarde cerca de 12 horas para que a associação ASN seja aprovada. Se o ASN que selecionar estiver pendente de validação, verá uma mensagem de erro. Se não vir o ASN que precisa de escolher, verifique se selecionou a subscrição correta. Em caso afirmativo, verifique se já criou o PeerAsn utilizando a **[assinatura Associate Peer ASN para a assinatura Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+>Só pode escolher um ASN com Validação state como Aprovado antes de submeter um pedido de peering. Se acabou de apresentar o seu pedido de PeerAsn, aguarde cerca de 12 horas para que a associação ASN seja aprovada. Se o ASN que selecionar estiver pendente de validação, verá uma mensagem de erro. Se não vir o ASN que precisa de escolher, verifique se selecionou a subscrição correta. Em caso afirmativo, verifique se já criou o PeerAsn utilizando a **[assinatura Associate Peer ASN para a assinatura Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 * Selecione **Seguinte: Configuração** para continuar.
 

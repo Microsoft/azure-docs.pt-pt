@@ -3,12 +3,12 @@ title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualizem ou abatam recursos críticos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bd595e3c676c8521470a1f5a00fe782e83dc840
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683749"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847672"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -240,7 +240,7 @@ No pedido, inclua um objeto JSON que especifica as propriedades para o bloqueio.
     } 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para aprender sobre a organização lógica dos seus recursos, consulte [Usar tags para organizar os seus recursos](tag-resources.md)
+* Para aprender sobre a organização lógica dos seus recursos, consulte [Usar etiquetas para organizar os seus recursos.](tag-resources.md)
 * Pode aplicar restrições e convenções em toda a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../../governance/policy/overview.md) (O que é o Azure Policy?).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
 
