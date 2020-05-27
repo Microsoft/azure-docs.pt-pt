@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76d078d564125db7b6b8ae10909340a52b220407
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713221"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836962"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Começar com a Configuração do Estado da Automação Azure
 
@@ -231,10 +231,10 @@ Se já não quiser que um nó seja gerido pela Configuração do Estado, pode de
 
     ![Screenshot da página de detalhes do Nó destacando o botão Unregister](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da configuração do Estado da Automação Azure](automation-dsc-overview.md)
-- [Máquinas de embarque para gestão pela Configuração do Estado da Automação Azure](automation-dsc-onboarding.md)
-- [Visão geral de configuração de estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Preços de configuração do Estado da Automação Azure](https://azure.microsoft.com/pricing/details/automation/)
-- [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+- Para uma visão geral, consulte a visão geral da Configuração do Estado da [Automatização do Azure](automation-dsc-overview.md).
+- Para ativar a funcionalidade de VMs no seu ambiente, consulte a Configuração do Estado da [Automatização Enable Azure](automation-dsc-onboarding.md).
+- Para compreender o PowerShell DSC, consulte a [visão geral da Configuração do Estado do Windows PowerShell.](/powershell/scripting/dsc/overview/overview)
+- Para obter informações sobre preços, consulte os preços de configuração do Estado da [Automatização do Azure](https://azure.microsoft.com/pricing/details/automation/).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

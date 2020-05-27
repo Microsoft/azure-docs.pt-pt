@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4462bf0fc2057922340eb01cb8c786dbc63ce290
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1121a4a006e4208c76193a38262d4309e67584
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745351"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834446"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Boas práticas para piscina Synapse SQL em Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -54,7 +54,7 @@ Consulte também [monitorize a sua carga de trabalho utilizando DMVs,](sql-data-
 
 ## <a name="group-insert-statements-into-batches"></a>Agrupar instruções INSERT em lotes
 
-Uma carga única para uma tabela pequena com uma declaração INSERT ou mesmo uma recarga periódica de `INSERT INTO MyLookup VALUES (1, 'Type 1')`um look-up pode funcionar bem para as suas necessidades com uma declaração como .  
+Uma carga única para uma tabela pequena com uma declaração INSERT ou mesmo uma recarga periódica de um look-up pode funcionar bem para as suas necessidades com uma declaração como `INSERT INTO MyLookup VALUES (1, 'Type 1')` .  
 
 No entanto, se precisar de carregar milhares ou milhões de linhas ao longo do dia, poderá achar que o singleton INSERTS não é suficiente para acompanhar o ritmo.  Ao invés, desenvolva os seus processos de modo a que escrevam num ficheiro e outro processo carregue periodicamente este ficheiro.
 
@@ -180,7 +180,7 @@ Consulte também [aulas de recursos para gestão](resource-classes-for-workload-
 
 Consulte também o nosso artigo [Resolução de problemas](sql-data-warehouse-troubleshoot.md), para ver problemas e soluções comuns.
 
-Se não encontrou o que procura neste artigo, tente usar a "Search for docs" no lado esquerdo desta página para pesquisar todos os documentos azure synapse.  O [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) é um local para você publicar perguntas a outros utilizadores e ao Grupo de Produtos Azure Synapse. Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
+Se não encontrou o que procura neste artigo, tente usar a "Search for docs" no lado esquerdo desta página para pesquisar todos os documentos azure synapse.  O Microsoft Q&Uma página de [perguntas para o Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para você publicar perguntas a outros utilizadores e ao Grupo de Produtos Synapse Azure. Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
 
 Se prefere fazer as suas perguntas sobre o Stack Overflow, também temos um Fórum de Transbordo de [Pilha synapse Azure.](https://stackoverflow.com/questions/tagged/azure-sqldw)
 

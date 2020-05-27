@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c47eebc965319575020eace87825af9d9ad5a18
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74421215"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835024"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bases de dados existentes para escalar
 
@@ -167,7 +167,7 @@ Para obter informações sobre os padrões da arquitetura de dados comuns de apl
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e Pedidos de Recursos
 
-Para perguntas, utilize o fórum de base de [dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de funcionalidades, adicione-os ao fórum de feedback da Base de [Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para perguntas, utilize a página de perguntas do Microsoft Q&A para a Base de [Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) e para pedidos de funcionalidades, adicione-as ao fórum de feedback da Base de [Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

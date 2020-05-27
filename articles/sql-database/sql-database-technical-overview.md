@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cace4bdc1b8558fb7186f6300189c22753cc8bf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133245"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834854"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
@@ -119,7 +119,7 @@ As Zonas de Disponibilidade Azure tentam proteger-se contra a paralisação de u
 
 De facto, o acordo de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) do Azure, alimentado por uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação a funcionar 24 horas por dia, 7 dias por semana. A plataforma Azure gere totalmente todas as bases de dados, e não garante nenhuma perda de dados e uma elevada percentagem de disponibilidade de dados. O Azure lida automaticamente com patching, backups, replicação, deteção de falhas, falhas de hardware, software ou rede subjacentes, implementação de correções de bugs, falhas, atualizações de bases de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é conseguida integrando a computação e armazenamento num único nó para o desempenho, e, em seguida, implementando tecnologia semelhante aos Grupos Sempre Na Disponibilidade. Para uma discussão completa sobre as elevadas capacidades de disponibilidade da Base de Dados Azure SQL, consulte a disponibilidade da Base de [Dados SQL](sql-database-high-availability.md). 
 
-Além disso, a Base de Dados SQL fornece funcionalidades de continuidade de negócio sinuosa [e de escalabilidade global.](sql-database-business-continuity.md) Estas incluem:
+Além disso, a Base de Dados SQL fornece funcionalidades de continuidade de negócio sinuosa [e de escalabilidade global.](sql-database-business-continuity.md) Incluem-se:
 
 - [Backups automáticos:](sql-database-automated-backups.md)
 
@@ -254,7 +254,7 @@ Os clientes da Base de Dados SQL têm os seguintes direitos associados ao Benef�
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Pergunte à administração da base de dados.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Faça perguntas sobre o desenvolvimento.
-- [Fóruns MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Faça perguntas técnicas.
+- [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 - [Feedback](https://aka.ms/sqlfeedback): Reportar bugs e solicitar recurso.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o servidor SQL.
 

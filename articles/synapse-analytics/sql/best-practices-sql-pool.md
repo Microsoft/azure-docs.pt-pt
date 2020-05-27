@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f6af79a37369fe5775c402af011f4ba59807595d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780438"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834990"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Boas práticas para piscinas SQL em Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Os carregamentos do PolyBase podem ser executados com CTAS ou INSERT INTO. O CTA
 
 Para maximizar a entrada ao utilizar ficheiros de texto Gzip, separe ficheiros em 60 ou mais ficheiros para maximizar o paralelismo da sua carga. Para um débito total mais rápido, considere carregar dados em simultâneo. Informações adicionais para os tópicos relevantes para esta secção estão incluídas nos seguintes artigos:
 
-- [Carregar dados](data-loading-overview.md)
+- [Dados de carga](data-loading-overview.md)
 - [Guia para utilizar o PolyBase](data-loading-best-practices.md)
 - [Padrões e estratégias de carregamento de piscina SQL Azure](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Dados de carga com fábrica de dados azure](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -89,7 +89,7 @@ As ligações de artigo fornecidas abaixo lhe darão detalhes adicionais sobre a
 - [Visão geral da tabela](develop-tables-overview.md)
 - [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Selecionar distribuição da tabela](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)
-- [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="do-not-over-partition"></a>Não crie partições em demasia
@@ -193,7 +193,7 @@ As piscinas SQL têm vários DMVs que podem ser usados para monitorizar a execu�
 
 Consulte também o artigo de Resolução de [Problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para questões e soluções comuns.
 
-Se precisar de informações não fornecidas neste artigo, utilize o **Filtro por título** no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O Fórum de [Piscina SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de Piscina SQL.  
+Se precisar de informações não fornecidas neste artigo, procure na página de perguntas do Microsoft Q&Uma página de [perguntas para o Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de pool SQL.  
 
 Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  Se você prefere fazer suas perguntas sobre Stack Overflow, também temos uma [piscina Azure SQL Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

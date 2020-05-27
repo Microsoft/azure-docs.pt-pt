@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 0d41e1cb1d022ffd9eff2320d462304c6f1a8a9d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890947"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836639"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilinos com ferramentas de base de dados elásticas e segurança ao nível da linha
 
@@ -53,18 +53,18 @@ Compile e execute a aplicação. Esta execução aprisiona o gestor de mapas de 
 
 Note-se que, uma vez que o RLS ainda não foi ativado nas bases de dados, cada um destes testes revela um problema: os inquilinos podem ver blogs que não lhes pertencem, e a aplicação não está impedida de inserir um blog para o inquilino errado. O restante deste artigo descreve como resolver estes problemas, aplicando o isolamento dos inquilinos com o RLS. Há dois passos:
 
-1. **Nível de aplicação:** Modifique o código de\_aplicação para definir sempre o Atual TenantId no CONTEXTO DA SESSÃO após a abertura de uma ligação. O projeto de amostra já define o TenantId desta forma.
-2. **Nível de dados**: Criar uma política de segurança RLS em cada base\_de dados de fragmentos para filtrar linhas com base no TenantId armazenado no CONTEXTO DA SESSÃO. Crie uma política para cada uma das suas bases de dados, caso contrário não são filtradas filas em fragmentos de multi-inquilinos.
+1. **Nível de aplicação:** Modifique o código de aplicação para definir sempre o Atual TenantId no CONTEXTO DA SESSÃO \_ após a abertura de uma ligação. O projeto de amostra já define o TenantId desta forma.
+2. **Nível de dados**: Criar uma política de segurança RLS em cada base de dados de fragmentos para filtrar linhas com base no TenantId armazenado no CONTEXTO DA SESSÃO. \_ Crie uma política para cada uma das suas bases de dados, caso contrário não são filtradas filas em fragmentos de multi-inquilinos.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Nível de candidatura:\_Definir TenantId no CONTEXTO DA SESSÃO
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Nível de candidatura: Definir TenantId no CONTEXTO DA SESSÃO \_
 
-Primeiro, liga-se a uma base de dados de fragmentos utilizando as APIs de encaminhamento dependente de dados da biblioteca de clientes de base de dados elásticas. A aplicação deve ainda dizer à base de dados qual o TenantId que está a utilizar a ligação. O TenantId diz à política de segurança do RLS quais as filas que devem ser filtradas como pertencentes a outros inquilinos. Guarde o atual TenantId no CONTEXTO DE [SESSÃO\_](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da ligação.
+Primeiro, liga-se a uma base de dados de fragmentos utilizando as APIs de encaminhamento dependente de dados da biblioteca de clientes de base de dados elásticas. A aplicação deve ainda dizer à base de dados qual o TenantId que está a utilizar a ligação. O TenantId diz à política de segurança do RLS quais as filas que devem ser filtradas como pertencentes a outros inquilinos. Guarde o atual TenantId no CONTEXTO DE [SESSÃO \_ ](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da ligação.
 
-Uma alternativa\_ao CONTEXTO DA SESSÃO é utilizar [informações contextuais.\_](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql) Mas\_o CONTEXTO DA SESSÃO é uma opção melhor. O\_CONTEXTO DA SESSÃO é mais fácil de usar, devolve o NULO por defeito e suporta pares de valor-chave.
+Uma alternativa ao CONTEXTO DA SESSÃO \_ é utilizar [ \_ informações contextuais.](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql) Mas o CONTEXTO DA SESSÃO \_ é uma opção melhor. O CONTEXTO DA SESSÃO \_ é mais fácil de usar, devolve o NULO por defeito e suporta pares de valor-chave.
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Para aplicações que utilizem o Quadro de\_Entidades, a abordagem mais fácil é definir o CONTEXTO DE SESSÃO dentro do overover ElasticScaleContext descrito no [encaminhamento dependente de dados utilizando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Crie e execute um SqlCommand que\_define o TenantId no CONTEXTO DE SESSÃO para o shardingKey especificado para a ligação. Em seguida, devolva a ligação intermediada através de encaminhamento dependente de dados. Desta forma, só precisa de escrever código\_uma vez para definir o CONTEXTO DA SESSÃO.
+Para aplicações que utilizem o Quadro de Entidades, a abordagem mais fácil é definir o CONTEXTO DE SESSÃO \_ dentro do overover ElasticScaleContext descrito no [encaminhamento dependente de dados utilizando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Crie e execute um SqlCommand que define o TenantId no CONTEXTO DE SESSÃO \_ para o shardingKey especificado para a ligação. Em seguida, devolva a ligação intermediada através de encaminhamento dependente de dados. Desta forma, só precisa de escrever código uma vez para definir o CONTEXTO DA \_ SESSÃO.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -122,7 +122,7 @@ public static SqlConnection OpenDDRConnection(
 // ...
 ```
 
-Agora o\_CONTEXTO DA SESSÃO é automaticamente definido com o Inquilina especificado sempre que o ElasticScaleContext é invocado:
+Agora o CONTEXTO DA SESSÃO \_ é automaticamente definido com o Inquilina especificado sempre que o ElasticScaleContext é invocado:
 
 ```csharp
 // Program.cs
@@ -146,7 +146,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
 
-Para aplicações que utilizem ADO.NET SqlClient, crie uma função de invólucro em torno do método ShardMap.OpenConnectionForKey. Tenha o invólucro automaticamente definido TenantId\_no CONTEXTO DE SESSÃO para o atual TenantId antes de devolver uma ligação. Para garantir\_que o CONTEXTO DA SESSÃO está sempre definido, só deve abrir ligações utilizando esta função de invólucro.
+Para aplicações que utilizem ADO.NET SqlClient, crie uma função de invólucro em torno do método ShardMap.OpenConnectionForKey. Tenha o invólucro automaticamente definido TenantId no CONTEXTO DE SESSÃO para o atual TenantId antes de \_ devolver uma ligação. Para garantir que o CONTEXTO DA SESSÃO \_ está sempre definido, só deve abrir ligações utilizando esta função de invólucro.
 
 ```csharp
 // Program.cs
@@ -216,16 +216,16 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Crie uma política de segurança para filtrar as filas a que cada inquilino pode aceder
 
-Agora que a aplicação está a definir o CONTEXTO DE SESSÃO\_com o atual TenantId antes de consultar, uma política de segurança RLS pode filtrar consultas e excluir linhas que tenham um TenantId diferente.
+Agora que a aplicação está a definir o CONTEXTO DE SESSÃO com o atual TenantId antes de consultar, uma política de \_ segurança RLS pode filtrar consultas e excluir linhas que tenham um TenantId diferente.
 
 O RLS é implementado na Transact-SQL. Uma função definida pelo utilizador define a lógica de acesso, e uma política de segurança liga esta função a qualquer número de tabelas. Para este projeto:
 
-1. A função verifica que a aplicação está ligada à base de\_dados, e que o TenantId armazenado no CONTEXTO DE SESSÃO corresponde ao TenantId de uma determinada linha.
+1. A função verifica que a aplicação está ligada à base de dados, e que o TenantId armazenado no CONTEXTO DE SESSÃO \_ corresponde ao TenantId de uma determinada linha.
     - A aplicação está ligada, em vez de qualquer outro utilizador SQL.
 
 2. Um predicado FILTER permite que as linhas que vão ao encontro do filtro TenantId passem para perguntas SELECT, UPDATE e DELETE.
     - Um predicado de BLOCO evita que as linhas que falham o filtro sejam INSERTEd ou UPDATEd.
-    - Se\_o CONTEXTO DA SESSÃO não tiver sido definido, a função devolve NULO, e não são visíveis ou capazes de ser inseridas.
+    - Se o CONTEXTO DA SESSÃO \_ não tiver sido definido, a função devolve NULO, e não são visíveis ou capazes de ser inseridas.
 
 Para ativar o RLS em todos os fragmentos, execute o seguinte T-SQL utilizando o Visual Studio (SSDT), o SSMS ou o script PowerShell incluído no projeto. Ou se estiver a usar trabalhos de base de [dados elásticos,](elastic-jobs-overview.md)pode automatizar a execução deste T-SQL em todos os fragmentos.
 
@@ -268,7 +268,7 @@ GO
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Adicione restrições predefinidas para povoar automaticamente o TenantId para INSERTs
 
-Pode colocar uma restrição predefinida em cada tabela para povoar automaticamente\_o TenantId com o valor atualmente armazenado no CONTEXTO DE SESSÃO ao inserir linhas. Segue-se um exemplo.
+Pode colocar uma restrição predefinida em cada tabela para povoar automaticamente o TenantId com o valor atualmente armazenado no CONTEXTO DE \_ SESSÃO ao inserir linhas. Segue-se um exemplo.
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
@@ -301,14 +301,14 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Se utilizar restrições predefinidas para um projeto 'Quadro de Entidades', recomenda-se que *não* inclua a coluna TenantId no seu modelo de dados EF. Esta recomendação é porque as consultas do Quadro de Entidades fornecem automaticamente valores predefinidos que sobrepõem as restrições predefinidas criadas no T-SQL que utilizam o CONTEXTO DE SESSÃO.\_
+> Se utilizar restrições predefinidas para um projeto 'Quadro de Entidades', recomenda-se que *não* inclua a coluna TenantId no seu modelo de dados EF. Esta recomendação é porque as consultas do Quadro de Entidades fornecem automaticamente valores predefinidos que sobrepõem as restrições predefinidas criadas no T-SQL que utilizam \_ o CONTEXTO DE SESSÃO.
 > Para utilizar constrangimentos predefinidos no projeto da amostra, por exemplo, deve remover o TenantId da DataClasses.cs (e executar add-migration na consola do gestor de pacotes) e utilizar o T-SQL para garantir que o campo só existe nas tabelas de bases de dados. Desta forma, a EF fornece automaticamente valores predefinidos incorretos ao inserir dados.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcional) Permitir que um *superutilizador* aceda a todas as linhas
 
 Algumas aplicações podem querer criar um *superutilizador* que possa aceder a todas as linhas. Um superutilizador poderia permitir reportar em todos os inquilinos em todos os fragmentos. Ou um superutilizador poderia realizar operações de fusão em fragmentos que envolvem mover filas de inquilinos entre bases de dados.
 
-Para ativar um superutilizador, crie`superuser` um novo utilizador SQL (neste exemplo) em cada base de dados de fragmentos. Em seguida, altere a política de segurança com uma nova função predicada que permite a este utilizador aceder a todas as linhas. Tal função é dada a seguir.
+Para ativar um superutilizador, crie um novo utilizador SQL `superuser` (neste exemplo) em cada base de dados de fragmentos. Em seguida, altere a política de segurança com uma nova função predicada que permite a este utilizador aceder a todas as linhas. Tal função é dada a seguir.
 
 ```sql
 -- New predicate function that adds superuser logic.
@@ -357,7 +357,7 @@ As ferramentas de base de dados elásticas e a segurança ao nível da linha pod
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e Pedidos de Recursos
 
-Para perguntas, contacte-nos no [fórum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). E adicione quaisquer pedidos de funcionalidades ao fórum de feedback da Base de [Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para perguntas, contacte-nos na [página de perguntas do Microsoft Q&A para base de dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html). E adicione quaisquer pedidos de funcionalidades ao fórum de feedback da Base de [Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png

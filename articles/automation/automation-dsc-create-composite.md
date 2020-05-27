@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99fd7b2d0581b3eda97ec6fadeb43b55a3ad2bf0
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711334"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836979"
 ---
-# <a name="convert-configurations-to-composite-resources-for-azure-automation-state-configuration"></a>Converter configurações em recursos compósitos para configuração do Estado da Automação Azure
+# <a name="convert-configurations-to-composite-resources"></a>Converter configurações em recursos compostos
 
 > Aplica-se a: Windows PowerShell 5.1
 
@@ -55,8 +55,8 @@ A mais recente atualização do projeto também publicou livros de [execução](
 
 Para experimentar a automatização da criação de recursos compósitos para a DSC, visite a [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) e descarregue a solução ou clique em "Site do Projeto" para ver a [documentação](https://github.com/microsoft/compositeresource).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral de configuração de estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Recursos dSC](/powershell/scripting/dsc/resources/resources)
-- [Configurar o Gestor de Configuração Local](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Para compreender o PowerShell DSC, consulte a [visão geral da Configuração do Estado do Windows PowerShell.](/powershell/scripting/dsc/overview/overview)
+- Saiba mais sobre os recursos da PowerShell DSC nos [Recursos DSC](/powershell/scripting/dsc/resources/resources).
+- Para mais detalhes sobre a configuração do Gestor de Configuração Local, consulte [configurar o Gestor](/powershell/scripting/dsc/managing-nodes/metaconfig)de Configuração Local .

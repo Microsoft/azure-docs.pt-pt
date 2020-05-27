@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478949"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834735"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Erros de resolução de problemas ao falhar em VMware VM ou máquina física para o Azure
 
@@ -76,10 +76,10 @@ Para alterar manualmente o tipo de controladores de arranque para **o Windows Gu
 
 Se o botão **Connect** no VM falhado em Azure estiver acinzentado e não estiver ligado ao Azure através de uma rota expressa ou ligação VPN local-para-local, então,
 
-1. Vá à > **rede de** **máquinas virtuais,** clique no nome da interface de rede necessária.  ![interface de rede](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Vá à rede de **máquinas virtuais,**  >  **Networking**clique no nome da interface de rede necessária.  ![interface de rede](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue para **configurações ip**e clique no campo de nome da configuração IP necessária. ![Configurações IP](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Para ativar o endereço IP público, clique em **Ativar**. ![Ativar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Clique em **Configurar as definições necessárias** > **Criar novas**. ![Criar novos](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Clique em **Configurar as definições necessárias**  >  **Criar novas**. ![Criar novos](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Introduza o nome do endereço público, escolha as opções predefinidas para **SKU** e **atribuição,** em seguida, **clique**OK .
 6. Agora, para guardar as alterações feitas, clique em **Guardar**.
 7. Feche os painéis e navegue até à secção **de visão geral** da máquina virtual para ligar/RDP.
@@ -173,4 +173,4 @@ Para resolver a questão:
 - Ligação RDP de resolução de problemas [ao Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Ligação SSH de resolução de problemas [ao Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Se precisar de mais ajuda, poste a sua consulta no Fórum de [Recuperação](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) do Site ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.
+Se precisar de mais ajuda, publique a sua consulta no Microsoft Q&Uma página de [perguntas para a Recuperação](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) do Site ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.

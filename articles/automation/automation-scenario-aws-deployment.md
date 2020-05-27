@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d66a96baa182672ecbfc9d617f82728812f0f27
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4dcc095648111348a6935225a6aa10798109f76e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743863"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832237"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Implemente um VM de Serviços Web da Amazon com um livro de execução
 
@@ -99,6 +99,9 @@ Certifique-se de que o módulo AWS PowerShell foi importado para a Automação A
 
 ## <a name="next-steps"></a>Passos seguintes
  
-* [Tipos de livro de execução da Automação Azure](automation-runbook-types.md)
-* [Gerir runbooks em Automação Azure](manage-runbooks.md)
-* [Suporte de script nativo PowerShell na Automação Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* Para saber quais os livros de execução suportados, consulte os tipos de livro de[execução da Automação Azure](automation-runbook-types.md).
+* Para trabalhar com livros de execução, consulte [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
+* Para mais detalhes sobre powerShell, consulte [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Para suporte a script, consulte suporte de [script Native PowerShell em Automação Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

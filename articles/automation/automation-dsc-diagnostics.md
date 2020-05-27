@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc68b53137175042f586ee83bc045f0fbbca38f7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f7e24e1b4546c76348e61e3c2736fcfe4b66410d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713289"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836945"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrar com registos do Monitor Azure
 
@@ -191,15 +191,14 @@ Os diagnósticos da Azure Automation criam duas categorias de registos nos regis
 | ResourceType | AUTOMATIZAÇÃOCONTAS. |
 | CorrelationId |GUID que é a identificação correlação do relatório de conformidade. |
 
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Próximos passos
-
-- Para uma visão geral, consulte a Configuração do Estado da [Automação Azure](automation-dsc-overview.md).
-- Para começar, veja O Início com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).
-- Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de compilação na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
+- Para uma visão geral, consulte a visão geral da Configuração do Estado da [Automatização do Azure](automation-dsc-overview.md).
+- Para começar, veja [Get started com Azure Automation State Configuration](automation-dsc-getting-started.md).
+- Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de DSC compile na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
 - Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Para obter informações sobre preços, consulte os preços de configuração do Estado da [Automatização do Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Para ver um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte a implantação contínua utilizando a Configuração do Estado de [Automação Azure e o Chocolatey](automation-dsc-cd-chocolatey.md).
+- Para ver um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [A implantação contínua com chocolatey](automation-dsc-cd-chocolatey.md).
 - Para saber mais sobre como construir diferentes consultas de pesquisa e rever os registos de Configuração do Estado da Automação com registos do Monitor Azure, consulte as pesquisas de [registo em registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md).
 - Para saber mais sobre os registos do Monitor Do Azure e as fontes de recolha de dados, consulte a Recolha de dados de [armazenamento do Azure em toda a visão geral dos registos do Monitor Do Azure.](../azure-monitor/platform/collect-azure-metrics-logs.md)

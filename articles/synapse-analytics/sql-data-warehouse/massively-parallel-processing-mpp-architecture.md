@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d57f02b9aff56c83aa1c12bd441df2863f6d6fa7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6768bc2420008db1e708cdbe3ef70a6146ed8010
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658494"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835517"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW)
 
@@ -50,7 +50,7 @@ Com armazenamento e computação dissociados, ao utilizar a piscina SQL Synapse 
 - Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 - Retomar a capacidade de computação durante as horas de funcionamento.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
 Synapse SQL aproveita o Armazenamento Azure para manter os dados dos seus utilizadores seguros.  Uma vez que os seus dados são armazenados e geridos pelo Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **distribuídos** para otimizar o desempenho do sistema. Pode escolher qual o padrão mais grave a utilizar para distribuir os dados quando definir a tabela. Estes padrões de sharding são suportados:
 
@@ -119,6 +119,6 @@ Agora que sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um p
 - [Pedidos de funcionalidades](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Fórum de Transbordo de Pilhas](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

@@ -1,14 +1,14 @@
 ---
 title: Funções de Plantas Azure
 description: Descreve as funções disponíveis para utilização com artefactos de plantas em definições e atribuições de Plantas Azure.
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280680"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834786"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com plantas azure
 
@@ -106,7 +106,7 @@ Um artefacto de modelo de Gestor de Recursos com o _ID myTemplateArtifact_ conte
 
 Alguns exemplos de recuperação de dados da amostra _myTemplateArtifact_ são:
 
-| Expressão | Tipo | Valor |
+| Expression | Tipo | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["primeiro", "segundo"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "Primeiro" |
@@ -184,7 +184,7 @@ Definir _os principais parâmetros_ na definição de projeto:
 }
 ```
 
-Em seguida, utilize os `parameters()` _principados como_ argumento num artefacto de planta:
+Em seguida, utilize os _principados como_ argumento num artefacto de `parameters()` planta:
 
 ```json
 {
@@ -218,7 +218,7 @@ O objeto devolvido encontra-se no seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-A função Azure Blueprint difere da função de modelo do Gestor de Recursos Azure. A `resourceGroup()` função não pode ser usada num artefacto de nível de subscrição ou na definição de planta. Só pode ser usado em artefactos de plantas que fazem parte de um artefacto de grupo de recursos.
+A função Azure Blueprint difere da função de modelo do Gestor de Recursos Azure. A função não pode ser usada num artefacto de nível de `resourceGroup()` subscrição ou na definição de planta. Só pode ser usado em artefactos de plantas que fazem parte de um artefacto de grupo de recursos.
 
 Um uso comum da `resourceGroup()` função é criar recursos no mesmo local que o artefacto do grupo de recursos.
 
@@ -240,7 +240,7 @@ Para utilizar a localização do grupo de recursos, definida na definição de p
 }
 ```
 
-Em seguida, utilize a `resourceGroup()` função no contexto de um artefacto de planta que está a visar um objeto de espaço reservado de grupo de recursos. Neste exemplo, o artefacto do modelo é implantado no grupo de recursos _NetworkingPlaceholder_ e fornece recursos paramétricosLocalização dinamicamente povoada com a localização do grupo de recursos _NetworkingPlaceholder_ para o modelo. _resourceLocation_ A localização do grupo de recursos _NetworkingPlaceholder_ poderia ter sido definida estáticamente na definição de projeto ou definida dinamicamente durante a atribuição. Em qualquer dos casos, o artefacto do modelo é fornecido essa informação como parâmetro e usa-a para implantar os recursos para a localização correta.
+Em seguida, utilize a função no contexto de um artefacto de planta que está a visar um objeto de espaço reservado de grupo de `resourceGroup()` recursos. Neste exemplo, o artefacto do modelo é implantado no grupo de recursos _NetworkingPlaceholder_ e fornece recursos paramétricosLocalização dinamicamente povoada com a localização do grupo de recursos _NetworkingPlaceholder_ para o modelo. _resourceLocation_ A localização do grupo de recursos _NetworkingPlaceholder_ poderia ter sido definida estáticamente na definição de projeto ou definida dinamicamente durante a atribuição. Em qualquer dos casos, o artefacto do modelo é fornecido essa informação como parâmetro e usa-a para implantar os recursos para a localização correta.
 
 ```json
 {
@@ -265,7 +265,7 @@ Em seguida, utilize a `resourceGroup()` função no contexto de um artefacto de 
 
 `resourceGroups(placeholderName)`
 
-Devolve um objeto que representa o artefacto do grupo de recursos especificado. Ao `resourceGroup()`contrário , que requer contexto do artefacto, esta função é usada para obter as propriedades de um espaço reservado de um grupo de recursos específico quando não está no contexto desse grupo de recursos.
+Devolve um objeto que representa o artefacto do grupo de recursos especificado. Ao contrário `resourceGroup()` , que requer contexto do artefacto, esta função é usada para obter as propriedades de um espaço reservado de um grupo de recursos específico quando não está no contexto desse grupo de recursos.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -302,7 +302,7 @@ Para utilizar a localização do grupo de recursos, definida na definição de p
 }
 ```
 
-Em seguida, utilize a função a `resourceGroups()` partir do contexto de qualquer artefacto de planta para obter uma referência ao objeto de espaço reservado do grupo de recursos. Neste exemplo, o artefacto do modelo é implantado fora do grupo de recursos _NetworkingPlaceholder_ e fornece _artefactos_ paramétricosLocalização dinamicamente povoada com a localização do grupo de recursos _NetworkingPlaceholder_ para o modelo. A localização do grupo de recursos _NetworkingPlaceholder_ poderia ter sido definida estáticamente na definição de projeto ou definida dinamicamente durante a atribuição. Em qualquer dos casos, o artefacto do modelo é fornecido essa informação como parâmetro e usa-a para implantar os recursos para a localização correta.
+Em seguida, utilize a função a partir do contexto de qualquer artefacto de planta para obter uma referência ao objeto de espaço reservado do grupo de `resourceGroups()` recursos. Neste exemplo, o artefacto do modelo é implantado fora do grupo de recursos _NetworkingPlaceholder_ e fornece _artefactos_ paramétricosLocalização dinamicamente povoada com a localização do grupo de recursos _NetworkingPlaceholder_ para o modelo. A localização do grupo de recursos _NetworkingPlaceholder_ poderia ter sido definida estáticamente na definição de projeto ou definida dinamicamente durante a atribuição. Em qualquer dos casos, o artefacto do modelo é fornecido essa informação como parâmetro e usa-a para implantar os recursos para a localização correta.
 
 ```json
 {

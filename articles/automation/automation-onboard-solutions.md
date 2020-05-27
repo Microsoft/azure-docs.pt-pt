@@ -5,14 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 8a3f2c231544d07d614e6175bf703f20e4a9d9b0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743948"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836061"
 ---
-# <a name="enable-update-management-from-a-runbook"></a>Ativar gestão de atualizações a partir de um livro de execução
+# <a name="enable-update-management-from-a-runbook"></a>Ativar a Gestão de Atualizações a partir de um runbook
 
 Este artigo descreve como pode utilizar um livro de execução para ativar a funcionalidade [de Gestão](automation-update-management.md) de Atualizações para VMs no seu ambiente. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando a Atualização. 
 
@@ -101,8 +101,9 @@ Deve ter ativado a Gestão de Atualizações para um VM Azure para iniciar este 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Para agendar um livro de recortes, consulte [gerir os horários em Automação Azure.](shared-resources/schedules.md)
 * Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Para configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Gestão de Atualizações](automation-scope-configurations-update-management.md).
+* Para configurações de âmbito, consulte [Trabalhar com configurações de âmbito](automation-scope-configurations-update-management.md).
 * Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
 * Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
 * Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .

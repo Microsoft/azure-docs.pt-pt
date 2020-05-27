@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76905111"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834463"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Create logic app workflows from prebuilt templates (Criar fluxos de trabalho de aplicações lógicas a partir de modelos pré-criados)
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
 
 1. Se ainda não o fez, inscreva-se no [portal Azure.](https://portal.azure.com "Portal do Azure")
 
-2. A partir do menu principal do Azure, escolha Criar uma**aplicação lógica**de**integração** > empresarial de **recursos.** > 
+2. A partir do menu principal do Azure, escolha **Criar uma**aplicação lógica de  >  **integração empresarial**de  >  **Logic App**recursos.
 
    ![Portal do Azure, Novo, Integração Empresarial, Aplicação Lógica](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -146,7 +146,7 @@ Na barra de ferramentas do estruturador, escolha **Guardar**.
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos seguintes

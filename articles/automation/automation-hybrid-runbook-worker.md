@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: f555d603756159dd108345260d71233c23c01ce5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 9305d0d6443c923c680af0d5fafc58887dadb902
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715720"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835296"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -130,7 +130,7 @@ Se a máquina de anfitriões Hybrid Runbook Worker reiniciar, qualquer trabalho 
 
 Uma vez que acedem a recursos não-Azure, os livros de execução que funcionam num Trabalhador de Runbook Híbrido não podem utilizar o mecanismo de autenticação normalmente utilizado por livros de execução autenticando recursos Azure. Um livro de execução ou fornece a sua própria autenticação aos recursos locais, ou confunde a autenticação usando [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Também pode especificar uma conta Run As para fornecer um contexto de utilizador para todos os livros de execução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a configurar os seus livros de execução para automatizar processos no seu centro de dados no local ou em outro ambiente em nuvem, consulte [run run run book em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Para aprender a resolver os seus Trabalhadores Híbridos, consulte os [Trabalhadores híbridos da Troubleshoot Hybrid Runbook.](troubleshoot/hybrid-runbook-worker.md#general)
+* Para aprender a resolver os seus Trabalhadores híbridos, consulte problemas do Trabalhador do Livro Híbrido de [Troubleshoot.](troubleshoot/hybrid-runbook-worker.md#general)

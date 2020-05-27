@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 5bae53c04867233138929867c4895e7f6a2f2149
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838778"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831199"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Alavancar a paralelização da consulta no Azure Stream Analytics
 Este artigo mostra-lhe como aproveitar a paralelização no Azure Stream Analytics. Você aprende a dimensionar os trabalhos do Stream Analytics configurando divisórias de entrada e afinando a definição de consulta de análise.
@@ -315,7 +315,7 @@ Utilize o painel Metrics no seu trabalho azure Stream Analytics para identificar
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

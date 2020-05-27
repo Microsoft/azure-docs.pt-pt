@@ -47,7 +47,7 @@
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: FAQ
       href: data-factory-faq.md
-- name: Como
+- name: Procedimento
   items:
     - name: Mover dados
       items:
@@ -201,8 +201,8 @@
       href: data-factory-customer-case-studies.md
     - name: Percurso de aprendizagem
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Calculadora de preços

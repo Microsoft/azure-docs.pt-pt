@@ -6,12 +6,12 @@ ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 8d4cdb87302e12c024e15f8e0a7e3854d6f707a7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715465"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836707"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -65,10 +65,10 @@ Execute um dos runbooks do tutorial.
 
 1. Depois de se tornar o estado de trabalho `Running` , clique em **Output** ou **All Logs** para visualizar a saída do livro de trabalho. Para este runbook do tutorial, o resultado é uma lista dos seus recursos Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de introdução, implementou uma conta de Automatização, iniciou uma tarefa de runbook e visualizou os resultados das tarefas. Para saber mais sobre a Automatização do Azure, avance para o início rápido para criar o seu primeiro runbook.
 
 > [!div class="nextstepaction"]
-> [Guia de Introdução à Automatização - Criar Runbook](./automation-quickstart-create-runbook.md)
+> [Automação Quickstart - Criar um livro de execução da Automação Azure](./automation-quickstart-create-runbook.md)
 

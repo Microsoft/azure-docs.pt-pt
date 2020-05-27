@@ -282,7 +282,7 @@
         - name: Acessibilidade do Explorador de Armazenamento
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Fórum do Armazenamento do Azure
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+      href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
     - name: Armazenamento do Azure no Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Preços do armazenamento do Azure

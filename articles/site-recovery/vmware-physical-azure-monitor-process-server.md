@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 296254db83a065623b692d7947c130dfd71cd413
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257072"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835058"
 ---
 # <a name="monitor-the-process-server"></a>Monitorize o servidor de processos
 
@@ -59,11 +59,11 @@ O servidor de processo gera uma série de alertas de saúde, resumidos na tabela
 ![Aviso][yellow] | Espaço livre de pasta cache < 30% nos últimos 15 minutos
 ![Aviso][yellow] | A Recuperação do Site monitoriza os dados pendentes/de saída a cada cinco minutos, e estima que os dados na cache do servidor de processo não podem ser enviados para o Azure dentro de 30 minutos.
 ![Aviso][yellow] | Os serviços de servidores de processo sem funcionar nos últimos 15 minutos
-![Crítica][red] | Utilização de CPU > 95% nos últimos 15 minutos
-![Crítica][red] | O uso da memória > 95% nos últimos 15 minutos
-![Crítica][red] | Espaço livre de pasta cache < 25% nos últimos 15 minutos
-![Crítica][red] | A Recuperação do Site monitoriza os dados pendentes/de saída a cada cinco minutos, e estima que os dados na cache do servidor de processo não podem ser enviados para o Azure dentro de 45 minutos.
-![Crítica][red] | Não há batimentos cardíacos do servidor de processos durante 15 minutos.
+![Crítico][red] | Utilização de CPU > 95% nos últimos 15 minutos
+![Crítico][red] | O uso da memória > 95% nos últimos 15 minutos
+![Crítico][red] | Espaço livre de pasta cache < 25% nos últimos 15 minutos
+![Crítico][red] | A Recuperação do Site monitoriza os dados pendentes/de saída a cada cinco minutos, e estima que os dados na cache do servidor de processo não podem ser enviados para o Azure dentro de 45 minutos.
+![Crítico][red] | Não há batimentos cardíacos do servidor de processos durante 15 minutos.
 
 ![Chave de mesa](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
@@ -96,7 +96,7 @@ Também pode monitorizar servidores de processos no cofre em **infraestrutura**d
 ## <a name="next-steps"></a>Passos seguintes
 
 - Se tiver algum problema com servidores de processos, siga a nossa orientação de [resolução de problemas](vmware-physical-azure-troubleshoot-process-server.md)
-- Se precisar de mais ajuda, publique a sua pergunta no fórum de recuperação do [site Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) 
+- Se precisar de mais ajuda, publique a sua pergunta no [Microsoft Q&Uma página de perguntas para a Recuperação do Site Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7f9ab478067cecbac6f01a5a969bf48653b6dd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793247"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831505"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar declarações condicionais que controlam ações de fluxo de trabalho em Aplicações Lógicas Azure
 
@@ -36,11 +36,11 @@ Por exemplo, suponha que tenha uma aplicação lógica que envia demasiados e-ma
 
 1. Adicione uma condição no local que quiser. 
 
-   Para adicionar uma condição entre passos, mova o ponteiro sobre a seta onde pretende adicionar a condição. Escolha o sinal**+** de **mais** () que aparece e, em seguida, escolha Adicionar uma **ação**. Por exemplo:
+   Para adicionar uma condição entre passos, mova o ponteiro sobre a seta onde pretende adicionar a condição. Escolha o **sinal de mais** **+** () que aparece e, em seguida, escolha **Adicionar uma ação**. Por exemplo:
 
    ![Adicionar ação entre passos](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Quando quiser adicionar uma condição no final do seu fluxo de trabalho, na parte inferior da sua aplicação lógica, escolha **novo passo** > **Adicione uma ação**.
+   Quando quiser adicionar uma condição no final do seu fluxo de trabalho, na parte inferior da sua aplicação lógica, escolha **novo passo** Adicione > **uma ação**.
 
 1. Na caixa de pesquisa, introduza "condição" como filtro. Selecione esta ação: **Condição - Controlo**
 
@@ -65,8 +65,8 @@ Por exemplo, suponha que tenha uma aplicação lógica que envia demasiados e-ma
 
    ![Concluir condição](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Para adicionar outra linha à sua condição, escolha **Adicionar** > **a linha**. 
-   Para adicionar um grupo com subcondições, escolha **Adicionar** > **grupo**. 
+   Para adicionar outra linha à **Add**sua condição, escolha  >  **Adicionar a linha**. 
+   Para adicionar um grupo com subcondições, escolha **Adicionar**  >  **grupo**. 
    Para agrupar as linhas existentes, selecione as caixas de verificação para essas linhas, escolha o botão elipses (...) para qualquer linha e, em seguida, escolha **grupo Fazer**.
 
 1. Em **se for verdade** e se for **falso,** adicione os passos a executar com base no facto de a condição estar reunida. Por exemplo:
@@ -110,7 +110,7 @@ Aqui está a definição de código de alto nível por trás de uma declaração
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do utilizador das [Aplicações Lógicas Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes

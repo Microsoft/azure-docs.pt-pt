@@ -26,7 +26,7 @@
       href: private-link-service-overview.md
     - name: Integração de DNS do Ponto Final Privado
       href: private-endpoint-dns.md
-- name: Procedimentos
+- name: Procedimento
   items:
     - name: Ligar de forma privada a uma conta de armazenamento
       href: create-private-endpoint-storage-portal.md
@@ -74,8 +74,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blogue de Redes
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Fórum de redes
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft sobre Redes
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: Comentários sobre a rede
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preços

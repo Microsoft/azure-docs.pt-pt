@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3eedfb1e9ec59fbe12ee94a65d3702a7ef8ca95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b83dbdb928b7b5810864a9202134dee30f9582df
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73823644"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834255"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Ferramentas de base de dados elásticas frequentemente colocadas (FAQ)
 
@@ -34,7 +34,7 @@ A utilização da biblioteca de clientes de base de dados elástica não incorre
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Porque é que as minhas credenciais não funcionam quando adiciono um fragmento de um servidor diferente?
 
-Não utilize credenciais sob a formausername@servernamede "ID do utilizador= ", em vez de utilizar simplesmente "ID do utilizador = nome de utilizador".  Além disso, certifique-se de que o login "username" tem permissões no fragmento.
+Não utilize credenciais sob a forma de "ID do utilizador= username@servername ", em vez de utilizar simplesmente "ID do utilizador = nome de utilizador".  Além disso, certifique-se de que o login "username" tem permissões no fragmento.
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Preciso criar um Gestor de Mapas e preencher fragmentos cada vez que começo as minhas aplicações
 
@@ -42,7 +42,7 @@ Não — a criação do Shard Map Manager (por exemplo, [ShardMapManagerFactory.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho perguntas sobre usar ferramentas de base de dados elásticas, como as consigo responder
 
-Contacte-nos no [fórum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Contacte-nos no Microsoft Q&Uma página de perguntas para a Base de [Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando tenho uma ligação de base de dados usando uma chave de sharding, ainda posso consultar dados para outras chaves no mesmo fragmento.  É isto por design
 

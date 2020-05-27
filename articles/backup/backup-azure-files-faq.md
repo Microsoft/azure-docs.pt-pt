@@ -3,16 +3,16 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço De backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: aaa0d47b540a1c3eacd9efebda84f22b83529a28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680986"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836112"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
-Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de backup Azure no [Microsoft Q&A para Backup Azure](https://docs.microsoft.com/answers/topics/azure-backup.html).
+Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de backup Azure no Microsoft Q&Uma página de [perguntas para discussão](https://docs.microsoft.com/answers/topics/azure-backup.html).
 
 Para analisar rapidamente as secções neste artigo, utilize as ligações à direita, em **Neste artigo**.
 
@@ -28,7 +28,7 @@ Verifique se a partilha de ficheiros do Azure já está protegida no mesmo cofre
 
 ### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync"></a>Posso proteger as Partilhas de Ficheiros ligadas a um Grupo de Sincronização no Azure File Sync?
 
-Yes. A proteção das ações de ficheiros Azure ligadas aos Sync Groups está ativada.
+Sim. A proteção das ações de ficheiros Azure ligadas aos Sync Groups está ativada.
 
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Quando estava a tentar criar cópias de segurança de partilhas de ficheiros, cliquei numa Conta de Armazenamento para ver que partilhas havia na mesma. No entanto, não os protegi. Como protejo estas ações com outro cofre?
 
@@ -36,7 +36,7 @@ Ao tentar fazer o backback, selecionando uma Conta de Armazenamento para descobr
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Posso mudar o Cofre para o qual apoio as minhas ações de ficheiro?
 
-Yes. No entanto, terá de parar a [proteção na parte](manage-afs-backup.md#stop-protection-on-a-file-share) do ficheiro do cofre conectado, [desregistar](manage-afs-backup.md#unregister-a-storage-account) esta Conta de Armazenamento e, em seguida, protegê-la de um cofre diferente.
+Sim. No entanto, terá de parar a [proteção na parte](manage-afs-backup.md#stop-protection-on-a-file-share) do ficheiro do cofre conectado, [desregistar](manage-afs-backup.md#unregister-a-storage-account) esta Conta de Armazenamento e, em seguida, protegê-la de um cofre diferente.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quantas partilhas de ficheiros do Azure posso proteger num Cofre?
 
@@ -60,7 +60,7 @@ Quando uma parte do ficheiro Azure é eliminada, é-lhe mostrada a lista de cóp
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Posso restaurar a partir de cópias de segurança se tiver parado a proteção numa partilha de ficheiros do Azure?
 
-Yes. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a proteção, poderá restaurar a partir de todos os pontos de restauro existentes.
+Sim. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a proteção, poderá restaurar a partir de todos os pontos de restauro existentes.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se eu cancelar um trabalho de restauro em curso?
 
@@ -70,7 +70,7 @@ Se um trabalho de restauro em curso for cancelado, o processo de restauro para e
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>Posso usar a PowerShell para configurar/gerir/restaurar cópias de segurança das ações do Ficheiro Azure?
 
-Yes. Consulte a documentação detalhada [aqui](backup-azure-afs-automation.md).
+Sim. Consulte a documentação detalhada [aqui](backup-azure-afs-automation.md).
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Posso aceder às fotos tiradas pelos Backups Azure e montá-las?
 

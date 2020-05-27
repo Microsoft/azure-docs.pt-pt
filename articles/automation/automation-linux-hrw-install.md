@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 599eb527a349278caf2e4e22e9458a9cd2d08d24
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a6cf348142d694a03da24f32793fc72325701931
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712456"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835228"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implante um trabalhador de runbook híbrido Linux
 
@@ -128,7 +128,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 Para remover um grupo híbrido de computadores Linux, utiliza os mesmos passos que para um grupo de trabalhadores híbridos windows. Ver [Remover um grupo de Trabalhadores Híbridos](automation-windows-hrw-install.md#remove-a-hybrid-worker-group).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a configurar os seus livros de execução para automatizar processos no seu centro de dados no local ou em outro ambiente em nuvem, consulte [run run run book em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Para aprender a resolver os seus Trabalhadores Híbridos, consulte [Troubleshoot Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux).
+* Para aprender a resolver os seus Trabalhadores Híbridos, consulte problemas do Trabalhador do [Livro Híbrido de Troubleshoot - Linux](troubleshoot/hybrid-runbook-worker.md#linux).

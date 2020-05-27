@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 57728c3dcbb0dd88ae954ec711ffa4827e14579d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743847"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832287"
 ---
 # <a name="monitor-runbook-output"></a>Monitorizar o resultado do runbook
 
@@ -259,6 +259,7 @@ Para obter mais informações sobre a configuração da integração com os regi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Execução de runbooks na Automatização do Azure](automation-runbook-execution.md)
-* [Criar runbooks modulares](automation-child-runbooks.md)
-* [PowerShell Docs](/powershell/scripting/overview)
+* Para trabalhar com livros de execução, consulte [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
+* Para mais detalhes sobre powerShell, consulte [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -219,8 +219,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/mariadb/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-database-mariadb.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
     - name: Pedir uma funcionalidade

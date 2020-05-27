@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04e32a88dcfb9f069e51b2f18207155b95da37d6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744354"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835075"
 ---
 # <a name="compose-dsc-configurations"></a>Compor configurações DSC
 
@@ -42,8 +42,9 @@ Quando a compilação tiver terminado com sucesso, a nova configuração aparece
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md)
-- [Ativar a configuração do Estado da Automação Azure](automation-dsc-onboarding.md)
-- [Compilar configurações dSC na configuração do Estado da Automação Azure](automation-dsc-compile.md)
-- [Configurar a implantação contínua com chocolatey](automation-dsc-cd-chocolatey.md)
-- [Preços de configuração do Estado da Automação Azure](https://azure.microsoft.com/pricing/details/automation/)
+- Para aprender a ativar os nós, consulte a Configuração do Estado da [Automatização Do Automação Do Ativo .](automation-dsc-onboarding.md)
+- Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de DSC compile na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
+- Para ver um exemplo de utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [A implantação contínua com chocolatey](automation-dsc-cd-chocolatey.md).
+- Para obter informações sobre preços, consulte os preços de configuração do Estado da [Automatização do Azure](https://azure.microsoft.com/pricing/details/automation/).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

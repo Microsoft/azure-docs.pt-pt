@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00e1175cc85f1c34260c5e03ed3f81ac25cf7448
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426082"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836503"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada para dados com o diagrama de trabalhos
 
@@ -79,7 +79,7 @@ Se o passo de consulta anterior for um processador de entrada, utilize as métri
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter assistência adicional, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Para obter assistência adicional, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)

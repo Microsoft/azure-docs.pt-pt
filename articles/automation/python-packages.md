@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc709be7a7f0d46d105e73b0a105a3dec8cc793c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c2871c4c988675dd9a1a5749d908805994b6b309
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746711"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835160"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerir pacotes Python 2 na Automação Azure
 
@@ -89,4 +89,4 @@ Para desenvolver e testar os seus livros de execução Python 2 offline, pode ut
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Criar um runbook de Python](learn/automation-tutorial-runbook-textual-python2.md)
+Para preparar um livro de corridas python, consulte [Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).

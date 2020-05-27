@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: f07cc109b21010df89b105576cb9afcf93df774a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744774"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836163"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,7 +56,7 @@ Para problemas de conector, tais como um erro de encontro utilizando a atividade
 
 - **Causa:**`Bad authoring.`
 
-- **Recomendação**: Especifique os caminhos absolutos `dbfs:/folder/subfolder/foo.py` para os esquemas de endereçamento do espaço de trabalho ou para os ficheiros armazenados no Sistema de Ficheiros databricks (DFS).
+- **Recomendação**: Especifique os caminhos absolutos para os esquemas de endereçamento do espaço de trabalho ou `dbfs:/folder/subfolder/foo.py` para os ficheiros armazenados no Sistema de Ficheiros databricks (DFS).
 
 <br/> 
 
@@ -102,7 +102,7 @@ Para problemas de conector, tais como um erro de encontro utilizando a atividade
 
 <br/> 
 
-- **Mensagem** `User: `: SimpleUserContext{userId=...,user@company.comnome= , orgId=...}` is not authorized to access cluster.`
+- **Mensagem**: `User: ` SimpleUserContext{userId=..., nome= user@company.com , orgId=...}` is not authorized to access cluster.`
 
 - **Causa**: O utilizador que gerou o token de acesso não está autorizado a aceder ao cluster Databricks especificado no serviço ligado.
 
@@ -226,7 +226,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Causa:** A definição de atividade da função Azure não está completa.
 
-- **Recomendação**: Verifique se a definição de atividade de `functionKey`função De entrada Azure JSON tem um imóvel denominado .
+- **Recomendação**: Verifique se a definição de atividade de função De entrada Azure JSON tem um imóvel denominado `functionKey` .
 
 ### <a name="error-code-3607"></a>Código de erro: 3607
 
@@ -234,7 +234,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Causa:** A definição de atividade da função Azure não está completa.
 
-- **Recomendação**: Verifique se a definição de atividade de `functionName`função De entrada Azure JSON tem um imóvel denominado .
+- **Recomendação**: Verifique se a definição de atividade de função De entrada Azure JSON tem um imóvel denominado `functionName` .
 
 ### <a name="error-code-3608"></a>Código de erro: 3608
 
@@ -250,7 +250,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Causa:** A definição de atividade da função Azure não está completa.
 
-- **Recomendação**: Verifique se a definição json da `functionAppUrl`atividade da função input Azure tem um imóvel denominado .
+- **Recomendação**: Verifique se a definição json da atividade da função input Azure tem um imóvel denominado `functionAppUrl` .
 
 ### <a name="error-code-3610"></a>Código de erro: 3610
 
@@ -258,7 +258,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Causa:** O URL da função pode estar incorreto.
 
-- **Recomendação**: Verifique `functionAppUrl` se o valor para a atividade JSON está correto e tente novamente.
+- **Recomendação**: Verifique se o valor para `functionAppUrl` a atividade JSON está correto e tente novamente.
 
 ### <a name="error-code-3611"></a>Código de erro: 3611
 
@@ -266,7 +266,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Causa:** A definição de atividade da função Azure não está completa.
 
-- **Recomendação**: Verifique se a definição de atividade de `method`função De entrada Azure JSON tem um imóvel denominado .
+- **Recomendação**: Verifique se a definição de atividade de função De entrada Azure JSON tem um imóvel denominado `method` .
 
 ### <a name="error-code-3612"></a>Código de erro: 3612
 
@@ -282,9 +282,9 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Mensagem:**`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
-- **Causa**: Mau formato `%propertyName;`ou falta de definição de propriedade .
+- **Causa**: Mau formato ou falta de definição de propriedade `%propertyName;` .
 
-- **Recomendação**: Verifique `%activityName;` se `%propertyName;` a atividade tem o imóvel definido com dados corretos.
+- **Recomendação**: Verifique se a atividade `%activityName;` tem o imóvel `%propertyName;` definido com dados corretos.
 
 ### <a name="error-code-4110"></a>Código de erro: 4110
 
@@ -308,7 +308,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Causa**: Mau formato ou definição em falta de propriedade '%propertyName;'.
 
-- **Recomendação**: Verifique se o `%propertyName;` serviço vinculado tem o imóvel definido com dados corretos.
+- **Recomendação**: Verifique se o serviço vinculado tem o imóvel `%propertyName;` definido com dados corretos.
 
 ### <a name="error-code-4121"></a>Código de erro: 4121
 
@@ -330,7 +330,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Mensagem:**`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: As propriedades da `pipelineParameters` atividade como são inválidas para o gasoduto Azure Machine Learning (ML).
+- **Causa**: As propriedades da atividade como `pipelineParameters` são inválidas para o gasoduto Azure Machine Learning (ML).
 
 - **Recomendação**: Verifique se o valor das propriedades de atividade corresponde à carga útil esperada do gasoduto Azure ML publicado especificado no Linked Service.
 
@@ -432,7 +432,7 @@ A tabela seguinte aplica-se à U-SQL.
 
 - **Recomendação**: Validar que o ponto final que está a tentar atingir está a responder aos pedidos. Pode utilizar ferramentas como o Fiddler/Carteiro.
 
-## <a name="custom"></a>Personalizado
+## <a name="custom"></a>Personalizar
 
 A tabela seguinte aplica-se ao Lote Azure.
  
@@ -464,7 +464,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`Operation returned an invalid status code 'BadRequest'.`
 
-- **Causa:** Demasiados ficheiros `folderPath` na atividade personalizada. O tamanho `resourceFiles` total não pode ser mais de 32.768 caracteres.
+- **Causa:** Demasiados ficheiros na `folderPath` atividade personalizada. O tamanho total não `resourceFiles` pode ser mais de 32.768 caracteres.
 
 - **Recomendação**: Remova ficheiros desnecessários ou feche-os e adicione um comando de sem fecho para extraí-los.
    
@@ -592,7 +592,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
-- **Causa**: A mensagem de `The remote name could not be resolved.`erro contém uma mensagem semelhante a . O cluster uri fornecido pode ser inválido.
+- **Causa**: A mensagem de erro contém uma mensagem semelhante a `The remote name could not be resolved.` . O cluster uri fornecido pode ser inválido.
 
 - **Recomendação**: Verifique se o cluster não foi eliminado e se o URI fornecido está correto. Ao abrir o URI num browser, deverá ver o Ambari UI. Se o cluster estiver numa rede virtual, o URI deve ser o URI privado. Para abri-la, utilize uma Máquina Virtual (VM) que faça parte da mesma rede virtual.
 
@@ -600,7 +600,7 @@ A tabela seguinte aplica-se ao Lote Azure.
  
  </br>
 
-- **Causa**: Se a mensagem de `A task was canceled.`erro contiver uma mensagem semelhante à , a submissão do trabalho foi cronometrada.
+- **Causa**: Se a mensagem de erro contiver uma mensagem semelhante à `A task was canceled.` , a submissão do trabalho foi cronometrada.
 
 - **Recomendação**: O problema pode ser a conectividade Geral HDInsight ou a conectividade da rede. Primeiro confirme que o HDInsight Ambari UI está disponível em qualquer navegador. Então verifique se as suas credenciais ainda são válidas.
    
@@ -610,7 +610,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
  </br>
 
-- **Causa**: Quando a mensagem de `User admin is locked out in Ambari` `Unauthorized: Ambari user name or password is incorrect`erro contém uma mensagem semelhante ou , as credenciais para hDInsight estão incorretas ou expiraram.
+- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante `User admin is locked out in Ambari` ou , as `Unauthorized: Ambari user name or password is incorrect` credenciais para hDInsight estão incorretas ou expiraram.
 
 - **Recomendação**: Corrija as credenciais e reimplante o serviço ligado. Primeiro verifique se as credenciais funcionam no HDInsight abrindo o cluster URI em qualquer navegador e tentando iniciar sessão. Se as credenciais não funcionarem, pode redefini-las a partir do portal Azure.
 
@@ -618,12 +618,12 @@ A tabela seguinte aplica-se ao Lote Azure.
 
  </br>
 
-- **Causa**: Quando a mensagem de `502 - Web server received an invalid response while acting as a gateway or proxy server`erro contém uma mensagem semelhante à, este erro é devolvido pelo serviço HDInsight.
+- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante `502 - Web server received an invalid response while acting as a gateway or proxy server` à, este erro é devolvido pelo serviço HDInsight.
 
 - **Recomendação**: Ocorre frequentemente um erro de 502 quando o seu processo ambari Server foi desligado. Pode reiniciar os Serviços Ambari reiniciando o nó da cabeça.
 
     1. Ligue-se a um dos seus nódosos no HDInsight utilizando o SSH.
-    1. Identifique o seu anfitrião `ping headnodehost`do nó de cabeça ativo correndo .
+    1. Identifique o seu anfitrião do nó de cabeça ativo correndo `ping headnodehost` .
     1. Ligue-se ao nó da cabeça ativa enquanto o Ambari Server se senta no nó de cabeça ativo utilizando o SSH. 
     1. Reinicie o nó de cabeça ativo.
 
@@ -635,7 +635,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
  </br>
 
-- **Causa**: Quando a mensagem de `Unable to service the submit job request as templeton service is busy with too many submit job requests` `Queue root.joblauncher already has 500 applications, cannot accept submission of application`erro contém uma mensagem semelhante ou, ao mesmo tempo, estão a ser submetidos demasiados postos de trabalho ao HDInsight.
+- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante `Unable to service the submit job request as templeton service is busy with too many submit job requests` `Queue root.joblauncher already has 500 applications, cannot accept submission of application` ou, ao mesmo tempo, estão a ser submetidos demasiados postos de trabalho ao HDInsight.
 
 - **Recomendação**: Limite o número de postos de trabalho simultâneos submetidos ao HDInsight. Consulte a moeda da atividade da Data Factory se os postos de trabalho estiverem a ser submetidos pela mesma atividade. Mude os gatilhos para que as condutas de gasodutos simultâneos se espalhem ao longo do tempo.
 
@@ -649,7 +649,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Recomendação**: Este erro ocorre quando a ADF não recebe uma resposta do cluster HDInsight ao tentar solicitar o estado do trabalho em execução. Este problema pode estar no próprio cluster, ou o serviço HDInsight pode ter uma falha.
 
-   Consulte a documentação de https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guideresolução de problemas da HDInsight em , ou contacte o seu suporte para obter mais assistência.
+   Consulte a documentação de resolução de problemas da HDInsight em https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide , ou contacte o seu suporte para obter mais assistência.
 
 ### <a name="error-code-2302"></a>Código de erro: 2302
 
@@ -667,10 +667,10 @@ A tabela seguinte aplica-se ao Lote Azure.
  1. Executa um teste de amostra.
     1. Se executar o mesmo trabalho no backend hDInsight, verifique se conseguiu. Para exemplos de amostras executadas, ver [Executar os exemplos MapReduce incluídos no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Se o trabalho ainda falhar no HDInsight, verifique os registos e informações da aplicação, que fornecer ao Suporte:
-    1. Verifique se o trabalho foi submetido à ARN. Se o trabalho não foi submetido a `--master yarn`fios, use.
+    1. Verifique se o trabalho foi submetido à ARN. Se o trabalho não foi submetido a fios, `--master yarn` use.
     1. Se a aplicação tiver terminado a execução, colete o tempo de início e o tempo final da Aplicação YARN. Se a aplicação não tiver concluído a execução, colete o tempo de início/lançamento.
-    1. Verifique e recolha `yarn logs -applicationId <Insert_Your_Application_ID>`o registo de candidaturas com .
-    1. Verifique e recolha os registos do `/var/log/hadoop-yarn/yarn` Gestor de Recursos de fios sob o diretório.
+    1. Verifique e recolha o registo de candidaturas com `yarn logs -applicationId <Insert_Your_Application_ID>` .
+    1. Verifique e recolha os registos do Gestor de Recursos de fios sob o `/var/log/hadoop-yarn/yarn` diretório.
     1. Se estes passos não forem suficientes para resolver o problema, contacte a equipa Azure HDInsight para obter suporte e forneça os registos e selos de tempo acima.
 
 ### <a name="error-code-2303"></a>Código de erro: 2303
@@ -689,10 +689,10 @@ A tabela seguinte aplica-se ao Lote Azure.
  1. Executa um teste de amostra.
     1. Se executar o mesmo trabalho no backend hDInsight, verifique se conseguiu. Para exemplos de amostras executadas, ver [Executar os exemplos MapReduce incluídos no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Se o trabalho ainda falhar no HDInsight, verifique os registos e informações da aplicação, que fornecer ao Suporte:
-    1. Verifique se o trabalho foi submetido à ARN. Se o trabalho não foi submetido a `--master yarn`fios, use.
+    1. Verifique se o trabalho foi submetido à ARN. Se o trabalho não foi submetido a fios, `--master yarn` use.
     1. Se a aplicação tiver terminado a execução, colete o tempo de início e o tempo final da Aplicação YARN. Se a aplicação não tiver concluído a execução, colete o tempo de início/lançamento.
-    1. Verifique e recolha `yarn logs -applicationId <Insert_Your_Application_ID>`o registo de candidaturas com .
-    1. Verifique e recolha os registos do `/var/log/hadoop-yarn/yarn` Gestor de Recursos de fios sob o diretório.
+    1. Verifique e recolha o registo de candidaturas com `yarn logs -applicationId <Insert_Your_Application_ID>` .
+    1. Verifique e recolha os registos do Gestor de Recursos de fios sob o `/var/log/hadoop-yarn/yarn` diretório.
     1. Se estes passos não forem suficientes para resolver o problema, contacte a equipa Azure HDInsight para obter suporte e forneça os registos e selos de tempo acima.
 
 ### <a name="error-code-2304"></a>Código de erro: 2304
@@ -801,7 +801,7 @@ A tabela seguinte aplica-se ao Lote Azure.
     1. Verifique se as credenciais estão corretas abrindo o Ambari UI do cluster HDInsight num browser.
     1. Se o cluster estiver em Rede Virtual (VNet) e estiver a ser utilizado um IR auto-hospedado, o URL HDI deve ser o URL privado em VNets, e deve ter 'int' listado após o nome do cluster.
     
-       Por exemplo, `https://mycluster.azurehdinsight.net/` `https://mycluster-int.azurehdinsight.net/`mudar para . Note `-int` o `mycluster`depois, mas antes`.azurehdinsight.net`
+       Por exemplo, mudar `https://mycluster.azurehdinsight.net/` para `https://mycluster-int.azurehdinsight.net/` . Note o `-int` `mycluster` depois, mas antes`.azurehdinsight.net`
     1. Se o cluster estiver em VNet, o IR auto-hospedado está a ser utilizado, e o URL privado foi usado, e ainda assim a ligação ainda falhou, então o VM onde o IR está instalado tinha problemas de ligação ao HDI. 
     
        Ligue-se ao VM onde o IR está instalado e abra o Ambari UI num browser. Use o URL privado para o cluster. Esta ligação deve funcionar a partir do navegador. Se não o fizer, contacte a equipa de suporte da HDInsight para obter mais assistência.
@@ -919,7 +919,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
-- **Causa:** O valor `commandEnvironment` fornecido é incorreto.
+- **Causa:** O valor fornecido `commandEnvironment` é incorreto.
 
 - **Recomendação**: Verificar se o valor fornecido é semelhante a:
  
@@ -934,7 +934,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`The commandEnvironment already contains a variable named '%variableName;'.`
 
-- **Causa:** O valor `commandEnvironment` fornecido é incorreto.
+- **Causa:** O valor fornecido `commandEnvironment` é incorreto.
 
 - **Recomendação**: Verificar se o valor fornecido é semelhante a:
  
@@ -957,7 +957,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
 
-- **Causa**: O valor fornecido `TimeToLive` para o imóvel exigido tem um formato inválido. 
+- **Causa**: O valor fornecido para o imóvel exigido `TimeToLive` tem um formato inválido. 
 
 - **Recomendação**: Atualize o valor para a gama sugerida e tente novamente.
 
@@ -965,7 +965,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
 
-- **Causa**: O valor `roles` fornecido para o imóvel é inválido.
+- **Causa**: O valor fornecido para o imóvel `roles` é inválido.
 
 - **Recomendação**: Atualizar o valor para ser uma das sugestões e tentar novamente.
 
@@ -973,7 +973,7 @@ A tabela seguinte aplica-se ao Lote Azure.
 
 - **Mensagem:**`The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
 
-- **Causa**: A corda `HCatalogLinkedService` de ligação fornecida para a é inválida.
+- **Causa**: A corda de ligação fornecida para a `HCatalogLinkedService` é inválida.
 
 - **Recomendação**: Atualize o valor para uma cadeia de ligação Azure SQL correta e tente novamente.
 
@@ -1016,7 +1016,7 @@ Para utilizar o **Fiddler** para criar uma sessão HTTP da aplicação web monit
 
 1. Descarregue, instale e abra [o Fiddler.](https://www.telerik.com/download/fiddler)
 
-1. Se a sua aplicação web utilizar HTTPS, vá às **Ferramentas** > **Opções** > de Violino**HTTPS**.
+1. Se a sua aplicação web utilizar HTTPS, vá às **Ferramentas**  >  **Opções de Violino**  >  **HTTPS**.
 
    1. No separador HTTPS, selecione tanto **a Captura HTTPS CONNECTs** como **o decrypt HTTPS.**
 
@@ -1024,9 +1024,9 @@ Para utilizar o **Fiddler** para criar uma sessão HTTP da aplicação web monit
 
 1. Se a sua aplicação utilizar certificados TLS/SSL, adicione o certificado Fiddler ao seu dispositivo.
 
-   Ir a: **Ferramentas** > **Opções** > de Violino**HTTPS** > **Ações** > **ExportRoot Certificate para Desktop**.
+   Ir a: **Ferramentas**  >  **Opções de Violino**  >  **HTTPS**  >  **Ações**  >  **ExportRoot Certificate para Desktop**.
 
-1. Desligue a captura indo para **file** > **capture Traffic**. Ou prima **F12**.
+1. Desligue a captura indo para **file**  >  **capture Traffic**. Ou prima **F12**.
 
 1. Limpe a cache do seu navegador para que todos os itens em cache sejam removidos e devem ser descarregados novamente.
 
@@ -1042,7 +1042,7 @@ Para utilizar o **Fiddler** para criar uma sessão HTTP da aplicação web monit
 
 1. Volte a ligar a captura de tráfego e complete a transação problemática na sua página.
 
-1. Ir a:**Guardar** >  **ficheiros** > **todas as sessões**.
+1. Ir a: **File**  >  **Guardar**  >  **ficheiros todas as sessões**.
 
 Para mais informações, consulte [Começar com o Violinista.](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
 
@@ -1055,4 +1055,4 @@ Para obter mais ajuda para resolução de problemas, experimente estes recursos:
 * [Stack Overflow forum para fábrica de dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre data factory](https://twitter.com/hashtag/DataFactory)
 * [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/)
-* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home)
+* [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

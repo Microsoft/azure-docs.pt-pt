@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2bd4a59ee1b82b8f6eb3bf172b11239af1a9f4c5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714275"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837132"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Automação Azure
 
@@ -190,8 +190,8 @@ runas_connection = automationassets.get_automation_connection(
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Utilizar módulos na Automatização do Azure](shared-resources/modules.md)
-* [Execução de runbooks na Automatização do Azure](automation-runbook-execution.md)
-* [Descrição geral da Configuração de Estado](automation-dsc-overview.md)
+* Para saber mais sobre os cmdlets utilizados para aceder a ligações, consulte [Gerir módulos em Automação Azure](shared-resources/modules.md).
+* Para obter informações gerais sobre livros de execução, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)
+* Para mais detalhes sobre as configurações do DSC, consulte a visão geral da [Configuração do Estado](automation-dsc-overview.md).

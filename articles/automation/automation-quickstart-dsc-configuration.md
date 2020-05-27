@@ -7,12 +7,12 @@ keywords: dsc, configuração, automatização
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: ab9210042439e2199d633577c77429573b71d1be
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711861"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836724"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Configure um VM com configuração de estado desejada
 
@@ -126,12 +126,9 @@ Pode visualizar o estado de todos os nós geridos pela Configuração do Estado 
 
 ![Estado do Nó DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, ativou um VM Linux para configuração de Estado, criou uma configuração para uma pilha LAMP, e implementou a configuração para o VM. Para saber como pode utilizar a Configuração do Estado da Automação Azure para permitir a implantação contínua, continue o artigo:
 
 > [!div class="nextstepaction"]
-> [Implementação contínua para uma VM com o DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* Para saber mais sobre o PowerShell DSC, consulte a visão geral da [Configuração do Estado desejada powerShell](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Para saber como encaminhar relatórios da DSC para registos do Monitor Azure para reporte e alerta, consulte o [Reencaminhador DSC reportando aos registos do Monitor Azure](automation-dsc-diagnostics.md).
+> [Configurar a implementação contínua com o Chocolatey](./automation-dsc-cd-chocolatey.md)

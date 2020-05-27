@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: dcd5668fa2c6e1840eed13a9ee0cbd30d8d8a25a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983249"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835733"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitor Azure ML executa e métricas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ As seguintes métricas podem ser adicionadas a uma corrida enquanto treinam uma 
 |Tabela|Função:<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>run.log_table ("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]} | Faça loga num objeto de dicionário para a execução com o nome dado. |
 |Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plot=plt)` | Faça log a imagem no registo de execução. Utilize log_image para registar um . Ficheiro de imagem PNG ou um enredo matplotlib para a execução.  Estas imagens serão visíveis e comparáveis no registo de execução.|
 |Marque uma corrida|Função:<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>run.tag("selecionado", "sim") | Marque a corrida com uma chave de cordas e valor de corda opcional.|
-|Upload de ficheiro ou diretório|Função:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>run.upload_file ("best_model.pkl", "./model.pkl") | Faça o upload de um ficheiro para o registo de execução. Executa a captura automática do ficheiro no diretório de saída especificado, que se incorre em "./saídas" para a maioria dos tipos de execução.  Utilize upload_file apenas quando for necessário carregar ficheiros adicionais ou não for especificado um diretório de saída. Sugerimos `outputs` adicionar ao nome para que seja enviado para o diretório de saídas. Pode listar todos os ficheiros associados a este registo de execução chamado`run.get_file_names()`|
+|Upload de ficheiro ou diretório|Função:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>run.upload_file ("best_model.pkl", "./model.pkl") | Faça o upload de um ficheiro para o registo de execução. Executa a captura automática do ficheiro no diretório de saída especificado, que se incorre em "./saídas" para a maioria dos tipos de execução.  Utilize upload_file apenas quando for necessário carregar ficheiros adicionais ou não for especificado um diretório de saída. Sugerimos adicionar `outputs` ao nome para que seja enviado para o diretório de saídas. Pode listar todos os ficheiros associados a este registo de execução chamado`run.get_file_names()`|
 
 > [!NOTE]
 > As métricas para escalars, listas, linhas e mesas podem ter tipo: flutuador, inteiro ou corda.
@@ -52,6 +52,7 @@ As seguintes métricas podem ser adicionadas a uma corrida enquanto treinam uma 
 Se pretender acompanhar ou monitorizar a sua experiência, tem de adicionar código para iniciar a exploração de sessão quando submeter a execução. Seguem-se formas de desencadear a submissão da execução:
 * __Run.start_logging__ - Adicione as funções de registo ao seu script de treino e inicie uma sessão de registo interativo na experiência especificada. **start_logging** cria uma corrida interativa para uso em cenários como cadernos. Quaisquer métricas que sejam registadas durante a sessão são adicionadas ao recorde de execução na experiência.
 * __ScriptRunConfig__ - Adicione funções de registo ao seu script de treino e carregue toda a pasta de script com a execução.  **ScriptRunConfig** é uma classe para configurar configurações para scripts. Com esta opção, pode adicionar código de monitorização a ser notificado da conclusão ou obter um widget visual para monitorizar.
+* __Registo de designers__ - Adicione funções de exploração madeireira a um pipeline de design de drag-&-gota utilizando o módulo __Execute Python Script.__ Adicione código Python a experiências de designer sondo. 
 
 ## <a name="set-up-the-workspace"></a>Configurar o espaço de trabalho
 Antes de adicionar a exploração madeireira e submeter uma experiência, deve configurar o espaço de trabalho.
@@ -78,7 +79,7 @@ Adicione o rastreio de experiências utilizando o Azure Machine Learning SDK e c
 
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
-O guião ```run.complete()```termina com , que marca a execução como concluída.  Esta função é normalmente usada em cenários de cadernos interativos.
+O guião termina com ```run.complete()``` , que marca a execução como concluída.  Esta função é normalmente usada em cenários de cadernos interativos.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Opção 2: Utilizar scriptRunConfig
 
@@ -86,11 +87,11 @@ O guião ```run.complete()```termina com , que marca a execução como concluíd
 
 Este exemplo expande-se no modelo básico de Ridge sklearn de cima. Faz uma simples varredura de parâmetros para varrer os valores alfa do modelo para capturar métricas e modelos treinados em corridas sob a experiência. O exemplo é dirigido localmente contra um ambiente gerido pelo utilizador. 
 
-1. Crie um `train.py`roteiro de treino.
+1. Crie um roteiro de `train.py` treino.
 
    [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
-2. As `train.py` referências `mylib.py` do script que lhe permitem obter a lista de valores alfa para usar no modelo ridge.
+2. As referências do `train.py` script que lhe permitem obter a lista de `mylib.py` valores alfa para usar no modelo ridge.
 
    [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
@@ -99,12 +100,37 @@ Este exemplo expande-se no modelo básico de Ridge sklearn de cima. Faz uma simp
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=user_managed_env)]
 
 
-4. Envie ```train.py``` o script para executar no ambiente gerido pelo utilizador. Toda esta pasta de script é ```mylib.py``` submetida para treino, incluindo o ficheiro.
+4. Envie o script para executar no ambiente gerido pelo ```train.py``` utilizador. Toda esta pasta de script é submetida para treino, incluindo o ```mylib.py``` ficheiro.
 
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
+## <a name="option-3-log-designer-experiments"></a>Opção 3: Experiências de log designer
 
+Utilize o módulo __Execute Python Script__ para adicionar lógica de registo às suas experiências de designer. Pode registar qualquer valor utilizando este fluxo de trabalho, mas é especialmente útil registar métricas do módulo __'Avaliar Modelo'__ para acompanhar o desempenho do modelo em diferentes corridas.
 
+1. Ligue um módulo __de Script De Execução Python__ à saída do módulo __'Avaliar Modelo'.__
+
+    ![Conecte o módulo de script de execução python para avaliar o módulo modelo](./media/how-to-track-experiments/designer-logging-pipeline.png)
+
+1. Colhe o seguinte código no editor de código __Execute Python__ script para registar o erro absoluto médio para o seu modelo treinado:
+
+    ```python
+    # dataframe1 contains the values from Evaluate Model
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+        from azureml.core import Run
+
+        run = Run.get_context()
+
+        # Log the mean absolute error to the current run to see the metric in the module detail pane.
+        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log the mean absolute error to the parent run to see the metric in the run details page.
+        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+    
+        return dataframe1,
+    ```
 
 ## <a name="manage-a-run"></a>Gerir uma corrida
 
@@ -174,7 +200,7 @@ O treino e monitorização do modelo ocorrem em segundo plano para que possa exe
 
 ### <a name="query-run-metrics"></a>Métricas de execução de consulta
 
-Pode ver as métricas de ```run.get_metrics()```um modelo treinado usando . Agora pode obter todas as métricas que foram registadas no exemplo acima para determinar o melhor modelo.
+Pode ver as métricas de um modelo treinado usando ```run.get_metrics()``` . Agora pode obter todas as métricas que foram registadas no exemplo acima para determinar o melhor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>Veja a experiência no seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com)

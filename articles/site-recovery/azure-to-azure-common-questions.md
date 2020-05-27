@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983283"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834582"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
 
@@ -163,7 +163,7 @@ Não, a Recuperação do Site manterá todos os seus pontos de recuperação ant
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Depois de a replicação ser ativada num VM, como posso alterar a política de replicação?
 
-Vá para as políticas de**replicação**de**infraestruturade recuperação** > do local do cofre do **cofre.** >  Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á a todas as replicações existentes também.
+Vá **Site Recovery Vault**para as políticas de replicação de  >  **infraestruturade recuperação**do local do cofre  >  **Replication policies**do cofre. Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á a todas as replicações existentes também.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa do VM ou um diferencial?
 
@@ -315,4 +315,4 @@ Sim, tanto a encriptação em trânsito como a [encriptação em repouso em Azur
 
 - [Rever os requisitos de suporte Azure-to-Azure](azure-to-azure-support-matrix.md).
 - [Instale a replicação Azure-to-Azure](azure-to-azure-tutorial-enable-replication.md).
-- Se tiver dúvidas depois de ler este artigo, publique-as no fórum dos Serviços de [Recuperação do Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+- Se tiver dúvidas depois de ler este artigo, publique-as no [Microsoft Q&Uma página de perguntas para os Serviços de Recuperação do Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

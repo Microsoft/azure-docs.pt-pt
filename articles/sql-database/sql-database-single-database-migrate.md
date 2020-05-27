@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12600b9a5086d785afc8581a9c4382bd3618f0d1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268616"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835755"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração da base de dados SQL Server para base de dados Azure SQL
 
@@ -113,7 +113,7 @@ Existe uma ampla variedade de problemas de compatibilidade que pode encontrar, d
 - [Funcionalidade do Motor da Base de Dados Descontinuada no SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Funcionalidade do Motor da Base de Dados Descontinuada no SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-Para além de procurar na Internet e utilizar estes recursos, utilize os [fóruns da comunidade do SQL Server do MSDN](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) ou o [StackOverflow](https://stackoverflow.com/).
+Além de pesquisar na Internet e utilizar estes recursos, utilize o Microsoft Q&Uma página de perguntas para A Base de [Dados Azure SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) ou [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > A SQL Database Managed Instance permite migrar uma instância de Servidor SQL existente e as suas bases de dados com problemas mínimos ou sem compatibilidade. Veja [o que é uma instância gerida.](sql-database-managed-instance.md)

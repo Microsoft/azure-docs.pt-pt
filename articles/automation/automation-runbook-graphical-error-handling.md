@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: e517516715871f3fbcdcab6383e6452523773363
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26a4a3dbd54256fbc193fba299d0f7504f407254
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743882"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832270"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Processamento de erros em runbooks gráficos
 
@@ -65,6 +65,4 @@ As ligações de erro fluem destas atividades para uma `error management` única
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md#use-links-for-workflow)
-* [Execução de runbooks na Automatização do Azure](automation-runbook-execution.md)
-* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
+* Para obter informações sobre a resolução de erros gráficos do livro de recortes, consulte problemas de livro de [resolução de problemas.](troubleshoot/runbooks.md)

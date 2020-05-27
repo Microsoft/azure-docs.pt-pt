@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6156b28a3baa51e84e2c46b74e63a6c8e81491cc
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715482"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836690"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Conheça o fluxo de trabalho powerShell para a automação azure
 
@@ -294,6 +294,6 @@ workflow CreateTestVms
 
 Para obter mais informações sobre os pontos de verificação, consulte a adição de pontos de [verificação a um fluxo de trabalho](https://technet.microsoft.com/library/jj574114.aspx)de script .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [O meu primeiro livro de fluxo de trabalho PowerShell](automation-first-runbook-textual.md)
+* Para saber mais sobre os livros de execução powerShell Workflow, consulte [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).

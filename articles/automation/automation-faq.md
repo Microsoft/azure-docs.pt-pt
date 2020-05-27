@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 46786ff5bd158804ea5d93377fbbcc39a9c8af26
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712881"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836622"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>A Automação Azure frequentemente fez perguntas
 
@@ -50,9 +50,9 @@ $sched = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountN
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se a sua pergunta não for respondida aqui, pode consultar as seguintes fontes para perguntas e respostas adicionais.
 
-- [Automatização do Azure](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
+- [Automatização do Azure](https://docs.microsoft.com/answers/topics/azure-automation.html)
 - [Fórum de comentários](https://feedback.azure.com/forums/905242-update-management)

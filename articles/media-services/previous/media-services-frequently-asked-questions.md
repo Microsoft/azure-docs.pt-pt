@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bdb5a43ad6669bfcd6e93ef4e3bf1646314e4606
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67c7955316d4c9670509affb478813df0768f261
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705875"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832559"
 ---
 # <a name="media-services-v2-frequently-asked-questions"></a>Serviços de Media v2 frequentemente questionados
 

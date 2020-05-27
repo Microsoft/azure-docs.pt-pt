@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f6773d9f2210fd1b0342c9586d89155082bf8ff
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fbd721bc54ce2de6b7923b0f582c53ffc7da1a73
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711453"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837030"
 ---
 # <a name="configure-data-at-scale-for-azure-automation-state-configuration"></a>Configure dados à escala para a configuração do Estado da Automação Azure
 
@@ -49,8 +49,8 @@ Em seguida, registe os seus servidores a partir do [local](/azure/automation/aut
 
 Para experimentar o Datum, visite a [PowerShell Gallery](https://www.powershellgallery.com/packages/datum/) e descarregue a solução ou clique em "Site do Projeto" para ver a [documentação](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral de configuração de estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Recursos dSC](/powershell/scripting/dsc/resources/resources)
-- [Configurar o Gestor de Configuração Local](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Para compreender o PowerShell DSC, consulte a [visão geral da Configuração do Estado do Windows PowerShell.](/powershell/scripting/dsc/overview/overview)
+- Saiba mais sobre os recursos da PowerShell DSC nos [Recursos DSC](/powershell/scripting/dsc/resources/resources).
+- Para mais detalhes sobre a configuração do Gestor de Configuração Local, consulte [configurar o Gestor](/powershell/scripting/dsc/managing-nodes/metaconfig)de Configuração Local .

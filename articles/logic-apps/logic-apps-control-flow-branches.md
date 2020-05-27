@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f857449d4511b6ae0a5a25bf7aca9e1abc1ae7c0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453434"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833698"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou juntar ramos paralelos para ações de fluxo de trabalho em Aplicações Lógicas Azure
 
@@ -34,14 +34,14 @@ Para executar passos independentes ao mesmo tempo, pode adicionar ramos paralelo
 
 ![Correr passos em paralelo](media/logic-apps-control-flow-branches/parallel.png)
 
-A sua aplicação lógica aguarda que todos os ramos terminem antes de continuar o fluxo de trabalho. Os ramos paralelos `runAfter` só funcionam quando os seus valores de propriedade correspondem ao estado do passo dos pais acabado. Por exemplo, `branchAction1` `branchAction2` ambos e estão `parentAction` definidos `Succeeded` para funcionar apenas quando os completos com estatuto.
+A sua aplicação lógica aguarda que todos os ramos terminem antes de continuar o fluxo de trabalho. Os ramos paralelos só funcionam quando os seus `runAfter` valores de propriedade correspondem ao estado do passo dos pais acabado. Por exemplo, ambos `branchAction1` e `branchAction2` estão definidos para funcionar apenas quando os `parentAction` completos com `Succeeded` estatuto.
 
 > [!NOTE]
 > Antes de começar, a sua aplicação lógica já deve ter um passo onde pode adicionar ramos paralelos.
 
 1. No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a sua aplicação lógica no Logic App Designer.
 
-1. Mova o ponteiro sobre a seta acima do degrau onde pretende adicionar ramos paralelos. Escolha o sinal**+** de **mais** ( ) que aparece e, em seguida, escolha Adicionar um **ramo paralelo**. 
+1. Mova o ponteiro sobre a seta acima do degrau onde pretende adicionar ramos paralelos. Escolha o sinal **de mais** ( ) que **+** aparece e, em seguida, escolha **Adicionar um ramo paralelo**. 
 
    ![Adicionar ramo paralelo](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ A sua aplicação lógica aguarda que todos os ramos terminem antes de continuar
 
    ![Encontre e selecione a ação que deseja](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Agora, em cada ramo paralelo, adicione os passos que quiser. Para adicionar outra ação a um ramo, mova o seu ponteiro sob a ação onde pretende adicionar uma ação sequencial. Escolha o**+** sinal de **mais** ( ) que aparece e, em seguida, selecione Adicionar uma **ação**.
+1. Agora, em cada ramo paralelo, adicione os passos que quiser. Para adicionar outra ação a um ramo, mova o seu ponteiro sob a ação onde pretende adicionar uma ação sequencial. Escolha o sinal **de mais** ( ) que **+** aparece e, em seguida, selecione **Adicionar uma ação**.
 
    ![Adicione ação sequencial ao ramo paralelo](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -183,7 +183,7 @@ Se estiver a trabalhar em vista de código, pode definir a estrutura de adesão 
 
 ## <a name="get-support"></a>Obter suporte
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do utilizador das [Aplicações Lógicas Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes

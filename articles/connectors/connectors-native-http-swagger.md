@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74787374"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831930"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Ligue para os pontos finais do REST utilizando aplicações da Lógica Azure
 
@@ -82,7 +82,7 @@ Esta ação incorporada faz um pedido http para o URL para o ficheiro Swagger qu
 
 1. Sob o degrau onde pretende adicionar a ação HTTP + Swagger, selecione **Novo passo**.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. No designer, na caixa de pesquisa, introduza "swagger" como filtro. Na lista **de Ações,** selecione a ação **HTTP + Swagger.**
 
@@ -137,9 +137,9 @@ Pode fazer referência a um ficheiro Swagger que não esteja hospedado ou que n�
 
 1. [Faça upload do ficheiro Swagger para o recipiente blob,](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)seja através do [portal Azure](https://portal.azure.com) ou [do Azure Storage Explorer](https://storageexplorer.com/).
 
-1. Para fazer referência ao ficheiro no recipiente blob, utilize uma ligação HTTPS que siga este formato, que é sensível a casos:
+1. Para fazer referência ao ficheiro no recipiente de blob, obtenha o URL HTTPS que segue este formato, que é sensível a casos, do Azure Storage Explorer:
 
-   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<complete-swagger-file-name>?<query-parameters>`
 
 ## <a name="connector-reference"></a>Referência do conector
 
@@ -152,7 +152,7 @@ Aqui está mais informações sobre as saídas de um gatilho OU ação HTTP + Sw
 | código de estado | int | O código de estado do pedido |
 |||
 
-| Código de estado | Descrição |
+| Código de estado | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceite |

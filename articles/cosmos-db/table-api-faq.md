@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: ce3313f2e96dacff95ed1587e2e979c4628ec022
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674327"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836231"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a Tabela API em Azure Cosmos DB
 
@@ -278,7 +278,7 @@ O Azure Cosmos DB é um sistema baseado em SLA que fornece uma escala ilimitada,
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>Então, partitionKey e RowKey ainda são necessários com a API da tabela?
 
-Yes. Uma vez que a área de superfície da API da tabela é semelhante à do Armazenamento da Tabela Azure SDK, a chave de partição fornece uma forma eficiente de distribuir os dados. A chave da linha é única dentro dessa divisória. A chave da linha precisa estar presente e não pode ser nula como no SDK padrão. O comprimento de RowKey é de 255 bytes e o comprimento da PartitionKey é de 1 KB.
+Sim. Uma vez que a área de superfície da API da tabela é semelhante à do Armazenamento da Tabela Azure SDK, a chave de partição fornece uma forma eficiente de distribuir os dados. A chave da linha é única dentro dessa divisória. A chave da linha precisa estar presente e não pode ser nula como no SDK padrão. O comprimento de RowKey é de 255 bytes e o comprimento da PartitionKey é de 1 KB.
 
 ### <a name="what-are-the-error-messages-for-the-table-api"></a>Quais são as mensagens de erro para a API da tabela?
 
@@ -293,7 +293,7 @@ Azure Cosmos DB é um sistema baseado em SLA que fornece garantias de latência,
 Pode partilhar o seu feedback de qualquer uma das seguintes formas:
 
 * [Voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Fórum do MSDN](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Transbordo de pilhas.](https://stackoverflow.com/questions/tagged/azure-cosmosdb) Stack Overflow é o melhor para questões de programação. Certifique-se de que a sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e forneça o máximo de [detalhes possível, tornando a questão clara e responsável.](https://stackoverflow.com/help/how-to-ask)
 
 ## <a name="next-steps"></a>Passos seguintes

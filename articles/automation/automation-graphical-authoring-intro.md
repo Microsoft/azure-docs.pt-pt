@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 35d3146c0ca5571e6e16793c97378de1e2db362e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6f7335b92d7c26b33f9b156d434d895a1bca40c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711725"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835398"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos de autor na Automação Azure
 
@@ -430,11 +430,9 @@ Publique um livro de execução gráfico abrindo o livro de execução para edi�
 
 Tem a opção de reverter para a versão publicada de um livro de execução. Esta operação deita fora quaisquer alterações feitas desde que o livro de execução foi publicado pela última vez. Substitui a versão Draft do livro de execução pela versão Publicada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para começar com os livros de execução powerShell Workflow, consulte o meu primeiro livro de [execução powerShell Workflow](automation-first-runbook-textual.md).
-* Para começar com livros gráficos, veja [o meu primeiro livro de corridas gráficos.](automation-first-runbook-graphical.md)
+* Para começar com livros gráficos, consulte [Tutorial: Crie um livro de execução gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para saber mais sobre os tipos de livro de corridas e as suas vantagens e limitações, consulte os tipos de livro de [execução da Automação Azure](automation-runbook-types.md).
-* Para entender como autenticar usando a automatização Executar Como conta, consulte [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para entender como autenticar usando a conta Automation Run As, consulte [Executar As conta](automation-security-overview.md#run-as-account).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

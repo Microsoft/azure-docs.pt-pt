@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732330"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834327"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
 
@@ -31,7 +31,7 @@ Dependendo da configuração e do ambiente, existem algumas variações.
 
 ## <a name="ports"></a>Portas
 
-Todo o tráfego para um cofre de chaves para as três funções (autenticação, gestão e acesso ao plano de dados) é feito por HTTPS: porta 443. No entanto, existirá ocasionalmente tráfego HTTP (porta 80) para CRL. Os clientes que suportam a OCSP não devem [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)chegar ao CRL, mas podem ocasionalmente chegar .  
+Todo o tráfego para um cofre de chaves para as três funções (autenticação, gestão e acesso ao plano de dados) é feito por HTTPS: porta 443. No entanto, existirá ocasionalmente tráfego HTTP (porta 80) para CRL. Os clientes que suportam a OCSP não devem chegar ao CRL, mas podem ocasionalmente chegar [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) .  
 
 ## <a name="authentication"></a>Autenticação
 
@@ -74,4 +74,4 @@ A Autenticação e Identidade (Azure Active Directory) é um serviço global e p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver perguntas sobre o Cofre de Chaves, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Se tiver dúvidas sobre o Key Vault, visite o [Microsoft Q&Uma página de perguntas para o Cofre de Chaves Azure](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

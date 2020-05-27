@@ -11,12 +11,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417985"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832797"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir atividade variável na fábrica de dados azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,15 +27,15 @@ Utilize a atividade Variável definida para definir o valor de uma variável exi
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-nome | Nome da atividade em pipeline | sim
+name | Nome da atividade em pipeline | sim
 descrição | Texto descrevendo o que a atividade faz | não
 tipo | Deve ser definido para **Definir Variável** | sim
-valor | Valor de objeto literal ou de expressão de cadeia a que a variável será atribuída | sim
-nome variável | Nome da variável que será definida por esta atividade | sim
+valor | Valor de objeto literal ou de expressão de corda a que a variável é atribuída | sim
+nome variável | Nome da variável que é definida por esta atividade | sim
 
 ## <a name="incrementing-a-variable"></a>Incrementando uma variável
 
-Um cenário comum que envolve variáveis na Azure Data Factory está a usar uma variável como iterador dentro de uma atividade de até ou foreach. Numa atividade variável definida não se pode `value` referenciar a variável que está a ser definida no campo. Para contornar esta limitação, delineie uma variável temporária e, em seguida, crie uma segunda atividade variável. A segunda atividade variável define o valor do iterante para a variável temporária. 
+Um cenário comum que envolve variáveis na Azure Data Factory está a usar uma variável como iterador dentro de uma atividade de até ou foreach. Numa atividade variável definida não se pode referenciar a variável que está a ser definida no `value` campo. Para contornar esta limitação, delineie uma variável temporária e, em seguida, crie uma segunda atividade variável. A segunda atividade variável define o valor do iterante para a variável temporária. 
 
 Abaixo está um exemplo deste padrão:
 

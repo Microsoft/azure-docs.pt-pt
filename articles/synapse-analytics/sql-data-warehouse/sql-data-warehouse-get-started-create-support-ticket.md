@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: eaa6ceded9893b278b28d517cbddb303f8469e10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80350886"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835466"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Pedidos de quota aumenta e obter apoio para Azure Synapse Analytics
 
@@ -95,9 +95,9 @@ Se a sua subscrição necessitar de acesso numa determinada região, utilize a o
 
 ![Outros detalhes da quota](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
-## <a name="submit-your-request"></a>Submeta o seu pedido
+## <a name="submit-your-request"></a>Submeter o pedido
 
-O passo final é preencher os detalhes restantes do seu pedido de suporte da Base de Dados SQL. Em seguida, selecione **Next: Revê + criar>>**, e depois de rever os detalhes do pedido, clique em **Criar** para submeter o pedido.
+O passo final é preencher os detalhes restantes do seu pedido de suporte da Base de Dados SQL. Em seguida, selecione **Seguinte: Rever + criar>>** e, depois de rever os detalhes do pedido, clique em **Criar** para submeter o pedido.
 
 ## <a name="monitor-a-support-ticket"></a>Monitorizar um pedido de suporte
 
@@ -107,5 +107,5 @@ Depois de ter apresentado o pedido de apoio, a equipa de apoio do Azure entrará
 
 ## <a name="other-resources"></a>Outros recursos
 
-Também pode conectar-se com a comunidade Azure Synapse Analytics no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou através do [fórum Azure SQL Data Warehouse MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+Também pode conectar-se com a comunidade Azure Synapse Analytics no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou através do Microsoft Q&Uma página de perguntas para o Armazém de [Dados Azure SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

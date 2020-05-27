@@ -4,12 +4,12 @@ description: Este artigo diz como usar a Azure Automation para gerir os serviço
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbd01f3868f44d975e0822a7812262d9e15ca299
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 322e2a3679ed29ab9ecc4cdc3c6e1fe4d0f20276
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745346"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831177"
 ---
 # <a name="manage-office-365-services"></a>Gerir os serviços do Office 365
 
@@ -111,7 +111,7 @@ Para publicar e, em seguida, agendar o seu livro de execução, consulte [Gerir 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir livros de corridas na Automação Azure](https://docs.microsoft.com/azure/automation/manage-runbooks)
-* [Utilizar módulos na Automatização do Azure](shared-resources/modules.md)
-* [Gerir credenciais na Automação Azure](shared-resources/credentials.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* Para mais detalhes sobre a utilização da credencial, consulte [Gerir credenciais em Automação Azure](shared-resources/credentials.md).
+* Para obter informações sobre módulos, consulte [Gerir módulos em Automação Azure.](shared-resources/modules.md)
+* Se precisar de iniciar um livro de corridas, consulte [Iniciar um livro de corridas em Automação Azure](start-runbooks.md).
+* Para mais detalhes da PowerShell, consulte [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc7babdb7b64b12ecc9ef4590a91c7a3683a6558
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a92f65bd88a5aec79a179a6e2d53de15c274add4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799791"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834565"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Enviar um e-mail a partir de um runbook
 
@@ -138,7 +138,7 @@ Para verificar se o livro de execução executa com sucesso, pode seguir os pass
 
 Se não vir inicialmente o seu e-mail de teste, verifique as suas pastas **Junk** e **Spam.**
 
-## <a name="clean-up-after-the-email-operation"></a>Limpe-se após a operação de e-mail
+## <a name="clean-up-resources-after-the-email-operation"></a>Limpar recursos após a operação de e-mail
 
 1. Quando o livro de execução já não for necessário, selecione-o na lista de livros de execução e clique em **Eliminar**.
 
@@ -152,7 +152,6 @@ Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Atualizar módulos do Azure PowerShell](automation-update-azure-modules.md)
-* [Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md)
-* [Use um alerta para desencadear um livro de execução da Automação Azure](automation-create-alert-triggered-runbook.md)
-* [Problemas de livro de resolução de problemas](./troubleshoot/runbooks.md)
+* Para enviar dados de trabalho do livro de recortes para o seu espaço de trabalho Log Analytics, consulte os dados de trabalho da [Forward Azure Automation para os registos do Monitor Do Azure](automation-manage-send-joblogs-log-analytics.md).
+* Para monitorizar métricas e registos de nível base, consulte Utilize um alerta para desencadear um livro de [execução da Automação Azure](automation-create-alert-triggered-runbook.md).
+* Para corrigir as questões que surgem durante as operações do livro de corridas, consulte problemas de runbook da [Troubleshoot](./troubleshoot/runbooks.md).

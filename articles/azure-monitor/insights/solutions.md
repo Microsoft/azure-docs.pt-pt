@@ -5,26 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/23/2020
-ms.openlocfilehash: 44094497c98c306b0995f3a74da68809ef66a0ac
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/12/2020
+ms.openlocfilehash: 2627cd540efe644315e303337b7dce95a6e2d126
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682832"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832049"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Monitor Azure
 
 A monitorização de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve visão geral das soluções de monitorização no Azure e detalhes sobre a sua utilização e instalação.
 
-> [!NOTE]
-> As soluções de monitorização eram anteriormente referidas como soluções de gestão.
-
-As soluções de monitorização normalmente recolhem dados de registo e fornecem consultas e pontos de vista para analisar os dados recolhidos. Podem ainda aproveitar outros serviços, como a Azure Automation, para realizar ações relacionadas com a aplicação ou serviço.
-
 Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Normalmente estão disponíveis sem custos, mas recolhem dados que podem invocar taxas de utilização. Além das soluções fornecidas pela Microsoft, parceiros e clientes podem [criar soluções](solutions-creating.md) de gestão para serem usadas no seu próprio ambiente ou disponibilizadas aos clientes através da comunidade.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Utilizar soluções de monitorização
 

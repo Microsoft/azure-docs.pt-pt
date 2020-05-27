@@ -7,12 +7,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843647"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835993"
 ---
 # <a name="region-or-sku-unavailable"></a>Região ou SKU indisponível
 
@@ -68,7 +68,7 @@ Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoi
 
 1. Para **o tipo de problema,** escolha Selecionar o tipo de **problema**.
 
-1. Para selecionar tipo de **problema,** escolha uma opção, por exemplo, **Incapaz de aceder à minha subscrição ou recurso** > **O meu problema não está listado acima .** Selecione **Guardar**.
+1. Para selecionar tipo de **problema,** escolha uma opção, por exemplo, **Incapaz de aceder à minha subscrição ou recurso**O meu problema não está listado acima  >  **.** Selecione **Guardar**.
 
    ![Especificar um problema para o pedido](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
@@ -80,7 +80,7 @@ Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoi
 
 ## <a name="send-us-your-suggestions"></a>Envie-nos as suas sugestões
 
-Estamos sempre abertos a feedback e sugestões! Envie-nos as suas [sugestões.](https://feedback.azure.com/forums/266794-support-feedback) Além disso, pode envolver-se connosco no [Twitter](https://twitter.com/azuresupport) ou nos fóruns da [MSDN.](https://social.msdn.microsoft.com/Forums/azure)
+Estamos sempre abertos a feedback e sugestões! Envie-nos as suas [sugestões.](https://feedback.azure.com/forums/266794-support-feedback) Além disso, pode envolver-se connosco no [Twitter](https://twitter.com/azuresupport) ou na página de [perguntas do Microsoft Q&A](https://docs.microsoft.com/answers/products/azure).
 
 ## <a name="learn-more"></a>Saiba mais
 

@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 10b53da1ef277d7a3d6ab7c850192ce8f08ded68
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/22/2020
+ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712677"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837149"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Crie uma conta de Automação usando um modelo de Gestor de Recursos Azure
 
@@ -26,6 +26,8 @@ O modelo não automatiza a habilitação de máquinas virtuais Azure ou não Azu
 
 >[!NOTE]
 >Criação da Execução de Automação Como conta não é suportada quando você está usando um modelo de Gestor de Recursos Azure. Para criar uma Conta Executar Manualmente a partir do portal ou com powerShell, consulte [Gerir Como contas](manage-runas-account.md).
+
+Depois de completar estes passos, precisa [de configurar as definições](automation-manage-send-joblogs-log-analytics.md) de diagnóstico para a sua conta de Automação para enviar o estado de trabalho do livro de recortes e os fluxos de trabalho para o espaço de trabalho de Log Analytics ligado. 
 
 ## <a name="api-versions"></a>Versões da API
 
@@ -308,8 +310,6 @@ Se é novo no Azure Automation e no Azure Monitor, é importante que compreenda 
 
     ![Resultado do exemplo quando a implementação está completa](media/automation-create-account-template/template-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* [Criar um livro de execução powerShell Workflow](automation-first-runbook-textual.md)
-* [Criar um runbook de Python](automation-first-runbook-textual-python2.md)
+Para encaminhar o estado do trabalho do livro de execução e os fluxos de trabalho para o seu espaço de trabalho linked Log Analytics, reveja os dados de trabalho da [Forward Azure Automation para os registos do Monitor Do Azure](automation-manage-send-joblogs-log-analytics.md). Isto configura as definições de diagnóstico da conta Automation utilizando comandos Azure PowerShell para completar a integração para envio de registos para o espaço de trabalho para análise. 

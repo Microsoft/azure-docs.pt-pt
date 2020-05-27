@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240292"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834769"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Azure Stream Analytics
 
@@ -56,7 +56,7 @@ Nesta secção, você cria um espaço de nome de evento e adiciona um hub de eve
  
 4. Quando o espaço de nome tiver terminado de ser implantado, navegue para o seu grupo de recursos e encontre o espaço de nome do centro de eventos na sua lista de recursos Azure. 
 
-5. A partir do novo ** + &nbsp;** espaço de nome, selecione Event Hub . 
+5. A partir do novo espaço de nome, selecione ** + &nbsp; Event Hub**. 
 
 6. Nomeie o novo centro de *eventos socialtwitter-eh*. Pode utilizar um nome diferente. Se o fizeres, tome nota disso, porque precisas do nome mais tarde. Não precisa definir outras opções para o centro do evento.
  
@@ -89,7 +89,7 @@ Antes de um processo poder enviar dados para um centro de eventos, o centro de e
    Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
    ```
 
-   Note que a cadeia de ligação contém múltiplos pares `Endpoint`de `SharedAccessKeyName` `SharedAccessKey`valor-chave, separados com pontos evíbis: , , e `EntityPath`.  
+   Note que a cadeia de ligação contém múltiplos pares de valor-chave, separados com pontos evíbis: `Endpoint` `SharedAccessKeyName` , , e `SharedAccessKey` `EntityPath` .  
 
    > [!NOTE]
    > Para segurança, partes da corda de ligação no exemplo foram removidas.
@@ -127,7 +127,7 @@ Antes da aplicação ser executado, requer certas informações suas, como as ch
 
 1. Certifique-se de que descarregou a aplicação [TwitterClientCore,](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore) tal como listado nos pré-requisitos.
 
-2. Utilize um editor de texto para abrir o ficheiro *App.config.* Faça as seguintes `<appSettings>` alterações no elemento:
+2. Utilize um editor de texto para abrir o ficheiro *App.config.* Faça as seguintes alterações no `<appSettings>` elemento:
 
    * Definido `oauth_consumer_key` na Chave do Consumidor do Twitter (tecla API). 
    * Definido `oauth_consumer_secret` para o Twitter Consumer Secret (chave secreta DaPI).
@@ -136,7 +136,7 @@ Antes da aplicação ser executado, requer certas informações suas, como as ch
    * Coloque `EventHubNameConnectionString` na corda de ligação.
    * Definir `EventHubName` para o nome do centro do evento (que é o valor do caminho da entidade).
 
-3. Abra a linha de comando e navegue para o diretório onde está a sua aplicação TwitterClientCore. Use o `dotnet build` comando para construir o projeto. Em seguida, `dotnet run` use o comando para executar a aplicação. A aplicação envia Tweets para o seu Centro de Eventos.
+3. Abra a linha de comando e navegue para o diretório onde está a sua aplicação TwitterClientCore. Use o comando `dotnet build` para construir o projeto. Em seguida, use o comando `dotnet run` para executar a aplicação. A aplicação envia Tweets para o seu Centro de Eventos.
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
@@ -144,7 +144,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
 
 1. No portal Azure, navegue para o seu grupo de recursos e selecione **+ Adicionar**. Em seguida, procure o **trabalho do Stream Analytics** e selecione **Criar**.
 
-2. Nomeie `socialtwitter-sa-job` o trabalho e especifique uma subscrição, grupo de recursos e localização.
+2. Nomeie o trabalho `socialtwitter-sa-job` e especifique uma subscrição, grupo de recursos e localização.
 
     É uma boa ideia colocar o trabalho e o centro de eventos na mesma região para melhor desempenho e para que não pague para transferir dados entre regiões.
 
@@ -154,7 +154,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
 
 1. No seu trabalho de Stream Analytics, selecione **Inputs** do menu esquerdo sob **Topologia de Trabalho**.
 
-2. ** + &nbsp;Selecione Adicionar centro de****eventos**de entrada > de fluxo . Preencha o novo formulário de **entrada** com as seguintes informações:
+2. ** + &nbsp; Selecione Adicionar centro de**  >  **eventos**de entrada de fluxo . Preencha o novo formulário de **entrada** com as seguintes informações:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -205,12 +205,12 @@ Neste guia de como guiar, você escreve os eventos de tweet agregados da consult
 
 1. Na secção **De Trabalho Topologia** no menu de navegação à esquerda, selecione **Saídas**. 
 
-2. Na página **Outputs,** clique em ** + &nbsp;Adicionar** e **Blob armazenamento/Data Lake Storage Gen2:**
+2. Na página **Outputs,** clique em ** + &nbsp; Adicionar** e **Blob armazenamento/Data Lake Storage Gen2:**
 
-   * **Pseudónimo de saída**: `TwitterStream-Output`Utilize o nome . 
+   * **Pseudónimo de saída**: Utilize o nome `TwitterStream-Output` . 
    * **Opções de importação**: **Selecione o armazenamento a partir das suas subscrições**.
    * **Conta de armazenamento.** Selecione a sua conta de armazenamento.
-   * **Recipiente**. Selecione Criar `socialtwitter` **novo** e entrar.
+   * **Recipiente**. Selecione **Criar novo** e `socialtwitter` entrar.
    
 4. Selecione **Guardar**.   
 
@@ -225,7 +225,7 @@ Neste guia de como guiar, você escreve os eventos de tweet agregados da consult
 3. Na página de início de **trabalho,** para iniciar a saída de **trabalho,** selecione **Agora** e, em seguida, selecione **Iniciar**.
 
 ## <a name="get-support"></a>Obter suporte
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

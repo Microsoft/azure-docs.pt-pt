@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: dbe13b2d1291f212af7da9d1176bc3d90997978b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428969"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834383"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -42,11 +42,11 @@ O modelo de um único mecanismo de autenticação a ambos os aviões tem vários
 
 - As organizações podem controlar o acesso central a todos os cofres chave da sua organização.
 - Se um utilizador sair, perde instantaneamente o acesso a todos os cofres chave da organização.
-- As organizações podem personalizar a autenticação utilizando as opções em AD Azure, de modo a permitir a autenticação de vários fatores para uma maior segurança
+- As organizações podem personalizar a autenticação utilizando as opções em AD Azure, de modo a permitir a autenticação de vários fatores para uma maior segurança.
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gerir o acesso administrativo ao Cofre Chave
 
-Quando se cria um cofre chave num grupo de recursos, gere-se o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível específico de âmbito, atribuindo as funções rbac adequadas. Para conceder acesso a um utilizador para gerir cofres `key vault Contributor` chave, atribui uma função predefinida ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
+Quando se cria um cofre chave num grupo de recursos, gere-se o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível específico de âmbito, atribuindo as funções rbac adequadas. Para conceder acesso a um utilizador para gerir cofres chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
 
 - **Subscrição**: Uma função RBAC atribuída ao nível de subscrição aplica-se a todos os grupos e recursos de recursos dentro dessa subscrição.
 - **Grupo de recursos**: Uma função RBAC atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
@@ -55,7 +55,7 @@ Quando se cria um cofre chave num grupo de recursos, gere-se o acesso utilizando
 Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [As funções RBAC: Incorporadas.](../../role-based-access-control/built-in-roles.md)
 
 > [!IMPORTANT]
-> Se um `Contributor` utilizador tiver permissões para um avião de gestão de cofres chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre chave. Devias controlar bem `Contributor` quem tem acesso aos teus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
+> Se um utilizador tiver permissões para um avião de gestão de `Contributor` cofres chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre chave. Devias controlar bem quem tem `Contributor` acesso aos teus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
 
 <a id="data-plane-access-control"></a>
 ### <a name="controlling-access-to-key-vault-data"></a>Controlar o acesso aos dados do Cofre chave
@@ -97,6 +97,6 @@ Para recomendação sobre gestão segura das contas de armazenamento, reveja o g
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pontos finais](overview-vnet-service-endpoints.md)de serviço de rede virtual para cofre de chaves Azure )
+- [Pontos finais de serviço de rede virtual para cofre chave Azure](overview-vnet-service-endpoints.md)
 - [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md)
-- [pontos finais](overview-vnet-service-endpoints.md)de serviço de rede virtual para O Cofre chave Azure )
+- [pontos finais de serviço de rede virtual para O Cofre chave Azure](overview-vnet-service-endpoints.md)

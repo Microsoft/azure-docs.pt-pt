@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11902e363428a45bc158a99d251343e13b62540d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72598335"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836435"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure  
 
@@ -40,7 +40,7 @@ Esta página comunitária do Azure Media Services (AMS) discute diferentes forma
 
 ### <a name="twitter"></a>Twitter
 
-Use [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) a pega do Twitter para nos contactar ou seguir atualizações no Twitter. Pode usar [@AzureSupport](https://twitter.com/azuresupport) a pega do Twitter para solicitar apoio no Twitter.  
+Use a pega do [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter para nos contactar ou seguir atualizações no Twitter. Pode usar a pega do [@AzureSupport](https://twitter.com/azuresupport) Twitter para solicitar apoio no Twitter.  
 
 ### <a name="online-forums"></a>Fóruns online
 
@@ -48,7 +48,7 @@ Os seguintes fóruns podem ser usados para fazer perguntas sobre produtos e func
 
 Atualmente, a MSDN é o principal fórum comunitário da equipa de Media Services.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 A equipa também monitoriza as perguntas marcadas no Stack Overflow com "serviços de mídia azul".
 
@@ -60,4 +60,4 @@ Você pode abrir um bilhete de apoio navegando para [novo pedido](https://portal
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição Geral](media-services-overview.md)
+[Descrição geral](media-services-overview.md)

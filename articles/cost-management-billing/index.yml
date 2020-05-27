@@ -8,12 +8,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 01/24/2019
-  ms.openlocfilehash: c12ec346a23d8da703c1c0d89e9cccdf5f84cce5
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c1fbce7ba94ad097f948a36f93b1f997225c7086
+  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79117198"
+  ms.lasthandoff: 05/25/2020
+  ms.locfileid: "83833607"
 highlightedContent:
   items:
   - title: O que é o Cost Management + Faturação?
@@ -147,6 +147,6 @@ conceptualContent:
     - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
       itemType: how-to-guide
       text: Comunidade Técnica da Faturação do Azure
-    - url: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureCostManagement&filter=alltypes&sort=relevancedesc&searchTerm=Azure%20Cost%20Management
+    - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
       itemType: how-to-guide
       text: Fazer uma pergunta no fórum do Cost Management e Faturação

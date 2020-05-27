@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd2440ecf04bb4481b5497317e0acd2641710ccf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133316"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836877"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Consultas de Troubleshoot Azure Stream Analytics
 
@@ -77,11 +77,11 @@ Em seguida, pode reescrever a consulta assim:
 
 Agora começa o trabalho outra vez, e deixa-o correr por uns minutos. Em seguida, consulta temp1 e temp2 com Visual Studio Cloud Explorer para produzir as seguintes tabelas:
 
-**tabela temporária1**
-SELECT INTO temp1 tabela Stream Análise![consulta](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+**temp1 table** 
+ mesa ![ temporária1 SELECIONE EM temperatura1 consulta de fluxo de tabela Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**tabela temporária2**
-SELECT INTO temp2 tabela Stream Análise![consulta](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+**temp2 table** 
+ mesa ![ temporária2 SELECIONE EM Temperatura2 tabela Stream Analytics consulta](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Como pode ver, os temp1 e os temp2 têm dados, e a coluna de nomes é povoada corretamente em temperatura2. No entanto, como ainda não há dados na produção, algo está errado:
 
@@ -103,7 +103,7 @@ Desta vez, os dados da saída são formatados e povoados como esperado.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 

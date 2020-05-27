@@ -3,12 +3,12 @@ title: Resolução de problemas sem dados - Application Insights para .NET
 description: Não estás a ver dados em Insights de Aplicação Azure? Tente aqui.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 2770888c6cfacedcf186ed1612718133cc1ba363
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778682"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835143"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Informações de aplicação para .NET/.NET Core
 
@@ -261,4 +261,4 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 Saiba como remover os Insights de Aplicação no Estúdio Visual seguindo os passos apresentados no [artigo](../../azure-monitor/app/remove-application-insights.md)de remoção .
 
 ## <a name="still-not-working"></a>Ainda não estou a trabalhar...
-* [Fórum de Insights de Aplicação](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Microsoft Q&Uma página de perguntas para Insights de Aplicação](https://docs.microsoft.com/answers/topics/azure-monitor.html)

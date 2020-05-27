@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: a784ddbc2ab1298bec3e2dc21469785163d7a228
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711997"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836741"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Crie um runbook de Automatização do Azure
 
@@ -93,9 +93,9 @@ Assim que o runbook é publicado, é apresentada a página de descrição geral.
 
 Quando já não precisar, elimine o runbook. Para tal, selecione o runbook na lista de runbooks e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, criou, editou, testou e publicou um runbook e iniciou uma tarefa de runbook. Para obter mais informações sobre Runbooks de automatização, avance para o artigo sobre os diferentes tipos de runbooks que pode criar e utilizar na Automatização.
 
 > [!div class="nextstepaction"]
-> [Guia de Automatização - Tipos de Runbooks](./automation-runbook-types.md)
+> [Tipos de livro de execução da Automação Azure](./automation-runbook-types.md)

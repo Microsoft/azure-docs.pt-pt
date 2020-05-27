@@ -10,12 +10,12 @@ metadata:
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 11/19/2019
-  ms.openlocfilehash: 1bf915e1e49ca4633d64575086f17038018c24c0
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 3f1d89d7e9c4c8a57c08d6b5880f707a01b7fcb2
+  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75973981"
+  ms.lasthandoff: 05/25/2020
+  ms.locfileid: "83835194"
 landingContent:
 - title: Acerca do Azure Migrate
   linkLists:
@@ -96,6 +96,6 @@ landingContent:
     - text: Pedir uma funcionalidade de serviço
       url: https://feedback.azure.com/forums/907195-azure-migrate
     - text: Faça uma pergunta no fórum
-      url: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
+      url: https://docs.microsoft.com/answers/topics/azure-migrate.html
     - text: Azure Tech Community
       url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

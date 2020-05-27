@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: df3e107b111161284c697aa8f619eed96443a893
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651838"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835347"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Monitor Azure frequentemente questionado
 
@@ -735,7 +735,7 @@ Sob esta condição, será solicitado com a opção **Try Now** quando abrir o V
 ## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
 
 Para obter feedback geral no Monitor Azure visite o fórum de [feedback](https://feedback.azure.com/forums/34192--general-feedback).

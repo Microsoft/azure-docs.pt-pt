@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 062fa867115ea90dd129cac9c71ac6d9df6f3de2
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 39106f863352061cdaa583bde96f50d3f91a07e9
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725861"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836520"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter as caches que precisares em todo o mundo.
 
 Este artigo foi concebido para o ajudar a resolver problemas e a resolver problemas que poderá encontrar com a sua implementação de Sincronização de Ficheiros Azure. Também descrevemos como recolher registos importantes do sistema se for necessária uma investigação mais profunda sobre o assunto. Se não vir a resposta à sua pergunta, pode contactar-nos através dos seguintes canais (por ordem crescente):
 
-1. Fórum de [Armazenamento Azure.](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+1. [Microsoft Q&Uma página de perguntas para o Armazenamento Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal Azure, no separador **Ajuda,** selecione o botão **de suporte Ajuda +** e, em seguida, selecione Novo pedido de **suporte**.
 
@@ -1280,7 +1280,7 @@ Para a versão do agente v10 e anterior:
 5. Reproduza o problema. Quando terminar, entre em **D.**
 6. Um ficheiro .zip que contém registos e ficheiros de rastreio é guardado no diretório de saída que especificou.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)

@@ -1,16 +1,16 @@
 ---
-title: Fluxo de trabalho de serviço de lote e recursos
+title: Fluxo de trabalho e recursos do serviço Batch
 description: Conheça as características do serviço Batch e o seu fluxo de trabalho de alto nível do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 8112f6059a14bb18bf1fbf4011ceb074d71b5837
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791135"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835925"
 ---
-# <a name="batch-service-workflow-and-resources"></a>Fluxo de trabalho de serviço de lote e recursos
+# <a name="batch-service-workflow-and-resources"></a>Fluxo de trabalho e recursos do serviço Batch
 
 Nesta visão geral dos componentes centrais do serviço Azure Batch, discutimos o fluxo de trabalho de alto nível que os desenvolvedores de lotes podem usar para construir soluções de computação paralela em larga escala, juntamente com os recursos de serviço primário que são usados.
 
@@ -38,8 +38,8 @@ O fluxo de trabalho detalhado que se segue é típico de quase todos os serviço
 Os seguintes tópicos discutem os recursos do Lote que permitem os seus cenários computacionais distribuídos.
 
 - [Contas de lote e contas de armazenamento](accounts.md)
-- [Nódosos e piscinas](nodes-and-pools.md)
-- [Empregos e tarefas](jobs-and-tasks.md)
+- [Nós e conjuntos](nodes-and-pools.md)
+- [Trabalhos e tarefas](jobs-and-tasks.md)
 - [Ficheiros e diretórios](files-and-directories.md)
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -47,4 +47,4 @@ Os seguintes tópicos discutem os recursos do Lote que permitem os seus cenário
 - Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 - Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.
 - Transfira e instale o [Batch Explorer](https://azure.github.io/BatchExplorer/) para utilizar enquanto desenvolve as soluções do Batch. Utilize o Batch Explorer para ajudar a criar, depurar e monitorizar aplicações do Azure Batch.
-- Consulte os recursos comunitários, incluindo [stack overflow,](https://stackoverflow.com/questions/tagged/azure-batch)o [repo comunitário de lote,](https://github.com/Azure/Batch)e o [fórum Do Lote Azure.](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch)
+- Consulte os recursos comunitários, incluindo [stack overflow,](https://stackoverflow.com/questions/tagged/azure-batch)o [repo comunitário de lote,](https://github.com/Azure/Batch)e o [fórum Do Lote Azure.](https://docs.microsoft.com/answers/topics/azure-batch.html)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 13ea1043d05c9f349e25623086c2908e176772a8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ec914db1e26e6f052715440c3e418df09fe8a361
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583946"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835976"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
 
@@ -36,12 +36,12 @@ Existem dois tipos de componentes de código aberto que estão disponíveis no s
 |Componente |Descrição |
 |---|---|
 |Incorporado|Estes componentes são pré-instalados em clusters HDInsight e fornecem a funcionalidade central do cluster. Por exemplo, Apache Hadoop YARN Resource Manager, a linguagem de consulta da Colmeia Apache (HiveQL), e a biblioteca Mahout pertencem a esta categoria. Uma lista completa de componentes de cluster está disponível nas [versões do cluster Apache Hadoop fornecidas pela HDInsight](../hdinsight-component-versioning.md).|
-|Personalizado|Você, como utilizador do cluster, pode instalar ou utilizar na sua carga de trabalho qualquer componente disponível na comunidade ou criado por si.|
+|Personalizar|Você, como utilizador do cluster, pode instalar ou utilizar na sua carga de trabalho qualquer componente disponível na comunidade ou criado por si.|
 
 > [!IMPORTANT]
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados. O Microsoft Support ajuda a isolar e resolver problemas relacionados com estes componentes.
 >
-> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. O suporte da Microsoft pode ser capaz de resolver o problema OU pode pedir-lhe para contratar canais disponíveis para as tecnologias de código aberto onde se encontra uma profunda experiência para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Fórum MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), `https://stackoverflow.com`. Também os projetos `https://apache.org`Apache têm sites de projeto em .
+> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. O suporte da Microsoft pode ser capaz de resolver o problema OU pode pedir-lhe para contratar canais disponíveis para as tecnologias de código aberto onde se encontra uma profunda experiência para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com` . Também os projetos Apache têm sites de projeto em `https://apache.org` .
 
 ## <a name="understand-default-python-installation"></a>Compreender a instalação padrão python
 
@@ -105,7 +105,7 @@ O cluster HDInsight depende do ambiente python incorporado, tanto Python 2.7 com
         sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
         ```
 
-    se não sabe o nome do ambiente virtual, pode sSH até ao `/usr/bin/anaconda/bin/conda info -e` nó da cabeça do cluster e correr para mostrar todos os ambientes virtuais.
+    se não sabe o nome do ambiente virtual, pode sSH até ao nó da cabeça do cluster e correr `/usr/bin/anaconda/bin/conda info -e` para mostrar todos os ambientes virtuais.
 
 3. Change Spark e Livy configs e apontam para o ambiente virtual criado.
 
@@ -146,9 +146,9 @@ O cluster HDInsight depende do ambiente python incorporado, tanto Python 2.7 com
 
 ## <a name="known-issue"></a>Problema conhecido
 
-Há um bug conhecido para a `4.7.11`versão `4.7.12`Anaconda, e `4.8.0`. Se vires as tuas `"Collecting package metadata (repodata.json): ...working..."` ações `"Python script has been killed due to timeout after waiting 3600 secs"`de guião a aguentarem-se e a falharem com. Você pode baixar [este script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) e executá-lo como ações de script em todos os nós para corrigir o problema.
+Há um bug conhecido para a versão Anaconda, `4.7.11` `4.7.12` e `4.8.0` . Se vires as tuas ações de guião `"Collecting package metadata (repodata.json): ...working..."` a aguentarem-se e a falharem `"Python script has been killed due to timeout after waiting 3600 secs"` com. Você pode baixar [este script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) e executá-lo como ações de script em todos os nós para corrigir o problema.
 
-Para verificar a sua versão Anaconda, pode SSH `/usr/bin/anaconda/bin/conda --v`no nó do cabeçalho do cluster e executar .
+Para verificar a sua versão Anaconda, pode SSH no nó do cabeçalho do cluster e executar `/usr/bin/anaconda/bin/conda --v` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

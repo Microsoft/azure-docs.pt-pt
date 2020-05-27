@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887100"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835483"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instale e utilize Hue em clusters Hadoop HDInsight
 
@@ -33,7 +33,7 @@ Hue é um conjunto de aplicações Web usadas para interagir com um cluster Apac
 > [!WARNING]  
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados e o Microsoft Support ajudará a isolar e resolver problemas relacionados com estes componentes.
 >
-> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontra uma profunda experiência para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Fórum MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Também os projetos [https://apache.org](https://apache.org)Apache têm sites de projetos em, por exemplo: [Hadoop](https://hadoop.apache.org/).
+> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontra uma profunda experiência para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projetos [https://apache.org](https://apache.org) em, por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Instale o Hue usando as ações do script
 
@@ -45,7 +45,7 @@ Utilize as informações na tabela abaixo para a sua Ação de Script. Consulte 
 |Propriedade |Valor |
 |---|---|
 |Tipo de script:|- Personalizado|
-|Nome|Instalar Matiz|
+|Name|Instalar Matiz|
 |Roteiro de bash URI|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
 |Tipo de nó):|Head|
 
@@ -76,7 +76,7 @@ Só pode ter uma conta de utilizador com hue em clusters regulares. Para acesso 
 
     Este é o nome de anfitrião do headnode principal onde está localizado o site Hue.
 
-1. Use o navegador para abrir `http://HOSTNAME:8888`o portal Hue em . Substitua o NOME ANFITRIÃO pelo nome obtido no passo anterior.
+1. Use o navegador para abrir o portal Hue em `http://HOSTNAME:8888` . Substitua o NOME ANFITRIÃO pelo nome obtido no passo anterior.
 
    > [!NOTE]  
    > Quando iniciar sessão pela primeira vez, será solicitado a criar uma conta para iniciar sessão no portal Hue. As credenciais que especifica aqui serão limitadas ao portal e não estão relacionadas com as credenciais de utilizador de administração ou SSH que especificou durante a disponibilização do cluster.
@@ -105,7 +105,7 @@ Só pode ter uma conta de utilizador com hue em clusters regulares. Para acesso 
 3. Clique à direita num ficheiro ou pasta para ver as operações disponíveis. Utilize o botão **Upload** no canto direito para fazer o upload de ficheiros para o diretório atual. Utilize o botão **Novo** para criar novos ficheiros ou diretórios.
 
 > [!NOTE]  
-> O navegador de ficheiros Hue só pode mostrar o conteúdo do recipiente predefinido associado ao cluster HDInsight. Quaisquer contas/contentores de armazenamento adicionais que possa ter associado ao cluster não estarão acessíveis através do navegador de ficheiros. No entanto, os recipientes adicionais associados ao cluster estarão sempre acessíveis aos postos de trabalho da Colmeia. Por exemplo, se você `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` entrar no comando no editor da Hive, você pode ver o conteúdo de recipientes adicionais também. Neste comando, o **novo recipiente** não é o recipiente predefinido associado a um cluster.
+> O navegador de ficheiros Hue só pode mostrar o conteúdo do recipiente predefinido associado ao cluster HDInsight. Quaisquer contas/contentores de armazenamento adicionais que possa ter associado ao cluster não estarão acessíveis através do navegador de ficheiros. No entanto, os recipientes adicionais associados ao cluster estarão sempre acessíveis aos postos de trabalho da Colmeia. Por exemplo, se você entrar no comando `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` no editor da Hive, você pode ver o conteúdo de recipientes adicionais também. Neste comando, o **novo recipiente** não é o recipiente predefinido associado a um cluster.
 
 ## <a name="important-considerations"></a>Considerações importantes
 
@@ -123,7 +123,7 @@ Só pode ter uma conta de utilizador com hue em clusters regulares. Para acesso 
 
    Isto deve-se a uma questão conhecida. Como uma suposições, modifique Ambari de modo que o Gestor de Recursos ativo também funcione no headnode primário.
 
-1. Hue entende WebHDFS enquanto os clusters HDInsight usam o Armazenamento Azure usando `wasbs://`. Assim, o script personalizado usado com ação de script instala WebWasb, que é um serviço compatível com WebHDFS para falar com WASB. Assim, mesmo que o portal Hue diga HDFS em lugares (como quando move o rato sobre o Navegador de **Ficheiros),** deve ser interpretado como WASB.
+1. Hue entende WebHDFS enquanto os clusters HDInsight usam o Armazenamento Azure usando `wasbs://` . Assim, o script personalizado usado com ação de script instala WebWasb, que é um serviço compatível com WebHDFS para falar com WASB. Assim, mesmo que o portal Hue diga HDFS em lugares (como quando move o rato sobre o Navegador de **Ficheiros),** deve ser interpretado como WASB.
 
 ## <a name="next-steps"></a>Passos seguintes
 

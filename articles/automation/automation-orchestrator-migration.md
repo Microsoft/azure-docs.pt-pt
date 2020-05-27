@@ -1,18 +1,18 @@
 ---
-title: Migrar do Orquestrador para a Automação Azure (Beta)
+title: Migrar do Orchestrator para a Automatização do Azure (Beta)
 description: Este artigo diz como migrar livros de corridas e pacotes de integração de Orchestrator para A Automação Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e8bb448e88d7aaa3d59ec9392a3b3ac69373c4d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b6778c4eab4dee382ec38d6218aa647e8aedc4cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715499"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836758"
 ---
-# <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orquestrador para a Automação Azure (Beta)
+# <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator para a Automatização do Azure (Beta)
 
 Runbooks in [System Center 2012 - O Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseia-se em atividades de pacotes de integração que são escritos especificamente para Orchestrator, enquanto os livros de execução em Azure Automation são baseados no Windows PowerShell. [Os livros gráficos](automation-runbook-types.md#graphical-runbooks) da Azure Automation têm uma aparência semelhante aos livros de corridas do Orchestrator, com as suas atividades representando cmdlets PowerShell, livros infantis e ativos. Além de converter os próprios livros de execução, tem de converter os pacotes de integração com as atividades que os livros de execução utilizam para módulos de integração com cmdlets Windows PowerShell. 
 
@@ -130,8 +130,8 @@ O Orchestrator armazena livros de execução num servidor de base de dados e exe
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-* [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
-* [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
-* [Função de Trabalho de Runbook Híbrida](automation-hybrid-runbook-worker.md)
-* [Atividades Padrão orquestradoras](https://technet.microsoft.com/library/hh403832.aspx)
-* [Descarregue o conjunto de ferramentas de migração do Centro de Sistemas de Descarregamento](https://www.microsoft.com/download/details.aspx?id=47323)
+* Para mais detalhes do Orchestrator, consulte [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx).
+* Saiba mais sobre automatizar a gestão de serviços em Automação de [Gestão](https://technet.microsoft.com/library/dn469260.aspx)de Serviços.
+* Detalhes das atividades do Orchestrator podem ser encontrados em [Atividades Padrão orquestradoras.](https://technet.microsoft.com/library/hh403832.aspx)
+* Para obter o kit de ferramentas de migração orchestrator, consulte [Download System System Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323).
+* Para uma visão geral do Trabalhador do Livro Híbrido da Automação Azure, consulte a visão geral do Trabalhador do [Livro de Corridas Híbrido](automation-hybrid-runbook-worker.md).

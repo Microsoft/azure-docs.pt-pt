@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83410d5945a7fe462afa86a9d217ee7e005550f4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696912"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835840"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -26,11 +26,7 @@ Este artigo descreve os tipos de credenciais que pode utilizar e como a procura 
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento suportados
 
-Um utilizador que tenha iniciado um sessão num recurso SQL a pedido deve ser autorizado a aceder e consultar os ficheiros no Armazenamento Azure se os ficheiros não estiverem disponíveis ao público. São apoiados três tipos de autorização:
-
-- [Assinatura de acesso partilhado](?tabs=shared-access-signature)
-- [Identidade do Utilizador](?tabs=user-identity)
-- [Identidade Gerida](?tabs=managed-identity)
+Um utilizador que tenha iniciado um sessão num recurso SQL a pedido deve ser autorizado a aceder e consultar os ficheiros no Armazenamento Azure se os ficheiros não estiverem disponíveis ao público. Pode utilizar três tipos de autorização para aceder ao armazenamento não público - Identidade do [Utilizador,](?tabs=user-identity)Assinatura de [acesso partilhado](?tabs=shared-access-signature)e [Identidade Gerida](?tabs=managed-identity).
 
 > [!NOTE]
 > [A passagem da AD Azure](#force-azure-ad-pass-through) é o comportamento padrão quando se cria um espaço de trabalho. Se o utilizar, não precisa de criar credenciais para cada conta de armazenamento acedida através de logins Azure AD. Pode [desativar este comportamento.](#disable-forcing-azure-ad-pass-through)
@@ -339,7 +335,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE 
 GO
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os artigos listados abaixo irão ajudá-lo a aprender como consulta diferentes tipos de pastas, tipos de ficheiros e criar e usar vistas:
 

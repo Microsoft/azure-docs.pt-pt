@@ -24,7 +24,7 @@
       href: data-catalog-prerequisites.md
     - name: FAQ
       href: data-catalog-frequently-asked-questions.md
-- name: Como
+- name: Procedimento
   items:
     - name: Registar origens de dados
       href: data-catalog-how-to-register.md
@@ -68,8 +68,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Atalhos de teclado do Catálogo de Dados do Azure
       href: data-catalog-keyboard-shortcuts.md
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-catalog.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: Calculadora de preços

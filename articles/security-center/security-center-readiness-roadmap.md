@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de14f334b2a68d820dbf80f194ac93430c452038
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879467"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833375"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -119,7 +119,6 @@ Artigos
 ## <a name="community-resources"></a>Recursos da Comunidade
 
 * [UserVoice do Centro de Segurança](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Fórum da Comunidade do Centro de Segurança](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)
-
+* [Microsoft Q&Uma página de perguntas para o Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
 
 

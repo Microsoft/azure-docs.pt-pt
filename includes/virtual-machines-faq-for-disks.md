@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343308"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837873"
 ---
 Este artigo responde a algumas perguntas frequentes sobre discos Azure Managed Disks e Discos SSD Azure Premium.
 
@@ -158,7 +158,7 @@ A reserva de discos Azure é comprada para uma região específica e SKU (como P
 **O que acontece quando a minha reserva de discos Azure expirar?**    
 Receberá notificações por e-mail 30 dias antes da expiração e novamente na data de validade. Uma vez expirada a reserva, os discos implantados continuarão a ser executados e serão cobrados com as mais recentes [tarifas de pagamento.](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-### <a name="azure-shared-disks"></a>Discos compartilhados azure
+### <a name="azure-shared-disks"></a>Discos partilhados do Azure
 
 **A funcionalidade de discos partilhados é suportada para discos não geridos ou bolhas de página?**
 
@@ -455,6 +455,6 @@ Apoiamos o Recolhimento de Caching de ReadOnly e Read/Write em tamanhos de disco
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
 
-Se a sua pergunta não estiver listada aqui, avise-nos e ajudaremos a encontrar uma resposta. Pode publicar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipa de Armazenamento Azure e outros membros da comunidade sobre este artigo, use o fórum de armazenamento MSDN [Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Se a sua pergunta não estiver listada aqui, avise-nos e ajudaremos a encontrar uma resposta. Pode publicar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipa de Armazenamento Azure e outros membros da comunidade sobre este artigo, use o MSDN [Microsoft Q&Uma página de perguntas para o Armazenamento Azure.](https://docs.microsoft.com/answers/products/azure?product=storage)
 
 Para solicitar funcionalidades, envie os seus pedidos e ideias para o fórum de feedback do [Armazenamento Azure](https://feedback.azure.com/forums/217298-storage).

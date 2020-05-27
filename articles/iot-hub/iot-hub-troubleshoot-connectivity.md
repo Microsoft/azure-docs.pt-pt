@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abce9387d4c23cd6cb5ecf73e3d5c8428d83d459
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759604"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833664"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e desconexões de problemas com hub Azure IoT
 
@@ -83,7 +83,7 @@ Quando liga os registos de diagnóstico e alertas para dispositivos conectados, 
     | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Se houver resultados, `OperationName` `ResultType` procure , (código de erro) e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
+1. Se houver resultados, procure , (código de `OperationName` `ResultType` erro) e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
 
    ![Exemplo de registo de erros](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
@@ -105,7 +105,7 @@ Se os passos anteriores não ajudaram, tente:
 
 * Se o seu dispositivo utilizar o protocolo MQTT, verifique se a porta 8883 está aberta. Para mais informações, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* Obtenha ajuda do [fórum Azure IoT Hub,](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub) [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)ou [suporte Azure](https://azure.microsoft.com/support/options/).
+* Obtenha ajuda do [Microsoft Q&Uma página de perguntas para O Hub Azure IoT,](https://docs.microsoft.com/answers/topics/azure-iot-hub.html) [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)ou [suporte Azure](https://azure.microsoft.com/support/options/).
 
 Para ajudar a melhorar a documentação para todos, deixe um comentário na secção de feedback abaixo se este guia não o ajudar.
 

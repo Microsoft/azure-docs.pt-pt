@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005256"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834497"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode ligar de Aplicações Lógicas Azure
 
@@ -96,23 +96,23 @@ Vamos mapear este padrão de sondagens de volta. A padaria representa a sua API 
 
 Aqui estão os passos específicos para a sua API seguir, descritos na perspetiva da API:
 
-1. Quando o seu API receber um pedido de `202 ACCEPTED` HTTP para `location` iniciar o trabalho, devolva imediatamente uma resposta HTTP com o cabeçalho descrito mais tarde neste passo. Esta resposta permite ao motor Logic Apps saber que a sua API obteve o pedido, aceitou a carga útil do pedido (entrada de dados), e está agora a ser processada. 
+1. Quando o seu API receber um pedido de HTTP para iniciar o trabalho, devolva imediatamente uma resposta HTTP `202 ACCEPTED` com o `location` cabeçalho descrito mais tarde neste passo. Esta resposta permite ao motor Logic Apps saber que a sua API obteve o pedido, aceitou a carga útil do pedido (entrada de dados), e está agora a ser processada. 
    
    A `202 ACCEPTED` resposta deve incluir estes cabeçalhos:
    
-   * *Obrigatório*: `location` Um cabeçalho que especifica o caminho absoluto para um URL onde o motor Logic Apps pode verificar o estado de trabalho da Sua API
+   * *Obrigatório*: Um `location` cabeçalho que especifica o caminho absoluto para um URL onde o motor Logic Apps pode verificar o estado de trabalho da Sua API
 
-   * *Opcional*: `retry-after` Um cabeçalho que especifica o número de segundos que o motor deve esperar antes de verificar o `location` URL para o estado do trabalho. 
+   * *Opcional*: Um cabeçalho que especifica o número de segundos que o motor deve esperar antes de verificar o URL para o estado do `retry-after` `location` trabalho. 
 
-     Por padrão, o motor verifica a cada 20 segundos. Para especificar um intervalo `retry-after` diferente, inclua o cabeçalho e o número de segundos até à próxima sondagem.
+     Por padrão, o motor verifica a cada 20 segundos. Para especificar um intervalo diferente, inclua o `retry-after` cabeçalho e o número de segundos até à próxima sondagem.
 
-2. Após o tempo especificado passar, o `location` motor logic Apps pesquisa o URL para verificar o estado do trabalho. A Sua API deve efetuar estes controlos e devolver estas respostas:
+2. Após o tempo especificado passar, o motor logic Apps pesquisa o `location` URL para verificar o estado do trabalho. A Sua API deve efetuar estes controlos e devolver estas respostas:
    
-   * Se o trabalho estiver feito, devolva uma resposta HTTP, `200 OK` juntamente com a carga útil da resposta (entrada para o próximo passo).
+   * Se o trabalho estiver feito, devolva uma `200 OK` resposta HTTP, juntamente com a carga útil da resposta (entrada para o próximo passo).
 
-   * Se o trabalho ainda estiver `202 ACCEPTED` a ser processado, devolva outra resposta HTTP, mas com os mesmos cabeçalhos que a resposta original.
+   * Se o trabalho ainda estiver a ser processado, devolva outra `202 ACCEPTED` resposta HTTP, mas com os mesmos cabeçalhos que a resposta original.
 
-Quando a Sua API segue este padrão, não tem de fazer nada na definição lógica de fluxo de trabalho de aplicações para continuar a verificar o estado do trabalho. Quando o motor `202 ACCEPTED` obtém uma `location` resposta HTTP e um cabeçalho válido, o `location` motor respeita o padrão assíncrono e verifica o cabeçalho até que a sua API retorne uma resposta não-202.
+Quando a Sua API segue este padrão, não tem de fazer nada na definição lógica de fluxo de trabalho de aplicações para continuar a verificar o estado do trabalho. Quando o motor obtém uma resposta HTTP `202 ACCEPTED` e um `location` cabeçalho válido, o motor respeita o padrão assíncrono e verifica o cabeçalho até que `location` a sua API retorne uma resposta não-202.
 
 > [!TIP]
 > Por exemplo, um padrão assíncrono, reveja esta amostra de [resposta asíncrona do controlador no GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
@@ -128,11 +128,11 @@ Como alternativa, pode utilizar o padrão webhook para tarefas de longa duraçã
 Quando mapeamos este padrão de webhook de volta, a padaria representa a sua API personalizada, enquanto você, o cliente do bolo, representa o motor Logic Apps. O motor chama a sua API com um pedido e inclui um URL de "callback".
 Quando o trabalho está feito, o seu API utiliza o URL para notificar o motor e devolver dados à sua aplicação lógica, que depois continua o fluxo de trabalho. 
 
-Para este padrão, coloque dois pontos `subscribe` finais no seu controlador: e`unsubscribe`
+Para este padrão, coloque dois pontos finais no seu controlador: `subscribe` e`unsubscribe`
 
-*  `subscribe`ponto final: Quando a execução atinge a ação da Sua API `subscribe` no fluxo de trabalho, o motor Logic Apps chama o ponto final. Este passo faz com que a aplicação lógica crie um URL de callback que a sua API armazena e, em seguida, aguarde a chamada da sua API quando o trabalho estiver concluído. Em seguida, a Sua API liga com um POST HTTP para o URL e passa qualquer conteúdo e cabeçalhos devolvidos como entrada para a aplicação lógica.
+*  `subscribe`ponto final: Quando a execução atinge a ação da Sua API no fluxo de trabalho, o motor Logic Apps chama o `subscribe` ponto final. Este passo faz com que a aplicação lógica crie um URL de callback que a sua API armazena e, em seguida, aguarde a chamada da sua API quando o trabalho estiver concluído. Em seguida, a Sua API liga com um POST HTTP para o URL e passa qualquer conteúdo e cabeçalhos devolvidos como entrada para a aplicação lógica.
 
-* `unsubscribe`ponto final: Se a execução da aplicação lógica `unsubscribe` for cancelada, o motor Logic Apps chama o ponto final. A sua API pode então desregistar o URL de chamada e parar quaisquer processos necessários.
+* `unsubscribe`ponto final: Se a execução da aplicação lógica for cancelada, o motor Logic Apps chama o `unsubscribe` ponto final. A sua API pode então desregistar o URL de chamada e parar quaisquer processos necessários.
 
 ![Padrão de ação webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -140,9 +140,9 @@ Atualmente, o Logic App Designer não suporta descobrir pontos finais webhook at
 
 Aqui estão outras dicas e notas:
 
-* Para passar o URL de backback, pode utilizar a `@listCallbackUrl()` função de fluxo de trabalho em qualquer um dos campos anteriores, se necessário.
+* Para passar o URL de backback, pode utilizar a função de fluxo de `@listCallbackUrl()` trabalho em qualquer um dos campos anteriores, se necessário.
 
-* Se possuir tanto a aplicação lógica como o serviço subscrito, não precisa de ligar para o `unsubscribe` ponto final depois de o URL de callback ser chamado. Caso contrário, o tempo de execução das Aplicações Lógicas precisa de ligar para o `unsubscribe` ponto final para sinalizar que não são esperadas mais chamadas e permitir a limpeza de recursos no lado do servidor.
+* Se possuir tanto a aplicação lógica como o serviço subscrito, não precisa de ligar para o ponto final depois de o URL de `unsubscribe` callback ser chamado. Caso contrário, o tempo de execução das Aplicações Lógicas precisa de ligar para o ponto final para sinalizar que não são esperadas mais chamadas e permitir a limpeza de `unsubscribe` recursos no lado do servidor.
 
 <a name="triggers"></a>
 
@@ -165,23 +165,23 @@ Aqui estão passos específicos para um gatilho de sondagens, descrito na perspe
 
 | Encontrou novos dados ou evento?  | Resposta da API | 
 | ------------------------- | ------------ |
-| Localizado | Devolva `200 OK` um estado HTTP com a carga útil da resposta (entrada para o próximo passo). <br/>Esta resposta cria uma instância de aplicação lógica e inicia o fluxo de trabalho. | 
-| Não encontrado | Devolva `202 ACCEPTED` um `location` estado HTTP `retry-after` com um cabeceamento e um cabeceamento. <br/>Para os gatilhos, o `location` `triggerState` cabeçalho também deve conter um parâmetro de consulta, que normalmente é um "timestamp". A Sua API pode usar este identificador para rastrear a última vez que a aplicação lógica foi desencadeada. | 
+| Localizado | Devolva um estado HTTP `200 OK` com a carga útil da resposta (entrada para o próximo passo). <br/>Esta resposta cria uma instância de aplicação lógica e inicia o fluxo de trabalho. | 
+| Não encontrado | Devolva um estado HTTP `202 ACCEPTED` com um cabeceamento e um `location` `retry-after` cabeceamento. <br/>Para os gatilhos, o cabeçalho também deve conter um parâmetro de `location` `triggerState` consulta, que normalmente é um "timestamp". A Sua API pode usar este identificador para rastrear a última vez que a aplicação lógica foi desencadeada. | 
 ||| 
 
 Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, pode construir um gatilho de sondagens que tenha estes comportamentos:
 
-| O `triggerState`pedido inclui? | Resposta da API | 
+| O pedido `triggerState` inclui? | Resposta da API | 
 | -------------------------------- | -------------| 
-| Não | Devolva `202 ACCEPTED` um `location` estado `triggerState` HTTP mais um cabeçalho com o tempo atual e o `retry-after` intervalo para 15 segundos. | 
-| Sim | Verifique se o seu `DateTime` serviço `triggerState`está a ser adicionado após o . | 
+| Não | Devolva um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com o tempo atual e `triggerState` o intervalo para `retry-after` 15 segundos. | 
+| Sim | Verifique se o seu serviço está a ser adicionado após `DateTime` `triggerState` o . | 
 ||| 
 
 | Número de ficheiros encontrados | Resposta da API | 
 | --------------------- | -------------| 
-| Ficheiro único | Devolva `200 OK` um estado HTTP e `triggerState` a `DateTime` carga útil do `retry-after` conteúdo, atualize para o ficheiro devolvido e devolva o intervalo para 15 segundos. | 
-| Vários ficheiros | Devolva um ficheiro de `200 OK` cada `triggerState`vez e `retry-after` um estado HTTP, atualize e detete o intervalo para 0 segundos. </br>Estes passos permitem ao motor saber que existem mais dados disponíveis e que `location` o motor deve solicitar imediatamente os dados do URL no cabeçalho. | 
-| Sem ficheiros | Devolva `202 ACCEPTED` um estado HTTP, não mude e desloque `triggerState`o `retry-after` intervalo para 15 segundos. | 
+| Ficheiro único | Devolva um estado HTTP `200 OK` e a carga útil do conteúdo, atualize para o ficheiro devolvido e `triggerState` `DateTime` devolva `retry-after` o intervalo para 15 segundos. | 
+| Vários ficheiros | Devolva um ficheiro de cada vez e um `200 OK` estado HTTP, `triggerState` atualize e detete o `retry-after` intervalo para 0 segundos. </br>Estes passos permitem ao motor saber que existem mais dados disponíveis e que o motor deve solicitar imediatamente os dados do URL no `location` cabeçalho. | 
+| Sem ficheiros | Devolva um `202 ACCEPTED` estado HTTP, não mude `triggerState` e desloque o `retry-after` intervalo para 15 segundos. | 
 ||| 
 
 > [!TIP]
@@ -194,9 +194,9 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 Um gatilho webhook é um *gatilho* que espera e ouve novos dados ou eventos no seu ponto final de serviço. Se novos dados ou um evento cumprirem a condição especificada, o gatilho dispara e cria uma instância lógica de aplicação, que então processa os dados como entrada.
 Os gatilhos do Webhook agem muito como as ações de [webhook](#webhook-actions) anteriormente descritas neste tópico, e são configurados com `subscribe` e `unsubscribe` pontos finais. 
 
-* `subscribe`ponto final: Quando adiciona e guarda um gatilho webhook na sua `subscribe` aplicação lógica, o motor Logic Apps chama o ponto final. Este passo faz com que a aplicação lógica crie um URL de callback que a sua API armazena. Quando há novos dados ou um evento que satisfaça a condição especificada, a sua API volta a ligar com um POST HTTP para o URL. A carga de conteúdo e os cabeçalhos passam como entrada para a aplicação lógica.
+* `subscribe`ponto final: Quando adiciona e guarda um gatilho webhook na sua aplicação lógica, o motor Logic Apps chama o `subscribe` ponto final. Este passo faz com que a aplicação lógica crie um URL de callback que a sua API armazena. Quando há novos dados ou um evento que satisfaça a condição especificada, a sua API volta a ligar com um POST HTTP para o URL. A carga de conteúdo e os cabeçalhos passam como entrada para a aplicação lógica.
 
-* `unsubscribe`ponto final: Se o gatilho do webhook ou toda `unsubscribe` a aplicação lógica for eliminada, o motor Logic Apps chama o ponto final. A sua API pode então desregistar o URL de chamada e parar quaisquer processos necessários.
+* `unsubscribe`ponto final: Se o gatilho do webhook ou toda a aplicação lógica for eliminada, o motor Logic Apps chama o `unsubscribe` ponto final. A sua API pode então desregistar o URL de chamada e parar quaisquer processos necessários.
 
 ![Padrão de gatilho webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
@@ -204,11 +204,11 @@ Atualmente, o Logic App Designer não suporta descobrir pontos finais webhook at
 
 Aqui estão outras dicas e notas:
 
-* Para passar o URL de backback, pode utilizar a `@listCallbackUrl()` função de fluxo de trabalho em qualquer um dos campos anteriores, se necessário.
+* Para passar o URL de backback, pode utilizar a função de fluxo de `@listCallbackUrl()` trabalho em qualquer um dos campos anteriores, se necessário.
 
 * Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar dados que já foram lidos e passados para a aplicação lógica.
 
-* Se possuir tanto a aplicação lógica como o serviço subscrito, não precisa de ligar para o `unsubscribe` ponto final depois de o URL de callback ser chamado. Caso contrário, o tempo de execução das Aplicações Lógicas precisa de ligar para o `unsubscribe` ponto final para sinalizar que não são esperadas mais chamadas e permitir a limpeza de recursos no lado do servidor.
+* Se possuir tanto a aplicação lógica como o serviço subscrito, não precisa de ligar para o ponto final depois de o URL de `unsubscribe` callback ser chamado. Caso contrário, o tempo de execução das Aplicações Lógicas precisa de ligar para o ponto final para sinalizar que não são esperadas mais chamadas e permitir a limpeza de `unsubscribe` recursos no lado do servidor.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Melhorar a segurança das chamadas para as suas APIs de aplicações lógicas
 
@@ -226,9 +226,9 @@ Para disponibilizar as suas APIs personalizadas a todos os utilizadores em Aplic
 
 ## <a name="get-support"></a>Obter suporte
 
-* Para obter ajuda específica com [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)APIs personalizados, contacte .
+* Para obter ajuda específica com APIs personalizados, contacte [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com) .
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para perguntas, visite o [Microsoft Q&Uma página de perguntas para aplicações lógicas do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 
 * Para ajudar a melhorar o Logic Apps, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish). 
 

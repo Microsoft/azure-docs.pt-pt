@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: f9e8dbe2021c5700fe0223ff7ce246ac54f2abbd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650291"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831879"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento Blob do iOS
 
@@ -394,5 +394,5 @@ Agora que aprendeu a usar o Blob Storage do iOS, siga estes links para saber mai
 - [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog da equipe de armazenamento azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
-Se tiver dúvidas sobre esta biblioteca, sinta-se à vontade para publicar no nosso [fórum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [no Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Se tiver dúvidas sobre esta biblioteca, sinta-se à vontade para publicar no nosso [Microsoft Q&Uma página](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) de perguntas ou Stack [Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Se tiver sugestões de recurso para o Armazenamento Azure, por favor poste no Feedback de [Armazenamento Azure](https://feedback.azure.com/forums/217298-storage/).

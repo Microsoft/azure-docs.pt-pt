@@ -5,14 +5,14 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 4eccdef6bd3f2bfcd0eced8281f7b998536f22a9
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5379f2c46bbeaba4ee8509603b7b739b75d08f04
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749187"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836792"
 ---
-# <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Ativar o rastreio e o inventário de alterações de um VM Azure
+# <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Ativar o Controlo de Alterações e Inventário a partir da VM do Azure
 
 Este artigo descreve como pode utilizar um VM Azure para ativar a funcionalidade de Rastreio e Inventário de [Alterações](change-tracking.md) noutras máquinas. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando o Change Tracking e o Inventory. 
 
@@ -47,10 +47,9 @@ Alterar o Rastreio e o Inventário utiliza uma configuração de âmbito dentro 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir o rastreio e o inventário de alterações](change-tracking-file-contents.md)
-* [Trabalhar com configurações de âmbito para rastreio e inventário de alterações](automation-scope-configurations-change-tracking.md)
-* [Identificar o software numa VM](automation-tutorial-installed-software.md)
-* [Desvincular o espaço de trabalho da conta da Automação para rastreio de alterações e inventário](automation-unlink-workspace-change-tracking.md)
-* [Remover VMs do Rastreio e Inventário de Alterações](automation-remove-vms-from-change-tracking.md)
-* [Mudanças de resolução de problemas num VM Azure](automation-tutorial-troubleshoot-changes.md)
-* [Problemas de mudança de mudança e problemas de inventário](troubleshoot/change-tracking.md)
+* Para mais detalhes sobre o trabalho com a funcionalidade, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* Para obter informações sobre configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
+* Para aprender a utilizar a funcionalidade para identificar software instalado no seu ambiente, consulte [Descubra qual o software instalado nos seus VMs](automation-tutorial-installed-software.md).
+* Se não quiser integrar a sua conta de Automação com um espaço de trabalho log Analytics ao ativar a funcionalidade, consulte o espaço de [trabalho Unlink a partir da conta Automation](automation-unlink-workspace-change-tracking.md).
+* Quando terminar a implementação de alterações nos VMs, pode removê-las conforme descrito em [Remover VMs de Change Tracking e Inventory](automation-remove-vms-from-change-tracking.md).
+* Para resolver problemas gerais com a funcionalidade, consulte problemas de rastreio e inventário de resolução de [problemas.](troubleshoot/change-tracking.md)

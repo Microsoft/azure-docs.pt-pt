@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9cdde8d1142ec47f835e4a06e7fe2e843d796a3a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d60885f7dbcd090e4f2172015787bc34d4ee7bcf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743918"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832508"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
 
@@ -425,6 +425,6 @@ Quando um utilizador designado para a função de Operador de Automação no âm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir o RBAC com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Starting a Runbook in Azure Automation](start-runbooks.md) (Iniciar um Runbook na Automatização do Azure)
-* [Tipos de livro de execução da Automação Azure](automation-runbook-types.md)
+* Para saber mais PowerShell RBAC, consulte [Manage RBAC com Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Para mais detalhes sobre os tipos de livros de execução, consulte os tipos de livros de [execução da Automatização Azure](automation-runbook-types.md).
+* Para iniciar um livro de corridas, consulte [Iniciar um livro de corridas em Automação Azure](start-runbooks.md).

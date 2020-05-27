@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: b0733cd4f71a734511d5085473047eb7a6d030d3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 969e60cd08a65adb1dd731aa7c6c3f9872e288fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744339"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835041"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Utilize o livro gráfico Azure Automation SDK (pré-visualização)
 
@@ -141,4 +141,4 @@ O formato serializado pode mudar nas futuras versões de `Orchestrator.GraphRunb
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Livros gráficos de autor na Automação Azure](automation-graphical-authoring-intro.md)
+Para mais informações, consulte [os livros gráficos autor em Automação Azure.](automation-graphical-authoring-intro.md)

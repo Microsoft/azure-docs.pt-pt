@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 4261b3c3fa7aab830f5f57e86ee25f8ba5894849
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9129d10071a4c8da0376cbad3d64c10cbaceb8b9
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749068"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835789"
 ---
 # <a name="unlink-workspace-from-automation-account-for-update-management"></a>Desvincular espaço de trabalho da conta automation para gestão de atualizações
 
@@ -40,6 +40,7 @@ Em alternativa, pode desligar o seu espaço de trabalho Log Analytics a partir d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerencie atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md)
-* [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md)
-* [Problemas problemas de Gestão de Atualização de Problemas](troubleshoot/update-management.md)
+* Para trabalhar com a funcionalidade, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
+* Para resolver erros de funcionalidades, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).
+* Para resolver os erros do agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
+* Para resolver os erros do agente de atualização do Linux, consulte problemas de agente de [atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).

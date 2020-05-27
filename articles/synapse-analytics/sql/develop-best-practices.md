@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 858dfa8282a06feab877bcea65de47b8455133dc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697303"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834956"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>As melhores práticas de desenvolvimento para synapse SQL
 Este artigo descreve orientações e boas práticas à medida que desenvolve a sua solução de armazém de dados. 
@@ -166,7 +166,7 @@ Pode utilizar o CETAS para armazenar parte frequentemente utilizada de consultas
 
 ### <a name="next-steps"></a>Passos seguintes
 
-Se precisar de informações não fornecidas neste artigo, utilize a "Search for docs" no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O Fórum de [Piscina SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de Piscina SQL.  
+Se precisar de informações não fornecidas neste artigo, utilize a "Search for docs" no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O Microsoft Q&Uma página de [perguntas para piscina SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de piscina SQL.  
 
 Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  Se você prefere fazer suas perguntas sobre Stack Overflow, também temos uma [piscina Azure SQL Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

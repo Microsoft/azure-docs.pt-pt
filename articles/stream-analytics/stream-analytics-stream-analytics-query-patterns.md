@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: aa8bd6e89dd47c4e972a860691d1bc3779ba5bc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982319"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832967"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns no Azure Stream Analytics
 
@@ -205,7 +205,7 @@ Utilize a declaração **LIKE** para verificar o valor **de campo License_plate.
 | Make1 |"A" |2015-01-01t00:00:00:00000000Z |
 | Make2 |"B" |2015-01-01t00:00:00:00.0000000Z |
 
-**Solução**:
+**Solução:**
 
 ```SQL
 SELECT
@@ -759,7 +759,7 @@ Por exemplo, um utilizador está interagindo com uma página web onde o número 
 
 **Entrada:**
 
-| User_id | Hora | do IdP |
+| User_id | Hora | URL |
 | --- | --- | --- |
 | 0 | 2017-01-26t00:00:00.0000000Z | "www.example.com/a.html" |
 | 0 | 2017-01-26t00:00:20.0000000Z | "www.example.com/b.html" |
@@ -930,7 +930,7 @@ Para mais informações, consulte os cenários de [agregação geoespacial e geo
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

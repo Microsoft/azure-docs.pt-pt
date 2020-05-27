@@ -12,7 +12,7 @@
       href: cloud-services-dotnet-get-started.md
     - name: Exemplo de Serviço em Nuvem Python para o Visual Studio
       href: cloud-services-python-ptvs.md
-- name: Como
+- name: Procedimento
   items:
     - name: Planear
       items:
@@ -191,8 +191,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Percurso de aprendizagem
       href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calculadora de preços

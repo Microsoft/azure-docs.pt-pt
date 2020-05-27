@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 2bd1f59d5cf33ae7f1f2e33e6c3f1312b5a13e61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8219fba44be608a9fd31139a89c8dac2cc3e3082
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127579"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835415"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Criar alertas para empregos da Azure Stream Analytics
 
@@ -68,7 +68,7 @@ Recomenda-se a monitorização do desempenho do seu trabalho em Análise stream.
 
 Para mais detalhes sobre a configuração de alertas no portal Azure, consulte [Receber notificações](../azure-monitor/platform/alerts-overview.md)de alerta .  
 
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

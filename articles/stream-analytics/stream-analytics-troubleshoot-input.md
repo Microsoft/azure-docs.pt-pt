@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628747"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831896"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
@@ -51,7 +51,7 @@ Nos casos em que a carga útil da mensagem seja superior a 32 KB ou esteja em fo
 
 A melhor prática para usar os Hubs de Eventos é utilizar vários grupos de consumidores para escalabilidade de emprego. O número de leitores no trabalho do Stream Analytics para uma entrada específica afeta o número de leitores num único grupo de consumidores. O número preciso de recetores baseia-se em detalhes de implementação interna para a lógica de topologia de escala e não é exposto externamente. O número de leitores pode mudar quando um trabalho é iniciado ou durante as atualizações de trabalho.
 
-As seguintes mensagens de erro são mostradas quando o número de recetores excede o máximo. A mensagem de erro inclui uma lista de ligações existentes feitas ao Event Hub no âmbito de um grupo de consumidores. A `AzureStreamAnalytics` etiqueta indica que as ligações são do Serviço de Streaming Azure.
+As seguintes mensagens de erro são mostradas quando o número de recetores excede o máximo. A mensagem de erro inclui uma lista de ligações existentes feitas ao Event Hub no âmbito de um grupo de consumidores. A etiqueta `AzureStreamAnalytics` indica que as ligações são do Serviço de Streaming Azure.
 
 ```
 The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
@@ -141,7 +141,7 @@ Para consultas em que três ou mais entradas estão ligadas ao mesmo grupo de co
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para mais assistência, experimente o nosso [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 

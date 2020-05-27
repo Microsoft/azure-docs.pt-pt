@@ -6,15 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 15ea7698c9e90fa8b0dfa20f71b552a2b0e9c7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecd66500fdf968a773d3bc4f3d93363bfe86c763
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657253"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836044"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Visão geral de Insights no Monitor Azure
 Insights fornecem uma experiência de monitorização personalizada para aplicações e serviços particulares. Armazenam dados na plataforma de [dados Do Monitor Do Azure](../platform/data-platform.md) e aproveitam outras funcionalidades do Monitor De Azure para análise e alerta, mas podem recolher dados adicionais e fornecer uma experiência única de utilizador no portal Azure. Acesso informações da secção **Insights** do menu Azure Monitor no portal Azure.
+
 
 As seguintes secções fornecem uma breve descrição dos insights atualmente disponíveis no Monitor Azure. Consulte a documentação detalhada para obter detalhes sobre cada um.
 

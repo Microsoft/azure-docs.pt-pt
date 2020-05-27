@@ -5,14 +5,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1d60c19b05de218ab985b2087071733602c7f2c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bf2a60e1387ccdfb24ff5c5e166780c00506bac8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743894"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832304"
 ---
-# <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Use livros e módulos na Galeria PowerShell
+# <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Utilizar runbooks e módulos na Galeria do PowerShell
 
 Em vez de criar os seus próprios livros e módulos na Azure Automation, pode aceder a cenários que já foram construídos pela Microsoft e pela comunidade. Você pode obter livros e [módulos](#modules-in-powershell-gallery) PowerShell da PowerShell Gallery e livros de [execução Python](#use-python-runbooks) da Galeria Script Center. Também pode contribuir para a comunidade partilhando [cenários que desenvolve.](#add-a-powershell-runbook-to-the-gallery) 
 
@@ -101,10 +101,12 @@ Os Livros de Execução Python estão disponíveis na galeria do [Script Center.
 
 ## <a name="request-a-runbook-or-module"></a>Solicite um livro de rés-do-que rés-do-mesmo ou
 
-Pode enviar pedidos para [a Voz do Utilizador](https://feedback.azure.com/forums/246290-azure-automation/).  Se precisar de ajuda para escrever um livro de corridas ou tiver uma pergunta sobre o PowerShell, poste uma pergunta no nosso [fórum.](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
+Pode enviar pedidos para [a Voz do Utilizador](https://feedback.azure.com/forums/246290-azure-automation/).  Se precisar de ajuda para escrever um livro de execução ou tiver uma pergunta sobre o PowerShell, publique uma pergunta na nossa página de perguntas&A do [Microsoft Q](https://docs.microsoft.com/answers/topics/azure-automation.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
-* [Conheça o fluxo de trabalho powerShell para a automação azure](automation-powershell-workflow.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* Para começar com um livro de corridas PowerShell, consulte [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* Para trabalhar com livros de execução, consulte [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
+* Para mais detalhes sobre powerShell, consulte [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
