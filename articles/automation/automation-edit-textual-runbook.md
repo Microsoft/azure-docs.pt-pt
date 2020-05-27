@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b30b807764159378c594f82ae6cfc55cfa4f7e4
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712915"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836843"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar livros de texto na Automação Azure
 
@@ -91,14 +91,14 @@ Import-AzAutomationRunbook -Path "$scriptfolder\Hello-World.ps1" -Name $runbookN
 Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
-* [Fluxo de trabalho PowerShell de aprendizagem](automation-powershell-workflow.md)
-* [Autoria gráfica em Automação Azure](automation-graphical-authoring-intro.md)
-* [Certificados](automation-certificates.md)
-* [Ligações](automation-connections.md)
-* [Credenciais](automation-credentials.md)
-* [Agendas](automation-schedules.md)
-* [Variáveis](automation-variables.md)
-* [Referência do cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
+* [Learning PowerShell workflow](automation-powershell-workflow.md).
+* [Autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
+* [Certificados.](automation-certificates.md)
+* [Ligações](automation-connections.md).
+* [Credenciais](automation-credentials.md).
+* [Horários.](automation-schedules.md)
+* [Variáveis.](automation-variables.md)
+* [Referência de cmdlet PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -60,6 +60,32 @@
           href: learn/tutorial-app-dashboards.md
 - name: Amostras
   items:
+    - name: Modelos do Resource Manager
+      items:
+        - name: Descrição geral
+          href: samples/resource-manager-samples.md
+        - name: Agentes
+          href: samples/resource-manager-agent.md
+        - name: Alertas
+          items:
+            - name: Regras de alerta de registos
+              href: samples/resource-manager-alerts-log.md
+            - name: Regras de alerta de métricas
+              href: samples/resource-manager-alerts-metric.md
+            - name: Grupos de ação
+              href: samples/resource-manager-action-groups.md
+        - name: Definições de diagnóstico
+          href: samples/resource-manager-diagnostic-settings.md
+        - name: Áreas de trabalho do Log Analytics
+          href: samples/resource-manager-workspace.md
+        - name: Registar consultas
+          href: samples/resource-manager-log-queries.md
+        - name: Livros
+          href: samples/resource-manager-workbooks.md
+        - name: Azure Monitor para contentores
+          href: samples/resource-manager-container-insights.md
+        - name: Azure Monitor para VMs
+          href: samples/resource-manager-vminsights.md
     - name: CLI do Azure
       href: samples/cli-samples.md
     - name: Azure PowerShell

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, automação azul
-ms.openlocfilehash: dcb1f5919db71bb233f59cc5b5ba92648b8476d9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714292"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837081"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implemente um modelo de Gestor de Recursos Azure num livro de execução powerShell
 
@@ -227,10 +227,10 @@ Pode ver que a nova conta de armazenamento foi criada executando o seguinte coma
 Get-AzStorageAccount
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do Gestor de Recursos Azure](../azure-resource-manager/management/overview.md)
-* [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)
-* [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md) (Galerias de runbooks e módulos para a Automatização do Azure)
-* [Modelos azure quickstart](https://azure.microsoft.com/resources/templates/)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Para saber mais sobre os modelos do Gestor de Recursos, consulte a [visão geral do Gestor de Recursos do Azure](../azure-resource-manager/management/overview.md).
+* Para começar com o Armazenamento Azure, consulte [Introdução ao Armazenamento Azure.](../storage/common/storage-introduction.md)
+* Para encontrar outros livros de execução úteis da Azure Automation, consulte [Livros de execução e módulos usados em Automação Azure.](automation-runbook-gallery.md)
+* Para encontrar outros modelos úteis do Gestor de Recursos, consulte [os modelos De Arranque Rápido do Azure](https://azure.microsoft.com/resources/templates/).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

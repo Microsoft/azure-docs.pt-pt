@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ffe7edd5faf5ae4f88f9f3e0c40256bee32395d7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714870"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837098"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -99,10 +99,11 @@ Corrida clássica Como as contas já não são criadas por padrão quando cria u
 2. Selecione **Azure Classic Run As Account**.
 3. Clique em **Criar** para prosseguir com a Classic Run Como criação de conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Autoria gráfica em Automação Azure](automation-graphical-authoring-intro.md)
-* [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* [O meu primeiro livro de fluxo de trabalho PowerShell](automation-first-runbook-textual.md)
-* [O meu primeiro livro python2](automation-first-runbook-textual-python2.md)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Para saber mais sobre autoria gráfica, consulte [os livros de execução gráfica sinuosos em Automação Azure.](automation-graphical-authoring-intro.md)
+* Para começar com os livros de execução da PowerShell, consulte [Tutorial: Crie um livro de corridas PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Para começar com os livros de execução powerShell Workflow, consulte [Tutorial: Create a PowerShell workflow runbook](learn/automation-tutorial-runbook-textual.md).
+* Para começar com os livros python 2, consulte [Tutorial: Crie um livro](learn/automation-tutorial-runbook-textual-python2.md)python 2.
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

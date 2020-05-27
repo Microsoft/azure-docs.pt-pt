@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448368"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849574"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Quickstart: Procure vídeos usando a API e Ruby
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de vídeo bing e veja um resultado de pesquisa a partir da resposta JSON. Esta simples aplicação Ruby envia uma consulta de pesquisa de vídeo HTTP para a API, e exibe a resposta. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com processamento de erros e anotações de código adicionais.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação Ruby envia uma consulta de pesquisa de vídeo HTTP para a API, e exibe a resposta JSON. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. 
+
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +31,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Importe os seguintes pacotes para o seu ficheiro de código.
+1. Importe os seguintes pacotes no seu ficheiro de código:
 
     ```ruby
     require 'net/https'
@@ -37,7 +39,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
     require 'json'
     ```
 
-2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API em vídeo, a sua chave de subscrição e o termo de pesquisa. `uri`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API em vídeo, a sua chave de subscrição e o termo de pesquisa. Para o `url` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,20 +50,20 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido. Combine o seu uri e o seu caminho e, em `?q=` seguida, código de url o seu termo de pesquisa antes de o anexar ao parâmetro.
+1. Utilize as variáveis do passo anterior para formatar um URL de pesquisa para o pedido. Combine o seu uri e o seu caminho e, em seguida, código url o seu termo de pesquisa antes de o anexar ao `?q=` parâmetro.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
     ```
 
-2. Adicione o URL de pesquisa completo ao pedido `Ocp-Apim-Subscription-Key` e adicione a sua chave de subscrição ao cabeçalho.
+2. Adicione o URL de pesquisa completo ao pedido e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
     
     ``` ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
     ```
 
-3. Envie o pedido e guarde a resposta.
+3. Envie o pedido e, em seguida, guarde a resposta.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -71,11 +73,11 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
 
 ## <a name="process-and-view-the-response"></a>Processar e ver a resposta
 
-1. Após a resposta ser recebida, pode imprimir a resposta JSON.
+Depois de recebida a resposta, imprima a resposta JSON.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## <a name="json-response"></a>Resposta JSON
 
@@ -191,7 +193,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de pesquisa de 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma única página web app](../tutorial-bing-video-search-single-page-app.md)
+> [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
 ## <a name="see-also"></a>Consulte também 
 

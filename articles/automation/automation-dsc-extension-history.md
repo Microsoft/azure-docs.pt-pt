@@ -9,12 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 4578e3bff7951293c5ec2f1992e597face84b716
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713204"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836928"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Trabalhar com o histórico de extensão de extensão de configuração do Estado Do Azure
 
@@ -247,9 +247,9 @@ Este artigo fornece informações sobre cada versão da Extensão VM Azure DSC, 
   - Fornece um formato de definições atualizado para a extensão num modelo de Gestor de Recursos. Para mais informações, consulte [o blog.](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/)
   - Correções de bugs e outras melhorias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para mais informações sobre o PowerShell DSC, consulte o centro de [documentação PowerShell](/powershell/scripting/dsc/overview/overview).
 - Examine o modelo do Gestor de [Recursos para a extensão DSC](/azure/virtual-machines/extensions/dsc-template).
-- Para obter mais funcionalidades que possa gerir utilizando o PowerShell DSC e para obter mais recursos DSC, navegue na [galeria PowerShell.](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)
+- Para mais funcionalidades e recursos que pode gerir com o PowerShell DSC, navegue na [galeria PowerShell.](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)
 - Para mais detalhes sobre a passagem de parâmetros sensíveis em configurações, consulte [Gerir as credenciais de forma segura com o manipulador de extensão DSC](/azure/virtual-machines/extensions/dsc-credentials).
