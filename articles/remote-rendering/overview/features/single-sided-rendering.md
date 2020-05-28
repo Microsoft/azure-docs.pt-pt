@@ -5,29 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759103"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022765"
 ---
-# <a name="single-sided-rendering"></a>Composição unilateral
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::renderização
 
 A maioria dos renderizadores usam [o abate na face traseira](https://en.wikipedia.org/wiki/Back-face_culling) para melhorar o desempenho. No entanto, quando as meshes são cortadas com [aviões cortados,](cut-planes.md)os utilizadores muitas vezes olham para o lado de trás dos triângulos. Se esses triângulos forem abatidos, o resultado não parece convincente.
 
 A forma de prevenir de forma fiável este problema é tornar os triângulos *de dupla face*. Como não usar o abate na face traseira tem implicações no desempenho, por padrão azure Remote Rendering apenas muda para renderização dupla para malhas que estão se cruzando com um plano cortado.
 
-A definição *de renderização unilateral* permite-lhe personalizar este comportamento.
+A definição de * :::no-loc text="single-sided"::: renderização* permite-lhe personalizar este comportamento.
 
 > [!CAUTION]
-> A definição de renderização unilateral é uma característica experimental. Pode ser removido novamente no futuro. Por favor, não altere a definição padrão, a menos que resolva realmente um problema crítico na sua aplicação.
+> A :::no-loc text="single-sided"::: definição de renderização é uma característica experimental. Pode ser removido novamente no futuro. Por favor, não altere a definição padrão, a menos que resolva realmente um problema crítico na sua aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A definição de renderização unilateral só tem um efeito para as maltes que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a `opaqueMaterialDefaultSidedness` opção definida para `SingleSided` . Por defeito, esta opção está definida para `DoubleSided` .
+A definição de :::no-loc text="single-sided"::: renderização só tem um efeito para as mhas que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a `opaqueMaterialDefaultSidedness` opção definida para `SingleSided` . Por defeito, esta opção está definida para `DoubleSided` .
 
-## <a name="single-sided-rendering-setting"></a>Definição de renderização unilateral
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::definição de renderização
 
 Existem três modos diferentes:
 
@@ -35,9 +35,9 @@ Existem três modos diferentes:
 
 **DynamicDoubleSiding:** Neste modo, quando um plano cortado cruza uma malha, é automaticamente trocado para renderização dupla. Este modo é o modo predefinido.
 
-**AlwaysDoubleSided:** Força toda a geometria unilateral a ser sempre tornada duplamente unilateral. Este modo é maioritariamente exposto para que possa facilmente comparar o impacto de desempenho entre renderização unilateral e dupla.
+**AlwaysDoubleSided:** Força toda a geometria unilateral a ser sempre tornada duplamente unilateral. Este modo é maioritariamente exposto para que possa facilmente comparar o impacto de desempenho entre :::no-loc text="single-sided"::: e :::no-loc text="double-sided"::: renderização.
 
-A alteração das definições de renderização unifaceda pode ser feita da seguinte forma:
+A alteração das definições de :::no-loc text="single-sided"::: renderização pode ser feita da seguinte forma:
 
 ```cs
 void ChangeSingleSidedRendering(AzureSession session)
@@ -65,7 +65,7 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Cortar planos](cut-planes.md)
 * [Configurar a conversão do modelo](../../how-tos/conversion/configure-model-conversion.md)

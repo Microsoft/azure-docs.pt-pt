@@ -142,7 +142,7 @@ Pode utilizar o mesmo certificado para várias aplicações. Se um certificado c
 
 Quando um certificado expira, recebe um aviso a dizer-lhe para fazer o upload de outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue para a página proxy da **Aplicação** para a aplicação, selecione **Certificado**, e faça upload de um novo certificado. Se o certificado antigo não estiver a ser utilizado por outras aplicações, é apagado automaticamente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ative um [único início de sessão](application-proxy-configure-single-sign-on-with-kcd.md) nas suas aplicações publicadas com autenticação Azure AD.
 * [Acesso Condicional](../conditional-access/concept-conditional-access-cloud-apps.md) para as suas aplicações na nuvem publicadas.
