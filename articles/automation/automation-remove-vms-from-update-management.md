@@ -5,18 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 26a38c0851643fbd6446acddd99a05abf8d5b26c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9bb9ee93be4e045b52355255ecb86e54e48e5c5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836656"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117422"
 ---
 # <a name="remove-vms-from-update-management"></a>Remover VMs da Gestão de Atualizações
-
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-
-Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Quando terminar de implementar atualizações para VMs no seu ambiente, pode removê-las da funcionalidade ['Gestão](automation-update-management.md) de Actualizações'.
 
@@ -28,7 +24,7 @@ Quando terminar de implementar atualizações para VMs no seu ambiente, pode rem
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. No seu espaço de trabalho Log Analytics em **Geral,** aceda às pesquisas guardadas.
+3. No seu espaço de trabalho Log Analytics em **Geral,** aceda às pesquisas guardadas para a configuração do âmbito `MicrosoftDefaultScopeConfig-Updates` .
 
 4. Para obter a pesquisa `MicrosoftDefaultComputerGroup` guardada, clique na elipse à direita e **selecione Editar**. 
 
@@ -38,7 +34,7 @@ Quando terminar de implementar atualizações para VMs no seu ambiente, pode rem
 
 7. Guarde a procura guardada quando terminar de editá-la. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para continuar a trabalhar com a Atualização, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
 * Para resolver problemas gerais de funcionalidade, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).

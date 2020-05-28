@@ -52,8 +52,12 @@
       href: container-instances-region-availability.md
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
-    - name: Considerações de segurança
-      href: container-instances-image-security.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
+        - name: Considerações de segurança
+          href: container-instances-image-security.md
     - name: Redes virtuais
       href: container-instances-virtual-network-concepts.md
 - name: Guias de procedimentos

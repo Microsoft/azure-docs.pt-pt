@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759086"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021369"
 ---
 # <a name="cut-planes"></a>Cortar planos
 
@@ -60,15 +60,15 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 As seguintes propriedades são expostas num componente de plano cortado:
 
-* **Habilitado:** Pode desligar temporariamente os planos cortados desativando o componente. Aviões de corte deficientes não incorrem em sobrecargas e também não contam com o limite global de aviões de corte.
+* `Enabled`: Pode desligar temporariamente os planos cortados desativando o componente. Aviões de corte deficientes não incorrem em sobrecargas e também não contam com o limite global de aviões de corte.
 
-* **Normal:** Especifica qual é a direção (+X,-X,+Y,-Y,+Z,-Z) é usada como o plano normal. Esta direção é relativa à orientação da entidade proprietária. Mova e rode a entidade proprietária para a colocação exata.
+* `Normal`: Especifica qual é a direção (+X,-X,+Y,-Y,+Z,-Z) como o plano normal. Esta direção é relativa à orientação da entidade proprietária. Mova e rode a entidade proprietária para a colocação exata.
 
-* **FadeColor** e **FadeLength:**
+* `FadeColor``FadeLength`e:
 
   Se o valor alfa do *FadeColor* não for zero, os pixels próximos do plano de corte desaparecerão em direção à parte RGB do FadeColor. A força do canal alfa determina se irá desaparecer totalmente em direção à cor desvanecida ou apenas parcialmente. *FadeLength* define sobre qual distância esta distância terá lugar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Renderização unilateral](single-sided-rendering.md)
 * [Consultas espaciais](spatial-queries.md)

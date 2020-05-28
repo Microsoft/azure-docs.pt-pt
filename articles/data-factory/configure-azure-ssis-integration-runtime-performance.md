@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86fa7da695b185f41d134f67eb7d8155a30e1376
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418291"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118934"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução de integração Azure-SSIS para um alto desempenho
 
@@ -57,40 +57,40 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/SQL Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your SQL Managed Instance
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your server name or managed instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
 # Authentication info: SQL or Azure Active Directory (AAD)
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for SQL Managed Instance]"
 ```
 
 ## <a name="azuressislocation"></a>Localização AzureSSIS
-**AzureSSISLocation** é o local para o nó de trabalhador esgotantes de integração. O nó do trabalhador mantém uma ligação constante à base de dados do Catálogo SSIS (SSISDB) numa base de dados Azure SQL. Detete a **Localização AzureSSISPara** o mesmo local que o servidor De base de dados SQL que acolhe o SSISDB, que permite que o tempo de funcionamento da integração funcione da forma mais eficiente possível.
+**AzureSSISLocation** é o local para o nó de trabalhador esgotantes de integração. O nó operário mantém uma ligação constante à base de dados do Catálogo SSIS (SSISDB) na Base de Dados Azure SQL. Detete a **Localização AzureSSISPara** o mesmo local que o [servidor lógico SQL](../azure-sql/database/logical-servers.md) que acolhe o SSISDB, o que permite que o tempo de funcionamento da integração funcione da forma mais eficiente possível.
 
 ## <a name="azuressisnodesize"></a>Tamanho do nódodesize azuressis
 A Fábrica de Dados, incluindo o IR Azure-SSIS, suporta as seguintes opções:
--   Padrão\_A4\_v2
--   Padrão\_A8\_v2
--   Padrão\_D1\_v2
--   Padrão\_D2\_v2
--   Padrão\_D3\_v2
--   Padrão\_D4\_v2
--   Padrão\_D2\_v3
--   Padrão\_D4\_v3
--   Padrão\_D8\_v3
--   Padrão\_D16\_v3
--   Padrão\_D32\_v3
--   Padrão\_D64\_v3
--   Padrão\_E2\_v3
--   Padrão\_E4\_v3
--   Padrão\_E8\_v3
--   Padrão\_E16\_v3
--   Padrão\_E32\_v3
--   Padrão\_E64\_v3
+-   Padrão \_ A4 \_ v2
+-   Padrão \_ A8 \_ v2
+-   Padrão \_ D1 \_ v2
+-   Padrão \_ D2 \_ v2
+-   Padrão \_ D3 \_ v2
+-   Padrão \_ D4 \_ v2
+-   Padrão \_ D2 \_ v3
+-   Padrão \_ D4 \_ v3
+-   Padrão \_ D8 \_ v3
+-   Padrão \_ D16 \_ v3
+-   Padrão \_ D32 \_ v3
+-   Padrão \_ D64 \_ v3
+-   Padrão \_ E2 \_ v3
+-   Padrão \_ E4 \_ v3
+-   Padrão \_ E8 \_ v3
+-   Padrão \_ E16 \_ v3
+-   Padrão \_ E32 \_ v3
+-   Padrão \_ E64 \_ v3
 
 Nos testes não oficiais internos da equipa de engenharia ssis, a série D parece ser mais adequada para a execução de pacotes SSIS do que a série A.
 
@@ -123,24 +123,24 @@ Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes co
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
-| Padrão\_D1\_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 2 / 2x500                         | 2 / 750                                        |
-| Padrão\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4x500                         | 2 / 1500                                       |
-| Padrão\_D3\_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8x500                         | 4 / 3000                                       |
-| Padrão\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16x500                       | 8 / 6000                                       |
-| Padrão\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
-| Padrão\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
-| Padrão\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
-| Padrão\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
-| Padrão\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
-| Padrão\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/ 48x500                        | 8 / 8000                                       |
-| Padrão\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
-| Padrão\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
-| Padrão\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
-| Padrão\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
-| Padrão\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
-| Padrão\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48x500                       | 8 / 8000                                       |
-| Padrão\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
-| Padrão\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
+| Padrão \_ D1 \_ v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 2 / 2x500                         | 2 / 750                                        |
+| Padrão \_ D2 \_ v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4x500                         | 2 / 1500                                       |
+| Padrão \_ D3 \_ v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8x500                         | 4 / 3000                                       |
+| Padrão \_ D4 \_ v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16x500                       | 8 / 6000                                       |
+| Padrão \_ A4 \_ v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
+| Padrão \_ A8 \_ v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
+| Padrão \_ D2 \_ v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
+| Padrão \_ D4 \_ v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
+| Padrão \_ D8 \_ v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
+| Padrão \_ D16 \_ v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/ 48x500                        | 8 / 8000                                       |
+| Padrão \_ D32 \_ v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Padrão \_ D64 \_ v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
+| Padrão \_ E2 \_ v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
+| Padrão \_ E4 \_ v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
+| Padrão \_ E8 \_ v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
+| Padrão \_ E16 \_ v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48x500                       | 8 / 8000                                       |
+| Padrão \_ E32 \_ v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Padrão \_ E64 \_ v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
 
 Aqui estão as diretrizes para a definição do valor certo para a propriedade **AzureSSISMaxParallelExecutionsPerNode:** 
 
@@ -163,5 +163,5 @@ Também pode ajustar o nível de preços da base de dados com base nas informaç
 ## <a name="design-for-high-performance"></a>Conceber o elevado desempenho
 Desenhar um pacote SSIS para funcionar no Azure é diferente de conceber um pacote para a execução no local. Em vez de combinar várias tarefas independentes no mesmo pacote, separe-as em vários pacotes para uma execução mais eficiente no IR Azure-SSIS. Crie uma execução organizada para cada pacote, para que não tenham que esperar um para o outro terminar. Esta abordagem beneficia da escalabilidade do tempo de execução de integração Azure-SSIS e melhora o rendimento global.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o Tempo de Execução de Integração Azure-SSIS. Ver Tempo de [execução de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

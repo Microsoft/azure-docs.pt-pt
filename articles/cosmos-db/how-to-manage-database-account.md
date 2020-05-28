@@ -3,15 +3,15 @@ title: Saiba como gerir contas de base de dados no Azure Cosmos DB
 description: Saiba como gerir os recursos DB da Azure Cosmos utilizando os modelos do portal Azure, PowerShell, CLI e Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 76e8167a5d0dc83a5cc1b238d3015594278e344d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745030"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116697"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
 
@@ -45,7 +45,7 @@ Por favor, consulte [a conta Create Azure Cosmos DB com modelos](manage-sql-with
 
 1. Para adicionar regiões, selecione os hexágonos no mapa com o **+** rótulo que corresponde à região(s) desejada. Alternativamente, para adicionar uma região, selecione a opção **região + Adicionar** e escolha uma região a partir do menu suspenso.
 
-1. Para remover regiões, limpe uma ou mais regiões do mapa selecionando os hexágonos azuis com marcas de verificação. Ou selecione o🗑ícone "wastebasket" ao lado da região do lado direito.
+1. Para remover regiões, limpe uma ou mais regiões do mapa selecionando os hexágonos azuis com marcas de verificação. Ou selecione o ícone "wastebasket" ao 🗑 lado da região do lado direito.
 
 1. Para guardar as suas alterações, selecione **OK**.
 
@@ -81,7 +81,7 @@ Por favor, consulte [Permitir regiões de múltiplas escritas com PowerShell](ma
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Modelo do Resource Manager
 
-Uma conta pode ser migrada de single-master para multi-master, implementando `enableMultipleWriteLocations: true`o modelo de Gestor de Recursos usado para criar a conta e definição . O seguinte modelo de Gestor de Recursos Azure é um modelo mínimo nu que irá implementar uma conta Azure Cosmos para a API SQL com duas regiões e múltiplas localizações de escrita habilitadas.
+Uma conta pode ser migrada de single-master para multi-master, implementando o modelo de Gestor de Recursos usado para criar a conta e definição `enableMultipleWriteLocations: true` . O seguinte modelo de Gestor de Recursos Azure é um modelo mínimo nu que irá implementar uma conta Azure Cosmos para a API SQL com duas regiões e múltiplas localizações de escrita habilitadas.
 
 ```json
 {
@@ -228,7 +228,7 @@ Por favor, consulte [o trigger manual failover com O ClI Azure](manage-with-cli.
 
 Por favor, consulte [a falha do manual do Gatilho com a PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações e exemplos sobre como gerir a conta Azure Cosmos, bem como bases de dados e contentores, leia os seguintes artigos:
 

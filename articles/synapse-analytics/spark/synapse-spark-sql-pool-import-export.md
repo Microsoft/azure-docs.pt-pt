@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739282"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020868"
 ---
 # <a name="introduction"></a>Introdução
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 As declarações de importação não são necessárias, são pré-importadas para a experiência do caderno.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Transferência de dados para ou para um pool SQL no Servidor Lógico (DW Instance) ligado ao espaço de trabalho
+### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferência de dados para ou para uma piscina SQL anexada ao espaço de trabalho
 
 > [!NOTE]
 > **Importações não necessárias na experiência do caderno**
@@ -92,7 +92,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 A autenticação ao Armazenamento e ao Servidor SQL está feita
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-in-a-logical-server-outside-the-workspace"></a>Se estiver a transferir dados para ou para uma piscina Ou base de dados SQL num Servidor Lógico fora do espaço de trabalho
+### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se estiver a transferir dados para ou para uma piscina SQL ou base de dados fora do espaço de trabalho
 
 > [!NOTE]
 > Importações não necessárias na experiência do caderno
@@ -193,7 +193,7 @@ Você precisa ser Storage Blob Data Owner na conta de armazenamento ADLS Gen2 li
 > [!IMPORTANT]
 > Certifique-se de que não seleciona "Padrão" se não pretender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie uma piscina SQL utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Crie uma nova piscina Apache Spark usando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

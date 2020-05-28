@@ -9,12 +9,12 @@ ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7e818a80f9df97ce4e5f5b8f1ef9385d2e6b0ecc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827765"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022338"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos Conectores do Azure Data Factory
 
@@ -203,7 +203,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Causa**: Se a mensagem de erro contiver "Cliente com endereço IP '..." não está autorizado a aceder ao servidor", e está a tentar ligar-se à Base de Dados Azure SQL, normalmente é causada por problemas de firewall da Base de Dados Azure SQL.
 
-- **Recomendação**: Na configuração de firewall do Servidor Azure SQL, ativar a opção "Permitir que os serviços e recursos do Azure acedam a este servidor". Doutoramento em referência: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
+- **Recomendação**: Na configuração lógica da firewall do servidor SQL, permita que os serviços e recursos do Azure acedam a este servidor. Doutoramento em referência: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
 
 
 ### <a name="error-code--sqloperationfailed"></a>Código de erro: SqlOperationFailed
@@ -671,13 +671,13 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Mensagem:**`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda para resolução de problemas, experimente estes recursos:
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de funcionalidade sinuosos da Fábrica de Dados](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum para fábrica de dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre data factory](https://twitter.com/hashtag/DataFactory)

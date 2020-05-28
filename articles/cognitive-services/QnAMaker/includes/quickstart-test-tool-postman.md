@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 1f47b4532a009694d4167c08f6f04312f8020acc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 095f3396c483f4b8f80ab6c31ee369f2082f560c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673480"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83998062"
 ---
 Este quickstart baseado em Carteiro leva-o através de obter uma resposta da sua base de conhecimento.
 
@@ -64,7 +64,7 @@ Num início rápido anterior, os metadados foram adicionados a dois pares QnA pa
     }
     ```
 
-    A questão é apenas uma palavra, `size` que pode devolver qualquer um dos dois conjuntos de perguntas e respostas. A `strictFilters` matriz diz a resposta para reduzir apenas para as `qna_maker` respostas.
+    A questão é apenas uma palavra, `size` que pode devolver qualquer um dos dois pares de perguntas e respostas. A `strictFilters` matriz diz a resposta para reduzir apenas para as `qna_maker` respostas.
 
 1. A resposta inclui apenas a resposta que satisfaz os critérios do filtro.
 
@@ -103,12 +103,12 @@ Num início rápido anterior, os metadados foram adicionados a dois pares QnA pa
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta geral `No good match found in KB.` é devolvida.
+    Se houver um par de perguntas e respostas que não cumpriu o termo de pesquisa mas que cumpriu o filtro, não seria devolvido. Em vez disso, a resposta geral `No good match found in KB.` é devolvida.
 
 ## <a name="use-debug-query-property"></a>Use propriedade de consulta de depuração
 
 > [!NOTE]
->Não recomendamos usar poreperty Debug para qualquer dependência. Esta propriedade foi adicionada para ajudar a equipa de produtos na resolução de problemas. 
+>Não recomendamos usar poreperty Debug para qualquer dependência. Esta propriedade foi adicionada para ajudar a equipa de produtos na resolução de problemas.
 
 A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a `debug` propriedade:
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 5090d772be4f68c696e8dd4882a78ba6954b6058
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402586"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020732"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para o SQL Server ou para a Base de Dados Azure SQL utilizando aplicações da Lógica Azure
 
@@ -26,7 +26,7 @@ Se você é novo em aplicações lógicas, reveja [o que são As Aplicações L�
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma [base de dados do Servidor SQL](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) ou base de dados [Azure SQL](../sql-database/sql-database-get-started-portal.md)
+* Uma [base de dados do Servidor SQL](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) ou base de dados [Azure SQL](../azure-sql/database/single-database-create-quickstart.md)
 
   As suas tabelas devem ter dados para que a sua aplicação lógica possa devolver resultados ao ligar para as operações. Se criar uma Base de Dados SQL Azure, pode utilizar bases de dados de amostras, que estão incluídas.
 
@@ -148,6 +148,6 @@ Por vezes, quando se faz uma chamada para um procedimento armazenado no conector
 
 Para obter informações técnicas sobre os gatilhos, ações e limites deste conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sql/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça outros [conectores para aplicações lógicas azure](../connectors/apis-list.md)

@@ -1,6 +1,6 @@
 ---
 title: Ativar soft delete - Ações de ficheiroS Azure
-description: Aprenda a permitir a eliminação suave das partilhas de ficheiros Azure para a recuperação de dados e evitando a eliminação acidental.
+description: Saiba como permitir a eliminação suave (pré-visualização) nas partilhas de ficheiros Do Azure para a recuperação de dados e para evitar a eliminação acidental.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 70081114995d46e7c5db7c9549cfce2fdff42975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a31fc675ca32697ece1fe7240112bb5610feda9d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116498"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142100"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Ativar soft delete em ações de ficheiros Azure
 
-O Azure Storage oferece uma eliminação suave para partilhas de ficheiros para que possa recuperar mais facilmente os seus dados quando estes forem erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento. Para saber mais sobre a eliminação suave, consulte [como evitar a eliminação acidental de ações de ficheiros Azure](storage-files-prevent-file-share-deletion.md).
+O Azure Storage oferece uma eliminação suave para partilhas de ficheiros (pré-visualização) para que possa recuperar mais facilmente os seus dados quando estes forem erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento. Para saber mais sobre a eliminação suave, consulte [como evitar a eliminação acidental de ações de ficheiros Azure](storage-files-prevent-file-share-deletion.md).
 
 As seguintes secções mostram como ativar e utilizar a eliminação suave para as ações de ficheiros Azure numa conta de armazenamento existente:
 

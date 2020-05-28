@@ -3,19 +3,19 @@ title: Compreender resultados automatizados do ML
 titleSuffix: Azure Machine Learning
 description: Aprenda a visualizar e compreender gráficos e métricas para cada uma das suas corridas automatizadas de aprendizagem automática.
 services: machine-learning
-author: RachelKellam
-ms.author: rakellam
-ms.reviewer: sgilley
+author: aniththa
+ms.author: anumamah
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7827349166ce55b1604f949f1d78a1ddce7c5e0
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283462"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116026"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender os resultados de machine learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,13 +52,13 @@ Depois de executar uma experiência automatizada de aprendizagem automática de 
 
 1. Na tabela inferior, selecione o **Run**.
 
-   Execução de experiências) [ ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)
+   [ ![ Execução de experiências)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)
 
 1. Nos Modelos, selecione o **nome Algoritmo** para o modelo que pretende explorar mais.
 
    [![Modelo de experimentação](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-Também vê estes mesmos resultados durante `RunDetails`uma corrida quando utiliza o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+Também vê estes mesmos resultados durante uma corrida quando utiliza o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
 ## <a name="classification-results"></a><a name="classification"></a>Resultados da classificação
 
@@ -76,12 +76,12 @@ As métricas e gráficos que se seguem estão disponíveis para todos os modelos
 
 As seguintes métricas são guardadas em cada iteração de execução para uma tarefa de classificação.
 
-Métrica|Descrição|Cálculo|Parâmetros extra
+Metric|Descrição|Cálculo|Parâmetros extra
 --|--|--|--
 AUC_Macro| AUC é a área sob a Curva Característica De Funcionamento do Recetor. Macro é a média aritmética da AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média="macro"|
 AUC_Micro| AUC é a área sob a Curva Característica De Funcionamento do Recetor. A micro é calculada globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média="micro"|
 AUC_Weighted  | AUC é a área sob a Curva Característica De Funcionamento do Recetor. Ponderado é a média aritmética da pontuação para cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média="ponderado"
-accuracy|A precisão é a percentagem de rótulos previstos que correspondem exatamente aos rótulos verdadeiros. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhuma|
+accuracy|A precisão é a percentagem de rótulos previstos que correspondem exatamente aos rótulos verdadeiros. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhum|
 average_precision_score_macro|A precisão média resume uma curva de recolha de precisão como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. Macro é a média aritmética da pontuação média de precisão de cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média="macro"|
 average_precision_score_micro|A precisão média resume uma curva de recolha de precisão como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. A micro é calculada globalmente combinando os verdadeiros positivos e falsos positivos em cada corte.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média="micro"|
 average_precision_score_weighted|A precisão média resume uma curva de recolha de precisão como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. Ponderado é a média aritmética da pontuação média de precisão para cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média="ponderado"|
@@ -89,7 +89,7 @@ balanced_accuracy|Precisão equilibrada é a média aritmética de recordação 
 f1_score_macro|A pontuação de F1 é a média harmónica de precisão e recordação. Macro é a média aritmética da pontuação de F1 para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média="macro"|
 f1_score_micro|A pontuação de F1 é a média harmónica de precisão e recordação. A micro é calculada globalmente contando os verdadeiros positivos, falsos negativos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média="micro"|
 f1_score_weighted|A pontuação de F1 é a média harmónica de precisão e recordação. Média ponderada por frequência de classe de pontuação de F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média="ponderado"|
-log_loss|Esta é a função de perda utilizada na regressão logística (multinomial) e extensões dela, tais como redes neurais, definidas como a probabilidade negativa de log-probabilidade dos verdadeiros rótulos dadas as previsões de um classificador probabilístico. Para uma única amostra com {0,1} rótulo verdadeiro yt in e probabilidade estimada yp que yt = 1, a perda de tronco é -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhuma|
+log_loss|Esta é a função de perda utilizada na regressão logística (multinomial) e extensões dela, tais como redes neurais, definidas como a probabilidade negativa de log-probabilidade dos verdadeiros rótulos dadas as previsões de um classificador probabilístico. Para uma única amostra com rótulo verdadeiro yt in {0,1} e probabilidade estimada yp que yt = 1, a perda de tronco é -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
 norm_macro_recall|Macro Recall normalizado é Macro Recall normalizado para que o desempenho aleatório tenha uma pontuação de 0 e o desempenho perfeito tenha uma pontuação de 1. Isto é conseguido por norm_macro_recall := (recall_score_macro - R)/1 - R), onde R é o valor esperado de recall_score_macro para previsões aleatórias (isto é, R=0,5 para classificação binária e R=(1/C) para problemas de classificação da classe C).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro" |
 precision_score_macro|A precisão é a percentagem de elementos positivamente previstos que estão corretamente rotulados. Macro é a média aritmética de precisão para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média="macro"|
 precision_score_micro|A precisão é a percentagem de elementos positivamente previstos que estão corretamente rotulados. A micro é calculada globalmente contando os verdadeiros positivos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média="micro"|
@@ -218,18 +218,18 @@ As métricas e gráficos que se seguem estão disponíveis para todos os modelos
 
 As seguintes métricas são guardadas em cada iteração de execução para uma tarefa de regressão ou previsão.
 
-|Métrica|Descrição|Cálculo|Parâmetros extra
+|Metric|Descrição|Cálculo|Parâmetros extra
 --|--|--|--|
-explained_variance|Variação explicada é a proporção a que um modelo matemático explica a variação de um determinado conjunto de dados. É a diminuição percentual da variação dos dados originais à variação dos erros. Quando a média dos erros é 0, é igual a uma variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhuma|
-r2_score|R2 é o coeficiente de determinação ou a redução percentual de erros quadrados em comparação com um modelo de base que produz a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhuma|
-spearman_correlation|A correlação com o homem-lança é uma medida não paramétrica da monotonicidade da relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Tal como outros coeficientes de correlação, este varia entre -1 e +1 com 0 implicando nenhuma correlação. As correlações de -1 ou +1 implicam uma relação monotónica exata. Correlações positivas implicam que à medida que x aumenta, y também. Correlações negativas implicam que à medida que x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhuma|
-mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nenhuma|
+explained_variance|Variação explicada é a proporção a que um modelo matemático explica a variação de um determinado conjunto de dados. É a diminuição percentual da variação dos dados originais à variação dos erros. Quando a média dos erros é 0, é igual a uma variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
+r2_score|R2 é o coeficiente de determinação ou a redução percentual de erros quadrados em comparação com um modelo de base que produz a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
+spearman_correlation|A correlação com o homem-lança é uma medida não paramétrica da monotonicidade da relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Tal como outros coeficientes de correlação, este varia entre -1 e +1 com 0 implicando nenhuma correlação. As correlações de -1 ou +1 implicam uma relação monotónica exata. Correlações positivas implicam que à medida que x aumenta, y também. Correlações negativas implicam que à medida que x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhum|
+mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nenhum|
 normalized_mean_absolute_error|Erro absoluto médio normalizado é erro absoluto dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Divida por alcance dos dados|
-median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os mais avançados.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nenhuma|
+median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os mais avançados.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nenhum|
 normalized_median_absolute_error|Erro absoluto mediano normalizado é erro absoluto mediano dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Divida por alcance dos dados|
-root_mean_squared_error|Erro quadrado médio raiz é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhuma|
+root_mean_squared_error|Erro quadrado médio raiz é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhum|
 normalized_root_mean_squared_error|Erro quadrado da raiz normalizado é erro quadrado médio raiz dividido pela gama dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divida por alcance dos dados|
-root_mean_squared_log_error|Erro de log quadrado médio de raiz é a raiz quadrada do erro logaritármico quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhuma|
+root_mean_squared_log_error|Erro de log quadrado médio de raiz é a raiz quadrada do erro logaritármico quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhum|
 normalized_root_mean_squared_log_error|Erro de registo quadrado da raiz normalizado é erro de registo quadrado médio raiz dividido pela gama dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por alcance dos dados|
 
 ### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Gráfico previsto vs. gráfico verdadeiro
@@ -266,7 +266,7 @@ Um bom modelo normalmente terá uma curva do sino ou erros em torno de zero.
 Ml automatizado fornece um painel de interpretabilidade de aprendizagem automática para as suas corridas.
 Para obter mais informações sobre a possibilidade de funcionalidades de interpretação, consulte o [como](how-to-machine-learning-interpretability-automl.md) permitir a interpretação em experiências automatizadas de ML.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [ml automatizado](concept-automated-ml.md) em Azure Machine Learning.
 + Experimente os cadernos de amostras de modelo de [aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) de máquinas.

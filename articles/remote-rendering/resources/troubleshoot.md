@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844574"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018825"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -29,7 +29,7 @@ Certifique-se de que as suas firewalls (no dispositivo, dentro dos routers, etc.
 * **8266 (TCP+UDP)** - necessário para a transferência de dados
 * **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - necessário para [arrinspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Erro 'Desligado: VideoFormatNotDisponível'
+## <a name="error-disconnected-videoformatnotavailable"></a>Erro `Disconnected: VideoFormatNotAvailable` ' '
 
 Verifique se a sua GPU suporta a descodificação de vídeo de hardware. Ver [Desenvolvimento PC](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Se estiver a trabalhar num portátil com duas GPUs, é possível que a GPU em qu
 
 ## <a name="h265-codec-not-available"></a>Código H265 não disponível
 
-Existem duas razões pelas quais o servidor pode recusar-se a ligar-se a um erro **não disponível.**
+Existem duas razões pelas quais o servidor pode recusar-se a ligar-se a um `codec not available` erro.
 
 **O código H265 não está instalado:**
 
@@ -107,7 +107,7 @@ Se estes dois passos não ajudaram, é necessário descobrir se os quadros de v�
 
 Consulte [limitações específicas do tamanho](../reference/limits.md#overall-number-of-polygons)do VM .
 
-**O modelo não está dentro da vista frustum:**
+**O modelo não está dentro do frustum da câmara:**
 
 Em muitos casos, o modelo é apresentado corretamente, mas localizado fora do frustum da câmara. Uma razão comum é que o modelo foi exportado com um pivô muito fora do centro, por isso é cortado pelo avião de corte da câmara. Ajuda a consultar a caixa de delimitação do modelo programáticamente e visualizar a caixa com a Unidade como uma caixa de linha ou imprimir os seus valores para o registo de depuração.
 
@@ -142,7 +142,7 @@ Pode haver dois problemas com esta caixa de delimitação que levam a geometria 
 
 **O oleoduto de renderização da Unidade não inclui os ganchos de renderização:**
 
-Os ganchos de renderização remota Azure no pipeline de renderização da Unidade para fazer a composição da moldura com o vídeo e para fazer a reprojeção. Para verificar se estes ganchos existem, abra o menu *Janela > Análise > debugger Frame*. Ative-o e certifique-se de que existem duas entradas para `HolographicRemotingCallbackPass` o gasoduto:
+Os ganchos de renderização remota Azure no pipeline de renderização da Unidade para fazer a composição da moldura com o vídeo e para fazer a reprojeção. Para verificar se estes ganchos existem, abra o *:::no-loc text="Window > Analysis > Frame debugger":::* menu. Ative-o e certifique-se de que existem duas entradas para `HolographicRemotingCallbackPass` o gasoduto:
 
 ![Debugger quadro de unidade](./media/troubleshoot-unity-pipeline.png)
 
@@ -172,7 +172,7 @@ Outro valor a olhar `ARRServiceStats.LatencyPoseToReceiveAvg` é. Deve ser consi
 
 Para obter uma lista de potenciais atenuações, consulte as [diretrizes para](../reference/network-requirements.md#guidelines-for-network-connectivity)a conectividade da rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Requisitos de sistema](../overview/system-requirements.md)
 * [Requisitos de rede](../reference/network-requirements.md)

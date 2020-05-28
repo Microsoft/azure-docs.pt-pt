@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14868b2642b2b77ce6bc7315e58a7ae2dc0f115d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744372"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019933"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregue dados para piscina Azure Synapse Analytics SQL
 
@@ -46,7 +46,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um armazém de dados em branco na piscina SQL
 
-Um pool SQL é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e em um [servidor lógico Azure SQL](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Um pool SQL é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e num [servidor sQL lógico.](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 Siga estes passos para criar uma piscina SQL em branco.
 
@@ -73,11 +73,11 @@ Siga estes passos para criar uma piscina SQL em branco.
     | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
-    ![criar um servidor de base de dados](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![criar servidor](./media/load-data-wideworldimportersdw/create-database-server.png)
 
 1. **Selecione o nível de desempenho**. O slider por padrão está definido para **DW1000c**. Mova o slider para cima e para baixo para escolher a escala de desempenho desejada.
 
-    ![criar um servidor de base de dados](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![criar servidor 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 1. Na página **Definições Adicionais,** delineie os **dados existentes** para Nenhum e deixe a **Colagem** por defeito de *SQL_Latin1_General_CP1_CI_AS*.
 
@@ -87,10 +87,10 @@ Siga estes passos para criar uma piscina SQL em branco.
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
 
-O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do cliente.
+O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do cliente.
 
 > [!NOTE]
-> A piscina Azure Synapse Analytics SQL comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> A piscina Azure Synapse Analytics SQL comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não poderá ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
 >
 
 1. Depois de concluída a implementação, procure o nome da piscina na caixa de pesquisa no menu de navegação e selecione o recurso de piscina SQL. Selecione o nome do servidor.
@@ -100,7 +100,7 @@ O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que i
 1. Selecione o nome do servidor.
     ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor de piscina SQL abre.
+1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor abre.
 
     ![definições do servidor](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -108,9 +108,9 @@ O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que i
 
     ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Selecione **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
+1. Selecione **Guardar**. Uma regra de firewall de nível de servidor é criada para a sua porta de abertura de endereço IP atual 1433 no servidor.
 
-Agora pode ligar-se ao servidor SQL utilizando o endereço IP do seu cliente. A ligação funciona a partir do SQL Server Management Studio ou de outra ferramenta à sua escolha. Ao ligar, utilize a conta serveradmin que criou anteriormente.  
+Agora pode ligar-se ao servidor utilizando o endereço IP do seu cliente. A ligação funciona a partir do SQL Server Management Studio ou de outra ferramenta à sua escolha. Ao ligar, utilize a conta serveradmin que criou anteriormente.  
 
 > [!IMPORTANT]
 > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Clique em **DESATIVADO** nesta página e, em seguida, clique em **Guardar** para desativar a firewall para todos os serviços do Azure.
@@ -123,7 +123,7 @@ O nome do servidor totalmente qualificado é o que é usado para ligar ao servid
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
+Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao seu servidor.
 
 1. Abra o SQL Server Management Studio.
 
@@ -170,7 +170,7 @@ Uma vez que está atualmente ligado como o administrador do servidor, pode criar
 
     ![Nova consulta no armazém de dados de exemplo](./media/load-data-wideworldimportersdw/create-loading-user.png)
 
-5. Introduza os seguintes comandos T-SQL para criar um utilizador de base de dados com o nome LoaderRC60 para o início de sessão de LoaderRC60. A segunda linha concede ao novo utilizador permissões CONTROL no novo armazém de dados.  Estas permissões são semelhantes a tornar o utilizador o proprietário da base de dados. A terceira linha adiciona o novo `staticrc60` utilizador como membro da [classe de recursos](resource-classes-for-workload-management.md).
+5. Introduza os seguintes comandos T-SQL para criar um utilizador de base de dados com o nome LoaderRC60 para o início de sessão de LoaderRC60. A segunda linha concede ao novo utilizador permissões CONTROL no novo armazém de dados.  Estas permissões são semelhantes a tornar o utilizador o proprietário da base de dados. A terceira linha adiciona o novo utilizador como membro da `staticrc60` [classe de recursos](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -1087,11 +1087,11 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 3. Se quiser remover futuras cobranças, pode eliminar o armazém de dados. Para remover o armazém de dados para não lhe vir a ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
 
-4. Para remover o servidor SQL que criou, clique em **sample-svr.database.windows.net** na imagem anterior e, em seguida, clique em **Eliminar**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor que criou, clique em **sample-svr.database.windows.net** na imagem anterior e, em seguida, clique em **Eliminar**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
 
 5. Para remover o grupo de recursos, clique em **SampleRG** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Aprenda a utilizar a Azure Dev Spaces e a Azure Kubernetes Services para proporcionar continuidade ao negócio e preparar-se para a recuperação de desastres
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78295832"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996929"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuidade de negócios e recuperação de desastres em Espaços Azure Dev
 
@@ -27,14 +27,6 @@ Permitir espaços de dev em aglomerados AKS em diferentes regiões permite-lhe r
 
 Para obter informações gerais sobre implantações multi-regiões do AKS, consulte [plano de implantação multi-regiões](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Ativar espaços de dev através do portal Azure
-
-Selecione o item do menu **Dev Spaces** sob as definições de cada cluster no portal Azure. Em seguida, escolha a opção de ativar dev Spaces e economizar.
-
-![Habilitar os Espaços Dev através do portal Azure](../media/common/enable-dev-spaces.jpg)
-
-Repita este processo para cada cluster.
-
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Ativar espaços de dev através do Azure CLI
 
 Também pode ativar os Espaços Dev na linha de comando:
@@ -45,7 +37,7 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Desloque a linha de base da sua equipa para cada cluster
 
-Ao trabalhar com a Dev Spaces, você normalmente implementa toda a aplicação para um espaço de dev dos pais no seu cluster Kubernetes. Por padrão, `default` o espaço é utilizado. A implantação inicial inclui todos os serviços, bem como os recursos externos de que esses serviços dependem, como bases de dados ou filas. Isto é conhecido como a *linha de base.* Assim que configurar uma linha de base no espaço de dev dos pais, você itera e depura serviços individuais dentro de espaços de dev infantil.
+Ao trabalhar com a Dev Spaces, você normalmente implementa toda a aplicação para um espaço de dev dos pais no seu cluster Kubernetes. Por padrão, o `default` espaço é utilizado. A implantação inicial inclui todos os serviços, bem como os recursos externos de que esses serviços dependem, como bases de dados ou filas. Isto é conhecido como a *linha de base.* Assim que configurar uma linha de base no espaço de dev dos pais, você itera e depura serviços individuais dentro de espaços de dev infantil.
 
 Deve implementar as versões mais recentes do seu conjunto de serviços de base para clusters em várias regiões. Atualizar os seus serviços de base desta forma garante que pode continuar a utilizar espaços Dev se houver uma falha na região de Azure. Por exemplo, se implementar a sua linha de base através de um oleoduto CI/CD, modifique o gasoduto de modo a que se desloque para vários clusters em diferentes regiões.
 
@@ -88,11 +80,11 @@ Repita estes passos para quaisquer outros projetos configurados para utilizar o 
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Aceda a um serviço num cluster de backup
 
-Se configurar o seu serviço para utilizar um nome Público de DNS, então o serviço terá um URL diferente se o executar num cluster de backup. Os nomes públicos de `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`DNS estão sempre no formato . Se mudar para um cluster diferente, o cluster GUID e possivelmente a região mudarão.
+Se configurar o seu serviço para utilizar um nome Público de DNS, então o serviço terá um URL diferente se o executar num cluster de backup. Os nomes públicos de DNS estão sempre no formato `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io` . Se mudar para um cluster diferente, o cluster GUID e possivelmente a região mudarão.
 
-A Dev Spaces mostra sempre o `azds up`URL correto para o serviço durante a execução, ou na janela de saída em Estúdio Visual sob **espaços Azure Dev**.
+A Dev Spaces mostra sempre o URL correto para o serviço durante a `azds up` execução, ou na janela de saída em Estúdio Visual sob espaços **Azure Dev**.
 
-Também pode encontrar o URL `azds list-uris` executando o comando:
+Também pode encontrar o URL executando o `azds list-uris` comando:
 ```
 $ azds list-uris
 Uri                                                     Status

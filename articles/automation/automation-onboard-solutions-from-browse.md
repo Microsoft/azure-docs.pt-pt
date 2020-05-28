@@ -5,14 +5,14 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 039e79f043e4e898ab85f003a84f9f4db2d36d27
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743976"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117235"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Ativar gestão de atualização a partir do portal Azure
+# <a name="enable-update-management-from-the-azure-portal"></a>Ativar a Gestão de Atualizações a partir do portal do Azure
 
 Este artigo descreve como pode ativar a funcionalidade [De Gestão](automation-update-management.md) de Atualizações para VMs através da navegação no portal Azure. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando a Atualização. 
 
@@ -60,10 +60,9 @@ Inscreva-se no Azure em https://portal.azure.com .
 
 8. Clique em **Ativar** para ativar a funcionalidade que selecionou. A configuração leva até 15 minutos para ser concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Para configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Gestão de Atualizações](automation-scope-configurations-update-management.md).
 * Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
 * Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
 * Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .

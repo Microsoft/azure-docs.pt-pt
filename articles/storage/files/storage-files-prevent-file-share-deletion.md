@@ -8,18 +8,18 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 96e3d5001d11455337ae092776a1a4c5c3738012
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9ffc065cb877c7f87cd38671f586f0754a42b2b8
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883073"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141590"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar a supressão acidental de ações de ficheiros do Azure
 
-O Azure Storage oferece agora uma eliminação suave para ações de ficheiros. A eliminação suave permite-lhe recuperar os seus dados quando estes são erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento.
+O Azure Storage oferece agora uma eliminação suave para partilhas de ficheiros (pré-visualização). A eliminação suave permite-lhe recuperar os seus dados quando estes são erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento.
 
-## <a name="how-soft-delete-works"></a>Como a eliminação suave funciona
+## <a name="how-soft-delete-preview-works"></a>Como funciona o soft delete (pré-visualização)
 
 Quando ativado, a eliminação suave permite-lhe guardar e recuperar as suas ações de ficheiro quando são eliminadas. Quando os dados são eliminados, transita para um estado suave apagado em vez de ser permanentemente apagado. Pode configurar a quantidade de tempo que os dados apagados suaves são recuperáveis antes de ser eliminado permanentemente.
 
@@ -29,7 +29,7 @@ No caso das ações de ficheiros premium eliminados, a quota de partilha de fich
 
 ### <a name="availability"></a>Disponibilidade
 
-A eliminação suave para as ações de ficheiros Azure está disponível em todos os níveis de armazenamento, em todos os tipos de contas de armazenamento e em todas as regiões onde o Azure Files está disponível.
+A eliminação suave para as partilhas de ficheiros Azure (pré-visualização) está disponível em todos os níveis de armazenamento, em todos os tipos de conta de armazenamento e em todas as regiões onde o Azure Files está disponível.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -51,6 +51,6 @@ Para obter mais informações sobre os preços do Armazenamento de Ficheiros Azu
 
 Quando inicialmente ativa a eliminação suave, recomendamos que utilize um pequeno período de retenção para entender melhor como a funcionalidade afeta a sua conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a ativar e utilizar o soft delete, continue a [permitir eliminar suavemente](storage-files-enable-soft-delete.md)

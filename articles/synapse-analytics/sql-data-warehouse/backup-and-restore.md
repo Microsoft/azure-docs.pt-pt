@@ -11,12 +11,12 @@ ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea9a9430f9abee6179bacd4f999b7eeca92a8129
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631221"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020851"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauro na piscina Azure Synapse SQL
 
@@ -30,7 +30,7 @@ Um armazém de *dados restaurado* é um novo armazém de dados que é criado a p
 
 ## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
 
-Os instantâneos são uma característica incorporada do serviço que cria pontos de restauro. Não tens de ativar esta capacidade. No entanto, a piscina SQL deve estar em estado ativo para restaurar a criação de pontos. Se o pool SQL for interrompido com frequência, os pontos de restauro automáticos podem não ser criados, por isso certifique-se de criar um ponto de restauro definido pelo utilizador antes de parar a piscina SQL. Os pontos de restauro automáticos não podem ser eliminados pelos utilizadores, uma vez que o serviço utiliza estes pontos de restauro para manter os SLAs para recuperação.
+Os instantâneos são uma característica incorporada que cria pontos de restauro. Não tens de ativar esta capacidade. No entanto, a piscina SQL deve estar em estado ativo para restaurar a criação de pontos. Se o pool SQL for interrompido com frequência, os pontos de restauro automáticos podem não ser criados, por isso certifique-se de criar um ponto de restauro definido pelo utilizador antes de parar a piscina SQL. Os pontos de restauro automáticos não podem ser eliminados pelos utilizadores, uma vez que o serviço utiliza estes pontos de restauro para manter os SLAs para recuperação.
 
 As fotos do seu armazém de dados são tiradas ao longo do dia criando pontos de restauro que estão disponíveis por sete dias. Este período de retenção não pode ser alterado. A piscina SQL suporta um objetivo de ponto de recuperação de oito horas (RPO). Pode restaurar o seu armazém de dados na região primária a partir de qualquer uma das fotos tiradas nos últimos sete dias.
 
@@ -65,7 +65,7 @@ As seguintes listas de detalhes para os períodos de retenção de pontos de res
 Quando você larga uma piscina SQL, um instantâneo final é criado e guardado por sete dias. Você pode restaurar a piscina SQL para o ponto final de restauro criado na eliminação. Se a piscina SQL for largada em estado de pausa, não se tira fotografias. Nesse cenário, certifique-se de criar um ponto de restauro definido pelo utilizador antes de deixar cair a piscina SQL.
 
 > [!IMPORTANT]
-> Se eliminar uma instância lógica do servidor SQL, todas as bases de dados que pertencem à instância também são eliminadas e não podem ser recuperadas. Não é possível restaurar um servidor apagado.
+> Se eliminar o servidor que acolhe um pool SQL, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Não é possível restaurar um servidor apagado.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Geo-backups e recuperação de desastres
 
@@ -96,7 +96,7 @@ Para restaurar um armazém de dados apagado ou pausado, pode [criar um bilhete](
 
 ## <a name="cross-subscription-restore"></a>Restauro de subscrição cruzada
 
-Se precisar de restaurar diretamente através da subscrição, vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaurar para um servidor lógico diferente e ['Mover'](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o servidor através de subscrições para realizar uma restauração de subscrição cruzada.
+Se precisar de restaurar diretamente através da subscrição, vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaurar para um servidor diferente e ['Mover'](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o servidor através de subscrições para realizar uma restauração de subscrição cruzada.
 
 ## <a name="geo-redundant-restore"></a>Restauro geo-redundante
 
@@ -105,6 +105,6 @@ Você pode [restaurar a sua piscina SQL](sql-data-warehouse-restore-from-geo-bac
 > [!NOTE]
 > Para realizar um restauro geo-redundante não deve ter optado por não ter optado por não ter optado por não ter optado por não ter optado por não ter optado por não ter optado por não ter optado por sair desta funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre planeamento de desastres, consulte a [visão geral da continuidade do Negócio](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Para mais informações sobre planeamento de desastres, consulte a [visão geral da continuidade do Negócio](../../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)

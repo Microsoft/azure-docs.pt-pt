@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891506"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996504"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Ativar a recuperação de desastres da zona para máquinas virtuais Azure
 
@@ -118,7 +118,10 @@ A equipa de recuperação do site e o plano de equipa de gestão de capacidade s
 **4. Quais os sistemas operativos suportados?**
 A Recuperação de Desastres da Zona para A Zona suporta os mesmos sistemas operativos que o Azure to Azure Disaster Recovery. Consulte a matriz de suporte [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
-## <a name="next-steps"></a>Passos seguintes
+**5. Os grupos de recursos de origem e de recursos-alvo podem ser os mesmos?**
+Não, tens de falhar com um grupo de recursos diferente.
+
+## <a name="next-steps"></a>Próximos passos
 
 Os passos que precisam de ser seguidos para executar um exercício de recuperação de desastres, falhar, reproteger e falhar são os mesmos que os passos no cenário de recuperação de desastres de Azure para Azure.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 0d500a7c24538adb139a42924134f784973f496b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588570"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995739"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com a WPF
 
@@ -42,7 +42,7 @@ Esta lista inclui os Serviços Cognitivos utilizados neste tutorial. Siga o link
 | Tradutor | [Obter Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupere uma lista completa de idiomas suportados para tradução de texto. |
 | Tradutor | [Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduza texto em mais de 60 línguas. |
 | Tradutor | [Detetar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detete a linguagem do texto de entrada. Inclui pontuação de confiança para deteção. |
-| Verificação de Ortografia do Bing | [Verificação Ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrija erros ortográficos para melhorar a precisão da tradução. |
+| Verificação Ortográfica do Bing | [Verificação Ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrija erros ortográficos para melhorar a precisão da tradução. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -577,7 +577,7 @@ O código fonte para este projeto está disponível no GitHub.
 
 * [Explore o código fonte](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp-Tutorial)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência do Microsoft Tradutor](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

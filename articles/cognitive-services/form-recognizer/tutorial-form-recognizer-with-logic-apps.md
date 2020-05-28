@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118265"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118538"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Use reconhecimento de formulário com aplicações lógicas azure para analisar faturas
 
@@ -58,7 +58,7 @@ Utiliza este recipiente para carregar dados da amostra que são necessários par
 
 Faça o download dos dados da amostra disponíveis no [GitHub.](https://go.microsoft.com/fwlink/?linkid=2090451) Extraios os dados para uma pasta local e faça upload do conteúdo da pasta **/Train** para o **formrecocontainer** que criou anteriormente. Siga as instruções no [Upload de uma bolha](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) de bloco para fazer o upload dos dados para um recipiente.
 
-Copie o URL do recipiente. Vai precisar desta URL mais tarde no tutorial. Se criou a conta de armazenamento e o recipiente com os mesmos nomes indicados neste tutorial, o URL será *\/https: /formrecostorage.blob.core.windows.net/formrecocontainer/*.
+Copie o URL do recipiente. Vai precisar desta URL mais tarde no tutorial. Se criou a conta de armazenamento e o recipiente com os mesmos nomes indicados neste tutorial, o URL será *https: \/ /formrecostorage.blob.core.windows.net/formrecocontainer/*.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
@@ -73,20 +73,20 @@ Pode utilizar aplicativos azure logic para automatizar e orquestrar tarefas e fl
 
 Siga estes passos para configurar o seu fluxo de trabalho.
 
-1. A partir do menu principal do Azure, selecione Criar uma**Aplicação Lógica**de**Integração** > de **Recursos.** > 
+1. A partir do menu principal do Azure, selecione Criar uma Aplicação Lógica de **Create a resource**  >  **Integração**de  >  **Logic App**Recursos.
 
 1. Em **Criar aplicação lógica**, forneça detalhes sobre a sua aplicação lógica, conforme aqui apresentado. Depois de terminar, selecione **Criar**.
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que pode`-`conter apenas letras, números, hífenes ,`_`sublinha ( ), parênteses (`(`), `)`e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
+   | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que pode conter apenas letras, números, hífenes `-` , sublinha ( ), `_` parênteses ( `(` ), e `)` períodos ( `.` ). Este exemplo usa "My-First-Logic-App". |
    | **Subscrição** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
    | **Grupo de recursos** | <*Nome do grupo azure-recursos*> | O nome do grupo de [recursos Azure](./../../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Localização** | <*Região azul*> | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois de o Azure implementar a sua aplicação, na barra de ferramentas Azure, selecione **Notificações** > **Para recorrer para** a sua aplicação lógica implementada. Ou, pode encontrar e selecionar a sua aplicação lógica digitando o nome na caixa de pesquisa.
+1. Depois de o Azure implementar a sua aplicação, na barra de ferramentas Azure, selecione **Notificações**  >  **Para recorrer para** a sua aplicação lógica implementada. Ou, pode encontrar e selecionar a sua aplicação lógica digitando o nome na caixa de pesquisa.
 
    O Estruturador da Aplicação Lógica é aberto e mostra uma página com um vídeo de introdução e os acionadores habitualmente utilizados. Em **Modelos**, selecione **Aplicação Lógica em Branco**.
 
@@ -377,9 +377,8 @@ Para testar a aplicação lógica, utilize as faturas da amostra na pasta **/Tes
       }
     ]
     ```
-    Completou com sucesso este tutorial!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você configura um fluxo de trabalho de Aplicações Lógicas Azure para usar o Reconhecimento de Formulário para treinar um modelo e extrair o conteúdo de uma fatura. Em seguida, aprenda a construir um conjunto de dados de treino para que possa criar um cenário semelhante com as suas próprias formas.
 

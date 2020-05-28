@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 3275a372e496b79da2c9f31258f557389c5b1ee1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3da51d1e08676d2794c6e95e7ffb359aff26084a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209371"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118396"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Quando se cria uma experiência preditiva, normalmente adiciona-se uma entrada e saída de serviço web. Quando implementa a experiência, os consumidores podem enviar e receber dados do serviço web através das inputs e saídas. Para algumas aplicações, os dados de um consumidor podem estar disponíveis a partir de um feed de dados ou já residir numa fonte externa de dados, como o armazenamento de Azure Blob. Nestes casos, não precisam de ler e escrever dados utilizando inputs e saídas do serviço web. Podem, em vez disso, utilizar o Serviço de Execução de Lotes (BES) para ler dados da fonte de dados utilizando um módulo de Dados de Importação e escrever os resultados da pontuação para um local de dados diferente utilizando um módulo de Dados de Exportação.
 
@@ -101,7 +99,7 @@ Para implantar como um Serviço Web Clássico e criar uma aplicação para consu
 2. Quando a execução estiver concluída, clique em **Implementar o Serviço Web** e selecione Implementar o Serviço Web **[Classic]**.
 3. No painel de instrumentos do serviço web, localize a sua chave API. Copie e guarde para usar mais tarde.
 4. Na tabela **'Ponto final' predefinido,** clique no link **de execução** do lote para abrir a página de ajuda da API.
-5. No Estúdio Visual, crie uma aplicação de consola C#: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+5. No Estúdio Visual, crie uma aplicação de consola C#: **New**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop**Console  >  **App (.NET Framework)**.
 6. Na página de ajuda da API, encontre a secção Código da **Amostra** na parte inferior da página.
 7. Copie e cole o código de amostra C# no seu ficheiro Program.cs e remova todas as referências ao armazenamento de bolhas.
 8. Atualize o valor da variável *apiKey* com a tecla API guardada anteriormente.
@@ -130,7 +128,7 @@ Para implementar como um Novo Serviço Web e criar uma aplicação para consumi-
 3. Na página Implementar Experiências, introduza um nome para o seu serviço web e selecione um plano de preços e, em seguida, clique em **Implementar**.
 4. Na página **Quickstart,** clique **em Consumir**.
 5. Na secção Código da **Amostra,** clique **em Batch**.
-6. No Estúdio Visual, crie uma aplicação de consola C#: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+6. No Estúdio Visual, crie uma aplicação de consola C#: **New**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop**Console  >  **App (.NET Framework)**.
 7. Copie e cole o código de amostra C# no seu ficheiro Program.cs.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na secção de informação de **consumo Básico.**
 9. Localize a *declaração de pedido de pontuação* e atualize os valores dos Parâmetros do Serviço Web que são passados para os módulos de Dados de *Importação* e Dados *de Exportação.* Neste caso, você usa a consulta original, mas define um novo nome de mesa.

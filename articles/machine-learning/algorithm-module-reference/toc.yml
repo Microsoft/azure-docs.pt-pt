@@ -32,6 +32,8 @@
       href: clean-missing-data.md
     - name: Editar Metadados
       href: edit-metadata.md
+    - name: Agrupar Dados em Posições
+      href: group-data-into-bins.md
     - name: Associar dados
       href: join-data.md
     - name: Normalizar Dados
@@ -130,6 +132,8 @@
       href: execute-r-script.md
 - name: Análise de texto
   items:
+    - name: Converter Word em Vetor
+      href: convert-word-to-vector.md
     - name: Extrair Funcionalidades N-Grama a partir de Texto
       href: extract-n-gram-features-from-text.md
     - name: Hashing de Funcionalidade

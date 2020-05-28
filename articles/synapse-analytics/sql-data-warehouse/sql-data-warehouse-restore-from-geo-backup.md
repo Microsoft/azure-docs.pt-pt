@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99a6373c314530741bbff67a4573005ff2523d6d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745071"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020222"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-restauro para piscina SQL
 
@@ -26,7 +26,7 @@ Neste artigo, você aprende a restaurar a sua piscina SQL a partir de um geo-bac
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifique a sua capacidade de DTU.** Cada piscina SQL é hospedada por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou para solicitar mais DTU, consulte [Solicite uma alteração](sql-data-warehouse-get-started-create-support-ticket.md)de quota DTU .
+**Verifique a sua capacidade de DTU.** Cada piscina SQL é hospedada por um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou para solicitar mais DTU, consulte [Solicite uma alteração](sql-data-warehouse-get-started-create-support-ticket.md)de quota DTU .
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica azure através da PowerShell
 
@@ -49,7 +49,7 @@ Para restaurar a partir de uma geo-cópia, utilize o [Get-AzSqlDatabaseGeoBackup
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -81,7 +81,7 @@ Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um ge
 
    ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Clique em **Bases de Dados** e, em seguida, **Azure Synapse Analytics (anteriormente SQL DW) **.
+3. Clique em **Bases de Dados** e, em seguida, **Azure Synapse Analytics (anteriormente SQL DW)**.
 
    ![Novo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 

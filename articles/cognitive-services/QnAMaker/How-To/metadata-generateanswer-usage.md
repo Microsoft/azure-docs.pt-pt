@@ -1,7 +1,7 @@
 ---
 title: Metadados com GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: O QnA Maker permite-lhe adicionar metadados, sob a forma de pares chave/valor, aos seus conjuntos de perguntas/respostas. Pode filtrar os resultados para as consultas do utilizador e armazenar informações adicionais que possam ser usadas em conversas de seguimento.
+description: O QnA Maker permite-lhe adicionar metadados, sob a forma de pares chave/valor, aos seus pares de perguntas/respostas. Pode filtrar os resultados para as consultas do utilizador e armazenar informações adicionais que possam ser usadas em conversas de seguimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659556"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993512"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API GenerateAnswer e metadados
 
 Para obter a resposta prevista para a pergunta de um utilizador, utilize a API GenerateAnswer. Ao publicar uma base de conhecimento, pode ver informações sobre como utilizar esta API na página **Publicar.** Também pode configurar a API para filtrar respostas com base em etiquetas de metadados e testar a base de conhecimento a partir do ponto final com o parâmetro de corda de consulta de teste.
 
-O QnA Maker permite-lhe adicionar metadados, sob a forma de pares de chaves e valores, aos seus conjuntos de perguntas e respostas. Em seguida, pode utilizar estas informações para filtrar os resultados das consultas dos utilizadores e para armazenar informações adicionais que possam ser usadas em conversas de seguimento. Para mais informações, consulte a [base de Conhecimento.](../Concepts/knowledge-base.md)
+O QnA Maker permite-lhe adicionar metadados, sob a forma de pares de chaves e valores, aos seus pares de perguntas e respostas. Em seguida, pode utilizar estas informações para filtrar os resultados das consultas dos utilizadores e para armazenar informações adicionais que possam ser usadas em conversas de seguimento. Para mais informações, consulte a [base de Conhecimento.](../Concepts/knowledge-base.md)
 
 <a name="qna-entity"></a>
 
@@ -37,7 +37,7 @@ Cada entidade QnA tem um ID único e persistente. Pode utilizar o ID para fazer 
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obtenha previsões de resposta com a API GenerateAnswer
 
-Utiliza a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no seu bot ou aplicação para consultar a sua base de conhecimentos com uma pergunta do utilizador, para obter o melhor par dos conjuntos de perguntas e respostas.
+Utiliza a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no seu bot ou aplicação para consultar a sua base de conhecimentos com uma pergunta do utilizador, para obter o melhor par de perguntas e respostas.
 
 <a name="generateanswer-endpoint"></a>
 
@@ -196,7 +196,7 @@ Como os resultados são necessários apenas para o restaurante "Paradise", pode 
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Use resultados de perguntas e respostas para manter o contexto da conversação
 
-A resposta ao GenerateAnswer contém as informações correspondentes dos metadados do conjunto de perguntas e respostas correspondentes. Pode utilizar esta informação na sua aplicação de cliente para armazenar o contexto da conversa anterior para utilização em conversas posteriores.
+A resposta ao GenerateAnswer contém as informações correspondentes dos metadados do par de perguntas e respostas correspondentes. Pode utilizar esta informação na sua aplicação de cliente para armazenar o contexto da conversa anterior para utilização em conversas posteriores.
 
 ```json
 {
@@ -251,7 +251,7 @@ Pode pesquisar através do kb publicado, utilizando , ou no kb de `isTest=false`
 |404|KB não existe|
 |410|Esta API está depreciada e já não está disponível|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A página **Publicar** também fornece informações para [gerar uma resposta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) com o Carteiro ou cURL.
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 0413c15c025e554ab8465736dfdb5607149c5ed2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fefd3fcd82454d505099f83944b0e251b71410f0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588688"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996912"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Tradutor personalizado frequentemente fez perguntas
 

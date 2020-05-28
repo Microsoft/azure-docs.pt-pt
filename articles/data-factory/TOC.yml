@@ -543,6 +543,8 @@
       items:
         - name: Considerações de segurança sobre movimento de dados
           href: data-movement-security-considerations.md
+        - name: Estratégias de acesso a dados
+          href: data-access-strategies.md
         - name: Endereços IP do Azure Integration Runtime
           href: azure-integration-runtime-ip-addresses.md
         - name: Armazenar credenciais no Azure Key Vault

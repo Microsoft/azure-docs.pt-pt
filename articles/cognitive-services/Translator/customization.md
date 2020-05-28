@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588654"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997003"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 
@@ -49,19 +49,19 @@ Mais detalhes sobre os vários níveis de personalização com base nos dados di
 
 |   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
-|Estatuto de Funcionalidade de Personalização   | Disponibilidade Geral  | Disponibilidade Geral |
-| Versão API de texto  | Apenas V2   | Apenas V3 |
-| Personalização SMT | Sim   | Não |
-| Personalização NMT | Não    | Sim |
-| Nova personalização unificada dos serviços de Fala | Não    | Sim |
-| [Sem vestígios](https://www.aka.ms/notrace) | Sim  | Sim |
+|Estatuto de Funcionalidade de Personalização    | Disponibilidade Geral    | Disponibilidade Geral |
+| Versão API de texto    | Apenas V2    | Apenas V3 |
+| Personalização SMT    | Sim    | Não |
+| Personalização NMT    | Não    | Sim |
+| Nova personalização unificada dos serviços de Fala    | Não    | Sim |
+| [Sem vestígios](https://www.aka.ms/notrace) | Sim    | Sim |
 
 ## <a name="collaborative-translations-framework"></a>Quadro de Traduções Colaborativas
 
 > [!NOTE]
 > A partir de 1 de fevereiro de 2018, a AddTranslation() e a AddTranslationArray() deixaram de estar disponíveis para utilização com o Tradutor v2.0. Estes métodos falharão e nada será escrito. O tradutor v3.0 não suporta estes métodos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar um sistema de idiomas personalizado usando tradutor personalizado](https://aka.ms/CustomTranslatorDocs)

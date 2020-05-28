@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0a4a1f49735a30d7ad764e7f031610eabd09763e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590898"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995773"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Encriptação de dados de tradutor em repouso
 
@@ -79,6 +79,6 @@ Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação dos Servi
 Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para mais informações, consulte [o Cofre de Chaves Azure PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou o Cofre de Chaves [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso bloqueia efetivamente o acesso a todos os dados do recurso Serviços Cognitivos e os seus modelos não serão implantados, uma vez que a chave de encriptação é inacessível pelos Serviços Cognitivos. Todos os dados enviados também serão eliminados do Tradutor Personalizado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

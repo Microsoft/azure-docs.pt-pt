@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: aa4881aef9f3a9ba5d19fb0b768f13a1eb372296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 55ef2ee7d39d68804fe44c9d7a6eb0ee199e6109
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131425"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019865"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrae Azure Data Lake Storage da Gen1 para gen2
 
@@ -79,7 +79,7 @@ Migrar dados, cargas de trabalho e aplicações utilizando o padrão que prefere
    
 5. Atualize scripts para utilizar data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), e [comandos Azure CLI](data-lake-storage-directory-file-acl-cli.md).
    
-6. Procure referências URI que `adl://` contenham a cadeia em ficheiros de código, ou em cadernos databricks, ficheiros Apache Hive HQL ou qualquer outro ficheiro utilizado como parte das suas cargas de trabalho. Substitua estas referências pelo [URI formado gen2](data-lake-storage-introduction-abfs-uri.md) da sua nova conta de armazenamento. Por exemplo: o Gen1 `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`URI: pode tornar-se . 
+6. Procure referências URI que contenham a cadeia `adl://` em ficheiros de código, ou em cadernos databricks, ficheiros Apache Hive HQL ou qualquer outro ficheiro utilizado como parte das suas cargas de trabalho. Substitua estas referências pelo [URI formado gen2](data-lake-storage-introduction-abfs-uri.md) da sua nova conta de armazenamento. Por exemplo: o Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` pode tornar-se `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
 7. Configure a segurança na sua conta para incluir [funções de controlo de acesso baseado em Funções (RBAC),](../common/storage-auth-aad-rbac-portal.md)segurança de nível de [ficheiros e pastas,](data-lake-storage-access-control.md)e firewalls de [armazenamento azure e redes virtuais](../common/storage-network-security.md).
 
@@ -103,7 +103,7 @@ Esta tabela compara as capacidades da Gen1 com a da Gen2.
 |Suporte VNET|[Integração VNET](../../data-lake-store/data-lake-store-network-security.md)|[Pontos Finais de Serviço](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Pontos Finais Privados](../common/storage-private-endpoints.md)|
 |Experiência de desenvolvimento|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [Java,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [Python,](../../data-lake-store/data-lake-store-data-operations-python.md) [PowerShell,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Geralmente disponível - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET,](data-lake-storage-directory-file-acl-dotnet.md) [Java,](data-lake-storage-directory-file-acl-java.md) [Python](data-lake-storage-directory-file-acl-python.md)<br>Pré-visualização pública - [JavaScript,](data-lake-storage-directory-file-acl-javascript.md) [PowerShell,](data-lake-storage-directory-file-acl-powershell.md) [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Registos do recurso|Troncos clássicos<br>[Monitor Azure integrado](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Registos clássicos](../common/storage-analytics-logging.md) - Geralmente disponíveis<br>Integração do monitor Azure – tbd de linha temporal|
-|Ecossistema|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 ou superior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW,](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store) [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 ou superior)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW,](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Ecossistema|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 ou superior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW,](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store) [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 ou superior)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW,](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns" />
 
@@ -202,7 +202,7 @@ Este é o padrão mais simples.
 
 :heavy_check_mark: O esforço de migração é elevado, mas fornece apoio lado a lado para a Gen1 e gen2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça as várias partes da criação de segurança para uma conta de armazenamento. Consulte o guia de [segurança azure storage](../common/storage-security-guide.md).
 - Otimize o desempenho da sua Data Lake Store. Consulte [o Otimize Azure Data Lake Storage Gen2 para o desempenho](data-lake-storage-performance-tuning-guidance.md)

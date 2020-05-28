@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758984"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021335"
 ---
 # <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
 
@@ -27,23 +27,23 @@ Como exemplo, considere o modelo de um carro e quer mudar todo o carro para ser 
 
 O conjunto fixo de estados que podem ser ultrapassados são:
 
-* **Escondido**: As respetivas malsheas no gráfico de cena são ocultas ou mostradas.
-* **Cor de tonalidade**: Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra colorting da borda de uma roda.
+* **`Hidden`**: As respetivas malitas no gráfico de cena são ocultas ou mostradas.
+* **`Tint color`**: Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e o seu peso de tonalidade. A imagem abaixo mostra colorting da borda de uma roda.
   
   ![Cor Tint](./media/color-tint.png)
 
-* Transparente : A geometria **torna-se**semi-transparente, por exemplo, para revelar as partes internas de um objeto. A imagem seguinte mostra todo o carro a ser renderizado em modo de perverso, com exceção do pinça de travão vermelho:
+* **`See-through`**: A geometria torna-se semi-transparente, por exemplo, para revelar as partes internas de um objeto. A imagem seguinte mostra todo o carro a ser renderizado em modo de perverso, com exceção do pinça de travão vermelho:
 
   ![Ver-Through](./media/see-through.png)
 
   > [!IMPORTANT]
   > O efeito "see-through" só funciona quando é utilizado o modo de [renderização](../../concepts/rendering-modes.md) *TileBasedComposition.*
 
-* **Selecionado**: A geometria é renderizada com um contorno de [seleção](outlines.md).
+* **`Selected`**: A geometria é renderizada com um esboço de [seleção](outlines.md).
 
   ![Contorno de seleção](./media/selection-outline.png)
 
-* **DisableColisão**: A geometria está isenta de [consultas espaciais](spatial-queries.md). A bandeira **escondida** não desliga as colisões, por isso estas duas bandeiras são muitas vezes juntas.
+* **`DisableCollision`**: A geometria está isenta de [consultas espaciais.](spatial-queries.md) A bandeira não afeta a bandeira do estado de **`Hidden`** colisão, por isso estas duas bandeiras são frequentemente colocadas juntas.
 
 ## <a name="hierarchical-overrides"></a>Sobreposições hierárquicas
 
@@ -87,7 +87,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>Cor de tonalidade
 
-A sobreposição da cor da tonalidade é ligeiramente especial na medida em que há um estado on/off/herdado e uma propriedade de cor de tonalidade. A porção alfa da cor da tonalidade define o peso do efeito de coloração: Se definido para 0.0, não é visível nenhuma cor de tonalidade e se definido para 1.0 o objeto será renderizado com cor de tonalidade pura. Para valores intermédios, a cor final será misturada com a cor da tonalidade. A cor da tonalidade pode ser alterada numa base por quadro para alcançar uma animação a cores.
+A `tint color` sobreposição é ligeiramente especial na medida em que há um estado de on/off/herdado e uma propriedade de cor de tonalidade. A porção alfa da cor da tonalidade define o peso do efeito de coloração: Se definido para 0.0, não é visível nenhuma cor de tonalidade e se definido para 1.0 o objeto será renderizado com cor de tonalidade pura. Para valores intermédios, a cor final será misturada com a cor da tonalidade. A cor da tonalidade pode ser alterada numa base por quadro para alcançar uma animação a cores.
 
 ## <a name="performance-considerations"></a>Considerações de desempenho
 
@@ -95,7 +95,7 @@ Um exemplo de si mesmo não acrescenta muito tempo de `HierarchicalStateOverride
 
 A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que na renderização padrão. Se grandes partes do gráfico de cena forem mudadas para *o see-through,* com muitas camadas de geometria visíveis, pode tornar-se um estrangulamento de desempenho. O mesmo é válido para objetos com contornos de [seleção](../../overview/features/outlines.md#performance).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Contornos](../../overview/features/outlines.md)
 * [Modos de composição](../../concepts/rendering-modes.md)

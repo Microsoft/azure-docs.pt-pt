@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77179040"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124457"
 ---
 Este artigo explica como planear a recuperação de backup e desastres (DR) de máquinas virtuais IaaS (VMs) e discos em Azure. Este documento abrange discos geridos e não geridos.
 
@@ -146,7 +146,7 @@ Utilize os seguintes passos para ativar as cópias de segurança dos seus VMs ut
 
     b. No menu de cofres dos Serviços de **Recuperação,** clique em **Adicionar** e siga os passos para criar um novo cofre na mesma região que o VM. Por exemplo, se o seu VM estiver na região oeste dos EUA, escolha os EUA Ocidentais para o cofre.
 
-1.  Verifique a replicação do armazenamento para o cofre recém-criado. Aceda ao cofre sob **cofres de Serviços** de Recuperação e vá para a**Atualização**de**Configuração** > de Backup **Properties** > . Certifique-se de que a opção **de armazenamento geo-redundante** é selecionada por padrão. Esta opção garante que o seu cofre é automaticamente replicado para um centro de dados secundário. Por exemplo, o seu cofre nos EUA Ocidentais é automaticamente replicado para os EUA Orientais.
+1.  Verifique a replicação do armazenamento para o cofre recém-criado. Aceda ao cofre sob **cofres de Serviços** de Recuperação e vá para **a**  >  **Atualização**de Configuração de Backup  >  **Update**Properties . Certifique-se de que a opção **de armazenamento geo-redundante** é selecionada por padrão. Esta opção garante que o seu cofre é automaticamente replicado para um centro de dados secundário. Por exemplo, o seu cofre nos EUA Ocidentais é automaticamente replicado para os EUA Orientais.
 
 1.  Configure a política de backup e selecione o VM a partir do mesmo UI.
 
@@ -231,7 +231,7 @@ Para VMs com vários discos, você deve copiar todos os instantâneos que fazem 
 
 ### <a name="sql-server"></a>SQL Server
 
-O SQL Server em execução num VM tem as suas próprias capacidades incorporadas para fazer o seu próprio serviço de base de dados do SQL Server para o armazenamento do Azure Blob ou uma partilha de ficheiros. Se a conta de armazenamento for armazenamento georedundant ou armazenamento geo-redundante de acesso de leitura, pode aceder a essas cópias de segurança no centro de dados secundário da conta de armazenamento em caso de desastre, com as mesmas restrições que anteriormente discutidas. Para mais informações, consulte [o Back up e restaure para o SQL Server em máquinas virtuais Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Além de fazer cópias de segurança e restauro, os grupos de [disponibilidade do SQL Server AlwaysOn](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) podem manter réplicas secundárias de bases de dados. Esta capacidade reduz consideravelmente o tempo de recuperação de desastres.
+O SQL Server em execução num VM tem as suas próprias capacidades incorporadas para fazer o seu próprio serviço de base de dados do SQL Server para o armazenamento do Azure Blob ou uma partilha de ficheiros. Se a conta de armazenamento for armazenamento georedundant ou armazenamento geo-redundante de acesso de leitura, pode aceder a essas cópias de segurança no centro de dados secundário da conta de armazenamento em caso de desastre, com as mesmas restrições que anteriormente discutidas. Para mais informações, consulte [o Back up e restaure para o SQL Server em máquinas virtuais Azure](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Além de fazer cópias de segurança e restauro, os grupos de [disponibilidade do SQL Server AlwaysOn](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) podem manter réplicas secundárias de bases de dados. Esta capacidade reduz consideravelmente o tempo de recuperação de desastres.
 
 ## <a name="other-considerations"></a>Outras considerações
 

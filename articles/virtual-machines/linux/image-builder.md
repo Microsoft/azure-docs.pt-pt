@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 9774d7765906d07c974ca19ce6a0f4807898c3a0
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: b0df0fc43fcd125c6fc96fd2abbe3857d0d23afa
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928334"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141981"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Crie uma imagem Linux e distribua-a para uma Galeria de Imagem Partilhada 
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para
 
 Vamos usar um modelo de amostra .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-Para distribuir a imagem para uma Galeria de Imagem Partilhada, `distribute` o modelo utiliza a [SharedImage](image-builder-json.md#distribute-sharedimage) como o valor para a secção do modelo.
+Para distribuir a imagem para uma Galeria de Imagem Partilhada, o modelo utiliza a [SharedImage](image-builder-json.md#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
@@ -80,7 +80,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Crie uma variável para o seu ID de subscrição. Pode obter isto `az account show | grep id`usando.
+Crie uma variável para o seu ID de subscrição. Pode obter isto `az account show | grep id` usando.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -97,14 +97,14 @@ O Image Builder utilizará a [identidade de utilizador](https://docs.microsoft.c
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $sigResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $sigResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
 
 # get the user identity URI, needed for the template
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
 # this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
@@ -122,7 +122,7 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
 
@@ -257,7 +257,7 @@ az role definition delete --name "$imageRoleDefName"
 az identity delete --ids $imgBuilderId
 ```
 
-Obtenha a versão de imagem criada pelo `0.`construtor de imagens, isto sempre começa com, e depois eliminar a versão de imagem
+Obtenha a versão de imagem criada pelo construtor de imagens, isto sempre começa `0.` com, e depois eliminar a versão de imagem
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \
@@ -296,6 +296,6 @@ Elimine o grupo de recursos.
 az group delete -n $sigResourceGroup -y
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as Galerias de [Imagem Partilhada azure.](shared-image-galleries.md)

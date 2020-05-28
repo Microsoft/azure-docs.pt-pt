@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a711fa522f6b105eb98d57d4f63afb90be255b3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262090"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995042"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -78,6 +78,12 @@ Para criar uma avaliação de acesso, siga estes passos:
 
    ![Página inicial de comentários de acesso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### <a name="creating-access-review-on-a-group-that-can-be-assigned-to-azure-ad-role"></a>Criação de revisão de acesso a um grupo que pode ser atribuído ao papel da AD Azure
+Se estiver na versão mais recente das Access Reviews (os seus revisores são direcionados para **o Meu Acesso** por defeito) então só o Administrador Global pode criar uma revisão de acesso em grupos designados por papéis. No entanto, se estiver na versão mais antiga das Avaliações de Acesso (os seus revisores são direcionados para o Painel de **Acesso** por defeito), então tanto o Administrador Global como o Administrador de Utilizador podem criar uma revisão de acesso em grupos designados por papéis.  
+
+A nova experiência será lançada a todos os clientes no dia 1 de agosto de 2020, mas se quiser fazer o upgrade mais cedo, por favor faça um pedido aqui - [Azure AD Access Reviews - Experiência atualizada de revisores no My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Saiba mais sobre atribuir grupos a funções de AD Azure.](https://go.microsoft.com/fwlink/?linkid=2103037)
 
 ## <a name="learn-about-access-reviews"></a>Saiba mais sobre avaliações de acesso
 
@@ -120,9 +126,9 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores e 3 proprietários do grupo, e atribui os 3 proprietários do grupo como revisores. | 3 licenças para cada proprietário de grupo como revisores | 3 |
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores. Faz com que seja uma auto-revisão. | 500 licenças para cada utilizador como auto-revisores | 500 |
 | Um administrador cria uma revisão de acesso do Grupo C com 50 utilizadores membros e 25 utilizadores convidados. Faz com que seja uma auto-revisão. | 50 licenças para cada utilizador como auto-revisores.<br/>(os utilizadores convidados estão cobertos na relação de 1:5 exigida) | 50 |
-| Um administrador cria uma revisão de acesso do Grupo D com 6 utilizadores membros e 108 utilizadores convidados. Faz com que seja uma auto-revisão. | 6 licenças para cada utilizador como auto-revisores + 16 licenças adicionais para cobrir todos os 108 utilizadores convidados na relação de 1:5 exigida. 6 licenças, que\*abrangem 6 5=30 utilizadores convidados. Para os restantes (108-6\*5)=78 utilizadores convidados, são necessárias 78/5=16 licenças adicionais. Assim, no total, são necessárias 6+16=22 licenças. | 22 |
+| Um administrador cria uma revisão de acesso do Grupo D com 6 utilizadores membros e 108 utilizadores convidados. Faz com que seja uma auto-revisão. | 6 licenças para cada utilizador como auto-revisores + 16 licenças adicionais para cobrir todos os 108 utilizadores convidados na relação de 1:5 exigida. 6 licenças, que abrangem 6 \* 5=30 utilizadores convidados. Para os restantes (108-6 \* 5)=78 utilizadores convidados, são necessárias 78/5=16 licenças adicionais. Assim, no total, são necessárias 6+16=22 licenças. | 22 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [Criar uma revisão de acesso de utilizadores numa função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)

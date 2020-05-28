@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b0238d8026bff435fce9c03b6517efb6a55311d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139253"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019916"
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de Dados Azure - Amostras
 > [!NOTE]
@@ -62,7 +62,7 @@ Pode utilizar o azulejo **da Amostra** na página inicial da sua fábrica de dad
 3. Na lâmina de **gasodutos Sample,** clique na **amostra** que pretende implementar.
 
     ![Lâmina de gasodutos de amostra](./media/data-factory-samples/SampleTile.png)
-4. Especifique as definições de configuração para a amostra. Por exemplo, o nome e a chave da conta de armazenamento do Azure, nome do servidor Azure SQL, base de dados, ID do utilizador e palavra-passe, etc.
+4. Especifique as definições de configuração para a amostra. Por exemplo, o nome da sua conta de armazenamento Azure e chave de conta, nome lógico do servidor SQL, base de dados, ID do utilizador e palavra-passe, etc.
 
     ![Lâmina de amostra](./media/data-factory-samples/SampleBlade.png)
 5. Depois de terminar com a especificação das definições de configuração, clique em **Criar/implementar** os gasodutos de amostra e serviços/tabelas ligados utilizados pelos gasodutos.
@@ -80,7 +80,7 @@ Tem de ter o seguinte instalado no computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
 * Transfira o Azure SDK para o Visual Studio 2013 ou Visual Studio 2015. Navegue até à [Página de Transferências do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na secção **.NET**.
-* Transfira o plug-in mais recente do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se estiver a utilizar o Visual Studio 2013, também pode atualizar o plugin fazendo os seguintes passos: No menu, clique em **Tools** -> **Extensions and Updates** -> **Online** -> Visual Studio**Gallery** -> Microsoft**Azure Data Factory Tools for Visual Studio** -> **Update**.
+* Transfira o plug-in mais recente do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se estiver a utilizar o Visual Studio 2013, também pode atualizar o plugin fazendo os seguintes passos: No menu, clique em **Tools**  ->  **Tools Extensions and Updates**  ->  **Online**  ->  **Visual Studio Gallery**Microsoft  ->  **Azure Data Factory Tools for Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Utilizar modelos de fábrica de dados
 1. Clique em **File** no menu, aponte para **Novo**, e clique em **Projeto**.

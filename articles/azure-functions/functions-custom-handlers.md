@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479257"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995875"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Manipuladores personalizados funções azure (pré-visualização)
 
@@ -20,9 +20,9 @@ Os manipuladores personalizados são servidores web leves que recebem eventos do
 
 Os manipuladores personalizados são mais adequados para situações onde você quer:
 
-- Implementar uma aplicação Funções num idioma além das línguas oficialmente suportadas
-- Implementar uma aplicação Funções numa versão idiomática ou tempo de execução não suportado por padrão
-- Tenha controlo granular sobre o ambiente de execução de aplicações
+- Implementar uma aplicação de função num idioma que não seja suportado oficialmente.
+- Implementar uma aplicação de função numa versão idioma ou tempo de execução não suportado por padrão.
+- Forneça um maior controlo granular sobre o ambiente de execução da aplicação de funções.
 
 Com manipuladores personalizados, todos os [gatilhos e encadernações](./functions-triggers-bindings.md) de entrada e saída são suportados através de pacotes de [extensão](./functions-bindings-register.md).
 
@@ -60,7 +60,7 @@ O diagrama seguinte mostra como estes ficheiros se parecem no sistema de ficheir
 
 A aplicação é configurada através do ficheiro *host.json.* Este ficheiro diz ao anfitrião das Funções onde enviar pedidos apontando para um servidor web capaz de processar eventos HTTP.
 
-Um manipulador personalizado é definido configurando o ficheiro *host.json* com detalhes `httpWorker` sobre como executar o servidor web através da secção.
+Um manipulador personalizado é definido configurando o ficheiro *host.json* com detalhes sobre como executar o servidor web através da `httpWorker` secção.
 
 ```json
 {
@@ -73,9 +73,9 @@ Um manipulador personalizado é definido configurando o ficheiro *host.json* com
 }
 ```
 
-A `httpWorker` secção aponta para um `defaultExecutablePath`alvo definido pelo . O alvo de execução pode ser um comando, executável ou ficheiro onde o servidor web é implementado.
+A `httpWorker` secção aponta para um alvo definido pelo `defaultExecutablePath` . O alvo de execução pode ser um comando, executável ou ficheiro onde o servidor web é implementado.
 
-Para aplicações `defaultExecutablePath` escritas, aponta para o `defaultWorkerPath` tempo de execução do script idioma e aponta para a localização do ficheiro script. O exemplo que se segue mostra como uma aplicação JavaScript no Node.js é configurada como um manipulador personalizado.
+Para aplicações escritas, `defaultExecutablePath` aponta para o tempo de execução do script idioma e aponta para a localização do ficheiro `defaultWorkerPath` script. O exemplo que se segue mostra como uma aplicação JavaScript no Node.js é configurada como um manipulador personalizado.
 
 ```json
 {
@@ -89,7 +89,7 @@ Para aplicações `defaultExecutablePath` escritas, aponta para o `defaultWorker
 }
 ```
 
-Também pode passar argumentos `arguments` usando a matriz:
+Também pode passar argumentos usando a `arguments` matriz:
 
 ```json
 {
@@ -123,7 +123,7 @@ A carga útil do pedido para funções http puras é a carga bruta de pedido htt
 
 Qualquer outro tipo de função que inclua a entrada, as encadernações de saída ou seja acionada através de uma fonte de evento que não seja http tem uma carga útil de pedido personalizado.
 
-O seguinte código representa uma carga útil de pedido de amostra. A carga útil inclui uma estrutura JSON com dois membros: `Data` e `Metadata`.
+O seguinte código representa uma carga útil de pedido de amostra. A carga útil inclui uma estrutura JSON com dois membros: `Data` e `Metadata` .
 
 O `Data` membro inclui teclas que correspondem à entrada e disparam nomes definidos na matriz de encadernação no ficheiro *função.json.*
 
@@ -181,9 +181,9 @@ Por convenção, as respostas de função são formatadas como par de chaves/val
 
 | <nobr>Chave de carga útil</nobr>   | Tipo de dados | Observações                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Detém valores de `bindings` resposta definidos pela matriz o ficheiro *função.json.*<br /><br />Por exemplo, se uma função for configurada com uma ligação de saída de armazenamento blob chamada "blob", então `Outputs` contém uma chave chamada `blob`, que está definida para o valor da bolha. |
+| `Outputs`     | JSON      | Detém valores de resposta definidos pela `bindings` matriz o ficheiro *função.json.*<br /><br />Por exemplo, se uma função for configurada com uma ligação de saída de armazenamento blob chamada "blob", então `Outputs` contém uma chave chamada , que está definida para o valor da `blob` bolha. |
 | `Logs`        | array     | As mensagens aparecem nos registos de invocação das Funções.<br /><br />Ao correr em Azure, as mensagens aparecem no Application Insights. |
-| `ReturnValue` | string    | Usado para fornecer uma resposta quando `$return` uma saída é configurada como no ficheiro *função.json.* |
+| `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` no ficheiro *função.json.* |
 
 Consulte o [exemplo de uma carga útil](#bindings-implementation)da amostra .
 
@@ -196,7 +196,7 @@ Os manipuladores personalizados podem ser implementados em qualquer idioma que s
 
 ## <a name="http-only-function"></a>Função http-only
 
-O exemplo que se segue demonstra como configurar uma função desencadeada pelo HTTP sem ligações ou saídas adicionais. O cenário implementado neste exemplo apresenta `http` uma função nomeada que aceita um `GET` ou `POST` .
+O exemplo que se segue demonstra como configurar uma função desencadeada pelo HTTP sem ligações ou saídas adicionais. O cenário implementado neste exemplo apresenta uma função nomeada `http` que aceita um ou `GET` `POST` .
 
 O seguinte corte representa a forma como é composto um pedido à função.
 
@@ -233,9 +233,9 @@ Numa pasta com o nome *http,* o ficheiro *function.json* configura a função de
 }
 ```
 
-A função está configurada para aceitar tanto e `GET` `POST` pedidos e `res`o valor do resultado é fornecido através de um argumento nomeado .
+A função está configurada para aceitar tanto e pedidos e o valor do resultado é fornecido através de `GET` `POST` um argumento nomeado `res` .
 
-Na raiz da aplicação, o ficheiro *host.json* está configurado para `server.js` executar Node.js e apontar o ficheiro.
+Na raiz da aplicação, o ficheiro *host.json* está configurado para executar Node.js e apontar o `server.js` ficheiro.
 
 ```json
 {
@@ -274,18 +274,18 @@ app.post("/hello", (req, res) => {
 });
 ```
 
-Neste exemplo, o Express é usado para criar um servidor web para lidar `FUNCTIONS_HTTPWORKER_PORT`com eventos HTTP e está definido para ouvir pedidos através do .
+Neste exemplo, o Express é usado para criar um servidor web para lidar com eventos HTTP e está definido para ouvir pedidos através do `FUNCTIONS_HTTPWORKER_PORT` .
 
-A função é definida `/hello`no caminho de . `GET`os pedidos são tratados devolvendo um simples `POST` objeto JSON, e `req.body`os pedidos têm acesso ao órgão de pedido via .
+A função é definida no caminho de `/hello` . `GET`os pedidos são tratados devolvendo um simples objeto JSON, e os pedidos têm acesso ao órgão de `POST` pedido via `req.body` .
 
-O percurso para a `/hello` função `/api/hello` de encomenda aqui é e não porque o anfitrião funções está procurando o pedido para o manipulador personalizado.
+O percurso para a função de encomenda aqui é `/hello` e não porque o `/api/hello` anfitrião funções está procurando o pedido para o manipulador personalizado.
 
 >[!NOTE]
 >Não `FUNCTIONS_HTTPWORKER_PORT` é o porto virado para o público usado para chamar a função. Esta porta é utilizada pelo anfitrião funções para ligar para o manipulador personalizado.
 
 ## <a name="function-with-bindings"></a>Função com encadernações
 
-O cenário implementado neste exemplo apresenta `order` uma função nomeada que aceita um `POST` com uma carga útil que representa uma encomenda do produto. Como uma encomenda é postada na função, uma mensagem de Armazenamento de Fila é criada e uma resposta HTTP é devolvida.
+O cenário implementado neste exemplo apresenta uma função nomeada `order` que aceita um com uma carga útil que representa uma encomenda do `POST` produto. Como uma encomenda é postada na função, uma mensagem de Armazenamento de Fila é criada e uma resposta HTTP é devolvida.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -333,7 +333,7 @@ Numa pasta denominada *ordem,* o ficheiro *função.json* configura a função d
 
 Esta função é definida como uma [função ativada](./functions-bindings-http-webhook-trigger.md) em HTTP que devolve uma [resposta HTTP](./functions-bindings-http-webhook-output.md) e produz uma mensagem de armazenamento de [fila.](./functions-bindings-storage-queue-output.md)
 
-Na raiz da aplicação, o ficheiro *host.json* está configurado para `server.js` executar Node.js e apontar o ficheiro.
+Na raiz da aplicação, o ficheiro *host.json* está configurado para executar Node.js e apontar o `server.js` ficheiro.
 
 ```json
 {
@@ -379,24 +379,24 @@ app.post("/order", (req, res) => {
 });
 ```
 
-Neste exemplo, o Express é usado para criar um servidor web para lidar `FUNCTIONS_HTTPWORKER_PORT`com eventos HTTP e está definido para ouvir pedidos através do .
+Neste exemplo, o Express é usado para criar um servidor web para lidar com eventos HTTP e está definido para ouvir pedidos através do `FUNCTIONS_HTTPWORKER_PORT` .
 
-A função é definida `/order` no caminho de .  O percurso para a `/order` função `/api/order` de encomenda aqui é e não porque o anfitrião funções está procurando o pedido para o manipulador personalizado.
+A função é definida no caminho de `/order` .  O percurso para a função de encomenda aqui é `/order` e não porque o `/api/order` anfitrião funções está procurando o pedido para o manipulador personalizado.
 
-À `POST` medida que os pedidos são enviados para esta função, os dados são expostos através de alguns pontos:
+À medida que `POST` os pedidos são enviados para esta função, os dados são expostos através de alguns pontos:
 
 - O organismo de pedido está disponível via`req.body`
 - Os dados publicados na função estão disponíveis via`req.body.Data.req.Body`
 
-A resposta da função é formatada num `Outputs` par chave/valor onde o membro detém um valor JSON onde as teclas correspondem às saídas definidas no ficheiro *função.json.*
+A resposta da função é formatada num par chave/valor onde o `Outputs` membro detém um valor JSON onde as teclas correspondem às saídas definidas no ficheiro *função.json.*
 
-Ao `message` definir igual à mensagem que veio `res` do pedido, e à resposta http esperada, esta função envia uma mensagem para o Armazenamento de Fila e devolve uma resposta HTTP.
+Ao definir `message` igual à mensagem que veio do pedido, e à resposta http `res` esperada, esta função envia uma mensagem para o Armazenamento de Fila e devolve uma resposta HTTP.
 
 ## <a name="debugging"></a>Depurar
 
 Para desinserir a aplicação de personal handler functions, é necessário adicionar argumentos adequados para o idioma e tempo de funcionamento para permitir a depuração.
 
-Por exemplo, para depurar uma aplicação `--inspect` Node.js, a bandeira é passada como um argumento no ficheiro *host.json.*
+Por exemplo, para depurar uma aplicação Node.js, a `--inspect` bandeira é passada como um argumento no ficheiro *host.json.*
 
 ```json
 {

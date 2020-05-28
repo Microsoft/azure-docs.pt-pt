@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/01/2019
-  ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: da45a726dcbf8bebd598f81fe27a49e72460cbed
+  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70239212"
+  ms.lasthandoff: 05/26/2020
+  ms.locfileid: "83849353"
 landingContent:
 - title: Acerca do Azure Blueprints
   linkLists:
@@ -81,10 +81,12 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Perguntas e Respostas da Microsoft para o Azure Blueprints
+      url: /answers/topics/azure-blueprints.html
     - text: Canal do YouTube sobre a Governação do Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Pedir funcionalidade do produto
-      url: https://feedback.azure.com/forums/915958-azure-governance
+      url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058
     - text: Tech Community da Governação do Azure
       url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 - title: Referência

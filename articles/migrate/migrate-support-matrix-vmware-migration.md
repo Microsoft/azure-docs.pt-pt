@@ -3,12 +3,12 @@ title: Apoio à migração de VMware em Azure Migrate
 description: Conheça o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ed51361ca4d605487a5d273505df21780003bdbb
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743670"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140485"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração vMware
 
@@ -27,7 +27,7 @@ Reveja [este artigo](server-migrate-overview.md) para descobrir qual o método q
 ## <a name="migration-limitations"></a>Limitações da migração
 
 - Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar mais máquinas, reproduza-se em grupos de 10.
-- Para a migração sem agente VMware, pode executar até 100 replicações simultaneamente.
+- Para a migração sem agente VMware, pode executar até 300 replicações simultaneamente.
 
 ## <a name="agentless-vmware-servers"></a>Servidores de VMware sem agente
 
@@ -60,7 +60,7 @@ Reveja [este artigo](server-migrate-overview.md) para descobrir qual o método q
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD premium) em Azure.
-**Replicação simultânea** | 100 VMs por vCenter Server. Se tiver mais, emigra-os em lotes de 100.
+**Replicação simultânea** | 300 VMs por vCenter Server. Se tiver mais, emigra-os em lotes de 300.
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Aparelho migratório Agenteless-Azure 
@@ -73,7 +73,7 @@ A migração sem agente utiliza o [aparelho Migratório Azure](migrate-appliance
 
 ## <a name="agentless-ports"></a>Portas sem agente
 
-**Dispositivo** | **Conexão**
+**Dispositivo** | **Ligação**
 --- | ---
 Aparelho | Ligações de saída na porta 443 para carregar dados replicados para Azure, e para comunicar com os serviços da Azure Migrate orquestrando a replicação e a migração.
 vCenter Server | Ligações de entrada na porta 443 para permitir que o aparelho orquequequea replicação - crie instantâneos, dados de cópia, liberte instantâneos
@@ -100,7 +100,7 @@ A tabela resume o suporte vM vm vm para VMware VMs que você quer migrar usando 
 **Sistema de ficheiros Linux/armazenamento de hóspedes** | Para obter as informações mais recentes, reveja o suporte do sistema de [ficheiros Linux](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) para a Recuperação do Site. A Azure Migrate tem suporte idêntico ao sistema de ficheiros Linux.
 **Rede/Armazenamento** | Para obter as informações mais recentes, reveja os pré-requisitos de [rede](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) para a Recuperação do Site. A Azure Migrate fornece requisitos idênticos de rede/armazenamento.
 **Requisitos do Azure** | Para obter as mais recentes informações, reveja os requisitos da [rede Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [cálculo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) para a Recuperação do Site. A Azure Migrate tem requisitos idênticos para a migração de VMware.
-**Serviço de mobilidade** | O agente de serviço de Mobilidade deve ser instalado em cada VM que pretende migrar.
+**Serviço de Mobilidade** | O agente de serviço de Mobilidade deve ser instalado em cada VM que pretende migrar.
 **Bota UEFI** | O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS.<br/><br/> O disco osso deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD premium) em Azure.
 **Tamanho do disco** | Disco de 2 TB OS; 8 TB para discos de dados.
@@ -130,7 +130,7 @@ Quando configura o aparelho de replicação utilizando o modelo OVA fornecido no
 
 ## <a name="agent-based-ports"></a>Portas baseadas em agentes
 
-**Dispositivo** | **Conexão**
+**Dispositivo** | **Ligação**
 --- | ---
 VMs | O serviço de Mobilidade em funcionamento em VMs comunica com o aparelho de replicação no local (servidor de configuração) na entrada da porta HTTPS 443, para gestão de replicação.<br/><br/> Os VMs enviam dados de replicação para o servidor de processo (funcionando na máquina do servidor de configuração) na entrada da porta HTTPS 9443. Esta porta pode ser modificada.
 Aparelho de replicação | O aparelho de replicação orquestra a replicação com Azure sobre a saída da porta HTTPS 443.
@@ -153,10 +153,10 @@ VHD partilhado | Não suportado. | A verificação falha se não for suportada.
 Disco FC | Não suportado. | A verificação falha se não for suportada.
 BitLocker | Não suportado. | O BitLocker deve ser desativado antes de ativar a replicação de uma máquina.
 o nome da VM | De 1 a 63 caracteres.<br/> Limitado a letras, números e hífenes.<br/><br/> O nome da máquina deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina na Recuperação do Site.
-Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o Windows após a migração:<br/> - Antes que a migração permita o PDR no VM no local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/> Para acesso VPN site-to-site, ative rdP e permita RDP em **Windows Firewall** -> **Permitida aplicações e funcionalidades** para redes **De domínio e privadas.** Além disso, verifique se a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
+Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o Windows após a migração:<br/> - Antes que a migração permita o PDR no VM no local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/> Para acesso VPN site-to-site, ative rdP e permita RDP em **Windows Firewall**  ->  **Permitida aplicações e funcionalidades** para redes De domínio e **privadas.** Além disso, verifique se a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conecte-se após a migração-Linux | Para ligar aos VMs Azure após a migração utilizando o SSH:<br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/> Após a falha, no Azure VM, permitir ligações de entrada à porta SSH para as regras do grupo de segurança da rede sobre o VM falhado, e para a subnet Azure a que está conectado. Além disso, adicione um endereço IP público para o VM. |  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

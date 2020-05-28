@@ -12,17 +12,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: a47550771180411277d21f7acf47ad0a28b6fb9e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8030e44e85958495714f441303461722b6b96bf4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209524"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115444"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (clássico) CÓDIGOs de erro REST API
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
- 
 Os seguintes códigos de erro podem ser devolvidos por uma operação num serviço web Azure Machine Learning Studio (clássico).
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (código de estado HTTP 400)
@@ -35,30 +33,30 @@ Esta classe de erros significa que um argumento fornecido em algum lugar era inv
 | ---------- |--------------|
 | BadParameterValue | O valor do parâmetro fornecido não satisfaz a regra do parâmetro no parâmetro |
 | BadSubscriptionId | O Id de subscrição que é usado para pontuar não é o presente no recurso |
-| BadVersionCall | O parâmetro de versão inválida foi {0}passado durante a chamada da API: . Verifique a página de ajuda da API para passar a versão correta e tente novamente. |
-| LotJobInputsNotEspecificado | Os seguintes contributos necessários não foram especificados {0}com o pedido: . Certifique-se de que todos os dados de entrada estão especificados e tente novamente. |
-| LotJobInputsTooManyEspecificado | O pedido especificou mais inputs do que o definido no serviço. Lista de contributos aceites): {0}. Certifique-se de que todos os dados de entrada estão especificados corretamente e tente novamente. |
-| BlobNameTooLong | O caminho de armazenamento de bolhas azure {0}previsto para a saída de diagnóstico é demasiado longo: . Encurte o caminho e tente de novo. |
-| BlobNotFound | Incapaz de aceder à bolha Azure fornecida - {0}.  Mensagem de erro {1}azure: . |
+| BadVersionCall | O parâmetro de versão inválida foi passado durante a chamada da API: {0} . Verifique a página de ajuda da API para passar a versão correta e tente novamente. |
+| LotJobInputsNotEspecificado | Os seguintes contributos necessários não foram especificados com o pedido: {0} . Certifique-se de que todos os dados de entrada estão especificados e tente novamente. |
+| LotJobInputsTooManyEspecificado | O pedido especificou mais inputs do que o definido no serviço. Lista de contributos aceites): {0} . Certifique-se de que todos os dados de entrada estão especificados corretamente e tente novamente. |
+| BlobNameTooLong | O caminho de armazenamento de bolhas azure previsto para a saída de diagnóstico é demasiado longo: {0} . Encurte o caminho e tente de novo. |
+| BlobNotFound | Incapaz de aceder à bolha Azure fornecida {0} - .  Mensagem de erro azure: {1} . |
 | Contentorisvazio | Não foi fornecido nenhum nome de contentor de armazenamento Azure. Forneça um nome de recipiente válido e tente novamente. |
 | ContentorSegmentInválido | Nome do recipiente inválido. Forneça um nome de recipiente válido e tente novamente. |
-| Validação de contentoresFalhada | A validação do recipiente blob falhou com este erro: {0}. |
+| Validação de contentoresFalhada | A validação do recipiente blob falhou com este erro: {0} . |
 | DataTypeNotSupported | Tipo de dados não suportados fornecidos. Forneça os tipos de dados válidos e tente novamente. |
 | DuplicateInputInBatchCall | O pedido do lote é inválido. Não é possível especificar a entrada única e múltipla ao mesmo tempo. Retire um destes itens do pedido e tente novamente. |
-| ExpiraçãoTimeInThePast | O prazo de validade previsto {0}é no passado: . Forneça um futuro tempo de validade na UTC e tente novamente. Para nunca expirar, dedute o tempo de validade para NULL. |
+| ExpiraçãoTimeInThePast | O prazo de validade previsto é no passado: {0} . Forneça um futuro tempo de validade na UTC e tente novamente. Para nunca expirar, dedute o tempo de validade para NULL. |
 | Definições incompletas | As definições de diagnóstico estão incompletas. |
 | InputBlobRelativeLocationInválido | Não foi fornecido nenhum nome de bolha de armazenamento Azure. Forneça um nome de bolha válido e tente novamente. |
-| InvalidBlob | Especificação de bolha inválida {0}para a bolha: . Verifique se a cadeia de ligação / caminho relativo ou especificação token SAS estão corretas e tente novamente. |
-| InvalidBlobConnectionString | A cadeia de ligação especificada para uma das bolhas {0}de entrada/saída inválidas: . Por favor, corrija isto e tente de novo. |
-| Extensão InvalidBlob | A referência blob: {0} tem uma extensão de ficheiro inválida ou em falta. As extensões de ficheirosuportadas para{1}este tipo de saída são: " ". |
-| Nomes inválidos de inputs | Nomes de entrada de serviço inválidos {0}especificados no pedido: . Por favor, mapeie os dados de entrada para as inputs de serviço corretas e tente novamente. |
-| InvalidOutputOverrideName | Nome de substituição {0}de saída inválido: . O serviço não tem um nó de saída com este nome. Por favor, passe um nome de nó de saída correto para anular (a sensibilidade do caso aplica-se). |
-| InvalidQueryParameter | Parâmetro de consulta inválido '{0}'. {1} |
+| InvalidBlob | Especificação de bolha inválida para a bolha: {0} . Verifique se a cadeia de ligação / caminho relativo ou especificação token SAS estão corretas e tente novamente. |
+| InvalidBlobConnectionString | A cadeia de ligação especificada para uma das bolhas de entrada/saída inválidas: {0} . Por favor, corrija isto e tente de novo. |
+| Extensão InvalidBlob | A referência blob: {0} tem uma extensão de ficheiro inválida ou em falta. As extensões de ficheirosuportadas para este tipo de saída são: {1} " ". |
+| Nomes inválidos de inputs | Nomes de entrada de serviço inválidos especificados no pedido: {0} . Por favor, mapeie os dados de entrada para as inputs de serviço corretas e tente novamente. |
+| InvalidOutputOverrideName | Nome de substituição de saída inválido: {0} . O serviço não tem um nó de saída com este nome. Por favor, passe um nome de nó de saída correto para anular (a sensibilidade do caso aplica-se). |
+| InvalidQueryParameter | Parâmetro de consulta inválido {0} ' '. {1} |
 | Informação missingInputBlob | Informação de blob de armazenamento azure desaparecida. Forneça uma corda de ligação válida e um caminho relativo ou URI e tente novamente. |
 | Emprego desaparecido | Nenhum trabalho que a Id forneceu. Um trabalho é devolvido quando um trabalho foi submetido pela primeira vez. Verifique se o id do trabalho está correto e tente novamente. |
 | Chaves desaparecidas | Não são fornecidas chaves ou uma chave primária ou secundária. |
 | Pacote de Modelos Desaparecidos | Nenhum pacote de modelo id ou pacote de modelo fornecido. Forneça um pacote de modelo válido Id ou pacote de modelo e tente novamente. |
-| FaltaoutputOverrideSpecification | Falta-lhe a especificação de bolha {0}para a sobreposição da saída . Por favor, especifique uma localização de bolha válida com o pedido ou remova a especificação de saída se não for desejada qualquer sobreposição de localização. |
+| FaltaoutputOverrideSpecification | Falta-lhe a especificação de bolha para a sobreposição da saída {0} . Por favor, especifique uma localização de bolha válida com o pedido ou remova a especificação de saída se não for desejada qualquer sobreposição de localização. |
 | Input de Pedido de Falta | O serviço web espera uma entrada, mas não foi fornecida nenhuma entrada. Certifique-se de que as inputs válidas são fornecidas com base nas portas de entrada publicadas no modelo e tente novamente. |
 | Faltade Parâmetros Globais Exigidos | Nem todos os parâmetros de serviço web necessários fornecidos. Verifique se os parâmetros esperados para os módulos estão corretos e tente novamente. |
 | Deslocações por excesso de saída em falta | Ao chamar um ponto final de serviço encriptado é obrigatório passar em sobreposições de saída para todas as saídas do serviço. Falta ndo substituições neste momento para estas saídas:{0} |
@@ -73,10 +71,10 @@ Esta classe de erros significa que um argumento fornecido em algum lugar era inv
 | Parâmetro inesperado | Parâmetros inesperados fornecidos. Verifique se todos os nomes dos parâmetros estão corretamente escritos, apenas os parâmetros esperados são passados e tente novamente. |
 | Erro Desconhecido | Uma margem de erro desconhecida. |
 | UserParameterInválido | {0} |
-| Requisitos de pedido de consões da WebServiceConcurrentInválido | Não é possível alterar {0} os requisitos simultâneos de pedidos para o serviço web. |
+| Requisitos de pedido de consões da WebServiceConcurrentInválido | Não é possível alterar os requisitos simultâneos de pedidos para {0} o serviço web. |
 | WebServiceIdInvalid | Id de serviço web inválido fornecido. O id do serviço web deve ser um guia válido. |
-| Requisito de Pedido de CorrenteSToSManyConcurrent | Não é possível definir {0}o requisito de pedido simultâneo para mais do que . |
-| WebServiceTypeInvalid | Tipo de serviço web inválido fornecido. Verifique se o tipo de serviço web válido está correto e tente novamente. Tipos de serviço {0}web válidos: . |
+| Requisito de Pedido de CorrenteSToSManyConcurrent | Não é possível definir o requisito de pedido simultâneo para mais do que {0} . |
+| WebServiceTypeInvalid | Tipo de serviço web inválido fornecido. Verifique se o tipo de serviço web válido está correto e tente novamente. Tipos de serviço web válidos: {0} . |
  
 ## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (código de estado HTTP 400)
  
@@ -85,7 +83,7 @@ Argumento de utilizador inválido fornecido.
 | Código de erro | Mensagem do utilizador |
 | ---------- |--------------|
 | InputMismatchError | Os dados de entrada não correspondem ao esquema da porta de entrada. |
-| InputParseError | A análise do vetor de entrada falhou.  Verifique se o vetor de entrada tem o número correto de colunas e tipos de dados.  Detalhes adicionais: {0}. |
+| InputParseError | A análise do vetor de entrada falhou.  Verifique se o vetor de entrada tem o número correto de colunas e tipos de dados.  Detalhes adicionais: {0} . |
 | Faltade Parâmetros Globais Exigidos | Os parâmetros esperados pelo serviço web estão em falta. Verifique se todos os parâmetros necessários esperados pelo serviço web estão corretos e tente novamente. |
 | Parâmetro inesperado | Verifique se apenas os parâmetros necessários esperados pelo serviço web são passados e tente novamente. |
 | UserParameterInválido | {0} |
@@ -96,7 +94,7 @@ O pedido é inválido no contexto atual.
  
 | Código de erro | Mensagem do utilizador |
 | ---------- |--------------|
-| Não Pode Começar Job | O trabalho não pode ser {0} iniciado porque está no estado. |
+| Não Pode Começar Job | O trabalho não pode ser iniciado porque está no {0} estado. |
 | Modelo Incompatível | O modelo é incompatível com a versão de pedido. A versão de pedido suporta apenas modelos de saída simples datatable. |
 | MúltiplosInputsNotAllowed | O modelo não permite várias inputs. |
  
@@ -164,7 +162,7 @@ O modelo tinha excedido a quota de memória que lhe foi atribuída.
  
 | Código de erro | Mensagem do utilizador |
 | ---------- |--------------|
-| Limite de memória fora | O modelo consumia mais memória do que o apropriado para ele. A memória máxima permitida {0} para o modelo é MB. Por favor, verifique se o seu modelo tem problemas. |
+| Limite de memória fora | O modelo consumia mais memória do que o apropriado para ele. A memória máxima permitida para o modelo é {0} MB. Por favor, verifique se o seu modelo tem problemas. |
  
 ## <a name="internalerror-http-status-code-500"></a>InternalError (código de estado HTTP 500)
  
@@ -178,7 +176,7 @@ A execução encontrou um erro interno.
 | ClusterConfigBlobMconfigurado |  |
 | Processo de contentorTerminadoComerro do Sistema | O processo do contentor colidiu com o erro do sistema |
 | Processo de contentorterminado Com Erro Desconhecido | O processo do contentor despenhou-se com um erro desconhecido. |
-| Validação de contentoresFalhada | A validação do recipiente blob falhou com este erro: {0}. |
+| Validação de contentoresFalhada | A validação do recipiente blob falhou com este erro: {0} . |
 | DeleteWebServiceResourceFailed |  |
 | ExcepçãoErro deserialização |  |
 | FailedGettingApiDocument |  |
@@ -193,7 +191,7 @@ A execução encontrou um erro interno.
 | MóduloLoadFailed |  |
 | MóduloObjectCloneFailed |  |
 | Conversão de saídaFalhada |  |
-| PortDataTypeNotSupported | O id{0} do porto= tem {1}um tipo de dados não suportado: . |
+| PortDataTypeNotSupported | O id do porto= tem um tipo de {0} dados não suportado: {1} . |
 | Download de Recursos |  |
 | Carga de recursos Falhada |  |
 | ServiceUrisNotFound |  |
@@ -201,7 +199,7 @@ A execução encontrou um erro interno.
 | Estatuto de Pontuação Inesperada |  |
 | Resposta desconhecida backendErrorResponse |  |
 | Erro Desconhecido |  |
-| Código de Estatuto de Emprego Desconhecido | Código {0}de estado de trabalho desconhecido. |
+| Código de Estatuto de Emprego Desconhecido | Código de estado de trabalho {0} desconhecido. |
 | Erro de Módulo desconhecido |  |
 | UpdateWebServiceResourceFailed |  |
 | WebServiceGroupNotFound |  |
@@ -239,7 +237,7 @@ O serviço está temporariamente indisponível.
 | Código de erro | Mensagem do utilizador |
 | ---------- |--------------|
 | NoMoreResources | Não há recursos disponíveis para pedido. |
-| RequestThrottled | O pedido foi {0} acelerado para o ponto final. A moeda máxima para o {1}ponto final é . |
+| RequestThrottled | O pedido foi acelerado para {0} o ponto final. A moeda máxima para o ponto final é {1} . |
 | Pedidos demasiado constuais | Demasiados pedidos simultâneos enviados. |
 | TooManyHostsBeingInitializado | Demasiados anfitriões a serem inicializados ao mesmo tempo. Considere estrangulamento/retentativa. |
 | TooManyHostsBeingInitializedPerModel | Demasiados anfitriões a serem inicializados ao mesmo tempo. Considere estrangulamento/retentativa. |

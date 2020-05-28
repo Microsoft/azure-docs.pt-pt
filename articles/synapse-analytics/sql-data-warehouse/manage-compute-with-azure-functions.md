@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c69d28d2be6b04286bb04a2ede6eebc69400c777
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631970"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014898"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Use funções Azure para gerir recursos de computação em piscina Azure Synapse Analytics SQL
 
@@ -29,7 +29,7 @@ Para utilizar a App de Função Azure com piscina SQL, deve criar uma [Conta Pri
 Para implementar o modelo, precisa das seguintes informações:
 
 - Nome do grupo de recursos em que a sua instância de piscina SQL está em
-- Nome do servidor lógico em que a sua instância de piscina SQL está em
+- Nome do servidor em que a sua instância de piscina SQL está em
 - Nome da sua instância de piscina SQL
 - ID do inquilino (ID do Diretório) do seu Azure Active Directory
 - ID da subscrição
@@ -97,11 +97,11 @@ Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e 
 
 Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas funções, durante um dia, só se pode escalar uma vez por dia. Para um controlo mais granular, como escalonar várias vezes por dia ou ter um comportamento de escala diferente aos fins de semana, precisa adicionar outro gatilho.
 
-1. Crie uma função em branco nova. Selecione o botão perto da *+* localização das suas Funções para mostrar o painel do modelo de função.
+1. Crie uma função em branco nova. Selecione o botão perto da localização das *+* suas Funções para mostrar o painel do modelo de função.
 
    ![Criar função nova](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Em Linguagem, selecione *Javascript* e, em seguida, selecione *TimerTrigger*.
+2. A partir do Idioma, selecione *JavaScript*, e depois selecione *TimerTrigger*.
 
    ![Criar função nova](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas 
 
 5. Desloque a sua variável de operação ao comportamento desejado da seguinte forma:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
@@ -167,7 +167,7 @@ Aumentar verticalmente às 8:00 para DW1000 e reduzir verticalmente uma vez para
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
 | Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as funções do Azure de [acionador de temporização](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

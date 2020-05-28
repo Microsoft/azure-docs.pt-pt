@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f9f0e164f7ab0a6b146aad3a2809bf85e5aa4be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409864"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020664"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagir com objetos e componentes de jogos do Unity
 
@@ -22,7 +22,7 @@ Consequentemente, a integração de unidade da Renderização Remota Azure vem c
 
 ## <a name="load-a-model-in-unity"></a>Carregue um modelo em Unidade
 
-Quando carregas um modelo, obtém-se uma referência ao objeto raiz do modelo carregado. Esta referência não é um objeto de jogo da Unidade, `Entity.GetOrCreateGameObject()`mas pode transformá-lo num usando o método de extensão . Esta função espera `UnityCreationMode`um argumento de tipo. Se passar, `CreateUnityComponents`o objeto de jogo de Unidade recém-criado será adicionalmente preenchido com componentes proxy para todos os componentes de Renderização Remota que existem no hospedeiro. Recomenda-se, no entanto, preferir, `DoNotCreateUnityComponents`manter as despesas mínimas.
+Quando carregas um modelo, obtém-se uma referência ao objeto raiz do modelo carregado. Esta referência não é um objeto de jogo da Unidade, mas pode transformá-lo num usando o método de extensão `Entity.GetOrCreateGameObject()` . Esta função espera um argumento de `UnityCreationMode` tipo. Se passar, o objeto de `CreateUnityComponents` jogo de Unidade recém-criado será adicionalmente preenchido com componentes proxy para todos os componentes de Renderização Remota que existem no hospedeiro. Recomenda-se, no entanto, `DoNotCreateUnityComponents` preferir, manter as despesas mínimas.
 
 ### <a name="load-model-with-task"></a>Modelo de carga com tarefa
 
@@ -82,21 +82,21 @@ async void LoadModelWithAwait()
 }
 ```
 
-As amostras de código acima utilizaram o modelo de carregamento via SAS porque o modelo incorporado está carregado. Dirigir-se ao modelo através de `LoadModelAsync` `LoadModelParams`recipientes de bolhas (utilizando e ) funciona totalmente análogamente.
+As amostras de código acima utilizaram o modelo de carregamento via SAS porque o modelo incorporado está carregado. Dirigir-se ao modelo através de recipientes de bolhas (utilizando `LoadModelAsync` e ) funciona totalmente `LoadModelParams` análogamente.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 
-Criar um objeto de jogo `RemoteEntitySyncObject` de Unidade adiciona implicitamente um componente ao objeto do jogo. Este componente é utilizado para sincronizar a entidade transformar-se no servidor. Por `RemoteEntitySyncObject` predefinição, o utilizador `SyncToRemote()` exige que o utilizador ligue explicitamente para sincronizar o estado de Unidade local para o servidor. A `SyncEveryFrame` ativação sincronizará o objeto automaticamente.
+Criar um objeto de jogo de Unidade adiciona implicitamente um `RemoteEntitySyncObject` componente ao objeto do jogo. Este componente é utilizado para sincronizar a entidade transformar-se no servidor. Por predefinição, o utilizador exige que `RemoteEntitySyncObject` o utilizador ligue explicitamente para sincronizar o estado de `SyncToRemote()` Unidade local para o servidor. A ativação `SyncEveryFrame` sincronizará o objeto automaticamente.
 
-Os objetos com um `RemoteEntitySyncObject` podem ter os seus filhos remotos instantaneamente e mostrados no editor da Unidade através do botão Show **Children.**
+Os objetos com um `RemoteEntitySyncObject` podem ter os seus filhos remotos instantaneamente e mostrados no editor da Unidade através do **:::no-loc text="Show children":::** botão.
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
 ## <a name="wrapper-components"></a>Componentes de invólucro
 
-[Os componentes ligados](../../concepts/components.md) a entidades de renderização remota são expostos à Unidade através de proxy `MonoBehavior`s. Estes proxies representam o componente remoto em Unidade, e reencaminhar todas as modificações para o hospedeiro.
+[Os componentes ligados](../../concepts/components.md) a entidades de renderização remota são expostos à Unidade através de proxy `MonoBehavior` s. Estes proxies representam o componente remoto em Unidade, e reencaminhar todas as modificações para o hospedeiro.
 
-Para criar componentes proxy Remote Rendering, `GetOrCreateArrComponent`utilize o método de extensão:
+Para criar componentes proxy Remote Rendering, utilize o método de `GetOrCreateArrComponent` extensão:
 
 ```cs
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
@@ -104,11 +104,11 @@ var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteMa
 
 ## <a name="coupled-lifetimes"></a>Vidas acopcadas
 
-A vida de uma [entidade](../../concepts/entities.md) remota e um objeto de `RemoteEntitySyncObject`jogo da Unidade é acopvidado enquanto eles são ligados através de um . Se ligar `UnityEngine.Object.Destroy(...)` com tal objeto de jogo, a entidade remota também será removida.
+A vida de uma [entidade](../../concepts/entities.md) remota e um objeto de jogo da Unidade é acopvidado enquanto eles são ligados através de um `RemoteEntitySyncObject` . Se ligar `UnityEngine.Object.Destroy(...)` com tal objeto de jogo, a entidade remota também será removida.
 
-Para destruir o objeto do jogo da Unidade, sem afetar a entidade remota, primeiro é preciso recorrer `Unbind()` ao `RemoteEntitySyncObject`.
+Para destruir o objeto do jogo da Unidade, sem afetar a entidade remota, primeiro é preciso recorrer `Unbind()` ao `RemoteEntitySyncObject` .
 
-O mesmo acontece com todos os componentes de procuração. Para destruir apenas a representação do `Unbind()` lado do cliente, você precisa ligar primeiro para o componente proxy:
+O mesmo acontece com todos os componentes de procuração. Para destruir apenas a representação do lado do cliente, você precisa ligar `Unbind()` primeiro para o componente proxy:
 
 ```cs
 var cutplane = gameObject.GetComponent<ARRCutPlaneComponent>();
@@ -119,7 +119,7 @@ if (cutplane != null)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar o Remote Rendering para o Unity](unity-setup.md)
 * [Tutorial: Trabalhar com entidades remotas na Unidade](../../tutorials/unity/working-with-remote-entities.md)

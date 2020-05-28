@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382727"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018723"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados utilizando os Databricks Azure
 
@@ -37,7 +37,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Transforme dados em Tijolos de Dados Azure.
 > * Carregue os dados em Azure Synapse.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!Note]
 > Este tutorial não pode ser realizado utilizando **a assinatura de teste gratuito do Azure.**
@@ -93,7 +93,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
 
     ![Criar um recurso no portal Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
 
-    Em seguida, selecione **Analytics** > **Azure Databricks**.
+    Em seguida, selecione **Analytics**  >  **Azure Databricks**.
 
     ![Criar tijolos de dados Azure no portal Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
 
@@ -129,7 +129,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
 
     * Introduza um nome para o cluster.
 
-    * Certifique-se de que seleciona o **'Terminar' após \_ \_ minutos de** caixa de verificação de inatividade. Se o cluster não estiver a ser utilizado, forneça uma duração (em minutos) para terminar o cluster.
+    * Certifique-se de que seleciona o 'Terminar' após minutos de caixa de verificação ** \_ \_ de inatividade.** Se o cluster não estiver a ser utilizado, forneça uma duração (em minutos) para terminar o cluster.
 
     * Selecione **Criar cluster**. Depois do cluster estar em funcionamento, pode anexar cadernos ao cluster e executar trabalhos spark.
 
@@ -185,13 +185,13 @@ Nesta secção, cria-se um bloco de notas no espaço de trabalho do Azure Databr
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Neste bloco de código, `<secret>` `<tenant-id>`substitua `<storage-account-name>` os `<app-id>`valores de , , e espaço reservado neste bloco de código supor os valores que recolheu ao completar os pré-requisitos deste tutorial. Substitua `<file-system-name>` o valor do espaço reservado por qualquer nome que queira dar ao sistema de ficheiros.
+6. Neste bloco de código, substitua os valores de , , e espaço reservado neste bloco de `<app-id>` `<secret>` código `<tenant-id>` `<storage-account-name>` supor os valores que recolheu ao completar os pré-requisitos deste tutorial. Substitua o valor do espaço reservado por qualquer nome que queira dar ao sistema de `<file-system-name>` ficheiros.
 
-   * E `<app-id>` `<secret>` são da app que registou com diretório ativo como parte da criação de um diretor de serviço.
+   * E `<app-id>` são da app que `<secret>` registou com diretório ativo como parte da criação de um diretor de serviço.
 
    * O `<tenant-id>` é da sua assinatura.
 
-   * É `<storage-account-name>` o nome da sua conta de armazenamento do Lago Azure Data Gen2.
+   * É o nome da sua conta de armazenamento do `<storage-account-name>` Lago Azure Data Gen2.
 
 7. Prima as teclas **SHIFT + ENTER** para executar o código neste bloco.
 
@@ -368,9 +368,9 @@ Como mencionado anteriormente, o conector Azure Synapse utiliza o armazenamento 
    ```
 
    > [!NOTE]
-   > Esta amostra `forward_spark_azure_storage_credentials` utiliza a bandeira, o que faz com que o Azure Synapse aceda a dados do armazenamento de blob utilizando uma Chave de Acesso. Este é o único método de autenticação suportado.
+   > Esta amostra utiliza a bandeira, o que faz com que o `forward_spark_azure_storage_credentials` Azure Synapse aceda a dados do armazenamento de blob utilizando uma Chave de Acesso. Este é o único método de autenticação suportado.
    >
-   > Se o seu Armazenamento Azure Blob estiver restrito a selecionar redes virtuais, o Azure Synapse requer identidade de [serviço gerida em vez de Chaves de Acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isto causará o erro "Este pedido não está autorizado a executar esta operação."
+   > Se o seu Armazenamento Azure Blob estiver restrito a selecionar redes virtuais, o Azure Synapse requer identidade de [serviço gerida em vez de Chaves de Acesso](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isto causará o erro "Este pedido não está autorizado a executar esta operação."
 
 6. Ligue-se à base de dados SQL e verifique se vê uma base de dados chamada **SampleTable**.
 
@@ -386,7 +386,7 @@ Depois de terminar o tutorial, pode terminar o agrupamento. A partir do espaço 
 
 ![Parar um cluster de Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster de Databricks")
 
-Se não encerrar manualmente o cluster, para automaticamente, desde que selecione o **'Terminate' \_ \_ após minutos de caixa de verificação de inatividade** quando criou o cluster. Neste caso, o cluster para automaticamente se estiver inativo durante o tempo especificado.
+Se não encerrar manualmente o cluster, para automaticamente, desde que selecione o **'Terminate' após minutos de caixa \_ \_ de verificação de inatividade** quando criou o cluster. Neste caso, o cluster para automaticamente se estiver inativo durante o tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

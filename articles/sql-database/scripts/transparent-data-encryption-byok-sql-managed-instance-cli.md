@@ -1,5 +1,5 @@
 ---
-title: Exemplo CLI- Habilitar BYOK TDE - Azure SQL Database Managed Instance
+title: Exemplo CLI- Habilitar BYOK TDE - Instância Gerida Azure SQL
 description: Aprenda a configurar um Caso Gerido Azure SQL para começar a usar encriptação transparente de dados (TDE) para encriptação em repouso usando powerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
-ms.openlocfilehash: 8e8c0e2db1f87cca52c44d33ce14d7ce4f00e895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 271f68a57a4490032e318da57b4b37aac09a1410
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061724"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019353"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerencie a encriptação de dados transparente sintetizado numa instância gerida utilizando a sua própria chave do Cofre de Chaves Azure
 
-Este exemplo de script Azure CLI configura encriptação de dados transparentes (TDE) com chave gerida pelo cliente para a Instância Gerida Azure SQL, utilizando uma chave do Cofre de Chaves Azure. Isto é frequentemente referido como um cenário de trazer a sua própria chave para tDE. Para saber mais sobre o TDE com a chave gerida pelo cliente, consulte [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Este exemplo de script Azure CLI configura encriptação de dados transparentes (TDE) com chave gerida pelo cliente para a Instância Gerida Azure SQL, utilizando uma chave do Cofre de Chaves Azure. Isto é frequentemente referido como um cenário de trazer a sua própria chave para tDE. Para saber mais sobre o TDE com a chave gerida pelo cliente, consulte [TDE Bring Your Own Key to Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md).
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -28,7 +28,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Uma instância gerida existente, consulte Use Azure CLI para criar uma instância gerida pela Base de [Dados Azure SQL](sql-database-create-configure-managed-instance-cli.md).
+Uma instância gerida existente, consulte [Use Azure CLI para criar uma instância gerida Azure SQL](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -61,8 +61,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az sql db](/cli/azure/sql/db) | Comandos de base de dados. |
 | [az sql failover-grupo](/cli/azure/sql/failover-group) | Falha de comandos de grupo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
+Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

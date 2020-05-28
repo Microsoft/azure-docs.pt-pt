@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68950236"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021607"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar ativos de dados no Catálogo de Dados do Azure
 
@@ -39,7 +39,7 @@ Para configurar o Data Catalog, deve ser o proprietário ou coproprietário de u
 
 ### <a name="register-a-data-source"></a>Registar origens de dados
 
-Regista os ativos de dados (tabelas) a partir de uma amostra de base de [dados Azure SQL,](../sql-database/sql-database-single-database-get-started.md)mas pode utilizar qualquer fonte de dados suportada se preferir trabalhar com dados que sejam familiares e relevantes para o seu papel. Para obter uma lista de origens de dados suportadas, veja [Origens de dados suportadas](data-catalog-dsr.md).
+Regista os ativos de dados (tabelas) a partir de uma amostra de base de [dados Azure SQL,](../azure-sql/database/single-database-create-quickstart.md)mas pode utilizar qualquer fonte de dados suportada se preferir trabalhar com dados que sejam familiares e relevantes para o seu papel. Para obter uma lista de origens de dados suportadas, veja [Origens de dados suportadas](data-catalog-dsr.md).
 
 O nome de base de dados Azure SQL que estamos a usar neste tutorial é *RLSTest*.
 
@@ -71,7 +71,7 @@ Pode agora registar os ativos de dados da amostra de base de dados Azure SQL uti
 
     2. Selecione **Produto,** **Categoria de Produto,** **Descrição do Produto**e **ProductModel** utilizando ctrl+select.
 
-    3. selecione a **seta selecionada para movimentos** ().**>** Esta ação move todos os objetos selecionados para a lista **Objetos a registar**.
+    3. selecione a **seta selecionada para movimentos** **>** (). Esta ação move todos os objetos selecionados para a lista **Objetos a registar**.
 
           ![Tutorial do Catálogo de Dados do Azure – procurar e selecionar objetos](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
@@ -168,7 +168,7 @@ Ao agrupar com parênteses, pode agrupar partes da consulta para alcançar isola
 
     ![Catálogo de Dados do Azure – agrupar pesquisa](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
 
-### <a name="comparison-operators"></a>Operadores de Comparação
+### <a name="comparison-operators"></a>Operadores de comparação
 
 Com os operadores de comparação, pode utilizar comparações além das de igualdade para propriedades que têm tipos de dados numéricos e de data.
 
@@ -190,7 +190,7 @@ Neste exercício, utiliza o portal Azure Data Catalog para anotar (adicione info
 
 Neste exercício, vai anotar um recurso de dados individual (ProductPhoto). Vai adicionar um nome amigável e uma descrição ao recurso de dados ProductPhoto.  
 
-1. Vá à página inicial do Catálogo `tags:product` de Dados do [Azure](https://www.azuredatacatalog.com) e procure os recursos de dados que registou.
+1. Vá à página inicial do Catálogo de [Dados do Azure](https://www.azuredatacatalog.com) e procure os recursos de `tags:product` dados que registou.
 
 2. selecione **ProductModel** nos resultados de pesquisa.  
 
@@ -295,7 +295,7 @@ No Catálogo de Dados do Azure, pode eliminar um recurso individual ou vários r
 
 1. Aceda à [home page do Catálogo de Dados do Azure](https://www.azuredatacatalog.com).
 
-2. Na caixa de texto `tags:cycles` **Pesquisar,** introduza e selecione **ENTER**.
+2. Na caixa de texto **Pesquisar,** introduza `tags:cycles` e selecione **ENTER**.
 
 3. Selecione um item na lista de resultados e selecione **Eliminar** na barra de ferramentas, conforme mostrado na seguinte imagem:
 
@@ -316,7 +316,7 @@ No Catálogo de Dados do Azure, pode eliminar um recurso individual ou vários r
 
 Neste tutorial, explorou as capacidades essenciais do Catálogo de Dados do Azure, incluindo registar, anotar, detetar e gerir recursos de dados empresariais. Agora que concluiu o tutorial, está na altura de começar. Pode começar hoje, registando as origens de dados de que você e a sua equipa dependem e convidando colegas para utilizarem o catálogo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Origens de dados suportadas](data-catalog-dsr.md)

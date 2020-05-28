@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Saiba como visual Studio Code e Azure Dev Spaces ajudam a depurar e a iterar rapidamente as suas aplicações Kubernetes
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 91440e59fdb8c21579ef1f04e78e66f933221ba0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2f6f2ef072748bddee5b3004dc69f3a9c03be16
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240450"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996232"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como o Código visual do estúdio funciona com os espaços Azure Dev
 
@@ -26,22 +26,22 @@ O Visual Studio Code e a extensão Azure Dev Spaces geram os seguintes ativos pa
 
 * Dockerfiles para aplicações Java utilizando aplicações Maven, Node.js e .NET Core aplicações
 * Gráficos de leme para quase qualquer língua com um Dockerfile
-* Um `azds.yaml` ficheiro, que é o ficheiro de [configuração do Azure Dev Spaces][azds-yaml] para o seu projeto
+* Um ficheiro, que é o ficheiro de `azds.yaml` [configuração do Azure Dev Spaces][azds-yaml] para o seu projeto
 * Uma `.vscode` pasta com a configuração de lançamento do Visual Studio Code do seu projeto para aplicações Java utilizando aplicações Maven, Node.js e .NET Core
 
-O Dockerfile, o `azds.yaml` gráfico Helm e os ficheiros são os mesmos ativos gerados durante a execução. `azds prep` Esses ficheiros também podem ser usados fora do código do `azds up`Estúdio Visual para executar o seu projeto em AKS, como executar . A `.vscode` pasta é usada apenas pelo código Visual Studio para executar o seu projeto em AKS a partir do Visual Studio Code.
+O Dockerfile, o gráfico Helm e `azds.yaml` os ficheiros são os mesmos ativos gerados durante a execução. `azds prep` Esses ficheiros também podem ser usados fora do código do Estúdio Visual para executar o seu projeto em AKS, como executar `azds up` . A `.vscode` pasta é usada apenas pelo código Visual Studio para executar o seu projeto em AKS a partir do Visual Studio Code.
 
 ## <a name="run-your-service-in-aks"></a>Executar o seu serviço na AKS
 
-Depois de gerar os ativos para o seu projeto, pode executar os seus serviços Java, Node.js e .NET Core num espaço de v existente a partir do Visual Studio Code. Na página *Debug* do Visual Studio Code, pode `.vscode` invocar a configuração de lançamento do diretório para executar o seu projeto.
+Depois de gerar os ativos para o seu projeto, pode executar os seus serviços Java, Node.js e .NET Core num espaço de v existente a partir do Visual Studio Code. Na página *Debug* do Visual Studio Code, pode invocar a configuração de lançamento do `.vscode` diretório para executar o seu projeto.
 
-Você deve criar o seu cluster AKS e ativar o Azure Dev Spaces no seu cluster fora do Visual Studio Code. Por exemplo, pode utilizar o Azure CLI ou o portal Azure para fazer esta configuração. Pode reutilizar os ficheiros Dockerfiles, `azds.yaml` gráficos Helm e ficheiros existentes criados `azds prep`fora do Código visual do Estúdio, como os ativos gerados pela execução . Se reutilizar os ativos gerados fora do Visual Studio `.vscode` Code, ainda precisa de ter um diretório. Este `.vscode` diretório pode ser regenerado pelo código Visual Studio e pela extensão Da Extensão dos Espaços Azure Dev e não irá substituir os seus ativos existentes.
+Você deve criar o seu cluster AKS e ativar o Azure Dev Spaces no seu cluster fora do Visual Studio Code. Pode reutilizar os ficheiros Dockerfiles, gráficos Helm e `azds.yaml` ficheiros existentes criados fora do Código visual do Estúdio, como os ativos gerados pela execução `azds prep` . Se reutilizar os ativos gerados fora do Visual Studio Code, ainda precisa de ter um `.vscode` diretório. Este `.vscode` diretório pode ser regenerado pelo código Visual Studio e pela extensão Da Extensão dos Espaços Azure Dev e não irá substituir os seus ativos existentes.
 
 Para projetos .NET Core, tem de ter a [extensão C#][csharp-extension] instalada para executar o seu serviço .NET a partir do Visual Studio Code. Também para os projetos Java que utilizam a Maven, deve ter a [extensão Java Debugger para Os Espaços Azure Dev][java-extension] instalada, bem como a [Maven instalada e configurada][maven] para executar o seu serviço Java a partir do Visual Studio Code.
 
 ## <a name="debug-your-service-in-aks"></a>Desinvejo o seu serviço na AKS
 
-Depois de lançar o seu projeto, pode desmarcar os seus serviços Java, Node.js e .NET Core a funcionar num espaço de v diretamente do Visual Studio Code. A configuração `.vscode` de lançamento no diretório fornece a informação adicional de depuração para executar um serviço com depuração ativada num espaço de v. O Visual Studio Code também se liga ao processo de depuração no recipiente de funcionamento nos seus espaços de dev, permitindo-lhe definir pontos de rutura, inspecionar variáveis e realizar outras operações de depuração.
+Depois de lançar o seu projeto, pode desmarcar os seus serviços Java, Node.js e .NET Core a funcionar num espaço de v diretamente do Visual Studio Code. A configuração de lançamento no `.vscode` diretório fornece a informação adicional de depuração para executar um serviço com depuração ativada num espaço de v. O Visual Studio Code também se liga ao processo de depuração no recipiente de funcionamento nos seus espaços de dev, permitindo-lhe definir pontos de rutura, inspecionar variáveis e realizar outras operações de depuração.
 
 
 ## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Use o Código de Estúdio Visual com Espaços Azure Dev

@@ -6,16 +6,19 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8ef16f581a4b945d3a5e6ef58166eeed900f3bb3
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652248"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140893"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
 Este artigo irá acompanhá-lo através dos passos como configurar o acesso ao Diretório Ativo Azure com a Base de Dados Azure para o MySQL, e como se conectar usando um token Azure AD.
+
+> [!IMPORTANT]
+> A autenticação do Diretório Ativo Azure só está disponível para MySQL 5.7 e mais recente.
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Definição do utilizador azure AD Admin
 
@@ -198,7 +201,7 @@ A maioria dos condutores são suportados, no entanto certifique-se de usar as de
 * Ir
   * go-sql-driver: Suportado, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de ligação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja os conceitos globais para [autenticação de Diretório Ativo Azure com Base de Dados Azure para MySQL](concepts-azure-ad-authentication.md)
 

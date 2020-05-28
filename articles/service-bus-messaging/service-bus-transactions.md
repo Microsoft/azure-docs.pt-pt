@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f79d0e917ba741e72e2bbecd4a1f94a4c99e5393
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260907"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996062"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de ônibus de serviço
 
@@ -36,8 +36,8 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 
 As operações que podem ser realizadas dentro de um âmbito de transação são as seguintes:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Enviar, EnviarAsync, Enviar, EnviarAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` `SendBatch` ,`SendBatchAsync`
+* **[Mensagem intermediada:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**, , , `Complete` , , `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` , `RenewLock``RenewLockAsync` 
 
 As operações de receção não estão incluídas, pois presume-se que a aplicação adquire mensagens utilizando o modo [ReceiveMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) dentro de algum loop de receção ou com um backback [OnMessage,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre uma margem de transação para o processamento da mensagem.
 
@@ -45,7 +45,7 @@ A disposição da mensagem (completa, abandono, letra morta, adiamento) ocorre e
 
 ## <a name="transfers-and-send-via"></a>Transfers e "enviar via"
 
-Para permitir a transferência de dados transacionais de uma fila para um processador e, em seguida, para outra fila, o Service Bus suporta *transferências*. Numa operação de transferência, um remetente envia primeiro uma mensagem para uma fila de *transferências*, e a fila de transferências move imediatamente a mensagem para a fila de destino pretendida usando a mesma implementação robusta de transferência em que a capacidade de auto-encaminhamento depende. A mensagem nunca está comprometida com o registo da fila de transferências de uma forma que se torne visível para os consumidores da fila de transferências.
+Para permitir a transferência de dados transacionais de uma fila para um processador e, em seguida, para outra fila, o Service Bus suporta *transferências*. Numa operação de transferência, um remetente envia primeiro uma mensagem para uma fila de *transferências*, e a fila de transferências move imediatamente a mensagem para a fila de destino pretendida usando a mesma implementação robusta de transferência em que a capacidade de auto-forward se baseia. A mensagem nunca está comprometida com o registo da fila de transferências de uma forma que se torne visível para os consumidores da fila de transferências.
 
 O poder desta capacidade transacional torna-se evidente quando a própria fila de transferências é a fonte das mensagens de entrada do remetente. Por outras palavras, o Service Bus pode transferir a mensagem para a fila de destino "via" a fila de transferências, enquanto executa uma operação completa (ou adiar, ou carta morta) na mensagem de entrada, tudo numa operação atómica. 
 
@@ -97,13 +97,16 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="timeout"></a>Tempo limite
+Uma transação é de 2 minutos. O temporizador de transação começa quando a primeira operação da transação começa. 
+
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para obter mais informações sobre as filas de ônibus de serviço:
 
 * [Como utilizar as filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Entidades de ônibus de serviço de cadeia com auto-encaminhamento](service-bus-auto-forwarding.md)
-* [Amostra autoavançada](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
+* [Entidades de ônibus de serviço de cadeia com auto-reencaminhamento](service-bus-auto-forwarding.md)
+* [Amostra auto-forward](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Transações Atómicas com amostra de ônibus de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Filas azure e filas de ônibus de serviço comparadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

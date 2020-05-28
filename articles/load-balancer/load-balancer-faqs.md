@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005143"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014932"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -32,6 +32,9 @@ Consulte a [lista de modelos de quickstart do Azure Load Balancer](https://docs.
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>Como é que as regras de entrada na NAT são diferentes das regras de equilíbrio de carga?
 As regras da NAT são usadas para especificar um recurso de backend para encaminhar o tráfego para. Por exemplo, configurar uma porta de equilíbrio de carga específica para enviar tráfego rdp para um VM específico. As regras de equilíbrio de carga são utilizadas para especificar um conjunto de recursos de backend para encaminhar o tráfego, equilibrando a carga em cada instância. Por exemplo, uma regra do equilibrista de carga pode encaminhar pacotes DeTCP na porta 80 do equilibrista de carga através de um conjunto de servidores web.
+
+## <a name="what-is-ip-1686312916"></a>O que é IP 168.63.129.16?
+O endereço IP virtual para o hospedeiro marcado como o Equilíbrio de Carga de Infraestrutura Azure de onde provêm as sondas de saúde Azure. Ao configurar casos de backend, devem permitir que o tráfego a partir deste endereço IP responda com sucesso às sondas de saúde. Esta regra não interage com o acesso ao seu frontend load Balancer. Se não estiver a usar o Equilíbrio de Carga Azure, pode anular esta regra. Pode saber mais sobre etiquetas de serviço [aqui.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se a sua pergunta não estiver listada acima, por favor envie feedback sobre esta página com a sua pergunta. Isto criará um problema GitHub para a equipa de produtos para garantir que todas as nossas questões de clientes valorizadas sejam respondidas.

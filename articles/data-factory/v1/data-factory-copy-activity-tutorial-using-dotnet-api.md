@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47714be27cd4588b9bdf481750974394d3738985
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74931741"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119281"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com a Atividade de Cópia com a API .NET
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "74931741"
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo de Gestor de Recursos Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -66,7 +66,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
     ```powershell
     Get-AzSubscription
     ```
-4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt;o NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
+4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o ** &lt; NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -116,7 +116,7 @@ Deve obter os quatro valores seguintes destes passos:
 
 * ID do inquilino
 * ID da subscrição
-* ID da aplicação
+* ID da Aplicação
 * Palavra-passe (especificada no primeiro comando)
 
 ## <a name="walkthrough"></a>Instruções
@@ -134,7 +134,7 @@ Deve obter os quatro valores seguintes destes passos:
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (utilize a API do Azure Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Adicione a secção **appSetttings** seguinte ao ficheiro **App.config**. Estas definições são utilizadas pelo método de ajuda: **GetAuthorizationHeader**.
 
-    Substitua os valores ** &lt;&gt; ** por ** &lt;ID&gt;de aplicação,** ** &lt;palavra-passe,&gt;** ** &lt;ID&gt;de subscrição**e ID do inquilino pelos seus próprios valores.
+    Substitua os valores por ID ** &lt; &gt; ** ** &lt; &gt; de aplicação,** ** &lt; palavra-passe, &gt; ** ** &lt; ID &gt; de subscrição**e ID do inquilino pelos seus próprios valores.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Deve obter os quatro valores seguintes destes passos:
 9. Adicione o código seguinte, que cria um **serviço ligado SQL do Azure**, ao método **Principal**.
 
    > [!IMPORTANT]
-   > Substitua **servername**, **databasename**, **username** e **password** pelos nomes do seu servidor, base de dados, utilizador e palavra-passe do SQL do Azure.
+   > Substitua o nome do **servidor,** nome de base de **dados,** **nome de utilizador**e **palavra-passe** por nomes do seu servidor, base de dados, utilizador e palavra-passe.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database
@@ -511,14 +511,14 @@ Deve obter os quatro valores seguintes destes passos:
     John, Doe
     Jane, Doe
     ```
-18. Executar a amostra clicando em **Debug** -> **Start Debugging** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
+18. Executar a amostra clicando em **Debug**  ->  **Start Debugging** no menu. Quando vir **A obter detalhes da execução de um setor de dados**, aguarde alguns minutos e prima **ENTER**.
 19. Utilize o portal do Azure para verificar se a fábrica de dados **APITutorialFactory** foi criada com os artefactos seguintes:
     * Serviço ligado: **LinkedService_AzureStorage**
     * Conjunto de dados: **InputDataset** e **OutputDataset**.
     * Pipeline: **PipelineBlobSample**
 20. Verifique se os dois registos dos empregados são criados na tabela **emp** na base de dados Azure SQL especificada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter toda a documentação sobre a API .NET do Data Factory, veja [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) (Referência da API .NET do Data Factory).
 
 Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 

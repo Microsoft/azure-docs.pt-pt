@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 03f6f045e0809f79117518a22abfd74520b6d0a6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587668"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992781"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 
@@ -62,7 +62,7 @@ Depois de selecionar um projeto, verá o seguinte na página do projeto:
 
     ![Ver detalhes do projeto](media/how-to/how-to-view-project.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como pesquisar, editar, excluir projeto.](how-to-search-edit-delete-projects.md)
 - Aprenda [a carregar documento](how-to-upload-document.md) para construir modelos de tradução.

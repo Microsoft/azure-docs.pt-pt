@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265509"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020902"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -24,6 +24,7 @@ Com o serviço Azure Data Share, pode partilhar dados sem trocar credenciais ent
 A identidade gerida do recurso Azure Data Share tem de ter acesso à loja de dados Azure. O serviço Azure Data Share utiliza então esta identidade gerida para ler e escrever dados para partilha baseada em instantâneos e estabelecer um link simbólico para a partilha no local. 
 
 Para partilhar ou receber dados de uma loja de dados Azure, o utilizador precisa de pelo menos as seguintes permissões. São necessárias permissões adicionais para a partilha baseada em SQL.
+
 * Permissão para escrever na loja de dados Azure. Tipicamente, esta permissão existe no papel **de Contribuinte.**
 * Permissão para criar atribuição de funções na loja de dados Azure. Normalmente, a permissão para criar atribuições de funções existe na função **Proprietário,** função de Administrador de Acesso ao Utilizador, ou uma função personalizada com a Microsoft.Autorizações/atribuições de funções/permissão de escrita atribuídas. Esta permissão não é necessária se a identidade gerida do recurso de partilha de dados já tiver acesso à loja de dados Azure. Consulte a tabela abaixo para obter o papel necessário.
 
@@ -35,7 +36,7 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 |Armazenamento de Blobs do Azure| Leitor de dados blob de armazenamento | Contribuinte de dados blob de armazenamento
 |Lago de Dados Azure Gen1 | Proprietário | Não suportado
 |Lago de Dados Azure Gen2 | Leitor de dados blob de armazenamento | Contribuinte de dados blob de armazenamento
-|Servidor Azure SQL | Contribuinte SQL DB | Contribuinte SQL DB
+|Azure SQL Server | Contribuinte SQL DB | Contribuinte SQL DB
 |Azure Data Explorer Cluster | Contribuinte | Contribuinte
 |
 
@@ -48,8 +49,8 @@ Para a partilha baseada em SQL, um utilizador SQL precisa de ser criado a partir
 |Azure Synapse Analytics (anteriormente SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
+### <a name="data-provider"></a>Fornecedor de dados
 
-### <a name="data-provider"></a>Fornecedor de dados 
 Para adicionar um conjunto de dados na Azure Data Share, a identidade gerida do recurso de dados do fornecedor tem de ter acesso à loja de dados Azure fonte. Por exemplo, no caso da conta de armazenamento, a identidade gerida do recurso de partilha de dados é concedida a função de Leitor de Dados Blob de Armazenamento. 
 
 Isto é feito automaticamente pelo serviço Azure Data Share quando o utilizador está a adicionar dataset via portal Azure e o utilizador tem a permissão adequada. Por exemplo, o utilizador é proprietário da loja de dados Azure, ou é membro de uma função personalizada que tem a Microsoft.Autorizações/atribuições/permissão de escrita atribuídas. 
@@ -97,9 +98,9 @@ Para ver o convite da Azure Data Share pela primeira vez no seu inquilino Azure,
 1. Selecione a subscrição que está a utilizar para a Partilha de Dados do Azure.
 1. Clique em **Fornecedores de Recursos**.
 1. Pesquisa por Microsoft.DataShare.
-1. Clique no **Registo**.
+1. Clique em **Registar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre papéis no Azure - [Compreender definições de papéis](../role-based-access-control/role-definitions.md)
 

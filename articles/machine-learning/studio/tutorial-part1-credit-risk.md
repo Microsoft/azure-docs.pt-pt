@@ -10,16 +10,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09026d7f2aeb25f9a7c4a3c31c4f8d0b4cdb223a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204261"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117816"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito - Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -58,7 +56,7 @@ Para utilizar o Machine Learning Studio (clássico), é necessário ter um espa�
 
 Para criar um espaço de trabalho, consulte [Create e partilhe um espaço de trabalho Azure Machine Learning Studio (clássico).](create-workspace.md)
 
-Depois de criado o seu espaço de trabalho, abra o Estúdio de Aprendizagem automática (clássico) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se tiver mais de um espaço de trabalho, pode selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
+Depois de criado o seu espaço de trabalho, abra o Estúdio de Aprendizagem automática (clássico) [https://studio.azureml.net/Home](https://studio.azureml.net/Home) ( ). Se tiver mais de um espaço de trabalho, pode selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
 
 ![Selecione espaço de trabalho em Studio (clássico)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
@@ -113,9 +111,9 @@ Em qualquer dos casos, criou uma versão separada da vírcula dos dados num fich
 
 Uma vez que os dados foram convertidos para o formato CSV, você precisa carregá-lo em Machine Learning Studio (clássico). 
 
-1. Abra a página inicial do Estúdio[https://studio.azureml.net](https://studio.azureml.net)de Aprendizagem automática (clássico). 
+1. Abra a página inicial do Estúdio de Aprendizagem automática [https://studio.azureml.net](https://studio.azureml.net) (clássico). 
 
-2. Clique no ![](./media/tutorial-part1-credit-risk/menu.png) menu Menu no canto superior esquerdo da janela, clique em **Azure Machine Learning,** selecione **Studio**, e inscreva-se.
+2. Clique ![ no menu Menu no ](./media/tutorial-part1-credit-risk/menu.png) canto superior esquerdo da janela, clique em **Azure Machine Learning,** selecione **Studio**, e inscreva-se.
 
 3. Clique em **+NOVO** na parte inferior da janela.
 
@@ -292,7 +290,7 @@ Para obter mais informações sobre a utilização de scripts R nas suas experi�
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial completou estes passos: 
  

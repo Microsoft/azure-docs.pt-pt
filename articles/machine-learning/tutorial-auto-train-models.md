@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: aniththa
+ms.author: anumamah
+ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 97b129bfaa1a8612040e59c6378aa1965c5c49cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77116444"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118881"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Use machine learning automatizado para prever tarifas de táxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Este tutorial também está disponível no [GitHub](https://github.com/Azure/Mac
 
 ## <a name="download-and-prepare-data"></a>Descarregue e prepare dados
 
-Importar os pacotes necessários. O pacote De dados abertos contém uma`NycTlcGreen` classe que representa cada fonte de dados (por exemplo) para filtrar facilmente os parâmetros da data antes de ser descarregado.
+Importar os pacotes necessários. O pacote De dados abertos contém uma classe que representa cada fonte de dados `NycTlcGreen` (por exemplo) para filtrar facilmente os parâmetros da data antes de ser descarregado.
 
 ```python
 from azureml.opendatasets import NycTlcGreen
@@ -51,9 +51,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ```
 
-Comece por criar um dataframe para guardar os dados do táxi. Quando se trabalha num ambiente não-Spark, o Open Datasets apenas permite o `MemoryError` download de um mês de dados de cada vez com determinadas classes para evitar com grandes conjuntos de dados.
+Comece por criar um dataframe para guardar os dados do táxi. Quando se trabalha num ambiente não-Spark, o Open Datasets apenas permite o download de um mês de dados de cada vez com determinadas classes para evitar com grandes conjuntos de `MemoryError` dados.
 
-Para descarregar dados de táxi, iterativamente buscar um mês de `green_taxi_df` cada vez, e antes de os gastar para provar aleatoriamente 2.000 registos de cada mês para evitar inchar o dataframe. Em seguida, pré-visualizar os dados.
+Para descarregar dados de táxi, iterativamente buscar um mês de cada vez, e antes de os gastar para `green_taxi_df` provar aleatoriamente 2.000 registos de cada mês para evitar inchar o dataframe. Em seguida, pré-visualizar os dados.
 
 
 ```python
@@ -115,8 +115,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4.84</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.84</td>
       <td>-73.94</td>
@@ -139,8 +139,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0.69</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.81</td>
       <td>-73.96</td>
@@ -163,8 +163,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0.45</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.91</td>
@@ -187,8 +187,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.81</td>
       <td>40.70</td>
       <td>-73.82</td>
@@ -211,8 +211,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0.50</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.92</td>
@@ -235,8 +235,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1.10</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.95</td>
@@ -259,8 +259,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0.90</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.76</td>
       <td>-73.87</td>
@@ -283,8 +283,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3.30</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.91</td>
@@ -307,8 +307,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1.19</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.95</td>
@@ -331,8 +331,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0.65</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.94</td>
@@ -354,7 +354,7 @@ green_taxi_df.head(10)
 </div>
 
 
-Agora que os dados iniciais são carregados, defina uma função para criar várias funcionalidades baseadas no tempo a partir do campo de data de recolha. Isto criará novos campos para o número mensal, dia do mês, dia da semana e hora do dia, e permitirá que o modelo factorem na sazonalidade baseada no tempo. Utilize `apply()` a função no quadro de dados `build_time_features()` para aplicar iterativamente a função a cada linha nos dados do táxi.
+Agora que os dados iniciais são carregados, defina uma função para criar várias funcionalidades baseadas no tempo a partir do campo de data de recolha. Isto criará novos campos para o número mensal, dia do mês, dia da semana e hora do dia, e permitirá que o modelo factorem na sazonalidade baseada no tempo. Utilize a `apply()` função no quadro de dados para aplicar iterativamente a `build_time_features()` função a cada linha nos dados do táxi.
 
 ```python
 def build_time_features(vector):
@@ -416,8 +416,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4.84</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.84</td>
       <td>-73.94</td>
@@ -440,8 +440,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0.69</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.81</td>
       <td>-73.96</td>
@@ -464,8 +464,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0.45</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.91</td>
@@ -488,8 +488,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.81</td>
       <td>40.70</td>
       <td>-73.82</td>
@@ -512,8 +512,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0.50</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.92</td>
       <td>40.76</td>
       <td>-73.92</td>
@@ -536,8 +536,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1.10</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.95</td>
@@ -560,8 +560,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0.90</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.88</td>
       <td>40.76</td>
       <td>-73.87</td>
@@ -584,8 +584,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3.30</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.96</td>
       <td>40.72</td>
       <td>-73.91</td>
@@ -608,8 +608,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1.19</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.95</td>
@@ -632,8 +632,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0.65</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73.94</td>
       <td>40.71</td>
       <td>-73.94</td>
@@ -669,7 +669,7 @@ green_taxi_df.head(5)
 
 ### <a name="cleanse-data"></a>Dados de limpeza
 
-Executar `describe()` a função no novo quadro de dados para ver estatísticas sumárias para cada campo.
+Executar a função no novo quadro de `describe()` dados para ver estatísticas sumárias para cada campo.
 
 ```python
 green_taxi_df.describe()
@@ -832,9 +832,9 @@ green_taxi_df.describe()
 
 A partir das estatísticas sumárias, vê-se que existem vários campos que têm valores ou valores mais distantes que reduzirão a precisão do modelo. Primeiro filtrar os campos de lat/longo para estar dentro dos limites da área de Manhattan. Isto irá filtrar viagens de táxi mais longas ou viagens que são mais estranhas em relação à sua relação com outras características.
 
-Além disso, filtrar o campo para ser superior a `tripDistance` zero, mas menos de 31 milhas (a distância haversina entre os dois pares lat/longo). Isto elimina viagens longas e mais estranhas que têm um custo de viagem inconsistente.
+Além disso, filtrar o campo para ser superior a zero, mas menos de `tripDistance` 31 milhas (a distância haversina entre os dois pares lat/longo). Isto elimina viagens longas e mais estranhas que têm um custo de viagem inconsistente.
 
-Por último, `totalAmount` o campo tem valores negativos para as tarifas de táxi, `passengerCount` que não fazem sentido no contexto do nosso modelo, e o campo tem dados maus com os valores mínimos a serem zero.
+Por último, o `totalAmount` campo tem valores negativos para as tarifas de táxi, que não fazem sentido no contexto do nosso modelo, e o `passengerCount` campo tem dados maus com os valores mínimos a serem zero.
 
 Filtrar estas anomalias utilizando funções de consulta e, em seguida, remover as últimas colunas desnecessárias para o treino.
 
@@ -858,7 +858,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita a sua informação de subscrição e recursos Azure. Também cria um recurso em nuvem para monitorizar e rastrear as execuções do seu modelo. `Workspace.from_config()`lê o ficheiro **config.json** e carrega os `ws`detalhes da autenticação num objeto chamado . `ws` é utilizado em todo o restante código neste tutorial.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita a sua informação de subscrição e recursos Azure. Também cria um recurso em nuvem para monitorizar e rastrear as execuções do seu modelo. `Workspace.from_config()`lê o ficheiro **config.json** e carrega os detalhes da autenticação num objeto chamado `ws` . `ws` é utilizado em todo o restante código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -867,7 +867,7 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Divida os dados em conjuntos de comboios e testes
 
-Divida os dados em conjuntos `train_test_split` de treino `scikit-learn` e teste utilizando a função na biblioteca. Esta função segrega os dados no conjunto de dados x **(características)** para treino de modelos e o conjunto de dados y **(valores a prever**) para testes.
+Divida os dados em conjuntos de treino e teste utilizando a `train_test_split` função na `scikit-learn` biblioteca. Esta função segrega os dados no conjunto de dados x **(características)** para treino de modelos e o conjunto de dados y **(valores a prever**) para testes.
 
 O `test_size` parâmetro determina a percentagem de dados a atribuir aos testes. O `random_state` parâmetro define uma semente para o gerador aleatório, de modo que as suas divisões de teste de comboio são determinísticas.
 
@@ -918,7 +918,7 @@ automl_settings = {
 }
 ```
 
-Utilize as definições `**kwargs` de treino `AutoMLConfig` definidas como parâmetro para um objeto. Além disso, especifique os seus `regression` dados de formação e o tipo de modelo, que está neste caso.
+Utilize as definições de treino definidas como `**kwargs` parâmetro para um `AutoMLConfig` objeto. Além disso, especifique os seus dados de formação e o tipo de modelo, que está `regression` neste caso.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -935,9 +935,9 @@ automl_config = AutoMLConfig(task='regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Treine o modelo de regressão automática
 
-Crie um objeto de experiência no seu espaço de trabalho. Uma experiência funciona como um recipiente para as suas corridas individuais. Passe o `automl_config` objeto definido para a experiência `True` e desloque a saída para ver o progresso durante a execução.
+Crie um objeto de experiência no seu espaço de trabalho. Uma experiência funciona como um recipiente para as suas corridas individuais. Passe o objeto definido `automl_config` para a experiência e desloque a saída para ver o progresso durante a `True` execução.
 
-Depois de iniciar a experiência, a saída mostrou atualizações ao vivo à medida que a experiência corre. Para cada iteração, você vê o tipo de modelo, a duração do percurso e a precisão do treino. O `BEST` campo rastreia a melhor pontuação de treino de corrida com base no seu tipo métrico.
+Depois de iniciar a experiência, a saída mostrou atualizações ao vivo à medida que a experiência corre. Para cada iteração, você vê o tipo de modelo, a duração do percurso e a precisão do treino. O campo rastreia a melhor pontuação de `BEST` treino de corrida com base no seu tipo métrico.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -993,12 +993,12 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter widget](./media/tutorial-auto-train-models/automl-dash-output.png)
-![executar detalhes Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Jupyter widget executar detalhes ](./media/tutorial-auto-train-models/automl-dash-output.png)
+ ![ Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="retrieve-the-best-model"></a>Obter o melhor modelo
 
-Selecione o melhor modelo das suas iterações. A `get_output` função devolve o melhor funcionamento e o modelo equipado para a última invocação. Ao utilizar as `get_output`sobrecargas, pode recuperar o melhor modelo de corrida e equipado para qualquer métrica ou iteração específica.
+Selecione o melhor modelo das suas iterações. A `get_output` função devolve o melhor funcionamento e o modelo equipado para a última invocação. Ao utilizar as sobrecargas, pode recuperar o melhor modelo de `get_output` corrida e equipado para qualquer métrica ou iteração específica.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1008,14 +1008,14 @@ print(fitted_model)
 
 ### <a name="test-the-best-model-accuracy"></a>Teste a melhor precisão do modelo
 
-Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A `predict` função utiliza o melhor modelo e prevê os `x_test` valores de y, custo de **viagem,** a partir do conjunto de dados. Imprima os primeiros 10 `y_predict`valores de custo previstos a partir de .
+Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` utiliza o melhor modelo e prevê os valores de y, custo de **viagem,** a partir do conjunto de `x_test` dados. Imprima os primeiros 10 valores de custo previstos a partir de `y_predict` .
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Calcular `root mean squared error` os resultados. Converta `y_test` o quadro de dados numa lista para comparar com os valores previstos. A `mean_squared_error` função requer duas matrizes de valores e calcula o erro quadrado médio entre eles. Tomar a raiz quadrada do resultado dá um erro nas mesmas unidades que a variável y, **custo**. Indica aproximadamente até onde estão as previsões de tarifas de táxi das tarifas reais.
+Calcular os `root mean squared error` resultados. Converta o quadro de `y_test` dados numa lista para comparar com os valores previstos. A função `mean_squared_error` requer duas matrizes de valores e calcula o erro quadrado médio entre eles. Tomar a raiz quadrada do resultado dá um erro nas mesmas unidades que a variável y, **custo**. Indica aproximadamente até onde estão as previsões de tarifas de táxi das tarifas reais.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1026,7 +1026,7 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Executar o seguinte código para calcular erro de percentagem `y_actual` `y_predict` absoluta (MAPE) utilizando os conjuntos completos e de dados. Esta métrica calcula uma diferença absoluta entre cada valor previsto e real e resume todas as diferenças. Em seguida, expressa essa soma como uma por cento do total dos valores reais.
+Executar o seguinte código para calcular erro de percentagem absoluta (MAPE) utilizando os conjuntos completos `y_actual` e `y_predict` de dados. Esta métrica calcula uma diferença absoluta entre cada valor previsto e real e resume todas as diferenças. Em seguida, expressa essa soma como uma por cento do total dos valores reais.
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1077,7 +1077,7 @@ Se não planeia usar os recursos que criou, apague-os, para não incorrer em qua
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Apagar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial automatizado de aprendizagem automática, fez as seguintes tarefas:
 

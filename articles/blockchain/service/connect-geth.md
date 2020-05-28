@@ -1,19 +1,19 @@
 ---
 title: Use o Geth para anexar ao Serviço Blockchain Azure
 description: Anexar a uma instância geth no nó de transação do Serviço Azure Blockchain
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74455824"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994794"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Quickstart: Use Geth para anexar a um nó de transações do Serviço Blockchain Azure
 
-Neste arranque rápido, você usa o cliente Geth para anexar a uma instância Geth em um nó de transação azure Blockchain Service. Uma vez anexado, utiliza a consola Geth JavaScript para chamar um API JavaScript Dapp web3.
+Neste arranque rápido, você usa o cliente Geth para anexar a uma instância Geth em um nó de transação azure Blockchain Service. Uma vez anexado, utiliza-se a consola Geth para chamar a API Ethereum JavaScript.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Você pode obter a cadeia de conexão Geth para um nó de transação do Serviç
     geth attach <connection string>
     ```
 
-1. Uma vez ligado à consola Ethereum do nó de transações, pode ligar para a Web3 JavaScript Dapp API ou para a API de administração.
+1. Uma vez ligado à consola Ethereum do nó de transações, pode utilizar a API Ethereum JavaScript.
 
     Por exemplo, utilize a Seguinte API para descobrir a cadeia Id.
 
@@ -57,9 +57,9 @@ Você pode obter a cadeia de conexão Geth para um nó de transação do Serviç
 
     ![Opção De serviço Azure Blockchain](./media/connect-geth/geth-attach.png)
 
-1. Para desligar da consola, escreva `exit`.
+1. Para desligar da consola, escreva `exit` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, usou o cliente Geth para anexar a uma instância geth num nó de transações do Azure Blockchain Service. Experimente o próximo tutorial para usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para criar, construir, implementar e executar uma função de contrato inteligente através de uma transação.
 

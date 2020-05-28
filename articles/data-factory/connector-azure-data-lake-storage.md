@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/25/2020
-ms.openlocfilehash: efa4ec42396a51cbbc93a53e5892177bad0d87fb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0689a7705e91b8fcaf9ca31887e6cefbf90f1e59
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649665"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021012"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 utilizando a Azure Data Factory
 
@@ -176,7 +176,7 @@ Para utilizar identidades geridas para autenticação de recursos Azure, siga es
 >Se utilizar a Data Factory UI para autor e a identidade gerida não for definida com a função "Storage Blob Data Reader/Contributor" no IAM, ao fazer a ligação de teste ou navegar/navegar pastas, escolha "Testar a ligação ao caminho de ficheiros" ou "Navegar a partir de um caminho especificado", e especificar um caminho com a permissão **De Ler + Executar** para continuar.
 
 >[!IMPORTANT]
->Se utilizar a PolyBase para carregar dados do Data Lake Storage Gen2 para o SQL Data Warehouse, quando utilizar a autenticação de identidade gerida para data lake storage Gen2, certifique-se de que também segue os passos 1 e 2 [nesta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registe o seu servidor de Base de Dados SQL com o Azure Ative Directory (Azure AD) e 2) atribuindo a função de Colaborador de Dados de Armazenamento Blob ao seu servidor de base de dados SQL; o resto é tratado pela Data Factory. Se o seu Data Lake Storage Gen2 estiver configurado com um ponto final da Rede Virtual Azure, para utilizar a PolyBase para carregar dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
+>Se utilizar a PolyBase para carregar dados do Data Lake Storage Gen2 para o SQL Data Warehouse, quando utilizar a autenticação de identidade gerida para data lake storage Gen2, certifique-se de que também segue os passos 1 e 2 [nesta orientação](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar o seu com o Azure Ative Directory (Azure AD) e 2) atribuindo ao seu servidor a função de Contribuinte de Dados blob de armazenamento; o resto é tratado pela Data Factory. Se o seu Data Lake Storage Gen2 estiver configurado com um ponto final da Rede Virtual Azure, para utilizar a PolyBase para carregar dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
 
 Estas propriedades são suportadas para o serviço ligado:
 
@@ -633,6 +633,6 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

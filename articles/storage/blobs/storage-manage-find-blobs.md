@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f1a4d9af8a1b1095527078dd790e80ef45a5ee9a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722898"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996045"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerir e encontrar dados sobre o Armazenamento de Blob Azure com índice blob (pré-visualização)
 
@@ -26,7 +26,7 @@ O Índice Blob permite-lhe:
 - Especificar comportamentos condicionais para APIs blob com base na avaliação de tags de índices
 - Utilize tags de índice para controlos avançados em funcionalidades da plataforma blob como [gestão de ciclo de vida](storage-lifecycle-management-concepts.md)
 
-Considere o cenário em que tem milhões de bolhas na sua conta de armazenamento escritas e acedidas por muitas aplicações diferentes. Você quer encontrar todos os dados relacionados a partir de um único projeto, mas você não tem certeza do que está no âmbito, uma vez que os dados podem ser espalhados por vários recipientes com diferentes convenções de nomeação blob. No entanto, sabe que as suas aplicações fazem upload de todos os dados com etiquetas com base no respetivo projeto e descrição de identificação. Em vez de pesquisar milhões de bolhas e comparar nomes `Project = Contoso` e propriedades, você pode simplesmente usar como critérios de descoberta. O Índice Blob filtrará todos os recipientes em toda a sua conta `Project = Contoso`de armazenamento para encontrar e devolver rapidamente apenas o conjunto de 50 bolhas de . 
+Considere o cenário em que tem milhões de bolhas na sua conta de armazenamento escritas e acedidas por muitas aplicações diferentes. Você quer encontrar todos os dados relacionados a partir de um único projeto, mas você não tem certeza do que está no âmbito, uma vez que os dados podem ser espalhados por vários recipientes com diferentes convenções de nomeação blob. No entanto, sabe que as suas aplicações fazem upload de todos os dados com etiquetas com base no respetivo projeto e descrição de identificação. Em vez de pesquisar milhões de bolhas e comparar nomes e propriedades, você pode simplesmente usar como critérios de `Project = Contoso` descoberta. O Índice Blob filtrará todos os recipientes em toda a sua conta de armazenamento para encontrar e devolver rapidamente apenas o conjunto de 50 bolhas de `Project = Contoso` . 
 
 Para começar com exemplos sobre como usar o Índice [Blob, consulte o Índice de Blob utilize para gerir e encontrar dados](storage-blob-index-how-to.md).
 
@@ -43,7 +43,7 @@ Considere as seguintes cinco bolhas na sua conta de armazenamento:
 > registos/2020/01/01/logfile.txt  
 >
 
-Estas bolhas estão atualmente separadas utilizando um prefixo de recipiente/pasta virtual/nome blob. Com o Índice Blob, pode definir `Project = Contoso` um atributo de etiqueta de índice nestas cinco bolhas para categorizá-las juntas, mantendo a sua organização prefixo atual. Isto elimina a necessidade de mover dados expondo a capacidade de filtrar e encontrar dados usando o índice multidimensional da plataforma de armazenamento.
+Estas bolhas estão atualmente separadas utilizando um prefixo de recipiente/pasta virtual/nome blob. Com o Índice Blob, pode definir um atributo de etiqueta de índice `Project = Contoso` nestas cinco bolhas para categorizá-las juntas, mantendo a sua organização prefixo atual. Isto elimina a necessidade de mover dados expondo a capacidade de filtrar e encontrar dados usando o índice multidimensional da plataforma de armazenamento.
 
 ## <a name="setting-blob-index-tags"></a>Definição de tags de índice blob
 
@@ -70,14 +70,14 @@ Os seguintes limites aplicam-se às etiquetas do Índice Blob:
 - As teclas de etiqueta devem estar entre 1 a 128 caracteres
 - Os valores da etiqueta devem estar entre 0 a 256 caracteres
 - As teclas e os valores são sensíveis à caixa
-- As teclas de etiqueta e os valores suportam apenas os tipos de dados de cordas; quaisquer números ou caracteres especiais serão salvos como cordas
+- As teclas de etiqueta e os valores suportam apenas os tipos de dados de cordas; quaisquer números, data, horas ou caracteres especiais serão salvos como cordas
 - As teclas e valores de etiqueta devem respeitar as seguintes regras de nomeação:
   - Caracteres numéricos alfa: a-z, A-Z, 0-9
   - Personagens especiais: espaço, mais, menos, período, cólon, igual, sublinhado, barra para a frente
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Etiquetas do Índice de Obtenção e Listagem de Blob
 
-As etiquetas de índice blob são armazenadas como um sub-recurso ao lado dos dados blob e podem ser recuperadas independentemente do conteúdo de dados blob subjacente. Uma vez definidas, as etiquetas de índice blob para uma única bolha podem ser recuperadas e revistas imediatamente com a operação GetBlobTags. A operação ListBlobs com `include:tags` parâmetro também devolverá todas as bolhas dentro de um recipiente, juntamente com as suas etiquetas de índice de blob aplicadas. 
+As etiquetas de índice blob são armazenadas como um sub-recurso ao lado dos dados blob e podem ser recuperadas independentemente do conteúdo de dados blob subjacente. Uma vez definidas, as etiquetas de índice blob para uma única bolha podem ser recuperadas e revistas imediatamente com a operação GetBlobTags. A operação ListBlobs com parâmetro também devolverá todas as bolhas dentro de `include:tags` um recipiente, juntamente com as suas etiquetas de índice de blob aplicadas. 
 
 Para quaisquer blobs com pelo menos 1 etiqueta de índice blob, a contagem x-ms-tag é devolvida nas operações ListBlobs, GetBlob e GetBlobProperties indicando a contagem de tags de índice blob que existe na bolha.
 
@@ -90,7 +90,7 @@ A operação FindBlobsByTags permite-lhe obter um conjunto de bolhas de retorno 
 Os seguintes critérios aplicam-se à filtragem do índice de bolha:
 -   As teclas de etiqueta devem ser fechadas em cotações duplas (")
 -   Os valores de etiqueta e os nomes dos contentores devem ser incluídos em cotações únicas (')
--   O carácter @ só é permitido para filtrar um @container nome de recipiente específico (isto é, = 'Nome do recipiente')
+-   O carácter @ só é permitido para filtrar um nome de recipiente específico (isto é, @container = 'Nome do recipiente')
 - Os filtros são aplicados com classificação lexicográfica nas cordas
 -   As mesmas operações de alcance na mesma tecla são inválidas (isto é, "Rank" > '10' E "Rank" >= '15')
 - Ao utilizar o REST para criar uma expressão de filtro, os caracteres devem ser codificados por URI
@@ -102,13 +102,20 @@ O quadro abaixo mostra todos os operadores válidos para FindBlobsByTags:
 |     =      |     Igual     | "Status" = 'Em curso' | 
 |     >      |  Maior que |  "Data" > '2018-06-18' |
 |     >=     |  Maior ou igual a | "Prioridade" >= '5' | 
-|     <      |  Menor do que    | "Idade" < '32' |
+|     <      |  Menor que    | "Idade" < '32' |
 |     <=     |  Menor ou igual a  | "Empresa" <= 'Contoso' |
 |    AND     |  Lógico e  | "Rank" >= '010' E "Rank" < '100' |
 | @container |  Âmbito de aplicação para um recipiente específico   | @container= 'videofiles' E "status" = 'done' |
 
+> [!NOTE]
+> Esteja familiarizado com a encomenda lexicográfica ao definir e consultar as etiquetas.
+> - Os números são classificados antes das letras. Os números são classificados com base no primeiro dígito.
+> - As letras maiúsculas são ordenadas antes de letras minúsculas.
+> - Os símbolos não são normais. Alguns símbolos são classificados antes de valores numéricos. Outros símbolos são classificados antes ou depois das letras.
+>
+
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Operações de Blob condicionais com tags do Índice Blob
-Nas versões REST 2019-10-10 e superiores, a maioria das APIs de [serviço blob](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) suportam agora um cabeçalho condicional, x-ms-if-tags, de modo que a operação só terá sucesso se a condição especificada do índice de blob for satisfeita. Se a condição não for `error 412: The condition specified using HTTP conditional header(s) is not met`satisfeita, terá.
+Nas versões REST 2019-10-10 e superiores, a maioria das APIs de [serviço blob](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) suportam agora um cabeçalho condicional, x-ms-if-tags, de modo que a operação só terá sucesso se a condição especificada do índice de blob for satisfeita. Se a condição não for satisfeita, `error 412: The condition specified using HTTP conditional header(s) is not met` terá.
 
 O cabeçalho x-ms-if-tags pode ser combinado com os outros cabeçalhos condicionados HTTP existentes (Se-Match, If-None-Match, etc.).  Se vários cabeçalhos condicionales forem fornecidos num pedido, todos devem avaliar verdadeiramente para que a operação tenha sucesso.  Todos os cabeçalhos condicionalsão efetivamente combinados com lógicos e. 
 
@@ -120,7 +127,7 @@ O quadro abaixo mostra todos os operadores válidos para operações condicionai
 |     <>     |   Diferente   | "Status" <> 'Done'  | 
 |     >      |  Maior que |  "Data" > '2018-06-18' |
 |     >=     |  Maior ou igual a | "Prioridade" >= '5' | 
-|     <      |  Menor do que    | "Idade" < '32' |
+|     <      |  Menor que    | "Idade" < '32' |
 |     <=     |  Menor ou igual a  | "Empresa" <= 'Contoso' |
 |    AND     |  Lógico e  | "Rank" >= '010' E "Rank" < '100' |
 |     OU     |  Lógico ou   | "Status" = 'Done' OU "Prioridade" >= '05' |
@@ -138,7 +145,7 @@ Utilizando o novo blobIndexMatch como filtro de regras na gestão do ciclo de vi
 
 Pode definir uma correspondência de índice de bolha como um filtro autónomo definido numa regra de ciclo de vida para aplicar ações em dados marcados. Ou pode combinar tanto uma correspondência de pré-fixação como uma correspondência de índice de bolha para combinar com conjuntos de dados mais específicos. Aplicar vários filtros a uma regra de ciclo de vida é uma operação lógica e de tal forma que a ação só se aplicará se todos os critérios de filtro corresponderem. 
 
-A seguinte regra de gestão do ciclo de vida da amostra aplica-se ao bloqueio de bolhas no contentor 'videofiles' ```"Status" = 'Processed' AND "Source" == 'RAW'```e as bolhas de nível para arquivar o armazenamento apenas se os dados corresponderem aos critérios de etiqueta do índice blob de .
+A seguinte regra de gestão do ciclo de vida da amostra aplica-se ao bloqueio de bolhas no contentor 'videofiles' e as bolhas de nível para arquivar o armazenamento apenas se os dados corresponderem aos critérios de etiqueta do índice blob de ```"Status" = 'Processed' AND "Source" == 'RAW'``` .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 ![Blob Index corresponde à regra da gestão do ciclo de vida no portal Azure](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
@@ -230,7 +237,7 @@ No entanto, apenas as tags do Índice Blob são automaticamente indexadas e torn
 
 O quadro seguinte resume as diferenças entre metadados e etiquetas do Índice blob:
 
-|              |   Metadados   |   Tags de Índice blob  |
+|              |   Metadata   |   Tags de Índice blob  |
 |--------------|--------------|--------------------|
 | **Limites**         | Sem limite numérico; 8 KB total; caso insensível | 10 tags por blob max; 768 bytes por etiqueta; caso sensível |
 | **Updates**      | Não é permitido no nível de arquivo; SetBlobMetadata substitui todos os metadados existentes; SetBlobMetadata altera o último tempo modificado da bolha | Permitido para todos os níveis de acesso; SetBlobTags substitui todas as etiquetas existentes; SetBlobTags não altera o último tempo modificado da bolha |
@@ -246,9 +253,11 @@ Os preços do Índice Blob estão atualmente em pré-visualização pública e s
 
 ## <a name="regional-availability-and-storage-account-support"></a>Apoio à conta de disponibilidade e armazenamento regional
 
-O Índice Blob está atualmente disponível apenas com contas De Propósito Geral v2 (GPv2). No portal Azure, pode atualizar uma conta de Propósito Geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](../common/storage-account-overview.md)
+O Índice Blob está atualmente disponível apenas nas contas General Purpose v2 (GPv2) com espaço hierárquico (HNS) desativado. As contas de Propósito Geral (GPV1) não são suportadas, mas pode atualizar qualquer conta GPv1 para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](../common/storage-account-overview.md)
 
 Na pré-visualização pública, o Blob Index está atualmente disponível apenas nas seguintes regiões selecionadas:
+- Canadá Central
+- Leste do Canadá
 - França Central
 - Sul de França
 
@@ -276,9 +285,9 @@ az provider register --namespace 'Microsoft.Storage'
 Esta secção descreve questões e condições conhecidas na atual pré-visualização pública do Índice de Blob. Tal como acontece com a maioria das pré-visualizações, esta funcionalidade não deve ser utilizada para cargas de trabalho de produção até atingir a GA, uma vez que os comportamentos podem mudar.
 
 -   Para pré-visualização, primeiro deve registar a sua subscrição antes de poder utilizar o Blob Index para a sua conta de armazenamento nas regiões de pré-visualização.
--   Apenas as contas GPv2 são suportadas atualmente na pré-visualização. As contas Blob, BlockBlobStorage e HNS ativadas por DataLake Gen2 não são atualmente suportadas com o Blob Index.
+-   Apenas as contas GPv2 são suportadas atualmente na pré-visualização. As contas Blob, BlockBlobStorage e HNS ativadas por DataLake Gen2 não são atualmente suportadas com o Blob Index. As contas GPv1 não serão suportadas.
 -   O upload de bolhas de página com tags de índice atualmente não persiste nas tags. Deve definir as etiquetas depois de fazer o upload de uma bolha de página.
--   Quando a filtragem é filtrada @container para um único recipiente, a única pode ser passada se todas as etiquetas de índice na expressão do filtro forem verificações de igualdade (key=value). 
+-   Quando a filtragem é filtrada para um único recipiente, a @container única pode ser passada se todas as etiquetas de índice na expressão do filtro forem verificações de igualdade (key=value). 
 -   Ao utilizar o operador de gama com a condição E, só pode especificar o mesmo nome de etiqueta de índice (Idade > '013' E Idade < '100').
 -   A versão e o Índice Blob não são atualmente suportados. As etiquetas do Índice Blob são preservadas para versões, mas atualmente não são passadas para o motor do índice blob.
 -   Atualmente, o failover da conta não é suportado. O índice blob pode não atualizar corretamente após a falha.
@@ -291,10 +300,13 @@ Esta secção descreve questões e condições conhecidas na atual pré-visualiz
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>O Blob Index pode ajudar-me a filtrar e consultar o conteúdo dentro das minhas bolhas? 
 Não, as etiquetas do Índice Blob podem ajudá-lo a encontrar as bolhas que procura. Se precisar de pesquisar dentro das suas bolhas, utilize a Query Acceleration ou a Azure Search.
 
+### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>Existem considerações especiais em relação aos valores de etiquetado do Índice Blob?
+As tags do Índice Blob suportam apenas tipos de dados de cordas e a consulta devolve resultados com pedidos lexicográficos. Para os números, recomenda-se zero a guardar o número. Para datas e horários, recomenda-se armazenar como um formato compatível ISO 8601.
+
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>As tags do Blob Index e o Gestor de Recursos Azure estão relacionadas?
 Não, as etiquetas do Gestor de Recursos Azure ajudam a organizar o controlo de recursos de planos, tais como subscrições, grupos de recursos e contas de armazenamento. As tags do Índice Blob fornecem gestão de objetos e descobertas em recursos de planos de dados, tais como bolhas dentro de uma conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja um exemplo de como utilizar o Índice Blob. Consulte [o Índice de Blob utilize para gerir e encontrar dados](storage-blob-index-how-to.md)
 

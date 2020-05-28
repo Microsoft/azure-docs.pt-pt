@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70995102"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142151"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de custo para os Azure NetApp Files 
 
@@ -50,6 +50,8 @@ O diagrama abaixo ilustra estes conceitos.
 ## <a name="overage-in-capacity-consumption"></a>Excesso de consumo de capacidade  
 
 Quando a capacidade total utilizada de um pool excede a sua capacidade provisionada, os dados ainda são permitidos.  Após o período de carência (uma hora), se a capacidade utilizada da piscina ainda exceder a sua capacidade provisionada, o tamanho da piscina será automaticamente aumentado em incrementos de 1 TiB até que a capacidade provisionada seja superior à capacidade total utilizada.  Por exemplo, na ilustração acima, se o Volume 3 continuar a crescer e o consumo real atingir 1,2 TiB, então após o período de graça, a piscina será automaticamente redimensionada para 5 TiB.  O resultado é que a capacidade de piscina aprovisionada (5 TiB) excede a capacidade utilizada (4.2 TiB).  
+
+Embora o tamanho da piscina de capacidade cresça automaticamente para satisfazer a procura do volume, não é automaticamente reduzido quando o tamanho do volume diminui. Se quiser reduzir o tamanho da capacidade após uma diminuição do tamanho do volume (por exemplo, após a limpeza de dados de um volume), precisa de reduzir _manualmente_ o tamanho da capacidade do pool.
 
 ## <a name="manual-changes-of-the-pool-size"></a>Alterações manuais do tamanho da piscina  
 
@@ -87,8 +89,8 @@ O diagrama abaixo ilustra estes conceitos:
 
 O consumo de capacidade de instantâneos em Ficheiros Azure NetApp é cobrado contra a quota do volume principal.  Como resultado, partilha a mesma taxa de faturação que o conjunto de capacidades a que o volume pertence.  No entanto, ao contrário do volume ativo, o consumo instantâneo é medido com base na capacidade incremental consumida.  Os instantâneos dos Ficheiros Azure NetApp são de natureza diferencial. Dependendo da taxa de variação dos dados, os instantâneos consomem muitas vezes muito menos capacidade do que a capacidade lógica do volume ativo. Por exemplo, assuma que tem uma imagem instantânea de um volume de 500 GiB que contém apenas 10 GiB de dados diferenciais. A capacidade cobrada contra a quota de volume desse instantâneo seria de 10 GiB, e não de 500 GiB. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Página de preços dos Ficheiros Azure NetApp](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
-* [Limites de recurso para os Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

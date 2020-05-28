@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66a5bceb5b59c0e1b14577176cfed933e4503f31
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593306"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014439"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie aplicação de RH em nuvem para fornecimento de utilizadores de Diretório Ativo Azure
 
@@ -73,7 +73,7 @@ Esta capacidade de fornecimento de TI orientado por RH oferece os seguintes bene
 - **Abordar o cumprimento e a governação:** A Azure AD suporta registos de auditoria nativas para pedidos de fornecimento de utilizadores realizados por aplicações de sistemas de origem e alvo. Com a auditoria, pode rastrear quem tem acesso às aplicações a partir de um único ecrã.
 - **Gerir o custo:** O fornecimento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas sob medida construídas ao longo do tempo, utilizando plataformas antigas e desatualizadas.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licensing
 
 Para configurar a aplicação de RH em nuvem para a integração de fornecimento de utilizadores da AD Azure, você precisa de uma [licença Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para a app de RH na nuvem, como Workday ou SuccessFactors.
 
@@ -81,10 +81,11 @@ Também precisa de uma licença de subscrição Azure AD Premium P1 ou superior 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Acesso global do administrador da Azure AD para configurar o agente de provisionamento Azure AD Connect.
+- Administrador de [identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) Azure AD para configurar o agente de provisionamento Azure AD Connect.
+- Função de administrador de [aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) da Azure AD para configurar a app de provisionamento no portal Azure
 - Uma instância de teste e produção da aplicação cloud HR.
 - Permissões de administrador na aplicação de HR na nuvem para criar um utilizador de integração do sistema e fazer alterações para testar os dados dos funcionários para fins de teste.
-- Para o fornecimento de utilizadores ao Ative Directory, é necessário um servidor que execute o Windows Server 2012 ou superior com um prazo de funcionamento .NET 4.7.1+ para acolher o agente de [provisionamento Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=847801).
+- Para o fornecimento de utilizadores ao Ative Directory, é necessário um servidor que execute o Windows Server 2012 ou superior com o tempo de funcionamento .NET 4.7.1+ para acolher o agente de provisionamento Azure AD Connect
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) para sincronizar utilizadores entre o Ative Directory e o Azure AD.
 
 ### <a name="training-resources"></a>Recursos de formação
@@ -248,7 +249,7 @@ Por padrão, o atributo na aplicação de HR cloud que representa o ID único do
 
 Pode definir vários atributos correspondentes e atribuir precedência correspondente. São avaliados pela precedência correspondente. Assim que um jogo é encontrado, não são avaliados mais atributos correspondentes.
 
-Também pode [personalizar os mapeamentos de atributos padrão,](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types)tais como alterar ou apagar mapeamentos de atributos existentes. Também pode criar novos mapeamentos de atributos de acordo com as suas necessidades de negócio. Para mais informações, consulte o tutorial da aplicação de CLOUD HR (como [o Workday)](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)para obter uma lista de atributos personalizados ao mapa.
+Também pode [personalizar os mapeamentos de atributos padrão,](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types)tais como alterar ou apagar mapeamentos de atributos existentes. Também pode criar novos mapeamentos de atributos de acordo com as suas necessidades de negócio. Para mais informações, consulte o tutorial da aplicação de CLOUD HR (como [o Workday)](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)para obter uma lista de atributos personalizados ao mapa.
 
 ### <a name="determine-user-account-status"></a>Determinar o estado da conta do utilizador
 
@@ -256,7 +257,7 @@ Por predefinição, a aplicação de conector de provisionamento mapeia o estado
 
 Quando iniciar o processo DeSjuntore-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processo | Requirements |
 | - | - |
 | **Marcinadores** | Do ponto de vista do ciclo de vida da identidade, como lida com as recontratações? Os recontratados mantêm as suas antigas iDs de empregado? |
 | | Processa contratações futuras e cria contas de Diretório Ativo para elas com antecedência? Estas contas são criadas num estado habilitado ou deficiente? |
@@ -275,7 +276,7 @@ Cada aplicação de CLOUD HR envia com aplicação de HR em nuvem padrão para m
 
 Quando iniciar o processo Joiners-Movers-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processo | Requirements |
 | - | - |
 | **Marcinadores** | O processo de criação de conta Ative Directy é manual, automatizado ou parcialmente automatizado? |
 | | Planeia propagar atributos personalizados da aplicação de HR cloud para Ative Directory? |
@@ -285,7 +286,7 @@ Quando iniciar o processo Joiners-Movers-Leavers, reúna os seguintes requisitos
 | | Que datas efetivas são consideradas para o processamento da rescisão do utilizador? |
 | | Como é que as conversões de trabalhadores e trabalhadores contingentes têm impacto nas contas de Diretório Ativo existentes? |
 
-Dependendo dos seus requisitos, pode modificar os mapeamentos para cumprir os seus objetivos de integração. Para mais informações, consulte o tutorial específico da aplicação de CLOUD HR (como [o Workday)](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)para obter uma lista de atributos personalizados ao mapa.
+Dependendo dos seus requisitos, pode modificar os mapeamentos para cumprir os seus objetivos de integração. Para mais informações, consulte o tutorial específico da aplicação de CLOUD HR (como [o Workday)](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)para obter uma lista de atributos personalizados ao mapa.
 
 ### <a name="generate-a-unique-attribute-value"></a>Gerar um valor de atributo único
 
@@ -365,7 +366,9 @@ A implementação do fornecimento de utilizadores de RH em nuvem pode não funci
 
 Escolha a aplicação cloud HR que se alinha com os seus requisitos de solução.
 
-**Dia de Trabalho**: Para importar perfis de trabalhador do Dia de Trabalho para Diretório Ativo e Anúncio Azure, consulte [Tutorial: Configure Workday para o fornecimento automático de utilizadores](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcionalmente, pode reescrever o endereço de e-mail e o nome de utilizador para o Dia de Trabalho.
+**Dia de Trabalho**: Para importar perfis de trabalhador do Dia de Trabalho para Diretório Ativo e Anúncio Azure, consulte [Tutorial: Configure Workday para o fornecimento automático de utilizadores](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcionalmente, pode reescrever o endereço de e-mail, nome de utilizador e número de telefone para o Dia de Trabalho.
+
+**SAP SuccessFactors**: Para importar perfis de trabalhadores de SuccessFactors para Ative Directory e Azure AD, consulte [Tutorial: Configure SAP SuccessFactors para o fornecimento automático](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)de utilizadores . Opcionalmente, pode reescrever o endereço de e-mail e o nome de utilizador para SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Gerir a sua configuração
 
@@ -411,7 +414,7 @@ Para resolver problemas quaisquer problemas que possam surgir durante o provisio
 - [Compreensão de registos para operações de atualização do Gestor](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolução de erros comummente encontrados](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 - [Expressões de escrita para mapeamento de atributos](functions-for-customizing-application-data.md)
 - [Visão geral da API de sincronização da AD Azure](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

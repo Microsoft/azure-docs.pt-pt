@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1660c3a6d3bfe262493722c5aad0a08778b1964
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409320"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119146"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue misoticamente dados de uma base de dados Azure SQL para o armazenamento da Blob Azure utilizando o portal Azure
 
@@ -65,7 +65,7 @@ Eis os passos importantes para criar esta solução:
 Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
 * **Armazenamento Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL
@@ -152,7 +152,7 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory:**
+2. No menu esquerdo, selecione **Criar um recurso**  >  **Analytics**  >  **Data Factory:**
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -196,9 +196,9 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 8. Para **o Serviço Linked,** selecione **New**e, em seguida, faça os seguintes passos:
 
     1. Introduza **AzureSqlDatabaseLinkedService** em **Nome**.
-    2. Selecione o seu servidor Azure SQL para **o nome do Servidor**.
+    2. Selecione o seu servidor para **o nome do Servidor**.
     3. Selecione o nome base de **dados** da lista de dropdown.
-    4. Introduza o seu **nome** & de utilizador**Palavra-passe**.
+    4. Introduza o seu **nome de utilizador**  &  **Palavra-passe**.
     5. Para testar a ligação à base de dados SQL do Azure, clique em **Testar ligação**.
     6. Clique em **Concluir**.
     7. Confirme que **o AzureSqlDatabaseLinkedService** é selecionado para **o serviço Linked**.
@@ -255,10 +255,10 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     2. Selecione a sua conta de Armazenamento Azure para **o nome da conta de armazenamento**.
     3. Teste a ligação e, em seguida, clique em **Terminar**.
 
-27. Na janela **set Properties,** confirme que **o AzureStorageLinkedService** é selecionado para **o serviço Linked**. Em seguida, selecione **Concluir**.
+27. Na janela **set Properties,** confirme que **o AzureStorageLinkedService** é selecionado para **o serviço Linked**. Em seguida, selecione **Terminar**.
 28. Vá ao separador **de ligação** do SinkDataset e faça os seguintes passos:
     1. Para o campo de caminho de **Arquivo,** introduza **adftutorial/incrementalcopy**. **adftutorial** é o nome do contentor de blobs e **incrementalcopy** é o nome da pasta. Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o como o nome de um contentor existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy**, se não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
-    2. Para a parte **do Ficheiro** do campo de caminho de **Ficheiro,** `@CONCAT('Incremental-', pipeline().RunId, '.txt')`selecione Adicionar conteúdo dinâmico **[Alt+P]** e, em seguida, entrar na janela aberta. Em seguida, selecione **Concluir**. O nome do ficheiro é gerado dinamicamente através da expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
+    2. Para a parte **do Ficheiro** do campo de caminho de **Ficheiro,** selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, entrar `@CONCAT('Incremental-', pipeline().RunId, '.txt')` na janela aberta. Em seguida, selecione **Terminar**. O nome do ficheiro é gerado dinamicamente através da expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
 
 28. Mude para o editor do **pipeline** clicando no separador de gasoduto na parte superior ou clicando no nome do gasoduto na vista da árvore à esquerda.
 29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** na superfície de desenho do pipeline. **Ligue** a saída verde (Êxito) da atividade **Copy** à atividade **Stored Procedure**.
@@ -272,10 +272,10 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     1. Para **obter o nome do procedimento armazenado,** selecione **usp_write_watermark**.
     2. Para especificar valores para os parâmetros do procedimento armazenado, clique em **Importar parâmetro** e introduza os seguintes valores para os parâmetros:
 
-        | Nome | Tipo | Valor |
+        | Name | Tipo | Valor |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | Cadeia | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline**, clique em >>.   
@@ -381,7 +381,7 @@ PersonID | Name | LastModifytime
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes:
 
 > [!div class="checklist"]

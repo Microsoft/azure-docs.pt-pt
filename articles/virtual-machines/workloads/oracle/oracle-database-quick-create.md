@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
-ms.openlocfilehash: 77a374a83c178639052e8db6fc85c31e366ac0e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 070477c638e5a625e0c03751a1778fa0a246cd77
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683649"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995824"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Crie uma Base de Dados Oracle num VM Azure
 
 Este guia detalha a utilização do Azure CLI para implantar uma máquina virtual Azure a partir da imagem da [galeria de marketplace Oracle,](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) a fim de criar uma base de dados Oracle 12c. Assim que o servidor for implantado, irá ligar-se via SSH para configurar a base de dados Oracle. 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
@@ -55,7 +55,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Depois de criar o VM, o Azure CLI apresenta informações semelhantes ao seguinte exemplo. Note o `publicIpAddress`valor para . Usa este endereço para aceder ao VM.
+Depois de criar o VM, o Azure CLI apresenta informações semelhantes ao seguinte exemplo. Note o valor para `publicIpAddress` . Usa este endereço para aceder ao VM.
 
 ```output
 {
@@ -72,7 +72,7 @@ Depois de criar o VM, o Azure CLI apresenta informações semelhantes ao seguint
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
-Para criar uma sessão SSH com o VM, utilize o seguinte comando. Substitua o endereço `publicIpAddress` IP pelo valor do seu VM.
+Para criar uma sessão SSH com o VM, utilize o seguinte comando. Substitua o endereço IP pelo `publicIpAddress` valor do seu VM.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -85,7 +85,7 @@ O software Oracle já está instalado na imagem do Marketplace. Crie uma base de
 1.  Mude para o superutilizador *oráculo* e, em seguida, inicialize o ouvinte para a exploração madeireira:
 
     ```bash
-    $ sudo su - oracle
+    $ sudo -su oracle
     $ lsnrctl start
     ```
 
@@ -150,7 +150,7 @@ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Também pode adicionar ORACLE_HOME e ORACLE_SID variáveis ao ficheiro .bashrc. Isto pouparia as variáveis ambientais para futuras inscrições. `~/.bashrc` Confirme que as seguintes declarações foram adicionadas ao ficheiro usando o editor da sua escolha.
+Também pode adicionar ORACLE_HOME e ORACLE_SID variáveis ao ficheiro .bashrc. Isto pouparia as variáveis ambientais para futuras inscrições. Confirme que as seguintes declarações foram adicionadas ao ficheiro usando o `~/.bashrc` editor da sua escolha.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -190,14 +190,14 @@ Para uma ferramenta de gestão GUI que pode utilizar para explorar a base de dad
       3           PDB1                      MOUNT
     ```
 
-4. Se o `PDB1` OPEN_MODE não for READ WRITE, então execute os seguintes comandos para abrir PDB1:
+4. Se o OPEN_MODE `PDB1` não for READ WRITE, então execute os seguintes comandos para abrir PDB1:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-É necessário `quit` escrever para terminar a sessão `exit` de sqlplus e digitar para iniciar sessão do utilizador oráculo.
+É necessário escrever `quit` para terminar a sessão de sqlplus e digitar `exit` para iniciar sessão do utilizador oráculo.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Automatizar arranque e encerramento da base de dados
 
@@ -209,13 +209,13 @@ A base de dados Oracle por padrão não começa automaticamente quando reiniciar
     sudo su -
     ```
 
-2.  Utilizando o seu editor `/etc/oratab` favorito, edite o ficheiro e altere o padrão `N` para: `Y`
+2.  Utilizando o seu editor favorito, edite o ficheiro `/etc/oratab` e altere o padrão `N` `Y` para:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Criar um `/etc/init.d/dbora` ficheiro nomeado e colar os seguintes conteúdos:
+3.  Criar um ficheiro nomeado `/etc/init.d/dbora` e colar os seguintes conteúdos:
 
     ```bash
     #!/bin/sh
@@ -323,7 +323,7 @@ Uma vez que tenha terminado de explorar a sua primeira base de dados Oracle no A
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça [outras soluções Oracle no Azure.](oracle-considerations.md) 
 

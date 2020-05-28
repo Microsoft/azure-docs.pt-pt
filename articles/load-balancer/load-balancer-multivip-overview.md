@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771262"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022816"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Múltiplas extremidades dianteiras para o Equilíbrio de Carga Azure
 
@@ -146,7 +146,7 @@ O destino do fluxo de entrada é o endereço IP frontal na interface de loopback
 
 Note que este exemplo não altera a porta de destino. Apesar de se tratar de um cenário IP flutuante, o Azure Load Balancer também suporta a definição de uma regra para reescrever a porta de destino de backend e torná-la diferente da porta de destino frontend.
 
-O tipo de regra IP flutuante é a base de vários padrões de configuração do equilíbrio de carga. Um exemplo que está atualmente disponível é o [SQL AlwaysOn com a](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuração multiple Listeners. Com o tempo, documentaremos mais destes cenários.
+O tipo de regra IP flutuante é a base de vários padrões de configuração do equilíbrio de carga. Um exemplo que está atualmente disponível é o [SQL AlwaysOn com a](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) configuração multiple Listeners. Com o tempo, documentaremos mais destes cenários.
 
 ## <a name="limitations"></a>Limitações
 
@@ -155,6 +155,6 @@ O tipo de regra IP flutuante é a base de vários padrões de configuração do 
 * Os endereços IP públicos têm um efeito na faturação. Para mais informações, consulte os preços do [Endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Aplicam-se os limites de subscrição. Para mais informações, consulte [os limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja [as ligações de saída](load-balancer-outbound-connections.md) para entender o impacto de várias extremidades frontais no comportamento de ligação de saída.
