@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660078"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015833"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -130,7 +130,7 @@ Os utilizadores de cada função precisam de completar os seguintes passos:
 
 ## <a name="step-8-network-security"></a>PASSO 8: Segurança da Rede
 
-Para configurar a firewall do espaço de trabalho, a rede virtual e o [Private Link.](../../sql-database/sql-database-private-endpoint-overview.md)
+Para configurar a firewall do espaço de trabalho, a rede virtual e o [Private Link.](../../azure-sql/database/private-endpoint-overview.md)
 
 ## <a name="step-9-completion"></a>PASSO 9: Conclusão
 
@@ -182,6 +182,6 @@ O Estúdio Synapse comportar-se-á de forma diferente com base nas funções dos
 > [1] O acesso aos dados em contentores depende do controlo de acesso na ADLS Gen2. </br>
 > [2] As tabelas de OD SQL e as tabelas Spark armazenam os seus dados na ADLS Gen2 e o acesso requer as permissões adequadas na ADLS Gen2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criar um espaço de [trabalho sinapse](../quickstart-create-workspace.md)

@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758814"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022423"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de combate Z
 
-Quando duas superfícies se sobrepõem, não é claro qual deve ser renderizado em cima do outro. O resultado varia mesmo por pixel, resultando em artefactos dependentes da vista. Consequentemente, quando a câmara ou a malha se movem, estes padrões cintilam visivelmente. Este artefacto *chama-se z-fighting.* Para aplicações AR e VR, o problema intensifica-se porque os dispositivos montados na cabeça movem-se naturalmente. Para evitar o desconforto do espectador, a funcionalidade de mitigação do z-fighting está disponível na Renderização Remota Azure.
+Quando duas superfícies se sobrepõem, não é claro qual deve ser renderizado em cima do outro. O resultado varia mesmo por pixel, resultando em artefactos dependentes da vista da câmara. Consequentemente, quando a câmara ou a malha se movem, estes padrões cintilam visivelmente. Este artefacto *chama-se z-fighting.* Para aplicações AR e VR, o problema intensifica-se porque os dispositivos montados na cabeça movem-se naturalmente. Para evitar o desconforto do espectador, a funcionalidade de mitigação do z-fighting está disponível na Renderização Remota Azure.
 
 ## <a name="z-fighting-mitigation-modes"></a>Modos de mitigação de luta Z
 
@@ -76,7 +76,7 @@ A mitigação do z-fighting fornecida é um esforço melhor. Não há garantias 
 * Permitir a mitigação do z-fighting incorre pouco a nenhuma sobrecarga de desempenho.
 * Além disso, permitir a sobreposição de luta z incorre numa sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Modos de composição](../../concepts/rendering-modes.md)
 * [Reprojeção da última fase](late-stage-reprojection.md)

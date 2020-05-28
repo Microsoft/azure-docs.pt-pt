@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680989"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022185"
 ---
 # <a name="late-stage-reprojection"></a>Reprojeção da última fase
 
@@ -24,7 +24,7 @@ Ambos os modos LSR melhoram a estabilidade do holograma, embora tenham as suas l
 
 ## <a name="choose-lsr-mode-in-unity"></a>Escolha o modo LSR em Unidade
 
-No editor da Unidade, vá ao *Arquivo > Construir Definições.* Selecione *Definições do jogador* na esquerda inferior e, em seguida, verifique em *definições de > XR do Jogador > SDKs de realidade virtual > Realidade Mista do Windows* se a partilha de **tampão** de profundidade é verificada:
+No editor da Unidade, vá a *:::no-loc text="File > Build Settings":::* . Selecione *:::no-loc text="Player Settings":::* na esquerda inferior e verifique se está *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* **:::no-loc text="Enable Depth Buffer Sharing":::** verificado:
 
 ![Bandeira ativada por partilha de tampão de profundidade](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -44,14 +44,14 @@ Planar LSR reprojeta os objetos que melhor se encontram perto do plano fornecido
 
 ### <a name="configure-planar-lsr-in-unity"></a>Configure Planar LSR em Unidade
 
-Os parâmetros do avião são derivados de um chamado *ponto*de `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`foco , que você tem que fornecer cada quadro através de . Consulte a [API de Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) de Unidade para obter mais detalhes. Se não definir um ponto de foco, um recuo será escolhido para si. No entanto, esse recuo automático conduz frequentemente a resultados sub-ideais.
+Os parâmetros do avião são derivados de um chamado ponto de *foco*, que você tem que fornecer cada quadro através `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` de . Consulte a [API de Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) de Unidade para obter mais detalhes. Se não definir um ponto de foco, um recuo será escolhido para si. No entanto, esse recuo automático conduz frequentemente a resultados sub-ideais.
 
-Você pode calcular o ponto de foco por si mesmo, embora possa fazer sentido baseá-lo no calculado pelo anfitrião de renderização remota. Ligue `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` para obtê-lo. É-lhe pedido que forneça uma moldura coordenada para expressar o ponto de foco. Na maioria dos casos, só vai `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` querer fornecer o resultado daqui.
+Você pode calcular o ponto de foco por si mesmo, embora possa fazer sentido baseá-lo no calculado pelo anfitrião de renderização remota. Ligue `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` para obtê-lo. É-lhe pedido que forneça uma moldura coordenada para expressar o ponto de foco. Na maioria dos casos, só vai querer fornecer o resultado `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` daqui.
 
 Normalmente, tanto o cliente como o anfitrião tornam o conteúdo que o outro lado desconhece, como elementos ui no cliente. Portanto, pode fazer sentido combinar o ponto de foco remoto com um calculado localmente.
 
 Os pontos de foco calculados em dois quadros sucessivos podem ser bastante diferentes. Simplesmente usá-los como está pode levar a hologramas que parecem estar saltando ao redor. Para prevenir este comportamento, a interpolação entre os pontos de foco anteriores e atuais é aconselhável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Consultas de desempenho do lado do servidor](performance-queries.md)

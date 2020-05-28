@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 091ce1cc0b2540a02e62e1e85c5515f6aa62b93c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951858"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018842"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como utilizar o Apache Sqoop no HDInsight para importar e exportar dados entre um cluster HDInsight e uma base de dados Azure SQL.
+Saiba como utilizar o Apache Sqoop no HDInsight para importar e exportar dados entre um cluster HDInsight e a Base de Dados Azure SQL.
 
 Embora o Apache Hadoop seja uma escolha natural para o processamento de dados não estruturados e semi-estruturados, como registos e ficheiros, também pode haver necessidade de processar dados estruturados que são armazenados em bases de dados relacionais.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) é uma ferramenta projetada para transferir dados entre clusters Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gestão relacional de bases de dados (RDBMS) como O Servidor SQL, MySQL ou Oracle para o sistema de ficheiros distribuídos hadoop (HDFS), transformar os dados em Hadoop com MapReduce ou Hive, e depois exportar os dados de volta para um RDBMS. Neste artigo, está a utilizar uma base de dados do SQL Server para a sua base de dados relacional.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) é uma ferramenta projetada para transferir dados entre clusters Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gestão relacional de bases de dados (RDBMS) como O Servidor SQL, MySQL ou Oracle para o sistema de ficheiros distribuídos hadoop (HDFS), transformar os dados em Hadoop com MapReduce ou Hive, e depois exportar os dados de volta para um RDBMS. Neste artigo, está a utilizar a Base de Dados Azure SQL para a sua base de dados relacional.
 
 > [!IMPORTANT]  
 > Este artigo cria um ambiente de teste para realizar a transferência de dados. Em seguida, escolha um método de transferência de dados para este ambiente a partir de um dos métodos da secção [Run Sqoop jobs](#run-sqoop-jobs), mais abaixo.
@@ -33,7 +33,7 @@ Para versões Sqoop que são suportadas em clusters HDInsight, veja [quais as no
 
 O cluster HDInsight vem com alguns dados da amostra. Utiliza as seguintes duas amostras:
 
-* Um ficheiro de registo Apache Log4j, que está localizado a `/example/data/sample.log`. Os seguintes registos são extraídos do ficheiro:
+* Um ficheiro de registo Apache Log4j, que está localizado a `/example/data/sample.log` . Os seguintes registos são extraídos do ficheiro:
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
@@ -42,7 +42,7 @@ O cluster HDInsight vem com alguns dados da amostra. Utiliza as seguintes duas a
 ...
 ```
 
-* Uma tabela Da `hivesampletable`Colmeia denominada , que `/hive/warehouse/hivesampletable`faz referência ao ficheiro de dados localizado em . A tabela contém alguns dados do dispositivo móvel.
+* Uma tabela Da Colmeia denominada `hivesampletable` , que faz referência ao ficheiro de dados localizado em `/hive/warehouse/hivesampletable` . A tabela contém alguns dados do dispositivo móvel.
   
   | Campo | Tipo de dados |
   | --- | --- |
@@ -62,7 +62,7 @@ Neste artigo, utiliza estes dois conjuntos de dados para testar a importação e
 
 ## <a name="set-up-test-environment"></a><a name="create-cluster-and-sql-database"></a>Configurar o ambiente de teste
 
-O cluster, a base de dados SQL e outros objetos são criados através do portal Azure usando um modelo de Gestor de Recursos Azure. O modelo pode ser encontrado em [modelos de arranque rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). O modelo do Gestor de Recursos chama um pacote bacpac para implantar os schemas de mesa para uma base de dados SQL.  O pacote bacpac está localizado num https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpacrecipiente de bolhas públicos, . Se pretender utilizar um recipiente privado para os ficheiros bacpac, utilize os seguintes valores no modelo:
+O cluster, a base de dados SQL e outros objetos são criados através do portal Azure usando um modelo de Gestor de Recursos Azure. O modelo pode ser encontrado em [modelos de arranque rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). O modelo do Gestor de Recursos chama um pacote bacpac para implantar os schemas de mesa para uma base de dados SQL.  O pacote bacpac está localizado num recipiente de bolhas https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac públicos, . Se pretender utilizar um recipiente privado para os ficheiros bacpac, utilize os seguintes valores no modelo:
 
 ```json
 "storageKeyType": "Primary",
@@ -84,18 +84,18 @@ O cluster, a base de dados SQL e outros objetos são criados através do portal 
     |Grupo de recursos |Selecione o seu grupo de recursos a partir da lista de drop-down, ou crie um novo|
     |Localização |Selecione uma região da lista de abandono.|
     |Nome do Cluster |Introduza um nome para o cluster do Hadoop. Use apenas letras minúsculas.|
-    |Nome de Utilizador de Início de Sessão do Cluster |Mantenha o valor `admin`pré-povoado.|
+    |Nome de Utilizador de Início de Sessão do Cluster |Mantenha o valor pré-povoado. `admin`|
     |Palavra-passe de Início de Sessão do Cluster |Introduza uma senha.|
-    |Nome do utilizador SSH |Mantenha o valor `sshuser`pré-povoado.|
+    |Nome do utilizador SSH |Mantenha o valor pré-povoado. `sshuser`|
     |Palavra-passe ssh |Introduza uma senha.|
-    |Sql Admin Login |Mantenha o valor `sqluser`pré-povoado.|
+    |Sql Admin Login |Mantenha o valor pré-povoado. `sqluser`|
     |Senha de Administrador Sql |Introduza uma senha.|
     |localização _artifacts | Utilize o valor predefinido a menos que pretenda utilizar o seu próprio ficheiro bacpac num local diferente.|
     |localização _artifacts Sas Token |Deixe em branco.|
     |Nome do ficheiro Bacpac |Utilize o valor predefinido a menos que pretenda utilizar o seu próprio ficheiro bacpac.|
     |Localização |Utilize o valor predefinido.|
 
-    O nome do Servidor Azure `<ClusterName>dbserver`SQL será . O nome da `<ClusterName>db`base de dados será. O nome da conta `e6qhezrh2pdqu`de armazenamento por defeito será .
+    O nome lógico do [servidor SQL](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver` . O nome da base de dados `<ClusterName>db` será. O nome da conta de armazenamento por defeito será `e6qhezrh2pdqu` .
 
 3. Selecione **Concordo com os termos e condições acima indicados**.
 
@@ -113,10 +113,10 @@ O HDInsight pode executar trabalhos de Sqoop utilizando uma variedade de método
 
 ## <a name="limitations"></a>Limitações
 
-* Exportação a granel - Com o HDInsight baseado em Linux, o conector Sqoop utilizado para exportar dados para o Microsoft SQL Server ou para a Base de Dados Azure SQL não suporta atualmente inserções a granel.
-* Loteamento - Com hDInsight baseado em `-batch` Linux, ao utilizar o interruptor ao executar inserções, o Sqoop executa várias inserções em vez de encher as operações de inserção.
+* Exportação a granel - Com o HDInsight baseado em Linux, o conector Sqoop utilizado para exportar dados para o Microsoft SQL Server ou SQL Database não suporta atualmente inserções a granel.
+* Loteamento - Com hDInsight baseado em Linux, ao utilizar o `-batch` interruptor ao executar inserções, o Sqoop executa várias inserções em vez de encher as operações de inserção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora aprendeste a usar o Sqoop. Para saber mais, consulte:
 

@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754319"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018400"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar ficheiros BACPAC Com modelos ARM
 
 Saiba como utilizar extensões de base de dados Azure SQL para importar um ficheiro BACPAC com modelos de Gestor de Recursos Azure (ARM). Os artefactos de implantação são quaisquer ficheiros, além dos ficheiros principais do modelo, que são necessários para completar uma implementação. O ficheiro BACPAC é um artefacto.
 
-Neste tutorial, cria-se um modelo para implantar um servidor Azure SQL e uma base de dados SQL e importar um ficheiro BACPAC. Para obter informações sobre como implementar extensões de máquinas virtuais Azure utilizando modelos ARM, consulte [Tutorial: Implemente extensões de máquinas virtuais com modelos ARM](./template-tutorial-deploy-vm-extensions.md).
+Neste tutorial, cria-se um modelo para implantar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) e uma única base de dados e importar um ficheiro BACPAC. Para obter informações sobre como implementar extensões de máquinas virtuais Azure utilizando modelos ARM, consulte [Tutorial: Implemente extensões de máquinas virtuais com modelos ARM](./template-tutorial-deploy-vm-extensions.md).
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
+>
 > * Prepare um ficheiro BACPAC.
 > * Abra um modelo de arranque rápido.
 > * Editar o modelo.
@@ -34,7 +35,7 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.mi
 Para concluir este artigo, precisa de:
 
 * Visual Studio Code com a extensão Ferramentas do Resource Manager. Consulte [o Use Visual Studio Code para criar modelos ARM](./use-vs-code-to-create-template.md).
-* Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador do Servidor Azure SQL. Aqui está uma amostra que pode usar para gerar uma senha:
+* Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador do servidor. Aqui está uma amostra que pode usar para gerar uma senha:
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um ficheiro BACPAC
 
-Um ficheiro BACPAC é partilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar o seu próprio, veja [Exportar uma base de dados SQL do Azure para um ficheiro BACPAC](../../sql-database/sql-database-export.md). Se optar por publicar o ficheiro na sua própria localização, tem de atualizar o modelo mais tarde no tutorial.
+Um ficheiro BACPAC é partilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar o seu próprio, veja [Exportar uma base de dados SQL do Azure para um ficheiro BACPAC](../../azure-sql/database/database-export.md). Se optar por publicar o ficheiro na sua própria localização, tem de atualizar o modelo mais tarde no tutorial.
 
 O ficheiro BACPAC deve ser armazenado numa conta de Armazenamento Azure antes de poder ser importado utilizando um modelo ARM. O seguinte script PowerShell prepara o ficheiro BACPAC com estes passos:
 
@@ -100,7 +101,7 @@ O ficheiro BACPAC deve ser armazenado numa conta de Armazenamento Azure antes de
 
 O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json)
 
-1. A partir do Código do Estúdio Visual, selecione **File** > **Open File**.
+1. A partir do **File**Código do Estúdio Visual, selecione  >  **File Open File**.
 1. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -115,7 +116,7 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
    * `Microsoft.SQL.servers/databases`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
         É útil obter alguma compreensão básica do modelo antes de personalizá-lo.
-1. Selecione **Guardar Ficheiros** > **Para** guardar uma cópia do ficheiro para o computador local com o nome *azuredeploy.json*.
+1. Selecione **Guardar**  >  **Ficheiros Para** guardar uma cópia do ficheiro para o computador local com o nome *azuredeploy.json*.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
@@ -142,7 +143,7 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
 
 1. Adicione dois recursos adicionais ao modelo.
 
-    * Para permitir que a extensão da Base de Dados SQL importe ficheiros BACPAC, tem de permitir o tráfego dos serviços Azure. Adicione a seguinte definição de regra de firewall sob a definição do servidor SQL:
+    * Para permitir que a extensão da Base de Dados SQL importe ficheiros BACPAC, tem de permitir o tráfego dos serviços Azure. Adicione a seguinte definição de regra de firewall sob a definição do servidor:
 
         ```json
         "resources": [
@@ -197,7 +198,7 @@ O modelo utilizado neste tutorial é armazenado no [GitHub.](https://raw.githubu
 
         * **dependsOn**: O recurso de extensão tem de ser criado após a criação da base de dados SQL.
         * **armazenamentoChaveType**: Especifique o tipo da chave de armazenamento a utilizar. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
-        * **armaçõesChave:** Especifique a chave para a conta de armazenamento onde o ficheiro BACPAC está armazenado. Se o tipo `SharedAccessKey`de chave de armazenamento for, deve ser precedido com um "?".
+        * **armaçõesChave:** Especifique a chave para a conta de armazenamento onde o ficheiro BACPAC está armazenado. Se o tipo de chave de armazenamento `SharedAccessKey` for, deve ser precedido com um "?".
         * **armazenamentoUri**: Especifique o URL do ficheiro BACPAC armazenado numa conta de armazenamento.
         * **administratorLoginPassword**: A palavra-passe do administrador do SQL. Use uma senha gerada. Veja [Pré-requisitos](#prerequisites).
 
@@ -238,7 +239,7 @@ Use uma senha gerada. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-Para aceder ao servidor SQL a partir do seu computador cliente, precisa adicionar uma regra adicional de firewall. Para mais informações, consulte [Criar e gerir as regras de firewall IP](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+Para aceder ao servidor a partir do seu computador cliente, precisa adicionar uma regra adicional de firewall. Para mais informações, consulte [Criar e gerir as regras de firewall IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 No portal Azure, selecione a base de dados SQL do grupo de recursos recém-implantado. Selecione **Editor de consultas (pré-visualização)** e, em seguida, introduza as credenciais de administrador. Verá duas mesas importadas na base de dados.
 
@@ -253,9 +254,9 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 1. Selecione o nome do grupo de recursos. Verá um total de seis recursos no grupo de recursos.
 1. **Selecione Eliminar** o grupo de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, implementou um servidor SQL e uma base de dados SQL e importou um ficheiro BACPAC. Para aprender a resolver a implantação do modelo, consulte:
+Neste tutorial, implementou um servidor e uma base de dados e importou um ficheiro BACPAC. Para aprender a resolver a implantação do modelo, consulte:
 
 > [!div class="nextstepaction"]
 > [Implantações do modelo ARM de resolução de problemas](./template-tutorial-troubleshoot.md)

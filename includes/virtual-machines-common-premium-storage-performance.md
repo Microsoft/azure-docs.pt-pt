@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821504"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017614"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -333,7 +333,7 @@ Uma configuração importante na tiragem do disco é o tamanho da risca. O taman
 
 Por exemplo, se um pedido de IO gerado pela sua aplicação for maior do que o tamanho da risca do disco, o sistema de armazenamento escreve-o através dos limites da unidade de listras em mais de um disco. Quando chegar a altura de aceder a esses dados, terá de procurar em mais de uma unidade de listras para completar o pedido. O efeito cumulativo de tal comportamento pode levar a uma degradação substancial do desempenho. Por outro lado, se o tamanho do pedido da OI for menor do que o tamanho das riscas, e se for de natureza aleatória, os pedidos da OI podem acumular-se no mesmo disco causando um estrangulamento e, em última análise, degradando o desempenho da OI.
 
-Dependendo do tipo de carga de trabalho que a sua aplicação está a executar, escolha um tamanho de listra apropriado. Para pedidos aleatórios de IO, use um tamanho de listra menor. Enquanto que para pedidos de IO sequenciais grandes utilizam um tamanho de listra maior. Descubra as recomendações do tamanho da risca para a aplicação que irá executar no Armazenamento Premium. Para o SQL Server, configure o tamanho das riscas de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Consulte [as melhores práticas de Desempenho para o SQL Server em VMs Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
+Dependendo do tipo de carga de trabalho que a sua aplicação está a executar, escolha um tamanho de listra apropriado. Para pedidos aleatórios de IO, use um tamanho de listra menor. Enquanto que para pedidos de IO sequenciais grandes utilizam um tamanho de listra maior. Descubra as recomendações do tamanho da risca para a aplicação que irá executar no Armazenamento Premium. Para o SQL Server, configure o tamanho das riscas de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Consulte [as melhores práticas de Desempenho para o SQL Server em VMs Azure](../articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) para saber mais.
 
 > [!NOTE]
 > Pode juntar um máximo de 32 discos de armazenamento premium numa série DS VM e 64 discos de armazenamento premium numa Série GS VM.
@@ -383,5 +383,5 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 
 As provisões de armazenamento Azure Premium especificam o número de IOPS e De entrada, dependendo dos tamanhos vm e do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Passput acima destes limites do que o VM ou disco pode suportar, o Armazenamento Premium irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor entrada ou iOPS mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente ao exceder o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, disponibilize sempre recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos VM e Disqueacima. O benchmarking é a melhor maneira de descobrir que recursos você precisará para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 

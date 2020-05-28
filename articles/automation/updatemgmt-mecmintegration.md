@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 183189253d11638751e1f8283b202f122131b005
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836316"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013202"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrar a Gestão de Atualizações com o Gestor de Configuração do Ponto Final do Windows
 
@@ -38,7 +38,7 @@ Execute os seguintes passos se continuar a gerir as implementações de atualiza
 1. Na Automatização Azure, selecione Gestão de **Atualizações.** Crie uma nova implementação seguindo os passos descritos na Criação de [uma Implementação](automation-tutorial-update-management.md#schedule-an-update-deployment) de Atualizações e selecione **grupos importados** no dropdown **do Tipo** para selecionar a coleção apropriada do Gestor de Configuração do Ponto Final do Windows. Tenha em mente os seguintes pontos importantes: a. Se for definida uma janela de manutenção na coleção de dispositivos selecionado do Windows Endpoint Configuration Manager, os membros da coleção honram-na em vez da definição de **Duração** definida na implementação programada.
     b. Os membros da recolha do alvo devem ter uma ligação à Internet (diretamente, através de um servidor proxy ou através do gateway Log Analytics).
 
-Após completar a implementação da atualização através do Azure Automation, os computadores-alvo que são membros do grupo de computador selecionado sairá atualizações no momento programado a partir da sua cache de cliente local. Pode [ver o estado de implementação da atualização](automation-tutorial-update-management.md#view-results-of-an-update-deployment) para monitorizar os resultados da implementação.
+Após completar a implementação da atualização através do Azure Automation, os computadores-alvo que são membros do grupo de computador selecionado sairá atualizações no momento programado a partir da sua cache de cliente local. Pode [ver o estado de implementação da atualização](automation-tutorial-update-management.md#check-deployment-status) para monitorizar os resultados da implementação.
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Gerir atualizações de software da Azure Automation
 
@@ -46,6 +46,6 @@ Para gerir as atualizações para VMs do Windows Server que são clientes do Win
 
 Depois de realizar esta alteração de configuração, cria uma nova implementação seguindo os passos descritos na Criação de [uma Implementação](automation-tutorial-update-management.md#schedule-an-update-deployment) de Atualização e selecione **grupos importados** no **drop-down do Tipo** para selecionar a coleção de Configuração de Ponto final do Windows apropriada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar um calendário de integração, consulte [Agendar uma implementação de atualização.](automation-tutorial-update-management.md#schedule-an-update-deployment)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4de0686dbca803b9008c1b56c512a90fcfe2b3c0
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721375"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022440"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 
@@ -62,7 +62,7 @@ O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma 
 >
 >
 
-1. Certifique-se de que a base de dados e as tabelas são criadas na base de dados do Servidor SQL alvo. Aqui está um exemplo de como `Create Database` `Create Table` fazê-lo usando os comandos e comandos:
+1. Certifique-se de que a base de dados e as tabelas são criadas na base de dados do Servidor SQL alvo. Aqui está um exemplo de como fazê-lo usando os `Create Database` comandos e `Create Table` comandos:
 
     ```sql
     CREATE DATABASE <database_name>
@@ -174,7 +174,7 @@ Também pode utilizar as seguintes estratégias de migração:
 Descrevemos cada uma destas opções abaixo:
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Implemente uma base de dados do Servidor SQL para um assistente VM Microsoft Azure
-A implementação de uma base de dados do **Servidor SQL para um assistente VM Microsoft Azure** é uma forma simples e recomendada de mover dados de uma instância de Servidor SQL no local para o SQL Server num VM Azure. Para passos detalhados, bem como uma discussão sobre outras alternativas, consulte [migrate uma base de dados para o SQL Server num VM Azure](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
+A implementação de uma base de dados do **Servidor SQL para um assistente VM Microsoft Azure** é uma forma simples e recomendada de mover dados de uma instância de Servidor SQL no local para o SQL Server num VM Azure. Para passos detalhados, bem como uma discussão sobre outras alternativas, consulte [migrate uma base de dados para o SQL Server num VM Azure](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Exportação para Arquivo Plano
 Vários métodos podem ser usados para exportar a granel dados de um Servidor SQL on-premises, conforme documentado no tópico de [Importação e Exportação de Dados a granel (SQL Server).](https://msdn.microsoft.com/library/ms175937.aspx) Este documento irá abranger o Programa de Cópias a Granel (BCP) como exemplo. Uma vez que os dados são exportados para um ficheiro plano, podem ser importados para outro servidor SQL usando a importação a granel.
@@ -182,7 +182,7 @@ Vários métodos podem ser usados para exportar a granel dados de um Servidor SQ
 1. Exportar os dados do SQL Server no local para um Ficheiro utilizando o utilitário bcp da seguinte forma
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
-2. Crie a base de dados e a tabela no `create database` `create table` SQL Server VM em Azure utilizando o e para o esquema de mesa exportado no passo 1.
+2. Crie a base de dados e a tabela no SQL Server VM em Azure utilizando `create database` o e para o esquema de mesa `create table` exportado no passo 1.
 3. Criar um ficheiro de formato para descrever o esquema de tabela dos dados que estão a ser exportados/importados. Os detalhes do ficheiro de formato são descritos no [Create a Format File (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
     Geração de ficheiros de formato ao executar BCP a partir da máquina SQL Server
@@ -210,9 +210,9 @@ Uma imagem da Base de Dados de back/restaurar opções do Estúdio de Gestão de
 ![Ferramenta de importação de servidor SQL][1]
 
 ## <a name="resources"></a>Recursos
-[Migrar uma base de dados para o Servidor SQL num VM Azure](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
+[Migrar uma base de dados para o Servidor SQL num VM Azure](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
 
-[Descrição geral do SQL Server nas Máquinas Virtuais do Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+[Descrição geral do SQL Server nas Máquinas Virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png

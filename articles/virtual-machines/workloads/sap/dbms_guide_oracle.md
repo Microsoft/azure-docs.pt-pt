@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645849"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022547"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação de DBMS de máquinas virtuais azure para carga de trabalho SAP
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645849"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -374,10 +374,10 @@ A configuração mínima é a seguinte:
 
 | Componente | Disco | Colocação em cache | Piscina de armazenamento |
 | --- | ---| --- | --- |
-| \oráculo\<SID>\origlogaA & mirrlogB | Premium | Nenhuma | Não necessário |
-| \oráculo\<SID>\origlogaB & mirrlogA | Premium | Nenhuma | Não necessário |
-| \oracle\<SID>\sapdata1... n | Premium | Só de leitura | Pode ser usado |
-| \oráculo\<SID>\oraarch | Standard | Nenhuma | Não necessário |
+| \<SID>\origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
+| \<SID>\origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
+| \oráculo \<SID> \sapdata1... n | Premium | Só de leitura | Pode ser usado |
+| \oráculo \<SID> \oraarca | Standard | Nenhum | Não necessário |
 | Oracle Home, saptrace, ... | Disco do SO | | Não necessário |
 
 
@@ -387,13 +387,13 @@ A configuração de desempenho é a seguinte:
 
 | Componente | Disco | Colocação em cache | Piscina de armazenamento |
 | --- | ---| --- | --- |
-| \oráculo\<SID>\origlogaA | Premium | Nenhuma | Pode ser usado  |
-| \oráculo\<SID>\origlogaB | Premium | Nenhuma | Pode ser usado |
-| \oráculo\<SID>\mirrlogAB | Premium | Nenhuma | Pode ser usado |
-| \oráculo\<SID>\mirrlogBA | Premium | Nenhuma | Pode ser usado |
-| \oracle\<SID>\sapdata1... n | Premium | Só de leitura | Recomendado  |
-| \oracle\SID\sapdata(n+1)* | Premium | Nenhuma | Pode ser usado |
-| \oráculo\<SID>\oraarca* | Premium | Nenhuma | Não necessário |
+| \oráculo \<SID> \origlogaA | Premium | Nenhum | Pode ser usado  |
+| \oráculo \<SID> \origlogaB | Premium | Nenhum | Pode ser usado |
+| \oráculo \<SID> \mirrlogAB | Premium | Nenhum | Pode ser usado |
+| \oráculo \<SID> \mirrlogBA | Premium | Nenhum | Pode ser usado |
+| \oráculo \<SID> \sapdata1... n | Premium | Só de leitura | Recomendado  |
+| \oracle\SID\sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
+| \oráculo \<SID> \oraarca* | Premium | Nenhum | Não necessário |
 | Oracle Home, saptrace, ... | Disco do SO | Não necessário |
 
 *(n+1): espaços de mesa SYSTEM, TEMP e UNDO. O padrão De/S de Espaços de Mesa System e Undo são diferentes dos outros espaços de mesa que hospedam dados de aplicações. Sem cache é a melhor opção para o desempenho do Sistema e espaços de mesa Desfazer.
@@ -420,7 +420,7 @@ Para obter mais informações sobre a recuperação de desastres para as bases d
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente a ligação acelerada em rede, conforme descrito em [Rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Considerações para a implantação de [Máquinas Virtuais Azure DBMS para carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com base de dados Oracle, incluindo conjuntos de disponibilidade Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para A base de dados oracle no Oracle Linux
@@ -464,10 +464,10 @@ Configuração mínima:
 
 | Componente | Disco | Colocação em cache | Despir* |
 | --- | ---| --- | --- |
-| /oráculo/\<SID>/origlogaA & mirrlogB | Premium | Nenhuma | Não necessário |
-| /oráculo/\<SID>/origlogaB & mirrlogA | Premium | Nenhuma | Não necessário |
-| /oráculo/\<SID>/sapdata1... n | Premium | Só de leitura | Pode ser usado |
-| /oráculo/\<SID>/oraarco | Standard | Nenhuma | Não necessário |
+| /oráculo/ \<SID> /origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
+| /oráculo/ \<SID> /origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
+| /oráculo/ \<SID> /sapdata1... n | Premium | Só de leitura | Pode ser usado |
+| /oráculo/ \<SID> /oraarca | Standard | Nenhum | Não necessário |
 | Oracle Home, saptrace, ... | Disco do SO | | Não necessário |
 
 *Despir: Listra LVM ou MDADM usando RAID0
@@ -478,13 +478,13 @@ Configuração de desempenho:
 
 | Componente | Disco | Colocação em cache | Despir* |
 | --- | ---| --- | --- |
-| /oráculo/\<SID>/origlogaA | Premium | Nenhuma | Pode ser usado  |
-| /oráculo/\<SID>/origlogaB | Premium | Nenhuma | Pode ser usado |
-| /oráculo/\<SID>/mirrlogAB | Premium | Nenhuma | Pode ser usado |
-| /oráculo/\<SID>/mirrlogBA | Premium | Nenhuma | Pode ser usado |
-| /oráculo/\<SID>/sapdata1... n | Premium | Só de leitura | Recomendado  |
-| /oráculo/\<SID>/sapdata(n+1)* | Premium | Nenhuma | Pode ser usado |
-| /oráculo/\<SID>/oraarca* | Premium | Nenhuma | Não necessário |
+| /oráculo/ \<SID> /origlogaA | Premium | Nenhum | Pode ser usado  |
+| /oráculo/ \<SID> /origlogaB | Premium | Nenhum | Pode ser usado |
+| /oráculo/ \<SID> /mirrlogAB | Premium | Nenhum | Pode ser usado |
+| /oráculo/ \<SID> /mirrlogBA | Premium | Nenhum | Pode ser usado |
+| /oráculo/ \<SID> /sapdata1... n | Premium | Só de leitura | Recomendado  |
+| /oráculo/ \<SID> /sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
+| /oráculo/ \<SID> /oraarca* | Premium | Nenhum | Não necessário |
 | Oracle Home, saptrace, ... | Disco do SO | Não necessário |
 
 *Despir: Listra LVM ou MDADM usando RAID0
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Considerações para a implantação de [Máquinas Virtuais Azure DBMS para carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com base de dados Oracle, incluindo conjuntos de disponibilidade Azure e monitorização SAP.

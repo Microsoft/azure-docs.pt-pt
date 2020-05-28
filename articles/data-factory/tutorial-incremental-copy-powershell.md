@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f4de4c25cea251ea0db72bcb435ceb63eb308ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22fa0e1cc6bdad109c5dcb82cc08b81d91674f9a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409220"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022459"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregue misoticamente dados de uma base de dados Azure SQL para o armazenamento da Blob Azure utilizando o PowerShell
 
@@ -63,7 +63,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
 * **Armazenamento Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
 * **Azure PowerShell.** Siga as instruções em [Install and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
@@ -199,7 +199,7 @@ Tenha em atenção os seguintes pontos:
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, vai criar serviços ligados à sua conta de Armazenamento e à base de dados SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço ligado ao Armazenamento
-1. Crie um ficheiro JSON com o nome AzureStorageLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF se já não existir.) `<accountName>` Substitua `<accountKey>` e com o nome e a chave da sua conta de armazenamento antes de guardar o ficheiro.
+1. Crie um ficheiro JSON com o nome AzureStorageLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF se já não existir.) Substitua `<accountName>` e com o nome e a chave da sua conta de armazenamento antes de guardar o `<accountKey>` ficheiro.
 
     ```json
     {
@@ -230,7 +230,7 @@ Os serviços ligados são criados numa fábrica de dados para ligar os seus arqu
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Criar um serviço ligado à Base de Dados SQL
-1. Crie um ficheiro JSON com o nome AzureSQLDatabaseLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF se já não existir.) &lt;Substitua&gt; &lt;o&gt; &lt;servidor,&gt;a &lt;&gt; base de dados, o id do utilizador e a palavra-passe com o nome do seu servidor, base de dados, ID do utilizador e palavra-passe antes de guardar o ficheiro.
+1. Crie um ficheiro JSON com o nome AzureSQLDatabaseLinkedService.json na pasta C:\ADF com o conteúdo seguinte. (Crie a pasta ADF se já não existir.) Substitua o servidor, a base de dados, o id do &lt; &gt; utilizador e a &lt; &gt; &lt; &gt; &lt; palavra-passe &gt; com o nome do seu servidor, base de dados, ID do utilizador e palavra-passe antes de guardar o ficheiro.
 
     ```json
     {
@@ -720,7 +720,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     data_source_table | 2017-09-07 09:01:00.000
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes:
 
 > [!div class="checklist"]

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 281cdea42975172b7e2366ab5d3e1606f61d5025
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984900"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020545"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar os seus dados no local ou na nuvem para O Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Pode carregar dados de várias fontes de dados para o Azure Cosmos DB. Além dis
 Os seguintes fatores determinam a escolha da ferramenta de migração:
 * **Migração online vs offline**: Muitas ferramentas de migração fornecem um caminho para fazer uma migração única. Isto significa que as aplicações que acedem à base de dados podem experimentar um período de inatividade. Algumas soluções de migração fornecem uma forma de fazer uma migração viva onde existe um gasoduto de replicação criado entre a fonte e o alvo.
 
-* **Fonte de dados**: Os dados existentes podem estar em várias fontes de dados como o Oracle DB2, Datastax Cassanda, Azure SQL Server, PostgreSQL, etc. Os dados também podem estar numa conta Azure Cosmos DB existente e a intenção da migração pode ser alterar o modelo de dados ou repartipartição dos dados num recipiente com uma chave de partição diferente.
+* **Fonte de dados**: Os dados existentes podem estar em várias fontes de dados como o Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL, etc. Os dados também podem estar numa conta Azure Cosmos DB existente e a intenção da migração pode ser alterar o modelo de dados ou repartipartição dos dados num recipiente com uma chave de partição diferente.
 
 * **Azure Cosmos DB API**: Para a API SQL em Azure Cosmos DB, existem uma variedade de ferramentas desenvolvidas pela equipa Azure Cosmos DB que ajudam nos diferentes cenários de migração. Todas as outras APIs têm o seu próprio conjunto especializado de ferramentas desenvolvidas e mantidas pela comunidade. Uma vez que a Azure Cosmos DB suporta estas APIs a nível de protocolo de arame, estas ferramentas devem funcionar como está enquanto migram dados para o Azure Cosmos DB também. No entanto, podem necessitar de manuseamento personalizado para aceleradores, uma vez que este conceito é específico do Azure Cosmos DB.
 
@@ -68,7 +68,7 @@ Para além da API SQL, da API do Mongo e da API Cassandra, existem várias ferra
 * [Biblioteca de executor a granel de gráfico](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-graph-dotnet)
 * [Faísca de Gremlin](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executora a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * A biblioteca de executora a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo de [conector Azure Cosmos DB Spark.](spark-connector.md)  

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 5d6d4a41deb1ef96789a48eefba306be4dfb20eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cf16c2cd119eb3eec64104b2573ff7de2cc76c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745137"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020086"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -56,7 +56,7 @@ Para mais informações sobre a Azure Data Factory, consulte a [documentação](
 
 Os ficheiros de dados de origem são normalmente carregados num local no Armazenamento de Dados Azure ou no Armazenamento do Lago Azure Data. Os ficheiros estão geralmente num formato plano, como o CSV. Mas podem estar em qualquer formato.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
 O Armazenamento Azure tem metas específicas de adaptabilidade. Consulte [a escalabilidade e os alvos de desempenho para](../../storage/blobs/scalability-targets.md) o armazenamento blob para obter mais informações. Para a maioria dos nós analíticos, o Armazenamento Azure é o melhor ao lidar com muitos ficheiros menores. Desde que esteja dentro dos limites da sua conta, o Azure Storage garante o mesmo desempenho, não importa o tamanho dos ficheiros. Pode armazenar terabytes de dados e ainda obter um desempenho consistente. Esta afirmação é verdadeira quer esteja a usar um subconjunto ou todos os dados.
 
@@ -106,9 +106,9 @@ A adaptabilidade da Base HBase depende do número de nós no cluster HDInsight.
 
 O Azure oferece três bases de dados relacionais PaaS:
 
-- [A Base de Dados Azure SQL](../../sql-database/sql-database-technical-overview.md) é uma implementação do Microsoft SQL Server. Para obter mais informações sobre o desempenho, consulte o desempenho de [afinação na Base de Dados Azure SQL](../../sql-database/sql-database-performance-guidance.md).
-- [Azure Database for MySQL](../../mysql/overview.md) é uma implementação da Oracle MySQL.
-- [Base de Dados Azure para PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) é uma implementação do PostgreSQL.
+* [A Base de Dados Azure SQL](../../azure-sql/database/sql-database-paas-overview.md) é uma implementação do Microsoft SQL Server. Para obter mais informações sobre o desempenho, consulte [O Desempenho de Afinação na Base de Dados SQL Azure](../../azure-sql/database/performance-guidance.md).
+* [Azure Database for MySQL](../../mysql/overview.md) é uma implementação da Oracle MySQL.
+* [Base de Dados Azure para PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) é uma implementação do PostgreSQL.
 
 Adicione mais CPU e memória para aumentar estes produtos.  Também pode optar por utilizar discos premium com os produtos para um melhor desempenho em I/S.
 
@@ -138,7 +138,7 @@ O Apache Flume não pode ser usado com o Azure HDInsight. Mas, uma instalação 
 
 Depois de existirem dados no local escolhido, é necessário limpá-lo, combiná-lo ou prepará-lo para um padrão de utilização específico. Colmeia, Porco e Spark SQL são boas escolhas para este tipo de trabalho. São todos apoiados no HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Usando a Colmeia Apache como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 - [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

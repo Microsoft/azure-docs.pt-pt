@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679955"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021449"
 ---
 # <a name="about-azure-remote-rendering"></a>Acerca do Azure Remote Rendering
 
@@ -22,7 +22,11 @@ ms.locfileid: "80679955"
 
 ![Modelo de amostra](../media/arr-engine.png)
 
-Os dispositivos sem amarras têm um poder computacional limitado para a renderização de modelos complexos. Para muitas aplicações, seria inaceitável, no entanto, reduzir a fidelidade visual de qualquer forma.
+Os dispositivos sem amarras têm um poder computacional limitado para a renderização de modelos complexos. Para muitas aplicações, seria inaceitável, no entanto, reduzir a fidelidade visual de qualquer forma. A seguinte imagem compara o modelo com um modelo que foi dizimado usando uma ferramenta comum de criação de conteúdo:
+
+![Modelo de amostra](./media/engine-model-decimated.png)
+
+O modelo reduzido consiste em aproximadamente 200.000 triângulos (incluindo as partes interiores detalhadas), contra mais de 18 milhões de triângulos no modelo original.
 
 *A Renderização Remota* resolve este problema movendo a carga de trabalho de renderização para GPUs topo de gama na nuvem. Um motor gráfico com cloud-hosted torna a imagem, codifica-a como um fluxo de vídeo, e transmite isso para o dispositivo alvo.
 
@@ -57,7 +61,7 @@ Um ciclo completo para a geração de imagens envolve os seguintes passos:
 
 A latência da rede é o principal problema. O tempo de viragem entre o envio de um pedido e a receção do resultado é normalmente demasiado longo para as taxas de fotogramas interativas. Portanto, mais de um quadro pode estar em voo a qualquer momento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Requisitos de sistema](system-requirements.md)
 * [Quickstart: Render um modelo com Unidade](../quickstarts/render-model.md)

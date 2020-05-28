@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81313748"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021743"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando consulta interativa no Azure HDInsight
 
@@ -42,7 +42,7 @@ Este tutorial abrange as seguintes tarefas:
 
 2. Na página, limpe todos os campos e, em seguida, selecione os seguintes valores:
 
-   | Nome | Valor |
+   | Name | Valor |
    | --- | --- |
    | Filtrar Ano |2019 |
    | Filtrar Período |Janeiro |
@@ -54,7 +54,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Existem muitas formas de carregar dados para o armazenamento associado a um cluster do HDInsight. Nesta secção, vai utilizar `scp` para carregar os dados. Para ver outras formas de carregar dados, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
 
-1. Faça upload do ficheiro .zip para o nó de cabeça de cluster HDInsight. Editar o comando abaixo `FILENAME` substituindo pelo nome do `CLUSTERNAME` ficheiro .zip e com o nome do cluster HDInsight. Em seguida, abra um pedido de comando, coloque o seu diretório de trabalho para o local do ficheiro e, em seguida, insira o comando.
+1. Faça upload do ficheiro .zip para o nó de cabeça de cluster HDInsight. Editar o comando abaixo substituindo `FILENAME` pelo nome do ficheiro .zip e com o nome do cluster `CLUSTERNAME` HDInsight. Em seguida, abra um pedido de comando, coloque o seu diretório de trabalho para o local do ficheiro e, em seguida, insira o comando.
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
@@ -62,13 +62,13 @@ Existem muitas formas de carregar dados para o armazenamento associado a um clus
 
     Introduza sim ou não para continuar se solicitado. O texto não é visível na janela como escreve.
 
-2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Editar o comando abaixo `CLUSTERNAME` substituindo pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
+2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Editar o comando abaixo substituindo `CLUSTERNAME` pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Configurar a variável ambiental uma vez estabelecida uma ligação SSH. Substitua, `SQL_DATABASE` `FILE_NAME` `SQL_SERVERNAME` `SQL_USER`, `SQL_PASWORD` e com os valores apropriados. Em seguida, insira o comando:
+3. Configurar a variável ambiental uma vez estabelecida uma ligação SSH. `FILE_NAME`Substitua, , e com os `SQL_SERVERNAME` `SQL_DATABASE` `SQL_USER` `SQL_PASWORD` valores apropriados. Em seguida, insira o comando:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -205,7 +205,7 @@ Existem muitas formas de ligar à Base de Dados SQL e criar uma tabela. Os passo
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Após a conclusão da instalação, utilize o seguinte comando para ligar ao servidor da Base de Dados SQL.
+2. Depois de a instalação terminar, utilize o seguinte comando para ligar à Base de Dados SQL.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
@@ -262,13 +262,13 @@ Nas secções anteriores, copiou os dados transformados em `/tutorials/flightdel
 
     Este comando devolve uma lista de bases de dados, incluindo a base de dados em que criou a `delays` tabela anteriormente.
 
-2. Exportar dados `/tutorials/flightdelays/output` da `delays` tabela, entrando no comando abaixo:
+2. Exportar dados da `/tutorials/flightdelays/output` `delays` tabela, entrando no comando abaixo:
 
     ```bash
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    O Sqoop liga-se à `delays` base de dados `/tutorials/flightdelays/output` que contém `delays` a tabela e exporta dados do diretório para a mesa.
+    O Sqoop liga-se à base de dados que contém a `delays` tabela e exporta dados do `/tutorials/flightdelays/output` diretório para a `delays` mesa.
 
 3. Depois de terminar o comando sqoop, utilize o utilitário tsql para ligar à base de dados, inserindo o comando abaixo:
 
@@ -293,7 +293,7 @@ Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsigh
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, pegou num ficheiro de dados CSV cru, importou-o para um armazenamento de cluster HDInsight e depois transformou os dados usando a Consulta Interativa no Azure HDInsight.  Avance para o próximo tutorial para saber sobre o Conector apache Hive Warehouse.
 

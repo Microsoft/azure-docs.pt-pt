@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 29eb0625ceebf4fee75d0c1accef7ae03b5f61b9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 56e3737b992664f031189c9ac243101eef922731
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208385"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020205"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
 
@@ -82,7 +82,7 @@ A geo-replicação dos pontos finais [do Azure Relay](../service-bus-relay/relay
 
 O serviço então ouve em ambos os pontos finais, e um cliente pode invocar o serviço através de qualquer ponto final. Uma aplicação de cliente escolhe aleatoriamente um dos retransmissores como o ponto final primário, e envia o seu pedido para o ponto final ativo. Se a operação falhar com um código de erro, esta falha indica que o ponto final do retransmissor não está disponível. A aplicação abre um canal para o ponto final de reserva e reedita o pedido. Nessa altura, as funções de switch ativa e de backup: a aplicação do cliente considera que o antigo ponto final ativo é o novo ponto final de backup, e o antigo ponto final de backup é o novo ponto final ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecem inalteradas e um erro é devolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a recuperação de desastres, consulte estes artigos:
 
 * [Recuperação geo-desastre do azure service bus](service-bus-geo-dr.md)
@@ -95,7 +95,7 @@ Para saber mais sobre a recuperação de desastres, consulte estes artigos:
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
-[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+[Azure SQL Database Business Continuity]:../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
 
 [1]: ./media/service-bus-outages-disasters/az.png

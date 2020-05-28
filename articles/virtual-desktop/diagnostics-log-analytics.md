@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bd28117350913bc25f5bf7cec08d28683ad9daca
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195911"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020069"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
 
@@ -180,6 +180,7 @@ WVDFeeds
 Para encontrar todas as ligações para um único utilizador: 
 
 ```kusto
+WVDConnections
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
@@ -243,6 +244,6 @@ WVDErrors
 >
 >Durante a pré-visualização pública, se precisar de ajuda para resolver um problema, certifique-se de que dá o CorrelationID pelo erro no seu pedido de ajuda. Além disso, certifique-se de que o valor do Erro de Serviço diz sempre serviceError = "falso". Um valor "falso" significa que a questão pode ser resolvida através de uma tarefa administrativa da sua parte. Se serviceError = "verdadeiro", terá de agravar o problema para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 Para rever cenários de erro comuns que a funcionalidade de diagnóstico pode identificar para si, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).

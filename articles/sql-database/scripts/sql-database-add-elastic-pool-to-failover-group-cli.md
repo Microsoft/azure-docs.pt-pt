@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2d6f18e373327b758e766dffba341c080622301f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061943"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022782"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Use o CLI para adicionar uma piscina elástica Azure SQL Database a um grupo de failover
 
@@ -57,8 +57,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az sql elástico-piscina](/cli/azure/sql/elastic-pool) | Comandos de piscina elástica. |
 | [az sql failover-grupo](/cli/azure/sql/failover-group) | Falha de comandos de grupo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).
 
-Amostras adicionais de script sQL Database Azure CLI podem ser encontradas nos [scripts Azure CLI](../sql-database-cli-samples.md)da Base de Dados Azure Azure .
+Amostras adicionais de script sQL Database Azure CLI podem ser encontradas nos [scripts Azure CLI](../../azure-sql/database/az-cli-script-samples-content-guide.md)da Base de Dados Azure Azure .

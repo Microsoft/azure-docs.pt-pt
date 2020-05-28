@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886930"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014541"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall de aplicação web para gateway de aplicação
 
@@ -63,13 +63,13 @@ Quando cria uma política WAF, por defeito está no modo *deteção.* No modo de
 
 As regras OWASP geridas pelo Azure são ativadas por defeito. Para desativar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, selecione a caixa de verificação em frente ao número da regra e selecione **Desativar** no separador acima.
 
-[![Regras geridas](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
+[![Regras geridas ](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Regras personalizadas
 
 Para criar uma regra personalizada, selecione **Adicionar regra personalizada** sob o separador de regras **Personalizadas.** Isto abre a página de configuração de regras personalizadas. A imagem seguinte mostra uma regra personalizada de exemplo configurada para bloquear um pedido se a cadeia de consulta contiver o *bloqueio*de texto .
 
-[![Editar regra](../media/create-waf-policy-ag/edit-custom-rule.png) personalizada](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
+[![Editar regra ](../media/create-waf-policy-ag/edit-custom-rule.png) personalizada](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate-your-waf-config-to-a-waf-policy"></a><a name="migrate"></a>Migrar o seu WAF Config para uma política waf
 
@@ -81,7 +81,7 @@ Se tiver um WAF existente, pode ter notado algumas alterações no portal. Prime
 
 Pode dizer em que estado está o seu WAF olhando para ele no portal. Se as definições waf estiverem visíveis e puderem ser alteradas a partir da vista Gateway da aplicação, o seu WAF encontra-se no estado 1.
 
-[![Configuração](../media/create-waf-policy-ag/waf-configure.png) WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
+[![Configuração ](../media/create-waf-policy-ag/waf-configure.png) WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 Se selecionar firewall de **aplicação web** e mostrar-lhe uma política associada, o WAF está no estado 2 ou no estado 3. Depois de navegar para a apólice, se mostrar **apenas** regras personalizadas, e Gateways de aplicação associados, então é uma política apenas de Regras Personalizadas.
 
@@ -97,10 +97,21 @@ Se tiver uma política de regras personalizadas apenas WAF, então talvez queira
 
 Edita a regra personalizada, apenas a política waf é desativada. Para editar quaisquer definições de WAF, tais como regras incapacitantes, adicionando exclusões, etc. você tem que migrar para um novo recurso de política de firewall de alto nível.
 
-Para tal, crie uma Política de Firewall de *Aplicação Web* e associe-a ao seu Gateway de aplicação e ao(s) ouvinte(s) de eleição. Esta nova Política **deve** ser exatamente a mesma que a atual config waf, o que significa que todas as regras personalizadas, exclusão, regra dos deficientes, etc. devem ser copiadas para a nova Política que está a criar. Uma vez que tenha uma Política associada ao seu Gateway de Aplicação, então pode continuar a fazer alterações às suas regras e definições waf. Também pode fazê-lo com a Azure PowerShell. Para mais informações, consulte [Associate uma política waf com um Gateway](associate-waf-policy-existing-gateway.md)de Aplicação existente .
+Para tal, crie uma Política de Firewall de *Aplicação Web* e associe-a ao seu Gateway de aplicação e ao(s) ouvinte(s) de eleição. Esta nova Política deve ser exatamente a mesma que a atual config waf, o que significa que todas as regras personalizadas, exclusão, regra dos deficientes, etc. devem ser copiadas para a nova Política que está a criar. Uma vez que tenha uma Política associada ao seu Gateway de Aplicação, então pode continuar a fazer alterações às suas regras e definições waf. Também pode fazê-lo com a Azure PowerShell. Para mais informações, consulte [Associate uma política waf com um Gateway](associate-waf-policy-existing-gateway.md)de Aplicação existente .
 
 Opcionalmente, você pode usar um roteiro de migração para migrar para uma política waf. Para mais informações, consulte as políticas de firewall de [aplicação web migrate utilizando o Azure PowerShell](migrate-policy.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="force-mode"></a>Modo de força
+
+Se não quiser copiar tudo numa política exatamente igual à sua config atual, pode colocar o WAF no modo de "força". Execute o seguinte código Azure PowerShell e o seu WAF estará em modo de vigor. Em seguida, pode associar qualquer Política WAF ao seu WAF, mesmo que não tenha as mesmas definições que o seu config. 
+
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
+$appgw.ForceFirewallPolicyAssociation = $true
+```
+
+Em seguida, procees com os passos para associar uma Política WAF ao seu gateway de aplicação. Para mais informações, consulte Associate a WAF Policy com um Gateway de [Aplicação existente.](associate-waf-policy-existing-gateway.md)
+
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre grupos e regras de [regras CRS firewall de aplicação web](application-gateway-crs-rulegroups-rules.md).

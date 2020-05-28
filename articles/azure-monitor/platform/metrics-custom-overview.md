@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b2d2d14f89fa25bba1a19538c758aa0c930b3964
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837316"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018536"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
@@ -28,7 +28,7 @@ As métricas personalizadas podem ser enviadas para o Monitor Azure através de 
 - Instrumente a sua aplicação utilizando o Azure Application Insights SDK e envie telemetria personalizada para o Monitor Azure. 
 - Instale a extensão de Diagnósticos Windows Azure (WAD) no seu [Azure VM,](collect-custom-metrics-guestos-resource-manager-vm.md)conjunto de [escala de máquinavirtual,](collect-custom-metrics-guestos-resource-manager-vmss.md) [VM clássico](collect-custom-metrics-guestos-vm-classic.md)ou [serviços de nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e envie contadores de desempenho para o Monitor Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) no seu VM Azure Linux e envie métricas utilizando o plug-in de saída do Monitor Azure.
-- Envie métricas personalizadas [diretamente para a API REST Do Monitor Azure,](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Envie métricas personalizadas [diretamente para a API REST Do Monitor Azure,](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-rentention"></a>Modelo de preços e rentenção
 
@@ -51,7 +51,7 @@ Para submeter métricas personalizadas ao Azure Monitor, a entidade que submete 
 Para autenticar o pedido, o Monitor Azure valida a aplicação através da utilização de chaves públicas Azure AD. O papel existente de **Monitoring Metrics Publisher** já tem esta permissão. Está disponível no portal Azure. O diretor de serviço, dependendo dos recursos para os quais emite métricas personalizadas, pode ser dado o papel de Editor de Métricas de **Monitorização** no âmbito necessário. Exemplos são uma subscrição, grupo de recursos ou recurso específico.
 
 > [!TIP]  
-> Quando solicitar um token Azure AD para emitir métricas personalizadas, certifique-se de `https://monitoring.azure.com/`que o público ou recurso que o token é solicitado é . Certifique-se de incluir o '/'.
+> Quando solicitar um token Azure AD para emitir métricas personalizadas, certifique-se de que o público ou recurso que o token é solicitado é `https://monitoring.azure.com/` . Certifique-se de incluir o '/'.
 
 ### <a name="subject"></a>Assunto
 Esta propriedade captura o qual o iD de recurso Azure a métrica personalizada é reportada. Estas informações serão codificadas no URL da chamada DaPI que está a ser feita. Cada API só pode submeter valores métricos para um único recurso Azure.
@@ -71,7 +71,7 @@ Esta propriedade captura a região de Azure o recurso para o qual está a emitir
 ### <a name="timestamp"></a>Carimbo de data/hora
 Cada ponto de dados enviado ao Monitor Azure deve ser marcado com uma marca temporal. Este carimbo de tempo captura o Tempo de Data em que o valor métrico é medido ou recolhido. O Azure Monitor aceita dados métricos com selos temporais até 20 minutos no passado e 5 minutos no futuro. A marca temporizada deve estar no formato ISO 8601.
 
-### <a name="namespace"></a>Espaço de nomes
+### <a name="namespace"></a>Espaço de Nomes
 Os espaços de nome são uma forma de categorizar ou agrupar métricas semelhantes. Ao utilizar espaços de nome, pode alcançar o isolamento entre grupos de métricas que podem recolher diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um espaço de nome chamado **contosomemorymetrics** que rastreia métricas de uso de memória que perfilam a sua aplicação. Outro espaço de nome chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de utilizadores na sua aplicação.
 
 ### <a name="name"></a>Name
@@ -189,31 +189,31 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Região do Azure |Prefixo de ponto final regional|
 |---|---|
 | **EUA e Canadá** | |
-|E.U.A. Centro-Oeste | https:\//westcentralus.monitoring.azure.com/ |
-|E.U.A.Oeste 2       | https:\//westus2.monitoring.azure.com/ |
-|E.U.A. Centro-Norte | https:\//northcentralus.monitoring.azure.com
-|E.U.A. Centro-Sul| https:\//southcentralus.monitoring.azure.com/ |
-|E.U.A. Central      | https:\//centralus.monitoring.azure.com |
-|Canadá Central | https:\//canadacentral.monitoring.azure.comc
-|E.U.A. Leste| https:\//eastus.monitoring.azure.com/ |
+|E.U.A. Centro-Oeste | https: \/ /westcentralus.monitoring.azure.com/ |
+|E.U.A.Oeste 2       | https: \/ /westus2.monitoring.azure.com/ |
+|E.U.A. Centro-Norte | https: \/ /northcentralus.monitoring.azure.com
+|E.U.A. Centro-Sul| https: \/ /southcentralus.monitoring.azure.com/ |
+|E.U.A. Central      | https: \/ /centralus.monitoring.azure.com |
+|Canadá Central | https: \/ /canadacentral.monitoring.azure.comc
+|E.U.A. Leste| https: \/ /eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Europa do Norte    | https:\//northeurope.monitoring.azure.com/ |
-|Europa ocidental     | https:\//westeurope.monitoring.azure.com/ |
-|Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
-|França Central | https:\//francecentral.monitoring.azure.com |
+|Europa do Norte    | https: \/ /northeurope.monitoring.azure.com/ |
+|Europa ocidental     | https: \/ /westeurope.monitoring.azure.com/ |
+|Sul do Reino Unido | https: \/ /uksouth.monitoring.azure.com
+|França Central | https: \/ /francecentral.monitoring.azure.com |
 | **África** | |
-|África do Sul Norte | https:\//southafricanorth.monitoring.azure.com
+|África do Sul Norte | https: \/ /southafricanorth.monitoring.azure.com
 | **Ásia** | |
-|Índia Central | https:\//centralindia.monitoring.azure.com
-|Leste da Austrália | https:\//australiaeast.monitoring.azure.com
-|Leste do Japão | https:\//japaneast.monitoring.azure.com
-|Ásia Sudeste  | https:\//southeastasia.monitoring.azure.com |
-|Ásia Leste | https:\//eastasia.monitoring.azure.com
-|Coreia do Sul Central   | https:\//koreacentral.monitoring.azure.com
+|Índia Central | https: \/ /centralindia.monitoring.azure.com
+|Leste da Austrália | https: \/ /australiaeast.monitoring.azure.com
+|Leste do Japão | https: \/ /japaneast.monitoring.azure.com
+|Ásia Sudeste  | https: \/ /southeastasia.monitoring.azure.com |
+|Ásia Leste | https: \/ /eastasia.monitoring.azure.com
+|Coreia do Sul Central   | https: \/ /koreacentral.monitoring.azure.com
 
 ## <a name="latency-and-storage-retention"></a>Latência e retenção de armazenamento
 
-Adicionar uma nova métrica ou uma nova dimensão adicionada a uma métrica pode levar até 2 a 3 minutos para aparecer. Uma vez no sistema, os dados devem ser lançados em menos de 30 segundos 99% do tempo. 
+Adicionar uma nova métrica ou uma nova dimensão adicionada a uma métrica pode levar até 2 a 3 minutos para aparecer. Uma vez no sistema, os dados devem aparecer em menos de 30 segundos 99% do tempo. 
 
 Se eliminar uma métrica ou remover uma dimensão, a alteração pode demorar uma semana a um mês a ser eliminada do sistema.
 
@@ -228,7 +228,7 @@ O Monitor Azure impõe os seguintes limites de utilização em métricas persona
 
 Uma série de tempo ativa é definida como qualquer combinação única de métrica, chave de dimensão ou valor de dimensão que teve valores métricos publicados nas últimas 12 horas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Utilize métricas personalizadas de diferentes serviços: 
  - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjuntos de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)

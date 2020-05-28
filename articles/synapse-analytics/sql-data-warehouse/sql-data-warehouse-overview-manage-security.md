@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 27d3a242d91a79ea00974748f4a8b5460d2dd247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d86a0df5265418a28e1fe68de0dc2cd601e71f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416062"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015596"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteja uma base de dados em Azure Synapse
 
@@ -33,11 +33,11 @@ Este artigo irá acompanhá-lo através do básico de garantir a sua piscina Syn
 
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
-As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista branca. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell.
+As regras de firewall são usadas tanto pelo [servidor lógico SQL](../../azure-sql/database/logical-servers.md) como pelas suas bases de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas como brancas. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell.
 
-Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall na sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
+Como uma boa prática, deve restringir as gamas de endereços IP permitidas através da firewall do nível do servidor o máximo possível.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall na sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 
-O Azure Synapse Analytics utiliza regras de firewall IP ao nível do servidor. Não suporta regras de firewall IP de nível de base de dados. Para mais informações, consulte as regras de firewall da Base de [Dados Azure SQL](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+O Azure Synapse Analytics utiliza regras de firewall IP ao nível do servidor. Não suporta regras de firewall IP de nível de base de dados. Para mais informações, consulte as regras de firewall da Base de [Dados Azure SQL](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 As ligações à sua piscina SQL são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
 
@@ -45,11 +45,11 @@ As ligações à sua piscina SQL são encriptadas por padrão.  A modificação 
 
 A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O pool SQL suporta atualmente a Autenticação do Servidor SQL com um nome de utilizador e senha, e com diretório Ativo Azure.
 
-Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Utilizando estas credenciais, pode autenticar qualquer base de dados desse servidor como proprietário da base de dados, ou "dbo" através da Autenticação do Servidor SQL.
+Quando criou o servidor para a sua base de dados, especificou um login "server admin" com um nome de utilizador e uma palavra-passe. Utilizando estas credenciais, pode autenticar qualquer base de dados desse servidor como proprietário da base de dados, ou "dbo" através da Autenticação do Servidor SQL.
 
 No entanto, como uma boa prática, os utilizadores da sua organização devem usar uma conta diferente para autenticar. Desta forma, pode limitar as permissões concedidas à aplicação e reduzir os riscos de atividade maliciosa caso o seu código de aplicação seja vulnerável a um ataque de injeção SQL.
 
-Para criar um utilizador Autenticado do Servidor SQL, ligue-se à base de dados **principal** do seu servidor com o seu servidor e crie um novo login do servidor.  É uma boa ideia também criar um utilizador na base de dados principal. A criação de um utilizador em mestrado permite que um utilizador inicie sessão utilizando ferramentas como O SSMS sem especificar um nome de base de dados.  Também permite que utilizem o explorador de objetos para visualizar todas as bases de dados de um servidor SQL.
+Para criar um utilizador Autenticado do Servidor SQL, ligue-se à base de dados **principal** do seu servidor com o seu servidor e crie um novo login do servidor.  É uma boa ideia também criar um utilizador na base de dados principal. A criação de um utilizador em mestrado permite que um utilizador inicie sessão utilizando ferramentas como O SSMS sem especificar um nome de base de dados.  Também permite que utilizem o explorador de objetos para visualizar todas as bases de dados de um servidor.
 
 ```sql
 -- Connect to master database and create a login
@@ -64,9 +64,9 @@ Em seguida, ligue-se à sua base de dados de **piscina SQL** com o seu servidor 
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Para dar permissão ao utilizador para realizar operações adicionais, tais como a `Loginmanager` `dbmanager` criação de logins ou a criação de novas bases de dados, atribuir o utilizador às funções e funções na base de dados principal.
+Para dar permissão ao utilizador para realizar operações adicionais, tais como a criação de logins ou a criação de novas bases de dados, atribuir o utilizador às `Loginmanager` funções e funções na base de `dbmanager` dados principal.
 
-Para obter mais informações sobre estas funções adicionais e autenticar uma base de dados SQL, consulte [a Managing database e os logins na Base de Dados Azure SQL](../../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Para obter mais informações sobre a ligação utilizando o Diretório Ativo Azure, consulte a Ligação utilizando a [autenticação de diretório ativo Azure](sql-data-warehouse-authentication.md).
+Para obter mais informações sobre estas funções adicionais e autenticar uma base de dados SQL, consulte [a Managing database e os logins na Base de Dados Azure SQL](../../azure-sql/database/logins-create-manage.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Para obter mais informações sobre a ligação utilizando o Diretório Ativo Azure, consulte a Ligação utilizando a [autenticação de diretório ativo Azure](sql-data-warehouse-authentication.md).
 
 ## <a name="authorization"></a>Autorização
 
@@ -92,16 +92,16 @@ O exemplo seguinte dá acesso a um esquema definido pelo utilizador.
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-A gestão de bases de dados e servidores lógicos do portal Azure ou utilizando a API do Gestor de Recursos Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para mais informações, consulte o [controlo de acesso baseado em role no portal Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A gestão de bases de dados e servidores do portal Azure ou utilizando a API do Gestor de Recursos Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para mais informações, consulte o [controlo de acesso baseado em role no portal Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Encriptação
 
 A Encriptação transparente de dados (TDE) ajuda a proteger contra a ameaça de atividades maliciosas encriptando e desencriptando os seus dados em repouso. Quando encripta a sua base de dados, as cópias de segurança associadas e os ficheiros de registo de transações são encriptados sem que seja necessário alterar as suas aplicações. A Encriptação de Dados Transparente encripta o armazenamento de uma base de dados completa ao utilizar uma chave simétrica chamada chave de encriptação de base de dados.
 
-Na Base de Dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado. O certificado de servidor incorporado é único para cada servidor de base de dados SQL. A Microsoft roda automaticamente estes certificados pelo menos a cada 90 dias. O algoritmo de encriptação utilizado é AES-256. Para obter uma descrição geral do TDE, consulte a [Encriptação transparente de dados](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Na Base de Dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado. O certificado de servidor incorporado é único para cada servidor. A Microsoft roda automaticamente estes certificados pelo menos a cada 90 dias. O algoritmo de encriptação utilizado é AES-256. Para obter uma descrição geral do TDE, consulte a [Encriptação transparente de dados](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Pode encriptar a sua base de dados através do [portal Azure](sql-data-warehouse-encryption-tde.md) ou [DoT T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](../sql/connect-overview.md).

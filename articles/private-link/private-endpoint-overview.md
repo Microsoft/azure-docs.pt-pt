@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f75b080ce31a5c954471d277aad354879c16c6b3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849659"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022202"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -86,7 +86,7 @@ Pode bloquear completamente as suas cargas de trabalho desde o acesso a pontos f
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de ligação privada utilizando fluxo de trabalho de aprovação 
 Pode ligar-se a um recurso de ligação privada utilizando os seguintes métodos de aprovação de ligação:
-- **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft. \< Fornecedor>/<resource_type>/privateEndpointConnectionApproval/action
+- **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - **Pedido manual** quando não tiver a permissão necessária e gostaria de solicitar acesso. Será iniciado um fluxo de trabalho de aprovação. O ponto final privado e a subsequente ligação do ponto final privado serão criados num estado “Pendente”. O proprietário do recurso de ligação privada é responsável por aprovar a ligação. Depois de aprovado, o ponto final privado está habilitado a enviar tráfego normalmente, como mostra o seguinte diagrama de fluxo de trabalho de aprovação.  
 
 ![aprovação de fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -123,10 +123,10 @@ O quadro seguinte inclui uma lista de limitações conhecidas ao utilizar pontos
 |As regras do Grupo de Segurança da Rede (NSG) e as rotas definidas pelo utilizador não se aplicam ao Ponto Final Privado    |A NSG não é apoiada em pontos finais privados. Embora as subredes que contenham o ponto final privado possam ter o NSG associado a ele, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter políticas de [rede desativadas](disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa subnet. O NSG ainda é aplicado em outras cargas de trabalho alojadas na mesma subnet. As rotas em qualquer subnet do cliente estarão a usar um prefixo /32, alterando o comportamento de encaminhamento predefinido requer um UDR semelhante  | Controlar o tráfego utilizando regras de NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para sobrepor rotas de pontos finais privados. Os registos de fluxo NSG e informações de monitorização para ligações de saída ainda são suportados e podem ser usados        |
 
 
-## <a name="next-steps"></a>Passos seguintes
-- [Criar um ponto final privado para o Servidor de Base de Dados SQL utilizando o Portal](create-private-endpoint-portal.md)
-- [Criar um ponto final privado para o Servidor de Base de Dados SQL usando powerShell](create-private-endpoint-powershell.md)
-- [Criar um ponto final privado para o Servidor de Base de Dados SQL utilizando o CLI](create-private-endpoint-cli.md)
+## <a name="next-steps"></a>Próximos passos
+- [Criar um ponto final privado para base de dados SQL usando o Portal](create-private-endpoint-portal.md)
+- [Criar um ponto final privado para base de dados SQL usando powerShell](create-private-endpoint-powershell.md)
+- [Criar um ponto final privado para base de dados SQL utilizando o CLI](create-private-endpoint-cli.md)
 - [Criar um ponto final privado para a conta de armazenamento usando o Portal](create-private-endpoint-storage-portal.md)
 - [Criar um endpoint privado para a conta Azure Cosmos usando o Portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Crie o seu próprio serviço private link usando o Azure PowerShell](create-private-link-service-powershell.md)

@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77157512"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015306"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer em caso de interrupção de serviço Azure que afetas os Serviços Cloud do Azure
 Na Microsoft, trabalhamos arduamente para garantir que os nossos serviços estão sempre disponíveis para si quando precisar. Forças fora do nosso controlo às vezes nos afetam de formas que causam perturbações não planeadas do serviço.
@@ -47,13 +47,13 @@ Para mais detalhes sobre como criar e implementar uma aplicação de serviço na
 Dependendo das fontes de dados da sua aplicação, poderá ter de verificar os procedimentos de recuperação da fonte de dados da sua aplicação.
 
 * Para obter fontes de dados de Armazenamento Azure, consulte o despedimento do [Azure Storage](../storage/common/storage-redundancy.md) para verificar as opções disponíveis com base no modelo de despedimento escolhido para a sua aplicação.
-* Para obter fontes de base de dados SQL, leia [a visão geral: continuidade do negócio em nuvem e recuperação](../sql-database/sql-database-business-continuity.md) de desastres de base de dados com base de dados SQL para verificar as opções disponíveis com base no modelo de replicação escolhido para a sua aplicação.
+* Para obter fontes de base de dados SQL, leia [a visão geral: continuidade do negócio em nuvem e recuperação](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) de desastres de base de dados com base de dados SQL para verificar as opções disponíveis com base no modelo de replicação escolhido para a sua aplicação.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Opção 3: Aguardar a recuperação
 Neste caso, não é necessária qualquer ação da sua parte, mas o seu serviço estará indisponível até que a região seja restaurada. Pode ver o estado de serviço atual no Painel de Saúde do [Serviço Azure](https://azure.microsoft.com/status/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte a recuperação de [desastres e a elevada disponibilidade para aplicações Azure.](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
 Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma de nuvem, consulte a orientação técnica de [resiliência do Azure.](/azure/architecture/checklist/resiliency-per-service)

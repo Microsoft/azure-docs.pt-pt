@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 124aac96550b5d462c0794053452ed28dba27452
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231344"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013219"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
 
@@ -112,7 +112,7 @@ Como mencionado anteriormente, o Azure classifica os serviços em três categori
 > | Service Bus | Azure Firewall | Data Box Heavy |
 > | Service Fabric | Funções do Azure | Catálogo de Dados |
 > | Conjuntos de Dimensionamento de Máquinas Virtuais | Azure HPC Cache | Fábrica de Dados : Fábrica de Dados V1 |
-> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
+> | Máquinas Virtuais | Azure IoT Hub | Data Lake Analytics |
 > | Máquinas Virtuais: Série Av2 | Serviço de Kubernetes do Azure (AKS) | Machine Learning Studio |
 > | Máquinas Virtuais: Série B | Azure Machine Learning | Microsoft Genomics |
 > | Máquinas Virtuais: DSv2-Series | Azure Private Link | Remote Rendering |
@@ -166,7 +166,7 @@ Não existe um custo adicional para máquinas virtuais implantadas numa Zona de 
 - [Peso de vMs em zonas usando um Balancer de Carga Padrão com uma extremidade frontal redundante de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Peso de saldo VMs dentro de uma zona usando um Balancer de carga padrão com uma extremidade frontal zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Armazenamento com redundância entre zonas](../storage/common/storage-redundancy-zrs.md)
-- [Base de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Base de Dados SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Recuperação após desastre geográfica dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação após desastre geográfica do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
@@ -175,7 +175,7 @@ Não existe um custo adicional para máquinas virtuais implantadas numa Zona de 
 - [Criar uma instância do Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Crie um cluster azure Kubernetes Service (AKS) que utilize zonas de disponibilidade](../aks/availability-zones.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Regiões que apoiam zonas de disponibilidade em Azure](az-region.md)
 - [Modelos de início rápido](https://aka.ms/azqs)

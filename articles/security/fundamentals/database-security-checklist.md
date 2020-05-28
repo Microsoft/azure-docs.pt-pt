@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79201030"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021845"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança da base de dados Azure
 
 Para ajudar a melhorar a segurança, a Base de Dados Azure inclui uma série de controlos de segurança incorporados que pode usar para limitar e controlar o acesso.
 
-Estas incluem:
+Incluem-se:
 
--    Uma firewall que lhe permite criar regras de [firewall](../../sql-database/sql-database-firewall-configure.md) limitando a conectividade por endereço IP,
+-    Uma firewall que lhe permite criar regras de [firewall](../../azure-sql/database/firewall-configure.md) limitando a conectividade por endereço IP,
 -    Firewall ao nível do servidor acessível a partir do portal Azure
 -    Regras de firewall ao nível da base de dados acessíveis a partir de SSMS
 -    Segurança na conectividade com a sua base de dados utilizando cordas de ligação seguras
@@ -50,19 +50,19 @@ Recomendamos que leia o artigo de Boas Práticas de Segurança da Base de [Dados
 | <br> Encriptação em Movimento/Trânsito| <ul><li>[Transporte Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para encriptação de dados quando os dados estão a mover-se para as redes.</li><li>A base de dados requer uma comunicação segura dos clientes com base no protocolo [TDS (Fluxo de Dados Tabular)](https://msdn.microsoft.com/library/dd357628.aspx) sobre tLS (Segurança da Camada de Transporte).</li></ul> |
 |<br>Encriptação inativa| <ul><li>[Encriptação transparente de dados,](https://go.microsoft.com/fwlink/?LinkId=526242)quando os dados inativos são armazenados fisicamente em qualquer forma torto digital.</li></ul>|
 |**Controlar Acesso**||  
-|<br> Acesso à Base de Dados | <ul><li>[Autenticação](../../sql-database/sql-database-manage-logins.md) (Autenticação ativa do Diretório Azure) Autenticação adusa utiliza identidades geridas pelo Diretório Ativo Azure.</li><li>[A autorização](../../sql-database/sql-database-manage-logins.md) concede aos utilizadores os menores privilégios necessários.</li></ul> |
-|<br>Acesso à aplicação| <ul><li>[Segurança de nível](https://msdn.microsoft.com/library/dn765131) de linha (Utilizando a Política de Segurança, ao mesmo tempo que restringe o acesso ao nível da linha com base na identidade, função ou contexto de execução de um utilizador).</li><li>[Mascaramento de dados dinâmicos](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (Utilizando a Política de & de Permissão, limita a exposição sensível de dados, mascarando-os a utilizadores não privilegiados)</li></ul>|
+|<br> Acesso à Base de Dados | <ul><li>[Autenticação](../../azure-sql/database/logins-create-manage.md) (Autenticação ativa do Diretório Azure) Autenticação adusa utiliza identidades geridas pelo Diretório Ativo Azure.</li><li>[A autorização](../../azure-sql/database/logins-create-manage.md) concede aos utilizadores os menores privilégios necessários.</li></ul> |
+|<br>Acesso à aplicação| <ul><li>[Segurança de nível](https://msdn.microsoft.com/library/dn765131) de linha (Utilizando a Política de Segurança, ao mesmo tempo que restringe o acesso ao nível da linha com base na identidade, função ou contexto de execução de um utilizador).</li><li>[Mascaramento de dados dinâmicos](../../azure-sql/database/dynamic-data-masking-overview.md) (Utilizando a Política de & de Permissão, limita a exposição sensível de dados, mascarando-os a utilizadores não privilegiados)</li></ul>|
 |**Monitorização Proativa**||  
-| <br>Rastreio & Deteção| <ul><li>[A auditoria](../../sql-database/sql-database-auditing.md) rastreia os eventos da base de dados e escreve-os num registo de auditoria/Registo de Atividade na sua [conta de Armazenamento Azure](../../storage/common/storage-create-storage-account.md).</li><li>Rastrear a saúde da base de dados Azure utilizando registos de atividade do [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[A Deteção de Ameaças](../../sql-database/sql-database-threat-detection.md) deteta atividades anómalas na base de dados que indicam potenciais ameaças à segurança na base de dados. </li></ul> |
+| <br>Rastreio & Deteção| <ul><li>[A auditoria](../../sql-database/sql-database-auditing.md) rastreia os eventos da base de dados e escreve-os num registo de auditoria/Registo de Atividade na sua [conta de Armazenamento Azure](../../storage/common/storage-create-storage-account.md).</li><li>Rastrear a saúde da base de dados Azure utilizando registos de atividade do [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[A Deteção de Ameaças](../../azure-sql/database/threat-detection-configure.md) deteta atividades anómalas na base de dados que indicam potenciais ameaças à segurança na base de dados. </li></ul> |
 |<br>Centro de Segurança do Azure| <ul><li>[Monitorização de Dados](../../security-center/security-center-enable-auditing-on-sql-databases.md) Utilize o Azure Security Center como uma solução centralizada de monitorização de segurança para os serviços SQL e outros serviços Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusão
 A Azure Database é uma plataforma de base de dados robusta, com uma gama completa de funcionalidades de segurança que cumprem muitos requisitos de conformidade organizacional e regulamentar. Pode proteger facilmente os dados controlando o acesso físico aos seus dados e utilizando uma variedade de opções para a segurança de dados no nível de ficheiros, colunas ou linhas com encriptação transparente de dados, encriptação de nível celular ou Segurança de Nível de Linha. Sempre Encriptado também permite operações contra dados encriptados, simplificando o processo de atualizações da aplicação. Por sua vez, o acesso a registos de auditoria da atividade da Base de Dados SQL fornece-lhe a informação de que necessita, permitindo-lhe saber como e quando os dados são acedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode melhorar a proteção da sua base de dados contra utilizadores mal intencionados ou o acesso não autorizado com apenas alguns passos simples. Neste tutorial, ficará a saber como:
 
-- Configurar regras de [firewall](../../sql-database/sql-database-firewall-configure.md) para o seu servidor e ou base de dados.
+- Configurar regras de [firewall](../../azure-sql/database/firewall-configure.md) para o seu servidor e ou base de dados.
 - Proteja os seus dados com [encriptação](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Ativar a auditoria da Base de [Dados SQL](../../sql-database/sql-database-auditing.md).
 

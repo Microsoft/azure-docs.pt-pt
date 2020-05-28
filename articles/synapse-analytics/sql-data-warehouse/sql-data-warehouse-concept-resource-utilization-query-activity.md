@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e80ff74ad1dec25c815a9dd28a04133502b82085
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653012"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012913"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta no Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Est
 Coisas a considerar ao visualizar métricas e definir alertas:
 
 - A DWU utilizada representa apenas uma **representação de alto nível de utilização** em toda a piscina SQL e não se destina a ser um indicador abrangente de utilização. Para determinar se deve escalar para cima ou para baixo, considere todos os fatores que podem ser impactados pela DWU, tais como a conmoeda, a memória, a capacidade de cache tempdb e adaptativa. Recomendamos [executar a sua carga de trabalho em diferentes configurações de DWU](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) para determinar o que funciona melhor para cumprir os seus objetivos de negócio.
-- Ligações falhadas e bem sucedidas são reportadas para um determinado armazém de dados - não para o servidor lógico
+- Ligações falhadas e bem sucedidas são reportadas para um determinado armazém de dados - não para o próprio servidor.
 - A percentagem de memória reflete a utilização mesmo que o armazém de dados esteja em estado de inatividade - não reflete o consumo ativo de memória da carga de trabalho. Utilize e rastreie esta métrica juntamente com outros (tempdb, cache gen2) para tomar uma decisão holística sobre se a escala para uma capacidade adicional de cache aumentará o desempenho da carga de trabalho para satisfazer os seus requisitos.
 
 ## <a name="query-activity"></a>Atividade de consulta
@@ -62,7 +62,7 @@ Para ver a lista de DMVs que se aplicam ao Synapse SQL, consulte esta [documenta
 
 Ambas as métricas e registos podem ser exportados para o Monitor Azure, especificamente o componente de [registos do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acedidos programáticamente através de consultas de [registo](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A latência de log para Synapse SQL é de cerca de 10-15 minutos. Para mais detalhes sobre os fatores com impacto na latência, visite a seguinte documentação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O seguinte guia como orientar descreve cenários comuns e utiliza casos ao monitorizar e gerir o seu armazém de dados:
 

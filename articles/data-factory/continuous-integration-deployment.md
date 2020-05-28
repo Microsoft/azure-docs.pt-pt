@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 77cba087ec578a478f4de9c8eebec3eb1e8d41b2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772867"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022406"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas na Azure Data Factory
 
@@ -569,26 +569,6 @@ Para utilizar modelos ligados em vez do modelo completo do Gestor de Recursos, a
 Lembre-se de adicionar os scripts data Factory no seu pipeline CI/CD antes e depois da tarefa de implantação.
 
 Se não tiver Git configurado, pode aceder aos modelos ligados através do Modelo braço de **exportação** na lista de **modelos** ARM.
-
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Excluir os tempos de execução da integração Azure-SSIS a partir de CI/CD
-
-Se a sua fábrica de desenvolvimento tiver o tempo de execução de integração Azure-SSIS, pode excluir todos os tempos de execução da Integração Azure-SSIS do processo CI/CD no cenário abaixo:
-
-- A infraestrutura azure-SSIS IR é complexa e varia em cada ambiente.  
-- O AZURE-SSIS IR é configurado manualmente para cada ambiente com o mesmo nome. Caso contrário, a publicação falhará se houver atividade dependendo do IR Azure-SSIS.
-
-Para excluir o tempo de execução da integração Azure-SSIS:
-
-1. Adicione um ficheiro publish_config.json à pasta raiz no ramo de colaboração, se não existir.
-1. Adicione a definição abaixo para publish_config.json: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-Ao publicar a partir do ramo de colaboração, os tempos de execução de integração Azure-SSIS serão excluídos do modelo de Gestor de Recursos gerado.
 
 ## <a name="hotfix-production-branch"></a>Ramo de produção hotfix
 

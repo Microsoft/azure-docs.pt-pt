@@ -4,12 +4,12 @@ description: Ligações a cenários de migração exemplo Contoso, para migraç�
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
-ms.openlocfilehash: c57a9f85e8b12bd4e1e66a4fcd5d08ab5f7b9118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e19bcbd041232504a81ac0799e71cae2f459428
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676316"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016921"
 ---
 # <a name="contoso-migration-series"></a>Série de migração do Contoso
 
@@ -36,7 +36,7 @@ Os artigos da série são resumidos na tabela abaixo.
 [Artigo 6.º: Realojar uma aplicação em VMs Azure e num grupo de disponibilidade sQL Server AlwaysOn](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) | Contoso migra a aplicação SmartHotel360. Contoso usa Azure Migrate para migrar os VMs da aplicação. Utiliza o Serviço de Migração de Bases de Dados para migrar a base de dados da aplicação para um cluster SQL Server protegido por um grupo de disponibilidade AlwaysOn. 
 [Artigo 7º: Reacolher uma aplicação Linux sobre VMs Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm) | Contoso completa uma migração de elevador e mudança da sua aplicação Linux osTicket para VMs Azure, usando o Azure Migrate.
 [Artigo 8.º: Reacolher uma aplicação Linux sobre VMs Azure e Base de Dados Azure para MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql) | Contoso migra a sua aplicação Linux osTicket para Os VMs Azure usando o Azure Migrate. Migra a base de dados de aplicações para a Base de Dados Azure para o MySQ, utilizando o Serviço de Migração de Bases de Dados Azure (inclui uma opção alternativa utilizando a bancada de trabalho MySQL).
-[Artigo 9.º: Refactor uma aplicação numa aplicação web do Azure e na Base de Dados Azure SQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migra a sua aplicação SmartHotel360 para uma aplicação web Azure, e migra a base de dados de aplicações para uma instância do Servidor Azure SQL, utilizando o Serviço de Migração da Base de Dados Azure.
+[Artigo 9.º: Refactor uma aplicação numa aplicação web do Azure e na Base de Dados Azure SQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migra a sua aplicação SmartHotel360 para uma aplicação web Azure, e migra a base de dados de aplicações para a Base de Dados Azure SQL, utilizando o Serviço de Migração da Base de Dados Azure.
 [Artigo 10.º: Refactor a aplicação Windows utilizando serviços de aplicações do Azure e Instância Gerida SQL](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql-managed-instance) | Contoso migra uma aplicação baseada no Windows no local para uma aplicação web Azure, e migra a base de dados de aplicações para uma Instância Gerida Azure SQL, utilizando o Serviço de Migração de Bases de Dados Azure.
 [Artigo 11.º: Refactor a Linux app em uma aplicação web Azure e Base de Dados Azure para MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso migra a sua aplicação Linux osTicket para uma aplicação web Azure em várias regiões do Azure, utilizando o Azure Traffic Manager, integrado com o GitHub para entrega contínua. Contoso migra a base de dados de aplicações para uma base de dados Azure para a instância MySQL. 
 [Artigo 12.º: Refactor Team Foundation Server sobre serviços Azure DevOps](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso migra a sua implantação no local Team Foundation Server para a Azure DevOps Services em Azure.
@@ -45,7 +45,7 @@ Os artigos da série são resumidos na tabela abaixo.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migração em nuvem.
 - Conheça as estratégias de migração para outros cenários (par de origem/alvo) no Guia de [Migração](https://datamigration.microsoft.com/)da Base de Dados .

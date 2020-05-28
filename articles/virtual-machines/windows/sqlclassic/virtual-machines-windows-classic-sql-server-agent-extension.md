@@ -15,24 +15,24 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982274"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017548"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gestão em Máquinas Virtuais Azure com a extensão do agente do servidor SQL (Clássico)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Clássica](../classic/sql-server-agent-extension.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
+> * [Clássico](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
 A extensão do agente SQL Server IaaS (SQLIaSAgent) funciona em máquinas virtuais Azure para automatizar tarefas de administração. Este tópico fornece uma visão geral dos serviços suportados pela extensão, bem como instruções de instalação, estado e remoção.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Gestor de Recursos e Clássico.](../../../azure-resource-manager/management/deployment-models.md) Este artigo cobre a utilização do modelo de implantação Classic. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para ver a versão do Gestor de Recursos deste artigo, consulte a extensão do agente do [servidor SQL para o Gestor de Recursos VMs do Servidor SQL](../sql/virtual-machines-windows-sql-server-agent-extension.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Gestor de Recursos e Clássico.](../../../azure-resource-manager/management/deployment-models.md) Este artigo cobre a utilização do modelo de implantação Classic. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para ver a versão do Gestor de Recursos deste artigo, consulte a extensão do agente do [servidor SQL para o Gestor de Recursos VMs do Servidor SQL](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md).
 
 ## <a name="supported-services"></a>Serviços suportados
 A extensão do agente SQL Server IaaS suporta as seguintes tarefas de administração:
@@ -82,7 +82,7 @@ Se atualizar para a versão mais recente da extensão do agente SQL IaaS, deve r
 > As máquinas virtuais clássicas não têm opção de instalar e configurar a extensão do agente SQL IaaS através do portal.
 
 > [!NOTE]
-> A extensão do agente SQL Server IaaS só é suportada em imagens de [galeria SQL Server VM](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go ou bring-your-own-license). Não é suportado se instalar manualmente o SQL Server numa máquina virtual do Windows Server apenas para OS ou se implementar um VHD VM D SQL personalizado. Nestes casos, pode ser possível instalar e gerir a extensão manualmente utilizando o PowerShell, mas é fortemente recomendado instalar uma imagem de galeria SQL Server VM e depois personalizá-la.
+> A extensão do agente SQL Server IaaS só é suportada em imagens de [galeria SQL Server VM](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (pay-as-you-go ou bring-your-own-license). Não é suportado se instalar manualmente o SQL Server numa máquina virtual do Windows Server apenas para OS ou se implementar um VHD VM D SQL personalizado. Nestes casos, pode ser possível instalar e gerir a extensão manualmente utilizando o PowerShell, mas é fortemente recomendado instalar uma imagem de galeria SQL Server VM e depois personalizá-la.
 
 ## <a name="status"></a>Estado
 Uma forma de verificar se a extensão está instalada é ver o estado do agente no Portal Azure. Selecione uma máquina virtual listada na lâmina virtual e, em seguida, clique em **Extensões**. Deve ver a extensão **SQLIaSAgent** listada.
@@ -105,5 +105,5 @@ Também pode utilizar o cmdlet de powershell **de extensão remove-AzureVMSqlSer
 ## <a name="next-steps"></a>Passos Seguintes
 Comece a utilizar um dos serviços suportados pela extensão. Para mais detalhes, consulte os tópicos referenciados na secção de [serviços suportados](#supported-services) deste artigo.
 
-Para obter mais informações sobre a execução do Servidor SQL em Máquinas Virtuais Azure, consulte [o Servidor SQL na visão geral das Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para obter mais informações sobre a execução do Servidor SQL em Máquinas Virtuais Azure, consulte [o Servidor SQL na visão geral das Máquinas Virtuais Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

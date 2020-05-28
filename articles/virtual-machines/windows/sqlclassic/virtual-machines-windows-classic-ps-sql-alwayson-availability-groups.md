@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978148"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014864"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configure o grupo always on disponibilidade em um VM Azure com PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "75978148"
 > * [Clássico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Antes de começar, considere que agora pode completar esta tarefa no modelo de gestor de recursos Azure. Recomendamos o modelo de gestor de recursos Azure para novas implementações. Consulte [o Servidor SQL Sempre em grupos de disponibilidade em máquinas virtuais Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Antes de começar, considere que agora pode completar esta tarefa no modelo de gestor de recursos Azure. Recomendamos o modelo de gestor de recursos Azure para novas implementações. Consulte [o Servidor SQL Sempre em grupos de disponibilidade em máquinas virtuais Azure](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
 
 > [!IMPORTANT]
 > Recomendamos que a maioria das novas implementações utilizem o modelo De Gestor de Recursos. O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo cobre a utilização do modelo de implementação clássica.
@@ -158,7 +158,7 @@ Este tutorial destina-se a mostrar-lhe os passos necessários para configurar a 
    * **Add-AzureDataDisk** adiciona o disco de dados que utilizará para armazenar dados do Diretório Ativo, com a opção de cache definida para Nenhum.
    * **O Novo AzureVM** cria um novo serviço na nuvem e cria o novo Azure VM no novo serviço de cloud.
 
-7. Aguarde que o novo VM seja totalmente provisionado e descarregue o ficheiro remoto para o seu diretório de trabalho. Como o novo Azure VM demora muito `while` tempo a fornecer, o loop continua a sondar o novo VM até estar pronto a ser utilizado.
+7. Aguarde que o novo VM seja totalmente provisionado e descarregue o ficheiro remoto para o seu diretório de trabalho. Como o novo Azure VM demora muito tempo a fornecer, o `while` loop continua a sondar o novo VM até estar pronto a ser utilizado.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -481,7 +481,7 @@ Finalmente, está pronto para configurar o grupo de disponibilidade. Utilizará 
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Baixe **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster para Sempre Em Grupos de Disponibilidade em Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Vais usar este guião para te ajudar a criar um cluster funcional de failover. Para obter informações importantes sobre como o Clustering de Failover do Windows interage com a rede Azure, consulte alta disponibilidade e recuperação de [desastres para o Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Baixe **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster para Sempre Em Grupos de Disponibilidade em Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Vais usar este guião para te ajudar a criar um cluster funcional de failover. Para obter informações importantes sobre como o Clustering de Failover do Windows interage com a rede Azure, consulte alta disponibilidade e recuperação de [desastres para o Servidor SQL em Máquinas Virtuais Azure](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Mude para o seu diretório de trabalho e crie o cluster failover com o script descarregado.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -564,7 +564,7 @@ Finalmente, está pronto para configurar o grupo de disponibilidade. Utilizará 
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora implementou com sucesso o SQL Server Always On criando um grupo de disponibilidade em Azure. Para configurar um ouvinte para este grupo de disponibilidade, consulte [Configure um ouvinte ILB para grupos de disponibilidade Always On em Azure](../classic/ps-sql-int-listener.md).
 
-Para outras informações sobre a utilização do Servidor SQL em Azure, consulte [o SQL Server em máquinas virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para outras informações sobre a utilização do Servidor SQL em Azure, consulte [o SQL Server em máquinas virtuais Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

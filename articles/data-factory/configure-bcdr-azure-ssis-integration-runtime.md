@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 795247cd0d6adfd27115b73c1d0de02e6810d670
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 479e57a6001e143e233457967d55ea0e2fb6d3de
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201148"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021063"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configure o tempo de execução da integração Azure-SSIS com geo-replicação e failover da Base de Dados SQL
 
@@ -87,27 +87,27 @@ Quando ocorrer a falha, tome os seguintes passos:
 2. Editar o IR Azure-SSIS com nova região, ponto final e informação de rede virtual para a instância secundária.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+        ```
 
-3. Reiniciar o IR Azure-SSIS.
+3. Restart the Azure-SSIS IR.
 
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-database-managed-instance"></a>Cenário 3: O IR Azure-SSIS aponta para um ponto final público de uma instância gerida pela Base de Dados SQL
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Database managed instance
 
-Este cenário é adequado se o IR Azure-SSIS estiver a apontar para um ponto final público de uma instância gerida pela Base de Dados Azure SQL e não se juntar a uma rede virtual. A única diferença do cenário 2 é que não precisa de editar informações de rede virtual para o IR Azure-SSIS após a falha.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
-#### <a name="solution"></a>Solução
+#### Solution
 
-Quando ocorrer a falha, tome os seguintes passos:
+When failover occurs, take the following steps:
 
-1. Pare o IR Azure-SSIS na região primária.
+1. Stop the Azure-SSIS IR in the primary region.
 
-2. Editar o IR Azure-SSIS com a nova região e informações sobre pontos finais para a instância secundária.
+2. Edit the Azure-SSIS IR with the new region and endpoint information for the secondary instance.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
@@ -131,13 +131,13 @@ Quando ocorrer a falha, tome os seguintes passos.
 
 1. Pare o IR Azure-SSIS na região primária.
 
-2. Executar um procedimento armazenado para atualizar metadados no SSISDB para aceitar ligações de ** \< new_data_factory_name \> ** e ** \< new_integration_runtime_name \> **.
+2. Executar um procedimento armazenado para atualizar metadados no SSISDB para aceitar ligações de **\<new_data_factory_name\>** e **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
     ```
 
-3. Criar uma nova fábrica de dados chamada ** \< new_data_factory_name \> ** na nova região.
+3. Criar uma nova fábrica de dados chamada **\<new_data_factory_name\>** na nova região.
 
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -147,7 +147,7 @@ Quando ocorrer a falha, tome os seguintes passos.
     
     Para obter mais informações sobre este comando PowerShell, consulte Criar uma fábrica de [dados Azure utilizando powerShell](quickstart-create-data-factory-powershell.md).
 
-4. Crie um novo IR Azure-SSIS nomeado ** \< new_integration_runtime_name \> ** na nova região utilizando o Azure PowerShell.
+4. Crie um novo IR Azure-SSIS nomeado na nova região utilizando o **\<new_integration_runtime_name\>** Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
@@ -202,12 +202,12 @@ Quando ocorrer a falha, tome os seguintes passos:
 2. Editar o IR Azure-SSIS com nova região, ponto final e informação de rede virtual para a instância secundária.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                        -VNetId "new VNet" `
+                        -Subnet "new subnet" `
+                        -SetupScriptContainerSasUri "new custom setup SAS URI"
     ```
 
 3. Reiniciar o IR Azure-SSIS.
@@ -225,13 +225,13 @@ Quando ocorrer a falha, tome os seguintes passos.
 
 1. Pare o IR Azure-SSIS na região primária.
 
-2. Executar um procedimento armazenado para atualizar metadados no SSISDB para aceitar ligações de ** \< new_data_factory_name \> ** e ** \< new_integration_runtime_name \> **.
+2. Executar um procedimento armazenado para atualizar metadados no SSISDB para aceitar ligações de **\<new_data_factory_name\>** e **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
     ```
 
-3. Criar uma nova fábrica de dados chamada ** \< new_data_factory_name \> ** na nova região.
+3. Criar uma nova fábrica de dados chamada **\<new_data_factory_name\>** na nova região.
 
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -241,7 +241,7 @@ Quando ocorrer a falha, tome os seguintes passos.
     
     Para obter mais informações sobre este comando PowerShell, consulte Criar uma fábrica de [dados Azure utilizando powerShell](quickstart-create-data-factory-powershell.md).
 
-4. Crie um novo IR Azure-SSIS nomeado ** \< new_integration_runtime_name \> ** na nova região utilizando o Azure PowerShell.
+4. Crie um novo IR Azure-SSIS nomeado na nova região utilizando o **\<new_integration_runtime_name\>** Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
@@ -264,7 +264,7 @@ Quando ocorrer a falha, tome os seguintes passos.
     Para mais informações sobre este comando PowerShell, consulte [Create the Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Considere estas outras opções de configuração para o IR Azure-SSIS:
 

@@ -3,12 +3,12 @@ title: Backup da base de dados do Servidor SQL de resolução de problemas
 description: Informações de resolução de problemas para o backup das bases de dados do SQL Server em execução em VMs Azure com Backup Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93e06cc3219d5588c1740220af01950a25fcb52f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183335"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017023"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Backup da base de dados Do Servidor SQL de sessão de problemas utilizando a cópia de segurança do Azure
 
@@ -20,7 +20,7 @@ Para obter mais informações sobre o processo de backup e limitações, consult
 
 Para configurar a proteção de uma base de dados do SQL Server numa máquina virtual, tem de instalar a extensão **AzureBackupWindowsWorkload** nessa máquina virtual. Se obtém o erro **UserErrorSQLNoSysadminMembership,** significa que a sua instância do Servidor SQL não tem as permissões de backup necessárias. Para corrigir este erro, siga os passos nas [permissões VM definidas](backup-azure-sql-database.md#set-vm-permissions).
 
-## <a name="troubleshoot-discover-and-configure-issues"></a>Problemas descobrem e configuram problemas
+## <a name="troubleshoot-discover-and-configure-issues"></a>Resolver problemas de descoberta e configuração
 
 Depois de criar e configurar um cofre de Serviços de Recuperação, descobrir bases de dados e configurar cópias de segurança é um processo em duas etapas.<br>
 
@@ -46,7 +46,7 @@ Por vezes, podem ocorrer falhas aleatórias nas operações de backup e restauro
 
     `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
 
-    Substitua-a `C:\` pela letra do seu *SystemDrive*.
+    `C:\`Substitua-a pela letra do seu *SystemDrive*.
 
 1. Excluir os três processos que se seguem dentro de um VM da varredura antivírus:
 
@@ -209,7 +209,7 @@ Agora, organize-os no seguinte formato:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Segue-se um exemplo:
+Eis um exemplo:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -219,7 +219,7 @@ Se o tamanho da cadeia do conteúdo exceder 20.000 bytes, os ficheiros de base d
 
 ### <a name="override-the-default-target-restore-file-path"></a>Anular a trajetória de ficheiro de restauro do alvo padrão
 
-Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie `database_name.json` um ficheiro e `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`coloque-o no local .
+Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie um `database_name.json` ficheiro e coloque-o no local `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*` .
 
 O conteúdo do ficheiro deve estar neste formato:
 
@@ -238,7 +238,7 @@ O conteúdo do ficheiro deve estar neste formato:
 ]
 ```
 
-Segue-se um exemplo:
+Eis um exemplo:
 
 ```json
 [
@@ -265,6 +265,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
 
 Este ficheiro deve ser colocado antes de acionar a operação de restauro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre o Backup Azure para VMs de servidor SQL (pré-visualização pública), consulte [o Backup Azure para VMs SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Para mais informações sobre o Backup Azure para VMs de servidor SQL (pré-visualização pública), consulte [o Backup Azure para VMs SQL](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

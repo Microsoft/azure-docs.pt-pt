@@ -4,19 +4,19 @@ description: Criar uma política personalizada de acesso condicional para regist
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9eb3c8f34308271eb216cad25a5db4a62d03cb
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: acf17f4cef43fe4221781deedb130ef587208550
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845378"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993750"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Assegurar o registo de informações de segurança
 
@@ -63,7 +63,7 @@ Alguns podem optar por utilizar o estado do dispositivo em vez da localização 
 > Se utilizar o estado do dispositivo como condição na sua política, isso poderá afetar os utilizadores convidados no diretório. [O modo apenas de relatório](concept-conditional-access-report-only.md) pode ajudar a determinar o impacto das decisões políticas.
 > Note que o modo apenas de relatório não é aplicável para as políticas de CA com âmbito de "Ações de Utilizador".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

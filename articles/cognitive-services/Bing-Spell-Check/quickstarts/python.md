@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 7f1da47d913b76edb42aab82f588a2b218eac854
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ce0e72545c8ecd82b78d437f2c4939aff6930c3d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869341"
+ms.locfileid: "83993563"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Python
 
@@ -56,9 +56,9 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 
 2. Adicione os parâmetros para o seu pedido: 
 
-   a. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
+   1. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
 
-   b. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais). 
+   1. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais). 
  
     ```python
     params = {
@@ -142,7 +142,7 @@ python <FILE_NAME>.py
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
