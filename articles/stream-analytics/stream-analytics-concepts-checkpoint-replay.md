@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426397"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020613"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de checkpoint e repetição em empregos de Azure Stream Analytics
 Este artigo descreve os conceitos internos de checkpoint e replay no Azure Stream Analytics, e o impacto que estes têm na recuperação de emprego. Cada vez que um trabalho da Stream Analytics corre, a informação do Estado é mantida internamente. Essa informação do estado é guardada num posto de controlo periodicamente. Em alguns cenários, a informação do checkpoint é usada para a recuperação de emprego se ocorrer uma falha de emprego ou upgrade. Noutras circunstâncias, o ponto de verificação não pode ser utilizado para a recuperação, e é necessária uma repetição.
@@ -47,7 +47,7 @@ A Microsoft ocasionalmente atualiza os binários que executam os trabalhos do St
 
 Atualmente, o formato de controlo de recuperação não é preservado entre atualizações. Como resultado, o estado da consulta de streaming deve ser restaurado inteiramente usando a técnica de reprodução. De forma a permitir que os trabalhos do Stream Analytics reproduzam a mesma entrada de antes, é importante definir a política de retenção dos dados de origem para, pelo menos, os tamanhos da janela na sua consulta. Se não o fizer, pode resultar em resultados incorretos ou parciais durante a atualização do serviço, uma vez que os dados de origem podem não ser retidos suficientemente para trás para incluir o tamanho total da janela.
 
-Em geral, a quantidade de repetição necessária é proporcional ao tamanho da janela multiplicada pela taxa média de eventos. Como exemplo, para um trabalho com uma taxa de entrada de 1000 eventos por segundo, um tamanho de janela superior a uma hora é considerado como tendo um grande tamanho de repetição. Até uma hora de dados podem ter de ser reprocessados para inicializar o estado para que possa produzir resultados completos e corretos, o que pode causar uma saída retardada (sem saída) durante algum período prolongado. Consultas sem janelas ou outros `JOIN` `LAG`operadores temporais, como ou, teriam zero repetição.
+Em geral, a quantidade de repetição necessária é proporcional ao tamanho da janela multiplicada pela taxa média de eventos. Como exemplo, para um trabalho com uma taxa de entrada de 1000 eventos por segundo, um tamanho de janela superior a uma hora é considerado como tendo um grande tamanho de repetição. Até uma hora de dados podem ter de ser reprocessados para inicializar o estado para que possa produzir resultados completos e corretos, o que pode causar uma saída retardada (sem saída) durante algum período prolongado. Consultas sem janelas ou outros operadores temporais, como `JOIN` `LAG` ou, teriam zero repetição.
 
 ## <a name="estimate-replay-catch-up-time"></a>Estimar tempo de recuperação de reprodução
 Para estimar a duração do atraso devido a uma atualização de serviço, pode seguir esta técnica:
@@ -58,7 +58,7 @@ Para estimar a duração do atraso devido a uma atualização de serviço, pode 
 
 3. Meça o tempo entre o tempo de início e quando a primeira saída for gerada. O tempo é difícil quanto atraso o trabalho incorreria durante uma atualização de serviço.
 
-4. Se o atraso for demasiado longo, tente dividir o seu trabalho e aumente o número de US, para que a carga seja distribuída para mais nós. Alternativamente, considere reduzir os tamanhos das janelas na sua consulta e efetuar uma maior agregação ou outro processamento audato na saída produzida pelo trabalho stream analytics no sumidouro a jusante (por exemplo, utilizando a base de dados Azure SQL).
+4. Se o atraso for demasiado longo, tente dividir o seu trabalho e aumente o número de US, para que a carga seja distribuída para mais nós. Alternativamente, considere reduzir os tamanhos das janelas na sua consulta e efetuar uma maior agregação ou outro processamento audatório na saída produzida pelo trabalho stream analytics no sumidouro a jusante (por exemplo, utilizando a Base de Dados Azure SQL).
 
 Para a preocupação com a estabilidade do serviço geral durante a atualização dos postos de trabalho críticos da missão, considere a realização de trabalhos duplicados em regiões de Azure emparelhadas. Para mais informações, consulte a fiabilidade do trabalho do [Guarantee Stream Analytics durante as atualizações](stream-analytics-job-reliability.md)de serviço .
 
@@ -67,7 +67,7 @@ Para editar a sintaxe de Consulta num trabalho de streaming, ou para ajustar as 
 
 Os dados do checkpoint não podem ser utilizados para um reinício de trabalho iniciado pelo utilizador. Para estimar o atraso da produção durante esse reinício, utilize o mesmo procedimento descrito na secção anterior e aplique uma mitigação semelhante se o atraso for demasiado longo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre fiabilidade e escalabilidade, consulte estes artigos:
 - [Tutorial: Criar alertas para empregos da Azure Stream Analytics](stream-analytics-set-up-alerts.md)
 - [Escala um trabalho de Azure Stream Analytics para aumentar a sua entrada](stream-analytics-scale-jobs.md)

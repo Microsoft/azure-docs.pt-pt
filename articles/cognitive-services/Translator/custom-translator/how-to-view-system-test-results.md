@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584727"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994266"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
@@ -100,7 +100,7 @@ Para atualizar as definições de implementação:
 >[!Note]
 >Se selecionar **Não implantado** para todas as regiões, o modelo não é implantado de todas as regiões e colocado num estado não implantado. Está agora indisponível para uso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Comece a utilizar o seu modelo de tradução personalizada implementado via [Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Saiba [como gerir as definições](how-to-manage-settings.md) para partilhar o seu espaço de trabalho, gerir a chave de subscrição.

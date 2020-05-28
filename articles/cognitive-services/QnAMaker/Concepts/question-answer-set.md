@@ -1,29 +1,29 @@
 ---
 title: Base de conhecimento de design - QnA Maker
-description: Uma base de conhecimento do QnA Maker consiste num conjunto de conjuntos de perguntas e respostas (QnA) e metadados opcionais associados a cada par qnA.
+description: Uma base de conhecimento do QnA Maker consiste num conjunto de pares de perguntas e respostas (QnA) e metadados opcionais associados a cada par qnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756781"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993002"
 ---
-# <a name="question-and-answer-set-concepts"></a>Conceitos de conjunto de perguntas e respostas
+# <a name="question-and-answer-pair-concepts"></a>Conceitos de pares de perguntas e respostas
 
-Uma base de conhecimento consiste em conjuntos de perguntas e respostas (QnA).  Cada conjunto tem uma resposta e um conjunto contém todas as informações _associadas_a essa resposta . Uma resposta pode assemelhar-se vagamente a uma linha de base de dados ou a uma instância de estrutura de dados.
+Uma base de conhecimento consiste em pares de perguntas e respostas (QnA).  Cada par tem uma resposta e um par contém todas as informações _associadas_a essa resposta . Uma resposta pode assemelhar-se vagamente a uma linha de base de dados ou a uma instância de estrutura de dados.
 
-## <a name="question-and-answer-sets"></a>Conjuntos de perguntas e respostas
+## <a name="question-and-answer-pairs"></a>Pares de perguntas e respostas
 
-As definições **necessárias** num conjunto de perguntas e respostas (QnA) são:
+As configurações **necessárias** num par de perguntas e respostas (QnA) são:
 
 * uma **pergunta** - texto de consulta do utilizador, usado para a aprendizagem automática do QnA Maker, para alinhar com texto da pergunta do utilizador com formulações diferentes, mas a mesma resposta
-* a **resposta** - a resposta do conjunto é a resposta que é devolvida quando uma consulta de utilizador é acompanhada da pergunta associada
+* a **resposta** - a resposta do par é a resposta que é devolvida quando uma consulta de utilizador é acompanhada da pergunta associada
 
-Cada conjunto é representado por um **ID**.
+Cada par é representado por um **ID**.
 
-As definições **opcionais** para um conjunto incluem:
+As configurações **opcionais** para um par incluem:
 
 * **Formas alternativas da pergunta** - isto ajuda qnA Maker devolver a resposta correta para uma maior variedade de frases de perguntas
 * **Metadados**: Os metadados são etiquetas associadas a um par QnA e são representadas como pares de valor-chave. As etiquetas de metadados são usadas para filtrar os pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
@@ -43,7 +43,7 @@ Exporte a base de conhecimentos a partir da página **Definições** e, em segui
 
 Uma vez terminada a sua edificação, reimporte o ficheiro TSV da página **Definições.** Isto substituirá completamente a atual base de conhecimentos pela base de conhecimentos importada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ciclo de vida base de conhecimento em QnA Maker](./development-lifecycle-knowledge-base.md)

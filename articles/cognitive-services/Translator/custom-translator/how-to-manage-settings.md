@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 50bff8e55d1b125f56696ac485bc1e05193dea55
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587251"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992951"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -39,17 +39,17 @@ Se não tiver uma subscrição, siga os passos abaixo:
 
 ### <a name="add-existing-key"></a>Adicione a chave existente
 
-1.  Navegue na página "Definições" para o seu espaço de trabalho.
-2.  Clique em adicionar chave
+1.    Navegue na página "Definições" para o seu espaço de trabalho.
+2.    Clique em adicionar chave
 
-    ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key.png)
+   ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key.png)
 
 3. No diálogo, introduza a tecla para a subscrição do tradutor e, em seguida, clique no botão "Adicionar".
 
     ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key-dialog.png)
-4.  Depois de adicionar uma chave, pode modificar ou eliminar a tecla a qualquer momento.
+4.    Depois de adicionar uma chave, pode modificar ou eliminar a tecla a qualquer momento.
 
-    ![Chave de subscrição após adicionar](media/how-to/subscription-key-after-add.png)
+   ![Chave de subscrição após adicionar](media/how-to/subscription-key-after-add.png)
 
 ## <a name="manage-your-workspace"></a>Gerir a sua área de trabalho
 
@@ -59,48 +59,48 @@ Se uma parte diferente do seu trabalho precisa de ser partilhada com pessoas dif
 
 ## <a name="create-a-new-workspace"></a>Crie uma nova área de trabalho
 
-1.  Navegue para a página "Definições" do espaço de trabalho.
-2.  Clique no botão "Novo espaço de trabalho" na secção "Criar novo espaço de trabalho".
+1.    Navegue para a página "Definições" do espaço de trabalho.
+2.    Clique no botão "Novo espaço de trabalho" na secção "Criar novo espaço de trabalho".
 
-    ![Criar novo espaço de trabalho](media/how-to/create-new-workspace.png)
+   ![Criar novo espaço de trabalho](media/how-to/create-new-workspace.png)
 
-4.  No diálogo, insira o nome do novo espaço de trabalho.
-5.  Clique em "Criar".
+4.    No diálogo, insira o nome do novo espaço de trabalho.
+5.    Clique em "Criar".
 
-    ![Criar novo diálogo no espaço de trabalho](media/how-to/create-new-workspace-dialog.png)
+   ![Criar novo diálogo no espaço de trabalho](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Partilhe o seu espaço de trabalho
 
 Em Custom Tradutor pode partilhar o seu espaço de trabalho com outros, se uma parte diferente do seu trabalho precisa ser partilhada com pessoas diferentes.
 
-1.  Navegue para a página "Definições" do espaço de trabalho.
-2.  Clique no botão "Partilhar" na secção "Definições de Partilha".
+1.    Navegue para a página "Definições" do espaço de trabalho.
+2.    Clique no botão "Partilhar" na secção "Definições de Partilha".
 
-    ![Partilhar espaço de trabalho](media/how-to/share-workspace.png)
+   ![Partilhar espaço de trabalho](media/how-to/share-workspace.png)
 
-3.  No diálogo, introduza uma lista separada de endereços de e-mail separados com a vírda que pretende partilhar este espaço de trabalho. Certifique-se de que partilha com o endereço de e-mail que a pessoa usa para iniciar sessão no Custom Tradutor. Em seguida, selecione o nível adequado de autorização de partilha.
+3.    No diálogo, introduza uma lista separada de endereços de e-mail separados com a vírda que pretende partilhar este espaço de trabalho. Certifique-se de que partilha com o endereço de e-mail que a pessoa usa para iniciar sessão no Custom Tradutor. Em seguida, selecione o nível adequado de autorização de partilha.
 
-4.  Se o seu espaço de trabalho ainda tiver o nome padrão "O meu espaço de trabalho", será obrigado a alterá-lo antes de partilhar o seu espaço de trabalho.
-5.  Clique em "Guardar".
+4.    Se o seu espaço de trabalho ainda tiver o nome padrão "O meu espaço de trabalho", será obrigado a alterá-lo antes de partilhar o seu espaço de trabalho.
+5.    Clique em "Guardar".
 
 ## <a name="sharing-permissions"></a>Partilha de permissões
 
-1.  **Leitor:** O leitor no espaço de trabalho será capaz de ver toda a informação no espaço de trabalho.
+1.    **Leitor:** O leitor no espaço de trabalho será capaz de ver toda a informação no espaço de trabalho.
 
-2.  **Editor:** Um editor no espaço de trabalho poderá adicionar documentos, treinar modelos e apagar documentos e projetos. Podem adicionar uma chave de subscrição, mas não podem modificar com quem o espaço de trabalho é partilhado, eliminar o espaço de trabalho ou alterar o nome do espaço de trabalho.
+2.    **Editor:** Um editor no espaço de trabalho poderá adicionar documentos, treinar modelos e apagar documentos e projetos. Podem adicionar uma chave de subscrição, mas não podem modificar com quem o espaço de trabalho é partilhado, eliminar o espaço de trabalho ou alterar o nome do espaço de trabalho.
 
-3.  **Proprietário:** Um proprietário tem permissões completas para o espaço de trabalho.
+3.    **Proprietário:** Um proprietário tem permissões completas para o espaço de trabalho.
 
 ## <a name="change-sharing-permission"></a>Alterar a permissão de partilha
 
 Quando um espaço de trabalho é partilhado, a secção "Definições de Partilha" mostra todos os endereços de e-mail com os quais este espaço de trabalho é partilhado. Pode alterar a permissão de partilha existente para cada endereço de e-mail se tiver acesso ao espaço de trabalho do proprietário.
 
-1.  Na secção "Definições de Partilha" para cada e-mail, um menu de dropdown mostra o nível de permissão atual.
+1.    Na secção "Definições de Partilha" para cada e-mail, um menu de dropdown mostra o nível de permissão atual.
 
-2.  Clique no menu de dropdown e selecione o novo nível de permissão que pretende atribuir a esse endereço de e-mail.
+2.    Clique no menu de dropdown e selecione o novo nível de permissão que pretende atribuir a esse endereço de e-mail.
 
-    ![Definições de autorização de partilha](media/how-to/sharing-permission-settings.png)
+   ![Definições de autorização de partilha](media/how-to/sharing-permission-settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como migrar o seu espaço](how-to-migrate.md) de trabalho e projeto a partir do Microsoft Tradutor [Hub](https://hub.microsofttranslator.com)

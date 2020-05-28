@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/09/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: e4a1f2d778fb2b811d4c38dd26956e2eab51258a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7044954d2ba67e61172c08c0a77acaaaec3822c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592666"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992679"
 ---
 # <a name="what-is-the-translator"></a>O que é o Tradutor?
 
@@ -52,7 +52,7 @@ Com o Tradutor Personalizado, pode criar sistemas de tradução que suportam a t
 
 Saiba mais sobre a [personalização de idiomas](customization.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Inscrever-se](translator-text-how-to-signup.md) para obter uma chave de acesso.
 - [A referência da API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) fornece a documentação técnica para as APIs.
