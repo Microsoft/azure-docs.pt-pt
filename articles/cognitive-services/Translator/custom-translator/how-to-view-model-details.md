@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 56d947a6b2d236a04f2b71421a235120a9f02c76
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595559"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994194"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
 
@@ -91,6 +91,6 @@ A página modelo tem dois separadores: detalhes de treino e Teste.
 
 2.  **Teste:** Este separador mostra os detalhes do teste para um treino bem sucedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja [os resultados dos testes](how-to-view-system-test-results.md) e analise os resultados do treino.
