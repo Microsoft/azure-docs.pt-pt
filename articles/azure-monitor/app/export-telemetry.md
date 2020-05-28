@@ -2,13 +2,13 @@
 title: Exportação contínua de telemetria a partir de Insights de Aplicação [ Microsoft Docs
 description: Exportar dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregá-lo a partir daí.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 05/26/2020
+ms.openlocfilehash: 42a96cf014d7d02e440af03bc3a9c1d40e5f0cbc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744868"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017544"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de alguma forma especializada? A Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código que precise para processá-lo.  
@@ -24,7 +24,7 @@ Antes de configurar a exportação contínua, existem algumas alternativas que t
 * [A análise](../../azure-monitor/app/analytics.md) fornece uma poderosa linguagem de consulta para telemetria. Também pode exportar resultados.
 * Se procura explorar [os seus dados no Power BI,](../../azure-monitor/app/export-power-bi.md )pode fazê-lo sem utilizar a Exportação Contínua.
 * O [Data access REST API](https://dev.applicationinsights.io/) permite-lhe aceder à sua telemetria programáticamente.
-* Também pode aceder à [instalação de exportação contínua através da Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* Também pode aceder à [instalação de exportação contínua via PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Após a Exportação Contínua copia os seus dados para armazenamento (onde pode ficar o tempo que quiser), ainda está disponível em Application Insights para o período de [retenção](../../azure-monitor/app/data-retention-privacy.md)habitual .
 
@@ -53,7 +53,8 @@ A Exportação Contínua **não suporta** as seguintes funcionalidades/configura
 
 4. Crie ou selecione um recipiente no armazenamento.
 
-Uma vez criada a sua exportação, começa a funcionar. Só obtém dados que chegam depois de criar a exportação.
+> [!NOTE]
+> Uma vez criado a sua exportação, os dados recém-ingeridos começarão a fluir para o armazenamento da Blob Azure. A exportação contínua só transmitirá uma nova telemetria que é criada/ingerida após a ativação da exportação contínua. Os dados que existissem antes de permitir a exportação contínua não serão exportados, não existindo forma suportada de exportar retroativamente dados previamente criados utilizando exportações contínuas.
 
 Pode haver um atraso de cerca de uma hora antes que os dados apareçam no armazenamento.
 

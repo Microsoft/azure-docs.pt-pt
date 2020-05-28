@@ -4,14 +4,14 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 05/27/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697880"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116668"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Link Privado Azure para uma conta Azure Cosmos
 
@@ -618,9 +618,11 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 
 * Se não configurar quaisquer regras de firewall, então, por padrão, todo o tráfego pode aceder a uma conta Azure Cosmos.
 
-* Se configurar o tráfego público ou um ponto final de serviço e criar pontos finais privados, então diferentes tipos de tráfego de entrada são autorizados pelo tipo correspondente de regra de firewall.
+* Se configurar o tráfego público ou um ponto final de serviço e criar pontos finais privados, então diferentes tipos de tráfego de entrada são autorizados pelo tipo correspondente de regra de firewall. Se um ponto final privado estiver configurado numa subnet onde o ponto final do serviço também está configurado:
+  * tráfego para a conta de base de dados mapeada pelo ponto final privado é encaminhado através de ponto final privado,
+  * o tráfego para outras contas de base de dados da subnet é encaminhado através de ponto final de serviço.
 
-* Se não configurar qualquer ponto final de tráfego público ou de serviço e criar pontos finais privados, então a conta Azure Cosmos só é acessível através dos pontos finais privados. Se não configurar o tráfego público ou um ponto final de serviço, depois de todos os pontos finais privados aprovados serem rejeitados ou eliminados, a conta está aberta a toda a rede.
+* Se não configurar qualquer ponto final de tráfego público ou de serviço e criar pontos finais privados, então a conta Azure Cosmos só é acessível através dos pontos finais privados. Se não configurar o tráfego público ou um ponto final de serviço, depois de todos os pontos finais privados aprovados serem rejeitados ou eliminados, a conta está aberta a toda a rede, a menos que o PublicNetworkAccess esteja definido para Deficientes (ver secção abaixo).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloquear o acesso à rede pública durante a criação de contas
 
@@ -659,7 +661,7 @@ Os registos DNS na zona privada de DNS não são removidos automaticamente quand
 
 Se não limpar os registos do DNS, podem acontecer problemas inesperados de aviões de dados. Estas questões incluem a interrupção de dados para as regiões adicionadas após a remoção do ponto final privado ou a remoção da região.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as funcionalidades de segurança da Azure Cosmos DB, consulte os seguintes artigos:
 

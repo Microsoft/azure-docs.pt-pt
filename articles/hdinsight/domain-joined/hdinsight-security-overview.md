@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780084"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996317"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança da empresa em Azure HDInsight
 
@@ -43,7 +43,7 @@ Com esta configuração, os colaboradores da empresa podem iniciar sessão nos n
 
 As melhores práticas que a maioria das empresas segue é garantir que nem todos os colaboradores tenham acesso total a todos os recursos empresariais. Da mesma forma, o administrador pode definir políticas de controlo de acesso baseadas em papéis para os recursos de cluster. Esta ação só está disponível nos clusters da PE.
 
-O administrador hadoop pode configurar o controlo de acesso baseado em funções (RBAC). As configurações protegem a [Apache Hive,](apache-domain-joined-run-hive.md) [HBase](apache-domain-joined-run-hbase.md)e [Kafka](apache-domain-joined-run-kafka.md) com plugins apache Range. Configurar as políticas rBAC permite-lhe associar permissões com um papel na organização. Esta camada de abstração facilita a garantia de que as pessoas têm apenas as permissões necessárias para cumprirem as suas responsabilidades de trabalho. A Ranger também lhe permite auditar o acesso de dados dos colaboradores e quaisquer alterações feitas para aceder às políticas de controlo.
+O administrador hadoop pode configurar o controlo de acesso baseado em funções (RBAC). As configurações protegem a [Apache Hive,](apache-domain-joined-run-hive.md) [HBase](apache-domain-joined-run-hbase.md)e [Kafka](apache-domain-joined-run-kafka.md) com plugins Apache Ranger. Configurar as políticas rBAC permite-lhe associar permissões com um papel na organização. Esta camada de abstração facilita a garantia de que as pessoas têm apenas as permissões necessárias para cumprirem as suas responsabilidades de trabalho. A Ranger também lhe permite auditar o acesso de dados dos colaboradores e quaisquer alterações feitas para aceder às políticas de controlo.
 
 Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.apache.org/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante a filtragem ao nível da linha e da coluna (máscara de dados). E filtra os dados sensíveis de utilizadores não autorizados.
 
@@ -92,7 +92,7 @@ A tabela seguinte fornece ligações aos recursos para cada tipo de solução de
 | Infraestrutura virtualizada | N/D | HDInsight (fornecedor de nuvem) |
 | Segurança física das infraestruturas | N/D | HDInsight (fornecedor de nuvem) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Plano para clusters HDInsight com ESP](apache-domain-joined-architecture.md)
 * [Configure os clusters HDInsight com ESP](apache-domain-joined-configure.md)

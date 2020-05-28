@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 551cf909e6f78b26f3432f3ad9fdbe2140b9702b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7937c2c623fdca4e59dc0aac059bd1b8fd735a21
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415300"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119171"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações
 
@@ -74,11 +74,11 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure PowerShell. Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
-* **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
 * **Conta de Armazenamento Azure.** O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um contentor com o nome **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL do Azure
-1. Iniciar **SQL Server Management Studio** e ligar ao seu SQL Server do Azure.
+1. Lance o Estúdio de **Gestão de Servidores SQL**e ligue-se à Base de Dados SQL.
 2. No **Explorador de Servidores**, clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
 3. Execute o seguinte comando SQL na base de dados SQL do Azure para criar uma tabela com o nome `data_source_table` como arquivo da origem de dados.  
 
@@ -234,7 +234,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 
-1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo Substituir **&lt;servidor&gt; &lt;nome da base de dados&gt;, &lt;id de utilizador&gt; e a &lt;palavra-passe&gt;** com o nome do seu servidor SQL do Azure, nome da sua base de dados, ID de utilizador e a palavra-passe antes de guardar o ficheiro.
+1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo: Substitua o nome da base de dados do ** &lt; &gt; &lt; &gt; servidor, &lt; id do utilizador &gt; e &lt; palavra-passe &gt; ** com o nome do seu servidor, nome do seu servidor, ID do utilizador e palavra-passe antes de guardar o ficheiro.
 
     ```json
     {
@@ -659,7 +659,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Avançar para o seguinte tutorial para aprender sobre copiar novos ficheiros e alterados apenas com base no seu LastModifiedDate:
 
 > [!div class="nextstepaction"]

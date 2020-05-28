@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: ad24f8db2f8f212ebcccf661241016b438ec730c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 43474100844f3828107f67f1e80dca57692fec59
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655387"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021029"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Blob Azure utilizando a Azure Data Factory
 
@@ -276,7 +276,7 @@ Consulte o [acesso authenticado ao Armazenamento Azure utilizando o Diretório A
     - **Como pia,** no controlo de acesso (IAM), concede pelo menos o papel de Contribuinte de **Dados blob** de armazenamento.
 
 >[!IMPORTANT]
->Se utilizar a PolyBase para carregar dados da Blob (como fonte ou como encenação) no SQL Data Warehouse, quando utilizar a autenticação de identidade gerida para a Blob, certifique-se de que também segue os passos 1 e 2 [nesta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registe o seu servidor de Base de Dados SQL com o Azure Ative Directory (Azure AD) e 2) atribuindo a função de Colaborador de Dados blob de armazenamento ao seu servidor de base de dados SQL; o resto é tratado pela Data Factory. Se o seu armazenamento Blob estiver configurado com um ponto final da Rede Virtual Azure, para utilizar o PolyBase para carregar dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
+>Se utilizar a PolyBase para carregar dados da Blob (como fonte ou como encenação) no SQL Data Warehouse, quando utilizar a autenticação de identidade gerida para a Blob, certifique-se de que também segue os passos 1 e 2 [nesta orientação](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registe o seu servidor com o Azure Ative Directory (Azure AD) e 2) atribuindo ao seu servidor a função de Colaborador de Dados blob de armazenamento; o resto é tratado pela Data Factory. Se o seu armazenamento Blob estiver configurado com um ponto final da Rede Virtual Azure, para utilizar o PolyBase para carregar dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
 
 Estas propriedades são suportadas para um serviço ligado ao armazenamento Azure Blob:
 
@@ -726,6 +726,6 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

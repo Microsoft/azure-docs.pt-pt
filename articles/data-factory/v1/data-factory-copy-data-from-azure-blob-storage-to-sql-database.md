@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc2f0a513219a671dd8a75ee00af4fc9d4c6a68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c81c4cd72a34f69632c2b1264ba2d276ff03de4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75979732"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118591"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copiar dados do Armazenamento Blob para a Base de Dados SQL utilizando a Data Factory
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "75979732"
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo de Gestor de Recursos Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -66,7 +66,7 @@ Você precisa do nome da conta e chave de conta da sua conta de armazenamento Az
 7. Feche todas as lâminas clicando em **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Recolher servidor SQL, base de dados, nomes de utilizadores
-Precisa dos nomes do servidor, base de dados e utilizador do Azure SQL para fazer este tutorial. Note os nomes do **servidor,** base de **dados**e **utilizador** da sua base de dados Azure SQL.
+Precisa dos nomes do servidor lógico SQL, base de dados e utilizador para fazer este tutorial. Note os nomes do **servidor,** base de **dados**e **utilizador** da sua base de dados Azure SQL.
 
 1. No **portal Azure,** clique em **todos os serviços** à esquerda e selecione bases de **dados SQL**.
 2. Na lâmina de **dados SQL,** selecione a base de **dados** que pretende utilizar neste tutorial. Nota o nome da base de **dados**.  
@@ -75,7 +75,7 @@ Precisa dos nomes do servidor, base de dados e utilizador do Azure SQL para faze
 5. Feche todas as lâminas clicando em **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Permitir que os serviços do Azure acedam ao servidor SQL
-Certifique-se de que permite o acesso à definição de **serviços Azure** **ligada** para o seu servidor Azure SQL para que o serviço Data Factory possa aceder ao seu servidor Azure SQL. Para verificar e ativar desta definição, execute os passos seguintes:
+Certifique-se de que o acesso à definição de **serviços Azure** foi **ligado** para o seu servidor para que o serviço Data Factory possa aceder ao seu servidor. Para verificar e ativar desta definição, execute os passos seguintes:
 
 1. Clique em **todos os serviços** no centro à esquerda e clique em **servidores SQL**.
 2. Selecione o seu servidor e clique em **Firewall** em **DEFINIÇÕES**.
@@ -107,9 +107,9 @@ Agora, prepare o seu armazenamento de blob Azure e base de dados Azure SQL para 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    Se tiver o **SQL Server 2012/2014 instalado no seu computador:** siga as instruções da [Managing Azure SQL Database utilizando o SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) para se ligar ao seu servidor Azure SQL e executar o script SQL.
+    Se tiver o **SQL Server 2012/2014 instalado no seu computador:** siga as instruções da [Managing Azure SQL Database utilizando o SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) para se ligar ao seu servidor e executar o script SQL.
 
-    Se o cliente não tiver permissão para aceder ao servidor SQL do Azure, terá de configurar a firewall do seu servidor SQL do Azure para permitir o acesso a partir do seu computador (Endereço IP). Veja [este artigo](../../sql-database/sql-database-configure-firewall-settings.md) para obter os passos para configurar a firewall para o seu servidor SQL do Azure.
+    Se o seu cliente não estiver autorizado a aceder ao servidor lógico SQL, precisa de configurar a firewall para o seu servidor para permitir o acesso a partir da sua máquina (Endereço IP). Consulte [este artigo](../../sql-database/sql-database-configure-firewall-settings.md) para obter passos para configurar a firewall para o seu servidor.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Preencheu os pré-requisitos. Pode criar uma fábrica de dados utilizando uma das seguintes formas. Clique numa das opções da lista de drop-down no topo ou nos seguintes links para executar o tutorial.     
@@ -117,7 +117,7 @@ Preencheu os pré-requisitos. Pode criar uma fábrica de dados utilizando uma da
 * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Modelo de Gestor de Recursos Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

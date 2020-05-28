@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 786b4141ed83121dce069b45ce7ddcd91bb3b00e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757199"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020800"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure
 
@@ -65,7 +65,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passo 1: Criar um perfil de Gestor de Tráfego
 
-1. No portal Azure, clique em **Criar um** > **perfil** > de Gestor**de** > Tráfego em Rede de recursos**Criar**.
+1. No portal Azure, clique em **Criar um**perfil de Gestor de Tráfego em Rede de recursos  >  **Networking**  >  **Traffic Manager profile**  >  **Criar**.
 2. Introduza as seguintes informações básicas:
 
    * **Nome**: Dê ao seu perfil de Gestor de Tráfego um nome de prefixo DNS.
@@ -80,7 +80,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passo 2: Criar os gateways de aplicação
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um** > Gateway de**Aplicação****de** > Rede de Recursos .
+1. No portal Azure, no painel esquerdo, clique em **Criar um**Gateway de  >  **Networking**  >  **Aplicação**de Rede de Recursos .
 2. Introduza as seguintes informações básicas sobre o gateway da aplicação:
 
    * **Nome**: O nome do gateway da aplicação.
@@ -96,7 +96,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configure o encaminhamento de URL para gateways de aplicação
 
-Quando você escolhe um pool de back-end, um gateway de aplicação configurado com uma regra baseada em caminhos toma um padrão de caminho do URL de pedido, além da distribuição de robin redondo. Neste cenário, estamos adicionando uma regra baseada no caminho para\*direcionar qualquer URL com "/imagens/ " para o conjunto de servidores de imagem. Para obter mais informações sobre a configuração do encaminhamento baseado em caminhos de URL para um gateway de aplicação, consulte criar [uma regra baseada em caminhos para um gateway de aplicação](../application-gateway/application-gateway-create-url-route-portal.md).
+Quando você escolhe um pool de back-end, um gateway de aplicação configurado com uma regra baseada em caminhos toma um padrão de caminho do URL de pedido, além da distribuição de robin redondo. Neste cenário, estamos adicionando uma regra baseada no caminho para direcionar qualquer URL com "/imagens/ \* " para o conjunto de servidores de imagem. Para obter mais informações sobre a configuração do encaminhamento baseado em caminhos de URL para um gateway de aplicação, consulte criar [uma regra baseada em caminhos para um gateway de aplicação](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![Diagrama de nível web de gateway de aplicação](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -127,7 +127,7 @@ Quando você escolhe um pool de back-end, um gateway de aplicação configurado 
    + **DEFINIÇÃO HTTP**: As definições http a utilizar com esta regra.
 
    > [!IMPORTANT]
-   > Caminhos: Caminhos válidos devem começar com "/". O wildcard\*" é permitido apenas no final. Exemplos válidos são /xyz,\*/xyz,\*ou /xyz/ .
+   > Caminhos: Caminhos válidos devem começar com "/". O wildcard \* " é permitido apenas no final. Exemplos válidos são /xyz, /xyz, \* ou /xyz/ \* .
 
    ![Lâmina de gateway de aplicação "Adicionar regra baseada no caminho"](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -154,11 +154,11 @@ Neste cenário, o Gestor de Tráfego está ligado a gateways de aplicações (co
 
 Neste cenário, o Load Balancer distribui ligações do nível web para as bases de dados dentro de um cluster de alta disponibilidade.
 
-Se o seu cluster de base de dados de alta disponibilidade estiver a utilizar o SQL Server AlwaysOn, consulte o [Configure um ou mais ouvintes](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) do Grupo Always On Availability para obter instruções passo a passo.
+Se o seu cluster de base de dados de alta disponibilidade estiver a utilizar o SQL Server AlwaysOn, consulte o [Configure um ou mais ouvintes](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) do Grupo Always On Availability para obter instruções passo a passo.
 
 Para obter mais informações sobre a configuração de um equilibrador de carga interna, consulte [Criar um equilibrador](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)de carga interno no portal Azure .
 
-1. No portal Azure, no painel esquerdo, clique em Criar um**equilíbrio**de carga de**rede** > de **recursos.** > 
+1. No portal Azure, no painel esquerdo, clique em **Criar um**equilíbrio de carga de rede de  >  **Networking**  >  **Load balancer**recursos.
 2. Escolha um nome para o seu equilibrador de carga.
 3. Desloque o **Tipo** para **Interno**e escolha a rede virtual e a sub-rede apropriadas para que o equilibrador de carga resida.
 4. No âmbito **da atribuição de endereçoIP,** selecione **Dynamic** ou **Static**.
@@ -207,7 +207,7 @@ Agora configuramos o endereço IP e a porta frontal do equilibrador de carga nas
 
 ![Painel de navegação "Frontend IP pool" do Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição Geral do Gestor de Tráfego](traffic-manager-overview.md)
 * [Descrição geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)

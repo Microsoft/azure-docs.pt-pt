@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abe08da95416dd73035115361cb0d87822ad9239
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804440"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013402"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para App Service Environment for PowerApps com Azure ExpressRoute
 
@@ -35,7 +35,7 @@ O Ambiente do Serviço de Aplicações requer que as seguintes definições de c
 
 * Conectividade de rede de saída para o serviço Azure Files na porta 445.
 
-* Conectividade de rede de saída para pontos finais da Base de Dados Azure SQL que estão localizados na mesma região que o App Service Environment. Os pontos finais da Base de Dados SQL resolvem-se no domínio database.windows.net, que requer acesso aberto às portas 1433, 11000-11999 e 14000-14999. Para mais detalhes sobre a utilização da porta SQL Database V12, consulte portas para além de [1433 para ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+* Conectividade de rede de saída para pontos finais da Base de Dados Azure SQL que estão localizados na mesma região que o App Service Environment. Os pontos finais da Base de Dados SQL resolvem-se no domínio database.windows.net, que requer acesso aberto às portas 1433, 11000-11999 e 14000-14999. Para mais detalhes sobre a utilização da porta SQL Database V12, consulte portas para além de [1433 para ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 * Conectividade de rede de saída para os pontos finais de plano de gestão Azure (tanto o modelo de implantação clássico do Azure como os pontos finais do Gestor de Recursos Azure). A conectividade com estes pontos finais inclui os domínios management.core.windows.net e management.azure.com. 
 
@@ -87,7 +87,7 @@ Esta secção mostra um exemplo de configuração UDR para o Ambiente de Serviç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o Azure PowerShell na [página Descarregamentos do Azure][AzureDownloads]. Escolha um download com data de junho de 2015 ou posterior. Sob **as ferramentas** > de linha de comando**Windows PowerShell,** selecione **Instalar** para instalar os mais recentes cmdlets PowerShell.
+* Instale o Azure PowerShell na [página Descarregamentos do Azure][AzureDownloads]. Escolha um download com data de junho de 2015 ou posterior. Sob **as ferramentas de linha de comando**Windows  >  **PowerShell,** selecione **Instalar** para instalar os mais recentes cmdlets PowerShell.
 
 * Crie uma subnet única para uso exclusivo pelo App Service Environment. A sub-rede única garante que os UDRs aplicados à subrede abrem tráfego de saída apenas para o Ambiente de Serviço de Aplicações.
 
@@ -138,7 +138,7 @@ Depois de completar os passos de configuração e confirmar a rota, elimine a m�
 
 Agora está pronto para implementar o App Service Environment!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com o App Service Environment for PowerApps, consulte introdução ao Ambiente do [Serviço de Aplicações][IntroToAppServiceEnvironment].
 
