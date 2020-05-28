@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 894eecc7746ddb1352708f2dfe5d6d2d53cdd8c9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086101"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021658"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com Synapse SQL
 
@@ -22,7 +22,7 @@ A autenticação do Diretório Ativo Azure é um mecanismo de ligação ao [Azur
 Com a autenticação da AD Azure, pode gerir centralmente as identidades dos utilizadores que têm acesso ao Azure Synapse para simplificar a gestão da permissão. Os benefícios incluem o seguinte:
 
 - Fornece uma alternativa ao nome de utilizador regular e à autenticação de senha.
-- Ajuda a parar a proliferação de identidades de utilizadores através de servidores de base de dados.
+- Ajuda a parar a proliferação de identidades de utilizadores através dos servidores.
 - Permite a rotação da palavra-passe num único local.
 - Os clientes podem gerir permissões utilizando grupos externos (Azure AD).
 - Pode eliminar o armazenamento de palavras-passe permitindo a autenticação integrada do Windows e outras formas de autenticação suportadas pelo Diretório Ativo do Azure.
@@ -70,7 +70,7 @@ A utilização da conta de grupo como administrador aumenta a capacidade de gest
 
 ## <a name="permissions"></a>Permissões
 
-Para criar novos utilizadores, `ALTER ANY USER` tem de ter a permissão na base de dados. A `ALTER ANY USER` permissão pode ser concedida a qualquer utilizador de base de dados. A `ALTER ANY USER` permissão também é detida pelas contas do `CONTROL ON DATABASE` administrador `ALTER ON DATABASE` do servidor e pelos utilizadores `db_owner` da base de dados com a ou a permissão dessa base de dados, e por membros da função de base de dados.
+Para criar novos utilizadores, tem de ter a `ALTER ANY USER` permissão na base de dados. A permissão pode ser concedida a qualquer utilizador de base de `ALTER ANY USER` dados. A permissão também é detida pelas contas do administrador do servidor e pelos utilizadores da base de dados com a ou a permissão dessa base de `ALTER ANY USER` `CONTROL ON DATABASE` `ALTER ON DATABASE` dados, e por membros da função de base de `db_owner` dados.
 
 Para criar um utilizador de base de dados contido no Synapse SQL, deve ligar-se à base de dados ou à instância utilizando uma identidade Azure AD. Para criar o primeiro utilizador de base de dados contido, deve ligar-se à base de dados utilizando um administrador da AD Azure (que é o proprietário da base de dados). 
 
@@ -85,11 +85,11 @@ Qualquer autenticação Azure AD só é possível se o administrador da AD Azure
   - Membros importados de outros AD's azure que são membros nativos ou federados de domínio.
   - Grupos de Diretórios Ativos criados como grupos de segurança.
 
-- Os utilizadores de AD Azure que `db_owner` fazem parte de um grupo que tem a função de servidor não podem usar a sintaxe **[CREDENTIAL SCOPED DA BASE](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** DE DADOS CREATE CONTRA synapse SQL. Verá o seguinte erro:
+- Os utilizadores de AD Azure que fazem parte de um grupo que tem a função de `db_owner` servidor não podem usar a sintaxe **[CREDENTIAL SCOPED DA BASE](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** DE DADOS CREATE CONTRA synapse SQL. Verá o seguinte erro:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Conceda `db_owner` o papel diretamente ao utilizador da AD Azure para mitigar a questão **CREDENTIAL** DE BASE DE DADOS CREATE DATABASE.
+    Conceda o `db_owner` papel diretamente ao utilizador da AD Azure para mitigar a questão **CREDENTIAL** DE BASE DE DADOS CREATE DATABASE.
 
 - Estas funções de sistema devolvem valores NULOs quando executados sob os principais da AD Azure:
 
@@ -118,7 +118,7 @@ Os seguintes métodos de autenticação são suportados para os diretores de ser
 
 - Para melhorar a capacidade de gestão, recomendamos que provisão de um grupo Azure AD dedicado como administrador.
 - Apenas um administrador da AD Azure (um utilizador ou grupo) pode ser configurado para piscina Synapse SQL a qualquer momento.
-  - A adição de diretores de servidores Azure AD (logins) para SQL on-demand (pré-visualização) permite a possibilidade `sysadmin` de criar vários diretores de servidores Azure AD (logins) que podem ser adicionados à função.
+  - A adição de diretores de servidores Azure AD (logins) para SQL on-demand (pré-visualização) permite a possibilidade de criar vários diretores de servidores Azure AD (logins) que podem ser adicionados à `sysadmin` função.
 - Apenas um administrador de AD Azure para synapse SQL pode inicialmente ligar-se ao Synapse SQL usando uma conta azure Ative Directory. O administrador de Diretório Ativo pode configurar os utilizadores subsequentes da base de dados Azure AD.
 - Recomendamos que o tempo de ligação se ajuste a 30 segundos.
 - SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1abril 2016 ou mais tarde) suportam a autenticação do Diretório Ativo azure. (A autenticação Azure AD é suportada pelo Fornecedor de **Dados-Quadro .NET para SqlServer;** pelo menos versão .NET Framework 4.6). Por conseguinte, as versões mais recentes destas ferramentas e aplicações a nível de dados (DAC e . BACPAC) pode utilizar a autenticação Azure AD.
@@ -126,7 +126,7 @@ Os seguintes métodos de autenticação são suportados para os diretores de ser
 - SQL Server Data Tools for Visual Studio 2015 requer pelo menos a versão abril de 2016 das Ferramentas de Dados (versão 14.0.60311.1). Atualmente, os utilizadores de Anúncios Azure não são mostrados no SSDT Object Explorer. Como uma suposição, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 - [O Microsoft JDBC Driver 6.0 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) suporta a autenticação Azure AD. Consulte também [a definição das propriedades de ligação](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral do acesso e controlo em Synapse SQL, consulte o controlo de [acesso Synapse SQL](../sql/access-control.md).
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).

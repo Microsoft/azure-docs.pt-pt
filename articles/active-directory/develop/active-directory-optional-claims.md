@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 59f42f7c1fcdfef29becfb4a046753650ae9d14f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 92b3e12cc078326e98df5f42e36fcaddd56bf0c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737559"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993700"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua aplicação Azure AD
 
@@ -85,7 +85,6 @@ Estas reclamações estão sempre incluídas em fichas v1.0 Azure AD, mas não i
 | `pwd_exp`     | Hora de Expiração da Palavra-Passe        | A data em que a palavra-passe expira. |       |
 | `pwd_url`     | Alterar URL de palavra-passe             | Um URL que o utilizador pode visitar para alterar a sua palavra-passe.   |   |
 | `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída.   |  Baseado nas definições [de IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
-| `nickname`    | Apelido                        | Um nome adicional para o utilizador. A alcunha é separada do primeiro ou último nome. Requer o `profile` alcance.|
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Apoiado em MSA e Azure AD. Requer o `profile` alcance.   |
 | `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o `profile` alcance. |
 | `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para dados chave. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configurar a reclamação. Requer o `profile` alcance.|
@@ -437,7 +436,7 @@ No exemplo abaixo, utilizará o UI e o **Manifesto** de **configuração Token**
 
 1. Quando terminar de atualizar o manifesto, selecione **Save** para salvar o manifesto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

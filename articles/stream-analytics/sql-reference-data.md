@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651945"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021692"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utilize dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Utilize os seguintes passos para adicionar a Base de Dados Azure SQL como fonte 
 
    ![Configuração de referência de base de dados SQL](./media/sql-reference-data/sql-input-config.png)
 
-3. Teste a consulta instantânea no editor de consulta SQL. Para mais informações, consulte [Use o editor de consulta SQL do portal Azure para conectar e consultar dados](../sql-database/sql-database-connect-query-portal.md)
+3. Teste a consulta instantânea no editor de consulta SQL. Para mais informações, consulte [Use o editor de consulta SQL do portal Azure para conectar e consultar dados](../azure-sql/database/connect-query-portal.md)
 
 ### <a name="specify-storage-account-in-job-config"></a>Especificar a conta de armazenamento no Job config
 
@@ -69,7 +69,7 @@ Utilize os seguintes passos para adicionar a Base de Dados Azure SQL como fonte 
 
 ### <a name="create-a-sql-database-table"></a>Criar uma tabela de bases de dados SQL
 
-Utilize o Estúdio de Gestão de Servidores SQL para criar uma tabela para armazenar os seus dados de referência. Consulte [o Design da sua primeira base de dados Azure SQL utilizando SSMS](../sql-database/sql-database-design-first-database.md) para mais detalhes.
+Utilize o Estúdio de Gestão de Servidores SQL para criar uma tabela para armazenar os seus dados de referência. Consulte [o Design da sua primeira base de dados Azure SQL utilizando SSMS](../azure-sql/database/design-first-database-tutorial.md) para mais detalhes.
 
 A tabela de exemplos utilizada no seguinte exemplo foi criada a partir da seguinte declaração:
 
@@ -129,7 +129,7 @@ Antes de implementar o trabalho para o Azure, pode testar a lógica de consulta 
 
 ## <a name="delta-query"></a>Consulta delta
 
-Ao utilizar a consulta delta, recomenda-se a utilização da consulta delta, recomenda-se a utilização da base de [dados Azure SQL.](../sql-database/sql-database-temporal-tables.md)
+Ao utilizar a consulta delta, recomenda-se a utilização da consulta delta, recomenda-se a utilização da base de [dados Azure SQL.](../azure-sql/temporal-tables.md)
 
 1. Crie uma tabela temporal na Base de Dados Azure SQL.
    
@@ -198,7 +198,7 @@ O Azure Stream Analytics trabalhará com qualquer tipo de Base de Dados Azure SQ
 
 O Stream Analytics garante exatamente um processamento de eventos e pelo menos uma entrega de eventos. Nos casos em que problemas transitórios afetam o seu trabalho, uma pequena quantidade de repetição é necessária para restaurar o estado. Para permitir a repetição, é necessário que estas fotos sejam armazenadas numa conta de Armazenamento Azure. Para obter mais informações sobre a repetição do checkpoint, consulte [o Checkpoint e repita os conceitos em trabalhos de Azure Stream Analytics](stream-analytics-concepts-checkpoint-replay.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilização de dados de referência para procuras no Stream Analytics](stream-analytics-use-reference-data.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)

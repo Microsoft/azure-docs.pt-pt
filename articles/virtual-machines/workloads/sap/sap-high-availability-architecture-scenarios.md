@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08f770ced6cb1ec1102159788e1583d481436b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 045c73e3efefb29aac6bb25a8661fd510e351926
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279913"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021131"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -90,7 +90,7 @@ ms.locfileid: "79279913"
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
 
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
@@ -265,7 +265,7 @@ Existe atualmente um SLA De Um VM único de 99,9% com armazenamento premium. Par
 
 A base para o cálculo é de 30 dias por mês, ou 43.200 minutos. Por exemplo, um tempo de inatividade de 0,05% corresponde a 21,6 minutos. Como de costume, a disponibilidade dos vários serviços é calculada da seguinte forma:
 
-(Serviço de Disponibilidade #1/100) * (Serviço de Disponibilidade #2/100) * \*(Serviço de Disponibilidade #3/100) ...
+(Serviço de Disponibilidade #1/100) * (Serviço de Disponibilidade #2/100) * (Serviço de Disponibilidade #3/100) \* ...
 
 Por exemplo:
 
@@ -367,8 +367,8 @@ O número de domínios de atualização e de avaria que pode ser utilizado por u
 
 Se implementar algumas instâncias de servidor de aplicações SAP nos seus VMs dedicados, assumindo que temos cinco domínios de atualização, surge a seguinte imagem. O número máximo real de domínios de atualização e de avaria dentro de um conjunto de disponibilidade pode mudar no futuro:
 
-![Figura 2: Alta disponibilidade de servidores de aplicações][planning-guide-figure-3000]
-SAP num conjunto de disponibilidade do Azure_**Figura 2:** Alta disponibilidade de servidores de aplicações SAP num conjunto de disponibilidade do Azure_
+![Figura 2: Alta disponibilidade de servidores de aplicações SAP num conjunto de disponibilidade do Azure ][planning-guide-figure-3000]
+ _**Figura 2:** Alta disponibilidade de servidores de aplicações SAP num conjunto de disponibilidade do Azure_
 
 Para mais informações, consulte [Gerir a disponibilidade de máquinas virtuais windows no Azure][azure-virtual-machines-manage-availability].
 

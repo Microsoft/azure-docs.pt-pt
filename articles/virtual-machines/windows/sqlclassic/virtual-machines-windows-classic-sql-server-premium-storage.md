@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ca11fce252192cbf8e5f0bc2cfb5fcd38f5d4443
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833936"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020885"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 
@@ -41,7 +41,7 @@ Este artigo fornece planeamento e orientação para migrar uma Máquina Virtual 
 * Possíveis abordagens migratórias.
 * Exemplo completo de ponta a ponta mostrando passos do Servidor Azure, Windows e SQL para a migração de uma implementação sempre existente.
 
-Para obter mais informações sobre o Servidor SQL em Máquinas Virtuais Azure, consulte [o Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para obter mais informações sobre o Servidor SQL em Máquinas Virtuais Azure, consulte [o Servidor SQL em Máquinas Virtuais Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 **Autor:** Daniel Sol **Revisores Técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passo 2: Aumentar as falhas permitidas nos recursos \< Opcional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passo 2: Aumentar as falhas permitidas nos recursos\<Optional>
 
 Em certos recursos que pertencem ao seu Grupo Sempre Em Disponibilidade existem limites para quantas falhas podem ocorrer num período, onde o serviço de cluster tenta reiniciar o grupo de recursos. Recomenda-se que aumente isto enquanto estiver a passar por este procedimento, uma vez que se não falhar manualmente e acionar falhas, desligando as máquinas, pode aproximar-se deste limite.
 
@@ -691,7 +691,7 @@ Seria prudente duplicar o subsídio de falência, fazê-lo no Failover Cluster M
 
 Alterar as Falhas Máximas para 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: Recurso de endereço IP de adição para> opcionais do grupo cluster \<
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passo 3: Recurso de endereço IP de adição para cluster group\<Optional>
 
 Se tiver apenas um endereço IP para o Cluster Group e este estiver alinhado com a subnet cloud, tenha cuidado, se acidentalmente desligar todos os nós de cluster na nuvem dessa rede, então o recurso IP cluster e o Cluster Network Name não podem ficar on-line. Nesta situação, evita atualizações a outros recursos de cluster.
 
@@ -1250,7 +1250,7 @@ Para adicionar o endereço IP, consulte o Apêndice, passo 14.
 
 * [Armazenamento Azure Premium](../disks-types.md)
 * [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)
-* [Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Servidor SQL em Máquinas Virtuais Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

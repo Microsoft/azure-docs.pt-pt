@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1ab2b7860e8a75da5f8acef2fc4fa54d4b73a30d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf25c74f0190bc67e7da703e242d5d4bb3e299f5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80256968"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020647"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configure uma ligação de um indexador de pesquisa cognitiva Azure ao Servidor SQL num VM Azure
 
@@ -30,13 +30,13 @@ A Pesquisa Cognitiva Azure requer um canal encriptado para todos os pedidos inde
 1. Verifique se as propriedades do certificado para verificar se o nome do assunto é o nome de domínio totalmente qualificado (FQDN) do VM Azure. Pode utilizar uma ferramenta como a CertUtils ou os Certificados para visualizar as propriedades. Pode obter o FQDN na secção Essencial da lâmina de serviço VM, no campo de etiquetas de **endereço IP/DNS público,** no [portal Azure](https://portal.azure.com/).
    
    * Para VMs criados usando o modelo mais recente de Gestor de **Recursos,** o FQDN é formatado como`<your-VM-name>.<region>.cloudapp.azure.com`
-   * Para VMs mais antigos criados como um VM `<your-cloud-service-name.cloudapp.net>` **clássico,** o FQDN é formatado como .
+   * Para VMs mais antigos criados como um VM **clássico,** o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>` .
 
 2. Configure o Servidor SQL para utilizar o certificado utilizando o Editor de Registo (regedit). 
    
     Embora o SQL Server Configuration Manager seja frequentemente utilizado para esta tarefa, não pode usá-lo para este cenário. Não encontrará o certificado importado porque o FQDN do VM em Azure não corresponde ao FQDN determinado pelo VM (identifica o domínio como computador local ou o domínio de rede ao qual está ligado). Quando os nomes não coincidirem, utilize o regedita para especificar o certificado.
    
-   * No regedite, navegue para `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`esta chave de registo: .
+   * No regedite, navegue para esta chave de registo: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate` .
      
      A `[MSSQL13.MSSQLSERVER]` peça varia em função da versão e do nome da instância. 
    * Detete o valor da chave **certificado** para a **impressão digital** do certificado TLS/SSL que importou para o VM.
@@ -52,7 +52,7 @@ A Pesquisa Cognitiva Azure requer um canal encriptado para todos os pedidos inde
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configure a conectividade do Servidor SQL no VM
 Depois de configurar a ligação encriptada exigida pela Pesquisa Cognitiva Azure, existem passos de configuração adicionais intrínsecos ao Servidor SQL em VMs Azure. Se ainda não o fez, o próximo passo é terminar a configuração usando qualquer um destes artigos:
 
-* Para um VM gestor de **recursos,** consulte [Connect to a SQL Server Virtual Machine on Azure utilizando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* Para um VM gestor de **recursos,** consulte [Connect to a SQL Server Virtual Machine on Azure utilizando o Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
 * Para um VM **clássico,** consulte [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
 
 Em particular, reveja a secção em cada artigo para "ligar pela internet".
@@ -73,11 +73,11 @@ Os links abaixo fornecem instruções sobre a configuração NSG para implementa
 A abordagem ip pode colocar alguns desafios que são facilmente ultrapassados se você estiver ciente do problema e potenciais soluções. As restantes secções fornecem recomendações para tratar questões relacionadas com endereços IP na ACL.
 
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restringir o acesso à Pesquisa Cognitiva Azure
-Recomendamos vivamente que restrinja o acesso ao endereço IP do `AzureCognitiveSearch` seu serviço de pesquisa e à gama de endereços IP da etiqueta de [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) no ACL em vez de tornar os seus VMs SQL Azure abertos a todos os pedidos de ligação.
+Recomendamos vivamente que restrinja o acesso ao endereço IP do seu serviço de pesquisa e à gama de endereços IP da etiqueta de `AzureCognitiveSearch` [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) no ACL em vez de tornar os seus VMs SQL Azure abertos a todos os pedidos de ligação.
 
-Pode descobrir o endereço IP através do sinal do FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) do seu serviço de pesquisa.
+Pode descobrir o endereço IP através do sinal do FQDN (por exemplo, `<your-search-service-name>.search.windows.net` ) do seu serviço de pesquisa.
 
-Pode descobrir a gama de `AzureCognitiveSearch` endereços IP da etiqueta de [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) utilizando [ficheiros JSON descarregados](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou através da [API De identificação](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)de etiquetas de serviço . A gama de endereços IP é atualizada semanalmente.
+Pode descobrir a gama de endereços IP da etiqueta de `AzureCognitiveSearch` [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) utilizando [ficheiros JSON descarregados](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou através da [API De identificação](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)de etiquetas de serviço . A gama de endereços IP é atualizada semanalmente.
 
 #### <a name="managing-ip-address-fluctuations"></a>Gestão das flutuações do endereço IP
 Se o seu serviço de pesquisa tiver apenas uma unidade de pesquisa (isto é, uma réplica e uma divisória), o endereço IP mudará durante o reinício do serviço de rotina, invalidando um ACL existente com o endereço IP do seu serviço de pesquisa.
@@ -89,8 +89,8 @@ Uma segunda abordagem é permitir que a ligação falhe e, em seguida, reconfigu
 Uma terceira abordagem viável (mas não particularmente segura) é especificar a gama de endereços IP da região de Azure onde o seu serviço de pesquisa é aprovisionado. A lista de intervalos ip a partir dos quais os endereços IP públicos são atribuídos aos recursos do Azure é publicada nas [gamas IP do Azure Datacenter.](https://www.microsoft.com/download/details.aspx?id=41653) 
 
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Inclua os endereços IP do portal de pesquisa cognitiva Azure
-Se estiver a usar o portal Azure para criar um indexante, a lógica do portal de pesquisa cognitiva Azure também precisa de acesso ao seu SQL Azure VM durante o tempo de criação. Os endereços IP do portal de pesquisa `stamp2.search.ext.azure.com`cognitiva Azure podem ser encontrados através de pinging .
+Se estiver a usar o portal Azure para criar um indexante, a lógica do portal de pesquisa cognitiva Azure também precisa de acesso ao seu SQL Azure VM durante o tempo de criação. Os endereços IP do portal de pesquisa cognitiva Azure podem ser encontrados através de pinging `stamp2.search.ext.azure.com` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Com a configuração fora do caminho, pode agora especificar um Servidor SQL no Azure VM como a fonte de dados de um indexador de pesquisa cognitiva Azure. Consulte [a Connecting Azure SQL Database à Azure Cognitive Search utilizando os indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

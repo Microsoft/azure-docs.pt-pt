@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f05e1d46485b337acbd9390441359e086067db74
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978161"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014825"
 ---
 # <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configure um ouvinte ILB para grupos de disponibilidade em VMs de servidor Estoque Azure SQL
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "75978161"
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e classic](../../../azure-resource-manager/management/deployment-models.md). Este artigo abrange a utilização do modelo clássico de implantação. Recomendamos que a maioria das novas implementações utilizem o modelo De Gestor de Recursos.
 
-Para configurar um ouvinte para um grupo de disponibilidade Always On no modelo Derecursos Manager, consulte [Configure um balancer de carga para um grupo sempre em funcionação no Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Para configurar um ouvinte para um grupo de disponibilidade Always On no modelo Derecursos Manager, consulte [Configure um balancer de carga para um grupo sempre em funcionação no Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 O seu grupo de disponibilidade pode conter réplicas que estão apenas no local ou apenas no Azure, ou que abrangem tanto no local como no Azure para configurações híbridas. As réplicas azure podem residir na mesma região ou em várias regiões que usam várias redes virtuais. Os procedimentos deste artigo assumem que já [configuraram um grupo de disponibilidade,](../classic/portal-sql-alwayson-availability-groups.md) mas ainda não configuraram um ouvinte.
 
@@ -67,7 +67,7 @@ Crie um ponto final equilibrado para cada VM que acolhe uma réplica Azure. Se t
 
 6. Execute `Get-AzurePublishSettingsFile`. Este cmdlet direciona-o para um navegador para descarregar um ficheiro de definições de publicação para um diretório local. Pode ser solicitado para as suas credenciais de entrada para a sua subscrição Azure.
 
-7. Execute `Import-AzurePublishSettingsFile` o seguinte comando com o caminho do ficheiro de definições de publicação que descarregou:
+7. Execute o seguinte `Import-AzurePublishSettingsFile` comando com o caminho do ficheiro de definições de publicação que descarregou:
 
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
@@ -78,7 +78,7 @@ Crie um ponto final equilibrado para cada VM que acolhe uma réplica Azure. Se t
         (Get-AzureVNetConfig).XMLConfiguration
 9. Note o nome *Subnet* para a subnet que contém os VMs que acolhem as réplicas. Este nome é usado no parâmetro $SubnetName no script.
 
-10. Note o nome *VirtualNetworkSite* e o *endereço inicialPrefix* para a sub-rede que contém os VMs que acolhem as réplicas. Procure um endereço IP disponível, `Test-AzureStaticVNetIP` passando ambos os valores para o comando e examinando os *Endereços Disponíveis*. Por exemplo, se a rede virtual for chamada *MyVNet* e tiver uma gama de endereços de sub-rede que começa em *172.16.0.128,* o seguinte comando listaria endereços disponíveis:
+10. Note o nome *VirtualNetworkSite* e o *endereço inicialPrefix* para a sub-rede que contém os VMs que acolhem as réplicas. Procure um endereço IP disponível, passando ambos os valores para o `Test-AzureStaticVNetIP` comando e examinando os *Endereços Disponíveis*. Por exemplo, se a rede virtual for chamada *MyVNet* e tiver uma gama de endereços de sub-rede que começa em *172.16.0.128,* o seguinte comando listaria endereços disponíveis:
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Selecione um dos endereços disponíveis e use-o no parâmetro $ILBStaticIP do script no passo seguinte.
@@ -105,7 +105,7 @@ Crie um ponto final equilibrado para cada VM que acolhe uma réplica Azure. Se t
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Depois de definir as variáveis, copie o script do editor de texto para a sua sessão PowerShell para executá-lo. Se a solicitação ainda aparecer, **>>** prima Enter novamente para se certificar de que o script começa a funcionar.
+13. Depois de definir as variáveis, copie o script do editor de texto para a sua sessão PowerShell para executá-lo. Se a solicitação ainda **>>** aparecer, prima Enter novamente para se certificar de que o script começa a funcionar.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Verifique se kB2854082 está instalado se necessário
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Crie o ouvinte do grupo de disponibilidade em dois passos. Em primeiro lugar, cr
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell, colhe o script do editor de texto para a sua sessão PowerShell para executá-la. Se o pedido **>>** ainda aparecer, pressione O Enter novamente para se certificar de que o script começa a funcionar.
+3. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell, colhe o script do editor de texto para a sua sessão PowerShell para executá-la. Se o pedido ainda **>>** aparecer, pressione O Enter novamente para se certificar de que o script começa a funcionar.
 
 4. Repita os passos anteriores para cada VM.  
     Este script configura o recurso de endereço IP com o endereço IP do serviço de nuvem e define outros parâmetros, como a porta da sonda. Quando o recurso ip address é colocado on-line, ele pode responder às sondagens na porta da sonda a partir do ponto final equilibrado que você criou anteriormente.
@@ -165,5 +165,5 @@ Crie o ouvinte do grupo de disponibilidade em dois passos. Em primeiro lugar, cr
 ## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>Teste o ouvinte do grupo de disponibilidade (dentro da mesma rede virtual)
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]

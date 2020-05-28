@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281551"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022015"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computacionais suportados pela Azure Data Factory
 > [!NOTE]
@@ -49,7 +49,7 @@ A Microsoft atualiza a lista de versões HDInsight suportadas com os mais recent
 Depois de 15 de dezembro de 2017:
 
 - Já não é possível criar clusters de n.º 3.3 (ou versões anteriores) baseados em Linux, utilizando um serviço ligado ao HDInsight a pedido na versão 1 da Data Factory. 
-- Se as propriedades [ **osType** e **Versão** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não forem explicitamente especificadas na definição JSON para um serviço ligado à HDInsight a pedido existente, o valor predefinido é alterado de **Versão=3.1, osType=Windows** para **Versão=\<versão\>padrão HDI mais recente (osType=Linuxhttps://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)**.
+- Se as propriedades [ **osType** e **Versão** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não forem explicitamente especificadas na definição JSON para um serviço ligado à HDInsight a pedido existente, o valor predefinido é alterado de **Versão=3.1, osType=Windows** para **Versão= \<latest HDI default version\> ( https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) osType=Linux**.
 
 Depois de 31 de julho de 2018:
 
@@ -122,7 +122,7 @@ O seguinte JSON define um serviço ligado hDInsight baseado em Linux. A Data Fac
 | Propriedade                     | Descrição                              | Necessário |
 | ---------------------------- | ---------------------------------------- | -------- |
 | tipo                         | Defina a propriedade do tipo para **HDInsightOnDemand**. | Sim      |
-| clusterSize                  | O número de pessoas operárias e de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeça, além do número de nós de trabalhador que especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um aglomerado de nó de 4 trabalhadores leva 24 núcleos (4\*\*4 = 16 núcleos para nós operários, mais 2 4 = 8 núcleos para nós de cabeça). Para mais detalhes sobre o Standard_D3 nível, consulte [Os clusters Hadoop baseados em Linux em HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
+| clusterSize                  | O número de pessoas operárias e de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeça, além do número de nós de trabalhador que especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um aglomerado de nó de 4 trabalhadores leva 24 núcleos (4 \* 4 = 16 núcleos para nós operários, mais 2 4 = 8 núcleos para nós de \* cabeça). Para mais detalhes sobre o Standard_D3 nível, consulte [Os clusters Hadoop baseados em Linux em HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
 | timeToLive                   | O tempo de inatividade permitido para o cluster HDInsight a pedido. Especifica quanto tempo o cluster HDInsight a pedido permanece vivo quando uma execução de atividade está terminada, se não houver outros trabalhos ativos no cluster.<br /><br />Por exemplo, se uma execução de atividade demorar 6 minutos e o **tempo ToLive** estiver definido para 5 minutos, o cluster permanece vivo durante 5 minutos após os 6 minutos de processamento da atividade. Se outra execução de atividade for executada na janela de 6 minutos, é processada pelo mesmo aglomerado.<br /><br />Criar um cluster HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo). Utilize esta definição conforme necessário para melhorar o desempenho de uma fábrica de dados, reutilizando um cluster HDInsight a pedido.<br /><br />Se definir o valor **tempoToLive** para **0**, o cluster é eliminado assim que a atividade termina. No entanto, se definir um valor elevado, o cluster pode permanecer inativo, resultando desnecessariamente em custos elevados. É importante definir o valor apropriado com base nas suas necessidades.<br /><br />Se o valor **timeToLive** for devidamente definido, vários oleodutos podem partilhar a instância do cluster HDInsight a pedido. | Sim      |
 | versão                      | A versão do cluster HDInsight. Para versões HDInsight permitidas, consulte [versões HDInsight suportadas](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Se este valor não for especificado, a versão padrão mais recente do [HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) é utilizada. | Não       |
 | linkedServiceName            | O serviço ligado ao Armazenamento Azure deve ser utilizado pelo cluster a pedido para armazenar e processar dados. O cluster HDInsight é criado na mesma região que esta conta de armazenamento.<p>Atualmente, não é possível criar um cluster HDInsight a pedido que utiliza a Azure Data Lake Store como armazenamento. Se pretender armazenar os dados do resultado do processamento do HDInsight na Data Lake Store, utilize a Copy Activity para copiar os dados do armazenamento blob para data lake store. </p> | Sim      |
@@ -268,7 +268,7 @@ Pode criar um serviço ligado ao Lote para registar um conjunto de lotes de máq
 
 Se for novo a utilizar o serviço Batch:
 
-* Saiba mais sobre [o básico do Lote Azure.](../../batch/batch-technical-overview.md)
+* Saiba mais sobre [o básico do Lote Azure.](../../azure-sql/database/sql-database-paas-overview.md)
 * Conheça o cmdlet [New-AzureBatchAccount.](https://msdn.microsoft.com/library/mt125880.aspx) Utilize este cmdlet para criar uma conta Batch. Ou, pode criar a conta Batch utilizando o [portal Azure](../../batch/batch-account-create-portal.md). Para obter informações detalhadas sobre a utilização do cmdlet, consulte [A Utilização da PowerShell para gerir uma conta De lote](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Saiba mais sobre o cmdlet [New-AzureBatchPool.](https://msdn.microsoft.com/library/mt125936.aspx) Utilize este cmdlet para criar uma piscina de lote.
 
@@ -289,7 +289,7 @@ Se for novo a utilizar o serviço Batch:
 }
 ```
 
-Para a **propriedade accountName,** apêndice **\< . nome\> ** da região para o nome da sua conta de lote. Por exemplo:
+Para a **propriedade accountName,** apêndice ** \<region name\> .** para o nome da sua conta de lote. Por exemplo:
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -354,7 +354,7 @@ Para o seu serviço de ligação Data Lake Analytics, pode escolher entre autent
 
 #### <a name="service-principal-authentication-recommended"></a>Autenticação do principal de serviço (recomendado)
 Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD). Em seguida, conceda ao Azure AD acesso à Data Lake Store. Para obter passos detalhados, consulte a [autenticação serviço-a-serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores, que utiliza para definir o serviço vinculado:
-* ID da aplicação
+* ID da Aplicação
 * Chave de aplicação 
 * ID do inquilino
 

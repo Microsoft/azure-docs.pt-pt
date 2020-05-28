@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
-ms.openlocfilehash: 3587ee711864eb33fea9bc4e61fe226562e8f612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26ba4c3da0bcfa36874e7b31241839c138809cec
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418869"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019899"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines preditivos utilizando o Azure Machine Learning e o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -67,7 +67,7 @@ Cria um serviço ligado à **Aprendizagem automática Azure** para ligar um Serv
 
 Consulte o artigo de [serviços ligados](compute-linked-services.md) à Compute para descrições sobre propriedades na definição JSON.
 
-O Azure Machine Learning suporta tanto os Serviços Web Clássicos como os Novos Serviços Web para a sua experiência preditiva. Pode escolher o certo para usar na Data Factory. Para obter as informações necessárias para criar o https://services.azureml.netServiço Ligado à Aprendizagem automática Azure, vá até onde todos os seus (novos) Serviços Web e Serviços Web Clássicos estão listados. Clique no Serviço Web a que gostaria de aceder e clique na página **Consumir.** Copiar **Chave Primária** para propriedade **apiKey,** e Pedidos de **Lote** para propriedade **mlEndpoint.**
+O Azure Machine Learning suporta tanto os Serviços Web Clássicos como os Novos Serviços Web para a sua experiência preditiva. Pode escolher o certo para usar na Data Factory. Para obter as informações necessárias para criar o Serviço Ligado à Aprendizagem automática Azure, vá até https://services.azureml.net onde todos os seus (novos) Serviços Web e Serviços Web Clássicos estão listados. Clique no Serviço Web a que gostaria de aceder e clique na página **Consumir.** Copiar **Chave Primária** para propriedade **apiKey,** e Pedidos de **Lote** para propriedade **mlEndpoint.**
 
 ![Serviços Web de aprendizagem automática Azure](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -127,7 +127,7 @@ O seguinte snippet JSON define uma atividade de execução de lote de aprendizag
 
 | Propriedade          | Descrição                              | Necessário |
 | :---------------- | :--------------------------------------- | :------- |
-| nome              | Nome da atividade no oleoduto     | Sim      |
+| name              | Nome da atividade no oleoduto     | Sim      |
 | descrição       | Texto descrevendo o que a atividade faz.  | Não       |
 | tipo              | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution**. | Sim      |
 | linkedServiceName | Serviços Ligados ao Serviço Ligado à Aprendizagem automática Azure. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Sim      |
@@ -192,7 +192,7 @@ Neste cenário, o serviço Web Azure Machine Learning faz previsões utilizando 
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário 2: Experiências utilizando Módulos leitor/escritor para se referir a dados em vários armazenamentos
 Outro cenário comum ao criar experiências do Azure Machine Learning Studio (clássico) é usar módulos de Dados de Importação e Dados de Saída. O módulo de dados de importação é usado para carregar dados numa experiência e o módulo De dados de saída é para guardar dados das suas experiências. Para mais detalhes sobre os dados de importação e módulos de dados de saída, consulte os tópicos de Dados de [Importação](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Dados de Saída](https://msdn.microsoft.com/library/azure/dn905984.aspx) na Biblioteca MSDN.
 
-Ao utilizar os módulos de Dados de Importação e Dados de Saída, é uma boa prática utilizar um parâmetro de serviço Web para cada propriedade destes módulos. Estes parâmetros web permitem configurar os valores durante o tempo de execução. Por exemplo, pode criar uma experiência com um módulo de dados de importação que utiliza uma Base de Dados SQL Azure: XXX.database.windows.net. Depois de implementado o serviço web, pretende permitir aos consumidores do serviço web especificar `YYY.database.windows.net`outro Servidor Azure SQL chamado . Pode utilizar um parâmetro de serviço Web para permitir configurar este valor.
+Ao utilizar os módulos de Dados de Importação e Dados de Saída, é uma boa prática utilizar um parâmetro de serviço Web para cada propriedade destes módulos. Estes parâmetros web permitem configurar os valores durante o tempo de execução. Por exemplo, pode criar uma experiência com um módulo de dados de importação que utiliza uma Base de Dados SQL Azure: XXX.database.windows.net. Depois de implementado o serviço web, pretende permitir aos consumidores do serviço web especificar outro servidor Lógico SQL chamado `YYY.database.windows.net` . Pode utilizar um parâmetro de serviço Web para permitir configurar este valor.
 
 > [!NOTE]
 > A entrada e saída do serviço web são diferentes dos parâmetros do serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificadas para um serviço Web Azure Machine Learning Studio (clássico). Neste cenário, passa por parâmetros para um serviço Web que corresponda a propriedades dos módulos de dados de importação/dados de saída.
@@ -218,7 +218,7 @@ Vamos olhar para um cenário para usar parâmetros de serviço Web. Tem um servi
 
 Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte a atualização de modelos utilizando o artigo [de Atividade de Recursos Atualizados](update-machine-learning-models.md) para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)

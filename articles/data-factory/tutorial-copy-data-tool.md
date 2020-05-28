@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418665"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022066"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do armazenamento do Azure Blob para uma base de dados SQL utilizando a ferramenta Copy Data
 
@@ -42,7 +42,7 @@ Neste tutorial, vai executar os seguintes passos:
 
 * **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento Azure**: Utilize o armazenamento blob como loja de dados _de origem._ Se não tiver uma conta de Armazenamento Azure, consulte as instruções em [Criar uma conta](../storage/common/storage-account-create.md)de armazenamento .
-* **Base de dados Azure SQL**: Utilize uma base de dados SQL como depósito de dados do _lavatório._ Se não tiver uma Base de Dados SQL, consulte as instruções em Criar uma Base de [Dados SQL](../sql-database/sql-database-get-started-portal.md).
+* **Base de dados Azure SQL**: Utilize uma base de dados SQL como depósito de dados do _lavatório._ Se não tiver uma Base de Dados SQL, consulte as instruções em Criar uma Base de [Dados SQL](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -76,11 +76,11 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que os serviços do Azure acedam ao SQL Server. Verifique se a definição **permite que os serviços e recursos do Azure acedam a este servidor** para o seu servidor que está a executar a Base de Dados SQL. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ligar esta definição, aceda ao servidor Azure SQL > Firewalls > De segurança e redes virtuais > definir os **serviços e recursos do Allow Azure para aceder a esta** opção de servidor para **ON**.
+2. Permita que os serviços do Azure acedam ao SQL Server. Verifique se a definição **permite que os serviços e recursos do Azure acedam a este servidor** para o seu servidor que está a executar a Base de Dados SQL. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ligar esta definição, aceda ao servidor lógico SQL > > Firewalls e redes virtuais > definir os **serviços e recursos do Allow Azure para aceder a esta** opção de servidor para **ON**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory:**
+1. No menu esquerdo, selecione **Criar um recurso**  >  **Analytics**  >  **Data Factory:**
 
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
@@ -176,7 +176,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
 
     ![Selecione separador Autor](./media/tutorial-copy-data-tool/author-tab.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O gasoduto desta amostra copia dados do armazenamento blob para uma base de dados SQL. Aprendeu a:
 
 > [!div class="checklist"]

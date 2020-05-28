@@ -4,19 +4,19 @@ description: Este artigo mostra como migrar uma política clássica que requer a
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/04/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74846041"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993733"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrar uma política clássica no portal Azure
 
@@ -32,7 +32,7 @@ O processo de migração consiste nos seguintes passos:
 
 ## <a name="open-a-classic-policy"></a>Abra uma política clássica
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo Azure.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao Acesso Condicional de Segurança **do Diretório Ativo**  >  **Security**  >  **Conditional Access**Azure.
 1. Selecione, **políticas clássicas.**
 
    ![Visão de políticas clássicas](./media/policy-migration-mfa/12.png)
@@ -41,7 +41,7 @@ O processo de migração consiste nos seguintes passos:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Criar uma nova política de acesso condicional
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo Azure.
+1. No [portal Azure,](https://portal.azure.com)navegue até ao Acesso Condicional de Segurança **do Diretório Ativo**  >  **Security**  >  **Conditional Access**Azure.
 1. Para criar uma nova política de Acesso Condicional, selecione **Nova política.**
 1. Na página **Nova,** na caixa de texto **Name,** digite um nome para a sua apólice.
 1. Na secção **Demissões,** clique em **Utilizadores e grupos**.
@@ -69,7 +69,7 @@ Para desativar a sua política clássica, clique em **Desativar** na vista **Det
 
 ![Desativar políticas clássicas](./media/policy-migration-mfa/14.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a migração política clássica, consulte [as políticas clássicas de migrar no portal Azure.](policy-migration.md)
 - [Utilize o modo de acesso condicional apenas para o relatório para determinar o impacto das novas decisões políticas.](concept-conditional-access-report-only.md)

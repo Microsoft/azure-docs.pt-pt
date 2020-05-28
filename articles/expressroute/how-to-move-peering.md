@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc5740fef87497d881f689f888e446dbf4d100e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436844"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019456"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Mover um peering público para o peering da Microsoft)
 
@@ -33,7 +33,7 @@ Para se ligar ao peering da Microsoft, precisa de configurar e gerir o NAT. O se
 
 Consulte o [encaminhamento assimétrico com vários caminhos](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) de rede para ressalvas de encaminhamento assimétrico antes de configurar o peering da Microsoft.
 
-* Se estiver a utilizar o peering público e tiver atualmente regras de rede IP para endereços IP públicos que são utilizados para aceder ao [Azure Storage](../storage/common/storage-network-security.md) ou [à Azure SQL Database,](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md)tem de se certificar de que o pool IP NAT configurado com o peering da Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento Azure ou na conta Azure SQL.<br>
+* Se estiver a utilizar o peering público e tiver atualmente regras de rede IP para endereços IP públicos que são utilizados para aceder ao [Azure Storage](../storage/common/storage-network-security.md) ou [à Azure SQL Database,](../azure-sql/database/vnet-service-endpoint-rule-overview.md)tem de se certificar de que o pool IP NAT configurado com o peering da Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento Azure ou na conta Azure SQL.<br>
 * Para se deslocar à Microsoft sem tempo de inatividade, utilize os passos deste artigo na ordem que são apresentados.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Criar o peering da Microsoft
@@ -89,6 +89,6 @@ Depois de verificar se o peering da Microsoft está configurado e os prefixos qu
   
 Pode ver uma lista de todos os circuitos e observações da ExpressRoute no portal Azure. Para mais informações, consulte ver detalhes de [espreitar a Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o ExpressRoute, consulte o [ExpressRoute FAQ](expressroute-faqs.md).

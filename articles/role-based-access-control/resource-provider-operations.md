@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 679b5e60f65daac2006598c6bf12c9cdeec5541d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199569"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015918"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -2727,7 +2727,7 @@ Serviço Azure: [Gestão de Custos](../cost-management-billing/index.yml)
 > | Ação | Microsoft.CostManagement/externalSubscriptions/forecast/read | Previsão de dados de utilização para Contas de Faturação externas. |
 > |  | **externalSubscriptions/consulta** |  |
 > | Ação | Microsoft.CostManagement/externalSubscriptions/consulta/read | Consulta de dados de utilização para subscrição externa. |
-> |  | **previsão** |  |
+> |  | **forecast** |  |
 > | Ação | Microsoft.CostManagement/forecast/read | Prever dados de utilização por um âmbito. |
 > |  | **operações** |  |
 > | Ação | Microsoft.CostManagement/operations/read | Enumerar todas as operações suportadas pela Microsoft.CostManagement fornecedor de recursos. |
@@ -5635,7 +5635,7 @@ Serviço Azure: [Machine Learning Studio](../machine-learning/studio/index.yml)
 > | Ação | Microsoft.MachineLearning/webServices/delete | Eliminar qualquer serviço web de aprendizagem automática |
 > |  | **webServices/listkeys** |  |
 > | Ação | Microsoft.MachineLearning/webServices/listkeys/read | Obtenha chaves para um serviço web de aprendizagem automática |
-> |  | **Áreas de Trabalho** |  |
+> |  | **Áreas de trabalho** |  |
 > | Ação | Microsoft.MachineLearning/Espaços de Trabalho/leitura | Leia qualquer espaço de trabalho de aprendizagem automática |
 > | Ação | Microsoft.MachineLearning/Workspaces/write | Criar ou atualizar qualquer espaço de trabalho de aprendizagem automática |
 > | Ação | Microsoft.MachineLearning/Workspaces/delete | Eliminar qualquer espaço de trabalho de aprendizagem automática |
@@ -6992,7 +6992,7 @@ Serviço Azure: Centros de [Notificação](../notification-hubs/index.yml)
 > | Ação | Microsoft.NotificationHubs/register/action | Regista a subscrição do fornecedor de recursos NotificationHubs e permite a criação de Espaços nomes e Centros de Notificação |
 > | Ação | Microsoft.NotificationHubs/unregister/action | Desregistra a subscrição do fornecedor de recursos NotificationHubs e permite a criação de Espaços nomes e Centros de Notificação |
 > | Ação | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Verifica se um nome de recurso Namespace está ou não disponível no serviço NotificationHub. |
-> |  | **Namespaces** (Espaços de nomes) |  |
+> |  | **Espaços de nomes** |  |
 > | Ação | Microsoft.NotificationHubs/Namespaces/write | Crie um Recurso Espaço de Nome e atualize as suas propriedades. Tags e Capacidade do Espaço nome são as propriedades que podem ser atualizadas. |
 > | Ação | Microsoft.NotificationHubs/Namespaces/read | Obtenha a lista de Descrição do Recurso Espaço Nome |
 > | Ação | Microsoft.NotificationHubs/Namespaces/Delete | Eliminar recurso espaço de nome |
@@ -9055,7 +9055,7 @@ Serviço Azure: [Aplicações Geridas azure](../azure-resource-manager/managed-a
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Serviço Azure: [Base de Dados Azure SQL,](../sql-database/index.yml)Armazém de [Dados SQL](../sql-data-warehouse/index.yml)
+Serviço [Azure: Base de Dados Azure SQL,](../azure-sql/database/index.yml) [Azure SQL Gerido Instância](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -9333,7 +9333,7 @@ Serviço Azure: [Base de Dados Azure SQL,](../sql-database/index.yml)Armazém de
 > | Ação | Microsoft.Sql/operations/read | Obtém as operações disponíveis de REST |
 > |  | **servidores** |  |
 > | Ação | Microsoft.Sql/servidores/tdeCertificates/ação | Criar/Atualizar certificado TDE |
-> | Ação | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Desativar o Diretório Ativo Azure apenas autenticação no Servidor Lógico |
+> | Ação | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Desativar o Diretório Ativo Azure apenas autenticação num servidor na Base de Dados Azure SQL|
 > | Ação | Microsoft.Sql/servidores/leitura | Devolva a lista de servidores ou obtenha as propriedades para o servidor especificado. |
 > | Ação | Microsoft.Sql/servidores/write | Cria um servidor com os parâmetros especificados ou atualiza as propriedades ou etiquetas para o servidor especificado. |
 > | Ação | Microsoft.Sql/servidores/eliminar | Elimina um servidor existente. |
@@ -9628,7 +9628,7 @@ Serviço Azure: [Base de Dados Azure SQL,](../sql-database/index.yml)Armazém de
 > |  | **servidores/importaÇõesExportOperationResults** |  |
 > | Ação | Microsoft.Sql/servers/importExportOperationResults/read | Obtém em curso operações de importação/exportação |
 > |  | **servidores/bases de dados inacessíveis** |  |
-> | Ação | Microsoft.Sql/servidores/bases de dados/leitura inacessíveis | Devolva uma lista de bases de dados inacessíveis num servidor lógico. |
+> | Ação | Microsoft.Sql/servidores/bases de dados/leitura inacessíveis | Devolva uma lista de bases de dados inacessíveis num servidor em Azure SQL Datbase. |
 > |  | **servidores/interfaceEndpointPerfis** |  |
 > | Ação | Microsoft.Sql/servidores/interfaceEndpointProfiles/write | Cria um perfil de ponto final de interface com os parâmetros especificados ou atualiza as propriedades ou etiquetas para o ponto final da interface especificado |
 > | Ação | Microsoft.Sql/servidores/interfaceEndpointProfiles/read | Devolve as propriedades para o perfil final da interface especificado |
@@ -9699,7 +9699,7 @@ Serviço Azure: [Base de Dados Azure SQL,](../sql-database/index.yml)Armazém de
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
-Serviço Azure: [Servidor SQL em Máquinas Virtuais Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Serviço Azure: [Servidor SQL em Máquinas Virtuais Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
@@ -10342,7 +10342,7 @@ Serviço Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | Ação | Microsoft.VisualStudio/Extension/Write | Definir extensão |
 > | Ação | Microsoft.VisualStudio/Extension/Delete | Eliminar extensão |
 > | Ação | Microsoft.VisualStudio/Extension/Read | Ler Extensão |
-> |  | **Projeto** |  |
+> |  | **Project** |  |
 > | Ação | Microsoft.VisualStudio/Project/Write | Projeto set |
 > | Ação | Microsoft.VisualStudio/Project/Delete | Excluir projeto |
 > | Ação | Microsoft.VisualStudio/Project/Read | Ler Projeto |
@@ -11030,7 +11030,7 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > |  | **operações** |  |
 > | Ação | Microsoft.WorkloadMonitor/operations/read | Obtém as operações apoiadas |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Prestador de recursos de correspondência para o serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Papéis azure embutidos](built-in-roles.md)

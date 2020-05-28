@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aaebf849cc69db7c85d1472f4d71774bc599be11
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647389"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994308"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
@@ -84,7 +84,7 @@ Na página de histórico de upload pode ver o histórico de todos os dados de up
 
 3. Clique em qualquer registo de histórico de upload. Na página de dados do histórico de upload, pode visualizar os ficheiros enviados como parte do upload, estado carregado do ficheiro, idioma do ficheiro e mensagem de erro (se houver algum erro no upload).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Utilize a [página de detalhes](how-to-view-document-details.md) do documento para rever a lista de frases extraídas.
 - [Como treinar um modelo.](how-to-train-model.md)

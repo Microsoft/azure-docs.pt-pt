@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 236c68b3c26049073d3e6e942ce2a6be8b7f4fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82d6fe190b191b6aca3bd51dcefb03ecda95b4f2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298893"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020443"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o Servidor SQL para uma base de dados Azure SQL gerida online usando DMS
 
-Pode utilizar o Serviço de Migração de Bases de Dados Azure para migrar as bases de dados de uma instância do SQL Server no local para uma base de [dados Azure SQL gerida](../sql-database/sql-database-managed-instance.md) com o mínimo de tempo de inatividade. Para obter métodos adicionais que possam exigir algum esforço manual, consulte o artigo [SQL Server instância migração para a base de dados Azure SQL gerida](../sql-database/sql-database-managed-instance-migrate.md).
+Pode utilizar o Serviço de Migração de Bases de Dados Azure para migrar as bases de dados de uma instância do SQL Server no local para uma base de [dados Azure SQL gerida](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) com o mínimo de tempo de inatividade. Para obter métodos adicionais que possam exigir algum esforço manual, consulte o artigo [SQL Server instância migração para a base de dados Azure SQL gerida](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
 
 Neste tutorial, migra a base de dados **Adventureworks2012** de uma instância no local do SQL Server para uma Base de Dados SQL gerida com o mínimo de tempo de inatividade utilizando o Serviço de Migração de Bases de Dados Azure.
 
@@ -212,7 +212,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
     |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O Serviço de Migração da Base de Dados Azure personificará a credencial do utilizador para enviar os ficheiros de backup para o contentor de armazenamento Azure para restabelecer o funcionamento. Se utilizar a parte do Ficheiro Azure, utilize o nome da conta de armazenamento pré-pregado com o AZURE\ como nome de utilizador. |
     |**Palavra-passe** | A palavra-passe do utilizador. Se utilizar a partilha de ficheiros Azure, utilize uma chave de conta de armazenamento como palavra-passe. |
     |**Subscrição da Conta de Armazenamento do Azure** | Selecione a subscrição que contém a Conta de Armazenamento do Azure. |
-    |**Conta de Armazenamento Azure** | Selecione a Conta de Armazenamento do Azure para a qual o DMS pode carregar os ficheiros de cópia de segurança da partilha de rede SMB e utilizá-los para a migração de base de dados.  Recomendamos que selecione a Conta de Armazenamento na mesma região do serviço DMS para um desempenho de carregamento de ficheiros ideal. |
+    |**Conta de Armazenamento do Azure** | Selecione a Conta de Armazenamento do Azure para a qual o DMS pode carregar os ficheiros de cópia de segurança da partilha de rede SMB e utilizá-los para a migração de base de dados.  Recomendamos que selecione a Conta de Armazenamento na mesma região do serviço DMS para um desempenho de carregamento de ficheiros ideal. |
 
     ![Configurar as Definições da Migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
@@ -264,8 +264,8 @@ Após a cópia de segurança da base de dados completa ser restaurada na instân
 
     ![Transferência concluída](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para um tutorial que lhe mostre como migrar uma base de dados para uma instância gerida utilizando o comando RESTABELECIMENTO T-SQL, consulte Restaurar uma cópia de [segurança para uma instância gerida utilizando o comando de restauro](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-* Para obter informações sobre instância gerida, consulte [O que é um caso gerido](../sql-database/sql-database-managed-instance.md).
-* Para obter informações sobre a ligação de apps a uma instância gerida, consulte [aplicações Connect](../sql-database/sql-database-managed-instance-connect-app.md).
+* Para obter informações sobre instância gerida, consulte [O que é um caso gerido](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+* Para obter informações sobre a ligação de apps a uma instância gerida, consulte [aplicações Connect](../azure-sql/managed-instance/connect-application-instance.md).

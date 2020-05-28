@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd854691203361847ae9a6c873121c9b66820a90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9224b361adff8bfc53ca2f31dccb2519591dc7e5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743379"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021811"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo PowerShell para o Windows Virtual Desktop
 
@@ -66,7 +66,8 @@ Se quiser alterar a subscrição predefinida depois de ter assinado o contrato, 
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-Também pode selecionar a partir de uma lista utilizando o cmdlet Out-GridView:
+Também pode selecionar uma de uma lista utilizando o cmdlet Out-GridView:
+
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```
@@ -131,7 +132,7 @@ Assim que souber esquecê-la, pode usá-la num cmdlet. Por exemplo, aqui está u
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -Location “southeastasia”
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que configurao o seu módulo PowerShell, pode executar cmdlets para fazer todo o tipo de coisas no Windows Virtual Desktop. Aqui estão alguns dos locais onde pode usar o seu módulo:
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: bc7355dd7e01a30d47e0ca238b8996aab9b4e6b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84f734b733478450bfb21fee77e1a4942fe63e3e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298975"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019012"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para uma única base de dados ou base de dados agrupinda na Base de Dados Azure SQL online usando DMS
 
@@ -71,7 +71,7 @@ Para concluir este tutorial, precisa de:
 - Abrir a firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
 - Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
 - Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração.
-- Criar uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) ao nível do servidor para o servidor da Base de Dados SQL do Azure para permitir que o Azure Database Migration Service aceda às bases de dados de destino. Forneça a gama de subredes da rede virtual utilizada para o Serviço de Migração de Bases de Dados Azure.
+- Crie uma [regra](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de firewall ao nível do servidor para a Base de Dados Azure SQL para permitir o acesso do Serviço de Migração de Bases de Dados Azure às bases de dados-alvo. Forneça a gama de subredes da rede virtual utilizada para o Serviço de Migração de Bases de Dados Azure.
 - Confirmar que as credenciais utilizadas para ligar à instância de origem do SQL Server têm permissões [CONTROLAR SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Certifique-se de que as credenciais utilizadas para se ligar em direção à instância de base de dados Azure SQL têm permissão de BASE DE DADOS DE CONTROLO nas instâncias de base de dados Azure SQL do alvo.
 - A versão do SQL Server de origem tem de ser o SQL Server 2005 e superior. Para determinar a versão que a instância do SQL Server está a executar, leia o artigo [Como determinar a versão, edição e nível de atualização do SQL Server e respetivos componentes](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -291,7 +291,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 
-1. Selecione **Guardar** e, no ecrã, **Detalhes do destino da migração**, especifique os detalhes da ligação do servidor da Base de Dados SQL do Azure de destino, que é a Base de Dados SQL do Azure pré-aprovisionada na qual o esquema de **AdventureWorks2012** foi implementada com o DMA.
+1. Selecione **Save**, e depois no ecrã de detalhes do **alvo da Migração,** especifique os detalhes de ligação para o target Azure SQL Database, que é a base de dados Azure SQL pré-aprovisionada para a qual o esquema **AdventureWorks2012** foi implementado através do DMA.
 
     ![Selecionar o Destino](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 
@@ -341,7 +341,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
 
     ![Estado da Atividade - concluído](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre questões e limitações conhecidas ao realizar migrações online para a Base de Dados Azure SQL, consulte o artigo [Questões conhecidas e seleções com migrações online Azure SQL Database](known-issues-azure-sql-online.md).
 - Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).

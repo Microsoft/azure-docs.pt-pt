@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84df242cdbfedd0cd1442ac4c4da7f4b6139d244
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410016"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020749"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregue miseravelmente dados de várias tabelas no Servidor SQL para uma Base de Dados SQL Azure
 
@@ -70,7 +70,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Servidor SQL**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como o arquivo de dados de origem. 
-* **Base de Dados Azure SQL**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma. 
+* **Base de Dados Azure SQL**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
@@ -374,7 +374,7 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
 
 ### <a name="create-the-sql-database-linked-service"></a>Criar o serviço ligado da base de dados SQL
 
-1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em C:\ADFTutorials\IncCopyMultiTableTutorial com o seguinte conteúdo. (Crie a pasta ADF se já não existir.) Substitua &lt;&gt;o &lt;nome&gt; &lt;do&gt;servidor, &lt;&gt; nome da base de dados, nome do utilizador e palavra-passe com o nome da sua base de dados Do Servidor SQL, nome da sua base de dados, nome do utilizador e palavra-passe antes de guardar o ficheiro. 
+1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em C:\ADFTutorials\IncCopyMultiTableTutorial com o seguinte conteúdo. (Crie a pasta ADF se já não existir.) Substitua o nome do &lt; &gt; servidor, nome da base de dados, nome do &lt; utilizador e &gt; &lt; &gt; &lt; palavra-passe &gt; com o nome da sua base de dados Do Servidor SQL, nome da sua base de dados, nome do utilizador e palavra-passe antes de guardar o ficheiro. 
 
     ```json
     {  
@@ -974,7 +974,7 @@ project_table   2017-10-01 00:00:00.000
 
 Tenha em atenção que os valores de limite de tamanho de ambas as tabelas foram atualizados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

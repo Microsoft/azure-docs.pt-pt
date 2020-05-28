@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ce69e3c783ad8d2fb42be4c358cd1c292bbe026
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386736"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015374"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -52,7 +52,7 @@ As instruções tutoriais funcionam com qualquer um dos seguintes produtos:
 * Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
-* Visual Studio 2019
+* Visual Studio 2019
 
 Se não tiver nenhum destes produtos, o Visual Studio poderá ser instalado automaticamente ao instalar o Azure SDK.
 
@@ -152,7 +152,7 @@ Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada
 8. Marque **Permitir o acesso dos serviços do Azure ao servidor**.
 9. Clique em **Selecionar** para o novo servidor.
 
-    ![Novo servidor da Base de Dados SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Novo servidor](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Clique em **Criar**.
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
@@ -353,7 +353,7 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 6. Localize o pacote NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instale-o num projeto da função de trabalho.
 
 ### <a name="set-project-references"></a>Definir referências do projeto
-1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique no projeto ContosoAdsWeb e, em seguida, clique em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
+1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique no projeto ContosoAdsWeb e, em seguida, clique em **Referências**  -  **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
 2. No projeto ContosoAdsWorker, estabeleceu uma referência ao projeto ContosoAdsCommon.
 
     O ContosoAdsCommon conterá o modelo de dados e a classe de contexto do Entity Framework, que serão utilizados no front-end e back-end.
@@ -398,7 +398,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 ### <a name="add-code-files"></a>Adicionar ficheiros de código
 Nesta secção, deverá copiar os ficheiros de código da solução transferida para a solução nova. As secções seguintes irão mostrar e explicar as partes principais deste código.
 
-Para adicionar ficheiros a um projeto ou a uma pasta, clique no projeto ou na pasta e clique em **Adicionar** - **Item Existente**. Selecione os ficheiros desejados e clique em **Adicionar**. Caso lhe seja perguntado se pretende substituir os ficheiros existentes, clique em **Sim**.
+Para adicionar ficheiros a um projeto ou a uma pasta, clique no projeto ou na pasta e clique em **Adicionar**  -  **Item Existente**. Selecione os ficheiros desejados e clique em **Adicionar**. Caso lhe seja perguntado se pretende substituir os ficheiros existentes, clique em **Sim**.
 
 1. No projeto ContosoAdsCommon, elimine o ficheiro *Class1.cs* e adicione no seu lugar os ficheiros *Ad.cs* e *ContosoAdscontext.cs* do projeto transferido.
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
@@ -758,7 +758,7 @@ Para alterar o projeto para utilizar o emulador completo, clique com o botão di
 
 Para executar a aplicação com o emulador completo, terá de abrir o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um tutorial de introdução. Por exemplo, não implementa a [inserção de dependências](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nem o [repositório e unidade de padrões de trabalho](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), não [utiliza uma interface para registo](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não utiliza as [Migrações do EF Code First](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir as alterações dos modelos de dados nem [Resiliência da Ligação do EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir erros de rede transitórios e etc.
 
 Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que demonstram mais práticas de codificação do mundo real, das menos complexas à mais complexas:

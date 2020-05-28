@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 70b7a869c8b8147f978987b99b4918f573da6d0f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67184211"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014826"
 ---
 Além de ligar automaticamente os clientes à réplica primária, um ouvinte pode ser usado para redirecionar cargas de trabalho apenas de leitura para os secundários. Esta utilização pode melhorar o desempenho e a escalabilidade da sua solução global. Para mais informações, consulte [Use ReadIntent Routing com O ouvinte](https://go.microsoft.com/fwlink/?LinkId=522515)do grupo Azure Always On disponibilidade .
 
@@ -18,5 +18,5 @@ Além de ligar automaticamente os clientes à réplica primária, um ouvinte pod
 > 
 > 
 
-Para obter mais informações sobre a utilização do Servidor SQL em Azure, consulte [o SQL Server nas máquinas virtuais Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para obter mais informações sobre a utilização do Servidor SQL em Azure, consulte [o SQL Server nas máquinas virtuais Azure](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

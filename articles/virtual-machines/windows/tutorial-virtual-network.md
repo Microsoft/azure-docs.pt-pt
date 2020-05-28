@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dff2acba63eaa2caabaddb0228424744be6ded16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80f7ba4a4493299d9d1795631401689f4619d873
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101693"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014632"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
@@ -31,7 +31,7 @@ As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de 
 
 ## <a name="vm-networking-overview"></a>Descrição geral do funcionamento em rede de VMs
 
-As redes virtuais do Azure permitem ligações de rede seguras entre as máquinas virtuais, a Internet e outros serviços do Azure, como a Base de Dados SQL do Azure. As redes virtuais são divididas em segmentos lógicos, chamados sub-redes. As sub-redes são utilizadas para controlar o fluxo de rede e como limite de segurança. Ao implementar uma VM, incluem, geralmente, uma interface de rede virtual, que é ligada a uma sub-rede.
+As redes virtuais Azure permitem ligações seguras de rede entre máquinas virtuais, a internet e outros serviços Azure, como a Base de Dados Azure SQL. As redes virtuais são divididas em segmentos lógicos, chamados sub-redes. As sub-redes são utilizadas para controlar o fluxo de rede e como limite de segurança. Ao implementar uma VM, incluem, geralmente, uma interface de rede virtual, que é ligada a uma sub-rede.
 
 Ao concluir este tutorial, pode ver estes recursos serem criados:
 
@@ -52,7 +52,7 @@ Ao concluir este tutorial, pode ver estes recursos serem criados:
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um separado separado browser, indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
 ## <a name="create-subnet"></a>Criar sub-rede 
@@ -269,7 +269,7 @@ New-AzVM `
 
 A imagem neste exemplo tem o SQL Server instalado, mas não é usado neste tutorial. Está incluído para lhe mostrar como pode configurar um VM para lidar com o tráfego web e um VM para lidar com a gestão da base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. 
 

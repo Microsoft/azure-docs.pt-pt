@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 42efc1395fee28a3854420f15c2ad08b301cc1f7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: bd2a6e16d34bf6c5b59ce7fa5c99975d44947770
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758746"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021675"
 ---
 # <a name="components"></a>Componentes
 
 A renderização remota Azure utiliza o padrão do Sistema de Componentes da [Entidade.](https://en.wikipedia.org/wiki/Entity_component_system) Enquanto [as entidades](entities.md) representam a posição e a composição hierárquica dos objetos, os componentes são responsáveis pela implementação do comportamento.
 
-Os tipos de componentes mais utilizados são os componentes da [malha,](meshes.md)que adicionam malhas no gasoduto de renderização. Da mesma forma, os componentes de luz são [usados](../overview/features/lights.md) para adicionar iluminação e [cortar componentes do plano](../overview/features/cut-planes.md) são usados para cortar malshes abertos.
+Os tipos de componentes mais utilizados [:::no-loc text="mesh components":::](meshes.md) são, que adicionam malshes no gasoduto de renderização. Da mesma forma, os componentes de luz são [usados](../overview/features/lights.md) para adicionar iluminação e [cortar componentes do plano](../overview/features/cut-planes.md) são usados para cortar malshes abertos.
 
 Todos estes componentes utilizam a transformação (posição, rotação, escala) da entidade a que estão ligados, como ponto de referência.
 
@@ -61,7 +61,7 @@ Apenas uma instância de cada tipo de componente pode ser adicionada a uma entid
 
 A integração da Unidade tem funções adicionais de extensão para interagir com componentes. Ver [Objetos e componentes do jogo da Unidade](../how-tos/unity/objects-components.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Limites dos objetos](object-bounds.md)
 * [Malhas](meshes.md)

@@ -1,18 +1,18 @@
 ---
-title: Luzes
+title: Iluminação da cena
 description: Descrição e propriedades de fonte de luz
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680950"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022151"
 ---
-# <a name="lights"></a>Luzes
+# <a name="scene-lighting"></a>Iluminação da cena
 
 Por defeito, os objetos telecomandados são iluminados com uma [luz do céu](sky.md). Para a maioria das aplicações isso já é suficiente, mas pode adicionar mais fontes de luz ao local.
 
@@ -24,7 +24,7 @@ Por defeito, os objetos telecomandados são iluminados com uma [luz do céu](sky
 
 ## <a name="common-light-component-properties"></a>Propriedades comuns dos componentes da luz
 
-Todos os tipos de luz `LightComponent` derivam da classe base abstrata e partilham estas propriedades:
+Todos os tipos de luz derivam da classe base abstrata `LightComponent` e partilham estas propriedades:
 
 * **Cor:** A cor da luz no [espaço Gama.](https://en.wikipedia.org/wiki/SRGB) Alpha é ignorado.
 
@@ -32,15 +32,15 @@ Todos os tipos de luz `LightComponent` derivam da classe base abstrata e partilh
 
 ## <a name="point-light"></a>Luz de ponto
 
-Na Renderização remota `PointLightComponent` azure, a luz pode não só emitir luz de um único ponto, mas também de uma pequena esfera ou de um pequeno tubo, para simular fontes de luz mais suaves.
+Na Renderização remota azure, a `PointLightComponent` luz pode não só emitir luz de um único ponto, mas também de uma pequena esfera ou de um pequeno tubo, para simular fontes de luz mais suaves.
 
 ### <a name="pointlightcomponent-properties"></a>Propriedades de Componentes PointLight
 
 * **Raio:** O raio padrão é zero, caso em que a luz funciona como uma luz de ponta. Se o raio for maior que zero, atua como fonte de luz esférica, o que altera o aparecimento de destaques especular.
 
-* **Comprimento:** Se `Length` ambos `Radius` e não forem zero, a luz funciona como uma luz de tubo. Isto pode ser usado para simular tubos de néon.
+* **Comprimento:** Se ambos `Length` e `Radius` não forem zero, a luz funciona como uma luz de tubo. Isto pode ser usado para simular tubos de néon.
 
-* **AtenuaçãoCutoff:** Se deixada para (0,0) a atenuação da luz `Intensity`depende apenas da sua . No entanto, pode fornecer distâncias min/max personalizadas sobre as quais a intensidade da luz é reduzida a 0. Esta funcionalidade pode ser usada para impor uma menor gama de influências de uma luz específica.
+* **AtenuaçãoCutoff:** Se deixada para (0,0) a atenuação da luz depende apenas da sua `Intensity` . No entanto, pode fornecer distâncias min/max personalizadas sobre as quais a intensidade da luz é reduzida a 0. Esta funcionalidade pode ser usada para impor uma menor gama de influências de uma luz específica.
 
 * **ProjectedCubemap:** Se definido para um [mapa de cubos](../../concepts/textures.md)válido, a textura é projetada sobre a geometria circundante da luz. A cor do mapa do cubo é modulada com a cor da luz.
 
@@ -50,19 +50,19 @@ A `SpotLightComponent` é semelhante `PointLightComponent` à, mas a luz está l
 
 ### <a name="spotlightcomponent-properties"></a>Propriedades de Componentes SpotLight
 
-* **Raio:** O mesmo `PointLightComponent`que para o.
+* **Raio:** O mesmo que para `PointLightComponent` o.
 
 * **SpotAngleDeg:** Este intervalo define o ângulo interno e externo do cone, medido em grau. Tudo dentro do ângulo interno é iluminado com pleno brilho. Uma queda é aplicada para o ângulo exterior que gera um efeito semelhante a penumbra.
 
 * **FalloffExponent:** Define o quão acentuadamente as transições de falloff entre o ângulo interno e o cone exterior. Um valor mais elevado resulta numa transição mais nítida. O incumprimento de 1.0 resulta numa transição linear.
 
-* **AtenuaçãoCutoff:** O mesmo `PointLightComponent`que para o.
+* **AtenuaçãoCutoff:** O mesmo que para `PointLightComponent` o.
 
 * **Textura projetada2d:** Se definida para uma [textura 2D](../../concepts/textures.md)válida, a imagem é projetada na geometria a que a luz brilha. A cor da textura é modulada com a cor da luz.
 
 ## <a name="directional-light"></a>Luz direcional
 
-O `DirectionalLightComponent` simula uma fonte de luz que está infinitamente longe. A luz brilha na direção do *eixo z negativo da entidade proprietária.* A posição da entidade é ignorada.
+O simula uma fonte de `DirectionalLightComponent` luz que está infinitamente longe. A luz brilha na direção do *eixo z negativo da entidade proprietária.* A posição da entidade é ignorada.
 
 Não há propriedades adicionais.
 
@@ -70,7 +70,7 @@ Não há propriedades adicionais.
 
 As fontes de luz têm um impacto significativo no desempenho da renderização. Utilize-os cuidadosamente e apenas se necessário pela aplicação. Qualquer condição de iluminação global estática, incluindo um componente direcional estático, pode ser alcançada com uma [textura de céu personalizada,](sky.md)sem custo adicional de renderização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Materiais](../../concepts/materials.md)
 * [Céu](sky.md)

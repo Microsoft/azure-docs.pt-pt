@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b9264f3690f2a2e3a8488866f26248644859348
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dae9954f46f13dda03030ed054628b8acdb7a914
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696498"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022384"
 ---
 | Categoria              | Arquivo de dados                                                   | [Atividade de cópia](../articles/data-factory/copy-activity-overview.md) (fonte/pia) | [Mapeando](../articles/data-factory/concepts-data-flow-overview.md) o Fluxo de Dados (fonte/pia) | [Atividade de Pesquisa](../articles/data-factory/control-flow-lookup-activity.md) | [Obtenha atividade de](../articles/data-factory/control-flow-get-metadata-activity.md) / metadados [Atividade de Validação](../articles/data-factory/control-flow-validation-activity.md) | [Excluir Atividade](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -25,7 +25,7 @@ ms.locfileid: "83696498"
 | &nbsp;                | [Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Armazenamento de Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                            | ✓                                                            |                                                              |
-| &nbsp;                | [Instância Gerida da Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            |                                                              |
+| &nbsp;                | [Instância Gerida da Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-managed-instance.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Table Storage do Azure](../articles/data-factory/connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **Base de dados**          | [Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

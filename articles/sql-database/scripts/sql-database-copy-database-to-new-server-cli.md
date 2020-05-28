@@ -1,6 +1,6 @@
 ---
-title: ClI exemplo-copy-Azure SQL novo servidor
-description: Script de exemplo Azure CLI para copiar uma base de dados SQL para um novo servidor
+title: 'Azure CLI: Copiar base de dados na Base de Dados Azure SQL para novo servidor'
+description: Script de exemplo Azure CLI para copiar uma base de dados em Azure SQL Database para um novo servidor
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b7e04d7b1ed51a45e132d088b0dd29377312027c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067482"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022697"
 ---
-# <a name="use-cli-to-copy-a-sql-database-to-a-new-server"></a>Utilize o CLI para copiar uma base de dados SQL para um novo servidor
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Utilize o CLI para copiar uma base de dados na Base de Dados Azure SQL para um novo servidor
 
 Este exemplo de script Azure CLI cria uma cópia de uma base de dados existente num novo servidor.
 
@@ -57,8 +57,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az sql db cópia](/cli/azure/sql/db#az-sql-db-copy) | Cria uma cópia da base de dados que utiliza o instantâneo no momento atual. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
+Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

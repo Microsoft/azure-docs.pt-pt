@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 011904d7ce14f346b678c753c10a8f3258730ee1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645808"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014524"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure Virtual Machines DBMS implementação para SAP NetWeaver
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645808"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/eresources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -332,7 +332,7 @@ Existe algum Servidor SQL em informações específicas do IaaS que deve saber a
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recomendações sobre a estrutura VM/VHD para implementações de servidores SQL relacionados com SAP
-De acordo com a descrição geral, os executíveis do Servidor SQL devem ser localizados ou instalados na unidade do sistema do disco OS do VM (unidade C:\).  Tipicamente, a maioria das bases de dados do sistema SQL Server não são utilizadas a um nível elevado pela carga de trabalho SAP NetWeaver. Como resultado, as bases de dados do sistema do SQL Server (mestre, msdb e modelo) podem permanecer no C:\ dirigir também. Deve ser temporária uma exceção, que no caso das cargas de trabalho do SAP, pode exigir um volume de dados mais elevado ou um volume de operações de I/S. Carga de trabalho de I/S, que não deve ser aplicada ao VHD osso. Para estes sistemas, devem ser efetuados os seguintes passos:
+De acordo com a descrição geral, os executíveis do Servidor SQL devem ser localizados ou instalados na unidade do sistema do disco OS do VM (unidade C: \) .  Tipicamente, a maioria das bases de dados do sistema SQL Server não são utilizadas a um nível elevado pela carga de trabalho SAP NetWeaver. Como resultado, as bases de dados do sistema do SQL Server (mestre, msdb e modelo) podem permanecer no C:\ dirigir também. Deve ser temporária uma exceção, que no caso das cargas de trabalho do SAP, pode exigir um volume de dados mais elevado ou um volume de operações de I/S. Carga de trabalho de I/S, que não deve ser aplicada ao VHD osso. Para estes sistemas, devem ser efetuados os seguintes passos:
 
 
 * Com todos os tipos de VM certificados SAP (ver Nota SAP [1928533),]exceto VMs série A, dados tempdb e ficheiros de registo podem ser colocados no D não persistido:\ Conduzir. 
@@ -439,7 +439,7 @@ Para um grande número de clientes SAP, não havia possibilidade de recomeçar e
 ## <a name="using-a-sql-server-image-out-of-the-microsoft-azure-marketplace"></a><a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Usando uma imagem do Servidor SQL a partir do Mercado Microsoft Azure
 A Microsoft oferece VMs no Azure Marketplace, que já contém versões do SQL Server. Para os clientes SAP que necessitem de licenças para O Servidor SQL e Windows, a utilização destas imagens pode ser uma oportunidade para cobrir a necessidade de licenças, girando VMs com O Servidor SQL já instalado. Para utilizar estas imagens para o SAP, devem ser tomadas as seguintes considerações:
 
-* As versões de não avaliação do SQL Server adquirem custos mais elevados do que um VM 'apenas para windows' implantado no Azure Marketplace. Consulte estes artigos para <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>comparar preços: e . 
+* As versões de não avaliação do SQL Server adquirem custos mais elevados do que um VM 'apenas para windows' implantado no Azure Marketplace. Consulte estes artigos para comparar preços: <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> e <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/> . 
 * Só pode utilizar as versões SQL Server, que são suportadas pelo SAP.
 * A colagem da instância SQL Server, que está instalada nos VMs oferecidos no Mercado Azure não é a colagem SAP NetWeaver requer que a instância do Servidor SQL seja executada. Pode alterar a colagem com as instruções na secção seguinte.
 
@@ -448,7 +448,7 @@ Uma vez que as imagens do SQL Server no Mercado Azure não estão configuradas p
 
 * Abra uma janela de comando do Windows, como administrador.
 * Altere o diretório para C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
-* Executar o comando: Configuração.exe /QUIET /ACTION=REBUILDDATABASE /INSTÂNCIANAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
+* Executar o comando: Configuração.exe /QUIET /ACTION=REBUILDDATABASE /INSTÂNCIANAME=MSSQLSERVER /SQLSYSADMINACCOUNTS= `<local_admin_account_name` > /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> é a conta, que foi definida como a conta de administrador ao implantar o VM pela primeira vez através da galeria.
 
 O processo deve demorar apenas alguns minutos. A fim de se certificar de que o passo acabou com o resultado correto, execute os seguintes passos:
@@ -480,7 +480,7 @@ A funcionalidade de envio de registo SQL Server dificilmente foi utilizada em Az
 
 
 
-### <a name="database-mirroring"></a>Espelho de base de dados
+### <a name="database-mirroring"></a>Espelhamento da Base de Dados
 A base de dados Espelhada como suportado pelo SAP (ver SAP Note [965908)]depende da definição de um parceiro de failover na cadeia de ligação SAP. Para os casos Cross-Premises, assumimos que os dois VMs estão no mesmo domínio e que o contexto do utilizador as duas instâncias do SQL Server estão a decorrer sob um utilizador de domínio e têm privilégios suficientes nas duas instâncias do SQL Server envolvidas. Por conseguinte, a configuração do Database Mirroring em Azure não difere entre uma configuração/configuração típica no local.
 
 A partir de implementações cloud-only, o método mais fácil é ter outra configuração de domínio em Azure para ter esses VMs DBMS (e vMs SAP idealmente dedicados) dentro de um domínio.

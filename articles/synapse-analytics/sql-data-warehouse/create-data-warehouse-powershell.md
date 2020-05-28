@@ -1,6 +1,6 @@
 ---
 title: Crie e consulta uma piscina SYnapse SQL com Azure PowerShell
-description: Crie rapidamente um servidor lógico de piscina SYnapse SQL com uma regra de firewall ao nível do servidor utilizando o Azure PowerShell.
+description: Crie rapidamente um pool SQL Synapse com uma regra de firewall ao nível do servidor utilizando o Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 57564e9dffd6022e1e4fe464b4b26a5bb8eb318b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90c976da7316652b1d700a4deda7ba6e42894c78
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80631333"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015765"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Crie e consulta uma piscina SYnapse SQL com Azure PowerShell
 
@@ -59,7 +59,7 @@ Defina variáveis para utilização nos scripts neste início rápido.
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (don't capitalize)
+# The server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
 # Set an admin name and password for your database
 # The sign-in information for the server
@@ -74,15 +74,15 @@ $databasename = "mySampleDataWarehouse"
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) utilizando o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westeurope`.
+Crie um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) utilizando o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Um grupo de recursos é um contentor no qual os recursos azure são implantados e geridos como um grupo. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westeurope`.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 
-## <a name="create-a-logical-server"></a>Criar um servidor lógico
+## <a name="create-a-server"></a>Criar um servidor
 
-Crie um [servidor lógico Azure SQL](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) utilizando o comando [New-AzSqlServer.](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Um servidor lógico contém um grupo de bases de dados geridas como um grupo. O exemplo seguinte cria um servidor nomeado aleatoriamente no `ServerAdmin` seu grupo `ChangeYourAdminPassword1`de recursos com um utilizador administrativo nomeado e uma palavra-passe de . Substitua estes valores predefinidos conforme quiser.
+Crie um [servidor SQL lógico](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) utilizando o comando [New-AzSqlServer.](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Os servidores contêm um grupo de bases de dados geridas como um grupo. O exemplo seguinte cria um servidor nomeado aleatoriamente no seu grupo de recursos com um utilizador administrativo nomeado `ServerAdmin` e uma palavra-passe de `ChangeYourAdminPassword1` . Substitua estes valores predefinidos conforme quiser.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -91,9 +91,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-## <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall do servidor
+## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
 
-Crie uma regra de firewall de [nível de servidor Azure SQL](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) utilizando o comando [New-AzSqlServerFirewallRule.](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte a uma piscina SQL através da firewall de serviço de piscina SQL.
+Crie uma [regra de firewall ao nível do servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) utilizando o comando [New-AzSqlServerFirewallRule.](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte a uma piscina SQL através da firewall de serviço de piscina SQL.
 
 No exemplo seguinte, a firewall apenas é aberta para outros recursos do Azure. Para ativar a conectividade externa, altere o endereço IP para um endereço adequado para o seu ambiente. Para abrir todos os endereços IP, utilize 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço final.
 
@@ -104,7 +104,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> Os pontos finais SQL comunicam sobre a porta 1433. Se estiver a tentar ligar-se a partir de uma rede corporativa, o tráfego de saída sobre a porta 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não poderá ligar-se ao seu servidor Azure SQL a menos que o seu departamento de TI abra a porta 1433.
+> Os pontos finais SQL comunicam sobre a porta 1433. Se estiver a tentar ligar-se a partir de uma rede corporativa, o tráfego de saída sobre a porta 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não poderá ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
 >
 
 ## <a name="create-a-sql-pool"></a>Criar uma piscina SQL
@@ -149,6 +149,6 @@ Outros inícios rápidos e tutoriais desta coleção têm por base este início 
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criou agora uma piscina SQL, criou uma regra de firewall, ligada à sua piscina SQL, e executou algumas consultas. Para saber mais, continue a carregar os dados em artigo da [piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)

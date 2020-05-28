@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e40367e07fcda572cca73a3c01d9036e322c85c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77067399"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020103"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilização de Apache Ambari em Azure HDInsight
 
@@ -24,7 +24,7 @@ Toda a configuração do cluster deve ser feita através do [Ambari UI,](./hdins
 
 O controlador de failover HDInsight também é responsável pela atualização do endereço IP do anfitrião do headnode, que aponta para o nó de cabeça ativo atual. Todos os agentes ambari estão configurados para reportar o seu estado e batimento cardíaco ao anfitrião do nó de cabeça. O controlador failover é um conjunto de serviços em execução em todos os nós do cluster, se não estiverem em execução, o headnode failover pode não funcionar corretamente e você vai acabar com HTTP 502 ao tentar aceder ao servidor Ambari.
 
-Para verificar qual o nódoactivo ativo, uma maneira é ssh a um `ping headnodehost` dos nós do cluster, em seguida, executar e comparar o IP com o dos dois nódosos.
+Para verificar qual o nódoactivo ativo, uma maneira é ssh a um dos nós do cluster, em seguida, executar `ping headnodehost` e comparar o IP com o dos dois nódosos.
 
 Se os serviços de controlador failover não estiverem em execução, a falha do nó de cabeça pode não acontecer corretamente, o que pode acabar por não executar o servidor Ambari. Para verificar se os serviços de controlador de failover estão em execução, execute:
 
@@ -56,7 +56,7 @@ Esta é a sequência de início de serviço no momento do arranque:
 
 ## <a name="ambari-database"></a>Base de Dados Ambari
 
-O HDInsight cria a Base de Dados SQL Azure sob o capot para servir de base de dados para o servidor Ambari. O [nível de serviço](../sql-database/sql-database-elastic-pool-scale.md)predefinido é S0 .
+O HDInsight cria a Base de Dados SQL Azure sob o capot para servir de base de dados para o servidor Ambari. O [nível de serviço](../azure-sql/database/elastic-pool-scale.md)predefinido é S0 .
 
 Para qualquer cluster com nó de trabalhador esmorecê-lo com maior número de 16 quando criar o cluster, o S2 é o nível de serviço de base de dados.
 
@@ -66,7 +66,7 @@ Nunca inicie/pare manualmente os serviços de ambari-server ou ambari-agent, a m
 
 Nunca modifique manualmente quaisquer ficheiros de configuração em qualquer nó de cluster, deixe a Ambari UI fazer o trabalho por si.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir clusters do HDInsight através da IU da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Gerir os clusters HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

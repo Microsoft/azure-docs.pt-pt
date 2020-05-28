@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: da29785547d1b6eb4b38d07f020ba885dc5137ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bd0afe4d0ea01671c996a0f536151d943e4fca7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767591"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013015"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Executar empregos Apache Sqoop em HDInsight com Curl
 
@@ -26,7 +26,7 @@ O curl é usado para demonstrar como pode interagir com o HDInsight usando pedid
 
 * Conclusão do ambiente de teste de [configuração](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) a partir de [Use Apache Sqoop com Hadoop em HDInsight](./hdinsight-use-sqoop.md).
 
-* Um cliente para consultar a Base de Dados Azure SQL. Considere utilizar o [Estúdio de Gestão de Servidores SQL](../../sql-database/sql-database-connect-query-ssms.md) ou o Código do [Estúdio Visual](../../sql-database/sql-database-connect-query-vscode.md).
+* Um cliente para consultar a Base de Dados Azure SQL. Considere utilizar o [Estúdio de Gestão de Servidores SQL](../../azure-sql/database/connect-query-ssms.md) ou o Código do [Estúdio Visual](../../azure-sql/database/connect-query-vscode.md).
 
 * [Caracol.](https://curl.haxx.se/) Curl é uma ferramenta para transferir dados de ou para um cluster HDInsight.
 
@@ -41,7 +41,7 @@ Utilize o Curl para exportar dados utilizando os trabalhos apache Sqoop do Armaz
 > [!NOTE]  
 > Quando utilizar Curl ou quaisquer outras comunicações REST com WebHCat, tem de autenticar os pedidos, indicando o nome de utilizador e palavra-passe para o administrador de cluster do HDInsight. Também tem de utilizar o nome do cluster como parte do identificador URI (Uniform Resource Identifier) utilizado para enviar os pedidos para o servidor.
 
-Para os comandos nesta `USERNAME` secção, substitua-o pelo utilizador para `PASSWORD` autenticar o cluster e substitua-o pela palavra-passe da conta do utilizador. Substitua `CLUSTERNAME` pelo nome do cluster.
+Para os comandos nesta secção, `USERNAME` substitua-o pelo utilizador para autenticar o cluster e substitua-o `PASSWORD` pela palavra-passe da conta do utilizador. Substitua `CLUSTERNAME` pelo nome do cluster.
 
 A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos utilizando HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
 
@@ -77,7 +77,7 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-d** - `-G` Uma vez que não é utilizado, o pedido não se aplica ao método POST. `-d`especifica os valores de dados enviados com o pedido.
+   * **-d** - Uma vez `-G` que não é utilizado, o pedido não se aplica ao método POST. `-d`especifica os valores de dados enviados com o pedido.
 
        * **user.name** - O utilizador que está a comandar o comando.
 
@@ -91,7 +91,7 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
        {"id":"job_1415651640909_0026"}
        ```
 
-1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua `JOBID` pelo valor devolvido no passo anterior. Por exemplo, se o `{"id":"job_1415651640909_0026"}`valor `JOBID` de `job_1415651640909_0026`devolução fosse, então seria . Reveja a `jq` localização, se necessário.
+1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua `JOBID` pelo valor devolvido no passo anterior. Por exemplo, se o valor de devolução `{"id":"job_1415651640909_0026"}` fosse, então `JOBID` seria `job_1415651640909_0026` . Reveja a `jq` localização, se necessário.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -104,7 +104,7 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
    > [!NOTE]  
    > Este pedido de Curl devolve um documento de notação de objetos JavaScript (JSON) com informações sobre o trabalho; jq é usado para recuperar apenas o valor do estado.
 
-1. Uma vez que o estado do trabalho tenha mudado para **SUCCEED,** você pode recuperar os resultados do trabalho a partir do armazenamento Azure Blob. O `statusdir` parâmetro passado com a consulta contém a localização do ficheiro de saída; neste caso, `wasb:///example/data/sqoop/curl`. Este endereço armazena a `example/data/sqoop/curl` saída do trabalho no diretório no recipiente de armazenamento predefinido utilizado pelo seu cluster HDInsight.
+1. Uma vez que o estado do trabalho tenha mudado para **SUCCEED,** você pode recuperar os resultados do trabalho a partir do armazenamento Azure Blob. O `statusdir` parâmetro passado com a consulta contém a localização do ficheiro de saída; neste caso, `wasb:///example/data/sqoop/curl` . Este endereço armazena a saída do trabalho no diretório no recipiente de `example/data/sqoop/curl` armazenamento predefinido utilizado pelo seu cluster HDInsight.
 
     Pode utilizar o portal Azure para aceder a bolhas stderr e stdout.
 
@@ -118,7 +118,7 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
 ## <a name="limitations"></a>Limitações
 
 * Exportação a granel - Com o HDInsight baseado em Linux, o conector Sqoop utilizado para exportar dados para o Microsoft SQL Server ou para a Base de Dados Azure SQL não suporta atualmente inserções a granel.
-* Loteamento - Com o HDInsight baseado `-batch` em Linux, ao utilizar o interruptor ao executar as inserções, o Sqoop executará várias inserções em vez de encher as operações de inserção.
+* Loteamento - Com o HDInsight baseado em Linux, ao utilizar o `-batch` interruptor ao executar as inserções, o Sqoop executará várias inserções em vez de encher as operações de inserção.
 
 ## <a name="summary"></a>Resumo
 
@@ -126,7 +126,7 @@ Como demonstrado neste documento, pode utilizar um pedido http cru para executar
 
 Para mais informações sobre a interface REST utilizada neste artigo, consulte o <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">guia API Do API do Apache Sqoop REST</a>.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Use Apache Sqoop com Apache Hadoop no HDInsight](hdinsight-use-sqoop.md)
 

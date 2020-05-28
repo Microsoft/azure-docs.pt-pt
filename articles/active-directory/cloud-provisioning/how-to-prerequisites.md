@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 609ad2539753a838f02c4a79be56444ca0fb07f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870939"
+ms.locfileid: "84014396"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o fornecimento de nuvem azure AD Connect
 Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Connect cloud provisioning como a sua solução de identidade.
@@ -26,7 +26,7 @@ Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative D
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos do agente de fornecimento de nuvem
 Você precisa do seguinte para usar o fornecimento de nuvem Azure AD Connect:
     
-- Uma conta de administrador global para o seu inquilino Azure AD que não é um utilizador convidado.
+- Um administrador de identidade híbrido conta para o seu inquilino Azure AD que não é um utilizador convidado.
 - Um servidor no local para o agente de provisionamento com o Windows 2012 R2 ou posterior.
 - Configurações de firewall no local.
 
@@ -37,7 +37,7 @@ O resto do documento fornece instruções passo a passo para estes pré-requisit
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Diretório Ativo Azure
 
-1. Crie uma conta de administrador global apenas em nuvem no seu inquilino Azure AD. Desta forma, pode gerir a configuração do seu inquilino se os seus serviços no local falharem ou ficarem indisponíveis. Saiba como adicionar uma conta de [administrador global só para a nuvem.](../active-directory-users-create-azure-portal.md) Terminar este passo é fundamental para garantir que não seja trancado fora do seu inquilino.
+1. Crie uma conta de administrador de identidade híbrida apenas em nuvem no seu inquilino Azure AD. Desta forma, pode gerir a configuração do seu inquilino se os seus serviços no local falharem ou ficarem indisponíveis. Saiba como adicionar uma conta de administrador de [identidade híbrida apenas](../active-directory-users-create-azure-portal.md)na nuvem. Terminar este passo é fundamental para garantir que não seja trancado fora do seu inquilino.
 1. Adicione um ou mais nomes de [domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu inquilino Azure AD. Os seus utilizadores podem iniciar sessão com um destes nomes de domínio.
 
 ### <a name="in-your-directory-in-active-directory"></a>No seu diretório em Diretório Ativo
@@ -92,7 +92,7 @@ Para ativar o TLS 1.2, siga estes passos.
 1. Reinicie o servidor.
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

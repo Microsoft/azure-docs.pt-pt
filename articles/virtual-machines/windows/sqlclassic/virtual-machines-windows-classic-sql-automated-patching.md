@@ -15,17 +15,17 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: efc6d0c25c5186b391deb08ee0e41dcb8ae6edf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b977c0900178d64f202d4faa122f5d0ef90187c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978087"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014660"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Patching automatizado para servidor SQL em máquinas virtuais azure (clássico)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
-> * [Clássica](../classic/sql-automated-patching.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/automated-patching.md)
+> * [Clássico](../classic/sql-automated-patching.md)
 > 
 > 
 
@@ -37,7 +37,7 @@ A colocação de patches automática estabelece uma janela de manutenção para 
 A Colocação de Patches Automática depende da [Extensão Agente IaaS do SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Gestor de Recursos e Clássico.](../../../azure-resource-manager/management/deployment-models.md) Este artigo cobre a utilização do modelo de implantação Classic. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para ver a versão do Gestor de Recursos deste artigo, consulte [Patching Automatizado para Servidor SQL em Gestor](../sql/virtual-machines-windows-sql-automated-patching.md)de Recursos de Máquinas Virtuais Azure .
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Gestor de Recursos e Clássico.](../../../azure-resource-manager/management/deployment-models.md) Este artigo cobre a utilização do modelo de implantação Classic. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para ver a versão do Gestor de Recursos deste artigo, consulte [Patching Automatizado para Servidor SQL em Gestor](../../../azure-sql/virtual-machines/windows/automated-patching.md)de Recursos de Máquinas Virtuais Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar patching automatizado, considere os seguintes pré-requisitos:
@@ -93,8 +93,8 @@ Pode levar vários minutos para instalar e configurar o Agente IaaS do Servidor 
 
 Para desativar o Patching Automatizado, execute o mesmo script sem o parâmetro -Ativar o Novo AzureVMSqlServerAutoPatchingConfig. Tal como acontece com a instalação, pode levar vários minutos a desativar o Patching Automatizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre outras tarefas de automatização disponíveis, consulte a extensão do [agente SQL Server IaaS](../classic/sql-server-agent-extension.md).
 
-Para obter mais informações sobre a execução do Servidor SQL em VMs Azure, consulte [o SQL Server na visão geral das Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para obter mais informações sobre a execução do Servidor SQL em VMs Azure, consulte [o SQL Server na visão geral das Máquinas Virtuais Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

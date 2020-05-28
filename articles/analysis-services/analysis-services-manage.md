@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572801"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015507"
 ---
 # <a name="manage-analysis-services"></a>Gerir o Analysis Services
 Uma vez criado um servidor de Serviços de Análise em Azure, pode haver algumas tarefas de administração e gestão que você precisa realizar imediatamente ou em algum momento na estrada. Por exemplo, executar o processamento para os dados de atualização, controlar quem pode aceder aos modelos no seu servidor ou monitorizar a saúde do seu servidor. Algumas tarefas de gestão só podem ser executadas no portal Azure, outras no SQL Server Management Studio (SSMS), e algumas tarefas podem ser realizadas em qualquer um deles.
@@ -51,7 +51,7 @@ Baixe o [Estúdio de Gestão de Servidores SQL](https://docs.microsoft.com/sql/s
 
     **Autenticação de palavra-passe** de diretório ativo para usar uma conta organizacional. Por exemplo, ao ligar-se a partir de um computador não-domínio.
 
-    **Diretório Ativo - Suporte Universal com MFA** para utilizar [autenticação não interativa ou multifactor](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Diretório Ativo - Suporte Universal com MFA** para utilizar [autenticação não interativa ou multifactor](../azure-sql/database/authentication-mfa-ssms-overview.md). 
    
     ![Ligar no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
@@ -62,7 +62,7 @@ Nos Serviços de Análise do Azure, existem dois tipos de utilizadores, administ
 ## <a name="troubleshooting-connection-problems"></a>Problemas de ligação de resolução de problemas
 Ao ligar-se utilizando sSMS, se tiver problemas, poderá ter de limpar a cache de login. Nada está em cache para disco. Para limpar a cache, feche e reinicie o processo de ligação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se ainda não implementou um modelo tabular para o seu novo servidor, agora é uma boa altura. Para obter mais informações, consulte [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Implementar no Azure Analysis Services).
 
 Se implementou um modelo no seu servidor, está pronto para se ligar ao mesmo usando um cliente ou navegador. Para saber mais, consulte [Obter dados do servidor azure Analysis Services](analysis-services-connect.md).
