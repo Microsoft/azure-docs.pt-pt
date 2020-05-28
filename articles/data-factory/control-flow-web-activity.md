@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417900"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017669"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -68,11 +68,11 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade web | String | Sim
-tipo | Deve ser definido para **WebActivity**. | String | Sim
+name | Nome da atividade web | Cadeia | Sim
+tipo | Deve ser definido para **WebActivity**. | Cadeia | Sim
 método | Método API de repouso para o ponto final alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá esgotar-se a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
-cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`e escrever num pedido: . | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
+cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
 body | Representa a carga útil que é enviada para o ponto final.  | Corda (ou expressão com resultadoTipo de corda). <br/><br/>Consulte o esquema da carga útil do pedido na secção esquema de [carga útil solicitação.](#request-payload-schema) | Necessário para métodos POST/PUT.
 autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básico, ou Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoTipo de corda) | Não
 conjuntos de dados | A lista de conjuntos de dados passou para o ponto final. | Conjunto de referências de conjuntos de dados. Pode ser uma matriz vazia. | Sim
@@ -95,7 +95,7 @@ O quadro seguinte mostra os requisitos para o conteúdo da JSON:
 
 Abaixo estão os tipos de autenticação suportados na atividade web.
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Se não for necessária a autenticação, não inclua o imóvel de "autenticação".
 
@@ -125,7 +125,7 @@ Especifique o conteúdo codificado base64 de um ficheiro PFX e a palavra-passe.
 
 ### <a name="managed-identity"></a>Identidade Gerida
 
-Especifique o uri de recurso para o qual o token de acesso será solicitado utilizando a identidade gerida para a fábrica de dados. Para ligar para a API `https://management.azure.com/`de Gestão de Recursos Azure, utilize. Para obter mais informações sobre como funcionam as identidades geridas, consulte as identidades geridas para a página geral dos [recursos do Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
+Especifique o uri de recurso para o qual o token de acesso será solicitado utilizando a identidade gerida para a fábrica de dados. Para ligar para a API de Gestão de Recursos Azure, `https://management.azure.com/` utilize. Para obter mais informações sobre como funcionam as identidades geridas, consulte as identidades geridas para a página geral dos [recursos do Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ```json
 "authentication": {
@@ -161,7 +161,7 @@ Quando utiliza o método POST/PUT, a propriedade do corpo representa a carga út
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade web no pipeline chama um ponto final DE REPOUSO. Passa um serviço ligado ao Azure SQL e um conjunto de dados Azure SQL até ao ponto final. O ponto final DO REST utiliza a cadeia de ligação Azure SQL para ligar ao servidor Azure SQL e devolve o nome da instância do servidor SQL.
+Neste exemplo, a atividade web no pipeline chama um ponto final DE REPOUSO. Passa um serviço ligado ao Azure SQL e um conjunto de dados Azure SQL até ao ponto final. O ponto final DO REST utiliza a cadeia de ligação Azure SQL para se ligar ao servidor lógico SQL e devolve o nome da instância do servidor SQL.
 
 ### <a name="pipeline-definition"></a>Definição do gasoduto
 
@@ -254,7 +254,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)

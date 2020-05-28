@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d166c8fd893f38d587dbeff1d86530c46f89630
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839118"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018791"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para a Base de Dados Azure SQL
 
 Este artigo discute dicas para obter um melhor desempenho de escrita de desempenho de desempenho quando está a carregar dados para a Base de Dados SQL Azure usando o Azure Stream Analytics.
 
-A saída sQL no Azure Stream Analytics suporta a escrita paralelamente como uma opção. Esta opção permite topologas de trabalho [totalmente paralelas,](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) onde várias divisórias de saída estão escrevendo para a tabela de destino em paralelo. No entanto, permitir esta opção no Azure Stream Analytics pode não ser suficiente para obter maiores resultados, uma vez que depende significativamente da configuração da base de dados SQL Azure e do esquema de mesa. A escolha dos índices, a chave de agrupamento, o fator de preenchimento do índice e a compressão têm impacto no tempo de carregar tabelas. Para obter mais informações sobre como otimizar a sua base de dados SQL Azure para melhorar o desempenho da consulta e da carga com base em referências internas, consulte a orientação de desempenho da base de [dados SQL](../sql-database/sql-database-performance-guidance.md). A encomenda de escritos não é garantida quando se escreve em paralelo com a Base de Dados SQL Azure.
+A saída sQL no Azure Stream Analytics suporta a escrita paralelamente como uma opção. Esta opção permite topologas de trabalho [totalmente paralelas,](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) onde várias divisórias de saída estão escrevendo para a tabela de destino em paralelo. No entanto, permitir esta opção no Azure Stream Analytics pode não ser suficiente para obter maiores resultados, uma vez que depende significativamente da configuração da base de dados SQL Azure e do esquema de mesa. A escolha dos índices, a chave de agrupamento, o fator de preenchimento do índice e a compressão têm impacto no tempo de carregar tabelas. Para obter mais informações sobre como otimizar a sua base de dados SQL Azure para melhorar o desempenho da consulta e da carga com base em referências internas, consulte a orientação de desempenho da base de [dados SQL](../azure-sql/database/performance-guidance.md). A encomenda de escritos não é garantida quando se escreve em paralelo com a Base de Dados SQL Azure.
 
 Aqui estão algumas configurações dentro de cada serviço que podem ajudar a melhorar a entrada geral da sua solução.
 
@@ -37,7 +37,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 - **Tabela e Índices divididos** – A utilização de uma tabela SQL [dividida](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e de índices divididos na tabela com a mesma coluna que a sua chave de partição (por exemplo, PartitionId) pode reduzir significativamente as disputas entre divisórias durante as escritas. Para uma tabela dividida, terá de criar uma função de [partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um esquema de [partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos PRIMARY. Isto também aumentará a disponibilidade de dados existentes enquanto novos dados estão a ser carregados. O limite de Log IO pode ser atingido com base no número de divisórias, que podem ser aumentadas através da atualização do SKU.
 
-- **Evite violações de chaves únicas** – Se receber [várias mensagens](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) de aviso de violação chave no Registo de Atividades do Azure Stream Analytics, certifique-se de que o seu trabalho não é afetado por violações de restrições únicas que são suscetíveis de ocorrer durante casos de recuperação. Isto pode ser evitado definindo a opção [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) nos seus índices.
+- **Evite violações de chaves únicas** – Se receber [várias mensagens](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) de aviso de violação chave no Registo de Atividades do Azure Stream Analytics, certifique-se de que o seu trabalho não é afetado por violações de restrições únicas que são suscetíveis de ocorrer durante casos de recuperação. Isto pode ser evitado definindo a opção [IGNORE \_ DUP \_ KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) nos seus índices.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Fábrica de Dados Azure e Tabelas em Memória
 
