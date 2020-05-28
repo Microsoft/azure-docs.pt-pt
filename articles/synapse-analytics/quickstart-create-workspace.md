@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656154"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112853"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Quickstart: Criar um espaço de trabalho Azure Synapse Analytics (pré-visualização)
 
@@ -25,9 +25,6 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https://az
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Conta de armazenamento de armazenamento do Lago Azure Data Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="register-azure-synapse-resource-provider"></a>Registe o fornecedor de recursos Azure Synapse
-Se ainda não o fez, registe o fornecedor de recursos Azure Synapse. Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Para registar o fornecedor de recursos Azure Synapse, consulte [os fornecedores e tipos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)de recursos azure . Escolha *microsoft.Synapse* na lista de fornecedores de recursos quando se registar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

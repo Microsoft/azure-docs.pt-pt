@@ -350,7 +350,7 @@ Deteção Inteligente de anomalias de falha complementa outras características 
 
 * Pode utilizar a funcionalidade de supressão de regras de ação de [alerta.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplicação:
 
 * [Explorador métrico](../../azure-monitor/platform/metrics-charts.md)

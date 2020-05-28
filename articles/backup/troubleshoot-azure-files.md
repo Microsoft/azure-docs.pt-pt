@@ -3,12 +3,12 @@ title: Troubleshoot Azure partilha backup de partilha de ficheiros
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562088"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116740"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao apoiar ações de ficheiros da Azure
 
@@ -50,7 +50,7 @@ Tente o registo. Se o problema persistir, o suporte de contacto.
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Incapaz de apagar o cofre dos Serviços de Recuperação depois de desproteger uma parte de ficheiro
 
-No portal Azure, abra **as** > suas contas de Armazenamento de**Infraestruturas** > **Storage accounts** de Backup vault e clique em **Unregister** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
+No portal Azure, abra **as**suas contas de Armazenamento de  >  **Infraestruturas**de Backup vault e clique em  >  **Storage accounts** **Unregister** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
 
 >[!NOTE]
 >Um cofre de serviços de recuperação só pode ser apagado depois de desregistar todas as contas de armazenamento registadas no cofre.
@@ -277,7 +277,46 @@ Error Message: Outra operação está em curso no item selecionado.
 
 Aguarde que a outra operação em curso termine e retente mais tarde.
 
-## <a name="next-steps"></a>Passos seguintes
+Do ficheiro: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Erros relacionados de eliminação suave comum
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState- Este ponto de restauro não está disponível, uma vez que o instantâneo associado a este ponto está numa Partilha de Ficheiros que se encontra em estado de soft-delete
+
+Error Code: UserErrorRestoreAFSInSoftDeleteState
+
+Error Message: Este ponto de restauro não está disponível, uma vez que o instantâneo associado a este ponto está numa Partilha de Ficheiros que se encontra em estado de eliminação suave.
+
+Não é possível executar uma operação de restauro quando a parte do ficheiro está em estado suave apagado. Desapague a parte do ficheiro do portal Ficheiros ou utilize o [script Undelete](scripts/backup-powershell-script-undelete-file-share.md) e tente restaurar.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>UserErrorRestoreAFSInDeleteState- Os pontos de restauro listados não estão disponíveis, uma vez que a parte de ficheiro associada que contém as imagens do ponto de restauro foi eliminada permanentemente
+
+Error Code: UserErrorRestoreAFSInDeleteState
+
+Error Message: Os pontos de restauro listados não estão disponíveis, uma vez que a parte de ficheiro associada que contém as imagens do ponto de restauro foi eliminada permanentemente.
+
+Verifique se a parte do ficheiro de back-up foi eliminada. Se foi em estado apagado suavemente, verifique se o período de retenção de eliminação suave acabou e não foi recuperado de volta. Em qualquer um destes casos, perderá todas as suas fotos permanentemente e não será capaz de recuperar os dados.
+
+>[!NOTE]
+> Recomendamos que não elimine a parte do ficheiro de backed, ou se estiver em estado suave apagado, sem apagar antes que o período de retenção de eliminação suave termine, para evitar perder todos os seus pontos de restauro.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState - A cópia de segurança falhou à medida que a Partilha de Ficheiros Azure está em estado de soft-delete
+
+Error Code: UserErrorBackupAFSInSoftDeleteState
+
+Error Message: Backup failed as the Azure File Share is in soft-deleted state
+
+Desapague a parte do ficheiro do **portal Ficheiros** ou utilizando o [script Undelete](scripts/backup-powershell-script-undelete-file-share.md) para continuar a cópia de segurança e evitar a eliminação permanente dos dados.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState- Cópia de segurança falhou à medida que a partilha de ficheiros Azure associada é eliminada permanentemente
+
+Error Code: UserErrorBackupAFSInDeleteState
+
+Error Message: Backup failed as the Associated Azure File Share is permanently eliminado
+
+Verifique se a parte do ficheiro backed é permanentemente eliminada. Se sim, pare a cópia de segurança para a partilha de ficheiros para evitar falhas repetidas de backup. Para aprender a parar a proteção ver [Stop Protection for Azure file share](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o backup de ações de ficheiros Azure, consulte:
 

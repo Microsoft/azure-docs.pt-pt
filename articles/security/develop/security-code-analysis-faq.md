@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a888d95a97e30e7d663b528e8d9941aec1f51e9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460227"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015850"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 Tem perguntas? Consulte as seguintes FAQ para obter mais informações.
@@ -48,7 +48,7 @@ Na maior parte das vezes, os Azure DevOps constroem tarefas são invólucros dir
 
 Diferenças visíveis:
 
-- As ferramentas funcionam a partir da pasta fonte do agente $(Build.SourcesDirectory) ou a partir de %BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent\_work\1\s.
+- As ferramentas funcionam a partir da pasta fonte do agente $(Build.SourcesDirectory) ou a partir de %BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent \_ work\1\s.
 - Os caminhos nos argumentos podem ser relativos à raiz do diretório de origem previamente listado. Os caminhos também podem ser absolutos. Obtém caminhos absolutos usando As Variáveis de Construção de Azure DevOps ou executando um agente no local com locais de implantação conhecidos de recursos locais.
 - As ferramentas fornecem automaticamente um caminho ou pasta de ficheirode saída. Se fornecer um local de saída para uma tarefa de construção, essa localização é substituída por um caminho para a nossa conhecida localização de registos no agente de construção
 - Alguns argumentos adicionais da linha de comando são alterados para algumas ferramentas. Um exemplo é a adição ou remoção de opções que garantem que não é lançado gui.
@@ -63,7 +63,7 @@ As tarefas de construção filtram alguma entrada do utilizador. Para esta pergu
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Onde estão os ficheiros de saída gerados pelas ferramentas guardadas? 
 
-As tarefas de construção adicionam automaticamente caminhos de saída a esta localização conhecida\_no agente de construção: $(Agent.BuildDirectory) sdt\logs. Como padronizamos neste local, todas as equipas que produzem ou consomem registos de análise de código têm acesso à saída.
+As tarefas de construção adicionam automaticamente caminhos de saída a esta localização conhecida no agente de construção: $(Agent.BuildDirectory) \_ sdt\logs. Como padronizamos neste local, todas as equipas que produzem ou consomem registos de análise de código têm acesso à saída.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso fazer fila para executar estas tarefas num agente de construção hospedado? 
 
@@ -123,7 +123,7 @@ A chave hash do segredo do ficheiro de saída credScan é necessária como mostr
 
 A expressão do ficheiro pode ser um nome de ficheiro. Também pode ser a parte base de um caminho de arquivo completo ou um nome de ficheiro. Não são suportados carateres universais.
 
-Os exemplos seguintes mostram \<como suprimir o ficheiro InputPath>\src\JS\lib\angular.js
+Os seguintes exemplos mostram como suprimir o ficheiro \<InputPath> \src\JS\lib\angular.js
 
 Exemplos de regras de supressão válidas:
 
@@ -155,7 +155,7 @@ Exemplos de regras de supressão válidas:
 Os seguintes recursos ajudam-no a gerir de forma segura segredos e a aceder a informações sensíveis a partir das suas aplicações:
 
  - [Azure Key Vault](../../key-vault/index.yml)
- - [Diretório Ativo Azure (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Diretório Ativo Azure (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Identidade de serviço gerido pela Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identidades geridas no Azure App Service e funções azure](../../app-service/overview-managed-identity.md)
@@ -173,7 +173,7 @@ Um pesquisador de conteúdo é definido da seguinte forma:
 - **Nome**: O nome do pesquisador descritivo a utilizar nos ficheiros de saída do Scanner Credencial. Recomendamos que use a convenção de nomeação de caso de camelo para nomes de pesquisadores.
 - **RegraId**: A identificação opaca estável do pesquisador:
     - Um pesquisador predefinido do Scanner Credencial é atribuído a um valor **RuleId** como CSCAN0010, CSCAN0020 ou CSCAN0030. O último dígito é reservado para potencialmente fundir ou dividir grupos de pesquisadores através de expressões regulares (regex).
-    - O valor **RuleId** para um pesquisador personalizado deve ter o seu próprio espaço de nome. Exemplos\<incluem CSCAN- Namespace\>0010, CSCAN-\<Namespace\>0020 e CSCAN-\<Namespace\>0030.
+    - O valor **RuleId** para um pesquisador personalizado deve ter o seu próprio espaço de nome. Exemplos incluem \<Namespace\> CSCAN-0010, \<Namespace\> CSCAN-0020 e CSCAN-0030. \<Namespace\>
     - Um nome de pesquisador totalmente qualificado é a combinação de um valor **RuleId** e um nome de pesquisa. Exemplos incluem CSCAN0010. KeyStoreFiles e CSCAN0020. Certificado de código Base64Encoded.
 - **ResourceMatchPattern**: Regex de extensões de ficheiros para verificar contra o searchdor.
 - **ContentSearchPatterns**: Um conjunto de cordas contendo declarações regex para combinar. Se não forem definidos padrões de pesquisa, todos os ficheiros que correspondam ao valor **ResourceMatchPattern** são devolvidos.
@@ -202,13 +202,13 @@ Um passo entre a sua construção principal e os passos de Roslyn Analisers pode
 
 A mensagem de erro completa:
 
-"'csc.exe' saiu com o código de erro 1 -- Um exemplo de\\analisador *AAAA* não pode ser criado a partir de C:*BBBB*.dll : Não conseguiu carregar ficheiro si ou montagem 'Microsoft.CodeAnalysis, Version=*X.X.X,* Culture=neutral, PublicKeyToken=31bf3856ad364e35' ou uma das suas dependências. O sistema não pode encontrar o ficheiro especificado."
+"'csc.exe' saiu com o código de erro 1 -- Um exemplo de analisador *AAAA* não pode ser criado a partir de C: \\ *BBBB*.dll : Não conseguiu carregar ficheiro si ou montagem 'Microsoft.CodeAnalysis, Version=*X.X.X,* Culture=neutral, PublicKeyToken=31bf3856ad364e35' ou uma das suas dependências. O sistema não pode encontrar o ficheiro especificado."
 
 Certifique-se de que o seu compilador apoia a Roslyn Analisers. A execução do comando **csc.exe /versão** deve reportar um valor de versão de 2.6 ou posterior.
 
 Por vezes, um ficheiro .csproj pode sobrepor-se à instalação do Estúdio Visual da máquina de construção, referindo-se a um pacote da Microsoft.Net.Compilers. Se não pretender utilizar uma versão específica do compilador, remova referências ao Microsoft.Net.Compilers. Caso contrário, certifique-se de que a versão do pacote referenciado também é de 2.6 ou mais tarde.
 
-Tente obter o caminho de registo de erros, especificado na opção **csc.exe/errorlog.** A opção e o caminho aparecem no registo para os Analisadores Roslyn construir tarefa. Podem parecer algo como **/errorlog:F:\ts-services-123\_trabalho\456\s\Projeto\Code\Code.csproj.sarif**
+Tente obter o caminho de registo de erros, especificado na opção **csc.exe/errorlog.** A opção e o caminho aparecem no registo para os Analisadores Roslyn construir tarefa. Podem parecer algo como **/errorlog:F:\ts-services-123 \_ trabalho\456\s\Projeto\Code\Code.csproj.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>A versão do compilador C# não é suficientemente recente.
 
@@ -218,7 +218,7 @@ Para obter as versões mais recentes do compilador C#, vá a [Microsoft.Net.Comp
 
 A tarefa de construção de Análises Roslyn precisa de consultar azure DevOps para o log MSBuild da tarefa de construção MSBuild. Se a tarefa do analisador for imediatamente após a tarefa MSBuild, o registo ainda não estará disponível. Coloque outras tarefas entre a tarefa MSBuild e a tarefa roslyn Analisadores. Exemplos de outras tarefas incluem BinSkim e Anti-Malware Scanner.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de assistência adicional, o Suporte de Análise do Código de Segurança da Microsoft está disponível de segunda a sexta-feira das 9:00 às 17:00 hora padrão do Pacífico.
 

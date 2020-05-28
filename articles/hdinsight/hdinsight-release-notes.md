@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: b7489c49b7469feacfd5b982615419741d286998
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d0f12274f3cbc0cd2726097e0507079cb858d59f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849710"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116558"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -49,13 +49,13 @@ Nenhuma mudança de comportamento para esta libertação. Para se preparar para 
 As seguintes alterações acontecerão nos próximos lançamentos. 
 
 ### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Depreciação da Faísca 2.1 e 2.2 no cluster HDInsight 3.6 Spark
-A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Spark com A Spark 2.1 e 2.2 no HDInsight 3.6. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte.
+A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Spark com A Spark 2.1 e 2.2 no HDInsight 3.6. Os clusters existentes serão executados como está sem suporte da Microsoft. Considere mudar-se para spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar possíveis interrupções do sistema/suporte. Para mais informações, consulte a [Migrate Apache Spark 2.1 e 2.2 cargas de trabalho para 2.3 e 2.4](./spark/migrate-versions.md).
 
 ### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Depreciação da Faísca 2.3 no cluster HDInsight 4.0 Spark
-A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Spark com a Spark 2.3 no HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte.
+A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Spark com a Spark 2.3 no HDInsight 4.0. Os clusters existentes serão executados como está sem suporte da Microsoft. Considere mudar-se para spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar possíveis interrupções de sistema/suporte. Para mais informações, consulte a [Migrate Apache Spark 2.1 e 2.2 cargas de trabalho para 2.3 e 2.4](./spark/migrate-versions.md).
 
 ### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Depreciação de Kafka 1.1 no cluster HDInsight 4.0 Kafka
-A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte.
+A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes serão executados como está sem suporte da Microsoft. Considere mudar-se para Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar uma possível interrupção do sistema/suporte. Para mais informações, consulte as cargas de [trabalho da Migrate Apache Kafka para O Azure HDInsight 4.0](./kafka/migrate-versions.md).
 
 ### <a name="hbase-20-to-216"></a>HBase 2.0 a 2.1.6
 No próximo lançamento do HDInsight 4.0, a versão HBase será atualizada da versão 2.0 para 2.1.6

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a3d3b990c750e96b840676097bb3677606bf68b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412950"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118357"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 
@@ -83,7 +83,7 @@ Desde o lançamento inicial da pré-visualização pública em 2017, data Factor
 
 -    Suporte para mais três configurações/variantes da Base de Dados SQL Azure para acolher a base de dados SSIS (SSISDB) de projetos/pacotes:
 -    Base de Dados SQL com pontos finais de serviço de rede virtual
--    Instância gerida
+-    Instância Gerida do SQL
 -    Conjunto elástico
 -    Suporte para uma rede virtual do Gestor de Recursos Azure para além de uma rede virtual clássica a ser depreciada no futuro, o que permite injetar/aderir ao seu tempo de integração Azure-SSIS a uma rede virtual configurada para base de dados SQL com pontos finais de serviço de rede virtual/acesso de dados MI/on-local. Para mais informações, consulte também Adere a um tempo de execução de [integração Azure-SSIS para uma rede virtual.](join-azure-ssis-integration-runtime-virtual-network.md)
 -    Suporte para autenticação de Diretório Ativo Azure (Azure AD) e autenticação SQL para ligar ao SSISDB, permitindo a autenticação adada com a sua Fábrica de Dados gerida identidade para recursos Azure
@@ -174,13 +174,13 @@ Sim, os parâmetros são um conceito de primeira classe, de alto nível na Fábr
 Sim. Pode definir valores predefinidos para os parâmetros dos gasodutos. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Pode uma atividade num oleoduto consumir argumentos que são passados para uma corrida de gasodutos? 
-Sim. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro `@parameter` que passou para o oleoduto e correr com a construção. 
+Sim. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro que passou para o oleoduto e correr com a `@parameter` construção. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Uma propriedade de produção de atividade pode ser consumida em outra atividade? 
 Sim. Uma saída de atividade pode ser consumida numa atividade subsequente com a `@activity` construção.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como lido graciosamente com valores nulos numa saída de atividade? 
-Pode utilizar `@coalesce` a construção nas expressões para lidar com valores nulos graciosamente. 
+Pode utilizar a `@coalesce` construção nas expressões para lidar com valores nulos graciosamente. 
 
 ## <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
 
@@ -266,7 +266,7 @@ A confraternde fluxo de dados suporta os seguintes tipos de dados no SQL. Terá 
 * bigint
 * long
 * texto
-* date
+* data
 * datetime
 * datetime2
 * tempo de data pequena
@@ -276,7 +276,7 @@ A confraternde fluxo de dados suporta os seguintes tipos de dados no SQL. Terá 
 
 Outros tipos de dados serão suportados no futuro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter instruções passo a passo para criar uma fábrica de dados, consulte os seguintes tutoriais:
 
 - [Quickstart: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)

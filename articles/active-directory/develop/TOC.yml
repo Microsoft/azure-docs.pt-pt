@@ -595,7 +595,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: Identificar e aceder a APIs no Microsoft Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
+      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
     - name: Códigos de erro de autenticação e autorização
       displayName: AADSTS
       href: reference-aadsts-error-codes.md

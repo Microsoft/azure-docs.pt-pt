@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562207"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997014"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 
@@ -236,14 +236,14 @@ Para que o acionador de agenda desencadeie uma execução de pipeline, inclua um
 A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
 | Propriedade JSON | Descrição |
-|:--- |:--- |
+| --- | --- |
 | **startTime** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o acionador é iniciado imediatamente a seguir ao valor especificado em **startTime**. |
 | **endTime** | A data e hora de fim do acionador. O acionador não é executado após a data e hora de fim especificadas. O valor da propriedade não pode situar-se no passado. <!-- This property is optional. --> |
 | **timeZone** | O fuso horário. Atualmente, o fuso horário UTC é o único suportado. |
 | **recorrência** | Um objeto de periodicidade que especifica as regras de periodicidade do acionador. O objeto de periodicidade suporta os elementos **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando um objeto de periodicidade é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de periodicidade são opcionais. |
 | **frequência** | A unidade que se refere à frequência com que o acionador voltar a ocorrer. Os valores suportados incluem "minute", "hour", "day", "week" e "month". |
 | **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**. O valor **frequency** determina o número de vezes que o acionador é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o acionador repete-se de três em três semanas. |
-| **agenda** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana.
+| **agenda** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana. |
 
 ### <a name="schedule-trigger-example"></a>Exemplo de acionador Schedule
 
@@ -282,19 +282,19 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 ### <a name="schema-defaults-limits-and-examples"></a>Predefinições, limites e exemplos do esquema
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- | --- | --- |
 | **startTime** | string | Sim | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recorrência** | objeto | Sim | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervalo** | número | No | 1 | 1 a 1000 | `"interval":10` |
+| **intervalo** | número | Não | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | string | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **agenda** | objeto | No | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **agenda** | objeto | Não | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:
 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
-|:--- |:--- |:--- |
-| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir _ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| --- | --- | --- |
+| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O gatilho começa _o mais cedo que_ a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 | **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **da recorrência** é definido definindo a propriedade de **frequência** para "dia" e a propriedade **de intervalo** para 2.) Note que o valor do tempo de **partida** está no passado e ocorre antes do tempo atual.
@@ -315,20 +315,17 @@ Se forem especificados vários elementos de **horário,** a ordem de avaliação
 A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
 | Elemento JSON | Descrição | Valores válidos |
-|:--- |:--- |:--- |
-| **minutos** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
-| **horas** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
-| **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores do dia não são sensíveis aos casos|
-| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Matriz de objetos **mensais Ocorrência:**`{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
-| **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
+| --- | --- | --- |
+| **minutos** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros |
+| **horas** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros |
+| **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores do dia não são sensíveis aos casos |
+| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Matriz de objetos **mensais Ocorrência:**`{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional. |
+| **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores |
 
 ## <a name="tumbling-window-trigger"></a>Acionador de janela em cascata
 Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos.
 
 Para obter mais informações sobre os gatilhos das janelas e, por exemplo, consulte [Criar um gatilho](how-to-create-tumbling-window-trigger.md)de janela caindo .
-
-> [!NOTE]
-> O gatilho da janela de tropeçar *espera que o gasoduto acionado termine.* O seu estado de execução reflete o estado da execução do gasoduto desencadeado. Por exemplo, se um gasoduto acionado for cancelado, o curso correspondente do gatilho da janela de tropeçar é marcado cancelado. Isto é diferente do comportamento "fogo e esquecimento" do gatilho do horário, que é marcado como bem sucedido desde que um gasoduto começou.
 
 ## <a name="event-based-trigger"></a>Acionador baseado em eventos
 
@@ -342,7 +339,7 @@ Esta secção mostra exemplos de agendas de periodicidade. Concentra-se no objet
 Os exemplos assumem que o valor de **intervalo** é 1 e que o valor **de frequência** está correto de acordo com a definição de horário. Por exemplo, não pode ter um valor de **frequência** de "dia" e também ter uma modificação **mensal No** objeto de **horário.** Estes tipos de restrições estão descritos na tabela na secção anterior.
 
 | Exemplo | Descrição |
-|:--- |:--- |
+| --- | --- |
 | `{"hours":[5]}` | Executar todos os dias às 5:00. |
 | `{"minutes":[15], "hours":[5]}` | Executar todos os dias às 5:15. |
 | `{"minutes":[15], "hours":[5,17]}` | Executar todos os dias às 5:15 e 17:15. |
@@ -373,18 +370,21 @@ Os exemplos assumem que o valor de **intervalo** é 1 e que o valor **de frequê
 ## <a name="trigger-type-comparison"></a>Comparação de tipos de acionador
 Tanto o acionador de janela em cascata, como o acionador de agenda, operam em heartbeats de tempo. Em que diferem?
 
+> [!NOTE]
+> O gatilho da janela de tropeçar *espera que o gasoduto acionado termine.* O seu estado de execução reflete o estado da execução do gasoduto desencadeado. Por exemplo, se um gasoduto acionado for cancelado, o curso correspondente do gatilho da janela de tropeçar é marcado cancelado. Isto é diferente do comportamento "fogo e esquecimento" do gatilho do horário, que é marcado como bem sucedido desde que um gasoduto começou.
+
 A tabela que se segue oferece uma comparação entre o acionador de janela em cascata e o acionador de agenda:
 
-|  | Acionador de janela em cascata | Acionador de Agenda |
-|:--- |:--- |:--- |
+| Item | Acionador de janela em cascata | Acionador de Agenda |
+| --- | --- | --- |
 | **Cenários de preenchimento** | Suportado. As execuções de pipeline podem ser agendadas para períodos de tempo no passado. | Não suportado. As execuções de pipeline só podem ser executadas em períodos de na hora atual ou numa hora futura. |
 | **Fiabilidade** | 100% de fiabilidade. As execuções de pipeline podem ser agendadas para todos os períodos de tempo a partir de uma data de início especificada sem lacunas. | Menos fiável. |
 | **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Tenta automaticamente retentar quando o gasoduto funciona falha devido a limites de concurrency/server/throttling (isto é, códigos de estado 400: Erro do utilizador, 429: Pedidos a mais e 500: Erro do Servidor Interno). | Não suportado. |
 | **Simultaneidade** | Suportado. Os utilizadores podem definir explicitamente limites de simultaneidade para o acionador. Permite entre uma e 50 execuções de pipeline acionadas em simultâneo. | Não suportado. |
-| **Variáveis do sistema** | Suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd**. Os utilizadores podem aceder a `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Não suportado. |
+| **Variáveis do sistema** | Juntamente com @trigger ().scheduletime e @trigger ().startTime, também suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd.** Os utilizadores podem aceder a `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Apenas suporta variáveis predefinidas @trigger ().programadasO tempo e @trigger ().inícioTime. |
 | **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja os tutoriais seguintes:
 
 - [Início Rápido: criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)

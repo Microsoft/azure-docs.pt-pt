@@ -67,7 +67,7 @@ Se o seu dispositivo não estiver unido à rede da sua organização, pode fazer
 
 - **Registe o seu dispositivo pessoal para o trabalho.** Registe o seu dispositivo pessoal, normalmente um telefone ou tablet, na rede da sua organização. Depois de registado o seu dispositivo, pode aceder aos recursos restritos da sua organização. Para obter mais informações e instruções passo a passo, consulte [Registar o seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
 - [Iniciar sessão com o telemóvel em vez da palavra-passe](user-help-auth-app-sign-in.md)

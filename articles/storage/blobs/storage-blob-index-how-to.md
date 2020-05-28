@@ -296,7 +296,7 @@ As políticas de [gestão do ciclo](storage-lifecycle-management-concepts.md) de
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Índice Blob. Ver [Gerir e encontrar dados sobre o Armazenamento de Blob Azure com índice blob (pré-visualização)](storage-manage-find-blobs.md )
 

@@ -4,18 +4,18 @@ description: Gestão de Desempenho de Aplicações e controlo da utilização da
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c25929100fdfa6f4652e99c0d2563d9e56cfb62b
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828734"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996096"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 Application Insights, uma funcionalidade do [Azure Monitor,](../overview.md)é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para programadores e profissionais de DevOps. Use-o para monitorizar as suas aplicações ao vivo. Irá detetar automaticamente anomalias de desempenho e inclui ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js, Java e Python hospedados no local, híbridos ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Como funciona o Application Insights?
-Instale um pequeno pacote de instrumentação (SDK) na sua aplicação ou ativa os Insights de Aplicação sem código quando [suportado](../../azure-monitor/app/platforms.md). A instrumentação monitoriza a sua aplicação e direciona os dados da telemetria para um Recurso de Insights de Aplicação Azure utilizando um GUID único a que nos referimos como chave de instrumentação.
+Instale um pequeno pacote de instrumentação (SDK) na sua aplicação ou ative insights de aplicação utilizando o Agente de Insights de Aplicação quando [suportado](../../azure-monitor/app/platforms.md). A instrumentação monitoriza a sua aplicação e direciona os dados da telemetria para um Recurso de Insights de Aplicação Azure utilizando um GUID único a que nos referimos como chave de instrumentação.
 
 Pode instrumentar não só a aplicação do serviço Web, mas também qualquer componente em segundo plano e o JavaScript nas próprias páginas Web. A aplicação e os seus componentes podem funcionar em qualquer lugar - não tem de ser hospedado em Azure.
 
@@ -26,7 +26,7 @@ Além disso, pode extrair telemetria dos ambientes anfitriões, como contadores 
 Todos estes fluxos de telemetria estão integrados no Monitor Azure. No portal Azure, pode aplicar ferramentas analíticas e de pesquisa poderosas aos dados brutos.
 
 ### <a name="whats-the-overhead"></a>Qual é o contra?
-O impacto no desempenho da sua aplicação é muito pequeno. As chamadas de controlo não são limitativas, são colocadas em lotes e enviadas em threads separados.
+O impacto no desempenho da sua aplicação é pequeno. As chamadas de controlo não são limitativas, são colocadas em lotes e enviadas em threads separados.
 
 ## <a name="what-does-application-insights-monitor"></a>O que monitoriza o Application Insights?
 
@@ -69,7 +69,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 ### <a name="monitor"></a>Monitorizar
 Instale o Application Insights na sua aplicação, configure [testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e:
 
-* Check-out do painel de [aplicações](../../azure-monitor/app/overview-dashboard.md) padrão para a sua sala de equipa para manter um olho na carga, capacidade de resposta e desempenho das suas dependências, cargas de página e chamadas AJAX.
+* Confira o painel de [aplicações](../../azure-monitor/app/overview-dashboard.md) padrão para a sua sala de equipa para manter um olho na carga, capacidade de resposta e desempenho das suas dependências, cargas de página e chamadas AJAX.
 * Saiba quais são os pedidos mais lentos e que mais falham.
 * Veja o [Live Stream](../../azure-monitor/app/live-stream.md) quando implementar uma versão nova, para tomar conhecimento imediatamente de eventuais degradações.
 
@@ -101,14 +101,14 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
   * [aplicações centrais ASP.NET](../../azure-monitor/app/asp-net-core.md)
   * [.NET Aplicações de consola](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
-  * [Node.js](../../azure-monitor/app/nodejs.md)
+  * [Nó.js](../../azure-monitor/app/nodejs.md)
   * [Python](../../azure-monitor/app/opencensus-python.md)
   * [Outras plataformas](../../azure-monitor/app/platforms.md)
 * **[Instrumente as suas páginas web](../../azure-monitor/app/javascript.md)** para visualização de página, AJAX e outra telemetria do lado do cliente.
 * **[Analise a utilização da aplicação móvel](../../azure-monitor/learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Introdução ao tempo de execução com:
 
 * [Aplicativos de escala virtual Azure VM e Azure conjunto iIS](../../azure-monitor/app/azure-vm-vmss-apps.md)
@@ -120,7 +120,7 @@ Introdução no momento de programação com:
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
+* [Nó.js](../../azure-monitor/app/nodejs.md)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 
 
@@ -128,7 +128,7 @@ Introdução no momento de programação com:
 * Perguntas e Problemas:
   * [Resolução de problemas][qna]
   * [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-  * [Stackoverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * As suas sugestões:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blogue:

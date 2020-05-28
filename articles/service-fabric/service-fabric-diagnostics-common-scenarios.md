@@ -130,7 +130,7 @@ Para acompanhar o desempenho de Serviços Fiáveis ou Atores nas suas aplicaçõ
 
 Consulte estes links para ver a lista completa de contadores de desempenho em [Serviços](service-fabric-reliable-serviceremoting-diagnostics.md) fiáveis e [atores](service-fabric-reliable-actors-diagnostics.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Procure erros de ativação do pacote de código comum](./service-fabric-diagnostics-code-package-errors.md)
 * [Configurar alertas em IA](/azure/azure-monitor/platform/alerts-log) para serem notificados sobre alterações no desempenho ou utilização

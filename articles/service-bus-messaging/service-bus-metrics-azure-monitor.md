@@ -172,7 +172,7 @@ O Azure Service Bus suporta as seguintes dimensões para métricas no Monitor Az
 
     ![Criar botão de regra de alerta](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a visão geral do [Monitor Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3739f8691a144f183e72af19233f776a24066cbc
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837098"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118799"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -31,7 +31,7 @@ Com esta conta criada para si, pode rapidamente começar a construir e a impleme
 Para criar ou atualizar uma conta de Automação, e para completar as tarefas descritas neste artigo, deve ter os seguintes privilégios e permissões:
 
 * Para criar uma conta De automação, a sua conta de utilizador Azure AD deve ser adicionada a uma função com permissões equivalentes à função de Proprietário para `Microsoft.Automation` recursos. Para mais informações, consulte [O Controlo de Acesso baseado em Funções na Automação Azure](automation-role-based-access-control.md).
-* No portal Azure, sob as definições de Utilizador de Manage do **Diretório Ativo do Azure,** se as inscrições da  >  **MANAGE**  >  **User settings**App forem **definidas** para **Sim,** os utilizadores não administradores do seu inquilino Azure AD podem [registar aplicações de Diretório Ativo.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se **as inscrições** da App estiverem definidas para **Nº,** o utilizador que executa esta ação deve ser um administrador global no Azure AD.
+* No portal Azure, sob as definições de Utilizador de Manage do **Diretório Ativo do Azure,** se as inscrições da  >  **MANAGE**  >  **User settings**App forem **definidas** para **Sim,** os utilizadores não administradores do seu inquilino Azure AD podem [registar aplicações de Diretório Ativo.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se **as inscrições** da App estiverem definidas para **Nº,** o utilizador que executa esta ação deve ter pelo menos uma função de Desenvolvedor de Aplicações em Azure AD.
 
 Se não for membro da instância de Diretório Ativo da subscrição antes de ser adicionado ao papel global de Administrador/Coadministrador da subscrição, é adicionado ao Ative Directory como convidado. Neste cenário, vê esta mensagem no painel da Conta Add Automation:`You do not have permissions to create.`
 
@@ -99,7 +99,7 @@ Corrida clássica Como as contas já não são criadas por padrão quando cria u
 2. Selecione **Azure Classic Run As Account**.
 3. Clique em **Criar** para prosseguir com a Classic Run Como criação de conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre autoria gráfica, consulte [os livros de execução gráfica sinuosos em Automação Azure.](automation-graphical-authoring-intro.md)
 * Para começar com os livros de execução da PowerShell, consulte [Tutorial: Crie um livro de corridas PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).

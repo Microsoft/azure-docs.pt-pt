@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 36b449c4c4ca30eb658c9519ce8e870a4f1fab32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71970731"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997048"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
@@ -42,6 +42,6 @@ Pode treinar um modelo usando apenas dados do dicionário. Para tal, selecione a
 - Quando se usa uma frase dicionário, a capitalização e a pontuação são importantes. As entradas no dicionário apenas corresponderão a palavras e frases na frase de entrada que usam exatamente a mesma capitalização e pontuação especificada no ficheiro do dicionário fonte. Também as traduções refletirão a capitalização e pontuação fornecidas no ficheiro do dicionário-alvo. Por exemplo, se treinou um sistema inglês para espanhol que usa um dicionário de frases que especifica "EUA" no ficheiro fonte, e "EE. UU. no ficheiro alvo. Quando solicita a tradução de uma frase que inclui a palavra "nós" (não capitalizada), isso não corresponderia ao dicionário. No entanto, se solicitar a tradução de uma frase que contenha a palavra "EUA" (capitalizada), então corresponderia ao dicionário e a tradução conteria "EE. UU. Note que a capitalização e pontuação na tradução podem ser diferentes das especificadas no ficheiro-alvo do dicionário, podendo ser diferente da capitalização e pontuação na fonte. Segue as regras da linguagem-alvo.
 - Se uma palavra aparecer mais de uma vez num ficheiro de dicionário, o sistema utilizará sempre a última entrada fornecida. Por isso, o seu dicionário não deve conter múltiplas traduções da mesma palavra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre [as diretrizes sobre os formatos](document-formats-naming-convention.md)de documentos .

@@ -118,7 +118,7 @@ Depois pode percorrer a hierarquia da entidade e modificar as entidades e compon
 > [!CAUTION]
 > Todas as funções *De Sincronia* em ARR devolvem objetos de operação assíncronos. Deve armazenar uma referência a esses objetos até que a operação esteja concluída. Caso contrário, o coletor de lixo C# pode apagar a operação mais cedo e nunca poderá terminar. No código da amostra acima da utilização da *espera* garante que a variável local 'loadOp' detém uma referência até que o carregamento do modelo esteja terminado. No entanto, se utilizar o evento *Concluído,* terá de armazenar a operação assíncrona numa variável membro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Entidades](entities.md)
 * [Malhas](meshes.md)

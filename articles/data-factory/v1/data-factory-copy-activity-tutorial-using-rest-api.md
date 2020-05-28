@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75438880"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119238"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar a API REST para criar um pipeline do Azure Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "75438880"
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo de Gestor de Recursos Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
@@ -70,7 +70,7 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
      ```PowerShell     
      Get-AzSubscription
      ``` 
-  3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt;o NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure. 
+  3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o ** &lt; NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure. 
      
      ```PowerShell
      Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -121,7 +121,7 @@ Para obter detalhes sobre as propriedades JSON, veja [Azure Storage linked servi
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> Substitua **servername**, **databasename**, **username** e **password** pelos nomes do seu servidor SQL do Azure, nome da base de dados SQL, conta de utilizador e palavra-passe da conta.  
+> Substitua o nome do **servidor**, nome de base de **dados,** nome de **utilizador**e **palavra-passe** com o nome do seu servidor, nome da base de dados SQL, conta de utilizador e palavra-passe para a conta.  
 > 
 >
 
@@ -403,7 +403,7 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dado
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Criar serviço ligado SQL do Azure
-Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados. Especifique o nome do servidor SQL do Azure, o nome da base de dados, o nome de utilizador e a palavra-passe do utilizador nesta secção. Consulte o [Azure SQL linked service (Serviço ligado SQL do Azure)](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON utilizadas para definir um serviço ligado SQL do Azure.
+Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados. Especifica o nome lógico do servidor SQL, nome da base de dados, nome do utilizador e palavra-passe do utilizador nesta secção. Consulte o [Azure SQL linked service (Serviço ligado SQL do Azure)](data-factory-azure-sql-connector.md#linked-service-properties) para obter detalhes sobre as propriedades JSON utilizadas para definir um serviço ligado SQL do Azure.
 
 1. Atribua o comando à variável com o nome **cmd**. 
    
@@ -529,7 +529,7 @@ Neste tutorial, utilizou uma API REST para criar uma fábrica de dados do Azure 
 3. Conjuntos de **dados criados,** que descrevem dados de entrada e dados de saída para os oleodutos.
 4. Criou um **pipeline** com uma Atividade de Cópia com BlobSource como origem e SqlSink como sink. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

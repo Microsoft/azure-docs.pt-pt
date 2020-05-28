@@ -34,7 +34,7 @@
   items:
     - name: Centro de Segurança
       href: 'https://azure.microsoft.com/services/security-center/'
-    - name: Assistente da BD SQL
+    - name: Assistente da Base de Dados SQL
       href: 'https://azure.microsoft.com/documentation/articles/sql-database-advisor/'
     - name: Serviço de Aplicações
       href: 'https://docs.microsoft.com/azure/app-service/app-service-best-practices'

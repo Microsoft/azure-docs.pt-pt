@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.custom: mqtt
-ms.openlocfilehash: 68186e777051e77deca7b6e5891eb392cac23260
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20bbd3fbc7623f01e60acbd08eed0c09b7e1a26d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729041"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117575"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Compreenda e use Os DSDs do Hub Azure IoT
 
@@ -117,6 +117,11 @@ Serviço Azure IoT Hub SDK para Python:
 
 Serviço Azure IoT Hub SDK para C: 
 
+O Serviço Azure IoT SDK para C já não está em desenvolvimento ativo.
+Continuaremos a corrigir bugs críticos, como acidentes, corrupção de dados e vulnerabilidades de segurança. No entanto, não adicionaremos nenhuma nova funcionalidade ou corrigir bugs que não sejam críticos.
+
+O suporte do Serviço Azure IoT SDK está disponível em línguas de alto nível[(C#,](https://github.com/Azure/azure-iot-sdk-csharp) [Java,](https://github.com/Azure/azure-iot-sdk-java) [Nó,](https://github.com/Azure/azure-iot-sdk-node) [Python).](https://github.com/Azure/azure-iot-sdk-python)
+
 * Baixar de [apt-get, MBED, Arduino IDE ou NuGet](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Código de origem](https://github.com/Azure/azure-iot-sdk-c)
 
@@ -161,7 +166,7 @@ Dispositivo de provisionamento Azure e SDKs de serviço para Python:
 * [Código de origem](https://github.com/Azure/azure-iot-sdk-python)
 * Descarregue [o Dispositivo SDK](https://pypi.org/project/azure-iot-device/) e [o Serviço SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/) a partir do pip
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os SDKs Azure IoT também fornecem um conjunto de ferramentas para ajudar no desenvolvimento:
 * [Iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uma ferramenta de linha de comando transversal para ajudar a diagnosticar problemas relacionados com a ligação com o IoT Hub.

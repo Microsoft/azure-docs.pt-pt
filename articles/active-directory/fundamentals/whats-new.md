@@ -1,5 +1,5 @@
 ---
-title: Novidades Notas de lançamento - Diretório Ativo Azure / Microsoft Docs
+title: Novidades? Notas de lançamento - Diretório Ativo Azure / Microsoft Docs
 description: Saiba o que há de novo com o Azure Ative Directory, como as mais recentes notas de lançamento, questões conhecidas, correções de bugs, funcionalidade depreciada e próximas alterações.
 services: active-directory
 author: msmimart
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c58c99faa83d6f04ac37d03789202e111f1b06d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: f879ebd2f3628b8282342d730a5f3957cf2a615f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611165"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994993"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Azure Ative Directory?
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando ![e colando](./media/whats-new/feed-icon-16x16.png) este URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` no leitor de feed do leitor de feed RSS.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: no leitor de feed do `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Active+Directory%22&locale=en-us` ![ leitor de feed RSS. ](./media/whats-new/feed-icon-16x16.png)
 
 A Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
 
@@ -487,7 +487,7 @@ A integração do Azure Monitor com os registos da AD Azure já está disponíve
 **Categoria de serviço:** Proteção de Identidade  
 **Capacidade do produto:** Proteção de & de Segurança de Identidade
 
-Estamos entusiasmados por partilhar que já lançámos a renovada experiência de [Proteção](https://aka.ms/IdentityProtectionDocs) de Identidade azure no [portal do Governo microsoft Azure.](https://portal.azure.us/) Para mais informações, consulte o nosso post de blog de [anúncios.](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667)
+Estamos entusiasmados por partilhar que já lançámos a renovada experiência de Proteção de [Identidade azure](https://aka.ms/IdentityProtectionDocs)   no portal do Governo microsoft [Azure.](https://portal.azure.us/) Para mais informações, consulte o nosso post de blog de [anúncios.](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667)
 
 ---
 
@@ -544,7 +544,7 @@ A partir de agora, os clientes que tenham inquilinos gratuitos podem aceder aos 
 **Categoria de serviço:** Gestão de Grupos  
 **Capacidade do produto:** Colaboração
 
-Para proporcionar uma forma mais flexível para os clientes criarem grupos de diretórios que melhor satisfaçam as suas necessidades, substituímos a opção grupos de **diretórios** das configurações**gerais** dos **grupos** > no portal Azure com uma ligação à [documentação dinâmica do grupo.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) Melhorámos a nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os utilizadores que incluam ou excluam os utilizadores convidados.
+Para proporcionar uma forma mais flexível para os clientes criarem grupos de diretórios que melhor satisfaçam as suas necessidades, substituímos a opção grupos de **diretórios** das configurações gerais dos **grupos**  >  **General** no portal Azure com uma ligação à [documentação dinâmica do grupo.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) Melhorámos a nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os utilizadores que incluam ou excluam os utilizadores convidados.
 
 ---
 
@@ -658,7 +658,7 @@ A Minha Conta, a única loja para todas as necessidades de gestão de conta de u
 **Categoria de serviço:** O meu perfil/conta  
 **Capacidade do produto:** Experiências de utilizador final
  
-A nova experiência de utilizador final da `https://myaccount.microsoft.com` My Account irá atualizar o seu URL para o próximo mês. Encontre mais informações sobre a experiência e todas as capacidades de self-service da conta que oferece aos utilizadores finais no [portal My Account.](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview)
+A nova experiência de utilizador final da My Account irá atualizar o seu URL `https://myaccount.microsoft.com` para o próximo mês. Encontre mais informações sobre a experiência e todas as capacidades de self-service da conta que oferece aos utilizadores finais no [portal My Account.](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview)
 
 ---
  
@@ -789,7 +789,7 @@ Para obter mais informações sobre os novos incumprimentos de segurança, consu
 **Categoria de serviço:** Autenticações (Logins)  
 **Capacidade do produto:** Autenticação do Utilizador
 
-Como parte de um modelo seguro por padrão para cookies, o navegador Chrome 80 está a mudar a forma como trata os cookies sem o `SameSite` atributo. Qualquer cookie que não `SameSite` especifique o atributo será `SameSite=Lax`tratado como se estivesse definido , o que resultará em Chrome bloqueando certos cenários de partilha de cookies de domínio transversal de que a sua aplicação pode depender. Para manter o comportamento chrome mais `SameSite=None` antigo, pode `Secure` utilizar o atributo e adicionar um atributo adicional, pelo que os cookies de cross-site só podem ser acedidos sobre ligações HTTPS. O Chrome deverá concluir esta alteração até 4 de fevereiro de 2020.
+Como parte de um modelo seguro por padrão para cookies, o navegador Chrome 80 está a mudar a forma como trata os cookies sem o `SameSite` atributo. Qualquer cookie que não especifique o `SameSite` atributo será tratado como se estivesse definido `SameSite=Lax` , o que resultará em Chrome bloqueando certos cenários de partilha de cookies de domínio transversal de que a sua aplicação pode depender. Para manter o comportamento chrome mais antigo, pode utilizar o atributo e adicionar um atributo adicional, pelo que os `SameSite=None` `Secure` cookies de cross-site só podem ser acedidos sobre ligações HTTPS. O Chrome deverá concluir esta alteração até 4 de fevereiro de 2020.
 
 Recomendamos que todos os nossos desenvolvedores testem as suas aplicações usando esta orientação:
 
@@ -797,7 +797,7 @@ Recomendamos que todos os nossos desenvolvedores testem as suas aplicações usa
 
 - Detete o valor predefinido para o atributo **do SameSite** a **None**.
 
-- Adicione um `SameSite` atributo adicional de **Secure**.
+- Adicione um atributo adicional `SameSite` de **Secure**.
 
 Para mais informações, consulte as [próximas Alterações de Cookies do SameSite em ASP.NET e ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) e Potencial perturbação nos websites dos clientes e produtos e [serviços da Microsoft na versão 79 do Chrome e posteriormente.](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79)
 

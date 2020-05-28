@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a2f55798afe7b817ab366e8fa55f07078277352d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208521"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117295"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Crie vários pontos finais de serviço web a partir de uma experiência com ml Studio (clássico) e PowerShell
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Eis um problema comum de aprendizagem automática: Quer criar muitos modelos que tenham o mesmo fluxo de trabalho de treino e utilizem o mesmo algoritmo. Mas quer que tenham diferentes conjuntos de dados de treino como entrada. Este artigo mostra-lhe como fazê-lo em escala no Azure Machine Learning Studio (clássico) usando apenas uma experiência.
 
@@ -96,7 +94,7 @@ Agora criaste 10 pontos finais e todos eles contêm o mesmo modelo treinado em *
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Atualize os pontos finais para utilizar conjuntos de dados de treino separados usando powerShell
 O próximo passo é atualizar os pontos finais com modelos exclusivamente treinados nos dados individuais de cada cliente. Mas primeiro precisa produzir estes modelos a partir do serviço web Bike **Rental Training.** Vamos voltar ao serviço web de treino de aluguer de **bicicletas.** É necessário ligar para o seu ponto final do BES 10 vezes com 10 conjuntos de dados de treino diferentes para produzir 10 modelos diferentes. Utilize o **cmdlet InovkeAmlWebServiceBESEndpoint** PowerShell para o fazer.
 
-Também terá de fornecer credenciais para a `$configContent`sua conta de armazenamento blob em . Ou seja, nos `AccountName` `AccountKey`campos, `RelativeLocation`e . Pode `AccountName` ser um dos nomes da sua conta, como se pode ver no **portal Azure** (separador*de armazenamento).* Uma vez clicado numa `AccountKey` conta de armazenamento, pode ser encontrado premindo o botão **'Gerir chaves de acesso'** na parte inferior e copiando a Chave de *Acesso Primário*. Este `RelativeLocation` é o caminho relativo ao seu armazenamento onde um novo modelo será armazenado. Por exemplo, `hai/retrain/bike_rental/` o caminho no script seguinte `hai`aponta `/retrain/bike_rental/` para um recipiente chamado , e são subpastas. Atualmente, não é possível criar subpastas através do portal UI, mas existem [vários Exploradores](../../storage/common/storage-explorers.md) de Armazenamento Azure que lhe permitem fazê-lo. Recomenda-se que crie um novo recipiente no seu armazenamento para armazenar os novos modelos treinados **Add** (.iLearner) da `retrain`seguinte forma: a partir da sua página de armazenamento, clique no botão Adicionar na parte inferior e nomeie-o . Em resumo, as alterações necessárias ao `AccountName` `AccountKey`seguinte `RelativeLocation` guião`"retrain/model' + $seq + '.ilearner"`dizem respeito a, e (: ).
+Também terá de fornecer credenciais para a sua conta de armazenamento blob em `$configContent` . Ou seja, nos `AccountName` `AccountKey` campos, e `RelativeLocation` . Pode `AccountName` ser um dos nomes da sua conta, como se pode ver no portal **Azure** (separador*de armazenamento).* Uma vez clicado numa conta de armazenamento, `AccountKey` pode ser encontrado premindo o botão **'Gerir chaves de acesso'** na parte inferior e copiando a Chave de *Acesso Primário*. Este `RelativeLocation` é o caminho relativo ao seu armazenamento onde um novo modelo será armazenado. Por exemplo, o caminho `hai/retrain/bike_rental/` no script seguinte aponta para um recipiente chamado , e são `hai` `/retrain/bike_rental/` subpastas. Atualmente, não é possível criar subpastas através do portal UI, mas existem [vários Exploradores](../../storage/common/storage-explorers.md) de Armazenamento Azure que lhe permitem fazê-lo. Recomenda-se que crie um novo recipiente no seu armazenamento para armazenar os novos modelos treinados (.iLearner) da seguinte forma: a partir da sua página de armazenamento, clique no botão **Adicionar** na parte inferior e nomeie-o `retrain` . Em resumo, as alterações necessárias ao seguinte guião dizem respeito `AccountName` a, `AccountKey` e `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

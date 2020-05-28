@@ -321,7 +321,7 @@ Utilize a Gestão de Identidade Privilegiada com funções de administrador da A
 A integração de registos Azure permite-lhe integrar registos brutos dos seus recursos Azure aos sistemas existentes de Informação de Segurança e Gestão de Eventos (SIEM) da sua organização. [A integração de registos Azure](../../security/fundamentals/azure-log-integration-overview.md) recolhe eventos windows a partir de registos do Windows Event Viewer e recursos Azure a partir de:
 
 * Registos de atividade azure
-* Alertas do Centro de Segurança Azure
+* Alertas do Centro de Segurança do Azure
 * Registos de recursos azure
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passos adicionais para organizações que gerem o acesso a outras aplicações na nuvem via Azure AD
@@ -464,7 +464,7 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 **Resposta:** Utilize contas não privilegiadas para todos os utilizadores e a maioria dos administradores. Comece por desenvolver uma pegada da organização para determinar quais poucas contas de administração devem ser privilegiadas. E monitorizar os utilizadores administrativos recém-criados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Funcionalidades de segurança dos produtos e serviços da Nuvem da Microsoft
 

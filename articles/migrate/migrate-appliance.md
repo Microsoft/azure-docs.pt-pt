@@ -139,7 +139,7 @@ download.microsoft.com/download | Permitir transferências a partir do download 
 
 O aparelho recolhe metadados, dados de desempenho e dados de análise de dependência (se for utilizada [uma análise](concepts-dependency-visualization.md) de dependência sem agente).
 
-### <a name="metadata"></a>Metadados
+### <a name="metadata"></a>Metadata
 
 Os metadados descobertos pelo aparelho Azure Migrate ajudam-no a descobrir se as máquinas e aplicações estão prontas para a migração para o Azure, máquinas e aplicações de tamanho direito, planos de custos e análise de dependências de aplicações. A Microsoft não utiliza estes dados em nenhuma auditoria de conformidade com a licença.
 
@@ -159,7 +159,7 @@ Número de núcleos | vm. Config.Hardware.NumCPU
 Memória (MB) | vm. Config.Hardware.MemoryMB
 Número de discos | vm. Config.Hardware.Device.ToList(). FindAll (x => é VirtualDisk).count
 Lista de tamanho seleções | vm. Config.Hardware.Device.ToList(). FindAll (x => é VirtualDisk)
-Lista de adaptadores de rede | vm. Config.Hardware.Device.ToList(). FindAll (x => é virtualEthernet).contagem
+Lista de adaptadores de rede | vm. Config.Hardware.Device.ToList(). FindAll (x => é VirtualEthernet).contagem
 Utilização da CPU | cpu.usage.média
 Utilização da memória |mem.usage.average
 **Por detalhes do disco** | 
@@ -256,7 +256,7 @@ Nome da aplicação | dpkg ou rpm
 
 O aparelho recolhe metadados, dados de desempenho e dados de análise de dependência (se for utilizada [uma análise](concepts-dependency-visualization.md) de dependência sem agente).
 
-### <a name="metadata"></a>Metadados
+### <a name="metadata"></a>Metadata
 Os metadados descobertos pelo aparelho Azure Migrate ajudam-no a descobrir se as máquinas e aplicações estão prontas para a migração para o Azure, máquinas e aplicações de tamanho direito, planos de custos e análise de dependências de aplicações. A Microsoft não utiliza estes dados em nenhuma auditoria de conformidade com a licença.
 
 Aqui está a lista completa dos metadados Hyper-V VM que o aparelho recolhe e envia para o Azure.
@@ -456,7 +456,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Aprenda](how-to-set-up-appliance-vmware.md) a configurar o aparelho para VMware.
 - [Aprenda](how-to-set-up-appliance-hyper-v.md) a configurar o aparelho para hyper-V.

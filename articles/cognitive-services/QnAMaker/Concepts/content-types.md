@@ -4,12 +4,12 @@ description: Os tipos de conteúdo incluem muitos documentos estruturados padrã
 services: cognitive-services
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 7c78f9ea261fa636cce50b69524802d0900e9d7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2569832f7f87ed7b8fccbc44e431fa45495ba67
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77650202"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996113"
 ---
 # <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Tipos de conteúdo de documentos que pode adicionar a uma base de conhecimento
 Os tipos de conteúdo incluem muitos documentos estruturados padrão, tais como PDF, DOC e TXT.
@@ -20,7 +20,7 @@ A tabela abaixo resume os tipos de conteúdo e formatos de ficheiros que são su
 
 |Tipo de Fonte|Tipo de Conteúdo| Exemplos|
 |--|--|--|
-|do IdP|FAQs<br> (Plano, com secções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (Página única como obter artigos, artigos de resolução de problemas, etc.)|[FaQ simples,](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs) <br>[FAQ com links,](https://www.microsoft.com/en-us/software-download/faq)<br> [FAQ com página inicial de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de apoio](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|FAQs<br> (Plano, com secções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (Página única como obter artigos, artigos de resolução de problemas, etc.)|[FaQ simples,](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs) <br>[FAQ com links,](https://www.microsoft.com/en-us/software-download/faq)<br> [FAQ com página inicial de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de apoio](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF / DOC|Perguntas frequentes,<br> Manual do Produto,<br> Brochuras,<br> Papel,<br> Política de Panfleto,<br> Guia de apoio,<br> QnA estruturado,<br> etc.|**Sem multi-volta**<br>[QnA.doc estruturado,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx)<br> [Manual do Produto da Amostra.pdf,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)<br> [Amostra semi-estruturada.doc,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)<br> [Amostra de papel branco.pdf,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)<br><br>**Volta supor:**<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Benefícios Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Benefícios Contoso (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
 |*Excel|Ficheiro QnA estruturado<br> (incluindo RTF, suporte HTML)|[Amostra QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |*TXT/TSV|Ficheiro QnA estruturado|[Amostra chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
@@ -47,6 +47,6 @@ Pode adicionar ficheiros a uma base de conhecimento a partir de uma fonte públi
 
 Saiba mais sobre as diretrizes de [formato](../reference-document-format-guidelines.md) para os diferentes ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Compreenda que informações são armazenadas num conjunto de [perguntas e respostas (QnA).](question-answer-set.md)
+Compreenda que informação é armazenada num par de [perguntas e respostas (QnA).](question-answer-set.md)

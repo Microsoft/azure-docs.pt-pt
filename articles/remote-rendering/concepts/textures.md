@@ -87,7 +87,7 @@ Dependendo do que a textura deve ser usada, pode haver restrições para o tipo 
 > [!CAUTION]
 > Todas as funções *De Sincronia* em ARR devolvem objetos de operação assíncronos. Deve armazenar uma referência a esses objetos até que a operação esteja concluída. Caso contrário, o coletor de lixo C# pode apagar a operação mais cedo e nunca poderá terminar. No código de amostra acima da variável membro '_textureLoad' é utilizado para manter uma referência até à chegada do evento *concluído.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Materiais](materials.md)
 * [Céu](../overview/features/sky.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2a2b4864232892f1940de5c8fe46fa23879c92f3
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641594"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112780"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights e relatórios de acesso condicional
 
@@ -99,6 +99,23 @@ Também pode investigar os sign-ins de um utilizador específico, procurando ins
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Porque é que as consultas estão a falhar devido a um erro de permissões?
+
+Para aceder ao livro, necessita das permissões de AD Azure adequadas, bem como de permissões no espaço de trabalho log Analytics. Para testar se tem as permissões adequadas do espaço de trabalho executando uma consulta de análise de registo de amostras:
+
+1. Inicie sessão no **portal do Azure**.
+1. Navegue nos registos **de diretórios ativos do Azure.**  >  **Logs**
+1. Digite `SigninLogs` na caixa de consulta e selecione **Executar**.
+1. Se a consulta não devolver quaisquer resultados, o seu espaço de trabalho pode não ter sido configurado corretamente. 
+
+![Problemas falhando consultas](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Para obter mais informações sobre como transmitir registos de entrada de AD Azure para um espaço de trabalho de Log Analytics, consulte os [registos da AD Azure com registos do Monitor Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Porque é que o parâmetro das políticas de acesso condicional está vazio?
+
+A lista de políticas é gerada olhando para as políticas avaliadas para o mais recente evento de inscrição. Se não houver inscrições recentes no seu inquilino, poderá ter de esperar alguns minutos para que o livro de trabalho carregue a lista de políticas de Acesso Condicional. Isto pode acontecer imediatamente após configurar o Log Analytics ou pode demorar mais tempo se um inquilino não tiver atividade de login recente.
+
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Porque é que o livro está a demorar muito tempo a carregar?  
 
 Dependendo do intervalo de tempo selecionado e do tamanho do seu inquilino, o livro de trabalho pode estar a avaliar um número extraordinariamente grande de eventos de inscrição. Para os grandes inquilinos, o volume de inscrições pode exceder a capacidade de consulta do Log Analytics. Tente encurtar o intervalo de tempo para 4 horas para ver se o livro carrega.  
@@ -115,6 +132,6 @@ Pode guardar as suas seleções de parâmetros no topo do livro, indo para **o A
 
 Pode editar e personalizar o livro de trabalho indo para os Livros de Acesso Condicional do **Diretório Ativo Azure**  >  **Workbooks**  >  **e reportando**. Aqui encontrará o modelo do livro, onde pode editar o livro de trabalho e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, em **Meus relatórios** ou **relatórios partilhados.** Para começar a editar as consultas, clique em **Editar** no topo do livro.  
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Modo de relatório de acesso condicional](concept-conditional-access-report-only.md)

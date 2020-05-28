@@ -8,12 +8,12 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 755ccd266b8a88471bf7dbc0d2deb790f35f3457
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70081114995d46e7c5db7c9549cfce2fdff42975
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883129"
+ms.locfileid: "84116498"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Ativar soft delete em ações de ficheiros Azure
 
@@ -97,3 +97,7 @@ Pode utilizar o seguinte comando para desativar a eliminação suave na sua cont
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## <a name="next-steps"></a>Próximos passos
+
+Para conhecer outra forma de proteção e recuperação de dados, consulte o nosso artigo [Visão geral de imagens de partilha para Ficheiros Azure](storage-snapshots-files.md).

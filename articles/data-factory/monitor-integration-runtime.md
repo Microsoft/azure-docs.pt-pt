@@ -10,12 +10,12 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb40375fe841dd363681aea3d2cf6355046cd51
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398952"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113694"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
 
@@ -45,7 +45,7 @@ A tabela seguinte apresenta descrições de propriedades devolvidas pelo cmdlet 
 
 | Propriedade | Descrição |
 -------- | ------------- | 
-| Nome | Nome do tempo de execução da integração Azure. |  
+| Name | Nome do tempo de execução da integração Azure. |  
 | Estado | Estado do tempo de execução da integração Azure. | 
 | Localização | Localização do tempo de execução da integração Azure. Para mais detalhes sobre a localização de um tempo de execução de integração Azure, consulte Introdução ao tempo de execução da [integração.](concepts-integration-runtime.md) |
 | DataFactoryName | Nome da fábrica de dados a que o tempo de execução de integração Azure pertence. | 
@@ -72,7 +72,7 @@ O quadro seguinte apresenta descrições de propriedades de monitorização para
 
 | Propriedade | Descrição | 
 | -------- | ----------- | 
-| Nome | Nome do tempo de funcionação de integração auto-hospedado e nódosos associados a ele. O Nó é uma máquina Windows no local que tem o tempo de funcionação de integração auto-hospedado instalado nele. |  
+| Name | Nome do tempo de funcionação de integração auto-hospedado e nódosos associados a ele. O Nó é uma máquina Windows no local que tem o tempo de funcionação de integração auto-hospedado instalado nele. |  
 | Estado | O estado do tempo de execução geral da integração auto-hospedada e de cada nó. Exemplo: Online/Offline/Limited/etc. Para obter informações sobre estes estados, consulte a secção seguinte. | 
 | Versão | A versão do tempo de execução da integração auto-hospedada e cada nó. A versão do tempo de execução de integração auto-hospedado é determinada com base na versão da maioria dos nódosos do grupo. Se houver nós com versões diferentes na configuração de tempo de funcionamento de integração auto-hospedada, apenas os nós com o mesmo número de versão que o funcionamento de funcionamento de funcionamento de integração auto-hospedado lógico funcionam corretamente. Outros estão no modo limitado e precisam de ser atualizados manualmente (apenas no caso de a atualização automática falhar). | 
 | Memória disponível | Memória disponível em um nó de tempo de integração auto-hospedado. Este valor é um instantâneo quase em tempo real. | 
@@ -170,17 +170,17 @@ O tempo de funcionação de integração Azure-SSIS é um conjunto totalmente ge
 | Tamanho do nó | O tamanho de cada nó do seu tempo de execução de integração Azure-SSIS. |
 | NodeCount | O número de nós no seu tempo de execução de integração Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no seu tempo de execução de integração Azure-SSIS. |
-| Ponto final do CatalogServer | O ponto final do seu servidor de base de dados Azure SQL/Instância Gerida existente para hospedar o SSISDB. |
-| Nome de utilizador de catálogoAdminUser | O nome de utilizador administrativo do seu atual servidor de base de dados Azure SQL/Instância Gerida. O serviço Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
-| CatalogAdminPassword | A senha de administração do seu atual servidor de base de dados Azure SQL/Instância Gerida. |
-| CatálogoPricingTier | O nível de preços do SSISDB hospedado pelo seu servidor de base de dados Azure SQL existente.  Não aplicável à Base de Dados Azure SQL Managed Instance hospedando SSISDB. |
+| Ponto final do CatalogServer | O ponto final da sua base de dados SQL/SQL gerida para hospedar o SSISDB. |
+| Nome de utilizador de catálogoAdminUser | O nome de utilizador administrativo da sua base de dados SQL/SQL gerida. O serviço Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
+| CatalogAdminPassword | A senha de administração da sua base de dados SQL/SQL managed Instance existente. |
+| CatálogoPricingTier | O nível de preços do SSISDB hospedado pela SQL Database.  Não aplicável ao SQL Managed Instance que acolhe o SSISDB. |
 | Vnetid | O ID de recursos de rede virtual para o seu tempo de execução de integração Azure-SSIS para aderir. |
 | Subrede | O nome da sub-rede para o seu tempo de execução de integração Azure-SSIS para aderir. |
 | ID | O id de recurso do seu tempo de execução de integração Azure-SSIS. |
 | Tipo | O tipo (Gerido/Auto-Hospedado) do seu tempo de execução de integração Azure-SSIS. |
 | ResourceGroupName | O nome do seu Grupo de Recursos Azure, no qual a sua fábrica de dados e o tempo de execução de integração Azure-SSIS foram criados. |
 | DataFactoryName | O nome da sua fábrica de dados Azure. |
-| Nome | O nome do seu tempo de execução de integração Azure-SSIS. |
+| Name | O nome do seu tempo de execução de integração Azure-SSIS. |
 | Descrição | A descrição do seu tempo de execução de integração Azure-SSIS. |
 
   
@@ -224,12 +224,12 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 Consulte os seguintes artigos para saber mais sobre o tempo de execução da integração Azure-SSIS:
 
 - Tempo de [execução de integração Azure-SSIS.](concepts-integration-runtime.md#azure-ssis-integration-runtime) Este artigo fornece informações conceptuais sobre os tempos de integração em geral, incluindo o IR Azure-SSIS. 
-- [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo expande-se no tutorial e fornece instruções sobre a utilização da Base de Dados Azure SQL Managed Instance e a junção do IR a uma rede virtual. 
+- [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR Azure-SSIS e utiliza base de dados SQL para acolher o catálogo SSIS. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo expande-se no tutorial e fornece instruções sobre a utilização da Instância Gerida SQL e a adesão ao IR a uma rede virtual. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
 - [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também fornece passos para usar o portal Azure para configurar a rede virtual para que o Ir Azure-SSIS possa aderir à rede virtual. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos para monitorização de gasodutos de diferentes formas: 
 
 - [Arranque rápido: criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md).

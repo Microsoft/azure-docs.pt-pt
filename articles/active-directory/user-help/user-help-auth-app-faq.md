@@ -56,7 +56,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 | Os meus códigos de senha única (OTP) não estão a funcionar. O que devo fazer? | Certifique-se de que a data e a hora do seu dispositivo estão corretas e estão a ser automaticamente sincronizadas. Se a data e a hora estiverem erradas, ou dessincronizadas, o código não funcionará. |
 | O sistema operativo Windows 10 Mobile foi deprecado em dezembro de 2019. Será que o Autenticador Microsoft nos sistemas operativos Windows Mobile também será depreciado? | A aplicação Microsoft Authenticator em todos os sistemas operativos Windows Mobile não será suportada após o dia 28 de fevereiro de 2020. Os utilizadores não serão elegíveis para receber quaisquer novas atualizações para a publicação da aplicação na data acima referida. Depois de 28 de fevereiro de 2020 os serviços da Microsoft que suportam atualmente autenticações utilizando o Autenticador Microsoft em todos os sistemas operativos Windows Mobile começarão a retirar o seu suporte. Para autenticar os serviços da Microsoft, encorajamos fortemente todos os nossos utilizadores a mudarem para um mecanismo de autenticação alternativo antes desta data. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de códigos de [verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 

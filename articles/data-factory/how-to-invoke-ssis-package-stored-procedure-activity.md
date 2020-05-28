@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9309f431a820b800e652d7fa8afcea8f03a46062
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605943"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114534"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Run an SSIS package with the Stored Procedure activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Procedimento Armazenado no Azure Data Factory)
 
@@ -29,7 +29,7 @@ Este artigo descreve como executar um pacote SSIS num oleoduto Azure Data Factor
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-sql-database"></a>Base de Dados SQL do Azure 
-O walkthrough neste artigo utiliza uma base de dados Azure SQL que acolhe o catálogo SSIS. Também pode utilizar uma instância gerida por base de dados Azure SQL.
+O walkthrough neste artigo utiliza a Base de Dados Azure SQL para acolher o catálogo SSIS. Também pode utilizar a Instância Gerida Azure SQL.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Criar um integration runtime do Azure-SSIS
 Crie um tempo de execução de integração Azure-SSIS se não tiver um seguindo a instrução passo a passo no [Tutorial: Implementar pacotes SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -98,7 +98,7 @@ Neste passo, utiliza-se a UI da Fábrica de Dados para criar um pipeline. Adicio
 5. Na janela de propriedades, mude para o separador **Procedimento Armazenado** a partir do **separador Conta SQL** e faça os seguintes passos: 
 
     1. Selecione **Editar**. 
-    2. Para o campo de nome `sp_executesql`do **procedimento armazenado,** introduza . 
+    2. Para o campo de nome do **procedimento armazenado,** introduza `sp_executesql` . 
     3. Clique **+ Novo** na secção de parâmetros de procedimento **armazenado.** 
     4. Para **nome** do parâmetro, introduza **stmt**. 
     5. Para **o tipo** do parâmetro, introduza **string**. 
@@ -134,7 +134,7 @@ Nesta secção, aciona-se uma conduta de gasodutos e depois monitoriza-se.
 
     ![Execuções de atividade](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. Pode executar a seguinte **consulta** contra a base de dados SSISDB no seu servidor Azure SQL para verificar se o pacote foi executado. 
+4. Pode executar a seguinte **consulta** contra a base de dados SSISDB na Base de Dados SQL para verificar se o pacote foi executado. 
 
     ```sql
     select * from catalog.executions
@@ -201,7 +201,7 @@ Crie um serviço ligado para ligar a sua base de dados Azure SQL que acolhe o ca
 1. Crie um ficheiro JSON chamado **AzureSqlDatabaseLinkedService.json** em **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo: 
 
     > [!IMPORTANT]
-    > Substitua &lt;&gt;o &lt;nome&gt;do &lt;&gt; servidor, o nome de utilizador e a palavra-passe por valores da sua Base de Dados Azure SQL antes de guardar o ficheiro.
+    > Substitua o nome do &lt; &gt; servidor, &lt; o nome de utilizador e a &gt; &lt; palavra-passe por valores da sua Base de &gt; Dados Azure SQL antes de guardar o ficheiro.
 
     ```json
     {
@@ -229,7 +229,7 @@ Neste passo, cria-se um pipeline com uma atividade de procedimento armazenada. A
 1. Crie um ficheiro JSON chamado **RunSSISPackagePipeline.json** na pasta **C:\ADF\RunSSISPackage** com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Substitua &lt;&gt;o &lt;NOME&gt; &lt;DA&gt; PASTA, NOME DO PROJETO, NOME DO PACOTE por nomes de pasta, projeto e embalagem no catálogo SSIS antes de guardar o ficheiro. 
+    > Substitua &lt; o NOME &gt; DA PASTA, NOME DO &lt; &gt; PROJETO, NOME DO PACOTE por &lt; &gt; nomes de pasta, projeto e embalagem no catálogo SSIS antes de guardar o ficheiro. 
 
     ```json
     {
@@ -353,12 +353,12 @@ No passo anterior, invocou o oleoduto a pedido. Também pode criar um gatilho de
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    Pode executar a seguinte consulta contra a base de dados SSISDB no seu servidor Azure SQL para verificar se o pacote foi executado. 
+    Pode executar a seguinte consulta contra a base de dados SSISDB na Base de Dados SQL para verificar se o pacote foi executado. 
 
     ```sql
     select * from catalog.executions
     ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Também pode monitorizar o gasoduto utilizando o portal Azure. Para obter instruções passo a passo, consulte [Monitorize o gasoduto](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

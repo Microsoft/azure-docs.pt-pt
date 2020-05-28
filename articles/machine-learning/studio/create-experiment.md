@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204567"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117359"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência em ciência de dados no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -55,7 +53,7 @@ Este conjunto de dados inclui entradas para vários automóveis individuais, inc
 
 Eis como obter o conjunto de dados na sua experimentação.
 
-1. Crie uma nova experiência clicando **+NEW** na parte inferior da janela machine learning studio (clássico). Selecione EXPERIMENT Experiência**Em Branco** **EXPERIMENT .** >  
+1. Crie uma nova experiência clicando **+NEW** na parte inferior da janela machine learning studio (clássico). Selecione **EXPERIMENT Experiência**  >   **Em Branco**EXPERIMENT .
 
 1. É dado um nome predefinido à experimentação, que pode ver na parte superior da tela. Selecione este texto e mude o nome para algo significativo, como, por exemplo, **Previsão de preços de automóveis**. O nome não tem de ser exclusivo.
 
@@ -237,7 +235,7 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor ma
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou uma experiência simples utilizando um conjunto de dados de amostras. Para explorar o processo de criação e implantação de um modelo com mais profundidade, continue a ser tutorial de solução preditiva.
 

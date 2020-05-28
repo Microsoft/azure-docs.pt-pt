@@ -352,12 +352,12 @@ Uma vez que a conectividade com o Azure é restaurada ao Servidor de Backup Azur
 - Enquanto uma subscrição é *dedprovisionada,* perde funcionalidade. Restaurar a subscrição do *Ative,* reaviva a funcionalidade de backup/restauro. Se os dados de backup no disco local foram retidos com um período de retenção suficientemente grande, esses dados de backup podem ser recuperados. No entanto, os dados de backup em Azure são irremediavelmente perdidos assim que a subscrição entra no estado *dedprovisionado.*
 - Enquanto uma subscrição é *Expirada,* perde funcionalidade. As cópias de segurança programadas não funcionam enquanto uma subscrição é *expirada*.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Se o servidor de backup do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte o documento dos [códigos](https://support.microsoft.com/kb/3041338)de erro .
 Também pode consultar [as FAQs relacionadas](backup-azure-backup-faq.md) com o Azure Backup
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O artigo, [Preparando o seu ambiente para DPM,](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)contém informações sobre configurações suportadas do Servidor de Backup Azure.
 

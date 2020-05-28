@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/27/2020
-ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd14945069b2786fa4acb994c37c17d3b434893e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418784"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118289"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 
@@ -33,7 +33,7 @@ A um nível elevado, este tutorial envolve os seguintes passos:
 > * Criar uma fábrica de dados.
 > * Crie a Base de Dados Azure SQL, a Azure Synapse Analytics (anteriormente SQL DW) e os serviços ligados ao Armazenamento Azure.
 > * Crie conjuntos de dados Azure SQL Database e Azure Synapse Analytics (anteriormente SQL DW).
-> * Criar um pipeline para procurar as tabelas a copiar e outro pipeline para executar a operação de cópia real. 
+> * Crie um oleoduto para procurar as tabelas a copiar e outro oleoduto para executar a operação de cópia real. 
 > * Iniciar uma execução de pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 
@@ -47,7 +47,7 @@ Neste cenário, tem várias tabelas na Base de Dados Azure SQL que pretende copi
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
 * O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela da lista, copie a tabela específica na Base de Dados Azure SQL para a tabela correspondente em Azure Synapse Analytics (anteriormente SQL DW) utilizando cópia encenada através do [armazenamento Blob e da PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Conta de Armazenamento Azure.** A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
@@ -58,7 +58,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 **Preparar a Base de Dados SQL do Azure de origem**:
 
-Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works LT, seguindo o artigo [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md). Este tutorial copia todas as tabelas desta base de dados de amostras para um Azure Synapse Analytics (anteriormente SQL DW).
+Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works LT, seguindo o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md). Este tutorial copia todas as tabelas desta base de dados de amostras para um Azure Synapse Analytics (anteriormente SQL DW).
 
 **Prepare a pia Azure Synapse Analytics (anteriormente SQL DW)**:
 
@@ -68,14 +68,15 @@ Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works 
 
 ## <a name="azure-services-to-access-sql-server"></a>Serviços do Azure para aceder ao SQL Server
 
-Tanto para a Base de Dados SQL como para a Azure Synapse Analytics (anteriormente SQL DW), os serviços Azure acedem ao servidor SQL. Certifique-se de que **os serviços e recursos do Azure acedem a esta** definição de servidor e stão **ligados** para o seu servidor Azure SQL. Esta definição permite que o serviço Data Factory leia dados da sua Base de Dados Azure SQL e escreva dados para o seu Azure Synapse Analytics (anteriormente SQL DW). 
+Tanto para a Base de Dados SQL como para a Azure Synapse Analytics (anteriormente SQL DW), os serviços Azure acedem ao servidor SQL. Certifique-se de que **os serviços e recursos do Azure acedem a esta** definição de servidor e stão **ligados** para o seu servidor. Esta definição permite que o serviço Data Factory leia dados da sua Base de Dados Azure SQL e escreva dados para o seu Azure Synapse Analytics (anteriormente SQL DW). 
 
-Para verificar e ligar esta definição, aceda ao seu servidor Azure SQL > Firewalls de segurança > e redes virtuais > definir os **serviços e recursos do Allow Azure para aceder a este servidor** a **ON**.
+Para verificar e ligar esta definição, aceda ao seu servidor > Firewalls > de Segurança e redes virtuais > definir os **serviços e recursos do Allow Azure para aceder a este servidor** a **ON**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
+
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Vá ao [portal Azure.](https://portal.azure.com) 
-1. À esquerda do menu do portal Azure, selecione **Criar um recurso** > **Analytics** > **Data Factory**. 
+1. À esquerda do menu do portal Azure, selecione **Criar um recurso**  >  **Analytics**  >  **Data Factory**. 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página da nova fábrica de **dados,** introduza **a ADFTutorialBulkCopyDF** para **nome**. 
  
@@ -114,7 +115,7 @@ Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do 
 
     a. Introduza **AzureSqlDatabaseLinkedService** em **Nome**.
     
-    b. Em **Nome do servidor**, selecione o seu servidor do SQL do Azure.
+    b. Selecione o seu servidor para **o nome do Servidor**
     
     c. Em **Nome da base de dados**, selecione a sua base de dados SQL do Azure. 
     
@@ -135,7 +136,7 @@ Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do 
    
     a. Introduza **AzureSqlDWLinkedService** em **Nome**.
      
-    b. Em **Nome do servidor**, selecione o seu servidor do SQL do Azure.
+    b. Selecione o seu servidor para **o nome do Servidor**
      
     c. Em **Nome da base de dados**, selecione a sua base de dados SQL do Azure. 
      
@@ -193,7 +194,7 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 
     ![Nome de tabela de ligação de conjunto de dados](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    b. Na página **Adicionar Conteúdo Dinâmico,** clique no **Nome DWTAble** em **Parâmetros**, `@dataset().DWTableName`que irá povoar automaticamente a caixa de texto de expressão superior, em seguida, clique em **Terminar**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
+    b. Na página **Adicionar Conteúdo Dinâmico,** clique no **Nome DWTAble** em **Parâmetros**, que irá povoar automaticamente a caixa de texto de expressão `@dataset().DWTableName` superior, em seguida, clique em **Terminar**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
 
     ![Construtor de parâmetro do conjunto de dados](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
  
@@ -228,7 +229,7 @@ O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro.
 
     b. Mude para o separador **Definições,** clique na caixa de entrada para **itens**e, em seguida, clique no link de **conteúdo dinâmico Adicionar** abaixo. 
 
-    c. Na página **Adicionar Conteúdo Dinâmico,** colapsar as secções de Variáveis e **Funções** do **Sistema,** clique na `@pipeline().parameter.tableList` **tabelaLista** em **Parâmetros**, que irá automaticamente povoar a caixa de texto de expressão superior como . Em seguida, clique em **Concluir**. 
+    c. Na página **Adicionar Conteúdo Dinâmico,** colapsar as secções de Variáveis e **Funções** do **Sistema,** clique na **tabelaLista** em **Parâmetros**, que irá automaticamente povoar a caixa de texto de expressão superior como `@pipeline().parameter.tableList` . Em seguida, clique em **Concluir**. 
 
     ![Construtor de parâmetro do Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
@@ -253,7 +254,7 @@ O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro.
 1. Mude para o separador **Sink** e siga os passos abaixo: 
 
     1. Selecione **AzureSqlDWDataset** em **Conjunto de Dados de Sink**.
-    1. Clique na caixa de entrada para obter o valor do parâmetro DWTableName -> selecione o **conteúdo dinâmico Adicionar** abaixo, introduza `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` a expressão como script, -> selecione **Acabamento**.
+    1. Clique na caixa de entrada para obter o valor do parâmetro DWTableName -> selecione o **conteúdo dinâmico Adicionar** abaixo, introduza a expressão como `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` script, -> selecione **Acabamento**.
     1. Para o método Copy, selecione **PolyBase**. 
     1. Limpe a opção **por defeito do tipo Use.** 
     1. Clique na caixa de entrada **Cópia prévia do Script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> introduza a seguinte expressão como um script -> selecione **Concluir**. 
@@ -388,7 +389,7 @@ Este oleoduto faz duas ações:
 
 1. Confirme que os dados foram copiados para o alvo Azure Synapse Analytics (anteriormente SQL DW) que utilizou neste tutorial. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

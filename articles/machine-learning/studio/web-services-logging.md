@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: dc4a2f83f59ab94d1bff8a005b37124f2822c72b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 45acac646fece808065d12081bdc28eff92a1b79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209422"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119337"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar a exploração de serviços web Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este documento fornece informações sobre a capacidade de registo de serviços web do Machine Learning Studio (clássico). O registo fornece informações adicionais, além de apenas um número de erro e uma mensagem, que podem ajudá-lo a resolver as suas chamadas para o Machine Learning Studio (clássico) APIs.  
 
@@ -28,7 +26,7 @@ Este documento fornece informações sobre a capacidade de registo de serviços 
 
 Permite a exploração de registo sessão a partir do portal [de Serviços Web Azure Machine Learning Studio (clássico).](https://services.azureml.net) 
 
-1. Inscreva-se no portal azure machine learning studio [https://services.azureml.net](https://services.azureml.net)(clássico) Web Services em . Para um serviço web Clássico, você também pode chegar ao portal clicando em **New Web Services Experience** na página de Serviços Web Machine Learning Studio (clássico) em Studio (clássico).
+1. Inscreva-se no portal azure machine learning studio (clássico) Web Services em [https://services.azureml.net](https://services.azureml.net) . Para um serviço web Clássico, você também pode chegar ao portal clicando em **New Web Services Experience** na página de Serviços Web Machine Learning Studio (clássico) em Studio (clássico).
 
    ![Novo link de experiência de serviços web](./media/web-services-logging/new-web-services-experience-link.png)
 

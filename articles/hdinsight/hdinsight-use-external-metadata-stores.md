@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d956a9c93280ac22c4707f22c0769853f0f36c83
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929337"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015153"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
@@ -38,7 +38,7 @@ Por padrão, o HDInsight cria uma metaloja com cada tipo de cluster. Em vez diss
 
 * Não pode partilhar a metaloja padrão com outros clusters.
 
-* A metaloja predefinida utiliza o Azure SQL DB básico, que tem um limite de cinco DTU (unidade de transação de base de dados).
+* A metaloja predefinida utiliza a base de dados Básica Azure SQL, que tem um limite de cinco DTU (unidade de transação de base de dados).
 Esta metaloja padrão é normalmente utilizada para cargas de trabalho relativamente simples. Cargas de trabalho que não requerem vários clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
 
 * Para cargas de trabalho de produção, recomendamos a migração para uma metaloja externa. Consulte a secção abaixo para mais detalhes.
@@ -53,7 +53,7 @@ O HDInsight também suporta metalojas personalizadas, que são recomendadas para
 
 * Uma metaloja personalizada permite-lhe anexar vários clusters e tipos de cluster saqueados a essa metaloja. Por exemplo, uma única metaloja pode ser partilhada em clusters De Consulta Interativa, Hive e Spark em HDInsight.
 
-* Paga-se pelo custo de uma metaloja (Azure SQL DB) de acordo com o nível de desempenho que escolher.
+* Paga-se pelo custo de uma metaloja (Base de Dados Azure SQL) de acordo com o nível de desempenho que escolher.
 
 * Pode escalar a metaloja conforme necessário.
 
@@ -63,9 +63,9 @@ O HDInsight também suporta metalojas personalizadas, que são recomendadas para
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Criar e config Azure SQL Base de dados para a metaloja personalizada
 
-Crie ou tenha uma base de dados Azure SQL existente antes de criar uma metaloja de Colmeia personalizada para um cluster HDInsight.  Para mais informações, consulte [Quickstart: Crie uma única base de dados em Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Crie ou tenha uma base de dados Azure SQL existente antes de criar uma metaloja de Colmeia personalizada para um cluster HDInsight.  Para mais informações, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-Ao criar o cluster, o serviço HDInsight precisa de se ligar à metaloja externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Ative esta opção no portal Azure selecionando a firewall do **servidor set**. Em seguida, selecione **No** under **Deny acesso**à rede pública , e **Sim** por baixo **permitir serviços e recursos do Allow Azure para aceder a este servidor** para o servidor ou base de dados Azure SQL. Para mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Ao criar o cluster, o serviço HDInsight precisa de se ligar à metaloja externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Ative esta opção no portal Azure selecionando a firewall do **servidor set**. Em seguida, selecione **No** under **Deny acesso**à rede pública , e **Sim** por baixo **permitir serviços e recursos Do Azure para aceder a este servidor** para Base de Dados SQL Azure. Para mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Os pontos finais privados das lojas SQL não são suportados.
 
@@ -87,7 +87,7 @@ Pode indicar o seu cluster para uma base de dados Azure SQL previamente criada a
 
 * Se pretender que vários clusters HDInsight acedam a dados separados, utilize uma base de dados separada para a metaloja em cada cluster. Se partilhar uma metaloja em vários clusters HDInsight, significa que os clusters utilizam os mesmos metadados e ficheiros de dados subjacentes aos utilizadores.
 
-* Volte periodicamente à sua metaloja personalizada. A Base de Dados Azure SQL gera cópias de segurança automaticamente, mas o prazo de retenção de cópia seleções varia. Para mais informações, consulte [Saiba mais sobre cópias automáticas](../sql-database/sql-database-automated-backups.md)de backups da Base de Dados SQL .
+* Volte periodicamente à sua metaloja personalizada. A Base de Dados Azure SQL gera cópias de segurança automaticamente, mas o prazo de retenção de cópia seleções varia. Para mais informações, consulte [Saiba mais sobre cópias automáticas](../azure-sql/database/automated-backups-overview.md)de backups da Base de Dados SQL .
 
 * Localize o seu cluster de metaloja e HDInsight na mesma região. Esta configuração proporcionará o maior desempenho e os encargos de rede mais baixos.
 
@@ -111,6 +111,6 @@ Para obter instruções sobre a criação de uma metaloja Oozie com base de dado
 
 Para utilizar a sua própria base de dados externa com Apache Ambari no HDInsight, consulte a base de [dados Custom Apache Ambari](hdinsight-custom-ambari-db.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](./hdinsight-hadoop-provision-linux-clusters.md)

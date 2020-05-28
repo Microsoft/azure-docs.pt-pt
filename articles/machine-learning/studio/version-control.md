@@ -9,16 +9,14 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e70467d0ef956802e1ab7f416da7c2cbec37c58
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204141"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115556"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Gestão de Ciclo de Vida de Aplicação no Estúdio de Aprendizagem automática Azure (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 O Azure Machine Learning Studio (clássico) é uma ferramenta para desenvolver experiências de machine learning que estão operacionalizadas na plataforma cloud Azure. É como o Visual Studio IDE e o serviço de nuvem escalável fundido numa única plataforma. Pode incorporar práticas padrão de Gestão de Ciclo de Vida de Aplicações (ALM) desde a versão de vários ativos até à execução e implementação automatizadas, no Azure Machine Learning Studio (clássico). Este artigo discute algumas das opções e abordagens.
 
@@ -46,7 +44,7 @@ Os instantâneos de história de execução mantêm uma versão imutável da exp
 O ficheiro JSON é uma representação textual do gráfico de experiência, que pode incluir uma referência a ativos no espaço de trabalho, como um conjunto de dados ou um modelo treinado. Não contém uma versão serializada do ativo. Se tentar importar o documento JSON de volta para o espaço de trabalho, os ativos referenciados já devem existir com as mesmas Identificações de Ativos referenciadas na experiência. Caso contrário, não pode aceder à experiência importada.
 
 ## <a name="versioning-trained-model"></a>Modelo treinado para veredição
-Um modelo treinado no Azure Machine Learning Studio (clássico) é serializado`.iLearner`num formato conhecido como um ficheiro iLearner ( ), e está armazenado na conta de armazenamento Azure Blob associada ao espaço de trabalho. Uma maneira de obter uma cópia do ficheiro iLearner é através da API de reconversão. [Este artigo](/azure/machine-learning/studio/retrain-machine-learning-model) explica como funciona a API de reconversão. Os passos de alto nível:
+Um modelo treinado no Azure Machine Learning Studio (clássico) é serializado num formato conhecido como um ficheiro iLearner ( ), e está armazenado na conta de `.iLearner` armazenamento Azure Blob associada ao espaço de trabalho. Uma maneira de obter uma cópia do ficheiro iLearner é através da API de reconversão. [Este artigo](/azure/machine-learning/studio/retrain-machine-learning-model) explica como funciona a API de reconversão. Os passos de alto nível:
 
 1. Prepara a tua experiência de treino.
 2. Adicione uma porta de saída de serviço web ao módulo Train Model, ou o módulo que produz o modelo treinado, como o Tune Model Hyperparameter ou o Create R Model.
@@ -96,7 +94,7 @@ Um aspeto importante da ALM é poder automatizar o processo de execução e impl
 9. [Implementar um serviço web](https://github.com/hning86/azuremlps#new-amlwebservice) a partir da experiência preditiva.
 10. Teste o ponto final do serviço web [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ou [BES.](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Descarregue o módulo [PowerShell Studio (clássico) PowerShell](https://aka.ms/amlps) e comece a automatizar as suas tarefas ALM.
 * Aprenda a [criar e gerir um grande número de modelos ML utilizando apenas uma experiência](create-models-and-endpoints-with-powershell.md) através da PowerShell e retreinando a API.
 * Saiba mais sobre [a implementação de serviços web Azure Machine Learning.](deploy-a-machine-learning-web-service.md)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 14849dd1f68f281009808d1bd1dc1cae62927ab4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 003ee13220e9e8aae252e1a976d579beac870052
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594241"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015017"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar azure HDInsight 3.6 Cargas de trabalho da Colmeia para HDInsight 4.0
 
@@ -34,12 +34,12 @@ Uma vantagem da Hive é a capacidade de exportar metadados para uma base de dado
 As tabelas HDInsight 3.6 e HDInsight 4.0 ACID compreendem os deltas ácidos de forma diferente. A única ação necessária antes da migração é executar a compactação "MAJOR" contra cada tabela ACID no cluster 3.6. Consulte o Manual da [Linguagem da Colmeia](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) para obter mais detalhes sobre a compactação.
 
 ### <a name="2-copy-sql-database"></a>2. Copiar base de dados SQL
-Crie uma nova cópia da sua metaloja externa. Se estiver a utilizar uma metaloja externa, uma das formas seguras e fáceis de fazer uma cópia da metaloja é [restaurar a Base](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) de Dados com um nome diferente utilizando a função de restauro da Base de Dados SQL.  Consulte [Utilize lojas de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para saber mais sobre a anexação de uma metaloja externa a um cluster HDInsight.
+Crie uma nova cópia da sua metaloja externa. Se estiver a utilizar uma metaloja externa, uma das formas seguras e fáceis de fazer uma cópia da metaloja é [restaurar a Base](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) de Dados com um nome diferente utilizando a função de restauro da Base de Dados SQL.  Consulte [Utilize lojas de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para saber mais sobre a anexação de uma metaloja externa a um cluster HDInsight.
 
 ### <a name="3-upgrade-metastore-schema"></a>3. Atualizar o esquema da metaloja
 Uma vez que a **cópia** da metaloja esteja completa, execute um script de upgrade de esquemas no [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) no cluster HDInsight 3.6 existente para atualizar a nova metaloja para o esquema hive 3. (Este passo não requer que a nova metaloja seja ligada a um cluster.) Isto permite que a base de dados seja anexada como metastore HDInsight 4.0.
 
-Utilize os valores na tabela mais abaixo. Substitua-a `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` pelos valores adequados para a **cópia**da metaloja da Hive, separada por espaços. Não inclua ".database.windows.net" ao especificar o nome do servidor SQL.
+Utilize os valores na tabela mais abaixo. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`Substitua-a pelos valores adequados para a **cópia**da metaloja da Hive, separada por espaços. Não inclua ".database.windows.net" ao especificar o nome do servidor SQL.
 
 |Propriedade | Valor |
 |---|---|
@@ -124,7 +124,7 @@ Os clusters HDInsight 3.6 e 4.0 devem utilizar a mesma Conta de Armazenamento.
     chmod 755 exporthive_hdi_3_6.sh
     ```
 
-    * Para um cluster HDInsight regular, sem ESP, basta executar `exporthive_hdi_3_6.sh`.
+    * Para um cluster HDInsight regular, sem ESP, basta executar `exporthive_hdi_3_6.sh` .
 
     * Para um cluster com ESP, kinit e modificar os argumentos a beeline: executar o seguinte, definindo USER e DOMAIN para o utilizador azure AD com permissões completas da Hive.
 
@@ -221,19 +221,19 @@ No HDInsight 3.6, o cliente GUI para interagir com o servidor Hive é a Visão d
 |Roteiro de bash URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Tipo de nó(s)|Head|
 
-Aguarde 10 a 15 minutos e, `https://CLUSTERNAME.azurehdinsight.net/das/`em seguida, lance o Data Analytics Studio utilizando este URL: .
+Aguarde 10 a 15 minutos e, em seguida, lance o Data Analytics Studio utilizando este URL: `https://CLUSTERNAME.azurehdinsight.net/das/` .
 
 Pode ser necessária uma atualização da UI Ambari e/ou de um reinício de todos os componentes Ambari antes de aceder às DAS.
 
 Uma vez instalada a DAS, se não vir as consultas que executou no espectador de consultas, faça os seguintes passos:
 
 1. Delineie as configurações para A Colmeia, Tez e DAS, conforme descrito neste guia para resolução de [problemas da instalação das DAS](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Certifique-se de que os seguintes configs de diretório de armazenamento `fs.azure.page.blob.dirs`Azure são blobs page, e que estão listados em:
+2. Certifique-se de que os seguintes configs de diretório de armazenamento Azure são blobs page, e que estão listados `fs.azure.page.blob.dirs` em:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. Reinicie HDFS, Hive, Tez e DAS em ambos os cabeçados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [HDInsight 4.0 Anúncio](../hdinsight-version-release.md)
 * [HDInsight 4.0 mergulho profundo](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

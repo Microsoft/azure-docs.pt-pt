@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para os r
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7b51417814e74cc7e3559029c9af8c35cbf6f2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128475"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016360"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços suportados, schemas e categorias para Registos de Recursos Azure
 
@@ -18,16 +18,16 @@ ms.locfileid: "82128475"
 
 Os registos de [recursos do Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md) são registos emitidos pelos serviços azure que descrevem o funcionamento desses serviços ou recursos. Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos.
 
-Uma combinação do tipo de `resourceId` recurso (disponível na propriedade) e o `category` único identificar um esquema. Este artigo descreve o esquema de alto nível para registos de recursos e ligações aos schemata schemata para cada serviço.
+Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e o `category` único identificar um esquema. Este artigo descreve o esquema de alto nível para registos de recursos e ligações aos schemata schemata para cada serviço.
 
 ## <a name="top-level-resource-logs-schema"></a>Esquema de registos de recursos de alto nível
 
-| Nome | Obrigatório/Opcional | Descrição |
+| Name | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | hora | Necessário | A marca de tempo (UTC) do evento. |
 | resourceId | Necessário | A identificação de recursos do recurso que emitia o evento. Para os serviços de inquilinos, este é do formulário /inquilinos/inquilino-id/fornecedores/nome do fornecedor. |
 | inquilinoId | Obrigatório para registos de inquilinos | A identificação do inquilino do Diretório Ativo a que este evento está ligado. Esta propriedade é usada apenas para registos ao nível do inquilino, não aparece em registos ao nível de recursos. |
-| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, este é o nome de operação RBAC (por exemplo. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modelados sob a forma de uma operação do Gestor de`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`Recursos, mesmo que não sejam operações de Gestão de Recursos documentadas () |
+| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, este é o nome de operação RBAC (por exemplo. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modelados sob a forma de uma operação do Gestor de Recursos, mesmo que não sejam operações de Gestão de Recursos documentadas `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` () |
 | operationVersion | Opcional | A versão api associada à operação, se o nome da operação foi realizado com uma API (por exemplo. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver API que corresponda a esta operação, a versão representa a versão dessa operação no caso de as propriedades associadas à operação mudarem no futuro. |
 | categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que aparecem dentro das propriedades blob de um evento são as mesmas dentro de uma determinada categoria de log e tipo de recursos. As categorias típicas de registo são "Auditoria" "Operacional" "Execução" e "Pedido". |
 | resultType | Opcional | O estado do evento. Os valores típicos incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
@@ -67,7 +67,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 | Azure Firewall | Schema não está disponível. |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Cofre de Chaves |[Exploração do cofre de chaves azure](../../key-vault/general/logging.md) |
-| Serviço Kubernetes |[Exploração Madeireira Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
+| Kubernetes Service |[Exploração Madeireira Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load balancer |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
@@ -76,7 +76,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 | Serviços de Recuperação | [Modelo de dados para backup azure](../../backup/backup-azure-reports-data-model.md)|
 | Pesquisa |[Habilitar e utilizar a análise do tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de ônibus de serviço azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Exploração da Base de Dados Azure SQL](../../sql-database/sql-database-metrics-diag-logging.md) |
+| Base de Dados SQL | [Exploração da Base de Dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registos de trabalhos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Gestor de Tráfego | [Esquema de log do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Schema não está disponível. |
@@ -84,7 +84,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante o recurso
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de registo suportadas por tipo de recurso
 
-Algumas categorias só podem ser apoiadas para tipos específicos de recursos. Esta é a lista de todos os que estão disponíveis de alguma forma.  Por exemplo, as categorias microsoft.Sql/servidores/bases de dados não estão disponíveis para todos os tipos de bases de dados. Para mais informações, consulte a informação sobre o registo de diagnóstico da Base de [Dados SQL](../../sql-database/sql-database-metrics-diag-logging.md). 
+Algumas categorias só podem ser apoiadas para tipos específicos de recursos. Esta é a lista de todos os que estão disponíveis de alguma forma.  Por exemplo, as categorias microsoft.Sql/servidores/bases de dados não estão disponíveis para todos os tipos de bases de dados. Para mais informações, consulte a informação sobre o registo de diagnóstico da Base de [Dados SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 |Tipo de Recurso|Categoria|Nome de exibição de categoria|
 |---|---|---|

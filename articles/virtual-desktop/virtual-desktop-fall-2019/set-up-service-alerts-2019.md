@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca0e5cedfda1446f86b469501746e87c340b4103
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 29e1bb33b98b1fbc8fcfcd541d0014ca1bc75d8d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614334"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114141"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 
@@ -56,7 +56,7 @@ Para configurar alertas de serviço:
 2. Selecione **Service Health.**
 3. Utilize as instruções em Criar alertas de registo de [atividade sonantes em notificações](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) de serviço para configurar os seus alertas e notificações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a configurar e utilizar a Azure Service Health para monitorizar problemas de serviço e aconselhamento de saúde para o Windows Virtual Desktop. Para saber como iniciar sessão no Windows Virtual Desktop, continue a ligar ao Windows Virtual Desktop How-tos.
 

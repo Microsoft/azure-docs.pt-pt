@@ -58,6 +58,6 @@ void GetBounds(ApiHandle<Entity> entity)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Consultas espaciais](../overview/features/spatial-queries.md)

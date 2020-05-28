@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f9f4db0119b10a2df3a1007f9e5fa710e31f0e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931633"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113705"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenada no servidor SQL
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -84,7 +84,7 @@ A seguinte passagem utiliza a Atividade de Procedimento Armazenada num oleoduto 
     ```
 
    > [!IMPORTANT]
-   > **O nome** e o **invólucro** do parâmetro (DateTime neste exemplo) devem coincidir com o do parâmetro especificado no gasoduto/atividade JSON. Na definição de procedimento **\@** armazenada, certifique-se de que é utilizado como prefixo para o parâmetro.
+   > **O nome** e o **invólucro** do parâmetro (DateTime neste exemplo) devem coincidir com o do parâmetro especificado no gasoduto/atividade JSON. Na definição de procedimento armazenada, certifique-se de que **\@** é utilizado como prefixo para o parâmetro.
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
@@ -114,10 +114,10 @@ Depois de criar a fábrica de dados, cria um serviço ligado ao Azure SQL que li
    ![Nova loja de dados](media/data-factory-stored-proc-activity/new-data-store.png)
 3. No script JSON, faça as seguintes alterações:
 
-   1. Substitua-o `<servername>` pelo nome do seu servidor de base de dados Azure SQL.
-   2. Substitua-a `<databasename>` pela base de dados em que criou a tabela e o procedimento armazenado.
-   3. Substitua-a `<username@servername>` pela conta de utilizador que tem acesso à base de dados.
-   4. Substitua-a `<password>` com a palavra-passe para a conta de utilizador.
+   1. `<servername>`Substitua-o pelo nome do seu servidor.
+   2. Substitua-a pela base de `<databasename>` dados em que criou a tabela e o procedimento armazenado.
+   3. `<username@servername>`Substitua-a pela conta de utilizador que tem acesso à base de dados.
+   4. `<password>`Substitua-a com a palavra-passe para a conta de utilizador.
 
       ![Nova loja de dados](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
 4. Para implementar o serviço ligado, clique em **Implementar** na barra de comando. Confirme que vê o AzureSqlLinkedService na vista da árvore à esquerda.
@@ -159,7 +159,7 @@ Note as seguintes propriedades:
 
 - A propriedade **do tipo** está definida para **SqlServerStoredProcedure**.
 - O nome do tipo armazenado Procedimento **sé** definido para **usp_sample** (nome do procedimento armazenado).
-- A secção **Deparadores de Procedimentos armazenados** contém um parâmetro chamado **DateTime**. O nome e o invólucro do parâmetro em JSON devem coincidir com o nome e o invólucro do parâmetro na definição de procedimento armazenado. Se precisar de passar nulo para um parâmetro, `"param1": null` utilize a sintaxe: (todas as minúsculas).
+- A secção **Deparadores de Procedimentos armazenados** contém um parâmetro chamado **DateTime**. O nome e o invólucro do parâmetro em JSON devem coincidir com o nome e o invólucro do parâmetro na definição de procedimento armazenado. Se precisar de passar nulo para um parâmetro, utilize a sintaxe: `"param1": null` (todas as minúsculas).
 
 1. **Clique... Mais** na barra de comando e clique em **Novo oleoduto**.
 2. Copiar/colar o seguinte corte JSON:
@@ -204,10 +204,10 @@ Note as seguintes propriedades:
 2. Na vista do **diagrama,** você vê uma visão geral dos oleodutos, e conjuntos de dados usados neste tutorial.
 
     ![figura de azulejo](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
-3. Na vista do diagrama, clique `sprocsampleout`duas vezes no conjunto de dados . Vê as fatias em estado pronto. Deve haver cinco fatias porque uma fatia é produzida por cada hora entre a hora de início e o tempo final do JSON.
+3. Na vista do diagrama, clique duas vezes no conjunto de dados `sprocsampleout` . Vê as fatias em estado pronto. Deve haver cinco fatias porque uma fatia é produzida por cada hora entre a hora de início e o tempo final do JSON.
 
     ![figura de azulejo](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. Quando uma fatia estiver em `select * from sampletable` estado **ready,** eexecute uma consulta contra a base de dados Azure SQL para verificar se os dados foram inseridos na tabela pelo procedimento armazenado.
+4. Quando uma fatia estiver em estado **ready,** eexecute uma consulta contra a base de `select * from sampletable` dados Azure SQL para verificar se os dados foram inseridos na tabela pelo procedimento armazenado.
 
    ![Dados de saída](./media/data-factory-stored-proc-activity/output.png)
 
@@ -305,7 +305,7 @@ A tabela seguinte descreve estas propriedades JSON:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome | Nome da atividade |Sim |
+| name | Nome da atividade |Sim |
 | descrição |Texto descrevendo para que a atividade é usada |Não |
 | tipo | Deve ser definido para: **SqlServerStoredProcedure** | Sim |
 | inputs | Opcional. Se especificar um conjunto de dados de entrada, este deve estar disponível (em estado 'Pronto') para que a atividade do procedimento armazenado seja executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como parâmetro. É utilizado apenas para verificar a dependência antes de iniciar a atividade do procedimento armazenado. |Não |

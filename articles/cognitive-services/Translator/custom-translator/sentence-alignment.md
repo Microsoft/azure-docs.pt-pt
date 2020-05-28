@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf5b2b84142c9104ea5b3afa3ad179fd0ec07449
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8c4bbcfdd8f06d4c2b4759b84a72c5b3cff5a5d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80370143"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996351"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -26,7 +26,7 @@ Tradutor personalizado aprende traduções de frases uma frase de cada vez. Lê 
 
 ## <a name="pre-aligned-documents"></a>Documentos pré-alinhados
 
-Se souber que tem documentos paralelos, pode anular o alinhamento da frase fornecendo ficheiros de texto pré-alinhados. Pode extrair todas as frases de ambos os documentos em ficheiros de texto, organizar uma frase por linha e fazer upload com uma `.align` extensão. A `.align` extensão indica tradutor personalizado que deve ignorar o alinhamento da frase.
+Se souber que tem documentos paralelos, pode anular o alinhamento da frase fornecendo ficheiros de texto pré-alinhados. Pode extrair todas as frases de ambos os documentos em ficheiros de texto, organizar uma frase por linha e fazer upload com uma `.align` extensão. A extensão indica tradutor `.align` personalizado que deve ignorar o alinhamento da frase.
 
 Para obter os melhores resultados, tente certificar-se de que tem uma frase por linha nos seus ficheiros.Não tenho caracteres de linha nova dentro de uma frase, pois isto causará maus alinhamentos.
 
@@ -46,6 +46,6 @@ Para que um treino tenha sucesso, a tabela abaixo mostra o número mínimo de fr
 > - A sintonização e os testes são opcionais. Se não os fornecer, o sistema removerá uma percentagem adequada do Treino para utilizar para validação e teste. 
 > - Pode treinar um modelo usando apenas dados do dicionário. Por favor, consulte [o What is Dictionary](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a usar um [dicionário](what-is-dictionary.md) em Tradutor Personalizado.

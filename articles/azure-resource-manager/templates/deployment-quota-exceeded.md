@@ -2,17 +2,20 @@
 title: Quota de implantação excedida
 description: Descreve como resolver o erro de ter mais de 800 implementações na história do grupo de recursos.
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 0fec8fa91ec79822115d83b15e8c8a839dc7fd69
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80245094"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117810"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de distribuição exceder 800
 
 Cada grupo de recursos está limitado a 800 implantações no seu histórico de implantação. Este artigo descreve o erro que recebe quando uma implementação falha porque excederia as 800 implementações permitidas. Para resolver este erro, elimine as implementações do histórico do grupo de recursos. Apagar uma implantação da história não afeta nenhum dos recursos que foram implantados.
+
+> [!NOTE]
+> A partir de junho de 2020, o Gestor de Recursos Azure elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. Ainda pode ver este erro se tiver optado por eliminações automáticas. Para obter mais informações, consulte [eliminações automáticas do histórico de implantação](deployment-history-deletions.md).
 
 ## <a name="symptom"></a>Sintoma
 

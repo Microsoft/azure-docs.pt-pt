@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ea86c4670a8eb6dc5e2133ed01045e8aada0f707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 225414760507bb023d0a514290420fc7cb59b950
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438788"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118323"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invoque um pacote SSIS utilizando a atividade de procedimento armazenado na Fábrica de Dados Azure
 Este artigo descreve como invocar um pacote SSIS a partir de um oleoduto Azure Data Factory utilizando uma atividade de procedimento armazenada. 
@@ -29,7 +29,7 @@ Este artigo descreve como invocar um pacote SSIS a partir de um oleoduto Azure D
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-sql-database"></a>Base de Dados SQL do Azure 
-O walkthrough neste artigo utiliza uma base de dados Azure SQL que acolhe o catálogo SSIS. Também pode utilizar uma instância gerida por base de dados Azure SQL.
+A passagem neste artigo utiliza a Base de Dados Azure SQL. Também pode utilizar uma Instância Gerida Azure SQL.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Criar um integration runtime do Azure-SSIS
 Crie um tempo de execução de integração Azure-SSIS se não tiver um seguindo a instrução passo a passo no [Tutorial: Implementar pacotes SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Não é possível utilizar a versão 1 da Data Factory para criar um tempo de execução de integração Azure-SSIS. 
@@ -87,7 +87,7 @@ Crie um serviço ligado para ligar a sua base de dados Azure SQL que acolhe o ca
 1. Crie um ficheiro JSON chamado **AzureSqlDatabaseLinkedService.json** em **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo: 
 
     > [!IMPORTANT]
-    > Substitua &lt;&gt;o &lt;nome&gt;@&lt;do&gt; &lt;servidor, o nome do servidor e a palavra-passe&gt; pelo nome do utilizador por valores da sua Base de Dados Azure SQL antes de guardar o ficheiro.
+    > Substitua o nome do &lt; &gt; servidor, &lt; o nome do servidor e a &gt; @ &lt; palavra-passe pelo nome do utilizador por valores da sua Base de &gt; Dados &lt; &gt; Azure SQL antes de guardar o ficheiro.
 
     ```json
     {
@@ -138,7 +138,7 @@ Neste passo, cria-se um pipeline com uma atividade de procedimento armazenada. A
 1. Crie um ficheiro JSON chamado **MyPipeline.json** na pasta **C:\ADF\RunSSISPackage** com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Substitua &lt;&gt;o &lt;nome&gt; &lt;da&gt; pasta, nome do projeto, nome do pacote por nomes de pasta, projeto e pacote no catálogo SSIS antes de guardar o ficheiro.
+    > Substitua o nome da &lt; &gt; pasta, nome do projeto, nome do pacote &lt; &gt; &lt; por &gt; nomes de pasta, projeto e pacote no catálogo SSIS antes de guardar o ficheiro.
 
     ```json
     {
@@ -190,12 +190,12 @@ Neste passo, cria-se um pipeline com uma atividade de procedimento armazenada. A
 
     Pode continuar a executar este cmdlet até ver o setor no estado **Pronto** ou **Falhou**. 
 
-    Pode executar a seguinte consulta contra a base de dados SSISDB no seu servidor Azure SQL para verificar se o pacote foi executado. 
+    Pode executar a seguinte consulta contra a base de dados SSISDB no seu servidor para verificar se o pacote foi executado. 
 
     ```sql
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais detalhes sobre a atividade do procedimento armazenado, consulte o artigo de [atividade do Procedimento Armazenado.](data-factory-stored-proc-activity.md)
 

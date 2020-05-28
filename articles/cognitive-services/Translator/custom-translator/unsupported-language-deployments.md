@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584705"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996368"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
 
@@ -54,7 +54,7 @@ Uma vez implementados, as taxas normais de hospedagem serão aplicadas.  Consult
 
 Ao contrário dos modelos standard de Tradutor Personalizado, os modelos Hub só estarão disponíveis numa única região, pelo que os encargos de hospedagem multi-regiões não serão aplicados.  Uma vez implementado, poderá desimplantar o seu modelo Hub a qualquer momento através do projeto De tradutor personalizado migrado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Treine um modelo.](how-to-train-model.md)
 - Comece a utilizar o seu modelo de tradução personalizada implementado via [Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

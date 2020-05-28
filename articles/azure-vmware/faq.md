@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das questões comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873306"
+ms.locfileid: "84112690"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre a pré-visualização da Azure VMware Solution (AVS)
 
@@ -67,34 +67,7 @@ Não existe qualquer alteração à atual Solução Azure VMware pela CloudSimpl
 
 Sim, a Azure VMware Solution suporta a migração utilizando ferramentas VMware familiares como o HCX. Para os clientes interessados em migrar para a nova solução, por favor trabalhe com a sua equipa de conta Microsoft para explorar opções e suporte disponível.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Como solicito um aumento de quota de acolhimento para uma solução Azure VMware existente?**
 
-Pode solicitar um aumento de quota [submetendo um pedido](..\azure-portal\supportability\how-to-create-azure-support-request.md)de apoio. A equipa de Gestão de Quotas avalia o pedido e aprova-o no prazo de três dias úteis.  
-
-> [!IMPORTANT]
-> Antes de poder solicitar um aumento de quota, certifique-se de que regista o fornecedor de [recursos **Microsoft.AVS** ](tutorial-create-private-cloud.md) no portal Azure.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Para obter formas adicionais de registar o fornecedor de recursos, consulte os fornecedores e tipos de [recursos do Azure.](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types)
-
-1. No seu portal Azure, sob **ajuda + suporte,** crie um **novo pedido** de apoio e forneça as seguintes informações para o bilhete:
-   - **Tipo de emissão:** Técnico
-   - **Subscrição:** O seu ID de subscrição
-   - **Serviço:**  Solução Azure VMware 
-   - **Resumo:** Aumento de quota
-   - **Tipo de problema:** Problemas de Gestão de Capacidades
-   - **Subtipo de problemas:** Pedido do Cliente para quota/capacidade adicional de anfitrião
-
-1. Na Descrição do bilhete de apoio, no separador Details, forneça o seguinte:
-   - Número de nós adicionais   
-   - Nó SKU
-   - Região
-
-   > [!NOTE] 
-   > Por defeito, será concedido um mínimo de quatro nós.
-
-1. Clique em **Rever + Criar** para submeter o pedido.
 
 ## <a name="compute-network-and-storage"></a>Computação, rede e armazenamento
 
@@ -164,7 +137,7 @@ Não, não é obrigado a usar NSX no local.
 
 **Qual é a programação de atualização e atualização do software VMware numa nuvem privada?**
 
-As atualizações privadas do pacote de software em nuvem são feitas para manter o software dentro de uma versão do mais recente lançamento do formulário de software VMware. As versões privadas de software em nuvem podem ser diferentes das versões mais recentes dos componentes individuais do software (ESXi, NSX-T, vCenter, VSAN).
+As atualizações privadas do pacote de software em nuvem são feitas para manter o software dentro de uma versão do mais recente lançamento do pacote de software da VMware. As versões privadas de software em nuvem podem ser diferentes das versões mais recentes dos componentes individuais do software (ESXi, NSX-T, vCenter, VSAN).
 
 **Quantas vezes a pilha privada de software em nuvem será atualizada?**
 
@@ -233,6 +206,35 @@ O suporte para AVS é entregue pela Microsoft. Por favor, note, de acordo com as
 **Que contas preciso para criar uma nuvem privada AVS?**
 
 Você precisará de uma conta Azure numa subscrição Azure.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Como solicito um aumento de quota de acolhimento para a Solução Azure VMware?**
+
+Pode solicitar um aumento de quota [submetendo um pedido](..\azure-portal\supportability\how-to-create-azure-support-request.md)de apoio. A equipa de Gestão de Quotas avalia o pedido e aprova-o no prazo de três dias úteis.  
+
+> [!IMPORTANT]
+> Antes de poder solicitar um aumento de quota, certifique-se de que regista o fornecedor de recursos **Microsoft.AVS** no portal Azure.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Para obter formas adicionais de registar o fornecedor de recursos, consulte os fornecedores e tipos de [recursos do Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+
+1. No seu portal Azure, sob **ajuda + suporte,** crie um **novo pedido** de apoio e forneça as seguintes informações para o bilhete:
+   - **Tipo de emissão:** Técnico
+   - **Subscrição:** O seu ID de subscrição
+   - **Serviço:**  Solução Azure VMware 
+   - **Resumo:** Aumento de quota
+   - **Tipo de problema:** Problemas de Gestão de Capacidades
+   - **Subtipo de problemas:** Pedido do Cliente para quota/capacidade adicional de anfitrião
+
+1. Na Descrição do bilhete de apoio, no separador Details, forneça o seguinte:
+   - Número de nós adicionais   
+   - Nó SKU
+   - Região
+
+   > [!NOTE] 
+   > Por defeito, será concedido um mínimo de quatro nós.
+
+1. Clique em **Rever + Criar** para submeter o pedido.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

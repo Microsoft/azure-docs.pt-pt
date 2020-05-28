@@ -272,6 +272,6 @@ az storage account or-policy delete \
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da replicação de objetos (pré-visualização)](object-replication-overview.md)

@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 05/19/2020
-ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656560"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118901"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Procura de previsão com aprendizagem automática de máquinas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -229,7 +229,7 @@ Consulte este artigo para obter passos sobre como criar um esquema suportado pel
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo de [resultados automatizados](how-to-understand-automated-ml.md#classification) de machine learning.
-+ Saiba mais sobre [a caracterização.](how-to-use-automated-ml-for-ml-models.md#featurization)
++ Saiba mais sobre [a caracterização.](how-to-configure-auto-features.md#featurization)
 + Saiba mais sobre [o perfil de dados.](how-to-use-automated-ml-for-ml-models.md#profile)
 
 >[!NOTE]

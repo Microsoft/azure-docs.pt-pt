@@ -72,6 +72,6 @@ Para utilizar esta pesquisa guardada existente, siga estes passos:
 
 5. Como mencionado anteriormente, uma vez configuradas as suas novas implementações através do portal Azure, pode remover as implementações existentes do portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a Gestão de Atualizações na Automação Azure, consulte a [visão geral da Gestão de Atualizações.](automation-update-management.md)

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 05/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 23ba8b12651c4de05fd8fb0b2721839beb36a7a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 398f1495fdfc9da7273ff372fbb57a6ba304c490
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660453"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117699"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor a granel .NET: Descarregamento de informações 
 
@@ -21,11 +21,11 @@ ms.locfileid: "83660453"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Nó.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Pitão](sql-api-sdk-python.md)
+> * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
@@ -35,7 +35,7 @@ ms.locfileid: "83660453"
 | |  |
 |---|---|
 | **Descrição**| A biblioteca de executores a granel .NET permite que as aplicações dos clientes realizem operações a granel nas contas da Azure Cosmos DB. Esta biblioteca fornece espaços de nomeBulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode ingerir a granel documentos de forma otimizada, de modo a que o serviço de entrada previsto para uma recolha seja consumido na sua extensão máxima. O módulo BulkUpdate pode atualizar em massa os dados existentes nos contentores Do Cosmos azure como patches. O módulo BulkDelete pode eliminar em massa documentos de forma otimizada, de modo a que a entrada prevista para uma recolha seja consumida na sua máxima extensão.|
-|**Download sDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+|**Download sDK**| [Nuget](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca executora a granel em GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentação da API**|[.NET Documentação de referência da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**Introdução**|[Começar com a biblioteca de executor a granel .NET SDK](bulk-executor-dot-net.md)|
@@ -73,6 +73,10 @@ ms.locfileid: "83660453"
 ### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0-pré-visualização
 
 * Adicionado .NET Standard 2.0 como um dos quadros-alvo suportados para fazer com que a biblioteca executor a granel funcione com aplicações .NET Core.
+
+### <a name="189"></a><a name="1.8.9"/>1.8.9
+
+* Corrigiu um problema com o BulkDeleteAsync quando os valores com as pasções escapantes eram passados como parâmetros de entrada.
 
 ### <a name="188"></a><a name="1.8.8"/>1.8.8
 
@@ -154,7 +158,7 @@ ms.locfileid: "83660453"
 
 * Suporte adicional para operações bulkImport e BulkUpdate para contas API Da Azure Cosmos DB SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber sobre a biblioteca java executor a granel, consulte o seguinte artigo:
 

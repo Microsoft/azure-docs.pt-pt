@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5ebf7086aba3e311bc595c6eafa4b2debdc32e7f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836809"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118374"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Quickstart: Use SQL a pedido
 
@@ -66,6 +66,9 @@ Para executar consultas utilizando o SQL a pedido, crie fonte de dados que a SQL
 Execute o seguinte fragmento de código para criar uma fonte de dados utilizada em amostras nesta secção:
 
 ```sql
+-- create master key that will protect the credentials:
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
+
 -- create credentials for containers in our demo storage account
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
@@ -175,7 +178,7 @@ WHERE
 > [!IMPORTANT]
 > Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Está agora pronto para continuar com os seguintes artigos:
 

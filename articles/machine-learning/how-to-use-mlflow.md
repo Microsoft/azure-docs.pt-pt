@@ -368,6 +368,6 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 O [MLflow com cadernos Azure ML](https://aka.ms/azureml-mlflow-examples) demonstram e expandem sobre conceitos apresentados neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Gerencie os seus modelos.](concept-model-management-and-deployment.md)
 * Monitorize os seus modelos de produção para [a deriva de dados](how-to-monitor-data-drift.md).

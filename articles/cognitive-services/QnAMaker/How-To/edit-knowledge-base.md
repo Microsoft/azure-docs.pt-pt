@@ -3,12 +3,12 @@ title: Editar uma base de conhecimento - QnA Maker
 description: O QnA Maker permite-lhe gerir o conteúdo da sua base de conhecimentos, proporcionando uma experiência de edição fácil de usar.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650862"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993580"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares QnA na sua base de conhecimentos
 
@@ -85,7 +85,7 @@ Qualquer campo em qualquer par QnA pode ser editado, independentemente da fonte 
 
 ## <a name="delete-a-qna-pair"></a>Eliminar um par QnA
 
-Para eliminar um QnA, clique no ícone **de exclusão** na extrema direita da linha QnA. Esta é uma operação permanente. Não pode ser desfeito. Considere exportar o seu KB da página **Publicar** antes de apagar os conjuntos.
+Para eliminar um QnA, clique no ícone **de exclusão** na extrema direita da linha QnA. Esta é uma operação permanente. Não pode ser desfeito. Considere exportar o seu KB da página **Publicar** antes de apagar pares.
 
 ![Eliminar par QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ Não se pode ligar pares qnA nos metadados da resposta.
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-Adicione conjuntos de metadados selecionando primeiro **as opções de Visualização**e, em seguida, selecione **metadados do Show**. Isto exibe a coluna de metadados. Em seguida, selecione o sinal para adicionar um conjunto de **+** metadados. Este conjunto consiste numa chave e num valor.
+Adicione os pares de metadados selecionando primeiro **as opções de Visualização**e, em seguida, selecione **metadados do Show**. Isto exibe a coluna de metadados. Em seguida, selecione o sinal para adicionar um par de **+** metadados. Este par consiste numa chave e num valor.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Guardar alterações nos pares QnA
 
@@ -124,7 +124,7 @@ Selecione periodicamente **Guardar e treinar** depois de fazer edificações par
 
 [O markdown](../reference-markdown-format.md) é uma ferramenta melhor quando é necessário regenerar automaticamente o conteúdo para criar bases de conhecimento para serem importadas como parte de um oleoduto CI/CD ou para testes de [lote](../Quickstarts/batch-testing.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Colaborar numa base de dados de conhecimento](./collaborate-knowledge-base.md)

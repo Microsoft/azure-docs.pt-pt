@@ -180,7 +180,7 @@ Depois de guardar um livro personalizado, vá à galeria do livro para abri-lo.
 
 ![Um bar de comando com Galeria em destaque](./media/cosmosdb-insights-overview/gallery.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Configure [alertas métricos](../platform/alerts-metric.md) e notificações de [saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados que ajudam na deteção de problemas.
 

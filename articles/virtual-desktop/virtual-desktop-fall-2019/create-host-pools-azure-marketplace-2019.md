@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 741bd94b290560bdc850cbf7bc24ec57104d8a66
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8afc8b70257f07c95b34c4e372e0e7425ae20fcd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614355"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112667"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar uma piscina de anfitriões usando o Azure Marketplace
 
@@ -67,7 +67,7 @@ Eis o que faz para o separador **Basics:**
 1. Selecione uma **Região**.
 1. Insira um nome para a piscina anfitriã que é única dentro do inquilino do Windows Virtual Desktop.
 1. Selecione **o tipo de ambiente**de trabalho . Se selecionar **Personal**, cada utilizador que se conecta a esta piscina de hospedante é permanentemente atribuído a uma máquina virtual.
-1. Insira os utilizadores que possam iniciar sessão nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho. Use uma lista separada de vírina. Por exemplo, se quiser `user1@contoso.com` atribuir `user2@contoso.com` e aceder, insira*`user1@contoso.com,user2@contoso.com`*
+1. Insira os utilizadores que possam iniciar sessão nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho. Use uma lista separada de vírina. Por exemplo, se quiser atribuir `user1@contoso.com` e `user2@contoso.com` aceder, insira*`user1@contoso.com,user2@contoso.com`*
 1. Para a localização dos **metadados do Serviço,** selecione a mesma localização que a rede virtual que tem conectividade com o servidor Ative Directory.
 
    >[!IMPORTANT]
@@ -148,7 +148,7 @@ Para atribuir os utilizadores ao grupo de aplicações de ambiente de trabalho:
    Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
    ```
 
-   A UPN do utilizador deve corresponder à identidade do utilizador em *user1@contoso.com*Azure AD, por exemplo, . Se pretender adicionar vários utilizadores, execute o comando para cada utilizador.
+   A UPN do utilizador deve corresponder à identidade do utilizador em Azure AD, por exemplo, *user1@contoso.com* . Se pretender adicionar vários utilizadores, execute o comando para cada utilizador.
 
 Os utilizadores que adicionar ao grupo de aplicações de desktop podem iniciar sessão no Windows Virtual Desktop com clientes de ambiente de trabalho remoto suportados e ver um recurso para um ambiente de trabalho de sessão.
 
@@ -157,9 +157,9 @@ Aqui estão os clientes suportados atuais:
 * [Cliente de Ambiente de Trabalho Remoto para Windows 7 e Windows 10](../connect-windows-7-and-10.md)
 * [Windows Virtual Desktop web client](connect-web-2019.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Fez uma piscina de anfitriões e atribuiu aos utilizadores acesso ao seu ambiente de trabalho. Você pode povoar sua piscina anfitriã com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, consulte este tutorial:
 
 > [!div class="nextstepaction"]
-> [Gerir o tutorial de grupos de aplicações](../manage-app-groups.md)
+> [Gerir o tutorial de grupos de aplicações](manage-app-groups-2019.md)

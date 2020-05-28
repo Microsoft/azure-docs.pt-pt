@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402445"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994277"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com trelica
 
@@ -90,9 +90,11 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure:
     1. Na caixa **DEURL resposta,** introduza um URL com o padrão `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs` .
 
     > [!NOTE]
-    > O valor url de **resposta** não é real. Atualize este valor com o URL de resposta real. Contacte a equipa de apoio ao [Cliente Trelica](mailto:support@trelica.com) para obter este valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > O valor url de resposta não é real. Atualize este valor com o URL de Resposta real (também conhecido como ACS).
+    > Pode encontrá-lo iniciando sessão na Trelica e indo para a página de configuração de fornecedores de [identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Admin > Conta > SAML). Clique no botão de cópia ao lado do URL do Serviço de **Consumidores de Afirmação (ACS)** para colocar isto na área de recortes, pronto para colar na caixa de texto **URL resposta** em Azure AD.
+    > Leia a documentação de [ajuda da Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou contacte a equipa de suporte ao [Cliente Trelica](mailto:support@trelica.com) se tiver dúvidas.
 
-1. No **set set Single Sign-on com** a página SAML, vá à secção de Certificado de **Assinatura SAML.** À direita do Url de Metadados da Federação de **Aplicações,** selecione o botão de cópia para copiar o URL. Guarde o URL no seu computador.
+1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
     ![A secção de Certificado de Assinatura SAML, com o botão de cópia realçado ao lado do Url de Metadados da Federação de Aplicações](common/copy-metadataurl.png)
 
@@ -128,11 +130,11 @@ Nesta secção, permite que b.Simon utilize um único sign-on Azure, concedendo 
 
 ## <a name="configure-trelica-sso"></a>Configure Trelica SSO
 
-Para configurar um único sinal no lado **trelica,** envie o valor de url de url de metadados da Federação de **Aplicações** copiado para a equipa de [suporte Trelica](mailto:support@trelica.com). Configuram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **trelica,** vá à página de configuração de fornecedores de [identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Clique no botão **Novo.** Insira o **Azure AD** como nome e escolha **Metadados do url** para o tipo metadados. Colhe o Url de **Metadados** da Federação de Aplicações que tirou do Azure AD para o campo **de url de Metadados** em Trelica.
+
+Leia a documentação de [ajuda da Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou contacte a equipa de suporte ao [Cliente Trelica](mailto:support@trelica.com) se tiver dúvidas.
 
 ### <a name="create-a-trelica-test-user"></a>Criar um utilizador de teste Trelica
-
-Nesta secção, cria-se um utilizador chamado B.Simon em Trelica.
 
 A Trelica suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há ação para tomar nesta secção. Se um utilizador já não existir na Trelica, um novo é criado após a autenticação.
 

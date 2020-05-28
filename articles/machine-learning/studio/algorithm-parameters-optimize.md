@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eeca7a51c1ff22f845b45f50f9fccee4b60f3221
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218274"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119108"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolha parâmetros para otimizar os seus algoritmos no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este tópico descreve como escolher o hiperparâmetro certo definido para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de aprendizagem automática têm parâmetros para definir. Quando treina um modelo, tem de fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que escolher. O processo de encontrar o conjunto ideal de parâmetros é conhecido como seleção de *modelos.*
 

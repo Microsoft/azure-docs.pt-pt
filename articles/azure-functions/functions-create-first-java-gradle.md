@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732717"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996653"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Use Java e Gradle para criar e publicar uma função para azure
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
 ```
 
-Abra `build.gradle` e `appName` altere a secção seguinte para um nome único para evitar conflitos de nomes de domínio ao ser implantado para Azure. 
+Abra `build.gradle` e altere a `appName` secção seguinte para um nome único para evitar conflitos de nomes de domínio ao ser implantado para Azure. 
 
 ```gradle
 azurefunctions {
@@ -60,7 +60,7 @@ azurefunctions {
 Abra o novo ficheiro Function.java a partir do caminho *src/main/java* num editor de texto e reveja o código gerado. Este código é uma função desencadeada em [HTTP](functions-bindings-http-webhook.md) que ecoa o corpo do pedido. 
 
 > [!div class="nextstepaction"]
-> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
@@ -93,14 +93,16 @@ curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 A saída esperada é a seguinte:
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
-A chave de [função](functions-bindings-http-webhook-trigger.md#authorization-keys) não é necessária quando se corre localmente.  
+> [!NOTE]
+> Se definir authLevel para ou , a chave de `FUNCTION` `ADMIN` [função](functions-bindings-http-webhook-trigger.md#authorization-keys) não é necessária quando se executa localmente.  
+
 Utilize `Ctrl+C` no terminal para parar o código de função.
 
 > [!div class="nextstepaction"]
-> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=local-run)
 
 ## <a name="deploy-the-function-to-azure"></a>Implementar a função no Azure
 
@@ -128,10 +130,10 @@ Isto cria os seguintes recursos em Azure, com base nos valores do ficheiro build
 
 A implementação também embala os ficheiros do projeto e os implanta na nova aplicação de funções utilizando [a implementação](functions-deployment-technologies.md#zip-deploy)de zip , com o modo de execução do pacote ativado.
 
-Como o gatilho HTTP `authLevel = AuthorizationLevel.FUNCTION`que publicámos utiliza, é necessário obter a chave de função para chamar o ponto final da função em HTTP. A maneira mais fácil de obter a chave de função é a partir do [portal Azure].
+O authLevel para HTTP Trigger no projeto da amostra `ANONYMOUS` é, que irá ignorar a autenticação. No entanto, se utilizar outro authLevel como ou , precisa de obter a chave de `FUNCTION` `ADMIN` função para chamar o ponto final da função em HTTP. A maneira mais fácil de obter a chave de função é a partir do [portal Azure].
 
 > [!div class="nextstepaction"]
-> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Obtenha o URL do gatilho HTTP
 
@@ -139,9 +141,9 @@ Pode obter o URL necessário para acionar a sua função, com a chave de funçã
 
 1. Navegue no [portal Azure,]inscreva-se, escreva o nome da _sua_ aplicação de função em **Search** no topo da página e prima o enter.
  
-1. Na sua aplicação de funções, expandir **funções (Ler Apenas)**, escolha a sua função e, em seguida, selecione **</> Obtenha URL** de função na parte superior direita. 
+1. Na sua aplicação de funções, selecione **Funções,** escolha a sua função e, em seguida, clique em **</> Obter Url** de Função na parte superior direita. 
 
-    ![Copiar o URL da função a partir do portal do Azure](./media/functions-create-java-maven/get-function-url-portal.png)
+    :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copiar o URL da função a partir do portal do Azure":::
 
 1. Escolha **o predefinido (Chave de Função)** e selecione **Copiar**. 
 
@@ -149,22 +151,22 @@ Agora pode utilizar o URL copiado para aceder à sua função.
 
 ## <a name="verify-the-function-in-azure"></a>Verifique a função em Azure
 
-Para verificar a aplicação de `cURL`funções em funcionamento no Azure utilizando, substitua o URL da amostra abaixo com o URL que copiou do portal.
+Para verificar a aplicação de funções em funcionamento no Azure `cURL` utilizando, substitua o URL da amostra abaixo com o URL que copiou do portal.
 
 ```console
-curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpExample?code=zYRohsTwBlZ68YF.... --data AzureFunctions
+curl -w "\n" http://azure-functions-sample-demo.azurewebsites.net/api/HttpExample --data AzureFunctions
 ```
 
-Isto envia um pedido de CORREIO `AzureFunctions` para o ponto final da função com no corpo do pedido. Vê a seguinte resposta.
+Isto envia um pedido de CORREIO para o ponto final da função com `AzureFunctions` no corpo do pedido. Vê a seguinte resposta.
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
 > [!div class="nextstepaction"]
-> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criou um projeto de funções Java com uma função ativada http, executa-o na sua máquina local e implantou-o para o Azure. Agora, prolongue a sua função por...
 

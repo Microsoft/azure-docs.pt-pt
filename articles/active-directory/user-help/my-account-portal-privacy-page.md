@@ -36,7 +36,7 @@ Pode ver como a sua organização utiliza os seus dados a partir da página de *
 
     - **Termos de utilização.** Os termos de uso da sua organização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ver como a sua organização utiliza os seus dados, pode:
 

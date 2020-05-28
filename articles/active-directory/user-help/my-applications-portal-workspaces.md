@@ -40,7 +40,7 @@ Qualquer outra coleção que veja nesta lista foi criada pelo seu administrador 
 
 Ao selecionar e ver uma coleção, basta ver as aplicações predefinidas a que tem acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de organizar as suas apps nas várias categorias do portal **My Apps,** pode:
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: e078893b3bbe0ef5661cd87bad62b320f78ceb5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424861"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112761"
 ---
 # <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consumo de recursos Synapse Analytics SQL
 
@@ -77,7 +77,7 @@ Tanto a DWUs como a cDWUs suportam a computação de escala para cima ou para ba
 
 #### <a name="capacity-limits"></a>Limites de capacidade
 
-Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota da Unidade de Transações de Base de [Dados (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de armazém de dados. Para obter mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)
+Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota da Unidade de Transações de Base de [Dados (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de armazém de dados. Para obter mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)
 
 ### <a name="how-many-data-warehouse-units-do-i-need"></a>Quantas unidades de armazém de dados preciso
 
@@ -106,7 +106,7 @@ Funções incorporadas para recursos Azure, tais como SQL DB Contributor e SQL S
 Para ver a definição atual de DWU:
 
 1. Abra o Explorador de Objetos do Servidor SQL em Estúdio Visual.
-2. Ligue-se à base de dados principal associada ao servidor lógico da Base de Dados SQL.
+2. Ligue-se à base de dados principal associada ao servidor lógico SQL.
 3. Selecione a partir da visão dinâmica de gestão sys.database_service_objetives. Segue-se um exemplo:
 
 ```sql
@@ -148,7 +148,7 @@ Com o T-SQL pode visualizar as atuais DWUsettings, alterar as definições e ver
 
 Para alterar os DWUs:
 
-1. Ligue-se à base de dados principal associada ao seu servidor lógico de base de dados SQL.
+1. Ligue-se à base de dados principal associada ao seu servidor.
 2. Utilize a declaração TSQL da [ALTER DATABASE.](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) O exemplo seguinte define o objetivo do nível de serviço para DW1000c para a base de dados MySQLDW.
 
 ```Sql
@@ -184,7 +184,7 @@ Não é possível verificar se há operações de escala com o portal Azure.
 
 Para verificar o estado das alterações da DWU:
 
-1. Ligue-se à base de dados principal associada ao seu servidor lógico de base de dados SQL.
+1. Ligue-se à base de dados principal associada ao seu servidor.
 2. Envie a seguinte consulta para verificar o estado da base de dados.
 
 ```sql
@@ -212,6 +212,6 @@ Quando inicia uma operação à escala, o sistema primeiro mata todas as sessõe
 - Para uma operação de escala, o sistema desprende todos os nós de computação, provisões os nós de cálculo adicionais e, em seguida, volta a ligar-se à camada de armazenamento.
 - Para uma operação de escala para baixo, o sistema desprende todos os nós de computação e, em seguida, volta a ligar apenas os nós necessários à camada de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre gestão do desempenho, consulte [as classes de recursos para gestão](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) de carga de trabalho e limites de [memória e concurrency.](../sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

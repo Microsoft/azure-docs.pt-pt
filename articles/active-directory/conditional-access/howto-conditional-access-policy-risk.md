@@ -4,19 +4,19 @@ description: Criar políticas de acesso condicional para permitir melhorias na P
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8054d8985596095db32d9262322d7fb0f4aab8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9cfba377aba30d4687bab4ba7c5a311c70c4905
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295143"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995161"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Acesso Condicional: Acesso Condicional baseado no risco
 
@@ -53,7 +53,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
    1. Selecione **Done** (Concluído).
 1. Em **Condições,** selecione **o risco do utilizador**e, em seguida, escolha **High**.
    1. Clique em **Selecionar** e depois **Feito**.
-1. No**acesso dos** **controlos,** > escolha **permitir o acesso**e, em seguida, selecione Exigir alteração **de palavra-passe**.
+1. No acesso **dos controlos,**  >  **Access**escolha permitir **o acesso**e, em seguida, selecione Exigir alteração **de palavra-passe**.
    1. Clique em **Selecionar**.
 1. Definir a política de **aplicação** para **ligado**.
 1. Clique em **Guardar**.
@@ -71,12 +71,12 @@ A maioria dos utilizadores tem um comportamento normal que pode ser controlado. 
    1. Selecione **Done** (Concluído).
 1. Em **Condições**, selecione **o risco de iniciar sessão**e, em seguida, escolha Médio e **superior**.
    1. Clique em **Selecionar** e depois **Feito**.
-1. No acesso dos **controlos,** > **Access**escolha **permitir o acesso**e, em seguida, selecione **Exigir autenticação de vários fatores**.
+1. No acesso **dos controlos,**  >  **Access**escolha permitir **o acesso**e, em seguida, selecione **Exigir autenticação de vários fatores**.
    1. Clique em **Selecionar**.
 1. Definir a política de **aplicação** para **ligado**.
 1. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

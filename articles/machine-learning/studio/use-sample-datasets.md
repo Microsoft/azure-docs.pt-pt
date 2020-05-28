@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bdf1cd8832d311a71276fa18d407a5b4dd98d24
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217791"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115492"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Utilize os conjuntos de dados da amostra no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [top]: #machine-learning-sample-datasets
 
@@ -46,7 +44,7 @@ Um subconjunto da base de dados do Censos de 1994, utilizando adultos que trabal
 <p></p>
 <b>Utilização:</b> Classifique as pessoas usando a demografia para prever se uma pessoa ganha mais de 50 mil por ano.
 <p></p>
-<b>Investigação Relacionada:</b> Kohavi, R., Becker, B., (1996). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> Kohavi, R., Becker, B., (1996). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -67,7 +65,7 @@ A pontuação de risco está inicialmente associada ao preço automóvel. É ent
 <p></p>
 <b>Utilização:</b> Preveja a pontuação de risco por características, utilizando a classificação de regressão ou multivariado. 
 <p></p>
-<b>Investigação Relacionada:</b> Schlimmer, J.C. (1987). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> Schlimmer, J.C. (1987). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -98,7 +96,7 @@ Os dados dos dadores incluem os meses desde a última doação), e a frequência
 <p></p>
 <b>Utilização:</b> O objetivo é prever, por classificação, se o dador doou sangue em março de 2007, onde 1 indica um dador durante o período-alvo, e 0 um não-dador. 
 <p></p>
-<b>Investigação Relacionada:</b> Yeh, I.C., (2008). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação
+<b>Investigação Relacionada:</b> Yeh, I.C., (2008). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, e Ting, Tao-Ming, "Descoberta de conhecimento no modelo RFM usando a sequência de Bernoulli, "Expert Systems with Applications, 2008,<a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -111,7 +109,7 @@ Um dos três conjuntos de dados relacionados com o cancro fornecidos pelo Instit
 <p></p>
 <b>Utilização:</b> Classifique o tipo de cancro, com base em 9 atributos, alguns dos quais são lineares e alguns são categóricos. 
 <p></p>
-<b>Investigação Relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -164,7 +162,7 @@ Uma coleção de perfis de energia simulados, baseados em 12 formas de construç
 <p></p>
 <b>Utilização:</b> Utilize a regressão ou a classificação para prever a classificação de eficiência energética baseada como uma de duas respostas de valor real. Para classificação multi-classe, é redonda a variável de resposta ao inteiro mais próximo. 
 <p></p>
-<b>Investigação Relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -189,7 +187,7 @@ Registos de chegadas e partidas de aviões nos Estados Unidos a partir de outubr
 <p></p>
 <b>Utilização:</b> Preveja atrasos nos voos. 
 <p></p>
-<b>Investigação Relacionada:</b> Do Departamento de Transportes <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>dos EUA.
+<b>Investigação Relacionada:</b> Do Departamento de Transportes dos <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a> EUA.
   </td>
 </tr>
 
@@ -200,9 +198,9 @@ Contém dados meteorológicos, tais como índices de temperatura e humidade e ve
 <p></p>
 <b>Utilização:</b> Esta é uma tarefa de regressão difícil, onde o objetivo é prever a área ardida de incêndios florestais. 
 <p></p>
-<b>Investigação Relacionada:</b> Cortez, P., & Morais, A. (2008). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação
+<b>Investigação Relacionada:</b> Cortez, P., & Morais, A. (2008). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação
 <p></p>
-[Cortez e Morais, 2007] P. Cortez e A. Morais. Uma abordagem de mineração de dados para prever incêndios florestais usando dados meteorológicos. Em J. Neves, M.F. Santos e J. Machado Eds., Novas Tendências em Inteligência Artificial, Procedimentos da 13ª EPIA 2007 - Conferência Portuguesa de Inteligência Artificial, dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>em: .
+[Cortez e Morais, 2007] P. Cortez e A. Morais. Uma abordagem de mineração de dados para prever incêndios florestais usando dados meteorológicos. Em J. Neves, M.F. Santos e J. Machado Eds., Novas Tendências em Inteligência Artificial, Procedimentos da 13ª EPIA 2007 - Conferência Portuguesa de Inteligência Artificial, dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a> .
   </td>
 </tr>
 
@@ -229,7 +227,7 @@ Esta é talvez a base de dados mais conhecida na literatura de reconhecimento de
 <p></p>
 <b>Utilização:</b> Preveja o tipo de íris a partir das medições.  
 <p></p>
-<b>Investigação Relacionada:</b> Fisher, R.A. (1988). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> Fisher, R.A. (1988). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -248,7 +246,7 @@ Os dados listam o consumo de combustível para vários automóveis em milhas por
 <p></p>
 <b>Utilização:</b> Preveja a economia de combustível com base em três atributos discretos multivalorizados e cinco atributos contínuos. 
 <p></p>
-<b>Investigação Relacionada:</b> StatLib, Universidade Carnegie Mellon, (1993). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> StatLib, Universidade Carnegie Mellon, (1993). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -258,7 +256,7 @@ Um subconjunto de dados da base de dados do Instituto Nacional de Diabetes e Doe
 <p></p>
 <b>Utilização:</b> Prevelhe se o sujeito tem diabetes (classificação binária). 
 <p></p>
-<b>Investigação Relacionada:</b> Sigillito, V. (1990). Repositório <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml</a>de Aprendizagem Automática UCI " . Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
+<b>Investigação Relacionada:</b> Sigillito, V. (1990). Repositório de Aprendizagem Automática UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml "</a>. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação </td>
 </tr>
 
 <tr>
@@ -268,7 +266,7 @@ Um conjunto de metadados sobre clientes, incluindo demografia e preferências.
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendação. 
 <p></p>
-<b>Investigação Relacionada:</b> Bache, K. e Lichman, M. (2013). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.
+<b>Investigação Relacionada:</b> Bache, K. e Lichman, M. (2013). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.
   </td>
 </tr>
 
@@ -279,7 +277,7 @@ Um conjunto de metadados sobre restaurantes e suas características, tais como t
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendação. 
 <p></p>
-<b>Investigação Relacionada:</b> Bache, K. e Lichman, M. (2013). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.
+<b>Investigação Relacionada:</b> Bache, K. e Lichman, M. (2013). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.
   </td>
 </tr>
 
@@ -290,7 +288,7 @@ Contém classificações dadas pelos utilizadores a restaurantes numa escala de 
 <p></p>
 <b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois conjuntos de dados do restaurante, para treinar e testar um sistema de recomendação. 
 <p></p>
-<b>Investigação Relacionada:</b> Bache, K. e Lichman, M. (2013). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.
+<b>Investigação Relacionada:</b> Bache, K. e Lichman, M. (2013). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação.
   </td>
 </tr>
 
@@ -303,7 +301,7 @@ Este conjunto de dados contém uma série de registos de ensaios de anudantes de
 <p></p>
 As notas de aço seguem um padrão definido, definido pela SAE e outras organizações. Está à procura de uma 'nota' específica (a variável de classe) e quer compreender os valores necessários. 
 <p></p>
-<b>Investigação Relacionada:</b> Sterling, D. & Buntine, W. (NA). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação
+<b>Investigação Relacionada:</b> Sterling, D. & Buntine, W. (NA). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação
 <p></p>
 Um guia útil para as notas de aço pode ser encontrado aqui:<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -324,7 +322,7 @@ Os dados foram pré-processados para criar um cluster alongado com o eixo longo 
 <p></p>
 Além disso, note que o número de eventos de fundo (h, para chuveiros hadrónicos) é subestimado. Em medições reais, a classe h ou sonora representa a maioria dos eventos. 
 <p></p>
-<b>Investigação Relacionada:</b> Bock, R.K. (1995). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem automática UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação </td>
+<b>Investigação Relacionada:</b> Bock, R.K. (1995). Repositório de Aprendizagem automática <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> UCI. Irvine, CA: Universidade da Califórnia, Escola de Informação </td>
 </tr>
 
 <tr>
@@ -345,7 +343,7 @@ Os dados meteorológicos abrangem observações feitas a partir de estações me
 <tr>
   <td>Wikipedia SP 500 Dataset</td>
   <td>
-Os dados são derivados da Wikipédia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) com base em artigos de cada empresa S&P 500, armazenados como dados XML.
+Os dados são derivados da Wikipédia ( <a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a> ) com base em artigos de cada empresa S&P 500, armazenados como dados XML.
 <p></p>
 Antes de enviar para o Azure Machine Learning Studio (clássico), o conjunto de dados foi processado da seguinte forma:
 <ul>
@@ -393,7 +391,7 @@ O conjunto de dados foi descarregado e armazenado no armazenamento da Blob<a hre
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-Atribuição de tópicos para artigos noticiosos no conjunto de dados da Reuters RCV1-V2. Um artigo noticioso pode ser atribuído a vários tópicos. O formato de&lt;cada&gt; &lt;linha&gt; é " nome tópico documento id 1". O conjunto de dados contém atribuições de tópicos de 2.6M. O conjunto de dados foi disponibilizado por David. D. O Lewis.
+Atribuição de tópicos para artigos noticiosos no conjunto de dados da Reuters RCV1-V2. Um artigo noticioso pode ser atribuído a vários tópicos. O formato de cada linha é " &lt; nome tópico documento id &gt; &lt; &gt; 1". O conjunto de dados contém atribuições de tópicos de 2.6M. O conjunto de dados foi disponibilizado por David. D. O Lewis.
   </td>
 </tr>
 
@@ -408,7 +406,7 @@ O conjunto de dados foi descarregado e armazenado no armazenamento do Azure Blob
 
 </table>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Inicie as suas experiências com exemplos](sample-experiments.md)

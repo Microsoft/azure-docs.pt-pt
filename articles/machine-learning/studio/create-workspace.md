@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 7b01e7667392d475bcab70dcd3dfaad2c3956e8f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d8e8e9ec7a0a5c502e3046b0c6ddb3a7da064739
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208538"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117281"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Criar e partilhar um estúdio de aprendizagem automática Azure (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Para utilizar o Azure Machine Learning Studio (clássico), é necessário ter um espaço de trabalho do Estúdio de Aprendizagem automática (clássico). Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
 
@@ -56,7 +54,7 @@ Se apagar acidentalmente a conta de armazenamento, recrie a conta de armazenamen
 
 Uma vez que o espaço de trabalho é implantado, você pode abri-lo no Machine Learning Studio (clássico).
 
-1. Navegue no Machine Learning Studio [https://studio.azureml.net/](https://studio.azureml.net/)(clássico) em .
+1. Navegue no Machine Learning Studio (clássico) em [https://studio.azureml.net/](https://studio.azureml.net/) .
 
 2. Selecione a sua área de trabalho no canto superior direito.
 
@@ -130,6 +128,6 @@ Depois de criado o novo espaço de trabalho do Machine Learning Studio (clássic
 Depois de eliminados os cookies, reinicie o navegador e depois vá para a página [do Microsoft Azure Machine Learning Studio (clássico).](https://studio.azureml.net) Quando for solicitado um nome de utilizador e uma palavra-passe, introduza a mesma conta Microsoft que usou para criar o espaço de trabalho.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a gestão de um espaço de trabalho, consulte [Manage a Azure Machine Learning Studio (clássico) workspace](manage-workspace.md).

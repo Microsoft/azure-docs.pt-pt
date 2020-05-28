@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656574"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119025"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever o preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -220,11 +220,9 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
 1. **Selecione**  >  **Regressão Linear regressão**e arraste-a para a tela do oleoduto.
 
-1. Ligue a saída do módulo **De regressão linear** à entrada esquerda do módulo **Modelo de Comboio.**
-
 1. Na paleta de módulos, expanda o treino do **Módulo**de secção e arraste o módulo **Modelo de Comboio** para a tela.
 
-1. Selecione o módulo **Modelo de Comboio** e arraste-o para a tela do gasoduto.
+1. Ligue a saída do módulo **De regressão linear** à entrada esquerda do módulo **Modelo de Comboio.**
 
 1. Ligue a saída de dados de treino (porta esquerda) do módulo **Split Data** à entrada direita do módulo Modelo **de Comboio.**
     

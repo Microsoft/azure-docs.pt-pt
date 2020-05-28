@@ -126,7 +126,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Pode [automatizar a sua resposta a um alerta.](../../azure-monitor/platform/alerts-webhooks.md) O Azure irá ligar para um endereço web à sua escolha quando um alerta for levantado.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Script para configurar Insights de Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Criar Insights de aplicação e recursos de teste web a partir de modelos](powershell.md)
 * [Automatizar acoplamento do Microsoft Azure Diagnostics para obter insights de aplicação](powershell-azure-diagnostics.md)

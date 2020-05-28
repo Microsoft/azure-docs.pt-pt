@@ -65,7 +65,7 @@ Para definir o tempo inativo para um equilibrador de carga, o 'IdleTimeoutInMinu
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
 $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral do equilíbrio de carga interna](load-balancer-internal-overview.md)
 

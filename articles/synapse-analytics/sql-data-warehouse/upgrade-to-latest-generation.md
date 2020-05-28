@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 701f2ac7b7cbba113ead5a6d3e465a4e0c37e024
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742745"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015714"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização do pool Azure Synapse Analytics SQL
 
@@ -110,7 +110,7 @@ Agora pode fazer upgrade perfeitamente para o sql pool Compute Optimized Gen2 no
 ## <a name="start-the-upgrade"></a>Inicie a atualização
 
 1. Vá à sua piscina Compute Optimized Gen1 SQL no portal Azure. Se o pool SQL de nível SQL da Computação otimizado para ser atualizado é interrompido, retomar a [piscina SQL](pause-and-resume-compute-portal.md).
-2. Selecione Upgrade para cartão **Gen2** sob o separador Tarefas: ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+2. Selecione Upgrade para o cartão **Gen2** sob o separador Tarefas: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Se não vir o cartão **Upgrade para gen2** no separador Tasks, o seu tipo de subscrição é limitado na região atual.
@@ -238,12 +238,12 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Para configurar a sua base de dados depois de concluída a restauração, consulte configure a sua base de [dados após a recuperação](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> Para configurar a sua base de dados depois de concluída a restauração, consulte configure a sua base de [dados após a recuperação](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 A base de dados recuperada será ativada pelo TDE se a base de dados de origem estiver ativada pelo TDE.
 
 Se tiver algum problema com o seu pool SQL, crie um pedido de [suporte](sql-data-warehouse-get-started-create-support-ticket.md) e referência "Upgrade Gen2" como a causa possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A sua piscina SQL atualizada está online. Para tirar partido da arquitetura melhorada, consulte aulas de [Recursos para Gestão de Carga de Trabalho.](resource-classes-for-workload-management.md)

@@ -29,7 +29,7 @@ O envio autogerido está disponível como opção quando encomendar disco de cai
 * Singapura
 * Coreia do Sul
 
-## <a name="use-self-managed-shipping"></a>Use o envio auto-gerido
+## <a name="use-self-managed-shipping"></a>Utilizar o envio gerido automaticamente
 
 Ao epor uma encomenda de Disco de Caixa de Dados, pode escolher a opção de envio autogerida.
 
@@ -84,6 +84,6 @@ Ao epor uma encomenda de Disco de Caixa de Dados, pode escolher a opção de env
 
 11. Uma vez recebido o dispositivo, a cópia de dados continuará. Quando a cópia terminar, a encomenda está completa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart: Implementar disco de caixa de dados Azure utilizando o portal Azure](data-box-disk-quickstart-portal.md)

@@ -71,19 +71,19 @@ Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data F
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nome da atividade                     | Yes      |
-| descrição       | Texto descrevendo para que a atividade é usada | No       |
-| tipo              | Para a Atividade de Streaming de Hadoop, o tipo de atividade é HDInsightStreaming | Yes      |
-| linkedServiceName | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Yes      |
-| mapper            | Especifica o nome do mapeador executável | Yes      |
-| redutor           | Especifica o nome do redutor executável | Yes      |
-| combinador          | Especifica o nome do combinador executável | No       |
-| ficheiroSLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar os programas Mapper, Combiner e Reducer a serem executados. Apenas os serviços ligados ao **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são suportados aqui. Se não especificar este Serviço Linked, o Serviço Ligado ao Armazenamento Azure definido no Serviço Ligado ao HDInsight é utilizado. | No       |
-| filePath          | Forneça uma variedade de caminhos para os programas Mapper, Combiner e Reducer armazenados no Armazenamento Azure referido saqueado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Yes      |
-| entrada             | Especifica o caminho WASB para o ficheiro de entrada do Mapper. | Yes      |
-| saída            | Especifica o caminho WASB para o ficheiro de saída do Redutor. | Yes      |
-| getDebugInfo      | Especifica quando os ficheiros de registo são copiados para o Armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre ou falha. Valor predefinido: Nenhum. | No       |
-| argumentos         | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | No       |
+| name              | Nome da atividade                     | Sim      |
+| descrição       | Texto descrevendo para que a atividade é usada | Não       |
+| tipo              | Para a Atividade de Streaming de Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
+| linkedServiceName | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para conhecer este serviço ligado, consulte o artigo de [serviços ligados à Compute.](compute-linked-services.md) | Sim      |
+| mapper            | Especifica o nome do mapeador executável | Sim      |
+| redutor           | Especifica o nome do redutor executável | Sim      |
+| combinador          | Especifica o nome do combinador executável | Não       |
+| ficheiroSLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar os programas Mapper, Combiner e Reducer a serem executados. Apenas os serviços ligados ao **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são suportados aqui. Se não especificar este Serviço Linked, o Serviço Ligado ao Armazenamento Azure definido no Serviço Ligado ao HDInsight é utilizado. | Não       |
+| filePath          | Forneça uma variedade de caminhos para os programas Mapper, Combiner e Reducer armazenados no Armazenamento Azure referido saqueado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
+| entrada             | Especifica o caminho WASB para o ficheiro de entrada do Mapper. | Sim      |
+| saída            | Especifica o caminho WASB para o ficheiro de saída do Redutor. | Sim      |
+| getDebugInfo      | Especifica quando os ficheiros de registo são copiados para o Armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre ou falha. Valor predefinido: Nenhum. | Não       |
+| argumentos         | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
 | define           | Especifique os parâmetros como par de chaves/valor para referência dentro do script da Colmeia. | Não       | 
 
 ## <a name="next-steps"></a>Próximos passos

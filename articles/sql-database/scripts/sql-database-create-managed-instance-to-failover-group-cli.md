@@ -1,6 +1,6 @@
 ---
-title: Exemplo CLI - Failover group - Azure SQL Database gerido
-description: Script de exemplo Azure CLI para criar uma instância gerida pela Base de Dados Azure SQL, adicioná-lo a um grupo de failover, e testar falha.
+title: 'Azure CLI: Adicione instância gerida ao grupo failover'
+description: Script de exemplo Azure CLI para criar uma Instância Gerida Azure SQL, adicioná-lo a um grupo de failover, e testar falha.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 792746ec3bfcf429afb7919458b9ac7ec8446b60
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061850"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115385"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Utilize o CLI para adicionar uma base de dados Azure SQL gerida a um grupo de failover
+# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Utilize o CLI para adicionar um Azure SQL Managed Instance a um grupo de failover
 
 Este exemplo do Azure CLI cria duas instâncias geridas, adiciona-as a um grupo de failover, e depois testa a falha da instância gerida primária para a instância gerida secundária.
 
@@ -36,7 +36,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo. Terá de remover o grupo de recursos duas vezes. A remoção do grupo de recursos pela primeira vez removerá a instância `az group delete : Long running operation failed with status 'Conflict'.`gerida e os clusters virtuais, mas falhará com a mensagem de erro . Executar o grupo Az eliminar comando uma segunda vez para remover quaisquer recursos residuais, bem como o grupo de recursos.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo. Terá de remover o grupo de recursos duas vezes. A remoção do grupo de recursos pela primeira vez removerá a instância gerida e os clusters virtuais, mas falhará com a mensagem de erro `az group delete : Long running operation failed with status 'Conflict'.` . Executar o grupo Az eliminar comando uma segunda vez para remover quaisquer recursos residuais, bem como o grupo de recursos.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -53,13 +53,13 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [rede az nsg](/cli/azure/network/nsg) | Comandos do grupo de segurança da rede. |
 | [regra nsg rede az](/cli/azure/network/nsg/rule)| Comandos de regras de segurança da rede. |
 | [az rede route-table](/cli/azure/network/route-table) | Comandos de mesa de rota. |
-| [az sql mi](/cli/azure/sql/mi) | Comandos de instância geridos. |
+| [az sql mi](/cli/azure/sql/mi) | Comandos SQL Managed Instance. |
 | [rede az público-ip](/cli/azure/network/public-ip) | Comandos de endereçoIP públicos da rede. |
 | [az rede vnet-gateway](/cli/azure/network/vnet-gateway) | Comandos de Gateway de Rede Virtual |
-| [az sql instância-failover-grupo](/cli/azure/sql/instance-failover-group) | Instância gerida falha comandos de grupo. |
+| [az sql instância-failover-grupo](/cli/azure/sql/instance-failover-group) | Comandos de grupo de falha de instância geridos sQL. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
+Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

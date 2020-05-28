@@ -78,7 +78,7 @@ A Associação do Azure AD pode ser implementada com um dos seguintes métodos:
 - [Implementação em massa](/intune/windows-bulk-enroll)
 - [Experiência personalizada](azuread-joined-devices-frx.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Planear a sua implementação de associação do Azure AD](azureadjoin-plan.md)
 - [Como gerir o grupo de administradores locais em Azure AD aderiu a dispositivos](assign-local-admin.md)

@@ -4,19 +4,19 @@ description: Criar uma política personalizada de acesso condicional para
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755077"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995314"
 ---
 # <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
 
@@ -43,7 +43,7 @@ Os seguintes passos ajudarão a criar políticas de Acesso Condicional para bloq
 A primeira política bloqueia o acesso a todas as aplicações, exceto as aplicações do Office 365, se não num local de confiança.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
@@ -54,13 +54,13 @@ A primeira política bloqueia o acesso a todas as aplicações, exceto as aplica
    1. Em **Incluir,** selecione **Todas as aplicações em nuvem**.
    1. Em **Excluir, selecione** **Office 365 (pré-visualização)**- **selecione ,** e depois selecione **Done**.
 1. Em **condições:**
-   1. Sob **condições** > **de localização**.
+   1. Sob **Conditions**  >  **condições de localização**.
       1. **Definir configurar** para **sim**
       1. Em **Incluir, selecione** **Qualquer local**.
       1. Em **Excluir,** selecione **Todos os locais fidedignos**.
       1. Selecione **Done** (Concluído).
    1. Em **aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito,** em **seguida, Feito**.
-1. Sob **controlos** > de**acesso,** selecione **o acesso ao bloco**e, em seguida, selecione **Selecione**.
+1. Sob **controlos de**  >  **acesso,** selecione **o acesso ao bloco**e, em seguida, selecione **Selecione**.
 1. Confirme as suas definições e ajuste **a política de ativação** **apenas**para reportar .
 1. Selecione **Criar** para criar para ativar a sua política.
 
@@ -72,15 +72,15 @@ Uma segunda política é criada abaixo para exigir a autenticação de vários f
    1. Em **Incluir,** selecione **Todos os utilizadores**.
    1. Em **Excluir,** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou de vidro de emergência da sua organização. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos ou ações** > cloud**Inclua**, **selecione aplicações, escolha**o Office **365 (pré-visualização)**, e selecione **Select**, em **seguida, Feito**.
-1. Sob **controlos** > de acesso**Grant**, selecione Acesso **ao Grant**.
+1. Em **aplicativos ou ações cloud**  >  **Inclua**, **selecione aplicações, escolha**o Office **365 (pré-visualização)**, e selecione **Select**, em **seguida, Feito**.
+1. Sob **controlos**de acesso  >  **Grant**, selecione **Acesso ao Grant**.
    1. Selecione **Exigir autenticação de vários fatores** e exija que o dispositivo seja marcado como **selecione** **compatível** .
    1. Certifique-se **de que todos os comandos selecionados** são selecionados.
    1. Selecione **Selecionar**.
 1. Confirme as suas definições e ajuste **a política de ativação** **apenas**para reportar .
 1. Selecione **Criar** para criar para ativar a sua política.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

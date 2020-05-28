@@ -16,4 +16,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75527064"
 ---
-**APLICA-se a:** ![](media/aml-applies-to-skus/yes.png) ![sim](media/aml-applies-to-skus/yes.png)edição básica sim edição &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; da Enterprise (Upgrade para a[edição Enterprise)](../articles/machine-learning/how-to-manage-workspace.md#upgrade) &nbsp;  
+**Aplica-se a:** ![ sim ](media/aml-applies-to-skus/yes.png) Edição Básica ![ sim edição enterprise (Upgrade para a ](media/aml-applies-to-skus/yes.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [edição Enterprise)](../articles/machine-learning/how-to-manage-workspace.md#upgrade)  

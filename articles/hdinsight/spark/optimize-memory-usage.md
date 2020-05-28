@@ -45,7 +45,7 @@ Para endereçar mensagens "fora de memória", tente:
 
 Para obter passos adicionais de resolução de problemas, consulte [exceções OutOfMemoryError para Apache Spark em Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Otimizar o processamento de dados para a Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o armazenamento de dados para a Apache Spark](optimize-data-storage.md)

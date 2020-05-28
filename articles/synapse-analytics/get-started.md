@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: dcad90713227e55437523c91997175242078e9e4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d5484f5725047201770e5b3cbab89847b27117f9
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836486"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116931"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Começando com Azure Synapse Analytics
 
@@ -22,23 +22,15 @@ Este tutorial irá guiá-lo através de todos os passos básicos necessários pa
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Prepare uma conta de armazenamento para uso com um espaço de trabalho Synapse
 
-1. Abra o [portal do Azure](https://portal.azure.com)
-1. Criar uma nova conta de armazenamento com as seguintes definições:
-    * No separador **Basics**
-
-    |Definição | Valor sugerido | Descrição |
-    |---|---|---|
-    |**Nome da conta de armazenamento**| Pode dar-lhe qualquer nome.|Neste documento, vamos referir-nos a ele como `contosolake` .
-    |**Tipo de conta**|Deve ser definido para`StorageV2`||
-    |**Localização**|Pode escolher qualquer local| Recomendamos que o seu espaço de trabalho Synapse e a conta de Gen2 do Lago De Dados Azure (ADLS) estejam na mesma região.|
-    ||||
-    
-    * No separador **Avançado**
-    
-    |Definição | Valor sugerido | Descrição |
-    |---|---|---|
-    |**Armazenamento do Data Lake Ger2**|`Enabled`| A Azure Synapse só trabalha com contas de armazenamento onde esta definição está ativada.|
-    ||||
+* Abra o [portal do Azure](https://portal.azure.com)
+* Criar uma nova conta de armazenamento com as seguintes definições:
+    |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
+    |---|---|---|---|
+    |Noções básicas|**Nome da conta de armazenamento**| Pode dar-lhe qualquer nome.|Neste documento, vamos referir-nos a ele como `contosolake` .|
+    |Noções básicas|**Tipo de conta**|Deve ser definido para`StorageV2`||
+    |Noções básicas|**Localização**|Pode escolher qualquer local| Recomendamos que o seu espaço de trabalho Synapse e a conta de Gen2 do Lago De Dados Azure (ADLS) estejam na mesma região.|
+    |Avançado|**Armazenamento do Data Lake Ger2**|`Enabled`| A Azure Synapse só trabalha com contas de armazenamento onde esta definição está ativada.|
+    |||||
 
 1. Assim que a conta de armazenamento for criada, selecione o controlo de **acesso (IAM)** a partir da navegação esquerda. Em seguida, atribua as seguintes funções ou certifique-se de que já estão atribuídas. 
     a. * Atribuir-se ao papel **proprietário** na conta de armazenamento b. * Atribuir-se ao papel do Proprietário de **Dados blob** de armazenamento na Conta de Armazenamento
@@ -46,16 +38,15 @@ Este tutorial irá guiá-lo através de todos os passos básicos necessários pa
 
 ## <a name="create-a-synapse-workspace"></a>Criar um espaço de trabalho sinapse
 
-1. Abra o [portal Azure](https://portal.azure.com) e na procura de topo `Synapse` por .
-1. Nos resultados da pesquisa em **Serviços,** **selecione Azure Synapse Analytics (pré-visualização** dos espaços de trabalho)
-1. Selecione **+ Adicionar**
-1. **Separador básico:**
+* Abra o [portal Azure](https://portal.azure.com) e na procura de topo `Synapse` por .
+* Nos resultados da pesquisa em **Serviços,** **selecione Azure Synapse Analytics (pré-visualização** dos espaços de trabalho)
+* Selecione **+ Adicione** para criar um novo espaço de trabalho com estas definições
 
-    |Definição | Valor sugerido | Descrição |
-    |---|---|---|
-    |**Nome da área de trabalho**|Pode chamar-lhe qualquer coisa.| Neste documento, usaremos`myworkspace`
-    |**Região**|Corresponder à região da conta de armazenamento||
-    |||
+    |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
+    |---|---|---|---|
+    |Noções básicas|**Nome da área de trabalho**|Pode chamar-lhe qualquer coisa.| Neste documento, usaremos`myworkspace`|
+    |Noções básicas|**Região**|Corresponder à região da conta de armazenamento|
+    ||||
 
 1. Em **Select Data Lake Storage Gen 2,** selecione a conta e o recipiente que criou anteriormente.
     > [!NOTE]
@@ -394,7 +385,7 @@ Pode ligar um espaço de trabalho power BI ao seu espaço de trabalho Synapse. I
 1. Neste local, pode ver-se um histórico de todas as atividades que estão a decorrer no espaço de trabalho e quais as que estão ativas agora.
 1. Explore as execuções do **Pipeline,** **aplicações Apache Spark**e pedidos **SQL** e poderá ver o que já fez no espaço de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [o Azure Synapse Analytics (pré-visualização)](overview-what-is.md)
 
