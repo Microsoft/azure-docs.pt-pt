@@ -138,7 +138,7 @@ Existem algumas razões pelas quais o seu backup pode não estar disponível
 
 - A cópia de segurança **está desatualizada**: Se as suas informações de backup estiverem desatualizadas, poderá ser-lhe pedido que refresque a informação inserindo novamente na sua conta de Recuperação microsoft. A sua conta de recuperação é a conta pessoal da Microsoft que usou inicialmente para armazenar a sua cópia de segurança. Se for necessário um sessão, verá um ponto vermelho no seu menu ou barra de ação, ou verá um ponto de exclamação que o leva a iniciar sessão para terminar de restaurar a partir de backup. Depois de selecionar o ícone, será solicitado que volte a iniciar sessão para atualizar as suas informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que já reduziu e recuperou as credenciais da sua conta para o seu novo dispositivo, pode continuar a utilizar a aplicação Microsoft Authenticator para verificar a sua identidade. Para mais informações, consulte [o Sessão nas suas contas utilizando a aplicação Microsoft Authenticator](user-help-sign-in.md).
 

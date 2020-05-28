@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 537c7e70176d902c5bc7458b60de7a70ea040c85
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631663"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117348"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Assim que implementar um modelo de aprendizagem automática Azure (clássico) como um serviço Web, pode utilizar uma API REST para enviar dados e obter previsões. Pode enviar os dados em tempo real ou em modo de lote.
 
@@ -99,7 +97,7 @@ Para se ligar a um serviço Web de aprendizagem automática, o pacote **NuGet Mi
 **Instale Microsoft.AspNet.webApi.Client NuGet no Estúdio Visual**
 
 1. Publique o conjunto de dados de Descarregamento da UCI: Adult 2 class dataset Web Service.
-2. Clique em **ferramentas** > **nuget pacote manager** > **consola**.
+2. Clique em **ferramentas**  >  **nuget pacote manager**  >  **consola**.
 3. Escolha **instalar-pacote Microsoft.AspNet.webApi.Client**.
 
 **Para executar a amostra de código**
@@ -306,7 +304,7 @@ print(fromJSON(result))
 
 ### <a name="javascript-sample"></a>Amostra javascript
 
-Para se ligar a um Serviço Web de Aprendizagem Automática, utilize o pacote **npm solicitado** no seu projeto. Também utilizará `JSON` o objeto para formatar a sua entrada e analisar o resultado. Instale `npm install request --save`usando, `"request": "*"` ou adicione ao seu `dependencies` pacote.json por baixo e executado `npm install`.
+Para se ligar a um Serviço Web de Aprendizagem Automática, utilize o pacote **npm solicitado** no seu projeto. Também utilizará o objeto para formatar a `JSON` sua entrada e analisar o resultado. Instale `npm install request --save` usando, ou adicione `"request": "*"` ao seu pacote.json por baixo `dependencies` e executado `npm install` .
 
 **Aqui está o que um pedido completo será.**
 ```js

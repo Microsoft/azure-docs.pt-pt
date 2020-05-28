@@ -4,12 +4,12 @@ description: Aprenda a criar uma função a partir da linha de comando e, em seg
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: bfd956a4423031db370eb3a8ad94c59dd0f5931c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626263"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996534"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função em Azure que responda aos pedidos do HTTP
 
@@ -53,7 +53,7 @@ Há também uma [versão baseada em Código](functions-create-first-function-vs-
 Nas Funções Azure, um projeto de função é um recipiente para uma ou mais funções individuais que cada um responde a um gatilho específico. Todas as funções de um projeto partilham as mesmas configurações locais e de hospedagem. Nesta secção, cria-se um projeto de função que contém uma única função.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Executar `func init` o comando, da seguinte forma, para criar um projeto de funções numa pasta chamada *LocalFunctionProj* com o tempo de execução especificado:  
+Executar o `func init` comando, da seguinte forma, para criar um projeto de funções numa pasta chamada *LocalFunctionProj* com o tempo de execução especificado:  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ```
@@ -105,11 +105,11 @@ Forneça os seguintes valores quando solicitado:
 | **groupId** | `com.fabrikam` | Um valor que identifica exclusivamente o seu projeto em todos os projetos, seguindo as regras de [nomeação](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) do pacote para a Java. |
 | **artefactoId** | `fabrikam-functions` | Um valor que é o nome do jarro, sem um número de versão. |
 | **Versão** | `1.0-SNAPSHOT` | Escolha o valor padrão. |
-| **pacote** | `com.fabrikam.functions` | Um valor que é o pacote Java para o código de função gerado. Utilize a predefinição. |
+| **pacote** | `com.fabrikam` | Um valor que é o pacote Java para o código de função gerado. Utilize a predefinição. |
 
 Digite `Y` ou prima Introduza para confirmar.
 
-Maven cria os ficheiros do projeto numa nova pasta com `fabrikam-functions`um nome de _artefactoId_, que neste exemplo é . 
+Maven cria os ficheiros do projeto numa nova pasta com um nome de _artefactoId_, que neste exemplo é `fabrikam-functions` . 
 ::: zone-end  
 Navegue na pasta do projeto:
 
@@ -134,7 +134,7 @@ Se desejar, pode saltar para [executar a função localmente](#run-the-function-
 ::: zone pivot="programming-language-csharp"
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
-*HttpExample.cs* contém `Run` um método que recebe `req` dados de pedido na variável é um [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) que é decorado com o **HttpTriggerAttribute**, que define o comportamento do gatilho. 
+*HttpExample.cs* contém um método que recebe dados de `Run` pedido na `req` variável é um [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) que é decorado com o **HttpTriggerAttribute**, que define o comportamento do gatilho. 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
@@ -143,32 +143,32 @@ O objeto de retorno é um [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.ac
 
 ::: zone pivot="programming-language-java"
 #### <a name="functionjava"></a>Função.java
-*Function.java* contém `run` um método que recebe `request` dados de pedido na variável é um [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) que é decorado com a anotação [HttpTrigger,](/java/api/com.microsoft.azure.functions.annotation.httptrigger) que define o comportamento do gatilho. 
+*Function.java* contém um método que recebe dados de `run` pedido na `request` variável é um [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) que é decorado com a anotação [HttpTrigger,](/java/api/com.microsoft.azure.functions.annotation.httptrigger) que define o comportamento do gatilho. 
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+:::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
 A mensagem de resposta é gerada pela [HttpResponseMessage.Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) API.
 
 #### <a name="pomxml"></a>pom.xml
 
-As definições para os recursos Azure criados para hospedar a sua `com.microsoft.azure` app são definidas no elemento de **configuração** do plugin com um **groupId** no ficheiro pom.xml gerado. Por exemplo, o elemento de configuração abaixo instrui uma implementação `java-functions-group` baseada em `westus` Maven para criar uma aplicação de função no grupo de recursos na região. A aplicação de funções em `java-functions-app-service-plan` si funciona no Windows hospedado no plano, que por padrão é um plano de consumo sem servidores.    
+As definições para os recursos Azure criados para hospedar a sua app são definidas no elemento de **configuração** do plugin com um **groupId** no `com.microsoft.azure` ficheiro pom.xml gerado. Por exemplo, o elemento de configuração abaixo instrui uma implementação baseada em Maven para criar uma aplicação de função no grupo de `java-functions-group` recursos na `westus` região. A aplicação de funções em si funciona no Windows hospedado no plano, que por padrão é um plano de `java-functions-app-service-plan` consumo sem servidores.    
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
-Pode alterar estas definições para controlar a forma como `runtime.os` os `windows` `linux` recursos são criados no Azure, como por exemplo, alterando-se de para antes da implementação inicial. Para obter uma lista completa de definições suportadas pelo plug-in Maven, consulte os detalhes da [configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+Pode alterar estas definições para controlar a forma como os recursos são criados no Azure, como por exemplo, `runtime.os` alterando-se de para antes da `windows` `linux` implementação inicial. Para obter uma lista completa de definições suportadas pelo plug-in Maven, consulte os detalhes da [configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 
 O arquétipo também gera um teste de unidade para a sua função. Quando alterar a sua função para adicionar encadernações ou adicionar novas funções ao projeto, também terá de modificar os testes no ficheiro *FunctionTest.java.*
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-#### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init \_ \_ .py
 
-*\_\_init\_\_.py* `main()` contém uma função Python que é desencadeada de acordo com a configuração em *função.json*.
+* \_ \_ init \_ \_ .py* contém uma `main()` função Python que é desencadeada de acordo com a configuração em *função.json*.
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Para um gatilho HTTP, a função `req` recebe dados de pedido na variável tal como definido na *função.json*. `req`é um exemplo da [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). O objeto de `$return` retorno, definido como em *função.json,* é um exemplo de [azure.functions.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definido na *função.json*. `req`é um exemplo da [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *função.json,* é um exemplo de [azure.functions.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -178,7 +178,7 @@ Para um gatilho HTTP, a função `req` recebe dados de pedido na variável tal c
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Para um gatilho HTTP, a função `req` recebe dados de pedido na variável tal como definido na *função.json*. O objeto de `$return` retorno, definido como em *função.json,* é a resposta. Para saber mais, consulte [funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definido na *função.json*. O objeto de retorno, definido como `$return` em *função.json,* é a resposta. Para saber mais, consulte [funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
@@ -188,7 +188,7 @@ Para um gatilho HTTP, a função `req` recebe dados de pedido na variável tal c
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-Para um gatilho HTTP, a função `req` recebe dados de pedido na variável do tipo **HttpRequest** conforme definido na *função.json*. O objeto de `$return` retorno, definido como em *função.json,* é a resposta. 
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` do tipo **HttpRequest** conforme definido na *função.json*. O objeto de retorno, definido como `$return` em *função.json,* é a resposta. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
@@ -198,13 +198,13 @@ Para um gatilho HTTP, a função `req` recebe dados de pedido na variável do ti
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-Para um gatilho HTTP, a função `$Request` recebe dados de pedido passados para o param definido em *função.json*. O objeto de `Response` retorno, definido como em *função.json,* é passado para o `Push-OutputBinding` cmdlet como resposta. 
+Para um gatilho HTTP, a função recebe dados de pedido passados para o `$Request` param definido em *função.json*. O objeto de retorno, definido como `Response` em *função.json,* é passado para o `Push-OutputBinding` cmdlet como resposta. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 #### <a name="functionjson"></a>function.json
 
-*function.json* é um ficheiro de configuração `bindings` que define a entrada e a saída para a função, incluindo o tipo de gatilho. 
+*function.json* é um ficheiro de configuração que define a entrada e a saída `bindings` para a função, incluindo o tipo de gatilho. 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -222,7 +222,7 @@ Pode mudar `scriptFile` para invocar um ficheiro Python diferente, se desejar.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
-Cada encadernação requer uma direção, um tipo e um nome único. O gatilho HTTP tem uma [`httpTrigger`](functions-bindings-http-webhook-trigger.md) ligação de [`http`](functions-bindings-http-webhook-output.md)entrada de tipo e de ligação de saída do tipo .
+Cada encadernação requer uma direção, um tipo e um nome único. O gatilho HTTP tem uma ligação de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook-trigger.md) e de ligação de saída do tipo [`http`](functions-bindings-http-webhook-output.md) .
 ::: zone-end  
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
@@ -244,14 +244,14 @@ Se ainda não o fez, inicie sessão no Azure com o comando [de login az:](/cli/a
 az login
 ```
     
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria `AzureFunctionsQuickstart-rg` um `westeurope` grupo de recursos nomeado na região. (Geralmente cria o seu grupo de recursos e recursos numa `az account list-locations` região próxima de si, utilizando uma região disponível a partir do comando.)
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos nomeado `AzureFunctionsQuickstart-rg` na `westeurope` região. (Geralmente cria o seu grupo de recursos e recursos numa região próxima de si, utilizando uma região disponível a partir do `az account list-locations` comando.)
 
 ```azurecli
 az group create --name AzureFunctionsQuickstart-rg --location westeurope
 ```
 
 > [!NOTE]
-> Não é possível hospedar aplicações linux e Windows no mesmo grupo de recursos. Se tiver um grupo de `AzureFunctionsQuickstart-rg` recursos existente nomeado com uma aplicação de função Windows ou uma aplicação web, deve utilizar um grupo de recursos diferente.
+> Não é possível hospedar aplicações linux e Windows no mesmo grupo de recursos. Se tiver um grupo de recursos existente nomeado `AzureFunctionsQuickstart-rg` com uma aplicação de função Windows ou uma aplicação web, deve utilizar um grupo de recursos diferente.
  
     
 Crie uma conta de armazenamento geral no seu grupo de recursos e região utilizando a conta de [armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando. No exemplo seguinte, `<STORAGE_NAME>` substitua-o por um nome globalmente único adequado a si. Os nomes devem conter três a 24 caracteres e apenas letras minúsculas. `Standard_LRS`especifica uma conta de fim geral, que é [suportada por Funções.](storage-considerations.md#storage-account-requirements)
@@ -262,13 +262,13 @@ az storage account create --name <STORAGE_NAME> --location westeurope --resource
 
 A conta de armazenamento incorre apenas alguns cêntimos (USD) para este arranque rápido.
     
-Criar a aplicação de função utilizando o [app de funções az criar](/cli/azure/functionapp#az-functionapp-create) comando. No exemplo seguinte, `<STORAGE_NAME>` substitua-o pelo nome da conta que `<APP_NAME>` usou no passo anterior e substitua-o por um nome globalmente único adequado a si. O `<APP_NAME>` também é o domínio DNS predefinido para a aplicação de funções. 
+Criar a aplicação de função utilizando o [app de funções az criar](/cli/azure/functionapp#az-functionapp-create) comando. No exemplo seguinte, `<STORAGE_NAME>` substitua-o pelo nome da conta que usou no passo anterior e `<APP_NAME>` substitua-o por um nome globalmente único adequado a si. O `<APP_NAME>` também é o domínio DNS predefinido para a aplicação de funções. 
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-Se estiver a utilizar python `--runtime-version` 3.8, mude para `3.8` e `--functions_version` para `3`.
+Se estiver a utilizar python 3.8, mude `--runtime-version` para `3.8` e para `--functions_version` `3` .
 
-Se estiver a utilizar python `--runtime-version` 3.6, mude para `3.6`.
+Se estiver a utilizar python 3.6, mude `--runtime-version` para `3.6` .
 
 ```azurecli
 az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
@@ -276,7 +276,7 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Lin
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Se estiver a usar o Nó.js 8, mude `--runtime-version` também para `8`.
+Se estiver a usar o Nó.js 8, mude `--runtime-version` também para `8` .
 
 
 ```azurecli
@@ -319,7 +319,7 @@ Com os recursos necessários, está agora pronto para implementar o seu projeto 
 func azure functionapp publish <APP_NAME>
 ```
 
-Se vir o erro, "Não consigo encontrar a app com nome...", espere alguns segundos e tente `az functionapp create` novamente, já que o Azure pode não ter inicializado totalmente a aplicação após o comando anterior.
+Se vir o erro, "Não consigo encontrar a app com nome...", espere alguns segundos e tente novamente, já que o Azure pode não ter inicializado totalmente a aplicação após o `az functionapp create` comando anterior.
 
 O comando de publicação apresenta resultados semelhantes aos seguintes resultados (truncados para a simplicidade):
 
@@ -347,7 +347,7 @@ Functions in msdocs-azurefunctions-qs:
 Uma aplicação de função e recursos relacionados são criados no Azure quando você implementa o seu projeto de funções pela primeira vez. As definições para os recursos Azure criados para hospedar a sua app são definidas no [ficheiro pom.xml](#pomxml). Neste artigo, aceitará os incumprimentos.
 
 > [!TIP]
-> Para criar uma aplicação de função em `runtime.os` linha em linux em `windows` `linux`vez do Windows, altere o elemento no ficheiro pom.xml de . A execução do Linux num plano de consumo é apoiada [nestas regiões.](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions) Não pode ter aplicações que funcionam no Linux e aplicações que funcionam no Windows no mesmo grupo de recursos.
+> Para criar uma aplicação de função em linha em linux em vez do Windows, altere o `runtime.os` elemento no ficheiro pom.xml de `windows` `linux` . A execução do Linux num plano de consumo é apoiada [nestas regiões.](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions) Não pode ter aplicações que funcionam no Linux e aplicações que funcionam no Windows no mesmo grupo de recursos.
 
 Antes de ser implementado, utilize o comando [az login](/cli/azure/authenticate-azure-cli) Azure CLI para iniciar sessão na sua subscrição Azure. 
 
@@ -373,18 +373,18 @@ A implementação embala os ficheiros do projeto e implanta-os na nova aplicaç�
 
 ## <a name="invoke-the-function-on-azure"></a>Invocar a função em Azure
 
-Como a sua função utiliza um gatilho HTTP, invoca-o fazendo um pedido http para o seu URL no navegador ou com uma ferramenta como o curl. Em ambos os `code` casos, o parâmetro URL é a sua [chave de função](functions-bindings-http-webhook-trigger.md#authorization-keys) única que autoriza a invocação do ponto final da sua função.
+Como a sua função utiliza um gatilho HTTP, invoca-o fazendo um pedido http para o seu URL no navegador ou com uma ferramenta como o curl. Em ambos os casos, o parâmetro URL é a `code` sua [chave de função](functions-bindings-http-webhook-trigger.md#authorization-keys) única que autoriza a invocação do ponto final da sua função.
 
 # <a name="browser"></a>[Browser](#tab/browser)
 
-Copie o **URL invocado** completo mostrado na saída do comando de publicação numa `&name=Functions`barra de endereços de navegador, anexando o parâmetro de consulta . O navegador deve apresentar uma saída semelhante à que executou a função localmente.
+Copie o **URL invocado** completo mostrado na saída do comando de publicação numa barra de endereços de navegador, anexando o parâmetro de consulta `&name=Functions` . O navegador deve apresentar uma saída semelhante à que executou a função localmente.
 
 ![A saída da função é executada no Azure num browser](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-browser.png)
 
 
 # <a name="curl"></a>[caracol](#tab/curl)
 
-Corra [`curl`](https://curl.haxx.se/) com o **URL invocado,** afunilhe o parâmetro `&name=Functions`. A saída do comando deve ser o texto, "Olá Funções".
+Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** afunilhe o parâmetro `&name=Functions` . A saída do comando deve ser o texto, "Olá Funções".
 
 ![A saída da função funciona em Azure usando caracóis](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 
@@ -410,7 +410,7 @@ az group delete --name java-functions-group
 ```
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento azure](functions-add-output-binding-storage-queue-cli.md)

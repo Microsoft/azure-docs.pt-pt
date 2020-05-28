@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f68bbb4e73758e44e775e1c0c23ad007ca60aa2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161941"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016938"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação regional de desastres para clusters de Databricks Azure
 
@@ -150,7 +150,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
    clusters_list = []
    ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
 
-   for cluster_info in clusters_info_list: 
+   for cluster_info in clusters_info_list:
       if cluster_info != '':
          clusters_list.append(cluster_info.split(None, 1)[0])
 
@@ -176,7 +176,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
       cluster_json_keys = cluster_req_json.keys()
 
       #Don't migrate Job clusters
-      if cluster_req_json['cluster_source'] == u'JOB' : 
+      if cluster_req_json['cluster_source'] == u'JOB' :
          print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
          print ("---------------------------------------------------------")
          continue
@@ -188,10 +188,10 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
       # Create the cluster, and store the mapping from old to new cluster ids
 
       #Create a temp file to store the current cluster info as JSON
-      strCurrentClusterFile = "tmp_cluster_info.json" 
+      strCurrentClusterFile = "tmp_cluster_info.json"
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
       fClusterJSONtmp = open(strCurrentClusterFile,"w+")
@@ -207,7 +207,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
       print ("---------------------------------------------------------")
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
    print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
@@ -225,7 +225,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
 
    A configuração do trabalho requer configurações para um novo ou um cluster existente. Se utilizar o cluster existente, o script/código abaixo tentará substituir o id do cluster antigo por um novo ID de cluster.
 
-   Copie e guarde o seguinte guião python para um ficheiro. Substitua o `old_cluster_id` `new_cluster_id`valor para e, com a saída da migração do cluster feita em etapas anteriores. Execute-o na sua linha de comando databricks-cli, por exemplo, `python scriptname.py`.
+   Copie e guarde o seguinte guião python para um ficheiro. Substitua o valor para `old_cluster_id` `new_cluster_id` e, com a saída da migração do cluster feita em etapas anteriores. Execute-o na sua linha de comando databricks-cli, por exemplo, `python scriptname.py` .
 
    ```python
    from subprocess import call, check_output
@@ -290,7 +290,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
 
 9. **Migrar cluster init scripts**
 
-   Quaisquer scripts de inicialização de cluster podem ser migrados de antigos para novos espaços de trabalho usando o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Em primeiro lugar, copie os scripts necessários para `dbfs:/dat abricks/init/..` o seu ambiente de trabalho local ou máquina virtual. Em seguida, copie esses scripts para o novo espaço de trabalho no mesmo caminho.
+   Quaisquer scripts de inicialização de cluster podem ser migrados de antigos para novos espaços de trabalho usando o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Em primeiro lugar, copie os scripts necessários `dbfs:/dat abricks/init/..` para o seu ambiente de trabalho local ou máquina virtual. Em seguida, copie esses scripts para o novo espaço de trabalho no mesmo caminho.
 
    ```bash
    // Primary to local
@@ -308,8 +308,8 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
 
 ## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperação de desastres para o seu ecossistema Azure
 
-Se estiver a utilizar outros serviços Azure, certifique-se de implementar as melhores práticas de recuperação de desastres para esses serviços também. Por exemplo, se optar por utilizar uma metaloja externa da Hive, deve considerar a recuperação de desastres para [o Servidor Azure SQL,](../sql-database/sql-database-disaster-recovery.md) [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou Base de [Dados Azure para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastres, consulte a recuperação de [desastres para aplicações do Azure.](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)
+Se estiver a utilizar outros serviços Azure, certifique-se de implementar as melhores práticas de recuperação de desastres para esses serviços também. Por exemplo, se optar por utilizar uma metaloja externa da Hive, deve considerar a recuperação de desastres para a Base de [Dados Azure SQL,](../azure-sql/database/disaster-recovery-guidance.md) [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou Base de [Dados Azure para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastres, consulte a recuperação de [desastres para aplicações do Azure.](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte a [documentação dos Bricks do Azure.](index.yml)

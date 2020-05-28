@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 3929ffa81a8b558d8cb0dbd74135acc9cf1ea47b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: dfacbfbc57ec536eb983394c28920da719af4b1d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82876050"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996533"
 ---
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local
 
@@ -21,7 +21,13 @@ Antes de começar, deve ter o seguinte:
 + O [Azure Funs Core Tools](../articles/azure-functions/functions-run-local.md#v2) versão 2.7.1846 ou uma versão posterior de 2.x.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-+ Python 3.6 e 3.7 requerem [funções azure Core Tools](../articles/azure-functions/functions-run-local.md#v2) versão 2.7.1846 ou uma versão 2.x posterior. Python 3.8 requer [versão 3.x](../articles/azure-functions/functions-run-local.md#v2) das Ferramentas Core.
++ A versão Azure Functions Core Tools corresponde à sua versão Python instalada:
+
+   | Versão de Python | Versão Core Tools |
+   | -------------- | ------------------ |
+   | Python 3.8     | [versão 3.x](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.6<br/>Python 3.7 | [Versão 2.7.1846 ou uma versão 2.x posterior](../articles/azure-functions/functions-run-local.md#v2) |
+  
 ::: zone-end
 
 + A versão [Azure CLI](/cli/azure/install-azure-cli) 2.4 ou posterior. 

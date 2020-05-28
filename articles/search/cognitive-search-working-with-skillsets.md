@@ -297,7 +297,7 @@ A abordagem de formação inline não requer uma habilidade de shaper, uma vez q
   
 Uma observação de ambas as abordagens é como os valores `"Keyphrases"` são projetados usando o `"sourceContext"` . O `"Keyphrases"` nó, que contém uma coleção de cordas, é em si mesmo uma criança do texto da página. No entanto, como as projeções requerem um objeto JSON e a página é uma primitiva (corda), a `"sourceContext"` é usada para embrulhar a frase chave em um objeto com uma propriedade nomeada. Esta técnica permite que mesmo os primitivos sejam projetados de forma independente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como próximo passo, crie a sua primeira habilidade com habilidades cognitivas.
 

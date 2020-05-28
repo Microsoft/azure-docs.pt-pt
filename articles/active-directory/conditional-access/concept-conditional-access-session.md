@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671892"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993864"
 ---
 # <a name="conditional-access-session"></a>Acesso Condicional: Sessão
 
@@ -48,7 +48,7 @@ O Controlo de Aplicações de Acesso Condicional permite que o acesso e as sess�
 
 Para mais informações, consulte o artigo Implementar controlo de aplicações de [acesso condicional para aplicações em destaque.](/cloud-app-security/proxy-deployment-aad)
 
-## <a name="sign-in-frequency-preview"></a>Frequência de inversição (Pré-visualização)
+## <a name="sign-in-frequency"></a>Frequência de inscrição
 
 A frequência de inatividade define o período de tempo antes de um utilizador ser convidado a iniciar o seu sessão quando tentar aceder a um recurso.
 
@@ -66,13 +66,13 @@ A definição de frequência sessão funciona com aplicações que implementaram
 
 Para mais informações, consulte o artigo [Configure gestão](howto-conditional-access-session-lifetime.md#user-sign-in-frequency)da sessão de autenticação com Acesso Condicional .
 
-## <a name="persistent-browser-session-preview"></a>Sessão persistente do navegador (Pré-visualização)
+## <a name="persistent-browser-session"></a>Sessão persistente do navegador
 
 Uma sessão de navegador persistente permite que os utilizadores permaneçam inscritos após o fecho e reabertura da janela do navegador.
 
 Para mais informações, consulte o artigo [Configure gestão](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions)da sessão de autenticação com Acesso Condicional .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

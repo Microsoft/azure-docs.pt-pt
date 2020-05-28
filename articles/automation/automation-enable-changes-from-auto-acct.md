@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 28c61e637a37c158dcd80c0f02b748b4813945fb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 31390d260f51bdc1e9858d21153aa96ea7c54405
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826847"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116645"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Ativar o Controlo de Alterações e Inventário a partir de uma conta de Automatização
 
@@ -37,9 +37,9 @@ Inscreva-se no Azure em https://portal.azure.com .
 
     ![Ativar o Controlo de Alterações e Inventário](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verifique a configuração do âmbito
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Limitar o âmbito de aplicação da implantação
 
-Alterar o Rastreio e o Inventário utiliza uma configuração de âmbito dentro do espaço de trabalho para direcionar os computadores para receber alterações. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da funcionalidade a computadores específicos. Para mais informações, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
+Alterar o Rastreio e o Inventário utiliza uma configuração de âmbito dentro do espaço de trabalho para direcionar os computadores para receber alterações. Para mais informações, consulte o âmbito de implementação de [rastreio de alterações de limitação e inventário](automation-scope-configurations-change-tracking.md).
 
 ## <a name="enable-azure-vms"></a>Ativar VMs Azure
 
@@ -47,7 +47,7 @@ Alterar o Rastreio e o Inventário utiliza uma configuração de âmbito dentro 
 
 2. Clique **em + Adicione VMs Azure** e selecione um ou mais VMs da lista. As máquinas virtuais que não podem ser ativadas são cinzentas e incapazes de serem selecionadas. Os VMs Azure podem existir em qualquer região, independentemente da localização da sua conta Deautomação. 
 
-3. Clique **em Ativar** para adicionar os VMs selecionados ao grupo de computador sondar a procura da funcionalidade. Para mais informações, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
+3. Clique **em Ativar** para adicionar os VMs selecionados ao grupo de computador sondar a procura da funcionalidade. Para mais informações, consulte o âmbito de implementação de [rastreio de alterações de limitação e inventário](automation-scope-configurations-change-tracking.md).
 
     ![Ativar VMs Azure](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -77,10 +77,10 @@ As máquinas ou máquinas instaladas manualmente que já reportem ao seu espaço
 
 6. Para ativar a funcionalidade para uma ou mais máquinas, **selecione Ativar as máquinas selecionadas** e clique **em Adicionar** ao lado de cada máquina para ativar a funcionalidade. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador saqueado a consulta de pesquisa para a funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para mais detalhes sobre a funcionalidade, consulte Gerir o Rastreio e O Inventário de [Alterações](change-tracking-file-contents.md).
-* Para obter informações sobre configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Rastreio e Inventário](automation-scope-configurations-change-tracking.md)de Alterações .
+* Para obter informações sobre configurações de âmbito, consulte o âmbito de implementação de [rastreio de alterações de limites e inventário](automation-scope-configurations-change-tracking.md).
 * Para aprender a utilizar a funcionalidade para identificar software instalado no seu ambiente, consulte [Descubra qual o software instalado nos seus VMs](automation-tutorial-installed-software.md).
 * Se não quiser integrar a sua conta de Automação com um espaço de trabalho log Analytics ao ativar a funcionalidade, consulte o espaço de [trabalho Unlink a partir da conta Automation](automation-unlink-workspace-change-tracking.md).
 * Quando terminar a implementação de alterações nos VMs, pode removê-las conforme descrito em [Remover VMs de Change Tracking e Inventory](automation-remove-vms-from-change-tracking.md).

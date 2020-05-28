@@ -110,7 +110,7 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 
 A consulta terá sucesso mesmo que o objeto não possua metadados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Componentes](components.md)
 * [Limites dos objetos](object-bounds.md)

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595589"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994247"
 ---
 # <a name="view-document-details"></a>Ver detalhes do documento
 
@@ -40,6 +40,6 @@ O utilizador deve ser proprietário de um espaço de trabalho para apagar docume
 
     ![Eliminar confirmar](media/how-to/how-to-delete-document-confirm.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda [a treinar um modelo.](how-to-train-model.md)

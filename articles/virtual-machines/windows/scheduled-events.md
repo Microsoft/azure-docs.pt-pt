@@ -224,7 +224,7 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - Assista a uma [demonstração de eventos agendada](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) saqueada na sexta-feira do Azure. 
 - Reveja as amostras de código de eventos agendados no [Azure Instance Metadata Eventos Agendados GitHub Repositório](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)

@@ -10,17 +10,17 @@ ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 8fa8603f2bee7e42db0f085d78117d61bd14ce5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2ccdd0a8000cb6c78244445a34529bc8f37d7f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419396"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016632"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Fábrica de Dados azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor de base de dados Azure SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligada. Isto impede que tenha de criar um serviço ligado para cada base de dados no servidor de base de dados Azure SQL. Também pode parametificar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
+Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor Lógico SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligado. Isto impede que tenha de criar um serviço ligado para cada base de dados no servidor Lógico SQL. Também pode parametificar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
 
 Pode utilizar a Data Factory UI no portal Azure ou uma interface de programação para parametrizar serviços ligados.
 

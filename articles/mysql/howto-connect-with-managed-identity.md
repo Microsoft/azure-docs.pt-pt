@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fd11fd32c4c6901302d1f7960ad38ad426e6a3a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664670"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141726"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conecte-se com identidade gerida à base de dados Azure para MySQL
 
@@ -22,6 +22,9 @@ Este artigo mostra-lhe como usar uma identidade atribuída ao utilizador para um
 > * Criar um utilizador na base de dados que represente a identidade atribuída ao utilizador do VM
 > * Obtenha um sinal de acesso usando a identidade VM e use-o para consultar uma Base de Dados Azure para servidor MySQL
 > * Implementar a recuperação simbólica numa aplicação de exemplo C#
+
+> [!IMPORTANT]
+> A ligação com a Identidade Gerida só está disponível para MySQL 5.7 e mais recente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -200,6 +203,6 @@ Connected!
 MySQL version: 5.7.27
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja os conceitos globais para [autenticação de Diretório Ativo Azure com Base de Dados Azure para MySQL](concepts-azure-ad-authentication.md)

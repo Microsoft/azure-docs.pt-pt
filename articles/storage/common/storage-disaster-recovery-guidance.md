@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: aab64e173b02ae991f7071da785434fa742de7de
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857786"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994702"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Falha na conta de recuperação e armazenamento de desastres
 
@@ -26,8 +26,6 @@ O Azure Storage suporta a conta de failover para contas de armazenamento georedu
 O failover da conta está disponível para tipos de contas de armazenamento v1 de uso geral, v2 de propósito geral e blob com implementações do Gestor de Recursos Azure. A falha de contas é apoiada para todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais neste momento.
 
 Este artigo descreve os conceitos e processos envolvidos com uma falha de conta e discute como preparar a sua conta de armazenamento para recuperação com o menor impacto do cliente. Para aprender a iniciar uma falha de conta no portal Azure ou powerShell, consulte [Iniciar uma falha](storage-initiate-account-failover.md)de conta .
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

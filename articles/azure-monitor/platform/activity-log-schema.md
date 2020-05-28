@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472746"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017516"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de log de atividade azure
 O [registo da Atividade Azure](platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que tenham ocorrido em Azure. Este artigo descreve o esquema do evento para cada categoria. 
@@ -130,7 +130,7 @@ Esta categoria contém o registo de todas as operações de criação, atualiza�
 | resourceId |Identificação de recursos do recurso impactado. |
 | operationId |Um GUID partilhou entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
 | status |Cordas descrevendo o estado da operação. Alguns valores comuns são: Iniciado, em progresso, bem sucedido, falhado, ativo, resolvido. |
 | subEstatuto |Normalmente, o código de estado HTTP da chamada REPOUSA correspondente, mas também pode incluir outras cordas que descrevem um subestatuto, tais como estes valores comuns: OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código HTTP HTTP) : 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503), Prazo gateway (Código de Estado HTTP: 504). |
 | eventoTimestamp |Carimbo de tempo quando o evento foi gerado pelo serviço Azure processando o pedido correspondente ao evento. |
@@ -277,7 +277,7 @@ Esta categoria contém o registo de quaisquer eventos de saúde de recursos que 
 | subEstatuto | Normalmente nulo para alertas. |
 | submissãoTimestamp |Hora do tempo quando o evento ficou disponível para consulta. |
 | subscriptionId |ID de subscrição azure. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes do evento.|
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, um Dicionário) descrevendo os detalhes do evento.|
 | propriedades.título | Uma cadeia que descreve o estado de saúde do recurso. |
 | propriedades.detalhes | Uma cadeia fácil de usar que descreve mais detalhes sobre o evento. |
 | propriedades.currentHealthStatus | O estado de saúde atual do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degradado" e "Desconhecido". |
@@ -287,7 +287,7 @@ Esta categoria contém o registo de quaisquer eventos de saúde de recursos que 
 
 
 ## <a name="alert"></a>Alerta
-Esta categoria contém o registo de todas as ativações de alertas Azure. Um exemplo do tipo de evento que se veria nesta categoria é "cpU % no myVM foi superior a 80 nos últimos 5 minutos." Uma variedade de sistemas Azure têm um conceito de alerta - você pode definir uma regra de algum tipo e receber uma notificação quando as condições correspondem a essa regra. Sempre que um tipo de alerta Azure suportado 'ativa', ou as condições são satisfeitas para gerar uma notificação, um registo da ativação também é empurrado para esta categoria do Registo de Atividade.
+Esta categoria contém o registo de todas as ativações de alertas clássicos do Azure. Um exemplo do tipo de evento que se veria nesta categoria é "cpU % no myVM foi superior a 80 nos últimos 5 minutos." Uma variedade de sistemas Azure têm um conceito de alerta - você pode definir uma regra de algum tipo e receber uma notificação quando as condições correspondem a essa regra. Sempre que um tipo de alerta Azure suportado 'ativa', ou as condições são satisfeitas para gerar uma notificação, um registo da ativação também é empurrado para esta categoria do Registo de Atividade.
 
 ### <a name="sample-event"></a>Evento de amostra
 
@@ -366,7 +366,7 @@ Esta categoria contém o registo de todas as ativações de alertas Azure. Um ex
 | resourceId | Nome do ID do recurso para o recurso impactado se for um alerta métrico. Para outros tipos de alerta, é a identificação de recursos do próprio recurso de alerta. |
 | operationId |Um GUID partilhou entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
 | status |Cordas descrevendo o estado da operação. Alguns valores comuns são: Iniciado, em progresso, bem sucedido, falhado, ativo, resolvido. |
 | subEstatuto | Normalmente nulo para alertas. |
 | eventoTimestamp |Carimbo de tempo quando o evento foi gerado pelo serviço Azure processando o pedido correspondente ao evento. |
@@ -475,7 +475,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com o funcion
 | resourceId |Identificação do recurso da definição de escala automática. |
 | operationId |Um GUID partilhou entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, um Dicionário) descrevendo os detalhes do evento. |
 | propriedades. Descrição | Descrição detalhada do que o motor de escala automática estava a fazer. |
 | propriedades. Nome dos Recursos | Identificação do recurso impactado (o recurso em que estava a ser realizada a ação de escala) |
 | propriedades. OldInstancesCount | O número de casos antes da ação de escala automática entrou em vigor. |
@@ -567,7 +567,7 @@ Esta categoria contém o registo de quaisquer alertas gerados pelo Azure Securit
 | resourceId |Identificação do recurso do alerta de segurança. |
 | operationId |Um GUID partilhou entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes do evento. Estas propriedades variarão dependendo do tipo de alerta de segurança. Consulte [esta página](../../security-center/security-center-alerts-overview.md) para obter uma descrição dos tipos de alertas que vêm do Centro de Segurança. |
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, um Dicionário) descrevendo os detalhes do evento. Estas propriedades variarão dependendo do tipo de alerta de segurança. Consulte [esta página](../../security-center/security-center-alerts-overview.md) para obter uma descrição dos tipos de alertas que vêm do Centro de Segurança. |
 | propriedades. Gravidade |O nível de gravidade. Os valores possíveis são "Alto", "Médio" ou "Baixo". |
 | status |Cordas descrevendo o estado da operação. Alguns valores comuns são: Iniciado, em progresso, bem sucedido, falhado, ativo, resolvido. |
 | subEstatuto | Normalmente nulo para eventos de segurança. |
@@ -649,7 +649,7 @@ Esta categoria contém o registo de quaisquer novas recomendações geradas para
 | status | Sempre "Ativo" |
 | submissãoTimestamp |Hora do tempo quando o evento ficou disponível para consulta. |
 | subscriptionId |ID de subscrição azure. |
-| propriedades |Conjunto `<Key, Value>` de pares (isto é, um Dicionário) descrevendo os detalhes da recomendação.|
+| propriedades |Conjunto de `<Key, Value>` pares (isto é, um Dicionário) descrevendo os detalhes da recomendação.|
 | propriedades.recommendationSchemaVersion| Versão schema das propriedades de recomendação publicadas na entrada do Registo de Atividades |
 | propriedades.recomendaçãoCategoria | Categoria da recomendação. Os valores possíveis são "Alta Disponibilidade", "Desempenho", "Segurança" e "Custo" |
 | propriedades.recomendaimpacto| Impacto da recomendação. Os valores possíveis são "Altos", "Médios", "Baixos" |
@@ -863,7 +863,7 @@ Segue-se um exemplo de um evento que usa este esquema.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Saiba mais sobre o Registo de Atividades](platform-logs-overview.md)
 * [Criar uma definição de diagnóstico para enviar Registo de Atividade sonâmlo para log analytics espaço de trabalho, armazenamento Azure ou centros de eventos](diagnostic-settings.md)
 

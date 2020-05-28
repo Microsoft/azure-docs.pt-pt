@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416472"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019984"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -47,7 +47,7 @@ Data Factory foi certificado para:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[BAA HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Se está interessado na conformidade com o Azure e como o Azure assegura a sua própria infraestrutura, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Para a mais recente lista de todas https://aka.ms/AzureComplianceas ofertas da Azure Compliance verifique - .
+Se está interessado na conformidade com o Azure e como o Azure assegura a sua própria infraestrutura, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Para a mais recente lista de todas as ofertas da Azure Compliance verifique - https://aka.ms/AzureCompliance .
 
 Neste artigo, revemos considerações de segurança nos seguintes dois cenários de movimento de dados: 
 
@@ -64,7 +64,7 @@ Neste artigo, revemos considerações de segurança nos seguintes dois cenários
 - **Guarde as credenciais no Cofre de Chaves Azure.** Também pode armazenar a credencial da loja de dados no [Cofre de Chaves Azure.](https://azure.microsoft.com/services/key-vault/) Data Factory recupera a credencial durante a execução de uma atividade. Para mais informações, consulte a [credencial da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Encriptação de dados em trânsito
-Se a loja de dados na nuvem suportar HTTPS ou TLS, todas as transferências de dados entre os serviços de movimento de dados na Data Factory e uma loja de dados em nuvem são via canal seguro HTTPS ou TLS .
+Se a loja de dados na nuvem suportar HTTPS ou TLS, todas as transferências de dados entre os serviços de movimento de dados na Data Factory e uma loja de dados na nuvem são via canal seguro HTTPS ou TLS.
 
 > [!NOTE]
 > Todas as ligações à Base de Dados Azure SQL e ao Armazém de Dados Azure SQL requerem encriptação (SSL/TLS) enquanto os dados estão em trânsito de e para a base de dados. Quando estiver a ser autor de um pipeline utilizando o JSON, adicione a propriedade de encriptação e deteteteta-a de **forma verdadeira** na cadeia de ligação. Para o Armazenamento Azure, pode utilizar **HTTPS** na cadeia de ligação.
@@ -111,7 +111,7 @@ O canal de comando permite a comunicação entre os serviços de movimento de da
 ### <a name="on-premises-data-store-credentials"></a>Credenciais de loja de dados no local
 As credenciais podem ser armazenadas dentro da fábrica de dados ou ser [referenciadas por uma fábrica](store-credentials-in-key-vault.md) de dados durante o tempo de funcionação do Azure Key Vault. Se armazenar credenciais dentro da fábrica de dados, é sempre armazenado encriptado no tempo de funcionação de integração auto-hospedado. 
  
-- **Armazenar credenciais localmente.** Se utilizar diretamente o **cmdlet Set-AzDataFactoryV2LinkedService** com as cordas de ligação e credenciais inline no JSON, o serviço ligado é encriptado e armazenado no tempo de execução de integração auto-hospedado.  Neste caso, as credenciais fluem através do serviço de backend azul, que é extremamente seguro, para a máquina de integração auto-hospedada onde é finalmente encriptada e armazenada. O tempo de execução de integração auto-hospedado utiliza o Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para encriptar os dados sensíveis e informações credenciais.
+- **Armazenar credenciais localmente.** Se utilizar diretamente o **cmdlet Set-AzDataFactoryV2LinkedService** com as cordas de ligação e credenciais inline no JSON, o serviço ligado é encriptado e armazenado no tempo de execução de integração auto-hospedado.  Neste caso, as credenciais fluem através do serviço de backend Azure, que é extremamente seguro, para a máquina de integração auto-hospedada onde é finalmente encriptada e armazenada. O tempo de execução de integração auto-hospedado utiliza o Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para encriptar os dados sensíveis e informações credenciais.
 
 - **Guarde as credenciais no Cofre de Chaves Azure.** Também pode armazenar a credencial da loja de dados no [Cofre de Chaves Azure.](https://azure.microsoft.com/services/key-vault/) Data Factory recupera a credencial durante a execução de uma atividade. Para mais informações, consulte a [credencial da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md).
 
@@ -155,6 +155,12 @@ As imagens que se seguem mostram o uso do tempo de execução da integração au
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Configurações de firewall e permitir a configuração da lista para endereços IP
 
+> [!NOTE] 
+> Poderá ter de gerir portas ou configurar a lista de domínios ao nível da firewall corporativa, conforme exigido pelas respetivas fontes de dados. Esta tabela utiliza apenas a Base de Dados Azure SQL, o Azure SQL Data Warehouse e a Azure Data Lake Store como exemplos.
+
+> [!NOTE] 
+> Para mais detalhes sobre as estratégias de acesso a dados através da Azure Data Factory, consulte [este artigo.](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory)
+
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para a rede privada/local    
 Numa empresa, uma firewall corporativa funciona no router central da organização. O Windows Firewall funciona como um daemon na máquina local em que o tempo de funcionação de integração auto-hospedado é instalado. 
 
@@ -178,7 +184,7 @@ Algumas lojas de dados na nuvem também requerem que permita o endereço IP da m
 
 As seguintes lojas de dados em nuvem exigem que permita o endereço IP da máquina de tempo de execução de integração auto-hospedada. Algumas destas lojas de dados, por defeito, podem não necessitar de lista de permitir. 
 
-- [Base de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
+- [Base de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
@@ -195,7 +201,7 @@ Sim. Mais detalhes [aqui](https://azure.microsoft.com/blog/sharing-a-self-hosted
 O tempo de execução de integração auto-hospedado faz com que as ligações baseadas em HTTP acedam à internet. As portas de saída 443 devem ser abertas para o tempo de execução de integração auto-hospedado para fazer esta ligação. Abra a porta de entrada 8060 apenas ao nível da máquina (não ao nível da firewall corporativa) para aplicação de gestor de credenciais. Se a Base de Dados Azure SQL ou o Azure SQL Data Warehouse forem utilizados como fonte ou destino, também precisa de abrir a porta 1433. Para mais informações, consulte as configurações do Firewall e permita a configuração da lista para a secção de [endereços IP.](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre o desempenho da atividade da cópia de dados do Azure, consulte o desempenho da Atividade de Cópia e o guia de [afinação.](copy-activity-performance.md)
 
  

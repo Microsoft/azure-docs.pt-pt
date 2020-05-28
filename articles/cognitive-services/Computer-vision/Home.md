@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131757"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117521"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O serviço De Visão Computacional da Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e devolvem informações, dependendo das funcionalidades visuais em que está interessado. Por exemplo, a Visão computacional pode determinar se uma imagem contém conteúdo adulto, ou pode encontrar todos os rostos humanos numa imagem.
+O serviço De Visão Computacional da Azure fornece aos desenvolvedores o acesso a algoritmos avançados que processam imagens e devolvem informações com base nas funcionalidades visuais em que está interessado. Por exemplo, a Computer Vision pode determinar se uma imagem contém conteúdo adulto, encontrar marcas ou objetos específicos ou encontrar rostos humanos.
 
-Pode utilizar a Visão computacional na sua aplicação através de um SDK nativo ou invocando diretamente a API REST. Esta página cobre amplamente o que pode fazer com a Visão Computacional.
+Pode utilizar a Computer Vision na sua aplicação através de uma biblioteca de clientes SDK ou ligando diretamente para a API REST. Esta página cobre amplamente o que pode fazer com a Visão Computacional.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visão Computacional para gestão de ativos digitais
 
@@ -32,7 +32,7 @@ A Computer Vision pode alimentar muitos cenários de gestão de ativos digitais 
 
 ## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
 
-Pode analisar imagens para detetar e fornecer insights sobre as suas características visuais e características. Todas as funcionalidades na tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+Pode analisar imagens para fornecer insights sobre as suas características visuais e características. Todas as funcionalidades na tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
 
 | Ação | Descrição |
 | ------ | ----------- |
@@ -50,7 +50,7 @@ Pode analisar imagens para detetar e fornecer insights sobre as suas caracterís
 
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Pode utilizar a Computer Vision [Read](concept-recognizing-text.md#read-api) API para extrair texto impresso e manuscrito a partir de imagens num fluxo de caracteres legível por máquina. A API read usa os nossos modelos mais recentes e trabalha com texto em várias superfícies e fundos, tais como recibos, cartazes, cartões de visita, cartas e quadros. Atualmente, o inglês e o espanhol são as únicas línguas apoiadas.
+Pode utilizar a API computer Vision [Read](concept-recognizing-text.md#read-api) para extrair texto impresso e manuscrito a partir de imagens para um fluxo de caracteres legível por máquina. A API read utiliza os modelos mais recentes e trabalha com texto em várias superfícies e fundos, tais como recibos, cartazes, cartões de visita, cartas e quadros. Atualmente funciona para sete línguas diferentes (ver [suporte linguístico).](./language-support.md)
 
 Também pode utilizar a API de reconhecimento ótico de [caracteres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair texto impresso em várias línguas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR suporta 25 línguas e deteta automaticamente a linguagem do texto reconhecido.
 
@@ -75,7 +75,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 
 Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que utilizam o serviço Computer Vision devem estar cientes das políticas da Microsoft em dados de clientes. Consulte a página de [Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Comece com a Visão computacional seguindo um guia de arranque rápido:
 

@@ -149,7 +149,7 @@ A Recuperação do Site não fornece apoio ao cluster de hóspedes quando se rep
 
 Para os clusters SQL Server Standard, o failback após uma falha não planeada requer uma cópia de segurança do SQL Server e restaure. Esta operação é feita desde a instância do espelho até ao cluster original com o restabelecimento do espelho.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>Como é que o SQL Server é licenciado quando usado com a Recuperação do Site?
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700310"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020777"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -164,9 +164,9 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 > [!NOTE]
-> Uma razão comum para criar um utilizador de base de dados baseado num login do servidor da Base de Dados SQL é para utilizadores que precisam de acesso a várias bases de dados. Uma vez que os utilizadores de bases de dados contidos são entidades individuais, cada base de dados mantém o seu próprio utilizador e a sua própria palavra-passe. Isto pode causar sobrecarga, uma vez que o utilizador deve então lembrar-se de cada palavra-passe para cada base de dados, e pode tornar-se insustentável quando tem de alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar logins de servidor SQL e alta disponibilidade (geo-replicação ativa e grupos de failover), os logins do Servidor SQL devem ser definidos manualmente em cada servidor. Caso contrário, o utilizador da base de dados deixará de ser mapeado para o login do servidor após a ocorrência de uma falha, e não poderá aceder à falha da publicação da base de dados. 
+> Uma razão comum para criar um utilizador de base de dados com base num login do servidor é para utilizadores que precisam de acesso a várias bases de dados. Uma vez que os utilizadores de bases de dados contidos são entidades individuais, cada base de dados mantém o seu próprio utilizador e a sua própria palavra-passe. Isto pode causar sobrecarga, uma vez que o utilizador deve então lembrar-se de cada palavra-passe para cada base de dados, e pode tornar-se insustentável quando tem de alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar logins de servidor SQL e alta disponibilidade (geo-replicação ativa e grupos de failover), os logins do Servidor SQL devem ser definidos manualmente em cada servidor. Caso contrário, o utilizador da base de dados deixará de ser mapeado para o login do servidor após a ocorrência de uma falha, e não poderá aceder à falha da publicação da base de dados. 
 
-Para obter mais informações sobre a configuração de logins para geo-replicação, consulte configure e gere nciásse a segurança da Base de [Dados Azure SQL para geo-restaurar ou falhar](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para obter mais informações sobre a configuração de logins para geo-replicação, consulte configure e gere nciásse a segurança da Base de [Dados Azure SQL para geo-restaurar ou falhar](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="configuring-the-database-level-firewall"></a>Configurar a firewall ao nível da base de dados
 

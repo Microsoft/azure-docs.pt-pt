@@ -5,14 +5,14 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c5fad03788ee11488748c22d60c150e3de7e516d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743998"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117239"
 ---
-# <a name="enable-update-management-from-an-automation-account"></a>Ativar gestão de atualização a partir de uma conta de Automação
+# <a name="enable-update-management-from-an-automation-account"></a>Ativar a Gestão de Atualizações a partir de uma conta de Automatização
 
 Este artigo descreve como pode utilizar a sua conta Automation para ativar a funcionalidade [de Gestão](automation-update-management.md) de Atualizações para VMs no seu ambiente. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando a Atualização. 
 
@@ -37,9 +37,9 @@ Inscreva-se no Azure em https://portal.azure.com .
 
     ![Ativar a Gestão de Atualizações](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verifique a configuração do âmbito
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Limitar o âmbito de aplicação da implantação
 
-A Atualização A Gestão utiliza uma configuração de âmbito dentro do espaço de trabalho para direcionar os computadores para ativar a funcionalidade. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da funcionalidade a computadores específicos. Para mais informações, consulte [Trabalhar com configurações de âmbito para Gestão de Atualizações.](automation-scope-configurations-update-management.md)
+A Atualização Management utiliza uma configuração de âmbito dentro do espaço de trabalho para direcionar os computadores para receber atualizações. Para mais informações, consulte o âmbito de [implementação](automation-scope-configurations-update-management.md)da Limit Update Management .
 
 ## <a name="enable-azure-vms"></a>Ativar VMs Azure
 
@@ -77,10 +77,10 @@ As máquinas ou máquinas instaladas manualmente que já reportem ao seu espaço
 
 7. Para ativar a funcionalidade para uma ou mais máquinas, **selecione Ativar as máquinas selecionadas** e clique **em Adicionar** ao lado de cada máquina para ativar a funcionalidade. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador saqueado a consulta de pesquisa para a funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Para configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Gestão de Atualizações](automation-scope-configurations-update-management.md).
+* Para configurações de âmbito, consulte o âmbito de implementação da [Atualização limitação](automation-scope-configurations-update-management.md).
 * Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
 * Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
 * Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .

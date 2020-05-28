@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 74cad0ab9ffc3eb05219cb9e2c2585e73498c9bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cd07bf86852d608a6d872f4c6b973b0a81b2a1c3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664859"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015289"
 ---
 # <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utilize a instância gerida pela base de dados Azure SQL com serviços de integração de servidores SQL (SSIS) na Fábrica de Dados Azure
 
@@ -24,17 +24,17 @@ ms.locfileid: "83664859"
 
 Agora pode mover os seus projetos, pacotes e cargas de trabalho dos seus Serviços de Integração de Servidores SQL (SSIS) para a nuvem Azure. Implementar, executar e gerir projetos e pacotes SSIS na Base de Dados Azure SQL ou Na Base de Dados SQL Managed Instance com ferramentas familiares como O Estúdio de Gestão de Servidores SQL (SSMS). Este artigo destaca as seguintes áreas específicas ao utilizar a Instância gerida pela Base de Dados Azure SQL com o tempo de execução de integração Azure-SSIS (IR):
 
-- [Provisão de um IR Azure-SSIS com catálogo SSIS (SSISDB) hospedado pela Azure SQL Database gerido](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Provisão de um IR Azure-SSIS com catálogo SSIS (SSISDB) hospedado pela Azure SQL Database gerido](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Executar pacotes SSIS por Azure SQL Gerido Agente de Instância](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Limpar os registos SSISDB por Azure SQL Managed Instance Agent](#clean-up-ssisdb-logs)
 - [Falha no IR azure-SSIS com instância gerida pela Base de Dados Azure SQL](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrar no local cargas de trabalho Do SSIS para o SSIS em ADF com base de dados Azure SQL gerida como destino de carga de trabalho de base de dados](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
+- [Migrar no local cargas de trabalho Do SSIS para o SSIS em ADF com base de dados Azure SQL gerida como destino de carga de trabalho de base de dados](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
-## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance"></a>Provisão Azure-SSIS IR com SSISDB hospedado pela Azure SQL Database gerida
+## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Provision Azure-SSIS IR com SSISDB hospedado pela Azure SQL Managed Instance
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Ativar o [Diretório Ativo Azure (Azure AD) na Base de Dados Azure SQL gerida,](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance)ao escolher a autenticação de Diretório Ativo Azure.
+1. Ativar o [Diretório Ativo Azure (Azure AD) na Base de Dados Azure SQL gerida,](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)ao escolher a autenticação de Diretório Ativo Azure.
 
 1. Escolha como ligar a instância gerida pela SQL, sobre o ponto final privado ou sobre o ponto final público:
 
@@ -90,8 +90,8 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos seus Serviç
     1. Certifique-se de que o grupo de recursos da rede virtual pode criar e eliminar certos recursos da rede Azure.
 
         O IR Azure-SSIS necessita de criar certos recursos de rede no mesmo grupo de recursos que a rede virtual. Estes recursos incluem:
-        - Um equilibrador de carga Azure, com o nome * \< Guid>-azurebatch-cloudserviceloadbalancer*
-        - Um grupo de segurança de rede, com o nome * \< Guid>-azurebatch-cloudservicenetworksecuritygroup
+        - Um equilibrador de carga Azure, com o nome * \<Guid> -azurebatch-cloudserviceloadbalancer*
+        - Um grupo de segurança de rede, com o nome * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - Um endereço IP público azure, com o nome -azurebatch-cloudservicepublicip
 
         Esses recursos serão criados quando o seu IR Azure-SSIS começar. Serão apagados quando o seu IR Azure-SSIS parar. Para evitar que o seu IR Azure-SSIS pare, não reutilize estes recursos de rede nos seus outros recursos.
@@ -147,7 +147,7 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos seus Serviç
 
     ![catálogo-ponto final público](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Para obter mais informações sobre como ativar a autenticação da AD Azure, consulte [enable Azure AD na base de dados Azure SQL gerida](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance).
+    Para obter mais informações sobre como ativar a autenticação da AD Azure, consulte [enable Azure AD na base de dados Azure SQL gerida](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Junte-se ao Ir Azure-SSIS na rede virtual quando se aplicar.
 
@@ -175,7 +175,7 @@ A política de retenção de registos SSISDB é definida por propriedades abaixo
 
 Para remover os registos SSISDB que estão fora da janela de retenção definida pelo administrador, pode acionar o procedimento armazenado `[internal].[cleanup_server_retention_window_exclusive]` . Opcionalmente, pode agendar a execução de trabalho de agente de instância gerida pela SQL para desencadear o procedimento armazenado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar pacotes SSIS por Azure SQL Gerido Agente de Instância](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Criar continuidade de negócios e recuperação de desastres (BCDR)](configure-bcdr-azure-ssis-integration-runtime.md)

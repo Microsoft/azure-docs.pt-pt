@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414699"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118822"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Resolução de problemas SSIS Integração Gestão de tempo de execução na Fábrica de Dados Azure
 
@@ -30,27 +30,27 @@ Se tiver algum problema durante o fornecimento ou desprovisionamento do SSIS IR,
 
 Se o código de erro for InternalServerError, o serviço tem problemas transitórios e deverá voltar a tentar a operação mais tarde. Se uma nova tentativa não ajudar, contacte a equipa de suporte da Azure Data Factory.
 
-Caso contrário, três grandes dependências externas podem causar erros: um servidor de base de dados Azure SQL ou instância gerida, um script de configuração personalizado e uma configuração de rede virtual.
+Caso contrário, três grandes dependências externas podem causar erros: Base de Dados Azure SQL ou Instância Gerida Azure SQL, um script de configuração personalizado e uma configuração de rede virtual.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Servidor de base de dados Azure SQL ou problemas de instância geridos
+## <a name="sql-database-or-sql-managed-instance-issues"></a>SQL Base de Dados ou Problemas de Instância Gerida SQL
 
-Será necessário um servidor da Base de Dados SQL do Azure ou uma instância gerida se estiver a aprovisionar o SSIS IR com uma base de dados de catálogo do SSIS. O SSIS IR deve ser capaz de aceder ao servidor da Base de Dados SQL do Azure ou à instância gerida. Além disso, a conta do servidor da Base de Dados SQL do Azure ou da instância gerida deve ter permissão para criar um base de dados de catálogo do SSIS (SSISDB). Se ocorrer algum erro, será apresentado um código de erro com uma mensagem de exceção SQL detalhada no portal do Data Factory. Utilize as informações na lista a seguir para resolver problemas de códigos de erro.
+A Base de Dados SQL ou a Instância Gerida SQL são necessárias se estiver a fornecer o SSIS IR com uma base de dados de catálogo SSIS. O SSIS IR deve ter acesso à Base de Dados SQL ou à Instância Gerida SQL. Além disso, a conta de login da Base de Dados SQL ou da Instância Gerida SQL deve ter permissão para criar uma base de dados de catálogo SSIS (SSISDB). Se ocorrer algum erro, será apresentado um código de erro com uma mensagem de exceção SQL detalhada no portal do Data Factory. Utilize as informações na lista a seguir para resolver problemas de códigos de erro.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
 Poderá ver este problema quando estiver a aprovisionar um novo SSIS IR ou enquanto o runtime de integração estiver em execução. Se ocorrer este erro durante o aprovisionamento do runtime de integração, poderá obter uma mensagem de SqlException detalhada na mensagem de erro que indica um dos seguintes problemas:
 
-* Um problema de ligação de rede. Verifique se o SQL Server ou nome do anfitrião da instância gerida está acessível. Verifique também se nenhuma firewall ou grupo de segurança de rede (NSG) está a bloquear o acesso do SSIS IR ao servidor.
+* Um problema de ligação de rede. Verifique se o nome do anfitrião para A Base de Dados SQL ou SQL Managed Instance está acessível. Verifique também se nenhuma firewall ou grupo de segurança de rede (NSG) está a bloquear o acesso do SSIS IR ao servidor.
 * Falha no início de sessão durante a autenticação do SQL. A conta fornecida não consegue iniciar sessão na base de dados do SQL Server. Confirme que indica a conta de utilizador correta.
 * Falha de início de sessão durante a autenticação do Microsoft Azure Active Directory (Microsoft Azure AD) (identidade gerida). Adicione a identidade gerida da fábrica a um grupo do AAD e verifique se a identidade gerida tem permissões de acesso ao servidor da base de dados de catálogo.
 * Limite de tempo da ligação excedido. Este erro é sempre causado por uma configuração relacionada com a segurança. É recomendável que:
   1. Crie um novo VM.
   1. Junte-se ao VM à mesma Rede Virtual de IR do Microsoft Azure se o IR estiver numa rede virtual.
-  1. Instale SSMS e verifique o servidor de base de dados Azure SQL ou o estado de instância gerido.
+  1. Instale SSMS e verifique o estado de Base de Dados SQL ou SQL Managed Instance.
 
-Para outros problemas, corrija o problema mostrado na mensagem de erro de exceção SQL detalhada. Se os problemas persistirem, contacte a equipa de suporte do servidor da Base de Dados SQL do Azure ou da instância gerida.
+Para outros problemas, corrija o problema mostrado na mensagem de erro de exceção SQL detalhada. Se ainda tiver problemas, contacte a Base de Dados SQL ou a equipa de suporte SQL Managed Instance.
 
-Se vir o erro quando o runtime de integração estiver em execução, as alterações da firewall ou do grupo de segurança de rede poderão estar a impedir o acesso do nó de trabalho do SSIS IR ao servidor da Base de Dados SQL ou à instância gerida. Desbloqueie o nó de trabalho do SSIS IR para que possa aceder ao servidor da Base de Dados SQL do Azure ou à instância gerida.
+Se vir o erro quando o IR está em execução, as alterações do grupo de segurança da rede ou da firewall estão provavelmente a impedir que o nó de trabalhador sSIS IR aceda à Base de Dados SQL ou à Instância Gerida SQL. Desbloqueie o nó de trabalhador sSIS IR para que possa aceder à Base de Dados SQL ou à Instância Gerida SQL.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
@@ -65,20 +65,20 @@ Soluções possíveis:
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-Este erro significa que o servidor da Base de Dados SQL do Azure ou a instância gerida já tem um SSISDB e que está a ser utilizado por outro runtime de integração. Precisa de indicar um servidor da Base de Dados SQL do Azure ou uma instância gerida diferente ou eliminar o SSISDB existente e reiniciar o novo runtime de integração.
+Este erro significa que a Base de Dados SQL ou a SQL Managed Instance já têm um SSISDB e que está a ser usada por outro IR. É necessário fornecer uma base de dados SQL diferente ou uma instância gerida por SQL ou então apagar o SSISDB existente e reiniciar o novo IR.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
 Este erro pode ocorrer por um dos seguintes motivos:
 
 * A conta de utilizador que está configurada para o SSIS IR não tem permissão para criar a base de dados. Pode conceder ao utilizador a permissão para criar a base de dados.
-* Ocorre um erro de tempo limite durante a criação da base de dados, como um tempo limite de execução ou um tempo limite de operação da BD. Deve repetir a operação mais tarde. Se a operação de repetição não der resultado, contacte a equipa de suporte do servidor da Base de Dados SQL do Azure ou da Instância Gerida.
+* Ocorre um erro de tempo limite durante a criação da base de dados, como um tempo limite de execução ou um tempo limite de operação da BD. Deve repetir a operação mais tarde. Se a retentativa não funcionar, contacte a base de dados SQL ou a equipa de suporte sQL Managed Instance.
 
-Para outros problemas, verifique a Mensagem de erro de exceção do SQL e corrija o problema mencionado nos detalhes do erro. Se os problemas persistirem, contacte a equipa de suporte do servidor da Base de Dados SQL do Azure ou da instância gerida.
+Para outros problemas, verifique a Mensagem de erro de exceção do SQL e corrija o problema mencionado nos detalhes do erro. Se ainda tiver problemas, contacte a Base de Dados SQL ou a equipa de suporte SQL Managed Instance.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Este tipo de mensagem de erro é assim: "Nome de objeto inválido 'catalog.catalog_properties'." Nesta situação, ou já tem uma base de dados chamada SSISDB mas não foi criada pelo SSIS IR, ou a base de dados está num estado inválido que é causado por erros no último fornecimento de IR SSIS. Pode remover a base de dados existente com o nome SSISDB ou pode configurar um novo servidor da Base de Dados SQL do Azure ou uma instância gerida para o runtime de integração.
+Este tipo de mensagem de erro é assim: "Nome de objeto inválido 'catalog.catalog_properties'." Nesta situação, ou já tem uma base de dados chamada SSISDB mas não foi criada pelo SSIS IR, ou a base de dados está num estado inválido que é causado por erros no último fornecimento de IR SSIS. Pode deixar cair a base de dados existente com o nome SSISDB, ou pode configurar uma nova Base de Dados SQL ou Instância Gerida SQL para o IR.
 
 ## <a name="custom-setup-issues"></a>Problemas de configuração personalizados
 

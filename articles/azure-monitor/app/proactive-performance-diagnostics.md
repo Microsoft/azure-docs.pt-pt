@@ -4,18 +4,18 @@ description: Application Insights realiza uma análise inteligente da sua teleme
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697172"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016853"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de Desempenho
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) analisa automaticamente o desempenho da sua aplicação web, e pode avisá-lo sobre potenciais problemas. Pode estar a ler isto porque recebeu uma das nossas notificações inteligentes de deteção.
 
-Esta funcionalidade não requer configuração especial, a não ser configurar a sua aplicação para Insights de Aplicação (em [ASP.NET,](../../azure-monitor/app/asp-net.md) [Java](../../azure-monitor/app/java-get-started.md), ou [Node.js](../../azure-monitor/app/nodejs.md), e no código da [página web).](../../azure-monitor/app/javascript.md) Está ativo quando a sua aplicação gera telemetria suficiente.
+Esta funcionalidade não requer configuração especial, a não ser configurar a sua aplicação para Insights de Aplicação para o seu [idioma suportado](../../azure-monitor/app/platforms.md). Está ativo quando a sua aplicação gera telemetria suficiente.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Quando é que recebia uma notificação de deteção inteligente?
 
@@ -170,7 +170,7 @@ Clique nos links para abrir o Metric Explorer e procurar em relatórios relevant
 
 Modifique a gama de tempo e os filtros para explorar a telemetria.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria da sua aplicação:
 
 * [Gerador de perfis](profiler.md) 

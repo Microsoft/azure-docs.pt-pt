@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: caa37dbc3a09236c8e9553eba506e6c0b25e51e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218149"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118439"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio (clássico) e fornece uma breve explicação das métricas disponíveis para esta tarefa. São apresentados três cenários comuns de aprendizagem supervisionada: 
 
@@ -140,7 +138,7 @@ Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://arc
 ### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* [Importar Dados][import-data]
+* [Dados de Importação][import-data]
 * [Floresta de Decisão de Várias Classes][multiclass-decision-forest]
 * [Dividir Dados][split]
 * [Preparar Modelo][train-model]
@@ -151,7 +149,7 @@ Ligue as portas como mostrado abaixo na Figura 10.
 
 Desloque o índice da coluna de etiquetas do módulo [Modelo de Comboio][train-model] para 5. O conjunto de dados não tem linha de cabeçalho, mas sabemos que as etiquetas da classe estão na quinta coluna.
 
-Clique no módulo [dados de importação][import-data] e coloque a propriedade de origem de *dados* para URL web *via HTTP,* e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Clique no módulo [dados de importação][import-data] e coloque a propriedade de origem de *dados* para URL web *via HTTP,* e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Defino a fração de instâncias a utilizar para o treino no módulo [De dados split][split] (0.7 por exemplo).
 

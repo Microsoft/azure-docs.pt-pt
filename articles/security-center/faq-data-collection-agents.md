@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 022942778b714d5d66ce6eeb2c29351b11c66e40
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849047"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996249"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -65,6 +65,14 @@ A localização do espaço de trabalho padrão depende da sua região de Azure:
 - Para VMs no Japão, a localização do espaço de trabalho é o Japão
 - Para VMs na China, o local do espaço de trabalho é a China
 - Para VMs na Austrália, a localização do espaço de trabalho é a Austrália
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Que dados são recolhidos pelo agente Log Analytics?
+
+Para obter uma lista completa das aplicações e serviços monitorizados pelo agente, consulte [o que é monitorizado pelo Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)
+
+> [!IMPORTANT]
+> Note que para alguns serviços, como o Azure Firewall, se tiver ativado a exploração madeireira e escolhido um recurso tagarela para registar (por exemplo, configurar o registo para *verboso), poderá verbosar*impactos significativos nas suas necessidades de armazenamento no espaço de trabalho do Log Analytics. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Posso apagar os espaços de trabalho por defeito criados pelo Security Center?
@@ -201,9 +209,17 @@ Para remover manualmente o agente:
 
 ## <a name="how-do-i-disable-data-collection"></a>Como desabilito a recolha de dados?
 
-O fornecimento automático está desligado por defeito. Pode desativar o fornecimento automático de recursos a qualquer momento, desligando esta definição na política de segurança. O fornecimento automático é altamente recomendado para obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades de SO e proteção de pontos finais.
+O fornecimento automático é altamente recomendado para obter alertas de segurança e recomendações sobre atualizações do sistema, vulnerabilidades de SO e proteção de pontos finais. Por predefinição, o fornecimento automático é desativado.
 
-Para desativar a recolha de dados, [inscreva-se no portal Azure,](https://portal.azure.com) **selecione Browse,** selecione **Security Center**e selecione a **política Desseta**. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático. Quando seleciona uma política de segurança de subscrição - A recolha de **dados** abre. Sob **o provisionamento automático,** selecione **Off**.
+Se o habilitaste, mas agora queres desativá-lo:
+
+1. Do [portal Azure,](https://portal.azure.com) **open Security Center** e selecione a política de **segurança.**
+
+1. Selecione a subscrição na qual pretende desativar o fornecimento automático.
+
+    **Política** de segurança - A recolha de dados abre.
+
+1. Sob **o provisionamento automático,** selecione **Off**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Como posso permitir a recolha de dados?
@@ -233,9 +249,6 @@ Para recolher os dados, cada VM e servidor devem ligar-se à Internet utilizando
 O agente consome uma quantidade nominal de recursos do sistema e deve ter pouco impacto no desempenho. Para obter mais informações sobre o impacto do desempenho e sobre o agente e extensão, consulte o guia de [planeamento e operações.](security-center-planning-and-operations-guide.md#data-collection-and-storage)
 
 
-## <a name="where-is-my-data-stored"></a>Onde é que os meus dados são armazenados?
-
-Os dados recolhidos deste agente são armazenados num espaço de trabalho existente no Log Analytics associado à sua subscrição ou num novo espaço de trabalho. Para mais informações, consulte [A Segurança de Dados](security-center-data-security.md).
 
 
 <!--Image references-->

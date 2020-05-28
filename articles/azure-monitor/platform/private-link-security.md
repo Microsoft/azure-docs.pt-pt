@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: ddd34295bfe64fdd336d8b237482b45f02e30201
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: a1b111ddfc134d2ec51fb2d0e9787a6eac8648f2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816718"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996453"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilize o Link Privado Azure para ligar as redes de forma segura ao Monitor Azure
 
@@ -188,7 +188,7 @@ As versões mais recentes dos agentes Windows e Linux devem ser utilizadas em re
 
 **Agente do Windows do Log Analytics**
 
-Utilize a versão do agente Log Analytics 18.20.18038.0 ou posterior.
+Utilize a versão 10.20.18038.0 ou posterior do agente Log Analytics.
 
 **Agente do Linux do Log Analytics**
 

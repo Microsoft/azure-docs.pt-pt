@@ -3,17 +3,19 @@ title: Histórico de implantação
 description: Descreve como ver as operações de implantação do Gestor de Recursos Azure com o portal PowerShell, Azure CLI e REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816289"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117838"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com o Gestor de Recursos Azure
 
-O Gestor de Recursos Azure permite-lhe visualizar o seu histórico de implantação e examinar operações específicas em implementações anteriores. Pode ver os recursos que foram implantados e obter informações sobre quaisquer erros.
+O Gestor de Recursos Azure permite-lhe visualizar o seu histórico de implementação. Pode examinar operações específicas em destacamentos anteriores e ver quais os recursos que foram mobilizados. Este histórico contém informações sobre quaisquer erros.
+
+O histórico de implantação de um grupo de recursos está limitado a 800 implantações. À medida que se aproxima do limite, as implementações são automaticamente eliminadas da história. Para obter mais informações, consulte [eliminações automáticas do histórico de implantação](deployment-history-deletions.md).
 
 Para ajudar na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para o Azure com o Gestor](common-deployment-errors.md)de Recursos Azure .
 
@@ -117,7 +119,7 @@ Cada implantação pode incluir múltiplas operações. Para ver mais detalhes s
 
 1. No resumo para uma implantação, selecione **detalhes da Operação**.
 
-    ![Selecione operações de implantação](./media/deployment-history/get-operation-details.png)
+    ![Selecione detalhes da operação](./media/deployment-history/get-operation-details.png)
 
 1. Vê os detalhes para o passo da implantação. Quando ocorre um erro, os detalhes incluem a mensagem de erro.
 
@@ -207,9 +209,9 @@ A resposta inclui uma mensagem de erro.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para ajudar na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para o Azure com o Gestor](common-deployment-errors.md)de Recursos Azure .
-* Para aprender sobre a utilização dos registos de atividade para monitorizar outros tipos de ações, consulte registos de atividade do [View para gerir os recursos do Azure](../management/view-activity-logs.md).
+* Para saber como as implementações são geridas na história, consulte [eliminações automáticas do histórico de implantação.](deployment-history-deletions.md)
 * Para validar a sua implementação antes de executá-la, consulte Implementar um grupo de recursos com o modelo do Gestor de [Recursos Azure](deploy-powershell.md).
 

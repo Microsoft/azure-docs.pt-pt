@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2020
+ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22f66a7be27f42bfd0305ad1eaf297ca8c8029fa
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245242"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996759"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recurso para máquinas
 
@@ -97,7 +97,7 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Incorporado no SO| Sim |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Sim |
-| Trend Micro – Todas as versões* | Família Windows Server  | Não | Sim |
+| Trend Micro – Segurança Profunda | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Linux Server  | Não | Sim, é o que**\*** |
@@ -106,15 +106,11 @@ Para obter informações sobre quando são geradas recomendações para cada uma
  **\*** Atualmente, o estado de cobertura e os dados de suporte estão apenas disponíveis no espaço de trabalho log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
 
 > [!NOTE]
-> - A deteção da Proteção do Ponto Final do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
-> - A deteção da proteção Trend Micro é suportada para agentes de Segurança Profunda.  Os agentes do OfficeScan não são apoiados.
+> A deteção da Proteção do Ponto Final do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como o [Security Center recolhe dados e o Agente de Análise de Registos.](security-center-enable-data-collection.md)
 - Saiba como o [Centro de Segurança gere e salvaguarda dados.](security-center-data-security.md)
-- Saiba como [planear e compreender as considerações de design para adotar o Azure Security Center.](security-center-planning-and-operations-guide.md)
 - Reveja as plataformas que suportam o [centro de segurança.](security-center-os-coverage.md)
-- Saiba mais sobre [a proteção contra ameaças para máquinas Windows e Linux no Azure Security Center](threat-protection.md#windows-machines).
-- Encontre [perguntas frequentes sobre o Azure Security Center.](faq-general.md)

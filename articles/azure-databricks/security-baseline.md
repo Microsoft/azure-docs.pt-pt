@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 229485b5aa1bf3a97429c8d82c4c962cd9fab5c7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681707"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016343"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Linha de base de segurança Azure para Tijolos de Dados Azure
 
@@ -200,7 +200,7 @@ Para a exploração de auditoria, a Azure Databricks fornece registos de diagnó
 
 Nota: Os registos de diagnóstico de Tijolos de Dados Azure requerem o Plano Premium de Tijolos de Dados Azure
 
-* [Como ativar as Definições de Diagnóstico para o Registo de Atividade do Azure)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como ativar as Definições de Diagnóstico para o Registo de Atividade seletiva do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [Como ativar as Definições de Diagnóstico para Os Tijolos de Dados Azure](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -262,7 +262,7 @@ Em alternativa, pode ativar e embarcar dados para o Azure Sentinel ou um SIEM de
 
 Nota: Os registos de diagnóstico de Tijolos de Dados Azure requerem o Plano Premium de Tijolos de Dados Azure
 
-* [Como enviar registos de databrick sintetmente para log analytics workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [Como enviar registos de databrick sintetmente para log analytics workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [Como configurar alertas no Espaço de Trabalho de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 
@@ -1082,7 +1082,7 @@ Além disso, marque claramente as assinaturas (para ex. produção, não-prod) e
 
 **Responsabilidade**: Partilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o referencial de [segurança azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

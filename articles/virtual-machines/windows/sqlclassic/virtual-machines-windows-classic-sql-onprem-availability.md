@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 928162282ca973811315728a07b4fbe40100324e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978054"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017584"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Expandir Grupos de Disponibilidade Always On no local para o Azure
 Os Grupos sempre em disponibilidade proporcionam uma elevada disponibilidade para grupos de base de dados adicionando réplicas secundárias. Estas réplicas permitem a falha nas bases de dados em caso de falha. Além disso, podem ser usados para descarregar cargas de trabalho de leitura ou tarefas de backup.
@@ -41,7 +41,7 @@ Esta secção mostra-lhe como utilizar o Assistente de **Réplica Add Azure** pa
 > [!IMPORTANT]
 > O **Add Azure Replica Wizard** apenas suporta máquinas virtuais criadas com o modelo de implementação Classic. As novas implementações vm devem utilizar o novo modelo de Gestor de Recursos. Se estiver a utilizar VMs com Gestor de Recursos, então deve adicionar manualmente a réplica secundária do Azure utilizando comandos Transact-SQL (não mostrados aqui). Este assistente não funcionará no cenário do Gestor de Recursos.
 
-1. A partir do Estúdio de Gestão de Servidores SQL, expanda sempre em**grupos** > de disponibilidade de **alta disponibilidade** > **[Nome do seu Grupo de Disponibilidade]**.
+1. A partir do Estúdio de Gestão de Servidores SQL, expanda **sempre em grupos**de disponibilidade de alta disponibilidade  >  **Availability Groups**  >  **[Nome do seu Grupo de Disponibilidade]**.
 2. Clique direito **Nas Réplicas**de Disponibilidade, em seguida, clique em **Adicionar Réplica**.
 3. Por predefinição, é apresentado o **Add Replica to Availability Group Wizard.** Clique em **Seguinte**.  Se tiver selecionado a opção **Não mostrar novamente esta página** na parte inferior da página durante um lançamento anterior deste assistente, este ecrã não será apresentado.
    
@@ -89,8 +89,8 @@ Esta secção mostra-lhe como utilizar o Assistente de **Réplica Add Azure** pa
 ## <a name="create-an-availability-group-listener"></a>Criar um ouvinte de grupo de disponibilidade
 Depois de criado o grupo de disponibilidade, deverá criar um ouvinte para os clientes se conectarem às réplicas. Os ouvintes direcionam as ligações para a primária ou para uma réplica secundária apenas de leitura. Para obter mais informações sobre os ouvintes, consulte [Configure um ouvinte ILB para Sempre Em Grupos](../classic/ps-sql-int-listener.md)de Disponibilidade em Azure .
 
-## <a name="next-steps"></a>Passos seguintes
-Além de utilizar o Assistente de **Réplica Add Azure** para estender o seu Grupo Always On Availability para O Azure, também pode mover algumas cargas de trabalho do Servidor SQL completamente para O Azure. Para começar, consulte [o provisionamento de uma máquina virtual do Servidor SQL no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+## <a name="next-steps"></a>Próximos passos
+Além de utilizar o Assistente de **Réplica Add Azure** para estender o seu Grupo Always On Availability para O Azure, também pode mover algumas cargas de trabalho do Servidor SQL completamente para O Azure. Para começar, consulte [o provisionamento de uma máquina virtual do Servidor SQL no Azure](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-Para outros tópicos relacionados com a execução do Servidor SQL em VMs Azure, consulte [o Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para outros tópicos relacionados com a execução do Servidor SQL em VMs Azure, consulte [o Servidor SQL em Máquinas Virtuais Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

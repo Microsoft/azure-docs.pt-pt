@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 104a583122fa08cf145191b8bcee49ce5f042599
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652226"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021403"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelos
 
@@ -74,7 +74,7 @@ O fator de escala final é aplicado aos vértices de geometria e às transforma�
 O centro é importante se o modelo de origem for deslocado longe da origem, uma vez que, nesse caso, problemas de precisão de ponto flutuante podem causar artefactos de renderização.
 
 * `opaqueMaterialDefaultSidedness`- O motor de renderização pressupõe que os materiais opacos são de dupla face.
-Se não for esse o comportamento pretendido, este parâmetro deve ser definido para "SingleSided". Para mais informações, consulte [a renderização unilateral](../../overview/features/single-sided-rendering.md).
+Se não for esse o comportamento pretendido, este parâmetro deve ser definido para "SingleSided". Para mais informações, consulte [ :::no-loc text="single sided"::: a renderização.](../../overview/features/single-sided-rendering.md)
 
 ### <a name="material-overrides"></a>Sobreposições de material
 
@@ -90,7 +90,7 @@ O motor de renderização espera que os valores de cor estejam no espaço linear
 Se um modelo for definido usando o espaço gama, então estas opções devem ser definidas como verdadeiras.
 
 * `gammaToLinearMaterial`- Converter cores de material do espaço gama para o espaço linear
-* `gammaToLinearVertex`- Converter cores vértices do espaço gama para o espaço linear
+* `gammaToLinearVertex`- Converter :::no-loc text="vertex"::: cores do espaço gama para o espaço linear
 
 > [!NOTE]
 > Para os ficheiros FBX, estas definições são definidas `true` por padrão. Para todos os outros tipos de ficheiros, a predefinição é `false` .
@@ -127,12 +127,12 @@ O `none` modo tem o tempo de funcionamento mínimo e também tempos de carregame
 
 * `axis`- Para anular a coordenadagem de vetores unitários do sistema. Os valores predefinidos são `["+x", "+y", "+z"]` . Em teoria, o formato FBX tem um cabeçalho onde esses vetores são definidos e a conversão usa essa informação para transformar a cena. O formato glTF também define um sistema de coordenadas fixas. Na prática, alguns ativos têm informações incorretas no seu cabeçalho ou foram salvos com uma convenção de sistema de coordenadas diferente. Esta opção permite-lhe anular o sistema de coordenadas para compensar. Por exemplo: trocará o eixo Z e o eixo Y e manterá a capacidade do `"axis" : ["+x", "+z", "-y"]` sistema de coordenadas invertendo a direção do eixo Y.
 
-### <a name="vertex-format"></a>Formato Vertex
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formato
 
-É possível ajustar o formato vértice para uma malha, para trocar precisão para poupança de memória. Uma pegada de memória mais baixa permite-lhe carregar modelos maiores ou obter um melhor desempenho. No entanto, dependendo dos seus dados, o formato errado pode ter um impacto significativo na qualidade da renderização.
+É possível ajustar o :::no-loc text="vertex"::: formato para uma malha, para trocar precisão para poupança de memória. Uma pegada de memória mais baixa permite-lhe carregar modelos maiores ou obter um melhor desempenho. No entanto, dependendo dos seus dados, o formato errado pode ter um impacto significativo na qualidade da renderização.
 
 > [!CAUTION]
-> Mudar o formato de vértice deve ser um último recurso quando os modelos já não se encaixam na memória, ou ao otimizar para o melhor desempenho possível. As mudanças podem facilmente introduzir artefactos de renderização, tanto óbvios como subtis. A menos que saiba o que procurar, não deve mudar o padrão.
+> Mudar o formato deve ser um último recurso quando os :::no-loc text="vertex"::: modelos já não se encaixam na memória, ou quando otimizam para o melhor desempenho possível. As mudanças podem facilmente introduzir artefactos de renderização, tanto óbvios como subtis. A menos que saiba o que procurar, não deve mudar o padrão.
 
 Estes ajustes são possíveis:
 
@@ -159,11 +159,11 @@ A secção seguinte `vertex` no ficheiro `.json` é opcional. Para cada porção
 
 Ao forçar um componente a, é garantido que a malha de `NONE` saída não tem o respetivo fluxo.
 
-#### <a name="component-formats-per-vertex-stream"></a>Formatos de componentes por fluxo de vértice
+#### <a name="component-formats-per-no-loc-textvertex-stream"></a>Formatos de componentes por :::no-loc text="vertex"::: fluxo
 
 Estes formatos são permitidos para os respetivos componentes:
 
-| Componente vertex | Formatos suportados (arrojado = padrão) |
+| :::no-loc text="Vertex"::: | Formatos suportados (arrojado = padrão) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT,** 16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED,** NENHUM |
@@ -178,7 +178,7 @@ Estes formatos são permitidos para os respetivos componentes:
 
 As pegadas de memória dos formatos são as seguintes:
 
-| Formato | Descrição | Bytes por vértice |
+| Formato | Descrição | Bytes por:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|precisão de ponto flutuante completo de dois componentes|8
 |16_16_FLOAT|precisão de ponto flutuante de dois componentes|4
@@ -197,11 +197,11 @@ As pegadas de memória dos formatos são as seguintes:
 
 #### <a name="example"></a>Exemplo
 
-Assuma que tem um modelo de fotogrammetria, que tem iluminação cozida nas texturas. Tudo o que é necessário para renderizar o modelo são posições de vértice e coordenadas de textura.
+Assuma que tem um modelo de fotogrammetria, que tem iluminação cozida nas texturas. Tudo o que é necessário para renderizar o modelo são posições e coordenadas de :::no-loc text="vertex"::: textura.
 
-Por defeito, o conversor tem de assumir que poderá querer utilizar materiais PBR num modelo em algum momento, para que gere `normal` , e dados para `tangent` `binormal` si. Consequentemente, o uso por vértice de memória é `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 bytes) = 32 bytes. Modelos maiores deste tipo podem facilmente ter muitos milhões de vértices resultando em modelos que podem ocupar vários gigabytes de memória. Tais grandes quantidades de dados afetarão o desempenho e poderá até ficar sem memória.
+Por defeito, o conversor tem de assumir que poderá querer utilizar materiais PBR num modelo em algum momento, para que gere `normal` , e dados para `tangent` `binormal` si. Consequentemente, o uso por vértice de memória é `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 bytes) = 32 bytes. Modelos maiores deste tipo podem facilmente ter muitos milhões de :::no-loc text="vertices"::: modelos que podem ocupar vários gigabytes de memória. Tais grandes quantidades de dados afetarão o desempenho e poderá até ficar sem memória.
 
-Sabendo que nunca precisa de iluminação dinâmica no modelo, e sabendo que todas as coordenadas de textura estão ao `[0; 1]` alcance, pode `normal` `tangent` definir, e `binormal` para e para metade a `NONE` `texcoord0` precisão , `16_16_FLOAT` resultando em apenas 16 bytes por vértice. Cortar os dados da malha ao meio permite-lhe carregar modelos maiores e potencialmente melhorar o desempenho.
+Sabendo que nunca precisa de iluminação dinâmica no modelo, e sabendo que todas as coordenadas de textura estão ao `[0; 1]` alcance, pode `normal` `tangent` definir, e `binormal` para e para metade a `NONE` `texcoord0` precisão , `16_16_FLOAT` resultando em apenas 16 bytes por :::no-loc text="vertex"::: . Cortar os dados da malha ao meio permite-lhe carregar modelos maiores e potencialmente melhorar o desempenho.
 
 ## <a name="typical-use-cases"></a>Casos de uso típico
 
@@ -215,7 +215,7 @@ Existem certas classes de casos de uso que se qualificam para otimizações espe
 
 * Quando precisa de mover peças, isso significa que normalmente também precisa de apoio para raios ou [outras consultas espaciais,](../../overview/features/spatial-queries.md)para que possa escolher essas peças em primeiro lugar. Por outro lado, se não pretende mover algo, é provável que também não precise que participe em consultas espaciais e, portanto, possa desligar a `generateCollisionMesh` bandeira. Este interruptor tem um impacto significativo nos tempos de conversão, tempos de carregamento e também custos de atualização do tempo de execução por quadro.
 
-* Se a aplicação não utilizar [aviões cortados,](../../overview/features/cut-planes.md)a `opaqueMaterialDefaultSidedness` bandeira deve ser desligada. O ganho de desempenho é tipicamente de 20%-30%. Aviões cortados ainda podem ser usados, mas não haverá rostos traseiros quando olhar para as partes internas dos objetos, o que parece contraintuitivo. Para mais informações, consulte [a renderização unilateral](../../overview/features/single-sided-rendering.md).
+* Se a aplicação não utilizar [aviões cortados,](../../overview/features/cut-planes.md)a `opaqueMaterialDefaultSidedness` bandeira deve ser desligada. O ganho de desempenho é tipicamente de 20%-30%. Aviões cortados ainda podem ser usados, mas não haverá rostos traseiros quando olhar para as partes internas dos objetos, o que parece contraintuitivo. Para mais informações, consulte [ :::no-loc text="single sided"::: a renderização.](../../overview/features/single-sided-rendering.md)
 
 ### <a name="use-case-photogrammetry-models"></a>Caso de utilização: Modelos de fotogrammetria
 
@@ -234,7 +234,7 @@ Nestes casos de utilização, os modelos têm frequentemente um detalhe muito el
 * Os moldes de raios são tipicamente parte integrante da aplicação, por isso as malshes de colisão devem ser geradas.
 * Os aviões cortados ficam melhor com a `opaqueMaterialDefaultSidedness` bandeira ativada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conversão de modelo](model-conversion.md)
 * [Materiais de cor](../../overview/features/color-materials.md)

@@ -11,12 +11,12 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 193b1d5ff37eace127c8d5473b102842f4fa2a8c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5935efca138d156507e2e3fefa65d045f618a57b
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654500"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020834"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Dados de carga do Armazenamento do Lago De Dados Azure para Synapse SQL
 
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>Criar a fonte de dados externa
 
-Utilize este comando CRIAR FONTE DE [DADOS EXTERNOs](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para armazenar a localização dos dados. Se estiver a autenticar com passagem aAD, o parâmetro CREDENTIAL não é necessário. Se estiver a autenticar usando identidade gerida para pontos finais de serviço, siga esta [documentação](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-synapse-analytics-polybase) para configurar a fonte de dados externa.
+Utilize este comando CRIAR FONTE DE [DADOS EXTERNOs](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para armazenar a localização dos dados. Se estiver a autenticar com passagem aAD, o parâmetro CREDENTIAL não é necessário. Se estiver a autenticar usando identidade gerida para pontos finais de serviço, siga esta [documentação](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-synapse-polybase) para configurar a fonte de dados externa.
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -226,7 +226,7 @@ O exemplo que se segue é um bom ponto de partida para a criação de estatísti
 
 Carregou com sucesso dados no seu armazém de dados. Grande trabalho!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou tabelas externas para definir a estrutura para dados armazenados em Data Lake Storage Gen1, e depois utilizou a declaração PolyBase CREATE TABLE AS SELECT para carregar dados no seu armazém de dados.
 

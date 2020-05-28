@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 05/20/2020
-  ms.openlocfilehash: 347e60c8b0c50db1bdba7c8262701542448fe12a
-  ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+  ms.openlocfilehash: b28cae1fd59e863c04d744a5c17108f1bd942a4d
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83682068"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84119354"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -91,10 +91,12 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Perguntas e Respostas da Microsoft para o Azure Policy
+      url: /answers/topics/azure-policy.html.html
     - text: Canal do YouTube sobre a Governação do Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Pedir funcionalidade do produto
-      url: https://feedback.azure.com/forums/915958-azure-governance
+      url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
     - text: Tech Community da Governação do Azure
       url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 - title: Referência

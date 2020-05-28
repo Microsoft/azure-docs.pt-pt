@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637250"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021709"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Quickstart: Criar um endpoint privado usando o portal Azure
 
-Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste Quickstart, você aprenderá a criar um VM numa Rede Virtual Azure, um Servidor de Base de Dados SQL com um ponto final privado Azure usando o portal Azure. Em seguida, pode aceder de forma segura ao Servidor de Base de Dados SQL a partir do VM.
+Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste Quickstart, você aprenderá a criar um VM numa Rede Virtual Azure, um servidor SQL lógico com um ponto final privado Azure usando o portal Azure. Em seguida, pode aceder de forma segura à Base de Dados SQL a partir do VM.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -36,18 +36,18 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<>de nome de grupo de recursos**  | myResourceGroup |
-| **\<>de nome de rede virtual** | myVirtualNetwork          |
-| **\<>de nome da região**          | E.U.A. Centro-Oeste    |
-| **\<>espaço de endereçoI4**   | 10.1.0.0/16          |
-| **\<>de nome de subnet**          | mySubnet        |
-| **\<>de endereços-endereço de subnet** | 10.1.0.0/24          |
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | E.U.A. Centro-Oeste    |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **Virtual Machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso**  >  **Compute**Virtual  >  **Machine**.
 
 1. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
 
@@ -93,10 +93,11 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 1. Quando vir a **mensagem de validação passada,** selecione **Criar**.
 
-## <a name="create-a-sql-database-server"></a>Criar um servidor de base de dados SQL
-Nesta secção, irá criar um servidor de base de dados SQL no Azure. 
+## <a name="create-a-logical-sql-server"></a>Criar um servidor SQL lógico
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > base de**dados SQL**de base de**dados** > de recursos .
+Nesta secção, irá criar um servidor SQL lógico no Azure. 
+
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma**base de dados  >  **Databases**  >  **SQL**de base de dados de recursos .
 
 1. Na Base de **dados Create SQL - Basics,** insira ou selecione esta informação:
 
@@ -127,7 +128,7 @@ Nesta secção, irá criar um servidor de base de dados SQL no Azure.
 
 Nesta secção, irá criar um servidor SQL e adicionar-lhe um ponto final privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um Centro** > de Ligação Privada de**Rede** > de recursos **(Pré-visualização)**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um Centro**de Ligação Privada de Rede de recursos  >  **Networking**  >  **(Pré-visualização)**.
 2. No **Private Link Center - Visão geral,** sobre a opção de construir uma **ligação privada a um serviço,** selecione **Iniciar**.
 1. Em **Criar um ponto final privado (Pré-visualização) - Básicos,** insira ou selecione esta informação:
 
@@ -137,7 +138,7 @@ Nesta secção, irá criar um servidor SQL e adicionar-lhe um ponto final privad
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
-    | Nome | Insira *o meu PrivateEndpoint*. Se este nome for tomado, crie um nome único. |
+    | Name | Insira *o meu PrivateEndpoint*. Se este nome for tomado, crie um nome único. |
     |Região|Selecione **WestCentralUS**.|
     |||
 5. Selecione **Seguinte: Recurso**.
@@ -185,7 +186,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+        > Pode ser necessário selecionar **Mais escolhas**  >  **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -193,7 +194,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
 
 1. Assim que o ambiente de trabalho vM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Aceda ao servidor de base de dados SQL em privado a partir do VM
+## <a name="access-sql-database-privately-from-the-vm"></a>Aceder à Base de Dados SQL em privado a partir do VM
 
 1. No Ambiente de Trabalho Remoto do *myVM,* abra a PowerShell.
 
@@ -216,7 +217,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
     | ------- | ----- |
     | Tipo de servidor| Selecione **Motor de Base de Dados**.|
     | Nome do servidor| Selecione *myserver.database.windows.net* |
-    | Nome de utilizador | Introduza o username@servername nome de utilizador como o que é fornecido durante a criação do servidor SQL. |
+    | Nome de utilizador | Introduza o nome de utilizador como username@servername o que é fornecido durante a criação do servidor SQL. |
     |Palavra-passe |Introduza uma palavra-passe fornecida durante a criação do servidor SQL. |
     |Lembre-se da palavra-passe|Selecione **Sim**.|
     |||
@@ -231,6 +232,6 @@ Quando terminar usando o ponto final privado, o servidor SQL e o VM, elimine o g
 2. Selecione **Eliminar grupo de recursos**. 
 3. Introduza o myResourceGroup para **ESCREVER O NOME DE GRUPO DE RECURSOS** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criou um VM numa rede virtual, num servidor de base de dados SQL e num ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor de base de dados SQL utilizando o Private Link. Para saber mais sobre pontos finais privados, veja o que é o ponto final privado do [Azure?](private-endpoint-overview.md)
+Neste arranque rápido, criou um VM numa rede virtual, um servidor SQL lógico e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura à Base de Dados SQL utilizando o Private Link. Para saber mais sobre pontos finais privados, veja o que é o ponto final privado do [Azure?](private-endpoint-overview.md)

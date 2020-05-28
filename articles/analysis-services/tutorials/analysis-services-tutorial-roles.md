@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81454259"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016394"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
 
@@ -59,7 +59,7 @@ Para as tarefas restantes, utilize o SSMS para ligar e para gerir o seu servidor
     ![Ligar no SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Recomenda-se que escolha o Active Directory Universal com Suporte de MFA. Este tipo de autenticação suporta [autenticação não interativa e multifator](../../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > Recomenda-se que escolha o Active Directory Universal com Suporte de MFA. Este tipo de autenticação suporta [autenticação não interativa e multifator](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
 
 3. No **Object Explorer**, expanda para ver os objetos do servidor. Clique com o botão direito do rato para ver as propriedades do servidor.
    
@@ -67,7 +67,7 @@ Para as tarefas restantes, utilize o SSMS para ligar e para gerir o seu servidor
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Adicionar uma conta de utilizador à função de administrador do servidor
 
-Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD para a função de administrador de servidor. Se especificar um grupo `obj:groupid@tenantid`de segurança, utilize .
+Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD para a função de administrador de servidor. Se especificar um grupo de segurança, utilize `obj:groupid@tenantid` .
 
 1. No **Object Explorer**, clique com o botão direito do rato no nome do servidor e, em seguida, clique em **Propriedades**. 
 2. Na janela **Propriedades do Analysis Server**, clique em **Segurança** > **Adicionar**.
@@ -130,16 +130,16 @@ Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/analysi
 ## <a name="verify-your-changes"></a>Verifique as suas alterações
 
 1. No **Object Explorer**, clique no servername e, em seguida, clique em **Atualizar** ou prima **F5**.
-2. Expandir **bases de dados** > **funções**de**aventura.** >  Verifique se as alterações adicionadas à conta de utilizador e à nova função nas tarefas anteriores são apresentadas.   
+2. Expandir **bases de dados**  >  **adventureworks**  >  **funções**de aventura. Verifique se as alterações adicionadas à conta de utilizador e à nova função nas tarefas anteriores são apresentadas.   
 
     ![Verificar no Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize a **Role Properties** > **Membership** para remover as contas dos utilizadores ou clique na direita numa função e, em seguida, clique em **Eliminar**.
+Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize a **Role Properties**Membership para remover as contas dos utilizadores ou clique na direita numa  >  **Membership** função e, em seguida, clique em **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a ligar ao seu servidor AS do Azure e a explorar as propriedades e as bases de dados modelo e propriedades de exemplo adventureworks no SSMS. Também aprendeu a utilizar scripts SSMS e TMSL para adicionar utilizadores ou grupos às funções novas e atuais. Agora que tem permissões de utilizador configuradas para o seu servidor e base de dados modelo de exemplo, o utilizador e outros utilizadores podem ligar-se ao mesmo ao utilizar aplicações cliente, como o Power BI. Para obter mais informações, avance para o próximo tutorial. 
 
 > [!div class="nextstepaction"]

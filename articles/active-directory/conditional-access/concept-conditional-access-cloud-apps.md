@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cf00fab14f91b151327b435068d689edab32b2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737729"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014354"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicações ou ações em nuvem
 
@@ -36,7 +36,7 @@ Os administradores podem atribuir uma política de Acesso Condicional às seguin
 - [Escritório 365 (pré-visualização)](#office-365-preview)
 - Azure Analysis Services
 - DevOps do Azure
-- [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../sql-database/sql-database-conditional-access.md)
+- [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Proteção de Informação do Microsoft Azure](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -126,7 +126,7 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 
 As ações do utilizador são tarefas que podem ser executadas por um utilizador. A única ação atualmente suportada é o Registo de informações de **segurança,** que permite que a política de Acesso Condicional aplique quando os utilizadores que estão habilitados para uma tentativa de registo combinado de registo das suas informações de segurança. Mais informações podem ser encontradas no artigo, Registo combinado de informações de [segurança.](../authentication/concept-registration-mfa-sspr-combined.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Acesso Condicional: Condições](concept-conditional-access-conditions.md)
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c40b58dfb63ac6bf1b5532eb06bfd2ad0cdccde9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73683147"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022032"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines preditivos utilizando o Azure Machine Learning e o Azure Data Factory
 
@@ -80,7 +80,7 @@ Neste cenário, o serviço Web Azure Machine Learning faz previsões utilizando 
 > [!IMPORTANT]
 > Se o serviço web tiver várias inputs, utilize a propriedade **webServiceInputs** em vez de utilizar **webServiceInput**. Ver o [serviço Web requer várias inputs](#web-service-requires-multiple-inputs) para um exemplo de utilização da propriedade webServiceInputs.
 >
-> Os conjuntos de dados referenciados pelas propriedades/ **webServiceInputs**e **webServiceOutputs** (em **typeProperties)** também devem ser incluídos nas **inputs** e **saídas**da Atividade.**webServiceInputs**
+> Os conjuntos de dados referenciados pelas propriedades **webServiceInputs** / **webServiceInputs** e **webServiceOutputs** (em **typeProperties)** também devem ser incluídos nas **inputs** e **saídas**da Atividade.
 >
 > Na sua experiência de estúdio Azure Machine Learning, as portas de entrada e saída do serviço web e os parâmetros globais têm nomes padrão ("input1", "input2") que pode personalizar. Os nomes que utiliza para webServiceInputs, webServiceOutputs e definições globalParameters devem corresponder exatamente aos nomes das experiências. Pode ver a carga útil do pedido de amostra na página de Ajuda de Execução de Lote para o seu ponto final do estúdio Azure Machine Learning para verificar o mapeamento esperado.
 >
@@ -311,7 +311,7 @@ Recomendamos que passe pelo [seu primeiro pipeline com][adf-build-1st-pipeline] 
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experiências utilizando Módulos leitor/escritor para se referir a dados em vários armazenamentos
 Outro cenário comum ao criar experiências de estúdio Azure Machine Learning é usar módulos Leitor e Escritor. O módulo de leitor é usado para carregar dados numa experiência e o módulo de escritor é para guardar dados das suas experiências. Para mais detalhes sobre módulos de leitor e escritor, consulte os tópicos [do Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [do Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) na Biblioteca MSDN.
 
-Ao utilizar os módulos de leitor e escritor, é uma boa prática utilizar um parâmetro de serviço Web para cada propriedade destes módulos de leitor/escritor. Estes parâmetros web permitem configurar os valores durante o tempo de execução. Por exemplo, pode criar uma experiência com um módulo de leitor que utiliza uma Base de Dados SQL Azure: XXX.database.windows.net. Depois de implementado o serviço web, pretende permitir aos consumidores do serviço web especificar outro Servidor Azure SQL chamado YYY.database.windows.net. Pode utilizar um parâmetro de serviço Web para permitir configurar este valor.
+Ao utilizar os módulos de leitor e escritor, é uma boa prática utilizar um parâmetro de serviço Web para cada propriedade destes módulos de leitor/escritor. Estes parâmetros web permitem configurar os valores durante o tempo de execução. Por exemplo, pode criar uma experiência com um módulo de leitor que utiliza uma Base de Dados SQL Azure: XXX.database.windows.net. Depois de implementado o serviço web, pretende permitir aos consumidores do serviço web especificar outro servidor lógico SQL chamado YYY.database.windows.net. Pode utilizar um parâmetro de serviço Web para permitir configurar este valor.
 
 > [!NOTE]
 > A entrada e saída do serviço web são diferentes dos parâmetros do serviço Web. No primeiro cenário, viu como uma entrada e saída podem ser especificadas para um serviço Web do estúdio Azure Machine Learning. Neste cenário, passa-se por parâmetros para um serviço Web que corresponda às propriedades dos módulos de leitor/escritor.
@@ -347,7 +347,7 @@ Também pode utilizar funções de fábrica de dados em [valores](data-factory-f
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Utilização de um módulo Reader para ler dados de vários ficheiros em Azure Blob
 Grandes oleodutos com atividades como Pig e Hive podem produzir um ou mais ficheiros de saída sem extensões. Por exemplo, quando especifica uma tabela externa da Colmeia, os dados para a tabela externa da Colmeia podem ser armazenados no armazenamento de blob Azure com o seguinte nome 000000_0. Pode utilizar o módulo do leitor numa experiência para ler vários ficheiros e usá-los para previsões.
 
-Ao utilizar o módulo de leitor numa experiência de Aprendizagem automática Azure, pode especificar o Azure Blob como entrada. Os ficheiros no armazenamento de blob Azure podem ser os ficheiros de saída (Exemplo: 000000_0) que são produzidos por um script pig e hive em execução no HDInsight. O módulo de leitor permite-lhe ler ficheiros (sem extensões) configurando o **Caminho para o contentor, diretório/bolha**. O **Caminho para** o contentor aponta para o recipiente e o **diretório/bolha** aponta para pasta que contém os ficheiros como mostrado na imagem seguinte. O asterisco que \*é, ) **especifica que todos os ficheiros do recipiente/pasta (isto é, dados/dados\*agregados/ano=2014/mês-6/ )** são lidos como parte da experiência.
+Ao utilizar o módulo de leitor numa experiência de Aprendizagem automática Azure, pode especificar o Azure Blob como entrada. Os ficheiros no armazenamento de blob Azure podem ser os ficheiros de saída (Exemplo: 000000_0) que são produzidos por um script pig e hive em execução no HDInsight. O módulo de leitor permite-lhe ler ficheiros (sem extensões) configurando o **Caminho para o contentor, diretório/bolha**. O **Caminho para** o contentor aponta para o recipiente e o **diretório/bolha** aponta para pasta que contém os ficheiros como mostrado na imagem seguinte. O asterisco que é, \* ) especifica que todos os **ficheiros do recipiente/pasta (isto é, dados/dados agregados/ano=2014/mês-6/ \* )** são lidos como parte da experiência.
 
 ![Propriedades de Azure Blob](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 

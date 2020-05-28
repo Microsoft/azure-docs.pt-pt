@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75969297"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021896"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Perfis de Cliente
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Cortana Intelligence Suite de aceleradores de soluções.  Para mais informações sobre a Cortana Intelligence, visite a [Cortana Intelligence Suite.](https://www.microsoft.com/cortanaanalytics) Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como a Azure Data Factory pode resolver problemas de análise comuns.
@@ -38,7 +38,7 @@ Tudo o que precisa para aceder e experimentar este caso de uso simples é uma [s
 3. Na lâmina de **gasodutos Sample,** clique no perfil do **Cliente** que pretende implementar.
 
     ![Lâmina de gasodutos de amostra](./media/data-factory-samples/SampleTile.png)
-4. Especifique as definições de configuração para a amostra. Por exemplo, o nome e a chave da sua conta de armazenamento Azure, nome do servidor Azure SQL, base de dados, ID do utilizador e palavra-passe.
+4. Especifique as definições de configuração para a amostra. Por exemplo, o nome e a chave da sua conta de armazenamento Azure, nome lógico do servidor SQL, base de dados, ID do utilizador e palavra-passe.
 
     ![Lâmina de amostra](./media/data-factory-samples/SampleBlade.png)
 5. Depois de terminar com a especificação das definições de configuração, clique em **Criar/implementar** os gasodutos de amostra e serviços/tabelas ligados utilizados pelos gasodutos.

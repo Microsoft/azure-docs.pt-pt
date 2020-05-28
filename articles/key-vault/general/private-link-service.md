@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 678e91126c04d5b299d9234a1602580260c5aee6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aef8c026fad631396e58716e65640f5792ad07c8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425092"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116791"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o cofre chave com ligação privada azure
 
@@ -73,12 +73,12 @@ Se já tiver um cofre chave, pode criar uma ligação de ligação privada segui
 1. Selecione o separador de ligações de ponto final privado na parte superior da página
 1. Selecione o botão "+ Ponto Final Privado" na parte superior da página.
 
-    ![Imagem](../media/private-link-service-3.png) ![de imagem](../media/private-link-service-4.png)
+    ![](../media/private-link-service-3.png) ![ Imagem de imagem](../media/private-link-service-4.png)
 
 Pode optar por criar um ponto final privado para qualquer recurso Azure na utilização desta lâmina. Pode utilizar os menus de dropdown para selecionar um tipo de recurso e selecionar um recurso no seu diretório, ou pode ligar-se a qualquer recurso Azure utilizando um ID de recurso. Deixe inalterada a opção "integrar com a zona privada DNS".  
 
-![Imagem](../media/private-link-service-3.png)
-![de imagem](../media/private-link-service-4.png)
+![](../media/private-link-service-3.png)
+ ![ Imagem de imagem](../media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Estabelecer uma ligação de ligação privada ao Cofre chave utilizando o CLI
 
@@ -124,7 +124,7 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ```
 ### <a name="link-private-dns-zone-to-virtual-network"></a>Ligar a Zona Privada dNS à rede virtual 
 ```console
-az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
 ```
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Criar um ponto final privado (aprovar automaticamente) 
 ```console
@@ -146,7 +146,7 @@ Existem quatro estados de provisionamento:
 
 | Serviço fornecer ação | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
+| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejected | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |

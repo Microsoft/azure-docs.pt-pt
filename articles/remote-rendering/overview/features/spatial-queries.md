@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758848"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021301"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Existem três modos de recolha de sucesso:
 
-* **Mais próximo:** Neste modo, apenas o impacto mais próximo será relatado.
-* **Qualquer:** Prefira este modo quando tudo o que quer saber é *se* um raio atingiria alguma coisa, mas não se importa com o que foi atingido exatamente. Esta consulta pode ser consideravelmente mais barata para avaliar, mas também tem poucas aplicações.
-* **Todos:** Neste modo, todos os acessos ao longo do raio são relatados, classificados à distância. Não use este modo a menos que precise de mais do que o primeiro sucesso. Limite o número de acessos reportados com a `MaxHits` opção.
+* ** `Closest` :** Neste modo, apenas será reportado o impacto mais próximo.
+* ** `Any` :** Prefira este modo quando tudo o que quer saber é *se* um raio atingiria alguma coisa, mas não se importa exatamente com o que foi atingido. Esta consulta pode ser consideravelmente mais barata para avaliar, mas também tem poucas aplicações.
+* ** `All` :** Neste modo, todos os acessos ao longo do raio são relatados, classificados à distância. Não use este modo a menos que precise de mais do que o primeiro sucesso. Limite o número de acessos reportados com a `MaxHits` opção.
 
 Para excluir objetos seletivamente de serem considerados para moldes de raios, o componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md) pode ser utilizado.
 
@@ -106,13 +106,13 @@ O resultado de uma consulta de ray cast é uma série de sucessos. A matriz est�
 
 A Hit tem as seguintes propriedades:
 
-* **HitEntity:** Que [entidade](../../concepts/entities.md) foi atingida.
-* **Subpartid:** Qual *submalha* foi atingida num [MeshComponent.](../../concepts/meshes.md) Pode ser usado para indexar `MeshComponent.UsedMaterials` e procurar o [material](../../concepts/materials.md) naquele ponto.
-* **Posição de sucesso:** A posição espacial mundial onde o raio cruzou o objeto.
-* **HitNormal:** A superfície espacial mundial normal da malha na posição do cruzamento.
-* **DistancetoHit:** A distância da posição de partida do raio até ao golpe.
+* ** `HitEntity` :** Que [entidade](../../concepts/entities.md) foi atingida.
+* ** `SubPartId` :** Qual *submalha* foi atingida num [MeshComponent](../../concepts/meshes.md). Pode ser usado para indexar `MeshComponent.UsedMaterials` e procurar o [material](../../concepts/materials.md) naquele ponto.
+* ** `HitPosition` :** A posição espacial mundial onde o raio cruzou o objeto.
+* ** `HitNormal` :** A superfície espacial mundial normal da malha na posição do cruzamento.
+* ** `DistanceToHit` :** A distância da posição de arranque do raio até ao golpe.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Limites dos objetos](../../concepts/object-bounds.md)
 * [Estados hierárquicos dominantes](override-hierarchical-state.md)

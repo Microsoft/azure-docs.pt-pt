@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418733"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022117"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -42,13 +42,13 @@ Este tutorial mostra-lhe como fazer as seguintes tarefas:
 
 Este tutorial utiliza o .NET SDK. Pode utilizar outros mecanismos para interagir com a Azure Data Factory. Para arranques rápidos da Fábrica de Dados, consulte [Quickstarts de 5 Minutos](/azure/data-factory/quickstart-create-data-factory-portal).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conta de Armazenamento Azure. Usa o armazenamento de bolhas como uma loja de dados de origem. Se não tiver uma conta de armazenamento Azure, consulte [Criar uma conta](../storage/common/storage-account-create.md)de armazenamento .
 * Explorador de Armazenamento Azure. Para instalar esta ferramenta, consulte [o Azure Storage Explorer](https://storageexplorer.com/).
-* Base de Dados SQL do Azure. Pode utilizar a base de dados como um arquivo de dados sink. Se não tiver uma base de dados Azure SQL, consulte Criar uma base de [dados Azure SQL](../sql-database/sql-database-get-started-portal.md).
+* Base de Dados SQL do Azure. Pode utilizar a base de dados como um arquivo de dados sink. Se não tiver uma base de dados Azure SQL, consulte Criar uma base de [dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. Este artigo usa o Visual Studio 2019.
 * Azure .NET SDK. Descarregue e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
@@ -79,7 +79,7 @@ Criar uma aplicação de consola C# .NET:
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas** > **nuget pacote manager** > **consola**.
+1. Selecione **ferramentas**  >  **nuget pacote manager**  >  **consola**.
 1. Na **consola**do Gestor de Pacotes, execute os seguintes comandos para instalar pacotes. Consulte o [pacote de nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter mais detalhes.
 
    ```powershell
@@ -103,7 +103,7 @@ Criar uma aplicação de consola C# .NET:
    using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 
-1. Adicione estas variáveis `Program` estáticas à classe. Substitua os marcadores de posição pelos seus próprios valores.
+1. Adicione estas variáveis estáticas à `Program` classe. Substitua os marcadores de posição pelos seus próprios valores.
 
    ```csharp
    // Set variables
@@ -135,7 +135,7 @@ Criar uma aplicação de consola C# .NET:
    static string sendSuccessEmailActivity = "SendSuccessEmailActivity";
    ```
 
-1. Adicione o seguinte código ao método `Main`. Este código cria `DataFactoryManagementClient` uma instância de classe. Em seguida, utiliza este objeto para criar fábrica de dados, serviço seleto, conjuntos de dados e pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do gasoduto.
+1. Adicione o seguinte código ao método `Main`. Este código cria uma instância de `DataFactoryManagementClient` classe. Em seguida, utiliza este objeto para criar fábrica de dados, serviço seleto, conjuntos de dados e pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do gasoduto.
 
    ```csharp
    // Authenticate and create a data factory management client
@@ -148,7 +148,7 @@ Criar uma aplicação de consola C# .NET:
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Adicione `CreateOrUpdateDataFactory` um método ao seu ficheiro *Program.cs:*
+1. Adicione um `CreateOrUpdateDataFactory` método ao seu ficheiro *Program.cs:*
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -173,7 +173,7 @@ Criar uma aplicação de consola C# .NET:
    }
    ```
 
-1. Adicione a seguinte `Main` linha ao método que cria uma fábrica de dados:
+1. Adicione a seguinte linha ao `Main` método que cria uma fábrica de dados:
 
    ```csharp
    Factory df = CreateOrUpdateDataFactory(client);
@@ -181,7 +181,7 @@ Criar uma aplicação de consola C# .NET:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 
-1. Adicione `StorageLinkedServiceDefinition` um método ao seu ficheiro *Program.cs:*
+1. Adicione um `StorageLinkedServiceDefinition` método ao seu ficheiro *Program.cs:*
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -197,7 +197,7 @@ Criar uma aplicação de consola C# .NET:
    }
    ```
 
-1. Adicione a seguinte `Main` linha ao método que cria um serviço ligado ao Armazenamento Azure:
+1. Adicione a seguinte linha ao método que cria um serviço ligado ao `Main` Armazenamento Azure:
 
    ```csharp
    client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
@@ -213,7 +213,7 @@ Nesta secção, cria-se dois conjuntos de dados, um para a fonte e outro para a 
 
 Adicione um método que cria um conjunto de *dados de blob Azure*. Para obter mais informações sobre propriedades e detalhes suportados, consulte as propriedades do conjunto de [dados Azure Blob.](connector-azure-blob-storage.md#dataset-properties)
 
-Adicione `SourceBlobDatasetDefinition` um método ao seu ficheiro *Program.cs:*
+Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro *Program.cs:*
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -240,7 +240,7 @@ Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer`é 
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Criar um conjunto de dados para um lavatório Azure Blob
 
-1. Adicione `SourceBlobDatasetDefinition` um método ao seu ficheiro *Program.cs:*
+1. Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro *Program.cs:*
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -260,7 +260,7 @@ Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer`é 
    }
    ```
 
-1. Adicione o seguinte `Main` código ao método que cria tanto a fonte azure blob como os conjuntos de dados do lavatório.
+1. Adicione o seguinte código ao método que cria tanto a `Main` fonte azure blob como os conjuntos de dados do lavatório.
 
    ```csharp
    client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDatasetName, SourceBlobDatasetDefinition(client));
@@ -270,7 +270,7 @@ Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer`é 
 
 ## <a name="create-a-c-class-emailrequest"></a>Criar uma classe C#: EmailRequest
 
-No seu projeto C#, `EmailRequest`crie uma classe chamada . Esta classe define quais as propriedades que o pipeline envia no pedido do corpo ao enviar um e-mail. Neste tutorial, o pipeline envia quatro propriedades do pipeline para o e-mail:
+No seu projeto C#, crie uma classe chamada `EmailRequest` . Esta classe define quais as propriedades que o pipeline envia no pedido do corpo ao enviar um e-mail. Neste tutorial, o pipeline envia quatro propriedades do pipeline para o e-mail:
 
 * Mensagem. Corpo do e-mail. Para uma cópia bem sucedida, esta propriedade contém a quantidade de dados escritos. Para uma cópia falhada, esta propriedade contém detalhes do erro.
 * Nome da fábrica de dados. Nome da fábrica de dados.
@@ -308,7 +308,7 @@ Para acionar o envio de uma mensagem de e-mail, utilize [Logic Apps](../logic-ap
 
 ### <a name="success-email-workflow"></a>Fluxo de trabalho de e-mail de êxito
 
-No [portal Azure, crie](https://portal.azure.com)um fluxo de trabalho de Aplicações Lógicas chamado *CopySuccessEmail*. Defina o gatilho `When an HTTP request is received`do fluxo de trabalho como . Para o acionador do pedido, preencha o `Request Body JSON Schema` com o seguinte JSON:
+No [portal Azure, crie](https://portal.azure.com)um fluxo de trabalho de Aplicações Lógicas chamado *CopySuccessEmail*. Defina o gatilho do fluxo de trabalho como `When an HTTP request is received` . Para o acionador do pedido, preencha o `Request Body JSON Schema` com o seguinte JSON:
 
 ```json
 {
@@ -336,7 +336,7 @@ O seu fluxo de trabalho parece-se com o seguinte exemplo:
 
 Este conteúdo JSON alinha-se com a `EmailRequest` classe que criou na secção anterior.
 
-Adicione uma `Office 365 Outlook – Send an email`ação de . Para enviar uma ação de **e-mail,** personalize a forma como pretende formatar o e-mail, utilizando as propriedades passadas no esquema **do Pedido Body** JSON. Segue-se um exemplo:
+Adicione uma ação de `Office 365 Outlook – Send an email` . Para enviar uma ação de **e-mail,** personalize a forma como pretende formatar o e-mail, utilizando as propriedades passadas no esquema **do Pedido Body** JSON. Eis um exemplo:
 
 ![Lógico designer de aplicativos - envie ação por e-mail](media/tutorial-control-flow/customize-send-email-action.png)
 
@@ -362,7 +362,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-Volte para o seu projeto no Estúdio Visual. Vamos agora adicionar o código que cria um `DependsOn` oleoduto com uma atividade de cópia e propriedade. Neste tutorial, o pipeline contém uma atividade, uma atividade de cópia, que toma o conjunto de dados blob como uma fonte e outro conjunto de dados Blob como um lavatório. Se a atividade de cópia tiver sucesso ou falhar, chama diferentes tarefas de e-mail.
+Volte para o seu projeto no Estúdio Visual. Vamos agora adicionar o código que cria um oleoduto com uma atividade de cópia e `DependsOn` propriedade. Neste tutorial, o pipeline contém uma atividade, uma atividade de cópia, que toma o conjunto de dados blob como uma fonte e outro conjunto de dados Blob como um lavatório. Se a atividade de cópia tiver sucesso ou falhar, chama diferentes tarefas de e-mail.
 
 Neste pipeline, utiliza as seguintes funcionalidades:
 
@@ -445,7 +445,7 @@ Neste pipeline, utiliza as seguintes funcionalidades:
             }
     ```
 
-1. Adicione a seguinte `Main` linha ao método que cria o gasoduto:
+1. Adicione a seguinte linha ao `Main` método que cria o gasoduto:
 
    ```csharp
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
@@ -470,7 +470,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 
 ### <a name="web-activity"></a>Atividade web
 
-A atividade web permite uma chamada para qualquer ponto final REST. Para obter mais informações sobre a atividade, consulte a [atividade web na Azure Data Factory](control-flow-web-activity.md). Este pipeline utiliza uma atividade web para chamar o fluxo de trabalho de email de Apps Lógicas. Cria-se duas atividades web: `CopySuccessEmail` uma que chama `CopyFailWorkFlow`para o fluxo de trabalho e outra que chama de .
+A atividade web permite uma chamada para qualquer ponto final REST. Para obter mais informações sobre a atividade, consulte a [atividade web na Azure Data Factory](control-flow-web-activity.md). Este pipeline utiliza uma atividade web para chamar o fluxo de trabalho de email de Apps Lógicas. Cria-se duas atividades web: uma que chama para o `CopySuccessEmail` fluxo de trabalho e outra que chama de `CopyFailWorkFlow` .
 
 ```csharp
         new WebActivity
@@ -490,18 +490,18 @@ A atividade web permite uma chamada para qualquer ponto final REST. Para obter m
         }
 ```
 
-Na `Url` propriedade, colhe os pontos finais de **URL HTTP POST** dos seus fluxos de trabalho de Aplicações Lógicas. Na `Body` propriedade, passe por `EmailRequest` um exemplo da classe. O pedido de e-mail contém as seguintes propriedades:
+Na `Url` propriedade, colhe os pontos finais de **URL HTTP POST** dos seus fluxos de trabalho de Aplicações Lógicas. Na `Body` propriedade, passe por um exemplo da `EmailRequest` classe. O pedido de e-mail contém as seguintes propriedades:
 
-* Mensagem. Passe o `@{activity('CopyBlobtoBlob').output.dataWritten`valor de . Acede a um imóvel da atividade `dataWritten`de cópia anterior e passa o valor de . Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
-* Nome da fábrica de dados. O valor `@{pipeline().DataFactory}` de passes desta variável do sistema permite-lhe aceder ao nome de fábrica de dados correspondente. Para obter uma lista de variáveis do sistema, consulte [Variáveis](control-flow-system-variables.md)do Sistema .
-* Nome do oleoduto. Passe o `@{pipeline().Pipeline}`valor de . Esta variável do sistema permite-lhe aceder ao nome do pipeline correspondente.
-* Recetor. Passe o `"@pipeline().parameters.receiver"`valor de . Acede aos parâmetros do gasoduto.
+* Mensagem. Passe o valor de `@{activity('CopyBlobtoBlob').output.dataWritten` . Acede a um imóvel da atividade de cópia anterior e passa o valor de `dataWritten` . Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
+* Nome da fábrica de dados. O valor de passes `@{pipeline().DataFactory}` desta variável do sistema permite-lhe aceder ao nome de fábrica de dados correspondente. Para obter uma lista de variáveis do sistema, consulte [Variáveis](control-flow-system-variables.md)do Sistema .
+* Nome do oleoduto. Passe o valor de `@{pipeline().Pipeline}` . Esta variável do sistema permite-lhe aceder ao nome do pipeline correspondente.
+* Recetor. Passe o valor de `"@pipeline().parameters.receiver"` . Acede aos parâmetros do gasoduto.
 
 Este código cria uma nova Dependência de Atividade que depende da atividade de cópia anterior.
 
 ## <a name="create-a-pipeline-run"></a>Criar uma execução de pipeline
 
-Adicione o seguinte `Main` código ao método que desencadeia uma execução de gasoduto.
+Adicione o seguinte código ao `Main` método que desencadeia uma execução de gasoduto.
 
 ```csharp
 // Create a pipeline run
@@ -519,7 +519,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="main-class"></a>Classe principal
 
-O `Main` seu método final deve ser assim.
+O seu método final `Main` deve ser assim.
 
 ```csharp
 // Authenticate and create a data factory management client
@@ -572,7 +572,7 @@ Compile e execute o seu programa para acionar uma execução de pipeline!
 
     Este código verifica continuamente o estado da execução até que termine de copiar os dados.
 
-1. Adicione o seguinte `Main` código ao método que recupera os detalhes da execução da atividade de cópia, por exemplo, o tamanho dos dados lidos/escritos:
+1. Adicione o seguinte código ao método que recupera os detalhes da execução da atividade de `Main` cópia, por exemplo, o tamanho dos dados lidos/escritos:
 
     ```csharp
     // Check the copy activity run details
@@ -748,7 +748,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Fez as seguintes tarefas neste tutorial:
 

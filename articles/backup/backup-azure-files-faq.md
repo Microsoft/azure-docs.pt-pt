@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço De backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836112"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118015"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -155,10 +155,6 @@ Aqui está um exemplo de como isto funciona:
 >[!NOTE]
 >As mudanças de política afetarão apenas os pontos de recuperação criados como parte do backup programado. Para cópias de segurança a pedido, a retenção é determinada pelo **valor de retenção até** ao valor especificado no momento da tomada de reserva.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre outras áreas do Azure Backup, consulte algumas destas outras FAQs de backup:
-
-- [FAQ sobre o cofre dos Serviços de Recuperação](backup-azure-backup-faq.md)
-- [FAQ sobre as cópias de segurança de VMs do Azure](backup-azure-vm-backup-faq.md)
-- [FAQ sobre o agente do Azure Backup](backup-azure-file-folder-backup-faq.md)
+- [Problemas de resolução de problemas ao apoiar ações de ficheiros da Azure](troubleshoot-azure-files.md)

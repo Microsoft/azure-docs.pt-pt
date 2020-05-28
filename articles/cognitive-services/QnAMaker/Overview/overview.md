@@ -3,12 +3,12 @@ title: O que é o serviço QnA Maker?
 description: QnA Maker é um serviço NLP baseado em nuvem que facilmente cria uma camada de conversação natural sobre os seus dados. Pode ser usado para encontrar a resposta mais adequada para qualquer entrada de linguagem natural, a partir da sua base de conhecimento personalizada (KB) de informação.
 ms.topic: overview
 ms.date: 05/26/2020
-ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873715"
+ms.locfileid: "83994872"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço QnA Maker?
 
@@ -40,9 +40,9 @@ Uma vez publicada uma base de conhecimento da QnA Maker, uma aplicação de clie
 
 ## <a name="what-is-a-knowledge-base"></a>O que é uma base de conhecimento?
 
-A QnA Maker [importa o seu conteúdo](../concepts/knowledge-base.md) numa base de conhecimentos de conjuntos de perguntas e respostas. O processo de importação extrai informações sobre a relação entre as partes do seu conteúdo estruturado e semi-estruturado para implicar relações entre os conjuntos de perguntas e respostas. Pode editar estes conjuntos de perguntas e respostas ou adicionar novos conjuntos.
+A QnA Maker [importa o seu conteúdo](../concepts/knowledge-base.md) numa base de conhecimentos de pares de perguntas e respostas. O processo de importação extrai informações sobre a relação entre as partes do seu conteúdo estruturado e semi-estruturado para implicar relações entre os pares de perguntas e respostas. Pode editar estes pares de perguntas e respostas ou adicionar novos pares.
 
-O conteúdo do conjunto de perguntas e respostas inclui:
+O conteúdo do par de perguntas e respostas inclui:
 * Todas as formas alternativas da pergunta
 * Etiquetas de metadados usadas para filtrar escolhas de resposta durante a pesquisa
 * Instruções de acompanhamento para continuar o requinte de pesquisa
@@ -53,7 +53,7 @@ Depois de publicar a sua base de conhecimento, uma aplicação de cliente envia 
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Criar, gerir e publicar a um bot sem código
 
-O portal QnA Maker fornece a experiência completa de autoria da base de conhecimento. Pode importar documentos, na sua forma atual, para a sua base de conhecimentos. Estes documentos (tais como uma FAQ, manual de produto, folha de cálculo ou página web) são convertidos em conjuntos de perguntas e respostas. Cada conjunto é analisado para instruções de seguimento e ligado a outros conjuntos. O formato de _marcação_ final suporta uma apresentação rica, incluindo imagens e links.
+O portal QnA Maker fornece a experiência completa de autoria da base de conhecimento. Pode importar documentos, na sua forma atual, para a sua base de conhecimentos. Estes documentos (tais como uma FAQ, manual de produto, folha de cálculo ou página web) são convertidos em pares de perguntas e respostas. Cada par é analisado para instruções de seguimento e ligado a outros pares. O formato de _marcação_ final suporta uma apresentação rica, incluindo imagens e links.
 
 Assim que a sua base de conhecimentos for editada, publique a base de conhecimentos para um [bot azure Web App](https://azure.microsoft.com/services/bot-service/) em funcionamento sem escrever qualquer código. Teste o seu bot no [portal Azure](https://portal.azure.com) ou descarregue e continue o desenvolvimento.
 
@@ -63,7 +63,7 @@ O sistema do Fabricante qna é uma abordagem de ranking em camadas. Os dados sã
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker melhora o processo de conversação
 
-O QnA Maker fornece solicitações multi-turn e aprendizagem ativa para ajudá-lo a melhorar os seus conjuntos básicos de perguntas e respostas.
+O QnA Maker fornece solicitações multi-turn e aprendizagem ativa para ajudá-lo a melhorar os seus pares básicos de perguntas e respostas.
 
 **Solicitações de várias voltas dão-lhe** a oportunidade de ligar pares de perguntas e respostas. Esta ligação permite que a aplicação do cliente forneça uma resposta superior e fornece mais perguntas para refinar a procura de uma resposta final.
 
@@ -87,7 +87,7 @@ A QnA Maker fornece autoria, formação e publicação, juntamente com permissõ
 
 **Passo 4**: A partir da sua aplicação cliente, ligue programáticamente para o ponto final da sua base de conhecimentos. A aplicação do cliente processa a resposta da JSON para mostrar a melhor resposta ao utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 A QnA Maker fornece tudo o que precisa para construir, gerir e implementar a sua base de conhecimento personalizada.
 
 > [!div class="nextstepaction"]

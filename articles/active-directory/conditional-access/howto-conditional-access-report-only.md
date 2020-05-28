@@ -4,19 +4,19 @@ description: Utilização do modo apenas de relatório no acesso condicional aos
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690360"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994974"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configure uma política de acesso condicional em modo apenas de relatório
 
@@ -26,7 +26,7 @@ Para configurar uma política de acesso condicional no modo apenas para relatór
 > Se a sua organização ainda não o fez, instale a [integração do Monitor Azure com a Azure AD.](#set-up-azure-monitor-integration-with-azure-ad) Este processo deve ser realizado antes de os dados estarem disponíveis para revisão.
 
 1. Assine no **portal Azure** como administrador de Acesso Condicional, administrador de segurança ou administrador global.
-1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 1. Selecione **Nova política.**
 1. Configure as condições de política e os controlos de subvenção necessários, se necessário.
 1. No âmbito **da política enable,** deset o alternância para o modo apenas para **reportar.**
@@ -40,7 +40,7 @@ Ver resultado apenas de relatório em registos de entrada de AD Azure.
 Ver o resultado de uma política apenas de relatório para um determinado sign-in:
 
 1. Assine no **portal Azure** como leitor de relatórios, leitor de segurança, administrador de segurança ou administrador global.
-1. Navegue nos > **Sign-ins** **de Diretório Ativo azure**.
+1. Navegue **Azure Active Directory**nos  >  **Sign-ins**de Diretório Ativo azure .
 1. Selecione um sessão ou adicione filtros para obter resultados estreitos.
 1. Na gaveta **detalhes,** selecione o separador **apenas** para ver as políticas avaliadas durante o sessão.
 
@@ -61,7 +61,7 @@ Mais informações sobre os preços do Monitor Azure podem ser encontradas na p�
 Depois de ter integrado os seus registos De AD Azure com o Monitor Azure, pode monitorizar o impacto das políticas de Acesso Condicional utilizando os novos livros de informação de acesso condicional.
 
 1. Assine no **portal Azure** como administrador de segurança ou administrador global.
-1. Navegue nos > **livros**de trabalho de **diretório ativo azure.**
+1. Navegue nos livros de trabalho de **diretório ativo azure.**  >  **Workbooks**
 1. Selecione **Insights de Acesso Condicional**.
 1. Selecione uma ou mais políticas da política de **acesso condicional.** Todas as políticas ativadas são selecionadas por defeito.
 1. Selecione um intervalo de tempo (se o intervalo de tempo exceder o conjunto de dados disponível, o relatório mostrará todos os dados disponíveis). Depois de definir os parâmetros da Política de **Acesso Condicional** e do Intervalo de **Tempo,** o relatório carregará.
@@ -85,7 +85,7 @@ Os clientes notaram que as consultas por vezes falham se os espaços de trabalho
 
 A queda das Políticas de Acesso Condicional é povoada consultando os mais recentes sign-ins durante um período de 4 horas. Se um inquilino não tiver nenhum sinal nas últimas 4 horas, é possível que a entrega esteja vazia. Se este atraso for um problema persistente, como em pequenos inquilinos com inscrições pouco frequentes, os administradores podem editar a consulta para a queda das Políticas de Acesso Condicional e estender o tempo para a consulta para um tempo superior a 4 horas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

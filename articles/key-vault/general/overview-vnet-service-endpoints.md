@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a3b03c5999454e101640d931a0bef98aa642a8c7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930595"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021471"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para cofre chave Azure
 
@@ -70,7 +70,7 @@ Aqui está uma lista de serviços fidedignos que são autorizados a aceder a um 
 |Troca online & SharePoint Online|Permitir o acesso à chave do cliente para encriptação do serviço de armazenamento Azure com [chave do cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Permitir o acesso à chave de inquilinos para [a Proteção de Informação Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Serviço de Aplicações do Azure|[Implemente o certificado de aplicação web Azure através do cofre da chave.](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)|
-|Base de Dados SQL do Azure|[Encriptação transparente de dados com trazer o seu próprio suporte chave para base de dados Azure SQL e Armazém de Dados](../../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Base de Dados SQL do Azure|[Encriptação transparente de dados com trazer o seu próprio suporte chave para base de dados Azure SQL e Armazém de Dados](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre de Chaves Azure](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encriptação de dados na Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
 |Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark](../../azure-databricks/what-is-azure-databricks.md)|
@@ -84,7 +84,7 @@ Aqui está uma lista de serviços fidedignos que são autorizados a aceder a um 
 > [!NOTE]
 > Deve configurar as políticas de acesso ao Cofre chave relevantes para permitir que os serviços correspondentes tenham acesso ao Key Vault.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteja o seu cofre de chaves)](secure-your-key-vault.md)
 * [Configure firewalls e redes virtuais do Cofre de Chaves](network-security.md)

@@ -3,12 +3,12 @@ title: Back up SQL Server bases de dados para Azure
 description: Este artigo explica como apoiar o SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408765"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021097"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -25,9 +25,9 @@ Para ver os cenários de backup e restauro que apoiamos hoje, consulte a matriz 
 
 Esta solução aproveita as APIs nativas do SQL para retirar cópias de segurança das suas bases de dados SQL.
 
-* Assim que especificar o VM do Servidor SQL que pretende proteger e consultar as bases de dados do mesmo, `AzureBackupWindowsWorkload` o serviço de backup Azure instalará uma extensão de backup de carga de trabalho no VM através da extensão do nome.
+* Assim que especificar o VM do Servidor SQL que pretende proteger e consultar as bases de dados do mesmo, o serviço de backup Azure instalará uma extensão de backup de carga de trabalho no VM através da extensão do `AzureBackupWindowsWorkload` nome.
 * Esta extensão é constituída por um coordenador e um plugin SQL. Embora o coordenador seja responsável por desencadear fluxos de trabalho para várias operações como configurar cópias de segurança, cópia de segurança e restauro, o plugin é responsável pelo fluxo real de dados.
-* Para poder descobrir bases de dados neste VM, `NT SERVICE\AzureWLBackupPluginSvc`o Azure Backup cria a conta . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmina SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de [Serviço Virtual,](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. A Azure Backup `NT AUTHORITY\SYSTEM` aproveita a conta para a descoberta/investigação da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou o VM do Servidor SQL a partir do Mercado Azure, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](#set-vm-permissions).
+* Para poder descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmina SQL. A conta é uma Conta de `NT SERVICE\AzureWLBackupPluginSvc` [Serviço Virtual,](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. A Azure Backup aproveita a conta para a descoberta/investigação da base de dados, pelo que `NT AUTHORITY\SYSTEM` esta conta tem de ser um login público no SQL. Se não criou o VM do Servidor SQL a partir do Mercado Azure, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](#set-vm-permissions).
 * Uma vez acionado a proteção configurada nas bases de dados selecionadas, o serviço de backup configura o coordenador com os horários de backup e outros detalhes da política, que a extensão caches localmente no VM.
 * Na hora programada, o coordenador comunica com o plugin e começa a transmitir os dados de backup do servidor SQL utilizando o VDI.  
 * O plugin envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de uma localização de encenação. Os dados são encriptados e armazenados pelo serviço de backup Azure em contas de armazenamento.
@@ -39,7 +39,7 @@ Esta solução aproveita as APIs nativas do SQL para retirar cópias de seguran�
 
 Antes de começar, verifique o seguinte:
 
-1. Certifique-se de que tem uma instância sQL Server em funcionamento em Azure. Pode [criar rapidamente uma instância de SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) no mercado.
+1. Certifique-se de que tem uma instância sQL Server em funcionamento em Azure. Pode [criar rapidamente uma instância de SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) no mercado.
 2. Reveja a [consideração](sql-support-matrix.md#feature-consideration-and-limitations) da funcionalidade e o [suporte ao cenário.](sql-support-matrix.md#scenario-support)
 3. [Reveja as questões comuns](faq-backup-sql-server.md) sobre este cenário.
 
@@ -109,7 +109,7 @@ Adicione os logins **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc
 
 7. Clique em OK.
 8. Repita a mesma sequência de passos (1-7 acima) para adicionar o login nt Service\AzureWLBackupPluginSvc à instância do Servidor SQL. Se o login já existir, certifique-se de que tem a função de servidor de sysadmin e em status tem a Permissão de ligar ao motor de base de dados e ao Login como Enabled.
-9. Após a concessão de permissão, **redescubra dBs** no portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
+9. Após a concessão de permissão, **redescubra dBs** no portal: Vault **->** Backup Infrastructure Workload in **->** Azure VM:
 
     ![Redescubra dBs no portal Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
@@ -148,7 +148,7 @@ catch
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre](backup-sql-server-database-azure-vms.md) o backup das bases de dados do SQL Server.
 * [Saiba restaurar](restore-sql-database-azure-vm.md) as bases de dados do SQL Server.

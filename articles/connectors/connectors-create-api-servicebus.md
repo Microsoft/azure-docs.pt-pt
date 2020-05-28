@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261624"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141998"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troca de mensagens na nuvem usando aplicativos azure logic e ônibus de serviço Azure
 
@@ -60,7 +60,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
       ![Linha de ligação nome do ônibus de serviço de cópia](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nome service `EntityPath`  Bus ou a uma entidade de mensagens, como uma fila, procure na cadeia de ligação o parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a corda correta para usar com a sua aplicação lógica.
+   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nome service Bus ou a uma entidade de mensagens, como uma fila, procure na cadeia de ligação o `EntityPath`   parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a corda correta para usar com a sua aplicação lógica.
 
 ## <a name="add-service-bus-trigger"></a>Adicionar gatilho de ônibus de serviço
 
@@ -114,7 +114,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
 1. Sob o degrau onde pretende adicionar uma ação, selecione **Novo passo**.
 
-   Ou, para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre esses passos. Selecione o**+** sinal de mais ( ) que aparece e selecione **Adicionar uma ação**.
+   Ou, para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre esses passos. Selecione o sinal de mais ( **+** ) que aparece e selecione Adicionar uma **ação**.
 
 1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza "ônibus de serviço azul" como filtro. Na lista de ações, selecione a ação que deseja. 
 
@@ -152,12 +152,22 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
 1. Guarde a aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
+<a name="sequential-convoy"></a>
+
+## <a name="send-correlated-messages-in-order"></a>Enviar mensagens correlacionadas por ordem
+
+Quando necessitar de enviar mensagens relacionadas numa encomenda específica, pode utilizar o padrão de [ *comboio sequencial* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) no Service Bus.
+
+Ao criar uma aplicação lógica, pode selecionar a entrega em encomenda da Correlated utilizando o modelo de **sessões de ônibus** de serviço, que implementa o padrão de comboio sequencial. Para mais informações, consulte [Enviar mensagens relacionadas por encomenda](../logic-apps/send-related-messages-sequential-convoy.md).
+
+<a name="connector-reference"></a>
+
 ## <a name="connector-reference"></a>Referência do conector
 
 O conector Service Bus pode economizar até 1.500 sessões únicas de cada vez, desde um autocarro de serviço até à cache do conector. Se a contagem de sessões exceder este limite, as sessões antigas são removidas da cache. Para mais informações, consulte [as sessões de mensagem](../service-bus-messaging/message-sessions.md).
 
-Para outros detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição OpenAPI (ex-Swagger) do conector, reveja a página de [referência](/connectors/servicebus/)do conector . Para mais informações sobre as Mensagens de Ônibus de Serviço Azure, veja [o que é o Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md)
+Para outros detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição swagger do conector, reveja a página de referência do [conector](/connectors/servicebus/). Para mais informações sobre as Mensagens de Ônibus de Serviço Azure, veja [o que é o Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

@@ -9,27 +9,27 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 6acf9301367ae2c6947f6935c43f420d3d7cac65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb9e12f29c148ea6854dde57456d8cf796cc8c34
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655022"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994073"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrate Azure AD Domain Services do modelo clássico de rede virtual para Gestor de Recursos
 
 O Azure Ative Directory Domain Services (AD DS) suporta um movimento único para os clientes que utilizam atualmente o modelo de rede virtual Classic para o modelo de rede virtual Do Gestor de Recursos. Os domínios geridos pela Azure AD DS que utilizam o modelo de implementação do Gestor de Recursos fornecem funcionalidades adicionais, tais como a política de passwords de grãos finos, registos de auditoria e proteção de bloqueio de conta.
 
-Este artigo descreve os benefícios e considerações para a migração, em seguida, os passos necessários para migrar com sucesso uma instância Azure AD DS existente.
+Este artigo descreve considerações para a migração, em seguida, as medidas necessárias para migrar com sucesso uma instância Azure AD DS existente. Para alguns dos benefícios, consulte [Benefícios da migração do modelo de implantação Classic to Resource Manager em Azure AD DS][migration-benefits].
 
 > [!NOTE]
 > Em 2017, a Azure AD Domain Services tornou-se disponível para hospedar numa rede azure Resource Manager. Desde então, conseguimos construir um serviço mais seguro utilizando as capacidades modernas do Gestor de Recursos Azure. Uma vez que as implementações do Azure Resource Manager substituem totalmente as implementações clássicas, as implementações clássicas da rede virtual Azure AD DS serão retiradas a 1 de março de 2023.
 >
-> Para mais informações, consulte o [aviso oficial de depreciação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+> Para mais informações, consulte o [aviso oficial de depreciação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ## <a name="overview-of-the-migration-process"></a>Visão geral do processo de migração
 
-O processo de migração tem uma instância Azure AD DS existente que funciona numa rede virtual Clássica e a move para uma rede virtual existente do Gestor de Recursos. A migração é realizada usando powerShell, e tem duas fases principais de execução - *preparação* e *migração*.
+O processo de migração tem uma instância Azure AD DS existente que funciona numa rede virtual Clássica e a move para uma rede virtual existente do Gestor de Recursos. A migração é realizada usando powerShell, e tem duas fases principais de execução: *preparação* e *migração.*
 
 ![Visão geral do processo de migração para AD DS Azure](media/migrate-from-classic-vnet/migration-overview.png)
 
@@ -40,21 +40,6 @@ Na fase de *preparação,* o Azure AD DS requer uma cópia de segurança do dom�
 Na fase de *migração,* os discos virtuais subjacentes aos controladores de domínio do domínio gerido clássico Azure AD DS são copiados para criar os VMs utilizando o modelo de implementação do Gestor de Recursos. O domínio gerido pelo Azure AD DS é então recriado, o que inclui a configuração LDAPS e DNS. A sincronização para a AD Azure é reiniciada e os certificados LDAP são restaurados. Não há necessidade de voltar a juntar nenhuma máquina a um domínio gerido pelo Azure AD DS – eles continuam a ser unidos ao domínio gerido e executados sem alterações.
 
 ![Migração de DS Azure](media/migrate-from-classic-vnet/migration-process.png)
-
-## <a name="migration-benefits"></a>Benefícios migratórios
-
-Ao mover um domínio gerido pelo Azure AD DS utilizando este processo de migração, evita a necessidade de voltar a juntar as máquinas ao domínio gerido ou eliminar a instância Azure AD DS e criar uma de raiz. Os VMs continuam a ser associados ao domínio gerido pela AD DS Azure no final do processo de migração.
-
-Após a migração, o Azure AD DS fornece muitas funcionalidades que só estão disponíveis para domínios usando redes virtuais do Gestor de Recursos, tais como:
-
-* Suporte à política de senhas de grãos finos.
-* Proteção de bloqueio de conta ad.
-* Notificações por e-mail de alertas no domínio gerido pela AD DS azure.
-* Registos de auditoria utilizando o Monitor Azure.
-* Integração de Ficheiros Azure
-* Integração de Insights HD
-
-O Azure AD DS geriu domínios que utilizam uma rede virtual do Gestor de Recursos, ajudando-o a manter-se atualizado com as novas funcionalidades mais recentes. O suporte para O DS Azure utilizando redes virtuais clássicas deverá ser depreciado no futuro.
 
 ## <a name="example-scenarios-for-migration"></a>Exemplos de cenários para a migração
 
@@ -195,7 +180,7 @@ O Azure PowerShell é utilizado para preparar o domínio gerido pelo Azure AD DS
 
 Para preparar o domínio gerido pela AD DS Azure para migração, complete os seguintes passos:
 
-1. Instale `Migrate-Aaads` o script na [Galeria PowerShell.][powershell-script] Este roteiro de migração PowerShell é um assinado digitalmente pela equipa de engenharia da Azure AD.
+1. Instale o `Migrate-Aaads` script na [Galeria PowerShell.][powershell-script] Este roteiro de migração PowerShell é um assinado digitalmente pela equipa de engenharia da Azure AD.
 
     ```powershell
     Install-Script -Name Migrate-Aadds
@@ -211,7 +196,7 @@ Para preparar o domínio gerido pela AD DS Azure para migração, complete os se
     $creds = Get-Credential
     ```
 
-1. Agora, `Migrate-Aadds` corra o cmdlet utilizando o parâmetro *-Prepare.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido pelo Azure AD DS, como *aaddscontoso.com:*
+1. Agora, corra o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Prepare.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido pelo Azure AD DS, como *aaddscontoso.com:*
 
     ```powershell
     Migrate-Aadds `
@@ -224,7 +209,7 @@ Para preparar o domínio gerido pela AD DS Azure para migração, complete os se
 
 Com o domínio gerido pela AD DS Azure preparado e apoiado, o domínio pode ser migrado. Este passo recria os VMs do controlador de domínio Azure AD Domain Services utilizando o modelo de implementação do Gestor de Recursos. Este passo pode levar 1 a 3 horas para ser concluído.
 
-Executar `Migrate-Aadds` o cmdlet utilizando o *parâmetro -Cometer.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado na secção anterior, tais como *aaddscontoso.com:*
+Executar o `Migrate-Aadds` cmdlet utilizando o *parâmetro -Cometer.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado na secção anterior, tais como *aaddscontoso.com:*
 
 Especifique o grupo de recursos-alvo que contém a rede virtual para a qual pretende migrar o Azure AD DS, como o *myResourceGroup*. Fornecer a rede virtual alvo, como o *myVnet,* e a subnet, como *domainServices*.
 
@@ -314,7 +299,7 @@ Até um certo ponto no processo de migração, pode optar por reverter ou restau
 
 Se houver um erro quando executa o cmdlet PowerShell para se preparar para a migração no passo 2 ou para a migração em si no passo 3, o domínio gerido pelo Azure AD DS pode voltar à configuração original. Este retrocesso requer a rede virtual clássica original. Note que os endereços IP podem ainda mudar após a reversão.
 
-Executar `Migrate-Aadds` o cmdlet utilizando o parâmetro *-Abortar.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado numa secção anterior, como *aaddscontoso.com,* e o nome clássico da rede virtual, como o *myClassicVnet:*
+Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Abortar.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado numa secção anterior, como *aaddscontoso.com,* e o nome clássico da rede virtual, como o *myClassicVnet:*
 
 ```powershell
 Migrate-Aadds `
@@ -339,7 +324,7 @@ Se tiver problemas após a migração para o modelo de implementação do Gestor
 * [Problemas de sessão de problemas de inscrição na conta][troubleshoot-sign-in]
 * [Problemas seguros problemas de conectividade LDAP seguros][tshoot-ldaps]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com o seu domínio gerido pelo Azure AD DS migrado para o modelo de implementação do Gestor de Recursos, [crie e junte um VM do Windows][join-windows] e, em seguida, [instale ferramentas][tutorial-create-management-vm]de gestão .
 
@@ -367,6 +352,7 @@ Com o seu domínio gerido pelo Azure AD DS migrado para o modelo de implementaç
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+[migration-benefits]: concepts-migration-benefits.md
 
 <!-- EXTERNAL LINKS -->
 [powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454650"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012981"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da encriptação azure
 
@@ -28,7 +28,7 @@ Este artigo fornece uma visão geral de como a encriptação é usada no Microso
 
 ## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
 
-Os dados em repouso incluem informações que residem no armazenamento persistente em meios físicos, em qualquer formato digital. Os meios de comunicação podem incluir ficheiros sobre meios magnéticos ou óticos, dados arquivados e cópias de segurança de dados. O Microsoft Azure oferece uma variedade de soluções de armazenamento de dados para atender às diferentes necessidades, incluindo arquivo, disco, blob e armazenamento de mesa. A Microsoft também fornece encriptação para proteger a Base de [Dados Azure SQL,](../../sql-database/sql-database-technical-overview.md) [O Azure Cosmos DB](../../data-factory/introduction.md)e o Lago de Dados Azure.
+Os dados em repouso incluem informações que residem no armazenamento persistente em meios físicos, em qualquer formato digital. Os meios de comunicação podem incluir ficheiros sobre meios magnéticos ou óticos, dados arquivados e cópias de segurança de dados. O Microsoft Azure oferece uma variedade de soluções de armazenamento de dados para atender às diferentes necessidades, incluindo arquivo, disco, blob e armazenamento de mesa. A Microsoft também fornece encriptação para proteger a Base de [Dados Azure SQL,](../../azure-sql/database/sql-database-paas-overview.md) [O Azure Cosmos DB](../../data-factory/introduction.md)e o Lago de Dados Azure.
 
 A encriptação de dados em repouso está disponível para serviços em todo o software como um serviço (SaaS), plataforma como serviço (PaaS), e infraestrutura como um serviço (IaaS) modelos de nuvem. Este artigo resume e fornece recursos para ajudá-lo a usar as opções de encriptação Azure.
 
@@ -85,11 +85,11 @@ Por fim, também pode utilizar a Biblioteca de Clientes de Armazenamento Azure p
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Encriptação de dados em repouso com base de dados Azure SQL
 
-A Base de [Dados Azure SQL](../../sql-database/sql-database-technical-overview.md) é um serviço de base de dados relacional de uso geral em Azure que suporta estruturas como dados relacionais, JSON, espacial e XML. A Base de Dados SQL suporta a encriptação do lado do servidor através da funcionalidade de encriptação de dados transparente (TDE) e encriptação do lado do cliente através da funcionalidade Always Encrypted.
+A Base de [Dados Azure SQL](../../azure-sql/database/sql-database-paas-overview.md) é um serviço de base de dados relacional de uso geral em Azure que suporta estruturas como dados relacionais, JSON, espacial e XML. A Base de Dados SQL suporta a encriptação do lado do servidor através da funcionalidade de encriptação de dados transparente (TDE) e encriptação do lado do cliente através da funcionalidade Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Encriptação de Dados Transparente
 
-[O TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é utilizado para encriptar ficheiros de dados do [SQL Server,](https://www.microsoft.com/sql-server/sql-server-2016) [Azure SQL](../../sql-database/sql-database-technical-overview.md)e [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, utilizando uma Chave de Encriptação de Base de Dados (DEK), que está armazenada no registo de boot da base de dados para disponibilidade durante a recuperação.
+[O TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é utilizado para encriptar ficheiros de dados do [SQL Server,](https://www.microsoft.com/sql-server/sql-server-2016) [Azure SQL](../../azure-sql/database/sql-database-paas-overview.md)e [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, utilizando uma Chave de Encriptação de Base de Dados (DEK), que está armazenada no registo de boot da base de dados para disponibilidade durante a recuperação.
 
 O TDE protege os dados e os ficheiros de registo, utilizando algoritmos de encriptação Padrão de Encriptação AES e Triple Data (3DES). A encriptação do ficheiro base de dados é realizada ao nível da página. As páginas de uma base de dados encriptada são encriptadas antes de serem escritas em disco e desencriptadas quando são lidas na memória. O TDE está agora ativado por padrão nas bases de dados Azure SQL recém-criadas.
 
@@ -201,7 +201,7 @@ Sem uma proteção e gestão adequadas das chaves, a encriptação torna-se inú
 
 Key Vault alivia as organizações da necessidade de configurar, patch e manter módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando usas o Cofre chave, mantéuses o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmas. Também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança da rede Azure](network-overview.md)

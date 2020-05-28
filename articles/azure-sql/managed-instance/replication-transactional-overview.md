@@ -137,7 +137,7 @@ Editor e distribuidor estão configurados em duas instâncias geridas. Existem a
 
 Nesta configuração, uma base de dados Azure SQL ou azure SQL Managed Instance é um assinante. Esta configuração suporta a migração do local para o Azure. Se um assinante for Azure SQL Database, deve estar em modo de impulso.  
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 - Utilize a Autenticação SQL para a conectividade entre os participantes da replicação.
 - Utilize uma conta de armazenamento Azure para o diretório de trabalho utilizado por replicação.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2020
-ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a9a00aa6abd35ad723f02a30869e8f7734b1f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461113"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020562"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carregue dados para o Azure SQL Data Warehouse com o Azure Data Factory
 
@@ -42,12 +42,12 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Copy Data da Fábrica de 
 
 * Assinatura Azure: Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Armazém de Dados Azure SQL: O armazém de dados contém os dados copiados da base de dados SQL. Se não tiver um Armazém de Dados Azure SQL, consulte as instruções em [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Base de Dados Azure SQL: Este tutorial copia dados de uma base de dados Azure SQL com dados da amostra Adventure Works LT. Pode criar uma base de dados SQL seguindo as instruções em Criar uma base de [dados Azure SQL](../sql-database/sql-database-get-started-portal.md).
+* Base de Dados Azure SQL: Este tutorial copia dados de uma base de dados Azure SQL com dados da amostra Adventure Works LT. Pode criar uma base de dados SQL seguindo as instruções em Criar uma base de [dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * Conta de armazenamento Azure: O Armazenamento Azure é utilizado como a bolha de _preparação_ na operação de cópia a granel. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu esquerdo, selecione **Criar um recurso** > **Data + Analytics** > **Data Factory**:
+1. No menu esquerdo, selecione **Criar um recurso**Data +  >  **Analytics**  >  **Data Factory**:
 
 2. Na página da nova fábrica de **dados,** forneça valores para os seguintes itens:
 
@@ -150,9 +150,9 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Copy Data da Fábrica de 
 
     ![Monitorizar detalhes de execução de atividade](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avançar para o seguinte artigo para saber sobre o suporte do Armazém de Dados Azure SQL:
 
 > [!div class="nextstepaction"]
->[Conector Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)
+>[Conector do Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
-ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d995e9a5cdb6fc18532e0c3533959e9feece908
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310199"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021250"
 ---
 # <a name="tutorial-working-with-remote-entities-in-unity"></a>Tutorial: Trabalhar com entidades remotas na Unidade
 
@@ -192,7 +192,7 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 > [!CAUTION]
-> Não designe este script a qualquer objeto de jogo, uma vez que será atribuído programáticamente pelo código abaixo.
+> Não designe este guião a qualquer objeto de jogo da Unidade, uma vez que será atribuído programáticamente pelo código abaixo.
 
 Em seguida, temos que estender o nosso *RemoteRaycaster* para adicionar o componente *RemoteModelEntity* ao objeto que acabamos de escolher.
 
@@ -489,7 +489,7 @@ public class RemoteCutPlane : MonoBehaviour
 
 Quando executar o seu código agora, deve ver como o modelo é aberto pelo avião. Pode selecionar o objeto *CutPlane* e movê-lo e rodá-lo na janela *cena.* Pode alternar o avião cortado de vez em quando, desativando o objeto de avião cortado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora conhece a funcionalidade mais importante para interagir com objetos remotos. No próximo tutorial, vamos dar uma olhada na personalização do visual de uma cena.
 

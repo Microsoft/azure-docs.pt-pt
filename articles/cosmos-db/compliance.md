@@ -64,7 +64,7 @@ A tabela seguinte enumera as certificações apoiadas pela Azure Cosmos DB no Go
 | SOC 1, 2, 3 | | |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as certificações de conformidade azure, consulte os seguintes artigos:
 

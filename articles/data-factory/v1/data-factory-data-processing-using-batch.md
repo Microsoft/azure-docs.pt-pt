@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684401"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021539"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala utilizando fábrica de dados e lote
 > [!NOTE]
@@ -38,8 +38,8 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 
  Se não está familiarizado com o Batch, os seguintes artigos ajudam-no a compreender a arquitetura/implementação da solução descrita neste artigo:   
 
-* [Básicos do Lote](../../batch/batch-technical-overview.md)
-* [Descrição geral da funcionalidade do Batch](../../batch/batch-api-basics.md)
+* [Básicos do Lote](../../azure-sql/database/sql-database-paas-overview.md)
+* [Descrição geral da funcionalidade do Batch](../../batch/batch-service-workflow-features.md)
 
 Opcionalmente, para saber mais sobre o Lote, consulte [a documentação do Lote.](https://docs.microsoft.com/azure/batch/)
 
@@ -578,7 +578,7 @@ Neste passo, cria um serviço ligado à sua conta Batch que é utilizado para ex
    d. Introduza o lote URI para a propriedade **uri** JSON.
 
       > [!IMPORTANT]
-      > O URL da lâmina da **Conta lote** encontra-se no seguinte formato: nome de \< conta \> . \< região \> .batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover o nome de conta a88." ** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
+      > O URL da lâmina da **Conta lote** encontra-se no seguinte formato: . . \<accountname\> . \<region\> . batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover o nome de conta a88." ** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -793,9 +793,9 @@ Neste passo, cria-se um pipeline com uma única atividade, a atividade personali
 
    * Apenas uma atividade está no oleoduto, e é do tipo **DotNetActivity**.
    * **O Nome de Montagem** está definido para o nome do DLL **MyDotNetActivity.dll**.
-   * **O EntryPoint** está definido para **MyDotNetActivityNS.MyDotNetActivity**. É basicamente \< espaço para \> nomes. \< nome de classe \> no seu código.
+   * **O EntryPoint** está definido para **MyDotNetActivityNS.MyDotNetActivity**. É \<namespace\> basicamente.\<classname\> no seu código.
    * **O PackageLinkedService** está definido para **StorageLinkedService,** que aponta para o armazenamento blob que contém o ficheiro zip de atividade personalizada. Se utilizar diferentes contas de armazenamento para ficheiros de entrada/saída e o ficheiro zip de atividade personalizada, tem de criar outro serviço ligado ao Armazenamento. Este artigo pressupõe que você usa a mesma conta de armazenamento.
-   * **O PackageFile** é definido para **customactivitycontainer/MyDotNetActivity.zip**. Está no recipiente de formato \< para \> / \< o nomezipofthezip.zip. \>
+   * **O PackageFile** é definido para **customactivitycontainer/MyDotNetActivity.zip**. Está no \<containerforthezip\> / \<nameofthezip.zip\> formato.
    * A atividade personalizada toma o **InputDataset** como entrada e **OutputDataset** como saída.
    * A propriedade **linkedServiceName** da atividade personalizada aponta para **AzureBatchLinkedService**, que diz à Data Factory que a atividade personalizada precisa de ser executada no Batch.
    * A definição de **condivisões** é importante. Se utilizar o valor predefinido, que é 1, mesmo que tenha dois ou mais nós de computação na piscina do Lote, as fatias são processadas uma após a outra. Portanto, não está a aproveitar-se da capacidade de processamento paralelo do Batch. Se definir a **moeda** para um valor mais elevado, digamos 2, significa que duas fatias (corresponde a duas tarefas em Lote) podem ser processadas ao mesmo tempo. Neste caso, ambos os VMs na piscina do Lote são utilizados. Desloque a propriedade de concurrency adequadamente.
@@ -972,8 +972,8 @@ Depois de processar dados, pode consumi-lo com ferramentas online como o Power B
   * [Utilize atividades personalizadas num oleoduto data factory](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Básicos do Lote](../../batch/batch-technical-overview.md)
-  * [Visão geral das características do lote](../../batch/batch-api-basics.md)
+  * [Básicos do Lote](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Visão geral das características do Lote)](../../batch/batch-service-workflow-features.md)
   * [Criar e gerir uma conta de Lote no portal Azure](../../batch/batch-account-create-portal.md)
   * [Começar com a biblioteca de clientes batch para .NET](../../batch/quick-run-dotnet.md)
 

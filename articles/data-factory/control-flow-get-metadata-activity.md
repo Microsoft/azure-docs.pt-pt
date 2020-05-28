@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417114"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112647"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de Metadados na Fábrica de Dados do Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,17 +47,17 @@ A atividade Get Metadata toma um conjunto de dados como entrada e devolve inform
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Armazenamento Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [Sistema de ficheiros](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - Ao utilizar a atividade de Obter Metadados contra uma pasta, certifique-se de que tem permissão LIST/EXECUTE para a pasta dada.
-- Para o Amazon S3 `lastModified` e o Google Cloud Storage, aplica-se ao `exists` balde e à chave, mas não à pasta virtual, e aplica-se ao balde e à chave, mas não ao prefixo ou pasta virtual.
-- Para o armazenamento da `lastModified` Blob Azure, aplica-se ao recipiente e à bolha, mas não à pasta virtual.
+- Para o Amazon S3 e o Google Cloud Storage, `lastModified` aplica-se ao balde e à chave, mas não à pasta virtual, e `exists` aplica-se ao balde e à chave, mas não ao prefixo ou pasta virtual.
+- Para o armazenamento da Blob Azure, `lastModified` aplica-se ao recipiente e à bolha, mas não à pasta virtual.
 - `lastModified`o filtro aplica-se atualmente para filtrar artigos infantis, mas não a própria pasta/ficheiro especificado.
 - O filtro Wildcard nas pastas/ficheiros não é suportado para obter a atividade de Metadados.
 
@@ -66,7 +66,7 @@ A atividade Get Metadata toma um conjunto de dados como entrada e devolve inform
 | Conector/Metadados | estrutura | colunaCount | existe |
 |:--- |:--- |:--- |:--- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
-| [Caso gerido pela Base de Dados Azure SQL](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Instância Gerida do Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -77,7 +77,7 @@ Pode especificar os seguintes tipos de metadados na lista de campo de atividade 
 | Tipo de metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
-| artigoType | Tipo do ficheiro ou pasta. O valor `File` `Folder`devolvido é ou . |
+| artigoType | Tipo do ficheiro ou pasta. O valor devolvido é `File` ou `Folder` . |
 | size | Tamanho do ficheiro, em bytes. Aplicável apenas aos ficheiros. |
 | criado | Criou a data do ficheiro ou pasta. |
 | últimaModificada | Última data modificada do ficheiro ou pasta. |
@@ -85,13 +85,13 @@ Pode especificar os seguintes tipos de metadados na lista de campo de atividade 
 | conteúdoMD5 | MD5 do ficheiro. Aplicável apenas aos ficheiros. |
 | estrutura | Estrutura de dados do ficheiro ou tabela de bases de dados relacional. O valor devolvido é uma lista de nomes de colunas e tipos de colunas. |
 | colunaCount | Número de colunas no ficheiro ou tabela relacional. |
-| existe| Quer exista um ficheiro, uma pasta ou uma tabela. Note que `exists` se for especificado na lista de campo Get Metadata, a atividade não falhará mesmo que o ficheiro, pasta ou tabela não existam. Em `exists: false` vez disso, é devolvido na saída. |
+| existe| Quer exista um ficheiro, uma pasta ou uma tabela. Note que se for especificado na lista de `exists` campo Get Metadata, a atividade não falhará mesmo que o ficheiro, pasta ou tabela não existam. Em vez disso, `exists: false` é devolvido na saída. |
 
 >[!TIP]
->Quando pretender validar que existe um ficheiro, `exists` pasta ou tabela, especificar na lista de campo de atividade seletiva Obter Metadados. Em seguida, `exists: true/false` pode verificar o resultado na saída da atividade. Se `exists` não estiver especificado na lista de campo, a atividade get metadata falhará se o objeto não for encontrado.
+>Quando pretender validar que existe um ficheiro, pasta ou tabela, especificar na lista de campo de `exists` atividade seletiva Obter Metadados. Em seguida, pode verificar o `exists: true/false` resultado na saída da atividade. Se não estiver especificado na lista de `exists` campo, a atividade get metadata falhará se o objeto não for encontrado.
 
 >[!NOTE]
->Quando obtém metadados de lojas `modifiedDatetimeStart` `modifiedDatetimeEnd`de `childItems` ficheiros e configuraou ou , a saída incluirá apenas ficheiros no caminho dado que tenham um último tempo modificado dentro da gama especificada. Não incluirá itens em subpastas.
+>Quando obtém metadados de lojas de ficheiros e configuraou `modifiedDatetimeStart` ou , a saída incluirá `modifiedDatetimeEnd` `childItems` apenas ficheiros no caminho dado que tenham um último tempo modificado dentro da gama especificada. Não incluirá itens em subpastas.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -146,7 +146,7 @@ lojasDefinições | Aplicar quando utilizar o conjunto de dados do tipo formato.
 
 ## <a name="sample-output"></a>Resultado da amostra
 
-Os resultados get Metadata são mostrados na saída da atividade. Seguem-se duas amostras que mostram extensas opções de metadados. Para utilizar os resultados numa atividade `@{activity('MyGetMetadataActivity').output.itemName}`subsequente, utilize este padrão: .
+Os resultados get Metadata são mostrados na saída da atividade. Seguem-se duas amostras que mostram extensas opções de metadados. Para utilizar os resultados numa atividade subsequente, utilize este padrão: `@{activity('MyGetMetadataActivity').output.itemName}` .
 
 ### <a name="get-a-files-metadata"></a>Obtenha os metadados de um ficheiro
 
@@ -195,7 +195,7 @@ Os resultados get Metadata são mostrados na saída da atividade. Seguem-se duas
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Conheça outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Executar atividade do pipeline](control-flow-execute-pipeline-activity.md)

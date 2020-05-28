@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 625c1ea474693732ab19e82de4730d2f8c971979
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736165"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117492"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -196,15 +196,15 @@ Conheça as definições específicas destas métricas em [Compreender os result
 
 ### <a name="data-featurization"></a>Característica de dados
 
-Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são [automaticamente dimensionados e normalizados](concept-automated-ml.md#preprocess) para ajudar *certos* algoritmos sensíveis a funcionalidades que estão em escalas diferentes.  No entanto, também pode permitir uma funcionalidade adicional, como a imputação de valores em falta, codificação e transformações. [Saiba mais sobre o que está incluído.](how-to-use-automated-ml-for-ml-models.md#featurization)
+Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são [automaticamente dimensionados e normalizados](how-to-configure-auto-features.md#) para ajudar *certos* algoritmos sensíveis a funcionalidades que estão em escalas diferentes.  No entanto, também pode permitir uma funcionalidade adicional, como a imputação de valores em falta, codificação e transformações.
 
-Ao configurar as suas experiências, pode ativar a definição avançada `featurization` . A tabela seguinte mostra as definições aceites para a caracterização na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+Ao configurar as suas experiências no seu `AutoMLConfig` objeto, pode ativar/desativar a definição `featurization` . A tabela seguinte mostra as definições aceites para a caracterização na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Configuração de Características | Descrição |
 | ------------- | ------------- |
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que deve ser utilizado um passo de caracterização personalizado. [Aprenda a personalizar a caracterização.](how-to-configure-auto-train.md#customize-feature-engineering)|
+|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, os [guarda-costas de dados e os passos](how-to-configure-auto-features.md#featurization) de caracterização são executados automaticamente. **Definição predefinida**|
 |`"featurization": 'off'`| Indica que o passo de caracterização não deve ser feito automaticamente.|
-|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, os [guarda-costas de dados e os passos](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) de caracterização são executados automaticamente.|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que deve ser utilizado um passo de caracterização personalizado. [Aprenda a personalizar a caracterização.](how-to-configure-auto-features.md#customize-featurization)|
 
 > [!NOTE]
 > Os passos automatizados de funcionalidade de aprendizagem automática (normalização de recursos, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, os mesmos passos de caracterização aplicados durante o treino são aplicados automaticamente aos seus dados de entrada.
@@ -361,7 +361,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Engenharia automatizada de recursos
 
-Consulte a lista de pré-processamento e [engenharia automática](concept-automated-ml.md#preprocess) de recursos que acontece quando `"featurization": 'auto'` .
+Consulte a lista de pré-processamento e [engenharia automática]() de recursos que acontece quando `"featurization": 'auto'` .
 
 Considere este exemplo:
 + Existem quatro funcionalidades de entrada: A (Numérico), B (Numérico), C (Numérico), D (DataTime)
@@ -430,36 +430,9 @@ Utilize estas 2 APIs no primeiro passo do modelo equipado para entender mais.  C
    |Caiu|Indica se a função de entrada foi largada ou utilizada.|
    |EngineeringFeatureCount|Número de funcionalidades geradas através de transformações automatizadas de engenharia de recursos.|
    |Transformações|Lista de transformações aplicadas às funcionalidades de entrada para gerar funcionalidades projetadas.|
-   
-### <a name="customize-feature-engineering"></a>Personalizar engenharia de recursos
-Para personalizar a engenharia de funcionalidades, especifique  `"featurization": FeaturizationConfig` .
-
-A personalização suportada inclui:
-
-|Personalização|Definição|
-|--|--|
-|Atualização de propósito da coluna|Sobrepor o tipo de função para a coluna especificada.|
-|Atualização do parâmetro do transformador |Atualizar os parâmetros para o transformador especificado. Atualmente suporta imputer (médio, mais frequente & mediano) e HashOneHotEncoder.|
-|Colunas de gotete |Colunas a deixar de ser característica.|
-|Transformadores de blocos| Os transformadores de blocos a utilizar no processo de caracterização.|
-
-Crie o objeto FeaturizationConfig utilizando chamadas API:
-```python
-featurization_config = FeaturizationConfig()
-featurization_config.blocked_transformers = ['LabelEncoder']
-featurization_config.drop_columns = ['aspiration', 'stroke']
-featurization_config.add_column_purpose('engine-size', 'Numeric')
-featurization_config.add_column_purpose('body-style', 'CategoricalHash')
-#default strategy mean, add transformer param for for 3 columns
-featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
-featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
-```
-
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Escala/Normalização e algoritmo com valores hiperparâmetros:
 
-Para compreender os valores de escala/normalização e algoritmo/hiperparâmetro para um gasoduto, utilize fitted_model.passos. [Saiba mais sobre escala/normalização](concept-automated-ml.md#preprocess). Eis uma saída de exemplo:
+Para compreender os valores de escala/normalização e algoritmo/hiperparâmetro para um gasoduto, utilize fitted_model.passos. [Saiba mais sobre escala/normalização](). Eis uma saída de exemplo:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
@@ -537,7 +510,7 @@ Veja como obter amostras [de](how-to-machine-learning-interpretability-automl.md
 
 Para obter informações gerais sobre como as explicações do modelo e a importância da funcionalidade podem ser ativadas noutras áreas do SDK fora da aprendizagem automática de máquinas, consulte [o](how-to-machine-learning-interpretability.md) artigo conceptual sobre a interpretação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

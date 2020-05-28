@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592088"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996691"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Create a trigger that runs a pipeline on a tumbling window(Criar um acionador que execute um pipeline numa janela em cascata)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo fornece passos para criar, iniciar e monitorizar um gatilho da janela caindo. Para obter informações gerais sobre os gatilhos e os tipos suportados, consulte a [execução do Gasoduto e](concepts-pipeline-execution-triggers.md)os gatilhos .
 
-Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos. Um gatilho de janela caindo tem uma relação um-para-um com um oleoduto e só pode referenciar um oleoduto singular.
+Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos. Um gatilho de janela caindo tem uma relação um-para-um com um oleoduto e só pode referenciar um oleoduto singular. O gatilho da janela é uma alternativa de peso mais pesado para o gatilho de horário, oferecendo um conjunto de funcionalidades para cenários complexos([dependência de outros gatilhos](#tumbling-window-trigger-dependency)de janelas caindo, [reexecutar um trabalho falhado](tumbling-window-trigger-dependency.md#monitor-dependencies) e definir o [retry do utilizador para os oleodutos).](#user-assigned-retries-of-pipelines) Para compreender melhor a diferença entre o gatilho do horário e o gatilho da janela, visite [aqui](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -96,18 +96,18 @@ A tabela seguinte fornece uma visão geral de alto nível dos principais element
 
 | Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
-| **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sim |
-| **tempo de execuçãoEstado** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este \<elemento é lidoApenas>. | String | "Iniciado", "Parou", "Deficiente" | Sim |
-| **frequência** | Uma cadeia que representa a unidade de frequência (minutos ou horas) na qual o gatilho se repete. Se os valores da data **de início** da data de tempo forem mais granulares do que o valor de **frequência,** as datas de **início** são consideradas quando os limites da janela são calculados. Por exemplo, se o valor de **frequência** for horalgéo e **o** valor inicial é 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-01T11:10:10:10Z). | String | "minuto", "hora"  | Sim |
+| **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | Cadeia | "TumblingWindowTrigger" | Sim |
+| **tempo de execuçãoEstado** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este elemento é \<readOnly> . | Cadeia | "Iniciado", "Parou", "Deficiente" | Sim |
+| **frequência** | Uma cadeia que representa a unidade de frequência (minutos ou horas) na qual o gatilho se repete. Se os valores da data **de início** da data de tempo forem mais granulares do que o valor de **frequência,** as datas de **início** são consideradas quando os limites da janela são calculados. Por exemplo, se o valor de **frequência** for horalgéo e **o** valor inicial é 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-01T11:10:10:10Z). | Cadeia | "minuto", "hora"  | Sim |
 | **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for de 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Sim |
-| **startTime**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo do gatilho é (**início,****intervalo** **de inícioTime** + ). | DateTime | Um valor datetime. | Sim |
+| **startTime**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo do gatilho é (**início,** intervalo **de**  +  **interval**inícioTime ). | DateTime | Um valor datetime. | Sim |
 | **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor datetime. | Sim |
-| **atraso** | O tempo para atrasar o início do processamento de dados para a janela. A execução do gasoduto é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera para além do devido tempo antes de desencadear uma nova execução. O **atraso** não altera o início da **janelaTempo.** Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo onde o padrão é 00:00:00. | No |
+| **atraso** | O tempo para atrasar o início do processamento de dados para a janela. A execução do gasoduto é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera para além do devido tempo antes de desencadear uma nova execução. O **atraso** não altera o início da **janelaTempo.** Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo onde o padrão é 00:00:00. | Não |
 | **maxConcurrency** | O número de disparos simultâneos que são disparados para janelas prontas. Por exemplo, para voltar a encher de hora a hora para ontem resulta em 24 janelas. Se **a moeda máxima** = 10, os eventos de disparo são disparados apenas para as primeiras 10 janelas (00:00-01:00 - 09:00-10:00). Depois de concluídas as primeiras 10 corridas de gasodutos acionados, são disparados disparos para as próximas 10 janelas (10:00-11:00 - 19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, existem 10 execuções totais de gasodutos. Se só houver uma janela pronta, só há uma corrida de oleoduto. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
-| **retryPolítica: Contar** | O número de repetições antes da execução do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem repetições). | No |
-| **retryPolicy: intervaloInSeconds** | O atraso entre as tentativas de retry especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é de 30. | No |
-| **depende: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se for definida uma dependência. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
-| **depende: tamanho** | Do tamanho da janela de tropeçar da dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | No |
+| **retryPolítica: Contar** | O número de repetições antes da execução do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem repetições). | Não |
+| **retryPolicy: intervaloInSeconds** | O atraso entre as tentativas de retry especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é de 30. | Não |
+| **depende: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se for definida uma dependência. | Cadeia |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
+| **depende: tamanho** | Do tamanho da janela de tropeçar da dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | Não |
 | **depende: compensado** | A compensação do gatilho da dependência. | Timespan<br/>(hh:mm:ss) |  Um valor de tempo que deve ser negativo numa auto-dependência. Se não for especificado qualquer valor, a janela é a mesma que o próprio gatilho. | Auto-Dependência: Sim<br/>Outros: Não  |
 
 > [!NOTE]
@@ -146,13 +146,19 @@ Pode utilizar as variáveis do sistema **WindowStart** e **WindowEnd** do gatilh
 Para utilizar os valores variáveis do sistema **WindowStart** e **WindowEnd** na definição do pipeline, utilize os seus parâmetros "MyWindowStart" e "MyWindowEnd", em conformidade.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordem de execução de janelas em cenário de enchimento
-Quando há várias janelas para a execução (especialmente num cenário de enchimento), a ordem de execução para janelas é determinística, desde intervalos mais antigos a mais recentes. Atualmente, não é possível modificar este comportamento.
+
+Se o tempo de arranque do gatilho estiver no passado, então com base nesta fórmula, M=(CurrentTime- TriggerStartTime)/TriggerSliceSize, o gatilho gerará {M} backfill (passado) corre em paralelo, honrando a conmoeda do gatilho, antes de executar as futuras execuções. A ordem de execução das janelas é determinista, desde intervalos mais antigos até intervalos mais recentes. Atualmente, não é possível modificar este comportamento.
 
 ### <a name="existing-triggerresource-elements"></a>Elementos triggerResource existentes
-Os seguintes pontos aplicam-se aos elementos **triggerResource** existentes:
 
-* Se o valor para o elemento de **frequência** (ou tamanho da janela) do gatilho mudar, o estado das janelas que já estão processadas *não* é reposto. O gatilho continua a disparar para as janelas da última janela que executou usando o novo tamanho da janela.
+Os seguintes pontos aplicam-se à atualização dos elementos **TriggerResource** existentes:
+
+* O valor para o elemento de **frequência** (ou tamanho da janela) do gatilho juntamente com o elemento **intervalo** não pode ser alterado uma vez criado o gatilho. Isto é necessário para o bom funcionamento das repetições de triggerRun e avaliações de dependência
 * Se o valor para o elemento **finalTime** do gatilho mudar (adicionado ou atualizado), o estado das janelas que já estão processados *não* é reposto. O gatilho honra o novo valor **final do tempo.** Se o novo valor **final O tempo** for antes das janelas que já estão executadas, o gatilho para. Caso contrário, o gatilho para quando o novo valor final do **tempo** é encontrado.
+
+### <a name="user-assigned-retries-of-pipelines"></a>Retrys atribuídos ao utilizador de gasodutos
+
+Em caso de avarias no gasoduto, o gatilho da janela de tropeçar pode voltar a executar automaticamente a execução do gasoduto referenciado, utilizando os mesmos parâmetros de entrada, sem a intervenção do utilizador. Isto pode ser especificado utilizando a propriedade "retryPolicy" na definição do gatilho.
 
 ### <a name="tumbling-window-trigger-dependency"></a>Dependência do gatilho da janela caindo
 
@@ -232,7 +238,7 @@ Esta secção mostra-lhe como usar o Azure PowerShell para criar, iniciar e moni
     
 Para monitorizar as condutas de disparo e o gasoduto corre no portal Azure, consulte o [gasoduto Monitor .](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações detalhadas sobre os gatilhos, consulte a [execução do Gasoduto e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Criar uma dependência de acionamento de janela em cascata](tumbling-window-trigger-dependency.md)

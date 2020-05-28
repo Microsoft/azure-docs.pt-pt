@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: efbd8dfa34f5d954e302b421dfcea6c46d9469ca
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75922666"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022833"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
@@ -51,11 +51,11 @@ Este gasoduto requer uma Base de Dados Azure SQL e um aglomerado de Hadoop HDIns
 
 ### <a name="provision-azure-sql-database"></a>Base de Dados Provision Azure SQL
 
-1. Crie uma base de dados Azure SQL. Consulte [criar uma base de dados Azure SQL no portal Azure](../sql-database/sql-database-single-database-get-started.md).
+1. Crie uma base de dados Azure SQL. Consulte [criar uma base de dados Azure SQL no portal Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Para garantir que o seu cluster HDInsight pode aceder à base de dados Azure SQL conectada, configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Pode ativar esta opção no portal Azure selecionando a firewall do **servidor set**, e selecionando **os** serviços e recursos do **Enable Azure para aceder a este servidor** para o servidor ou base de dados Azure SQL. Para mais informações, consulte [Criar e gerir as regras de firewall IP](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Para garantir que o seu cluster HDInsight pode aceder à base de dados Azure SQL conectada, configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Pode ativar esta opção no portal Azure selecionando a firewall do **servidor set**, e selecionando **on** under **Allow Azure serviços e recursos para aceder a este servidor** para base de dados Azure SQL. Para mais informações, consulte [Criar e gerir as regras de firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-1. Utilize o editor da [Consulta](../sql-database/sql-database-single-database-get-started.md#query-the-database) para executar as `dailyflights` seguintes declarações sQL para criar a tabela que armazenará os dados resumidos de cada execução do pipeline.
+1. Utilize o editor da [Consulta](../azure-sql/database/single-database-create-quickstart.md#query-the-database) para executar as seguintes declarações sQL para criar a `dailyflights` tabela que armazenará os dados resumidos de cada execução do pipeline.
 
     ```sql
     CREATE TABLE dailyflights
@@ -85,7 +85,7 @@ Crie um cluster Apache Hadoop com uma metaloja personalizada. Durante a criaçã
 Para utilizar a Consola Web Oozie para visualizar o estado do seu coordenador e casos de fluxo de trabalho, instale um túnel SSH no seu cluster HDInsight. Para mais informações, consulte [o Túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
 > [!NOTE]  
-> Também pode utilizar o Chrome com a extensão [Foxy Proxy](https://getfoxyproxy.org/) para navegar nos recursos web do seu cluster através do túnel SSH. Configure-o para proxy todos `localhost` os pedidos através do hospedeiro no porto 9876 do túnel. Esta abordagem é compatível com o Subsistema Windows para O Linux, também conhecido como Bash no Windows 10.
+> Também pode utilizar o Chrome com a extensão [Foxy Proxy](https://getfoxyproxy.org/) para navegar nos recursos web do seu cluster através do túnel SSH. Configure-o para proxy todos os pedidos através do hospedeiro `localhost` no porto 9876 do túnel. Esta abordagem é compatível com o Subsistema Windows para O Linux, também conhecido como Bash no Windows 10.
 
 1. Execute o seguinte comando para abrir um túnel SSH para o seu cluster, onde `CLUSTERNAME` está o nome do seu cluster:
 
@@ -97,15 +97,15 @@ Para utilizar a Consola Web Oozie para visualizar o estado do seu coordenador e 
 
     `http://headnodehost:8080`
 
-1. Para aceder à **Consola Web Oozie** a partir de Ambari, navegue para **Oozie** > **Quick Links** > [servidor Ativo] > **Oozie Web UI**.
+1. Para aceder à **Consola Web Oozie** a partir de Ambari, navegue para **Oozie**  >  **Quick Links** > [servidor Ativo] > **Oozie Web UI**.
 
 ## <a name="configure-hive"></a>Configure colmeia
 
 ### <a name="upload-data"></a>Carregar dados
 
-1. Descarregue um ficheiro CSV que contenha dados de voo durante um mês. Descarregue `2017-01-FlightData.zip` o seu ficheiro ZIP a partir do [repositório HDInsight GitHub](https://github.com/hdinsight/hdinsight-dev-guide) e desaperte-o para o ficheiro `2017-01-FlightData.csv`CSV .
+1. Descarregue um ficheiro CSV que contenha dados de voo durante um mês. Descarregue o seu ficheiro ZIP `2017-01-FlightData.zip` a partir do [repositório HDInsight GitHub](https://github.com/hdinsight/hdinsight-dev-guide) e desaperte-o para o ficheiro CSV `2017-01-FlightData.csv` .
 
-1. Copie este ficheiro CSV até à conta de Armazenamento Azure anexada ao seu cluster HDInsight e coloque-o `/example/data/flights` na pasta.
+1. Copie este ficheiro CSV até à conta de Armazenamento Azure anexada ao seu cluster HDInsight e coloque-o na `/example/data/flights` pasta.
 
     1. Utilize o SCP para copiar os ficheiros da sua máquina local para o armazenamento local do seu nó de cabeça de cluster HDInsight.
 
@@ -113,7 +113,7 @@ Para utilizar a Consola Web Oozie para visualizar o estado do seu coordenador e 
         scp ./2017-01-FlightData.csv sshuser@CLUSTERNAME-ssh.azurehdinsight.net:2017-01-FlightData.csv
         ```
 
-    1. Utilize [o comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu cluster. Edite o comando `CLUSTERNAME` abaixo substituindo pelo nome do seu cluster e, em seguida, introduza o comando:
+    1. Utilize [o comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu cluster. Edite o comando abaixo substituindo `CLUSTERNAME` pelo nome do seu cluster e, em seguida, introduza o comando:
 
         ```cmd
         ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -128,9 +128,9 @@ Para utilizar a Consola Web Oozie para visualizar o estado do seu coordenador e 
 
 ### <a name="create-tables"></a>Criar tabelas
 
-Os dados da amostra já estão disponíveis. No entanto, o gasoduto requer duas tabelas da Colmeia`rawFlights`para processamento, uma para os`flights`dados de entrada ( ) e outra para os dados resumidos ( ). Crie estas tabelas em Ambari da seguinte forma.
+Os dados da amostra já estão disponíveis. No entanto, o gasoduto requer duas tabelas da Colmeia para processamento, uma para os dados de entrada ( `rawFlights` ) e outra para os dados resumidos ( `flights` ). Crie estas tabelas em Ambari da seguinte forma.
 
-1. Faça login em Ambari `http://headnodehost:8080`navegando para .
+1. Faça login em Ambari navegando para `http://headnodehost:8080` .
 
 2. A partir da lista de serviços, selecione **Hive**.
 
@@ -140,7 +140,7 @@ Os dados da amostra já estão disponíveis. No entanto, o gasoduto requer duas 
 
     ![Lista de resumo sumário da Colmeia Ambari Apache](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
-4. Na área de texto de consulta, colhe `rawFlights` as seguintes declarações para criar a tabela. A `rawFlights` tabela fornece um esquema de leitura para os ficheiros `/example/data/flights` CSV dentro da pasta em Armazenamento Azure.
+4. Na área de texto de consulta, colhe as seguintes declarações para criar a `rawFlights` tabela. A `rawFlights` tabela fornece um esquema de leitura para os ficheiros CSV dentro da pasta em Armazenamento `/example/data/flights` Azure.
 
     ```sql
     CREATE EXTERNAL TABLE IF NOT EXISTS rawflights (
@@ -169,7 +169,7 @@ Os dados da amostra já estão disponíveis. No entanto, o gasoduto requer duas 
 
     ![hdi ambari serviços hive consulta](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
-6. Para criar `flights` a tabela, substitua o texto na área de texto de consulta pelas seguintes declarações. A `flights` tabela é uma tabela gerida pela Hive que partilha dados carregados nele por ano, mês e dia do mês. Esta tabela conterá todos os dados históricos de voo, com a menor granularidade presente nos dados de origem de uma linha por voo.
+6. Para criar a `flights` tabela, substitua o texto na área de texto de consulta pelas seguintes declarações. A `flights` tabela é uma tabela gerida pela Hive que partilha dados carregados nele por ano, mês e dia do mês. Esta tabela conterá todos os dados históricos de voo, com a menor granularidade presente nos dados de origem de uma linha por voo.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -205,11 +205,11 @@ O fluxo de trabalho da amostra processa os dados de voo dia-a-dia, em três pass
 
 1. Faça uma consulta da Hive para extrair os dados para a data desse dia, desde o ficheiro CSV de origem representado pela `rawFlights` tabela e insira os dados na `flights` tabela.
 2. Execute uma consulta da Hive para criar dinamicamente uma mesa de preparação na Colmeia para o dia, que contém uma cópia dos dados de voo resumidos de dia e transportadora.
-3. Utilize o Apache Sqoop para copiar todos os dados da `dailyflights` tabela diária de preparação na Colmeia para a tabela de destino na Base de Dados Azure SQL. Sqoop lê as linhas de origem a partir dos dados por trás da tabela Hive residente no Armazenamento Azure e coloca-as na Base de Dados SQL usando uma ligação JDBC.
+3. Utilize o Apache Sqoop para copiar todos os dados da tabela diária de preparação na Colmeia para a tabela de destino na Base de `dailyflights` Dados Azure SQL. Sqoop lê as linhas de origem a partir dos dados por trás da tabela Hive residente no Armazenamento Azure e coloca-as na Base de Dados SQL usando uma ligação JDBC.
 
 Estes três passos são coordenados por um fluxo de trabalho de Oozie.
 
-1. A partir da sua estação `job.properties`de trabalho local, crie um ficheiro chamado . Utilize o texto abaixo como conteúdo inicial para o ficheiro.
+1. A partir da sua estação de trabalho local, crie um ficheiro chamado `job.properties` . Utilize o texto abaixo como conteúdo inicial para o ficheiro.
 Em seguida, atualize os valores para o seu ambiente específico. A tabela abaixo do texto resume cada uma das propriedades e indica onde pode encontrar os valores para o seu próprio ambiente.
 
     ```text
@@ -237,18 +237,18 @@ Em seguida, atualize os valores para o seu ambiente específico. A tabela abaixo
     | queueName | O nome da fila YARN usada ao agendar as ações da Colmeia. Deixe como padrão. |
     | oozie.use.system.libpath | Deixe como verdadeiro. |
     | appBase | O caminho para a subpasta em Armazenamento Azure onde implementa o fluxo de trabalho oozie e ficheiros de suporte. |
-    | oozie.wf.application.path | A localização do fluxo `workflow.xml` de trabalho de Oozie para correr. |
-    | hiveScriptLoadPartition | O caminho em Azure Storage para `hive-load-flights-partition.hql`o arquivo de consulta da Colmeia. |
-    | hiveScriptCreateDailyTable | O caminho em Azure Storage para `hive-create-daily-summary-table.hql`o arquivo de consulta da Colmeia. |
+    | oozie.wf.application.path | A localização do fluxo de trabalho de Oozie `workflow.xml` para correr. |
+    | hiveScriptLoadPartition | O caminho em Azure Storage para o arquivo de consulta da `hive-load-flights-partition.hql` Colmeia. |
+    | hiveScriptCreateDailyTable | O caminho em Azure Storage para o arquivo de consulta da `hive-create-daily-summary-table.hql` Colmeia. |
     | hiveDailyTableName | O nome gerado dinamicamente para usar para a mesa de preparação. |
     | hiveDataFolder | O caminho em Armazenamento Azure para os dados contidos pela mesa de preparação. |
     | sqlDatabaseConnectionString | A cadeia de ligação sintaxe JDBC à sua Base de Dados Azure SQL. |
-    | sqlDatabaseTableName | O nome da tabela na Base de Dados Azure SQL na qual as linhas sumárias são inseridas. Deixe `dailyflights`como. |
+    | sqlDatabaseTableName | O nome da tabela na Base de Dados Azure SQL na qual as linhas sumárias são inseridas. Deixe `dailyflights` como. |
     | ano | A componente do ano do dia para o qual os resumos de voo são calculados. Deixe como está. |
     | month | A componente mensal do dia para o qual os resumos do voo são calculados. Deixe como está. |
     | day | A componente do dia do mês do dia para o qual os resumos do voo são calculados. Deixe como está. |
 
-1. A partir da sua estação `hive-load-flights-partition.hql`de trabalho local, crie um ficheiro chamado . Utilize o código abaixo como conteúdo para o ficheiro.
+1. A partir da sua estação de trabalho local, crie um ficheiro chamado `hive-load-flights-partition.hql` . Utilize o código abaixo como conteúdo para o ficheiro.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -272,9 +272,9 @@ Em seguida, atualize os valores para o seu ambiente específico. A tabela abaixo
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    As variáveis Oozie usam `${variableName}`a sintaxe. Estas variáveis estão `job.properties` definidas no ficheiro. Oozie substitui os valores reais no tempo de execução.
+    As variáveis Oozie usam a sintaxe. `${variableName}` Estas variáveis estão definidas no `job.properties` ficheiro. Oozie substitui os valores reais no tempo de execução.
 
-1. A partir da sua estação `hive-create-daily-summary-table.hql`de trabalho local, crie um ficheiro chamado . Utilize o código abaixo como conteúdo para o ficheiro.
+1. A partir da sua estação de trabalho local, crie um ficheiro chamado `hive-create-daily-summary-table.hql` . Utilize o código abaixo como conteúdo para o ficheiro.
 
     ```sql
     DROP TABLE ${hiveTableName};
@@ -300,7 +300,7 @@ Em seguida, atualize os valores para o seu ambiente específico. A tabela abaixo
 
     Esta consulta cria uma tabela de encenação que armazenará apenas os dados resumidos por um dia, tome nota da declaração SELECT que calcula os atrasos médios e o total de distância voada por transportadora durante o dia. Os dados inseridos nesta tabela armazenados num local conhecido (o caminho indicado pela variável hiveDataFolder) para que possa ser usado como fonte de Sqoop no passo seguinte.
 
-1. A partir da sua estação `workflow.xml`de trabalho local, crie um ficheiro chamado . Utilize o código abaixo como conteúdo para o ficheiro. Estes passos acima são expressos como ações separadas no ficheiro de fluxo de trabalho oozie.
+1. A partir da sua estação de trabalho local, crie um ficheiro chamado `workflow.xml` . Utilize o código abaixo como conteúdo para o ficheiro. Estes passos acima são expressos como ações separadas no ficheiro de fluxo de trabalho oozie.
 
     ```xml
     <workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
@@ -378,19 +378,19 @@ Em seguida, atualize os valores para o seu ambiente específico. A tabela abaixo
     </workflow-app>
     ```
 
-As duas consultas da Hive são acedidas pelo seu caminho no Armazenamento `job.properties` Azure, e os restantes valores variáveis são fornecidos pelo ficheiro. Este ficheiro configura o fluxo de trabalho a decorrer para a data de 3 de janeiro de 2017.
+As duas consultas da Hive são acedidas pelo seu caminho no Armazenamento Azure, e os restantes valores variáveis são fornecidos pelo `job.properties` ficheiro. Este ficheiro configura o fluxo de trabalho a decorrer para a data de 3 de janeiro de 2017.
 
 ## <a name="deploy-and-run-the-oozie-workflow"></a>Implementar e executar o fluxo de trabalho oozie
 
-Utilize o SCP da sua sessão de`workflow.xml`bash para implementar o`hive-load-flights-partition.hql` `hive-create-daily-summary-table.hql`seu fluxo de`job.properties`trabalho Oozie (), as consultas da Colmeia ( e), e a configuração do trabalho ( ).  Em Oozie, `job.properties` só o ficheiro pode existir no armazenamento local do nódoado. Todos os outros ficheiros devem ser armazenados em HDFS, neste caso o Armazenamento Azure. A ação Sqoop utilizada pelo fluxo de trabalho depende de um controlador JDBC para comunicar com a sua Base de Dados SQL, que deve ser copiada do nó da cabeça para hDFS.
+Utilize o SCP da sua sessão de bash para implementar o seu fluxo de trabalho Oozie (), as consultas da `workflow.xml` Colmeia ( `hive-load-flights-partition.hql` `hive-create-daily-summary-table.hql` e), e a configuração do trabalho `job.properties` ( ).  Em Oozie, só o `job.properties` ficheiro pode existir no armazenamento local do nódoado. Todos os outros ficheiros devem ser armazenados em HDFS, neste caso o Armazenamento Azure. A ação Sqoop utilizada pelo fluxo de trabalho depende de um controlador JDBC para comunicar com a sua Base de Dados SQL, que deve ser copiada do nó da cabeça para hDFS.
 
-1. Crie `load_flights_by_day` a subpasta por baixo do caminho do utilizador no armazenamento local do nó de cabeça. A partir da sua sessão aberta, execute o seguinte comando:
+1. Crie a `load_flights_by_day` subpasta por baixo do caminho do utilizador no armazenamento local do nó de cabeça. A partir da sua sessão aberta, execute o seguinte comando:
 
     ```bash
     mkdir load_flights_by_day
     ```
 
-1. Copie todos os ficheiros `workflow.xml` do `job.properties` diretório atual `load_flights_by_day` (o e os ficheiros) até à subpasta. A partir da sua estação de trabalho local, execute o seguinte comando:
+1. Copie todos os ficheiros do diretório atual (o `workflow.xml` e `job.properties` os ficheiros) até à `load_flights_by_day` subpasta. A partir da sua estação de trabalho local, execute o seguinte comando:
 
     ```cmd
     scp ./* sshuser@CLUSTERNAME-ssh.azurehdinsight.net:load_flights_by_day
@@ -428,7 +428,7 @@ Agora que o fluxo de trabalho está a decorrer para o único dia de teste, pode 
 
 ## <a name="run-the-workflow-with-a-coordinator"></a>Executar o fluxo de trabalho com um coordenador
 
-Para agendar este fluxo de trabalho para que funcione diariamente (ou todos os dias em data), pode utilizar um coordenador. Um coordenador é definido por um `coordinator.xml`ficheiro XML, por exemplo:
+Para agendar este fluxo de trabalho para que funcione diariamente (ou todos os dias em data), pode utilizar um coordenador. Um coordenador é definido por um ficheiro XML, por `coordinator.xml` exemplo:
 
 ```xml
 <coordinator-app name="daily_export" start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" timezone="UTC" xmlns="uri:oozie:coordinator:0.4">
@@ -499,15 +499,15 @@ Para agendar este fluxo de trabalho para que funcione diariamente (ou todos os d
 
 Como pode ver, a maioria do coordenador está apenas a passar informações de configuração para a instância de fluxo de trabalho. No entanto, há alguns itens importantes para chamar.
 
-* Ponto 1: `start` `end` Os atributos e atributos no `coordinator-app` próprio elemento controlam o intervalo de tempo sobre o qual o coordenador corre.
+* Ponto 1: Os `start` `end` atributos e atributos no `coordinator-app` próprio elemento controlam o intervalo de tempo sobre o qual o coordenador corre.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Um coordenador é responsável por `start` agendar ações dentro do intervalo `end` e `frequency` data, de acordo com o intervalo especificado pelo atributo. Cada ação programada, por sua vez, executa o fluxo de trabalho conforme configurado. Na definição de coordenador acima, o coordenador está configurado para executar ações de 1 de janeiro de 2017 a 5 de janeiro de 2017. A frequência é definida para um dia pela expressão `${coord:days(1)}`de frequência da linguagem de expressão [Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) . Isto resulta na agendação do coordenador de uma ação (e, portanto, do fluxo de trabalho) uma vez por dia. Para intervalos de datas que estão no passado, como neste exemplo, a ação será programada para ser executada sem demora. O início da data a partir da qual está prevista uma ação chama-se *tempo nominal*. Por exemplo, para processar os dados para 1 de janeiro de 2017, o coordenador irá agendar uma ação com um tempo nominal de 2017-01-01T00:00:00 GMT.
+    Um coordenador é responsável por agendar ações dentro do intervalo e data, de `start` acordo com o intervalo `end` especificado pelo `frequency` atributo. Cada ação programada, por sua vez, executa o fluxo de trabalho conforme configurado. Na definição de coordenador acima, o coordenador está configurado para executar ações de 1 de janeiro de 2017 a 5 de janeiro de 2017. A frequência é definida para um dia pela expressão de frequência da linguagem de [expressão Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) `${coord:days(1)}` . Isto resulta na agendação do coordenador de uma ação (e, portanto, do fluxo de trabalho) uma vez por dia. Para intervalos de datas que estão no passado, como neste exemplo, a ação será programada para ser executada sem demora. O início da data a partir da qual está prevista uma ação chama-se *tempo nominal*. Por exemplo, para processar os dados para 1 de janeiro de 2017, o coordenador irá agendar uma ação com um tempo nominal de 2017-01-01T00:00:00 GMT.
 
-* Ponto 2: Dentro do intervalo de `dataset` data do fluxo de trabalho, o elemento especifica onde procurar no HDFS os dados para uma determinada gama de datas, e explica como a Oozie determina se os dados ainda estão disponíveis para processamento.
+* Ponto 2: Dentro do intervalo de data do fluxo de trabalho, o `dataset` elemento especifica onde procurar no HDFS os dados para uma determinada gama de datas, e explica como a Oozie determina se os dados ainda estão disponíveis para processamento.
 
     ```xml
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -516,11 +516,11 @@ Como pode ver, a maioria do coordenador está apenas a passar informações de c
     </dataset>
     ```
 
-    O caminho para os dados em HDFS é construído `uri-template` dinamicamente de acordo com a expressão fornecida no elemento. Neste coordenador, uma frequência de um dia também é usada com o conjunto de dados. Enquanto as datas de início e fim do controlo do elemento coordenador `initial-instance` quando `frequency` as ações estão programadas (e define os `uri-template`seus tempos nominais), o e no conjunto de dados controlam o cálculo da data utilizada na construção do . Neste caso, estabeleça a instância inicial para um dia antes do início do coordenador para garantir que recolhe os dados do primeiro dia (1/1/2017). O cálculo da data do conjunto de `initial-instance` dados avança a partir do valor de (12/31/2016) avançando em incrementos de frequência de conjunto de dados (um dia) até encontrar a data mais recente que não passa o tempo nominal definido pelo coordenador (2017-01-01T00:00:00 GMT para a primeira ação).
+    O caminho para os dados em HDFS é construído dinamicamente de acordo com a expressão fornecida no `uri-template` elemento. Neste coordenador, uma frequência de um dia também é usada com o conjunto de dados. Enquanto as datas de início e fim do controlo do elemento coordenador quando as ações estão programadas (e define os seus tempos nominais), o e no conjunto de `initial-instance` dados controlam o cálculo da data utilizada na `frequency` construção do `uri-template` . Neste caso, estabeleça a instância inicial para um dia antes do início do coordenador para garantir que recolhe os dados do primeiro dia (1/1/2017). O cálculo da data do conjunto de dados avança a partir do valor de `initial-instance` (12/31/2016) avançando em incrementos de frequência de conjunto de dados (um dia) até encontrar a data mais recente que não passa o tempo nominal definido pelo coordenador (2017-01-01T00:00:00 GMT para a primeira ação).
 
-    O `done-flag` elemento vazio indica que quando a Oozie verifica a presença de dados de entrada no momento indicado, a Oozie determina os dados disponíveis pela presença de um diretório ou ficheiro. Neste caso, é a presença de um ficheiro CSV. Se um ficheiro csv estiver presente, a Oozie assume que os dados estão prontos e lança uma instância de fluxo de trabalho para processar o ficheiro. Se não houver nenhum ficheiro CSV presente, Oozie assume que os dados ainda não estão prontos e que a execução do fluxo de trabalho vai para um estado de espera.
+    O elemento vazio `done-flag` indica que quando a Oozie verifica a presença de dados de entrada no momento indicado, a Oozie determina os dados disponíveis pela presença de um diretório ou ficheiro. Neste caso, é a presença de um ficheiro CSV. Se um ficheiro csv estiver presente, a Oozie assume que os dados estão prontos e lança uma instância de fluxo de trabalho para processar o ficheiro. Se não houver nenhum ficheiro CSV presente, Oozie assume que os dados ainda não estão prontos e que a execução do fluxo de trabalho vai para um estado de espera.
 
-* Ponto 3: `data-in` O elemento especifica a marca de tempo específica para `uri-template` usar como o tempo nominal ao substituir os valores para o conjunto de dados associado.
+* Ponto 3: O `data-in` elemento especifica a marca de tempo específica para usar como o tempo nominal ao substituir os valores `uri-template` para o conjunto de dados associado.
 
     ```xml
     <data-in name="event_input1" dataset="ds_input1">
@@ -528,17 +528,17 @@ Como pode ver, a maioria do coordenador está apenas a passar informações de c
     </data-in>
     ```
 
-    Neste caso, definir a instância `${coord:current(0)}`para a expressão , que se traduz na utilização do tempo nominal da ação, tal como inicialmente previsto pelo coordenador. Ou seja, quando o coordenador agenda a ação para correr com um tempo nominal de 01/01/2017, então 01/01/2017 é o que é usado para substituir as variáveis ANO (2017) e MÊS (01) no modelo URI. Uma vez que o modelo URI é calculado para este caso, Oozie verifica se o diretório ou arquivo esperado está disponível e marca a próxima execução do fluxo de trabalho em conformidade.
+    Neste caso, definir a instância para a expressão `${coord:current(0)}` , que se traduz na utilização do tempo nominal da ação, tal como inicialmente previsto pelo coordenador. Ou seja, quando o coordenador agenda a ação para correr com um tempo nominal de 01/01/2017, então 01/01/2017 é o que é usado para substituir as variáveis ANO (2017) e MÊS (01) no modelo URI. Uma vez que o modelo URI é calculado para este caso, Oozie verifica se o diretório ou arquivo esperado está disponível e marca a próxima execução do fluxo de trabalho em conformidade.
 
 Os três pontos anteriores combinam-se para produzir uma situação em que o coordenador agenda o processamento dos dados de origem de forma diária.
 
 * Ponto 1: O coordenador começa com uma data nominal de 2017-01-01.
 
-* Ponto 2: Oozie procura `sourceDataFolder/2017-01-FlightData.csv`dados disponíveis em .
+* Ponto 2: Oozie procura dados disponíveis em `sourceDataFolder/2017-01-FlightData.csv` .
 
 * Ponto 3: Quando o Oozie encontra esse ficheiro, ele marca uma instância do fluxo de trabalho que irá processar os dados para 2017-01-01. Oozie continua a processar para 2017-01-02. Esta avaliação repete-se até 2017-01-05.
 
-Tal como acontece com os fluxos de `job.properties` trabalho, a configuração de um coordenador é definida num ficheiro, que tem um sobreconjunto das definições utilizadas pelo fluxo de trabalho.
+Tal como acontece com os fluxos de trabalho, a configuração de um coordenador é definida num `job.properties` ficheiro, que tem um sobreconjunto das definições utilizadas pelo fluxo de trabalho.
 
 ```text
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
@@ -556,11 +556,11 @@ sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;
 sqlDatabaseTableName=dailyflights
 ```
 
-As únicas novas propriedades `job.properties` introduzidas neste ficheiro são:
+As únicas novas propriedades introduzidas neste `job.properties` ficheiro são:
 
 | Propriedade | Fonte de valor |
 | --- | --- |
-| oozie.coord.application.path | Indica a localização `coordinator.xml` do ficheiro que contém o coordenador oozie para executar. |
+| oozie.coord.application.path | Indica a localização do `coordinator.xml` ficheiro que contém o coordenador oozie para executar. |
 | hiveDailyTableNamePrefix | O prefixo utilizado ao criar dinamicamente o nome da mesa da mesa de preparação. |
 | hiveDataFolderPrefix | O prefixo do caminho onde todas as mesas de preparação serão armazenadas. |
 
@@ -602,6 +602,6 @@ Para executar o pipeline com um coordenador, proceda de forma semelhante à do f
 
     Cada ação desta lista corresponde a uma instância do fluxo de trabalho que processa um dia de dados, onde o início desse dia é indicado pelo tempo nominal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Documentação Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)

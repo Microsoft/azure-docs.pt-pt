@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 55ef72b23f804ce7fcdb339ba4c66bcefe39db46
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702051"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020817"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL on-demand (pré-visualização) em Azure Synapse Analytics 
 
@@ -110,7 +110,7 @@ A SQL on-demand oferece mecanismos para garantir o acesso aos seus dados.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
-A SQL on-demand permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços da Microsoft com [integração do Diretório Ativo do Azure](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory (Azure AD) suporta a [autenticação de vários fatores](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar a segurança dos dados e da aplicação, ao mesmo tempo que suporta um único processo de inscrição.
+A SQL on-demand permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços da Microsoft com [integração do Diretório Ativo do Azure](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory (Azure AD) suporta a [autenticação de vários fatores](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar a segurança dos dados e da aplicação, ao mesmo tempo que suporta um único processo de inscrição.
 
 #### <a name="authentication"></a>Autenticação
 

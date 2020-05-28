@@ -1,22 +1,22 @@
 ---
-title: ClI exemplo-activo geo-replicação Azure SQL base de dados
+title: 'Az CLI: Configure geo-replicação ativa para uma piscina elástica'
 description: Script de exemplo Azure CLI para configurar geo-replicação ativa para uma base de dados agrupada na Base de Dados Azure SQL e falhar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: sqldbrb=1
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 2646ed98f4a73c69d339df0134e8a565c958c514
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a272564684671e38100e5390e95129121fcbd0f8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067363"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019388"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Utilize o CLI para configurar a geo-replicação ativa para uma base de dados pooled na Base de Dados Azure SQL
 
@@ -58,8 +58,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az sql elástico-piscina](/cli/azure/sql/elastic-pool) | Comandos de piscina elástica |
 | [az sql db réplica](/cli/azure/sql/db/replica) | Comandos de replicação de base de dados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
+Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

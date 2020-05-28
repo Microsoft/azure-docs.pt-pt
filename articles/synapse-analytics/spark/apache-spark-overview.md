@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 291e81261f8841b3d4629b077f0a244f10aa1fd8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644677"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118577"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark em Azure Synapse Analytics
 
@@ -41,7 +41,7 @@ As piscinas de faíscas em Azure Synapse oferecem um serviço Spark totalmente g
 | Suporte para Azure Data Lake Storage Geração 2| As piscinas de faíscas em Azure Synapse podem usar a Geração de Armazenamento do Lago De dados Azure 2, bem como o armazenamento BLOB. Para mais informações sobre o Armazenamento de Data Lake, consulte [a visão geral do armazenamento do Lago De Dados Azure](../../data-lake-store/data-lake-store-overview.md). |
 | Integração com IDEs de terceiros | A Azure Synapse fornece um plugin IDE para o [IntelliJ IDEA da Jetbrains](https://www.jetbrains.com/idea/) que é útil para criar e submeter aplicações a uma piscina spark. |
 | Bibliotecas Anaconda pré-carregadas |As piscinas de faíscas em Azure Synapse vêm com bibliotecas Anaconda pré-instaladas. O [Anaconda](https://docs.continuum.io/anaconda/) fornece cerca de 200 bibliotecas de Machine Learning, análise de dados, visualização, etc. |
-| Escalabilidade | Apache Spark em piscinas Azure Synapse pode ter auto-escala ativada, de modo que as piscinas escalam para cima e para baixo conforme necessário. Além disso, as piscinas Spark podem ser encerradas sem perda de dados, uma vez que todos os dados são armazenados em Armazenamento Azure ou Armazenamento de Data Lake. |
+| Escalabilidade | A Apache Spark nas piscinas Azure Synapse pode ter a Escala Automática ativada, de modo que as piscinas escalam adicionando ou removendo os nós conforme necessário. Além disso, as piscinas Spark podem ser encerradas sem perda de dados, uma vez que todos os dados são armazenados em Armazenamento Azure ou Armazenamento de Data Lake. |
 
 As piscinas de faíscas em Azure Synapse incluem os seguintes componentes disponíveis nas piscinas por padrão.
 

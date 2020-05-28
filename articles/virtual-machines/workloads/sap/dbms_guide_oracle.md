@@ -420,7 +420,7 @@ Para obter mais informações sobre a recuperação de desastres para as bases d
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente a ligação acelerada em rede, conforme descrito em [Rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em considerações para a implantação de [DBMS de Máquinas Virtuais Azure para carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Considerações para a implantação de [Máquinas Virtuais Azure DBMS para carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com base de dados Oracle, incluindo conjuntos de disponibilidade Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para A base de dados oracle no Oracle Linux
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Considerações para a implantação de [Máquinas Virtuais Azure DBMS para carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com base de dados Oracle, incluindo conjuntos de disponibilidade Azure e monitorização SAP.

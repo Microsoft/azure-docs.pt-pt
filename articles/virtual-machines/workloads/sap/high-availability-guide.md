@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 742e1b54499e51fc791a659baaf7072272ef43a6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594887"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021420"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure
 
@@ -411,7 +411,7 @@ ms.locfileid: "82594887"
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:../../virtual-machines-windows-sizes.md
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -657,7 +657,7 @@ _**Figura 9:** Modelo arquitetónico de alta disponibilidade SAP 2, com um clust
 
 ### <a name="deployment-scenario-using-architectural-template-3"></a>Cenário de implantação usando o modelo arquitetônico 3
 
-A figura 10 mostra um exemplo de uma arquitetura de alta disponibilidade SAP NetWeaver &lt;em&gt;Azure para **dois** sistemas SAP, com &lt;SID1&gt; e SID2 . Este cenário é configurado da seguinte forma:
+A figura 10 mostra um exemplo de uma arquitetura de alta disponibilidade SAP NetWeaver em Azure para **dois** sistemas SAP, com &lt; SID1 &gt; e &lt; SID2 &gt; . Este cenário é configurado da seguinte forma:
 
 - Um cluster dedicado é utilizado **tanto** para a instância SAP ASCS/SCS SID1 *como* para a instância SAP ASCS/SCS SID2 (um cluster).
 - Um cluster dedicado é usado para DBMS SID1, e outro cluster dedicado é usado para DBMS SID2 (dois clusters).
@@ -902,7 +902,7 @@ Pode criar manualmente os outros dois nomes de anfitriões virtuais, **pr1-ascs-
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Definir endereços IP estáticos para as máquinas virtuais SAP
 Depois de colocar as máquinas virtuais a utilizar no seu cluster, precisa de definir endereços IP estáticos para todas as máquinas virtuais. Faça-o na configuração da Rede Virtual Azure e não no sistema operativo dos hóspedes.
 
-1. No portal Azure, selecione **Resource Group Network** > **Card** > **Settings** > IP**Address**.
+1. No portal Azure, selecione **Resource Group Network**  >  **Card**  >  **Settings**  >  **IP Address**.
 2. Na lâmina de **endereços IP,** em **Atribuição,** **selecione Static**. Na caixa de **endereços IP,** introduza o endereço IP que pretende utilizar.
 
    > [!NOTE]
@@ -1013,7 +1013,7 @@ Defino o endereço IP do equilibrador de carga **pr1-lb-dbms** no endereço IP d
 
 Se pretender utilizar diferentes números para as instâncias SAP ASCS ou SCS, tem de alterar os nomes e valores das suas portas a partir de valores predefinidos.
 
-1. No portal Azure, selecione >  ** < *SID*>-lb-ascs carregar**regras de equilíbrio de carga de**carga**.
+1. No portal Azure, selecione ** < *SID*>-lb-ascs carregar**regras de equilíbrio de  >  **carga**de carga .
 2. Para todas as regras de equilíbrio de carga que pertencem à instância SAP ASCS ou SCS, altere estes valores:
 
    * Name
@@ -1038,7 +1038,7 @@ _**Figura 17:** Adicione uma máquina virtual a um domínio_
 
 ### <a name="add-registry-entries-on-both-cluster-nodes-of-the-sap-ascsscs-instance"></a><a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>Adicione entradas de registo em ambos os nós de cluster da instância SAP ASCS/SCS
 
-O Azure Load Balancer tem um equilibrador de carga interna que fecha as ligações quando as ligações estão inativas durante um determinado período de tempo (um tempo inativo). Os processos de trabalho da SAP em casos de diálogo abrem ligações ao processo de fila sap logo que o primeiro pedido de fila/defilação precisa de ser enviado. Estas ligações geralmente permanecem estabelecidas até que o processo de trabalho ou o processo de fila reinicie. No entanto, se a ligação estiver inativa durante um determinado período de tempo, o equilibrista de carga interna Azure fecha as ligações. Isto não é um problema porque o processo de trabalho da SAP restabelece a ligação ao processo de fila se já não existir. Estas atividades estão documentadas nos vestígios de desenvolvedores de processos SAP, mas criam uma grande quantidade de conteúdo extra nesses vestígios. É uma boa ideia mudar o TCP/IP `KeepAliveTime` e `KeepAliveInterval` em ambos os nós de cluster. Combine estas alterações nos parâmetros TCP/IP com os parâmetros de perfil SAP, descritos posteriormente no artigo.
+O Azure Load Balancer tem um equilibrador de carga interna que fecha as ligações quando as ligações estão inativas durante um determinado período de tempo (um tempo inativo). Os processos de trabalho da SAP em casos de diálogo abrem ligações ao processo de fila sap logo que o primeiro pedido de fila/defilação precisa de ser enviado. Estas ligações geralmente permanecem estabelecidas até que o processo de trabalho ou o processo de fila reinicie. No entanto, se a ligação estiver inativa durante um determinado período de tempo, o equilibrista de carga interna Azure fecha as ligações. Isto não é um problema porque o processo de trabalho da SAP restabelece a ligação ao processo de fila se já não existir. Estas atividades estão documentadas nos vestígios de desenvolvedores de processos SAP, mas criam uma grande quantidade de conteúdo extra nesses vestígios. É uma boa ideia mudar o TCP/IP e em ambos os nós de `KeepAliveTime` `KeepAliveInterval` cluster. Combine estas alterações nos parâmetros TCP/IP com os parâmetros de perfil SAP, descritos posteriormente no artigo.
 
 Para adicionar entradas de registo em ambos os nós de cluster da instância SAP ASCS/SCS, em primeiro lugar, adicione estas entradas de registo windows em ambos os nós do cluster Windows para SAP ASCS/SCS:
 
@@ -1216,7 +1216,7 @@ Configurar uma testemunha de partilha de ficheiros de cluster envolve estas tare
 
    _**Figura 36:** Selecione a testemunha de partilha de ficheiros_
 
-4. Insira o caminho do CNU para \\a partilha de ficheiros (no nosso exemplo, domcontr-0\FSW). Para ver uma lista das alterações que pode fazer, selecione **Next**.
+4. Insira o caminho do CNU para a partilha de ficheiros (no nosso exemplo, \\ domcontr-0\FSW). Para ver uma lista das alterações que pode fazer, selecione **Next**.
 
    ![Figura 37: Definir a localização da partilha de ficheiros para a partilha de testemunhas][sap-ha-guide-figure-3026]
 
@@ -1228,7 +1228,7 @@ Configurar uma testemunha de partilha de ficheiros de cluster envolve estas tare
 
    _**Figura 38:** Confirmação de que reconfigurou o cluster_
 
-Depois de instalar com sucesso o Cluster Failover do Windows, é necessário fazer alterações em alguns limiares para adaptar a deteção de falhas às condições do Azure. Os parâmetros a serem alterados estão documentados neste blog: [https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Assumindo que os seus dois VMs que constroem a Configuração do Cluster Windows para ASCS/SCS estão na mesma SubNet, os seguintes parâmetros precisam de ser alterados para estes valores:  
+Depois de instalar com sucesso o Cluster Failover do Windows, é necessário fazer alterações em alguns limiares para adaptar a deteção de falhas às condições do Azure. Os parâmetros a serem alterados estão documentados neste blog: [https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) . Assumindo que os seus dois VMs que constroem a Configuração do Cluster Windows para ASCS/SCS estão na mesma SubNet, os seguintes parâmetros precisam de ser alterados para estes valores:  
 - SameSubNetDelay = 2000  
 - SameSubNetThreshold = 15  
 - RoutHistoryLength = 30  
@@ -1409,7 +1409,7 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve estas
 1. No gestor do DNS do Windows, crie uma entrada DNS para o nome de anfitrião virtual da instância ASCS/SCS.
 
    > [!IMPORTANT]
-   > O endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que atribuiu ao Azure Load Balancer**<*(SID*>-lb-ascs).**  
+   > O endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que atribuiu ao Azure Load Balancer** < *(SID*>-lb-ascs).**  
    >
    >
 
@@ -1419,7 +1419,7 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve estas
 
    _**Figura 56:** Definir a entrada DNS para o nome virtual do cluster SAP ASCS/SCS e endereço TCP/IP_
 
-2. Para definir o endereço IP atribuído ao nome de anfitrião virtual, selecione **DNS Manager** > **Domain**.
+2. Para definir o endereço IP atribuído ao nome de anfitrião virtual, selecione **DNS Manager**  >  **Domain**.
 
    ![Figura 57: Novo nome virtual e endereço TCP/IP para configuração do cluster SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
@@ -1445,7 +1445,7 @@ As próximas tarefas não são descritas na documentação padrão de instalaç�
 
 #### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modificar o perfil SAP da instância ASCS/SCS
 
-Precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil impede que as ligações entre os processos de trabalho do SAP e o servidor de fila de enfila fechem quando estão inativas durante demasiado tempo. Mencionamos o cenário problemático em Adicionar entradas de [registo em ambos os nós de cluster da instância SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa secção, introduzimos também duas alterações a alguns parâmetros básicos de ligação TCP/IP. Num segundo passo, é necessário definir o servidor `keep_alive` de fila para enviar um sinal para que as ligações não atinjam o limiar de marcha lenta do equilíbrio interno do Azure.
+Precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil impede que as ligações entre os processos de trabalho do SAP e o servidor de fila de enfila fechem quando estão inativas durante demasiado tempo. Mencionamos o cenário problemático em Adicionar entradas de [registo em ambos os nós de cluster da instância SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa secção, introduzimos também duas alterações a alguns parâmetros básicos de ligação TCP/IP. Num segundo passo, é necessário definir o servidor de fila para enviar um sinal para `keep_alive` que as ligações não atinjam o limiar de marcha lenta do equilíbrio interno do Azure.
 
 Para modificar o perfil SAP da instância ASCS/SCS:
 
@@ -1569,7 +1569,7 @@ Tens de abrir uma porta de sonda de firewall do Windows em ambos os nós do clus
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-O **ProbePort** está definido para **62000**. Agora você pode aceder à partilha ** \\de ficheiros \ascsha-clsap\sapmnt** de outros anfitriões, como de **ascsha-dbas**.
+O **ProbePort** está definido para **62000**. Agora você pode aceder à partilha de ** \\ ficheiros \ascsha-clsap\sapmnt** de outros anfitriões, como de **ascsha-dbas**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instale a instância da base de dados
 
@@ -1593,7 +1593,7 @@ Instale a instância do Servidor de Aplicações Primárias (PAS) <*SID*>-di-0 n
 
 ### <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalar o Servidor de Aplicações Adicionais SAP
 
-Instale um Servidor de Aplicações Adicional SAP (AAS) em todas as máquinas virtuais que designou para hospedar uma instância do Servidor de Aplicações SAP. Por exemplo, em <*SID*>-di-1 para&lt;&gt;<*SID*>-di-n .
+Instale um Servidor de Aplicações Adicional SAP (AAS) em todas as máquinas virtuais que designou para hospedar uma instância do Servidor de Aplicações SAP. Por exemplo, em <*SID*>-di-1 para <*SID*>-di-n &lt; &gt; .
 
 > [!NOTE]
 > Isto termina a instalação de um sistema SAP NetWeaver de alta disponibilidade. Em seguida, proceda com os testes de failover.

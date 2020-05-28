@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d68a3b1291d2e001c535a0c5a6b0c754c9d2b2e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679598"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021352"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutorial: Criação de um projeto de unidade do zero
 
@@ -44,13 +44,13 @@ Para este tutorial você precisa:
 ## <a name="create-a-new-unity-project"></a>Criar um novo projeto de Unidade
 
 A partir do Centro de Unidade, crie um novo projeto.
-Neste exemplo, assumimos que o projeto está a `RemoteRendering`ser criado numa pasta chamada .
+Neste exemplo, assumimos que o projeto está a ser criado numa pasta chamada `RemoteRendering` .
 
 ![nova janela do projeto](media/new-project.png)
 
 ## <a name="configure-the-projects-manifest"></a>Configure o manifesto do projeto
 
-Tem de modificar `Packages/manifest.json` o ficheiro que está localizado na pasta do projeto Unidade. Abra o ficheiro num editor de texto e apreenda as linhas listadas abaixo:
+Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pasta do projeto Unidade. Abra o ficheiro num editor de texto e apreenda as linhas listadas abaixo:
 
 ```json
 {
@@ -77,9 +77,9 @@ Depois de modificar e guardar o manifesto, a Unidade irá automaticamente refres
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Certifique-se de que tem a versão mais recente do pacote
 
 Os seguintes passos garantem que o seu projeto está a utilizar a versão mais recente do pacote de renderização remota.
-1. Selecione o pacote na janela do ![Projeto e clique no ícone do pacote: Selecionando o ícone do pacote](media/package-icons.png)
-1. No Inspetor, clique em "View ![in Package Manager": inspetor de pacotes](media/package-properties.png)
-1. Na página do gestor do pacote para o pacote de renderização remota, veja se o botão de atualização está disponível. Se for, clicar ás irá atualizar o pacote ![para a versão mais recente disponível: O pacote ARR no gestor de pacotes](media/package-manager.png)
+1. Selecione o pacote na janela do Projeto e clique no :::no-loc text="package"::: ícone: ![ Selecionando o ícone do pacote](media/package-icons.png)
+1. No Inspetor, clique em "View in Package Manager": inspetor de ![ pacotes](media/package-properties.png)
+1. Na página do gestor do pacote para o pacote de renderização remota, veja se o botão de atualização está disponível. Se for, clicar ás irá atualizar o pacote para a versão mais recente disponível: ![ O pacote ARR no gestor de pacotes](media/package-manager.png)
 1. Por vezes, a atualização do pacote pode levar a erros na consola. Se isto ocorrer, tente fechar e reabrir o projeto.
 
 ## <a name="configure-the-camera"></a>Configure a câmara
@@ -90,11 +90,11 @@ Selecione o nó **da Câmara Principal.**
 
     ![redefinir a transformação da câmara](media/camera-reset-transform.png)
 
-1. Definir **bandeiras claras** para a *cor sólida*
+1. Definido **:::no-loc text="Clear flags":::** para*:::no-loc text="Solid Color":::*
 
-1. Definir **fundo** para *preto*
+1. Definido **:::no-loc text="Background":::** para*:::no-loc text="Black":::*
 
-1. Coloque os **planos** de clipping para *perto = 0,3* e *Far = 20*. Isto significa que a renderização irá cortar a geometria que está mais perto de 30 cm ou mais distante do que 20 metros.
+1. Desloque o **:::no-loc text="Clipping Planes":::** *a Perto = 0,3* e *Far = 20*. Isto significa que a renderização irá cortar a geometria que está mais perto de 30 cm ou mais distante do que 20 metros.
 
     ![Propriedades da câmara de unidade](media/camera-properties.png)
 
@@ -109,10 +109,10 @@ Selecione o nó **da Câmara Principal.**
 1. Selecione **Gráficos** à esquerda.
 1. Altere a definição de pipeline de **renderização scriptable** para *HybridRenderingPipeline*. Salte este passo se o gasoduto de renderização Universal não for utilizado.
 
-    ![alterando as](media/settings-graphics-lwrp.png) definições gráficas do projeto Às vezes a UI não povoa a lista de tipos de pipeline disponíveis ![a partir das embalagens, caso em que o ativo *HybridRenderingPipeline* deve ser arrastado para o campo manualmente: alterar as definições gráficas do projeto](media/hybrid-rendering-pipeline.png)
+    ![alterando as definições gráficas do projeto ](media/settings-graphics-lwrp.png) Às vezes a UI não povoa a lista de tipos de pipeline disponíveis a partir das embalagens, caso em que o ativo *HybridRenderingPipeline* deve ser arrastado para o campo manualmente: ![ alterar as definições gráficas do projeto](media/hybrid-rendering-pipeline.png)
 1. Selecione **Jogador** à esquerda.
 1. Selecione o separador de **definições** da Plataforma Universal windows
-1. Alterar as **definições de XR** para suportar a realidade mista do Windows: ![definições do jogador](media/xr-player-settings.png)
+1. Alterar as **definições de XR** para suportar a realidade mista do Windows: ![ definições do jogador](media/xr-player-settings.png)
 1. Selecione as definições como na imagem acima:
     1. Ativar **a realidade virtual suportada**
     1. Definir **formato de profundidade** para profundidade de *16 bits*
@@ -309,7 +309,7 @@ Se isto falhar, certifique-se de que inseriu corretamente os dados da sua conta 
 
 ![Saída de início da sessão](media/create-session-output.png)
 
-Neste momento, o Azure está a fornecer um servidor para si e a iniciar uma máquina virtual de renderização remota. Isto normalmente **demora 3 a 5 minutos.** Quando o VM estiver pronto, `OnSessionStatusChanged` o nosso script de unidade é executado e irá imprimir o novo estado da sessão:
+Neste momento, o Azure está a fornecer um servidor para si e a iniciar uma máquina virtual de renderização remota. Isto normalmente **demora 3 a 5 minutos.** Quando o VM estiver pronto, o nosso script de unidade `OnSessionStatusChanged` é executado e irá imprimir o novo estado da sessão:
 
 ![Saída pronta da sessão](media/create-session-output-2.png)
 
@@ -420,7 +420,7 @@ Quando premir *Reprodução,* obtém agora três botões no viewport: **Create S
 A função **AutoStartSessionAsync** é utilizada para simular as prensas de botões fora do editor.
 
 > [!TIP]
-> É possível abrir sessões que tenham sido interrompidas, expiradas ou em estado de erro. Embora já não possam ser usados para renderização, pode consultar os seus detalhes, uma vez que abriu uma sessão inativa. O código acima verifica o `ARRService_OnSessionStarted`estado de uma sessão, para parar automaticamente quando a sessão se tornar inutilizável.
+> É possível abrir sessões que tenham sido interrompidas, expiradas ou em estado de erro. Embora já não possam ser usados para renderização, pode consultar os seus detalhes, uma vez que abriu uma sessão inativa. O código acima verifica o estado de uma sessão, `ARRService_OnSessionStarted` para parar automaticamente quando a sessão se tornar inutilizável.
 
 Com esta funcionalidade, pode agora criar e reutilizar sessões, o que deverá melhorar significativamente o seu fluxo de trabalho de desenvolvimento.
 
@@ -798,7 +798,7 @@ Agora, quando ligado à sessão remota, o texto deve mostrar as estatísticas de
 
 O código desativa a atualização estatística fora do editor como uma caixa de texto trancada na cabeça seria uma distração. Uma implementação mais sofisticada encontra-se no projeto [Quickstart.](../../quickstarts/render-model.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu todos os passos necessários para tomar um projeto de Unidade em branco e fazê-lo trabalhar com a Renderização Remota Azure. No próximo tutorial, vamos ver mais de perto como trabalhar com entidades remotas.
 

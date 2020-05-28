@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4f026a6a0155f9d4add15adb26951b4913d11685
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698148"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019814"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 
@@ -33,12 +33,13 @@ Fontes de dados e conectores mostrados em Obter Dados ou Assistente de Importaç
 |Azure HDInsight Spark     |   Sim       |   Não       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
 ||||
 
-**Notas:**   
+**Notas:**
+
 <a name="tab1400a">1</a> - Apenas modelos tabular 1400 e modelos superiores.  
-<a name="azprovider">2</a> - Quando especificado como fonte de dados do *fornecedor* em modelos tabular 1200 e superiores, tanto os modelos de memória como os modelos DirectQuery requerem o Microsoft OLE DB Driver para o SQL Server MSOLEDBSQL (recomendado), SQL Server Client Nativo 11.0, ou .NET Framework Data Provider para O Servidor SQL.    
-<a name="azsqlmanaged">3</a> - A Instância Gerida pela Base de Dados Azure SQL é suportada. Uma vez que a instância gerida funciona dentro do Azure VNet com um endereço IP privado, o ponto final público deve ser ativado na instância. Se não estiver ativado, é necessário um [portal de dados no local.](analysis-services-gateway.md)    
-<a name="databricks">4</a> - Os tijolos de dados azure que utilizam o conector Spark não são suportados atualmente.   
-<a name="gen2">5</a> - O conector ADLS Gen2 não é atualmente suportado, no entanto, o conector de armazenamento de Blob Azure pode ser utilizado com uma fonte de dados ADLS Gen2.   
+<a name="azprovider">2</a> - Quando especificado como fonte de dados do *fornecedor* em modelos tabular 1200 e superiores, tanto os modelos de memória como os modelos DirectQuery requerem o Microsoft OLE DB Driver para o SQL Server MSOLEDBSQL (recomendado), SQL Server Client Nativo 11.0, ou .NET Framework Data Provider para O Servidor SQL.  
+<a name="azsqlmanaged">3</a> - A Instância Gerida pela Base de Dados Azure SQL é suportada. Uma vez que a instância gerida funciona dentro do Azure VNet com um endereço IP privado, o ponto final público deve ser ativado na instância. Se não estiver ativado, é necessário um [portal de dados no local.](analysis-services-gateway.md)  
+<a name="databricks">4</a> - Os tijolos de dados azure que utilizam o conector Spark não são suportados atualmente.  
+<a name="gen2">5</a> - O conector ADLS Gen2 não é atualmente suportado, no entanto, o conector de armazenamento de Blob Azure pode ser utilizado com uma fonte de dados ADLS Gen2.
 
 ## <a name="other-data-sources"></a>Outras origens de dados
 
@@ -67,7 +68,7 @@ Fontes de dados e conectores mostrados em Obter Dados ou Assistente de Importaç
 |SAP HANA     |  Sim | Não |  |
 |SAP Business Warehouse    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Lista do SharePoint      |   Sim | Não | <sup>[6,](#tab1400b)</sup> <sup> [11](#filesSP)</sup> |
-|SQL Server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> | 
+|SQL Server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
 |Armazém de dados do servidor SQL |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
 |Base de Dados Sybase     |  Sim | Não |  |
 |Teradata | Sim  | Sim  | <sup>[10](#teradata)</sup> |
@@ -75,15 +76,15 @@ Fontes de dados e conectores mostrados em Obter Dados ou Assistente de Importaç
 |Mesa XML    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 | | | |
 
-**Notas:**   
+**Notas:**  
 <a name="tab1400b">6</a> - Apenas modelos tabular 1400 e modelos superiores.  
 <a name="sqlim">7</a> - Quando especificado como fonte de dados do *fornecedor* em modelos tabular 1200 e superiores, especifique o Controlador DB microsoft OLE db para OQL Server MSOLEDBSQL (recomendado), SQL Server Client Nativo 11.0 ou .NET Framework Data Provider para O Servidor SQL.  
 <a name="instgw">8</a> - Se especificar o MSOLEDBSQL como fornecedor de dados, pode ser necessário descarregar e instalar o [Microsoft OLE DB Driver para o SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) no mesmo computador que o gateway de dados No local.  
 <a name="oracle">9</a> - Para os modelos tabular 1200, ou como fonte de dados do *fornecedor* nos modelos tabular 1400+, especifique o Provedor de Dados oracle para .NET.  
-<a name="teradata">10</a> - Para modelos tabular 1200, ou como fonte de dados do *fornecedor* em modelos tabular 1400+, especifique o Fornecedor de Dados teradata para .NET.   
+<a name="teradata">10</a> - Para modelos tabular 1200, ou como fonte de dados do *fornecedor* em modelos tabular 1400+, especifique o Fornecedor de Dados teradata para .NET.  
 <a name="filesSP">11</a> - Os ficheiros no sharePoint no local não são suportados.
 
-A ligação a fontes de dados no local a partir de um servidor dos [Serviços](analysis-services-gateway.md)de Análise Azure requer um gateway no local . Quando se utiliza um portal, são necessários fornecedores de 64 bits. 
+A ligação a fontes de dados no local a partir de um servidor dos [Serviços](analysis-services-gateway.md)de Análise Azure requer um gateway no local . Quando se utiliza um portal, são necessários fornecedores de 64 bits.
 
 ## <a name="understanding-providers"></a>Provedores de compreensão
 
@@ -105,7 +106,6 @@ Tal como acontece com os projetos-modelo tabular 1200, utilize o Assistente de I
 
 ![Fontes de dados antigas Propriedades avançadas](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
-
 ## <a name="impersonation"></a>Personificação
 Em alguns casos, pode ser necessário especificar uma conta de imitação diferente. A conta de personificação pode ser especificada no Estúdio Visual ou no Estúdio de Gestão de Servidores SQL (SSMS).
 
@@ -120,11 +120,11 @@ Para fontes de dados em nuvem:
 
 ## <a name="oauth-credentials"></a>Credenciais OAuth
 
-Para os modelos tabular no nível de compatibilidade 1400 e superior utilizando o modo de memória, azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 e SharePoint List suportam credenciais OAuth. Os Serviços de Análise Azure gerem a atualização simbólica para fontes de dados da OAuth para evitar intervalos para operações de atualização de longo prazo. Para gerar fichas válidas, detete as credenciais utilizando SSMS.
+Para modelos tabular no nível de compatibilidade 1400 e superior utilizando o modo de memória, azure SQL Database, Azure Synapse (anteriormente SQL Data Warehouse), Dynamics 365 e SharePoint List suportam credenciais OAuth. Os Serviços de Análise Azure gerem a atualização simbólica para fontes de dados da OAuth para evitar intervalos para operações de atualização de longo prazo. Para gerar fichas válidas, detete as credenciais utilizando SSMS.
 
 O modo de consulta direta não é suportado com credenciais OAuth.
 
-## <a name="next-steps"></a>Passos seguintes
-[Gateway on-local](analysis-services-gateway.md)   
-[Gerir o seu servidor](analysis-services-manage.md)   
+## <a name="next-steps"></a>Próximos passos
 
+* [Gateway on-local](analysis-services-gateway.md)
+* [Gerir o seu servidor](analysis-services-manage.md)

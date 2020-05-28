@@ -3,12 +3,12 @@ title: Recuperar ficheiros e pastas da cópia de segurança Azure VM
 description: Neste artigo, aprenda a recuperar ficheiros e pastas de um ponto de recuperação de máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 0cb3b588aadcda232d1a9a07fc6d9336448cb5a5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757981"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118122"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -228,7 +228,7 @@ Se executar o script num computador com acesso restrito, certifique-se de que h�
 
 - `download.microsoft.com`
 - URLs de Serviço de Recuperação (nome geo-nome refere-se à região onde reside o cofre de serviço de recuperação)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Para geos públicos de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Para as regiões públicas de Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Para azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Para o Governo dos EUA de Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Para a Alemanha Azure)
@@ -273,7 +273,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
 - Cada vez que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará muito tempo. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado descarregar um script do Portal/PowerShell/CLI, esperar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do guião.
 - Após a recuperação do ficheiro, certifique-se de que volta ao portal e clique em **discos Desmontar** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a possibilidade de recuperação.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Se tiver problemas ao recuperar ficheiros das máquinas virtuais, consulte a tabela seguinte para obter informações adicionais.
 
@@ -325,7 +325,7 @@ Qualquer lista de controlo de acesso de ficheiros (ACL) presente no VM pai/backe
 
 O script dá acesso apenas a leitura a um ponto de recuperação e é válido por apenas 12 horas. Se desejar remover o acesso mais cedo, assine no Portal Azure/PowerShell/CLI e execute **discos desmontados** para esse ponto de recuperação específico. O guião será invalidado imediatamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para quaisquer problemas durante a restauração de ficheiros, consulte a secção [de resolução de problemas](#troubleshooting)
 - Saiba como [restaurar ficheiros via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)

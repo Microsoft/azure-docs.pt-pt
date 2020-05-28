@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1e1a7f2e82ba2e90a641a6559062348f8d4d3aea
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714972"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142457"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos de entrada em HTTPS em Aplicações Lógicas Azure
 
@@ -185,6 +185,9 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
    Este passo gera o URL a utilizar para o envio do pedido que desencadeia a aplicação lógica. Para copiar este URL, selecione o ícone da cópia ao lado do URL.
 
    ![URL para usar desencadeando a sua aplicação lógica](./media/connectors-native-reqres/generated-url.png)
+   
+   > [!NOTE]
+   > O URL permite utilizar o símbolo "at" **@** (), mas não o símbolo hash **#** ().
 
 1. Para desencadear a sua aplicação lógica, envie um POST HTTP para o URL gerado.
 

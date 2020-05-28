@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: e450d9ede3b073d2d1a791b341e4376b40919933
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 0d6ab6152d7025098006c580673848fe0268346b
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116456"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141845"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Base de Dados Azure SQL & Instância Gerida SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ Pode experimentar algumas destas operações utilizando os seguintes exemplos:
 
 | | O portal do Azure | Azure PowerShell |
 |---|---|---|
-| Alterar a retenção de backup | [Base de Dados SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância Gerida SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de Dados SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância Gerida SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Alterar a retenção de backup a longo prazo | [Base de Dados SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instância Gerida SQL - N/A  | [Base de Dados SQL](long-term-backup-retention-configure.md)<br/>Instância Gerida SQL - N/A  |
-| Restaurar uma base de dados a partir de um ponto no tempo | [Base de Dados SQL](recovery-using-backups.md#point-in-time-restore) | [Base de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerida SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Restaurar uma base de dados eliminada | [Base de Dados SQL](recovery-using-backups.md) | [Base de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância Gerida SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Restaurar uma base de dados do armazenamento de Azure Blob | Base de Dados SQL - N/A <br/>Instância Gerida SQL - N/A  | Base de Dados SQL - N/A <br/>[Instância Gerida SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Alterar a retenção de backup | [Base de dados única](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância gerida](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de dados única](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Alterar a retenção de backup a longo prazo | [Base de dados única](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instância gerida - N/A  | [Base de dados única](long-term-backup-retention-configure.md)<br/>Instância gerida - N/A  |
+| Restaurar uma base de dados a partir de um ponto no tempo | [Base de dados única](recovery-using-backups.md#point-in-time-restore) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Restaurar uma base de dados eliminada | [Base de dados única](recovery-using-backups.md) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Restaurar uma base de dados do armazenamento de Azure Blob | Base de dados única - N/A <br/>Instância gerida - N/A  | Base de dados única - N/A <br/>[Instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-frequency"></a>Frequência de cópia de segurança
 
@@ -61,7 +61,7 @@ Pode experimentar algumas destas operações utilizando os seguintes exemplos:
 
 A Base de Dados SQL e a SQL Managed Instance suportam o self-service para restauro pontual (PITR) criando automaticamente cópias de segurança completas, backups diferenciais e cópias de segurança de registo de transações. As cópias de dados completas são criadas semanalmente, e as cópias de segurança diferenciais são geralmente criadas a cada 12 horas. As cópias de segurança do registo de transações são geralmente criadas a cada 5 a 10 minutos. A frequência das cópias de segurança do registo de transações baseia-se no tamanho do cálculo e na quantidade de atividade da base de dados.
 
-O primeiro backup completo é agendado imediatamente após a criação de uma base de dados. Esta cópia de segurança geralmente completa dentro de 30 minutos, mas pode demorar mais tempo quando a base de dados é grande. Por exemplo, a cópia inicial de cópia de segurança pode demorar mais tempo numa base de dados restaurada ou numa cópia da base de dados. Depois da primeira cópia de segurança completa, todas as restantes cópias de segurança serão agendadas automaticamente e geridas silenciosamente em segundo plano. O tempo exato de todas as cópias de dados é determinado pela SQL Database e pela SQL Managed Instance, uma vez que equilibra a carga de trabalho global do sistema. Não pode alterar ou desativar tarefas de cópia de segurança.
+O primeiro backup completo é agendado imediatamente após a criação de uma base de dados. Esta cópia de segurança geralmente completa dentro de 30 minutos, mas pode demorar mais tempo quando a base de dados é grande. Por exemplo, a cópia inicial de cópia de segurança pode demorar mais tempo numa base de dados restaurada ou numa cópia da base de dados. Depois da primeira cópia de segurança completa, todas as restantes cópias de segurança serão agendadas automaticamente e geridas silenciosamente em segundo plano. O tempo exato de todas as cópias de dados é determinado pela Base de Dados SQL ou pelo serviço SQL Managed Instance, uma vez que equilibra a carga de trabalho global do sistema. Não pode alterar ou desativar tarefas de cópia de segurança.
 
 ### <a name="default-backup-retention-period"></a>Período de retenção de backup padrão
 
@@ -79,20 +79,20 @@ Para obter mais informações sobre o LTR, consulte a [retenção de backup a lo
 
 ## <a name="backup-storage-consumption"></a>Consumo de armazenamento de reserva
 
-Para bases de dados únicas na Base de Dados SQL e instâncias geridas em Instância Gerida SQL, esta equação é usada para calcular o uso total de armazenamento de cópias de segurança:
+Para bases de dados únicas e instâncias geridas, esta equação é usada para calcular o uso total de armazenamento de cópias de segurança:
 
 `Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`
 
-Para bases de dados agregadas na Base de Dados SQL, o tamanho total de armazenamento de cópia seleções é agregado ao nível da piscina e é calculado da seguinte forma:
+Para bases de dados agregadas, o tamanho total de armazenamento de cópia seleções é agregado ao nível da piscina e é calculado da seguinte forma:
 
 `Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`
 
 As cópias de segurança que ocorrem antes do período de retenção são automaticamente purgadas com base na sua marca de tempo. Como cópias de segurança diferenciais e backups de registo requerem uma cópia de segurança mais cedo para ser útil, são purgadas juntas em pedaços semanais.
 
 A Base de Dados SQL e a SQL Managed Instance calculam o seu armazenamento total de reserva de retenção como um valor cumulativo. A cada hora, este valor é reportado ao oleoduto de faturação Azure, que é responsável por agregar este uso de hora em hora para calcular o seu consumo no final de cada mês. Após a queda da base de dados, o consumo diminui à medida que os backups envelhecem. Depois de os backups se tornarem mais antigos do que o período de retenção, a faturação para.
-
+   
    > [!IMPORTANT]
-   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Ao deixar cair e recriar uma base de dados pode frequentemente economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup porque a Microsoft mantém uma cópia de segurança para o período de retenção especificado para cada base de dados abandonada, sempre que é baixada.
+   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Ao deixar cair e recriar uma base de dados pode frequentemente economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup porque a Microsoft mantém uma cópia de segurança para o período de retenção especificado para cada base de dados abandonada, sempre que é baixada. 
 
 ### <a name="monitor-consumption"></a>Monitorizar o consumo
 
@@ -142,18 +142,21 @@ Adicione um filtro para **o nome de serviço**e, em seguida, selecione uma base 
 
 ## <a name="backup-retention"></a>Retenção da cópia de segurança
 
-Todas as bases de dados do Microsoft Azure SQL têm um período de retenção de backup padrão de 7 dias. Pode [alterar o período](#change-the-pitr-backup-retention-period) de retenção de reserva para 35 dias.
+Todas as bases de dados do Microsoft Azure SQL têm um período de retenção de backup padrão de 7 dias. Pode [alterar o período](#change-the-pitr-backup-retention-period) de retenção de reserva para qualquer lugar entre 1 a 35 dias.
 
 Se eliminar uma base de dados, o Azure mantém as cópias de segurança da mesma forma que seria para uma base de dados online. Por exemplo, se eliminar uma base de dados básica com um período de retenção de sete dias, uma cópia de segurança com quatro dias de vida é guardada por mais três dias.
 
 Se necessitar de manter as cópias de segurança por mais tempo do que o período máximo de retenção, pode modificar as propriedades de backup para adicionar um ou mais períodos de retenção a longo prazo à sua base de dados. Para obter mais informações, veja [Retenção de longa duração](long-term-retention-overview.md).
 
 > [!IMPORTANT]
-> Se eliminar o servidor ou a instância gerida, todas as bases de dados geridas por esse servidor ou por exemplo gerido também são eliminadas. Não podem ser recuperados. Não é possível restaurar um servidor apagado ou uma instância gerida. Mas se configurar a retenção a longo prazo para a Base de Dados SQL, as cópias de segurança para as bases de dados com LTR não serão eliminadas e estas bases de dados podem ser restauradas.
+> A configuração do período de retenção de cópia de segurança para 1 dia (ou a qualquer valor entre 1 - 7) só é suportada através da PowerShell ou DA API REST neste momento. A versão mínima exigida do módulo Az.SQL é v2.6.0, ou pode ser executada através da CloudShell que tem sempre a versão Mais recente do Az.SQL.
+
+> [!IMPORTANT]
+> Se eliminar o servidor ou a instância gerida, todas as bases de dados geridas por esse servidor ou por exemplo gerido também são eliminadas. Não podem ser recuperados. Não é possível restaurar um servidor apagado ou uma instância gerida. Mas se configurar a retenção a longo prazo para a Base de Dados SQL ou instância de manhoso, as cópias de segurança para as bases de dados com LTR não serão eliminadas e estas bases de dados podem ser restauradas.
 
 ## <a name="encrypted-backups"></a>Backups encriptados
 
-Se a sua base de dados estiver encriptada com TDE, as cópias de segurança são automaticamente encriptadas em repouso, incluindo cópias de segurança LTR. Quando o TDE está ativado para base de dados SQL ou Instância Gerida SQL, as cópias de segurança também são encriptadas. Todas as novas bases de dados do Azure SQL estão configuradas com TDE ativado por padrão. Para obter mais informações sobre o TDE, consulte a [Encriptação transparente de dados com base de dados SQL e instância gerida pela SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Se a sua base de dados estiver encriptada com TDE, as cópias de segurança são automaticamente encriptadas em repouso, incluindo cópias de segurança LTR. Quando o TDE está ativado para base de dados SQL ou Instância Gerida SQL, as cópias de segurança também são encriptadas. Todas as novas bases de dados do Azure SQL estão configuradas com TDE ativado por padrão. Para obter mais informações sobre o TDE, consulte a Encriptação transparente de dados com base de [dados SQL & Instância Gerida SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integridade de backup
 

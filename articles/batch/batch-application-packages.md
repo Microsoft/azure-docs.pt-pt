@@ -330,7 +330,7 @@ foreach (ApplicationSummary app in applications)
 ## <a name="wrap-up"></a>Embrulhar
 Com pacotes de aplicações, pode ajudar os seus clientes a selecionar as aplicações para os seus trabalhos e especificar a versão exata a utilizar ao processar trabalhos com o seu serviço ativado pelo Batch. Também pode fornecer a capacidade de os seus clientes fazerem upload e rastrearem as suas próprias aplicações no seu serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * A [API do Lote REST][api_rest] também fornece suporte para trabalhar com pacotes de aplicação. Por exemplo, consulte o elemento [aplicaçãoPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar pacotes a instalar utilizando a API REST. Consulte [as Aplicações][rest_applications] para obter informações sobre como obter informações sobre a aplicação utilizando a API do Lote REST.
 * Saiba gerir programáticamente as contas e quotas do [Lote Azure com a Batch Management .NET](batch-management-dotnet.md). A biblioteca [Batch Management .NET][api_net_mgmt] pode ativar funcionalidades de criação e eliminação de conta para a sua aplicação ou serviço de lote.
 

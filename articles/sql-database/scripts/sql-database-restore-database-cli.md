@@ -1,6 +1,6 @@
 ---
-title: ClI exemplo-restaurar-backup-base de dados SQL
-description: Script de exemplo Azure CLI para restaurar uma base de dados única Azure SQL para um ponto mais cedo no tempo a partir de backups automáticos
+title: 'Azure CLI: Restaurar uma cópia de segurança'
+description: Script de exemplo Azure CLI para restaurar uma base de dados em Azure SQL Database para um ponto mais cedo no tempo a partir de cópias automáticas de backups.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: efb73bc04e3c79740651fecdd98258b8101f84b1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774281"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022629"
 ---
-# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Use o CLI para restaurar uma base de dados única Azure SQL para um ponto mais cedo no tempo
+# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Utilize o CLI para restaurar uma única base de dados na Base de Dados Azure SQL para um ponto mais cedo no tempo
 
-Este exemplo Azure CLI restaura uma base de dados Azure SQL para um ponto específico no tempo.  
+Este exemplo Azure CLI restaura uma única base de dados na Base de Dados Azure SQL para um ponto específico no tempo.  
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -56,8 +56,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az sql db restaurar](/cli/azure/sql/db#az-sql-db-restore) | Restaurar o comando da base de dados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
+Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592734"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996079"
 ---
 # <a name="language-and-region-support-for-translator"></a>Apoio à língua e à região para tradutor
 
@@ -40,80 +40,80 @@ O Tradutor suporta as seguintes línguas para a tradução de texto para texto. 
 > [!NOTE]
 > Atualmente, um subconjunto das línguas neurais está disponível no Tradutor Personalizado e estamos gradualmente adicionando outros. [Ver idiomas atualmente disponíveis em Tradutor Personalizado.](#customization)
 
-|Linguagem|  Código do idioma|  V3 API|
+|Linguagem|    Código do idioma|    V3 API|
 |:-----|:-----:|:-----|
-|Afrikaans| `af`|   Neural|
-|Árabe|    `ar`    |   Neural|
-|Rio Bangla|    `bn`    |   Neural|
-|Bósnio (Latim)|   `bs`    |   Neural|
-|Búlgaro| `bg`    |   Neural|
-|Cantonês (Tradicional)|   `yue`|  Estatística|
-|Catalão|   `ca`    |   Estatística|
+|Afrikaans|    `af`|    Neural|
+|Árabe|    `ar`    |    Neural|
+|Rio Bangla|    `bn`    |    Neural|
+|Bósnio (Latim)|    `bs`    |    Neural|
+|Búlgaro|    `bg`    |    Neural|
+|Cantonês (Tradicional)|    `yue`|    Estatística|
+|Catalão|    `ca`    |    Estatística|
 |Chinês simplificado|    `zh-Hans`|Neural|
-|Chinês tradicional|   `zh-Hant`       |Neural|
-|Croata|  `hr`    |Neural|
-|Checo| `cs`    |   Neural|
+|Chinês tradicional|    `zh-Hant`        |Neural|
+|Croata|    `hr`    |Neural|
+|Checo|    `cs`    |    Neural|
 |Dinamarquês|    `da`        |Neural|
-|Neerlandês| `nl`|   Neural|
-|Inglês|   `en`    |   Neural|
-|Estónio|  `et`    |   Neural|
-|Fijian|    `fj`    |   Estatística|
-|Filipino|  `fil`   |   Estatística|
-|Finlandês|   `fi`    |   Neural|
-|Francês|    `fr`    |   Neural|
-|Alemão|    `de`    |   Neural|
-|Grego| `el`    |   Neural|
-|Guzerate|  `gu`    |   Neural|
+|Neerlandês|    `nl`|    Neural|
+|Inglês|    `en`    |    Neural|
+|Estónio|    `et`    |    Neural|
+|Fijian|    `fj`    |    Estatística|
+|Filipino|    `fil`    |    Estatística|
+|Finlandês|    `fi`    |    Neural|
+|Francês|    `fr`    |    Neural|
+|Alemão|    `de`    |    Neural|
+|Grego|    `el`    |    Neural|
+|Guzerate|    `gu`    |    Neural|
 |Crioulo haitiano|    `ht`        |Estatística|
-|Hebraico |`he`   |Neural
-|Hindi| `hi`    |   Neural|
-|Hmong Daw| `mww`   |   Estatística|
-|Húngaro| `hu`    |   Neural|
-|Islandês| `is`    |   Neural|
-|Indonésio|    `id`    |   Estatística|
+|Hebraico    |`he`    |Neural
+|Hindi|    `hi`    |    Neural|
+|Hmong Daw|    `mww`    |    Estatística|
+|Húngaro|    `hu`    |    Neural|
+|Islandês|    `is`    |    Neural|
+|Indonésio|    `id`    |    Estatística|
 |Irlandês | `ga`| Neural
-|Italiano|   `it`    |   Neural|
-|Japonês|  `ja`    |   Neural|
+|Italiano|    `it`    |    Neural|
+|Japonês|    `ja`    |    Neural|
 |Canarês|`kn`| Neural
-|Rio Kiswahili| `sw`    |   Estatística|
-|Rio Klingon|   `tlh`   |   Estatística|
-|Klingon (plqaD)|   `tlh-Qaak`  |   Estatística|
-|Coreano |`ko`   |   Neural|
-|Letão|   `lv`    |   Neural|
-|Lituano|    `lt`    |   Neural|
-|Malgaxe|  `mg`    |   Estatística|
-|Malaio| `ms`        |Estatística|
+|Rio Kiswahili|    `sw`    |    Estatística|
+|Rio Klingon|    `tlh`    |    Estatística|
+|Klingon (plqaD)|    `tlh-Qaak`    |    Estatística|
+|Coreano    |`ko`    |    Neural|
+|Letão|    `lv`    |    Neural|
+|Lituano|    `lt`    |    Neural|
+|Malgaxe|    `mg`    |    Estatística|
+|Malaio|    `ms`        |Estatística|
 |Malaiala| `ml` | Neural
-|Maltês|   `mt`    |   Estatística|
+|Maltês|    `mt`    |    Estatística|
 |Maori| `mi`  | Neural|
 |Marata| `mr`  | Neural|
-|Norueguês| `nb`    |   Neural|
-|Persa|   `fa`    |   Neural|
-|Polaco|    `pl`    |   Neural|
-|Português (Brasil)|   `pt-br` |   Neural|
+|Norueguês|    `nb`    |    Neural|
+|Persa|    `fa`    |    Neural|
+|Polaco|    `pl`    |    Neural|
+|Português (Brasil)|    `pt-br`    |    Neural|
 |Português (Portugal)| `pt-pt` | Neural
 |Punjabi|`pa`|Neural
-|Queretaro Otomi|   `otq`   |   Estatística|
-|Romeno|  `ro`    |   Neural|
-|Russo|   `ru`    |   Neural|
-|Samoano|    `sm`    |   Estatística|
-|Sérvio (Cirílico)|    `sr-Cyrl`|  Estatística|
-|Sérvio (Latim)|   `sr-Latn`       |Estatística|
-|Eslovaco|    `sk`    |   Neural|
-|Esloveno| `sl`    |   Neural|
-|Espanhol|   `es`    |   Neural|
-|Sueco|   `sv`    |Neural|
-|Taitiano|  `ty`    |Estatística|
-|Tâmil| `ta`    |   Neural|
-|Telugu|    `te`    |   Neural|
-|Tailandês|  `th`    |   Neural|
-|Tongan|    `to`    |   Estatística|
-|Turco|   `tr`        |Neural|
-|Ucraniano| `uk`    |   Neural|
-|Urdu|  `ur`    |   Estatística|
-|Vietnamita|    `vi`    |   Neural|
-|Galês| `cy`    |   Neural|
-|Maia yucateca|  `yua`   |   Estatística|
+|Queretaro Otomi|    `otq`    |    Estatística|
+|Romeno|    `ro`    |    Neural|
+|Russo|    `ru`    |    Neural|
+|Samoano|    `sm`    |    Estatística|
+|Sérvio (Cirílico)|    `sr-Cyrl`|    Estatística|
+|Sérvio (Latim)|    `sr-Latn`        |Estatística|
+|Eslovaco|    `sk`    |    Neural|
+|Esloveno|    `sl`    |    Neural|
+|Espanhol|    `es`    |    Neural|
+|Sueco|    `sv`    |Neural|
+|Taitiano|    `ty`    |Estatística|
+|Tâmil|    `ta`    |    Neural|
+|Telugu|    `te`    |    Neural|
+|Tailandês|    `th`    |    Neural|
+|Tongan|    `to`    |    Estatística|
+|Turco|    `tr`        |Neural|
+|Ucraniano|    `uk`    |    Neural|
+|Urdu|    `ur`    |    Estatística|
+|Vietnamita|    `vi`    |    Neural|
+|Galês|    `cy`    |    Neural|
+|Maia yucateca|    `yua`    |    Estatística|
 
 > [!NOTE]
 > O código `pt` linguístico será indefinido para `pt-br` , Português (Brasil).
@@ -224,7 +224,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chinês simplificado      | `zh-Hans`          |
-|Chinês tradicional|   `zh-Hant`   |
+|Chinês tradicional|    `zh-Hant`    |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Dinamarquês      | `da`          |
@@ -239,15 +239,15 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Hindi      | `hi`          |
 | Húngaro      | `hu`          |
 | Islandês | `is` |
-| Indonésio|   `id`    |
-| Irlandês | `ga`  |
+| Indonésio|    `id`    |
+| Irlandês | `ga`    |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 | Rio Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
-| Malgaxe| `mg`    |
+| Malgaxe|    `mg`    |
 | Maori| `mi`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
@@ -255,7 +255,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Português (Brasil) | `pt-br` |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
-| Samoano|   `sm`    |
+| Samoano|    `sm`    |
 | Sérvio (Latim)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

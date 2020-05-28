@@ -113,8 +113,6 @@
           href: how-to/ingress-https-nginx.md
         - name: Ligar o computador de desenvolvimento a um cluster do AKS (pré-visualização)
           href: how-to/connect.md
-        - name: Configurar o cluster do Azure Dev Spaces para utilizar o Helm 3 (pré-visualização)
-          href: how-to/helm-3.md
     - name: Resolução de problemas
       href: troubleshooting.md
     - name: FAQ

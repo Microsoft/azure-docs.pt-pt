@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265730"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020137"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -53,7 +53,7 @@ Para o tutorial, crie uma conta Azure Batch com um conjunto de VMs. Eis os passo
 
 1. Crie uma **conta Azure Batch** utilizando o [portal Azure](https://portal.azure.com). Consulte criar e gerir um artigo de [conta Azure Batch][batch-create-account] para obter instruções.
 2. Anote o nome da conta Do Lote Azure, chave de conta, URI e nome da piscina. Precisa deles para criar um serviço ligado ao Lote Azure.
-    1. Na página inicial da conta Azure **URL** Batch, vê-se `https://myaccount.westus.batch.azure.com`um URL no seguinte formato: . Neste exemplo, **myaccount** é o nome da conta Azure Batch. Uri que utiliza na definição de serviço vinculado é o URL sem o nome da conta. Por exemplo: `https://<region>.batch.azure.com`.
+    1. Na página inicial da conta Azure Batch, vê-se um **URL** no seguinte formato: `https://myaccount.westus.batch.azure.com` . Neste exemplo, **myaccount** é o nome da conta Azure Batch. Uri que utiliza na definição de serviço vinculado é o URL sem o nome da conta. Por exemplo: `https://<region>.batch.azure.com`.
     2. Clique em **Teclas** no menu esquerdo e copie a **CHAVE DE ACESSO PRIMÁRIO**.
     3. Para utilizar uma piscina existente, clique em **Pools** no menu e anote a **identificação** da piscina. Se você não tem uma piscina existente, mude para o próximo passo.
 2. Crie uma **piscina azure batch**.
@@ -372,7 +372,7 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
     > Deset 4.5.2 versão de .NET Framework como o quadro-alvo do seu projeto: clique no direito do projeto e clique em **Propriedades** para definir o quadro-alvo. Data Factory não suporta atividades personalizadas compiladas contra versões .NET Framework superiores a 4.5.2.
 
 11. Lance **o Windows Explorer**e navegue para a pasta de lançamento de **bin\debug** ou **bin\,** dependendo do tipo de construção.
-12. Crie um ficheiro zip **MyDotNetActivity.zip** que \<contenha\>todos os binários na pasta do projeto \bin\Debug pasta. Inclua o ficheiro **MyDotNetActivity.pdb** para que obtenha detalhes adicionais, como o número de linha no código fonte que causou o problema se houve uma falha.
+12. Crie um ficheiro zip **MyDotNetActivity.zip** que contenha todos os binários na \<project folder\> pasta \bin\Debug. Inclua o ficheiro **MyDotNetActivity.pdb** para que obtenha detalhes adicionais, como o número de linha no código fonte que causou o problema se houve uma falha.
 
     > [!IMPORTANT]
     > Todos os ficheiros no ficheiro zip da atividade personalizada têm de estar no **nível superior** sem subpastas.
@@ -440,7 +440,7 @@ Os serviços ligados ligam os arquivos de dados ou serviços de computação a u
 2. Clique em **Nova loja** de dados na barra de comandoe escolha o **armazenamento Azure**. Deverá ver o script JSON para criar um serviço ligado do Storage do Azure no editor.
 
     ![Nova loja de dados - Armazenamento Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Substitua-o `<accountname>` pelo nome da `<accountkey>` sua conta de armazenamento Azure e pela chave de acesso da conta de armazenamento Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
+3. `<accountname>`Substitua-o pelo nome da sua conta de armazenamento Azure e pela chave de acesso da conta de `<accountkey>` armazenamento Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
 
     ![Azure Storage gostava de serviço](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Clique em **Implementar** na barra de comandos para implementar o serviço ligado.
@@ -451,7 +451,7 @@ Os serviços ligados ligam os arquivos de dados ou serviços de computação a u
     ![Novo cálculo - Lote Azure](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Faça as seguintes alterações no script JSON:
 
-   1. Especifique o nome da conta Do Lote Azure para a propriedade **accountName.** O **URL** da lâmina de conta Do Lote `http://accountname.region.batch.azure.com` **Azure** encontra-se no seguinte formato: . Para a propriedade **batchUri** no JSON, `accountname.` você precisa remover `accountname` do `accountName` URL e usar o para a propriedade JSON.
+   1. Especifique o nome da conta Do Lote Azure para a propriedade **accountName.** O **URL** da lâmina de **conta Do Lote Azure** encontra-se no seguinte formato: `http://accountname.region.batch.azure.com` . Para a propriedade **batchUri** no JSON, você precisa remover `accountname.` do URL e usar o para a propriedade `accountname` `accountName` JSON.
    2. Especifique a chave da conta Do Lote Azure para a propriedade **accessKey.**
    3. Especifique o nome da piscina que criou como parte dos pré-requisitos para a propriedade **PoolName.** Você também pode especificar a identificação da piscina em vez do nome da piscina.
    4. Especifique o lote azure URI para a propriedade **batchUri.** Exemplo: `https://westus.batch.azure.com`.
@@ -1031,7 +1031,7 @@ A [Azure Data Factory -](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvi
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869815"
+ms.locfileid: "83995978"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Java
 
@@ -59,9 +59,9 @@ Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful
 
 1. Criar uma função chamada `check()` para criar e enviar o pedido de API. Dentro desta função, adicione o código especificado nos próximos passos. Crie uma corda para os parâmetros de pedido:
 
-   a. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. 
+   1. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. 
 
-   b. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. 
+   1. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. 
 
    ```java
    public static void check () throws Exception {
@@ -193,7 +193,7 @@ Construa e gereno seu projeto. Se estiver a utilizar a linha de comando, utilize
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)

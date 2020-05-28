@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942959"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021862"
 ---
 # <a name="azure-sql-database-security-features"></a>Funcionalidades de segurança da Base de Dados Azure SQL    
 A Base de Dados Azure SQL fornece um serviço de base de dados relacional em Azure. Para proteger os dados dos clientes e fornecer fortes funcionalidades de segurança que os clientes esperam de um serviço de base de dados relacional, a SQL Database tem os seus próprios conjuntos de capacidades de segurança. Estas capacidades baseiam-se nos controlos herdados de Azure.
@@ -31,13 +31,13 @@ A Base de Dados Azure SQL fornece um serviço de base de dados relacional em Azu
 A Base de Dados Azure SQL suporta apenas o protocolo de fluxo de dados tabular (TDS), que exige que a base de dados seja acessível apenas sobre a porta padrão de TCP/1433.
 
 ### <a name="azure-sql-database-firewall"></a>Firewall de base de dados Azure SQL
-Para ajudar a proteger os dados dos clientes, a Base de Dados Azure SQL inclui uma funcionalidade de firewall, que por padrão impede todo o acesso ao servidor de base de dados SQL, como mostrado abaixo.
+Para ajudar a proteger os dados dos clientes, a Base de Dados Azure SQL inclui uma funcionalidade de firewall, que por padrão impede todo o acesso à Base de Dados SQL, como mostrado abaixo.
 
 ![Firewall de base de dados Azure SQL](./media/infrastructure-sql/sql-database-firewall.png)
 
 A firewall gateway pode limitar os endereços, o que permite aos clientes o controlo granular especificar gamas de endereços IP aceitáveis. A firewall concede acesso com base no endereço IP originário de cada pedido.
 
-Os clientes podem obter a configuração da firewall utilizando um portal de gestão ou utilizando programáticamente a API de Gestão de Bases de Dados Azure SQL. A firewall de gateway da Base de Dados Azure SQL por padrão impede que todos os clientes acedam a instâncias de base de dados Azure SQL. Os clientes devem configurar o acesso utilizando listas de controlo de acesso (ACLs) para permitir as ligações de base de dados Azure SQL por endereços de internet, protocolos e números de porta de origem e destino.
+Os clientes podem obter a configuração da firewall utilizando um portal de gestão ou utilizando programáticamente a API de Gestão de Bases de Dados Azure SQL. A firewall de gateway azure SQL Database por padrão impede todo o acesso tDS do cliente à Base de Dados Azure SQL. Os clientes devem configurar o acesso utilizando listas de controlo de acesso (ACLs) para permitir as ligações de base de dados Azure SQL por endereços de internet, protocolos e números de porta de origem e destino.
 
 ### <a name="dosguard"></a>DoSGuard
 Os ataques de negação de serviço (DoS) são reduzidos por um serviço de gateway SQL Database chamado DoSGuard. O DoSGuard rastreia ativamente os logins falhados dos endereços IP. Se existirem múltiplos logins falhados a partir de um endereço IP específico dentro de um período de tempo, o endereço IP está bloqueado de aceder a quaisquer recursos do serviço durante um período de tempo pré-definido.
@@ -92,7 +92,7 @@ As mudanças são monitorizadas para o sucesso. Num cenário de falha, a mudanç
 
 Da mesma forma, as alterações de hardware e rede estabeleceram etapas de validação para avaliar a sua adesão aos requisitos de construção. As versões são revistas e autorizadas através de um conselho consultivo de mudança coordenada (CAB) dos respetivos grupos em toda a pilha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física do Azure](physical-security.md)

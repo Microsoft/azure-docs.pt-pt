@@ -3,16 +3,16 @@ title: Implantação condicional com modelos
 description: Descreve como implantar condicionalmente um recurso num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 001a1a7d6d15fe29b0f3184b75892f4ec75cef27
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153425"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017499"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
 
-Por vezes, é necessário implementar opcionalmente um recurso num modelo de Gestor de Recursos Azure (ARM). Utilize `condition` o elemento para especificar se o recurso está implantado. O valor deste elemento resolve-se a verdade ou a ser falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+Por vezes, é necessário implementar opcionalmente um recurso num modelo de Gestor de Recursos Azure (ARM). Utilize o `condition` elemento para especificar se o recurso está implantado. O valor deste elemento resolve-se a verdade ou a ser falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
 
 ## <a name="new-or-existing-resource"></a>Recurso novo ou existente
 
@@ -35,7 +35,7 @@ Pode utilizar a implantação condicional para criar um novo recurso ou utilizar
 
 Quando o **parâmetro novoOrExisting** está definido para **novo,** a condição avalia-se verdadeiramente. A conta de armazenamento está implantada. No entanto, quando o **novo OrExisting** está definido para **existir,** a condição avalia para falso e a conta de armazenamento não é implementada.
 
-Para um modelo de `condition` exemplo completo que utiliza o elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
+Para um modelo de exemplo completo que utiliza o `condition` elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
 
 ## <a name="allow-condition"></a>Permitir condição
 
@@ -85,7 +85,7 @@ Você define um [recurso tão dependente](define-resource-dependency.md) de um r
 
 Se implementar um modelo com [o modo completo](deployment-modes.md) e um recurso não for implantado porque a condição avalia falsamente, o resultado depende da versão REST API que utilizar para implementar o modelo. Se utilizar uma versão mais cedo do que 2019-05-10, o recurso **não é apagado**. Com 2019-05-10 ou mais tarde, o recurso **é apagado.** As versões mais recentes do Azure PowerShell e do Azure CLI apagam o recurso quando a condição é falsa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para recomendações sobre a criação de modelos, consulte [as melhores práticas](template-best-practices.md)do modelo ARM.
 * Para criar várias instâncias de um recurso, consulte a [iteração de recursos nos modelos ARM](copy-resources.md).

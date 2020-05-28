@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77185564"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014371"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Ative Directory Pass-through Autenticação segurança profunda
 
@@ -72,9 +72,12 @@ As seguintes secções discutem estas fases em detalhe.
 
 ### <a name="authentication-agent-installation"></a>Instalação do Agente de Autenticação
 
-Apenas administradores globais podem instalar um Agente de Autenticação (utilizando o Azure AD Connect ou autónomo) num servidor no local. A instalação adiciona duas novas entradas à lista de > **Programas e**  > **Funcionalidades**do **Painel de Controlo:**
+Apenas administradores globais podem instalar um Agente de Autenticação (utilizando o Azure AD Connect ou autónomo) num servidor no local. A instalação adiciona duas novas entradas à lista de Programas e Funcionalidades do **Painel de**  >  **Programs**  >  **Programs and Features** Controlo:
 - A aplicação do Agente de Autenticação em si. Esta aplicação funciona com privilégios [NetworkService.](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx)
 - A aplicação Atualizador que é usada para atualizar automaticamente o Agente de Autenticação. Esta aplicação funciona com privilégios [Do Sistema Local.](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx)
+
+>[!IMPORTANT]
+>Do ponto de vista da segurança, os administradores devem tratar o servidor que executa o agente ptA como se fosse um controlador de domínio.  Os servidores de agentes da PTA devem ser endurecidos nas mesmas linhas que delineados na fixação de [controladores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack) de domínio contra ataque
 
 ### <a name="authentication-agent-registration"></a>Registo do Agente de Autenticação
 
@@ -211,7 +214,7 @@ Para atualizar automaticamente um Agente de Autenticação:
 >
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários suportados e quais não são.
 - [Quickstart](how-to-connect-pta-quick-start.md): Levantar-se e correr na Autenticação de Passagem De AD Azure.
 - [Migrar de AD FS para a Autenticação Pass-through](https://aka.ms/adfstoptadpdownload) - Um guia detalhado para migrar de AD FS (ou outras tecnologias da federação) para a Autenticação Pass-through.

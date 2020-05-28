@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: Eliminar um cofre
               href: delete-vault.md
-    - name: Suporte do Site Recovery para Grupos de Colocação por Proximidade
+    - name: Site Recovery para Grupos de Colocação por Proximidade
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: Recuperação após desastre para aplicações
       items:

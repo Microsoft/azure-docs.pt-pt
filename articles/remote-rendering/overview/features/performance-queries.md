@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757471"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022799"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -18,7 +18,7 @@ Um bom desempenho de renderização no servidor é fundamental para taxas de fot
 
 Mais impactante para o desempenho da renderização são os dados de entrada do modelo. Pode ajustar os dados de entrada conforme descrito na [configuração da conversão do modelo](../../how-tos/conversion/configure-model-conversion.md).
 
-O desempenho da aplicação do lado do cliente também pode ser um estrangulamento. Para uma análise aprofundada do desempenho do cliente, é aconselhável fazer um rastreio de [desempenho.](../../how-tos/performance-tracing.md)
+O desempenho da aplicação do lado do cliente também pode ser um estrangulamento. Para uma análise aprofundada do desempenho do cliente, recomenda-se que tome um [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md) .
 
 ## <a name="clientserver-timeline"></a>Linha do tempo do cliente/servidor
 
@@ -171,7 +171,7 @@ A `GetStatsString` API forma uma série de todos os valores, mas cada valor úni
 
 Há também variantes dos membros, que agregam os valores ao longo do tempo. Consulte os membros com sufixo, `*Avg` `*Max` ou `*Total` . O membro `FramesUsedForAverage` indica quantos quadros foram usados para esta agregação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar vestígios de desempenho](../../how-tos/performance-tracing.md)
 * [Configurar a conversão do modelo](../../how-tos/conversion/configure-model-conversion.md)

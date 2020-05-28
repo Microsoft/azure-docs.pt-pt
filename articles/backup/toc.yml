@@ -393,8 +393,10 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: CLI do Azure
       href: /cli/azure/backup?view=azure-cli-latest
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
+    - name: PowerShell – Agente do Azure Backup
+      href: /powershell/module/msonlinebackup
     - name: REST - Backup
       href: /rest/api/backup/
     - name: REST - cofre dos Serviços de Recuperação

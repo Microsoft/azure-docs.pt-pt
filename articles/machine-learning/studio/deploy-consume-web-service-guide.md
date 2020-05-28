@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 29852eb0920f7bb32464d91e0be65c7dcb03325c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9104470a2346052ed17c670ccc39215ff77ef51f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627964"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118418"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Pode utilizar o Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho e modelos de aprendizagem automática como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning a partir de aplicações através da Internet para fazer previsões em tempo real ou em modo de lote. Como os serviços web são RESTful, você pode chamá-los de vários idiomas e plataformas de programação, tais como .NET e Java, e de aplicações, como o Excel.
 
@@ -68,7 +66,7 @@ Executar a aplicação cria um modelo JSON de serviço web. Para utilizar o mode
 
 Adicione-os ao modelo JSON como crianças do nó de *Propriedades* ao mesmo nível do nó *machineLearningWorkspace.*
 
-Segue-se um exemplo:
+Eis um exemplo:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",
