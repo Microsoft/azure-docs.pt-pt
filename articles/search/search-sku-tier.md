@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617720"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119211"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para pesquisa cognitiva azure
 
@@ -41,7 +41,7 @@ As camadas são diferenciadas por:
 
 O nível que selecionar determina a taxa de faturação. A seguinte imagem do portal Azure mostra os níveis disponíveis, menos preços (que pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Grátis,** **Básicos**e **Standard** são os níveis mais comuns.
 
-**O Free** cria um serviço de pesquisa limitado para projetos menores, incluindo quickstarts e tutoriais. Internamente, réplicas e divisórias partilhadas entre vários subscritores. Não é possível escalar um serviço gratuito ou executar cargas de trabalho significativas.
+**O Free** cria um serviço de pesquisa limitado para projetos menores, incluindo quickstarts e tutoriais. Internamente, réplicas e divisórias são partilhadas entre vários subscritores. Não é possível escalar um serviço gratuito ou executar cargas de trabalho significativas.
 
 **Basic** e **Standard** são os níveis de faturação mais utilizados, sendo a **Standard** o padrão. Com recursos dedicados sob o seu controlo, pode implementar projetos maiores, otimizar o desempenho e definir a capacidade.
 
@@ -201,7 +201,7 @@ As funcionalidades de nível livre e pré-visualização não fornecem [acordos 
 
 + Lembre-se que a única desvantagem de providenciar é que poderá ter de demolir um serviço se os requisitos reais forem maiores do que as suas previsões. Para evitar perturbações no serviço, criaria um novo serviço a um nível mais elevado e executava-o lado a lado até que todas as aplicações e pedidos visassem o novo ponto final.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Comece com um nível Livre e construa um índice inicial utilizando um subconjunto dos seus dados para entender as suas características. A estrutura de dados em Azure Cognitive Search é uma estrutura de índice invertida. O tamanho e complexidade de um índice invertido é determinado pelo conteúdo. Lembre-se que o conteúdo altamente redundante tende a resultar num índice menor do que o conteúdo altamente irregular. Assim, as características do conteúdo em vez do tamanho do conjunto de dados determinam os requisitos de armazenamento de índices.
 

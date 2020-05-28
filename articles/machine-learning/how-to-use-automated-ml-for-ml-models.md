@@ -1,5 +1,5 @@
 ---
-title: Use autoML para criar modelos & implementar
+title: Utilizar o AutoML para criar modelos & implementar
 titleSuffix: Azure Machine Learning
 description: Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning.
 services: machine-learning
@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 20d98f8eb4971d2aba1ecfbf8abeaba261cde8c4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653844"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115886"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -70,7 +70,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
         ----|----
         Formato de ficheiro| Define o layout e o tipo de dados armazenados num ficheiro.
         Delimitador| Um ou mais caracteres para especificar a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados.
-        Encoding| Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.
+        Codificação| Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.
     
@@ -120,14 +120,16 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     Configurações adicionais|Descrição
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre métricas](how-to-configure-auto-train.md#explore-model-metrics)de modelo.
-    Caracterização automática| Selecione para ativar ou desativar o pré-processamento feito por aprendizagem automática de máquinas. O pré-processamento inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas. Não suportado para o tipo de tarefa de previsão da série temporal. [Saiba mais sobre o pré-processamento.](#featurization) 
+    Caracterização automática| Selecione para ativar ou desativar a característica feita por machine learning automatizado. A funcionalidade automática inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas. Não suportado para o tipo de tarefa de previsão da série temporal. [Saiba mais sobre a caracterização.](how-to-configure-auto-features.md#featurization) 
     Explicar o melhor modelo | Selecione para ativar ou desativar para mostrar explicabilidade do melhor modelo recomendado
     Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de formação.
     Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> Tempo de trabalho de *formação (horas)*: Quanto tempo permite que o trabalho de formação decorra. <br> *Limiar de pontuação métrica*: Pontuação mínima métrica para todos os gasodutos. Isto garante que se tiver uma métrica de destino definida que pretende alcançar, não passa mais tempo no trabalho de formação do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para usar no trabalho de formação. [Saiba mais sobre validação cruzada.](how-to-configure-auto-train.md)
     Simultaneidade| *Iterações simultâneas*: Número máximo de gasodutos (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
 
-1. (Opcional) Ver definições de visualização: se optar por ativar a **funcionalidade automática** no formulário de **configuração adicional,** este formulário é onde especifica quais as colunas para executar essas funcionalidades e selecione qual o valor estatístico a utilizar para imputações de valor em falta.
+1. (Opcional) Ver definições de visualização: se optar por ativar a **funcionalidade automática** no formulário de **configuração adicional,** são aplicadas técnicas de caracterização predefinidas. Nas definições de visualização do **'Visualização',** pode alterar estes predefinições e personalizar em conformidade. Aprenda a [personalizar recursos.](#customize-featurization) 
+
+    ![Formulário de tipo de tarefa de estúdio Azure Machine Learning](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -155,58 +157,19 @@ Desvio| A medida de quão longe os dados desta coluna são do seu valor médio.
 Skewness| Medida de quão diferentes são os dados desta coluna de uma distribuição normal.
 Kurtose| A medida de quão fortemente seguidos os dados desta coluna é comparada a uma distribuição normal.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>Personalizar a caracterização
 
-## <a name="advanced-featurization-options"></a>Opções avançadas de caracterização
+No formulário **De Caracterização,** pode ativar/desativar a caracterização automática e personalizar as definições automáticas de recursos para a sua experiência. Para abrir este formulário, consulte o passo 10 na secção [Criar e executar experiências.](#create-and-run-experiment) 
 
-O machine learning automatizado oferece [pré-processamento](concept-manage-ml-pitfalls.md#prevent-over-fitting)e guarda-costas de dados automaticamente, para ajudá-lo a identificar e gerir potenciais problemas com os seus dados, como dados de ajuste excessivo e desequilibrados . 
+A tabela que se segue resume as personalizações atualmente disponíveis através do estúdio. 
 
-### <a name="preprocessing"></a>Pré-processamento
+Coluna| Personalização
+---|---
+Incluído | Especifica quais as colunas a incluir para o treino.
+Tipo de recurso| Alterar o tipo de valor para a coluna selecionada.
+Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 
-> [!NOTE]
-> Se planeia exportar os seus modelos auto ML criados para um [modelo ONNX](concept-onnx.md), apenas as opções de funcionalidade indicadas com um * são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx). 
-
-|Etapas de pré-processamento &nbsp;| Descrição |
-| ------------- | ------------- |
-|Largar alta cardealidade ou sem características de variação* |Retire-as de conjuntos de formação e validação, incluindo características com todos os valores em falta, o mesmo valor em todas as linhas ou com cardeal extremamente elevado (por exemplo, hashes, IDs ou GUIDs).|
-|Impute valores em falta* |Para características numéricas, impute com valores médios na coluna.<br/><br/>Para características categóricas, impute com valor mais frequente.|
-|Gerar funcionalidades adicionais* |Para as funcionalidades data: Ano, Mês, Dia, Dia da semana, Dia do ano, Trimestre, Semana do ano, Hora, Minuto, Segundo.<br/><br/>Para as características do texto: Frequência de termo baseada em unigramas, bi-gramas e tri-character-gramas.|
-|Transformar e codificar *|Características numéricas com poucos valores únicos são transformadas em características categóricas.<br/><br/>A codificação one-hot é realizada para a baixa cardeal categórica; para alta cardinalidade, uma codificação de hash-hot-hash.|
-|Incorporações de palavras|O featurizer de texto que converte vetores de tokens de texto em vetores de frase usando um modelo pré-treinado. O vetor de incorporação de cada palavra num documento é agregado em conjunto para produzir um vetor de características documentais.|
-|Codificação de alvos|Para características categóricas, mapeie cada categoria com valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada na frequência e a validação cruzada k-fold são aplicadas para reduzir a adaptação do mapeamento e do ruído causados por categorias de dados escassas.|
-|Codificação do alvo de texto|Para a entrada de texto, um modelo linear empilhado com saco de palavras é usado para gerar a probabilidade de cada classe.|
-|Peso da evidência (AI)|Calcula o AE como uma medida de correlação de colunas categóricas com a coluna alvo. É calculado como o registo da relação entre probabilidades in-class vs fora de classe. Este passo produz uma coluna de características numéricas por classe e remove a necessidade de imputar explicitamente valores em falta e tratamento mais distante.|
-|Distância de aglomerado|Treina um modelo de agrupamento k-significa em todas as colunas numéricas.  Saídas k novas funcionalidades, uma nova característica numérica por cluster, contendo a distância de cada amostra ao centroide de cada cluster.|
-
-### <a name="data-guardrails"></a>Guarda-costas de dados
-
-Os guarda-costas de dados são aplicados quando a funcionalidade automática está ativada ou a validação é definida para auto. Os guarda-costas ajudam-no a identificar potenciais problemas com os seus dados (por exemplo, valores em falta, desequilíbrio de classe) e ajudam a tomar medidas corretivas para melhorar os resultados. 
-
-Os utilizadores podem rever os guardrails de dados no estúdio dentro do separador **De guarda-dados** de uma execução automática de ML ou ```show_output=True``` definindo ao submeter uma experiência utilizando o Python SDK. 
-
-#### <a name="data-guardrail-states"></a>Estados da Guarda de Dados
-
-Os guarda-costas de dados exibirão um dos três estados: **Passado,** **Feito**ou **Alertado.**
-
-Estado| Descrição
-----|----
-Passado| Não foram detetados problemas de dados e não é necessária qualquer ação do utilizador. 
-Concluído| Foram aplicadas alterações aos seus dados. Encorajamos os utilizadores a rever as ações corretivas que o AUTOMATED ML tomou para garantir que as alterações se alinham com os resultados esperados. 
-Alertado| Foi detetada uma questão de dados que não podia ser corrigida. Encorajamos os utilizadores a rever e corrigir o problema. 
-
->[!NOTE]
-> Versões anteriores de experiências automáticas de ML exibiram um quarto estado: **Fixo**. As experiências mais recentes não irão exibir este estado, e todos os guarda-costas que exibiram o estado **Fixo** irão agora exibir **Done**.   
-
-A tabela seguinte descreve os guarda-costas de dados atualmente suportados, e os estados associados que os utilizadores podem encontrar ao submeter a sua experiência.
-
-Guarda-costas|Estado|Condição &nbsp; para &nbsp; o gatilho
----|---|---
-Falta de valores de características imputação |**Passado** <br><br><br> **Concluído**| Não foram detetados valores de funcionalidade sem falta nos seus dados de treino. Saiba mais sobre a [falta de imputação de valor.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Os valores de funcionalidade em falta foram detetados nos seus dados de treino e imputados.
-Manipulação de recurso de alta cardinalidade |**Passado** <br><br><br> **Concluído**| Os seus contributos foram analisados, e não foram detetados grandes características de cardinalidade. Saiba mais sobre a deteção de recurso de [alta cardinalidade.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Características de alta cardeal foram detetadas nas suas inputs e foram tratadas.
-Manipulação de validação dividida |**Concluído**| *A configuração de validação foi definida como 'auto' e os dados de treino continham **menos** de 20.000 linhas.* <br> Cada iteração do modelo treinado foi validada através da validação cruzada. Saiba mais sobre [os dados de validação.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *A configuração de validação foi definida como 'auto' e os dados de treino continham **mais** de 20.000 linhas.* <br> Os dados de entrada foram divididos num conjunto de dados de formação e num conjunto de dados de validação para validação do modelo.
-Deteção de equilíbrio de classes |**Passado** <br><br><br><br> **Alertado** | As suas inputs foram analisadas, e todas as aulas são equilibradas nos seus dados de treino. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras. <br><br><br> As aulas desequilibradas foram detetadas nas suas inputs. Para corrigir o viés do modelo, corrigir o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
-Deteção de problemas de memória |**Passado** <br><br><br><br> **Concluído** |<br> Foram analisados os valores de {horizon, lag, rolling window} e não foram detetados potenciais problemas fora da memória. Saiba mais sobre [as configurações](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de previsão da série de tempo. <br><br><br>Os valores selecionados {horizon, lag, rolling window} foram analisados e potencialmente causarão a sua experiência a ficar sem memória. As configurações de lag ou janela sonorizadora foram desligadas.
-Deteção de frequências |**Passado** <br><br><br><br> **Concluído** |<br> A série de tempo foi analisada e todos os pontos de dados estão alinhados com a frequência detetada. <br> <br> As séries de tempo foram analisadas e foram detetados pontos de dados que não se alinham com a frequência detetada. Estes pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de séries temporais.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+![Formulário de tipo de tarefa de estúdio Azure Machine Learning](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Executar resultados de experiência e visualização
 
@@ -255,10 +218,11 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
     O menu *Avançado* oferece funcionalidades de implementação padrão, tais como [definições](how-to-enable-app-insights.md) de recolha de dados e utilização de recursos. Se desejar anular estes incumprimentos, fá-lo neste menu.
 
 1. Selecione **Implementar**. A implantação pode levar cerca de 20 minutos para ser concluída.
+    Uma vez que a implementação começa, o separador de **detalhes do Modelo** aparece. Consulte o progresso da implantação no âmbito da secção de estado de **implantação** do painel **'Propriedades'.** 
 
 Agora tem um serviço web operacional para gerar previsões! Pode testar as previsões consultando o serviço a partir do suporte de [Machine Learning Azure.](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Aprenda a consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
 * [Compreender os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774465"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019848"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Utilize o CLI para restaurar uma base de dados de Instância gerida para outra geo-região
 
@@ -28,7 +28,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Um par de instâncias geridas existentes, consulte Use Azure CLI para criar uma instância gerida pela Base de [Dados Azure SQL](sql-database-create-configure-managed-instance-cli.md).
+Um par de instâncias geridas existentes, consulte [Use Azure CLI para criar uma Instância Gerida Azure SQL](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -60,8 +60,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az sql midb](/cli/azure/sql/midb) | Comandos de base de dados de instâncias geridos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../sql-database-cli-samples.md).
+Pode ver exemplos do script da CLI da Base de Dados SQL adicionais na [Documentação da Base de Dados SQL do Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

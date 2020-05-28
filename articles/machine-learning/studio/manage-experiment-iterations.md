@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: d2ace48ff1b2027a95aef2100540edc10aebb4cc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc0effa473109cd8d0e0d4fb50f6300ebf435206
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208419"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117628"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerir experiências corre no Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Desenvolver um modelo de análise preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experiência, os seus resultados convergem até ficar satisfeito por ter um modelo treinado e eficaz. A chave para este processo é rastrear as várias iterações dos parâmetros e configurações da sua experiência.
 
@@ -44,7 +42,7 @@ Por exemplo, suponha que crie uma experiência com o módulo [de regressão line
 | --- | --- |
 | 0.1 |9/11/2014 16:18:58 |
 | 0,2 |9/11/2014 16:24:33 |
-| 0.4 |9/11/2014 16:28:36 |
+| 0,4 |9/11/2014 16:28:36 |
 | 0,5 |9/11/2014 16:33:31 |
 
 Se clicar em **VER VER HISTÓRIA**DE EXECUÇÃO, verá uma lista de todas estas execuções:

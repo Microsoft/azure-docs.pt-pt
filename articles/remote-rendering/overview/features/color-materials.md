@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681080"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021386"
 ---
 # <a name="color-materials"></a>Materiais de cor
 
@@ -22,7 +22,7 @@ Os materiais de cor são mais eficientes para renderizar do que [os materiais PB
 
 Estas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Esta cor é multiplicada com outras cores, tais como as cores *albedoMap* ou *vertex*. Se a *transparência* for ativada num material, o canal alfa `1` é utilizado para `0` ajustar a opacidade, com um significado totalmente opaco e com um significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou * :::no-loc text="vertex"::: cores*. Se a *transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com `1` um significado totalmente opaco e `0` com um significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Como os materiais de cor não refletem o ambiente, um material de cor totalmente transparente torna-se invisível. Isto é diferente para [materiais PBR.](pbr-materials.md)
@@ -33,15 +33,15 @@ Estas propriedades são comuns a todos os materiais:
 
 * **textureCoordinateScale** e **textureCoordinateOffset:** A balança é multiplicada nas coordenadas de textura UV, a compensação é adicionada a ela. Pode ser usado para esticar e deslocar as texturas. A escala predefinida é (1, 1) e a compensação é (0,0).
 
-* **useVertexColor:** Se a malha contiver cores vértices e esta opção estiver ativada, as cores vértice das malhas são multiplicadas no *albedoColor* e *albedoMap*. Por padrão, as cores vértices são desativadas.
+* **useVertexColor:** Se a malha contiver :::no-loc text="vertex"::: cores e esta opção estiver ativada, a cor das malhas :::no-loc text="vertex"::: é multiplicada no *albedoColor* e *albedoMap*. Por predefinição, *o VertexColor* está desativado.
 
-* **isDoubleSided:** Se a dupla faceta for verdadeira, os triângulos com este material são renderizados mesmo que a câmara esteja a olhar para as suas faces traseiras. Por defeito, esta opção está desativada. Ver também [renderização unilateral](single-sided-rendering.md).
+* **isDoubleSided:** Se a dupla faceta for verdadeira, os triângulos com este material são renderizados mesmo que a câmara esteja a olhar para as suas faces traseiras. Por defeito, esta opção está desativada. Ver também [ :::no-loc text="Single-sided"::: renderização.](single-sided-rendering.md)
 
 ## <a name="color-material-properties"></a>Propriedades de material de cor
 
 As seguintes propriedades são específicas dos materiais de cor:
 
-* **vertexMix:** Este valor `0` `1` entre e especifica quão fortemente a cor vértice numa [malha](../../concepts/meshes.md) contribui para a cor final. Pelo valor padrão de 1, a cor vértice é multiplicada na cor do albedo completamente. Com um valor de 0, as cores vértice são totalmente ignoradas.
+* **vertexMix:** Este valor entre `0` e `1` especifica quão fortemente a :::no-loc text="vertex"::: cor numa [malha](../../concepts/meshes.md) contribui para a cor final. Pelo valor padrão de 1, a :::no-loc text="vertex"::: cor é multiplicada na cor do albedo completamente. Com um valor de 0, as :::no-loc text="vertex"::: cores são totalmente ignoradas.
 
 * **transparênciaMode:** Ao contrário dos [materiais PBR,](pbr-materials.md)os materiais de cor distinguem entre diferentes modos de transparência:
 
@@ -51,7 +51,7 @@ As seguintes propriedades são específicas dos materiais de cor:
 
   1. **Aditivo:** Este modo é o modo de transparência mais simples e eficiente. A contribuição do material é adicionada à imagem renderizada. Este modo pode ser utilizado para simular objetos brilhantes (mas ainda transparentes), como marcadores utilizados para realçar objetos importantes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Materiais PBR](pbr-materials.md)
 * [Texturas](../../concepts/textures.md)

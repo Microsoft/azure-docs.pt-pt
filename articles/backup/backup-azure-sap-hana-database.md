@@ -206,7 +206,7 @@ Se quiser obter uma cópia de segurança local (usando o HANA Studio) de uma bas
     * Definir **enable_auto_log_backup** para **Sim.**
     * Definir **log_backup_using_backint** para **true**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como restaurar as bases de [dados SAP HANA em execução em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Saiba como gerir as bases de [dados SAP HANA que são apoiadas usando o Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

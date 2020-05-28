@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: acfe367033d1553f5ee408ad0f4170e5d981377e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982705"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021828"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Ingerir dados num pool SQL
 
@@ -24,7 +24,7 @@ Neste artigo você aprenderá a ingerir dados de uma conta de armazenamento Do L
 
 * **Subscrição Azure**: Se não tiver uma subscrição Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento Azure:** Utiliza o Azure Data Lake Storage Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [Criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter passos para criar uma.
-* **Azure Synapse Analytics:** Utiliza uma piscina SQL como uma loja de dados *de sumidouro.* Se não tiver um exemplo de Análise Synapse Azure, consulte [Criar uma piscina SQL](../../sql-database/sql-database-get-started-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para dar passos para criar uma.
+* **Azure Synapse Analytics:** Utiliza uma piscina SQL como uma loja de dados *de sumidouro.* Se não tiver um exemplo de Análise Synapse Azure, consulte [Criar uma piscina SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para dar passos para criar uma.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
@@ -71,6 +71,6 @@ Neste passo, aciona manualmente o gasoduto publicado no passo anterior.
 1. Verifique se os seus dados estão corretamente escritos na piscina SQL.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a integração de dados para a Synapse Analytics, consulte os dados de [Ingesting no artigo da Azure Data Lake Storage Gen2.](data-integration-data-lake.md)

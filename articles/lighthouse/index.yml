@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: 6d209715a86e580d402361189f4484e762c43706
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: e62db32a20c4124f64e7c77d626099905a960815
+  ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81414296"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "83871793"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -111,5 +111,7 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Perguntas e Respostas da Microsoft para o Azure Lighthouse
+      url: https://docs.microsoft.com/answers/topics/azure-lighthouse.html
     - text: Pedir funcionalidades de produto
       url: https://feedback.azure.com/forums/922753

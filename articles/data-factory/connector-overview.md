@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410418"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022385"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A Azure Data Factory suporta as seguintes lojas e formatos de dados através de Copy, Data Flow, Look-up, Get Metadata e Eliminar atividades. Clique em cada loja de dados para saber as capacidades suportadas e as configurações correspondentes em detalhes.
@@ -29,7 +30,7 @@ A Azure Data Factory suporta as seguintes lojas e formatos de dados através de 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atividade Copiar](copy-activity-overview.md)
 - [Fluxo de Dados de Mapeamento](concepts-data-flow-overview.md)

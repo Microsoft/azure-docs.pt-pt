@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856070"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996402"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -20,7 +20,7 @@ O Portal de Aplicações Azure é composto por vários componentes que pode conf
 
 ![Gráfico de fluxo de componentes gateway de aplicação](./media/configuration-overview/configuration-overview1.png)
 
-Esta imagem ilustra uma aplicação que tem três ouvintes. Os dois primeiros são `http://acme.com/*` ouvintes multi-sites para e, `http://fabrikam.com/*`respectivamente. Ambos ouvem no porto 80. O terceiro é um ouvinte básico que tem a rescisão de segurança da camada de transporte de ponta a ponta (TLS), anteriormente conhecida como rescisão secure sockets layer (SSL).
+Esta imagem ilustra uma aplicação que tem três ouvintes. Os dois primeiros são ouvintes multi-sites para `http://acme.com/*` `http://fabrikam.com/*` e, respectivamente. Ambos ouvem no porto 80. O terceiro é um ouvinte básico que tem a rescisão de segurança da camada de transporte de ponta a ponta (TLS), anteriormente conhecida como rescisão secure sockets layer (SSL).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -219,14 +219,12 @@ Quando cria um portal de aplicação utilizando o portal Azure, cria-se uma regr
 
 Quando se cria uma regra, [ *basic* *escolhe-se*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules)entre o básico e o caminho.
 
-- Escolha o básico se quiser encaminhar todos os pedidos no ouvinte associado (por exemplo, *blog<i></i>.contoso.com/\*)* para uma única piscina de back-end.
+- Escolha o básico se quiser encaminhar todos os pedidos no ouvinte associado (por exemplo, *blog <i></i> .contoso.com/ \* )* para uma única piscina de back-end.
 - Escolha os pedidos baseados em percursos se quiser encaminhar pedidos de caminhos de URL específicos para piscinas específicas de back-end. O padrão do caminho é aplicado apenas ao caminho do URL, não aos seus parâmetros de consulta.
 
 #### <a name="order-of-processing-rules"></a>Ordem das regras de processamento
 
-Para o V1 SKU, a correspondência de padrões dos pedidos de entrada é processada na ordem de que os caminhos estão listados no mapa do caminho URL da regra baseada no caminho. Se um pedido corresponder ao padrão em dois ou mais caminhos no mapa do caminho, o caminho que está listado primeiro é combinado. E o pedido é encaminhado para a parte de trás que está associado a esse caminho.
-
-Para o V2 SKU, uma correspondência exata é uma prioridade maior do que a ordem do caminho no mapa do caminho URL. Se um pedido corresponder ao padrão em dois ou mais caminhos, o pedido é encaminhado para a parte de trás que está associado ao caminho que corresponde exatamente ao pedido. Se o caminho no pedido de entrada não corresponder exatamente a qualquer caminho no mapa, a correspondência de padrões do pedido é processada na lista de pedidos de mapas de caminho para a regra baseada no caminho.
+Para o V1 e v2 SKU, a correspondência de padrões dos pedidos de entrada é processada na ordem de que os caminhos estão listados no mapa do caminho URL da regra baseada no caminho. Se um pedido corresponder ao padrão em dois ou mais caminhos no mapa do caminho, o caminho que está listado primeiro é combinado. E o pedido é encaminhado para a parte de trás que está associado a esse caminho.
 
 ### <a name="associated-listener"></a>Ouvinte associado
 
@@ -250,7 +248,7 @@ Para uma regra baseada no caminho, adicione várias definições de HTTP de back
 
 ### <a name="redirection-setting"></a>Definição de reorientação
 
-Se a reorientação estiver configurada para uma regra básica, todos os pedidos no ouvinte associado são redirecionados para o alvo. Isto é uma reorientação *global.* Se a reorientação for configurada para uma regra baseada no caminho, apenas os pedidos numa área específica do local são redirecionados. Um exemplo é uma área de carrinho de compras que é denotada por */carrinho/\**. Isto é uma redirecção *baseada no caminho.*
+Se a reorientação estiver configurada para uma regra básica, todos os pedidos no ouvinte associado são redirecionados para o alvo. Isto é uma reorientação *global.* Se a reorientação for configurada para uma regra baseada no caminho, apenas os pedidos numa área específica do local são redirecionados. Um exemplo é uma área de carrinho de compras que é denotada por */carrinho/ \* *. Isto é uma redirecção *baseada no caminho.*
 
 Para mais informações sobre redirecionamentos, consulte a visão geral do [Redirect Gateway](redirect-overview.md).
 
@@ -378,7 +376,7 @@ Para um domínio personalizado cujo nome DNS personalizado existente está mapea
 
 Esta capacidade substitui o cabeçalho do *anfitrião* no pedido de entrada no gateway da aplicação com o nome de anfitrião que especifica.
 
-Por exemplo, se *www.contoso.com* for especificado na definição`https://appgw.eastus.cloudapp.azure.com/path1` de nome`https://www.contoso.com/path1` do **Anfitrião,** o pedido original * é alterado para * quando o pedido é encaminhado para o servidor de back-end.
+Por exemplo, se *www.contoso.com* for especificado na definição de nome do **Anfitrião,** o pedido original * `https://appgw.eastus.cloudapp.azure.com/path1` é alterado para * quando o pedido é encaminhado para o servidor de `https://www.contoso.com/path1` back-end.
 
 ## <a name="back-end-pool"></a>Conjunto back-end
 
@@ -393,7 +391,7 @@ Um gateway de aplicação monitoriza a saúde de todos os recursos na sua parte 
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, precisa associá-la a uma definição HTTP de back-end. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição correspondente de HTTP esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe sobre componentes do Application Gateway, pode:
 

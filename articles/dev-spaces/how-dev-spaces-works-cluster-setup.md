@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve como funciona a criação de um cluster de serviço Azure Kubernetes para a Azure Dev Spaces
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873551"
+ms.locfileid: "83995892"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Como funciona a criação de um cluster para a Azure Dev Spaces
 
@@ -18,7 +18,7 @@ A Azure Dev Spaces fornece-lhe múltiplas formas de iterar e depurar rapidamente
 
 ## <a name="prepare-your-aks-cluster"></a>Prepare o seu cluster AKS
 
-Para preparar o seu cluster AKS para espaços Dev, verifique se o seu cluster AKS está numa região [apoiada pela Azure Dev Spaces][supported-regions] e está a executar kubernetes 1.10.3 ou mais tarde. Para ativar o Azure Dev Spaces no seu cluster a partir do portal Azure, navegue até ao seu cluster, clique em *Espaços Dev,* mude *os Espaços de Utilização* para *Sim*, e clique em *Guardar*. Também pode ativar os espaços Azure Dev a partir do Azure CLI funcionando `az aks use-dev-spaces` .
+Para preparar o seu cluster AKS para espaços Dev, verifique se o seu cluster AKS está numa região [apoiada pela Azure Dev Spaces][supported-regions] e está a executar kubernetes 1.10.3 ou mais tarde. Pode ativar os espaços Azure Dev a partir do Azure CLI funcionando `az aks use-dev-spaces` .
 
 Para um exemplo de criação de um cluster AKS para dev Spaces, veja o [desenvolvimento da equipa rapidamente.][quickstart-team]
 
@@ -88,7 +88,7 @@ Pode utilizar a ferramenta do lado do cliente a partir da linha de comando como 
 * Código de estúdio visual utilizando a [extensão Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
 * Estúdio Visual com a carga de trabalho do Desenvolvimento Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a utilização da ferramenta do lado do cliente para preparar e executar o seu código no seu espaço de v, veja [como funciona um projeto para a Azure Dev Spaces.][how-it-works-prep]
 

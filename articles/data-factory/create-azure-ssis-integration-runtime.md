@@ -77,7 +77,7 @@ Para uma lista das regiões do Azure em que a Fábrica de Dados e um IR Azure-SS
 
 O quadro seguinte compara certas características da Base de Dados SQL e da Instância Gerida SQL no que diz respeito ao IR Azure-SSIR:
 
-| Funcionalidade | Base de Dados SQL | Instância Gerida do SQL |
+| Funcionalidade | SQL Database | Instância Gerida do SQL |
 |---------|--------------|------------------|
 | **Agendamento** | O Agente servidor SQL não está disponível.<br/><br/>Consulte [a execução de um pacote num oleoduto data Factory](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| O Agente de Instância Gerida SQL está disponível. |
 | **Autenticação** | Pode criar uma instância SSISDB com um utilizador de base de dados contido que represente qualquer grupo Azure AD com a identidade gerida da sua fábrica de dados como membro na **função db_owner.**<br/><br/>Ver [autenticação AD Enable Azure para criar uma instância SSISDB na Base de Dados SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Pode criar uma instância SSISDB com um utilizador de base de dados contido que represente a identidade gerida da sua fábrica de dados. <br/><br/>Ver [autenticação AD Enable Azure para criar uma instância SSISDB em Instância Gerida SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |

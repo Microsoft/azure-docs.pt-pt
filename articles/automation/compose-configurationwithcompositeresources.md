@@ -6,18 +6,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ef8145f0b447f24265ff4576884b0977190b063e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835075"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020358"
 ---
 # <a name="compose-dsc-configurations"></a>Compor configurações DSC
 
 Quando precisa de gerir o recurso com mais do que uma configuração de estado desejada (DSC), o melhor caminho é utilizar [recursos compósitos](/powershell/scripting/dsc/resources/authoringresourcecomposite). Um recurso composto é uma configuração aninhada e parametrizada sendo usada como um recurso DSC dentro de outra configuração. A utilização de recursos compósitos permite-lhe criar configurações complexas, permitindo que os recursos compósitos subjacentes sejam individualmente geridos e construídos.
 
-A Automação Azure permite a [importação e compilação de recursos compósitos.](automation-dsc-compile.md) Depois de importar recursos compósitos para a sua conta Automation, pode utilizar a Configuração do Estado da Automação Azure através da **Configuração do Estado (funcionalidade DSC** no portal Azure.
+A Automação Azure permite a [importação e compilação de recursos compósitos.](automation-dsc-compile.md) Depois de importar recursos compósitos para a sua conta Automation, pode utilizar a Configuração do Estado da Automação Azure através da funcionalidade **configuração do Estado (DSC)** no portal Azure.
 
 ## <a name="compose-a-configuration"></a>Componha uma configuração
 
@@ -40,7 +40,7 @@ Uma vez que a nova configuração é guardada, é submetida para compilação. P
 
 Quando a compilação tiver terminado com sucesso, a nova configuração aparece no separador de **configurações compilada.** Em seguida, pode atribuir a configuração a um nó gerido, utilizando os passos para [reatribuir um nó a uma configuração diferente](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration)do nó .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a ativar os nós, consulte a Configuração do Estado da [Automatização Do Automação Do Ativo .](automation-dsc-onboarding.md)
 - Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de DSC compile na Configuração do Estado da Automação Azure](automation-dsc-compile.md).

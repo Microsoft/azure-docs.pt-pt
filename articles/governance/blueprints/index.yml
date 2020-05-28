@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/01/2019
-  ms.openlocfilehash: da45a726dcbf8bebd598f81fe27a49e72460cbed
-  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+  ms.openlocfilehash: d80b82b9e8e41e9bfdc7b9ac180ccc8916481acb
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/26/2020
-  ms.locfileid: "83849353"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84116102"
 landingContent:
 - title: Acerca do Azure Blueprints
   linkLists:
@@ -82,7 +82,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Perguntas e Respostas da Microsoft para o Azure Blueprints
-      url: /answers/topics/azure-blueprints.html
+      url: /answers/topics/azure-blueprints.html.html
     - text: Canal do YouTube sobre a Governação do Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Pedir funcionalidade do produto

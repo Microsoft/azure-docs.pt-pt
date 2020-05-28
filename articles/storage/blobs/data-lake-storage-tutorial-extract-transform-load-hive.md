@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327566"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014915"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados utilizando o Azure HDInsight
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.mi
 
 2. Na página, selecione os seguintes valores:
 
-   | Nome | Valor |
+   | Name | Valor |
    | --- | --- |
    | Filtrar Ano |2013 |
    | Filtrar Período |Janeiro |
@@ -70,9 +70,9 @@ Nesta secção, irá enviar dados para o seu cluster HDInsight e, em seguida, co
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
    ```
 
-   * Substitua `<file-name>` o espaço reservado com o nome do ficheiro .zip.
-   * Substitua `<ssh-user-name>` o espaço reservado pelo login SSH para o cluster HDInsight.
-   * Substitua `<cluster-name>` o espaço reservado com o nome do cluster HDInsight.
+   * Substitua o `<file-name>` espaço reservado com o nome do ficheiro .zip.
+   * Substitua o `<ssh-user-name>` espaço reservado pelo login SSH para o cluster HDInsight.
+   * Substitua o `<cluster-name>` espaço reservado com o nome do cluster HDInsight.
 
    Se utilizar uma palavra-passe para autenticar o início de sessão SSH, é-lhe pedida a palavra-passe.
 
@@ -98,7 +98,7 @@ Nesta secção, irá enviar dados para o seu cluster HDInsight e, em seguida, co
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
    ```
 
-   Substitua `<container-name>` o espaço reservado pelo nome que pretende dar ao seu recipiente.
+   Substitua o `<container-name>` espaço reservado pelo nome que pretende dar ao seu recipiente.
 
    Substitua `<storage-account-name>` o espaço reservado com o nome da sua conta de armazenamento.
 
@@ -128,7 +128,7 @@ Como parte do trabalho da Apache Hive, importa os dados do ficheiro .csv para um
    nano flightdelays.hql
    ```
 
-2. Modifique o seguinte `<container-name>` texto `<storage-account-name>` substituindo os espaços reservados e os espaços reservados pelo seu nome de identificação e conta de armazenamento. Em seguida, copie e cole o texto na consola nano, premindo a tecla SHIFT juntamente com o botão de clique do rato direito.
+2. Modifique o seguinte texto substituindo os espaços reservados e os espaços reservados pelo seu nome de identificação e conta de `<container-name>` `<storage-account-name>` armazenamento. Em seguida, copie e cole o texto na consola nano, premindo a tecla SHIFT juntamente com o botão de clique do rato direito.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -244,16 +244,16 @@ Precisa do nome do servidor da sua base de dados SQL para esta operação. Compl
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. Depois de a instalação estar concluída, utilize o seguinte comando para se ligar ao servidor de base de dados SQL.
+6. Depois de a instalação estar concluída, utilize o seguinte comando para ligar à Base de Dados SQL.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Substitua `<server-name>` o espaço reservado pelo nome do servidor SQL Database.
+   * Substitua o `<server-name>` espaço reservado pelo nome lógico do servidor SQL.
 
-   * Substitua `<admin-login>` o espaço reservado pelo login administrativo da Base de Dados SQL.
+   * Substitua o espaço reservado pelo login administrativo da Base de `<admin-login>` Dados SQL.
 
-   * Substitua `<database-name>` o espaço reservado com o nome da base de dados
+   * Substitua o `<database-name>` espaço reservado com o nome da base de dados
 
    Quando for solicitado, introduza a palavra-passe para o login da Base de Dados SQL.
 
@@ -300,7 +300,7 @@ Precisa do nome do servidor da sua base de dados SQL para esta operação. Compl
 
 ## <a name="export-and-load-the-data"></a>Exportar e carregar os dados
 
-Nas secções anteriores, copiou os dados `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`transformados no local . Nesta secção, utiliza o Sqoop para `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` exportar os dados para a tabela que criou na base de dados Azure SQL.
+Nas secções anteriores, copiou os dados transformados no local `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` . Nesta secção, utiliza o Sqoop para exportar os dados para a tabela que criou na base de `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` dados Azure SQL.
 
 1. Utilize o seguinte comando para verificar se o Sqoop pode ver a sua base de dados SQL:
 
@@ -316,9 +316,9 @@ Nas secções anteriores, copiou os dados `abfs://<container-name>@<storage-acco
    sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<container-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
    ```
 
-   A Sqoop liga-se à base de dados que `/tutorials/flightdelays/output` contém a tabela de **atrasos** e exporta dados do diretório para a tabela de **atrasos.**
+   A Sqoop liga-se à base de dados que contém a tabela de **atrasos** e exporta dados do `/tutorials/flightdelays/output` diretório para a tabela de **atrasos.**
 
-3. Depois `sqoop` de terminar o comando, utilize o utilitário tsql para ligar à base de dados:
+3. Depois de terminar o `sqoop` comando, utilize o utilitário tsql para ligar à base de dados:
 
    ```bash
    TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -P <ADMIN_PASSWORD> -p 1433 -D <DATABASE_NAME>
@@ -339,7 +339,7 @@ Nas secções anteriores, copiou os dados `abfs://<container-name>@<storage-acco
 
 Todos os recursos utilizados neste tutorial são pré-existentes. Não é necessária limpeza.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais formas de trabalhar com dados no HDInsight, consulte o seguinte artigo:
 

@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
-ms.openlocfilehash: f505313b37d5289a5af10c40ede7f376eab4841d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d82f1d4c24820801e31c2b67b9d590367d89485c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605964"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114758"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory)
 
@@ -59,9 +59,9 @@ Neste passo, utiliza-se a UI ou app data Factory para criar um pipeline. Adicion
 
     Em alternativa, pode usar os segredos armazenados no seu cofre chave Azure como valores. Para isso, selecione a caixa de verificação **AZURE KEY VAULT** junto à credencial relevante. Selecione ou edite o seu serviço de ligação ao cofre de chaves existente ou crie um novo. Em seguida, selecione o nome ou versão secreto para o seu valor credencial.
 
-    Quando criar ou editar o seu serviço de ligação ao cofre de chaves, pode selecionar ou editar o seu cofre de chaves existente ou criar um novo. Certifique-se de conceder acesso de identidade gerido à Data Factory ao seu cofre chave se ainda não o fez. Também pode introduzir os seus segredos `<Key vault linked service name>/<secret name>/<secret version>`diretamente no seguinte formato: . Se o seu pacote necessitar de um tempo de execução de 32 bits para executar, selecione a caixa de verificação de tempo de execução de **32 bits.**
+    Quando criar ou editar o seu serviço de ligação ao cofre de chaves, pode selecionar ou editar o seu cofre de chaves existente ou criar um novo. Certifique-se de conceder acesso de identidade gerido à Data Factory ao seu cofre chave se ainda não o fez. Também pode introduzir os seus segredos diretamente no seguinte formato: `<Key vault linked service name>/<secret name>/<secret version>` . Se o seu pacote necessitar de um tempo de execução de 32 bits para executar, selecione a caixa de verificação de tempo de execução de **32 bits.**
 
-   Para **a localização do pacote**, selecione **SSISDB,** Sistema de **Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, ou **pacote incorporado**. Se selecionar o **SSISDB** como a sua localização do pacote, que é automaticamente selecionado se o seu IR Azure-SSIS foi aprovisionado com o catálogo SSIS (SSISDB) hospedado por um servidor de base de dados Azure SQL ou instância gerida, especifique o seu pacote para executar que foi implantado no SSISDB. 
+   Para **a localização do pacote**, selecione **SSISDB,** Sistema de **Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, ou **pacote incorporado**. Se selecionar o **SSISDB** como a sua localização do pacote, que é automaticamente selecionada se o seu IR Azure-SSIS foi aprovisionado com o catálogo SSIS (SSISDB) hospedado na Base de Dados SQL ou na Instância Gerida SQL, especifique o seu pacote para executar que foi implementado no SSISDB. 
 
     Se o seu IR Azure-SSIS estiver em execução e a caixa de **verificação** de entradas Manual estiver limpa, navegue e selecione as suas pastas, projetos, pacotes ou ambientes existentes do SSISDB. Selecione **Refresh** para obter as suas pastas, projetos, pacotes ou ambientes recém-adicionados do SSISDB para que estejam disponíveis para navegação e seleção. Para navegar ou selecionar os ambientes para as suas execuções organizadas, deve configurar previamente os seus projetos para adicionar esses ambientes como referências das mesmas pastas no âmbito do SSISDB. Para mais informações, consulte [Criar e mapear ambientes SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
@@ -69,21 +69,21 @@ Neste passo, utiliza-se a UI ou app data Factory para criar um pipeline. Adicion
 
    ![Definir propriedades no separador Definições - Automático](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Se o seu IR Azure-SSIS não estiver em execução ou se estiver selecionada a caixa de verificação de `<folder name>/<project name>/<package name>.dtsx` `<folder name>/<environment name>` **entradas Manual,** introduza diretamente nos seguintes formatos os seus caminhos de embalagem e ambiente a partir do SSISDB: e .
+   Se o seu IR Azure-SSIS não estiver em execução ou se estiver selecionada a caixa de verificação de **entradas Manual,** introduza diretamente nos seguintes formatos os seus caminhos de embalagem e ambiente a partir do SSISDB: `<folder name>/<project name>/<package name>.dtsx` e `<folder name>/<environment name>` .
 
    ![Definir propriedades no separador Definições - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Se selecionar o Sistema de **Ficheiros (Pacote)** como a sua localização do pacote, que é automaticamente selecionado se o seu IR Azure-SSIS foi aprovisionado sem O SSISDB, especifique o seu pacote para executar, fornecendo um caminho de Convenção universal de nomeação (UNC) para o seu ficheiro de pacote ()`.dtsx`na caixa de caminhos do **Pacote.** Por exemplo, se armazenar o seu pacote em `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`Ficheiros Azure, o seu pacote é . 
+   Se selecionar o Sistema de **Ficheiros (Pacote)** como a sua localização do pacote, que é automaticamente selecionado se o seu IR Azure-SSIS foi aprovisionado sem O SSISDB, especifique o seu pacote para executar, fornecendo um caminho de Convenção universal de nomeação (UNC) para o seu ficheiro de pacote `.dtsx` () na caixa **de caminhos** do Pacote. Por exemplo, se armazenar o seu pacote em Ficheiros Azure, o seu pacote é `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` . 
    
-   Se configurar o seu pacote num ficheiro separado, também precisa de fornecer`.dtsConfig`um caminho UNC para o seu ficheiro de configuração () na caixa de caminhos de **Configuração.** Por exemplo, se armazenar a sua configuração em `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`Ficheiros Azure, o seu caminho de configuração é .
+   Se configurar o seu pacote num ficheiro separado, também precisa de fornecer um caminho UNC para o seu ficheiro de configuração `.dtsConfig` () na caixa de caminhos de **Configuração.** Por exemplo, se armazenar a sua configuração em Ficheiros Azure, o seu caminho de configuração é `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig` .
 
    ![Definir propriedades no separador Definições - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   Se selecionar o Sistema de **Ficheiros (Projeto)** como localização do pacote, especifique`.ispac`o seu pacote para executar,`.dtsx`fornecendo um caminho UNC para o seu ficheiro de projeto () na caixa de **caminhos** do Projeto e um ficheiro de pacote () do seu projeto na caixa de **nomes do Pacote.** Por exemplo, se armazenar o seu projeto em `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`Ficheiros Azure, o seu percurso de projeto é .
+   Se selecionar o Sistema de **Ficheiros (Projeto)** como localização do pacote, especifique o seu pacote para executar, fornecendo um caminho UNC para o seu ficheiro de projeto () na caixa de `.ispac` **caminhos** do Projeto e um ficheiro de pacote () do seu projeto na caixa de `.dtsx` **nomes do Pacote.** Por exemplo, se armazenar o seu projeto em Ficheiros Azure, o seu percurso de projeto é `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` .
 
    ![Definir propriedades no separador Definições - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   Em seguida, especifique as credenciais para aceder ao seu projeto, pacote ou ficheiros de configuração. Se inseriu previamente os valores das suas credenciais de execução do pacote (ver anterior), pode reutilizá-las selecionando a mesma caixa de **verificação de credenciais** de execução de pacotes. Caso contrário, introduza os valores das suas credenciais de acesso ao pacote nas caixas **De domínio,** **nome de utilizador**e **password.** Por exemplo, se armazenar o seu projeto, pacote ou configuração em Ficheiros Azure, o domínio é `Azure`, o nome de utilizador é `<storage account name>`, e a palavra-passe é `<storage account key>`. 
+   Em seguida, especifique as credenciais para aceder ao seu projeto, pacote ou ficheiros de configuração. Se inseriu previamente os valores das suas credenciais de execução do pacote (ver anterior), pode reutilizá-las selecionando a mesma caixa de **verificação de credenciais** de execução de pacotes. Caso contrário, introduza os valores das suas credenciais de acesso ao pacote nas caixas **De domínio,** **nome de utilizador**e **password.** Por exemplo, se armazenar o seu projeto, pacote ou configuração em Ficheiros Azure, o domínio `Azure` é , o nome de utilizador é , e a `<storage account name>` palavra-passe é `<storage account key>` . 
 
    Em alternativa, pode utilizar segredos armazenados no seu cofre chave como valores (ver anterior). Estas credenciais são usadas para aceder ao seu pacote e pacotes infantis na Executar Package Task, tudo a partir do seu próprio caminho ou do mesmo projeto, bem como configurações, que incluem as especificadas nos seus pacotes. 
 
@@ -93,11 +93,11 @@ Neste passo, utiliza-se a UI ou app data Factory para criar um pipeline. Adicion
    
    Se utilizou o nível de proteção **EncryptAllWithPassword** ou **EncryptSensitiveWithPassword** quando criou o seu pacote através de Ferramentas de Dados do Servidor SQL, introduza o valor da sua palavra-passe na caixa de **passwords de encriptação.** Em alternativa, pode utilizar um segredo armazenado no seu cofre chave como valor (ver anterior). Se utilizou o nível de proteção **EncryptSensitiveWithUserKey,** reintroduza os seus valores sensíveis em ficheiros de configuração ou nos **parâmetros SSIS,** Gestores de **Ligação**ou separadores de **sobreposições** de propriedade (ver mais tarde). 
 
-   Se utilizou o nível de proteção **EncryptAllWithUserKey,** não suporta do suporte. É necessário reconfigurar o seu pacote para utilizar outro nível `dtutil` de proteção através das Ferramentas de Dados do Servidor SQL ou do utilitário da linha de comando. 
+   Se utilizou o nível de proteção **EncryptAllWithUserKey,** não suporta do suporte. É necessário reconfigurar o seu pacote para utilizar outro nível de proteção através das Ferramentas de Dados do Servidor SQL ou do `dtutil` utilitário da linha de comando. 
    
-   Para **o nível de registo,** selecione um âmbito predefinido de exploração de madeira para a execução do seu pacote. Selecione a caixa de verificação **Personalizada** se quiser introduzir o seu nome de registo personalizado. Se pretender registar as suas execuções para além da utilização dos fornecedores de registo padrão que podem ser especificados no seu pacote, especifique a sua pasta de registo fornecendo o seu caminho UNC na caixa de **caminhos de registo.** Por exemplo, se guardar os seus registos em `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`Ficheiros Azure, o seu caminho de registo é . Uma subpasta é criada neste caminho para cada execução de pacotes individuais e nomeada após o ID de execução da atividade do Pacote SSIS execute, no qual os ficheiros de registo são gerados a cada cinco minutos. 
+   Para **o nível de registo,** selecione um âmbito predefinido de exploração de madeira para a execução do seu pacote. Selecione a caixa de verificação **Personalizada** se quiser introduzir o seu nome de registo personalizado. Se pretender registar as suas execuções para além da utilização dos fornecedores de registo padrão que podem ser especificados no seu pacote, especifique a sua pasta de registo fornecendo o seu caminho UNC na caixa de **caminhos de registo.** Por exemplo, se guardar os seus registos em Ficheiros Azure, o seu caminho de registo é `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>` . Uma subpasta é criada neste caminho para cada execução de pacotes individuais e nomeada após o ID de execução da atividade do Pacote SSIS execute, no qual os ficheiros de registo são gerados a cada cinco minutos. 
    
-   Por fim, especifique as credenciais para aceder à sua pasta de registo. Se inseriu previamente os valores das suas credenciais de acesso ao pacote (ver anterior), pode reutilizá-las selecionando a mesma caixa de **verificação de credenciais** de acesso ao pacote. Caso contrário, introduza os valores para as suas credenciais de acesso ao registo nas caixas **De domínio,** **nome de utilizador**e **password.** Por exemplo, se armazenar os seus registos em `Azure`Ficheiros Azure, o domínio é , o nome de utilizador é `<storage account name>`, e a palavra-passe é `<storage account key>`. 
+   Por fim, especifique as credenciais para aceder à sua pasta de registo. Se inseriu previamente os valores das suas credenciais de acesso ao pacote (ver anterior), pode reutilizá-las selecionando a mesma caixa de **verificação de credenciais** de acesso ao pacote. Caso contrário, introduza os valores para as suas credenciais de acesso ao registo nas caixas **De domínio,** **nome de utilizador**e **password.** Por exemplo, se armazenar os seus registos em Ficheiros Azure, o domínio `Azure` é , o nome de utilizador é , e a `<storage account name>` palavra-passe é `<storage account key>` . 
 
     Em alternativa, pode utilizar segredos armazenados no seu cofre chave como valores (ver anterior). Estas credenciais são usadas para armazenar os seus registos. 
    
@@ -119,7 +119,7 @@ Neste passo, utiliza-se a UI ou app data Factory para criar um pipeline. Adicion
 
    ![Definir propriedades no separador Gestores de Ligação](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-1. No separador **Desobresões** de Propriedade para a atividade do Pacote Executar SSIS, introduza os caminhos das propriedades existentes no seu pacote selecionado um a um para atribuir valores manualmente aos mesmos. Certifique-se de que existem e que estão corretamente inscritos para que a sua execução do pacote tenha sucesso. Por exemplo, para anular o valor da variável do utilizador, insira o seu caminho no seguinte formato: `\Package.Variables[User::<variable name>].Value`. 
+1. No separador **Desobresões** de Propriedade para a atividade do Pacote Executar SSIS, introduza os caminhos das propriedades existentes no seu pacote selecionado um a um para atribuir valores manualmente aos mesmos. Certifique-se de que existem e que estão corretamente inscritos para que a sua execução do pacote tenha sucesso. Por exemplo, para anular o valor da variável do utilizador, insira o seu caminho no seguinte formato: `\Package.Variables[User::<variable name>].Value` . 
    
    Se utilizou o nível de proteção **EncryptSensitiveWithUserKey** quando criou o seu pacote através de Ferramentas de Dados do Servidor SQL e sistema de **ficheiros (Pacote)** ou Sistema de **Ficheiros (Project)** é selecionado como a sua localização do pacote, também precisa de reintroduzir as suas propriedades sensíveis para atribuir valores aos mesmos em ficheiros de configuração ou neste separador. 
    
@@ -129,7 +129,7 @@ Neste passo, utiliza-se a UI ou app data Factory para criar um pipeline. Adicion
 
    Os valores atribuídos nos ficheiros de configuração e no separador **SSIS Parâmetros** podem ser ultrapassados utilizando os separadores De Sobreposições de **Ligação** ou Sobreposições de **Propriedade.** Os valores atribuídos no separador Gestores de **Ligação** também podem ser ultrapassados utilizando o separador **Sobrepordetes** de Propriedade.
 
-1. Para validar a configuração do gasoduto, selecione **Validar** na barra de ferramentas. Para fechar o Relatório **>>** de Validação do **Gasoduto,** selecione .
+1. Para validar a configuração do gasoduto, selecione **Validar** na barra de ferramentas. Para fechar o Relatório de Validação do **Gasoduto,** selecione **>>** .
 
 1. Para publicar o pipeline na Data Factory, **selecione Publicar Tudo**. 
 
@@ -516,6 +516,6 @@ No passo anterior, dirigiu o oleoduto a pedido. Também pode criar um gatilho de
    select * from catalog.executions
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte a seguinte publicação no blog:
 - [Modernizar e alargar os seus fluxos de trabalho ETL/ELT com atividades SSIS em pipelines azure Data Factory](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

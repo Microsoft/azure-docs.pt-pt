@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80130827"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021505"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considerações de segurança para o movimento de dados
 
@@ -173,7 +173,7 @@ Algumas lojas de dados na nuvem também requerem a lista branca do endereço IP 
 
 As seguintes lojas de dados em nuvem requerem listagem branca do endereço IP da máquina gateway. Algumas destas lojas de dados, por defeito, podem não necessitar de whitelisting do endereço IP. 
 
-- [Base de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Base de Dados SQL do Azure](../../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
@@ -190,7 +190,7 @@ As seguintes lojas de dados em nuvem requerem listagem branca do endereço IP da
 **Pergunta:** Quais são os requisitos de certificado para gateway?
 **Resposta:** O gateway atual requer um certificado que é usado pelo pedido do gestor credencial para definir de forma segura credenciais de loja de dados. Este certificado é um certificado auto-assinado criado e configurado pela configuração do gateway. Em vez disso, pode utilizar o seu próprio certificado TLS/SSL. Para mais informações, consulte a secção de aplicação do gestor de [credenciais click-once.](#click-once-credentials-manager-app) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre o desempenho da atividade da cópia, consulte o desempenho da atividade da cópia e o guia de [afinação.](data-factory-copy-activity-performance.md)
 
  

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592717"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996215"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Tradutor V2 para Migração V3
 
@@ -45,8 +45,8 @@ A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornec
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
+| `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de Discurso da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Serviço de Discurso da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detetar](reference/v3-0-detect.md)         |
@@ -116,10 +116,10 @@ O Microsoft Tradutor V3 utiliza a tradução da máquina neural por padrão. Com
 
 A tradução neural com o texto V3 API não suporta a utilização de categorias padrão (SMT, fala, tecnologia, generalnn).
 
-| |Ponto Final|    Conformidade do processador do RGPD|  Use hub tradutor| Utilizar tradutor personalizado (pré-visualização)|
+| |Ponto Final|    Conformidade do processador do RGPD|    Use hub tradutor|    Utilizar tradutor personalizado (pré-visualização)|
 |:-----|:-----|:-----|:-----|:-----|
-|Versão tradutora 2|  api.microsofttranslator.com|    Não  |Sim    |Não|
-|Versão tradutora 3|  api.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
+|Versão tradutora 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
+|Versão tradutora 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|
 
 **Versão tradutora 3**
 * É geralmente disponível e totalmente apoiado.
@@ -143,7 +143,7 @@ Nenhuma versão do Tradutor cria um registo das suas traduções. As tuas tradu�
 * [Informações Legais do Microsoft Azure](https://azure.microsoft.com/support/legal)
 * [Termos de Serviços Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ver V3.0 Documentação](reference/v3-0-reference.md)

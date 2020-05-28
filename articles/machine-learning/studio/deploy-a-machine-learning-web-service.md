@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4cbc17e0352b9dfed3df9bbbd1480b9846f7ae75
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e1efa4fa3a222a11c35f642f68310109c4f32712
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208487"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118527"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 O Azure Machine Learning Studio (clássico) permite-lhe construir e testar uma solução analítica preditiva. Depois pode implementar a solução como um serviço web.
 
@@ -284,7 +282,7 @@ Como já implementou esta experiência antes, é-lhe perguntado se deseja substi
 
 Uma opção para atualizar o seu serviço web é retreinar o modelo programáticamente. Para mais informações, consulte os [modelos Retrain Machine Learning Studio (clássicos) programáticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais detalhes técnicos sobre como funciona a implementação, veja [como um modelo de Machine Learning Studio (clássico) evolui de uma experiência para um serviço Web operacionalizado.](model-progression-experiment-to-web-service.md)
 
