@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f84098d376f2494805465a8c713a21fceae6438d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739486"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116857"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -45,7 +45,7 @@ Com o V2 SKU, o modelo de preços é impulsionado pelo consumo e já não está 
 - **Preço fixo** - Este é o preço de hora (ou hora parcial) para fornecer um Standard_v2 ou WAF_v2 Gateway. Por favor, note que 0 instâncias mínimas adicionais ainda garantem uma elevada disponibilidade do serviço que está sempre incluído com preço fixo.
 - **Preço unitário** de capacidade - Este é um custo baseado no consumo que é cobrado para além do custo fixo. A carga da unidade de capacidade também é calculada de hora em hora ou parcialmente. Existem três dimensões para a unidade de capacidade - unidade de computação, conexões persistentes e entrada. A unidade de computação é uma medida da capacidade do processador consumida. Os fatores que afetam a unidade de computação são as ligações TLS/seg., as computações de Reescrita de URLs e o processamento de regras WAF. A ligação persistente é uma medida de conexões TCP estabelecidas à porta de aplicação num determinado intervalo de faturação. A produção é megabits/seg média processada pelo sistema num determinado intervalo de faturação.  A faturação é feita a nível da Unidade de Capacidade para qualquer coisa acima da contagem de instâncias reservada.
 
-Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
+Cada unidade de capacidade é composta no máximo: 1 unidade de cálculo, 2500 ligações persistentes e 2,22 Mbps de potência.
 
 Orientação da unidade computacional:
 
@@ -193,7 +193,7 @@ Esta secção descreve características e limitações do V2 SKU que diferem do 
 
 Um script Azure PowerShell está disponível na galeria PowerShell para ajudá-lo a migrar do seu V1 Application Gateway/WAF para o V2 Autoscaling SKU. Este script ajuda-o a copiar a configuração a partir do seu gateway V1. A migração de tráfego continua a ser da sua responsabilidade. Para mais informações, consulte [migrate Azure Application Gateway de v1 a v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Criar um gateway de aplicação redundante de zona autoscalcificada com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)

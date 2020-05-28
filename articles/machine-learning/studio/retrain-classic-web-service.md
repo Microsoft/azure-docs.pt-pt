@@ -10,16 +10,14 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 0639a525384e751ac4441da5d2c03532618b801a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 877697893b377007c812def00858b7300356f5e4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209456"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117777"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retre e implemente um clássico serviço web Studio (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Retreinar modelos de aprendizagem automática é uma forma de garantir que se mantêm precisos e baseados nos dados mais relevantes disponíveis. Este artigo irá mostrar-lhe como retreinar um clássico serviço web studio (clássico). Para um guia sobre como retreinar um novo serviço web Studio (clássico), [veja este artigo como fazer.](retrain-machine-learning-model.md)
 
@@ -132,7 +130,7 @@ Se o seu token SAS expirar antes de terminar a atualização do ponto final, tem
 
 Quando o código tiver sido executado com sucesso, o novo ponto final deve começar a utilizar o modelo retreinado em aproximadamente 30 segundos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como gerir os serviços web ou acompanhar as várias experiências, consulte os seguintes artigos:
 

@@ -110,7 +110,7 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > [!NOTE] 
 > Só precisa de definir a propriedade WebApplicationFirewallPolicyLink uma vez para ligar uma política waf a um anfitrião frontend front door. As atualizações de política subsequentes são automaticamente aplicadas ao anfitrião frontal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a firewall de aplicação web Azure](../overview.md).
 - Saiba como [criar um Front Door](../../frontdoor/quickstart-create-front-door.md).

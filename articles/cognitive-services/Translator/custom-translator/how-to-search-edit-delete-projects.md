@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9432ac390b7677b3dea5aebc84cf23ef6e45db92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595711"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996742"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e excluir projetos
 
@@ -63,6 +63,6 @@ Pode apagar um projeto quando já não precisa. Abaixo os passos descrevem como 
 
    ![Eliminar o diálogo de confirmação](media/how-to/how-to-delete-project-confirm.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Faça upload de documentos](how-to-upload-document.md) para começar a construir o seu modelo de tradução personalizado.

@@ -10,16 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 1618e64eba32e857ccd0ba4b5a7a656f1d954bf8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d7ab5cada77ccebc214e09b43fbb70b3ad8bb59
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659922"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117194"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 O Azure Machine Learning Studio (clássico) fornece uma tela interativa que lhe permite desenvolver, executar, testar e iterar uma ***experiência*** que representa um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
 
 * Insere os dados na sua experiência
@@ -106,7 +105,7 @@ Se quiser manter o seu modelo de aprendizagem automática, mas gostaria de retre
 
 Se quiser fazer alterações na sua experiência preditiva original, como selecionar um algoritmo de aprendizagem automática diferente, experimentar um método de treino diferente, etc., então precisa seguir o segundo procedimento acima descrito para retreinar o seu modelo: abrir a experiência de treino, clicar em **Save As** para fazer uma cópia, e depois começar a seguir o novo caminho de desenvolvimento do seu modelo, criar a experiência preditiva e implementar o serviço web. Isto criará um novo serviço Web não relacionado com o original - pode decidir qual, ou ambos, continuará a funcionar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais detalhes sobre o processo de desenvolvimento e experimentação, consulte os seguintes artigos:
 
 * converter a experiência - [Como preparar o seu modelo para implantação no Azure Machine Learning Studio (clássico)](convert-training-experiment-to-scoring-experiment.md)

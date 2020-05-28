@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bba37b5d72bd9dca2e10c699f4ba259319a6c71
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263286"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995100"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configure gestão de sessão de autenticação com Acesso Condicional
 
@@ -50,6 +50,10 @@ A definição de frequência sessão funciona com aplicações que implementaram
 - Clientes web de equipas
 - Dynamics CRM Online
 - Portal do Azure
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frequência de inscrição do utilizador e autenticação de vários fatores
+
+A frequência de entrada anteriormente aplicada apenas à autenticação do primeiro fator em dispositivos que foram Azure AD juntou-se, Hybrid Azure AD juntou-se e Azure AD registrado. Não havia uma forma fácil de os nossos clientes reimporem a autenticação de vários fatores (MFA) nesses dispositivos. Com base no feedback do cliente, a frequência de inscrição também se aplicará ao MFA.
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de inscrição do utilizador e identidades do dispositivo
 
@@ -90,7 +94,7 @@ O Acesso Condicional é uma capacidade Azure AD Premium e requer uma licença pr
    > [!NOTE]
    > Recomenda-se definir a mesma frequência de autenticação para as principais aplicações do Microsoft Office, como o Exchange Online e o SharePoint Online, para uma melhor experiência do utilizador.
 
-1. Vá à**Sessão** de **Controlos** > de Acesso e clique **na frequência de iniciar sessão**
+1. Vá à Sessão de **Controlos**de Acesso  >  **Session** e clique na frequência de **iniciar sessão**
 1. Insira o valor exigido de dias e horas na primeira caixa de texto
 1. Selecione um valor de **Horas** ou **Dias** a partir do dropdown
 1. Salve a sua política
@@ -109,7 +113,7 @@ Se configurar diferentes frequências de acesso para diferentes aplicações web
    > [!NOTE]
    > Por favor, note que este controlo requer escolher "Todas as Aplicações cloud" como condição. A persistência da sessão de navegador é controlada por token de autenticação. Todos os separadores de uma sessão de navegador partilham um único token de sessão e, portanto, todos eles devem partilhar o estado de persistência.
 
-1. Vá à**Sessão** de **Controlos** > de Acesso e clique na **sessão persistente do navegador**
+1. Vá à Sessão de **Controlos**de Acesso  >  **Session** e clique na **sessão persistente do navegador**
 1. Selecione um valor a partir de dropdown
 1. Salvar-lhe a política
 
@@ -128,7 +132,7 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 Para garantir que a sua política funcione como esperado, a melhor prática recomendada é testá-la antes de a lançar em produção. Idealmente, use um inquilino de teste para verificar se a sua nova política funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas de acesso condicional no Diretório Ativo Azure.](best-practices.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se quiser saber configurar uma política de Acesso Condicional, consulte o artigo [Requer MFA para aplicações específicas com acesso condicional ao Diretório Ativo Azure](app-based-mfa.md).
 * Se estiver pronto para configurar as políticas de Acesso Condicional para o seu ambiente, consulte o artigo [As melhores práticas de acesso condicional no Diretório Ativo Azure](best-practices.md).

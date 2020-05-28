@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595849"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992713"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos documentais e orientação da convenção de nomeação
 
@@ -32,7 +32,7 @@ Esta tabela inclui todos os formatos de ficheirosuportados que pode utilizar par
 | Adobe Acrobat     | . PDF         | Documento portátil Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | . HTML, . HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
 | Ficheiro de texto         | . TXT         | UTF-16 ou UTF-8 ficheiros de texto codificados. O nome do ficheiro não deve conter caracteres japoneses.                                                                                                                                                                                        |
-| Ficheiro de texto alinhado | . ALINHAR       | A `.ALIGN` extensão é uma extensão especial que pode usar se souber que as frases no par de documentos estão perfeitamente alinhadas. Se fornecer `.ALIGN` um ficheiro, o Tradutor Personalizado não irá alinhar as frases para si. |
+| Ficheiro de texto alinhado | . ALINHAR       | A extensão `.ALIGN` é uma extensão especial que pode usar se souber que as frases no par de documentos estão perfeitamente alinhadas. Se fornecer um ficheiro, o `.ALIGN` Tradutor Personalizado não irá alinhar as frases para si. |
 | Arquivo Excel        | . XLSX        | Arquivo Excel (2013 ou mais tarde). Primeira linha/linha da folha de cálculo deve ser o código de idioma.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formatos dicionários
@@ -45,12 +45,12 @@ Os documentos podem ser agrupados num único ficheiro zip e enviados. O Tradutor
 
 Cada documento no ficheiro zip com a extensão TXT, HTML, HTM, PDF, DOCX, ALIGN deve seguir esta convenção de nomeação:
 
-{nome do documento} \_{código de idioma} onde {nome de documento} é o nome do seu documento, {código de idioma} é o ID de Idioma ISO (dois caracteres), indicando que o documento contém frases nessa língua. Deve haver um sublinhado (_) antes do código linguístico.
+{nome do documento} \_ {código de idioma} onde {nome de documento} é o nome do seu documento, {código de idioma} é o ID de Idioma ISO (dois caracteres), indicando que o documento contém frases nessa língua. Deve haver um sublinhado (_) antes do código linguístico.
 
 Por exemplo, para fazer o upload de dois documentos paralelos dentro de um zip para um sistema inglês para o espanhol, os ficheiros devem ser denominados "data_en" e "data_es".
 
 Os ficheiros de memória de tradução (TMX, XLF, XLIFF, LCL, XLSX) não são obrigados a seguir a convenção específica de nomeação de línguas.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre o [projeto](workspace-and-project.md#what-is-a-custom-translator-project) para criá-los e geri-los.

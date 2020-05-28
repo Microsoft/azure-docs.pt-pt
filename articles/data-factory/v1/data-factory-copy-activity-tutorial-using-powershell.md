@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73682845"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119271"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Criar um pipeline do Data Factory que move os dados com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "73682845"
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo de Gestor de Recursos Azure](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -90,7 +90,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma
     Get-AzSubscription
     ```
 
-    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt;o NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure:
+    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o ** &lt; NomeOfAzureSubscription** &gt; pelo nome da sua subscrição Azure:
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -189,7 +189,7 @@ Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 1. Crie um ficheiro JSON com o nome AzureSqlLinkedService.json na pasta C:\ADFGetStartedPSH com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; e &lt;password&gt; pelos nomes do seu servidor, base de dados, conta de utilizador e palavra-passe do SQL do Azure.
+    > Substitua o nome do &lt; &gt; servidor, &lt; nome da base &gt; de &lt; username@servername &gt; dados, e &lt; palavra-passe &gt; por nomes do seu servidor, base de dados, conta de utilizador e palavra-passe.
     
     ```json
     {
@@ -218,7 +218,7 @@ Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
     ProvisioningState : Succeeded
     ```
 
-   Certifique-se de que a definição **Permitir acesso aos serviços do Azure** está ativada no seu servidor da base de dados SQL do Azure. Para verificar e ativá-la, siga os seguintes passos:
+   Confirme que permitir o acesso à definição de **serviços Azure** está ligado para o seu servidor. Para verificar e ativá-la, siga os seguintes passos:
 
     1. Inicie sessão no [portal Azure](https://portal.azure.com)
     1. Clique em **Mais serviços >** à esquerda e clique em **Servidores SQL** na categoria **BASES DE DADOS**.
@@ -455,7 +455,7 @@ Atualmente, é o conjunto de dados de saída que controla a agenda. Neste tutori
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 Neste passo, irá utilizar o Azure PowerShell para monitorizar os acontecimentos de uma fábrica de dados do Azure.
 
-1. Substitua &lt;o&gt; DataFactoryName pelo nome da sua fábrica de dados e execute a **Get-AzDataFactory**e atribua a saída a uma variável $df.
+1. Substitua &lt; o DataFactoryName &gt; pelo nome da sua fábrica de dados e execute a **Get-AzDataFactory**e atribua a saída a uma variável $df.
 
     ```powershell  
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
@@ -564,7 +564,7 @@ Neste tutorial, vai criar um Azure Data Factory para copiar dados de um blob do 
 1. Criou **conjuntos de dados** que descrevem dados de entrada e saída para pipelines.
 1. Criou um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como a origem e **SqlSink** como o sink.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

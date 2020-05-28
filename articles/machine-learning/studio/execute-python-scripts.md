@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7d34cd8a841f7931ce85d3f9830c5497bb2f93
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218085"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118511"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem automática Python no Estúdio de Aprendizagem automática Azure (clássico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python é uma ferramenta valiosa no peito de ferramentas de muitos cientistas de dados. É usado em todas as fases dos fluxos típicos de trabalho de aprendizagem automática, incluindo exploração de dados, extração de recursos, treino e validação de modelos, e implantação.
 
@@ -27,7 +25,7 @@ Este artigo descreve como pode utilizar o módulo Execute Python Script para uti
 
 ## <a name="using-the-execute-python-script-module"></a>Utilizando o módulo de script de execução python
 
-A interface primária para Python em Estúdio (clássico) é através do módulo [Execute Python Script.][execute-python-script] Aceita até três inputs e produz até duas saídas, semelhantes ao módulo [Execute R Script.][execute-r-script] O código Python é introduzido na caixa de parâmetros `azureml_main`através de uma função de ponto de entrada especialmente denominada .
+A interface primária para Python em Estúdio (clássico) é através do módulo [Execute Python Script.][execute-python-script] Aceita até três inputs e produz até duas saídas, semelhantes ao módulo [Execute R Script.][execute-r-script] O código Python é introduzido na caixa de parâmetros através de uma função de ponto de entrada especialmente denominada `azureml_main` .
 
 ![Execute módulo de script python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -43,7 +41,7 @@ O mapeamento entre as portas de entrada e os parâmetros de função é posicion
 - A segunda entrada (se ligada) é mapeada para o segundo parâmetro da função.
 - A terceira entrada é utilizada para [importar módulos Python adicionais.](#import-modules)
 
-Semântica mais detalhada de como as portas de entrada `azureml_main` são mapeadas para os parâmetros da função são mostradas abaixo.
+Semântica mais detalhada de como as portas de entrada são mapeadas para os parâmetros da `azureml_main` função são mostradas abaixo.
 
 ![Tabela de configurações da porta de entrada e assinatura Python resultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
@@ -62,7 +60,7 @@ Os conjuntos de dados do estúdio não são os mesmos que os Dados panda. Como r
 | Cordas e numéricos| Traduzido como é |
 | Pandas 'NA' | Traduzido como 'Valor em falta' |
 | Vetores de índice | Sem apoio* |
-| Nomes de colunas sem cordas | Chamada `str` sobre nomes de colunas |
+| Nomes de colunas sem cordas | Chamada sobre nomes de `str` colunas |
 | Nomes de colunas duplicadas | Adicione sufixo numérico: (1), (2), (3) e assim por diante.
 
 **Todos os quadros de dados de entrada na função Python têm sempre um índice numérico de 64 bits de 0 ao número de linhas menos 1*
@@ -87,7 +85,7 @@ Faça upload do ficheiro zip como um conjunto de dados para studio (clássico). 
 
 ![Código Python definido pelo utilizador carregado como um ficheiro zip](./media/execute-python-scripts/figure6b.png)
 
-A saída do módulo mostra que o ficheiro zip `print_hello` foi desembalado e que a função foi executada.
+A saída do módulo mostra que o ficheiro zip foi desembalado e que a função `print_hello` foi executada.
 
 ![Saída do módulo mostrando função definida pelo utilizador](./media/execute-python-scripts/figure7.png)
 
@@ -181,7 +179,7 @@ O ponto de entrada python só é permitido devolver um único quadro de dados co
 
 Atualmente, a única maneira de adicionar módulos Python personalizados é através do mecanismo de ficheiro zip descrito anteriormente. Embora isso seja viável para pequenos módulos, é complicado para módulos grandes (especialmente módulos com DLLs nativos) ou um grande número de módulos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte o [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/).
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 12/09/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 04f90292b74593dece5f7e54268907e184fd084c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a78e2cbc6f1e33f516912911e2038a0de3ff6b99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592768"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996946"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
@@ -33,7 +33,7 @@ O Custom Tradutor fornece diferentes funcionalidades para construir um sistema d
 |[Alavancar a tecnologia de tradução da máquina neural](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Melhore a sua tradução alavancando a tradução da máquina neural (NMT) fornecida pelo tradutor personalizado.       |
 |[Construa sistemas que conheçam a sua terminologia de negócio](what-are-parallel-documents.md)     |  Personalize e construa sistemas de tradução utilizando documentos paralelos, que compreendam as terminologias utilizadas no seu próprio negócio e indústria.       |
 |[Use um dicionário para construir os seus modelos](what-is-dictionary.md)     |   Se não tiver um conjunto de dados de treino, pode treinar um modelo apenas com dados do dicionário.       |
-|[Colaborar com os outros](how-to-manage-settings.md#share-your-workspace)     |   Colabore com a sua equipa partilhando o seu trabalho com pessoas diferentes.     |
+|[Colaborar com outros](how-to-manage-settings.md#share-your-workspace)     |   Colabore com a sua equipa partilhando o seu trabalho com pessoas diferentes.     |
 |[Aceda ao seu modelo de tradução personalizada](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  O seu modelo de tradução personalizado pode ser acedido a qualquer momento pelas suas aplicações/programas existentes através do Tradutor V3.       |
 
 ## <a name="get-better-translations"></a>Obtenha melhores traduções
@@ -60,7 +60,7 @@ O custo de utilização de um modelo personalizado para traduzir conteúdo basei
 
 Os sistemas personalizados podem ser perfeitamente acedidos e integrados em qualquer produto ou fluxo de trabalho empresarial, e em qualquer dispositivo, através do Tradutor através da tecnologia PADRÃO REST.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre os [detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 

@@ -9,20 +9,18 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 6afd222730a9864e0b8edd681b1ce919b03c3be8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204295"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117551"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos PowerShell para Azure Machine Learning Studio (clássico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 Utilizando módulos PowerShell, pode gerir programaticamente os recursos e ativos do seu Estúdio (clássicos), tais como espaços de trabalho, conjuntos de dados e serviços web.
 
-Pode interagir com os recursos do Studio (clássico) utilizando três módulos Powershell:
+Pode interagir com recursos do Studio (clássico) utilizando três módulos PowerShell:
 
 * [A Azure PowerShell Az](#az-rm) lançada em 2018, inclui todas as funcionalidades do AzureRM, embora com diferentes nomes cmdlet
 * [AzureRM](#az-rm) lançado em 2016, substituído pela PowerShell Az
@@ -65,7 +63,7 @@ O clássico powerShell pode ser instalado ao lado de Az ou AzureRM para cobrir o
 | Gerir módulos personalizados | | [Módulo Novo AmlCustom](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte a documentação completa deste módulo PowerShell:
 * [Clássico powerShell](https://aka.ms/amlps)
-* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
+* [Az do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

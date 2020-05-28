@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 890486214eb67be26479b122c88c7a6b640b8ade
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204187"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117794"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Execute análises com o Azure Machine Learning Studio (clássico) utilizando uma base de dados do SQL Server no local
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Muitas vezes, as empresas que trabalham com dados no local gostariam de aproveitar a escala e a gilidade da nuvem para as suas cargas de trabalho de aprendizagem automática. Mas não querem perturbar os seus atuais processos de negócio e fluxos de trabalho, transferindo os seus dados no local para a nuvem. O Azure Machine Learning Studio (clássico) suporta agora a leitura dos seus dados a partir de uma base de dados do SQL Server no local e, em seguida, treina ndo e marcando um modelo com estes dados. Já não é preciso copiar manualmente e sincronizar os dados entre a nuvem e o servidor no local. Em vez disso, o módulo **de dados de importação** no Azure Machine Learning Studio (clássico) pode agora ler diretamente a partir da sua base de dados sQL Server no local para os seus trabalhos de formação e pontuação.
 
@@ -70,7 +68,7 @@ Pode encontrar informações detalhadas sobre os pré-requisitos de instalação
 Neste walkthrough, você vai configurar um Tempo de Integração de Fábrica de Dados Azure em um espaço de trabalho de Aprendizagem automática Azure, configurá-lo e, em seguida, ler dados de uma base de dados do SQL Server no local.
 
 > [!TIP]
-> Antes de começar, desative o bloqueador pop-up do seu navegador para `studio.azureml.net`. Se estiver a utilizar o navegador Google Chrome, descarregue e instale um dos vários plug-ins disponíveis no Google Chrome WebStore [Click Once App Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
+> Antes de começar, desative o bloqueador pop-up do seu navegador para `studio.azureml.net` . Se estiver a utilizar o navegador Google Chrome, descarregue e instale um dos vários plug-ins disponíveis no Google Chrome WebStore [Click Once App Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 >
 > [!NOTE]
 > O Tempo de Integração Auto-hospedado da Azure Data Factory era anteriormente conhecido como Data Management Gateway. O tutorial passo a passo continuará a referir-se a ele como uma porta de entrada.  
@@ -113,7 +111,7 @@ O primeiro passo é criar e configurar a porta de entrada para aceder à sua bas
 12. No Microsoft Data Management Gateway Configuration Manager altere para o separador **Certificate.** O certificado especificado neste separador é utilizado para encriptar/desencriptar credenciais para a loja de dados no local que especifica no portal. Este certificado é o certificado predefinido. A Microsoft recomenda que este seja o seu próprio certificado que faça no seu sistema de gestão de certificados. Clique em **Alterar** para utilizar o seu próprio certificado.
 
     ![Alterar certificado de gateway](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
-13. (opcional) Se pretender ativar o registo verbose para resolver problemas com o gateway, no microsoft Data Management Gateway Configuration Manager switch para o separador **Diagnostics** e verificar a **marca de registo verbose Enable para fins** de resolução de problemas. As informações de registo podem ser encontradas no Windows Event Viewer no âmbito do nó gateway de **Gestão** de Dados **de Aplicações e Serviços.**  - &gt; Também pode utilizar o separador **Diagnósticos** para testar a ligação a uma fonte de dados no local utilizando o gateway.
+13. (opcional) Se pretender ativar o registo verbose para resolver problemas com o gateway, no microsoft Data Management Gateway Configuration Manager switch para o separador **Diagnostics** e verificar a **marca de registo verbose Enable para fins** de resolução de problemas. As informações de registo podem ser encontradas no Windows Event Viewer no âmbito do nó gateway de Gestão de Dados **de Aplicações e Serviços.**  - &gt; **Data Management Gateway** Também pode utilizar o separador **Diagnósticos** para testar a ligação a uma fonte de dados no local utilizando o gateway.
 
     ![Ativar registo verboso](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 451d0709a8b0a1c0993ff879d675eb056e721c36
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860601"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116640"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -238,6 +238,7 @@ Os utilizadores desta função podem ler configurações e informações adminis
 > [!NOTE]
 > O papel global dos leitores tem algumas limitações neste momento -
 >
+>- [OneDrive centro de administração](https://admin.onedrive.com/) - O centro de administração OneDrive não suporta o papel do leitor global
 >- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler pedidos de bloqueio de clientes. Não encontrará o separador de pedidos de **bloqueio do Cliente** sob **suporte** no painel esquerdo do Centro de Administração M365.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - O leitor global não consegue ler registos de auditoria do SCC, fazer pesquisa de conteúdo ou ver Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader can read **Teams lifecycle**, **Analytics & reports**, IP phone device **management** and **App catalog**.
@@ -1935,7 +1936,7 @@ Utilizador de hóspedes restrito | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Dispositivo de local de trabalho Aderir | Preterido | [Documentação de papéis depreciados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

@@ -78,5 +78,5 @@ Se o seu webhook estiver a devolver 403 (Proibido) na resposta, verifique se o s
   - 942130 (Ataque de Injeção SQL: Tautology SQL Detetado.)
   - 931130 (Possível ataque de inclusão de ficheiros remotos (RFI) = Referência/Link off-domínio)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se precisar de mais ajuda, publique o seu problema no [fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um bilhete de [apoio](https://azure.microsoft.com/support/options/). 

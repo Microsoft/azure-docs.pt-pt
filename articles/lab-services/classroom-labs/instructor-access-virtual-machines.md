@@ -32,7 +32,7 @@ Aqui está um cenário onde esta funcionalidade vai ajudar. Uma assistente de en
     
     ![Acesso a VMs de estudantes](../media/instructors-access-virtual-machines/access-student-virtual-machines.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Ligar a uma VM](how-to-use-classroom-lab.md#connect-to-the-vm)

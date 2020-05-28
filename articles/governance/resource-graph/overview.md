@@ -3,12 +3,12 @@ title: Descrição geral do Azure Resource Graph
 description: Entenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c3ac82c823df8cdde7b616b62ee409de500b5990
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381521"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995863"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -22,8 +22,8 @@ O Azure Resource Graph é um serviço no Azure que foi projetado para alargar a 
 Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 > [!NOTE]
-> O Azure Resource Graph alimenta a barra de pesquisa do portal Azure, a nova experiência de navegação "Todos os recursos" e a
-> _difusão visual_da história da [Azure](../policy/how-to/determine-non-compliance.md#change-history-preview)Policy. É projetado para ajudar os clientes a gerir ambientes em larga escala.
+> O Azure Resource Graph alimenta a barra de pesquisa do portal Azure, a nova experiência de navegação "Todos os recursos" e a difusão visual da história da [Azure](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+>  _visual diff_Policy. É projetado para ajudar os clientes a gerir ambientes em larga escala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -44,7 +44,7 @@ Quando um recurso Azure é atualizado, o Resource Graph é notificado pelo Gesto
 O Resource Graph atualiza então a sua base de dados. O Resource Graph também faz uma _varredura completa_regular. Esta digitalização garante que os dados do Graph de Recursos estão atuais se houver notificações perdidas ou quando um recurso é atualizado fora do Gestor de Recursos.
 
 > [!NOTE]
-> O Resource `GET` Graph utiliza uma API não pré-visualização mais recente de cada fornecedor de recursos para recolher propriedades e valores. Como resultado, o imóvel esperado pode não estar disponível. Em alguns casos, a versão API utilizada foi ultrapassada para fornecer propriedades mais atuais ou amplamente utilizadas nos resultados. Consulte a [versão Show API para cada](./samples/advanced.md#apiversion) amostra do tipo de recurso para obter uma lista completa no seu ambiente.
+> O Resource Graph utiliza uma API não `GET` pré-visualização mais recente de cada fornecedor de recursos para recolher propriedades e valores. Como resultado, o imóvel esperado pode não estar disponível. Em alguns casos, a versão API utilizada foi ultrapassada para fornecer propriedades mais atuais ou amplamente utilizadas nos resultados. Consulte a [versão Show API para cada](./samples/advanced.md#apiversion) amostra do tipo de recurso para obter uma lista completa no seu ambiente.
 
 ## <a name="the-query-language"></a>Linguagem de consulta
 
@@ -62,7 +62,7 @@ Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Control
 > [!NOTE]
 > O Resource Graph utiliza as assinaturas disponíveis para um diretor durante o login. Para ver os recursos de uma nova subscrição adicionadas durante uma sessão ativa, o diretor deve refrescar o contexto. Esta ação ocorre automaticamente ao iniciar sessão e voltar a entrar.
 
-O Azure CLI e o Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar a Rest API diretamente, a lista de subscrição é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando se chama [Grupos](/rest/api/resources/resourcegroups/list) \- de Recursos - Lista a que obtém grupos de recursos a que acede sem qualquer indicação de que o resultado pode ser parcial.
+O Azure CLI e o Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar a Rest API diretamente, a lista de subscrição é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando se chama [Grupos](/rest/api/resources/resourcegroups/list) de Recursos - Lista a que obtém grupos de recursos a \- que acede sem qualquer indicação de que o resultado pode ser parcial.
 Se não houver subscrições na lista de subscrição a que o utilizador tenha direitos adequados, a resposta é um _403_ (Proibido).
 
 ## <a name="throttling"></a>Limitação
@@ -79,16 +79,17 @@ Para mais informações, consulte [Orientação para pedidos acelerados](./conce
 
 ## <a name="running-your-first-query"></a>Executar a primeira consulta
 
-O Azure Resource Graph Explorer, parte do portal Azure, permite a execução de consultas de gráficos de recursos diretamente no portal Azure. Coloque os resultados como gráficos dinâmicos para fornecer informações dinâmicas em tempo real ao fluxo de trabalho do portal. Para mais informações, consulte [A Primeira Consulta com o Explorador de Gráficos](first-query-portal.md)de Recursos Azure .
+O Azure Resource Graph Explorer, parte do portal Azure, permite a execução de consultas de gráficos de recursos diretamente no portal Azure. Coloque os resultados como gráficos dinâmicos para fornecer informações dinâmicas em tempo real ao fluxo de trabalho do portal. Para mais informações, consulte [A Primeira Consulta com o Explorador de Gráficos](./first-query-portal.md)de Recursos Azure .
 
-O Resource Graph suporta o Azure CLI, Azure PowerShell, Azure SDK para .NET, e muito mais. A consulta é estruturada da mesma forma para cada língua. Saiba como ativar o Graph de Recursos com:
+O Resource Graph suporta o Azure CLI, Azure PowerShell, Azure SDK para Python, e muito mais. A consulta é estruturada da mesma forma para cada língua. Saiba como ativar o Graph de Recursos com:
 
-- [Portal Azure e Explorador de Gráficos de Recursos](first-query-portal.md) 
-- [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Portal Azure e Explorador de Gráficos de Recursos](./first-query-portal.md) 
+- [CLI do Azure](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Execute a sua primeira consulta utilizando o [portal Azure.](first-query-portal.md)
-- Execute a sua primeira consulta com [o Azure CLI.](first-query-azurecli.md)
-- Execute a sua primeira consulta com [a Azure PowerShell.](first-query-powershell.md)
+- Saiba mais sobre a [linguagem de consulta.](./concepts/query-language.md)
+- Consulte o idioma utilizado nas [consultas de arranque](./samples/starter.md).
+- Consulte [utilizações avançadas em consultas avançadas.](./samples/advanced.md)

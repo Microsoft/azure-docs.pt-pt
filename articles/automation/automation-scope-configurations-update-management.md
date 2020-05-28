@@ -1,56 +1,48 @@
 ---
-title: Trabalhar com configurações de âmbito para a Gestão de Atualização de Automação Azure
-description: Este artigo diz como trabalhar com configurações de âmbito quando está a usar a Atualização.
+title: Limite âmbito de implementação de gestão de atualização de automatização azure
+description: Este artigo diz como usar configurações de âmbito para limitar o âmbito de uma implementação de Gestão de Atualizações.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832032"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117393"
 ---
-# <a name="work-with-scope-configurations-for-update-management"></a>Trabalhar com configurações de âmbito para Gestão de Atualizações
+# <a name="limit-update-management-deployment-scope"></a>Limite âmbito de implementação de gestão de atualização
 
-Este artigo descreve como pode trabalhar com configurações de âmbito ao utilizar a funcionalidade [De Gestão](automation-update-management.md) de Atualizações em VMs. 
+Este artigo descreve como trabalhar com configurações de âmbito ao utilizar a funcionalidade ['Gestão de Actualizações'](automation-update-management.md) para implementar atualizações e patches para os seus VMs. Para mais informações, consulte soluções de monitorização de [segmentação no Monitor Azure (Pré-visualização)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="about-scope-configurations"></a>Sobre configurações de âmbito
 
-Inicie sessão no portal do Azure em https://portal.azure.com.
+Uma configuração de âmbito é um grupo de uma ou mais pesquisas guardadas (consultas) usadas para limitar o âmbito de Gestão de Atualizações a computadores específicos. A configuração de âmbito é utilizada dentro do espaço de trabalho log Analytics para direcionar os computadores para ativar. Quando adiciona um computador para receber atualizações da Atualização, o computador também é adicionado a uma pesquisa guardada no espaço de trabalho.
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verifique a configuração do âmbito
+## <a name="set-the-scope-limit"></a>Definir o limite de âmbito
 
-A Atualização A Gestão utiliza uma configuração de âmbito dentro do espaço de trabalho do Log Analytics para direcionar os computadores para ativar a funcionalidade. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da funcionalidade a computadores específicos. Para aceder às configurações de âmbito:
+Para limitar o âmbito de aplicação da sua implementação de Gestão de Atualizações:
 
-1. Na sua conta de Automação sob **recursos Relacionados,** selecione **Workspace**. 
+1. Na sua conta de Automação, selecione **Linked Workspace** sob **recursos relacionados.**
 
-2. Escolha o espaço de trabalho sob fontes de dados do **Espaço de Trabalho,** e selecione **Configurações**de Âmbito .
+2. Clique **em ir para o espaço de trabalho**.
 
-3. Se o espaço de trabalho selecionado ainda não tiver a funcionalidade De gestão de atualizações ativada, cria a configuração de `MicrosoftDefaultScopeConfig-Updates` âmbito. 
+3. Selecione Configurações de **âmbito (pré-visualização)** em **fontes**de dados do espaço de trabalho .
 
-4. Se o espaço de trabalho selecionado já tiver a funcionalidade ativada, não é reimplantada e a configuração de âmbito não é adicionada à funcionalidade. 
+4. Selecione a elipse à direita da configuração de `MicrosoftDefaultScopeConfig-Updates` âmbito e clique em **Editar**. 
 
-5. Selecione a elipse em qualquer uma das configurações de âmbito e, em seguida, clique em **Editar**. 
+5. No painel de edição, expanda **Select Computer Groups**. O painel de Grupos de Computadores mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito. A pesquisa guardada utilizada pela Atualização gestão é:
 
-6. No painel de edição, selecione **Select Computer Groups**. O painel de Grupos de Computadores mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito.
+    |Name     |Categoria  |Alias  |
+    |---------|---------|---------|
+    |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
 
-## <a name="view-a-saved-search"></a>Ver uma pesquisa guardada
-
-Quando um computador é adicionado à Atualização management, também é adicionado a uma pesquisa guardada no seu espaço de trabalho. A pesquisa guardada é uma consulta que contém os computadores direcionados.
-
-1. Navegue para o seu espaço de trabalho Log Analytics e selecione **pesquisas guardadas** sob **o General**. A pesquisa guardada utilizada pela Atualização gestão é:
-
-|Name     |Categoria  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
-
-2. Selecione a pesquisa guardada para visualizar a consulta usada para povoar o grupo. A imagem seguinte mostra a consulta e os seus resultados:
+6. Selecione a pesquisa guardada para visualizar e editar a consulta usada para povoar o grupo. A imagem seguinte mostra a consulta e os seus resultados:
 
     ![Pesquisas guardadas](media/automation-scope-configurations-update-management/logsearch.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para trabalhar com a funcionalidade, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
 * Para resolver erros de funcionalidades, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).

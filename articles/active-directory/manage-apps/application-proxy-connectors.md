@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b80d20084f45dd2212cdc03f9c7417a67833d887
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583121"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116619"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de procuração de aplicação da AD Azure
 
@@ -175,15 +175,15 @@ e contadores de desempenho do Windows.
 
 ![Adicione contadores ao conector com o Monitor de Desempenho](./media/application-proxy-connectors/performance-monitor.png)
 
-Os conectores têm registos de administração e sessão. Os registos de administração incluem eventos-chave e seus erros. Os registos da sessão incluem todas as transações e os seus detalhes de processamento.
+Os conectores têm registos **de administração** e **sessão.** O registo **do Administrador** inclui eventos-chave e seus erros. O registo **da Sessão** inclui todas as transações e os seus detalhes de processamento.
 
-Para ver os registos, vá ao Espectador de Eventos, abra o menu **'Ver'** e ative **registos analíticos e depurados**. Em seguida, permita-lhes começar a recolher eventos. Estes registos não aparecem no Proxy da Aplicação Web no Windows Server 2012 R2, uma vez que os conectores são baseados numa versão mais recente.
+Para ver os registos, abra o **Espectador de Eventos** e vá a **Registos de Aplicações e Serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Para tornar visível o registo da **Sessão,** no menu **'Ver',** selecione **Registos Desalíticos e Debug**. O registo **de sessão** é normalmente utilizado para resolução de problemas, e é desativado por padrão. Permita-lhe começar a recolher eventos e desativá-lo quando já não for necessário.
 
 Pode examinar o estado do serviço na janela dos Serviços. O conector é composto por dois Serviços Windows: o conector real e o atualização. Ambos devem correr a toda a hora.
 
  ![Exemplo: Janela de serviços mostrando serviços azure ad local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)

@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f21e8ad8944340bf1f6bd97786b2d06c426ad934
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836061"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117205"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Ativar a Gestão de Atualizações a partir de um runbook
 
@@ -99,11 +99,10 @@ Deve ter ativado a Gestão de Atualizações para um VM Azure para iniciar este 
 3. Selecione **OK** para iniciar a tarefa de runbook.
 4. Monitorize o progresso e os erros na página de tarefa de runbook.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para agendar um livro de recortes, consulte [gerir os horários em Automação Azure.](shared-resources/schedules.md)
 * Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Para configurações de âmbito, consulte [Trabalhar com configurações de âmbito](automation-scope-configurations-update-management.md).
 * Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
 * Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
 * Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .

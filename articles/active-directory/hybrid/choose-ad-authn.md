@@ -215,7 +215,7 @@ Este artigo descreve várias opções de autenticação que as organizações po
 
 Considere cada método de autenticação. O esforço para implementar a solução e a experiência do utilizador no processo de iniciar sessão aborda maçadas? Avalie se a sua organização precisa dos cenários avançados e das características de continuidade do negócio de cada método de autenticação. Por fim, avalie as considerações de cada método de autenticação. Algum deles impede-o de implementar a sua escolha?
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No mundo de hoje, as ameaças estão presentes 24 horas por dia e vêm de todo o lado. Implemente o método de autenticação correto e irá mitigar os seus riscos de segurança e proteger as suas identidades.
 

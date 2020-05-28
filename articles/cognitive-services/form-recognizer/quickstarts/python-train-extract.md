@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3f8f0ff50138c3b08abd118493cc30a6476640f5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118078"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116841"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extrai dados de formulário utilizando a API REST com Python
 
 Neste arranque rápido, você usará a API REST Rest Com Python para treinar e marcar formas para extrair pares e tabelas de valor-chave.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,10 +41,10 @@ Primeiro, vai precisar de um conjunto de dados de treino num recipiente de blob 
 
 Para treinar um modelo 'Reconhecimento de Formulários' com os documentos no seu recipiente de blob Azure, ligue para o **[Modelo Personalizado do Comboio](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API executando o seguinte código python. Antes de executar o código, faça estas alterações:
 
-1. Substitua-a `<SAS URL>` com o URL de assinatura de acesso partilhado (SAS) do recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`forma: .
-1. Substitua-a `<subscription key>` pela chave de subscrição que copiou do passo anterior.
-1. Substitua-a `<endpoint>` com o URL de ponto final para o seu recurso Reconhecimento de Formulários.
-1. Substitua-o `<Blob folder name>` pelo caminho para a pasta no armazenamento de bolhas onde os seus formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.
+1. Substitua-a com o URL de assinatura de `<SAS URL>` acesso partilhado (SAS) do recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. `<subscription key>`Substitua-a pela chave de subscrição que copiou do passo anterior.
+1. `<endpoint>`Substitua-a com o URL de ponto final para o seu recurso Reconhecimento de Formulários.
+1. `<Blob folder name>`Substitua-o pelo caminho para a pasta no armazenamento de bolhas onde os seus formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -66,7 +66,7 @@ Para treinar um modelo 'Reconhecimento de Formulários' com os documentos no seu
         'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
-    body =  {
+    body =     {
         "source": source,
         "sourceFilter": {
             "prefix": prefix,
@@ -192,11 +192,11 @@ Quando o processo de treino estiver concluído, receberá uma `201 (Success)` re
 }
 ```
 
-Copie `"modelId"` o valor para utilização nos seguintes passos.
+Copie o `"modelId"` valor para utilização nos seguintes passos.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-Quando o processo estiver concluído, receberá `200 (Success)` uma resposta com conteúdo JSON no seguinte formato. A resposta foi encurtada para a simplicidade. As principais associações e tabelas `"pageResults"` de pares chave/valor estão no nó. Se também especificou a extração de texto simples `"readResults"` através do parâmetro URL do *TextDetails,* então o nó mostrará o conteúdo e as posições de todo o texto no documento.
+Quando o processo estiver concluído, receberá uma `200 (Success)` resposta com conteúdo JSON no seguinte formato. A resposta foi encurtada para a simplicidade. As principais associações e tabelas de pares chave/valor estão no `"pageResults"` nó. Se também especificou a extração de texto simples através do parâmetro *URL do TextDetails,* então o `"readResults"` nó mostrará o conteúdo e as posições de todo o texto no documento.
 
 ```bash
 {
@@ -451,7 +451,7 @@ Quando o processo estiver concluído, receberá `200 (Success)` uma resposta com
 
 [!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, usou o Formulário Recogniser REST API com Python para treinar um modelo e executá-lo num cenário de amostragem. Em seguida, consulte a documentação de referência para explorar a API do Reconhecimento de Formulários com mais profundidade.
 

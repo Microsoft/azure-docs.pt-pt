@@ -3,12 +3,12 @@ title: Eliminação suave para Backup Azure
 description: Aprenda a utilizar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791396"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116406"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminação suave para Backup Azure
 
@@ -16,7 +16,10 @@ As preocupações com questões de segurança, como malware, ransomware e intrus
 
 Uma dessas características é a eliminação suave. Com a eliminação suave, mesmo que um ator malicioso apague uma cópia de segurança (ou os dados de backup sejam acidentalmente eliminados), os dados de backup são retidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente.
 
-[A proteção de eliminação suave para máquinas virtuais Azure](soft-delete-virtual-machines.md) e [soft delete para servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure](soft-delete-sql-saphana-in-azure-vm.md) estão disponíveis para todos.
+A proteção de eliminação suave está disponível para estes serviços:
+
+- [Eliminação suave para máquinas virtuais Azure](soft-delete-virtual-machines.md)
+- [Eliminação suave para servidor SQL em VM Azure e eliminação suave para SAP HANA em cargas de trabalho VM Azure](soft-delete-sql-saphana-in-azure-vm.md)
 
 Este gráfico de fluxo mostra os diferentes passos e estados de um item de reserva quando o Soft Delete está ativado:
 
@@ -32,8 +35,8 @@ A eliminação suave é ativada por padrão em cofres recém-criados para proteg
 
 Para desativar a eliminação suave, siga estes passos:
 
-1. No portal Azure, vá ao seu cofre e depois vá para **definições** -> **propriedades**.
-2. No painel de propriedades, selecione**Atualização**de **Definições** -> de Segurança .  
+1. No portal Azure, vá ao seu cofre e depois vá para **definições**  ->  **propriedades**.
+2. No painel de propriedades, selecione Atualização de **Definições**de Segurança  ->  **Update**.  
 3. No painel de definições de segurança, em **Soft Delete,** selecione **Desativar**.
 
 ![Desativar a eliminação suave](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
@@ -175,6 +178,6 @@ Não. Não se pode forçar a apagar os itens apagados. São automaticamente apag
 
 As operações de eliminação suave podem ser efetuadas através do PowerShell. Atualmente, o CLI não é suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

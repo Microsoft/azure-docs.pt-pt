@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 59f969a920c30bb017e10d2aa233df02d69918e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594173"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116900"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para completar este arranque rápido, deve ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar a amostra localmente).
-- Um conjunto de pelo menos seis formas do mesmo tipo. Utilizará estes dados para treinar o modelo e testar um formulário. Pode utilizar um conjunto de dados de [amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça upload dos ficheiros de treino para a raiz de um recipiente de armazenamento blob numa conta de Armazenamento Azure.
+- Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um conjunto de dados de [amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça upload dos ficheiros de treino para a raiz de um recipiente de armazenamento blob numa conta de Armazenamento Azure.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
@@ -34,15 +34,15 @@ Para completar este arranque rápido, deve ter:
 
 ## <a name="set-up-training-data"></a>Configurar dados de formação
 
-Em seguida, terá de configurar os dados de entrada necessários. A funcionalidade de dados etiquetada tem requisitos especiais de entrada para além dos necessários para treinar um modelo personalizado. 
+Em seguida, terá de configurar os dados de entrada necessários. A funcionalidade de dados etiquetada tem requisitos especiais de entrada para além do necessário para treinar um modelo personalizado sem etiquetas.
 
 Certifique-se de que todos os documentos de treino são do mesmo formato. Se tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Quando treinar, terá de direcionar a API para uma subpasta.
 
 Para treinar um modelo utilizando dados rotulados, necessitará dos seguintes ficheiros como inputs na subpasta. Você vai aprender a criar estes ficheiros abaixo.
 
 * **Formulários** de origem – os formulários para extrair dados de. Os tipos suportados são JPEG, PNG, PDF ou TIFF.
-* **Ficheiros** de layout OCR - ficheiros JSON que descrevem os tamanhos e posições de todo o texto legível em cada formato de origem. Utilizará a API do Layout do Reconhecimento de Formulários para gerar estes dados. 
-* **Ficheiros de etiquetagem** - Ficheiros JSON que descrevem as etiquetas de dados que um utilizador introduziu manualmente.
+* **Ficheiros** de layout OCR - estes são ficheiros JSON que descrevem os tamanhos e posições de todo o texto legível em cada formato de origem. Utilizará a API do Layout do Reconhecimento de Formulários para gerar estes dados. 
+* **Ficheiros de etiquetagem** - estes são ficheiros JSON que descrevem as etiquetas de dados que um utilizador introduziu manualmente.
 
 Todos estes ficheiros devem ocupar a mesma subpasta e estar no seguinte formato:
 
@@ -116,7 +116,7 @@ Precisa de ficheiros de resultados ocr para que o serviço considere os ficheiro
 
 ### <a name="create-the-label-files"></a>Criar os ficheiros de etiquetas
 
-Os ficheiros de etiquetagem contêm associações de valor-chave que um utilizador introduziu manualmente. São necessários para a formação de dados rotulados, mas nem todos os ficheiros de origem precisam de ter um ficheiro de etiqueta correspondente. Os ficheiros de origem sem etiquetas serão tratados como documentos de treino comuns. Recomendamos cinco ou mais ficheiros rotulados para um treino fiável.
+Os ficheiros de etiquetagem contêm associações de valor-chave que um utilizador introduziu manualmente. São necessários para a formação de dados rotulados, mas nem todos os ficheiros de origem precisam de ter um ficheiro de etiqueta correspondente. Os ficheiros de origem sem etiquetas serão tratados como documentos de treino comuns. Recomendamos cinco ou mais ficheiros rotulados para um treino fiável. Pode utilizar uma ferramenta UI como a ferramenta de rotulagem de [amostras](./label-tool.md) para gerar estes ficheiros.
 
 Quando cria um ficheiro de etiqueta, pode especificar opcionalmente as &mdash; regiões de valores exatos no documento. Isto dará ao treino uma precisão ainda maior. As regiões são formatadas como um conjunto de oito valores correspondentes a quatro coordenadas X,Y: superior-esquerda, superior-direita, inferior-direita e inferior-esquerda. Os valores de coordenadas estão entre zero e um, dimensionados para as dimensões da página.
 
@@ -187,8 +187,8 @@ Para cada formulário de origem, o ficheiro de etiqueta correspondente deve ter 
                 ...
 ```
 
-> [!NOTE]
-> Só pode aplicar uma etiqueta a cada elemento de texto e cada etiqueta só pode ser aplicada uma vez por página. Não é possível aplicar atualmente um rótulo em várias páginas.
+> [!IMPORTANT]
+> Só pode aplicar uma etiqueta a cada elemento de texto e cada etiqueta só pode ser aplicada uma vez por página. Não é possível aplicar uma etiqueta em várias páginas.
 
 
 ## <a name="train-a-model-using-labeled-data"></a>Treine um modelo usando dados rotulados
@@ -552,6 +552,9 @@ Por vezes, quando se aplicam etiquetas diferentes dentro da mesma linha de texto
 
 Entendemos que este cenário é essencial para os nossos clientes, e estamos a trabalhar para melhorar isso no futuro. Atualmente, recomendamos que os nossos utilizadores rotulem vários campos desordenados como um campo e, em seguida, separem os termos num pós-processamento dos resultados de extração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, aprendeu a usar a API REST Rest Com Python para treinar um modelo com dados manualmente rotulados. Em seguida, consulte a documentação de referência da [API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) para explorar a API do Reconhecimento de Formulários em maior profundidade.
+Neste arranque rápido, aprendeu a usar a API REST Rest Com Python para treinar um modelo com dados manualmente rotulados. Em seguida, consulte a documentação de referência da API para explorar a API do Reconhecimento de Formulários em maior profundidade.
+
+> [!div class="nextstepaction"]
+> [Documento de referência rest API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
