@@ -102,6 +102,8 @@
           href: troubleshoot-conditional-access.md
         - name: Resolução de problemas com a ferramenta What If
           href: troubleshoot-conditional-access-what-if.md
+        - name: FAQ
+          href: faqs.md
 - name: Recursos
   items:
     - name: Fórum de comentários do Azure

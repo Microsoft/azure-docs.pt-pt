@@ -12,12 +12,12 @@ metadata:
   ms.author: markvi
   ms.date: 08/29/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 3d7248a09c0e9acc792bb0be80217f11a78ba73f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 28f65417053d136983611cfa07ebedb7de93e25a
+  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80048802"
+  ms.lasthandoff: 05/29/2020
+  ms.locfileid: "84168629"
 landingContent:
 - title: Sobre os relatórios e a monitorização do Azure Active Directory
   linkLists:

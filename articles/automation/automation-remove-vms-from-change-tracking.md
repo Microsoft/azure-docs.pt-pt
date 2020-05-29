@@ -1,22 +1,24 @@
 ---
-title: Remover VMs do Rastreio e Inventário de Alterações de Automação Azure
-description: Este artigo diz como remover VMs de Change Tracking e Inventory.
+title: Remover VMs do Azure Automation Change Tracking and Inventory
+description: Este artigo diz como remover VMs de Change Tracking and Inventory.
 services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 23dfad844c17b0b8c8a35b6a94d6a96327afe19c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8e9b80c60c098e4daf247db07fa48baa322aa7f0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117442"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169459"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Remover VMs do Controlo de Alterações e Inventário
 
-Quando terminar de implementar alterações em VMs no seu ambiente, pode removê-las da funcionalidade De rastreio e inventário de [alterações.](change-tracking.md)
+Quando terminar de implementar alterações nos VMs no seu ambiente, pode removê-las da função De rastreio e inventário de [alterações.](change-tracking.md)
 
-1. Na sua conta de Automação, selecione **'Localizar rastreio** ou **Inventário'** sob gestão de **configuração**.
+## <a name="to-remove-your-vms"></a>Para remover os seus VMs
+
+1. A partir da sua conta Demômes, selecione **Alterar rastreio** ou **Inventário** em **Gestão de Configuração.**
 
 2. Utilize o seguinte comando para identificar o UUID de um VM que pretende remover da gestão.
 
@@ -26,7 +28,7 @@ Quando terminar de implementar alterações em VMs no seu ambiente, pode removê
 
 3. No seu espaço de trabalho Log Analytics em **Geral,** aceda às pesquisas guardadas para a configuração do âmbito `MicrosoftDefaultScopeConfig-ChangeTracking` .
 
-4. Para obter a pesquisa `MicrosoftDefaultComputerGroup` guardada, clique na elipse à direita e **selecione Editar**. 
+4. Para a pesquisa `MicrosoftDefaultComputerGroup` guardada, clique na elipse para a direita e **selecione Editar**. 
 
 5. Retire o UUID para o VM.
 
@@ -36,5 +38,5 @@ Quando terminar de implementar alterações em VMs no seu ambiente, pode removê
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Para continuar a trabalhar com o Change Tracking e Inventário, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* Para resolver problemas gerais de funcionalidades, consulte problemas de rastreio e inventário de alterações de resolução de [problemas.](troubleshoot/change-tracking.md)
+* Para continuar a trabalhar com change tracking and inventory, consulte [Gerir o Tracking e o Inventário de Mudanças.](change-tracking-file-contents.md)
+* Para resolver problemas gerais de funcionalidade, consulte [problemas de rastreio e inventário de alterações de resolução de problemas](troubleshoot/change-tracking.md).

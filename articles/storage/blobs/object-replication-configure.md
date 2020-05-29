@@ -1,76 +1,76 @@
 ---
-title: Configurar a replicação do objeto (pré-visualização)
+title: Configure a replicação do objeto (pré-visualização)
 titleSuffix: Azure Storage
-description: Aprenda a configurar a replicação de objetos para copiar as bolhas de bloco sincronicamente de um recipiente numa conta de armazenamento para outra.
+description: Aprenda a configurar a replicação de objetos para copiar assíncronamente bolhas de blocos de um recipiente numa conta de armazenamento para outra.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6c951d7875086658763243c7c1973f08233f96e0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749222"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170635"
 ---
-# <a name="configure-object-replication-for-block-blobs-preview"></a>Configurar a replicação de objetos para bolhas de bloco (pré-visualização)
+# <a name="configure-object-replication-for-block-blobs-preview"></a>Configure a replicação do objeto para as bolhas de bloco (pré-visualização)
 
-A replicação do objeto (pré-visualização) copia assincronicamente bolhas de blocos entre uma conta de armazenamento de origem e uma conta de destino. Para obter mais informações sobre a replicação do objeto, consulte [a replicação do objeto (pré-visualização)](object-replication-overview.md).
+A replicação de objetos (pré-visualização) assíncroneamente copia blobs de bloco entre uma conta de armazenamento de origem e uma conta de destino. Para obter mais informações sobre a replicação do objeto, consulte [a replicação do objeto (pré-visualização)](object-replication-overview.md).
 
-Ao configurar a replicação de objetos, cria-se uma política de replicação que especifica a conta de armazenamento de origem e a conta de destino. Uma política de replicação inclui uma ou mais regras que especificam um recipiente de origem e um recipiente de destino e indicam quais as bolhas de bloco no recipiente de origem que serão replicadas.
+Ao configurar a replicação de objetos, cria uma política de replicação que especifica a conta de armazenamento de origem e a conta de destino. Uma política de replicação inclui uma ou mais regras que especificam um contentor de origem e um contentor de destino e indicam quais as bolhas de bloqueio no recipiente de origem que serão replicadas.
 
-Este artigo descreve como configurar a replicação de objetos para a sua conta de armazenamento utilizando o portal Azure, PowerShell ou Azure CLI. Também pode utilizar uma das bibliotecas de clientes do fornecedor de recursos do Azure Storage para configurar a replicação de objetos.
+Este artigo descreve como configurar a replicação de objetos para a sua conta de armazenamento utilizando o portal Azure, PowerShell ou Azure CLI. Também pode utilizar uma das bibliotecas de clientes do fornecedor de recursos Azure Storage para configurar a replicação de objetos.
 
-## <a name="create-a-replication-policy-and-rules"></a>Criar uma política e regras de replicação
+## <a name="create-a-replication-policy-and-rules"></a>Criar uma política de replicação e regras
 
-Antes de configurar a replicação de objetos, crie as contas de armazenamento de origem e destino se ainda não existirem. Ambas as contas devem ser contas de armazenamento v2 de uso geral. Para mais informações, consulte [Criar uma conta de Armazenamento Azure](../common/storage-account-create.md).
+Antes de configurar a replicação de objetos, crie as contas de armazenamento de origem e destino se elas ainda não existirem. Ambas as contas devem ser contas de armazenamento v2 para fins gerais. Para obter mais informações, consulte [Criar uma conta de Armazenamento Azure](../common/storage-account-create.md).
 
-Além disso, certifique-se de que se registou para as seguintes pré-visualizações de funcionalidades:
+Além disso, certifique-se de que se registou para as seguintes pré-visualizações da funcionalidade:
 
 - [Replicação de objetos (pré-visualização)](object-replication-overview.md)
-- [Versão blob (pré-visualização)](versioning-overview.md)
-- [Alterar suporte para alimentação em Armazenamento de Blob Azure (Pré-visualização)](storage-blob-change-feed.md)
+- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Antes de configurar a replicação de objetos no portal Azure, crie os recipientes de origem e destino nas respetivas contas de armazenamento, caso não existam já. Além disso, habilitado a versão blob e alterar o feed na conta fonte, e permitir a versão blob na conta de destino.
+Antes de configurar a replicação de objetos no portal Azure, crie os recipientes de origem e destino nas respetivas contas de armazenamento, caso já não existam. Além disso, ativou a versão blob e alterou o feed na conta de origem e permitiu a versão blob na conta de destino.
 
 Para criar uma política de replicação no portal Azure, siga estes passos:
 
-1. Navegue para a conta de armazenamento de origem no portal Azure.
-1. Em **Definições,** **selecione a replicação do objeto**.
-1. **Selecione A replicação de configurar**.
+1. Navegue para a conta de armazenamento de fontes no portal Azure.
+1. Em **Definições**, selecione **replicação de objetos**.
+1. **Selecione Configurar a replicação**.
 1. Selecione a conta de subscrição e armazenamento de destino.
-1. Na secção de pares de **contentores,** selecione um recipiente de origem da conta fonte e um recipiente de destino a partir da conta de destino. Pode criar até 10 pares de contentores por política de replicação.
+1. Na secção **de pares de contentores,** selecione um recipiente de origem a partir da conta de origem e um contentor de destino a partir da conta de destino. Pode criar até 10 pares de contentores por política de replicação.
 
-    A imagem que se segue mostra um conjunto de regras de replicação.
+    A imagem a seguir mostra um conjunto de regras de replicação.
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
-1. Se desejar, especifique um ou mais filtros para copiar apenas bolhas que correspondam a um padrão de prefixo. Por exemplo, se especificar um `b` prefixo, apenas as bolhas cujo nome começa com essa letra são replicadas. Pode especificar um diretório virtual como parte do prefixo.
+1. Se desejar, especifique um ou mais filtros para copiar apenas bolhas que correspondam a um padrão de prefixo. Por exemplo, se especificar um prefixo, `b` apenas bolhas cujo nome começa com essa letra são replicadas. Pode especificar um diretório virtual como parte do prefixo.
 
-    A imagem que se segue mostra filtros que restringem as bolhas que são copiadas como parte de uma regra de replicação.
+    A imagem a seguir mostra filtros que restringem quais as bolhas que são copiadas como parte de uma regra de replicação.
 
     :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot mostrando filtros para uma regra de replicação":::
 
-1. Por predefinição, o âmbito da cópia é definido para copiar apenas novos objetos. Para copiar todos os objetos do recipiente ou copiar objetos a partir de uma data e hora personalizadas, selecione o link de **alteração** e configure o âmbito de cópia para o par de recipientes.
+1. Por predefinição, o âmbito de cópia está definido para copiar apenas novos objetos. Para copiar todos os objetos do recipiente ou copiar objetos a partir de uma data e hora personalizadas, selecione o link **de alteração** e configuure o âmbito de cópia do par do recipiente.
 
-    A imagem seguinte mostra um âmbito de cópia personalizado.
+    A imagem a seguir mostra um âmbito de cópia personalizado.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot mostrando o âmbito de cópia personalizado para a replicação de objetos":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot mostrando o alcance de cópia personalizado para a replicação do objeto":::
 
-1. Selecione **Guardar e aplicar** para criar a política de replicação e começar a replicar dados.
+1. **Selecione Guardar e aplicar** para criar a política de replicação e começar a replicar dados.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para criar uma política de replicação com o PowerShell, instale primeiro a versão [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) do módulo Az.Storage PowerShell. Siga estes passos para instalar o módulo de pré-visualização:
+Para criar uma política de replicação com o PowerShell, instale pela primeira vez a versão [2.0.1-pré-visualização](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) do módulo Az.Storage PowerShell. Siga estes passos para instalar o módulo de pré-visualização:
 
-1. Desinstale quaisquer instalações anteriores do Azure PowerShell a partir do Windows utilizando as **aplicações & definição** de funcionalidades em **Definições**.
+1. Desinstalar quaisquer instalações anteriores do Azure PowerShell a partir do Windows utilizando as **funcionalidades & aplicações** em **Definições**.
 
-1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
+1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada. Abra uma janela Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
@@ -90,9 +90,9 @@ Para criar uma política de replicação com o PowerShell, instale primeiro a ve
     Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
     ```
 
-Para mais informações sobre a instalação do Azure PowerShell, consulte [Instalar o Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
+Para obter mais informações sobre a instalação do Azure PowerShell, consulte [instalar a Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
 
-O exemplo que se segue mostra como criar uma política de replicação nas contas de origem e destino. Lembre-se de substituir valores em suportes angulares por valores próprios:
+O exemplo a seguir mostra como criar uma política de replicação nas contas de origem e destino. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
 ```powershell
 # Sign in to your Azure account.
@@ -157,7 +157,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar uma política de replicação com o Azure CLI, instale primeiro a extensão de pré-visualização para o Armazenamento Azure.:
+Para criar uma política de replicação com o Azure CLI, instale primeiro a extensão de pré-visualização para Azure Storage.:
 
 ```azurecli
 az extension add -n storage-or-preview
@@ -169,7 +169,7 @@ Em seguida, inscreva-se com as suas credenciais Azure:
 az login
 ```
 
-Ative a versão blob nas contas de armazenamento de origem e destino e permite alterar o feed na conta fonte. Lembre-se de substituir valores em suportes angulares por valores próprios:
+Ativar a versão blob nas contas de armazenamento de origem e destino e ativar o feed de alteração na conta de origem. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
 ```azurecli
 az storage blob service-properties update --resource-group <resource-group> \
@@ -215,7 +215,7 @@ az storage account or-policy rule add --account-name <dest-storage-account> \
     --prefix-match b
 ```
 
-Crie a política na conta fonte utilizando o ID da apólice.
+Crie a política na conta de origem utilizando o ID da política.
 
 ```azurecli
 az storage account or-policy show --resource-group <resource-group> \
@@ -236,27 +236,30 @@ Para remover uma política de replicação e as suas regras associadas, utilize 
 
 Para remover uma política de replicação no portal Azure, siga estes passos:
 
-1. Navegue para a conta de armazenamento de origem no portal Azure.
-1. Em **Definições,** **selecione a replicação do objeto**.
+1. Navegue para a conta de armazenamento de fontes no portal Azure.
+1. Em **Definições**, selecione **replicação de objetos**.
 1. Clique no botão **Mais** ao lado do nome da apólice.
-1. Selecione **Excluir Regras**.
+1. Selecione **Eliminar Regras**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para remover uma política de replicação, elimine a política tanto da conta fonte como da conta de destino. A eliminação da política também elimina quaisquer regras que lhe sejam associadas.
+Para remover uma política de replicação, elimine a política tanto da conta de origem como da conta de destino. A supressão da política também elimina quaisquer regras que lhe sejam associadas.
 
 ```powershell
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $destAccountName |
-    Remove-AzStorageObjectReplicationPolicy
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $srcAccountName |
-    Remove-AzStorageObjectReplicationPolicy
+# Remove the policy from the destination account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName `
+    -PolicyId $destPolicy.PolicyId
+
+# Remove the policy from the source account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $destPolicy.PolicyId
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para remover uma política de replicação, elimine a política tanto da conta fonte como da conta de destino. A eliminação da política também elimina quaisquer regras que lhe sejam associadas.
+Para remover uma política de replicação, elimine a política tanto da conta de origem como da conta de destino. A supressão da política também elimina quaisquer regras que lhe sejam associadas.
 
 ```azurecli
 az storage account or-policy delete \
@@ -274,4 +277,4 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral da replicação de objetos (pré-visualização)](object-replication-overview.md)
+- [Visão geral da replicação do objeto (pré-visualização)](object-replication-overview.md)
