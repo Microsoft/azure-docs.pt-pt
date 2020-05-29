@@ -1970,8 +1970,12 @@
           href: velpic-provisioning-tutorial.md
         - name: Visitly
           href: visitly-provisioning-tutorial.md
-        - name: Workday
+        - name: Workday para Active Directory
           href: workday-inbound-tutorial.md
+        - name: Workday para Azure AD
+          href: workday-inbound-cloud-only-tutorial.md
+        - name: Repetição de escrita do Workday
+          href: workday-writeback-tutorial.md
         - name: Workteam
           href: workteam-provisioning-tutorial.md
         - name: Workplace by Facebook

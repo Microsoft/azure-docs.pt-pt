@@ -10,6 +10,8 @@
 - name: Guias de Início Rápido
   expaned: true
   items:
+    - name: Utilizar a biblioteca de cliente
+      href: quickstarts/client-library.md
     - name: Utilização da ferramenta de etiquetagem de exemplo
       items:
         - name: Preparar modelo personalizado com etiquetas
@@ -36,8 +38,6 @@
           items:
             - name: Python
               href: quickstarts/python-layout.md
-    - name: Utilizar o SDK .NET
-      href: quickstarts/dotnet-sdk.md
 - name: Tutoriais
   items:
     - name: Utilizar o Reconhecedor de Formato com o Azure Logic Apps
@@ -67,7 +67,13 @@
     - name: SDKs
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview'
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview'
 - name: Recursos
   items:
     - name: Preços e limites

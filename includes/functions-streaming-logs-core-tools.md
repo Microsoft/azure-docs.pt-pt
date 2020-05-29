@@ -11,17 +11,17 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/27/2020
 ms.locfileid: "68881339"
 ---
-#### <a name="built-in-log-streaming"></a>Streaming de log incorporado
+#### <a name="built-in-log-streaming"></a>Transmissão em fluxo de registos incorporada
 
-Utilize `logstream` a opção de começar a receber registos de streaming de uma aplicação de função específica em funcionamento no Azure, como no seguinte exemplo:
+Utilize a opção `logstream` para começar a receber registos de transmissão em fluxo de uma aplicação de funções específica em execução no Azure, como no exemplo seguinte:
 
 ```bash
 func azure functionapp logstream <FunctionAppName>
 ```
 
-#### <a name="live-metrics-stream"></a>Live Metrics Stream (Fluxo de Métricas em Direto)
+#### <a name="live-metrics-stream"></a>Live Metrics Stream
 
-Também pode ver o [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) para a sua `--browser` aplicação de funções numa nova janela de navegador, incluindo a opção, como no exemplo seguinte:
+Também pode ver o [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) para a sua aplicação de funções numa nova janela do browser, incluindo a opção `--browser`, como no exemplo seguinte:
 
 ```bash
 func azure functionapp logstream <FunctionAppName> --browser

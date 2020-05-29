@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 953303c8726335c8f8cfdb0919fc33b724549974
+  ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78206491"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "83997116"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -37,9 +37,13 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts/dotnet-sdk.md
-    - text: Utilizar a API REST (Python)
-      url: quickstarts/python-train-extract.md
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilizar o SDK Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilizar o SDK Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilizar o SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Utilizar a API REST (cURL)
       url: quickstarts/curl-train-extract.md
   - linkListType: tutorial
@@ -68,14 +72,32 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Utilizar a API REST (Python)
-      url: quickstarts/python-receipts.md
+    - text: Utilizar o SDK .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilizar o SDK Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilizar o SDK Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilizar o SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Utilizar a API REST (cURL)
+      url: quickstarts/curl-train-extract.md
     - text: Utilizar a API REST (cURL)
       url: quickstarts/curl-receipts.md
 - title: Obter informações de esquema de texto
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Utilizar o SDK .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilizar o SDK Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilizar o SDK Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilizar o SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Utilizar a API REST (cURL)
+      url: quickstarts/curl-train-extract.md
     - text: Utilizar a API REST (Python)
       url: quickstarts/python-layout.md
 - title: Utilizar contentores

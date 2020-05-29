@@ -15,25 +15,25 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83121577"
 ---
-As funções facilitam a adição de Informações de Aplicação a uma aplicação de função do [portal Azure].
+As funções facilitam a adição da integração do Application Insights numa aplicação de funções a partir do [portal do Azure].
 
-1. No [portal Azure][Portal,]procure e selecione app de **funções,** e depois escolha a sua aplicação de função. 
+1. No [portal do Azure][Portal do Azure], procure e selecione **aplicação de funções** e, em seguida, escolha a sua aplicação de funções. 
 
-1. Selecione o Banner **Application Insights não está configurado** na parte superior da janela. Se não vir este banner, então a sua aplicação já tem Informações de Aplicação ativadas.
+1. Selecione a faixa **O Application Insights não está configurado** na parte superior da janela. Se não vir esta faixa, a sua aplicação já tem o Application Insights ativado.
 
-    :::image type="content" source="media/functions-connect-new-app-insights/enable-application-insights.png" alt-text="Ativar insights de aplicação a partir do portal":::
+    :::image type="content" source="media/functions-connect-new-app-insights/enable-application-insights.png" alt-text="Ativar a o Application Insights a partir do portal":::
 
-1. Crie um recurso Deinsights de Aplicação utilizando as definições especificadas na tabela abaixo da imagem.
+1. Crie um recurso do Application Insights com as definições especificadas na tabela abaixo da imagem.
 
-   :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Criar um recurso Deinsights de Aplicação":::
+   :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Criar um recurso do Application Insights":::
 
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome** | Nome exclusivo da aplicação | É mais fácil usar o mesmo nome que a sua aplicação de funções, que deve ser única na sua subscrição. | 
-    | **Localização** | Europa ocidental | Se possível, utilize a mesma [região](https://azure.microsoft.com/regions/) que a sua app de funções, ou uma que esteja próxima daquela região. |
+    | **Nome** | Nome de aplicação exclusivo | É mais fácil utilizar o mesmo nome da aplicação de funções, que tem de ser exclusivo na subscrição. | 
+    | **Localização** | Europa Ocidental | Se possível, utilize a mesma [região](https://azure.microsoft.com/regions/) da aplicação de funções, ou uma que esteja perto dessa região. |
 
-1. Selecione **Aplicar**. O recurso Application Insights é criado no mesmo grupo de recursos e subscrição que a sua aplicação de funções. Depois de criado o recurso, feche a janela Application Insights.
+1. Selecione **Aplicar**. O recurso do Application Insights é criado no mesmo grupo de recursos e subscrição da aplicação de funções. Após a criação do recurso, feche a janela do Application Insights.
 
-1. Volte à aplicação de funções, selecione **Configuração**de  >  **Configurações**, e, em seguida, selecione **as definições**de aplicação . Se vir uma definição chamada , a integração de Insights de `APPINSIGHTS_INSTRUMENTATIONKEY` Aplicação está ativada para a sua aplicação de função em funcionamento no Azure.
+1. De volta à aplicação de funções, selecione **Definições** > **Configuração** e, em seguida, selecione **Definições da aplicação**. Se vir uma definição chamada `APPINSIGHTS_INSTRUMENTATIONKEY`, a integração do Application Insights está ativada para a aplicação de funções em execução no Azure.
 
-[Azure Portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

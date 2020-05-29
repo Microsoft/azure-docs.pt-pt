@@ -236,8 +236,8 @@
           href: connector-azure-file-storage.md
         - name: Base de Dados SQL do Azure
           href: connector-azure-sql-database.md
-        - name: Instância Gerida da Base de Dados SQL do Azure
-          href: connector-azure-sql-database-managed-instance.md
+        - name: Instância Gerida do Azure SQL
+          href: connector-azure-sql-managed-instance.md
         - name: Azure Synapse Analytics (anteriormente SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Table Storage do Azure
@@ -697,7 +697,7 @@
       items:
         - name: Descrição geral da migração SSIS
           href: scenario-ssis-migration-overview.md
-        - name: Migração SSISDB para a instância gerida da Base de Dados SQL do Azure
+        - name: Migração SSISDB para a Instância Gerida do SQL no Azure
           href: scenario-ssis-migration-ssisdb-mi.md
 - name: Referência
   items:

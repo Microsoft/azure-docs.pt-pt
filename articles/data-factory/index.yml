@@ -11,12 +11,12 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  ms.openlocfilehash: 5e7c778eb3d5de197044cb51e35875399908d205
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 5ab646f80296352bce30eedcbf9b0de670011118
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83657225"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84118741"
 landingContent:
 - title: Acerca do Azure Data Factory
   linkLists:
@@ -108,7 +108,7 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Migrar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure
+    - text: Migrar pacotes do SSIS para uma Instância Gerida do SQL no Azure
       url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
   - linkListType: tutorial
     links:

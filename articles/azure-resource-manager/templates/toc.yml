@@ -156,6 +156,8 @@
       href: templates-cloud-consistency.md
     - name: Modos de implementação
       href: deployment-modes.md
+    - name: Eliminações do histórico de implementações
+      href: deployment-history-deletions.md
     - name: Eliminação completa de modo
       href: complete-mode-deletion.md
     - name: Gestor de Implementação

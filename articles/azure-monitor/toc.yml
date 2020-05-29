@@ -972,6 +972,8 @@
           href: insights/container-insights-update-metrics.md
         - name: Configuração da monitorização do estado de funcionamento
           href: insights/container-insights-health-monitors-config.md
+        - name: Gerir os custos e a utilização
+          href: insights/container-insights-cost.md
         - name: Desativar a monitorização
           items:
             - name: Desativar a monitorização do AKS
@@ -991,7 +993,7 @@
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Cofre de Chaves
-          href: insights/key-vault-insights-overview.md
+          href: insights/key-vaults-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
         - name: Armazenamento
