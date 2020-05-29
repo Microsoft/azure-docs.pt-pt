@@ -1,83 +1,128 @@
 ---
-title: Suporte linguístico - API de Análise de Texto
+title: Suporte linguístico - Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: 'Uma lista de línguas naturais suportadas pela API text Analytics. Este artigo explica quais as línguas suportadas para cada operação: análise de sentimentos, extração de frases-chave, deteção de linguagem e reconhecimento de entidades.'
+description: Uma lista de línguas naturais apoiada pela API text Analytics. Este artigo explica quais as línguas suportadas para cada operação.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219282"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142168"
 ---
-# <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de língua e região para a API de Análise de Texto
+# <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
-Este artigo explica quais as línguas suportadas para cada operação: análise de sentimentos, extração de frases-chave, deteção de linguagem e reconhecimento de entidades nomeadas.
+> [!IMPORTANT]
+> A versão 3.x do Text Analytics API está atualmente indisponível nas seguintes regiões: Índia Central, Fairfax, UAE Norte, África do Sul Norte, China Norte 2, China Leste.
 
-## <a name="language-detection"></a>Deteção de Idioma
 
-A API text Analytics pode detetar uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais/culturais.  Deteção de Idiomas devolve o "script" de uma língua. Por exemplo, para a frase "Tenho um `en` cão" vai voltar em vez de `en-US`. O único caso especial é o chinês, `zh_CHS` onde `zh_CHT` a capacidade de deteção de idiomas regressará ou se pode determinar o script dado o texto fornecido. Em situações em que um guião específico não pode `zh`ser identificado para um documento chinês, ele regressará simplesmente .
+#### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
 
-Não publicamos a lista exata de línguas para esta funcionalidade, mas pode detetar uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais/culturais. 
+| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
+|:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
+| Chinês-Simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`também aceitou |
+| Chinês-Tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
+| Dinamarquês               |     `da`      |     ✓      |            |                            |                    |
+| Neerlandês                 |     `nl`      |     ✓      |            |                            |                    |
+| Inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Finlandês               |     `fi`      |     ✓      |            |                            |                    |
+| Francês                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Alemão                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Grego                 |     `el`      |     ✓      |            |                            |                    |
+| Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Japonês              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |            |                            |                    |
+| Polaco                |     `pl`      |     ✓      |            |                            |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt`também aceitou |
+| Russo               |     `ru`      |     ✓      |            |                            |                    |
+| Espanhol               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Sueco               |     `sv`      |     ✓      |            |                            |                    |
+| Turco               |     `tr`      |     ✓      |            |                            |                    |
 
-Se tiver conteúdo expresso num idioma menos utilizado, pode tentar deteção de idiomas para ver se devolve um código. A resposta para línguas que `unknown`não podem ser detetadas é .
+### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (apenas v3.1-pré-visualização)
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análise de Sentimentos, Extração de Frases-Chave e Reconhecimento de Entidades Nomeadas
+| Linguagem              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
+|:----------------------|:-------------:|:------------------------------------:|-------------------:|
+| Inglês               |     `en`      |              2020-04-01              |                    |
 
-Para análise de sentimentos, extração de frases-chave e reconhecimento de entidades, a lista de línguas apoiadas é mais seletiva à medida que os analisadores são refinados para acomodar as regras linguísticas de línguas adicionais. Em Nome nomeado Reconhecimento de Entidades v2, o suporte para todo o conjunto de tipos de [entidades](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) está atualmente limitado aos seguintes idiomas: 
-* Inglês
-* Simplificado chinês
-* Francês
-* Alemão
-* Espanhol
 
-Apenas `Person` `Location` as `Organization` entidades e entidades nomeadas são devolvidas para as outras línguas.
-
-## <a name="language-list-and-status"></a>Lista de idiomas e estado
-
-O suporte linguístico é inicialmente lançado em pré-visualização, graduando-se para o estado geralmente disponível (GA), independentemente uns dos outros e do serviço Text Analytics em geral. É possível que as línguas permaneçam na pré-visualização, mesmo quando a API text analytics transita para geralmente disponível.
+#### <a name="named-entity-recognition-ner"></a>[Reconhecimento de Entidades Nomeadas (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> Para um suporte linguístico detalhado para a pré-visualização pública de Reconhecimento de Entidades (NER) v3, consulte [os tipos de entidades nomeados.](named-entity-types.md)
+> * Atualmente, o NER v3 apenas suporta a língua inglesa. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
+> * v2.1 apenas devolve o conjunto completo de entidades disponíveis para as línguas inglesa, chinesa-simplificada, francesa, alemã e espanhola.  As entidades "Pessoa", "Localização" e "Organização" são devolvidas para as outras línguas apoiadas.
 
-| Idioma              | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas | Ligação de entidades |       Notas        |
-|:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
-| Árabe                |     `ar`      |           |             |           ✔\*           |                |                    |
-| Checo                 |     `cs`      |           |             |           ✔\*           |                |                    |
-| Simplificado chinês    |   `zh-hans`   |  ✔\*\*   |             |            ✔             |                | `zh`também aceite                   |
-| Chinês-Tradicional   |   `zh-hant`   |  ✔\*\*   |             |                          |                |                    |
-| Dinamarquês                |     `da`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Neerlandês                 |     `nl`      |   ✔\**   |      ✔      |           ✔\*           |                |                    |
-| Inglês               |     `en`      |   ✔\**   |      ✔      |          ✔\*\*          |     ✔\**      |                    |
-| Finlandês               |     `fi`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Francês                |     `fr`      |   ✔\**   |      ✔      |            ✔             |                |                    |
-| Alemão                |     `de`      |   ✔\**   |      ✔      |            ✔             |                |                    |
-| Grego                 |     `el`      |   ✔\*    |             |                          |                |                    |
-| Húngaro             |     `hu`      |           |             |           ✔\*           |                |                    |
-| Italiano               |     `it`      |   ✔\**   |      ✔      |           ✔\*           |                |                    |
-| Japonês              |     `ja`      |   ✔\**   |      ✔      |           ✔\*           |                |                    |
-| Coreano                |     `ko`      |   ✔\*\*  |      ✔      |           ✔\*           |                |                    |
-| Norueguês (Bokmål)   |     `no`      |   ✔\*    |      ✔      |           ✔\*           |                | `nb`também aceite                   |
-| Polaco                |     `pl`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Português (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔\*           |                | `pt`também aceite |
-| Português (Brasil)   |    `pt-BR`    |           |      ✔      |           ✔\*           |                |                    |
-| Russo               |     `ru`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Espanhol               |     `es`      |   ✔\**    |      ✔      |           ✔\*           |     ✔\**      |                    |
-| Sueco               |     `sv`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Turco               |     `tr`      |   ✔\*    |             |           ✔\*           |                |                    |
+| Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
+|:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
+| Árabe                |     `ar`      |     ✓      |            |                                 |                    |
+| Checo                 |     `cs`      |     ✓      |            |                                 |                    |
+| Chinês-Simplificado     |   `zh-hans`   |     ✓      |            |                                 | `zh`também aceitou |
+| Chinês-Tradicional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
+| Neerlandês                 |     `nl`      |     ✓      |            |                                 |                    |
+| Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
+| Finlandês               |     `fi`      |     ✓      |            |                                 |                    |
+| Francês                 |     `fr`      |     ✓      |            |                                 |                    |
+| Alemão                 |     `de`      |     ✓      |            |                                 |                    |
+| Hebraico                |     `he`      |     ✓      |            |                                 |                    |
+| Húngaro             |     `hu`      |     ✓      |            |                                 |                    |
+| Italiano               |     `it`      |     ✓      |            |                                 |                    |
+| Japonês              |     `ja`      |     ✓      |            |                                 |                    |
+| Coreano                |     `ko`      |     ✓      |            |                                 |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb`também aceitou |
+| Polaco                |     `pl`      |     ✓      |            |                                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt`também aceitou |
+| Português (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Russo              |     `ru`      |     ✓      |            |                                 |                    |
+| Espanhol               |     `es`      |     ✓      |            |                                 |                    |
+| Sueco               |     `sv`      |     ✓      |            |                                 |                    |
+| Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
-\*O suporte linguístico está em pré-visualização
+#### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
-\** Também disponível nas pré-visualizações públicas de Reconhecimento de [Sentimentos v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) e/ou Nomeados de Reconhecimento de [Entidades V3.](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
+| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
+|:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Finlandês               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Francês                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Alemão                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Italiano               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Japonês              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Coreano                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb`também aceitou |
+| Polaco                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt`também aceitou |
+| Português (Brasil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Russo               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Espanhol               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Sueco               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 
-## <a name="see-also"></a>Consulte também
+#### <a name="entity-linking"></a>[Ligação de entidades](#tab/entity-linking)
 
-[Página de Documentação de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)   
-[Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
+| Linguagem | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
+|:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
+| Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
+
+#### <a name="language-detection"></a>[Deteção de Idioma](#tab/language-detection)
+
+A API text Analytics pode detetar uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais/culturais.  A Deteção de Idiomas devolve o "script" de uma língua. Por exemplo, para a frase "tenho um cão" ele vai voltar `en` em vez de `en-US` . O único caso especial é o chinês, onde a capacidade de deteção de idiomas regressará `zh_CHS` ou se pode determinar o script dado o texto `zh_CHT` fornecido. Em situações em que um guião específico não possa ser identificado para um documento chinês, ele regressará simplesmente `zh` .
+
+Não publicamos a lista exata de línguas para esta funcionalidade, mas pode detetar uma grande variedade de línguas, variantes, dialetos e algumas línguas regionais/culturais. 
+
+Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção de Idiomas para ver se devolve um código. A resposta para línguas que não podem ser detetadas é `unknown` .
+
+---
+
+## <a name="see-also"></a>Veja também
+
+* [O que é a API de Análise de Texto?](overview.md)   

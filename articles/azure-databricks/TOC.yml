@@ -7,12 +7,15 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Criar área de trabalho do Databricks - Portal
-      href: quickstart-create-databricks-workspace-portal.md
-    - name: Criar área de trabalho do Databricks - modelo do Resource Manager
-      href: quickstart-create-databricks-workspace-resource-manager-template.md
-    - name: Criar uma área de trabalho do Databricks - Rede virtual
-      href: quickstart-create-databricks-workspace-vnet-injection.md
+    - name: Criar uma área de trabalho
+      items:
+        - name: Portal
+          href: quickstart-create-databricks-workspace-portal.md
+        - name: Modelo ARM
+          displayName: Resource Manager
+          href: quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: Rede virtual
+          href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Tutoriais
   items:
     - name: Consultar o SQL Server em execução num contentor do Docker

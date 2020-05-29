@@ -1,40 +1,38 @@
 ---
-title: Tipos suportados para reconhecimento de entidades nomeadas
+title: Categorias apoiadas para reconhecimento de entidades nomeadas
 titleSuffix: Azure Cognitive Services
-description: Conheça os tipos de entidades suportadas na API text analytics.
+description: Conheça as categorias de entidades suportadas na API text Analytics.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 03/30/2020
 ms.author: aahi
-ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9800eb9ec8ae9aa800e5281131148b600e42725f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086916"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140946"
 ---
-# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipos suportados para versão 3 de reconhecimento de entidades nomeadas (pré-visualização)
+# <a name="supported-entity-categories-in-named-entity-recognition-v3"></a>Categorias de entidades apoiadas em Reconhecimento de Entidade Nomeada v3
 
-A API text analytics fornece a capacidade de identificar e desambiguar entidades encontradas em texto. [Denominada Reconhecimento](how-tos/text-analytics-how-to-entity-linking.md) de Entidades (NER) é a capacidade de identificar diferentes entidades em texto e categorizá-las em classes pré-definidas.
+Utilize este artigo para encontrar as categorias de entidades que podem ser devolvidas pelo [Reconhecimento de Entidade Nomeada](how-tos/text-analytics-how-to-entity-linking.md) (NER). Está também disponível uma pré-visualização do NER v3.1, que inclui a capacidade de detetar informações pessoais `PII` e de `PHI` saúde.
 
-## <a name="entity-types"></a>Tipos de entidade
-
-Os tipos e subtipos de entidades suportadas (se aplicável) estão listados abaixo:
+## <a name="entity-categories"></a>Categorias de entidades
 
 #### <a name="general"></a>[General](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal-information"></a>[Informações pessoais](#tab/personal)
+#### <a name="personal-and-health"></a>[Pessoal e Saúde](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 
 ***
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto](how-tos/text-analytics-how-to-entity-linking.md)
+* [Como utilizar o reconhecimento de entidade nomeada em análise de texto](how-tos/text-analytics-how-to-entity-linking.md)

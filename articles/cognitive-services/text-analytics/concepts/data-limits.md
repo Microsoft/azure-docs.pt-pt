@@ -1,7 +1,7 @@
 ---
 title: Limites de dados para a API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Limitações de dados para a API de Análise de Texto dos Serviços Cognitivos Azure.
+description: Limitações de dados para a API de Análise de Texto da Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 4af2d060c11b804c5fa09bfdabbcb9753f7d5885
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204415"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142372"
 ---
-# <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e tarifas para a API de Análise de Texto
+# <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxas para a API de Análise de Texto
 <a name="data-limits"></a>
 
-Utilize este artigo para encontrar os limites para o tamanho e as tarifas que pode enviar dados para a API de Análise de Texto. 
+Use este artigo para encontrar os limites para o tamanho e as tarifas que pode enviar para a API de Text Analytics. 
 
 ## <a name="data-limits"></a>Limites de dados
 
 > [!NOTE]
-> * Se precisar de analisar documentos maiores do que o limite permite, pode quebrar o texto em pedaços menores de texto antes de enviá-los para a API. 
+> * Se precisar de analisar documentos maiores do que o limite permite, pode dividir o texto em pedaços menores de texto antes de enviá-los para a API. 
 > * Um documento é uma única cadeia de caracteres de texto.  
 
 | Limite | Valor |
@@ -34,17 +34,17 @@ Utilize este artigo para encontrar os limites para o tamanho e as tarifas que po
 | Tamanho máximo de um documento único | 5.120 caracteres medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |
 
-O número máximo de documentos que pode enviar num único pedido dependerá da versão API e da funcionalidade que está a utilizar.
+O número máximo de documentos que pode enviar num único pedido dependerá da versão API e da funcionalidade que estiver a utilizar.
 
-#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-3"></a>[Versão 3](#tab/version-3)
 
 > [!NOTE]
-> Se o seu pedido v3 API exceder estes limites, mas estiver dentro dos limites v2, um aviso será devolvido na resposta da API. A partir de 7/15/2020, será devolvido um código de erro de 400. 
+> Se o seu pedido de API v3 exceder estes limites, mas se encontra dentro dos limites v2, um aviso será devolvido na resposta da API. A partir de 7/15/2020, um código de erro 400 será devolvido em vez disso. 
 
-Os seguintes limites mudaram na v3 da API. Exceder os limites abaixo gerará um aviso na resposta da API.
+Os seguintes limites mudaram na V3 da API. Exceder os limites abaixo gerará um aviso na resposta da API.
 
 
-| Funcionalidade | Documentos Max por Pedido | 
+| Funcionalidade | Documentos Max Por Pedido | 
 |----------|-----------|
 | Deteção de Idioma | 1000 |
 | Análise de Sentimentos | 10 |
@@ -54,7 +54,7 @@ Os seguintes limites mudaram na v3 da API. Exceder os limites abaixo gerará um 
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
-| Funcionalidade | Documentos Max por Pedido | 
+| Funcionalidade | Documentos Max Por Pedido | 
 |----------|-----------|
 | Deteção de Idioma | 1000 |
 | Análise de Sentimentos | 1000 |
@@ -64,9 +64,9 @@ Os seguintes limites mudaram na v3 da API. Exceder os limites abaixo gerará um 
 
 ---
 
-## <a name="rate-limits"></a>Limites de taxas
+## <a name="rate-limits"></a>Limites de taxa
 
-O seu limite de tarifas variará com o seu nível de [preços.](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estes limites são os mesmos para ambas as versões da API.
+O seu limite de tarifa variará em função do seu [nível de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estes limites são os mesmos para ambas as versões da API.
 
 | Escalão          | Pedidos por segundo | Pedidos por minuto |
 |---------------|---------------------|---------------------|
@@ -77,10 +77,10 @@ O seu limite de tarifas variará com o seu nível de [preços.](https://azure.mi
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Os pedidos são medidos para cada função de Análise de Texto separadamente. Por exemplo, pode enviar o número máximo de pedidos para o seu nível de preços para cada funcionalidade, ao mesmo tempo.  
+Os pedidos são medidos para cada função de Análise de Texto separadamente. Por exemplo, pode enviar o número máximo de pedidos para o seu nível de preços para cada recurso, ao mesmo tempo.  
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-* [Qual é a API de Análise de Texto](../overview.md)
+* [O que é a API de Análise de Texto](../overview.md)
 * [Detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
