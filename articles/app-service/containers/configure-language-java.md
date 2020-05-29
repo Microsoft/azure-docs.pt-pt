@@ -1,7 +1,7 @@
 ---
-title: Configure aplicativos Linux Java
-description: Aprenda a configurar um recipiente Java pré-construído para a sua aplicação. Este artigo mostra as tarefas de configuração mais comuns.
-keywords: serviço de aplicações azure, web app, linux, oss, java, java ee, jee, javaee
+title: Configure aplicações Linux Java
+description: Saiba como configurar um recipiente Java pré-construído para a sua aplicação. Este artigo mostra as tarefas de configuração mais comuns.
+keywords: serviço de aplicativos azure, web app, linux, oss, java, java ee, jee, javaee
 author: bmitchell287
 manager: barbkess
 ms.devlang: java
@@ -10,33 +10,33 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ffc7c289fd675a68c8b02af1777fea3d4530e17a
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889501"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167490"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o Serviço de Aplicações do Azure
 
-O Azure App Service no Linux permite que os desenvolvedores da Java construam, implementem e dimensionem rapidamente as suas aplicações web embaladas tomcat, ou Java Standard Edition (SE) num serviço totalmente gerido com base em Linux. Implemente aplicações com plugins Maven da linha de comando ou em editores como IntelliJ, Eclipse ou Visual Studio Code.
+O Azure App Service no Linux permite que os desenvolvedores de Java construam, implementem e escalam rapidamente as suas aplicações web Tomcat, ou Java Standard Edition (SE) num serviço totalmente gerido baseado em Linux. Implementar aplicações com plugins Maven da linha de comando ou em editores como IntelliJ, Eclipse ou Visual Studio Code.
 
-Este guia fornece conceitos e instruções fundamentais para os desenvolvedores java que usam um recipiente Linux incorporado no Serviço de Aplicações. Se nunca usou o Azure App Service, siga o início rápido de [Java.](quickstart-java.md)
+Este guia fornece conceitos e instruções fundamentais para os desenvolvedores de Java que usam um recipiente Linux incorporado no Serviço de Aplicações. Se nunca usou o Azure App Service, siga o [quickstart Java](quickstart-java.md).
 
-## <a name="deploying-your-app"></a>Implementação da sua aplicação
+## <a name="deploying-your-app"></a>Implementação da sua app
 
-Pode utilizar [o Maven Plugin para](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) o Azure App Service para implementar ficheiros .jar e .war. A implantação com IDEs populares também é suportada com [O Kit de Ferramentas Azure para IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit para Eclipse](/azure/developer/java/toolkit-for-eclipse).
+Pode utilizar [o Maven Plugin para o Serviço de Aplicações Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar ficheiros .jar e .war. A implementação com iDEs populares também é suportada com [Azure Toolkit para IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit para Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Caso contrário, o seu método de implantação dependerá do seu tipo de arquivo:
 
-- Para implementar ficheiros de guerra para `/api/wardeploy/` o Tomcat, utilize o ponto final para publicar o ficheiro de arquivo. Para mais informações sobre esta API, consulte [esta documentação.](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)
+- Para implementar ficheiros de .war para Tomcat, use o `/api/wardeploy/` ponto final para registar o seu ficheiro de arquivo. Para mais informações sobre esta API, consulte [esta documentação.](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)
 - Para implementar ficheiros .jar nas imagens Java SE, utilize o `/api/zipdeploy/` ponto final do site Kudu. Para mais informações sobre esta API, consulte [esta documentação.](https://docs.microsoft.com/azure/app-service/deploy-zip#rest)
 
-Não desloque a sua .war ou .jar utilizando FTP. A ferramenta FTP foi concebida para carregar scripts de arranque, dependências ou outros ficheiros de tempo de execução. Não é a escolha ideal para implementar aplicações web.
+Não desloque o seu .war ou .jar utilizando FTP. A ferramenta FTP foi concebida para carregar scripts de arranque, dependências ou outros ficheiros de tempo de execução. Não é a escolha ideal para implementar aplicações web.
 
-## <a name="logging-and-debugging-apps"></a>Aplicativos de registo e depuração
+## <a name="logging-and-debugging-apps"></a>Aplicativos de registo e depuragem
 
-Relatórios de desempenho, visualizações de tráfego e check-ups de saúde estão disponíveis para cada aplicação através do portal Azure. Para mais informações, consulte a visão geral dos diagnósticos do Serviço de [Aplicações Azure](../overview-diagnostics.md).
+Relatórios de desempenho, visualizações de tráfego e check-ups de saúde estão disponíveis para cada aplicação através do portal Azure. Para mais informações, consulte [a visão geral do Serviço de Aplicações Azure](../overview-diagnostics.md).
 
 ### <a name="ssh-console-access"></a>Acesso à consola SSH
 
@@ -46,25 +46,28 @@ Relatórios de desempenho, visualizações de tráfego e check-ups de saúde est
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-Para mais informações, consulte os [registos do Stream na Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
+Para obter mais informações, consulte [os registos de streaming em Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
-### <a name="app-logging"></a>Registo de aplicações
+### <a name="app-logging"></a>Registo de aplicativos
 
-Ative o [registo de aplicações](../troubleshoot-diagnostic-logs.md?toc=/azure/app-service/containers/toc.json#enable-application-logging-windows) através do portal Azure ou [do Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) para configurar o App Service para escrever a saída padrão da consola da sua aplicação e os fluxos de erros padrão da consola para o sistema de ficheiros local ou para o Armazenamento De Blob Azure. O registo na instância do sistema de ficheiros do Serviço de Aplicações local é desativado 12 horas após a sua configuração. Se necessitar de retenção mais longa, configure a aplicação para escrever saída para um recipiente de armazenamento Blob. Os registos das suas aplicações Java e Tomcat podem ser encontrados no */home/LogFiles/Application/diretório.*
+Habilitar o [registo de aplicações](../troubleshoot-diagnostic-logs.md?toc=/azure/app-service/containers/toc.json#enable-application-logging-windows) através do portal Azure ou [do Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicações para escrever a saída padrão da consola da sua aplicação e fluxos de erro de consola padrão para o sistema de ficheiros local ou para o Armazenamento Azure Blob. O registo na instância do sistema de ficheiros do Serviço de Aplicações local é desativado 12 horas após a sua configuração. Se necessitar de uma retenção mais longa, configuure a aplicação para escrever a saída num recipiente de armazenamento Blob. Os seus registos de aplicações Java e Tomcat podem ser encontrados no *diretório /home/LogFiles/Application/.*
 
-Se a sua aplicação utilizar [logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para rastreio, pode reencaminhar estes vestígios para revisão em Insights de Aplicação Azure utilizando as instruções de configuração de configuração de configuração de login em [Explore Java tracelogs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+>[!NOTE]
+>O registo no sistema de ficheiros local do Serviço de Aplicações que está a ser desativado após 12 horas aplica-se apenas aos Serviços de Aplicações baseados no Windows. O registo de armazenamento Azure Blob para Serviços de Aplicações baseados em Linux só pode ser configurado usando [o Azure Monitor (pré-visualização)](/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) 
+
+Se a sua aplicação utilizar [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para rastreio, pode encaminhar estes vestígios para revisão em Azure Application Insights utilizando as instruções de configuração de quadro de registo em [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
 ### <a name="troubleshooting-tools"></a>Ferramentas de resolução de problemas
 
-As imagens java incorporadas baseiam-se no sistema operativo [Alpine Linux.](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) Utilize `apk` o gestor de pacotes para instalar quaisquer ferramentas ou comandos de resolução de problemas.
+As imagens de Java incorporadas são baseadas no sistema operativo [Alpine Linux.](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) Utilize o `apk` gestor de pacotes para instalar quaisquer ferramentas ou comandos de resolução de problemas.
 
-### <a name="flight-recorder"></a>Gravador de voo
+### <a name="flight-recorder"></a>Gravador de Voo
 
-Todas as imagens do Linux Java no Serviço de Aplicações têm o Zulu Flight Recorder instalado para que possa ligar-se facilmente ao JVM e iniciar uma gravação de perfis ou gerar uma lixeira de heap.
+Todas as imagens Linux Java no App Service têm o Zulu Flight Recorder instalado para que possa ligar-se facilmente ao JVM e iniciar uma gravação de perfis ou gerar uma lixeira de pilhas.
 
 #### <a name="timed-recording"></a>Gravação cronometrada
 
-Para começar, sSH no seu Serviço `jcmd` de Aplicações e executar o comando para ver uma lista de todos os processos java em execução. Além da própria JCMD, deve ver a sua aplicação Java a funcionar com um número de ID de processo (pid).
+Para começar, sSH no seu Serviço de Aplicações e executar o `jcmd` comando para ver uma lista de todos os processos java em execução. Além do próprio jcmd, deverá ver a sua aplicação Java a funcionar com um número de ID de processo (pid).
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -73,51 +76,51 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Execute o comando abaixo para iniciar uma gravação de 30 segundos do JVM. Isto irá perfilar o JVM e criar um ficheiro JFR chamado *jfr_example.jfr* no diretório inicial. (Substitua 116 pelo pid da sua aplicação Java.)
+Execute o comando abaixo para iniciar uma gravação de 30 segundos do JVM. Isto irá perfilar o JVM e criar um ficheiro JFR chamado *jfr_example.jfr* no diretório doméstico. (Substitua 116 pela pid da sua app Java.)
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
 ```
 
-Durante o intervalo de 30 segundos, pode `jcmd 116 JFR.check`validar que a gravação está a decorrer executando . Isto mostrará todas as gravações para o processo de Java.
+Durante o intervalo de 30 segundos, pode validar a gravação funcionando `jcmd 116 JFR.check` . Isto mostrará todas as gravações para o processo java dado.
 
 #### <a name="continuous-recording"></a>Gravação Contínua
 
-Pode utilizar o Gravador de Voo Zulu para perfilar continuamente a sua aplicação Java com o mínimo impacto no desempenho do tempo de funcionamento[(fonte).](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf) Para tal, execute o seguinte comando Azure CLI para criar uma Definição de Aplicações chamada JAVA_OPTS com a configuração necessária. Os conteúdos da Definição de `java` Aplicações JAVA_OPTS são transmitidos ao comando quando a sua aplicação é iniciada.
+Pode utilizar o Gravador de Voo Zulu para perfilar continuamente a sua aplicação Java com o mínimo impacto no desempenho do tempo de[execução (fonte).](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf) Para tal, execute o seguinte comando Azure CLI para criar uma Definição de Aplicação com o nome JAVA_OPTS com a configuração necessária. Os conteúdos da JAVA_OPTS Definição de Aplicações são transmitidos ao comando quando a `java` sua aplicação é iniciada.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
 ```
 
-Uma vez iniciada a gravação, pode despejar os dados `JFR.dump` de gravação atuais a qualquer momento utilizando o comando.
+Uma vez iniciada a gravação, pode despejar os dados de gravação atuais a qualquer momento utilizando o `JFR.dump` comando.
 
 ```shell
 jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 ```
 
-Para mais informações, por favor leia as informações sobre o [comando da JCMD.](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190)
+Para mais informações, consulte a Referência de [Comando Jcmd](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
 
 ### <a name="analyzing-recordings"></a>Análise de Gravações
 
-Utilize [FTPS](../deploy-ftp.md) para transferir o seu ficheiro JFR para a sua máquina local. Para analisar o ficheiro JFR, descarregue e instale o [Controlo da Missão Zulu.](https://www.azul.com/products/zulu-mission-control/) Para obter instruções sobre o Controlo da Missão Zulu, consulte a [documentação Azul](https://docs.azul.com/zmc/) e as instruções de [instalação](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Utilize [o FTPS](../deploy-ftp.md) para descarregar o seu ficheiro JFR para a sua máquina local. Para analisar o ficheiro JFR, descarregue e instale [o Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Para obter instruções sobre o Controlo da Missão Zulu, consulte a [documentação azul](https://docs.azul.com/zmc/) e as [instruções de instalação.](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control)
 
 ## <a name="customization-and-tuning"></a>Personalização e afinação
 
-O Azure App Service para o Linux suporta a afinação e personalização da caixa através do portal Azure e do CLI. Reveja os seguintes artigos para a configuração de aplicações web não específicas de Java:
+O Azure App Service for Linux suporta a afinação e personalização da caixa através do portal Azure e CLI. Reveja os seguintes artigos para configuração de aplicações web não específicas de Java:
 
 - [Configurar as definições da aplicação](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings)
 - [Configurar um domínio personalizado](../app-service-web-tutorial-custom-domain.md?toc=/azure/app-service/containers/toc.json)
-- [Configure as ligações SSL](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json)
+- [Encostados SSL](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json)
 - [Adicione um CDN](../../cdn/cdn-add-to-web-app.md?toc=/azure/app-service/containers/toc.json)
 - [Configure o site kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Definir opções de tempo de execução de Java
 
-Para definir a memória atribuída ou outras opções de tempo de execução JVM `JAVA_OPTS` nos ambientes Tomcat e Java SE, crie uma definição de [aplicação](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings) nomeada com as opções. O Serviço de Aplicações Linux passa esta configuração como uma variável ambiental para o tempo de funcionação de Java quando começa.
+Para definir a memória alocada ou outras opções de tempo de execução JVM tanto nos ambientes Tomcat como Java SE, crie uma [definição de aplicação](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings) nomeada `JAVA_OPTS` com as opções. O Serviço de Aplicações Linux passa esta definição como uma variável ambiental para o tempo de execução java quando começa.
 
-No portal Azure, no âmbito das Definições de **Aplicação** para a aplicação web, criar uma nova definição de aplicação chamada `JAVA_OPTS` que inclua as configurações adicionais, tais como `-Xms512m -Xmx1204m`.
+No portal Azure, em **Definições de Aplicação** para a aplicação web, crie uma nova definição de aplicação com o nome `JAVA_OPTS` que inclui as definições adicionais, tais como `-Xms512m -Xmx1204m` .
 
-Para configurar a definição da aplicação a partir do plugin Maven, adicione etiquetas de definição/valor na secção plugin Azure. O exemplo que se segue define um tamanho mínimo e máximo de monte java específico:
+Para configurar a definição da aplicação a partir do plugin Maven, adicione etiquetas de definição/valor na secção de plugins Azure. O exemplo a seguir define um tamanho mínimo e máximo de pilha de Java específico:
 
 ```xml
 <appSettings>
@@ -128,21 +131,21 @@ Para configurar a definição da aplicação a partir do plugin Maven, adicione 
 </appSettings>
 ```
 
-Os desenvolvedores que executam uma única aplicação com uma ranhura de implementação no seu plano de Serviço de Aplicações podem usar as seguintes opções:
+Os desenvolvedores que executam uma única aplicação com uma ranhura de implementação no seu plano de Serviço de Aplicações podem utilizar as seguintes opções:
 
-- Instâncias B1 e S1:`-Xms1024m -Xmx1024m`
+- Casos B1 e S1:`-Xms1024m -Xmx1024m`
 - Casos B2 e S2:`-Xms3072m -Xmx3072m`
 - Casos B3 e S3:`-Xms6144m -Xmx6144m`
 
-Ao afinar as definições de pilhas de aplicações, reveja os detalhes do plano do App Service e tenha em conta várias aplicações e o slot de implementação precisa para encontrar a melhor alocação de memória.
+Ao sintonizar as definições da pilha de aplicações, reveja os detalhes do seu plano de App Service e tenha em conta várias aplicações e slots de implementação para encontrar a alocação ideal de memória.
 
-Se estiver a implementar uma aplicação JAR, deve ser nomeada *app.jar* para que a imagem incorporada possa identificar corretamente a sua aplicação. (O plugin Maven faz este renomeamento automaticamente.) Se não quiser mudar o nome do seu JAR para *app.jar,* pode carregar um script de concha com o comando para executar o seu JAR. Em seguida, cole o caminho completo para este script na caixa de texto [Ficheiro de Arranque](app-service-linux-faq.md#built-in-images) na secção Configuração do portal. O script de arranque não é executado a partir do diretório no qual é colocado. Por isso, utilize sempre caminhos absolutos para referenciar ficheiros no script de arranque (por exemplo: `java -jar /home/myapp/myapp.jar`).
+Se estiver a implementar uma aplicação JAR, deve ser nomeada *app.jar* para que a imagem incorporada possa identificar corretamente a sua aplicação. (O plugin Maven faz este renomeamento automaticamente.) Se não desejar mudar o nome do seu JAR para *app.jar,* pode carregar um script de concha com o comando para executar o seu JAR. Em seguida, cole o caminho completo para este script na caixa de texto [Ficheiro de Arranque](app-service-linux-faq.md#built-in-images) na secção Configuração do portal. O script de arranque não é executado a partir do diretório no qual é colocado. Por isso, utilize sempre caminhos absolutos para referenciar ficheiros no script de arranque (por exemplo: `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="turn-on-web-sockets"></a>Ligue as tomadas web
 
-Ligue o suporte para tomadas web no portal Azure nas definições de **Aplicação** para a aplicação. Terá de reiniciar a aplicação para que a definição faça efeito.
+Ligue o suporte para tomadas web no portal Azure nas **definições de Aplicação** para a aplicação. Terá de reiniciar a aplicação para a definição para fazer efeito.
 
-Ligue o suporte da tomada web utilizando o Azure CLI com o seguinte comando:
+Ligue o suporte da tomada web utilizando o CLI Azure com o seguinte comando:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --web-sockets-enabled true
@@ -155,9 +158,9 @@ az webapp stop --name <app-name> --resource-group <resource-group-name>
 az webapp start --name <app-name> --resource-group <resource-group-name>
 ```
 
-### <a name="set-default-character-encoding"></a>Definir codificação de caracteres padrão
+### <a name="set-default-character-encoding"></a>Definir codificação de caracteres predefinidos
 
-No portal Azure, no âmbito das Definições de **Aplicação** para a aplicação web, criar uma nova configuração de aplicação com `JAVA_OPTS` valor. `-Dfile.encoding=UTF-8`
+No portal Azure, em **Definições de Aplicação** para a aplicação web, crie uma nova configuração de aplicação com `JAVA_OPTS` o nome de valor `-Dfile.encoding=UTF-8` .
 
 Em alternativa, pode configurar a definição da aplicação utilizando o plugin Maven do Serviço de Aplicações. Adicione o nome de definição e as etiquetas de valor na configuração do plugin:
 
@@ -170,31 +173,31 @@ Em alternativa, pode configurar a definição da aplicação utilizando o plugin
 </appSettings>
 ```
 
-### <a name="adjust-startup-timeout"></a>Ajuste o tempo de arranque
+### <a name="adjust-startup-timeout"></a>Ajustar o tempo de arranque
 
-Se a sua aplicação Java for particularmente grande, deverá aumentar o prazo de arranque. Para isso, crie uma `WEBSITES_CONTAINER_START_TIME_LIMIT` definição de aplicação e ajuste-a para o número de segundos que o Serviço de Aplicações deve esperar antes de o cronometrar. O valor `1800` máximo é segundos.
+Se a sua aplicação Java for particularmente grande, deverá aumentar o prazo de arranque. Para isso, crie uma definição de aplicação `WEBSITES_CONTAINER_START_TIME_LIMIT` e defina-a para o número de segundos que o Serviço de Aplicações deve esperar antes de cronometrar. O valor máximo é `1800` de segundos.
 
-### <a name="pre-compile-jsp-files"></a>Pré-compilação de ficheiros JSP
+### <a name="pre-compile-jsp-files"></a>Pré-Compilar ficheiros JSP
 
-Para melhorar o desempenho das aplicações Tomcat, pode compilar os seus ficheiros JSP antes de ser implementado no App Service. Pode utilizar o [plugin Maven](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) fornecido pela Apache Sling, ou utilizar este [ficheiro de construção Ant](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
+Para melhorar o desempenho das aplicações Tomcat, pode compilar os seus ficheiros JSP antes de ser implantado no Serviço de Aplicações. Pode utilizar o [plugin Maven](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) fornecido pela Apache Sling ou utilizar este [ficheiro de construção de Formigas](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Aplicações seguras
 
-As aplicações Java que executam o Serviço de Aplicações para o Linux têm o mesmo conjunto de [boas práticas](/azure/security/security-paas-applications-using-app-services) de segurança que outras aplicações.
+As aplicações java em execução no App Service para o Linux têm o mesmo conjunto de [boas práticas](/azure/security/security-paas-applications-using-app-services) de segurança que outras aplicações.
 
-### <a name="authenticate-users-easy-auth"></a>Utilizadores autenticados (Easy Auth)
+### <a name="authenticate-users-easy-auth"></a>Autenticar utilizadores (Easy Auth)
 
-Configurar a autenticação da aplicação no portal Azure com a opção **Autenticação e Autorização.** A partir daí, pode ativar a autenticação utilizando o Diretório Ativo do Azure ou logins sociais como facebook, Google ou GitHub. A configuração do portal Azure só funciona quando configurar um único fornecedor de autenticação. Para mais informações, consulte [a configuração da sua app App Service para utilizar o login do Azure Ative Directory](../configure-authentication-provider-aad.md?toc=/azure/app-service/containers/toc.json) e os artigos relacionados para outros fornecedores de identidade. Se precisar de ativar vários fornecedores de sessão, siga as instruções no artigo de autenticação do Serviço de [Aplicações personalizado.](../app-service-authentication-how-to.md?toc=/azure/app-service/containers/toc.json)
+Configurar a autenticação da aplicação no portal Azure com a opção **De autenticação e Autorização.** A partir daí, pode ativar a autenticação utilizando o Azure Ative Directory ou logins sociais como Facebook, Google ou GitHub. A configuração do portal Azure só funciona quando configurar um único fornecedor de autenticação. Para obter mais informações, consulte a sua app App Service para utilizar o [login do Azure Ative Directory](../configure-authentication-provider-aad.md?toc=/azure/app-service/containers/toc.json) e os artigos relacionados para outros fornecedores de identidade. Se precisar de ativar vários fornecedores de inscrição, siga as instruções no artigo [de autenticação do Serviço de Aplicações personalizado.](../app-service-authentication-how-to.md?toc=/azure/app-service/containers/toc.json)
 
 #### <a name="tomcat"></a>Tomcat
 
-A sua aplicação Tomcat pode aceder às reclamações do utilizador diretamente a partir do servlet, lançando o objeto principal para um objeto Map. O objeto do Mapa irá mapear cada tipo de reclamação para uma coleção das reivindicações desse tipo. No código abaixo, `request` é `HttpServletRequest`um exemplo de .
+A sua aplicação Tomcat pode aceder diretamente às reclamações do utilizador a partir do servlet, lançando o objeto principal para um objeto de Mapa. O objeto mapa irá mapear cada tipo de reivindicação para uma coleção das reclamações para esse tipo. No código abaixo, `request` é um exemplo de `HttpServletRequest` .
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-Agora pode inspecionar `Map` o objeto para qualquer reclamação específica. Por exemplo, o código seguinte itera através de todos os tipos de reclamação e imprime o conteúdo de cada coleção.
+Agora pode inspecionar o `Map` objeto para obter qualquer reclamação específica. Por exemplo, o seguinte código corta-se através de todos os tipos de reclamação e imprime o conteúdo de cada coleção.
 
 ```java
 for (Object key : map.keySet()) {
@@ -208,7 +211,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para assinar os utilizadores, use o `/.auth/ext/logout` caminho. Para realizar outras ações, consulte a documentação sobre [autenticação e utilização](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)de autorização de serviço de aplicação. Existe também documentação oficial sobre a interface Tomcat [HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) e os seus métodos. Os seguintes métodos de servlet também são hidratados com base na configuração do seu Serviço de Aplicações:
+Para assinar os utilizadores, use o `/.auth/ext/logout` caminho. Para realizar outras ações, consulte a documentação sobre [a autenticação e utilização da Autorização do Serviço de Aplicações.](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) Há também documentação oficial sobre a interface Tomcat [HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) e seus métodos. Os seguintes métodos de servidão também são hidratados com base na configuração do seu Serviço de Aplicações:
 
 ```java
 public boolean isSecure()
@@ -218,29 +221,29 @@ public String getScheme()
 public int getServerPort()
 ```
 
-Para desativar esta funcionalidade, `WEBSITE_AUTH_SKIP_PRINCIPAL` crie `1`uma Definição de Aplicação com um valor de . Para desativar todos os filtros de servlet adicionados pelo App Service, crie uma definição com `WEBSITE_SKIP_FILTERS` um valor de `1`.
+Para desativar esta funcionalidade, crie uma Definição de Aplicação `WEBSITE_AUTH_SKIP_PRINCIPAL` com o valor de `1` . Para desativar todos os filtros de servidão adicionados pelo App Service, crie uma definição `WEBSITE_SKIP_FILTERS` com o valor de `1` .
 
 #### <a name="spring-boot"></a>Spring Boot
 
-Os desenvolvedores de spring boot podem usar o arranque de bota de [mola azure ative diretório](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) para garantir aplicações usando anotações familiares de Segurança da primavera e APIs. Certifique-se de aumentar o tamanho máximo do cabeçalho no ficheiro *application.properties.* Sugerimos um `16384`valor de.
+Os desenvolvedores de Boot de mola podem usar o [arranque Azure Ative Directory Spring Boot](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) para garantir aplicações usando anotações e APIs familiares de Segurança da primavera. Certifique-se de que aumenta o tamanho máximo do cabeçalho no ficheiro *application.properties.* Sugerimos um valor `16384` de.
 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
-Siga as instruções no [nome 'Secure' um DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json) para fazer o upload de um certificado SSL existente e ligá-lo ao nome de domínio da sua aplicação. Por defeito, a sua aplicação continuará a permitir que as ligações HTTP sigam os passos específicos do tutorial para impor sSL e TLS.
+Siga as instruções no [Secure um nome DNS personalizado com uma ligação SSL no Azure App Service](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json) para carregar um certificado SSL existente e contê-lo ao nome de domínio da sua aplicação. Por predefinição, a sua aplicação continuará a permitir que as ligações HTTP sigam os passos específicos do tutorial para impor SSL e TLS.
 
-### <a name="use-keyvault-references"></a>Utilizar referências keyVault
+### <a name="use-keyvault-references"></a>Utilizar referências KeyVault
 
-[O Azure KeyVault](../../key-vault/general/overview.md) fornece uma gestão secreta centralizada com políticas de acesso e histórico de auditoria. Pode armazenar segredos (como palavras-passe ou cordas de ligação) no KeyVault e aceder a estes segredos na sua aplicação através de variáveis ambientais.
+[A Azure KeyVault](../../key-vault/general/overview.md) fornece uma gestão secreta centralizada com políticas de acesso e histórico de auditoria. Pode armazenar segredos (como palavras-passe ou cadeias de ligação) no KeyVault e aceder a estes segredos na sua aplicação através de variáveis ambientais.
 
-Em primeiro lugar, siga as instruções para [conceder o acesso da sua aplicação ao Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e fazer uma referência ao [KeyVault ao seu segredo numa Definição](../app-service-key-vault-references.md#reference-syntax)de Aplicação . Pode validar que a referência resolve o segredo imprimindo a variável ambiental ao aceder remotamente ao terminal do Serviço de Aplicações.
+Em primeiro lugar, siga as instruções para [conceder acesso à sua aplicação ao Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e fazer uma referência [KeyVault ao seu segredo numa Definição de Aplicação.](../app-service-key-vault-references.md#reference-syntax) Pode validar que a referência se resolve ao segredo imprimindo a variável ambiente ao aceder remotamente ao terminal de Serviço de Aplicações.
 
-Para injetar estes segredos no seu ficheiro de configuração Spring`${MY_ENV_VAR}`ou Tomcat, utilize sintaxe de injeção variável ambiente (). Para os ficheiros de configuração da Mola, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Para injetar estes segredos no seu ficheiro de configuração primavera ou Tomcat, utilize a sintaxe de injeção variável do ambiente `${MY_ENV_VAR}` (). Para ficheiros de configuração da primavera, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-### <a name="using-the-java-key-store"></a>Usando a Loja chave Java
+### <a name="using-the-java-key-store"></a>Utilização da Loja de Chaves Java
 
-Por predefinição, quaisquer certificados públicos ou privados [enviados para o App Service Linux](../configure-ssl-certificate.md) serão carregados nas respetivas Lojas Chave Java à medida que o recipiente começa. Depois de fazer o upload do seu certificado, terá de reiniciar o seu Serviço de Aplicações para que seja carregado na Java Key Store. Os certificados públicos são `$JAVA_HOME/jre/lib/security/cacerts`carregados na Key Store `$JAVA_HOME/lib/security/client.jks`em , e os certificados privados são armazenados em .
+Por predefinição, quaisquer certificados públicos ou privados enviados para o [Serviço de Aplicações Linux](../configure-ssl-certificate.md) serão carregados nas respetivas Lojas de Chaves Java à medida que o contentor começar. Depois de carregar o seu certificado, terá de reiniciar o seu Serviço de Aplicações para que seja carregado na Loja de Chaves Java. Os certificados públicos são carregados na Loja-Chave `$JAVA_HOME/jre/lib/security/cacerts` em , e os certificados privados são armazenados em `$JAVA_HOME/lib/security/client.jks` .
 
-Pode ser necessária uma configuração adicional para encriptar a sua ligação JDBC com certificados na Loja chave Java. Consulte a documentação para o seu motorista jDBC escolhido.
+Poderá ser necessária uma configuração adicional para encriptar a sua ligação JDBC com certificados na Loja de Chaves Java. Consulte a documentação do seu motorista JDBC escolhido.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -248,9 +251,9 @@ Pode ser necessária uma configuração adicional para encriptar a sua ligação
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### <a name="initializing-the-java-key-store"></a>Inicializando a Loja chave Java
+#### <a name="initializing-the-java-key-store"></a>Inicialização da Loja de Chaves Java
 
-Para inicializar `import java.security.KeyStore` o objeto, carregue o ficheiro da loja de chaves com a palavra-passe. A palavra-passe padrão para ambas as lojas chave é "changeit".
+Para inicializar o `import java.security.KeyStore` objeto, carregue o ficheiro da loja de chaves com a palavra-passe. A palavra-passe padrão para ambas as lojas chave é "changeit".
 
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
@@ -264,73 +267,73 @@ keyStore.load(
     "changeit".toCharArray());
 ```
 
-#### <a name="manually-load-the-key-store"></a>Carregue manualmente a loja-chave
+#### <a name="manually-load-the-key-store"></a>Carregue manualmente a loja de chaves
 
-Pode carregar os certificados manualmente na loja de chaves. Crie uma `SKIP_JAVA_KEYSTORE_LOAD`definição de `1` aplicação, com um valor para desativar o Serviço de Aplicações de carregar automaticamente os certificados na loja-chave. Todos os certificados públicos enviados para o Serviço `/var/ssl/certs/`de Aplicações através do portal Azure são armazenados em . Os certificados privados `/var/ssl/private/`são armazenados em .
+Pode carregar os certificados manualmente na loja de chaves. Crie uma configuração de aplicação, `SKIP_JAVA_KEYSTORE_LOAD` com o valor de `1` desativar o Serviço de Aplicações de carregamento dos certificados na loja de chaves automaticamente. Todos os certificados públicos enviados para o Serviço de Aplicações através do portal Azure são armazenados sob `/var/ssl/certs/` . Os certificados privados são armazenados em `/var/ssl/private/` .
 
-Pode interagir ou depurar a Ferramenta Chave Java [abrindo uma ligação SSH](app-service-linux-ssh-support.md) ao seu Serviço de Aplicações e executando o comando `keytool`. Consulte a [documentação](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) da Ferramenta Chave para obter uma lista de comandos. Para mais informações sobre a KeyStore API, consulte [a documentação oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+Pode interagir ou depurar a Ferramenta chave Java [abrindo uma ligação SSH](app-service-linux-ssh-support.md) ao seu Serviço de Aplicações e executando o comando `keytool` . Consulte a [documentação da Ferramenta Chave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obter uma lista de comandos. Para mais informações sobre a API keyStore, consulte [a documentação oficial.](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)
 
-## <a name="configure-apm-platforms"></a>Configure plataformas APM
+## <a name="configure-apm-platforms"></a>Configurar plataformas APM
 
-Esta secção mostra como ligar as aplicações java implantadas no Serviço de Aplicações Azure em Linux com as plataformas de monitorização de desempenho da aplicação NewRelic e AppDynamics (APM).
+Esta secção mostra como ligar as aplicações java implementadas no Azure App Service em Linux com as plataformas de monitorização do desempenho da aplicação NewRelic e AppDynamics (APM).
 
-### <a name="configure-new-relic"></a>Configurar nova relíquia
+### <a name="configure-new-relic"></a>Configure nova relíquia
 
-1. Criar uma conta NewRelic em [NewRelic.com](https://newrelic.com/signup)
-2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.x.zip*.
-3. Copie a chave da sua licença, terá de a configurar para configurar o agente mais tarde.
-4. [SSH na sua instância](app-service-linux-ssh-support.md) de Serviço de Aplicações e crie um novo diretório */home/site/wwwroot/apm*.
-5. Faça upload dos ficheiros do agente NewRelic Java desembalados num diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.
-6. Modifique o ficheiro YAML em */home/site/wwwroot/apm/newrelic/newrelic.yml* e substitua o valor da licença de proprietário por conta própria.
-7. No portal Azure, navegue para a sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicações.
-    - Se a sua aplicação estiver a `JAVA_OPTS` utilizar o `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` **Java SE,** crie uma variável ambiental com o valor.
-    - Se estiver a usar **o Tomcat,** crie uma variável ambiental com `CATALINA_OPTS` o valor. `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`
+1. Criar uma conta NewRelic na [NewRelic.com](https://newrelic.com/signup)
+2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.zip*.
+3. Copie a chave da sua licença e vai precisar dela para configurar o agente mais tarde.
+4. [SSH na sua instância de Serviço de Aplicações](app-service-linux-ssh-support.md) e criar um novo diretório */home/site/wwwroot/apm*.
+5. Faça o upload dos ficheiros de agente Java NewRelic desembalados para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.
+6. Modifique o ficheiro YAML em */home/site/wwwroot/apm/newrelic/newrelic.yml* e substitua o valor da licença de espaço reservado pela sua própria chave de licença.
+7. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
+    - Se a sua aplicação estiver a utilizar **a Java SE,** crie uma variável ambiental com `JAVA_OPTS` o `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` valor.
+    - Se estiver a utilizar o **Tomcat,** crie uma variável ambiental com `CATALINA_OPTS` o valor `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
-### <a name="configure-appdynamics"></a>Configure AppDynamics
+### <a name="configure-appdynamics"></a>Configurar a AppDynamics
 
-1. Criar uma conta AppDynamics em [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Descarregue o agente Java a partir do website appDynamics, o nome do ficheiro será semelhante ao *AppServerAgent-x.x.x.xxxxx.zip*
-3. [SSH na sua instância](app-service-linux-ssh-support.md) de Serviço de Aplicações e crie um novo diretório */home/site/wwwroot/apm*.
-4. Faça upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
-5. No portal Azure, navegue para a sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicações.
-    - Se estiver a usar **java SE,** `JAVA_OPTS` crie `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` uma `<app-name>` variável ambiental com o valor onde está o seu nome de Serviço de Aplicações.
-    - Se estiver a usar **o Tomcat,** crie `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` uma variável ambiental com `CATALINA_OPTS` o valor onde está o nome do Serviço de Aplicações.
+1. Criar uma conta AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
+2. Descarregue o agente Java a partir do site da AppDynamics, o nome do ficheiro será semelhante ao *AppServerAgent-x.x.xxxx.zip*
+3. [SSH na sua instância de Serviço de Aplicações](app-service-linux-ssh-support.md) e criar um novo diretório */home/site/wwwroot/apm*.
+4. Faça o upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
+5. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
+    - Se estiver a utilizar **a Java SE,** crie uma variável ambiental com `JAVA_OPTS` o valor onde está o nome do Serviço de `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` Aplicações.
+    - Se estiver a utilizar o **Tomcat,** crie uma variável ambiental com `CATALINA_OPTS` o valor onde está o nome do Serviço de `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` Aplicações.
 
 > [!NOTE]
-> Se já tiver uma `JAVA_OPTS` variável ambiental para ou `CATALINA_OPTS`, anexar a opção `-javaagent:/...` até ao fim do valor atual.
+> Se já tiver uma variável ambiental para `JAVA_OPTS` `CATALINA_OPTS` ou, anexar `-javaagent:/...` a opção até ao fim do valor atual.
 
-## <a name="configure-jar-applications"></a>Configure aplicações jar
+## <a name="configure-jar-applications"></a>Configure aplicações JAR
 
-### <a name="starting-jar-apps"></a>Aplicações DE JARRO de início
+### <a name="starting-jar-apps"></a>Aplicativos JAR ini iniciar
 
-Por padrão, o Serviço de Aplicações espera que a sua aplicação JAR seja nomeada *app.jar*. Se tiver este nome, será executado automaticamente. Para os utilizadores da Maven, pode `<finalName>app</finalName>` definir `<build>` o nome JAR incluindo na secção do seu *pom.xml*. [Você pode fazer o mesmo em Gradle,](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) estabelecendo a `archiveFileName` propriedade.
+Por predefinição, o Serviço de Aplicações espera que a sua aplicação JAR seja nomeada *app.jar*. Se tiver este nome, será executado automaticamente. Para os utilizadores de Maven, pode definir o nome JAR, incluindo `<finalName>app</finalName>` na secção do seu `<build>` *pom.xml*. [Você pode fazer o mesmo em Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) definindo a `archiveFileName` propriedade.
 
-Se pretender utilizar um nome diferente para o seu JAR, deve também fornecer o Comando de [Arranque](app-service-linux-faq.md#built-in-images) que executa o seu ficheiro JAR. Por exemplo, `java -jar my-jar-app.jar`. Pode definir o valor para o seu Comando de Arranque no Portal, `STARTUP_COMMAND`em Configuração > Configurações Gerais, ou com uma Definição de Aplicação nomeada .
+Se pretender utilizar um nome diferente para o seu JAR, também tem de fornecer o [Comando de Arranque](app-service-linux-faq.md#built-in-images) que executa o seu ficheiro JAR. Por exemplo, `java -jar my-jar-app.jar`. Pode definir o valor do seu Comando de Arranque no Portal, em Configuração > Definições Gerais ou com uma Definição de Aplicação nomeada `STARTUP_COMMAND` .
 
-### <a name="server-port"></a>Porta do servidor
+### <a name="server-port"></a>Porta de servidor
 
-Serviço de aplicações O Linux encaminha os pedidos de entrada para o porto 80, pelo que a sua aplicação deve ouvir também na porta 80. Pode fazê-lo na configuração da sua aplicação (como o ficheiro *aplicação.properties* da Spring), ou no seu Comando de Arranque (por exemplo). `java -jar spring-app.jar --server.port=80` Consulte a seguinte documentação para os quadros comuns de Java:
+O Serviço de Aplicações Linux encaminha os pedidos de entrada para o porto 80, pelo que a sua aplicação também deve ouvir na porta 80. Pode fazê-lo na configuração da sua aplicação (como o ficheiro *application.properties* da primavera), ou no seu Comando de Arranque (por exemplo, `java -jar spring-app.jar --server.port=80` ). Consulte a seguinte documentação para quadros comuns de Java:
 
 - [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-use-short-command-line-arguments)
-- [Faísca Java](http://sparkjava.com/documentation#embedded-web-server)
-- [Micronaut](https://docs.micronaut.io/latest/guide/index.html#runningSpecificPort)
-- [Quadro de Jogo](https://www.playframework.com/documentation/2.6.x/ConfiguringHttps#Configuring-HTTPS)
-- [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
-- [Quarkus](https://quarkus.io/guides/application-configuration-guide)
+- [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
+- [Micronauta](https://docs.micronaut.io/latest/guide/index.html#runningSpecificPort)
+- [Enquadramento de jogo](https://www.playframework.com/documentation/2.6.x/ConfiguringHttps#Configuring-HTTPS)
+- [Verxo](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
+- [Rio Quarkus](https://quarkus.io/guides/application-configuration-guide)
 
 ## <a name="data-sources"></a>Origens de dados
 
 ### <a name="tomcat"></a>Tomcat
 
-Estas instruções aplicam-se a todas as ligações de base de dados. Terá de preencher os espaços reservados com o nome da classe de motorista da sua base de dados escolhida e o ficheiro JAR. Fornecido é uma tabela com nomes de classe e transferências de motorista para bases de dados comuns.
+Estas instruções aplicam-se a todas as ligações de base de dados. Terá de preencher os espaços reservados com o nome da classe de condutor e o ficheiro JAR da sua base de dados escolhida. Fornecido é uma tabela com nomes de classe e downloads de motorista para bases de dados comuns.
 
-| Base de Dados   | Nome da classe do condutor                             | Condutor jDBC                                                                      |
+| Base de Dados   | Nome da classe do motorista                             | Condutor JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Transferir](https://jdbc.postgresql.org/download.html)                                    |
-| MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "Platform Independent") |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Selecione "Plataforma Independente") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferir](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
-Para configurar o Tomcat para utilizar a Conectividade da Base de Dados Java (JDBC) ou a Java Persistence API (JPA), primeiro personalize a `CATALINA_OPTS` variável ambiental que é lida pela Tomcat no arranque. Defina estes valores através de uma definição de aplicação no [plugin Maven Service:](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
+Para configurar o Tomcat para utilizar a Conectividade da Base de Dados de Java (JDBC) ou a API de Persistência de Java (JPA), primeiro personalize a `CATALINA_OPTS` variável ambiental que é lida pela Tomcat no arranque. Defina estes valores através de uma definição de aplicação no [plugin Maven do Serviço de Aplicações:](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
 
 ```xml
 <appSettings>
@@ -341,15 +344,15 @@ Para configurar o Tomcat para utilizar a Conectividade da Base de Dados Java (JD
 </appSettings>
 ```
 
-Ou definir as variáveis ambientais na página **definições** > de**configuração** no portal Azure.
+Ou definir as variáveis **Configuration**de ambiente na página  >  **Configurações de Configuração** do portal Azure.
 
-Em seguida, determine se a fonte de dados deve estar disponível para uma aplicação ou para todas as aplicações em execução no servlet Tomcat.
+Em seguida, determine se a fonte de dados deve estar disponível para uma aplicação ou para todas as aplicações em execução na servidão Tomcat.
 
 #### <a name="application-level-data-sources"></a>Fontes de dados ao nível da aplicação
 
-1. Crie um ficheiro *context.xml* no *meta-INF/diretório* do seu projeto. Crie o *meta-INF/diretório* se não existir.
+1. Crie um ficheiro *context.xml* no *diretório META-INF/diretório* do seu projeto. Crie o *meta-INF/diretório* se não existir.
 
-2. No *contexto.xml,* `Context` adicione um elemento para ligar a fonte de dados a um endereço JNDI. Substitua `driverClassName` o espaço reservado pelo nome da classe do condutor na tabela acima.
+2. Em *contexto.xml,* adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
 
     ```xml
     <Context>
@@ -373,11 +376,11 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
     </resource-env-ref>
     ```
 
-#### <a name="shared-server-level-resources"></a>Recursos partilhados ao nível do servidor
+#### <a name="shared-server-level-resources"></a>Recursos ao nível do servidor partilhados
 
-A adição de uma fonte de dados partilhada ao nível do servidor exigirá que edite o servidor do Tomcat.xml. Em primeiro lugar, faça upload de um script de [arranque](app-service-linux-faq.md#built-in-images) e desloque o caminho para o script no Comando de**Arranque**de **Configuração** > . Pode fazer o upload do script de arranque utilizando [FTP](../deploy-ftp.md).
+A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite o servidor do Tomcat.xml. Em primeiro lugar, faça o upload de um [script de arranque](app-service-linux-faq.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  **Startup Command**. Pode carregar o script de arranque utilizando [FTP](../deploy-ftp.md).
 
-O seu script de arranque fará com que uma [transformação xsl](https://www.w3schools.com/xml/xsl_intro.asp) `/usr/local/tomcat/conf/server.xml`para o ficheiro server.xml e produza o ficheiro xml resultante para . O script de arranque deve instalar libxslt via apk. O seu ficheiro xsl e o seu script de arranque podem ser carregados via FTP. Abaixo está um roteiro de arranque de exemplo.
+O seu script de arranque fará uma [transformação de xsl](https://www.w3schools.com/xml/xsl_intro.asp) para o ficheiro server.xml e irá desausar o ficheiro xml resultante para `/usr/local/tomcat/conf/server.xml` . O script de arranque deve instalar libxslt via apk. O seu ficheiro xsl e o script de arranque podem ser carregados via FTP. Abaixo está um script de arranque exemplo.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
@@ -387,7 +390,7 @@ apk add --update libxslt
 xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
-Um ficheiro xsl exemplo é fornecido abaixo. O ficheiro xsl exemplo adiciona um novo nó de conector ao servidor Tomcat.xml.
+Um ficheiro xsl de exemplo é fornecido abaixo. O ficheiro xsl exemplo adiciona um novo nó de conector ao servidor Tomcat.xml.
 
 ```xml
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -451,11 +454,11 @@ Um ficheiro xsl exemplo é fornecido abaixo. O ficheiro xsl exemplo adiciona um 
 
 #### <a name="finalize-configuration"></a>Finalizar a configuração
 
-Por fim, coloque os JARs do condutor na classe Tomcat e reinicie o seu Serviço de Aplicações.
+Por fim, coloque os JARs do condutor no apêndice tomcat e reinicie o seu Serviço de Aplicações.
 
-1. Certifique-se de que os ficheiros do condutor JDBC estão disponíveis para o classloader Tomcat colocando-os no diretório */casa/tomcat/lib.* (Crie este diretório se já não existir.) Para fazer o upload destes ficheiros para a sua instância do Serviço de Aplicações, execute os seguintes passos:
+1. Certifique-se de que os ficheiros do controlador JDBC estão disponíveis para o carregador de classe Tomcat colocando-os no diretório */home/tomcat/lib.* (Criar este diretório se já não existir.) Para fazer o upload destes ficheiros para a sua instância do Serviço de Aplicações, execute os seguintes passos:
 
-    1. Na [Cloud Shell,](https://shell.azure.com)instale a extensão webapp:
+    1. No [Cloud Shell](https://shell.azure.com), instale a extensão do webapp:
 
       ```azurecli-interactive
       az extension add -–name webapp
@@ -469,44 +472,44 @@ Por fim, coloque os JARs do condutor na classe Tomcat e reinicie o seu Serviço 
 
     3. Ligue-se à porta de túneis local com o seu cliente SFTP e faça o upload dos ficheiros para a pasta */home/tomcat/lib.*
 
-    Em alternativa, pode utilizar um cliente FTP para carregar o condutor da JDBC. Siga estas [instruções para obter as suas credenciais FTP](../deploy-configure-credentials.md?toc=/azure/app-service/containers/toc.json).
+    Em alternativa, pode utilizar um cliente FTP para carregar o controlador JDBC. Siga estas [instruções para obter as suas credenciais FTP](../deploy-configure-credentials.md?toc=/azure/app-service/containers/toc.json).
 
-2. Se criou uma fonte de dados ao nível do servidor, reinicie a aplicação Linux do Serviço de Aplicações. O Tomcat `CATALINA_BASE` recomeçará e `/home/tomcat` utilizará a configuração atualizada.
+2. Se criou uma fonte de dados ao nível do servidor, reinicie a aplicação Linux do Serviço de Aplicações. O Tomcat irá reiniciar `CATALINA_BASE` `/home/tomcat` e utilizar a configuração atualizada.
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Para ligar a fontes de dados nas aplicações Spring Boot, sugerimos criar cordas de ligação e injetá-las no ficheiro *aplicação.properties.*
+Para ligar a fontes de dados em aplicações Spring Boot, sugerimos criar cadeias de ligação e injetá-las no ficheiro *aplicações.properties.*
 
-1. Na secção "Configuração" da página do Serviço de Aplicações, delineie um nome para a cadeia, colhe a sua cadeia de ligação JDBC no campo de valor e delineie o tipo para "Custom". Pode configurar opcionalmente esta cadeia de ligação como definição de ranhura.
+1. Na secção "Configuração" da página Serviço de Aplicações, desaprova um nome para a cadeia, cole a sua cadeia de ligação JDBC no campo de valor e desaver o tipo de "Personalizado". Pode configurar opcionalmente esta cadeia de ligação como definição de ranhura.
 
-    Esta cadeia de ligação é acessível `CUSTOMCONNSTR_<your-string-name>`à nossa aplicação como uma variável ambiental chamada . Por exemplo, a cadeia de ligação que criamos acima será nomeada `CUSTOMCONNSTR_exampledb`.
+    Esta cadeia de conexão é acessível à nossa aplicação como uma variável ambiental chamada `CUSTOMCONNSTR_<your-string-name>` . Por exemplo, a cadeia de ligação que criamos acima será nomeada `CUSTOMCONNSTR_exampledb` .
 
-2. No ficheiro *aplicação.properties,* faça referência a esta cadeia de ligação com o nome variável ambiental. Para o nosso exemplo, usaríamos o seguinte.
+2. No ficheiro *application.properties,* refira esta cadeia de ligação com o nome variável ambiente. Pelo nosso exemplo, usaríamos o seguinte.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
     ```
 
-Consulte a documentação da [Bota de primavera sobre o acesso](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) de dados e [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) para obter mais informações sobre este tema.
+Consulte a [documentação do Boot de Mola sobre o acesso aos dados](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) e [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) para obter mais informações sobre este tópico.
 
 ## <a name="use-redis-as-a-session-cache-with-tomcat"></a>Use redis como cache de sessão com Tomcat
 
-Pode configurar o Tomcat para utilizar uma loja de sessão externa, como [o Azure Cache for Redis](/azure/azure-cache-for-redis/). Isto permite-lhe preservar o estado da sessão do utilizador (como dados do carrinho de compras) quando um utilizador é transferido para outra instância da sua aplicação, por exemplo, quando ocorre uma autoescala, reinício ou falha.
+Pode configurar o Tomcat para utilizar uma loja de sessão externa, como [a Azure Cache for Redis.](/azure/azure-cache-for-redis/) Isto permite-lhe preservar o estado de sessão do utilizador (como dados de carrinhos de compras) quando um utilizador é transferido para outra instância da sua aplicação, por exemplo quando ocorre autoscaling, reinício ou falha.
 
-Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para utilizar uma implementação [do PersistentManager.](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) Os seguintes passos explicam este processo utilizando o [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como exemplo.
+Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para utilizar uma implementação [PersistenteManager.](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) Os seguintes passos explicam este processo usando [o Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como exemplo.
 
-1. Abra um terminal `<variable>=<value>` Bash e utilize para definir cada uma das seguintes variáveis ambientais.
+1. Abra um terminal Bash e use `<variable>=<value>` para definir cada uma das seguintes variáveis ambientais.
 
     | Variável                 | Valor                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
-    | RESOURCEGROUP_NAME       | O nome do grupo de recursos que contém a sua instância de Serviço de Aplicações.       |
-    | WEBAPP_NAME              | O nome da sua instância de Serviço de Aplicações.                                     |
+    | RESOURCEGROUP_NAME       | O nome do grupo de recursos que contém a sua instância do Serviço de Aplicações.       |
+    | WEBAPP_NAME              | O nome da sua instância do Serviço de Aplicações.                                     |
     | WEBAPP_PLAN_NAME         | O nome do seu plano de Serviço de Aplicações.                                         |
     | REGIÃO                   | O nome da região onde a sua aplicação está hospedada.                           |
-    | REDIS_CACHE_NAME         | O nome do seu Azure Cache para redis exemplo.                           |
+    | REDIS_CACHE_NAME         | O nome do seu Azure Cache para o caso Redis.                           |
     | REDIS_PORT               | A porta SSL que a sua cache Redis ouve.                             |
-    | REDIS_PASSWORD           | A chave de acesso principal para o seu caso.                                  |
-    | REDIS_SESSION_KEY_PREFIX | Um valor que especifica para identificar as chaves da sessão que vêm da sua aplicação. |
+    | REDIS_PASSWORD           | A chave de acesso primária para o seu exemplo.                                  |
+    | REDIS_SESSION_KEY_PREFIX | Um valor que especifica para identificar as chaves de sessão que vêm da sua aplicação. |
 
     ```bash
     RESOURCEGROUP_NAME=<resource group>
@@ -519,9 +522,9 @@ Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para uti
     REDIS_SESSION_KEY_PREFIX=<prefix>
     ```
 
-    Pode encontrar o nome, porta e informações chave de acesso no portal Azure, procurando nas secções de **Propriedades** ou Chaves de **Acesso** da sua instância de serviço.
+    Pode encontrar o nome, porta e aceder às informações chave do portal Azure, olhando para as secções **propriedades** ou **teclas** de acesso da sua instância de serviço.
 
-2. Crie ou atualize o ficheiro *src/main/webapp da sua aplicação/META-INF/context.xml* com o seguinte conteúdo:
+2. Crie ou atualize o ficheiro *src/main/webapp/META-INF/context.xml* da sua aplicação com o seguinte conteúdo:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -541,25 +544,25 @@ Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para uti
     </Context>
     ```
 
-    Este ficheiro especifica e configura a implementação do gestor de sessão para a sua aplicação. Utiliza as variáveis ambientais que definiu no passo anterior para manter a informação da sua conta fora dos seus ficheiros de origem.
+    Este ficheiro especifica e configura a implementação do gestor de sessão para a sua aplicação. Utiliza as variáveis ambientais que definiu no passo anterior para manter as informações da sua conta fora dos seus ficheiros de origem.
 
-3. Utilize o FTP para fazer o upload do ficheiro JAR do gestor da sessão para a sua instância de Serviço de Aplicações, colocando-o no diretório */home/tomcat/lib.* Para mais informações, consulte [A implementação da sua aplicação para o Serviço de Aplicações Azure utilizando FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+3. Utilize o FTP para fazer o upload do ficheiro JAR do gestor da sessão para a sua instância do Serviço de Aplicações, colocando-o no diretório */home/tomcat/lib.* Para obter mais informações, consulte [implementar a sua aplicação no Azure App Service utilizando FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-4. Desative o cookie de [afinidade](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) da sessão para a sua instância de Serviço de Aplicações. Pode fazê-lo a partir do portal Azure navegando até à sua aplicação e, em seguida, definindo **configurações de Configuração > Geral > afinidade ARR** **para desligar**. Alternadamente, pode utilizar o seguinte comando:
+4. Desative o [cookie de afinidade da sessão](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) para a sua instância do Serviço de Aplicações. Pode fazê-lo a partir do portal Azure navegando na sua aplicação e, em seguida, definindo **configurações de Configuração > Configurações Gerais > afinidade ARR** para **Off**. Alternadamente, pode utilizar o seguinte comando:
 
     ```azurecli
     az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false
     ```
 
-    Por padrão, o Serviço de Aplicações utilizará cookies de afinidade de sessão para garantir que os pedidos dos clientes com sessões existentes são encaminhados para a mesma instância da sua aplicação. Este comportamento predefinido não requer configuração, mas não pode preservar o estado da sessão do utilizador quando a instância da sua aplicação é reiniciada ou quando o tráfego é reencaminhado para outra instância. Quando [desativa risa a](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuração de Afinidade DE CASO SEm ACORDO existente para desativar o encaminhamento baseado em cookies da sessão, permite que a loja de sessão configurada funcione sem interferências.
+    Por padrão, o Serviço de Aplicações utilizará cookies de afinidade de sessão para garantir que os pedidos do cliente com as sessões existentes são encaminhados para a mesma instância da sua aplicação. Este comportamento predefinido não requer nenhuma configuração, mas não pode preservar o estado de sessão do utilizador quando a sua aplicação é reiniciada ou quando o tráfego é reencaminhado para outra instância. Quando [desativar a](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuração de ARR Instance Affinity existente para desligar o roteamento baseado em cookies da sessão, permite que a loja de sessão configurada funcione sem interferências.
 
-5. Navegue para a secção **Propriedades** da sua instância de Serviço de Aplicações e encontre **endereços IP adicionais de saída**. Estes representam todos os possíveis endereços IP de saída para a sua aplicação. Copie-os para utilização no próximo passo.
+5. Navegue na secção **Propriedades** da sua instância do Serviço de Aplicações e encontre **endereços IP adicionais de saída.** Estes representam todos os possíveis endereços IP de saída para a sua aplicação. Copie-os para utilização no próximo passo.
 
-6. Para cada endereço IP, crie uma regra de firewall no seu Azure Cache para o caso Redis. Pode fazê-lo no portal Azure a partir da secção **Firewall** da sua instância Redis. Forneça um nome único para cada regra e coloque os valores de **endereço IP iniciar** e endereço IP **final** no mesmo endereço IP.
+6. Para cada endereço IP, crie uma regra de firewall na sua Cache Azure para a instância Redis. Pode fazê-lo no portal Azure a partir da secção **Firewall** da sua instância Redis. Forneça um nome único para cada regra e desa estacie os valores do **endereço IP inicial** e do endereço IP **final** para o mesmo endereço IP.
 
-7. Navegue para a secção de **definições avançadas** da sua instância Redis e ajuste **o acesso apenas através do SSL** para **O .** Isto permite que a sua instância de Serviço de Aplicações se comunique com a sua cache Redis através da infraestrutura Azure.
+7. Navegue na secção de **definições Avançadas** da sua instância Redis e defina **Deixe o acesso apenas via SSL** a **Nº**. Isto permite que a sua instância de Serviço de Aplicações comunique com a sua cache Redis através da infraestrutura Azure.
 
-8. Atualize `azure-webapp-maven-plugin` a configuração no ficheiro *pom.xml* da sua aplicação para se referir às informações da sua conta Redis. Este ficheiro utiliza as variáveis ambientais que definiu anteriormente para manter a informação da sua conta fora dos seus ficheiros de origem.
+8. Atualize a `azure-webapp-maven-plugin` configuração no ficheiro *pom.xml* da sua aplicação para consultar as informações da sua conta Redis. Este ficheiro utiliza as variáveis ambientais que definiu anteriormente para manter as informações da sua conta fora dos seus ficheiros de origem.
 
     Se for necessário, mude `1.9.1` para a versão atual do [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
@@ -615,41 +618,41 @@ Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para uti
     mvn package -DskipTests azure-webapp:deploy
     ```
 
-A sua aplicação irá agora utilizar o seu cache Redis para gestão de sessões.
+A sua aplicação irá agora utilizar o seu cache Redis para gestão de sessão.
 
-Para obter uma amostra que possa utilizar para testar estas instruções, consulte o repo de [escala-stateful-java-web-web-on-azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) no GitHub.
+Para obter uma amostra que possa utilizar para testar estas instruções, consulte o [repo-web-on-azure de escala-stateful-java-web-on-azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) no GitHub.
 
 ## <a name="docker-containers"></a>Contentores do Docker
 
-Para utilizar o Zulu JDK suportado pelo Azure nos seus recipientes, certifique-se de puxar e utilizar as imagens pré-construídas como documentado [saqueado](https://www.azul.com/downloads/azure-only/zulu/) a partir da página de descarregamento do Azure suportada ou utilize os `Dockerfile` exemplos do repo Microsoft Java [GitHub](https://github.com/Microsoft/java/tree/master/docker).
+Para utilizar o Zulu JDK apoiado pelo Azure nos seus contentores, certifique-se de puxar e utilizar as imagens pré-construídas como documentado a partir da página de [descarregamento suportada do Azul Zulu Enterprise para a Azure](https://www.azul.com/downloads/azure-only/zulu/) ou use os `Dockerfile` exemplos do [repo Microsoft Java GitHub.](https://github.com/Microsoft/java/tree/master/docker)
 
 ## <a name="statement-of-support"></a>Declaração de apoio
 
 ### <a name="runtime-availability"></a>Disponibilidade de tempo de execução
 
-O Serviço de Aplicações para Linux suporta dois prazos de execução para hospedagem gerida de aplicações web Java:
+O Serviço de Aplicações para Linux suporta dois tempos de execução para hospedagem gerida de aplicações web java:
 
-- O [recipiente de servlet Tomcat](https://tomcat.apache.org/) para executar aplicações embalados como ficheiros de arquivo web (WAR). As versões suportadas são 8.5 e 9.0.
-- Ambiente de tempo de funcionamento da Java SE para aplicações em funcionamento embalados como ficheiros Java archive (JAR). As versões suportadas são Java 8 e 11.
+- O [recipiente de servidão Tomcat](https://tomcat.apache.org/) para executar aplicações embaladas como ficheiros de arquivo web (WAR). As versões suportadas são 8.5 e 9.0.
+- Ambiente de execução Java SE para executar aplicações embaladas como ficheiros de arquivo Java (JAR). As versões suportadas são Java 8 e 11.
 
-### <a name="jdk-versions-and-maintenance"></a>Versões jdk e manutenção
+### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção JDK
 
-As construções da Blue Zulu Enterprise da OpenJDK são uma distribuição sem custos, multiplataforma, pronta para a produção do OpenJDK para Azure e Azure Stack apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [instalação Java JDK](https://aka.ms/azure-jdks).
+As construções da Azul Zulu Enterprise da OpenJDK são uma distribuição sem custos, multi-plataforma, pronta para a produção do OpenJDK para Azure e Azure Stack, apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [Instalação Java JDK.](https://aka.ms/azure-jdks)
 
 Os JDKs suportados são automaticamente corrigidos trimestralmente em janeiro, abril, julho e outubro de cada ano.
 
 ### <a name="security-updates"></a>Atualizações de segurança
 
-Patches e correções para grandes vulnerabilidades de segurança serão lançados assim que ficarem disponíveis na Azul Systems. Uma vulnerabilidade "importante" é definida por uma pontuação base de 9.0 ou superior no Sistema de Pontuação de [Vulnerabilidade Comum NIST, versão 2](https://nvd.nist.gov/cvss.cfm).
+Patches e correções para grandes vulnerabilidades de segurança serão lançados assim que forem disponibilizados pela Azul Systems. Uma vulnerabilidade "importante" é definida por uma pontuação base de 9.0 ou superior no [Sistema de Pontuação Comum de Vulnerabilidade NIST, versão 2](https://nvd.nist.gov/cvss.cfm).
 
 ### <a name="deprecation-and-retirement"></a>Depreciação e reforma
 
-Se um tempo de execução apoiado em Java for retirado, os desenvolvedores da Azure que utilizem o tempo de execução afetado receberão um aviso de depreciação pelo menos seis meses antes do tempo de execução ser retirado.
+Se um tempo de execução java suportado for retirado, os desenvolvedores Azure que usam o tempo de execução afetado receberão um aviso de depreciação pelo menos seis meses antes do tempo de execução ser retirado.
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Visite o [Centro Azure para Java Developers](/java/azure/) para encontrar quickstarts, tutoriais e documentação de referência java.
+Visite o [centro de Azure para Java Developers](/java/azure/) para encontrar quickstarts, tutoriais e documentação de referência java.
 
-Perguntas gerais sobre a utilização do Serviço de Aplicações para o Linux que não são específicas para o desenvolvimento de Java são respondidas no [App Service Linux FAQ](app-service-linux-faq.md).
+As questões gerais sobre a utilização do Serviço de Aplicações para o Linux que não sejam específicas para o desenvolvimento de Java são respondidas no [Serviço de Aplicações Linux FAQ](app-service-linux-faq.md).

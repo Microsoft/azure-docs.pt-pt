@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: Executor a granel Java API, SDK & recursos'
-description: Saiba tudo sobre o executor a granel Java API e SDK, incluindo datas de lançamento, datas de reforma e alterações feitas entre cada versão do executor a granel do Azure Cosmos DB Java SDK.
+description: Saiba tudo sobre o executor a granel Java API e SDK incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão do executor a granel Azure Cosmos DB Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c826b9f813c30a50d8b88b2cca1b188c328465b0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660435"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171655"
 ---
-# <a name="java-bulk-executor-library-download-information"></a>Biblioteca executor a granel de Java: Descarregue informações
+# <a name="java-bulk-executor-library-download-information"></a>Biblioteca de executor a granel java: Descarregar informações
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "83660435"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Pitão](sql-api-sdk-python.md)
+> * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
@@ -34,33 +34,33 @@ ms.locfileid: "83660435"
 
 | |  |
 |---|---|
-|**Descrição**|A biblioteca de executora a granel permite que as aplicações dos clientes realizem operações a granel nas contas da Azure Cosmos DB. a biblioteca de executores a granel fornece espaços de nome bulkImport e BulkUpdate. O módulo BulkImport pode ingerir a granel documentos de forma otimizada, de modo a que o serviço de entrada previsto para uma recolha seja consumido na sua extensão máxima. O módulo BulkUpdate pode atualizar em massa os dados existentes nos contentores Do Cosmos azure como patches.|
-|**Download sDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
-|**Biblioteca executora a granel em GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **Documentação da API**| [Documentação de referência da API java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
-|**Introdução**|[Começar com a biblioteca de executor esfarofoneiro Java SDK](bulk-executor-java.md)|
-|**Tempo mínimo de execução suportado**|[Kit de Desenvolvimento Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+|**Descrição**|A biblioteca de executor a granel permite que as aplicações do cliente realizem operações a granel nas contas DB da Azure Cosmos. biblioteca executor a granel fornece bulkImport, e bulkUpdate espaços de nome. O módulo BulkImport pode ingerir documentos em massa de forma otimizada, de modo a que a produção prevista para uma recolha seja consumida na sua máxima extensão. O módulo BulkUpdate pode atualizar em massa os dados existentes em recipientes Azure Cosmos como patches.|
+|**Download SDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
+|**Biblioteca de executor a granel em GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
+| **Documentação da API**| [Documentação de referência da API de Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+|**Introdução**|[Começa com a biblioteca de executor a granel Java SDK](bulk-executor-java.md)|
+|**Tempo mínimo suportado**|[Kit de Desenvolvimento de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="2100"></a><a name="2.10.0"/>2.10.0
+### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 
-* Fixe o DocumentAnalyzer.java para extrair corretamente valores-chave de divisória sinuosa do json.
+* Correção para DocumentAnalyzer.java para extrair corretamente valores-chave de partição aninhada do json.
 
-### <a name="294"></a><a name="2.9.4"/>2.9.4
+### <a name="294"></a><a name="2.9.4"></a>2.9.4
 
-* Adicione funcionalidade nas operações BulkDelete para voltar a tentar falhas específicas e também devolver uma lista de falhas ao utilizador que poderiam ser novamente tentadas.
+* Adicione funcionalidades em operações bulkDelete para tentar novamente em falhas específicas e também devolver uma lista de falhas ao utilizador que poderiam ser novamente julgadas.
 
-### <a name="293"></a><a name="2.9.3"/>2.9.3
+### <a name="293"></a><a name="2.9.3"></a>2.9.3
 
-* Atualização para cosmos SDK versão 2.4.7.
+* Atualização para a versão Cosmos SDK 2.4.7.
 
-### <a name="292"></a><a name="2.9.2"/>2.9.2
+### <a name="292"></a><a name="2.9.2"></a>2.9.2
 
-* Correção para que o 'mergeAll' continue no valor chave 'id' e divisória de modo a que quaisquer propriedades de documentos remendadas que sejam colocadas após 'id' e divisória valor chave sejam adicionados à lista de itens atualizados.
+* Correção para 'mergeAll' para continuar no valor da chave 'id' e partição para que quaisquer propriedades de documento remendadas que sejam colocadas após 'id' e valor chave de partição sejam adicionadas à lista de item atualizada.
 
-### <a name="291"></a><a name="2.9.1"/>2.9.1
+### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
-* Atualizar o grau de início da moeda a 1 e adicionar registos de depuração para minibatch.
+* Atualize o grau de concordância inicial a 1 e adicione registos de depuramento para minibatch.
 
 
