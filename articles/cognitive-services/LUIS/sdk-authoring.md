@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Language Understanding (LUIS) autor de biblioteca de clientes'
-description: Comece com a biblioteca de clientes luis com este arranque rápido. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
+title: 'Quickstart: Language Understanding (LUIS) autoria da biblioteca de clientes'
+description: Começa com a biblioteca de clientes LUIS com este arranque rápido. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 05/27/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: dab36a7688e510b4a23f285deedf7d670cd78d10
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9a9b5ded11c1164b5608953433ee36a14b6e7659
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871282"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141522"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Quickstart: Language Understanding (LUIS) autor de biblioteca de clientes
+# <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Quickstart: Language Understanding (LUIS) autoria da biblioteca de clientes
 
-Inicie-se com a biblioteca de clientes do Language Understanding (LUIS). Siga estes passos para instalar o SDK e experimente o código de exemplo para tarefas básicas.  A Compreensão da Linguagem (LUIS) permite-lhe aplicar inteligência personalizada de aprendizagem automática ao texto de linguagem natural e conversacional de um utilizador para prever o significado geral e obter informações relevantes e detalhadas.
+Começa com a biblioteca de clientes de Compreensão linguística (LUIS). Siga estes passos para instalar o SDK e experimente o código de exemplo para tarefas básicas.  A Compreensão da Linguagem (LUIS) permite-lhe aplicar inteligência personalizada de aprendizagem automática ao texto de linguagem natural e conversadora de um utilizador para prever o significado geral e retirar informações relevantes e detalhadas.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/sdk-csharp-authoring.md)]
@@ -27,12 +27,12 @@ Inicie-se com a biblioteca de clientes do Language Understanding (LUIS). Siga es
 [!INCLUDE [Get intent with Python SDK](./includes/sdk-python-authoring.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
->[Use o SDK para consultar o ponto final da previsão](sdk-query-prediction-endpoint.md)
+>[Utilize o SDK para consultar o ponto final de previsão](sdk-query-prediction-endpoint.md)
 
 * [O que é a API de Compreensão linguística (LUIS) ?](what-is-luis.md)
-* [Novidades](whats-new.md)
-* [Intenções,](luis-concept-intent.md) [entidades,](luis-concept-entity-types.md)e [declarações de exemplo,](luis-concept-utterance.md)e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
-* O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).
+* [O que há de novo?](whats-new.md)
+* [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md), e [exemplos de declarações](luis-concept-utterance.md), e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
+* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).

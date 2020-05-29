@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Criar um Comando Personalizado com Parâmetros (Pré-visualização) - Serviço de fala'
+title: 'Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados com parâmetros - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, você adicionará parâmetros a uma aplicação de Comandos Personalizados.
+description: Neste artigo, irá adicionar parâmetros a uma aplicação de Comandos Personalizados para que possa ligar e desligar vários dispositivos.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -10,82 +10,86 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: donkim
-ms.openlocfilehash: bf77616123f9311f7384fea515f250e47b354c8c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5461ef9680ab89c8cc9cc2e1166366abb04a6eab
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853601"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142287"
 ---
-# <a name="quickstart-create-a-custom-commands-application-with-parameters-preview"></a>Quickstart: Criar uma aplicação de Comandos Personalizados com parâmetros (Pré-visualização)
+# <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados com parâmetros
 
-No [artigo anterior,](./quickstart-custom-speech-commands-create-new.md)criou uma aplicação simples de Comandos Personalizados sem parâmetros.
+No [artigo anterior,](./quickstart-custom-speech-commands-create-new.md)criou uma aplicação de Comandos Personalizados simples sem parâmetros.
 
-Neste artigo, irá alargar esta aplicação para utilizar os parâmetros para que possa manusear a ligação e desligar vários dispositivos.
+Neste artigo, irá estender a aplicação com parâmetros para que possa ligar e desligar vários dispositivos.
 
-## <a name="create-parameters"></a>Criar Parâmetros
+## <a name="create-parameters"></a>Criar parâmetros
 
-1. Abra o projeto [que criou anteriormente](./quickstart-custom-speech-commands-create-new.md)
-1. Vamos editar o comando existente para ligar e desligar vários dispositivos.
-1. Porque o Comando vai agora andar de e `TurnOnOff`para cima, renomear o Comando para .
-   - No painel esquerdo, selecione o `TurnOn` `...` comando e `+ New command` clique no ícone ao lado na parte superior do painel.
+1. Abra o projeto que criou no [artigo anterior.](./quickstart-custom-speech-commands-create-new.md)
+
+   Vamos editar o comando existente para que possa ser usado para ligar e desligar vários dispositivos.
+1. Porque o comando irá agora lidar tanto ligado como desligado, rebatiza-o para **TurnOnOff**.
+   1. No painel esquerdo, selecione o comando **TurnOn** e, em seguida, selecione o botão elipse **(...**) ao lado do **comando Novo** na parte superior do painel.
    
-   - Selecione `Rename` o ícone. No pop-up do **comando Rename,** mude **de nome** para `TurOnOff`. Em seguida, selecione **Guardar**.
+   1. Selecione **Renomear**. Na janela **de comando Do nome,** altere o **nome** para **TurOnOff**. Selecione **Guardar**.
 
-1. Em seguida, cria um novo parâmetro para representar se o utilizador quer ligar ou desligar o dispositivo.
-   - Selecione `+ Add` o ícone presente na parte superior do painel médio. A partir da descida, selecione **Parameter**.
-   - No painel mais à direita, pode ver a secção de configuração de **Parâmetros.**
-   - Adicionar valor para **Nome**.
-   - Verifique a caixa de verificação **necessária.** Na resposta Adicionar para uma janela **de parâmetro seletiva,** selecione **Editor Simples** e à **Primeira variação,** adicione
+1. Crie um parâmetro para representar se o utilizador quer ligar ou desligar o dispositivo.
+   1. **Selecione Adicione** na parte superior do painel central. Na lista de recuos, selecione **Parâmetro**.
+   1. No painel direito, na secção **Parâmetros,** adicione um valor na caixa **Nome.**
+   1. **Selecione Necessário**. Na resposta Add para uma janela **de parâmetros necessária,** selecione **Editor Simples**. Na primeira caixa **de variação,** insira este texto:
         ```
         On or Off?
         ```
-   - Selecione **Atualizar**.
+   1. Selecione **Atualizar**.
 
        > [!div class="mx-imgBorder"]
-       > ![Criar resposta de parâmetro sintetária necessária](media/custom-speech-commands/add-required-on-off-parameter-response.png)
+       > ![Criar resposta de parâmetros necessária](media/custom-speech-commands/add-required-on-off-parameter-response.png)
    
-   - Em seguida, vamos configurar o resto das propriedades do `Save` parâmetro da seguinte forma e selecionar para guardar configurações de todas as configurações para o parâmetro.
+1. Configure o resto das propriedades do parâmetro da seguinte forma:
        
 
-       | Configuração      | Valor sugerido     | Descrição                                                      |
-       | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | Name               | OnOff           | Um nome descritivo para parâmetro                                                                           |
-       | É Global          | sem controlo       | Caixa de verificação indicando se um valor para este parâmetro é globalmente aplicado a todos os Comandos na aplicação|
-       | Necessário           | verificado         | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando |
-       | Resposta para parâmetro sinuoso      |Editor simples - > On or Off?      | Um pedido para pedir o valor deste parâmetro quando não é conhecido |
-       | Tipo               | String          | O tipo de parâmetro, como Número, Corda, Hora da Data ou Geografia   |
-       | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para Strings, isto limita as inputs a um conjunto de valores possíveis |
-       | Valores de entrada predefinidos     | on, off             | Conjunto de valores possíveis e seus pseudónimos         |
+    | Configuração      | Valor sugerido     | Descrição                                                      |
+    | ------------------ | ----------------| ---------------------------------------------------------------------|
+    | **Nome**               | **OnOff**           | Um nome descritivo para o parâmetro.                                                                  |
+    | **É Global**          | Ilibado       | Uma caixa de verificação que indica se um valor para o parâmetro é aplicado globalmente a todos os comandos da aplicação.|
+    | **Necessário**           | Selecionado         | Uma caixa de verificação que indica se é necessário um valor para o parâmetro.  |
+    | **Resposta para parâmetro requerido**      |**Editor simples - > Ligado ou Desligado?**      | Um pedido para pedir o valor do parâmetro quando não é conhecido. |
+    | **Tipo**               | **String**          | O tipo de parâmetro. Por exemplo, Número, Corda, Hora da Data, Geografia.   |
+    | **Configuração**      | **Aceitar valores de entrada predefinidos do catálogo interno** | Para as cordas, esta definição limita as entradas a um conjunto de valores possíveis. |
+    | **Valores de entrada predefinidos**     | **em**, **fora**             | Um conjunto de possíveis valores e seus pseudónimos.         |
        
-        > [!div class="mx-imgBorder"]
-        > ![Criar parâmetro](media/custom-speech-commands/create-on-off-parameter.png)
 
-   - Em seguida, `+ Add` selecione novamente o ícone para adicionar um segundo parâmetro para representar o nome dos dispositivos com a seguinte configuração.
+
+    > [!div class="mx-imgBorder"]
+    > ![Criar parâmetro](media/custom-speech-commands/create-on-off-parameter.png)
+
+1. Selecione **Guardar** para guardar as definições.
+
+ 1. **Selecione Adicione** novamente para adicionar um segundo parâmetro. Este parâmetro representa o nome do dispositivo. Utilize estas definições:
    
 
        | Definição            | Valor sugerido       | Descrição                                                                                               |
        | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
-       | Name               | Dispositivo sujeito         | Um nome descritivo para parâmetro                                                                     |
-       | É Global          | sem controlo             | Caixa de verificação indicando se um valor para este parâmetro é globalmente aplicado a todos os Comandos na aplicação |
-       | Necessário           | verificado               | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando          |
-       | Editor simples      | Que dispositivo?    | Um pedido para pedir o valor deste parâmetro quando não é conhecido                                       |
-       | Tipo               | String                | O tipo de parâmetro, como Número, Corda, Hora da Data ou Geografia                                                |
-       | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cordas, uma Lista de Cordas limita as inputs a um conjunto de valores possíveis       |
-       | Valores de entrada predefinidos | tv, fã               | Conjunto de valores possíveis e seus pseudónimos                               |
-       | Pseudónimos (tv)      | televisão, televisão     | Pseudónimos opcionais para cada valor possível dos valores de entrada predefinidos                                 |
+       | **Nome**               | **SujeitoDevice**         | Um nome descritivo para parâmetro.                                                                     |
+       | **É Global**          | Ilibado             | Uma caixa de verificação que indica se um valor para o parâmetro é aplicado globalmente a todos os comandos da aplicação. |
+       | **Necessário**           | Selecionado               | Uma caixa de verificação que indica se é necessário um valor para o parâmetro.          |
+       | **Editor simples**      | **Que dispositivo?**    | Um pedido para pedir o valor do parâmetro quando não é conhecido.                                       |
+       | **Tipo**               | **String**                | O tipo de parâmetro. Por exemplo, Número, Corda, Hora da Data, Geografia.                                                |
+       | **Configuração**      | **Aceitar valores de entrada predefinidos do catálogo interno** | Para as cordas, esta definição limita as entradas a um conjunto de valores possíveis.       |
+       | **Valores de entrada predefinidos** | **tv,** **fã**               | Um conjunto de possíveis valores e seus pseudónimos.                               |
+       | **Pseudónimos** (tv)      | **televisão,** **televisão**     | Pseudónimos opcionais para cada um dos valores de entrada predefinidos.                                 |
 
-## <a name="add-example-sentences"></a>Adicionar frases exemplo
+## <a name="add-example-sentences"></a>Adicionar frases de exemplo
 
-Com comandos com parâmetros, é útil adicionar frases de exemplo que cobrem todas as combinações possíveis. Por exemplo:
+Para comandos que têm parâmetros, é útil adicionar frases de exemplo que cobrem todas as combinações possíveis. Por exemplo:
 
-1. Informação completa do parâmetro -`turn {OnOff} the {SubjectDevice}`
-1. Informação parcial do parâmetro -`turn it {OnOff}`
-1. Sem informações de parâmetros -`turn something`
+- Informação completa dos parâmetros:`turn {OnOff} the {SubjectDevice}`
+- Informação parcial do parâmetro:`turn it {OnOff}`
+- Sem informação sobre parâmetros:`turn something`
 
-As frases de exemplo com diferentes graus de informação permitem que a aplicação de Comandos Personalizados resolva resoluções de um tiro e resoluções multi-voltacom informações parciais.
+Frases de exemplo que têm diferentes quantidades de informação permitem que a aplicação de Comandos Personalizados resolva resoluções de um tiro e resoluções multi-voltas que tenham informações parciais.
 
-Com isso em mente, edite as frases de exemplo para usar os parâmetros como sugerido abaixo.
+Com isso em mente, edite as frases de exemplo para usar os parâmetros como sugerido aqui:
 
 ```
 turn {OnOff} the {SubjectDevice}
@@ -95,37 +99,41 @@ turn something {OnOff}
 turn something
 ```
 > [!TIP]
-> Nas frases exemplo o editor usa aparelhos encaracolados para se referir aos seus parâmetros. - `turn {OnOff} the {SubjectDevice}`Utilize o separador para a conclusão automática apoiada por parâmetros previamente criados.
+> No editor de frases Exemplo, utilize aparelhos para se referir aos seus parâmetros: `turn {OnOff} the {SubjectDevice}` .
+>
+> Utilize o separador para a conclusão automática definido por parâmetros previamente criados.
 
-## <a name="add-parameters-to-completion-rules"></a>Adicione parâmetros às regras de conclusão
+## <a name="add-parameters-to-completion-rules"></a>Adicionar parâmetros às regras de conclusão
 
-Modificar a regra de Conclusão que criámos no [arranque rápido anterior.](./quickstart-custom-speech-commands-create-new.md)
+Modifique a regra de conclusão que criou no [arranque rápido anterior](./quickstart-custom-speech-commands-create-new.md).
 
-1. Na secção **Condições,** adicione uma nova condição selecionando **+ Adicione uma condição**
-1. No novo pop-up **New** `Required parameters` Condition , Selecione a partir do **drop-down tipo.** Na lista de verificação `OnOff` abaixo, verifique ambos e `SubjectDevice`.
-1. Clique em **Criar**.
-1. Na secção **Ações,** edite a ação de resposta da fala enviar existente, pairando sobre a ação e clicando no ícone de edição. Desta vez, vamos fazer uso `OnOff` de `SubjectDevice` novos criados e parâmetros
+1. Na secção **Condições,** **selecione Adicionar uma condição**.
+1. Na janela **New Condition,** na lista **Tipo,** selecione **os parâmetros necessários**. Na lista, selecione **OnOff** e **SubjectDevice**.
+1. Selecione **Criar**.
+1. Na secção **Ações,** edite a ação de **resposta da fala enviar** por parte da ação e selecione o botão de edição. Desta vez, use os novos `OnOff` e `SubjectDevice` parâmetros:
 
     ```
     Ok, turning {OnOff} the {SubjectDevice}
     ```
 
 ## <a name="try-it-out"></a>Experimente
-1. Selecione `Train` o ícone presente em cima do painel direito.
+1. Selecione **Train** no topo do painel direito.
 
-1. Uma vez, o `Test`treino completa, selecione .
-    - Aparecerá um novo teste da sua janela de **candidatura.**
-    - Tente algumas interações.
+1. Quando o treino estiver feito, selecione **Teste**.
+    
+    Aparecerá uma janela **de teste.**
 
-        - Entrada: desligue a televisão
-        - Saída: Ok, desligar a televisão        
-        - Entrada: desligue a televisão
-        - Saída: Ok, desligar a televisão
-        - Entrada: desligá-lo
-        - Saída: Qual dispositivo?
-        - Entrada: a televisão
-        - Saída: Ok, desligar a televisão
+1. Tente algumas interações.
 
-## <a name="next-steps"></a>Passos seguintes
+        - Input: turn off the tv
+        - Output: Ok, turning off the tv        
+        - Input: turn off the television
+        - Output: Ok, turning off the tv
+        - Input: turn it off
+        - Output: Which device?
+        - Input: the tv
+        - Output: Ok, turning off the tv
+
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Quickstart: Use comandos personalizados com voz personalizada (pré-visualização)](./quickstart-custom-speech-commands-select-custom-voice.md)
