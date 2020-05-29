@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Mensagens de processamento de conjuntos
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: Enviar mensagens por ordem - transporte sequencial
+          href: send-related-messages-sequential-convoy.md
         - name: Criar definições JSON
           href: logic-apps-author-definitions.md
         - name: Lidar com tipos de conteúdo

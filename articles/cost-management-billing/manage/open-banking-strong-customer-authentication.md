@@ -8,16 +8,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 847e9b692ddbd7880c37d1068d61447dcccb9c80
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200593"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747153"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Banco Aberto (PSD2) e Autenticação de Clientes Segura (SCA) para os clientes do Azure
 
-Desde 14 de setembro de 2019 que os bancos dos 31 países do [Espaço Económico Europeu](https://en.wikipedia.org/wiki/European_Economic_Area) têm de verificar a identidade da pessoa que fizer uma compra online antes de processar o pagamento. Esta verificação requer a autenticação multifator para ajudar a garantir a segurança e proteção das suas compras online. A data de entrada em vigor deste requisito de verificação será adiada em alguns países. Para obter mais informações, veja a [FAQ da Microsoft sobre o PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+Desde 14 de setembro de 2019 que os bancos dos 31 países/regiões do [Espaço Económico Europeu](https://en.wikipedia.org/wiki/European_Economic_Area) têm de verificar a identidade da pessoa que fizer uma compra online antes de processar o pagamento. Esta verificação requer a autenticação multifator para ajudar a garantir a segurança e proteção das suas compras online. A data de entrada em vigor deste requisito de verificação será adiada em alguns países/regiões. Para obter mais informações, veja a [FAQ da Microsoft sobre o PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## <a name="what-psd2-means-for-azure-customers"></a>O que representa o PSD2 para os clientes do Azure
 

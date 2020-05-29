@@ -7,7 +7,7 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Proteger o hub virtual
+    - name: Hub virtual seguro - modelo ARM
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
 - name: Tutoriais

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214263"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873945"
 ---
 ::: zone target="docs"
 
@@ -56,7 +56,7 @@ Para clientes Windows, também deve ser instalado o seguinte.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## <a name="other-required-software-for-linux-clients"></a>Outro software necessário para clientes Linux
@@ -79,10 +79,6 @@ Aqui está uma lista dos tipos de armazenamento suportados para o Data Box Disk.
 | Clássica | Standard |
 | Fins Gerais  |Standard; quer a V1 como a V2 são suportadas. São suportados tanto os escalões de acesso frequente, como os de acesso esporádico. |
 | Conta de armazenamento de blobs | |
-
->[!NOTE]
-> As contas do Azure Data Lake Storage Gen 2 não são suportadas.
-
 
 ## <a name="supported-storage-types-for-upload"></a>Tipos de armazenamento suportados para carregamento
 

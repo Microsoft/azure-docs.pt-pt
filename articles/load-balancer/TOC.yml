@@ -135,12 +135,14 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Balanceador de carga interno - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
-    - name: Resolução de problemas
-      items:
-        - name: Resolver problemas do Balanceador de Carga do Azure
-          href: load-balancer-troubleshoot.md
-        - name: Resolver erros de implementação comuns
-          href: load-balancer-common-deployment-errors.md
+- name: Resolução de problemas
+  items:
+    - name: Resolver problemas do Balanceador de Carga do Azure
+      href: load-balancer-troubleshoot.md
+    - name: Resolver erros de implementação comuns
+      href: load-balancer-common-deployment-errors.md
+    - name: Resolver problemas comuns de ligação de saída
+      href: troubleshoot-outbound-connection.md
 - name: Referência
   items:
     - name: Exemplos de código

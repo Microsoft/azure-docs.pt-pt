@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133173"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745534"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
@@ -63,7 +63,7 @@ Utilize os passos seguintes para atualizar as definições de cookies do browser
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>O formulário do cartão de crédito não suporta o meu endereço de faturação
 
-O seu endereço de faturação tem de estar situado no país que selecionar na secção **Acerca de si**. Confirme que seleciona o país correto.
+O seu endereço de faturação tem de estar situado no país/região que selecionar na secção **Acerca de si**. Certifique-se de que seleciona o país/região correto.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Não recebe mensagens de texto nem chamadas durante a verificação da conta de inscrição
 
@@ -72,7 +72,7 @@ Embora o processo seja normalmente rápido, pode demorar até quatro minutos par
 Eis algumas dicas adicionais:
 
 - Não pode usar um número de telefone VoiP (Voice-over-IP) para o processo de verificação por telefone.
-- Verifique novamente o número de telefone que introduzir, incluindo o indicativo que selecionar no menu pendente.
+- Verifique novamente o número de telefone que introduzir, incluindo o código de país/região que selecionar no menu pendente.
 - Se o seu telefone não receber mensagens de texto (SMS), experimente a opção **Ligar-me**.
 - Verifique se o telefone pode receber chamadas ou mensagens SMS de um número de telefone proveniente dos Estados Unidos.
 
