@@ -1,96 +1,96 @@
 ---
-title: Visão geral da replicação de objetos (pré-visualização)
+title: Visão geral da replicação do objeto (pré-visualização)
 titleSuffix: Azure Storage
-description: A replicação do objeto (pré-visualização) copia assincronicamente bolhas de blocos entre uma conta de armazenamento de origem e uma conta de destino. Utilize a replicação de objetos para minimizar a latência nos pedidos de leitura, para aumentar a eficiência das cargas de trabalho computacionais, para otimizar a distribuição de dados e minimizar os custos.
+description: A replicação de objetos (pré-visualização) assíncroneamente copia blobs de bloco entre uma conta de armazenamento de origem e uma conta de destino. Use a replicação de objetos para minimizar a latência em pedidos de leitura, para aumentar a eficiência das cargas de trabalho computacional, para otimizar a distribuição de dados e para minimizar os custos.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3405a322b8498b0b1a29399811ddf188ea766ca8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800754"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170601"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objetos para bolhas de bloco (pré-visualização)
 
-A replicação do objeto (pré-visualização) copia assincronicamente bolhas de blocos entre uma conta de armazenamento de origem e uma conta de destino. Alguns cenários apoiados pela replicação de objetos incluem:
+A replicação de objetos (pré-visualização) assíncroneamente copia blobs de bloco entre uma conta de armazenamento de origem e uma conta de destino. Alguns cenários suportados pela replicação de objetos incluem:
 
-- **Minimizar a latência.** A replicação de objetos pode reduzir a latência para pedidos de leitura, permitindo aos clientes consumir dados de uma região que está mais próxima da proximidade física.
-- **Aumentar a eficiência para as cargas de trabalho computacionais.** Com a replicação de objetos, as cargas de trabalho computacionais podem processar os mesmos conjuntos de blocos em diferentes regiões.
-- **Otimizar a distribuição de dados.** Pode processar ou analisar dados num único local e, em seguida, replicar apenas os resultados para regiões adicionais.
-- **Otimização de custos.** Depois de replicados os seus dados, pode reduzir os custos transferindo-os para o nível de arquivo utilizando políticas de gestão do ciclo de vida.
+- **Minimizar a latência.** A replicação de objetos pode reduzir a latência para pedidos de leitura, permitindo que os clientes consumam dados de uma região que está em proximidade física mais próxima.
+- **Aumentar a eficiência para cargas de trabalho de computação.** Com a replicação de objetos, as cargas de trabalho computativas podem processar os mesmos conjuntos de blobs de blocos em diferentes regiões.
+- **Otimizar a distribuição de dados.** Pode processar ou analisar dados num único local e depois replicar apenas os resultados em regiões adicionais.
+- **Otimizar custos.** Depois de os seus dados terem sido replicados, pode reduzir custos movendo-os para o nível de arquivo usando políticas de gestão do ciclo de vida.
 
-O diagrama seguinte mostra como a replicação de objetos replica bolhas de blocos de uma conta de armazenamento de origem numa região para contas de destino em duas regiões diferentes.
+O diagrama seguinte mostra como a replicação de objetos replica blobs de uma conta de armazenamento de origem numa região para contas de destino em duas regiões diferentes.
 
-:::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagrama mostrando como a replicação de objetos funciona":::
+:::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagrama mostrando como funciona a replicação do objeto":::
 
-Para aprender a configurar a replicação do objeto, consulte a replicação do [objeto (pré-visualização)](object-replication-configure.md).
+Para aprender a configurar a replicação de objetos, consulte a replicação do [objeto configurado (pré-visualização)](object-replication-configure.md).
 
 ## <a name="object-replication-policies-and-rules"></a>Políticas e regras de replicação de objetos
 
-Ao configurar a replicação de objetos, cria-se uma política de replicação que especifica a conta de armazenamento de origem e a conta de destino. Uma política de replicação inclui uma ou mais regras que especificam um recipiente de origem e um recipiente de destino e indicam quais as bolhas de bloco no recipiente de origem que serão replicadas.
+Ao configurar a replicação de objetos, cria uma política de replicação que especifica a conta de armazenamento de origem e a conta de destino. Uma política de replicação inclui uma ou mais regras que especificam um contentor de origem e um contentor de destino e indicam quais as bolhas de bloqueio no recipiente de origem que serão replicadas.
 
-Depois de configurar a replicação de objetos, o Armazenamento Azure verifica periodicamente o feed de alteração da conta de origem e replica assincronicamente qualquer gravação ou exclusão de operações para a conta de destino. A latência da replicação depende do tamanho da bolha do bloco ser replicada.
+Depois de configurar a replicação de objetos, o Azure Storage verifica periodicamente e assincroticamente o feed da conta de origem e reproduz assíncronamente qualquer gravação ou exclusão de operações para a conta de destino. A latência da replicação depende do tamanho da bolha do bloco ser replicada.
 
 > [!IMPORTANT]
-> Como os dados do bloco blob são replicados assíncronamente, a conta fonte e a conta de destino não estão imediatamente sincronizadas. Não existe atualmente SLA sobre quanto tempo demora a replicar dados para a conta de destino.
+> Como os dados do blob de bloco são replicados assíncroniamente, a conta de origem e a conta de destino não estão imediatamente sincronizadas. Atualmente não há SLA sobre o tempo que leva para replicar dados para a conta de destino.
 
 ### <a name="replications-policies"></a>Políticas de replicação
 
-Quando configura a replicação de objetos, é criada uma política de replicação tanto na conta fonte como na conta de destino através do fornecedor de recursos de Armazenamento Azure. A política de replicação é identificada por uma identificação política. A política sobre as contas de origem e destino deve ter o mesmo ID político para que a replicação ocorra.
+Ao configurar a replicação de objetos, é criada uma política de replicação tanto na conta de origem como na conta de destino através do fornecedor de recursos de armazenamento Azure. A política de replicação é identificada por uma identificação de política. A política das contas de origem e de destino deve ter a mesma identificação política para que a replicação se realize.
 
-Uma conta de armazenamento pode servir como a conta fonte para até duas contas de destino. As contas de origem e destino podem estar todas em diferentes regiões. Pode configurar políticas de replicação separadas para replicar dados em cada uma das contas de destino.
+Uma conta de armazenamento pode servir como a conta de origem de até duas contas de destino. As contas de origem e destino podem estar todas em diferentes regiões. Pode configurar políticas de replicação separadas para replicar dados em cada uma das contas de destino.
 
 ### <a name="replication-rules"></a>Regras de replicação
 
-As regras de replicação especificam como o Armazenamento Azure irá replicar bolhas de um recipiente de origem para um contentor de destino. Pode especificar até 10 regras de replicação para cada política de replicação. Cada regra define um único recipiente de origem e destino, e cada fonte e recipiente de destino podem ser utilizados em apenas uma regra.
+As regras de replicação especificam como o Azure Storage irá replicar bolhas de um recipiente de origem para um recipiente de destino. Pode especificar até 10 regras de replicação para cada política de replicação. Cada regra define um único recipiente de origem e destino, e cada recipiente de origem e destino pode ser utilizado numa única regra.
 
-Quando se cria uma regra de replicação, por defeito apenas são copiadas novas bolhas de bloco que são posteriormente adicionadas ao recipiente de origem. Também pode especificar que as bolhas de blocos novas e existentes são copiadas, ou pode definir um âmbito de cópia personalizado que copia bolhas de blococriadas a partir de um tempo determinado.
+Quando se cria uma regra de replicação, por padrão apenas são copiadas novas bolhas de blocos que são posteriormente adicionadas ao recipiente de origem. Também pode especificar que tanto as bolhas de blocos novas como existentes são copiadas, ou pode definir um âmbito de cópia personalizado que copia blobs de blocos criados a partir de um tempo especificado.
 
-Também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar bolhas de blocos por prefixo. Quando especificar um prefixo, apenas as bolhas correspondentes a esse prefixo no recipiente de origem serão copiadas para o recipiente de destino.
+Também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar bolhas de bloqueio por prefixo. Quando especificar um prefixo, apenas as bolhas correspondentes ao prefixo no recipiente de origem serão copiadas para o recipiente de destino.
 
-Os recipientes de origem e destino devem existir antes de poder especificar em regra. Depois de criar a política de replicação, o recipiente de destino torna-se apenas de leitura. Qualquer tentativa de escrever para o recipiente de destino falha com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no contentor de destino para movê-la para um nível de acesso diferente. Por exemplo, pode mover bolhas no contentor de destino para o nível de arquivo para economizar custos.
+Os recipientes de origem e destino devem existir antes de os especificar numa regra. Depois de criar a política de replicação, o recipiente de destino torna-se apenas para leitura. Qualquer tentativa de escrever para o contentor de destino falha com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no recipiente de destino para movê-la para o nível de arquivo. Para obter mais informações sobre o nível de arquivo, consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md#archive-access-tier)
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
-A replicação do objeto é suportada apenas para contas de armazenamento v2 de uso geral. A replicação de objetos está disponível nas seguintes regiões em pré-visualização:
+A replicação de objetos é suportada apenas para contas de armazenamento v2 para fins gerais. A replicação de objetos está disponível nas seguintes regiões em pré-visualização:
 
 - França Central
 - Leste do Canadá
 - Canadá Central
 
-Tanto as contas de origem como de destino devem residir numa dessas regiões para utilizar a replicação de objetos. As contas podem ser em duas regiões diferentes.
+Tanto as contas de origem como de destino devem residir numa dessas regiões, a fim de utilizar a replicação de objetos. As contas podem estar em duas regiões diferentes.
 
 Durante a pré-visualização, não existem custos adicionais associados à replicação de dados entre contas de armazenamento.
 
 > [!IMPORTANT]
-> A pré-visualização da replicação do objeto destina-se apenas à utilização não-produção. Os acordos de nível de serviço de produção (SLAs) não estão atualmente disponíveis.
+> A pré-visualização da replicação do objeto destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
 
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para a replicação de objetos
 
-A replicação do objeto requer que estejam ativadas as seguintes funcionalidades de Armazenamento Azure:
+A replicação do objeto requer que as seguintes funcionalidades de Armazenamento Azure estejam ativadas:
 
-Antes de configurar a replicação do objeto, ative os seus pré-requisitos. O feed de alteração deve ser ativado na conta fonte e a versão blob deve ser ativada tanto na conta de origem como no destino. Para obter mais informações sobre a ativação destas funcionalidades, consulte estes artigos:
+Antes de configurar a replicação de objetos, ative os seus pré-requisitos. O feed de alteração deve ser ativado na conta de origem e a versão blob deve ser ativada tanto na conta de origem como de destino. Para obter mais informações sobre como ativar estas funcionalidades, consulte estes artigos:
 
-- [Ativar e desativar o feed de mudança](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
+- [Ativar e desativar o feed de alteração](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Ativar e gerir a versão blob](versioning-enable.md)
 
-Certifique-se de que se regista para as pré-visualizações de versão de feed de alteração e blob antes de as ativar.
+Certifique-se de que se regista para as pré-visualizações de alterações e versões blob antes de as ativar.
 
-Permitir a alteração do feed e a versão blob podem incorrer em custos adicionais. Para mais detalhes, consulte a página de preços do [Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).
+Permitir a alteração do feed e da versão blob pode incorrer em custos adicionais. Para mais detalhes, consulte a [página de preços do Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-### <a name="register-for-the-preview"></a>Registe-se na pré-visualização
+### <a name="register-for-the-preview"></a>Registre-se para a pré-visualização
 
-Pode registar-se na pré-visualização da replicação do objeto utilizando o PowerShell ou o Azure CLI. Certifique-se de que também se regista para as pré-visualizações de versões de feed de alteração e blob se ainda não o fez.
+Pode registar-se para a pré-visualização da replicação do objeto utilizando o PowerShell ou o Azure CLI. Certifique-se de que também se regista para as pré-visualizações de alterações e versões blob se ainda não o fez.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para se registar na pré-visualização com a PowerShell, execute os seguintes comandos:
+Para se registar para a pré-visualização com a PowerShell, execute os seguintes comandos:
 
 ```powershell
 # Register for the object replication preview
@@ -108,7 +108,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para se registar na pré-visualização com o Azure CLI, execute os seguintes comandos:
+Para se registar para a pré-visualização com o Azure CLI, execute os seguintes comandos:
 
 ```azurecli
 az feature register --namespace Microsoft.Storage --name AllowObjectReplication
@@ -152,8 +152,8 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 
 ## <a name="ask-questions-or-provide-feedback"></a>Faça perguntas ou forneça feedback
 
-Para fazer perguntas sobre a pré-visualização da replicação do objeto, ou para fornecer feedback, contacte a Microsoft em AzureStorageFeedback@microsoft.com . Ideias e sugestões sobre o Armazenamento Azure são sempre bem-vindas no fórum de feedback do [Armazenamento Azure.](https://feedback.azure.com/forums/217298-storage)
+Para fazer perguntas sobre a pré-visualização da replicação do objeto, ou para fornecer feedback, contacte a Microsoft em AzureStorageFeedback@microsoft.com . Ideias e sugestões sobre o Azure Storage são sempre bem-vindos no [fórum de feedback do Azure Storage](https://feedback.azure.com/forums/217298-storage).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Configurar a replicação do objeto (pré-visualização)](object-replication-configure.md)
+- [Configure a replicação do objeto (pré-visualização)](object-replication-configure.md)

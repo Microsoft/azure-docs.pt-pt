@@ -1,58 +1,58 @@
 ---
-title: Automatizar tarefas dos Serviços de Análise Azure com os principais de serviços Microsoft Docs
-description: Aprenda a criar um principal de serviço para automatizar tarefas administrativas dos Serviços de Análise azure.
+title: Automatizar tarefas dos Serviços de Análise da Azure com os principais serviços Microsoft Docs
+description: Saiba como criar um principal serviço para automatizar tarefas administrativas dos Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871179"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168340"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
 Os principais de serviço são um recurso de aplicações do Azure Active Directory que pode criar no seu inquilino para efetuar operações automáticas de recursos e níveis de serviço. São um tipo único de identidade de *utilizador* com identificação de aplicação e senha ou certificado. Um diretor de serviço tem apenas as permissões necessárias para executar tarefas definidas pelas funções e permissões para as quais é atribuído. 
 
-Nos Serviços de Análise, os principais de serviço são utilizados com a Automação Azure, o modo PowerShell sem supervisão, aplicações personalizadas do cliente e aplicações web para automatizar tarefas comuns. Por exemplo, o fornecimento de servidores, a implementação de modelos, a atualização de dados, a escala para cima/para baixo e a pausa/retoma podem ser todos automatizados utilizando os diretores de serviço. As permissões são atribuídas aos principais de serviço através da adesão a papéis, tal como as contas regulares da Azure AD UPN.
+Nos Serviços de Análise, os principais serviços são utilizados com a Azure Automation, o modo PowerShell sem supervisão, aplicações personalizadas para clientes e aplicações web para automatizar tarefas comuns. Por exemplo, o fornecimento de servidores, modelos de implementação, atualização de dados, escala para cima/para baixo e pausa/currículo podem ser automatizados utilizando os principais serviços. As permissões são atribuídas aos principais de serviço através da adesão à função, à semelhança das contas regulares da Azure AD UPN.
 
-Os Serviços de Análise também apoiam as operações realizadas por identidades geridas utilizando os principais de serviço. Para saber mais, consulte [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) e [serviços Azure que suportam a autenticação Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)  
+Os Serviços de Análise também apoiam operações realizadas por identidades geridas utilizando os princípios de serviço. Para saber mais, consulte [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) e [serviços Azure que suportam a autenticação AD AZure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)  
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
 Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, consulte:
 
-[Criar o principal de serviço - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos credenciais e certificados na Azure Automation
+## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos de credencial e certificados na Azure Automation
 
-As principais credenciais e certificados de serviço podem ser armazenados de forma segura na Azure Automation para operações de livro de reprodução. Para saber mais, consulte:
+As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, consulte:
 
-[Ativos credenciais na Automação Azure](../automation/automation-credentials.md)   
+[Ativos credenciais na Azure Automation](../automation/automation-credentials.md)   
 [Recursos de certificados na Automatização do Azure](../automation/automation-certificates.md)
 
-## <a name="add-service-principals-to-server-admin-role"></a>Adicionar diretores de serviço à função de administração do servidor
+## <a name="add-service-principals-to-server-admin-role"></a>Adicione os principais de serviço ao papel de administração do servidor
 
-Antes de poder utilizar um diretor de serviço para operações de gestão de servidores de Serviços de Análise, deve adicioná-lo à função de administrador do servidor. Para saber mais, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
+Antes de poder utilizar um principal de serviço para operações de gestão de servidores de serviços de análise, deve adicioná-lo à função de administrador do servidor. Para saber mais, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
-## <a name="service-principals-in-connection-strings"></a>Principais de serviço nas cordas de ligação
+## <a name="service-principals-in-connection-strings"></a>Principais de serviço em cadeias de ligação
 
-O aplicativo principal de serviço e a palavra-passe ou certificado podem ser utilizados em cadeias de ligação, tal como uma UPN.
+O appID principal do serviço e a palavra-passe ou certificado podem ser usados em cadeias de ligação muito iguais a uma UPN.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Utilizando o módulo Az.AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Utilizando o módulo Az.AnalysisServices
 
-Ao utilizar um diretor de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize `Connect-AzAccount` cmdlet. 
+Quando utilizar um principal de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize `Connect-AzAccount` o cmdlet. 
 
-No exemplo seguinte, o appID e uma palavra-passe são utilizados para realizar operações de plano de controlo para sincronização a réplicas apenas de leitura e escala para cima/para fora:
+No exemplo seguinte, o appID e uma palavra-passe são utilizados para executar operações de plano de controlo para sincronização para réplicas apenas de leitura e escalar/eliminar:
 
 ```powershell
 Param (
@@ -73,9 +73,9 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>Usando o módulo SQLServer
+#### <a name="using-sqlserver-module"></a>Utilizar o módulo SQLServer
 
-No exemplo seguinte, o appID e uma palavra-passe são utilizados para executar uma operação de atualização de base de dados modelo:
+No exemplo seguinte, o appID e uma palavra-passe são usados para realizar uma operação de atualização de base de dados modelo:
 
 ```powershell
 Param (
@@ -92,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao conectar-se com aplicações de clientes e aplicações web, bibliotecas de [clientes AMO e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instalados mais altos dos principais de suporte do NuGet nas cadeias de ligação utilizando a seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint` . 
+Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](analysis-services-data-providers.md) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
 
-No exemplo seguinte, e a são utilizados para executar uma operação de atualização de base de `appID` `password` dados modelo:
+No seguinte exemplo, `appID` e `password` são utilizados para executar uma operação de atualização da base de dados modelo:
 
 ```csharp
 string appId = "xxx";
@@ -108,9 +108,9 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-[Inscreva-se na Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+## <a name="next-steps"></a>Próximos passos
+[Inscreva-se com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Atualizar com o Logic Apps](analysis-services-refresh-logic-app.md)  
 [Atualizar com a Automatização do Azure](analysis-services-refresh-azure-automation.md)  
 [Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)  
-[Automatizar o espaço de trabalho power bi premium e tarefas de conjunto de dados com os principais de serviço](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatizar o espaço de trabalho power BI Premium e as tarefas de conjunto de dados com os principais serviços](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
