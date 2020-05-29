@@ -6,45 +6,45 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: eabec50f57785bde6760db053eb3b12f6f5b6452
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8aeb6b964ab38a68a6d8681a4e5c93e1650c6a69
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732048"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171290"
 ---
-Utilize a biblioteca de clientes de previsão de linguagem (LUIS) para python para:
+Utilize a biblioteca de clientes de previsão de compreensão linguística (LUIS) para:
 
-* Obtenha previsão por ranhura
+* Obtenha previsão por slot
 * Obtenha previsão por versão
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Biblioteca Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | fonte Previsão Do[pacote de tempo de execução (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [ Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis)  |  [Pacote de tempo de previsão (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conta do portal De Compreensão da Linguagem (LUIS) - [Criar uma gratuitamente](https://www.luis.ai)
+* Conta portal de compreensão de línguas (LUIS) - [Criar uma gratuitamente](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)
-* Um ID de aplicativo LUIS - use `df67dcdb-c37d-46af-88e1-8b97951ca1c2`o ID da aplicação IoT pública de . A consulta do utilizador utilizada no código de arranque rápido é específica dessa aplicação.
+* Um ID de aplicativo LUIS - use o ID da aplicação IoT pública de `df67dcdb-c37d-46af-88e1-8b97951ca1c2` . A consulta do utilizador utilizada no código quickstart é específica para essa aplicação.
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="get-your-language-understanding-luis-runtime-key"></a>Obtenha a sua chave de tempo de execução da linguagem (LUIS)
+### <a name="get-your-language-understanding-luis-runtime-key"></a>Obtenha a sua chave de tempo de execução (LUIS)
 
-Obtenha a sua chave de tempo de [execução](../luis-how-to-azure-subscription.md) criando um recurso de tempo de execução LUIS. Mantenha a chave e o ponto final da chave para o próximo passo.
+Obtenha a sua [chave de tempo de execução](../luis-how-to-azure-subscription.md) criando um recurso de tempo de execução LUIS. Guarde a chave e o ponto final da chave para o próximo passo.
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
 ### <a name="create-a-new-python-file"></a>Criar um novo ficheiro python
 
-Crie um novo ficheiro python no seu `prediction_quickstart.py`editor preferido ou IDE, nomeado .
+Crie um novo ficheiro python no seu editor preferido ou IDE, nomeado `prediction_quickstart.py` .
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
-Dentro do diretório de aplicações, instale a biblioteca de clientes runtime de previsão de previsão de linguagem (LUIS) para Python com o seguinte comando:
+Dentro do diretório de aplicações, instale a biblioteca de clientes de previsão de informação linguística (LUIS) para Python com o seguinte comando:
 
 ```python
 python -m pip install azure-cognitiveservices-language-luis
@@ -52,7 +52,7 @@ python -m pip install azure-cognitiveservices-language-luis
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente de previsão de previsão de linguagem (LUIS) é um objeto [LUISRuntimeClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-python) que autentica o Azure, que contém a sua chave de recursos.
+O cliente de previsão de idioma (LUIS) é um objeto [LUISRuntimeClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-python) que autentica para Azure, que contém a sua chave de recursos.
 
 Assim que o cliente for criado, utilize este cliente para aceder à funcionalidade, incluindo:
 
@@ -61,44 +61,44 @@ Assim que o cliente for criado, utilize este cliente para aceder à funcionalida
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca de clientes de prazo de execução da previsão de linguagem (LUIS) para Python:
+Estes snippets de código mostram-lhe como fazer o seguinte com a biblioteca de clientes de previsão de idioma (LUIS) para Python:
 
-* [Previsão por ranhura](#get-prediction-from-runtime)
+* [Previsão por slot](#get-prediction-from-runtime)
 
 ## <a name="add-the-dependencies"></a>Adicione as dependências
 
-A partir do diretório `prediction_quickstart.py` do projeto, abra o ficheiro no seu editor preferido ou IDE. Adicione as seguintes dependências:
+A partir do diretório do projeto, abra o `prediction_quickstart.py` arquivo no seu editor preferido ou IDE. Adicione as seguintes dependências:
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Dependencies)]
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-1. Crie variáveis para a sua própria informação necessária do LUIS:
+1. Crie variáveis para a sua própria informação LUIS requerida:
 
-    Adicione variáveis para gerir a sua chave `LUIS_RUNTIME_KEY`de previsão retirada de uma variável ambiental chamada . Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
+    Adicione variáveis para gerir a sua chave de previsão puxada de uma variável ambiental chamada `LUIS_RUNTIME_KEY` . Se criou a variável ambiental após o lançamento da aplicação, o editor, o IDE ou o shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
 
-    Crie uma variável `LUIS_RUNTIME_ENDPOINT`para manter o seu nome de recurso.
+    Crie uma variável para manter o seu nome de `LUIS_RUNTIME_ENDPOINT` recurso.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=AuthorizationVariables)]
 
-1. Crie uma variável para o `LUIS_APP_ID`ID da aplicação como uma variável ambiental chamada . Desloque a variável ambiental **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** para a aplicação ioT pública, . Crie uma variável para definir a `production` ranhura publicada.
+1. Crie uma variável para o ID da aplicação como uma variável ambiental chamada `LUIS_APP_ID` . Desaprote a variável ambiente para a aplicação IoT pública, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir a `production` ranhura publicada.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=OtherVariables)]
 
 
-1. Crie um objeto de credenciais com a sua chave e use-ohttps://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() com o seu ponto final para criar um objeto [LUISRuntimeClientConfiguration].
+1. Crie um objeto de credenciais com a sua chave e use-o com o seu ponto final para criar um objeto [LUISRuntimeClientConfiguration]. https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python()
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Client)]
 
-## <a name="get-prediction-from-runtime"></a>Obtenha previsão do tempo de execução
+## <a name="get-prediction-from-runtime"></a>Obtenha a previsão do tempo de execução
 
 Adicione o seguinte método para criar o pedido ao tempo de execução da previsão.
 
 A expressão do utilizador faz parte do objeto [prediction_request.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-python)
 
-O método **[get_slot_prediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)** precisa de vários parâmetros, tais como o ID da aplicação, o nome da ranhura e o objeto de pedido de previsão para cumprir o pedido. As outras opções, como verbosa, mostrar todas as intenções e registo são opcionais. O pedido devolve um objeto [De PrevisãoResponse.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.predictionresponse?view=azure-python)
+O método **[get_slot_prediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)** precisa de vários parâmetros, como o ID da aplicação, o nome da ranhura e o objeto de pedido de previsão para cumprir o pedido. As outras opções, como verbose, mostrar todas as intenções e log são opcionais. O pedido devolve um objeto [PredictionResponse.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.predictionresponse?view=azure-python)
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=predict)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=predict)]
 
 ## <a name="main-code-for-the-prediction"></a>Código principal para a previsão
 
@@ -109,13 +109,13 @@ predict(luisAppID, luisSlotName)
 ```
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a `python prediction_quickstart.py` aplicação com o comando do seu diretório de candidatura.
+Execute a aplicação com o `python prediction_quickstart.py` comando do seu diretório de candidaturas.
 
 ```console
 python prediction_quickstart.py
 ```
 
-A consola quickstart apresenta a saída:
+A consola de arranque rápido exibe a saída:
 
 ```console
 Top intent: HomeAutomation.TurnOn
@@ -127,4 +127,4 @@ Entities: {'HomeAutomation.Operation': ['on']}
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar as suas previsões, limpe o trabalho a partir deste arranque rápido, apagando o ficheiro e os seus subdiretórios.
+Quando terminar as suas previsões, limpe o trabalho a partir deste arranque rápido, eliminando o ficheiro e as suas subdiretas.

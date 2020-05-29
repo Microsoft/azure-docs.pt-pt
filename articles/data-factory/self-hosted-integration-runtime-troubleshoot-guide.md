@@ -1,63 +1,63 @@
 ---
-title: Tempo de integração auto-hospedado em Azure Data Factory
-description: Saiba como resolver problemas de integração auto-hospedada problemas de tempo de funcionação na Azure Data Factory.
+title: Resolução de problemas de integração auto-acolagem na Azure Data Factory
+description: Saiba como resolver problemas de integração auto-hospedados na Azure Data Factory.
 services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
-ms.openlocfilehash: 94e214c55a0109beb85cd08ce87303e5bd0f8016
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f27132eb21d245d0d26de910abba088ba3b8efde
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835432"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170980"
 ---
-# <a name="troubleshoot-self-hosted-integration-runtime"></a>Tempo de execução de integração auto-anfitriã
+# <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo explora métodos comuns de resolução de problemas para o tempo de execução da integração auto-hospedada na Azure Data Factory.
+Este artigo explora métodos comuns de resolução de problemas para o tempo de integração auto-hospedado na Azure Data Factory.
 
 ## <a name="common-errors-and-resolutions"></a>Erros comuns e resoluções
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Mensagem de erro: O tempo de execução de integração auto-hospedado não pode ligar-se ao serviço de nuvem
+### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Error message: O tempo de integração auto-hospedado não pode ligar-se ao serviço na nuvem
 
-![Problema de conexão de INFRAVERMELHOS auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+![Problema de conexão IV auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
 #### <a name="cause"></a>Causa 
 
-O tempo de execução de integração auto-hospedado não pode ligar-se ao serviço data Factory (backend). Este problema é normalmente causado por definições de rede na firewall.
+O tempo de integração auto-hospedado não pode ligar-se ao serviço Data Factory (backend). Este problema é normalmente causado por definições de rede na firewall.
 
 #### <a name="resolution"></a>Resolução
 
-1. Verifique se o serviço de tempo de funcionamento da integração está em execução.
+1. Verifique se o serviço de execução de integração está em execução.
     
-   ![Estatuto de funcionamento do serviço de infravermelhos auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   ![Estado de funcionamento do serviço de IR auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
-1. Se o serviço estiver em execução, vá para o passo 3.
+1. Se o serviço estiver funcionando, vá para o passo 3.
 
-1. Se não houver procuração configurada no tempo de execução de integração auto-hospedado (que é a definição padrão), execute o seguinte comando PowerShell na máquina onde o tempo de execução de integração auto-hospedado é instalado:
+1. Se não houver procuração configurada no tempo de funcionamento da integração auto-hospedada (que é a definição padrão), executar o seguinte comando PowerShell na máquina onde o tempo de execução de integração auto-hospedado é instalado:
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
     ```
         
    > [!NOTE]     
-   > O URL de serviço pode variar, dependendo da localização da Sua Fábrica de Dados. Pode encontrar o URL de serviço em **Ligações ADF UI**  >  **Tempos**de  >  **integração**Editar  >  urLs de serviço de visualização de**nóes de infravermelhos auto-hospedados**  >  **Nodes**  >  **View Service URLs**.
+   > O URL de serviço pode variar, dependendo da localização da sua Data Factory. Pode encontrar o URL de serviço em **ADF UI**  >  **Connections**  >  **Integrationtimes**  >  EditE URLs de Serviço de Ver Urls de serviço de imposições**auto-hospedadas**  >  **Nodes**  >  **View Service URLs**.
             
     Segue-se a resposta esperada:
             
-    ![Resposta de comando PowerShell](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    ![Resposta ao comando PowerShell](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
-1. Se não receber a resposta esperada, utilize um dos seguintes métodos conforme adequado à sua situação:
+1. Se não receber a resposta esperada, utilize um dos seguintes métodos adequados à sua situação:
             
-    * Se receber uma mensagem de "nome remoto não poderia ser resolvido", existe um problema do Sistema de Nome de Domínio (DNS). Contacte a sua equipa de rede para corrigir este problema.
-    * Se receber uma mensagem "ssl/tls cert não é de confiança", verifique se o certificado https://wu2.frontend.clouddatahub.net/ é de confiança na máquina e, em seguida, instale o certificado público utilizando o Certificate Manager. Esta ação deve atenuar a questão.
-    * Vá ao visualizador **do Windows**  >  **Event (logs)**  >  **Aplicações e Serviços Logs**  >  **Integração Prazo** de Integração e verifique se há qualquer falha causada por DNS, uma regra de firewall ou definições de rede da empresa. (Se encontrar tal falha, feche à força a ligação.) Como todas as empresas têm configurações de rede personalizadas, contacte a sua equipa de rede para resolver estes problemas.
+    * Se receber uma mensagem "Nome remoto não pode ser resolvido", existe um problema do Sistema de Nome de Domínio (DNS). Contacte a sua equipa de rede para corrigir este problema.
+    * Se receber uma mensagem "ssl/tls cert não é confiável", verifique se o certificado para https://wu2.frontend.clouddatahub.net/ se confiar na máquina e, em seguida, instale o certificado público utilizando o Certificate Manager. Esta ação deve atenuar a questão.
+    * Aceda ao visualizador **do Windows**  >  **Event (registos)**  >  **Aplicações e serviços**  >  **Integração Desacurecida** e verifique se há falhas causadas por DNS, uma regra de firewall ou definições de rede da empresa. (Se encontrar tal falha, feche à força a ligação.) Como todas as empresas têm configurações de rede personalizadas, contacte a sua equipa de rede para resolver estes problemas.
 
-1. Se o "proxy" tiver sido configurado no tempo de execução de integração auto-hospedado, verifique se o seu servidor proxy pode aceder ao ponto final do serviço. Para um comando de amostra, consulte [PowerShell, web requests e proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
+1. Se o "proxy" tiver sido configurado no tempo de funcionação da integração auto-hospedada, verifique se o seu servidor proxy pode aceder ao ponto final do serviço. Para obter um comando de amostra, consulte [PowerShell, pedidos web e proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
     ```powershell
     $user = $env:username
@@ -78,64 +78,68 @@ O tempo de execução de integração auto-hospedado não pode ligar-se ao servi
 
 Segue-se a resposta esperada:
             
-![Resposta de comando Powershell 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+![Resposta ao comando Powershell 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
 > [!NOTE] 
 > Considerações de procuração:
-> *    Verifique se o servidor proxy precisa de ser colocado na lista de Destinatários Seguros. Em caso afirmativo, certifique-se de que [estes domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista de Destinatários Seguros.
-> *    Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é confiado no servidor proxy.
-> *    Se estiver a utilizar a autenticação do Diretório Ativo no proxy, altere a conta de serviço para a conta de utilizador que pode aceder ao proxy como "Serviço de Tempo de Execução de Integração".
+> *    Verifique se o servidor proxy precisa de ser colocado na lista de destinatários seguros. Em caso afirmativo, certifique-se de que [estes domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista de destinatários seguros.
+> *    Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é fidedigno no servidor proxy.
+> *    Se estiver a utilizar a autenticação ative directory no proxy, altere a conta de serviço para a conta de utilizador que possa aceder ao proxy como "Serviço de Tempo de Execução de Integração".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Mensagem de erro: O nó de tempo de funcionamento da integração auto-hospedada/ sHIR lógico está em estado Inativo/ "Running (Limited)"
+### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Error message: Self-hosted integration runtime node/ logical SHIR is inative/ "Running (Limited)"
 
 #### <a name="cause"></a>Causa 
 
-O nó de tempo de execução integrado auto-hospedado pode ter um estatuto **inativo,** como mostra a seguinte imagem:
+O nó de tempo de execução integrado auto-hospedado pode ter um estado **inativo,** como mostra a seguinte imagem:
 
-![Nó inativo auto-hospedado ir](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+![Nó iv inativo auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
 Este comportamento ocorre quando os nós não conseguem comunicar uns com os outros.
 
 #### <a name="resolution"></a>Resolução
 
-1. Inicie sessão no VM hospedado no nó. No âmbito de **Aplicações e Serviços,** integração de registos,  >  **Integration Runtime**abra o Espectador de Eventos e filtre todos os registos de erro.
+1. Faça login no VM hospedado no nó. No tempo de execução de integração de **aplicações e serviços,**  >  **Integration Runtime**abra o Visualizador de Eventos e filtre todos os registos de erro.
 
 1. Verifique se um registo de erro contém o seguinte erro: 
     
-    ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
+    ```
+    System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
     System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 
     10.2.4.10:8060
-        
     at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-               
     at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-               
     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+    ```
        
-1. If you see this error, run the following on a command line: 
+1. Se vir este erro, corram o seguinte numa linha de comando: 
 
-   **telnet 10.2.4.10 8060**.
-1. If you receive the following error, contact your IT department for help with fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
+   ```
+   telnet 10.2.4.10 8060
+   ```
+   
+1. Se receber o seguinte erro, contacte o seu departamento de TI para obter ajuda para corrigir este problema. Depois de conseguir fazer telnet com sucesso, contacte o Microsoft Support se ainda tiver problemas com o estado do nó de tempo de execução integrador.
         
-   ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
+   ![Erro da linha de comando](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
-1.    Check whether the error log contains the following:
+1. Verifique se o registo de erros contém o seguinte:
 
-    ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
+    ```
+    Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)
+    ```
     
-1. To resolve the issue, try one or both of the following methods:
-    - Put all the nodes in the same domain.
-    - Add the IP to host mapping in all the hosted VM's host files.
+1. Para resolver a questão, experimente um ou ambos os seguintes métodos:
+    - Coloque todos os nós no mesmo domínio.
+    - Adicione o IP para hospedar o mapeamento em todos os ficheiros anfitriões do VM hospedado.
 
 
-## Next steps
+## <a name="next-steps"></a>Próximos passos
 
-For more help with troubleshooting, try the following resources:
+Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
-*  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [Mapping data flows performance guide](concepts-data-flow-performance.md)
+*  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [Guia de desempenho de fluxos de dados de mapeamento](concepts-data-flow-performance.md)

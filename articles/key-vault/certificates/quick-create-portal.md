@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Definir e recuperar um certificado do Key Vault usando o portal Azure [ Microsoft Docs
-description: Quickstart mostrando como definir e recuperar um certificado do Cofre chave Azure usando o portal Azure
+title: Azure Quickstart - set and retrieve a certificate from Key Vault using Azure portal / Microsoft Docs
+description: Quickstart mostrando como definir e recuperar um certificado do Azure Key Vault usando o portal Azure
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b0d6221aaafe3ade70bc23ce4196a7b53c9474c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424721"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169972"
 ---
-# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Definir e recuperar um certificado do Cofre chave Azure usando o portal Azure
+# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Definir e recuperar um certificado do Cofre de Chaves Azure usando o portal Azure
 
-O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Os cofres de chaves do Azure podem ser criados e geridos através do portal do Azure. Neste arranque rápido, cria-se um cofre chave e depois usa-o para armazenar um certificado. Para obter mais informações sobre o Key Vault, reveja a [Descrição Geral](../general/overview.md).
+O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Os cofres de chaves do Azure podem ser criados e geridos através do portal do Azure. Neste arranque rápido, cria-se um cofre chave e depois usa-o para guardar um certificado. Para obter mais informações sobre o Key Vault, reveja a [Descrição Geral](../general/overview.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -30,44 +30,45 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-1. A partir do menu do portal Azure, ou da página **Inicial,** selecione **Criar um recurso**.
+1. A partir do menu do portal Azure, ou na página **Inicial,** selecione **Criar um recurso**.
 2. Na caixa Pesquisar, introduza **Key Vault**.
 3. Na lista de resultados, selecione **Key Vault**.
 4. Na secção Key Vault, selecione **Criar**.
 5. Na secção **Criar cofre de chaves**, forneça as seguintes informações:
-    - **Nome**: é necessário um nome exclusivo. Para este arranque rápido, usamos **O Exemplo-Vault.** 
+    - **Nome**: é necessário um nome exclusivo. Para este arranque rápido, usamos **o Exemplo-Vault.** 
     - **Subscrição**: selecione uma subscrição.
-    - No **Grupo de Recursos,** escolha **Criar novos** e insira um nome de grupo de recursos.
+    - No **Grupo de Recursos,** escolha **Criar novo** e insira um nome de grupo de recursos.
     - No menu pendente **Localização**, selecione uma localização.
     - Deixe as outras opções com os valores predefinidos.
 6. Depois de fornecer as informações acima, selecione **Criar**.
 
 Tome nota das duas propriedades listadas abaixo:
 
-* **Nome do cofre**: No exemplo, este é **exemplo-cofre**. Irá utilizar este nome para outros passos.
+* **Nome do cofre**: No exemplo, este é **Exemplo-Vault**. Irá utilizar este nome para outros passos.
 * **URI do Cofre**: no exemplo, isto é https://example-vault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 Nesta altura, a sua conta do Azure é a única autorizada a realizar as operações neste novo cofre.
 
 ![Resultado após a conclusão da criação do Key Vault](../media/certificates/quick-create-portal/vault-properties.png)
 
-## <a name="add-a-certificate-to-key-vault"></a>Adicione um certificado ao Cofre chave
+## <a name="add-a-certificate-to-key-vault"></a>Adicione um certificado ao Cofre de Chaves
 
-Para adicionar um certificado ao cofre, só precisa de dar mais alguns passos. Neste caso, adicionamos um certificado auto-assinado que poderia ser usado por um pedido. O certificado chama-se **ExemploCertificado**.
+Para adicionar um certificado ao cofre, só precisa dar alguns passos adicionais. Neste caso, adicionamos um certificado auto-assinado que poderia ser usado por uma aplicação. O certificado chama-se **ExemploCertificado.**
 
-1. Nas páginas de propriedades do Cofre-Chave, selecione **Certificados**.
+1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
 2. Clique em **Gerar/Importar**.
-3. No ecrã **Criar um certificado** escolha os seguintes valores:
-    - **Método de Criação de Certificado**: Gerar.
-    - **Nome do certificado**: Certificado de exemplo.
-    - **Objeto**: CN=ExampleDomínio
-    - Deixe as outras opções com os valores predefinidos. Clique em **Criar**.
+3. No **Ecrã de Certificado escolha** os seguintes valores:
+    - **Método de Criação de Certificados**: Gerar.
+    - **Denominação do certificado**: ExemploCertificado.
+    - **Objeto**: CN=ExemploDomain
+    - Deixe as outras opções com os valores predefinidos. Clique **em Criar**.
 
-Assim que receber a mensagem de que o certificado foi criado com sucesso, pode clicar nele na lista. Em seguida, pode ver algumas das propriedades. Se clicar na versão atual, pode ver o valor que especificou no passo anterior.
+Uma vez que recebe a mensagem de que o certificado foi criado com sucesso, pode clicar nele na lista. Em seguida, pode ver algumas das propriedades. Se clicar na versão atual, pode ver o valor que especificou no passo anterior.
 
-![Propriedades de certificado](../media/certificates/quick-create-portal/current-version-hidden.png)
+![Propriedades de certificados](../media/certificates/quick-create-portal/current-version-hidden.png)
 
-Ao clicar no botão "Baixar em formato CER" ou "Baixar em formato PFX/PEM", pode dowloadar o certificado. 
+## <a name="export-certificate-from-key-vault"></a>Certificado de exportação do Cofre-Chave
+Ao clicar no botão "Descarregar em formato CER" ou "Descarregar em formato PFX/PEM", pode descarregar o certificado. 
 
 ![Download de certificado](../media/certificates/quick-create-portal/current-version-shown.png)
 
@@ -81,10 +82,10 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o Key 
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criaste um Cofre chave e guardaste um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Neste quickstart, criou um Cofre-Chave e guardou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Cofre chave Azure](../general/overview.md)
-- Consulte o guia do desenvolvedor do Cofre de [Chaves Azure](../general/developers-guide.md)
-- Rever [as melhores práticas do Cofre de Chaves Azure](../general/best-practices.md)
+- Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
+- Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
+- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

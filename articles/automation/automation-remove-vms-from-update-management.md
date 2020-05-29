@@ -1,22 +1,24 @@
 ---
-title: Remover VMs da Azure Automation Update Management
-description: Este artigo diz como remover VMs da Atualização.
+title: Remover VMs da Gestão de Azure Automation Update Management
+description: Este artigo diz como remover VMs da Gestão de Atualização.
 services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 9bb9ee93be4e045b52355255ecb86e54e48e5c5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 796cf18ae4dbab50eb7f968bda065ae0351f2ae8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117422"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169411"
 ---
 # <a name="remove-vms-from-update-management"></a>Remover VMs da Gestão de Atualizações
 
-Quando terminar de implementar atualizações para VMs no seu ambiente, pode removê-las da funcionalidade ['Gestão](automation-update-management.md) de Actualizações'.
+Quando terminar de implementar atualizações para VMs no seu ambiente, pode removê-las da função De Gestão de [Atualização.](automation-update-management.md)
 
-1. Na sua conta Automation, selecione **Gestão de Atualização** sob gestão de **Atualização**.
+## <a name="to-remove-your-vms"></a>Para remover os seus VMs
+
+1. A partir da sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização.**
 
 2. Utilize o seguinte comando para identificar o UUID de um VM que pretende remover da gestão.
 
@@ -26,7 +28,7 @@ Quando terminar de implementar atualizações para VMs no seu ambiente, pode rem
 
 3. No seu espaço de trabalho Log Analytics em **Geral,** aceda às pesquisas guardadas para a configuração do âmbito `MicrosoftDefaultScopeConfig-Updates` .
 
-4. Para obter a pesquisa `MicrosoftDefaultComputerGroup` guardada, clique na elipse à direita e **selecione Editar**. 
+4. Para a pesquisa `MicrosoftDefaultComputerGroup` guardada, clique na elipse para a direita e **selecione Editar**. 
 
 5. Retire o UUID para o VM.
 
@@ -36,7 +38,7 @@ Quando terminar de implementar atualizações para VMs no seu ambiente, pode rem
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Para continuar a trabalhar com a Atualização, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Para resolver problemas gerais de funcionalidade, consulte problemas de Gestão de Atualização de Resolução de [Problemas](troubleshoot/update-management.md).
-* Para problemas com o agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
-* Para problemas com o agente de atualização Linux, consulte problemas de agente de [atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).
+* Para continuar a trabalhar com a Gestão de Atualização, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
+* Para resolver problemas gerais de funcionalidade, consulte [problemas de Gestão de Atualização de Resolução de Problemas](troubleshoot/update-management.md).
+* Para problemas com o agente de atualização do Windows, consulte [problemas de agente de atualização do Windows de resolução de resolução](troubleshoot/update-agent-issues.md)de resolução do Troubleshoot .
+* Para problemas com o agente de atualização Linux, consulte [problemas de agente de atualização do Linux](troubleshoot/update-agent-issues-linux.md)de resolução de resolução de resolução de resolução de problemas .
