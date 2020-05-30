@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI: Monitor& base de dados de escala na Base de Dados Azure SQL'
-description: Script de exemplo Azure CLI para monitorizar e escalar uma única base de dados na Base de Dados Azure SQL
+title: 'Azure CLI: Monitorar e escalar uma única base de dados na Base de Dados Azure SQL'
+description: Utilize um script de exemplo Azure CLI para monitorizar e escalar uma única base de dados na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,19 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: be57309e4b327027ed0185c8eabf783a18cc957e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e6fc57a1e0d8988666dd4fe1391e157a2a15f682
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053724"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196820"
 ---
-# <a name="use-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Utilize o CLI para monitorizar e escalar uma única base de dados na Base de Dados Azure SQL
+# <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Utilize o CLI Azure para monitorizar e escalar uma única base de dados na Base de Dados Azure SQL
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Este exemplo de script Azure CLI escala uma única base de dados na Base de Dados Azure SQL para um tamanho de computação diferente após consultar a informação de tamanho da base de dados.
+Este exemplo de script Azure CLI escala uma única base de dados na Base de Dados Azure SQL para um tamanho de computação diferente depois de consultar a informação de tamanho da base de dados.
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão 2.0 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -39,14 +40,14 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="run-the-script"></a>Executar o script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a single database in Azure SQL Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> Utilize a lista de [op az sql db](/cli/azure/sql/db/op?#az-sql-db-op-list) op para obter uma lista de operações realizadas na base de dados e [az sql db op cancele](/cli/azure/sql/db/op#az-sql-db-op-cancel) para cancelar uma operação de atualização na base de dados.
+> Use [a lista de db op az sql](/cli/azure/sql/db/op?#az-sql-db-op-list) para obter uma lista de operações realizadas na base de dados, e use [az sql db op cancelar](/cli/azure/sql/db/op#az-sql-db-op-cancel) para cancelar uma operação de atualização na base de dados.
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -59,10 +60,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos do servidor. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Mostra as informações de utilização do tamanho para uma única base de dados ou agrinada. |
+| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Mostra as informações de utilização de tamanho de uma base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Amostras adicionais de script CLI podem ser encontradas em scripts de [amostra sinuoso Azure CLI](../az-cli-script-samples-content-guide.md).
+Amostras adicionais de scripts CLI podem ser encontradas em [scripts de amostra do Azure CLI](../az-cli-script-samples-content-guide.md).

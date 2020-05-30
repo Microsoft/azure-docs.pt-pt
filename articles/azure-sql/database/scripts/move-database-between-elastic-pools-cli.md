@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI: Mover base de dados entre piscinas elásticas'
-description: Script de exemplo Azure CLI que cria duas piscinas elásticas e move uma base de dados em Base de Dados SQL de uma piscina elástica para outra usando o Azure CLI.
+title: 'O Azure CLI: Mover uma base de dados entre piscinas elásticas'
+description: Use um script de exemplo Azure CLI para criar duas piscinas elásticas e mover uma base de dados na Base de Dados SQL de uma piscina elástica para outra.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,17 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2bcf9f4218f535556ff83ccaad130bb1da28ef69
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 85b78ad92997344ff6ea0f30da25205790d90eef
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054060"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196767"
 ---
-# <a name="use-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Use o CLI para mover uma base de dados na Base de Dados SQL numa piscina elástica SQL
+# <a name="use-the-azure-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Utilize o CLI Azure para mover uma base de dados na Base de Dados SQL numa piscina elástica SQL
 
-
-Este exemplo de script Azure CLI cria duas piscinas elásticas e move uma base de dados em Base de Dados SQL de uma piscina elástica SQL para outra piscina elástica SQL, e depois move a base de dados de piscina elástica para um único tamanho de computação de base de dados.
+Este exemplo de script do Azure CLI cria duas piscinas elásticas, move uma base de dados em piscina na Base de Dados SQL de uma piscina elástica SQL para outra piscina elástica SQL, e depois move a base de dados agramada para fora da piscina elástica SQL para ser uma única base de dados na Base de Dados SQL.
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -37,7 +36,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -50,10 +49,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos do servidor. |
-| [az sql elástico-piscinas](/cli/azure/sql/elastic-pool) | Comandos de piscina elástica. |
+| [az sql elástico-piscinas](/cli/azure/sql/elastic-pool) | Comandos elásticos da piscina. |
 | [az sql db](/cli/azure/sql/db) | Comandos de base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

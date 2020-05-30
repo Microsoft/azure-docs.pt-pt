@@ -310,8 +310,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-more
-    title: Mais linguagens...
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-eighteen
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -455,9 +455,9 @@ groups:
   - id: programming-language-objectivec
     title: Objective-C
 metadata:
-  ms.openlocfilehash: 3888e33063df9251d2e53322e9372d79d15b4222
-  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.openlocfilehash: 8fa6182b392d4be61334c15fc9e25a551f57f07b
+  ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/22/2020
-  ms.locfileid: "83800451"
+  ms.lasthandoff: 05/30/2020
+  ms.locfileid: "84220264"

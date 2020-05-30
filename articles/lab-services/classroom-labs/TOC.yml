@@ -46,6 +46,8 @@
               href: class-type-mobile-dev-android-studio.md
             - name: Análise de macrodados
               href: class-type-big-data-analytics.md
+            - name: MATLAB
+              href: class-type-matlab.md
 - name: Guias de procedimentos
   items:
     - name: Guia do administrador

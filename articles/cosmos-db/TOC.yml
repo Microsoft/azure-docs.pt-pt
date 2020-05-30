@@ -1237,6 +1237,8 @@
       href: whitepapers.md
     - name: Parceiros
       href: partners-migration-cosmosdb.md
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cosmos-db.html'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Mapa do Azure

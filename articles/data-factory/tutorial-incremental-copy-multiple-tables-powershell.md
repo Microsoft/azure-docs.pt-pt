@@ -1,6 +1,6 @@
 ---
-title: Copie incrementalmente várias tabelas usando powerShell
-description: Neste tutorial, cria-se um pipeline Azure Data Factory que copia os dados delta de várias tabelas numa base de dados do SQL Server no local para uma Base de Dados Azure SQL.
+title: Copie incrementalmente várias tabelas usando PowerShell
+description: Neste tutorial, você cria um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para uma Base de Dados Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: 84df242cdbfedd0cd1442ac4c4da7f4b6139d244
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020749"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194520"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregue miseravelmente dados de várias tabelas no Servidor SQL para uma Base de Dados SQL Azure
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregue gradualmente dados de várias tabelas no SQL Server para uma Base de Dados SQL Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria uma fábrica de dados Azure com um oleoduto que transporta dados delta de várias tabelas no sql server no local para uma Base de Dados Azure SQL.    
+Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para uma Base de Dados Azure SQL.    
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -44,7 +44,7 @@ Eis os passos importantes para criar esta solução:
 
 1. **Selecionar a coluna de limite de tamanho**.
 
-    Selecione uma coluna para cada tabela na loja de dados de origem, que pode identificar os novos ou atualizados registos para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
+    Selecione uma coluna para cada tabela na loja de dados de origem, que pode identificar os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
 2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.
 
@@ -65,18 +65,18 @@ Eis os passos importantes para criar esta solução:
     ![Carregar dados de forma incremental](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Servidor SQL**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como o arquivo de dados de origem. 
+* **Sql Server**. Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
 * **Base de Dados Azure SQL**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
-1. Abra o Estúdio de Gestão de [Servidores SQL (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [o Azure Data Studio,](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)e ligue-se à base de dados do SQL Server no local.
+1. Abra [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no painel de **Ligações (Estúdio de Dados Azure)** clique na base de dados e escolha **New Query**.
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:
 
@@ -113,9 +113,9 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Crie tabelas de destino na sua Base de Dados Azure SQL
 
-1. Abra o Estúdio de Gestão de [Servidores SQL (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [o Azure Data Studio,](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)e ligue-se à base de dados do SQL Server no local.
+1. Abra [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no painel de **Ligações (Estúdio de Dados Azure)** clique na base de dados e escolha **New Query**.
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
 
 3. Execute o comando SQL seguinte na base de dados SQL para criar tabelas com o nome `customer_table` e `project_table`:  
 
@@ -134,7 +134,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Crie outra tabela na Base de Dados Azure SQL para armazenar o alto valor da marca de água
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na Base de Dados Azure SQL para armazenar o elevado valor da marca de água
 
 1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água: 
     
@@ -175,13 +175,13 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais na Base de Dados Azure SQL
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Criar tipos de dados e procedimentos adicionais armazenados na Base de Dados Azure SQL
 
 Execute a consulta seguinte para criar dois procedimentos armazenados e dois tipos de dados de dois na sua base de dados SQL. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino. 
 
-Para facilitar a viagem, utilizamos diretamente estes Procedimentos Armazenados passando os dados delta através de uma variável de tabela e, em seguida, fundi-los em loja de destino. Tenha cuidado, não espera que um número "grande" de linhas delta (mais de 100) seja armazenado na variável de tabela.  
+Para facilitar a viagem, utilizamos diretamente estes Procedimentos Armazenados passando os dados delta através de uma variável de tabela e, em seguida, fundimo-los em loja de destino. Tenha cuidado, não espera que um número "grande" de linhas delta (mais de 100) seja armazenado na variável da tabela.  
 
-Se precisar de fundir um grande número de linhas delta na loja de destino, sugerimos que utilize a atividade de cópia para copiar todos os dados delta numa tabela temporária de "encenação" primeiro na loja de destino, e depois construiu o seu próprio procedimento armazenado sem usar a variável de mesa para os fundir da tabela "staging" para a tabela "final". 
+Se precisa de fundir um grande número de linhas delta na loja de destino, sugerimos que utilize a atividade de cópia para copiar todos os dados delta numa tabela temporária de "staging" na loja de destino, e depois construiu o seu próprio procedimento armazenado sem usar a variável de mesa para os fundir da mesa de "encenação" para a tabela "final". 
 
 
 ```sql
@@ -289,13 +289,13 @@ Tenha em atenção os seguintes pontos:
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, cria serviços ligados à base de dados do SQL Server no local e à Base de Dados Azure SQL. 
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, cria serviços ligados à base de dados do SQL Server e à Base de Dados Azure SQL. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Criar o serviço ligado do SQL Server
 
-Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dados.
+Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
 
-1. Crie um ficheiro JSON chamado **SqlServerLinkedService.json** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial (crie as pastas locais se ainda não existirem) com o seguinte conteúdo. Selecione a secção certa com base na autenticação que utiliza para se ligar ao SQL Server.  
+1. Crie um ficheiro JSON chamado **SqlServerLinkedService.json** na pasta C:\ADFTutorials\IncCopyMultiTableTutorial (crie as pastas locais se já não existirem) com o seguinte conteúdo. Selecione a secção certa com base na autenticação que utiliza para se ligar ao SQL Server.  
 
     > [!IMPORTANT]
     > Selecione a secção certa com base na autenticação que utiliza para se ligar ao SQL Server.
@@ -351,13 +351,13 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
     > - Antes de guardar o ficheiro, substitua &lt;servername>, &lt;databasename>, &lt;username> e &lt;password> pelos valores da sua base de dados do SQL Server.
     > - Se precisar de utilizar um caráter de barra invertida (`\`) no nome da sua conta de utilizador ou no nome do seu servidor, utilize o caráter de escape (`\`). Um exemplo é `mydomain\\myuser`.
 
-2. Na PowerShell, execute o seguinte cmdlet para mudar para a pasta C:\ADFTutorials\IncCopyMultiTableTutorial.
+2. Em PowerShell, passe o cmdlet seguinte para mudar para a pasta C:\ADFTutorials\IncCopyMultiTableTutorial.
 
     ```powershell
     Set-Location 'C:\ADFTutorials\IncCopyMultiTableTutorial'
     ```
 
-3. Executar o **set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado AzureStorageLinkedService. No exemplo seguinte, passa valores para os parâmetros *ResourceGroupName* e *DataFactoryName:* 
+3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado AzureStorageLinkedService. No exemplo seguinte, passa-se valores para os parâmetros *DataGroupName* e *DataFactoryName:* 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -374,7 +374,7 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
 
 ### <a name="create-the-sql-database-linked-service"></a>Criar o serviço ligado da base de dados SQL
 
-1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em C:\ADFTutorials\IncCopyMultiTableTutorial com o seguinte conteúdo. (Crie a pasta ADF se já não existir.) Substitua o nome do &lt; &gt; servidor, nome da base de dados, nome do &lt; utilizador e &gt; &lt; &gt; &lt; palavra-passe &gt; com o nome da sua base de dados Do Servidor SQL, nome da sua base de dados, nome do utilizador e palavra-passe antes de guardar o ficheiro. 
+1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em C:\ADFTutorials\IncCopyMultiTableTutorial com o seguinte conteúdo. (Criar a pasta ADF se já não existir.) Substitua &lt; o nome de &gt; servidor, nome de base de &lt; &gt; &lt; dados, nome de utilizador &gt; e &lt; palavra-passe &gt; pelo nome da base de dados do SEU SQL Server, nome da sua base de dados, nome de utilizador e palavra-passe antes de guardar o ficheiro. 
 
     ```json
     {  
@@ -390,7 +390,7 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
         }
     }
     ```
-2. No PowerShell, execute o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado AzureSQLDatabaseLinkedService. 
+2. Em PowerShell, executar o **cmdlet Set-AzDataFactoryV2LinkedService** para criar o serviço ligado AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -435,7 +435,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
     A atividade Cópia no pipeline utiliza uma consulta SQL para carregar os dados em vez de carregar a tabela inteira.
 
-2. Executar o **set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados SourceDataset.
+2. Executar o **cmdlet Set-AzDataFactoryV2Dataset** para criar o conjunto de dados SourceDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -482,7 +482,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
     }
     ```
 
-2. Executar o **set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados SinkDataset.
+2. Executar o **cmdlet Set-AzDataFactoryV2Dataset** para criar o conjunto de dados SinkDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -502,7 +502,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
 Neste passo, vai criar um conjunto de dados para armazenar um valor de limite superior de tamanho. 
 
-1. Crie um ficheiro JSON chamado **WatermarkDataset.json** na mesma pasta com o seguinte conteúdo: 
+1. Criar um ficheiro JSON chamado **WatermarkDataset.json** na mesma pasta com o seguinte conteúdo: 
 
     ```json
     {
@@ -519,7 +519,7 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
         }
     }    
     ```
-2. Executar o **set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados WatermarkDatasetset.
+2. Executar o **cmdlet Set-AzDataFactoryV2Dataset** para criar o conjunto de dados WatermarkDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -537,19 +537,19 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade ForEach** itera através da lista de nomes de tabelas e executa as seguintes operações: 
+O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade ForEach** iteração através da lista de nomes de tabelas e executa as seguintes operações: 
 
-1. Utilize a **atividade Lookup** para recuperar o valor antigo da marca de água (o valor inicial ou o que foi usado na última iteração).
+1. Utilize a **atividade Desacurar** para recuperar o valor da marca de água antiga (o valor inicial ou o que foi utilizado na última iteração).
 
-2. Utilize a **atividade De procura para** recuperar o novo valor da marca de água (o valor máximo da coluna de marca de água no quadro de origem).
+2. Utilize a **atividade Desacurar** para recuperar o novo valor da marca de água (o valor máximo da coluna de marca de água no quadro de origem).
 
 3. Utilize a **atividade Copy** para copiar dados entre estes dois valores de marca de água da base de dados de origem para a base de dados de destino.
 
-4. Utilize a **atividade StoredProcedure** para atualizar o valor da marca de água antiga a utilizar no primeiro passo da próxima iteração. 
+4. Utilize a **atividade StoredProcedure** para atualizar o valor da marca de água a utilizar no primeiro passo da iteração seguinte. 
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
-1. Crie um ficheiro JSON chamado **IncrementalCopyPipeline.json** na mesma pasta com o seguinte conteúdo: 
+1. Criar um ficheiro JSON chamado **IncrementalCopyPipeline.json** na mesma pasta com o seguinte conteúdo: 
 
     ```json
     {  
@@ -765,7 +765,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
         }
     }
     ```
-2. Executar o **set-AzDataFactoryV2Pipeline** cmdlet para criar o pipeline IncrementalCopyPipeline.
+2. Executar o **cmdlet Set-AzDataFactoryV2Pipeline** para criar o pipeline IncrementalCopyPipeline.
     
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -783,7 +783,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
  
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-1. Crie um ficheiro de parâmetros denominado **Parameters.json** na mesma pasta com o seguinte conteúdo:
+1. Criar um ficheiro de parâmetros chamado **Parâmetros.json** na mesma pasta com o seguinte conteúdo:
 
     ```json
     {
@@ -818,15 +818,15 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 3. Pesquise pela sua fábrica de dados na lista de fábricas de dados e selecione-a para abrir a página **Fábrica de dados**. 
 
-4. Na página da **fábrica de Dados,** selecione **Author & Monitor** para lançar a Azure Data Factory num separador.
+4. Na página da **fábrica de dados,** selecione **Author & Monitor** para lançar a Azure Data Factory num separador.
 
-5. Na página **Let's start,** selecione **Monitor** no lado esquerdo. 
-![Pipeline Runs](media/doc-common-process/get-started-page-monitor-button.png)    
+5. Na página **Let's get start,** selecione **Monitor** no lado esquerdo. 
+![Cursos de Gasoduto](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**.
 
     ![Instâncias de Pipeline](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
-7. Ao selecionar o link na coluna **Ações,** verá que toda a atividade corre para o gasoduto. 
+7. Quando selecionar o link na coluna **Ações,** vê toda a atividade a correr para o oleoduto. 
 
 8. Para voltar à vista **Pipeline Runs,** selecione **All Pipeline Runs**. 
 
@@ -907,7 +907,7 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Siga as instruções na secção [Monitorizar o pipeline](#monitor-the-pipeline) para monitorizar as execuções do pipeline. Quando o estado do gasoduto estiver **em curso,** vê-se outra ligação de ação no âmbito de **Ações** para cancelar a execução do gasoduto. 
+2. Siga as instruções na secção [Monitorizar o pipeline](#monitor-the-pipeline) para monitorizar as execuções do pipeline. Quando o estado do gasoduto estiver **em andamento,** vê-se outro link de ação no âmbito **das Ações** para cancelar a execução do gasoduto. 
 
 3. Selecione **Atualizar** para atualizar a lista até a execução do pipeline ter êxito. 
 
@@ -974,7 +974,7 @@ project_table   2017-10-01 00:00:00.000
 
 Tenha em atenção que os valores de limite de tamanho de ambas as tabelas foram atualizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados incrementalmente usando o Change Tracking
-description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
+title: Copiar gradualmente dados usando o Change Tracking
+description: Neste tutorial, cria-se um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 7937c2c623fdca4e59dc0aac059bd1b8fd735a21
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b83b10c15bcc5d1a8ea9fc094e1d709d57221902
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119171"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196166"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações
 
@@ -44,7 +44,7 @@ Uma solução de integração de dados, que carrega dados incrementalmente após
 Eis os passos de fluxo de trabalho ponto-a-ponto normais para carregar dados incrementalmente com recurso à tecnologia de Controlo de Alterações.
 
 > [!NOTE]
-> Ambos a Base de Dados SQL do Azure e o SQL Server suportam a tecnologia de Controlo de Alterações. Este tutorial utiliza a Base de Dados SQL do Azure como o arquivo de dados de origem. Também pode utilizar um SQL Server local.
+> Ambos a Base de Dados SQL do Azure e o SQL Server suportam a tecnologia de Controlo de Alterações. Este tutorial utiliza a Base de Dados SQL do Azure como o arquivo de dados de origem. Também pode utilizar uma instância SQL Server.
 
 1. **Carregamento de dados históricos inicial** (executar uma vez):
     1. Ative a tecnologia de Controlo de Alterações na base de dados SQL do Azure de origem.
@@ -69,16 +69,16 @@ Neste tutorial, vai criar dois pipelines que realizam as seguintes duas operaç�
     ![Diagrama de fluxo de carga incremental](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
 
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure PowerShell. Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 * **Base de Dados Azure SQL**. A base de dados é utilizada como o arquivo de dados de **origem**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
-* **Conta de Armazenamento Azure.** O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um contentor com o nome **adftutorial**. 
+* **Conta de Armazenamento Azure**. O armazenamento de blobs é utilizado como arquivo de dados de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma. Crie um contentor com o nome **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL do Azure
-1. Lance o Estúdio de **Gestão de Servidores SQL**e ligue-se à Base de Dados SQL.
+1. Lançar **SQL Server Management Studio,** e ligar-se à Base de Dados SQL.
 2. No **Explorador de Servidores**, clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
 3. Execute o seguinte comando SQL na base de dados SQL do Azure para criar uma tabela com o nome `data_source_table` como arquivo da origem de dados.  
 
@@ -150,7 +150,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instale os mais recentes módulos Azure PowerShell seguindo instruções em [Como instalar e configurar o PowerShell Azure](/powershell/azure/install-Az-ps).
+Instale os mais recentes módulos Azure PowerShell seguindo instruções sobre [como instalar e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com aspas duplas e execute o comando. Por exemplo: `"adfrg"`. 
@@ -215,8 +215,8 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
         }
     }
     ```
-2. No **Azure PowerShell, altere**para a pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial.**
-3. Executar o **set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureStorageLinkedService**. No exemplo seguinte, vai transmitir os valores para os parâmetros **ResourceGroupName** e **DataFactoryName**.
+2. No **Azure PowerShell,** mude para a pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial.**
+3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureStorageLinkedService**. No exemplo seguinte, vai transmitir os valores para os parâmetros **ResourceGroupName** e **DataFactoryName**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -234,7 +234,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 
-1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** em **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo: Substitua o nome da base de dados do ** &lt; &gt; &lt; &gt; servidor, &lt; id do utilizador &gt; e &lt; palavra-passe &gt; ** com o nome do seu servidor, nome do seu servidor, ID do utilizador e palavra-passe antes de guardar o ficheiro.
+1. Crie um ficheiro JSON denominado **AzureSQLDatabaseLinkedService.json** em **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo: Substitua o nome da base de dados do ** &lt; &gt; &lt; &gt; servidor, &lt; o id do utilizador &gt; e a &lt; palavra-passe &gt; ** com o nome do seu servidor, nome da sua base de dados, ID do utilizador e senha antes de guardar o ficheiro.
 
     ```json
     {
@@ -247,7 +247,7 @@ Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
         }
     }
     ```
-2. No **Azure PowerShell,** execute o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureSQLDatabaseLinkedService**.
+2. No **Azure PowerShell,** executar o **cmdlet Set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureSQLDatabaseLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -286,7 +286,7 @@ Neste passo, vai criar um conjunto de dados para representar os dados de origem.
     }   
     ```
 
-2.  Executar o set-AzDataFactoryV2Dataset cmdlet para criar o conjunto de dados: SourceDataset
+2.  Executar o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: SourceDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -328,7 +328,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
     ```
 
     Crie o contentor adftutorial no seu Armazenamento de Blobs do Azure como parte dos pré-requisitos. Crie o contentor se ainda não existir ou defina-o com o nome de um contentor existente. Neste tutorial, o nome de ficheiro de saída é gerado dinamicamente através da expressão: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Executar o set-AzDataFactoryV2Dataset cmdlet para criar o conjunto de dados: SinkDataset
+2.  Executar o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: SinkDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -366,7 +366,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
     ```
 
     Crie a tabela table_store_ChangeTracking_version como parte dos pré-requisitos.
-2.  Executar o set-AzDataFactoryV2Dataset cmdlet para criar o conjunto de dados: ChangeTrackingDataset
+2.  Executar o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: ChangeTrackingDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -415,7 +415,7 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
         }
     }
     ```
-2. Executar o set-AzDataFactoryV2Pipeline cmdlet para criar o pipeline: FullCopyPipeline.
+2. Executar o cmdlet Set-AzDataFactoryV2Pipeline para criar o pipeline: FullCopyPipeline.
 
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
@@ -432,7 +432,7 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
    ```
 
 ### <a name="run-the-full-copy-pipeline"></a>Execute o pipeline da cópia completa
-Executar o gasoduto: **FullCopyPipeline** utilizando **invoke-AzDataFactoryV2Pipeline** cmdlet.
+Executar o oleoduto: **FullCopyPipeline** utilizando **o cmdlet Invoke-AzDataFactoryV2Pipeline.**
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -450,7 +450,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 4. Na página Fábrica de dados, clique no mosaico **Monitorizar e Gerir**.
 
     ![Mosaico Monitorizar e Gerir](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. A Aplicação de **Integração** de Dados é lançada num separador. Pode-se ver todo o **gasoduto e** os seus estatutos. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Pode verificar os parâmetros transmitidos para o pipeline ao clicar na ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**. Clique na ligação na coluna **Ações**.
+5. A **Aplicação de Integração de Dados** é lançada num separado. Pode ver todos os **oleodutos e** os seus estatutos. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Pode verificar os parâmetros transmitidos para o pipeline ao clicar na ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**. Clique na ligação na coluna **Ações**.
 
     ![Execuções de pipeline](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Ao clicar na ligação na coluna **Ações**, verá a seguinte página que mostra todas as **execuções de atividade** no pipeline.
@@ -604,7 +604,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
     }
 
     ```
-2. Executar o set-AzDataFactoryV2Pipeline cmdlet para criar o pipeline: FullCopyPipeline.
+2. Executar o cmdlet Set-AzDataFactoryV2Pipeline para criar o pipeline: FullCopyPipeline.
 
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -621,7 +621,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Executar o pipeline da cópia incremental
-Executar o pipeline: **IncrementalCopyPipeline** utilizando **invoke-AzDataFactoryV2Pipeline** cmdlet.
+Executar o oleoduto: **IncrementalCopyPipeline** utilizando **o cmdlet Invoke-AzDataFactoryV2Pipeline.**
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -659,8 +659,8 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
-Avançar para o seguinte tutorial para aprender sobre copiar novos ficheiros e alterados apenas com base no seu LastModifiedDate:
+## <a name="next-steps"></a>Passos seguintes
+Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]
->[Copiar novos ficheiros até à data de última modificação](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Copiar novos ficheiros por último anúncio modificado](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

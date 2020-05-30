@@ -1,6 +1,6 @@
 ---
-title: Segurança de instância gerida sQL com diretores de servidores Azure AD (logins)
-description: Aprenda sobre técnicas e funcionalidades para proteger o Azure SQL Managed Instance, e use os principais servidores Azure AD (logins)
+title: SqL Managed Instance security with Azure AD server principals (logins)
+description: Saiba mais técnicas e funcionalidades para garantir a Azure SQL Managed Instance e use os principais servidores AD do Azure (logins)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,73 +10,73 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 54195652cfdf476f364a31bf710852dab33fb154
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053484"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219800"
 ---
-# <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Instância Gerida Azure SQL utilizando os diretores de servidores Azure AD (logins)
+# <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Azure SQL Caso gerido usando os principais servidores AD do Azure (logins)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-A SQL Managed Instance fornece quase todas as funcionalidades de segurança que o mais recente SQL Server no local (Enterprise Edition) Base de Dados tem:
+A Azure SQL Managed Instance fornece quase todas as funcionalidades de segurança que o mais recente motor de base de dados SQL Server (Enterprise Edition) tem:
 
-- Limitação do acesso num ambiente isolado
-- Utilize mecanismos de autenticação que exijam identidade (Autenticação Azure AD, SQL)
-- Utilize a autorização com membros e permissões baseados em papéis
+- Limite o acesso num ambiente isolado
+- Utilize mecanismos de autenticação que exijam identidade: Diretório Ativo Azure (Azure AD) e Autenticação SQL
+- Utilizar a autorização com membros e permissões baseados em funções
 - Ativar funcionalidades de segurança
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
-> - Criar um servidor de servidor de Diretório Ativo Azure (AD) (login) para uma instância gerida pela SQL
-> - Conceder permissões aos diretores de servidores da AD (logins) numa instância gerida pela SQL
-> - Criar utilizadores de Anúncios Azure a partir de diretores de servidores Da Azure (logins)
-> - Atribuir permissões aos utilizadores da AD Azure e gerir a segurança da base de dados
-> - Use a personificação com utilizadores da AD Azure
-> - Utilize consultas de base de dados cruzadas com utilizadores de Anúncios Azure
-> - Conheça as funcionalidades de segurança, tais como proteção de ameaças, auditoria, máscara de dados e encriptação
+> - Crie um servidor AD AD (login) para uma instância gerida
+> - Conceder permissões aos principais dos servidores AD da Azure (logins) num caso gerido
+> - Criar utilizadores AD Azure a partir de principais servidores AD do Azure (logins)
+> - Atribuir permissões aos utilizadores de AD do Azure e gerir a segurança da base de dados
+> - Use a personificação com utilizadores AZure AD
+> - Utilize consultas de base de dados cruzadas com utilizadores AZure AD
+> - Conheça as funcionalidades de segurança, tais como proteção de ameaças, auditoria, mascaramento de dados e encriptação
 
-Para saber mais, consulte a visão geral da [Instância Gerida Azure SQL](sql-managed-instance-paas-overview.md). 
+Para saber mais, consulte a [visão geral da Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-- [Estúdio de Gestão de Servidores SQL](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
-- Uma instância gerida por SQL
-  - Siga este artigo: [Quickstart: Criar uma instância gerida pela SQL](instance-create-quickstart.md)
-- Capaz de aceder à sua Instância Gerida SQL e [forprovisionado um administrador azure AD para a Instância Gerida SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Para saber mais, consulte:
-  - [Ligue a sua aplicação a uma instância gerida pela SQL](connect-application-instance.md)
-  - [Arquitetura de conectividade sql gerida por instância](connectivity-architecture-overview.md)
-  - [Configure e gerea autenticação de Diretório Ativo Azure com SQL](../database/authentication-aad-configure.md)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
+- Um caso gerido
+  - Siga este artigo: [Quickstart: Criar uma instância gerida](instance-create-quickstart.md)
+- Capaz de aceder à sua instância gerida e [a provisionou um administrador AD AZure para a instância gerida](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Para saber mais, consulte:
+  - [Ligue a sua aplicação a uma instância gerida](connect-application-instance.md)
+  - [SQL Managed Instance arquitetura de conectividade](connectivity-architecture-overview.md)
+  - [Configure e gere a autenticação do Azure Ative Directory com o SQL](../database/authentication-aad-configure.md)
 
-## <a name="limit-access"></a>Limitar o acesso 
+## <a name="limit-access"></a>Limite de acesso 
 
-As Instâncias Geridas sQL podem ser acedidas através de um endereço IP privado. Tal como um ambiente isolado do SQL Server no local, as aplicações ou os utilizadores precisam de ter acesso à rede SQL Managed Instance (VNet) antes de se estabelecer uma ligação. Para mais informações, consulte o seguinte artigo, Ligue a sua aplicação a uma instância gerida pela [SQL](connect-application-instance.md).
+As instâncias geridas podem ser acedidas através de um endereço IP privado. Tal como um ambiente isolado do SQL Server, as aplicações ou os utilizadores precisam de acesso à rede SQL Managed Instance (VNet) antes de ser estabelecida uma ligação. Para obter mais informações, consulte [Conecte a sua aplicação à SQL Managed Instance](connect-application-instance.md).
 
-Também é possível configurar um ponto final de serviço numa Instância Gerida SQL, que permite ligações públicas, da mesma forma que para a Base de Dados Azure SQL.
-Para mais informações, consulte o seguinte artigo, [Configure ponto final público em 1º ponto de vista gerido pelo Azure SQL](public-endpoint-configure.md).
+Também é possível configurar um ponto final de serviço em uma instância gerida, que permite conexões públicas da mesma forma que para Azure SQL Database.
+Para obter mais informações, consulte [o ponto final público do Configure em Azure SQL Managed Instance](public-endpoint-configure.md).
 
 > [!NOTE]
-> Mesmo com os pontos finais do serviço ativados, as regras de firewall da Base de [Dados Azure SQL](../database/firewall-configure.md) não se aplicam. A Azure SQL Managed Instance tem a sua própria [firewall incorporada](management-endpoint-verify-built-in-firewall.md) para gerir a conectividade.
+> Mesmo com os pontos finais de serviço ativados, as regras de [firewall da Base de Dados Azure SQL](../database/firewall-configure.md) não se aplicam. A Azure SQL Managed Instance tem a sua própria [firewall incorporada](management-endpoint-verify-built-in-firewall.md) para gerir a conectividade.
 
-## <a name="create-an-azure-ad-server-principal-login-using-ssms"></a>Criar um servidor Azure AD (login) utilizando SSMS
+## <a name="create-an-azure-ad-server-principal-login-using-ssms"></a>Criar um servidor AD AD (login) usando SSMS
 
-O primeiro servidor Azure AD (login) pode ser criado pela conta de administração Padrão SQL (AD não-azure) que é a `sysadmin` , ou o administrador Azure AD para a Instância Gerida SQL criada durante o processo de provisionamento. Para mais informações, consulte [a Provision um administrador de Diretório Ativo Azure para a sua Instância Gerida SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+O primeiro principal do servidor AD AD (login) pode ser criado pela conta administrador padrão SQL (non-Azure AD) que é um `sysadmin` , ou o administrador AD AD A azul para a instância gerida criada durante o processo de provisionamento. Para obter mais informações, consulte [Disposição de um administrador do Azure Ative Directory para a SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-Consulte os seguintes artigos, por exemplo, de ligação à sua Instância Gerida SQL:
+Consulte os seguintes artigos para exemplos de ligação à SQL Managed Instance:
 
-- [Quickstart: Configure Azure VM para ligar a uma instância gerida pela SQL](connect-vm-instance-configure.md)
-- [Quickstart: Configure uma ligação ponto-a-local a uma instância gerida pela SQL a partir do local](point-to-site-p2s-configure.md)
+- [Quickstart: Configure Azure VM para ligar à SQL Managed Instance](connect-vm-instance-configure.md)
+- [Quickstart: Configurar uma ligação ponto-a-local à SQL Managed Instance a partir de instalações](point-to-site-p2s-configure.md)
 
-1. Inicie sessão na sua Instância Gerida SQL utilizando uma conta padrão de login SQL (AD não azure) que é um `sysadmin` administrador Azure AD para MI, utilizando o [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
+1. Inicie sessão na sua instância gerida utilizando uma conta de login padrão SQL (non-Azure AD) que é um `sysadmin` administrador AD ou Azure para exemplos geridos sql, usando [o SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
-2. No **Object Explorer,** clique no servidor e escolha **New Query**.
+2. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
 
-3. Na janela de consulta, utilize a seguinte sintaxe para criar um login para uma conta Azure AD local:
+3. Na janela de consulta, utilize a seguinte sintaxe para criar um login para uma conta AD Azure local:
 
     ```sql
     USE master
@@ -85,7 +85,7 @@ Consulte os seguintes artigos, por exemplo, de ligação à sua Instância Gerid
     GO
     ```
 
-    Este exemplo cria um login para a conta nativeuser@aadsqlmi.onmicrosoft.com .
+    Este exemplo cria um login para a nativeuser@aadsqlmi.onmicrosoft.com conta.
 
     ```sql
     USE master
@@ -94,7 +94,7 @@ Consulte os seguintes artigos, por exemplo, de ligação à sua Instância Gerid
     GO
     ```
 
-4. Na barra de ferramentas, selecione **Executar** para criar o login.
+4. Na barra de ferramentas, **selecione Executar** para criar o login.
 
 5. Verifique o login recém-adicionado, executando o seguinte comando T-SQL:
 
@@ -104,32 +104,32 @@ Consulte os seguintes artigos, por exemplo, de ligação à sua Instância Gerid
     GO
     ```
 
-    ![nativo-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
 
 Para mais informações, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 ## <a name="grant-permissions-to-create-logins"></a>Conceder permissões para criar logins
 
-Para criar outros diretores de servidores Azure AD (logins), as funções ou permissões do Servidor SQL devem ser concedidas ao principal (SQL ou Azure AD).
+Para criar outros principais do servidor Azure (logins), as funções ou permissões do SQL Server devem ser concedidas ao principal (SQL ou Azure AD).
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
-- Se o login for um SQL Principal, apenas os logins que fazem parte da `sysadmin` função podem usar o comando de criação para criar logins para uma conta Azure AD.
+- Se o login for um principal SQL, apenas os logins que fazem parte da `sysadmin` função podem usar o comando criar para criar logins para uma conta AD Azure.
 
 ### <a name="azure-ad-authentication"></a>Autenticação do Azure AD
 
-- Para permitir ao recém-criado diretor de servidor da AD Azure (login) a capacidade de criar outros logins para outros utilizadores, grupos ou aplicações do Azure AD, conceder a função de login `sysadmin` ou `securityadmin` servidor.
-- No mínimo, **altere qualquer** permissão de LOGIN deve ser concedida ao diretor do servidor Azure AD (login) para criar outros diretores de servidores Azure AD (logins).
-- Por predefinição, a permissão padrão concedida aos recém-criados diretores de servidores Azure AD (logins) em mestrado é: **CONNECT SQL** e **VIEW ANY DATABASE**.
-- A função do servidor pode ser concedida a muitos diretores de `sysadmin` servidores Azure AD (logins) dentro de uma Instância Gerida SQL.
+- Para permitir ao recém-criado Azure AD servidor principal (login) a capacidade de criar outros logins para outros utilizadores, grupos ou aplicações Azure Ad, conceder o papel de login `sysadmin` ou `securityadmin` servidor.
+- No mínimo, **altere qualquer** permissão DE LOGIN deve ser concedida ao principal do servidor AD Azure (login) para criar outros principais do servidor Azure (logins).
+- Por predefinição, a permissão padrão concedida aos recém-criados principais servidores AD (logins) em master é: **CONNECT SQL** e **VER QUALQUER BASE DE DADOS**.
+- A `sysadmin` função do servidor pode ser concedida a muitos principais servidores AD (logins) dentro de um caso gerido.
 
 Para adicionar o login à função do `sysadmin` servidor:
 
-1. Volte a entrar na Instância Gerida SQL ou utilize a ligação existente com o administrador Azure AD ou o SQL Principal que é `sysadmin` a .
+1. Inicie novamente o caso gerido, ou utilize a ligação existente com o administrador AD AD ou com o principal SQL Azure que é um `sysadmin` .
 
-1. No **Object Explorer,** clique no servidor e escolha **New Query**.
+1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
 
-1. Conceda ao servidor Azure AD (login) a função do `sysadmin` servidor utilizando a seguinte sintaxe T-SQL:
+1. Conceda ao principal do servidor AD (login) a função do `sysadmin` servidor utilizando a seguinte sintaxe T-SQL:
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -143,26 +143,26 @@ Para adicionar o login à função do `sysadmin` servidor:
     GO
     ```
 
-## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Criar diretores adicionais de servidores Azure AD (logins) usando SSMS
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Criar principais servidores AZure (logins) adicionais utilizando SSMS
 
-Uma vez criado o diretor do servidor Azure AD (login) e fornecido com `sysadmin` privilégios, esse login pode criar logins adicionais utilizando a cláusula **de FORNECEDOR EXTERNO** com CREATE **LOGIN**.
+Uma vez criado o principal do servidor AD (login) Azure, e fornecido com `sysadmin` privilégios, esse login pode criar logins adicionais utilizando a cláusula **DE FORNECEDOR EXTERNO** com CREATE **LOGIN**.
 
-1. Ligue-se à Instância Gerida SQL com o diretor do servidor Azure AD (login), utilizando o Estúdio de Gestão de Servidores SQL. Insira o nome do anfitrião SQL Managed Instance. Para autenticação em SSMS, existem três opções para escolher ao iniciar sessão com uma conta Azure AD:
+1. Conecte-se à instância gerida com o principal do servidor AD Azure (login), utilizando o SQL Server Management Studio. Insira o nome de anfitrião da sua sql Gestd Instance. Para autenticação em SSMS, existem três opções para escolher quando iniciar sessão com uma conta AD Azure:
 
-   - Diretório Ativo - Universal com suporte mFA
-   - Diretório Ativo - Palavra-passe
+   - Diretório Ativo - Universal com suporte MFA
+   - Diretório Ativo - Senha
    - Diretório Ativo - Integrado </br>
 
      ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
-     Para mais informações, consulte o seguinte artigo: [Autenticação Universal (suporte sMMS para MFA)](../database/authentication-mfa-ssms-overview.md)
+     Para obter mais informações, consulte [a Autenticação Universal (suporte SSMS para autenticação multi-factor)](../database/authentication-mfa-ssms-overview.md).
 
-1. Selecione **Ative Directy - Universal com suporte mFA**. Isto traz uma janela de login de autenticação multi-factor (MFA). Inscreva-se com a sua senha de ad.ida e resumida.
+1. Selecione **Ative Directory - Universal com suporte MFA**. Isto traz uma janela de login de autenticação multi-factor. Inscreva-se com a sua senha AD Azure.
 
     ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. No SSMS **Object Explorer,** clique no servidor e escolha **New Query**.
-1. Na janela de consulta, utilize a seguinte sintaxe para criar um login para outra conta Azure AD:
+1. No SSMS **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
+1. Na janela de consulta, utilize a seguinte sintaxe para criar um login para outra conta AD Azure:
 
     ```sql
     USE master
@@ -171,9 +171,9 @@ Uma vez criado o diretor do servidor Azure AD (login) e fornecido com `sysadmin`
     GO
     ```
 
-    Este exemplo cria um login para o utilizador da AD bob@aadsqlmi.net Azure, cujo domínio aadsqlmi.net é federado com o Aadsqlmi.onmicrosoft.com Azure AD.
+    Este exemplo cria um login para o utilizador Azure bob@aadsqlmi.net AD, cujo domínio aadsqlmi.net é federado com o domínio Azure AD aadsqlmi.onmicrosoft.com.
 
-    Execute o seguinte comando T-SQL. As contas AD Federated Azure são as substituições sQL Managed Instance para logins e utilizadores do Windows no local.
+    Execute o seguinte comando T-SQL. As contas Federated AZure AD são as substituições de SqL Managed Instance para logins e utilizadores do Windows no local.
 
     ```sql
     USE master
@@ -182,8 +182,8 @@ Uma vez criado o diretor do servidor Azure AD (login) e fornecido com `sysadmin`
     GO
     ```
 
-1. Crie uma base de dados no SQL Managed Instance utilizando a sintaxe [CREATE DATABASE.](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) Esta base de dados será utilizada para testar os logins dos utilizadores na secção seguinte.
-    1. No **Object Explorer,** clique no servidor e escolha **New Query**.
+1. Crie uma base de dados no caso gerido utilizando a sintaxe [CREATE DATABASE.](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) Esta base de dados será utilizada para testar os logins dos utilizadores na secção seguinte.
+    1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
     1. Na janela de consulta, utilize a seguinte sintaxe para criar uma base de dados chamada **MyMITestDB**.
 
         ```sql
@@ -191,11 +191,11 @@ Uma vez criado o diretor do servidor Azure AD (login) e fornecido com `sysadmin`
         GO
         ```
 
-1. Crie um login SQL Managed Instance para um grupo em Azure AD. O grupo terá de existir em Azure AD antes de poder adicionar o login à Instância Gerida SQL. Consulte [criar um grupo básico e adicione membros utilizando o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Crie um _grupo mygroup_ e adicione membros a este grupo.
+1. Crie um login sql Managed Instance para um grupo em Azure AD. O grupo terá de existir em Azure AD antes de poder adicionar o login à SQL Managed Instance. Consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Crie um _grupo de grupo_ e adicione membros a este grupo.
 
-1. Abra uma nova janela de consulta no Estúdio de Gestão de Servidores SQL.
+1. Abra uma nova janela de consulta no SQL Server Management Studio.
 
-    Este exemplo pressupõe que existe um grupo chamado _mygroup_ no Azure AD. Execute o seguinte comando:
+    Este exemplo pressupõe que existe um grupo chamado _mygroup_ em Azure AD. Execute o seguinte comando:
 
     ```sql
     USE master
@@ -204,9 +204,9 @@ Uma vez criado o diretor do servidor Azure AD (login) e fornecido com `sysadmin`
     GO
     ```
 
-1. Como teste, inicie sessão na Instância Gerida SQL com o recém-criado login ou grupo. Abra uma nova ligação com a Instância Gerida SQL e utilize o novo login quando autenticar.
-1. No **Object Explorer,** clique no servidor e escolha **New Question ry** para a nova ligação.
-1. Verifique as permissões do servidor do recém-criado diretor de servidor da AD (login) executando o seguinte comando:
+1. Como teste, inicie sessão na instância gerida com o login ou grupo recém-criado. Abra uma nova ligação à instância gerida e utilize o novo login ao autenticar.
+1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta** para a nova ligação.
+1. Verifique as permissões do servidor para o recém-criado servidor AD (login) executando o seguinte comando:
 
       ```sql
       SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -214,23 +214,23 @@ Uma vez criado o diretor do servidor Azure AD (login) e fornecido com `sysadmin`
       ```
 
 > [!NOTE]
-> Os utilizadores de hóspedes da Azure AD são suportados para logins SQL Managed Instance, apenas quando adicionados como parte de um Grupo Azure AD. Um utilizador convidado da Azure AD é uma conta que é convidada para o Azure AD a que pertence a SQL Managed Instance, de outro Anúncio Azure. Por exemplo, joe@contoso.com (Conta AD Azure) ou steve@outlook.com (Conta MSA) pode ser adicionado a um grupo no AD Adsqlmi Azure. Uma vez adicionados os utilizadores a um grupo, pode ser criado um login na base de dados **master** de Instância Gerida SQL para o grupo utilizando a sintaxe **CREATE LOGIN.** Os utilizadores convidados que sejam membros deste grupo podem ligar-se à Instância Gerida SQL utilizando os seus logins atuais (por exemplo, joe@contoso.com ou steve@outlook.com ).
+> Os utilizadores de hóspedes Azure AD são suportados para logins DE Exemplo Gerido SQL, apenas quando adicionados como parte de um Grupo AD Azure. Um utilizador convidado da Azure AD é uma conta que é convidada para a instância AD Azure a que pertence a instância gerida, a partir de outra instância AD Azure. Por exemplo, joe@contoso.com (conta Azure AD) ou steve@outlook.com (conta Microsoft) podem ser adicionados a um grupo na instância aadsqlmi Ad Azure. Uma vez que os utilizadores são adicionados a um grupo, um login pode ser criado na base de dados **principal** sql Managed Instance para o grupo usando a sintaxe **DE LOGIN CREATE.** Os utilizadores convidados que são membros deste grupo podem ligar-se à instância gerida utilizando os seus logins atuais (por exemplo, joe@contoso.com ou steve@outlook.com ).
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Criar um utilizador de Anúncio Sino Do IA (login)
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Criar um utilizador AD Azure a partir do servidor AD Azure (login)
 
-A autorização para bases de dados individuais funciona da mesma forma na Instância Gerida SQL do que com o SQL Server no local. Um utilizador pode ser criado a partir de um login existente numa base de dados, e ser fornecido com permissões nessa base de dados, ou adicionado a uma função de base de dados.
+A autorização para bases de dados individuais funciona da mesma forma em SQL Managed Instance como faz com bases de dados no SQL Server. Um utilizador pode ser criado a partir de um login existente numa base de dados, e ser fornecido com permissões nessa base de dados, ou adicionado a uma função de base de dados.
 
-Agora que criámos uma base de dados chamada **MyMITestDB,** e um login que só tem permissões predefinidas, o próximo passo é criar um utilizador a partir desse login. De momento, o login pode ligar-se à Instância Gerida sQL e ver todas as bases de dados, mas não pode interagir com as bases de dados. Se iniciar sessão com a conta AD Azure que tem as permissões predefinidas e tentar expandir a base de dados recém-criada, verá o seguinte erro:
+Agora que criámos uma base de dados chamada **MyMITestDB**, e um login que só tem permissões padrão, o próximo passo é criar um utilizador a partir desse login. De momento, o login pode ligar-se à instância gerida, e ver todas as bases de dados, mas não pode interagir com as bases de dados. Se iniciar sedições com a conta AD Azure que tem as permissões por defeito e tentar expandir a base de dados recém-criada, verá o seguinte erro:
 
 ![ssms-db-não-acessível.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
-Para obter mais informações sobre a concessão de permissões na base de dados, consulte [Iniciar-se com permissões](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)de motor de base de dados .
+Para obter mais informações sobre a concessão de permissões de base de dados, consulte ["Começar com permissões do motor de base de dados".](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)
 
-### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Criar um utilizador de Anúncios Azure e criar uma tabela de amostras
+### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Crie um utilizador AD Azure e crie uma tabela de amostras
 
-1. Inicie sessão na sua Instância Gerida SQL utilizando uma conta utilizando o `sysadmin` Estúdio de Gestão de Servidores SQL.
-1. No **Object Explorer,** clique no servidor e escolha **New Query**.
-1. Na janela de consulta, utilize a seguinte sintaxe para criar um utilizador Azure AD a partir de um servidor Azure AD (login):
+1. Inicie sessão na sua instância gerida utilizando uma `sysadmin` conta utilizando o SQL Server Management Studio.
+1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
+1. Na janela de consulta, utilize a seguinte sintaxe para criar um utilizador AD Azure a partir de um servidor AD AD Azure (login):
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -239,7 +239,7 @@ Para obter mais informações sobre a concessão de permissões na base de dados
     GO
     ```
 
-    O exemplo seguinte cria um utilizador bob@aadsqlmi.net a partir do loginbob@aadsqlmi.net:
+    O exemplo a seguir cria um utilizador bob@aadsqlmi.net a partir do loginbob@aadsqlmi.net:
 
     ```sql
     USE MyMITestDB
@@ -248,9 +248,9 @@ Para obter mais informações sobre a concessão de permissões na base de dados
     GO
     ```
 
-1. Também é suportado para criar um utilizador Azure AD a partir de um servidor Azure AD (login) que é um grupo.
+1. Também é suportado para criar um utilizador AZure AD a partir de um servidor AD AD (login) que é um grupo.
 
-    O exemplo seguinte cria um login para o grupo Azure AD _mygroup_ que existe no seu Azure AD.
+    O exemplo a seguir cria um login para o grupo Azure AD _que_ existe no seu exemplo AD Azure.
 
     ```sql
     USE MyMITestDB
@@ -259,14 +259,14 @@ Para obter mais informações sobre a concessão de permissões na base de dados
     GO
     ```
 
-    Todos os utilizadores que pertencem ao **mygroup** podem aceder à base de dados **MyMITestDB.**
+    Todos os utilizadores que pertençam ao *meu grupo* podem aceder à base de dados **MyMITestDB.**
 
     > [!IMPORTANT]
-    > Ao criar um **UTILIZADOR** a partir de um servidor Azure AD (login), especifique o user_name como o mesmo login_name do **LOGIN**.
+    > Ao criar um **UTILIZADOR** a partir de um servidor AD AD principal (login), especifique a user_name como a mesma login_name do **LOGIN**.
 
-    Para mais informações, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Para obter mais informações, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
-1. Numa nova janela de consulta, crie uma tabela de teste utilizando o seguinte comando T-SQL:
+1. Numa nova janela de consulta, crie uma mesa de teste utilizando o seguinte comando T-SQL:
 
     ```sql
     USE MyMITestDB
@@ -280,7 +280,7 @@ Para obter mais informações sobre a concessão de permissões na base de dados
     );
     ```
 
-1. Criar uma ligação em SSMS com o utilizador que foi criado. Vai notar que não pode ver a mesa **TestTable** que foi criada pelo `sysadmin` anterior. Precisamos de fornecer ao utilizador permissões para ler dados da base de dados.
+1. Criar uma ligação em SSMS com o utilizador que foi criado. Vai notar que não consegue ver a tabela **TestTable** que foi criada `sysadmin` anteriormente. Precisamos fornecer ao utilizador permissões para ler dados a partir da base de dados.
 
 1. Pode verificar a permissão atual que o utilizador tem executando o seguinte comando:
 
@@ -291,13 +291,13 @@ Para obter mais informações sobre a concessão de permissões na base de dados
 
 ### <a name="add-users-to-database-level-roles"></a>Adicionar utilizadores a funções de nível de base de dados
 
-Para que o utilizador veja os dados na base de dados, podemos fornecer funções ao [nível da base de dados](/sql/relational-databases/security/authentication-access/database-level-roles) ao utilizador.
+Para que o utilizador veja os dados na base de dados, podemos fornecer [funções de nível de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles) ao utilizador.
 
-1. Inicie sessão na sua Instância Gerida SQL utilizando uma conta utilizando o `sysadmin` Estúdio de Gestão de Servidores SQL.
+1. Inicie sessão na sua instância gerida utilizando uma `sysadmin` conta utilizando o SQL Server Management Studio.
 
-1. No **Object Explorer,** clique no servidor e escolha **New Query**.
+1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
 
-1. Conceda ao utilizador da AD Azure a função de base de `db_datareader` dados utilizando a seguinte sintaxe T-SQL:
+1. Conceda ao utilizador Azure AD a `db_datareader` função de base de dados utilizando a seguinte sintaxe T-SQL:
 
     ```sql
     Use <Database Name> -- provide your database name
@@ -305,7 +305,7 @@ Para que o utilizador veja os dados na base de dados, podemos fornecer funções
     GO
     ```
 
-    O exemplo que se segue fornece ao utilizador bob@aadsqlmi.net e ao _grupo míperes_ permissões na base de dados `db_datareader` **MyMITestDB:**
+    O exemplo a seguir fornece ao utilizador bob@aadsqlmi.net e ao _grupo mygroup_ `db_datareader` permissões na base de dados **MyMITestDB:**
 
     ```sql
     USE MyMITestDB
@@ -316,14 +316,14 @@ Para que o utilizador veja os dados na base de dados, podemos fornecer funções
     GO
     ```
 
-1. Verifique se o utilizador da AD Azure que foi criado na base de dados existe executando o seguinte comando:
+1. Verifique se o utilizador Azure AD que foi criado na base de dados existe executando o seguinte comando:
 
     ```sql
     SELECT * FROM sys.database_principals
     GO
     ```
 
-1. Crie uma nova ligação à Instância Gerida SQL com o utilizador que foi adicionada à `db_datareader` função.
+1. Crie uma nova ligação à instância gerida com o utilizador que foi adicionado à `db_datareader` função.
 1. Expanda a base de dados no **Object Explorer** para ver a tabela.
 
     ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
@@ -335,19 +335,19 @@ Para que o utilizador veja os dados na base de dados, podemos fornecer funções
     FROM TestTable
     ```
 
-    Consegue ver dados da mesa? Devia ver as colunas a serem devolvidas.
+    Consegue ver os dados da mesa? Devia ver as colunas a serem devolvidas.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![ssms-test-table-consulta.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
-## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Personime os diretores de servidor estoque do Servidor Azure (logins)
+## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Personificar os principais do nível do servidor AD do Azure (logins)
 
-A Instância Gerida sQL suporta a personificação dos diretores de nível de servidor da AD Azure (logins).
+SQL Managed Instance suporta a personificação de principais de nível de servidor AD AD (logins).
 
 ### <a name="test-impersonation"></a>Imitação de teste
 
-1. Inicie sessão na sua Instância Gerida SQL utilizando uma conta utilizando o `sysadmin` Estúdio de Gestão de Servidores SQL.
+1. Inicie sessão na sua instância gerida utilizando uma `sysadmin` conta utilizando o SQL Server Management Studio.
 
-1. No **Object Explorer,** clique no servidor e escolha **New Query**.
+1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
 
 1. Na janela de consulta, utilize o seguinte comando para criar um novo procedimento armazenado:
 
@@ -361,13 +361,13 @@ A Instância Gerida sQL suporta a personificação dos diretores de nível de se
     GO
     ```
 
-1. Utilize o seguinte comando para ver se o utilizador que se está a fazer passar ao executar o procedimento armazenado é ** \@ bob aadsqlmi.net**.
+1. Utilize o seguinte comando para ver se o utilizador que está a fazer-se passar ao executar o procedimento armazenado é **bob \@ aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo
     ```
 
-1. Teste a personificação utilizando a declaração EXECUTE AS LOGIN:
+1. Teste de representação utilizando a declaração DE LOGIN EXECUTE AS:
 
     ```sql
     EXECUTE AS LOGIN = 'bob@aadsqlmi.net'
@@ -378,18 +378,18 @@ A Instância Gerida sQL suporta a personificação dos diretores de nível de se
     ```
 
 > [!NOTE]
-> Apenas os principais de nível de servidor SQL (logins) que fazem parte da `sysadmin` função podem executar as seguintes operações dirigidas aos principais da AD Azure:
+> Apenas os principais de nível de servidor SQL (logins) que fazem parte do `sysadmin` papel podem executar as seguintes operações direcionadas aos principais AD da Azure:
 >
 > - EXECUTAR COMO UTILIZADOR
 > - EXECUTAR COMO LOGIN
 
 ## <a name="use-cross-database-queries"></a>Utilize consultas de base de dados cruzadas
 
-As consultas de base de dados cruzadas são suportadas para contas AD Azure com diretores de servidores DaD Azure (logins). Para testar uma consulta de base de dados cruzada com um grupo de Anúncios Azure, precisamos de criar outra base de dados e tabela. Pode não criar outra base de dados e tabela se já existir uma.
+As consultas de base de dados cruzadas são suportadas para contas Azure AD com os principais servidores AD do Azure (logins). Para testar uma consulta de base de dados cruzada com um grupo AZure AD, precisamos de criar outra base de dados e tabela. Pode saltar a criação de outra base de dados e tabela se já existir.
 
-1. Inicie sessão na sua Instância Gerida SQL utilizando uma conta utilizando o `sysadmin` Estúdio de Gestão de Servidores SQL.
-1. No **Object Explorer,** clique no servidor e escolha **New Query**.
-1. Na janela de consulta, utilize o seguinte comando para criar uma base de dados chamada **MyMITestDB2** e tabela chamada **TestTable2:**
+1. Inicie sessão na sua instância gerida utilizando uma `sysadmin` conta utilizando o SQL Server Management Studio.
+1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
+1. Na janela de consulta, utilize o seguinte comando para criar uma base de dados chamada **MyMITestDB2** e tabela denominada **TestTable2**:
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ As consultas de base de dados cruzadas são suportadas para contas AD Azure com 
     );
     ```
 
-1. Numa nova janela de consulta, execute o seguinte comando para criar o _mygroup_ do utilizador na nova base de dados **MyMITestDB2**, e conceda permissões SELECT nessa base de dados para _o mygroup:_
+1. Numa nova janela de consulta, execute o seguinte comando para criar o _mygroup_ do utilizador na nova base de dados **MyMITestDB2,** e conceda permissões SELECT nessa base de dados ao _meu grupo:_
 
     ```sql
     USE MyMITestDB2
@@ -416,7 +416,7 @@ As consultas de base de dados cruzadas são suportadas para contas AD Azure com 
     GO
     ```
 
-1. Assine a SQL Managed Instance usando o SQL Server Management Studio como membro do grupo Azure AD _mygroup_. Abra uma nova janela de consulta e execute a declaração SELECT de base de dados cruzada:
+1. Inscreva-se na instância gerida usando o SQL Server Management Studio como membro do grupo AZure AD _._ Abra uma nova janela de consulta e execute a declaração SELECT de base cruzada:
 
     ```sql
     USE MyMITestDB
@@ -428,30 +428,30 @@ As consultas de base de dados cruzadas são suportadas para contas AD Azure com 
 
 ## <a name="additional-supported-scenarios"></a>Cenários apoiados adicionais
 
-- A gestão de agentes Da SQL e as execuções de emprego são suportadas para os diretores de servidores da AD Azure (logins).
-- As operações de backup e restauro da base de dados podem ser executadas pelos diretores do servidor Azure AD (logins).
-- [Auditoria](auditing-configure.md) de todas as declarações relacionadas com os diretores de servidores da AD Azure (logins) e eventos de autenticação.
-- Ligação de administrador dedicada para os diretores de servidores DaAzure AD (logins) que são membros da `sysadmin` função de servidor.
-- Os diretores de servidores Azure AD (logins) são suportados com a utilização da ferramenta [Sqlcmd Utility](/sql/tools/sqlcmd-utility) e [SQL Server Management Studio.](/sql/ssms/download-sql-server-management-studio-ssms)
-- Os gatilhos de logon são suportados para eventos de logon provenientes de diretores de servidores DaAzure AD (logins).
-- O Corretor de Serviços e o correio DB podem ser configurados utilizando os diretores do servidor Azure AD (logins).
+- A gestão de agentes SQL e execuções de emprego são suportadas para os principais servidores AD da Azure (logins).
+- As operações de backup e restauro da base de dados podem ser executadas pelos principais servidores AD do Azure (logins).
+- [Auditoria de](auditing-configure.md) todas as declarações relacionadas com os principais servidores AD do Azure (logins) e eventos de autenticação.
+- Ligação de administrador dedicada para os principais do servidor AD do Azure (logins) que são membros da `sysadmin` função do servidor.
+- Os principais servidores AD (logins) são suportados com a utilização da [ferramenta sqlcmd utility](/sql/tools/sqlcmd-utility) e [SQL Server Management Studio.](/sql/ssms/download-sql-server-management-studio-ssms)
+- Os gatilhos de início de sessão são suportados para eventos de início de sessão provenientes de diretores de servidores AD do Azure (logins).
+- O Corretor de Serviços e o correio DB podem ser configurados utilizando os principais servidores AZure AD (logins).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="enable-security-features"></a>Ativar funcionalidades de segurança
 
-Consulte o seguinte artigo de funcionalidades de segurança de funcionalidades de [segurança sQL Managed Instance](sql-managed-instance-paas-overview.md#security-features) para obter uma lista completa de formas de proteger a sua base de dados. São discutidos os seguintes recursos de segurança:
+Consulte o artigo [de segurança SQL Managed Instance](sql-managed-instance-paas-overview.md#security-features) para obter uma lista completa de formas de proteger a sua base de dados. São discutidas as seguintes funcionalidades de segurança:
 
-- [Auditoria de instância gerida pela SQL](auditing-configure.md)
+- [Auditoria de casos geridos sql](auditing-configure.md)
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](threat-detection-configure.md)
-- [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
+- [Mascaramento dinâmico de dados](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security)
 - [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Capacidades de instância gerida
+### <a name="sql-managed-instance-capabilities"></a>Capacidades de instância gerida sql
 
-Para obter uma visão geral completa das capacidades de instância gerida sQL, consulte:
+Para uma visão geral completa das capacidades de exemplo gerida do SQL, consulte:
 
 > [!div class="nextstepaction"]
-> [Capacidades de instância gerida sQL](sql-managed-instance-paas-overview.md)
+> [Capacidades de instância gerida sql](sql-managed-instance-paas-overview.md)

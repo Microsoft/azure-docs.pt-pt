@@ -1,6 +1,6 @@
 ---
 title: Copie incrementalmente várias tabelas usando o portal Azure
-description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
+description: Neste tutorial, você cria um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para uma base de dados Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: 4649ac8bbef23711ed45baffa15bb9e8bff8daec
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3c29d7b30541e0d289182d448b5bcbf69d02a3dc
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119184"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194564"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
+Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para uma base de dados Azure SQL.    
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -65,15 +65,15 @@ Eis os passos importantes para criar esta solução:
     ![Carregar dados de forma incremental](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Servidor SQL**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como o arquivo de dados de origem. 
+* **Sql Server**. Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
 * **Base de Dados Azure SQL**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
-1. Abra o SQL Server Management Studio e ligue-se à base de dados do SQL Server no local.
+1. Abra o SQL Server Management Studio e ligue-se à base de dados do SQL Server.
 
 1. No **Explorador de Servidores**, clique com botão direito do rato na base de dados e escolha **Nova Consulta**.
 
@@ -116,7 +116,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 1. No **Explorador de Servidores**, clique com botão direito do rato na base de dados e escolha **Nova Consulta**.
 
-1. Execute o seguinte comando SQL contra a sua base de dados Azure SQL para criar tabelas nomeadas `customer_table` `project_table` e:  
+1. Executar o seguinte comando SQL contra a sua base de dados Azure SQL para criar tabelas com o nome `customer_table` e `project_table` :  
     
     ```sql
     create table customer_table
@@ -135,7 +135,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
     ```
 
 ### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL do Azure para armazenar o valor de limite superior de tamanho
-1. Execute o seguinte comando SQL contra a sua base de dados Azure SQL para criar uma tabela chamada para armazenar o valor da `watermarktable` marca de água: 
+1. Executar o seguinte comando SQL contra a sua base de dados Azure SQL para criar uma tabela nomeada `watermarktable` para armazenar o valor da marca de água: 
     
     ```sql
     create table watermarktable
@@ -177,9 +177,9 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais na base de dados SQL do Azure
 Execute a seguinte consulta para criar dois procedimentos armazenados e dois tipos de dados na sua base de dados Azure SQL. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino.
 
-Para facilitar a viagem, utilizamos diretamente estes Procedimentos Armazenados passando os dados delta através de uma variável de tabela e, em seguida, fundi-los em loja de destino. Tenha cuidado ao facto de não esperar que um número "grande" de linhas delta (mais de 100) seja armazenado na variável de tabela.  
+Para facilitar a viagem, utilizamos diretamente estes Procedimentos Armazenados passando os dados delta através de uma variável de tabela e, em seguida, fundimo-los em loja de destino. Tenha cuidado por não esperar que um número "grande" de linhas delta (mais de 100) seja armazenado na variável de tabela.  
 
-Se precisar de fundir um grande número de linhas delta na loja de destino, sugerimos que utilize a atividade de cópia para copiar todos os dados delta numa tabela temporária de "encenação" primeiro na loja de destino, e depois construiu o seu próprio procedimento armazenado sem usar a variável de mesa para os fundir da tabela "staging" para a tabela "final". 
+Se precisa de fundir um grande número de linhas delta na loja de destino, sugerimos que utilize a atividade de cópia para copiar todos os dados delta numa tabela temporária de "staging" na loja de destino, e depois construiu o seu próprio procedimento armazenado sem usar a variável de mesa para os fundir da mesa de "encenação" para a tabela "final". 
 
 
 ```sql
@@ -233,7 +233,7 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu esquerdo, selecione **Criar um recurso**  >  **Analytics**  >  **Data Factory:** 
+2. No menu esquerdo, **selecione Criar uma**Fábrica de  >  Dados de**Análise**  >  **de**Recursos: 
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -251,7 +251,7 @@ END
     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
 7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
-8. Clique em **Criar**.      
+8. Clique **em Criar**.      
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
    
    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
@@ -264,10 +264,10 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 
 1. No separador **Runtimes de Integração**, clique em **+ Novo**. 
 
-1. Na janela de configuração de tempo de **integração,** selecione **Executar o movimento de dados e despachar atividades para computações externas**, e clique em **Continuar**. 
+1. Na janela de configuração do tempo de execução de **integração,** selecione **Executar atividades de movimento de dados e de despacho para computaçãos externas,** e clique em **Continuar**. 
 
-1. Selecione **Self-Hosted**, e clique **em Continuar**. 
-1. Introduza **MySelfHostedIR** para **nome,** e clique em **Criar**. 
+1. Selecione **Self-Hosted**e clique **em Continuar**. 
+1. Insira **MySelfHostedIR** para **nome**, e clique em **Criar**. 
 
 1. Clique em **Clique aqui para iniciar a configuração rápida neste computador**, na secção **Opção 1: Configuração Rápida**. 
 
@@ -281,10 +281,10 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 1. Confirme que vê **MySelfHostedIR** na lista de runtimes de integração.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, vai criar serviços ligados à base de dados SQL do Azure local e à base de dados SQL do Azure. 
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Nesta secção, cria serviços ligados à base de dados do SQL Server e à base de dados Azure SQL. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Criar o serviço ligado do SQL Server
-Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dados.
+Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
 
 1. Na janela **Ligações**, mude do separador **Runtimes de Integração** para o separador **Serviços Ligados** e clique em **+ Novo**.
 
@@ -300,7 +300,7 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
     1. Em **Nome do utilizador**, introduza o nome do utilizador que tem acesso à base de dados do SQL Server. Se precisar de utilizar um caráter de barra invertida (`\`) no nome da sua conta de utilizador ou no nome do seu servidor, utilize o caráter de escape (`\`). Um exemplo é `mydomain\\myuser`.
     1. Em **Palavra-passe**,introduza a **palavra-passe** do utilizador. 
     1. Para testar se o Data Factory consegue ligar à base de dados do SQL Server, clique em **Testar ligação**. Corrija os erros até que a ligação seja bem-sucedida. 
-    1. Para salvar o serviço ligado, clique em **Terminar**.
+    1. Para guardar o serviço ligado, clique em **Terminar**.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure
 Neste último passo, vai criar um serviço ligado para ligar a sua base de dados do SQL Server à fábrica de dados. Neste passo, vai ligar a sua base de dados SQL do Azure de destino/sink à fábrica de dados. 
@@ -310,12 +310,12 @@ Neste último passo, vai criar um serviço ligado para ligar a sua base de dados
 1. Na janela **Novo Serviço Ligado**, siga os passos abaixo:
 
     1. Introduza **AzureSqlDatabaseLinkedService** em **Nome**. 
-    1. Para **o nome do Servidor,** selecione o nome do seu servidor na lista de lançamentos. 
+    1. Para **o nome do Servidor,** selecione o nome do seu servidor na lista de drop-down. 
     1. Em **Nome da base de dados**, selecione a base de dados SQL do Azure onde criou customer_table e project_table como parte dos pré-requisitos. 
     1. Em **Nome do utilizador**, introduza o nome do utilizador que tem acesso à base de dados SQL do Azure. 
     1. Em **Palavra-passe**,introduza a **palavra-passe** do utilizador. 
     1. Para testar se o Data Factory consegue ligar à base de dados do SQL Server, clique em **Testar ligação**. Corrija os erros até que a ligação seja bem-sucedida. 
-    1. Para salvar o serviço ligado, clique em **Terminar**.
+    1. Para guardar o serviço ligado, clique em **Terminar**.
 
 1. Verifique se vê dois serviços ligados na lista. 
    
@@ -330,7 +330,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
 1. Na janela **New Dataset,** selecione **SQL Server,** clique **em Continuar**. 
 
-1. Verá um novo separador aberto no browser para configurar o conjunto de dados. Você também vê um conjunto de dados na vista da árvore. No separador **Geral** da janela Propriedades ao fundo, introduza **SourceDataset** em **Nome**. 
+1. Verá um novo separador aberto no browser para configurar o conjunto de dados. Também se vê um conjunto de dados na vista da árvore. No separador **Geral** da janela Propriedades ao fundo, introduza **SourceDataset** em **Nome**. 
 
 1. Mude para o separador **Ligação**, na janela Propriedades e clique em**SqlServerLinkedService** em **Serviço ligado**. Não selecione uma tabela aqui. A atividade Cópia no pipeline utiliza uma consulta SQL para carregar os dados em vez de carregar a tabela inteira.
 
@@ -340,9 +340,9 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 ### <a name="create-a-sink-dataset"></a>Criar um conjunto de dados de sink
 1. No painel esquerdo, clique em **+ (mais)** e clique em **Conjunto de Dados**.
 
-1. Na janela **New Dataset,** selecione **Azure SQL Database**, e clique **em Continuar**. 
+1. Na janela **New Dataset,** selecione **Azure SQL Database**e clique em **Continuar**. 
 
-1. Verá um novo separador aberto no browser para configurar o conjunto de dados. Você também vê um conjunto de dados na vista da árvore. No separador **Geral** da janela Propriedades ao fundo, introduza **SinkDataset** em **Nome**.
+1. Verá um novo separador aberto no browser para configurar o conjunto de dados. Também se vê um conjunto de dados na vista da árvore. No separador **Geral** da janela Propriedades ao fundo, introduza **SinkDataset** em **Nome**.
 
 1. Mude para o separador **Parâmetros** da janela Propriedades, e siga os seguintes abaixo: 
 
@@ -350,11 +350,11 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
     1. Introduza **SinkTableName** em **nome** e **Cadeia** em **tipo**. Este conjunto de dados assume **SinkTableName** como um parâmetro. O parâmetro SinkTableName é definido pelo pipeline dinamicamente durante o runtime. A atividade ForEach no pipeline itera através de uma lista de nomes de tabelas e transmite o nome da tabela para este conjunto de dados em cada iteração.
    
     ![Conjunto de Dados de Sink - propriedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-1. Mude para o separador **Ligação** na janela Propriedades e selecione **AzureSqlDatabaseLinkedService** para **o serviço Linked**. Na propriedade **Tabela**, clique em **Adicionar conteúdo dinâmico**.   
+1. Mude para o **separador 'Ligação'** na janela Propriedades e selecione **AzureSqlDatabaseLinkedService** para **o serviço Linked**. Na propriedade **Tabela**, clique em **Adicionar conteúdo dinâmico**.   
     
-1. Na janela **Adicionar Conteúdo Dinâmico,** selecione **SinkTableName** na secção **Parâmetros.** 
+1. Na janela **Add Dynamic Content,** selecione **SinkTableName** na secção **Parâmetros.** 
  
-1. Depois de clicar em **Terminar,** vê " @dataset (). Nome do quadro de pia" como o nome da mesa.
+1. Depois de clicar em **Terminar**, você vê " @dataset (). SinkTableName " como o nome da mesa.
 
    ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -363,7 +363,7 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
 
 1. No painel esquerdo, clique em **+ (mais)** e clique em **Conjunto de Dados**.
 
-1. Na janela **New Dataset,** selecione **Azure SQL Database**, e clique **em Continuar**. 
+1. Na janela **New Dataset,** selecione **Azure SQL Database**e clique em **Continuar**. 
 
 1. No separador **Geral** da janela Propriedades ao fundo, introduza **WatermarkDataset** em **Nome**.
 1. Mude para o separador **Ligação** e faça os seguintes passos: 
@@ -388,13 +388,13 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 
 1. No painel do lado esquerdo, clique em **+ (mais)** e clique em **Pipeline**.
 
-1. No separador **Geral,** introduza **IncrementalCopyPipeline** para **nome**. 
+1. No separador **Geral,** **insira IncrementalCopyPipeline** para **nome**. 
 
-1. No separador **Parâmetros,** faça os seguintes passos: 
+1. No **separador Parâmetros,** faça os seguintes passos: 
 
     1. Clique em **+ Novo**. 
     1. Introduza **tableList** no parâmetro **Nome**. 
-    1. Selecione **Array** para o **tipo**de parâmetro .
+    1. Selecione **Matriz** para o **tipo**de parâmetro .
 
 1. Na caixa de ferramentas **Atividades**, expanda **Iteração e Condições** e arraste e largue a atividade **ForEach** na superfície de estruturador do pipeline. No separador **Geral** da janela **Propriedades**, introduza **IterateSQLTables**. 
 
@@ -450,17 +450,17 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         
 1. Faça os seguintes passos:
 
-    1. Nas **propriedades dataset**, para parâmetro **SinkTableName,** introduza `@{item().TABLE_NAME}` .
-    1. Para a propriedade De Nome de **Procedimento Armazenado,** insira `@{item().StoredProcedureNameForMergeOperation}` .
-    1. Para propriedade do **tipo tabela,** insira `@{item().TableType}` .
-    1. Para o nome do parâmetro do **tipo tabela,** introduza `@{item().TABLE_NAME}` .
+    1. Nas propriedades do **Dataset**, para o parâmetro **SinkTableName,** insira `@{item().TABLE_NAME}` .
+    1. Para **propriedade nome de procedimento armazenado,** insira `@{item().StoredProcedureNameForMergeOperation}` .
+    1. Para a propriedade **tipo tabela,** insira `@{item().TableType}` .
+    1. Para **o nome do parâmetro do tipo de**tabela, insira `@{item().TABLE_NAME}` .
 
     ![Atividade Copiar - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
-1. Arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. Ligue a atividade **copiar** à atividade do **Procedimento Armazenado.** 
+1. Arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. Ligue a atividade **copy** à atividade **do Procedimento Armazenado.** 
 
 1. Selecione a atividade **Procedimento Armazenado** no pipeline e introduza **StoredProceduretoWriteWatermarkActivity** em **Nome**, no separador **Geral** da janela **Propriedades**. 
 
-1. Mude para o separador **Conta SQL** e selecione **AzureSqlDatabaseLinkedService** para **linked Service**.
+1. Mude para o separador **conta SQL** e selecione **AzureSqlDatabaseLinkedService** para **Serviço Ligado**.
 
     ![Atividade Stored Procedure - Conta do SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Mude para o separador **Procedimento Armazenado** e siga os passos abaixo:
@@ -475,14 +475,14 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
-1. Selecione **Publicar Tudo** para publicar as entidades que criou para o serviço Data Factory. 
+1. **Selecione Publicar Tudo** para publicar as entidades que criou para o serviço Data Factory. 
 
 1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver as notificações, clique na ligação **Mostrar Notificações**. Clique em **X** para fechar a janela de notificações.
 
  
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-1. Na barra de ferramentas para o pipeline, clique em **Adicionar gatilho**, e clique em **'Gatilho'.**     
+1. Na barra de ferramentas para o pipeline, clique **em Adicionar gatilho**e clique em Trigger **Now**.     
 
 1. Na janela **Execução de Pipeline**, introduza o seguinte valor no parâmetro **tableList** e clique em **Concluir**. 
 
@@ -583,7 +583,7 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>Volte a executar o pipeline
 1. Na janela do browser, mude para o separador **Editar** no lado esquerdo. 
-1. Na barra de ferramentas para o pipeline, clique em **Adicionar gatilho**, e clique em **'Gatilho'.**   
+1. Na barra de ferramentas para o pipeline, clique **em Adicionar gatilho**e clique em Trigger **Now**.   
 1. Na janela **Execução de Pipeline**, introduza o seguinte valor no parâmetro **tableList** e clique em **Concluir**. 
 
     ```
@@ -610,7 +610,7 @@ VALUES
 1. Clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Verá todas as execuções de atividades associadas à execução do pipeline selecionada. 
 
 ## <a name="review-the-final-results"></a>Rever os resultados finais
-No Estúdio de Gestão de Servidores SQL, execute as seguintes consultas contra a base de dados SQL alvo para verificar se os dados atualizados/novos foram copiados das tabelas de origem para as tabelas de destino. 
+No SQL Server Management Studio, execute as seguintes consultas com a base de dados SQL alvo para verificar se os dados atualizados/novos foram copiados das tabelas de origem para as tabelas de destino. 
 
 **Consulta** 
 ```sql
@@ -669,7 +669,7 @@ project_table   2017-10-01 00:00:00.000
 
 Tenha em atenção que os valores de limite de tamanho de ambas as tabelas foram atualizados.
      
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

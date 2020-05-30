@@ -75,7 +75,7 @@
       href: /rest/api/openshift
 - name: Recursos
   items:
-    - name: Perguntas comuns
+    - name: Perguntas mais frequentes
       href: openshift-faq.md
     - name: Resolução de problemas
       href: troubleshoot.md
