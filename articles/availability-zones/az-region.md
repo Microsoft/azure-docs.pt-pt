@@ -1,32 +1,32 @@
 ---
-title: Regiões que apoiam zonas de disponibilidade em Azure
-description: Para criar aplicações altamente disponíveis e resilientes em Azure, as Zonas de Disponibilidade fornecem locais fisicamente separados que pode usar para executar os seus recursos.
+title: Regiões que suportam Zonas de Disponibilidade em Azure
+description: Para criar aplicações altamente disponíveis e resilientes no Azure, as Zonas de Disponibilidade fornecem locais fisicamente separados que pode utilizar para executar os seus recursos.
 author: cynthn
 ms.service: azure
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: cynthn
-ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b181316ac2c6998676a17589fff246cf88ff50c2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: fasttrack-edit, mvc, references_regions
+ms.openlocfilehash: 903bfd0be6c82cb5836248a784805b45edcabf36
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123807"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196383"
 ---
-# <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que apoiam zonas de disponibilidade em Azure
+# <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que suportam Zonas de Disponibilidade em Azure
 
-As Zonas de Disponibilidade são uma oferta de alta disponibilidade que protege as suas aplicações e dados de falhas no datacenter. Para mais informações sobre zonas de disponibilidade, consulte [Regiões e Zonas de Disponibilidade em Azure.](az-overview.md)
+Availability Zones é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas no datacenter. Para obter mais informações sobre Zonas de Disponibilidade, consulte [Regiões e Zonas de Disponibilidade em Azure.](az-overview.md)
 
 ## <a name="services-support-by-region"></a>Apoio de serviços por região
 
-Esta secção lista os serviços e regiões azure que suportam zonas de disponibilidade.
+Esta secção lista os serviços e regiões do Azure que suportam Zonas de Disponibilidade.
 
-Os serviços disponíveis em cada região, juntamente com o próximo roteiro para a disponibilidade, podem ser consultados em [Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/)
+Os serviços disponíveis em cada região, juntamente com o roteiro de disponibilidade, podem ser encontrados em [Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/)
 
 |                                 |Américas |              |           |           | Europa |              |          |              | Ásia-Pacífico |                 |                |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |E.U.A. Central|E.U.A. Leste|E.U.A. Leste 2|E.U.A.Oeste 2|França Central|Europa do Norte|Sul do Reino Unido|Europa ocidental|Leste do Japão|Ásia Sudeste|Leste da Austrália|
+|          |E.U.A. Central|E.U.A. Leste|E.U.A. Leste 2|E.U.A.Oeste 2|França Central|Europa do Norte|Sul do Reino Unido|Europa Ocidental|Leste do Japão|Ásia Sudeste|Leste da Austrália|
 | **Computação**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
@@ -38,20 +38,20 @@ Os serviços disponíveis em cada região, juntamente com o próximo roteiro par
 | Armazenamento redundante de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | **Redes**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Balanceador de Carga Padrão     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| Balanceador de carga padrão     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Gateway de VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
 | Gateway do ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
 | Gateway de aplicação (V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
 | Azure Firewall           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| **Bases de Dados**                     |            |              |           |           |                |              |          |             |            |                |                |
+| **Bases de dados**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
-| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (Pré-visualização) | &#10003;       | &#10003; (Pré-visualização)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
+| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;(Pré-visualização) | &#10003;       | &#10003;(Pré-visualização)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
 | Cache do Azure para Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
 | Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
 | **Análise**                       |            |              |           |           |                |              |          |             |            |                |                |
 | Hubs de Eventos                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
 | **Integração**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Ônibus de serviço (apenas premium tier) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
+| Autocarro de serviço (Premium Tier Only) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 | Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 | **Identidade**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |

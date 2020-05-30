@@ -1,29 +1,29 @@
 ---
-title: 'Quickstart: Crie uma aplicação Linux Java'
-description: Inicie-se com aplicações Linux no Azure App Service, implementando a sua primeira aplicação Java para um contentor Linux no App Service.
-keywords: azure, serviço de aplicativos, web app, linux, java, maven, quickstart
+title: 'Quickstart: Criar uma aplicação Linux Java'
+description: Começa com as aplicações Linux no Azure App Service, implementando a sua primeira aplicação Java num contentor Linux no Serviço de Aplicações.
+keywords: azure, serviço de aplicações, web app, linux, java, maven, quickstart
 author: msangapu-msft
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c65160cb648954ef97bd2a3d3e9ac0d38440ce7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732888"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193852"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service em Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com aplicação de patches automática através do sistema operativo Linux. Este quickstart mostra como usar o [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plugin de Aplicação Web Azure para maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implementar um ficheiro java web archive (WAR) no sistema operativo Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com aplicação de patches automática através do sistema operativo Linux. Este quickstart mostra como usar o [CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Azure Web App Plugin para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implementar um ficheiro java web archive (WAR) no sistema operativo Linux.
 
 > [!NOTE]
 >
-> A mesma coisa também pode ser feita usando IDEs populares como IntelliJ, Eclipse e VS Code. Confira os nossos documentos similares no [Azure Toolkit para IntelliJ Quickstart,](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) [Azure Toolkit para Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) ou [VS Code Quickstart](https://code.visualstudio.com/docs/java/java-webapp).
+> O mesmo também pode ser feito usando IDEs populares como IntelliJ, Eclipse e VS Code. Consulte os nossos documentos semelhantes no [Azure Toolkit para IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit para Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) ou [VS Code Quickstart](https://code.visualstudio.com/docs/java/java-webapp).
 >
-![App de amostras em execução no Serviço de Aplicações Azure](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+![App de amostra em execução no Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 ## <a name="create-a-java-app"></a>Criar uma aplicação em Java
 
-Execute o seguinte comando Maven na Cloud Shell `helloworld`pronta para criar uma nova aplicação chamada :
+Execute o seguinte comando Maven no pedido da Cloud Shell para criar uma nova aplicação chamada `helloworld` :
 
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
@@ -44,13 +44,13 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven
 
-O processo de implantação para o Azure App Service utiliza credenciais de conta do Azure CLI. [Inscreva-se no Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
+O processo de implantação para o Azure App Service utiliza credenciais de conta do Azure CLI. [Inscreva-se com o CLI Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
 
 ```azurecli
 az login
 ```
 
-Em seguida, pode configurar a implementação, executar o comando maven no Comando Solicitação e utilizar as configurações predefinidas premindo **ENTER** até obter o aviso **de Confirmação (Y/N)** e, em seguida, prima **'y'** e a configuração está feita. 
+Em seguida, pode configurar a implementação, executar o comando maven no Pedido de Comando e utilizar as configurações predefinidas premindo **ENTER** até obter a indicação **De Confirmação (Y/N)** e, em seguida, prima **'y'** e a configuração é feita. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
@@ -93,20 +93,20 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > Neste artigo, estamos a trabalhar apenas com aplicações Java em pacotes de ficheiros WAR. O plug-in também suporta aplicações Web JAR, visite [Implementar um ficheiro JAR do Java SE no Serviço de Aplicações no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentar.
 
-Navegue `pom.xml` novamente para ver que a configuração do plugin está atualizada, pode modificar outras configurações para o Serviço de Aplicações diretamente no seu ficheiro pom, se necessário, algumas comuns estão listadas abaixo:
+Navegue `pom.xml` novamente para ver a configuração do plugin ser atualizada, pode modificar outras configurações para o Serviço de Aplicações diretamente no seu ficheiro pom, se necessário, algumas comuns estão listadas abaixo:
 
  Propriedade | Necessário | Descrição | Versão
 ---|---|---|---
-`<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores `v1`suportados são: . `v2` | 1.5.2
-`<resourceGroup>` | true | Grupo de Recursos Azure para a sua Web App. | 0.1.0+
+`<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores suportados são: `v1` `v2` . . | 1.5.2
+`<resourceGroup>` | true | Grupo de Recursos Azure para a sua Aplicação Web. | 0.1.0+
 `<appName>` | true | O nome da sua Aplicação Web. | 0.1.0+
-`<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor padrão é **a Europa Ocidental.** Todas as regiões válidas da secção [Regiões Apoiadas.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
-`<pricingTier>` | false | O nível de preços para a sua Web App. O valor predefinido é **P1V2**.| 0.1.0+
-`<runtime>` | true | A configuração do ambiente de tempo de execução, você pode ver o detalhe [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
-`<deployment>` | true | A configuração de implementação, pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor predefinido é **westeurope**. Todas as regiões válidas na secção [Regiões Apoiadas.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
+`<pricingTier>` | false | O nível de preços da sua Web App. O valor predefinido é **P1V2**.| 0.1.0+
+`<runtime>` | true | A configuração do ambiente de tempo de execução, pode ver o detalhe [aqui.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
+`<deployment>` | true | A configuração de implementação, pode ver os detalhes [aqui.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
 
 > [!div class="nextstepaction"]
-> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=config)
+> [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=config)
 
 ## <a name="deploy-the-app"></a>Implementar a aplicação
 
@@ -118,12 +118,12 @@ mvn package azure-webapp:deploy
 
 Uma vez concluída a implementação, navegue para a aplicação implementada com o seguinte URL no seu browser, por exemplo `http://<webapp>.azurewebsites.net`. 
 
-![App de amostras em execução no Serviço de Aplicações Azure](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+![App de amostra em execução no Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Parabéns!** Implementou a sua primeira aplicação Java no Serviço de Aplicações no Linux.
 
 > [!div class="nextstepaction"]
-> [Deparei-me com um problema.](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
+> [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -138,22 +138,22 @@ Este comando pode demorar alguns minutos a ser executado.
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Ligue à base de dados Azure SQL com Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Ligue à base de dados Azure SQL com a Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao Azure DB para MySQL com Java](/azure/mysql/connect-java)
+> [Ligue-se ao Azure DB para o MySQL com o Java](/azure/mysql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Ligue-se ao Azure DB para PostgreSQL com Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configure java app](configure-custom-container.md)
+> [Configure a app Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD com o Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 
 > [!div class="nextstepaction"]
-> [Outros Azure para Java Developers Resources](/java/azure/)
+> [Outro Azure para Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre plugins Maven para Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Saiba mais sobre os plugins maven para Azure](https://github.com/microsoft/azure-maven-plugins)

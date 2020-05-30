@@ -1,32 +1,32 @@
 ---
 title: Utilização de Apache Ambari em Azure HDInsight
-description: Discussão de como Apache Ambari é usado no Azure HDInsight.
+description: Discussão de como Apache Ambari é usado em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 8e40367e07fcda572cca73a3c01d9036e322c85c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020103"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197080"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilização de Apache Ambari em Azure HDInsight
 
-O HDInsight utiliza o Apache Ambari para a implementação e gestão do cluster. Os agentes ambari correm em todos os nós (nó de cabeça, nó de trabalhador, zookeeper e edgenode se existir). O servidor Ambari funciona apenas com o headnode (hn0 ou hn1). Apenas uma instância do servidor Ambari será executada de uma só vez. Isto é controlado pelo controlador de falha HDInsight. Quando um dos cabeçados estiver em baixo para reiniciar ou manutenção, o outro nódode ficará ativo e o servidor Ambari no segundo nódoo será iniciado.
+A HDInsight utiliza o Apache Ambari para implantação e gestão de clusters. Os agentes Ambari funcionam em cada nó (cabeçanode, nó do trabalhador, zookeeper e edgenode, se existir). O servidor Ambari funciona apenas com headnode (hn0 ou hn1). Apenas um caso de servidor Ambari será executado ao mesmo tempo. Isto é controlado pelo controlador de falha HDInsight. Quando um dos headnodes estiver em baixo para reiniciar ou manutenção, o outro headnode ficará ativo e o servidor Ambari no segundo headnode será iniciado.
 
-Toda a configuração do cluster deve ser feita através do [Ambari UI,](./hdinsight-hadoop-manage-ambari.md)qualquer alteração local será substituída quando o nó for reiniciado.
+Toda a configuração do cluster deve ser feita através do [UI Ambari,](./hdinsight-hadoop-manage-ambari.md)qualquer alteração local será substituída quando o nó for reiniciado.
 
-## <a name="failover-controller-services"></a>Serviços de controlador failover
+## <a name="failover-controller-services"></a>Serviços de controlo de falhas
 
-O controlador de failover HDInsight também é responsável pela atualização do endereço IP do anfitrião do headnode, que aponta para o nó de cabeça ativo atual. Todos os agentes ambari estão configurados para reportar o seu estado e batimento cardíaco ao anfitrião do nó de cabeça. O controlador failover é um conjunto de serviços em execução em todos os nós do cluster, se não estiverem em execução, o headnode failover pode não funcionar corretamente e você vai acabar com HTTP 502 ao tentar aceder ao servidor Ambari.
+O controlador de failover HDInsight é também responsável pela atualização do endereço IP do anfitrião headnode, que aponta para o nó de cabeça ativo atual. Todos os agentes Ambari estão configurados para reportar o seu estado e batimentos cardíacos ao hospedeiro de cabeça. O controlador de failover é um conjunto de serviços em execução em cada nó do cluster, se não estiverem a funcionar, o failover de headnode pode não funcionar corretamente e você vai acabar com HTTP 502 ao tentar aceder ao servidor Ambari.
 
-Para verificar qual o nódoactivo ativo, uma maneira é ssh a um dos nós do cluster, em seguida, executar `ping headnodehost` e comparar o IP com o dos dois nódosos.
+Para verificar qual cabeçanode está ativo, uma maneira é ssh para um dos nós no cluster, em seguida, executar `ping headnodehost` e comparar o IP com o dos dois headnodes.
 
-Se os serviços de controlador failover não estiverem em execução, a falha do nó de cabeça pode não acontecer corretamente, o que pode acabar por não executar o servidor Ambari. Para verificar se os serviços de controlador de failover estão em execução, execute:
+Se os serviços de controlador de falha não estiverem a funcionar, a falha do headnode pode não acontecer corretamente, o que pode acabar por não funcionar com o servidor Ambari. Para verificar se os serviços de controlo de falhas estão em execução, execute:
 
 ```bash
 ps -ef | grep failover
@@ -34,14 +34,14 @@ ps -ef | grep failover
 
 ## <a name="logs"></a>Registos
 
-No nódoado ativo, pode verificar os registos do servidor Ambari em:
+No headnode ativo, pode verificar os registos do servidor Ambari em:
 
 ```
 /var/log/ambari-server/ambari-server.log
 /var/log/ambari-server/ambari-server-check-database.log
 ```
 
-Em qualquer nó do cluster, pode verificar os registos do agente Ambari em:
+Em qualquer nó no cluster, você pode verificar os registos do agente Ambari em:
 
 ```bash
 /var/log/ambari-agent/ambari-agent.log
@@ -49,32 +49,32 @@ Em qualquer nó do cluster, pode verificar os registos do agente Ambari em:
 
 ## <a name="service-start-sequences"></a>Sequências de início de serviço
 
-Esta é a sequência de início de serviço no momento do arranque:
+Esta é a sequência de início de serviço na hora do arranque:
 
-1. O agente Hdinsight inicia os serviços de controlador de failover.
-1. Os serviços de controlador failover iniciam o agente Ambari em cada nó e servidor Ambari em cabeceira ativa.
+1. O agente Hdinsight inicia os serviços de controlo de falhas.
+1. Os serviços de controlador de failover iniciam o agente Ambari em todos os nós e servidor Ambari em headnode ativo.
 
 ## <a name="ambari-database"></a>Base de Dados Ambari
 
-O HDInsight cria a Base de Dados SQL Azure sob o capot para servir de base de dados para o servidor Ambari. O [nível de serviço](../azure-sql/database/elastic-pool-scale.md)predefinido é S0 .
+O HDInsight cria uma base de dados na Base de Dados SQL sob o capot para servir como base de dados para o servidor Ambari. O [nível de serviço predefinido é S0](../azure-sql/database/elastic-pool-scale.md).
 
-Para qualquer cluster com nó de trabalhador esmorecê-lo com maior número de 16 quando criar o cluster, o S2 é o nível de serviço de base de dados.
+Para qualquer cluster com nó de trabalhador conta maior que 16 ao criar o cluster, S2 é o nível de serviço de base de dados.
 
 ## <a name="takeaway-points"></a>Pontos de takeaway
 
-Nunca inicie/pare manualmente os serviços de ambari-server ou ambari-agent, a menos que esteja a tentar reiniciar o serviço para resolver um problema. Para forçar uma falha, pode reiniciar o nódoaactivo.
+Nunca inicie/pare manualmente os serviços de ambari-servidor ou ambari-agent, a menos que esteja a tentar reiniciar o serviço para resolver um problema. Para forçar um fracasso, pode reiniciar o headnode ativo.
 
-Nunca modifique manualmente quaisquer ficheiros de configuração em qualquer nó de cluster, deixe a Ambari UI fazer o trabalho por si.
+Nunca modifique manualmente quaisquer ficheiros de configuração em nenhum nó de cluster, deixe a Ambari UI fazer o trabalho por si.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir clusters do HDInsight através da IU da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Gerir os clusters HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Gerir os clusters HDInsight utilizando a API Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
+Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
+* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

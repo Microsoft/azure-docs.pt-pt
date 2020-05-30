@@ -2,15 +2,15 @@
 title: Utilize zonas de disponibilidade no Serviço Azure Kubernetes (AKS)
 description: Saiba como criar um cluster que distribui nós em zonas de disponibilidade no Serviço Azure Kubernetes (AKS)
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 20b796e2da7fe602a8987d3de98bd3a5d9fafb5c
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148179"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195569"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -36,7 +36,7 @@ Os clusters AKS podem ser criados atualmente utilizando zonas de disponibilidade
 * Europa do Norte
 * Ásia Sudeste
 * Sul do Reino Unido
-* Europa ocidental
+* Europa Ocidental
 * E.U.A.Oeste 2
 
 Aplicam-se as seguintes limitações quando cria um cluster AKS utilizando zonas de disponibilidade:
@@ -165,7 +165,7 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de `eastus2-1` disponibilidade. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3` , e a terceira no nó 4, em `eastus2-2` . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres em AKS][best-practices-bc-dr].
 

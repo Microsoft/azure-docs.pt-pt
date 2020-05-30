@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 3405a322b8498b0b1a29399811ddf188ea766ca8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: efb873f8e66c3ab71b5b7345d776629fbe603af3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170601"
+ms.locfileid: "84193423"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objetos para bolhas de bloco (pré-visualização)
 
@@ -73,7 +73,9 @@ Durante a pré-visualização, não existem custos adicionais associados à repl
 
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para a replicação de objetos
 
-A replicação do objeto requer que as seguintes funcionalidades de Armazenamento Azure estejam ativadas:
+A replicação do objeto requer que as seguintes funcionalidades de Armazenamento Azure estejam ativadas: 
+- [Alterar alimentação](storage-blob-change-feed.md)
+- [Controlo de versões](versioning-overview.md)
 
 Antes de configurar a replicação de objetos, ative os seus pré-requisitos. O feed de alteração deve ser ativado na conta de origem e a versão blob deve ser ativada tanto na conta de origem como de destino. Para obter mais informações sobre como ativar estas funcionalidades, consulte estes artigos:
 
@@ -154,6 +156,8 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 
 Para fazer perguntas sobre a pré-visualização da replicação do objeto, ou para fornecer feedback, contacte a Microsoft em AzureStorageFeedback@microsoft.com . Ideias e sugestões sobre o Azure Storage são sempre bem-vindos no [fórum de feedback do Azure Storage](https://feedback.azure.com/forums/217298-storage).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure a replicação do objeto (pré-visualização)](object-replication-configure.md)
+- [Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)
+- [Ativar e gerir a versão blob](versioning-enable.md)

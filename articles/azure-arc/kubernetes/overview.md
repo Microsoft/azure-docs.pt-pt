@@ -1,5 +1,5 @@
 ---
-title: Visão geral de Kubernetes ativadas por Arco Azure
+title: Visão geral de Kubernetes habilitada a Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,45 +8,46 @@ author: mlearned
 ms.author: mlearned
 description: ''
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: 3b3b184ff7b18e05dfeb1052c0d6b4aa406a8787
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: references_regions
+ms.openlocfilehash: badade7e89d0b03f330bfbe3578d02429220001b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666259"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194841"
 ---
-# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é Kubernetes ativado por Arco Azure (Pré-visualização)
+# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é Kubernetes ativado por Azure Arc (Preview)
 
-Pode anexar e configurar aglomerados Kubernetes dentro ou fora de Azure com Kubernetes ativados por Azure Arc (Pré-visualização). Quando um cluster Kubernetes está ligado ao Azure Arc, aparecerá no Portal Azure, terá um ID do Gestor de Recursos Azure e uma Identidade Gerida. Os clusters estão ligados a subscrições padrão do Azure, vivem num grupo de recursos, e podem receber tags como qualquer outro recurso Azure. 
+Pode anexar e configurar aglomerados Kubernetes dentro ou fora de Azure com Azure Arc ativado Kubernetes (Preview). Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no Portal Azure, terá um ID do Gestor de Recursos Azure e uma Identidade Gerida. Os clusters estão ligados às subscrições padrão do Azure, vivem num grupo de recursos e podem receber tags como qualquer outro recurso Azure. 
 
 
-Ligar um cluster Kubernetes ao Azure requer um administrador de cluster para implementar agentes. Estes agentes funcionam num espaço de nome kubernetes chamado `azure-arc` e são destacamentos kubernetes padrão. Os agentes são responsáveis pela conectividade com o Azure, recolhendo registos e métricas do Azure Arc e vigiando os pedidos de configuração.  
+Ligar um cluster Kubernetes ao Azure requer um administrador de cluster para implantar agentes. Estes agentes funcionam num espaço de nome Kubernetes chamado `azure-arc` e são implementações padrão de Kubernetes. Os agentes são responsáveis pela conectividade com o Azure, recolhendo registos e métricas do Arco Azure e observando pedidos de configuração.  
  
  > [!NOTE]
-> A Kubernetes ativada pelo Azure Arc está em pré-visualização e não é recomendada para cargas de trabalho de produção. 
+> Azure Arc habilitado Kubernetes está em pré-visualização e não é recomendado para cargas de trabalho de produção. 
 
 
 ## <a name="supported-scenarios"></a>Cenários Suportados 
 
-O Azure Arc habilitado pela Kubernetes suporta os seguintes cenários: 
+Azure Arc habilitado Kubernetes suporta os seguintes cenários: 
 
-* Ligando Kubernetes correndo fora de Azure para inventário, agrupamento e marcação 
+* Ligação de Kubernetes fora de Azure para inventário, agrupamento e marcação 
 
-* Implementar aplicações e aplicar a configuração utilizando a gestão de configuração baseada em GitOps 
+* Implementar aplicações e aplicar configuração usando a gestão de configuração baseada em GitOps 
 
-* Utilize o Monitor Azure para que os recipientes vejam e monitorizem os seus clusters 
+* Utilize o Monitor Azure para que os recipientes vejam e monitorizem os seus aglomerados 
 
-* Aplicar políticas utilizando a política azure para kubernetes 
+* Aplicar políticas usando a política Azure para Kubernetes 
 
  
-## <a name="supported-regions"></a>Regiões Apoiadas 
+## <a name="supported-regions"></a>Regiões apoiadas 
 
-A Azure Arc ativada Kubernetes é atualmente apoiada nas seguintes regiões: 
+Azure Arc habilitado Kubernetes é atualmente apoiado nas seguintes regiões: 
 
 * E.U.A. Leste 
-* Europa ocidental 
+* Europa Ocidental 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligar um cluster](./connect-cluster.md)
