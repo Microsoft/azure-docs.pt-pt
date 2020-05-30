@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73666808"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196599"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -112,7 +112,7 @@ Por exemplo, um serviço ligado do Armazenamento do Azure especifica a cadeia de
 
 Os serviços ligados são utilizados por dois motivos no Data Factory:
 
-* Para representar um *arquivo de dados*, que inclua, entre outros, uma base de dados do SQL Server no local, uma base de dados Oracle, uma partilha de ficheiros ou uma conta de armazenamento de blobs do Azure. Veja a secção [Data movement activities (Atividades de movimento de dados)](#data-movement-activities) para obter uma lista dos arquivos de dados suportados.
+* Para representar uma *loja de dados* que inclui, mas não se limita a, uma base de dados sql Server, base de dados Oracle, partilha de ficheiros ou conta de armazenamento de blob Azure. Veja a secção [Data movement activities (Atividades de movimento de dados)](#data-movement-activities) para obter uma lista dos arquivos de dados suportados.
 
 * Para representar um *recurso de computação* que pode alojar a execução de uma atividade. Por exemplo, a Atividade HDInsightHive é executada num cluster do HDInsight Hadoop. Veja a secção [Atividades de transformação de dados](#data-transformation-activities) para obter uma lista dos ambientes de computação suportados.
 
@@ -125,7 +125,7 @@ Atualmente, pode criar fábricas de dados nas regiões E.U.A. Oeste, E.U.A. Lest
 
 O Azure Data Factory propriamente dito não armazena quaisquer dados. Permite criar fluxos de trabalho condicionados por dados para orquestrar o movimento de dados entre os [arquivos de dados suportados](#data-movement-activities). Também permite processar os dados através de [serviços de computação](#data-transformation-activities) noutras regiões ou num ambiente no local. Também permite [monitorizar e gerir fluxos de trabalho](data-factory-monitor-manage-pipelines.md) com mecanismos programáticos e de IU.
 
-O Data Factory está disponível apenas nas regiões E.U.A. Oeste, E.U.A. Leste e Europa do Norte. No entanto, o serviço que permite o movimento de dados no Data Factory está disponível [globalmente](data-factory-data-movement-activities.md#global) em várias regiões. Se uma loja de dados está por detrás de uma firewall, então um Portal de [Gestão](data-factory-move-data-between-onprem-and-cloud.md) de Dados instalado no seu ambiente no local move os dados em vez disso.
+O Data Factory está disponível apenas nas regiões E.U.A. Oeste, E.U.A. Leste e Europa do Norte. No entanto, o serviço que permite o movimento de dados no Data Factory está disponível [globalmente](data-factory-data-movement-activities.md#global) em várias regiões. Se uma loja de dados estiver por trás de uma firewall, então um Gateway de Gestão de [Dados](data-factory-move-data-between-onprem-and-cloud.md) instalado no seu ambiente no local move os dados em vez disso.
 
 Por exemplo, vamos assumir que os seus ambientes de computação, tais como o cluster do Azure HDInsight e o Azure Machine Learning, estão localizados na região Europa Ocidental. Pode criar e utilizar uma instância do Azure Data Factory na Europa do Norte. Em seguida, pode utilizá-la para agendar tarefas nos seus ambientes de computação na Europa Ocidental. O Data Factory demora alguns milissegundos a acionar a tarefa no seu ambiente de computação, mas o tempo de execução da tarefa nesse ambiente não sofre alterações.
 
@@ -144,4 +144,4 @@ Para saber como criar fábricas de dados com pipelines de dados, siga as instru�
 | --- | --- |
 | [Move data between two cloud data stores (Mover dados entre dois arquivos de dados na cloud)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Crie uma fábrica de dados com um pipeline que move dados do armazenamento de blobs para uma base de dados SQL. |
 | [Utilizar o cluster do Hadoop para transformar dados](data-factory-build-your-first-pipeline.md) |Crie a primeira fábrica de dados do Azure com um pipeline de dados que processa dados através da execução do script Hive num cluster do Azure HDInsight (Hadoop). |
-| [Utilizar o Data Management Gateway para mover dados entre um arquivo de dados no local e um arquivo de dados na cloud](data-factory-move-data-between-onprem-and-cloud.md) |Crie uma fábrica de dados com um pipeline que move dados de uma base de dados do SQL Server no local para um blob do Azure. Como parte das instruções, vai instalar e configurar o Data Management Gateway no seu computador. |
+| [Utilizar o Data Management Gateway para mover dados entre um arquivo de dados no local e um arquivo de dados na cloud](data-factory-move-data-between-onprem-and-cloud.md) |Construa uma fábrica de dados com um oleoduto que move dados de uma base de dados do SQL Server para uma bolha Azure. Como parte das instruções, vai instalar e configurar o Data Management Gateway no seu computador. |

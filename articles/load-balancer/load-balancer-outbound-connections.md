@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 64acfcffed597640402df557ae419a67ff1e0dcb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 988434a72359ebe6ef84c4fd94041b2d4b90d5d9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170397"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221092"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -40,10 +40,10 @@ Existem vários [cenários de saída.](#scenarios) Pode combinar estes cenários
 
 O Azure Load Balancer e os recursos relacionados são explicitamente definidos quando se está a utilizar [o Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  A Azure fornece atualmente três métodos diferentes para alcançar a conectividade de saída para os recursos do Azure Resource Manager. 
 
-| SKUs | Scenario | Método | Protocolos IP | Descrição |
+| SKUs | Cenário | Método | Protocolos IP | Descrição |
 | --- | --- | --- | --- | --- |
 | Padrão, Básico | [1. VM com um endereço IP público de nível de instância (com ou sem balanceador de carga)](#ilpip) | SNAT, porta disfarçada não utilizada | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração IP do NIC da instância. O caso tem todas as portas efémeras disponíveis. Ao utilizar o Balancer de Carga Padrão, [as regras de saída](load-balancer-outbound-rules-overview.md) não são suportadas se um IP público for atribuído à Máquina Virtual. |
-| Padrão, Básico | [2. Balanceador de Carga Pública associado a um VM (sem endereço IP público no caso)](#lb) | SNAT com máscara de porta (PAT) usando os frontends do balanceador de carga | TCP, UDP |A Azure partilha o endereço IP público dos frontends do Balancer de Carga público com vários endereços IP privados. Azure usa portas efémeras dos frontends para PAT. Deve usar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída. |
+| Padrão, Básico | [2. Balanceador de Carga Pública associado a um VM (sem endereço IP público no caso)](#lb) | SNAT com máscara de porta (PAT) usando os frontends do balanceador de carga | TCP, UDP |A Azure partilha o endereço IP público dos frontends do Balancer de Carga público com vários endereços IP privados. Azure usa portas efémeras dos frontends para PAT. Ao utilizar o Balancer de Carga Padrão, deve utilizar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída. |
 | nenhum ou Básico | [3. VM autónomo (sem balanceador de carga, sem endereço IP público)](#defaultsnat) | SNAT com máscara de porto (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para O SNAT, partilha este endereço IP público com vários endereços IP privados do conjunto de disponibilidade, e utiliza portas efémeras deste endereço IP público. Este cenário é uma recaiação para os cenários anteriores. Não recomendamos se precisar de visibilidade e controlo. |
 
 Se não quiser que um VM comunique com pontos finais fora de Azure no espaço de endereço IP público, pode utilizar grupos de segurança de rede (NSGs) para bloquear o acesso conforme necessário. A secção [Prevenção da conectividade de saída](#preventoutbound) discute mais detalhadamente os NSGs. A orientação sobre a conceção, implementação e gestão de uma rede virtual sem qualquer acesso de saída está fora do âmbito deste artigo.
@@ -209,7 +209,7 @@ Ter conectividade de saída através dos cenários acima não é necessário lig
 ## <a name="limitations"></a>Limitações
 - As funções do Web Worker roles sem um VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando apenas um Balancer de Carga Standard interno é usado devido a um efeito colateral da forma como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar conectividade de saída explicitamente se desejar quando utilizar apenas um Balanceador de Carga Padrão interno. O cenário [padrão SNAT](#defaultsnat) 3 descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md) para o Balancer de Carga público Padrão.

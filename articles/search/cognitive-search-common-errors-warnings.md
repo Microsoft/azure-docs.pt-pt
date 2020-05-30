@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 00494a4e071cb3e8b18f04ad7f201935e20c6b3d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171111"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221322"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas erros e avisos comuns do indexante na Pesquisa Cognitiva do Azure
 
@@ -71,7 +71,7 @@ Indexer leu o documento a partir da fonte de dados, mas houve um problema de con
 
 | Razão | Detalhes/Exemplo | Resolução |
 | --- | --- | --- |
-| Falta a chave do documento. | A chave do documento não pode faltar ou esvaziar | Certifique-se de que todos os documentos têm chaves de documento válidas |
+| Falta a chave do documento. | A chave do documento não pode faltar ou esvaziar | Certifique-se de que todos os documentos têm chaves de documento válidas. A chave do documento é determinada através da definição da propriedade 'chave' como parte da [definição](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body)de índice . Os indexantes emitirão este erro quando a propriedade sinalizada como 'chave' não pode ser encontrada num determinado documento. |
 | A chave do documento é inválida | A chave do documento não pode ter mais de 1024 caracteres | Modifique a chave do documento para satisfazer os requisitos de validação. |
 | Não poderia aplicar mapeamento de campo a um campo | Não foi possível aplicar a função de mapeamento `'functionName'` no campo `'fieldName'` . A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique [duas vezes os mapeamentos](search-indexer-field-mappings.md) de campo definidos no indexante e compare com os dados do campo especificado do documento falhado. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
 | Não conseguia ler o valor do campo | Não consegui ler o valor da coluna `'fieldName'` no `'fieldIndex'` índice. Ocorreu um erro de nível de transporte ao receber resultados do servidor. (fornecedor: Fornecedor TCP, erro: 0 - Uma ligação existente foi fechada à força pelo hospedeiro remoto.) | Estes erros são normalmente devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente passar o documento através do seu indexante novamente mais tarde. |

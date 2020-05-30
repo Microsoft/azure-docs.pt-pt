@@ -12,41 +12,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 1c1b48d3715d838827f88f99fc0849d25677fdcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb7ffb06bb0cffeefae87ada665e2c123213186a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585730"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218654"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registo de Contentores Azure com o Centro de Segurança
 
-O Registo de Contentores Azure (ACR) é um serviço de registo privado e gerido do Docker que armazena e gere as suas imagens de contentores para implantações azure num registo central. Baseia-se no registo 2.0 do Docker.
+O Registo de Contentores Azure (ACR) é um serviço de registo privado e gerido do Docker que armazena e gere as suas imagens de contentores para implantações do Azure num registo central. Baseia-se no registo 2.0 do Docker.
 
-Se estiver no nível padrão do Azure Security Center, pode adicionar o pacote de Registos de Contentores. Esta funcionalidade opcional traz uma visibilidade mais profunda às vulnerabilidades das imagens nos seus registos baseados em ARM. Ative ou desative o pacote ao nível da subscrição para cobrir todos os registos numa subscrição. Esta funcionalidade é carregada por imagem, como mostra a página de [preços](security-center-pricing.md). Habilitando o pacote de Registos de Contentores, garante que o Centro de Segurança está pronto para digitalizar imagens que são empurradas para o registo. 
+Se estiver no nível padrão do Centro de Segurança Azure, pode adicionar o pacote de registos de contentores. Esta funcionalidade opcional traz uma visibilidade mais profunda às vulnerabilidades das imagens nos seus registos baseados na ARM. Ative ou desative o pacote ao nível de subscrição para cobrir todos os registos numa subscrição. Esta funcionalidade é carregada por imagem, como mostra a [página de preços](security-center-pricing.md). Ativando o pacote de registos de contentores, garante que o Centro de Segurança está pronto para digitalizar imagens que são empurradas para o registo. 
 
-Sempre que uma imagem é empurrada para o seu registo, o Security Center digitaliza automaticamente essa imagem. Para desencadear a tomografia de uma imagem, empurre-a para o seu repositório.
+Sempre que uma imagem é empurrada para o seu registo, o Centro de Segurança digitaliza automaticamente essa imagem. Para ativar a digitalização de uma imagem, empurre-a para o seu repositório.
 
-Quando a varredura termina (normalmente após aproximadamente 10 minutos), os resultados estão disponíveis em recomendações do Centro de Segurança como esta:
+Quando a varredura termina (normalmente após aproximadamente 10 minutos, mas pode levar até 48h), os resultados estão disponíveis em recomendações do Centro de Segurança como esta:
 
-[![Recomendação do Centro de Segurança Azure sobre vulnerabilidades descobertas num Registo de Contentores Azure (ACR) hospedada imagem](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Amostra da recomendação do Centro de Segurança Azure sobre vulnerabilidades descobertas numa imagem hospedada do Registo de Contentores Azure (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Benefícios da integração
 
-O Security Center identifica registos ACR baseados em ARM na sua subscrição e fornece sem problemas:
+O Security Center identifica registos ACR baseados na ARM na sua subscrição e fornece perfeitamente:
 
-* **Vulnerabilidade nativa de Azure à procura** de todas as imagens do Linux empurradas. O Security Center digitaliza a imagem usando um scanner do fornecedor de vulnerabilidadelíder da indústria, qualys. Esta solução nativa é perfeitamente integrada por padrão.
+* **Vulnerabilidade nativa do Azure procurando** todas as imagens de Linux empurradas. O Security Center verifica a imagem usando um scanner do fornecedor líder de pesquisa de vulnerabilidades da indústria, Qualys. Esta solução nativa é perfeitamente integrada por padrão.
 
-* **Recomendações de segurança** para imagens linux com vulnerabilidades conhecidas. O Security Center fornece detalhes de cada vulnerabilidade reportada e uma classificação de gravidade. Além disso, dá orientações para como remediar as vulnerabilidades específicas encontradas em cada imagem empurradas para o registo.
+* **Recomendações de segurança** para imagens Linux com vulnerabilidades conhecidas. O Centro de Segurança fornece detalhes de cada vulnerabilidade reportada e uma classificação de gravidade. Além disso, dá orientação para como remediar as vulnerabilidades específicas encontradas em cada imagem empurrada para o registo.
 
-![Visão geral de alto nível do Azure Security Center e do Registo de Contentores De Azure (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Centro de Segurança Azure e Registo de Contentores Azure (ACR) visão geral de alto nível](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as funcionalidades de segurança de contentores do Security Center, consulte:
+Para saber mais sobre as funcionalidades de segurança do Security Center, consulte:
 
 * [Centro de Segurança Azure e segurança de contentores](container-security.md)
 
 * [Integração com o Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Proteção virtual de máquinas](security-center-virtual-machine-protection.md) - Descreve as recomendações do Centro de Segurança
+* [Proteção de Máquinas Virtuais](security-center-virtual-machine-protection.md) - Descreve as recomendações do Centro de Segurança

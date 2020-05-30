@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: 94aa82090e03377a9a55af430fcdc944632ed109
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 05/28/2020
+ms.openlocfilehash: 7f937c18e2012baa430129ff16200a5e6b215f28
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148332"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220314"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -42,13 +42,13 @@ Para a atividade copy, este conector Azure SQL Database suporta estas funções:
 
 - Copiar dados utilizando a autenticação SQL e o Azure Ative Directory (Azure AD) A autenticação de fichas de aplicação com um principal serviço ou identidades geridas para recursos Azure.
 - Como fonte, recuperar dados utilizando uma consulta SQL ou um procedimento armazenado.
-- Como pia, anexando dados a uma tabela de destino ou invocando um procedimento armazenado com lógica personalizada durante a cópia.
+- Como pia, criar automaticamente a tabela de destino, se não existir com base no esquema de origem; anexar dados a uma tabela ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
 >[!NOTE]
-> A base de dados Azure SQL [Sempre encriptada](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) não é suportada por este conector agora. Para trabalhar, pode utilizar um [conector ODBC genérico](connector-odbc.md) e um controlador ODBC do SQL Server através de um tempo de integração auto-hospedado. Siga [esta orientação](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) com as configurações de descarregamento e ligação do controlador ODBC.
+> A base de dados Azure SQL [Sempre encriptada](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) não é suportada por este conector agora. Para trabalhar, pode utilizar um [conector ODBC genérico](connector-odbc.md) e um controlador ODBC do SQL Server através de um tempo de integração auto-hospedado. Saiba mais [na secção "Sempre Encriptado".](#using-always-encrypted) 
 
 > [!IMPORTANT]
-> Se copiar dados utilizando o tempo de execução da integração da Azure Data Factory, configure uma [regra de firewall ao nível do servidor](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para que os serviços Azure possam aceder ao servidor.
+> Se copiar dados utilizando o tempo de execução da integração do Azure, configure uma [regra de firewall ao nível do servidor](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para que os serviços Azure possam aceder ao servidor.
 > Se copiar dados utilizando um tempo de integração auto-hospedado, configufique a firewall para permitir o intervalo ip apropriado. Esta gama inclui o IP da máquina que é usado para ligar à Base de Dados Azure SQL.
 
 ## <a name="get-started"></a>Introdução
@@ -63,12 +63,12 @@ Estas propriedades são suportadas para um serviço de base de dados Azure SQL l
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **AzureSqlDatabase**. | Sim |
-| conexãoStragem | Especifique as informações necessárias para ligar à instância de Base de Dados Azure SQL para a **propriedade connectionString.** <br/>Também pode colocar uma senha ou chave principal de serviço no Cofre da Chave Azure. Se for a autenticação SQL, retire a `password` configuração da cadeia de ligação. Para obter mais informações, consulte o exemplo JSON seguindo as credenciais da tabela e [da loja no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| tipo | A propriedade **tipo** deve ser definida para **AzureSqlDatabase**. | Yes |
+| conexãoStragem | Especifique as informações necessárias para ligar à instância de Base de Dados Azure SQL para a **propriedade connectionString.** <br/>Também pode colocar uma senha ou chave principal de serviço no Cofre da Chave Azure. Se for a autenticação SQL, retire a `password` configuração da cadeia de ligação. Para obter mais informações, consulte o exemplo JSON seguindo as credenciais da tabela e [da loja no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
 | servicePrincipalId | Especifique a identificação do cliente da aplicação. | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo de forma segura na Azure Data Factory ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
 | inquilino | Especifique as informações do inquilino, como o nome de domínio ou iD do inquilino, sob o qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
-| connectVia | Este [tempo de integração](concepts-integration-runtime.md) é utilizado para se ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado se a sua loja de dados estiver localizada numa rede privada. Se não for especificado, utiliza-se o tempo de execução da integração Azure predefinido. | Não |
+| connectVia | Este [tempo de integração](concepts-integration-runtime.md) é utilizado para se ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado se a sua loja de dados estiver localizada numa rede privada. Se não for especificado, utiliza-se o tempo de execução da integração Azure predefinido. | No |
 
 Para diferentes tipos de autenticação, consulte as seguintes secções sobre pré-requisitos e amostras JSON, respectivamente:
 
@@ -131,7 +131,7 @@ Para utilizar uma autenticação simbólica de aplicação Azure AD baseada em s
 
 1. [Crie uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) a partir do portal Azure. Tome nota do nome da aplicação e dos seguintes valores que definem o serviço ligado:
 
-    - ID da Aplicação
+    - ID da aplicação
     - Chave de aplicação
     - ID do inquilino
 
@@ -223,7 +223,7 @@ As seguintes propriedades são suportadas para o conjunto de dados da Base de Da
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlTable**. | Sim |
+| tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlTable**. | Yes |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
 | table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
@@ -259,11 +259,11 @@ Para copiar dados da Base de Dados Azure SQL, as seguintes propriedades são sup
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **AzureSqlSource**. O tipo "SqlSource" ainda é suportado para retrocompatibilidade. | Sim |
-| sqlReaderQuery | Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
-| sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê os dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. | Não |
-| parametrómetros de reserva armazenados | Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | Não |
-| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted** (predefinição), **ReadUncommitted,** **RepeatableRead,** **Serializable**, **Snapshot**. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **AzureSqlSource**. O tipo "SqlSource" ainda é suportado para retrocompatibilidade. | Yes |
+| sqlReaderQuery | Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | No |
+| sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê os dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. | No |
+| parametrómetros de reserva armazenados | Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | No |
+| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted** (predefinição), **ReadUncommitted,** **RepeatableRead,** **Serializable**, **Snapshot**. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | No |
 
 **Pontos a notar:**
 
@@ -366,15 +366,15 @@ Para copiar dados para a Base de Dados Azure SQL, as seguintes propriedades são
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **AzureSqlSink**. O tipo "SqlSink" ainda é suportado para retrocompatibilidade. | Sim |
-| escreverBatchSize | Número de linhas para inserir na tabela SQL *por lote*.<br/> O valor permitido é **inteiro (número** de linhas). Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | Não |
-| escreverBatchTimeout | O tempo de espera para o funcionamento do encaixe do lote terminar antes de se esgotar.<br/> O valor permitido é **o tempo.** Um exemplo é "00:30:00" (30 minutos). | Não |
-| preCopyScript | Especifique uma consulta SQL para a atividade da cópia a executar antes de escrever dados na Base de Dados Azure SQL. É invocado apenas uma vez por cópia. Utilize esta propriedade para limpar os dados pré-carregados. | Não |
-| sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade. | Não |
-| nome de parametrómetro de computador |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
-| SqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Não |
-| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes e valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | Não |
-| mesaOption | Especifica se deve criar automaticamente a tabela do lavatório se não existir com base no esquema de origem. A criação de mesa automática não é suportada quando o lavatório especifica o procedimento armazenado ou a cópia encenada é configurada na atividade da cópia. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
+| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **AzureSqlSink**. O tipo "SqlSink" ainda é suportado para retrocompatibilidade. | Yes |
+| preCopyScript | Especifique uma consulta SQL para a atividade da cópia a executar antes de escrever dados na Base de Dados Azure SQL. É invocado apenas uma vez por cópia. Utilize esta propriedade para limpar os dados pré-carregados. | No |
+| mesaOption | Especifica se deve criar automaticamente a tabela do lavatório se não existir com base no esquema de origem. <br>A criação de mesa automática não é suportada quando o lavatório especifica o procedimento armazenado ou a cópia encenada é configurada na atividade da cópia. <br>Os valores permitidos são: `none` (padrão), `autoCreate` . | No |
+| sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade.<br>Veja o exemplo de [Invocar um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink). | No |
+| nome de parametrómetro de computador |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |No |
+| SqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |No |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes e valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | No |
+| escreverBatchSize | Número de linhas para inserir na tabela SQL *por lote*.<br/> O valor permitido é **inteiro (número** de linhas). Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | No |
+| escreverBatchTimeout | O tempo de espera para o funcionamento do encaixe do lote terminar antes de se esgotar.<br/> O valor permitido é **o tempo.** Um exemplo é "00:30:00" (30 minutos). | No |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como DTUs de base de dados Azure SQL para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
 
 **Exemplo 1: Dados do apêndice**
@@ -402,8 +402,8 @@ Para copiar dados para a Base de Dados Azure SQL, as seguintes propriedades são
             },
             "sink": {
                 "type": "AzureSqlSink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -467,12 +467,11 @@ Os dados appending são o comportamento padrão deste conector de pia Azure SQL 
 
 ### <a name="upsert-data"></a>Fazer upsert de dados
 
-**Opção 1:** Quando tiver uma grande quantidade de dados para copiar, utilize a seguinte abordagem para fazer um upsert:
+**Opção 1:** Quando tiver uma grande quantidade de dados para copiar, pode carregar todos os registos em massa numa tabela de encenação utilizando a atividade da cópia e, em seguida, executar uma atividade de procedimento armazenada para aplicar uma declaração [DE FUSÃO](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou INSERT/UPDATE numa única tomada. 
 
-- Em primeiro lugar, utilize uma [tabela temporária de âmbito de base de dados](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) para carregar em massa todos os registos utilizando a atividade da cópia. Como as operações contra as tabelas temporárias de base de dados não estão registadas, podes carregar milhões de registos em segundos.
-- Executar uma atividade de procedimento armazenado na Azure Data Factory para aplicar uma declaração [DE FUSÃO](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou INSERT/UPDATE. Utilize a tabela temporária como fonte para executar todas as atualizações ou inserções como uma única transação. Desta forma, o número de viagens de ida e volta e de operações de registo é reduzido. No final da atividade de procedimento armazenado, a tabela temporária pode ser truncada para estar pronta para o próximo ciclo de upsert.
+Atualmente, a atividade de cópia não suporta o carregamento de dados numa tabela temporária de base de dados. Existe uma forma avançada de o configurar com uma combinação de múltiplas atividades, consulte os [cenários de Upsert de Base de Dados Azure SQL](https://github.com/scoriani/azuresqlbulkupsert). Abaixo mostra uma amostra de usar uma tabela permanente como encenação.
 
-Como exemplo, na Azure Data Factory, pode criar um oleoduto com uma **atividade Copy** acorrentada com uma atividade de **Procedimento Armazenado.** Os primeiros copiam dados da sua loja de origem para uma tabela temporária Azure SQL Database, por exemplo, **##UpsertTempTable**, como o nome da tabela no conjunto de dados. Em seguida, este último invoca um procedimento armazenado para fundir dados de origem da tabela temporária na tabela alvo e limpar a tabela temporária.
+Como exemplo, na Azure Data Factory, pode criar um oleoduto com uma **atividade Copy** acorrentada com uma atividade de **Procedimento Armazenado.** Os primeiros copiam dados da sua loja de origem para uma tabela de posição Azure SQL Database, por exemplo, **UpsertStagingTable,** como o nome da tabela no conjunto de dados. Em seguida, este último invoca um procedimento armazenado para fundir dados de origem da tabela de paragem na tabela alvo e limpar a tabela de preparação.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -483,18 +482,20 @@ CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
    MERGE TargetTable AS target
-   USING ##UpsertTempTable AS source
+   USING UpsertStagingTable AS source
    ON (target.[ProfileID] = source.[ProfileID])
    WHEN MATCHED THEN
       UPDATE SET State = source.State
     WHEN NOT matched THEN
        INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**Opção 2:** Também pode optar por [invocar um procedimento armazenado no âmbito da atividade de cópia](#invoke-a-stored-procedure-from-a-sql-sink). Esta abordagem executa cada lote (tal como rege-se pela `writeBatchSize` propriedade) na tabela de origem em vez de utilizar o inserível a granel como abordagem padrão na atividade da cópia.
+**Opção 2:** Pode optar por [invocar um procedimento armazenado no âmbito da atividade de cópia](#invoke-a-stored-procedure-from-a-sql-sink). Esta abordagem executa cada lote (tal como rege-se pela `writeBatchSize` propriedade) na tabela de origem em vez de utilizar o inserível a granel como abordagem padrão na atividade da cópia.
+
+**Opção 3:** Pode utilizar [o Mapping Data Flow](#sink-transformation) que oferece métodos incorporados de inserção/upsert/atualização.
 
 ### <a name="overwrite-the-entire-table"></a>Sobrepor toda a mesa
 
@@ -502,10 +503,7 @@ Pode configurar a propriedade **pré-CopyScript** na pia da atividade de cópia.
 
 ### <a name="write-data-with-custom-logic"></a>Escreva dados com lógica personalizada
 
-Os passos para escrever dados com lógica personalizada são semelhantes aos descritos na secção [de dados upsert.](#upsert-data) Quando precisa aplicar um processamento extra antes da inserção final de dados de origem na tabela de destino, para grande escala, pode fazer uma de duas coisas:
-
-- Carregue numa base de dados de uma tabela temporária e, em seguida, invoque um procedimento armazenado.
-- Invoque um procedimento armazenado durante a cópia.
+Os passos para escrever dados com lógica personalizada são semelhantes aos descritos na secção [de dados upsert.](#upsert-data) Quando tiver de aplicar um tratamento extra antes da inserção final dos dados de origem na tabela de destino, pode carregar para uma tabela de preparação e, em seguida, invocar a atividade do procedimento armazenado, ou invocar um procedimento armazenado na pia da atividade de cópia para aplicar dados ou utilizar o Mapping Data Flow.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Invocar um procedimento armazenado a partir de um lavatório SQL
 
@@ -656,6 +654,35 @@ Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](cont
 
 Para saber mais detalhes sobre as propriedades, consulte a [atividade da GetMetadata](control-flow-get-metadata-activity.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="using-always-encrypted"></a>Usando sempre encriptado
+
+Quando copiar dados de/para Azure SQL Database com [Always Encrypted,](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)utilize [o conector ODBC genérico](connector-odbc.md) e o controlador ODBC do Servidor SQL através do tempo de execução de integração auto-hospedado. Este conector Azure SQL Database não suporta sempre encriptado. 
+
+Mais especificamente:
+
+1. Crie um tempo de integração auto-hospedado se não tiver um. Consulte o artigo [de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
+
+2. Descarregue o controlador ODBC de 64 bits para o SQL Server a partir [daqui](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current)e instale na máquina de tempo de execução de integração. Saiba mais sobre como este condutor funciona a partir da [utilização sempre encriptada com o controlador ODBC para o SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current#using-the-azure-key-vault-provider).
+
+3. Crie um serviço ligado com o tipo ODBC para ligar à sua base de dados SQL, consulte as seguintes amostras:
+
+    - Para utilizar **a autenticação SQL**: Especifique a cadeia de ligação ODBC como abaixo e selecione a autenticação **básica** para definir o nome de utilizador e a palavra-passe.
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+        ```
+
+    - Para utilizar a **autenticação de identidade gerida pela fábrica de dados:** 
+
+        1. Siga os [mesmos pré-requistas](#managed-identity) para criar o utilizador de base de dados para a identidade gerida e conceder o papel adequado na sua base de dados.
+        2. No serviço ligado, especifique a cadeia de ligação ODBC como abaixo e selecione a autenticação **anónima** como a própria cadeia de ligação indica `Authentication=ActiveDirectoryMsi` .
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
+        ```
+
+4. Crie conjunto de dados e copie a atividade com o tipo ODBC em conformidade. Saiba mais a partir do artigo do [conector ODBC.](connector-odbc.md)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

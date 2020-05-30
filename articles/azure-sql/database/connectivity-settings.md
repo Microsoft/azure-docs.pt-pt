@@ -1,6 +1,6 @@
 ---
-title: Definições de conectividade para Base de Dados EArmazém de Dados Azure SQL
-description: Este documento explica a escolha da versão TLS e a definição proxy vs. redirecionamento para a Base de Dados Azure SQL e Azure Synapse Analytics
+title: Definições de conectividade para Azure SQL Database e Data Warehouse
+description: Este documento explica a escolha da versão TLS e a definição de Proxy vs. Redirecionamento para Azure SQL Database e Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and SQL Data Warehouse
@@ -9,35 +9,35 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 7b8fc2145c8b1c9da67f0ef44397b0e765b03de2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d36cfc711d7a4c5e5c936550f0a6adb783d4bf3b
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046608"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219012"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Este artigo introduz configurações que controlam a conectividade do servidor para a Base de Dados Azure SQL e para a Azure Synapse Analytics. Estas definições aplicam-se a **todas as** bases de dados SQL e Azure Synapse associadas ao servidor.
+Este artigo introduz configurações que controlam a conectividade com o servidor para Azure SQL Database e Azure Synapse Analytics. Estas definições aplicam-se a **todas as** bases de dados SQL Database e Azure Synapse associadas ao servidor.
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica à **Instância Gerida Azure SQL**
+> Este artigo *não* se aplica a **Azure SQL Managed Instance**
 
-As definições de conectividade são acessíveis a partir do ecrã **firewalls e redes virtuais,** como mostra a seguinte imagem:
+As definições de conectividade estão acessíveis a partir do ecrã **de Firewalls e redes virtuais,** como mostrado na imagem seguinte:
 
  ![Screenshot das definições de conectividade][1]
 
 > [!NOTE]
-> Uma vez aplicadas estas definições, **estas efetuam efeitos imediatamente** e podem resultar em perdas de ligação para os seus clientes se não cumprirem os requisitos para cada configuração.
+> Uma vez aplicadas estas definições, **elas fazem efeito imediatamente** e podem resultar em perda de ligação para os seus clientes se não cumprirem os requisitos para cada configuração.
 
 ## <a name="deny-public-network-access"></a>Negar o acesso à rede pública
 
-No portal Azure, quando a definição de acesso à **rede pública Deny** está definida para **Sim**, apenas são permitidas ligações através de pontos finais privados. Quando esta definição está definida para **Não,** os clientes podem ligar-se utilizando o ponto final privado ou público.
+No portal Azure, quando a definição de acesso à **rede pública Deny** está definida para **Sim,** apenas são permitidas ligações através de pontos finais privados. Quando esta definição estiver definida como **Nº,** os clientes podem ligar-se utilizando o ponto final privado ou público.
 
-Os clientes podem ligar-se à Base de Dados SQL utilizando pontos finais públicos (regras de firewall baseadas em IP, regras de firewall baseadas em VNET) ou pontos finais privados (utilizando private link) conforme descrito na [visão geral](network-access-controls-overview.md)do acesso à rede . 
+Os clientes podem ligar-se à Base de Dados SQL utilizando pontos finais públicos (regras de firewall baseadas em IP, regras de firewall baseadas em VNET) ou pontos finais privados (utilizando o Private Link) conforme descrito na [visão geral](network-access-controls-overview.md)de acesso à rede . 
 
-Quando a definição de acesso à **rede pública Deny** é definida para **Sim**, apenas são permitidas ligações através de pontos finais privados e todas as ligações através de pontos finais públicos são negadas com uma mensagem de erro semelhante a:  
+Quando a definição de acesso à rede pública de **Negação** é definida como **Sim,** apenas são permitidas ligações através de pontos finais privados e todas as ligações através de pontos finais públicos são negadas com uma mensagem de erro semelhante a:  
 
 ```output
 Error 47073
@@ -46,12 +46,12 @@ The public network interface on this server is not accessible.
 To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
-## <a name="change-public-network-access-via-powershell"></a>Alterar o acesso à rede pública via PowerShell
+## <a name="change-public-network-access-via-powershell"></a>Alterar acesso à rede pública via PowerShell
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
-O seguinte script PowerShell mostra como e a propriedade de Acesso à `Get` `Set` Rede **Pública** ao nível do servidor:
+O seguinte script PowerShell mostra como `Get` e a propriedade de Acesso à Rede `Set` **Pública** ao nível do servidor:
 
 ```powershell
 #Get the Public Network Access property
@@ -63,14 +63,14 @@ $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
 ```
 
-## <a name="change-public-network-access-via-cli"></a>Alterar o acesso à rede pública via CLI
+## <a name="change-public-network-access-via-cli"></a>Alterar acesso à rede pública via CLI
 
 > [!IMPORTANT]
-> Todos os scripts desta secção requerem [O ClI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Todos os scripts desta secção requerem [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de festa
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de bash
 
-O seguinte guião cli mostra como mudar o Acesso da **Rede Pública** numa concha de bash:
+O seguinte script CLI mostra como alterar o Acesso à **Rede Pública** numa concha de bash:
 
 ```azurecli-interactive
 
@@ -82,48 +82,48 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ```
 
-## <a name="minimal-tls-version"></a>Versão Mínima de TLS 
+## <a name="minimal-tls-version"></a>Versão minimalista de TLS 
 
-A definição de versão De forma ção de Segurança da Camada de Transporte Mínima [(TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permite aos clientes controlar a versão do TLS utilizada pela sua Base de Dados Azure SQL.
+A definição de versão minimal [transport layer security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permite que os clientes controlem a versão do TLS utilizada pela sua Base de Dados Azure SQL.
 
-Atualmente apoiamos TLS 1.0, 1.1 e 1.2. A definição de uma versão TLS Mínima garante que as versões TLS subsequentes e mais recentes são suportadas. Por exemplo, por exemplo, escolher uma versão TLS superior a 1.1. significa que apenas são aceites ligações com TLS 1.1 e 1.2 e o TLS 1.0 é rejeitado. Após os testes para confirmar que as suas aplicações suportam o mesmo, recomendamos a definição de versão TLS mínima para 1.2, uma vez que inclui correções para vulnerabilidades encontradas em versões anteriores e é a versão mais alta do TLS suportada na Base de Dados Azure SQL.
+Neste momento apoiamos os TLS 1.0, 1.1 e 1.2. A definição de uma versão TLS mínima garante que as versões TLS mais recentes sejam suportadas. Por exemplo, por exemplo, escolher uma versão TLS superior a 1.1. significa que apenas são aceites ligações com os TLS 1.1 e 1.2 e rejeitadas as TLS 1.0. Após testes para confirmar que as suas aplicações suportam o mesmo, recomendamos a definição da versão mínima TLS para 1.2, uma vez que inclui correções para vulnerabilidades encontradas em versões anteriores e é a versão mais alta do TLS suportada na Base de Dados Azure SQL.
 
-Para clientes com aplicações que dependam de versões mais antigas do TLS, recomendamos a definição da versão TLS mínima de acordo com os requisitos das suas aplicações. Para clientes que dependem de aplicações para se conectarem usando uma ligação não encriptada, recomendamos que não estabeleça qualquer versão TLS mínima. 
+Para clientes com aplicações que dependem de versões mais antigas do TLS, recomendamos definir a Versão Minimal TLS de acordo com os requisitos das suas aplicações. Para os clientes que dependem de aplicações para se conectarem utilizando uma ligação não encriptada, recomendamos não definir qualquer versão Minimal TLS. 
 
-Para mais informações, consulte [as considerações de TLS para](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity)a conectividade da Base de Dados SQL .
+Para obter mais informações, consulte [considerações de TLS para a conectividade sql Database](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
 
-Depois de definir a versão TLS Mínima, as tentativas de login dos clientes que estão a utilizar uma versão TLS inferior à versão TLS Mínima do servidor falharão com o seguinte erro:
+Depois de definir a versão Minimal TLS, as tentativas de login de clientes que estão a utilizar uma versão TLS inferior à versão Minimal TLS do servidor falharão com o seguinte erro:
 
 ```output
 Error 47072
 Login failed with invalid TLS version
 ```
 
-## <a name="set-minimal-tls-version-via-powershell"></a>Definir versão TLS mínima via PowerShell
+## <a name="set-minimal-tls-version-via-powershell"></a>Definir a versão mínima TLS via PowerShell
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
-O seguinte script PowerShell mostra como `Get` e a propriedade versão `Set` **TLS Mínima** ao nível lógico do servidor:
+O seguinte script PowerShell mostra como `Get` e a propriedade de versão Minimal `Set` **TLS** ao nível do servidor lógico:
 
 ```powershell
-#Get the Public Network Access property
-(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
+#Get the Minimal TLS Version property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).MinimalTlsVersion
 
-# Update Public Network Access to Disabled
+# # Update Minimal TLS Version to 1.2
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
 Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
 ```
 
-## <a name="set-minimal-tls-version-via-azure-cli"></a>Definir versão TLS mínima via Azure CLI
+## <a name="set-minimal-tls-version-via-azure-cli"></a>Definir versão mínima de TLS via Azure CLI
 
 > [!IMPORTANT]
-> Todos os scripts desta secção requerem [O ClI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Todos os scripts desta secção requerem [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de festa
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de bash
 
-O seguinte script CLI mostra como alterar a definição de **versão TLS mínima** numa concha de bash:
+O seguinte script CLI mostra como alterar a definição **de versão Minimal TLS** numa casca de bash:
 
 ```azurecli-interactive
 # Get current setting for Minimal TLS Version
@@ -136,7 +136,7 @@ az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVers
 
 ## <a name="change-connection-policy"></a>Alterar a política de ligação
 
-A política de [ligação](connectivity-architecture.md#connection-policy) determina como os clientes se ligam à Base de Dados Azure SQL.
+[A política de ligação](connectivity-architecture.md#connection-policy) determina como os clientes se ligam à Base de Dados Azure SQL.
 
 
 ## <a name="change-connection-policy-via-powershell"></a>Alterar a política de ligação via PowerShell
@@ -144,7 +144,7 @@ A política de [ligação](connectivity-architecture.md#connection-policy) deter
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
-O seguinte script PowerShell mostra como alterar a política de ligação usando powerShell:
+O seguinte script PowerShell mostra como alterar a política de ligação utilizando o PowerShell:
 
 ```powershell
 # Get SQL Server ID
@@ -160,14 +160,14 @@ $id="$sqlserverid/connectionPolicies/Default"
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
-## <a name="change-connection-policy-via-azure-cli"></a>Alterar a política de ligação via Azure CLI
+## <a name="change-connection-policy-via-azure-cli"></a>Alterar a política de conexão via Azure CLI
 
 > [!IMPORTANT]
-> Todos os scripts desta secção requerem [O ClI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Todos os scripts desta secção requerem [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de festa
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de bash
 
-O seguinte guião cli mostra como alterar a política de conexão numa concha de bash:
+O seguinte script CLI mostra como alterar a política de conexão numa casca de bash:
 
 ```azurecli-interactive
 # Get SQL Server ID
@@ -185,7 +185,7 @@ az resource update --ids $ids --set properties.connectionType=Proxy
 
 ### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI de um pedido de comando do Windows
 
-O seguinte script CLI mostra como alterar a política de ligação a partir de um pedido de comando Windows (com o Azure CLI instalado).
+O seguinte script CLI mostra como alterar a política de ligação a partir de um pedido de comando do Windows (com O Azure CLI instalado).
 
 ```azurecli
 # Get SQL Server ID and set URI
@@ -198,10 +198,10 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Conectividade Arquitetura](connectivity-architecture.md)
-- Para obter informações sobre como alterar a política de ligação de um servidor, consulte a [política de conn.](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)
+- Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Arquitetura de Conectividade](connectivity-architecture.md)
+- Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png

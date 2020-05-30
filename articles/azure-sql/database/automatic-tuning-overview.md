@@ -1,6 +1,6 @@
 ---
 title: Descrição geral da otimização automática
-description: A Base de Dados Azure SQL e a Instância Gerida Azure SQL analisam a consulta SQL e adaptam-se automaticamente à carga de trabalho do utilizador.
+description: Azure SQL Database e Azure SQL Managed Instance analisa a consulta SQL e adapta-se automaticamente à carga de trabalho do utilizador.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,88 +11,88 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/30/2020
-ms.openlocfilehash: c29452929e350c3a1ff6059c2beb9fd4281ded03
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d8f70cc30ea1230deef686d8e8433bb4e2d83ce5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043633"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189994"
 ---
-# <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonização automática na Base de Dados Azure SQL e na instância gerida azure SQL
+# <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonização automática na Base de Dados Azure SQL e Azure SQL Gestão de Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-A base de dados Azure SQL e a afinação automática Azure SQL Managed Instance proporcionam desempenho máximo e cargas de trabalho estáveis através de afinação contínua de desempenho baseada em IA e machine learning.
+A afinação automática Azure SQL Database e Azure SQL Managed Instance proporciona o desempenho máximo e cargas de trabalho estáveis através de afinação contínua do desempenho com base na IA e machine learning.
 
-A afinação automática é um serviço de desempenho inteligente totalmente gerido que utiliza inteligência incorporada para monitorizar continuamente as consultas executadas numa base de dados, e melhora automaticamente o seu desempenho. Isto é conseguido através da adaptação dinâmica da base de dados às mudanças de carga de trabalho e da aplicação de recomendações de afinação. A afinação automática aprende horizontalmente a partir de todas as bases de dados em Azure através da IA e melhora dinamicamente as suas ações de afinação. Quanto mais tempo uma base de dados funcionar com a finação automática, melhor se executa.
+A sintonização automática é um serviço de desempenho inteligente totalmente gerido que utiliza inteligência incorporada para monitorizar continuamente as consultas executadas numa base de dados, e que automaticamente melhora o seu desempenho. Isto é conseguido através da adaptação dinâmica da base de dados às mudanças de carga de trabalho e da aplicação de recomendações de sintonização. A sintonização automática aprende horizontalmente a partir de todas as bases de dados em Azure através de IA e melhora dinamicamente as suas ações de afinação. Quanto mais tempo uma base de dados funcionar com sintonização automática, melhor funciona.
 
-A base de dados Azure SQL e a sintonização automática Azure SQL Pode ser uma das funcionalidades mais importantes que pode permitir fornecer cargas de trabalho de base de dados estáveis e de pico.
+A afinação automática Azure SQL Database e Azure SQL Managed Instance pode ser uma das funcionalidades mais importantes que pode permitir fornecer cargas de trabalho de base de dados estáveis e de pico.
 
-## <a name="what-can-automatic-tuning-do-for-you"></a>O que a finação automática pode fazer por si
+## <a name="what-can-automatic-tuning-do-for-you"></a>O que pode fazer a sintonização automática por si
 
 - Afinação automatizada do desempenho das bases de dados
 - Verificação automatizada dos ganhos de desempenho
-- Retrocesso automatizado e auto-correcção
+- Reversão automatizada e auto-correcção
 - História de afinação
-- Roteiros T-SQL de ação de afinação para implementações manuais
-- Monitorização proactiva do desempenho da carga de trabalho
-- Aumentar a capacidade em centenas de milhares de bases de dados
-- Impacto positivo nos recursos da DevOps e o custo total da propriedade
+- Ação de afinação Scripts Transact-SQL (T-SQL) para implementações manuais
+- Monitorização proativa do desempenho da carga de trabalho
+- Reduzir a capacidade em centenas de milhares de bases de dados
+- Impacto positivo para os recursos da DevOps e o custo total de propriedade
 
-## <a name="safe-reliable-and-proven"></a>Seguro, fiável e comprovado
+## <a name="safe-reliable-and-proven"></a>Seguro, Fiável e Comprovado
 
-As operações de afinação aplicadas às bases de dados da Base de Dados Azure SQL são totalmente seguras para o desempenho das suas cargas de trabalho mais intensas. O sistema foi concebido com cuidado para não interferir com as cargas de trabalho do utilizador. Recomendações de afinação automatizadas são aplicadas apenas em momentos de baixa utilização. O sistema também pode desativar temporariamente as operações de afinação automática para proteger o desempenho da carga de trabalho. Neste caso, a mensagem "Desativada pelo sistema" será mostrada no portal Azure. A finação automática diz respeito às cargas de trabalho com a maior prioridade de recursos.
+As operações de afinação aplicadas às bases de dados na Base de Dados Azure SQL são totalmente seguras para o desempenho das suas cargas de trabalho mais intensas. O sistema foi concebido com o cuidado de não interferir com as cargas de trabalho do utilizador. As recomendações de afinação automatizada são aplicadas apenas nos momentos de baixa utilização. O sistema também pode desativar temporariamente as operações de afinação automática para proteger o desempenho da carga de trabalho. Neste caso, a mensagem "Desativado pelo sistema" será mostrada no portal Azure. A sintonização automática diz respeito a cargas de trabalho com a maior prioridade de recursos.
 
-Os mecanismos automáticos de afinação são maduros e foram aperfeiçoados em vários milhões de bases de dados em funcionamento no Azure. As operações de afinação automatizadas aplicadas são verificadas automaticamente para garantir que haja uma melhoria positiva do desempenho da carga de trabalho. As recomendações de desempenho regredidas são detetadas dinamicamente e revertem prontamente. Através do histórico de afinação registado, existe um traço claro de melhorias de afinação feitas em cada Base de Dados Azure SQL e Pôr SQL Managed Instance .
+Os mecanismos de afinação automática são maduros e foram aperfeiçoados em vários milhões de bases de dados em execução em Azure. As operações automatizadas de afinação aplicadas são verificadas automaticamente para garantir uma melhoria positiva do desempenho da carga de trabalho. As recomendações de desempenho regressámos são detetadas dinamicamente e prontamente revertidas. Através do histórico de afinação registado, existe um claro traço de melhorias de afinação feitas em cada base de dados em Azure SQL Database e Azure SQL Managed Instance.
 
 ![Como funciona a afinação automática](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-A afinação automática da Base de Dados Azure SQL está a partilhar a sua lógica central com a funcionalidade de afinação automática do SQL Server no motor de base de dados. Para obter informações técnicas adicionais sobre o mecanismo de inteligência incorporado, consulte a [afinação automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+A afinação automática Azure SQL Database está a partilhar a sua lógica principal com a função de sintonização automática SQL Server no motor da base de dados. Para obter informações técnicas adicionais sobre o mecanismo de inteligência incorporado, consulte [a sintonização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
-Para uma visão geral de como funciona a afinação automática e para cenários de utilização típicos, consulte o vídeo incorporado:
+Para uma visão geral de como funciona a sintonização automática e para cenários típicos de utilização, consulte o vídeo incorporado:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-automatic-tuning/player]
 
 ## <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
-- Ativa a sintonização automática para a Base de [Dados Azure SQL no portal Azure](automatic-tuning-enable.md) ou utilizando a declaração Alter [DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
-- Ativa a sintonização automática para a Instância Gerida Azure SQL utilizando a declaração Alter [DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
+- [Ativa a sintonização automática da Base de Dados Azure SQL no portal Azure](automatic-tuning-enable.md) ou utilizando a declaração [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
+- Ativa a sintonização automática para Azure SQL Managed Instance utilizando a declaração [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
 
 ## <a name="automatic-tuning-options"></a>Opções de afinação automática
 
-As opções de afinação automática disponíveis na Base de Dados Azure SQL e na Instância Gerida Azure SQL são:
+As opções de afinação automática disponíveis na Base de Dados Azure SQL e na Azure SQL Managed Instance são:
 
-| Opção de afinação automática | Base de dados única e suporte de base de dados agréis | Suporte de base de dados de instâncias |
+| Opção de afinação automática | Base de dados única e suporte de base de dados em conjunto | Suporte de base de dados de casos |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Sim | Não |
-| **ÍNDICE DE QUEDA** - Identifica índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações que usam comutação de divisórias e dicas de índice. A queda de índices não utilizados não é suportada para os níveis de serviço Premium e Business Critical. | Sim | Não |
-| **PLANO DE FORÇA ÚLTIMO BOM** (correção automática do plano) - Identifica consultas SQL utilizando um plano de execução mais lento do que o plano bom anterior, e consultas usando o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
+| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Yes | Não |
+| **ÍNDICE DROP** - Identifica índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Yes | Não |
+| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Sim | Sim |
 
-### <a name="automatic-tuning-for-azure-sql-databases"></a>Sintonização automática para bases de dados Azure SQL
+### <a name="automatic-tuning-for-sql-database"></a>Sintonização automática para base de dados SQL
 
-A sintonização automática para a Base de Dados Azure SQL utiliza o **ÍNDICE DE CRIAÇÃO,** **ÍNDICE DE QUEDA**e RECOMENDAÇÕES de assessoria de dados **FORCE LAST GOOD PLAN** para otimizar o desempenho da sua base de dados. Para mais informações, consulte [as recomendações do consultor da Base](database-advisor-find-recommendations-portal.md)de Dados no portal Azure , no [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+A sintonização automática para a Base de Dados Azure SQL utiliza as recomendações do consultor de base de dados **CREATE INDEX**, **DROP Index**e FORCE LAST **GOOD PLAN** para otimizar o desempenho da sua base de dados. Para mais informações, consulte [recomendações do advisor da Base de Dados no portal Azure](database-advisor-find-recommendations-portal.md), em [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Pode aplicar manualmente recomendações de afinação utilizando o portal Azure ou pode permitir que a sintonização automática aplique recomendações de afinação para si. Os benefícios de permitir que o sistema aplique autonomamente recomendações de afinação para si é que ele valida automaticamente que existe um ganho positivo para o desempenho da carga de trabalho, e se não houver uma melhoria significativa de desempenho detetada, reverterá automaticamente a recomendação de afinação. Por favor, note que em caso de consultas afetadas por recomendações de afinação que não são executadas frequentemente, a fase de validação pode demorar até 72 horas por design.
+Pode aplicar manualmente recomendações de sintonização utilizando o portal Azure ou pode deixar que a sintonização automática aplique recomendações de sintonização automáticas para si. O benefício de deixar o sistema aplicar de forma autónoma recomendações de sintonização para si é que valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho, e se não houver uma melhoria significativa do desempenho detetada, reverterá automaticamente a recomendação de sintonização. Por favor, note que em caso de consultas afetadas por recomendações de sintonização que não são executadas com frequência, a fase de validação pode demorar até 72 horas por design.
 
-Caso esteja a aplicar recomendações de afinação através do T-SQL, a validação automática de desempenho e os mecanismos de inversão não estão disponíveis. As recomendações aplicadas desta forma permanecerão ativas e apresentadas na lista de recomendações de afinação para 24-48 horas. antes que o sistema os retire automaticamente. Se quiser remover uma recomendação mais cedo, pode descartá-la do portal Azure.
+Caso esteja a aplicar recomendações de sintonização através do T-SQL, a validação automática do desempenho e os mecanismos de inversão não estão disponíveis. As recomendações aplicadas desta forma permanecerão ativas e apresentadas na lista de recomendações de sintonização para 24-48 horas. antes que o sistema os retire automaticamente. Se quiser remover uma recomendação mais cedo, pode descartá-la do portal Azure.
 
-As opções de afinação automática podem ser ativadas ou desativadas de forma independente por base de dados, ou podem ser configuradas ao nível do servidor e aplicadas em todas as bases de dados que herdam as definições do servidor. Os servidores podem herdar as predefinições do Azure para definições automáticas de afinação. As predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
+As opções de afinação automática podem ser ativadas de forma independente ou desativadas por base de dados, ou podem ser configuradas ao nível do servidor e aplicadas em todas as bases de dados que herdam as definições do servidor. Os servidores podem herdar as predefinições do Azure para configurações de sintonização automática. Os padrãos do Azure neste momento estão definidos para FORCE_LAST_GOOD_PLAN está ativado, CREATE_INDEX está ativado e DROP_INDEX está desativado.
 
 > [!IMPORTANT]
-> A partir de março de 2020, as alterações às incumprimentos do Azure para a sintonização automática entrarão em vigor da seguinte forma:
+> A partir de março de 2020, as alterações ao padrão do Azure para afinação automática entrarão em vigor da seguinte forma:
 >
-> - Os novos incumprimentos do Azure serão FORCE_LAST_GOOD_PLAN = ativados, CREATE_INDEX = desativados e DROP_INDEX = desativados.
-> - Os servidores existentes sem preferências de afinação automática configuradas serão automaticamente configurados para HERDar as novas falhas do Azure. Isto aplica-se a todos os clientes que atualmente têm definições de servidor para afinação automática num estado indefinido.
-> - Os novos servidores criados serão automaticamente configurados para HERDar os novos incumprimentos do Azure (ao contrário do que aconteceu anteriormente quando a configuração de afinação automática estava em estado indefinido após a criação de novos servidores).
+> - Os novos defeitos do Azure serão FORCE_LAST_GOOD_PLAN = ativados, CREATE_INDEX = desativados e DROP_INDEX = desativados.
+> - Os servidores existentes sem preferências de sintonização automática configuradas serão automaticamente configurados para HER as novas predefinições do Azure. Isto aplica-se a todos os clientes que têm atualmente configurações de servidor para afinação automática num estado indefinido.
+> - Os novos servidores criados serão automaticamente configurados para HERR as novas predefinições do Azure (ao contrário do que se verifica quando a configuração de sintonização automática estava num estado indefinido após a criação de novos servidores).
 
-Configurar opções de afinação automática num servidor e herdar as definições para bases de dados pertencentes ao servidor dos pais é um método recomendado para configurar a afinação automática, uma vez que simplifica a gestão das opções de afinação automática para um grande número de bases de dados.
+Configurar opções de afinação automática num servidor e herdar as definições para bases de dados pertencentes ao servidor principal é um método recomendado para configurar a sintonização automática, uma vez que simplifica a gestão das opções de afinação automática para um grande número de bases de dados.
 
-Para conhecer a construção de notificações por e-mail para recomendações de afinação automática, consulte notificações de [e-mail para afinação automática](automatic-tuning-email-notifications-configure.md).
+Para saber mais sobre a construção de notificações por email para recomendações de afinação automática, consulte [notificações por e-mail para afinação automática](automatic-tuning-email-notifications-configure.md).
 
-### <a name="automatic-tuning-for-azure-sql-managed-database"></a>Afinação automática para base de dados gerida azure SQL
+### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Sintonização automática para Azure SQL Caso Gerido
 
-A sintonização automática para base de dados gerida Azure SQL apenas suporta **FORÇA ÚLTIMA BOA PLANA**. Para obter mais informações sobre a configuração de opções de afinação automática através do T-SQL, consulte a [afinação automática introduz](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) a correção automática do plano e a [correção automática](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction)do plano .
+A sintonização automática para SQL Managed Instance só suporta **FORCE LAST GOOD PLAN**. Para obter mais informações sobre a configuração das opções de afinação automática através do T-SQL, consulte [a sintonização automática introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a correção automática do [plano](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para aprender sobre a inteligência incorporada usada na afinação automática, consulte a Base de [Dados Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)de Inteligência Artificial.
-- Para saber como funciona a afinação automática sob o capot, consulte [automaticamente a indexação automática de milhões de bases de dados na Base de Dados SQL](https://www.microsoft.com/research/uploads/prod/2019/02/autoindexing_azuredb.pdf)do Microsoft Azure .
+- Para saber mais sobre a inteligência incorporada utilizada na afinação automática, consulte a [Inteligência Artificial tunes Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Para saber como funciona a sintonização automática sob o capot, consulte [indexar automaticamente milhões de bases de dados na Base de Dados SQL do Microsoft Azure](https://www.microsoft.com/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).

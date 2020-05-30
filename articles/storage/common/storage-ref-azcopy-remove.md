@@ -1,6 +1,6 @@
 ---
-title: azcopy remover [ remover ] Microsoft Docs
-description: Este artigo fornece informações de referência para a remoção de azcopia do comando.
+title: azcopia remover / Microsoft Docs
+description: Este artigo fornece informações de referência para o comando de remoção de azcopia.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,16 +8,16 @@ ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: ab085b9a41120a9f56c1c2e39a89def8c3893747
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780730"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221075"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
-Elimine bolhas ou ficheiros de uma conta de armazenamento Azure.
+Elimine as bolhas ou ficheiros de uma conta de armazenamento Azure.
 
 ## <a name="synopsis"></a>Sinopse
 
@@ -25,12 +25,12 @@ Elimine bolhas ou ficheiros de uma conta de armazenamento Azure.
 azcopy remove [resourceURL] [flags]
 ```
 
-## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
+## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Dados de transferência com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
 - [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
-- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
+- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -40,28 +40,28 @@ Remova uma única bolha com SAS:
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Remova todo um diretório virtual com um SAS:
+Remova um diretório virtual inteiro com um SAS:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Remova apenas as bolhas superiores dentro de um diretório virtual, mas não os seus subdiretórios:
+Remova apenas as bolhas superiores dentro de um diretório virtual, mas não os seus sub-directórios:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Remova um subconjunto de bolhas num diretório virtual (por exemplo: apenas ficheiros JPG e pdf, ou se o nome blob for "exactName"):
+Remova um subconjunto de bolhas num diretório virtual (por exemplo: apenas ficheiros jpg e pdf, ou se o nome da bolha for "nome exato"):
 
 ```azcopy
-azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
-Remova todo um diretório virtual, mas exclua certas bolhas do âmbito (por exemplo: cada bolha que comece com foo ou termina com barra):
+Remova um diretório virtual inteiro, mas exclua certas bolhas do âmbito (por exemplo: cada bolha que comece com foo ou termine com barra):
 
 ```azcopy
-azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude-pattern="foo*;*bar"
 ```
 
 Remova bolhas específicas e diretórios virtuais colocando os seus caminhos relativos (NÃO codificados por URL) num ficheiro:
@@ -75,13 +75,13 @@ file content:
 
 ```
 
-Remova um único ficheiro de uma conta blob storage que tenha um espaço de nome hierárquico (inclua/exclua não suportado).
+Remova um único ficheiro de uma conta Blob Storage que tenha um espaço hierárquico (incluir/excluir não suportado).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Remova um único diretório uma conta blob storage que tenha um espaço de nome hierárquico (incluir/excluir não suportado):
+Remova um único diretório de uma conta Blob Storage que tenha um espaço hierárquico de nomes (incluir/excluir não suportado):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -89,34 +89,34 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opções
 
-**-eliminar as imagens** por defeito, a operação de eliminação falha se uma bolha tiver instantâneos. Especificar 'incluir' para remover a bolha da raiz e todos os seus instantâneos; em alternativa, especifique "apenas" para remover apenas os instantâneos, mas mantenha a bolha da raiz.
+**--Eliminar** o fio de instantâneos Por predefinição, a operação de eliminação falha se uma bolha tiver instantâneos. Especificar 'incluir' para remover a bolha de raiz e todas as suas imagens; especificar alternativamente 'apenas' para remover apenas os instantâneos, mas manter a bolha de raiz.
 
-**-excluir-caminho** de corda Exclua estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: myFolder;myFolder/subDirName/file.pdf.
+**...-excluir** a cadeia de caminhos Excluir estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: myFolder;myFolder/subDirName/file.pdf.
 
-**-excluir a** cadeia de padrão Exclua ficheiros onde o nome corresponde à lista de padrões. Por exemplo: *.jpg;* pdf;exactNome
+**--excluir-padrão** excluir ficheiros onde o nome corresponde à lista de padrões. Por exemplo: *.jpg;*. pdf;nome exato
 
-**--força-se-ler-apenas**    Ao apagar um ficheiro ou pasta De Ficheiros Azure, force a eliminação a funcionar mesmo que o objeto existente tenha o seu conjunto de atributos de leitura apenas para leitura
+**--força-se-ler-apenas**    Ao eliminar um ficheiro ou pasta Azure Files, force a eliminação a funcionar mesmo que o objeto existente tenha o seu conjunto de atributos apenas de leitura
 
-**-h, -ajuda** para remover
+**-h, -- ajuda** para remover
 
-**--incluir a** corda do caminho Inclua apenas estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: myFolder;myFolder/subDirName/file.pdf
+**--incluir** a corda do caminho Inclua apenas estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: myFolder;myFolder/subDirName/file.pdf
 
-**-incluir** a cadeia de padrões Inclua apenas ficheiros onde o nome corresponde à lista de padrões. Por exemplo: *.jpg;* pdf;exactNome
+**-- incluir** a cadeia de padrão Inclua apenas ficheiros onde o nome corresponde à lista de padrões. Por exemplo: *.jpg;*. pdf;nome exato
 
-**--lista de ficheiros** define a localização de um ficheiro que contém a lista de ficheiros e diretórios a eliminar. Os caminhos relativos devem ser delimitados por quebras de linha, e os caminhos NÃO devem ser codificados por URL.
+**--lista de ficheiros** a cadeia Define a localização de um ficheiro que contém a lista de ficheiros e diretórios a eliminar. Os caminhos relativos devem ser delimitados por quebras de linha, e os caminhos NÃO devem ser codificados por URL.
 
-**-cadeia de log-level** Defina a verbosidade do registo para o ficheiro de registo. Os níveis disponíveis incluem: INFO (todos os pedidos/respostas), AVISO (respostas lentas), ERROR (apenas pedidos falhados) e NENHUM (nenhum registo de saída). ('INFO' predefinido) ("INFO" padrão)
+**--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo. Os níveis disponíveis incluem: INFO (todos os pedidos/respostas), ADVERTÊNCIA (respostas lentas), ERROR (apenas pedidos falhados) e NENHUM (sem registos de saída). (predefinido 'INFO') (predefinição "INFO")
 
-**-recursivo**                Procure sub-directórios de forma recursiva ao sincronizar entre diretórios.
+**--recursivo**                Procure sub-directórios recursivamente ao sincronizar entre diretórios.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
 |Opção|Descrição|
 |---|---|
-|--cap-mbps uint32|Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.|
-|--cadeia tipo saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
-|---confiança-microsoft-sufixos string   | Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;* core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net'. Qualquer lista aqui é adicionada ao padrão. Por segurança, só deve colocar domínios do Microsoft Azure aqui. Separe várias entradas com semi-cólons.|
+|--cap-mbps uint32|Reduz a taxa de transferência, em megabits por segundo. A produção momentesa pode variar ligeiramente da tampa. Se esta opção for definida para zero, ou for omitida, a produção não está limitada.|
+|--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
+|--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [azcopy](storage-ref-azcopy.md)
+- [azcopia](storage-ref-azcopy.md)
