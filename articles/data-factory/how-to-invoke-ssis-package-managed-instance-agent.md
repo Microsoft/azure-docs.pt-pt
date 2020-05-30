@@ -1,6 +1,6 @@
 ---
 title: Executar pacotes SSIS usando O Agente de Instância Gerida Azure SQL
-description: Saiba como executar pacotes SSIS utilizando o Agente de Caso Gerido da Base de Dados Azure SQL.
+description: Aprenda a executar pacotes SSIS utilizando o Agente de Instância Gerido Azure SQL.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,28 +9,28 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fe32d67dd5d15ccf2f889cf40b79d35c890d5313
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: f911a8dad094949f0a515116a79fff698a326547
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148298"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191077"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Executar pacotes SSIS utilizando o agente de instância gerido Azure SQL
 
-Este artigo descreve como executar um pacote sql server integration services (SSIS) usando o Agente de Caso Gerido de Dados de Base de Dados Azure SQL. Esta funcionalidade fornece comportamentos semelhantes aos de quando programa pacotes SSIS utilizando o SqL Server Agent no seu ambiente no local.
+Este artigo descreve como executar um pacote sql server integration services (SSIS) usando o Agente de Instância Gerido Azure SQL. Esta funcionalidade fornece comportamentos semelhantes aos de quando programa pacotes SSIS utilizando o SqL Server Agent no seu ambiente no local.
 
-Com esta funcionalidade, pode executar pacotes SSIS que são armazenados em SSISDB numa caixa gerida da Base de Dados Azure SQL ou num sistema de ficheiros como o Azure Files.
+Com esta funcionalidade, pode executar pacotes SSIS que são armazenados em SSISDB numa SqL Managed Instance ou num sistema de ficheiros como o Azure Files.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar esta funcionalidade, [descarregue](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e instale a versão mais recente do SQL Server Management Studio (SSMS), que é a versão 18.5.
 
-Também precisa de [providenciar um tempo de integração Azure-SSIS](tutorial-create-azure-ssis-runtime-portal.md) na Azure Data Factory. Utiliza uma caixa de dados Azure SQL gerida como um servidor de ponto final. 
+Também precisa de [providenciar um tempo de integração Azure-SSIS](tutorial-create-azure-ssis-runtime-portal.md) na Azure Data Factory. Utiliza um SQL Managed Instance como um servidor de ponto final. 
 
 ## <a name="run-an-ssis-package-in-ssisdb"></a>Executar um pacote SSIS em SSISDB
-Neste procedimento, utiliza o Agente de Instância Gerido da Base de Dados Azure SQL para invocar um pacote SSIS armazenado no SSISDB.
+Neste procedimento, utiliza o SqL Managed Instance Agent para invocar um pacote SSIS que está armazenado no SSISDB.
 
-1. Na versão mais recente do SSMS, ligue-se a uma placa gerida pela Base de Dados Azure SQL.
+1. Na versão mais recente do SSMS, ligue-se a uma SQL Managed Instance.
 1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job**.
 
    ![Seleções para criar um novo trabalho de agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
@@ -40,7 +40,7 @@ Neste procedimento, utiliza o Agente de Instância Gerido da Base de Dados Azure
    ![Seleções para criar um novo passo de trabalho SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
 1. No **separador Pacote,** selecione **o Catálogo SSIS** como o tipo de fonte de pacote.
-1. Como o SSISDB está numa área de dados Azure SQL gerida, não precisa de especificar a autenticação.
+1. Como o SSISDB está numa localização gerida do SQL, não precisa de especificar a autenticação.
 1. Especifique um pacote SSIS do SSISDB.
 
    ![Separador de pacote com seleções para o tipo de fonte de pacote](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
@@ -58,9 +58,9 @@ Neste procedimento, utiliza o Agente de Instância Gerido da Base de Dados Azure
 
 
 ## <a name="run-an-ssis-package-in-the-file-system"></a>Executar um pacote SSIS no sistema de ficheiros
-Neste procedimento, utiliza o Agente de Instância Gerido da Base de Dados Azure SQL para executar um pacote SSIS que está armazenado no sistema de ficheiros.
+Neste procedimento, utiliza o SqL Managed Instance Agent para executar um pacote SSIS que está armazenado no sistema de ficheiros.
 
-1. Na versão mais recente do SSMS, ligue-se a uma placa gerida pela Base de Dados Azure SQL.
+1. Na versão mais recente do SSMS, ligue-se a uma SQL Managed Instance.
 1. Criar um novo emprego de agente e um novo passo de emprego. No **âmbito do SqL Server Agent,** clique à direita na pasta **Jobs** e, em seguida, selecione **New Job**.
 
    ![Seleções para criar um novo trabalho de agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
@@ -103,7 +103,7 @@ Neste procedimento, utiliza o Agente de Instância Gerido da Base de Dados Azure
 
 
 ## <a name="cancel-ssis-package-execution"></a>Cancelar execução de pacote SSIS
-Para cancelar a execução de pacotes a partir de um trabalho de Agente de Caso Gerido de Dados de Base de Dados Azure SQL, tome as seguintes medidas em vez de parar diretamente o trabalho de agente:
+Para cancelar a execução de pacotes a partir de um trabalho de Agente de Instância Gerida SQL, tome as seguintes medidas em vez de parar diretamente o trabalho de agente:
 
 1. Encontre o seu agente SQL **jobId** da **msdb.dbo.sysjobs**.
 1. Encontre a **execução** SSIS correspondente com base no ID do trabalho, utilizando esta consulta:
@@ -117,5 +117,5 @@ Para cancelar a execução de pacotes a partir de um trabalho de Agente de Caso 
 
 1. Parar a operação correspondente com base na **execuçãoId**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Também pode agendar pacotes SSIS utilizando a Azure Data Factory. Para obter instruções passo a passo, consulte o gatilho do [evento Azure Data Factory](how-to-create-event-trigger.md). 

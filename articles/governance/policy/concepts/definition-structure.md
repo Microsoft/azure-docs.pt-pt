@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 04/03/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: a4f136bc805cd48d05c2378b47966b4e4e4c60fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168510"
+ms.locfileid: "84205029"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -17,14 +17,15 @@ Saiba mais sobre [as condições.](#conditions)
 
 Ao definir convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas certos tipos de máquinas virtuais são permitidos. Ou pode exigir que todos os recursos tenham uma etiqueta particular. As políticas são herdadas por todos os recursos infantis. Se uma política é aplicada a um grupo de recursos, é aplicável a todos os recursos desse grupo de recursos.
 
-O esquema de definição de política encontra-se aqui:[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+O esquema de definição de política encontra-se aqui:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Usas o JSON para criar uma definição de política. A definição de política contém elementos para:
 
-- mode
-- parâmetros
 - nome de exibição
 - descrição
+- mode
+- do IdP
+- parâmetros
 - regra política
   - avaliação lógica
   - efeito
@@ -34,7 +35,13 @@ Por exemplo, o seguinte JSON mostra uma política que limita onde os recursos s�
 ```json
 {
     "properties": {
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "mode": "all",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Locations"
+        },
         "parameters": {
             "allowedLocations": {
                 "type": "array",
@@ -46,8 +53,6 @@ Por exemplo, o seguinte JSON mostra uma política que limita onde os recursos s�
                 "defaultValue": [ "westus2" ]
             }
         },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "policyRule": {
             "if": {
                 "not": {
@@ -63,7 +68,22 @@ Por exemplo, o seguinte JSON mostra uma política que limita onde os recursos s�
 }
 ```
 
-Todas as amostras da Política Azure estão nas [amostras da Azure Policy](../samples/index.md).
+Azure Policy incorporados e padrões estão em [amostras da Política Azure](../samples/index.md).
+
+## <a name="display-name-and-description"></a>Nome e descrição do visor
+
+Usa **o nome e** **a descrição** do display Para identificar a definição de política e fornecer contexto para quando for usado. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
+
+> [!NOTE]
+> Durante a criação ou atualização de uma definição de política, **id,** **tipo**e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. A obtenção da definição de política via SDK devolve o **id**, **tipo**, e propriedades de **nome** como parte do JSON, mas cada uma delas são apenas informações de leitura relacionadas com a definição de política.
+
+## <a name="type"></a>Tipo
+
+Embora a propriedade **tipo** não possa ser definida, existem três valores que são devolvidos pela SDK e visíveis no portal:
+
+- `Builtin`: Estas definições de política são fornecidas e mantidas pela Microsoft.
+- `Custom`: Todas as definições de política criadas pelos clientes têm este valor.
+- `Static`: Indica uma definição de política [de conformidade regulamentar](./regulatory-compliance.md) com a Propriedade **da**Microsoft . Os resultados de conformidade destas definições de política são os resultados de auditorias de terceiros sobre a infraestrutura da Microsoft. No portal Azure, este valor é por vezes apresentado à medida **que a Microsoft conseguiu**. Para mais informações, consulte [responsabilidade partilhada na nuvem.](../../../security/fundamentals/shared-responsibility.md)
 
 ## <a name="mode"></a>Modo
 
@@ -93,6 +113,20 @@ Os seguintes modos de Fornecedor de Recursos são atualmente suportados durante 
 > [!NOTE]
 > Os modos de Fornecedor de Recursos suportam apenas definições de políticas incorporadas e não suportam iniciativas durante a pré-visualização.
 
+## <a name="metadata"></a>Metadata
+
+A propriedade opcional `metadata` armazena informações sobre a definição de política. Os clientes podem definir quaisquer propriedades e valores úteis à sua organização `metadata` em. No entanto, existem algumas propriedades _comuns_ usadas pela Azure Policy e em incorporados.
+
+### <a name="common-metadata-properties"></a>Propriedades comuns de metadados
+
+- `version`(cadeia): Rastreia detalhes sobre a versão do conteúdo de uma definição de política.
+- `category`(cadeia): Determina em que categoria no portal Azure é apresentada a definição de política.
+- `preview`(boolean: bandeira verdadeira ou falsa para se a definição de política for _de visualização_.
+- `deprecated`(boolean: verdadeira ou falsa bandeira para se a definição de política tiver sido marcada como _prevada_.
+
+> [!NOTE]
+> O serviço Azure Policy `version` utiliza, `preview` e propriedades para transmitir `deprecated` o nível de mudança a uma definição ou iniciativa e iniciativa de política incorporada. O formato `version` de: `{Major}.{Minor}.{Patch}` . Estados específicos, tais como _prevadidos_ ou _pré-visualização,_ são anexados à `version` propriedade ou em outra propriedade como um **booleano**. Para obter mais informações sobre a forma como as versões Azure Policy incorporadas, consulte [a versão incorporada.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)
+
 ## <a name="parameters"></a>Parâmetros
 
 Os parâmetros ajudam a simplificar a sua gestão de políticas reduzindo o número de definições políticas. Pense em parâmetros como os campos numa forma , `name` `address` , , , `city` `state` . Estes parâmetros mantêm-se sempre os mesmos, no entanto os seus valores mudam com base no indivíduo que preenche o formulário.
@@ -105,17 +139,11 @@ Os parâmetros funcionam da mesma forma quando se constrói políticas. Ao inclu
 
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
-- **nome**: O nome do seu parâmetro. Utilizado pela `parameters` função de implantação dentro da regra da política. Para obter mais informações, consulte [utilizando um valor de parâmetro.](#using-a-parameter-value)
+- `name`: O nome do seu parâmetro. Utilizado pela `parameters` função de implantação dentro da regra da política. Para obter mais informações, consulte [utilizando um valor de parâmetro.](#using-a-parameter-value)
 - `type`: Determina se o parâmetro é uma **corda,** **matriz,** **objeto,** **boolean,** **inteiro,** **boia**ou **data**.
 - `metadata`: Define subpropriedades utilizadas principalmente pelo portal Azure para apresentar informações fáceis de utilizar:
   - `description`: A explicação para o que o parâmetro é usado. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável indicado no portal para o parâmetro.
-  - `version`: (Opcional) Rastreia detalhes sobre a versão do conteúdo de uma definição de política.
-
-    > [!NOTE]
-    > O serviço Azure Policy `version` utiliza, `preview` e propriedades para transmitir `deprecated` o nível de mudança a uma definição ou iniciativa e iniciativa de política incorporada. O formato `version` de: `{Major}.{Minor}.{Patch}` . Estados específicos, tais como _prevadidos_ ou _pré-visualização,_ são anexados à `version` propriedade ou em outra propriedade como um **booleano**.
-
-  - `category`: (Opcional) Determina em que categoria no portal Azure é apresentada a definição de política.
   - `strongType`: (Opcional) Utilizado ao atribuir a definição de política através do portal. Fornece uma lista de conscientes de contexto. Para obter mais informações, consulte [o StrongType](#strongtype).
   - `assignPermissions`: (Opcional) Definir como _verdadeiro_ para que o portal Azure crie atribuições de funções durante a atribuição de políticas. Esta propriedade é útil no caso de pretender atribuir permissões fora do âmbito de atribuição. Há uma atribuição de papel por definição de papel na política (ou por definição de função em todas as políticas da iniciativa). O valor do parâmetro deve ser um recurso ou âmbito válido.
 - `defaultValue`: (Opcional) Define o valor do parâmetro numa atribuição se não for dado qualquer valor.
@@ -180,13 +208,6 @@ Se a localização da definição for:
 
 - **Subscrição** - Apenas os recursos dentro dessa subscrição podem ser atribuídos à apólice.
 - **Grupo de gestão** - Apenas os recursos dentro de grupos de gestão de crianças e assinaturas infantis podem ser atribuídos à política. Se pretende aplicar a definição de política a várias subscrições, a localização deve ser um grupo de gestão que contenha essas subscrições.
-
-## <a name="display-name-and-description"></a>Nome e descrição do visor
-
-Usa **o nome e** **a descrição** do display Para identificar a definição de política e fornecer contexto para quando for usado. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
-
-> [!NOTE]
-> Durante a criação ou atualização de uma definição de política, **id,** **tipo**e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. A obtenção da definição de política via SDK devolve o **id**, **tipo**, e propriedades de **nome** como parte do JSON, mas cada uma delas são apenas informações de leitura relacionadas com a definição de política.
 
 ## <a name="policy-rule"></a>Regra política
 
@@ -713,88 +734,9 @@ Esta regra da amostra verifica quaisquer correspondências de **ipRules \[ \* \]
 
 Para mais informações, consulte [a avaliação do \* pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
-## <a name="initiatives"></a>Iniciativas
+## <a name="next-steps"></a>Passos seguintes
 
-As iniciativas permitem-lhe agrupar várias definições de políticas relacionadas para simplificar atribuições e gestão porque trabalha com um grupo como um único item. Por exemplo, pode agrupar definições de políticas de marcação relacionadas numa única iniciativa. Em vez de atribuir cada política individualmente, aplica-se a iniciativa.
-
-> [!NOTE]
-> Uma vez atribuída uma iniciativa, os parâmetros do nível de iniciativa não podem ser alterados. Devido a isso, a recomendação é definir um **padrãoValue** ao definir o parâmetro.
-
-O exemplo a seguir ilustra como criar uma iniciativa para o manuseamento de duas tags: `costCenter` e `productName` . Utiliza duas políticas incorporadas para aplicar o valor da etiqueta padrão.
-
-```json
-{
-    "properties": {
-        "displayName": "Billing Tags Policy",
-        "policyType": "Custom",
-        "description": "Specify cost Center tag and product name tag",
-        "parameters": {
-            "costCenterValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for Cost Center tag"
-                },
-                "defaultValue": "DefaultCostCenter"
-            },
-            "productNameValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for product Name tag"
-                },
-                "defaultValue": "DefaultProduct"
-            }
-        },
-        "policyDefinitions": [{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
-## <a name="next-steps"></a>Próximos passos
-
+- Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja [Compreender os efeitos do Policy](effects.md).
 - Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)

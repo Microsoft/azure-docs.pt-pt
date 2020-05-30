@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f9e576599fe1b329807427181d5de3fa37c9adea
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: efe7a68f7102da0b39def676306ce96ad00f5ff8
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041841"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204961"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ As VMs do SQL Server do Azure podem utilizar a [ Aplicação Automatizada de Pat
 
 As VMs do SQL Server do Azure podem tirar partido da [Cópia de Segurança Automatizada](automated-backup.md), que cria regularmente cópias de segurança da sua base de dados para o armazenamento de blobs. Pode também utilizar esta técnica manualmente. Para obter mais informações, consulte o artigo [Utilizar o Storage do Azure para o Restauro e a Cópia de Segurança do SQL Server](azure-storage-sql-server-backup-restore-use.md).
 
-O Azure também oferece uma solução de backup de classe empresarial para o SQL Server em execução em VMs Azure. Uma solução de backup totalmente gerida, suporta sempre em grupos de disponibilidade, retenção a longo prazo, recuperação pontual ponto-a-longo, gestão e monitorização central. Para mais informações, consulte [o Azure Backup para O Servidor SQL em Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+O Azure também oferece uma solução de backup de classe empresarial para o SQL Server em execução em VMs Azure. Uma solução de backup totalmente gerida, suporta grupos de disponibilidade Always On, retenção a longo prazo, recuperação pontual e gestão e monitorização centrais. Para obter mais informações, consulte [Azure Backup para SQL Server em Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
   
 
 ## <a name="high-availability"></a>Elevada disponibilidade
@@ -58,12 +58,12 @@ Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server c
 > [!TIP]
 > Para obter mais informações sobre como compreender os preços das imagens SQL, veja [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços das VMs do Azure do SQL Server)](pricing-guidance.md). 
 
-### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Pague à medida que for.
+### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Pague à medida que vai.
 A tabela seguinte fornece uma matriz de imagens do SQL Server pay as you go.
 
 | Versão | Sistema Operativo | Edição |
 | --- | --- | --- |
-| **SQL Server 2019** | Windows Server 2019 | [Empresa](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard), [Web,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web) [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
+| **SQL Server 2019** | Windows Server 2019 | [Empresa](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [Standard,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard) [Web,](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web) [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Programador](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Programador](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
@@ -73,12 +73,12 @@ A tabela seguinte fornece uma matriz de imagens do SQL Server pay as you go.
 Para ver as imagens de máquina virtual do SQL Server do Linux disponíveis, veja [Overview of SQL Server on Azure Virtual Machines (Linux) (Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux))](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 > [!NOTE]
-> Agora é possível alterar o modelo de licenciamento de um VM de servidor SQL pay-per-use para usar a sua própria licença. Para mais informações, consulte [Como alterar o modelo de licenciamento para um SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+> Agora é possível alterar o modelo de licenciamento de um SQL Server VM pay-per-use para usar a sua própria licença. Para mais informações, consulte [Como alterar o modelo de licenciamento para um SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ### <a name="bring-your-own-license"></a><a id="BYOL"></a> Traga a sua própria licença
 Também pode trazer a sua licença (BYOL). Neste cenário, apenas paga a VM sem quaisquer taxas adicionais para o licenciamento do SQL Server.  Colocar a sua própria licença poderá poupar dinheiro ao longo do tempo para cargas de trabalho de produção contínua. Para saber sobre os requisitos necessários para utilizar esta opção, veja [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](pricing-guidance.md#byol).
 
-Para trazer a sua própria licença, pode converter um VM SQL de uso por utilização existente, ou pode implementar uma imagem com o prefixo **{BYOL}**. Para obter mais informações sobre a mudança do seu modelo de licenciamento entre pay-per-use e BYOL, consulte Como alterar o modelo de [licenciamento para um SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Para obter a sua própria licença, pode converter um SQL VM de pagamento por utilização existente, ou pode implantar uma imagem com o prefixo **{BYOL}**. Para obter mais informações sobre a mudança do seu modelo de licenciamento entre pay-per-use e BYOL, consulte [Como alterar o modelo de licenciamento para um SQL VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 | Versão | Sistema operativo | Edição |
 | --- | --- | --- |
@@ -88,13 +88,13 @@ Para trazer a sua própria licença, pode converter um VM SQL de uso por utiliza
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-É possível implementar uma imagem mais antiga do SQL Server que não está disponível no portal Azure utilizando o PowerShell. Para visualizar todas as imagens disponíveis utilizando o Powershell, utilize o seguinte comando:
+É possível implementar uma imagem mais antiga do SQL Server que não está disponível no portal Azure utilizando o PowerShell. Para ver todas as imagens disponíveis utilizando o Powershell, utilize o seguinte comando:
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
-Para obter mais informações sobre a implementação de VMs do Servidor SQL utilizando powerShell, veja [como fornecer máquinas virtuais SQL Server com Azure PowerShell](create-sql-vm-powershell.md).
+Para obter mais informações sobre a implementação de VMs do Servidor SQL utilizando o PowerShell, consulte [Como providenciar máquinas virtuais SQL Server com Azure PowerShell](create-sql-vm-powershell.md).
 
 
 ### <a name="connect-to-the-vm"></a>Ligar à VM
@@ -107,12 +107,12 @@ Se tiver uma base de dados existente, deverá movê-la para a VM do SQL recentem
 
 O portal Azure fornece uma única página onde pode gerir [todos os seus recursos Azure SQL,](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) incluindo as suas máquinas virtuais SQL.
 
-Para aceder à página de **recursos Azure SQL,** selecione **Azure SQL** no menu do portal Azure, ou procure e selecione **Azure SQL** em qualquer página.
+Para aceder à página **de recursos Azure SQL,** selecione **Azure SQL** no menu do portal Azure ou procure e selecione **Azure SQL** a partir de qualquer página.
 
 ![Pesquisa por Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
-> O **Azure SQL** fornece uma forma rápida e fácil de aceder a todas as suas bases de dados SQL, piscinas elásticas, servidores de base de dados, instâncias geridas pela SQL e máquinas virtuais SQL. O Azure SQL não é um serviço ou recurso. 
+> **O Azure SQL** fornece uma forma rápida e fácil de aceder a todas as suas bases de dados Azure SQL, piscinas elásticas, servidores lógicos, instâncias geridas e máquinas virtuais. O Azure SQL não é um serviço ou recurso. 
 
 Para gerir os recursos existentes, selecione o item desejado na lista. Para criar novos recursos Azure SQL, selecione **+ Adicionar**. 
 
@@ -120,7 +120,7 @@ Para gerir os recursos existentes, selecione o item desejado na lista. Para cria
 
 Depois de selecionar **+ Adicionar,** consulte informações adicionais sobre as diferentes opções selecionando **detalhes do Show** em qualquer azulejo.
 
-![detalhes de azulejos de bases de dados](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
+![dados de azulejos de azulejos](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
 Para obter mais detalhes, veja:
 
@@ -143,7 +143,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Redes
-* [Visão geral da Rede Virtual](../../../virtual-network/virtual-networks-overview.md)
+* [Visão geral da rede virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/linux/portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
 
@@ -151,7 +151,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 * [Documentação do SQL Server](https://docs.microsoft.com/sql/index)
 * [Comparação da Base de Dados SQL do Azure](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao SQL Server em máquinas virtuais do Azure:
 
@@ -161,7 +161,7 @@ Obtenha respostas às perguntas mais comuns sobre as VMs do SQL:
 
 * [FAQ do SQL Server nas Máquinas Virtuais do Azure](frequently-asked-questions-faq.md)
 
-Ver Arquiteturas de Referência para executar aplicações de nível N no Servidor SQL em IaaS
+Ver Arquiteturas de Referência para executar aplicações n-tier no SQL Server em IaaS
 
-* [Aplicação de nível N do Windows no Azure com servidor SQL](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Executar uma aplicação n-tier em várias regiões de Azure para alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Aplicação de nível N do Windows no Azure com o SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Executar uma aplicação de nível N em várias regiões do Azure para alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

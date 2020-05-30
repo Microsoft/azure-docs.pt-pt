@@ -1,6 +1,6 @@
 ---
-title: banco de azcopy [ Microsoft Docs
-description: Este artigo fornece informações de referência para o comando da bancada da azcopy.
+title: banco de azcopia / Microsoft Docs
+description: Este artigo fornece informações de referência para o comando da bancada da azcopia.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,32 +8,32 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 331d0cd4a20cb4351a1bc9a204c500386c499ada
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72518307"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220150"
 ---
 # <a name="azcopy-bench"></a>azcopy bench
 
-Executa uma referência de desempenho enviando dados de teste para um destino especificado. Os dados do teste são gerados automaticamente.
+Executa um benchmark de desempenho carregando dados de teste para um destino especificado. Os dados do teste são gerados automaticamente.
 
 O comando de referência executa o mesmo processo de upload que 'copy', exceto que:
 
-  - Não há parâmetro de origem.  O comando requer apenas um URL de destino. Na versão atual, este URL de destino deve referir-se a um recipiente de bolhas.
+  - Não há nenhum parâmetro de origem.  O comando requer apenas uma URL de destino. Na versão atual, este URL de destino deve consultar-se a um recipiente de bolhas.
   
-  - A carga útil é descrita por parâmetros de linha de comando, que controlam quantos ficheiros são gerados automaticamente e quão grandes são. O processo de geração ocorre inteiramente na memória. O disco não é utilizado.
+  - A carga útil é descrita por parâmetros da linha de comando, que controlam quantos ficheiros são gerados automaticamente e quão grandes são. O processo de geração ocorre inteiramente na memória. O disco não é usado.
   
-  - Apenas alguns dos parâmetros opcionais disponíveis para o comando de cópia são suportados.
+  - Apenas alguns dos parâmetros opcionais que estão disponíveis para o comando de cópia são suportados.
   
-  - Os diagnósticos adicionais são medidos e reportados.
+  - Diagnósticos adicionais são medidos e reportados.
   
-  - Por predefinição, os dados transferidos são eliminados no final do ensaio.
+  - Por predefinição, os dados transferidos são eliminados no final do teste.
 
-O modo de referência irá automaticamente sintonizar-se ao número de ligações TCP paralelas que dá a máxima potência. Mostrará esse número no final. Para evitar a afinação automática, defina a variável ambiente AZCOPY_CONCURRENCY_VALUE para um número específico de ligações.
+O modo benchmark irá sintonizar-se automaticamente com o número de ligações TCP paralelas que dá a máxima potência. Mostrará este número no final. Para evitar a afinação automática, coloque a variável ambiente AZCOPY_CONCURRENCY_VALUE num número específico de ligações.
 
-Todos os tipos habituais de autenticação são suportados. No entanto, a abordagem mais conveniente para o benchmarking é normalmente criar um recipiente vazio com um token SAS e usar a autenticação SAS.
+Todos os tipos de autenticação habitual são suportados. No entanto, a abordagem mais conveniente para o benchmarking é normalmente criar um recipiente vazio com um token SAS e usar a autenticação SAS.
 
 ## <a name="examples"></a>Exemplos
 
@@ -41,42 +41,44 @@ Todos os tipos habituais de autenticação são suportados. No entanto, a aborda
 azcopy bench [destination] [flags]
 ```
 
-Ecorra um teste de referência com parâmetros predefinidos (adequado saqueado redes até 1 Gbps):»
+Executar um teste de referência com parâmetros predefinidos (adequado para redes de benchmarking até 1 Gbps):».
 
-- banco de azcopy "https://[account].blob.core.windows.net/[container]? <SAS>"
+- banco de azcopia "https://[account].blob.core.windows.net/[contentor]? <SAS> "
 
-Ecorra um teste de referência que faça upload de 100 ficheiros, cada 2 GiB em tamanho: (adequado para benchmarking numa rede rápida, por exemplo, 10 Gbps):»
+Executar um teste de referência que carrega 100 ficheiros, cada um de 2 GiB em tamanho: (adequado para benchmarking numa rede rápida, por exemplo, 10 Gbps):'
 
-- banco de azcopy "https://[account].blob.core.windows.net/[container]? <SAS>" --contagem de ficheiros 100 -tamanho-por-ficheiro 2G
+- banco de azcopia "https://[account].blob.core.windows.net/[contentor]? <SAS> " --contagem de ficheiros 100 --tamanho por ficheiro 2G
 
-O mesmo que acima, mas use 50.000 ficheiros, cada 8 MiB em tamanho e calcule as suas hashes MD5 (da mesma forma que a bandeira -put-md5 faz isso no comando de cópia). O objetivo de -put-md5 quando o benchmarking é testar se o cálculo MD5 afeta a entrada para a contagem e tamanho de ficheiros selecionados:
+O mesmo que acima, mas use 50.000 ficheiros, cada 8 MiB em tamanho e calcule os seus hashes MD5 (da mesma forma que a bandeira --put-md5 faz isso no comando de cópia). O objetivo de --put-md5 quando o benchmarking é testar se a computação MD5 afeta a produção para a contagem e tamanho de ficheiros selecionados:
 
-- banco de azcopy "https://[account].blob.core.windows.net/[container]? <SAS>" -file-count 50000 --size-per-file 8M --put-md5
+- banco de azcopia "https://[account].blob.core.windows.net/[contentor]? <SAS> " ---contagem de ficheiros 50000 --tamanho-por-ficheiro 8M --put-md5
 
 ## <a name="options"></a>Opções
 
-**--cadeia do tipo blob** Define o tipo de bolha no destino. Usado para permitir o benchmarking diferentes tipos de bolhas. Idêntico ao mesmo parâmetro no comando de cópia (predefinido "Detetar").
+**---tip** string tipo blob Define o tipo de bolha no destino. Usado para permitir o benchmarking de diferentes tipos de bolhas. Idêntico ao parâmetro do mesmo nome no comando de cópia (predefinição "Detetar").
 
-**--bloco-tamanho-mb** flutuante Utilize este tamanho de bloco (especificado no MiB). A predefinição é automaticamente calculada com base no tamanho do ficheiro. São permitidas frações decimais - por exemplo, 0,25. Idêntico ao mesmo parâmetro no comando de cópia.
+**--block-size-mb** boia Utilize este tamanho de bloco (especificado em MiB). O predefinimento é calculado automaticamente com base no tamanho do ficheiro. São permitidas frações decimais - por exemplo, 0,25. Idêntico ao parâmetro do mesmo nome no comando de cópia.
 
-**-eliminar dados de teste**  Se forem verdadeiros, os dados de referência serão eliminados no final do percurso de referência.  Desajuste-os como falsos se pretender manter os dados no destino - por exemplo, usá-lo para testes manuais fora do modo de referência (padrão verdadeiro).
+**--eliminar dados de teste**  Se forem verdadeiros, os dados de referência serão eliminados no final do período de referência.  Defina-os em falso se pretender manter os dados no destino - por exemplo, para os utilizar para testes manuais fora do modo de referência (verdade padrão).
 
-**--contagem de ficheiros** UInt O número de ficheiros de dados gerados automaticamente para utilizar (padrão 100).
+**--contagem de ficheiros** uint O número de ficheiros de dados gerados automaticamente a utilizar (padrão 100).
 
-**-h, --ajuda**  Ajuda para o banco
+**-h, -- ajuda**  Ajuda para o banco
 
-**--cadeia de log-level** Defina a verbosidade do registo, níveis disponíveis: INFO (todos os pedidos/respostas), AVISO (respostas lentas), ERROR (apenas pedidos falhados) e NENHUM (sem registos de saída). ("INFO" padrão)
+**--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo, níveis disponíveis: INFO (todos os pedidos/respostas), ADVERTÊNCIA (respostas lentas), ERRO (apenas pedidos falhados) e NENHUM (sem registos de saída). (predefinição "INFO")
 
-**-put-md5**  Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade Content-MD5 da bolha/ficheiro de destino. (Por padrão, o hash NÃO é criado.) Idêntico ao mesmo parâmetro no comando de cópia.
+**--put-md5**  Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade do Conteúdo-MD5 da bolha/ficheiro de destino. (Por defeito, o haxixe NÃO é criado.) Idêntico ao parâmetro do mesmo nome no comando de cópia.
 
-**-tamanho por ficheiro** Tamanho de cada ficheiro de dados gerado automaticamente. Deve ser um número imediatamente seguido por K, M ou G.E.g. 12k ou 200G (padrão "250M").
+**...tamanho da** cadeia por ficheiro Tamanho de cada ficheiro gerado por automático. Deve ser um número imediatamente seguido por K, M ou G. E.g. 12k ou 200G (padrão "250M").
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
-**--cap-mbps uint32**  Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.
+**--cap-mbps uint32**  Reduz a taxa de transferência, em megabits por segundo. A produção momentesa pode variar ligeiramente da tampa. Se esta opção for definida para zero, ou for omitida, a produção não está limitada.
 
-**-formato** de cadeia do tipo de saída da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto". ("texto por defeito").
+**...-tipo de saída** formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é 'texto'. ("texto predefinido").
 
-## <a name="see-also"></a>Consulte também
+**--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-- [azcopy](storage-ref-azcopy.md)
+## <a name="see-also"></a>Ver também
+
+- [azcopia](storage-ref-azcopy.md)

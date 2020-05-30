@@ -4,20 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6944d2e6a8f762e62c14f6f3fa3f600a9b3c333e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673118"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195034"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
-Executar a sua função iniciando o hospedeiro local funções Azure funcionando a partir da pasta *LocalFunctionProj:*
+Executar a sua função iniciando o anfitrião local do tempo de execução Azure Functions a partir da pasta *LocalFunctionProj:*
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
-func start
+func host start
 ```
 ::: zone-end
 
@@ -35,7 +35,7 @@ mvn azure-functions:run
 ```
 ::: zone-end
 
-Perto do fim da saída, devem aparecer as seguintes linhas: 
+No final da saída, devem aparecer as seguintes linhas: 
 
 <pre>
 ...
@@ -51,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Se o HttpExample não aparecer como mostrado abaixo, provavelmente começou o hospedeiro de fora da pasta raiz do projeto. Nesse caso, utilize **o CTRL**+**C** para parar o hospedeiro, navegue até à pasta raiz do projeto e volte a executar o comando anterior.
+> Se httpExample não aparecer como mostrado abaixo, é provável que tenha iniciado o hospedeiro de fora da pasta raiz do projeto. Nesse caso, utilize **o Ctrl** + **C** para parar o hospedeiro, navegue na pasta raiz do projeto e volte a executar o comando anterior.
 
-Copie o `HttpExample` URL da sua função desta saída para `?name=<your-name>`um browser e `http://localhost:7071/api/HttpExample?name=Functions`ateste a corda de consulta, fazendo com que o URL completo como . O navegador deve apresentar `Hello Functions`uma mensagem como:
+Copie o URL da sua `HttpExample` função desta saída para um browser e apencha a cadeia de `?name=<your-name>` consulta, fazendo com que o URL completo seja semelhante `http://localhost:7071/api/HttpExample?name=Functions` a . O navegador deve exibir uma mensagem `Hello Functions` como:
 
-![Resultado da função executada localmente no navegador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
+![Resultado da função executado localmente no navegador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-O terminal em que iniciou o seu projeto também mostra a saída de log à medida que faz pedidos.
+O terminal em que iniciou o seu projeto também mostra a saída de registo à medida que faz pedidos.
 
-Quando estiver pronto, utilize **ctrl**+ `y` **C** e opte por parar o hospedeiro das funções.
+Quando estiver pronto, use **o Ctrl** + **C** e opte por `y` parar o hospedeiro de funções.

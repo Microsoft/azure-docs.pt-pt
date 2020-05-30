@@ -1,7 +1,7 @@
 ---
 title: Disponibilidade da região e residência de dados
 titleSuffix: Azure AD B2C
-description: Disponibilidade da região, residência de dados e informações sobre os inquilinos de pré-visualização do Azure Ative Directory B2C.
+description: Disponibilidade da região, residência de dados e informação sobre inquilinos de pré-visualização Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,28 +11,29 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188855"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193800"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Diretório Ativo Azure B2C: Disponibilidade da região & residência de dados
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Ative Directory B2C: Disponibilidade da região & residência de dados
 
-A disponibilidade da região e a residência de dados são dois conceitos muito diferentes que se aplicam de forma diferente ao Azure AD B2C do resto do Azure. Este artigo explica as diferenças entre estes dois conceitos, e compara como se aplicam ao Azure versus Azure AD B2C.
+Disponibilidade da região e residência de dados são dois conceitos muito diferentes que se aplicam de forma diferente ao Azure AD B2C do resto do Azure. Este artigo explica as diferenças entre estes dois conceitos, e compara a forma como se aplicam ao Azure versus Azure AD B2C.
 
-O Azure AD B2C está **geralmente disponível em todo o mundo** com a opção de residência de **dados** nos **Estados Unidos, Europa ou Ásia-Pacífico.**
+O Azure AD B2C está **geralmente disponível em todo** o mundo com a opção de residência de **dados** nos **Estados Unidos, Europa ou Ásia-Pacífico.**
 
-[A disponibilidade da região](#region-availability) refere-se ao local onde um serviço está disponível para utilização.
+[Disponibilidade da região](#region-availability) refere-se ao local onde um serviço está disponível para uso.
 
-[A residência](#data-residency) de dados refere-se ao local onde os dados do utilizador são armazenados.
+[A residência de dados](#data-residency) refere-se ao local onde os dados dos utilizadores são armazenados.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Azure AD B2C está disponível em todo o mundo através da nuvem pública de Azure.
+Azure AD B2C está disponível em todo o mundo através da nuvem pública Azure.
 
-Isto difere do modelo seguido pela maioria dos outros serviços Azure, que normalmente acopem *a disponibilidade* com a residência de *dados.* Pode ver exemplos disso tanto na página de Produtos do Azure [disponíveis por região](https://azure.microsoft.com/regions/services/) como na calculadora de [preços do Diretório Ativo B2C.](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+Isto difere do modelo seguido pela maioria dos outros serviços Azure, que normalmente acoplam *disponibilidade* com *residência de dados.* Pode ver exemplos disso tanto na página de [Produtos Disponíveis por Região](https://azure.microsoft.com/regions/services/) da Azure como na [calculadora de preços do Ative Directory B2C.](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## <a name="data-residency"></a>Residência dos dados
 
@@ -48,24 +49,24 @@ Os dados residem nos **Estados Unidos** para os seguintes países/regiões:
 
 Os dados residem na **Europa** para os seguintes países/regiões:
 
-> Argélia, Áustria, Azerbaijão, Bahrein, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egito, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quénia, Kuwait, Letónia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Qatar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Reino Unido e Reino Unido.
+> Argélia, Áustria, Azerbaijão, Bahrein, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egito, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quénia, Kuwait, Letónia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Qatar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslovénia, Eslovénia, África do Sul, Espanha,
 
 Os dados residem na **Ásia-Pacífico** para os seguintes países/regiões:
 
 > Afeganistão, Hong Kong SAR, Índia, Indonésia, Japão, Coreia, Malásia, Filipinas, Singapura, Sri Lanka, Taiwan e Tailândia.
 
-Os países/regiões seguintes estão em vias de ser adicionados à lista. Por enquanto, ainda pode utilizar o Azure AD B2C escolhendo qualquer um dos países/regiões acima.
+Os seguintes países/regiões estão em vias de ser adicionados à lista. Por enquanto, você ainda pode usar Azure AD B2C escolhendo qualquer um dos países/regiões acima.
 
 > Argentina, Austrália, Brasil, Chile, Colômbia, Equador, Iraque, Nova Zelândia, Paraguai, Peru, Uruguai e Venezuela.
 
 ## <a name="preview-tenant"></a>Pré-visualização inquilino
 
-Se criou um inquilino B2C durante o período de pré-visualização do Azure AD B2C, é provável que o seu **tipo de Inquilino** diga inquilino de **pré-visualização.**
+Se você tinha criado um inquilino B2C durante o período de pré-visualização do Azure AD B2C, é provável que o seu **tipo de inquilino** diga **Pré-visualização inquilino**.
 
 Se for esse o caso, deve utilizar o seu inquilino apenas para fins de desenvolvimento e teste. NÃO utilize um inquilino de pré-visualização para aplicações de produção.
 
-**Não há caminho** de migração de um inquilino B2C pré-visualizado para um inquilino B2C em escala de produção. Você deve criar um novo inquilino B2C para as suas aplicações de produção.
+**Não há caminho** de migração de um inquilino B2C de pré-visualização para um inquilino B2C à escala de produção. Deve criar um novo inquilino B2C para as suas aplicações de produção.
 
-Existem questões conhecidas quando se elimina um inquilino B2C de pré-visualização e cria um inquilino B2C em escala de produção com o mesmo nome de domínio. *Você deve criar um inquilino B2C em escala de produção com um nome de domínio diferente*.
+Existem problemas conhecidos quando elimina um inquilino B2C de pré-visualização e cria um inquilino B2C em escala de produção com o mesmo nome de domínio. *Você deve criar um inquilino B2C em escala de produção com um nome de domínio diferente*.
 
 ![Screenshot de um inquilino de pré-visualização](./media/data-residency/preview-b2c-tenant.png)

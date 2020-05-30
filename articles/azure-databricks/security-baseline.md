@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e6c51e80a0a9a68dc6ec11e03c133f3480eb4329
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 66043ae4f569e4151be829ca361232accb2f0ebd
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170482"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219385"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Linha de segurança Azure para Azure Databricks
 
@@ -404,7 +404,7 @@ Nota: Os registos de diagnóstico Azure Databricks requerem o Plano Premium Azur
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Reveja e reconciliar regularmente o acesso dos utilizadores
 
-**Orientação**: A Azure AD fornece registos para ajudar a descobrir contas velhas. Além disso, utilize revisões de acesso à identidade Azure para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado. Também pode implementar registos de diagnóstico SCIM APIs e Azure Databricks para rever o acesso do utilizador. Também pode utilizar os registos de diagnóstico SCIM APIs e Azure Databricks para rever o acesso do utilizador.
+**Orientação**: A Azure AD fornece registos para ajudar a descobrir contas velhas. Além disso, utilize revisões de acesso à identidade Azure para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado. Também pode implementar registos de diagnóstico SCIM APIs e Azure Databricks para rever o acesso do utilizador.
 
 Além disso, reveja e gere regularmente o acesso do utilizador dentro da consola de administração Azure Databricks.
 
@@ -1082,7 +1082,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

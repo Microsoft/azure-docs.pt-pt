@@ -1,39 +1,39 @@
 ---
-title: Ativar soft delete - Ações de ficheiroS Azure
-description: Saiba como permitir a eliminação suave (pré-visualização) nas partilhas de ficheiros Do Azure para a recuperação de dados e para evitar a eliminação acidental.
+title: Ativar a eliminação suave - Azure ações de ficheiros
+description: Saiba como permitir a eliminação suave (pré-visualização) nas partilhas de ficheiros Azure para recuperação de dados e prevenição de eliminação acidental.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: a31fc675ca32697ece1fe7240112bb5610feda9d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142100"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196186"
 ---
-# <a name="enable-soft-delete-on-azure-file-shares"></a>Ativar soft delete em ações de ficheiros Azure
+# <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
 
-O Azure Storage oferece uma eliminação suave para partilhas de ficheiros (pré-visualização) para que possa recuperar mais facilmente os seus dados quando estes forem erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento. Para saber mais sobre a eliminação suave, consulte [como evitar a eliminação acidental de ações de ficheiros Azure](storage-files-prevent-file-share-deletion.md).
+O Azure Storage oferece uma exclusão suave para ações de ficheiros (pré-visualização) para que possa recuperar mais facilmente os seus dados quando estes são erroneamente eliminados por uma aplicação ou outro utilizador de conta de armazenamento. Para saber mais sobre a eliminação suave, consulte [Como evitar a eliminação acidental das ações de ficheiros Azure](storage-files-prevent-file-share-deletion.md).
 
-As seguintes secções mostram como ativar e utilizar a eliminação suave para as ações de ficheiros Azure numa conta de armazenamento existente:
+As seguintes secções mostram como ativar e utilizar a eliminação suave para ações de ficheiros Azure numa conta de armazenamento existente:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Navegue na sua conta de armazenamento e selecione **Soft delete** sob o serviço **De Ficheiros**.
-1. Selecione **Ativado** para **eliminar suavemente a partilha**de ficheiros .
-1. Selecione o período de retenção de partilha de **ficheiros em dias** e introduza uma série da sua escolha.
-1. Selecione **Guardar** para confirmar as definições de retenção de dados.
+1. Navegue para a sua conta de armazenamento e selecione **Soft delete** in **File service**.
+1. Selecione **Ativado** para **apagar suavemente a partilha de ficheiros**.
+1. Selecione **O período de retenção de partilha** de ficheiros em dias e introduza uma série de escolhas.
+1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento soft delete definições painel. Realçar a secção de partilhas de ficheiros, permitir alternar, definir um período de retenção e economizar. Isto permitirá eliminar suavemente todas as ações de ficheiro seletivas na sua conta de armazenamento.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de partilhas de ficheiros, ativar alternar, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para permitir a eliminação suave, tem de atualizar as propriedades de serviço de um cliente de ficheiros. O exemplo que se segue permite eliminar suavemente todas as ações de ficheiros numa conta de armazenamento:
+Para permitir a eliminação suave, tem de atualizar as propriedades de serviço de um cliente de ficheiro. O exemplo a seguir permite a eliminação suave de todas as ações de ficheiros numa conta de armazenamento:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"
@@ -42,35 +42,35 @@ $accountName = "yourStorageAccountName"
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $true -ShareRetentionDays 7
 ```
 
-Pode verificar se o soft delete está ativado e ver a sua política de retenção com o seguinte comando:
+Pode verificar se a eliminação suave está ativada e ver a sua política de retenção com o seguinte comando:
 
 ```azurepowershell-interactive
 Get-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName
 ```
 ---
 
-## <a name="restore-soft-deleted-file-share"></a>Restaurar a parte suave do ficheiro eliminado
+## <a name="restore-soft-deleted-file-share"></a>Restaurar a partilha de ficheiros suaves eliminados
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para restaurar uma partilha suave de ficheiros eliminados:
+Para restaurar uma partilha de ficheiros suavemente eliminada:
 
-1. Navegue na sua conta de armazenamento e selecione **ações de Ficheiro**.
-1. Na lâmina de partilha de ficheiros, ative a **exibição de ações eliminadas** do Show para exibir quaisquer ações que tenham sido eliminadas suavemente.
+1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros.**
+1. Na lâmina de partilha de ficheiros, **ativar as ações eliminadas do Show** para exibir quaisquer ações que tenham sido apagadas suavemente.
 
-    Isto mostrará quaisquer ações atualmente num estado **Apagado.**
+    Isto apresentará quaisquer ações atualmente num estado **eliminado.**
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Se a coluna de estado, a coluna ao lado da coluna de nome, estiver definida para Apagar, então a sua parte de ficheiro encontra-se num estado suave mente eliminado. E será permanentemente eliminado após o período de retenção especificado.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Se a coluna de estado, a coluna ao lado da coluna de nomes, estiver definida para Apagar, então a sua parte do ficheiro encontra-se num estado de apagamento suave. E será permanentemente eliminado após o período de retenção especificado.":::
 
-1. Selecione a parte e **selecione undelete,** isto irá restaurar a parte.
+1. Selecione a partilha e selecione **undelete,** isto irá restaurar a partilha.
 
-    Pode confirmar que a parte é restaurada uma vez que o seu estado muda para **Ative**.
+    Pode confirmar que a ação foi restaurada uma vez que o seu estado muda para **Ative**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Se a coluna de estado, a coluna ao lado da coluna de nomes, estiver definida para Ativa, então a sua parte de ficheiro foi restaurada.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Se a coluna de estado, a coluna ao lado da coluna de nomes, estiver definida para Ative, então a sua parte do ficheiro foi restaurada.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para restaurar uma parte suave de ficheiro eliminado, utilize o seguinte comando:
+Para restaurar uma partilha de ficheiros apagadas suaves, utilize o seguinte comando:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -79,15 +79,15 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Desativar a eliminação suave
 
-Se pretender parar de utilizar a eliminação suave ou apagar permanentemente uma parte de ficheiro, siga estas instruções:
+Se desejar parar de usar exclusão suave ou eliminar permanentemente uma partilha de ficheiros, siga estas instruções:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Navegue na sua conta de armazenamento e selecione **Soft delete** em **Definições**.
-1. Em **ações de Ficheiro,** selecione **Disabled** for **Soft delete for file shares**.
-1. Selecione **Guardar** para confirmar as definições de retenção de dados.
+1. Navegue na sua conta de armazenamento e selecione **Soft Delete** em **Definições**.
+1. Em **'Ações de Ficheiro'** selecione **Disabled** for **Soft delete for file shares**.
+1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Desativar a eliminação suave permitir-lhe-á apagar imediatamente e permanentemente todas as ações de ficheiro na sua conta de armazenamento a seu bel-prazer.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="A desativação de uma eliminação suave permitir-lhe-á eliminar imediatamente e permanentemente todas as ações de ficheiros da sua conta de armazenamento a seu bel-prazer.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -98,6 +98,6 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountNa
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para conhecer outra forma de proteção e recuperação de dados, consulte o nosso artigo [Visão geral de imagens de partilha para Ficheiros Azure](storage-snapshots-files.md).
+Para saber mais uma forma de proteção e recuperação de dados, consulte o nosso artigo [Visão geral das fotos de partilha para Ficheiros Azure](storage-snapshots-files.md).

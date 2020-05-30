@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4559cd40bf9482ece80d0b6123ca73b7a0cbb3aa
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 14503299b241b87459517818b0d0b2be6dde9072
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170907"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219239"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -144,6 +144,23 @@ Se os VM descobertos não aparecerem no portal ou se os dados de VM estiverem de
 
 Se apagar VMs e ainda aparecerem no portal, aguarde 30 minutos. Se ainda aparecerem, refresque-se como descrito acima.
 
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Erro: O ficheiro carregado não está no formato esperado
+Algumas ferramentas têm configurações regionais que criam o ficheiro CSV com o ponto mais alto como um delimiter. Por favor, altere as definições para garantir que o delimiter é uma vírgula.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Importei um CSV, mas vejo que "A Descoberta está em andamento"
+Este estado aparece se o seu upload CSV falhou devido a uma falha de validação. Tente importar o CSV de novo. Pode descarregar o relatório de erro do upload anterior e seguir a orientação de remediação no ficheiro para corrigir os erros. O relatório de erro pode ser descarregado a partir da secção 'Detalhes de importação' na página 'Descubra máquinas'.
+
+## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Não ver detalhes da aplicação mesmo depois de atualizar credenciais de hóspedes
+A descoberta da aplicação é uma vez a cada 24 horas. Se quiser ver os detalhes imediatamente, refresque-se da seguinte forma. Isto pode levar alguns minutos dependendo do não. de VMs descobertos.
+
+1. Na Avaliação **do**  >  **Servidor Azure Migrate,** selecione **Overview**.
+2. Under **Manage**, selecione **Agent Health**.
+3. Selecione **Refresh agent**.
+4. Aguarde que a operação de atualização esteja concluída. Deve agora ver informações atualizadas.
+
+## <a name="unable-to-export-application-inventory"></a>Inventário de pedidos de exportação incapaz de exportar
+Certifique-se de que o utilizador que descarrega o inventário do portal tem privilégios de Contribuinte na subscrição.
+
 ## <a name="common-app-discovery-errors"></a>Erros comuns de descoberta de aplicativos
 
 A Azure Migrate suporta a descoberta de aplicações, funções e funcionalidades, utilizando Azure Migrate: Server Assessment. A descoberta de aplicações é atualmente suportada apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e passos para a criação de apps.
@@ -186,5 +203,5 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Configurar um aparelho para [VMware,](how-to-set-up-appliance-vmware.md) [Hiper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

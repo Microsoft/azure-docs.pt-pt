@@ -1,27 +1,27 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
-description: Descreve a definição de atribuição de políticas utilizada pela Política Azure para relacionar definições de políticas e parâmetros aos recursos para avaliação.
+description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683208"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205046"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
-As atribuições políticas são utilizadas pela Política Azure para definir quais os recursos atribuídos quais as políticas ou iniciativas. A atribuição de políticas pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições políticas que abordam as mesmas propriedades de recursos com diferentes necessidades de conformidade.
+As atribuições políticas são utilizadas pela Azure Policy para definir quais os recursos atribuídos que políticas ou iniciativas. A atribuição de políticas pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições de políticas que abordam as mesmas propriedades de recursos com diferentes necessidades de cumprimento.
 
-Usas a JSON para criar uma missão política. A atribuição de políticas contém elementos para:
+Usas o JSON para criar uma missão política. A atribuição de políticas contém elementos para:
 
 - nome de exibição
 - descrição
 - do IdP
 - modo de execução
 - âmbitos excluídos
-- definição política
+- definição de política
 - parâmetros
 
 Por exemplo, o seguinte JSON mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
@@ -49,38 +49,38 @@ Por exemplo, o seguinte JSON mostra uma atribuição de política no modo _DoNot
 }
 ```
 
-Todas as amostras da Política Azure estão em amostras da [Política Azure.](../samples/index.md)
+Todas as amostras da Política Azure estão nas [amostras da Azure Policy](../samples/index.md).
 
-## <a name="display-name-and-description"></a>Nome e descrição do mostrador
+## <a name="display-name-and-description"></a>Nome e descrição do visor
 
-Utiliza o **displayName** e **descrição** para identificar a atribuição de políticas e fornecer contexto para a sua utilização com o conjunto específico de recursos. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
+Utiliza o nome e **a descrição** **do displayName** para identificar a atribuição de políticas e fornecer contexto para a sua utilização com o conjunto específico de recursos. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
 
 ## <a name="enforcement-mode"></a>Modo de Execução
 
-A propriedade **enforcementMode** fornece aos clientes a capacidade de testar o resultado de uma política sobre os recursos existentes sem iniciar o efeito político ou desencadear entradas no registo de [Atividade seletiva](../../../azure-monitor/platform/platform-logs-overview.md). Este cenário é comumente referido como "E Se" e alinha-se com práticas de implantação seguras. o modo de **execução** é diferente do efeito [Desativado,](./effects.md#disabled) uma vez que esse efeito impede que a avaliação dos recursos aconteça.
+A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testar o resultado de uma política sobre os recursos existentes sem iniciar o efeito de política ou desencadear entradas no registo de [Atividades Azure](../../../azure-monitor/platform/platform-logs-overview.md). Este cenário é comumente referido como "E Se" e alinha-se com práticas de implementação seguras. **o controlo do modo de aplicação** é diferente do efeito [de desativado,](./effects.md#disabled) uma vez que esse efeito impede que a avaliação dos recursos aconteça.
 
 Esta propriedade tem os seguintes valores:
 
 |Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
 |-|-|-|-|-|-|
-|Ativado |Predefinição |string |Sim |Sim |O efeito político é aplicado durante a criação de recursos ou a atualização. |
-|Desativado |DonotEnforce |string |Sim |Não | O efeito político não é aplicado durante a criação de recursos ou atualização. |
+|Ativado |Predefinição |string |Sim |Sim |O efeito da política é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Yes |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
-Se o **modo de execução** Não for especificado numa definição de política ou de iniciativa, o valor _Padrão_ é utilizado. As tarefas de [reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar políticas [IfNotExists,](./effects.md#deployifnotexists) mesmo quando o modo de **execução** está definido para _DoNotEnforce_.
+Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 
 ## <a name="excluded-scopes"></a>Âmbitos excluídos
 
-O **âmbito** da atribuição inclui todos os contentores de recursos infantis e recursos infantis. Se um recipiente de recursos para crianças ou um recurso para crianças não tiver a definição aplicada, cada um pode ser excluído da avaliação definindo **nãoScopes**. Esta propriedade é uma matriz para permitir excluir um ou mais contentores de recursos ou recursos da avaliação. **notScopes** podem ser adicionados ou atualizados após a criação da atribuição inicial.
+O **âmbito** da atribuição inclui todos os contentores de recursos infantis e recursos para crianças. Se um recipiente de recursos para crianças ou um recurso para crianças não deverão ter a definição aplicada, cada um pode ser excluído da avaliação definindo **nãoScopes**. Esta propriedade é um conjunto que permite excluir um ou mais contentores de recursos ou recursos da avaliação. **não Osscópios** podem ser adicionados ou atualizados após a criação da atribuição inicial.
 
 ## <a name="policy-definition-id"></a>ID de definição de política
 
-Este domínio deve ser o nome completo de uma definição de política ou de uma definição de iniciativa.
-`policyDefinitionId`é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, para usar uma [iniciativa](./definition-structure.md#initiatives) em vez disso.
+Este campo deve ser o nome completo de uma definição de política ou de uma definição de iniciativa.
+`policyDefinitionId`é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, use uma [iniciativa](./initiative-definition-structure.md) em vez disso.
 
 ## <a name="parameters"></a>Parâmetros
 
-Este segmento da atribuição de políticas fornece os valores para os parâmetros definidos na [definição de política ou definição](./definition-structure.md#parameters)de iniciativa.
-Este desenho permite reutilizar uma definição de política ou iniciativa com diferentes recursos, mas verificar se existem diferentes valores ou resultados de negócio.
+Este segmento da atribuição de políticas fornece os valores para os parâmetros definidos na [definição de política ou na definição de iniciativa.](./definition-structure.md#parameters)
+Este desenho permite reutilizar uma definição de política ou iniciativa com diferentes recursos, mas verificar diferentes valores ou resultados de negócio.
 
 ```json
 "parameters": {
@@ -93,12 +93,12 @@ Este desenho permite reutilizar uma definição de política ou iniciativa com d
 }
 ```
 
-Neste exemplo, os parâmetros previamente definidos `prefix` `suffix`na definição de política são e . Esta atribuição de `prefix` políticas específicas `suffix` define-se para **depta** e **para -LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições políticas, proporcionando simultaneamente flexibilidade.
+Neste exemplo, os parâmetros previamente definidos na definição de política são `prefix` e `suffix` . Esta atribuição de política específica `prefix` define-se à **DeptA** e `suffix` à **-LC**. A mesma definição política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo simultanea a duplicação e a complexidade das definições políticas, proporcionando flexibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça a estrutura da definição de [políticas.](./definition-structure.md)
-- Compreender como [criar políticas programáticas.](../how-to/programmatically-create.md)
-- Saiba como obter dados de [conformidade.](../how-to/get-compliance-data.md)
-- Aprenda a [remediar recursos não conformes](../how-to/remediate-resources.md).
-- Reveja o que é um grupo de gestão com organizar os seus recursos com grupos de [gestão Azure.](../../management-groups/overview.md)
+- Conheça a estrutura de [definição de políticas.](./definition-structure.md)
+- Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)
+- Saiba como [obter dados de conformidade.](../how-to/get-compliance-data.md)
+- Saiba como [remediar recursos não conformes.](../how-to/remediate-resources.md)
+- Reveja o que é um grupo de gestão com [Organizar os seus recursos com grupos de gestão Azure.](../../management-groups/overview.md)

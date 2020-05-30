@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Criar uma instância usando o portal Azure'
+title: 'Quickstart: Criar um caso utilizando o portal Azure'
 titleSuffix: Azure Database Migration Service
-description: Utilize o portal Azure para criar uma instância do Serviço de Migração de Bases de Dados Azure.
+description: Utilize o portal Azure para criar uma instância do Serviço de Migração da Base de Dados Azure.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/08/2020
-ms.openlocfilehash: 3b2a6566322f29870d2376007060acedac62692a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873531"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187531"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Criar uma instância do Azure Database Migration Service com o portal do Azure
 
-Neste Quickstart, você usa o portal Azure para criar uma instância do Serviço de Migração de Bases de Dados Azure.  Depois de criar a instância, pode usá-lo para migrar dados do SQL Server no local para a Base de Dados Azure SQL.
+Neste Quickstart, você usa o portal Azure para criar uma instância do Azure Database Migration Service.  Depois de criar o caso, pode usá-lo para migrar dados do SQL Server para a Base de Dados Azure SQL.
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -37,7 +37,7 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a primei
 
 1. No portal do Azure, selecione **Todos os serviços** e, em seguida, selecione **Subscrições**.
 
-2. Selecione a subscrição na qual pretende criar a instância do Serviço de Migração da Base de Dados Azure e, em seguida, selecione **fornecedores**de Recursos .
+2. Selecione a subscrição na qual pretende criar a instância do Serviço de Migração da Base de Dados Azure e, em seguida, selecione **fornecedores de Recursos**.
 
 3. Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
 
@@ -45,19 +45,19 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a primei
 
 ## <a name="create-an-instance-of-the-service"></a>Criar uma instância do serviço
 
-1. Selecione +**Crie um recurso** para criar uma instância do Serviço de Migração de Bases de Dados Azure.
+1. Selecione +**Crie um recurso** para criar uma instância do Serviço de Migração da Base de Dados Azure.
 
 2. Procure "migração" no marketplace, selecione **Azure Database Migration Service** e, em seguida, no ecrã **Azure Database Migration Service** selecione **Criar**.
 
 3. No ecrã **Criar Serviço de Migração**:
 
-    - Escolha um **Nome de Serviço** que seja memorável e único para identificar a sua instância do Serviço de Migração de Bases de Dados Azure.
+    - Escolha um **Nome de Serviço** que seja memorável e único para identificar o seu caso de Serviço de Migração de Bases de Dados Azure.
     - Selecione a sua **Subscrição** do Azure, na qual pretende criar a instância.
     - Selecione um **Grupo de Recursos** existente ou crie um novo.
     - Escolha a **Localização** que esteja mais próxima do seu servidor de origem ou de destino.
     - Selecione uma **rede Virtual** existente ou crie uma.
 
-        A rede virtual fornece ao Azure Database Migration Service acesso à base de dados de origem e ao ambiente-alvo.
+        A rede virtual fornece ao Azure Database Migration Service acesso à base de dados de origem e ao ambiente alvo.
 
         Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual utilizando o portal Azure](https://aka.ms/vnet).
 
@@ -67,7 +67,7 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a primei
 
 4. Selecione **Criar**.
 
-    Após alguns momentos, o seu exemplo de serviço de migração de bases de dados Azure é criado e pronto a ser utilizado. O Serviço de Migração da Base de Dados Azure apresenta-se como mostrado na seguinte imagem:
+    Após alguns momentos, o seu caso de serviço de migração da Base de Dados Azure é criado e pronto a ser utilizado. O Serviço de Migração da Base de Dados Azure apresenta, como mostra a seguinte imagem:
 
     ![O serviço de migração foi criado](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
@@ -78,4 +78,4 @@ Pode limpar os recursos criados neste Início Rápido ao eliminar o [grupo de re
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Migrar o SQL Server local para a Base de Dados SQL do Azure](tutorial-sql-server-to-azure-sql.md)
+> [Migrar o SQL Server para a Base de Dados SQL do Azure](tutorial-sql-server-to-azure-sql.md)

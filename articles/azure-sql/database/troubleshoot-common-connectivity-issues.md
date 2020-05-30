@@ -1,6 +1,6 @@
 ---
 title: Trabalhar com erros transitórios
-description: Aprenda a resolver problemas, diagnosticar e evitar um erro de ligação SQL ou erro transitório ao ligar-se à Base de Dados Azure SQL, à Instância Gerida azure SQL e à Azure Synapse Analytics.
+description: Aprenda a resolver problemas, diagnosticar e evitar um erro de ligação SQL ou erro transitório ao ligar-se à Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics.
 keywords: conexão sql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
 services: sql-database
 ms.service: sql-database
@@ -13,159 +13,160 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 34c790ee77c05e9e8c5a57a23e153bd9898c1cff
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 53bfe029038e9bf2a85cc8c571417be462fd4502
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045558"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188042"
 ---
-# <a name="troubleshooting-transient-connection-errors"></a>Erros de ligação transitórios de resolução de problemas
+# <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
+
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo descreve como prevenir, resolver problemas, diagnosticar e mitigar erros de ligação e erros transitórios que a sua aplicação de cliente encontra quando interage com a Base de Dados Azure SQL, A Instância Gerida Azure SQL e a Azure Synapse Analytics. Aprenda a configurar a lógica de retry, construa a cadeia de ligação e ajuste outras definições de ligação.
+Este artigo descreve como prevenir, resolver problemas, diagnosticar e mitigar erros de ligação e erros transitórios que a sua aplicação do cliente encontra quando interage com a Azure SQL Management Instance e Azure Synapse Analytics. Aprenda a configurar a lógica de retrip, construa a cadeia de ligação e ajuste outras definições de ligação.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## <a name="transient-errors-transient-faults"></a>Erros transitórios (falhas transitórias)
 
-Um erro transitório, também conhecido como uma falha transitória, tem uma causa subjacente que logo se resolve. Uma causa ocasional de erros transitórios é quando o sistema Azure rapidamente desloca os recursos de hardware para melhor equilibrar a carga de várias cargas de trabalho. A maioria destes eventos de reconfiguração termina em menos de 60 segundos. Durante este período de tempo de reconfiguração, poderá ter problemas de conectividade com a Base de Dados SQL. As aplicações que se ligam à Base de Dados SQL devem ser construídas para esperar estes erros transitórios. Para os manipular, implemente a lógica de retry no seu código em vez de os ver perante os utilizadores como erros de aplicação.
+Um erro transitório, também conhecido como uma falha transitória, tem uma causa subjacente que logo se resolve. Uma causa ocasional de erros transitórios é quando o sistema Azure rapidamente transfere recursos de hardware para um melhor equilíbrio de carga várias cargas de trabalho. A maioria destes eventos de reconfiguração terminam em menos de 60 segundos. Durante este período de tempo de reconfiguração, poderá ter problemas em ligar-se à sua base de dados na Base de Dados SQL. As aplicações que se ligam à sua base de dados devem ser construídas para esperar estes erros transitórios. Para lidar com os mesmos, implementar a lógica de reação no seu código em vez de os apresentar aos utilizadores como erros de aplicação.
 
-Se o seu programa de cliente utilizar ADO.NET, o seu programa é informado sobre o erro transitório pelo lançamento da **SqlException**.
+Se o seu programa de clientes utilizar ADO.NET, o seu programa é informado sobre o erro transitório pelo lançamento da **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-vs-command"></a>Ligação vs comando
+### <a name="connection-vs-command"></a>Conexão vs. comando
 
-Volte a tentar a ligação SQL ou estabeleça-a novamente, dependendo do seguinte:
+Recandidatar a ligação SQL Database e SQL Managed Instance ou restabelece-la novamente, dependendo do seguinte:
 
 - **Um erro transitório ocorre durante uma tentativa de ligação**
 
-Depois de um atraso de vários segundos, tente novamente a ligação.
+Após um atraso de alguns segundos, recandiduça a ligação.
 
-- **Um erro transitório ocorre durante um comando de consulta SQL**
+- **Um erro transitório ocorre durante uma base de dados SQL e comando de consulta de instância gerida SQL**
 
-Não tente imediatamente o comando. Em vez disso, depois de um atraso, estabelece a ligação recentemente. Em seguida, tente novamente o comando.
+Não relemisse imediatamente o comando. Em vez disso, depois de um atraso, estabelecer recentemente a ligação. Então, recandidutar o comando.
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
 ## <a name="retry-logic-for-transient-errors"></a>Repita a lógica nos erros transitórios
 
-Os programas de clientes que ocasionalmente encontram um erro transitório são mais robustos quando contêm lógica de retry. Quando o seu programa comunica com a Base de Dados SQL através de middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de retry para erros transitórios.
+Os programas de clientes que ocasionalmente encontram um erro transitório são mais robustos quando contêm lógica de retíduo. Quando o seu programa comunicar com a sua base de dados na BASE de Dados SQL através de middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de repetição para erros transitórios.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-### <a name="principles-for-retry"></a>Princípios para a retentativa
+### <a name="principles-for-retry"></a>Princípios para a repetição
 
-- Se o erro for transitório, tente novamente a abertura de uma ligação.
-- Não tente diretamente uma declaração SQL `SELECT` que falhou com um erro transitório. Em vez disso, estabeleça uma nova ligação e, em seguida, tente novamente o `SELECT` .
-- Quando uma declaração SQL `UPDATE` falhar com um erro transitório, estabeleça uma nova ligação antes de voltar a tentar a Atualização. A lógica de retry deve garantir que toda a transação de base de dados terminada ou que toda a transação seja reposta.
+- Se o erro for transitório, tentar abrir uma ligação.
+- Não relembare diretamente uma base de dados SQL ou uma declaração de instância gerida sql `SELECT` que falhou com um erro transitório. Em vez disso, estabeleça uma nova ligação e, em seguida, retry o `SELECT` .
+- Quando uma declaração de base de dados sql ou sql de instância gerida `UPDATE` falha com um erro transitório, estabeleça uma nova ligação antes de voltar a tentar a ATUALIZAÇÃO. A lógica de reequipamento deve garantir que toda a transação de base de dados tenha terminado ou que toda a transação seja revertida.
 
-### <a name="other-considerations-for-retry"></a>Outras considerações para a retentativa
+### <a name="other-considerations-for-retry"></a>Outras considerações para redaçar
 
-- Um programa de lote que começa automaticamente após o horário de trabalho e termina antes da manhã pode dar-se ao luxo de ser muito paciente com intervalos de tempo longos entre as suas tentativas de repetição.
-- Um programa de interface de utilizador deve explicar a tendência humana para desistir após uma espera demasiado longa. A solução não deve voltar a tentar de vez em quando, porque essa política pode inundar o sistema com pedidos.
+- Um programa de lote que começa automaticamente após o horário de trabalho e termina antes da manhã pode dar-se ao luxo de ser muito paciente com intervalos de tempo longos entre as suas tentativas de reesporção.
+- Um programa de interface de utilizador deve explicar a tendência humana de desistir após uma espera de muito tempo. A solução não deve voltar a tentar de poucos em poucos segundos, porque essa política pode inundar o sistema com pedidos.
 
-### <a name="interval-increase-between-retries"></a>Aumento de intervalo entre tentativas
+### <a name="interval-increase-between-retries"></a>Aumento de intervalo entre recaídas
 
-Recomendamos que espere 5 segundos antes da primeira tentativa. Tentar depois de um atraso de menos de 5 segundos corre o risco de sobrecarregar o serviço de nuvem. Para cada retentativa subsequente, o atraso deve crescer exponencialmente, até um máximo de 60 segundos.
+Recomendamos que aguarde 5 segundos antes da primeira repetição. Tentar novamente depois de um atraso inferior a 5 segundos corre o risco de sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deve crescer exponencialmente, até um máximo de 60 segundos.
 
-Para uma discussão sobre o período de bloqueio para clientes que usam ADO.NET, consulte [o pooling de ligação (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+Para uma discussão sobre o período de bloqueio para clientes que utilizam ADO.NET, consulte [Connection pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
-Também pode querer definir um número máximo de repetições antes do programa terminar.
+Também é melhor definir um número máximo de retrações antes do programa se auto-terminar.
 
-### <a name="code-samples-with-retry-logic"></a>Amostras de código com lógica de retry
+### <a name="code-samples-with-retry-logic"></a>Amostras de código com lógica de retíria
 
-Exemplos de código com lógica de retry estão disponíveis em:
+Exemplos de código com lógica de retíria estão disponíveis em:
 
-- [Ligue-se resilientemente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Ligue-se resilientemente à SQL com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Ligue resilientemente ao Azure SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Conecte-se resilientemente ao Azure SQL com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-### <a name="test-your-retry-logic"></a>Teste a sua lógica de retry
+### <a name="test-your-retry-logic"></a>Teste a sua lógica de retículo
 
-Para testar a sua lógica de retry, deve simular ou causar um erro que possa ser corrigido enquanto o seu programa ainda está em execução.
+Para testar a sua lógica de reagem, tem de simular ou causar um erro que possa ser corrigido enquanto o programa ainda está em funcionamento.
 
 #### <a name="test-by-disconnecting-from-the-network"></a>Teste desligando-se da rede
 
-Uma das formas de testar a sua lógica de retry é desligar o computador cliente da rede enquanto o programa está em execução. O erro é:
+Uma forma de testar a sua lógica de repetição é desligar o computador cliente da rede enquanto o programa está em execução. O erro é:
 
 - **SqlException.Number** = 11001
-- Mensagem: "Nenhum hospedeiro é conhecido"
+- Mensagem: "Nenhum anfitrião deste tipo é conhecido"
 
-Como parte da primeira tentativa de retry, pode voltar a ligar o computador do cliente à rede e, em seguida, tentar ligar-se.
+Como parte da primeira tentativa de repetição, pode voltar a ligar o computador cliente à rede e, em seguida, tentar ligar.
 
 Para tornar este teste prático, desligue o computador da rede antes de iniciar o seu programa. Em seguida, o seu programa reconhece um parâmetro de tempo de execução que faz com que o programa:
 
 - Adicione temporariamente 11001 à sua lista de erros a considerar como transitórios.
 - Tente a sua primeira ligação como de costume.
-- Depois de o erro ser apanhado, retire 11001 da lista.
-- Exiba uma mensagem que diga ao utilizador para ligar o computador à rede.
-- Pausa na execução utilizando o método **Console.ReadLine** ou um diálogo com um botão OK. O utilizador pressiona a tecla Enter depois de o computador estar ligado à rede.
-- Tente ligar-se novamente, esperando sucesso.
+- Depois de o erro ser apanhado, retire o 11001 da lista.
+- Apresente uma mensagem que diga ao utilizador para ligar o computador à rede.
+- Faça uma pausa na execução utilizando o método **Console.ReadLine** ou um diálogo com um botão OK. O utilizador pressiona a tecla Enter depois de o computador estar ligado à rede.
+- Tentar novamente ligar-se, esperando sucesso.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Teste escrevendo mal o nome da base de dados ao ligar
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Teste, soletrando mal o nome da base de dados ao ligar
 
-O seu programa pode escrever mal o nome do utilizador antes da primeira tentativa de ligação. O erro é:
+O seu programa pode soletrar mal o nome de utilizador antes da primeira tentativa de ligação. O erro é:
 
 - **SqlException.Number** = 18456
 - Mensagem: "O login falhou para o utilizador 'WRONG_MyUserName'."
 
-Como parte da primeira tentativa de retry, o seu programa pode corrigir o erro ortográfico e, em seguida, tentar ligar.
+Como parte da primeira tentativa de relagem, o seu programa pode corrigir o erro ortográfico e, em seguida, tentar ligar.
 
 Para tornar este teste prático, o seu programa reconhece um parâmetro de tempo de execução que faz com que o programa:
 
 - Adicione temporariamente 18456 à sua lista de erros a considerar como transitórios.
-- Adicione propositadamente 'WRONG_' ao nome do utilizador.
+- Adicione propositadamente "WRONG_" ao nome de utilizador.
 - Depois de o erro ser apanhado, retire 18456 da lista.
-- Remova 'WRONG_' do nome do utilizador.
-- Tente ligar-se novamente, esperando sucesso.
+- Remova 'WRONG_' do nome de utilizador.
+- Tentar novamente ligar-se, esperando sucesso.
 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET Parâmetros de Ligação Para nova tentativa de ligação
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection parâmetros para retíria de conexão
 
-Se o seu programa de cliente se ligar à Base de Dados SQL utilizando o Sistema de Classe-Quadro **.NET.Data.SqlClient.SqlConnection,** utilize .NET 4.6.1 ou mais tarde (ou .NET Core) para que possa utilizar a sua função de retry de ligação. Para mais informações sobre a funcionalidade, consulte [esta página web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+Se o seu programa de clientes ligar à sua base de dados na Base de Dados SQL utilizando o Sistema de Classe Quadro **.NET.Data.SqlClient.SqlConnection,** utilize .NET 4.6.1 ou mais tarde (ou .NET Core) para que possa utilizar a sua função de relemtivo de ligação. Para obter mais informações sobre a funcionalidade, consulte [esta página web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Quando construir a cadeia de [ligação](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o seu objeto **SqlConnection,** coordene os valores entre os seguintes parâmetros:
+Quando construir a [cadeia de ligação](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o seu objeto **SqlConnection,** coordene os valores entre os seguintes parâmetros:
 
-- **ConecttryCount**: &nbsp; &nbsp; Predefinição é 1. O alcance é de 0 a 255.
-- **ConnectRetryInterval**: &nbsp; &nbsp; Predefinição é de 10 segundos. O alcance é de 1 a 60.
-- **Tempo de ligação**: &nbsp; &nbsp; Predefinição é de 15 segundos. O intervalo é de 0 a 2147483647.
+- **ConnectRetryCount**: &nbsp; &nbsp; O padrão é 1. O intervalo é de 0 a 255.
+- **ConnectRetryInterval:** &nbsp; &nbsp; O padrão é de 10 segundos. O intervalo é de 1 a 60.
+- **Intervalo de ligação**: &nbsp; &nbsp; O predefinido é de 15 segundos. O intervalo é de 0 a 2147483647.
 
-Especificamente, os seus valores escolhidos devem tornar a seguinte igualdade verdadeira: Tempo de ligação = ConetritryCount * ConnectionRetryInterval
+Especificamente, os seus valores escolhidos devem tornar a igualdade verdadeira: Intervalo de ligação = ConnectRetryCount * ConnectionRetryInterval
 
-Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, um tempo de apenas 29 segundos não dá tempo suficiente ao sistema para a sua terceira e última tentativa de ligação: 29 < 3 * 10.
+Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, um intervalo de apenas 29 segundos não dá ao sistema tempo suficiente para a sua terceira e última repetição de ligação: 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-## <a name="connection-vs-command"></a>Ligação vs comando
+## <a name="connection-vs-command"></a>Conexão vs. comando
 
-Os **parâmetros ConnectRetryCount** e **ConnectRetryInterval** permitem que o seu objeto **SqlConnection** volte a tentar a operação de ligação sem avisar ou incomodar o seu programa, como o controlo de devolução do seu programa. As repetições podem ocorrer nas seguintes situações:
+Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que o seu objeto **SqlConnection** volte a tentar a operação de ligação sem avisar ou incomodar o seu programa, tal como devolver o controlo ao seu programa. As retrações podem ocorrer nas seguintes situações:
 
-- mySqlConnection.Open chamada de método
-- mySqlConnection.Executar chamada de método
+- mySqlConnection.Chamada de método aberto
+- mySqlConnection.Execute a chamada de método
 
-Há uma subtileza. Se ocorrer um erro transitório durante a sua *consulta,* o seu objeto **SqlConnection** não volta a tentar a operação de ligação. Certamente não tenta a sua consulta. No entanto, a **SqlConnection** verifica rapidamente a ligação antes de enviar a sua consulta para execução. Se a verificação rápida detetar um problema de ligação, a **SqlConnection** volta a tentar o funcionamento da ligação. Se a reprovação for bem sucedida, a sua consulta será enviada para execução.
+Há uma subtileza. Se ocorrer um erro transitório durante *a execução da sua consulta,* o seu objeto **SqlConnection** não se requalificação da operação de ligação. Certamente não relemca a sua pergunta. No entanto, **a SqlConnection** verifica rapidamente a ligação antes de enviar a sua consulta para execução. Se a verificação rápida detetar um problema de ligação, **a SqlConnection** retira a operação de ligação. Se a repetição for bem sucedida, a sua consulta será enviada para execução.
 
-### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Se O ConetryCount ser combinado com a lógica de retry da aplicação
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Se ConnectRetryCount ser combinado com a lógica de relagem de aplicações
 
-Suponha que a sua aplicação tem uma lógica de retry personalizada robusta. Pode voltar a tentar a operação de ligação quatro vezes. Se adicionar **O ConetryInterval** e **o ConnectRetryCount** =3 à sua cadeia de ligação, aumentará a contagem de retry para 4 * 3 = 12 repetições. Talvez não pretenda um número tão elevado de repetições.
+Suponha que a sua aplicação tenha uma lógica de relíduo personalizada robusta. Pode voltar a tentar a operação de ligação quatro vezes. Se adicionar **ConnectRetryInterval** e **ConnectRetryCount** =3 à sua cadeia de ligação, aumentará a contagem de repetição para 4 * 3 = 12 retrílias. Pode não pretender um número tão elevado de recauchutagens.
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-sql-database"></a>Ligações à Base de Dados SQL
+## <a name="connections-to-your-database-in-sql-database"></a>Ligações à sua base de dados na Base de Dados SQL
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>Ligação: Fio de ligação
+### <a name="connection-connection-string"></a>Ligação: Cadeia de ligação
 
-A cadeia de ligação necessária para ligar à Base de Dados SQL é ligeiramente diferente da cadeia utilizada para ligar ao Servidor SQL. Pode copiar o fio de ligação para a sua base de dados a partir do [portal Azure](https://portal.azure.com/).
+A cadeia de ligação necessária para ligar à sua base de dados é ligeiramente diferente da cadeia utilizada para ligar ao SQL Server. Pode copiar a cadeia de ligação da sua base de dados a partir do [portal Azure](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -179,40 +180,40 @@ Se se esquecer de configurar o endereço IP, o seu programa falha com uma mensag
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-Para mais informações, consulte as definições de firewall configure na Base de [Dados SQL](firewall-configure.md).
+Para obter mais informações, consulte [as definições de firewall configure na Base de Dados SQL](firewall-configure.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
 ### <a name="connection-ports"></a>Ligação: Portas
 
-Normalmente, você precisa garantir que apenas a porta 1433 está aberta para comunicação de saída no computador que acolhe o seu programa de cliente.
+Normalmente, é necessário garantir que apenas a porta 1433 está aberta para comunicação de saída no computador que acolhe o seu programa de clientes.
 
-Por exemplo, quando o seu programa de cliente está hospedado num computador Windows, pode utilizar o Windows Firewall no anfitrião para abrir a porta 1433.
+Por exemplo, quando o programa do seu cliente está hospedado num computador Windows, pode utilizar o Windows Firewall no anfitrião para abrir a porta 1433.
 
 1. Abra o Painel de Controlo.
-2. Selecione **todos os itens do Painel**de Controlo Windows  >  **Firewall**  >  **Definições avançadas**  >  **Outbound Rules**  >  **Actions**  >  **New Rule**Regras de saída Ações Nova Regra .
+2. Selecione **todos os itens do painel de controlo**Windows  >  **Firewall**  >  **Definições avançadas**  >  **Regras de saída**  >  **Ações**nova regra  >  **.**
 
-Se o seu programa de cliente estiver hospedado numa máquina virtual Azure (VM), leia Portas para além de [1433 para ADO.NET base de dados 4.5 e SQL](adonet-v12-develop-direct-route-ports.md).
+Se o seu programa de clientes estiver hospedado numa máquina virtual Azure (VM), leia [portas para além de 1433 para ADO.NET 4.5 e SQL Database](adonet-v12-develop-direct-route-ports.md).
 
-Para obter informações sobre a configuração de portas e endereços IP Azure SQL Database, consulte [a firewall azure SQL Database](firewall-configure.md).
+Para obter informações sobre a configuração de portas e endereços IP na sua base de dados, consulte [a firewall da Base de Dados Azure SQL](firewall-configure.md).
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>Ligação: ADO.NET 4.6.2 ou mais tarde
+### <a name="connection-adonet-462-or-later"></a>Ligação: ADO.NET 4.6.2 ou posterior
 
-Se o seu programa utilizar ADO.NET classes como **System.Data.SqlClient.SqlConnection** para ligar à Base de Dados SQL, recomendamos que utilize a versão 4.6.2 ou mais tarde.
+Se o seu programa utilizar ADO.NET aulas como **System.Data.SqlClient.SqlConnection** para ligar à Base de Dados SQL, recomendamos que utilize a versão 4.6.2 ou posterior do Quadro NET.
 
 #### <a name="starting-with-adonet-462"></a>Começando com ADO.NET 4.6.2
 
-- A tentativa aberta de ligação para ser retentada imediatamente para o Azure SQL, melhorando assim o desempenho de aplicações ativadas pela nuvem.
+- A ligação aberta tenta ser novamente julgada para o Azure SQL, melhorando assim o desempenho de aplicações ativadas pela nuvem.
 
 #### <a name="starting-with-adonet-461"></a>Começando com ADO.NET 4.6.1
 
-- Para a Base de Dados SQL, a fiabilidade é melhorada quando abre uma ligação utilizando o método **SqlConnection.Open.** O método **Open** incorpora agora mecanismos de retry de melhor esforço em resposta a falhas transitórias para determinados erros no período de tempo de ligação.
-- O pool de ligação é suportado, o que inclui uma verificação eficiente de que o objeto de ligação que dá ao seu programa está funcionando.
+- Para a Base de Dados SQL, a fiabilidade é melhorada quando abre uma ligação utilizando o método **SqlConnection.Open.** O método **Open** incorpora agora mecanismos de reorientação de melhor esforço em resposta a falhas transitórias para determinados erros dentro do período de tempo de ligação.
+- O agrupamento de ligação é suportado, o que inclui uma verificação eficiente de que o objeto de ligação que dá ao seu programa está funcionando.
 
-Quando utilizar um objeto de ligação a partir de uma piscina de ligação, recomendamos que o seu programa feche temporariamente a ligação quando não estiver a ser utilizada imediatamente. Não é caro reabrir uma ligação, mas é criar uma nova ligação.
+Quando utilizar um objeto de ligação a partir de uma piscina de ligação, recomendamos que o seu programa feche temporariamente a ligação quando esta não estiver imediatamente a ser utilizada. Não é caro reabrir uma ligação, mas é para criar uma nova ligação.
 
-Se utilizar ADO.NET 4.0 ou mais cedo, recomendamos que faça o upgrade para o mais recente ADO.NET. A partir de agosto de 2018, você pode [baixar ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/).
+Se utilizar ADO.NET 4.0 ou mais cedo, recomendamos que faça upgrade para as ADO.NET mais recentes. A partir de agosto de 2018, pode [baixar ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
@@ -220,29 +221,29 @@ Se utilizar ADO.NET 4.0 ou mais cedo, recomendamos que faça o upgrade para o ma
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: Teste se os utilitários podem ligar
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnósticos: Teste se os utilitários podem ligar-se
 
-Se o seu programa não conseguir ligar-se à Base de Dados SQL, uma opção de diagnóstico é tentar ligar-se a um programa de utilidade. Idealmente, o utilitário conecta-se utilizando a mesma biblioteca que o seu programa utiliza.
+Se o seu programa não conseguir ligar-se à sua base de dados na Base de Dados SQL, uma opção de diagnóstico é tentar ligar-se a um programa de utilidade. Idealmente, o utilitário conecta-se utilizando a mesma biblioteca que o seu programa utiliza.
 
 Em qualquer computador Windows, pode experimentar estes utilitários:
 
 - SQL Server Management Studio (ssms.exe), que se conecta utilizando ADO.NET
-- `sqlcmd.exe`, que se conecta utilizando a [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
+- `sqlcmd.exe`, que se conecta utilizando [o ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
-Depois de o seu programa estar ligado, teste se funciona uma consulta sQL SELECT curta.
+Depois de o seu programa estar ligado, teste se funciona uma consulta CURTA SQL SELECT.
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
 ### <a name="diagnostics-check-the-open-ports"></a>Diagnósticos: Verifique as portas abertas
 
-Se suspeitar que as tentativas de ligação falham devido a problemas de porta, pode executar uma utilidade no seu computador que reporta nas configurações da porta.
+Se suspeitar que as tentativas de ligação falham devido a problemas de porta, pode executar um utilitário no seu computador que reporta sobre as configurações da porta.
 
-Em Linux, os seguintes utilitários podem ser úteis:
+No Linux, os seguintes utilitários podem ser úteis:
 
 - `netstat -nap`
-- `nmap -sS -O 127.0.0.1`: Alterar o valor do exemplo para ser o seu endereço IP.
+- `nmap -sS -O 127.0.0.1`: Altere o valor de exemplo para ser o seu endereço IP.
 
-No Windows, o utilitário [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está um exemplo de execução que questionou a situação portuária na Base de Dados SQL e que foi executado num computador portátil:
+No Windows, o utilitário [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está uma execução de exemplo que questionou a situação do porto numa base de dados na Base de Dados SQL e que foi executada num computador portátil:
 
 ```cmd
 [C:\Users\johndoe\]
@@ -266,26 +267,26 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 Um problema intermitente é por vezes melhor diagnosticado pela deteção de um padrão geral ao longo de dias ou semanas.
 
-O seu cliente pode ajudar num diagnóstico registando todos os erros que encontra. Pode ser capaz de correlacionar as entradas de registo com dados de erro que a Base de Dados SQL regista internamente.
+O seu cliente pode ajudar num diagnóstico registando todos os erros que encontrar. Poderá correlacionar as entradas de registo com dados de erro que a SQL Database regista internamente.
 
-A Enterprise Library 6 (EntLib60) oferece aulas geridas .NET para ajudar na exploração madeireira. Para mais informações, consulte [5 - Tão fácil como cair de um registo: Utilize o bloco de aplicação de registo](https://msdn.microsoft.com/library/dn440731.aspx).
+A Enterprise Library 6 (EntLib60) oferece aulas geridas .NET para ajudar na exploração madeireira. Para obter mais informações, consulte [5 - Tão fácil como cair de um tronco: Utilize o Bloco de Aplicação de Registo](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnósticos: Examinar registos do sistema para erros
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnósticos: Examinar registos do sistema por erros
 
-Aqui estão algumas declarações do Transact-SQL SELECT que consultam registos de erros e outras informações.
+Aqui estão algumas declarações Do Transt-SQL SELECT que consultam registos de erros e outras informações.
 
-| Consulta de registo | Descrição |
+| Consulta de log | Descrição |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A visão [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>Idealmente, pode correlacionar os **valores start_time** ou **end_time** com informações sobre quando o seu programa de clientes experimentou problemas.<br/><br/>Tem de se ligar à base de dados *principal* para fazer esta consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Tem de se ligar à base de dados *principal* para fazer esta consulta. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A [vista sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>Idealmente, pode correlacionar os valores **start_time** ou **end_time** com informações sobre quando o seu programa de cliente sofre problemas.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnósticos: Pesquisa de eventos problemáticos no registo da Base de Dados SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnósticos: Pesquisa de eventos problemáticos no registo de base de dados SQL
 
-Pode pesquisar entradas sobre eventos problemáticos no registo da Base de Dados SQL. Experimente a seguinte declaração de SELEÇÃO Transact-SQL na base de dados *principal:*
+Pode pesquisar por entradas sobre eventos problemáticos no registo sql Database. Experimente a seguinte declaração De Seleção Transact-SQL na base de dados *principal:*
 
 ```sql
 SELECT
@@ -314,7 +315,7 @@ ORDER BY
 
 #### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>Algumas filas devolvidas de sys.fn_xe_telemetry_blob_target_read_file
 
-O exemplo que se segue mostra como pode ser uma fila devolvida. Os valores nulos apresentados muitas vezes não são nulos noutras linhas.
+O exemplo que se segue mostra como pode ser uma linha retornado. Os valores nulos apresentados muitas vezes não são nulos noutras linhas.
 
 ```
 object_name                   timestamp                    error  state  is_success  database_name
@@ -326,56 +327,56 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Biblioteca Empresarial 6
 
-A Enterprise Library 6 (EntLib60) é um quadro de classes .NET que o ajuda a implementar clientes robustos de serviços na nuvem, um dos quais é o serviço de base de dados SQL. Para localizar tópicos dedicados a cada área em que o EntLib60 pode ajudar, consulte a [Enterprise Library 6 - abril 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+A Enterprise Library 6 (EntLib60) é um quadro de classes .NET que o ajuda a implementar clientes robustos de serviços na nuvem, um dos quais é a SQL Database. Para localizar tópicos dedicados a cada área em que o EntLib60 pode ajudar, consulte [a Enterprise Library 6 - abril 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-A lógica de retry para lidar com erros transitórios é uma área em que o EntLib60 pode ajudar. Para mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: Utilize o Bloco](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)transitório de aplicação de manuseamento de falhas .
+A lógica de recandidúz para lidar com erros transitórios é uma área em que o EntLib60 pode ajudar. Para mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: Utilize o Bloco de Aplicação de Tratamento de Avarias Transitórios](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
-> O código fonte para EntLib60 está disponível para download público a partir do [Centro de Descarregamento](https://go.microsoft.com/fwlink/p/?LinkID=290898). A Microsoft não tem planos para fazer mais atualizações de funcionalidades ou atualizações de manutenção para o EntLib.
+> O código fonte do EntLib60 está disponível para download público a partir do [Centro de Descarregamento.](https://go.microsoft.com/fwlink/p/?LinkID=290898) A Microsoft não tem planos para fazer mais atualizações de funcionalidades ou atualizações de manutenção para o EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
-### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Aulas entLib60 para erros transitórios e retentativa
+### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Aulas de EntLib60 para erros transitórios e redandimento
 
-As seguintes aulas EntLib60 são particularmente úteis para a lógica de retry. Todas estas aulas são encontradas dentro ou sob o nome **microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
+As seguintes aulas de EntLib60 são particularmente úteis para a lógica de relcurá-lo. Todas estas classes encontram-se dentro ou sob o espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
 
-No espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
+No espaço de **nomes Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling:**
 
-- **Classe RetryPolicy**
-  - **Método executeActionAction**
-- Classe **ExponencialBackoff**
-- **Classe SqlDatabaseTransientErrorDetectionStrategy**
-- **Classe ReliableSqlConnection**
-  - **Método executeCommand**
+- **Aula de RetryPolicy**
+  - **Método executaracção**
+- **Aula de Backoff Exponencial**
+- **SqlDatabaseTransientErrorDetectionStrategy**
+- **Aula de ReliableSqlConnection**
+  - **Executar Método decomedição**
 
-No espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
+No espaço de **nomes Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport:**
 
-- **Classe AlwaysTransientErrorDetectionStrategy**
+- **Aula detrategia de sempre TransienteErrorDetectionStrategy**
 - **Classe NeverTransientErrorDetectionStrategy**
 
-Aqui estão alguns links para informações sobre o EntLib60:
+Aqui estão algumas ligações com informações sobre o EntLib60:
 
-- Download gratuito de livro: [Guia do Desenvolvedor para a Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
-- Boas práticas: [A orientação geral](/architecture/best-practices/transient-faults) de retry tem uma excelente discussão aprofundada da lógica de retry.
-- Download nuGet: [Enterprise Library - Transitório Fault Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Download gratuito de livros: [Guia do Desenvolvedor para a Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
+- Boas práticas: [A orientação geral da retry](/architecture/best-practices/transient-faults) tem uma excelente discussão aprofundada sobre a lógica de retíria.
+- Descarregamento nuGet: [Enterprise Library - Transiente Falha no Bloco de Aplicação 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: O bloco de exploração madeireira
+### <a name="entlib60-the-logging-block"></a>EntLib60: O bloco de registo
 
 - O bloco de madeira é uma solução altamente flexível e configurável que pode utilizar para:
-  - Crie e guarde mensagens de log em uma grande variedade de locais.
-  - Categorize e filtrar mensagens.
-  - Recolher informações contextuais que são úteis para depuração e rastreio, bem como para requisitos de auditoria e exploração madeireira geral.
-- O bloco de registo resumi a funcionalidade de registo do destino de registo para que o código de aplicação seja consistente, independentemente da localização e do tipo da loja de registo saqueta do alvo.
+  - Crie e guarde as mensagens de registo numa grande variedade de locais.
+  - Categorize e filtre mensagens.
+  - Recolher informações contextuais que são úteis para depurar e rastrear, bem como para os requisitos de auditoria e registo geral.
+- O bloco de registo abstrata a funcionalidade de registo a partir do destino de registo para que o código de aplicação seja consistente, independentemente da localização e tipo da loja de registo sonoro alvo.
 
-Para mais informações, consulte [5 - Tão fácil como cair de um registo: Utilize o bloco de aplicação de registo](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para obter mais informações, consulte [5 - Tão fácil como cair de um tronco: Utilize o Bloco de Aplicação de Registo](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
 ### <a name="entlib60-istransient-method-source-code"></a>Código fonte do método EntLib60 IsTransient
 
-Em seguida, da classe **SqlDatabaseTransientErrorDetectionStrategy,** encontra-se o código fonte C# para o método **IsTransient.** O código fonte esclarece quais os erros considerados transitórios e dignos de repetição, a partir de abril de 2013.
+Em seguida, da classe **SqlDataTransientErrorDetectionStrategy,** é o código fonte C# para o método **IsTransient.** O código fonte esclarece quais os erros considerados transitórios e dignos de novo, a partir de abril de 2013.
 
 ```csharp
 public bool IsTransient(Exception ex)
@@ -443,11 +444,11 @@ public bool IsTransient(Exception ex)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Bibliotecas de ligação para Base de Dados SQL e Servidor SQL](connect-query-content-reference-guide.md#libraries)
-- [Pooling de ligação (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
-- [ *Retry* é uma biblioteca de retry de propósito geral Apache 2.0, escrita em Python,](https://pypi.python.org/pypi/retrying) para simplificar a tarefa de adicionar comportamento de retry a praticamente qualquer coisa.
+- [Bibliotecas de conexão para Base de Dados SQL e Servidor SQL](connect-query-content-reference-guide.md#libraries)
+- [Agrupamento de conexão (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [ *Retrying* é uma biblioteca de retíria licenciada apache 2.0, escrita em Python,](https://pypi.python.org/pypi/retrying) para simplificar a tarefa de adicionar o comportamento de retagem a qualquer coisa.
 
 <!-- Link references. -->
 
