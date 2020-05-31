@@ -14,6 +14,7 @@
     - name: Criar hub de notificação - CLI do Azure
       href: create-notification-hub-azure-cli.md
     - name: Criar hub de notificação - modelo do Resource Manager
+      displayName: Resource Manager
       href: create-notification-hub-template.md
     - name: Configurar um hub de notificação
       href: configure-notification-hub-portal-pns-settings.md
@@ -23,7 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Enviar notificações para todos os registos
+            - name: Enviar notificações push para todos os registos (Versão SDK 1.0.0-pré-visualização1)
+              href: android-sdk.md
+            - name: Enviar notificações push para todos os registos (Versão SDK 0.6)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Enviar notificações push para dispositivos específicos
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -33,7 +36,7 @@
               href: xamarin-notification-hubs-push-notifications-android-gcm.md
         - name: Google Cloud Message (preterido)
           items:
-            - name: Enviar notificações para todos os registos
+            - name: Enviar notificações push para todos os registos
               href: notification-hubs-android-push-notification-google-gcm-get-started.md
             - name: Enviar notificações push para dispositivos específicos
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -139,7 +142,7 @@
     - name: Registar com o back-end da aplicação
       href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
     - name: Utilize a autenticação baseada em tokens com dispositivos da Apple
-      href: notification-hubs-push-notification-http2-token-authentification.md
+      href: notification-hubs-push-notification-http2-token-authentication.md
     - name: Resolver problemas de notificações ignoradas
       href: notification-hubs-push-notification-fixer.md
     - name: Enviar notificações push com o Baidu Cloud Push
