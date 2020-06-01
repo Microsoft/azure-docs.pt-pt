@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: e445e7ad433643953e5341ec06b91dee9515c268
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 7a0efa00b4fc881c113e151c6730ca5185ea0349
+  ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83658662"
+  ms.lasthandoff: 05/29/2020
+  ms.locfileid: "84194443"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -67,11 +67,8 @@ conceptualContent:
       itemType: quickstart
       text: Definir e obter uma chave do Azure Key Vault com o portal do Azure
     - url: ./keys/hsm-protected-keys.md
-      itemType: tutorial
-      text: Importar chaves protegidas por HSM para o Key Vault
-    - url: ./keys/hsm-protected-keys-vendor-agnostic-byok.md
       itemType: overview
-      text: Importar chaves protegidas por HSM desconhecidas do fornecedor
+      text: Importar chaves protegidas por HSM (descrição geral)
     footerLink:
       url: ./keys/index.yml
       text: Ver mais

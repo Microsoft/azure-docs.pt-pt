@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 05/20/2020
-  ms.openlocfilehash: b28cae1fd59e863c04d744a5c17108f1bd942a4d
-  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.openlocfilehash: 4d7c02891330699978134dbb4d53faef0f16b1e9
+  ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84119354"
+  ms.lasthandoff: 05/29/2020
+  ms.locfileid: "84204825"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -73,6 +73,8 @@ landingContent:
       url: ./how-to/author-policies-for-arrays.md
   - linkListType: concept
     links:
+    - text: Conformidade Regulamentar
+      url: ./concepts/regulatory-compliance.md
     - text: Política para Kubernetes
       url: ./concepts/policy-for-kubernetes.md
     - text: Política para VMs
@@ -92,7 +94,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Perguntas e Respostas da Microsoft para o Azure Policy
-      url: /answers/topics/azure-policy.html.html
+      url: /answers/topics/azure-policy.html
     - text: Canal do YouTube sobre a Governação do Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Pedir funcionalidade do produto

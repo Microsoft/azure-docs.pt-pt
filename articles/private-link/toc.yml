@@ -20,6 +20,8 @@
       href: create-private-link-service-powershell.md
     - name: Criar um serviço Private Link - CLI do Azure
       href: create-private-link-service-cli.md
+    - name: Criar um serviço Private Link - modelo ARM
+      href: create-private-link-service-template.md
 - name: Conceitos
   items:
     - name: Ponto Final Privado

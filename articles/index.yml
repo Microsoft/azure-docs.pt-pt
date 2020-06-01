@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 3bae82ca96497d91dab9d158fe26bed9cd8d0467
-  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+  ms.openlocfilehash: 5d8dfc5c51ab6a56823a4984a7788b3cce98e7e1
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84171196"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84230067"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -359,12 +359,6 @@ productDirectory:
     azureCategories:
     - blockchain
     url: blockchain/service/index.yml
-  - title: Azure Blockchain Tokens (Pré-visualização)
-    summary: Faça a gestão, defina e crie facilmente tokens baseados no livro razão
-    imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-    azureCategories:
-    - blockchain
-    url: blockchain/tokens/index.yml
   - title: Azure Blockchain Workbench (Pré-visualização)
     summary: Crie facilmente protótipos de aplicações de blockchain na cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -726,6 +720,12 @@ productDirectory:
     azureCategories:
     - devops
     url: https://docs.microsoft.com/azure/devops/test/
+  - title: GitHub Actions para o Azure
+    summary: Criar, testar e implementar qualquer aplicação do GitHub no Azure
+    imageSrc: ./media/index/github-actions-icon.svg
+    azureCategories:
+    - devops
+    url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
   - title: Azure Active Directory (AD)
     summary: Sincronize diretórios no local e ative o início de sessão único
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg

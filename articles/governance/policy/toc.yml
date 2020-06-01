@@ -60,20 +60,34 @@
           href: ./samples/pattern-group-with-initiative.md
         - name: Implementar recursos
           href: ./samples/pattern-deploy-resources.md
+    - name: Incorporações de Conformidade Regulamentar
+      items:
+        - name: Referência de Segurança do Azure
+          href: ./samples/azure-security-benchmark.md
+        - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+          href: ./samples/cis-azure-1-1-0.md
+        - name: NIST SP 800-53 R4
+          href: ./samples/nist-sp-800-53-r4.md
 - name: Conceitos
   items:
-    - name: Estrutura de definição do Azure Policy
+    - name: Estrutura de definição
       displayName: 'parameters, location, rule, alias, initiatives'
       href: ./concepts/definition-structure.md
-    - name: Compreender os efeitos do Policy
+    - name: Compreender os efeitos
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
-    - name: Estrutura de atribuição do Azure Policy
+    - name: Estrutura de iniciativa
+      displayName: 'parameters, groups, domains, policies'
+      href: ./concepts/initiative-definition-structure.md
+    - name: Estrutura de atribuição
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
     - name: Avaliar o impacto de uma nova política
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Conformidade Regulamentar
+      displayName: 'standards, domains, controls'
+      href: ./concepts/regulatory-compliance.md
     - name: Criar fluxos de trabalho de Política como Código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
@@ -127,6 +141,8 @@
         - name: Ativar o Azure Monitor para VMs (pré-visualização)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Resolução de problemas
+  href: ./troubleshoot/general.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -198,7 +214,7 @@
     - name: GitHub - Repositório de Políticas da Comunidade
       href: 'https://github.com/Azure/Community-Policy'
     - name: Perguntas e Respostas da Microsoft para o Azure Policy
-      href: /answers/topics/azure-policy.html.html
+      href: /answers/topics/azure-policy.html
     - name: Canal do YouTube sobre Governação
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Vídeos da Configuração de Convidado

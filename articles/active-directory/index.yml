@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
-  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 05/29/2020
+  ms.openlocfilehash: e5567804ec64fd4c1399bc3c978287ddec9817ce
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591918"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84233936"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -109,20 +109,6 @@ conceptualContent:
       text: Condições com base na localização
     footerLink:
       url: ./conditional-access/index.yml
-      text: Ver mais
-  - title: Programadores
-    links:
-    - url: ./develop/v2-overview.md
-      itemType: overview
-      text: Acerca da plataforma de identidade da Microsoft
-    - url: ./develop/v2-oauth2-auth-code-flow.md
-      itemType: concept
-      text: Conceder o fluxo de código de OAuth 2.0
-    - url: ./develop/quickstart-register-app.md
-      itemType: quickstart
-      text: Registar uma aplicação na plataforma de identidades da Microsoft
-    footerLink:
-      url: ./develop/index.yml
       text: Ver mais
   - title: Gestão de dispositivos
     links:
@@ -235,6 +221,20 @@ conceptualContent:
       text: Serviços que suportam a identidade gerida
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
+      text: Ver mais
+  - title: Plataforma de identidades da Microsoft
+    links:
+    - url: ./develop/v2-overview.md
+      itemType: overview
+      text: Acerca da plataforma de identidade da Microsoft
+    - url: ./develop/v2-oauth2-auth-code-flow.md
+      itemType: concept
+      text: Conceder o fluxo de código de OAuth 2.0
+    - url: ./develop/quickstart-register-app.md
+      itemType: quickstart
+      text: Registar uma aplicação na plataforma de identidades da Microsoft
+    footerLink:
+      url: ./develop/index.yml
       text: Ver mais
   - title: Privileged Identity Management (PIM)
     links:

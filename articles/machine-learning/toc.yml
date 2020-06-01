@@ -67,15 +67,17 @@
         - name: Criar a primeira experimentação de ML (R)
           href: tutorial-1st-r-experiment.md
     - name: CLI de Aprendizagem automática
-      href: tutorial-train-deploy-model-cli.md
+      items:
+        - name: Preparar e implementar com a CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Criar áreas de trabalho com modelos do Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Configurar a extensão do Azure Machine Learning
           href: tutorial-setup-vscode-extension.md
         - name: Preparar e implementar um modelo de classificação de imagens do TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Criar uma área de trabalho com um modelo do Resource Manager
-      href: tutorial-resource-manager-workspace.md
 - name: Amostras
   items:
     - name: Jupyter Notebooks

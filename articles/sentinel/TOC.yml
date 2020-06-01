@@ -84,6 +84,8 @@
               href: connect-syslog.md
             - name: Defesa Contra Ameaças para Dispositivos Móveis da Zimperium
               href: connect-zimperium-mtd.md
+            - name: Utilizar o Logstash
+              href: connect-logstash.md
             - name: Soluções baseadas em CEF
               href: connect-common-event-format.md
               items:
