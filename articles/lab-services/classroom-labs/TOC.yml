@@ -24,6 +24,8 @@
       href: classroom-labs-concepts.md
     - name: Fundamentos da arquitetura dos Laboratórios de Sala de Aula
       href: classroom-labs-fundamentals.md
+    - name: Limites de capacidade
+      href: capacity-limits.md
     - name: Cenários
       items:
         - name: Utilizar laboratórios para guiar as aulas

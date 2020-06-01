@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8935176badabf559d494c3d60fb1dec236efbdc2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221378"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234178"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -130,7 +130,7 @@ A palavra-passe gerada inclui uma vírgula em `,` que o Helm Chart está a divid
 
 #### <a name="resolution"></a>Resolução
 
-Escape a vírgula `,` ( ) no valor da palavra-passe quando correr com um espaço traseiro ( `helm install azure-policy-addon` `\` ).
+Escape à vírgula `,` no valor da palavra-passe quando correr `helm install azure-policy-addon` com uma pestana traseira ( `\` ).
 
 ### <a name="scenario-install-using-helm-chart-fails-as-name-already-exists"></a>Cenário: Instalar usando o Gráfico helm falha como o nome já existe
 

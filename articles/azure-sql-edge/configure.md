@@ -2,19 +2,19 @@
 title: Configure Borda SQL Azure (Pré-visualização)
 description: Saiba como configurar a borda Azure SQL (Pré-visualização)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: dc2b76a31982a3f72da02348c1a4796212887cb7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a28724e00f59fe049d1d9d6dfbcbc5a3f9556124
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168255"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235147"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Configure Borda SQL Azure (Pré-visualização)
 

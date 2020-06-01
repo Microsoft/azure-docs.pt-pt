@@ -1,24 +1,24 @@
 ---
-title: Definições políticas incorporadas para base de dados Azure para MariaDB
-description: Lista definições políticas integradas da Política Azure para a Base de Dados Azure para o MariaDB. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/13/2020
+title: Definições políticas incorporadas para a Base de Dados Azure para MariaDB
+description: Lista definições de políticas incorporadas para Azure Database for MariaDB. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 05/29/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 35141784e21b0c11fa7fd6a66fbd76610c291ea1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9f3f01e23b6ac56daba0a6739141ac7299faa58
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656777"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235478"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-mariadb"></a>Definições políticas integradas da Azure Policy para a Base de Dados Azure para o MariaDB
+# <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-mariadb"></a>Definições políticas incorporadas da Política Azure para a Base de Dados Azure para MariaDB
 
-Esta página é um índice de definições políticas integradas da [Azure Policy](../governance/policy/overview.md) para a Base de Dados Azure para o MariaDB. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../governance/policy/overview.md) para a Base de Dados Azure para MariaDB. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **GitHub** para ver a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-mariadb"></a>Azure Database for MariaDB
 

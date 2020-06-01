@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop host pool Azure portal - Azure
-description: Como criar um pool de anfitriões do Windows Virtual Desktop utilizando o portal Azure.
+description: Como criar um conjunto de anfitriões virtual do Windows desktop utilizando o portal Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,181 +8,181 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121053"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234338"
 ---
-# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de acolhimento com o portal Azure
+# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Quaisquer artigos que crie com o Windows Vritual Desktop Fall 2019 não podem ser geridos com o portal Azure.
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Quaisquer objetos que crie com o Windows Virtual Desktop Fall 2019 não podem ser geridos com o portal Azure.
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas (VMs) dentro de ambientes de ambiente de trabalho virtual do Windows. Cada piscina de anfitriões pode conter um grupo de aplicações com o quais os utilizadores podem interagir como fariam num ambiente de trabalho físico.
+As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas (VMs) dentro de ambientes de ambiente de secretária virtual do Windows. Cada piscina de anfitriões pode conter um grupo de aplicações com o quais os utilizadores podem interagir como fariam num ambiente de trabalho físico.
 
-Este artigo irá acompanhá-lo através do processo de configuração para criar um pool de anfitriões para um ambiente de ambiente de trabalho virtual Windows através do portal Azure. Este método fornece uma interface de utilizador baseada no navegador para criar um pool de anfitriões no Windows Virtual Desktop, criar um grupo de recursos com VMs numa subscrição Azure, juntar esses VMs ao domínio Azure Ative Directory (AD) e registar os VMs com Windows Virtual Desktop.
+Este artigo irá acompanhá-lo através do processo de configuração para criar uma piscina de anfitriões para um ambiente de desktop virtual do Windows através do portal Azure. Este método fornece uma interface de utilizador baseada no navegador para criar um pool de anfitriões no Windows Virtual Desktop, criar um grupo de recursos com VMs numa subscrição Azure, juntar esses VMs ao domínio Azure Ative Directory (AD) e registar os VMs com o Windows Virtual Desktop.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará introduzir os seguintes parâmetros para criar uma piscina de acolhimento:
+Você precisará introduzir os seguintes parâmetros para criar uma piscina hospedeira:
 
-- O nome da imagem VM
+- O nome de imagem VM
 - Configuração VM
 - Propriedades de domínio e rede
-- Propriedades de piscina de hospedar ambiente de trabalho virtual windows
+- Windows Virtual Desktop host pool properties
 
-Também precisa saber as seguintes coisas:
+Também precisa de saber as seguintes coisas:
 
-- Onde está a fonte da imagem que pretende utilizar. É da Galeria Azure ou é uma imagem personalizada?
+- Onde está a origem da imagem que pretende usar. É da Galeria Azure ou é uma imagem personalizada?
 - O seu domínio junta-se a credenciais.
 
-Além disso, certifique-se de que registou o fornecedor de recursos Microsoft.DesktopVirtualization. Se ainda não o fez, vá a **Assinaturas,** selecione o nome da subscrição yoru e, em seguida, selecione fornecedores de **recursos Azure**.
+Além disso, certifique-se de que registou o fornecedor de recursos microsoft.DesktopVirtualization. Se ainda não o fez, vá a **Subscrições,** selecione o nome da subscrição yoru e, em seguida, selecione **os fornecedores de recursos Azure**.
 
-Ao criar um conjunto de anfitriões do Windows Virtual Desktop com o modelo Do Gestor de Recursos Azure, pode criar uma máquina virtual a partir da galeria Azure, uma imagem gerida ou uma imagem não gerida. Para saber mais sobre como criar imagens VM, consulte [Prepare um Windows VHD ou VHDX para fazer o upload para Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Criar uma imagem gerida de um VM generalizado em Azure](../virtual-machines/windows/capture-image-resource.md).
+Quando criar uma piscina de anfitriões virtual do Windows com o modelo Azure Resource Manager, pode criar uma máquina virtual a partir da galeria Azure, uma imagem gerida ou uma imagem não gerida. Para saber mais sobre como criar imagens VM, consulte [Prepare um VHD ou VHDX do Windows para fazer o upload para Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Crie uma imagem gerida de um VM generalizado em Azure](../virtual-machines/windows/capture-image-resource.md).
 
-Se ainda não tiver uma subscrição Azure, certifique-se de [criar uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar a seguir estas instruções.
+Se ainda não tiver uma subscrição do Azure, certifique-se de [criar uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar a seguir estas instruções.
 
-## <a name="begin-the-host-pool-setup-process"></a>Inicie o processo de configuração da piscina anfitriã
+## <a name="begin-the-host-pool-setup-process"></a>Inicie o processo de configuração da piscina de anfitrião
 
-Para começar a criar a sua nova piscina anfitriã:
+Para começar a criar a sua nova piscina de anfitriões:
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
 
-2. Introduza o **Windows Virtual Desktop** na barra de pesquisa e, em seguida, encontre e selecione O Ambiente de Trabalho Virtual do **Windows** em Serviços.
+2. Introduza o **Ambiente de Trabalho Virtual do Windows** na barra de pesquisa e, em seguida, encontre e selecione o Windows Virtual **Desktop** em Serviços.
 
-3. Na página de visão geral do **Windows Virtual Desktop,** selecione **Criar uma piscina de anfitriões**.
+3. Na página de visão geral do **Ambiente de Trabalho Virtual do Windows,** selecione Criar uma piscina de **anfitriões**.
 
-4. No separador **Basics,** selecione a subscrição correta sob os detalhes do Projeto.
+4. No **separador Básicos,** selecione a subscrição correta nos detalhes do Projeto.
 
-5. Selecione **Criar novos** para fazer um novo grupo de recursos ou selecione um grupo de recursos existente a partir do menu suspenso.
+5. Selecione **Criar novo** para criar um novo grupo de recursos ou selecione um grupo de recursos existente a partir do menu suspenso.
 
-6. Insira um nome único para a sua piscina anfitriã.
+6. Insira um nome único para a sua piscina de anfitriões.
 
 7. No campo Localização, selecione a região onde pretende criar a piscina anfitriã a partir do menu suspenso.
    
-   A geografia Azure associada às regiões selecionadas é onde serão armazenados os metadados para esta piscina hospedeira e seus objetos relacionados. Certifique-se de que escolhe as regiões dentro da geografia que pretende que os metadados do serviço sejam armazenados.
+   A geografia Azure associada às regiões selecionadas é onde os metadados desta piscina anfitriã e seus objetos relacionados serão armazenados. Certifique-se de que escolhe as regiões dentro da geografia em que pretende que os metadados de serviço sejam armazenados.
 
-     ![Uma imagem do portal Azure mostrando o campo de localização com a localização dos EUA Oriental selecionada. Ao lado do campo está o texto que diz: "Os metadados serão armazenados no Leste dos EUA."](media/portal-location-field.png)
+     ![Uma imagem do portal Azure mostrando o campo de Localização com a localização leste dos EUA selecionada. Ao lado do campo está o texto que diz: "Os metadados serão armazenados nos EUA Orientais."](media/portal-location-field.png)
 
-8. Sob o tipo de piscina anfitrião, selecione se a sua piscina anfitriã será **pessoal** ou **pooled**.
+8. No tipo de piscina host, selecione se a sua piscina de anfitriões será **Pessoal** ou **Piscina.**
 
-    - Se escolher **Personal,** selecione **automático** ou **direto** no campo Tipo de Atribuição.
+    - Se escolher **o Personal,** selecione **automaticamente** ou **direto** no campo Tipo de Atribuição.
 
-      ![Uma imagem do menu de entrega do campo de atribuição. O utilizador selecionou o Automático.](media/assignment-type-field.png)
+      ![Uma imagem do menu drop-down do tipo de atribuição. O utilizador selecionou o Automatic.](media/assignment-type-field.png)
 
-9. Se escolher **Pooled,** introduza as seguintes informações:
+9. Se escolher **Pooled, insira**as seguintes informações:
 
-     - Para o limite de **sessão Max,** insira o número máximo de utilizadores que deseja equilibrar a carga para um único anfitrião de sessão.
-     - Para o algoritmo de **equilíbrio de carga,** escolha a amplitude em primeiro lugar ou a profundidade em primeiro lugar, com base no seu padrão de utilização.
+     - Para **o limite de sessão Max,** insira o número máximo de utilizadores que pretende equilibrar a carga para um único anfitrião de sessão.
+     - Para **o algoritmo de equilíbrio de carga,** escolha a largura primeiro ou a profundidade primeiro, com base no seu padrão de utilização.
 
-       ![Uma imagem do campo tipo de atribuição com "Pooled" selecionado. O Utilizador está a pairar sobre o seu cursor sobre a Amplitude primeiro no menu de reposição de carga.](media/pooled-assignment-type.png)
+       ![Uma imagem do campo do tipo de atribuição com "Pooled" selecionado. O Utilizador está a pairar sobre o seu cursor sobre a Amplitude-primeiro no menu de equilíbrio de carga.](media/pooled-assignment-type.png)
 
-10. Selecione **Seguinte: Detalhes vm**.
+10. Selecione **Seguinte: Detalhes VM**.
 
-11. Se já criou máquinas virtuais e quer usá-las com a nova piscina anfitriã, selecione **No**. Se quiser criar novas máquinas virtuais e registá-las na nova piscina de anfitriões, selecione **Sim**.
+11. Se já criou máquinas virtuais e quer usá-las com a nova piscina de anfitriões, selecione **Nº**. Se pretender criar novas máquinas virtuais e registá-las na nova piscina de anfitriões, selecione **Sim**.
 
-Agora que completou a primeira parte, vamos passar à próxima parte do processo de configuração onde criamos o VM.
+Agora que completaste a primeira parte, vamos passar à próxima parte do processo de configuração onde criamos o VM.
 
 ## <a name="virtual-machine-details"></a>Detalhes da máquina virtual
 
-Agora que terminámos a primeira parte, vais ter de preparar o teu VM.
+Agora que já passamos a primeira parte, terá que preparar o seu VM.
 
-Para configurar a sua máquina virtual dentro do processo de configuração do pool anfitrião:
+Para configurar a sua máquina virtual dentro do processo de configuração da piscina do anfitrião:
 
-1. No Grupo de Recursos, escolha o grupo de recursos onde pretende criar as máquinas virtuais. Este pode ser um grupo de recursos diferente daquele que usou para a piscina anfitriã.
+1. No Grupo de Recursos, escolha o grupo de recursos onde pretende criar as máquinas virtuais. Este pode ser um grupo de recursos diferente daquele que você usou para a piscina de anfitrião.
 
-2. Escolha a **região** virtual da máquina onde pretende criar as máquinas virtuais. Podem ser iguais ou diferentes da região que selecionou para a piscina anfitriã.
+2. Escolha a **região da máquina virtual** onde pretende criar as máquinas virtuais. Podem ser iguais ou diferentes da região que selecionou para a piscina anfitriã.
 
-3. Em seguida, escolha o tamanho da máquina virtual que pretende criar. Pode manter o tamanho predefinido como está ou selecionar o **Tamanho de Alteração** para alterar o tamanho. Se selecionar **O Tamanho**de Mudança , na janela que aparece, escolha o tamanho da máquina virtual adequada para a sua carga de trabalho.
+3. Em seguida, escolha o tamanho da máquina virtual que pretende criar. Pode manter o tamanho padrão como está ou selecionar **o Tamanho de Alteração** para alterar o tamanho. Se selecionar **o Tamanho de Mudança,** na janela que aparece, escolha o tamanho da máquina virtual adequada para a sua carga de trabalho.
 
-4. Em número de VMs, forneça o número de VMs que pretende criar para a sua piscina anfitriã.
+4. Em Número de VMs, forneça o número de VMs que pretende criar para a sua piscina de anfitriões.
 
     >[!NOTE]
-    >O processo de configuração pode criar até 400 VMs enquanto configura o seu pool de hospedeiro, e cada processo de configuração VM cria quatro objetos no seu grupo de recursos. Uma vez que os proces de criação não verificam a sua quota de subscrição, certifique-se de que o número de VMs que introduz está dentro dos limites de VM e API Azure para o seu grupo de recursos e subscrição. Pode adicionar mais VMs depois de terminar de criar a sua piscina de anfitriões.
+    >O processo de configuração pode criar até 400 VMs enquanto configura o seu pool de anfitriões, e cada processo de configuração VM cria quatro objetos no seu grupo de recursos. Uma vez que os proces de criação não verificam a sua quota de subscrição, certifique-se de que o número de VMs que inseri está dentro dos limites Azure VM e API para o seu grupo de recursos e subscrição. Pode adicionar mais VMs depois de terminar de criar a sua piscina de anfitriões.
 
-5. Depois disso, forneça um **prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números a partir de 0.
+5. Depois disso, forneça um **prefixo nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números a partir de 0.
 
-6. Em seguida, escolha a imagem que precisa de ser usada para criar a máquina virtual. Pode escolher **galeria** ou **Blob de Armazenamento.**
+6. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Pode escolher a **Galeria** ou **a Blob de Armazenamento.**
 
-    - Se escolher **a Galeria,** selecione uma das imagens recomendadas no menu suspenso:
+    - Se escolher **a Galeria,** selecione uma das imagens recomendadas do menu suspenso:
 
       - Windows 10 Enterprise multi-sessão, Versão 1909 + Office 365 ProPlus – Gen 1
-      - Windows 10 Enterprise multi-sessão, Versão 1909 - Gen 1
+      - Windows 10 Enterprise multi-sessão, Versão 1909 – Gen 1
       - Windows Server 2019 Datacenter - Gen1
 
-     Se não vir a imagem que deseja, **selecione Navegar em todas as imagens e discos**, o que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras.
+     Se não vir a imagem desejada, **selecione Procurar todas as imagens e discos**, o que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras.
 
      ![Uma imagem do Marketplace com uma lista de imagens da Microsoft exibidas.](media/marketplace-images.png)
 
-     Você também pode ir aos **Meus Itens** e escolher uma imagem personalizada que já carregou.
+     Também pode ir a **My Items** e escolher uma imagem personalizada que já carregou.
 
      ![Uma imagem do separador My Items.](media/my-items.png)
 
-    - Se escolher **o Storage Blob,** pode alavancar a sua própria imagem através do Hyper-V ou num VM Azure. Tudo o que tem que fazer é inserir a localização da imagem na bolha de armazenamento como URI.
+    - Se escolher **o Storage Blob,** pode aproveitar a sua própria imagem através do Hyper-V ou num VM Azure. Tudo o que tem de fazer é introduzir a imagem na bolha de armazenamento como um URI.
 
-7. Escolha que tipo de discos OS deseja que os seus VMs utilizem: Standard SSD, Premium SSD ou Standard HDD.
+7. Escolha que tipo de discos de SO pretende que os seus VMs utilizem: SSD Standard, Premium SSD ou HDD Standard.
 
-8. Em Rede e segurança, selecione a rede virtual e a subnet onde pretende colocar as máquinas virtuais que cria. Certifique-se de que a rede virtual pode ligar-se ao controlador de domínio, uma vez que terá de se juntar às máquinas virtuais dentro da rede virtual ao domínio. Em seguida, selecione se quer ou não um IP público para as máquinas virtuais. Recomendamos que selecione **Não,** porque um IP privado é mais seguro.
+8. Em Rede e segurança, selecione a rede virtual e a sub-rede onde pretende colocar as máquinas virtuais que cria. Certifique-se de que a rede virtual pode ligar-se ao controlador de domínio, uma vez que terá de juntar as máquinas virtuais dentro da rede virtual ao domínio. Em seguida, selecione se deseja ou não um IP público para as máquinas virtuais. Recomendamos que selecione **Não,** porque um IP privado é mais seguro.
 
 9. Selecione que tipo de grupo de segurança deseja: **Básico,** **Avançado**ou **Nenhum**.
 
-    Se selecionar **Basic,** terá de selecionar se pretende que seja aberta alguma porta de entrada. Se selecionar **Sim,** escolha entre a lista de portas padrão para permitir ligações de entrada.
+    Se selecionar **Basic,** terá de selecionar se deseja uma porta de entrada aberta. Se selecionar **Sim,** escolha entre a lista de portas padrão para permitir ligações de entrada.
 
     >[!NOTE]
     >Para maior segurança, recomendamos que não abra portos públicos de entrada.
 
     ![Uma imagem da página do grupo de segurança que mostra uma lista de portas disponíveis num menu suspenso.](media/available-ports.png)
     
-    Se escolher **o Advanced**, selecione um grupo de segurança de rede existente que já configurado.
+    Se escolher **Advanced,** selecione um grupo de segurança de rede existente que já configura.
 
-10. Depois disso, selecione se pretende que as máquinas virtuais sejam unidas a um domínio específico e unidade organizacional. Se escolher **Sim,** especifique o domínio para aderir. Também pode adicionar uma unidade organizacional específica onde deseja que as máquinas virtuais estejam.
+10. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Também pode adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam.
 
-11. Na conta Do Administrador, introduza as credenciais para o administrador do Domínio do Diretório Ativo da rede virtual selecionada.
+11. Na conta de Administrador, insira as credenciais para o administrador de domínio do diretório ativo da rede virtual selecionada.
 
-12. Selecione **Workspace**.
+12. Selecione **Espaço de Trabalho**.
 
 Com isso, estamos prontos para iniciar a próxima fase de configuração do seu pool de anfitriões: registar o seu grupo de aplicações num espaço de trabalho.
 
 ## <a name="workspace-information"></a>Informações da área de trabalho
 
-O processo de configuração do pool de anfitrião cria um grupo de aplicações de ambiente de trabalho por padrão. Para que o conjunto de anfitriões funcione como pretendido, terá de publicar este grupo de aplicações a utilizadores ou grupos de utilizadores, e tem de registar o grupo de aplicações num espaço de trabalho. 
+O processo de configuração do pool anfitrião cria um grupo de aplicação de ambiente de trabalho por predefinição. Para que o pool do anfitrião funcione como pretendido, terá de publicar este grupo de aplicações para utilizadores ou grupos de utilizadores, e tem de registar o grupo de aplicações num espaço de trabalho. 
 
-Para registar o grupo de aplicações de ambiente de trabalho num espaço de trabalho:
+Para registar o grupo de aplicações de desktop num espaço de trabalho:
 
 1. Selecione **Sim**.
 
-   Se selecionar **Não,** pode registar o grupo de aplicações mais tarde, mas recomendamos que faça o registo do espaço de trabalho o mais rápido possível para que a sua piscina de anfitriões funcione corretamente.
+   Se selecionar **No**, pode registar o grupo de aplicações mais tarde, mas recomendamos que faça o registo do espaço de trabalho o mais rapidamente possível para que a sua piscina de anfitrião funcione corretamente.
 
-2. Em seguida, escolha se pretende criar um novo espaço de trabalho ou selecione a partir de espaços de trabalho existentes. Apenas espaços de trabalho criados no mesmo local que a piscina anfitriã será permitido registar o grupo de aplicações para.
+2. Em seguida, escolha se deseja criar um novo espaço de trabalho ou selecionar a partir de espaços de trabalho existentes. Apenas espaços de trabalho criados no mesmo local onde a piscina anfitriã serão autorizados a registar o grupo de aplicações para.
 
-3. Opcionalmente, pode selecionar **Tags**.
+3. Opcionalmente, pode selecionar **Tags.**
 
-    Aqui pode adicionar tags para que possa agrupar os objetos com metadados para facilitar as coisas aos seus administradores.
+    Aqui pode adicionar tags para que possa agrupar os objetos com metadados para facilitar as coisas para os seus administradores.
 
-4. Quando terminar, selecione **Review + crie**. 
+4. Quando terminar, selecione **Review + create**. 
 
      >[!NOTE]
-     >A revisão + criar o processo de validação não verifica se a sua palavra-passe cumpre os padrões de segurança ou se a sua arquitetura está correta, por isso terá de verificar quaisquer problemas com qualquer uma dessas coisas. 
+     >O processo de avaliação + criar não verifica se a sua palavra-passe cumpre os padrões de segurança ou se a sua arquitetura está correta, por isso terá de verificar se existe algum problema com qualquer uma dessas coisas por si mesmo. 
 
-5. Reveja as informações sobre a sua implementação para se certificar de que tudo parece correto. Quando terminar, selecione **Criar**. Isto inicia o processo de implantação, que cria os seguintes objetos:
+5. Reveja as informações sobre a sua implementação para se certificar de que tudo parece estar certo. Quando terminar, selecione **Criar**. Isto inicia o processo de implantação, que cria os seguintes objetos:
 
-     - Sua nova piscina de anfitrião.
-     - Um grupo de aplicativos de ambiente de trabalho.
-     - Um espaço de trabalho, se escolheu criá-lo.
-     - Se optou por registar o grupo de aplicações de desktop, o registo estará completo
-     - Máquinas virtuais, se optar por criá-las, que se juntam ao domínio e registadas com a nova piscina anfitriã.
+     - Sua nova piscina de anfitriões.
+     - Um grupo de aplicativos de desktop.
+     - Um espaço de trabalho, se escolher criá-lo.
+     - Se optar por registar o grupo de aplicações para desktop, o registo estará completo
+     - Máquinas virtuais, se optarem por criá-las, que se juntam ao domínio e registadas na nova piscina de anfitriões.
      - Um link de descarregamento para um modelo de Gestão de Recursos Azure baseado na sua configuração.
 
-Depois disso, já acabaram!
+Depois disso, já acabou!
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez a sua piscina de anfitriões, pode povoá-la com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, dirija-se ao nosso próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Gerir o tutorial de grupos de aplicações](./manage-app-groups.md)
+> [Gerir grupos de aplicações tutorial](./manage-app-groups.md)

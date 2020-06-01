@@ -1,14 +1,14 @@
 ---
-title: Implemente uma aplicação .NET num contentor para o Tecido de Serviço Azure
+title: Implementar uma aplicação .NET num recipiente para o Azure Service Fabric
 description: Saiba como colocar uma aplicação .NET existente num contentor com o Visual Studio e depurar contentores no Service Fabric localmente. A aplicação em contentor é enviada para um registo de contentor do Azure e implementada num cluster do Service Fabric. Quando implementada no Azure, a aplicação utiliza a BD SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 06c284a06be4879f9ecb514ed30c28332cd11cc8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017006"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234223"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -30,8 +30,8 @@ Neste tutorial, ficará a saber como:
 1. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Instale o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), para que possam executar contentores no Windows 10.
 3. Instale o [runtime do Service Fabric, versão 6.2 ou posterior](service-fabric-get-started.md) e o [SDK do Service Fabric, versão 3.1](service-fabric-get-started.md) ou posterior.
-4. Instale o [Visual Studio 2019 Versão 16.1](https://www.visualstudio.com/) ou mais tarde com o **desenvolvimento do Azure** e ASP.NET e trabalhos de **desenvolvimento web.**
-5. Instalar [a PowerShell Azure][link-azure-powershell-install]
+4. Instale [o Visual Studio 2019 Versão 16.1](https://www.visualstudio.com/) ou posterior com o **desenvolvimento do Azure** e ASP.NET e trabalhos **de desenvolvimento web.**
+5. Instalar [Azure PowerShell][link-azure-powershell-install]
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Transferir e executar o Fabrikam Fiber CallCenter
 
@@ -55,7 +55,7 @@ Neste tutorial, ficará a saber como:
 
 Quando executa a aplicação Fabrikam Fiber CallCenter em produção, os dados têm de ser mantidos numa base de dados. Não existe atualmente nenhuma forma de garantir que os dados fiquem num contentor, por isso não pode armazenar dados de produção no SQL Server num contentor.
 
-Recomendamos a [Base de Dados SQL do Azure](/azure/sql-database/sql-database-get-started-powershell). Para configurar e executar uma Base de Dados SQL Server gerida no Azure, execute o seguinte script.  Modifique as variáveis do script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento. Tome nota do nome do servidor elegíaco pelo script.
+Recomendamos a [Base de Dados SQL do Azure](/azure/sql-database/sql-database-get-started-powershell). Para configurar e executar uma Base de Dados SQL Server gerida no Azure, execute o seguinte script.  Modifique as variáveis do script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento. Tome nota do nome do servidor descoduído pelo script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Atualizar a configuração da Web
 
-Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no ficheiro **web.config**, para que encaminhe para o SQL Server no contentor.  Atualize a parte do *Servidor* da cadeia de ligação para ser o nome do servidor criado pelo script anterior. Devia ser algo como "fab-fiber-751718376.database.windows.net".
+Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no ficheiro **web.config**, para que encaminhe para o SQL Server no contentor.  Atualize a parte do *Servidor* da cadeia de ligação para ser o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net".
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -142,7 +142,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 ## <a name="create-a-service-fabric-cluster-on-azure"></a>Criar um cluster do Service Fabric no Azure
 
-As aplicações do Service Fabric são executadas num cluster, um conjunto de máquinas virtuais ou físicas ligadas à rede.  Antes de poder implementar a aplicação para o Azure, crie um cluster de Tecido de Serviço em Azure.
+As aplicações do Service Fabric são executadas num cluster, um conjunto de máquinas virtuais ou físicas ligadas à rede.  Antes de poder implementar a aplicação para a Azure, crie um cluster de Tecido de Serviço em Azure.
 
 Pode:
 
@@ -151,35 +151,35 @@ Pode:
 
 Este tutorial cria um cluster a partir do Visual Studio, que é ideal para cenários de teste. Se criar um cluster de outra forma ou utilizar um cluster existente, pode copiar e colar o ponto final de ligação ou escolhê-lo a partir da sua subscrição.
 
-Antes de começar, abra FabrikamFiber.Web->PackageRoot->ServiceManifest.xml no Solution Explorer. Tome nota da porta para a frente web listada em **Endpoint**.
+Antes de começar, abra FabrikamFiber.Web->PackageRoot->ServiceManifest.xml no Solution Explorer. Tome nota da porta para a porta frontal listada em **Endpoint**.
 
 Ao criar o cluster:
 
 1. Clique com o botão direito do rato no projeto de aplicação **FabrikamFiber.CallCenterApplication** no Explorador de Soluções e escolha **Publicar**.
 2. Inicie sessão com a sua conta do Azure para poder aceder às suas subscrições.
 3. Selecione a lista pendente de **Ponto Final de Ligação** e selecione a opção **Criar Novo Cluster...**.
-4. No diálogo **criar** cluster, modifique as seguintes definições:
+4. No diálogo **de cluster Create,** modifique as seguintes definições:
 
-    a. Especifique o nome do seu cluster no campo Nome do **Cluster,** bem como a subscrição e localização que pretende utilizar. Tome nota do nome do seu grupo de recursos de cluster.
+    a. Especifique o nome do seu cluster no campo **Nome cluster,** bem como a subscrição e localização que pretende utilizar. Tome nota do nome do seu grupo de recursos de cluster.
 
     b. Opcional: pode modificar o número de nós. Por predefinição, tem três nós, o mínimo exigido para testar cenários do Service Fabric.
 
-    c. Selecione o separador **Certificado.** Neste separador, digite uma palavra-passe para utilizar para proteger o certificado do seu cluster. Este certificado ajuda a tornar o seu cluster seguro. Também pode modificar o caminho para o local onde pretende guardar o certificado. O Visual Studio também pode importar o certificado por si, uma vez que este é um passo obrigatório para publicar a aplicação no cluster.
+    c. Selecione o **separador Certificado.** Neste separador, digite uma palavra-passe para proteger o certificado do seu cluster. Este certificado ajuda a tornar o seu cluster seguro. Também pode modificar o caminho para o local onde pretende guardar o certificado. O Visual Studio também pode importar o certificado por si, uma vez que este é um passo obrigatório para publicar a aplicação no cluster.
 
-    d. Selecione o separador **De pormenor VM.** Especifique a palavra-passe que gostaria de utilizar para as Máquinas Virtuais (VM) que compõem o cluster. O nome de utilizador e a palavra-passe podem ser utilizados para ligar remotamente às VMs. Também tem de selecionar um tamanho de VM e pode alterar a imagem da VM, se necessário.
+    d. Selecione o **separador detalhes VM.** Especifique a palavra-passe que gostaria de utilizar para as Máquinas Virtuais (VM) que compõem o cluster. O nome de utilizador e a palavra-passe podem ser utilizados para ligar remotamente às VMs. Também tem de selecionar um tamanho de VM e pode alterar a imagem da VM, se necessário.
 
     > [!IMPORTANT]
-    > Escolha um SKU que suporte recipientes de corrida. O SO do Windows Server nos nós do cluster tem de ser compatível com o SO do Windows Server do seu contentor. Para obter mais informações, veja [Compatibilidade do sistema operativo do contentor do Windows Server e do sistema operativo do sistema anfitrião ](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por predefinição, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Os contentores com base nesta imagem serão executados nos clusters criados com o Windows Server 2016 Datacenter com Contentores. No entanto, se criar um cluster ou utilizar um cluster existente com base no Windows Server Datacenter Core 1709 com Contentores, terá de alterar a imagem do SO do Windows Server em que se baseia o contentor. Abra o **Dockerfile** no projeto **FabrikamFiber.Web**, comente a instrução `FROM` existente (com base em `windowsservercore-ltsc`) e anule os comentários na instrução `FROM` baseada em `windowsservercore-1709`.
+    > Escolha um SKU que suporte a funcionamento de contentores. O SO do Windows Server nos nós do cluster tem de ser compatível com o SO do Windows Server do seu contentor. Para obter mais informações, veja [Compatibilidade do sistema operativo do contentor do Windows Server e do sistema operativo do sistema anfitrião ](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por predefinição, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Os contentores com base nesta imagem serão executados nos clusters criados com o Windows Server 2016 Datacenter com Contentores. No entanto, se criar um cluster ou utilizar um cluster existente com base no Windows Server Datacenter Core 1709 com Contentores, terá de alterar a imagem do SO do Windows Server em que se baseia o contentor. Abra o **Dockerfile** no projeto **FabrikamFiber.Web**, comente a instrução `FROM` existente (com base em `windowsservercore-ltsc`) e anule os comentários na instrução `FROM` baseada em `windowsservercore-1709`.
 
-    e. No separador **Avançadas**, indique a porta de aplicação a abrir no balanceador de carga quando o cluster é implementado. Este é o porto de que tomou nota antes de começar a criar o cluster. Também pode adicionar uma chave do Application Insights existente para ser utilizada no encaminhamento dos ficheiros de registo da aplicação.
+    e. No separador **Avançadas**, indique a porta de aplicação a abrir no balanceador de carga quando o cluster é implementado. Esta é a porta que tomou nota antes de começar a criar o cluster. Também pode adicionar uma chave do Application Insights existente para ser utilizada no encaminhamento dos ficheiros de registo da aplicação.
 
     f. Quando terminar de modificar as definições, selecione o botão **Criar.**
 
 5. A criação demora vários minutos a ser concluída; a janela de saída indicará quando o cluster estiver totalmente criado.
 
-## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Permita que a sua aplicação em execução no Azure aceda à Base de Dados SQL
+## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Permitir que a sua aplicação em funcionamento em Azure aceda à Base de Dados SQL
 
-Anteriormente, criou uma regra de firewall de SQL para dar acesso à sua aplicação em execução localmente.  Em seguida, precisa de ativar a aplicação em execução no Azure para aceder à BD SQL.  Crie um [ponto final de serviço de rede virtual](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) para o cluster do Service Fabric e, em seguida, crie uma regra para permitir que esse ponto final aceda à BD SQL. Certifique-se de especificar a variável do grupo de recursos cluster que tomou nota ao criar o cluster.
+Anteriormente, criou uma regra de firewall de SQL para dar acesso à sua aplicação em execução localmente.  Em seguida, precisa de ativar a aplicação em execução no Azure para aceder à BD SQL.  Crie um [ponto final de serviço de rede virtual](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) para o cluster do Service Fabric e, em seguida, crie uma regra para permitir que esse ponto final aceda à BD SQL. Certifique-se de especificar a variável do grupo de recursos de cluster que tomou nota ao criar o cluster.
 
 ```powershell
 # Create a virtual network service endpoint
@@ -233,7 +233,7 @@ Agora que a aplicação está pronta, pode implementá-la no cluster diretamente
 
 ![Publicar a aplicação][publish-app]
 
-Siga o progresso da implementação na janela de saída. Quando a aplicação for implementada, abra um browser e escreva o endereço do cluster e a porta da aplicação. Por exemplo, https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Siga o progresso da implementação na janela de saída. Quando a aplicação for implementada, abra um browser e escreva o endereço do cluster e a porta da aplicação. Por exemplo, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Exemplo de Fabrikam Web][fabrikam-web-page-deployed]
 

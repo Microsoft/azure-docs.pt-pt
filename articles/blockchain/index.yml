@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: a0e43171e70923cfb3af551391204f118be01970
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 11c3c464de5efc9b38426fa7ea015f63b37a8b52
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75932671"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84235505"
 productDirectory:
   items:
   - title: Azure Blockchain Service
@@ -32,13 +32,6 @@ productDirectory:
     - url: ./workbench/overview.md
       text: O que é o Azure Blockchain Workbench?
     - url: ./workbench/index.yml
-      text: Ver mais >
-  - title: Azure Blockchain Tokens
-    imageSrc: ./media/index/blockchain-tokens.svg
-    links:
-    - url: ./tokens/overview.md
-      text: O que é o Azure Blockchain Tokens?
-    - url: ./tokens/index.yml
       text: Ver mais >
 conceptualContent:
   title: Introdução
@@ -71,17 +64,6 @@ conceptualContent:
     - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
       itemType: video
       text: Ver como criar a sua primeira aplicação
-  - title: Criar e gerir tokens
-    links:
-    - url: ./tokens/templates.md
-      itemType: concept
-      text: Definir o token com um modelo predefinido
-    - url: ./tokens/account-management.md
-      itemType: concept
-      text: Gerir tokens com o Azure Blockchain Tokens
-    - url: https://aka.ms/ABTokensPartI
-      itemType: video
-      text: Ver uma introdução ao Azure Blockchain Tokens
   - title: Publicar dados de blockchain com o Blockchain Data Manager
     links:
     - url: ./service/data-manager.md

@@ -1,21 +1,21 @@
 ---
 title: Lista de iniciativas políticas integradas
-description: Enumeraas iniciativas políticas integradas para a Política Azure. As categorias incluem Conformidade Regulamentar, Configuração de Hóspedes, e muito mais.
-ms.date: 05/13/2020
+description: Enumerar iniciativas políticas integradas para a Política Azure. As categorias incluem Conformidade Regulamentar, Configuração de Hóspedes e muito mais.
+ms.date: 05/29/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 969b1849628616bf42951e1ff7fdf2f507cf0abe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b3b0826e2121e7d609bd4091a162fa1820c1be53
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639366"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234000"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa integradas da Política Azure
 
-Esta página é um índice de definições de iniciativa integrada sinuosa.
+Esta página é um índice de definições de iniciativa incorporadas da Azure Policy.
 
-O nome em cada ligação incorporada à fonte de definição de iniciativa no repo da [política azure GitHub.](https://github.com/Azure/azure-policy) Os incorporados são agrupados pela propriedade da **categoria** em **metadados.** Para saltar para uma **categoria**específica, use o menu do lado direito da página. Caso contrário, utilize <kbd>ctrl</kbd>F para utilizar a funcionalidade de - <kbd>F</kbd> pesquisa do seu navegador.
+O nome em cada ligação incorporada à fonte de definição de iniciativa no [repo da política Azure GitHub](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria**específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
 
 ## <a name="guest-configuration"></a>Configuração de Convidado
 

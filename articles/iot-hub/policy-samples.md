@@ -1,26 +1,26 @@
 ---
-title: Definições políticas incorporadas para Hub Azure IoT
-description: Lista definições políticas integradas da Política Azure para o Hub Azure IoT. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/05/2020
+title: Definições políticas incorporadas para o Azure IoT Hub
+description: Lista definições políticas incorporadas da Azure Policy para O Hub Azure IoT. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 05/29/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a08796724728f4318dda9210d84fb250b9159541
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 99dda1218136ca81256f918fafef77ffb734e19e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666031"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234345"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-iot-hub"></a>Definições políticas integradas da Política Azure para o Hub Azure IoT
+# <a name="azure-policy-built-in-policy-definitions-for-azure-iot-hub"></a>Definições políticas incorporadas da Azure Policy para o Azure IoT Hub
 
-Para o código de amostra IoT Hub que mostra como implementar cenários comuns de IoT, consulte os [quickstarts do IoT Hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Há quickstarts para várias linguagens de programação, incluindo C, Node.js e Python.
+Para o código de amostra ioT Hub que mostra como implementar cenários comuns de IoT, consulte os [quickstarts do IoT Hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Existem quickstarts para várias linguagens de programação, incluindo C, Node.js e Python.
 
-Esta página é um índice de definições políticas integradas da [Política Azure](../governance/policy/overview.md) para o Hub Azure IoT. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições políticas incorporadas da [Azure Policy](../governance/policy/overview.md) para O Azure IoT Hub. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **GitHub** para ver a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 

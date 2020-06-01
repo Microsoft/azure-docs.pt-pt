@@ -60,8 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: Ligações de saída
       href: load-balancer-outbound-connections.md
-    - name: Regras de Saída
-      href: load-balancer-outbound-rules-overview.md
     - name: Reposição de TCP em tempo limite de inatividade
       href: load-balancer-tcp-reset.md
     - name: Balanceador de Carga Standard e Zonas de Disponibilidade

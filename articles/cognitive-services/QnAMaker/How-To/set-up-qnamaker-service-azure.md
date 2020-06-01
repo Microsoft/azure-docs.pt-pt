@@ -3,12 +3,12 @@ title: Crie um serviço QnA Maker - QnA Maker
 description: Antes de criar quaisquer bases de conhecimento do QnA Maker, tem primeiro de configurar um serviço QnA Maker em Azure. Qualquer pessoa com autorização para criar novos recursos numa subscrição pode criar um serviço QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171179"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235527"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -210,6 +210,11 @@ Para manter a aplicação de previsão de ponta final carregada mesmo quando nã
 1. É-lhe perguntado se pretende reiniciar a aplicação para utilizar a nova definição. Selecione **Continuar**.
 
 Saiba mais sobre como configurar as [definições gerais](../../../app-service/configure-common.md#configure-general-settings)do Serviço de Aplicações.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configure o Ambiente de Serviço de Aplicações para acolher o Serviço de Aplicações Qna Maker
+O Ambiente de Serviço de Aplicações pode ser usado para hospedar o serviço de aplicações QnA Maker. Se o Ambiente de Serviço de Aplicações é interno, então tem de seguir estes passos:
+1. Crie um serviço de aplicações e um serviço de pesquisa azul.
+2. Exponha o serviço de aplicações numa etiqueta de serviço público de DNS e whitelist QnA Maker: CognitiveServicesManagement, ou mantenha-o virado para a Internet.
+3. Crie uma instância de serviço cognitivo QnA Maker (Microsoft.CognitiveServices/contas) utilizando o Azure Resource Manager, onde o ponto final do QnA Maker deve ser definido para o Ambiente de Serviço de Aplicações. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Continuidade de negócio com gestor de tráfego
 
@@ -238,7 +243,7 @@ A ideia de alto nível, tal como acima representada, é a seguinte:
 
 Se eliminar algum dos recursos Azure utilizados para as suas bases de conhecimento QnA Maker, as bases de conhecimento deixarão de funcionar. Antes de eliminar quaisquer recursos, certifique-se de que exporta as suas bases de conhecimento a partir da página **Definições.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [serviço app](../../../app-service/index.yml) e serviço [de pesquisa.](../../../search/index.yml)
 

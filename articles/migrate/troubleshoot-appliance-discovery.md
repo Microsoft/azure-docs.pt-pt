@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 14503299b241b87459517818b0d0b2be6dde9072
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3d9e4e54d2b1186278afc72c72cdd6bcf33dd41b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219239"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235449"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -168,37 +168,38 @@ A Azure Migrate suporta a descoberta de aplicações, funções e funcionalidade
 Erros típicos de descoberta de aplicações são resumidos na tabela. 
 
 **Erro** | **Motivo** | **Ação**
---- | --- | --- 
-1000: "Não é possível descobrir as aplicações instaladas no servidor". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
-10001: "Incapaz de recuperar as aplicações instaladas no servidor". | Erro interno - alguns ficheiros em falta no aparelho. | Contacte o Suporte da Microsoft.
-10002: "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
-10003 "Não conseguir recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
-10004: "Não é possível descobrir aplicações instaladas para <máquinas de> Windows/Linux." |  As credenciais de acesso <máquinas de> Windows/Linux não foram fornecidas no aparelho.| Adicione uma credencial ao aparelho que tenha acesso às máquinas de> Windows/Linux <.
-10005: "Incapaz de aceder ao servidor no local". | As credenciais de acesso podem estar erradas. | Atualize as credenciais do aparelho certifique-se de que pode aceder à máquina relevante com eles. 
-10006: "Incapaz de aceder ao servidor no local". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux.|  Utilize apenas a descoberta de aplicativos para Windows/Linux.
+--- | --- | --- | ---
+1000: "Não é possível descobrir as aplicações instaladas no servidor" | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
+10001: "Incapaz de recuperar as aplicações instaladas no servidor" | Erro interno - alguns ficheiros em falta no aparelho. | Contacte o Suporte da Microsoft.
+10002: "Incapaz de recuperar as aplicações instaladas no servidor" | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
+10003 "Incapaz de recuperar as aplicações instaladas no servidor" | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
+10004: "Não é possível descobrir aplicações instaladas para <máquinas de> Windows/Linux" |  As credenciais de acesso <máquinas de> Windows/Linux não foram fornecidas no aparelho.| Adicione uma credencial ao aparelho que tenha acesso às máquinas de> Windows/Linux <.
+10005: "Incapaz de aceder ao servidor no local" | As credenciais de acesso podem estar erradas. | Atualize as credenciais do aparelho certifique-se de que pode aceder à máquina relevante com eles. 
+10006: "Incapaz de aceder ao servidor no local" | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux.|  Utilize apenas a descoberta de aplicativos para Windows/Linux.
 10007: "Incapaz de processar os metadados recuperados" | Este erro interno ocorreu ao tentar deserizar o JSON | Contacte o Microsoft Support para obter uma resolução
-9000/9001/9002: "Incapaz de descobrir as aplicações instaladas no servidor". | As ferramentas VMware podem não ser instaladas ou corrompidas. | Instale/reinstale as ferramentas VMware na máquina relevante e verifique se está a funcionar.
-9003: Não é possível descobrir as aplicações instaladas no servidor". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
-9004: "Não é possível descobrir as aplicações instaladas no servidor". | Isto pode acontecer se o VM for desligado. | Para ser descoberto, certifique-se de que o VM está ligado.
-9005: "Não foi possível descobrir as aplicações instaladas no VM. | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
-9006/9007: "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
+9000/9001/9002: "Incapaz de descobrir as aplicações instaladas no servidor" | As ferramentas VMware podem não ser instaladas ou corrompidas. | Instale/reinstale as ferramentas VMware na máquina relevante e verifique se está a funcionar.
+9003: Não é possível descobrir as aplicações instaladas no servidor" | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
+9004: "Não é possível descobrir as aplicações instaladas no servidor" | Isto pode acontecer se o VM for desligado. | Para ser descoberto, certifique-se de que o VM está ligado.
+9005: "Incapaz de descobrir as aplicações instaladas no VM | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
+9006/9007: "Incapaz de recuperar as aplicações instaladas no servidor" | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte
 9008: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ser um erro interno.  | Tf o problema não se resolve dentro de 24 horas, suporte de contato.
-9009: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ocorrer se as definições de Controlo de Conta de Utilizador do Windows (UAC) no servidor forem restritivas e impedir a descoberta de aplicações instaladas. | Procure as definições de 'Controlo de Conta de Utilizador' no servidor e configufique a definição de UAC no servidor para um dos dois níveis inferiores.
-9010: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ser um erro interno.  | Tf o problema não se resolve dentro de 24 horas, suporte de contato.
+9009: "Incapaz de recuperar as aplicações instaladas no servidor" | Pode ocorrer se as definições de Controlo de Conta de Utilizador do Windows (UAC) no servidor forem restritivas e impedir a descoberta de aplicações instaladas. | Procure as definições de 'Controlo de Conta de Utilizador' no servidor e configufique a definição de UAC no servidor para um dos dois níveis inferiores.
+9010: "VM é desligado" | O VM está desligado.  | Certifique-se de que o VM está ligado.
 9011: "O ficheiro para descarregar do hóspede não é encontrado no VM do hóspede" | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, contacte o Microsoft Support.
-9012: "O conteúdo do ficheiro de resultados está vazio." | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, contacte o Microsoft Support.
-9013: "É criado um novo perfil temporário para cada login no VMware VM" | É criado um novo perfil temporário para cada login no VM. | Certifique-se de que o nome de utilizador fornecido nas credenciais VM do hóspede está no formato UPN. Depois de alterar o nome de utilizador fornecido nas credenciais VM do hóspede para o formato UPN, em Task Manager no aparelho, reinicie o Microsoft Azure VMWare Discovery Service para encontrar a nova descoberta.
-9015: "Incapaz de ligar aos VMware VMs devido a privilégios insuficientes no vCenter" | A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter. | Certifique-se de que a função de Operações de Hóspedes está ativada na conta de utilizador do vCenter.
+9012: "O conteúdo do ficheiro de resultados está vazio" | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, contacte o Microsoft Support.
+9013: "É criado um novo perfil temporário para cada login no VMware VM" | Um novo perfil temporário é criado para cada login no VM | Certifique-se de que o nome de utilizador fornecido nas credenciais VM do hóspede está no formato UPN.
+9014: "Incapaz de recuperar metadados do sistema de ficheiros VM do hóspede" | Houve um problema de ligação com o anfitrião ESXi | Certifique-se de que o aparelho pode ligar-se à porta 443 no hospedeiro ESXi que executa o VM
+9015: "Incapaz de ligar aos VMware VMs devido a privilégios insuficientes no vCenter" | A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter | Certifique-se de que a função de Operações de Hóspedes está ativada na conta de utilizador do vCenter.
 9016: "Incapaz de ligar aos VMware VMs como o agente de operações de hóspedes está fora dos dados" | As ferramentas VMware não estão corretamente instaladas ou não estão atualizadas. | Certifique-se de que as ferramentas VMware estão corretamente instaladas e atualizadas.
-9017: "O ficheiro com metadados descobertos não é encontrado no VM." | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução.
-9018: "O PowerShell não está instalado nos VMs dos Hóspedes." | O PowerShell não está disponível no VM convidado. | Instale o PowerShell no VM convidado.
+9017: "Ficheiro com metadados descobertos não é encontrado no VM" | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução.
+9018: "O PowerShell não está instalado nos VMs dos Hóspedes" | O PowerShell não está disponível no VM convidado. | Instale o PowerShell no VM convidado.
 9019: "Incapaz de descobrir devido a falhas de operação VM de hóspedes" | A operação de hóspedes VMware falhou no VM. | Certifique-se de que as credenciais VM são válidas e o nome de utilizador fornecido nas credenciais VM do hóspede está em formato UPN.
-9020: "A permissão de criação de ficheiros é negada." | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a criar o ficheiro na pasta | Verifique se o utilizador convidado fornecido criou permissão para o ficheiro na pasta. Consulte **notificações** na Avaliação do Servidor para o nome da pasta.
-9021: "A permissão de criação de ficheiros é negada na pasta Temp Path do sistema." | A versão da ferramenta VMware no VM não é suportada | Atualize a versão da ferramenta VMware acima de 10.2.0.
-9022: "Obter acesso a objetos WMI é negado." | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a aceder ao objeto WMI. | Entre em contato com o Microsoft Support.
-9023: "O valor variável do ambiente SystemRoot está vazio." | Não conhecido | Entre em contato com o Microsoft Support.
-9024: "O valor variável do ambiente TEMP está vazio." | Não conhecido | Entre em contato com o Microsoft Support.
-9025: "PowerShell é corrupto nos VMs convidados." | Não conhecido | Volte a instalar o PowerShell no VM do hóspede e verifique se o PowerShell pode ser executado no VM convidado.
+9020: "A permissão de criação de ficheiros é negada" | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a criar o ficheiro na pasta | Verifique se o utilizador convidado fornecido criou permissão para o ficheiro na pasta. Consulte **notificações** na Avaliação do Servidor para o nome da pasta.
+9021: "A permissão de criação de ficheiros é negada na pasta Temp Path" | A versão da ferramenta VMware no VM não é suportada | Atualize a versão da ferramenta VMware acima de 10.2.0.
+9022: "Obter acesso a objetos WMI é negado" | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a aceder ao objeto WMI. | Entre em contato com o Microsoft Support.
+9023: "O valor variável do ambiente SystemRoot está vazio" | Não conhecido | Entre em contato com o Microsoft Support.
+9024: "O valor variável do ambiente TEMP está vazio" | Não conhecido | Entre em contato com o Microsoft Support.
+9025: "PowerShell é corrupto nos VMs convidados" | Não conhecido | Volte a instalar o PowerShell no VM do hóspede e verifique se o PowerShell pode ser executado no VM convidado.
 8084: "Incapaz de descobrir aplicações devido a erro da VMware:  <Exception from VMware> " | O aparelho Azure Migrate utiliza APIs VMware para descobrir aplicações. Este problema pode acontecer se uma exceção for lançada pelo vCenter Server enquanto tenta descobrir aplicações. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no portal. | Procure a mensagem na [documentação VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se não conseguir corrigir, contacte o suporte da Microsoft.
 
 

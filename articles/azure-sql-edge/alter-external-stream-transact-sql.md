@@ -1,24 +1,24 @@
 ---
-title: ALTER FLUXO EXTERNO (Transact-SQL) - Borda SQL Azure (Pré-visualização)
-description: Conheça a declaração alter external stream em Azure SQL Edge (Pré-visualização)
+title: ALTER FLUXO EXTERNO (Transact-SQL) - Aresta SQL Azure (Pré-visualização)
+description: Conheça a declaração ALTER EXTERNAL STREAM em Azure SQL Edge (Pré-visualização)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 0183972b5eb92d3f081b857940609bffc183b331
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2559c4b4b875403b7c70671e27cb6222a3f1103a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597941"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235203"
 ---
 # <a name="alter-external-stream-transact-sql"></a>ALTER FLUXO EXTERNO (Transact-SQL)
 
-Modifica a definição de um Fluxo Externo. Não é permitida modificar um Fluxo Externo que é utilizado por um trabalho de streaming num estado de *funcionamento.* 
+Modifica a definição de fluxo externo. Não é permitido modificar uma corrente externa que seja utilizada por um trabalho de streaming num estado *de funcionamento.* 
 
 
 
@@ -36,11 +36,11 @@ Modifica a definição de um Fluxo Externo. Não é permitida modificar um Fluxo
 
 ## <a name="arguments"></a>Argumentos
 
-Para obter mais detalhes sobre os argumentos de comando Alter External Stream, consulte [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md).
+Para obter mais informações sobre os argumentos de comando alter external stream, consulte [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md).
 
 ## <a name="return-code-values"></a>Valores de código de devolução
 
-ALTER EXTERNAL STREAM retorna 0 se for bem sucedido. Um valor de retorno não-zero indica falha.
+ALTER EXTERNAL STREAM retorna 0 se for bem sucedido. Um valor de retorno não zero indica falha.
 
 
 ## <a name="see-also"></a>Ver também

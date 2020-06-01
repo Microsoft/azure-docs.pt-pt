@@ -1,25 +1,25 @@
 ---
-title: Definições políticas incorporadas para fornecedores de recursos personalizados Azure
-description: Lista definições políticas integradas da Política Azure para fornecedores de recursos personalizados Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/13/2020
+title: Definições de políticas incorporadas para fornecedores de recursos personalizados Azure
+description: Lista definições de políticas incorporadas da Azure Policy para fornecedores de recursos personalizados Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 05/29/2020
 ms.topic: sample
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ecac6cb1217c10bf894ed4bbc9dc747f76e8cb79
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: be617496855a4194bf527019c1374938647e0faa
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652442"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234596"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-custom-resource-providers"></a>Definições políticas integradas da Política Azure para fornecedores de recursos personalizados Azure
+# <a name="azure-policy-built-in-policy-definitions-for-azure-custom-resource-providers"></a>Definições políticas incorporadas da Azure Policy para fornecedores de recursos personalizados Azure
 
-Esta página é um índice de definições políticas integradas da [Política Azure](../../governance/policy/overview.md) para fornecedores de recursos personalizados Azure. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições de política incorporadas da [Azure Policy](../../governance/policy/overview.md) para fornecedores de recursos personalizados Azure. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **GitHub** para ver a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
-## <a name="azure-custom-resource-providers"></a>Fornecedores de recursos personalizados Azure
+## <a name="azure-custom-resource-providers"></a>Fornecedores de Recursos Personalizados Azure
 
 [!INCLUDE [azure-policy-samples-category-customrp](../../../includes/policy/samples/bycat/policies-custom-provider.md)]
 

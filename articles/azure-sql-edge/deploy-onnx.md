@@ -2,19 +2,19 @@
 title: Implementar e fazer previsões com ONNX em Azure SQL Edge (Preview)
 description: Aprenda a treinar um modelo, converta-o em ONNX, implante-o para Azure SQL Edge (Preview) e, em seguida, executar previsão nativa em dados usando o modelo ONNX carregado.
 keywords: implementar SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2dd5af1a23618b063f094e4974f705a51a1b2bcf
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 66e2fb663d14ed2590af9c0cc62e6dad119d086f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171026"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233263"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Implementar e fazer previsões com um modelo ONNX em Azure SQL Edge (Pré-visualização)
 

@@ -1,24 +1,24 @@
 ---
-title: Definições políticas incorporadas para armazenamento azure
-description: Lista definições políticas integradas da Política Azure para o Armazenamento Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/13/2020
+title: Definições políticas incorporadas para armazenamento Azure
+description: Lista definições políticas incorporadas da Azure Policy para o Armazenamento Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 05/29/2020
 ms.topic: sample
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-samples
-ms.openlocfilehash: c08c7375ec4d011633eaa9ffe2a1ccfa03b4c560
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3071858bb9745b3f36e52e597e1add63e3a5973e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656380"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235947"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-storage"></a>Definições políticas integradas da Política Azure para armazenamento de Azure
+# <a name="azure-policy-built-in-policy-definitions-for-azure-storage"></a>Definições políticas incorporadas da Política Azure para o Armazenamento Azure
 
-Esta página é um índice de definições políticas integradas da [Política Azure](../../governance/policy/overview.md) para o Armazenamento Azure. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../../governance/policy/samples/built-in-policies.md)
+Esta página é um índice de definições políticas incorporadas da [Azure Policy](../../governance/policy/overview.md) para o Armazenamento Azure. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **GitHub** para ver a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 

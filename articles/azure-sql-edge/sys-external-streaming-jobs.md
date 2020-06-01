@@ -1,20 +1,20 @@
 ---
-title: sys.external_streaming_jobs (Transact-SQL) - Ponta SQL Azure (Pré-visualização)
-description: Saiba mais sobre o uso de sys.external_streaming_jobs em Azure SQL Edge (Pré-visualização)
+title: sys.external_streaming_jobs (Transact-SQL) - Azure SQL Edge (Preview)
+description: Saiba como utilizar sys.external_streaming_jobs em Azure SQL Edge (Preview)
 keywords: sys.external_streaming_jobs, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 7d4f66375c5490906e773c6f105a029c3a88465c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c4da73e3197df894a0726556b4e92141818a520e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597276"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233075"
 ---
 # <a name="sysexternal_streaming_jobs-transact-sql"></a>sys.external_streaming_jobs (Transact-SQL)
 
@@ -22,29 +22,29 @@ Devolve uma linha para cada trabalho de streaming externo criado no âmbito da b
 
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|
-|**nome**|**sysname**|Nome do riacho. É único dentro da base de dados.|
-|**object_id**|**int**|número de identificação do objeto para o objeto de fluxo. É único dentro da base de dados.|
-|**principal_id**|**int**|ID do diretor que detém esta assembleia|
+|**nome**|**sysname**|O nome do riacho. É único dentro da base de dados.|
+|**object_id**|**int**|número de identificação de objeto para o objeto de fluxo. É único dentro da base de dados.|
+|**principal_id**|**int**|ID do principal que é dono desta assembleia|
 |**schema_id**|**int**| Identificação do esquema que contém o objeto.|
-|**parent_object_id**|**id**| número de identificação do objeto para o objeto-mãe para este fluxo. Na implementação atual, este valor é sempre nulo|
+|**parent_object_id**|**id**| número de identificação de objeto para o objeto-mãe para este fluxo. Na implementação atual, este valor é sempre nulo|
 |**tipo**|**char(2)**|Tipo de objeto. Para objetos de fluxo, o tipo é sempre 'EJ'|
 |**type_desc**|**nvarchar(60)**| Descrição do tipo de objeto. Para objetos de fluxo, o tipo é sempre 'EXTERNAL_STREAMING_JOB'|
-|**create_date**|**datetime**| Data em que o objeto foi criado.|
-|**modify_date**|**datetime**| Na implementação atual, este valor é o mesmo que o create_date para o objeto de fluxo |
+|**create_date**|**data**| Data em que o objeto foi criado.|
+|**modify_date**|**data**| Na implementação atual, este valor é o mesmo que o create_date para o objeto de fluxo |
 |**is_ms_shipped**|**bit**| Objeto criado por um componente interno.|  
-|**is_published**|**bit**| O objeto é publicado.|  
+|**is_published**|**bit**| Objeto é publicado.|  
 |**is_schema_published**|**bit**|Apenas o esquema do objeto é publicado.|
-|**uses_ansi_nulls**|**bit**| O objeto de fluxo foi criado com a opção set ANSI_NULLS base de dados ON|
-|**declaração**|**varchar(max)**| O texto de consulta de análise de fluxo para o trabalho de streaming. Para mais informações, consulte [sp_create_streaming_job](overview.md) |
-|**estado**|**int**| O estado atual do trabalho de streaming. Os valores possíveis são <br /><br /> **Criado** = 0. O trabalho de streaming foi criado, mas ainda não foi iniciado. <br /><br /> **Início** = 1. O trabalho de streaming está na fase inicial. <br /><br /> **Falhado** = 6. O trabalho de streaming falhou. Isto é geralmente uma indicação de um erro fatal durante o processamento. <br /><br /> **Parado** = 4. O trabalho de streaming foi interrompido. <br /><br /> **Idle** = 7. O trabalho de streaming está a decorrer, no entanto não há entrada para processar. <br /><br /> **Processamento** = 8. O trabalho de streaming está a decorrer e está a processar inputs. Este estado indica um estado saudável para o trabalho de streaming. <br /><br /> **Degradado** = 9. O trabalho de streaming está em execução, no entanto houve alguns erros não fatais de serialização/desserialização durante o processamento de entradas. O trabalho de entrada continuará a funcionar, mas vai deixar cair as inputs que encontram erros.|
+|**uses_ansi_nulls**|**bit**| O objeto de fluxo foi criado com a opção de base de dados SET ANSI_NULLS ON|
+|**declaração**|**varchar(max)**| O texto de consulta de análise de streaming para o trabalho de streaming. Para mais informações, consulte [sp_create_streaming_job](overview.md) |
+|**estado**|**int**| O estado atual do trabalho de streaming. Os valores possíveis são <br /><br /> **Criado** = 0. O trabalho de streaming foi criado, mas ainda não foi iniciado. <br /><br /> **Início** = 1. O trabalho de streaming está na fase inicial. <br /><br /> **Falhado** = 6. O trabalho de streaming falhou. Isto é geralmente uma indicação de um erro fatal durante o processamento. <br /><br /> **Parado** = 4. O trabalho de streaming foi interrompido. <br /><br /> **Idle** = 7. O trabalho de streaming está em execução, no entanto não há nenhuma entrada para processar. <br /><br /> **Processamento** = 8. O trabalho de streaming está a funcionar e está a processar entradas. Este estado indica um estado saudável para o trabalho de streaming. <br /><br /> **Degradado** = 9. O trabalho de streaming está em execução, no entanto houve alguns erros de entrada/produção/des-serialização não fatal durante o processamento de entradas. O trabalho de entrada continuará a funcionar, mas deixará cair as entradas que encontram erros.|
 
 ## <a name="permissions"></a>Permissões
 
-A visibilidade dos metadados nas vistas do catálogo limita-se a securáveis que um utilizador detém ou nos quais o utilizador obteve alguma permissão. Para mais informações, consulte Configuração de [Visibilidade de Metadados](/sql/relational-databases/security/metadata-visibility-configuration/).
+A visibilidade dos metadados nas vistas do catálogo limita-se a securáveis que um utilizador possui ou sobre os quais o utilizador tenha alguma permissão. Para obter mais informações, consulte [a Configuração de Visibilidade dos Metadados](/sql/relational-databases/security/metadata-visibility-configuration/).
 
 ## <a name="see-also"></a>Ver também
 
 - [Vistas do catálogo de streaming T-SQL](overview.md)
-- [Vistas de catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
-- [Pontos de vista do sistema (Transact-SQL)](/sql/t-sql/language-reference/)
+- [Vistas do Catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
+- [Vistas do Sistema (Transact-SQL)](/sql/t-sql/language-reference/)
 

@@ -1,30 +1,30 @@
 ---
-title: Date_Bucket (Transact-SQL) - Borda SQL Azure (Pré-visualização)
-description: Saiba mais sobre a utilização de Date_Bucket em Azure SQL Edge (Pré-visualização)
+title: Date_Bucket (Transact-SQL) - Azure SQL Edge (Pré-visualização)
+description: Saiba como utilizar Date_Bucket em Azure SQL Edge (Preview)
 keywords: Date_Bucket, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 7cedc19c1b2a19fb26677a9426300d19c5396bd4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682744"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233300"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
 Esta função devolve o valor da data correspondente ao início de cada balde de data, a partir do valor de origem padrão de `1900-01-01 00:00:00.000` .
 
-Consulte os tipos e funções de data de [data e hora &#40;&#41;Transact-SQL](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) para uma visão geral de todos os tipos e funções de data e hora transact-SQL.
+Consulte [os tipos e funções de data e hora &#40;&#41;Transact-SQL](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) para uma visão geral de todos os tipos e funções de data e hora Transact-SQL.
 
 [Convenções de Sintaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET`utiliza um valor de data de origem padrão de `1900-01-01 00:00:00.000` 12:00 am na segunda-feira, 1 de janeiro de 1900.
+`DATE_BUCKET`usa um valor de data de origem padrão de `1900-01-01 00:00:00.000` ou seja, 12:00 AM na segunda-feira, 1 de janeiro de 1900.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -34,55 +34,55 @@ DATE_BUCKET (datePart, number, date)
 
 ## <a name="arguments"></a>Argumentos
 
-*dataParte*
+*dataPart*
 
-A parte da *data* que é utilizada com o parâmetro 'número'. Ex. Ano, mês, minuto, segundo etc.
+A parte da *data* que é usada com o parâmetro 'número'. Ex. Ano, mês, minuto, segundo, etc.
 
 > [!NOTE]
-> `DATE_BUCKET`não aceita equivalentes variáveis definidos pelo utilizador para os argumentos *datepPart.*
+> `DATE_BUCKET`não aceita equivalentes variáveis definidos pelo utilizador para os argumentos *datapPart.*
   
-|*dataParte*|Abreviaturas|  
+|*dataPart*|Abreviaturas|  
 |---|---|
 |**dia**|**dd**, **d**|  
-|**semana**|**wk,** **ww**|  
+|**semana**|**wk**, **ww**|  
 |**hora**|**hh**|  
-|**minuto**|**mi,** **n**|  
-|**segundo**|**ss,** **s**|  
+|**minuto**|**mi**, **n**|  
+|**segundo**|**ss**, **ss**|  
 |**milissegundo**|**ms**|  
 
 *número*
 
-O número inteiro que decide a largura do balde combinado com o argumento *dataPart.* Isto representa a largura dos dadosBaldes do tempo de origem. **`This argument cannot be a negative integer value`**. 
+O número inteiro que decide a largura do balde combinado com o argumento *da dataPart.* Isto representa a largura dos baldes dataPart a partir da hora de origem. **`This argument cannot be a negative integer value`**. 
 
 *data*
 
 Uma expressão que pode resolver um dos seguintes valores:
 
 + **data**
-+ **datetime**
-+ **datacompensação**
++ **data**
++ **datatimeoffoff**
 + **datetime2**
-+ **tempo de data pequena**
++ **hora pequena**
 + **tempo**
 
-Para *data,* `DATE_BUCKET` aceitará uma expressão, expressão ou variável definida pelo utilizador se resolverem qualquer um dos tipos de dados acima mencionados.
+Para *data*, `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo utilizador se resolverem qualquer um dos tipos de dados acima mencionados.
 
-## <a name="return-type"></a>Tipo de devolução
+## <a name="return-type"></a>Tipo de retorno
 
-O tipo de dados de valor de retorno para este método é dinâmico. O tipo de devolução depende do argumento fornecido para `date` . Se for fornecido um tipo de dados de entrada `date` válido, `DATE_BUCKET` deretfique o mesmo tipo de dados. `DATE_BUCKET`levanta um erro se for especificado um literal de cadeia para o `date` parâmetro.
+O tipo de dados de valor de retorno para este método é dinâmico. O tipo de devolução depende do argumento fornecido para `date` . Se for fornecido um tipo de dados de entrada `date` válido, `DATE_BUCKET` retorna o mesmo tipo de dados. `DATE_BUCKET`levanta um erro se uma corda literal for especificada para o `date` parâmetro.
 
-## <a name="return-values"></a>Valores de Devolução
+## <a name="return-values"></a>Valores de devolução
 
 ### <a name="understanding-the-output-from-date_bucket"></a>Compreender a saída de`DATE_BUCKET`
 
-`Date_Bucket`devolve a data ou o valor da hora mais recente, correspondente à dataPart e parâmetro de número. Por exemplo, nas expressões abaixo, devolverá o valor de saída de , uma vez que `Date_Bucket` a saída é calculada com base em `2020-04-13 00:00:00.0000000` baldes de uma semana a partir do tempo de origem padrão de `1900-01-01 00:00:00.000` . O valor `2020-04-13 00:00:00.0000000` é de 6276 semanas a partir do valor de origem de `1900-01-01 00:00:00.000` . 
+`Date_Bucket`devolve a data ou o valor de hora mais recente, correspondente ao parâmetro dataPart e número. Por exemplo, nas expressões abaixo, `Date_Bucket` devolverá o valor de saída de `2020-04-13 00:00:00.0000000` , uma vez que a saída é calculada com base em baldes de uma semana a partir do tempo de origem padrão de `1900-01-01 00:00:00.000` . O valor `2020-04-13 00:00:00.0000000` é de 6276 semanas a partir do valor de origem de `1900-01-01 00:00:00.000` . 
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 1, @date)
 ```
 
-Para todas as expressões abaixo, o mesmo valor de saída `2020-04-13 00:00:00.0000000` será devolvido. Isto porque está a `2020-04-13 00:00:00.0000000` 6276 semanas da data de origem e 6276 é divisível por 2, 3, 4 e 6.
+Para todas as expressões abaixo, o mesmo valor de saída `2020-04-13 00:00:00.0000000` será devolvido. Isto porque `2020-04-13 00:00:00.0000000` é 6276 semanas a partir da data de origem e 6276 é divisível por 2, 3, 4 e 6.
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
@@ -92,20 +92,20 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-A saída para a expressão abaixo, que é de 6275 semanas a partir do tempo de origem.
+A saída para a expressão abaixo, que é 6275 semanas a partir do tempo de origem.
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
 ```
 
-## <a name="datepart-argument"></a>argumento da data parte
+## <a name="datepart-argument"></a>argumento de par de datas
 
-**dia do ano,** **dia,** e **dia da semana** retornar o mesmo valor. Cada *data e* as suas abreviaturas devolvem o mesmo valor.
+**dia do ano,** **dia,** e **dia de semana** retorna o mesmo valor. Cada *par de datas* e as suas abreviaturas devolvem o mesmo valor.
   
-## <a name="number-argument"></a>número Argumento
+## <a name="number-argument"></a>argumento número
 
-O argumento *número* não pode exceder o intervalo de valores **int** positivos. Nas seguintes declarações, o argumento para o *número* excede o intervalo de **int** por 1. A seguinte declaração devolve a seguinte mensagem de erro: "`Msg 8115, Level 16, State 2, Line 2. Arithmetic overflow error converting expression to data type int."`
+O argumento *do número* não pode exceder o intervalo de **valores int** positivos. Nas seguintes declarações, o argumento para o *número* excede o intervalo de **int** por 1. A seguinte declaração devolve a seguinte mensagem de erro: "`Msg 8115, Level 16, State 2, Line 2. Arithmetic overflow error converting expression to data type int."`
   
 ```sql
 declare @date datetime2 = '2020-04-30 00:00:00'
@@ -121,7 +121,7 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 
 ## <a name="date-argument"></a>data Argumento  
 
-`DATE_BUCKET`devolver o valor base correspondente ao tipo de dados do `date` argumento. No exemplo seguinte, é devolvido um valor de saída com datatime2 datatype. 
+`DATE_BUCKET`devolva o valor base correspondente ao tipo de dados do `date` argumento. No exemplo seguinte, é devolvido um valor de saída com o tipo de dados da data 2. 
 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
@@ -134,14 +134,14 @@ Utilização `DATE_BUCKET` nas seguintes cláusulas:
 + GROUP BY
 + HAVING
 + ORDENAR POR
-+ Lista selecionada \<>
++ SELECIONE\<list>
 + WHERE
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>R. Cálculo Date_Bucket com uma largura de balde de 1 do tempo de origem
+### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>R. Calcular Date_Bucket com uma largura de balde de 1 a partir do tempo de origem
 
-Cada uma destas declarações aumenta *date_bucket* com uma largura de balde de 1 a partir do tempo de origem:
+Cada uma destas declarações incrementa *date_bucket* com uma largura de balde de 1 a partir do tempo de origem:
 
 ```sql
 declare @date datetime2 = '2020-04-30 21:21:21'
@@ -168,11 +168,11 @@ Seconds 2020-04-30 21:21:21.0000000
 
 ### <a name="b-using-expressions-as-arguments-for-the-number-and-date-parameters"></a>B. Usando expressões como argumentos para os parâmetros de número e data
 
-Estes exemplos usam diferentes tipos de expressões como argumentos para os parâmetros de *número* e *data.* Estes exemplos são construídos utilizando a Base de Dados 'AdventureWorksDW2017'.
+Estes exemplos utilizam diferentes tipos de expressões como argumentos para os parâmetros *de número* e *data.* Estes exemplos são construídos usando a Base de Dados 'AdventureWorksDW2017'.
   
-#### <a name="specifying-user-defined-variables-as-number-and-date"></a>Especificação de variáveis definidas pelo utilizador como número e data  
+#### <a name="specifying-user-defined-variables-as-number-and-date"></a>Especificar variáveis definidas pelo utilizador como número e data  
 
-Este exemplo especifica variáveis definidas pelo utilizador como argumentos para *o número* e *data:*
+Este exemplo especifica variáveis definidas pelo utilizador como argumentos para *o número* e *a data:*
   
 ```sql
 DECLARE @days int = 365,
@@ -191,7 +191,7 @@ Aqui está o conjunto de resultados.
 
 #### <a name="specifying-a-column-as-date"></a>Especificando uma coluna como data
 
-No exemplo abaixo, estamos a calcular a soma da Quantidade de Encomendas e a soma da UnitPrice agruparada em baldes de data semanal.
+No exemplo abaixo, estamos a calcular a soma da OrdemQuantidade e soma da UnitPrice agrupadas em baldes de data semanal.
   
 ```sql
 SELECT
@@ -220,9 +220,9 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 2011-02-28 00:00:00.0000000 9                28968.6982
 ```  
 
-#### <a name="specifying-scalar-system-function-as-date"></a>Especificação da função do sistema escalar como data
+#### <a name="specifying-scalar-system-function-as-date"></a>Especificando a função do sistema escalar como data
 
-Este exemplo especifica `SYSDATETIME` a *data*. O valor exato devolvido depende do dia e hora da execução da declaração:
+Este exemplo especifica `SYSDATETIME` para *data*. O valor exato devolvido depende do dia e hora da execução da declaração:
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -237,18 +237,18 @@ Aqui está o conjunto de resultados.
 (1 row affected)
 ```  
 
-#### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Especificação de subqueries e funções escalar como número e data
+#### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Especificando subqueries escalar e funções escalares como número e data
 
-Este exemplo utiliza subqueries escalar, `MAX(OrderDate)` como argumentos para *número* e *data.* `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`serve como um argumento artificial para o parâmetro de número, para mostrar como selecionar um argumento *numérica* de uma lista de valor.
+Este exemplo utiliza subqueries escalares, `MAX(OrderDate)` como argumentos para o *número* e *data*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`serve como um argumento artificial para o parâmetro do número, para mostrar como selecionar um argumento *numer numer* de uma lista de valores.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
     (SELECT MAX(OrderDate) FROM dbo.FactInternetSales));  
 ```  
   
-#### <a name="specifying-numeric-expressions-and-scalar-system-functions-as-number-and-date"></a>Especificação de expressões numéricas e funções do sistema escalar como número e data
+#### <a name="specifying-numeric-expressions-and-scalar-system-functions-as-number-and-date"></a>Especificar expressões numéricas e funções do sistema escalar como número e data
 
-Este exemplo utiliza uma expressão numérica ((10/2)) e funções do sistema escalar (SYSDATETIME) como argumentos para o número e data.
+Este exemplo utiliza uma expressão numérica ((10/2)) e funções do sistema escalar (SYSDATETIME) como argumentos para o número e a data.
   
 ```sql
 SELECT Date_Bucket(week,(10/2), SYSDATETIME());
