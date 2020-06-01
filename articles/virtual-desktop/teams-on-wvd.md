@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65f0cf66dc6cef33e98258106e5f1573efdf39e5
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 90432d3aa0ce9ebdecc7d0314b1352e46db0ac47
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203870"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234575"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -94,7 +94,7 @@ Depois de instalar o Serviço WebSocket e a aplicação de desktop Teams, siga e
 
 3. Selecione a imagem do perfil do utilizador e, em seguida, selecione **Definições**.
 
-      Se as otimizações dos meios de comunicação forem carregadas, os dispositivos áudio e as câmaras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu mostrar **áudio remoto,** saia da aplicação Teams e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique se todos os passos de instalação acima foram feitos.
+      Se as otimizações dos meios de comunicação forem carregadas, os dispositivos áudio e as câmaras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu mostrar **áudio remoto,** saia da aplicação Teams e tente novamente. Se os dispositivos ainda não aparecerem no menu, volte a instalar as [Equipas da Microsoft](#install-microsoft-teams) e certifique-se de que concluiu o processo de instalação.
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
@@ -140,10 +140,8 @@ A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho 
 
 Desaver as seguintes propriedades RDP para permitir a reorientação do microfone e da câmara:
 
-|Propriedades de RDP   | Descrição |
-|-----------------|-------------|
-|audiocapturemode:i:1  | Ativar a captura de áudio do dispositivo local e a reorientação para uma aplicação de áudio na sessão remota |
-|audiomode:i:0         | Reproduzir áudio no computador local |
-|camerastoredirect:s:* | Redirecionar todas as câmaras |
+- `audiocapturemode:i:1`permite a captura de áudio a partir do dispositivo local e redirets aplicações de áudio na sessão remota.
+- `audiomode:i:0`reproduz áudio no computador local.
+- `camerastoredirect:s:*`redireciona todas as câmaras.
 
 Para saber mais, consulte [as propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões.](customize-rdp-properties.md)

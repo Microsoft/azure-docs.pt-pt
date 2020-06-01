@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/09/2020
-ms.openlocfilehash: a437cd1b3cb8018229cf6445e23314cf17bf10a2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 05/28/2020
+ms.openlocfilehash: 88d5c36829e2920e18a1be44ba43d7defe883d3e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219867"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231246"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database--sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -82,15 +82,7 @@ O modelo de compra baseado em vCore permite-lhe escolher independentemente os re
 
 Se a sua Base de Dados Azure SQL consumir mais de 300 DTUs, converter-se ao modelo de compra baseado em vCore pode reduzir os seus custos. Pode converter-se utilizando a sua API de eleição ou utilizando o portal Azure, sem tempo de inatividade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU satisfaça os seus requisitos de desempenho e negócio, deverá continuar a usá-lo.
 
-Para converter do modelo de compra baseado em DTU para o modelo de compra baseado em vCore, selecione o tamanho do cálculo utilizando as seguintes regras do polegar:
-
-- Cada 100 DTUs no nível padrão requer pelo menos 1 vCore no nível de serviço Final geral.
-- Cada 125 DTUs no nível premium requer pelo menos 1 vCore no nível de serviço Business Critical.
-
-> [!NOTE]
-> As diretrizes de dimensionamento DTU para vCore são aproximadas e são fornecidas para ajudar na estimativa inicial do objetivo do serviço de base de dados-alvo. A configuração ideal da base de dados-alvo é dependente da carga de trabalho.
->
-> A obtenção da relação preço/desempenho ideal pode exigir alavancar a flexibilidade do modelo vCore para ajustar o número de vCores, a geração de [hardware,](service-tiers-vcore.md#hardware-generations)os níveis de [serviço](service-tiers-vcore.md#service-tiers) e [de computação,](service-tiers-vcore.md#compute-tiers) bem como a afinação de outros parâmetros de configuração da base de dados, tais como [o grau máximo de paralelismo](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+Para converter do modelo de compra baseado em DTU para o modelo de compra baseado em vCore, consulte [Migrar de DTU para vCore](migrate-dtu-to-vcore.md).
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 

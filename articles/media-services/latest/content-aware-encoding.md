@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9cb38037b905e9d7f938b648954bcb9e419be5af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217428"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234887"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
 
@@ -55,9 +55,10 @@ Seguem-se os resultados de outra categoria de conteúdo de origem, onde o codifi
 
 Pode criar transformações que utilizem esta predefinição da seguinte forma. 
 
-> [!TIP]
-> Consulte a secção [etapas seguintes](#next-steps) para tutoriais que utilizam saídas de transformação. O ativo de saída pode ser entregue a partir de pontos finais de streaming dos Media Services em protocolos como MPEG-DASH e HLS (como mostrado nos tutoriais).
+Consulte a secção [etapas seguintes](#next-steps) para tutoriais que utilizam saídas de transformação. O ativo de saída pode ser entregue a partir de pontos finais de streaming dos Media Services em protocolos como MPEG-DASH e HLS (como mostrado nos tutoriais).
 
+> [!NOTE]
+> Certifique-se de que utiliza o **predefinição de contentAwareEncodingExperimental.**
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -77,8 +78,6 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Os trabalhos de codificação utilizando a `ContentAwareEncoding` predefinição estão a ser faturados com base nas atas de saída. 
-
-Certifique-se de que utiliza o **predefinição de contentAwareEncodingExperimental.**
   
 ## <a name="next-steps"></a>Passos seguintes
 

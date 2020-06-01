@@ -1,6 +1,6 @@
 ---
-title: Criar e gerir uma máquina virtual azure usando Java
-description: Utilize o Java e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de apoio.
+title: Criar e gerir uma máquina virtual Azure usando Java
+description: Utilize o Java e o Azure Resource Manager para implementar uma máquina virtual e todos os seus recursos de apoio.
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870034"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232978"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs windows em Azure usando Java
+# <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs do Windows em Azure utilizando a Java
 
-Uma [Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos azure de apoio. Este artigo abrange a criação, gestão e aeliminar recursos VM usando java. Saiba como:
+[Uma Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos de suporte Azure. Este artigo abrange a criação, gestão e eliminação de recursos VM usando Java. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um projeto Maven
@@ -32,8 +32,8 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-1. Se ainda não o fez, instale [java.](https://aka.ms/azure-jdks)
-2. Instale [Maven.](https://maven.apache.org/download.cgi)
+1. Se ainda não o fez, instale [Java.](https://aka.ms/azure-jdks)
+2. Instale [o Maven.](https://maven.apache.org/download.cgi)
 3. Criar uma nova pasta e o projeto:
     
     ```
@@ -45,7 +45,7 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-1. Sob `testAzureApp` a pasta, `pom.xml` abra o ficheiro &lt;e&gt; adicione a configuração de construção ao projeto para permitir a construção da sua aplicação:
+1. Sob a `testAzureApp` pasta, abra o `pom.xml` ficheiro e adicione a configuração de construção ao &lt; projeto para permitir a &gt; construção da sua aplicação:
 
     ```xml
     <build>
@@ -110,11 +110,11 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de serviço de [Diretório Ativo.](../../active-directory/develop/howto-create-service-principal-portal.md) Você também deve registar o ID da aplicação, a chave de autenticação, e o ID do inquilino que você precisa em um passo posterior.
+Antes de iniciar este passo, certifique-se de que tem acesso a um [diretor de serviço de Diretório Ativo.](../../active-directory/develop/howto-create-service-principal-portal.md) Você também deve registar o ID da aplicação, a chave de autenticação, e o ID do inquilino que você precisa em um passo posterior.
 
 ### <a name="create-the-authorization-file"></a>Criar o ficheiro de autorização
 
-1. Crie um `azureauth.properties` ficheiro nomeado e adicione-lhe estas propriedades:
+1. Crie um ficheiro com o nome `azureauth.properties` e adicione estas propriedades:
 
     ```
     subscription=<subscription-id>
@@ -127,20 +127,20 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua ** &lt;o&gt; id de subscrição** pelo seu identificador de subscrição, ** &lt;o id&gt; de aplicação** com o identificador de aplicação Ative Directory, ** &lt;&gt; ** ** &lt;&gt; ** a chave de autenticação com a chave de aplicação e o id do inquilino com o identificador de inquilino.
+    Substitua o ** &lt; &gt; id de subscrição** pelo seu identificador de subscrição, ** &lt; id &gt; de aplicação** pelo identificador de aplicação ative, ** &lt; chave &gt; de autenticação** com a chave de aplicação e ** &lt; id &gt; do inquilino** pelo identificador do inquilino.
 
 2. Guarde o ficheiro.
-3. Detete uma variável ambiental chamada AZURE_AUTH_LOCATION na sua concha com o caminho completo para o ficheiro de autenticação.
+3. Desaprove uma variável ambiental denominada AZURE_AUTH_LOCATION na sua concha com o caminho completo para o ficheiro de autenticação.
 
 ### <a name="create-the-management-client"></a>Criar o cliente de gestão
 
-1. Abra `App.java` o `src\main\java\com\fabrikam` ficheiro em baixo e certifique-se de que esta declaração do pacote está no topo:
+1. Abra o `App.java` ficheiro em baixo e `src\main\java\com\fabrikam` certifique-se de que esta declaração de pacote está no topo:
 
     ```java
     package com.fabrikam.testAzureApp;
     ```
 
-2. Ao abrigo da declaração do pacote, adicione estas declarações de importação:
+2. Nos termos da declaração do pacote, adicione estas declarações de importação:
    
     ```java
     import com.microsoft.azure.management.Azure;
@@ -162,7 +162,7 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
     import java.util.Scanner;
     ```
 
-2. Para criar as credenciais de Diretório Ativo que precisa para fazer pedidos, adicione este código ao método principal da classe App:
+2. Para criar as credenciais de Diretório Ativo que precisa de fazer pedidos, adicione este código ao método principal da classe App:
    
     ```java
     try {
@@ -184,7 +184,7 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
 
 Todos os recursos devem ser contidos num [grupo de recursos.](../../azure-resource-manager/management/overview.md)
 
-Para especificar valores para a aplicação e criar o grupo de recursos, adicione este código ao bloco de tentativas no método principal:
+Para especificar os valores para a aplicação e criar o grupo de recursos, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Creating resource group...");
@@ -194,11 +194,11 @@ ResourceGroup resourceGroup = azure.resourceGroups()
     .create();
 ```
 
-### <a name="create-the-availability-set"></a>Criar o conjunto de disponibilidade
+### <a name="create-the-availability-set"></a>Crie o conjunto de disponibilidade
 
-[Os conjuntos](tutorial-availability-sets.md) de disponibilidade facilitam a manutenção das máquinas virtuais utilizadas pela sua aplicação.
+[Os conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais utilizadas pela sua aplicação.
 
-Para criar o conjunto de disponibilidade, adicione este código ao bloco de tentativas no método principal:
+Para criar o conjunto de disponibilidade, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Creating availability set...");
@@ -211,9 +211,9 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Criar o endereço IP público
 
-É necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) para comunicar com a máquina virtual.
+É necessário um [endereço IP público](../../virtual-network/public-ip-addresses.md) para comunicar com a máquina virtual.
 
-Para criar o endereço IP público para a máquina virtual, adicione este código ao bloco de tentativas no método principal:
+Para criar o endereço IP público para a máquina virtual, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Creating public IP address...");
@@ -229,7 +229,7 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
 
 Uma máquina virtual deve estar numa sub-rede de uma [rede Virtual.](../../virtual-network/virtual-networks-overview.md)
 
-Para criar uma subnet e uma rede virtual, adicione este código ao bloco de tentativas no método principal:
+Para criar uma sub-rede e uma rede virtual, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Creating virtual network...");
@@ -246,7 +246,7 @@ Network network = azure.networks()
 
 Uma máquina virtual precisa de uma interface de rede para comunicar na rede virtual.
 
-Para criar uma interface de rede, adicione este código ao bloco de tentativas no método principal:
+Para criar uma interface de rede, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Creating network interface...");
@@ -265,7 +265,7 @@ NetworkInterface networkInterface = azure.networkInterfaces()
 
 Agora que criou todos os recursos de apoio, pode criar uma máquina virtual.
 
-Para criar a máquina virtual, adicione este código ao bloco de tentativas no método principal:
+Para criar a máquina virtual, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Creating virtual machine...");
@@ -287,7 +287,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> Este tutorial cria uma máquina virtual que executa uma versão do sistema operativo Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [Navegar e selecione imagens de máquinas virtuais Azure com o Windows PowerShell e o Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Este tutorial cria uma máquina virtual que executa uma versão do sistema operativo Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [a Navigate e selecione imagens de máquinas virtuais Azure com o Windows PowerShell e o Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
 
@@ -316,7 +316,7 @@ azure.virtualMachines.define("myVM")
 
 Durante o ciclo de vida de uma máquina virtual, poderá querer executar tarefas de gestão, como iniciar, parar ou eliminar uma máquina virtual. Além disso, pode querer criar código para automatizar tarefas repetitivas ou complexas.
 
-Quando precisas de fazer alguma coisa com o VM, precisas de ter uma instância. Adicione este código ao bloco de tentativas do método principal:
+Quando precisas de fazer alguma coisa com o VM, precisas de ter uma instância. Adicione este código ao bloco de tentativa do método principal:
 
 ```java
 VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup", "myVM");
@@ -324,7 +324,7 @@ VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup"
 
 ### <a name="get-information-about-the-vm"></a>Obtenha informações sobre o VM
 
-Para obter informações sobre a máquina virtual, adicione este código ao bloco de tentativas no método principal:
+Para obter informações sobre a máquina virtual, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("hardwareProfile");
@@ -382,9 +382,9 @@ input.nextLine();
 
 ### <a name="stop-the-vm"></a>Parar a VM
 
-Pode parar uma máquina virtual e manter todas as suas definições, mas continuar a ser carregada por ela, ou pode parar uma máquina virtual e desalocar-a. Quando uma máquina virtual é negociada, todos os recursos associados a ela também são deallocalizados e a faturação termina para ela.
+Pode parar uma máquina virtual e manter todas as suas definições, mas continuar a ser carregada por ela, ou pode parar uma máquina virtual e translocar a máquina. Quando uma máquina virtual é negociada, todos os recursos associados a ela também são translocados e a faturação termina para ela.
 
-Para parar a máquina virtual sem a locar, adicione este código ao bloco de tentativas no método principal:
+Para parar a máquina virtual sem a fazer negóciolocado, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Stopping vm...");
@@ -393,7 +393,7 @@ System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-Se pretender desalojar a máquina virtual, altere a chamada PowerOff para este código:
+Se quiser negociar a máquina virtual, altere a chamada PowerOff para este código:
 
 ```java
 vm.deallocate();
@@ -401,7 +401,7 @@ vm.deallocate();
 
 ### <a name="start-the-vm"></a>Iniciar a VM
 
-Para ligar a máquina virtual, adicione este código ao bloco de tentativas no método principal:
+Para iniciar a máquina virtual, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Starting vm...");
@@ -412,9 +412,9 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>Redimensionar o VM
 
-Muitos aspetos de implantação devem ser considerados ao decidir sobre um tamanho para a sua máquina virtual. Para mais informações, consulte os tamanhos de [VM](sizes.md).  
+Muitos aspetos da implementação devem ser considerados ao decidir sobre um tamanho para a sua máquina virtual. Para mais informações, consulte os [tamanhos de VM.](sizes.md)  
 
-Para alterar o tamanho da máquina virtual, adicione este código ao bloco de tentativas no método principal:
+Para alterar o tamanho da máquina virtual, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Resizing vm...");
@@ -427,7 +427,7 @@ input.nextLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-Para adicionar um disco de dados à máquina virtual de 2 GB de tamanho, tem um LUN de 0, e um tipo de gravação de ReadWrite, adicione este código ao bloco de tentativas no método principal:
+Para adicionar um disco de dados à máquina virtual de 2 GB de tamanho, tem um LUN de 0, e um tipo de cache de ReadWrite, adicione este código ao bloco de tentativa no método principal:
 
 ```java
 System.out.println("Adding data disk...");
@@ -440,9 +440,9 @@ input.nextLine();
 
 ## <a name="delete-resources"></a>Eliminar recursos
 
-Uma vez que é cobrado pelos recursos utilizados no Azure, é sempre uma boa prática eliminar recursos que já não são necessários. Se quiser eliminar as máquinas virtuais e todos os recursos de apoio, tudo o que tem de fazer é eliminar o grupo de recursos.
+Por ser cobrado pelos recursos utilizados no Azure, é sempre uma boa prática apagar recursos que já não são necessários. Se pretender eliminar as máquinas virtuais e todos os recursos de suporte, tudo o que tem de fazer é eliminar o grupo de recursos.
 
-1. Para eliminar o grupo de recursos, adicione este código ao bloco de tentativas no método principal:
+1. Para eliminar o grupo de recursos, adicione este código ao bloco de tentativa no método principal:
    
     ```java
     System.out.println("Deleting resources...");
@@ -453,7 +453,7 @@ Uma vez que é cobrado pelos recursos utilizados no Azure, é sempre uma boa pr�
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Deve levar cerca de cinco minutos para que esta aplicação da consola decorra completamente do início ao fim.
+Deve levar cerca de cinco minutos para que esta aplicação da consola corra completamente do início ao fim.
 
 1. Para executar a aplicação, utilize este comando Maven:
 
@@ -461,7 +461,7 @@ Deve levar cerca de cinco minutos para que esta aplicação da consola decorra c
     mvn compile exec:java
     ```
 
-2. Antes de pressionar **Enter** para começar a apagar recursos, poderá demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
+2. Antes de pressionar **Enter** para começar a apagar recursos, pode demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
 
 ## <a name="next-steps"></a>Passos seguintes
