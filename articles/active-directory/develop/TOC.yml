@@ -410,6 +410,8 @@
               href: id-tokens.md
             - name: Tokens de acesso
               href: access-tokens.md
+            - name: Ponto final UserInfo
+              href: userinfo.md
             - name: Credenciais de certificado
               href: active-directory-certificate-credentials.md
         - name: Protocolo SAML 2.0

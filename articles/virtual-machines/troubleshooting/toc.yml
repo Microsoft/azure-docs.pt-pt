@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Documentação de orientação de implementação de VMs
   items:
+    - name: Atualização para SLES 15 SP1
+      href: linux-upgrade-suse-15sp1.md
     - name: Novas implementações de VM
       items:
         - name: Linux

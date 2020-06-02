@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: 2f2049f710dcdbb210594331fa69e6743f5e431e
-  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+  ms.openlocfilehash: 5d49173a9c06e35c5af3831e504fc6f55a8dfc50
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81869318"
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259546"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Multimédia do Azure v3
@@ -33,15 +33,18 @@ highlightedContent:
   - title: Comparar as predefinições dos Serviços de Multimédia v3 e o Video Indexer
     itemType: concept
     url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
+  - title: Live Video Analytics no IoT Edge (pré-visualização)
+    itemType: overview
+    url: ./live-video-analytics-edge/overview.md
+  - title: Media Player do Azure
+    itemType: overview
+    url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview
   - title: Sobre os Serviços de Multimédia do Azure v2 (legados)
     itemType: overview
     url: ./previous/media-services-overview.md
   - title: Migrar Serviços de Multimédia v2 para v3
     itemType: concept
     url: ./latest/migrate-from-v2-to-v3.md
-  - title: Media Player do Azure
-    itemType: overview
-    url: azure-media-player/azure-media-player-overview.md
 conceptualContent:
   items:
   - title: Programar com a API dos Serviços de Multimédia v3
@@ -110,6 +113,14 @@ conceptualContent:
     - url: media-services-fmp4-live-ingest-overview.md
       itemType: concept
       text: Protocolo de ingestão do Smooth Streaming
+  - title: Live Video Analytics no IoT Edge (pré-visualização)
+    links:
+    - url: ./live-video-analytics-edge/overview.md
+      itemType: overview
+      text: Descrição geral
+    - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+      itemType: quickstart
+      text: Executar o Live Video Analytics com o seu próprio modelo
 additionalContent:
   sections:
   - items:
