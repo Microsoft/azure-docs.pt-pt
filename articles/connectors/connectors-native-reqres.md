@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 1eb017740fb13dbc4f67b11ad8768e48e5b29010
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171536"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249166"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
@@ -63,8 +63,8 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente chamado que *só*
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
-   | **Pedido corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
+   | **HTTP POST URL** | {nenhum} | Yes | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
+   | **Pedido corpo JSON Schema** | `schema` | No | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
 1. Na caixa **de esquema JSON do Corpo de Pedido,** insira opcionalmente um esquema JSON que descreve o corpo no pedido de entrada, por exemplo:
@@ -158,12 +158,20 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente chamado que *só*
       }
       ```
 
+1. Para verificar se a chamada de entrada tem um corpo de pedido que corresponde ao seu esquema especificado, siga estes passos:
+
+   1. Na barra de título do pedido, selecione o botão elipses **(...**).
+   
+   1. Nas definições do gatilho, ligue **a Validação de Schema**e selecione **'Fazer'**
+   
+      Se o corpo de pedido da chamada de entrada não corresponder ao seu esquema, o gatilho retorna um `HTTP 400 Bad Request` erro.
+
 1. Para especificar propriedades adicionais, abra a nova lista **de parâmetros** e selecione os parâmetros que pretende adicionar.
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | Não | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
-   | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
+   | **Método** | `method` | No | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
+   | **Caminho relativo** | `relativePath` | No | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
    |||||
 
    Este exemplo adiciona a propriedade **Method:**
@@ -256,15 +264,15 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [temp
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
-   | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
-   | **Corpo** | `body` | Não | O corpo de resposta |
+   | **Código de Estado** | `statusCode` | Yes | O código de estado para devolver na resposta |
+   | **Cabeçalhos** | `headers` | No | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
+   | **Corpo** | `body` | No | O corpo de resposta |
    |||||
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo de resposta, abra a nova lista **de parâmetros add** e selecione os parâmetros que pretende adicionar.
 
 1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conectores para as Logic Apps](../connectors/apis-list.md)

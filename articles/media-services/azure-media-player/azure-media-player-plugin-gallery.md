@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: ba8f60ea10a8b0b85bc030b23dfa71cf3cb264ff
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195655"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263742"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria Plugin Azure Media Player #
 
@@ -25,8 +25,8 @@ ms.locfileid: "84195655"
 | Sobreposição de Diagnósticos                 | [Demonstração](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este plugin exibe: Todos os parâmetros-chave, estatísticas de vídeo, todos os eventos no ciclo de vida da reprodução de vídeo e informações de proteção drm, tais como ID chave, URLs de aquisição de licença, se protegidos.                                                                                                                                                                      |
 | Taxa de fotogramas e calculadora de código de tempo | Não há demonstração disponível | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Este plugin calcula a taxa de fotogramas de vídeo com base nas `tfhd` / `trun` caixas MP4 do primeiro fragmento de vídeo MPEG-DASH, analisa o valor da escala de tempo do manifesto do cliente MPEG-DASH, e também fornece uma forma de gerar o cronograma por um determinado tempo absoluto do jogador (bem como fornece ao jogador tempo absoluto dado o código de tempo) |
 | <strike>Velocidade de reprodução</strike>                      | [Demonstração](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Este plugin permite aos espectadores controlar a velocidade do vídeo. *Note que esta funcionalidade está automaticamente disponível na versão AMP v2.0.0+ mas desativada por padrão.* Para aprender como capacitá-lo, confira as nossas amostras [aqui](https://github.com/Azure-Samples/azure-media-player-samples) |
-| Dica de tempo hover                      | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Exibe uma dica de tempo sobre a barra de progresso no rato hover para um tempo preciso procurando. *Nota: Este plugin já está integrado na AMP,* mas se estiver interessado em ver como é programado, sinta-se à vontade para dar uma olhada.                                                                                                                       |
-| Sobreposição do título                       | [Demonstração](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Sobreposições título de vídeo configurável sobre tela |
+| Dica de tempo hover                      | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Exibe uma dica de tempo sobre a barra de progresso no rato hover para um tempo preciso procurando. *Nota: Este plugin já está integrado na AMP,* mas se estiver interessado em ver como é programado, sinta-se à vontade para dar uma olhada.                                                                                                                 |
+| Sobreposição do título                       | [Demonstração](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Sobreposições título de vídeo configurável sobre tela |
 | Marcadores de linha do tempo                    | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timelinemarkers/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-timeline-markers-plugin)                     | Este plugin acolhe uma série de vezes e sobrepõe-se a marcadores minúsculos sobre a barra de progresso nessas alturas. |
 | Análise                           | | | |
 | Application Insights                | [Blog Post](https://azure.microsoft.com/blog/player-analytics-azure-media-player-plugin/)                   | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-application-insights-plugin)                     | Plugin que rastreia as métricas do seu jogador e o coloca no Power BI para uma representação gráfica intuitiva da experiência do jogador dos seus espectadores. |

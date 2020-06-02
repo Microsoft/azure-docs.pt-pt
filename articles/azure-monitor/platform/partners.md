@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 3224a9420d5a434ed9e3d8902f430f4e1ee28bcd
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233402"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248976"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -105,8 +105,6 @@ Grafana é uma aplicação de código aberto que permite visualizar dados métri
 ## <a name="influxdata"></a>InfluxData
 
 ![Logotipo do InfluxData](./media/partners/Influxdata.png)
-
-O InfluxData, criador do InfluxDB, oferece uma moderna Plataforma Open Source construída de zero para analisar métricas e eventos (dados de séries de tempo) para aplicações DevOps e IoT. Quer os dados provenonam de humanos, sensores ou máquinas, o InfluxData capacita os desenvolvedores para construir aplicações de próxima geração, análise e IoT mais rapidamente, mais fácil e para escalar o valor real do negócio rapidamente. Com sede em São Francisco, os mais de 420 clientes da InfluxData incluem Cisco, eBay, IBM e Siemens.
 
 O InfluxData é o criador do InfluxDB, a base de dados de séries de tempo de código aberto. A nossa tecnologia é construída de propósito para lidar com os volumes maciços de dados com carimbo temporal produzidos por dispositivos IoT, aplicações, redes, contentores e computadores. Estamos numa missão para ajudar desenvolvedores e organizações, como IBM, Visa, Siemens, Tesla e NASA, armazenar e analisar dados em tempo real, capacitando-os para construir aplicações transformadoras de monitorização, análise e IoT mais rapidamente e em escala. As capacidades de recolha de métricas e eventos do Microsoft Azure Monitor podem ser expandidas com o Agente Telegraf da InfluxData, permitindo aos utilizadores da Microsoft beneficiarem de uma solução de base de dados de séries de tempo líder e alavancarem as crescentes contribuições de código aberto para a Telegraf.
 

@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 62d1f8d0e6fb5b6b6afb28f5db4ae8b818cc4705
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 46a0e258e092beab7b0e96727d5aff95e814cb5b
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194866"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259189"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -39,7 +39,7 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 
 Consulte a seguinte lista para configurar a identidade gerida para a Gestão API da Azure (nas regiões onde disponível):
 
-- [Modelo de gestor de recursos Azure](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Modelo Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 
 ### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
@@ -54,7 +54,7 @@ Consulte a seguinte lista para configurar a identidade gerida para o Serviço de
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modelo de gestor de recursos Azure](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
@@ -80,7 +80,7 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 Consulte a seguinte lista para configurar a identidade gerida para instâncias de contentores Azure (nas regiões onde disponível):
 
 - [CLI do Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Modelo de gestor de recursos Azure](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Modelo Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
@@ -123,7 +123,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modelo de gestor de recursos Azure](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT Hub
 
@@ -135,6 +135,13 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 Consulte a seguinte lista para configurar a identidade gerida para a Azure Data Factory V2 (nas regiões onde disponível):
 
 - [Portal do Azure](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+
+### <a name="azure-importexport"></a>Importar/Exportar do Microsoft Azure
+
+Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Sistema atribuído | Disponível na região onde o serviço de exportação de importações Azure está disponível | Pré-visualizar | Disponível | Disponível |
+| Utilizador designado | Não disponível | Não disponível | Não disponível | Não disponível |
 
 ### <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
 
@@ -158,10 +165,11 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 Consulte a seguinte lista para configurar a identidade gerida para Azure Logic Apps (nas regiões onde disponível):
 
 - [Portal do Azure](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Modelo de gestor de recursos Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Modelo Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
+
 [Identidade gerida para aplicações de tecido de serviço](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) está em Pré-visualização e disponível em todas as regiões.
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
@@ -170,7 +178,8 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 | Utilizador designado | ![Disponível][check] | Não Disponível | Não Disponível |Não Disponível |
 
 Consulte a seguinte lista para configurar a identidade gerida para aplicações Azure Service Fabric em todas as regiões:
-- [Modelo de gestor de recursos Azure](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+
+- [Modelo Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 
 
@@ -238,7 +247,7 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |  `https://vault.microsoftazure.de` | ![Disponível][check] |
 | Azure China 21Vianet | `https://vault.azure.cn` | ![Disponível][check] |
 
-### <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure Data Lake
 
 | Cloud | ID do Recurso | Estado |
 |--------|------------|:-:|
@@ -247,7 +256,7 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
 
-### <a name="azure-sql"></a>SQL do Azure 
+### <a name="azure-sql"></a>SQL do Azure
 
 | Cloud | ID do Recurso | Estado |
 |--------|------------|:-:|
@@ -290,15 +299,6 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Disponível][check] |
 | Azure Alemanha | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Disponível][check] |
 | Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Disponível][check] |
-
-
-
-
-
-
-
-
-
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

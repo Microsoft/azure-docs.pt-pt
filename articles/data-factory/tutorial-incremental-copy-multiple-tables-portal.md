@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 3c29d7b30541e0d289182d448b5bcbf69d02a3dc
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194564"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247262"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 
@@ -388,7 +388,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 
 1. No painel do lado esquerdo, clique em **+ (mais)** e clique em **Pipeline**.
 
-1. No separador **Geral,** **insira IncrementalCopyPipeline** para **nome**. 
+1. No painel geral em **Propriedades**, especifique **incrementalCopyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.  
 
 1. No **separador Parâmetros,** faça os seguintes passos: 
 

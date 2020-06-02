@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90432d3aa0ce9ebdecc7d0314b1352e46db0ac47
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234575"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267142"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -32,8 +32,9 @@ Com a otimização dos meios de comunicação para as Equipas microsoft, o clien
 Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá de fazer estas coisas:
 
 - [Prepare a sua rede](/microsoftteams/prepare-network/) para as Equipas microsoft.
-- Instale o [cliente do Windows Desktop](connect-windows-7-and-10.md) num dispositivo Windows 10 que satisfaça os requisitos de [hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)da Microsoft Teams .
+- Instale o [cliente do Windows Desktop](connect-windows-7-and-10.md) num dispositivo Windows 10 que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)da Microsoft Teams para equipas num PC do Windows .
 - Ligue-se a uma máquina virtual do Windows 10 ou do Windows 10 Enterprise (VM).
+- Instale a aplicação de ambiente de trabalho Teams no anfitrião utilizando a instalação por máquina. A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
 
 ## <a name="install-the-teams-desktop-app"></a>Instale a aplicação de desktop Teams
 
@@ -59,6 +60,10 @@ Instale o [Serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/a
 Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma instalação por máquina. Para instalar as Equipas Microsoft no ambiente de ambiente de trabalho virtual do Windows:
 
 1. Descarregue o [pacote DE MSI das equipas](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) que corresponde ao seu ambiente. Recomendamos a utilização do instalador de 64 bits num sistema operativo de 64 bits.
+
+      > [!NOTE]
+      > A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
+
 2. Executar este comando para instalar o MSI no VM anfitrião.
 
       ```console
@@ -138,7 +143,7 @@ Para contactar o suporte da Microsoft Teams, aceda ao [centro de administração
 
 A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho (RDP) de uma piscina de anfitriões, como experiência multi-monitor ou ativação de reorientação de microfone e áudio, permite-lhe oferecer uma experiência ideal para os seus utilizadores com base nas suas necessidades.
 
-Desaver as seguintes propriedades RDP para permitir a reorientação do microfone e da câmara:
+Não é necessário ativar as reorientações do dispositivo quando se utilizam equipas com otimização de meios. Se estiver a utilizar equipas sem otimização de meios, desaverta as seguintes propriedades RDP para permitir a reorientação do microfone e da câmara:
 
 - `audiocapturemode:i:1`permite a captura de áudio a partir do dispositivo local e redirets aplicações de áudio na sessão remota.
 - `audiomode:i:0`reproduz áudio no computador local.

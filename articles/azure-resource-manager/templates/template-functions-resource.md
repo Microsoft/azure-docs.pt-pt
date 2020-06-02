@@ -2,13 +2,13 @@
 title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 89e8907e4e134b621cd1c55bfcefeebde772df10
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 06/01/2020
+ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167728"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259444"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -36,10 +36,10 @@ Devolve o ID de recurso para um [recurso de extensão](../management/extension-r
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Yes |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -114,9 +114,9 @@ A sintaxe para esta função varia em função do nome das operações da lista.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Identificador único para o recurso. |
-| apiVersion |Sim |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
-| funçõesValues |Não |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
+| recursoName ou identificador de recursos |Yes |string |Identificador único para o recurso. |
+| apiVersion |Yes |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
+| funçõesValues |No |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -363,8 +363,8 @@ Devolve informações sobre um fornecedor de recursos e os seus tipos de recurso
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |string |Espaço de nome do fornecedor |
-| resourceType |Não |string |O tipo de recurso dentro do espaço de nome especificado. |
+| providerNamespace |Yes |string |Espaço de nome do fornecedor |
+| resourceType |No |string |O tipo de recurso dentro do espaço de nome especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -438,9 +438,9 @@ Devolve um objeto que representa o estado de execução de um recurso.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
-| apiVersion |Não |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
-| 'Cheio' |Não |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
+| recursoName ou identificador de recursos |Yes |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
+| apiVersion |No |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
+| 'Cheio' |No |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -537,10 +537,20 @@ Para simplificar a criação de qualquer ID de recurso, utilize as `resourceId()
 
 [Identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md) são [tipos de recursos de extensão](../management/extension-resource-types.md) que são criados implicitamente para alguns recursos. Como a identidade gerida não está explicitamente definida no modelo, deve referenciar o recurso a que a identidade é aplicada. Use `Full` para obter todas as propriedades, incluindo a identidade implicitamente criada.
 
-Por exemplo, para obter o ID do inquilino para uma identidade gerida que é aplicada a um conjunto de escala de máquina virtual, use:
+O padrão é:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Por exemplo, para obter o ID principal para uma identidade gerida que é aplicada a uma máquina virtual, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Ou, para obter a identificação do inquilino para uma identidade gerida que é aplicada a um conjunto de escala de máquina virtual, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Exemplo de referência
@@ -751,11 +761,11 @@ Devolve o identificador único de um recurso. Utilize esta função quando o nom
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
-| resourceGroupName |Não |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
+| resourceGroupName |No |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -947,10 +957,10 @@ Devolve o identificador único para um recurso implantado ao nível da subscriç
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1029,9 +1039,9 @@ Devolve o identificador único para um recurso implantado ao nível do inquilino
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1047,7 +1057,7 @@ O identificador é devolvido no seguinte formato:
 
 Você usa esta função para obter o ID de recurso para um recurso que é implantado para o inquilino. O ID devolvido difere dos valores devolvidos por outras funções de ID de recursos, não incluindo o grupo de recursos ou os valores de subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo do Gestor de Recursos Azure, consulte [os modelos do Gestor de Recursos Azure.](template-syntax.md)
 * Para fundir vários modelos, consulte [utilizando modelos ligados com O Gestor de Recursos Azure](linked-templates.md).

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 617c06c9f9a86e8377f32a5e80102eb92e9f029c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7beaae92d8f08aaaa3625240bc2c70256ed0e1d4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191697"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266054"
 ---
 # <a name="an-overview-of-azure-sql-database--sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL & capacidades de segurança de instância gerida sql
 
@@ -109,7 +109,7 @@ Por exemplo, ao utilizar o ADO.NET controlador, isto é realizado através do **
 > [!IMPORTANT]
 > Note que alguns controladores não Microsoft podem não utilizar OTS por padrão ou confiar numa versão mais antiga do TLS (<1.2) para funcionar. Neste caso, o servidor ainda lhe permite ligar-se à sua base de dados. No entanto, recomendamos que avalie os riscos de segurança de permitir que tais condutores e aplicações se conectem à Base de Dados SQL, especialmente se armazenar dados sensíveis.
 >
-> Para mais informações sobre TLS e conectividade, consulte [considerações de TLS](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity)
+> Para mais informações sobre TLS e conectividade, consulte [considerações de TLS](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Encriptação de dados transparentes (encriptação em repouso)
 

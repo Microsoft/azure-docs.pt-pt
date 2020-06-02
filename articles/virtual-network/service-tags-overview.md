@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fbf63a8082bbfabd3b5e4a4d62afbe63d18c983c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234501"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263211"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureDataExplorerManagement** | Gestão de Exploradores de Dados Azure. | Entrada | Não | Não |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Saída | No | Yes |
 | **AzureDevSpaces** | Espaços Azure Dev. | Saída | Não | Não |
-| **AzureEventGrid** | Grelha de Eventos Azure. <br/><br/>*Nota:* Esta etiqueta cobre os pontos finais da Azure Event Grid em US South Central, US East, US East 2, US West 2 e US Central apenas. | Ambos | Não | Não |
+| **AzureEventGrid** | Grelha de Eventos Azure. | Ambos | Não | Não |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Porta da Frente Azul. | Ambos | Não | Não |
 | **AzureInformationProtection** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta tag tem uma dependência das tags **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty.** | Saída | Não | Não |
 | **AzureIoTHub** | Hub Azure IoT. | Saída | Não | Não |

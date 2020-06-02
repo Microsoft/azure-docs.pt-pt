@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: d36cfc711d7a4c5e5c936550f0a6adb783d4bf3b
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3397fcb14f27e6bc0cc64b048dedde7198d5a06b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219012"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266088"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -90,7 +90,7 @@ Neste momento apoiamos os TLS 1.0, 1.1 e 1.2. A definição de uma versão TLS m
 
 Para clientes com aplicações que dependem de versões mais antigas do TLS, recomendamos definir a Versão Minimal TLS de acordo com os requisitos das suas aplicações. Para os clientes que dependem de aplicações para se conectarem utilizando uma ligação não encriptada, recomendamos não definir qualquer versão Minimal TLS. 
 
-Para obter mais informações, consulte [considerações de TLS para a conectividade sql Database](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
+Para obter mais informações, consulte [considerações de TLS para a conectividade sql Database](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
 Depois de definir a versão Minimal TLS, as tentativas de login de clientes que estão a utilizar uma versão TLS inferior à versão Minimal TLS do servidor falharão com o seguinte erro:
 

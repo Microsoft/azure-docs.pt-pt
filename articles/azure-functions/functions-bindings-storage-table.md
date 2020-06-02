@@ -1,48 +1,48 @@
 ---
-title: Encadernações de armazenamento de mesa seletiva para funções azure
-description: Entenda como utilizar encadernações de armazenamento de mesa seletiva seletiva em Funções Azure.
+title: Encadernações de armazenamento de mesa Azure para funções Azure
+description: Compreenda como utilizar as ligações de armazenamento da tabela Azure em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b10660302eb831a982d261cdfdaf91f4dbdfb38
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80520681"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248775"
 ---
-# <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa seletiva para funções azure
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa Azure para funções Azure
 
-Este artigo explica como trabalhar com encadernações de armazenamento de mesa azure em funções Azure. A Azure Functions suporta encadernações de entrada e saída para armazenamento de mesa seletiva.
+Este artigo explica como trabalhar com as ligações de armazenamento da tabela Azure em Funções Azure. As Funções Azure suportam encadernações de entrada e saída para o armazenamento da tabela Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
 
-As encadernações de armazenamento de mesa são fornecidas no pacote [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet, versão 2.x. O código fonte para o pacote está no repositório [Azur-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub.
+As ligações de armazenamento da tabela são fornecidas no pacote [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet, versão 2.x. O código-fonte para o pacote está no [repositório azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superiores
+## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superior
 
-As encadernações de armazenamento de mesa são fornecidas no [microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, versão 3.x. O código fonte para o pacote está no repositório [Azur-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub.
+As ligações de armazenamento da tabela são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet, versão 3.x. O código-fonte para o pacote está no [repositório azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="input"></a>Input
+## <a name="input"></a>Entrada
 
-Utilize o encadernação de entrada de armazenamento da mesa Azure para ler uma tabela numa conta de Armazenamento Azure.
+Utilize a ligação de entrada de armazenamento da tabela Azure para ler uma tabela numa conta de Armazenamento Azure.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>Uma entidade
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que lê uma única linha de mesa. Para cada registo inserido na tabela, a função será ativada.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê uma única fila de tabela. Para cada mensagem enviada para a fila, a função será ativada.
 
-O valor da tecla da linha "{queueTrigger}" indica que a tecla da linha vem da cadeia de mensagens de fila.
+O valor da chave da linha "{queueTrigger}" indica que a tecla de linha provém da linha de mensagem de fila.
 
 ```csharp
 public class TableStorage
@@ -67,7 +67,7 @@ public class TableStorage
 
 ### <a name="iqueryable"></a>IQueryable
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) `MyPoco` que lê `TableEntity`várias linhas de mesa de onde a classe deriva de .
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê várias filas de tabelas de onde a `MyPoco` classe provém `TableEntity` .
 
 ```csharp
 public class TableStorage
@@ -93,7 +93,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`não é suportado nas [funções v2 tempo](functions-versions.md)de funcionamento . Uma alternativa é `CloudTable` usar um parâmetro de método para ler a tabela utilizando o SDK de Armazenamento Azure. Aqui está um exemplo de uma função que consulta uma tabela de registo sinuosa de Funções Azure:
+`IQueryable`não é suportado no [tempo de execução funções v2](functions-versions.md). Uma alternativa é utilizar um `CloudTable` parâmetro de método para ler a tabela utilizando o Azure Storage SDK. Aqui está um exemplo de uma função que consulta uma tabela de registo de funções Azure:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -139,17 +139,17 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-Para mais informações sobre como utilizar o CloudTable, consulte [Iniciar-se com o armazenamento da Mesa Azure](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Para obter mais informações sobre como utilizar o CloudTable, consulte [Começar com o armazenamento da Tabela Azure.](../cosmos-db/table-storage-how-to-use-dotnet.md)
 
-Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
+Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 ### <a name="one-entity"></a>Uma entidade
 
-O exemplo seguinte mostra uma ligação de entrada de mesa num ficheiro *function.json* e código [de script C#](functions-reference-csharp.md) que utiliza a encadernação. A função utiliza um gatilho de fila para ler uma única linha de mesa. 
+O exemplo a seguir mostra uma ligação de entrada de tabela num ficheiro *de funções.json* e código [de script C#](functions-reference-csharp.md) que utiliza a ligação. A função utiliza um gatilho de fila para ler uma única linha de tabela. 
 
-O ficheiro *função.json* especifica a `partitionKey` e a `rowKey`. O `rowKey` valor "{queueTrigger}" indica que a tecla da linha vem da cadeia de mensagens de fila.
+O ficheiro *function.json* especifica um `partitionKey` e um `rowKey` . O `rowKey` valor "{queueTrigger}" indica que a tecla de linha provém da linha de mensagem de fila.
 
 ```json
 {
@@ -175,9 +175,9 @@ O ficheiro *função.json* especifica a `partitionKey` e a `rowKey`. O `rowKey` 
 }
 ```
 
-A secção de [configuração](#input---configuration) explica estas propriedades.
+A secção [de configuração](#input---configuration) explica estas propriedades.
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, ILogger log)
@@ -196,9 +196,9 @@ public class Person
 
 ### <a name="iqueryable"></a>IQueryable
 
-O exemplo seguinte mostra uma ligação de entrada de mesa num ficheiro *function.json* e código [de script C#](functions-reference-csharp.md) que utiliza a encadernação. A função lê as entidades para uma chave de partição especificada numa mensagem de fila.
+O exemplo a seguir mostra uma ligação de entrada de tabela num ficheiro *de funções.json* e código [de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê entidades para uma chave de partição que é especificada numa mensagem de fila.
 
-Aqui está o ficheiro *função.json:*
+Aqui está o ficheiro *function.json:*
 
 ```json
 {
@@ -222,9 +222,9 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#input---configuration) explica estas propriedades.
+A secção [de configuração](#input---configuration) explica estas propriedades.
 
-O código de script C# adiciona uma referência ao SDK de `TableEntity`Armazenamento Azure para que o tipo de entidade possa derivar de:
+O código de script C# adiciona uma referência ao Azure Storage SDK para que o tipo de entidade possa derivar `TableEntity` de:
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -248,7 +248,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`não é suportado nas Funções tempo de execução para [versões 2.x e superiores)](functions-versions.md). Uma alternativa é `CloudTable` usar um parâmetro de método para ler a tabela utilizando o SDK de Armazenamento Azure. Aqui está um exemplo de uma função que consulta uma tabela de registo sinuosa de Funções Azure:
+`IQueryable`não é suportado no tempo de execução de Funções para [versões 2.x e superior)](functions-versions.md). Uma alternativa é utilizar um `CloudTable` parâmetro de método para ler a tabela utilizando o Azure Storage SDK. Aqui está um exemplo de uma função que consulta uma tabela de registo de funções Azure:
 
 ```json
 {
@@ -305,16 +305,16 @@ public class LogEntity : TableEntity
 }
 ```
 
-Para mais informações sobre como utilizar o CloudTable, consulte [Iniciar-se com o armazenamento da Mesa Azure](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Para obter mais informações sobre como utilizar o CloudTable, consulte [Começar com o armazenamento da Tabela Azure.](../cosmos-db/table-storage-how-to-use-dotnet.md)
 
-Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
+Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação de entrada de mesa num ficheiro *function.json* e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza um gatilho de fila para ler uma única linha de mesa. 
+O exemplo a seguir mostra uma ligação de entrada de tabela num ficheiro *function.json* e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função utiliza um gatilho de fila para ler uma única linha de tabela. 
 
-O ficheiro *função.json* especifica a `partitionKey` e a `rowKey`. O `rowKey` valor "{queueTrigger}" indica que a tecla da linha vem da cadeia de mensagens de fila.
+O ficheiro *function.json* especifica um `partitionKey` e um `rowKey` . O `rowKey` valor "{queueTrigger}" indica que a tecla de linha provém da linha de mensagem de fila.
 
 ```json
 {
@@ -340,7 +340,7 @@ O ficheiro *função.json* especifica a `partitionKey` e a `rowKey`. O `rowKey` 
 }
 ```
 
-A secção de [configuração](#input---configuration) explica estas propriedades.
+A secção [de configuração](#input---configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -403,7 +403,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo seguinte mostra uma função ativada http que devolve uma lista de objetos pessoais que estão numa divisória especificada no armazenamento da mesa. No exemplo, a chave de partição é extraída da rota http, e o nome do quadro e a ligação são das definições de função. 
+O exemplo a seguir mostra uma função desencadeada HTTP que devolve uma lista de objetos pessoais que estão numa partição especificada no armazenamento da tabela. No exemplo, a chave de partição é extraída da rota http, e o nome de mesa e a ligação são das definições de função. 
 
 ```java
 public class Person {
@@ -432,7 +432,7 @@ public Person[] get(
 }
 ```
 
-A anotação tableInput também pode extrair as encadernações do corpo json do pedido, como mostra o exemplo seguinte.
+A anotação TableInput também pode extrair as encadernações do corpo json do pedido, como mostra o exemplo a seguir.
 
 ```java
 @FunctionName("GetPersonsByKeysFromRequest")
@@ -454,7 +454,7 @@ public HttpResponseMessage get(
 }
 ```
 
-Os seguintes exemplos utilizam o Filtro para consultar pessoas com um nome específico numa Tabela Azure, e limita o número de possíveis correspondências a 10 resultados.
+Os exemplos a seguir utilizam o Filtro para consultar pessoas com um nome específico numa Tabela Azure e limita o número de correspondências possíveis a 10 resultados.
 
 ```java
 @FunctionName("getPersonsByName")
@@ -474,13 +474,13 @@ public Person[] get(
 
 ## <a name="input---attributes-and-annotations"></a>Entrada - atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
- Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar uma ligação de entrada de tabela:
+ Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar uma ligação de entrada de tabela:
 
-* [Atribuição de Tabela](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
-  O construtor do atributo pega no nome da mesa, na chave da divisória e na chave da linha. O atributo pode ser `out` utilizado num parâmetro ou no valor de retorno da função, como se pode ver no seguinte exemplo:
+  O construtor do atributo tem o nome da mesa, a chave de partição e a chave da linha. O atributo pode ser utilizado num `out` parâmetro ou no valor de retorno da função, como mostra o seguinte exemplo:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -493,7 +493,7 @@ public Person[] get(
   }
   ```
 
-  Pode definir `Connection` a propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
+  Pode definir a `Connection` propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -506,11 +506,11 @@ public Person[] get(
   }
   ```
 
-  Para um exemplo completo, consulte o exemplo de Entrada - C# .
+  Para um exemplo completo, consulte o exemplo de Entrada - C#.
 
-* [ArmazenamentoAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+* [ArmazenamentoCotaçãotribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Fornece outra forma de especificar a conta de armazenamento a utilizar. O construtor tem o nome de uma definição de aplicação que contém uma cadeia de ligação de armazenamento. O atributo pode ser aplicado no parâmetro, método ou nível de classe. O exemplo que se segue mostra o nível de classe e o nível de método:
+  Fornece outra forma de especificar a conta de armazenamento a utilizar. O construtor tem o nome de uma definição de aplicação que contém uma cadeia de ligação de armazenamento. O atributo pode ser aplicado ao nível do parâmetro, método ou classe. O exemplo a seguir mostra o nível de classe e o nível do método:
 
   ```csharp
   [StorageAccount("ClassLevelStorageAppSetting")]
@@ -526,15 +526,15 @@ public Person[] get(
 
 A conta de armazenamento a utilizar é determinada na seguinte ordem:
 
-* A `Table` propriedade do `Connection` atributo.
-* O `StorageAccount` atributo aplicado ao mesmo `Table` parâmetro que o atributo.
+* Propriedade `Table` do `Connection` atributo.
+* O `StorageAccount` atributo aplicado ao mesmo parâmetro que o `Table` atributo.
 * O `StorageAccount` atributo aplicado à função.
 * O `StorageAccount` atributo aplicado à classe.
-* A conta de armazenamento padrão para a aplicação de função (definição de aplicação "AzureWebJobsStorage").
+* A conta de armazenamento predefinida para a aplicação de função (definição de aplicação "AzureWebJobsStorage").
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -546,80 +546,80 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview/azure/functions/runtime)utilize a `@TableInput` anotação em parâmetros cujo valor viria do armazenamento da mesa.  Esta anotação pode ser usada com tipos nativos de `Optional<T>`Java, POJOs ou valores nuníveis usando .
+Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a `@TableInput` anotação em parâmetros cujo valor viria do armazenamento da Mesa.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
 
 ---
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `Table` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Table` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.json propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de `table`ser definido para. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
-|**direção** | n/d | Tem de `in`ser definido para. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
-|**nome** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
+|**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
+|**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
+|**nome** | n/a | O nome da variável que representa a tabela ou entidade no código de função. | 
 |**tableName** | **Nome de mesa** | O nome da mesa.| 
-|**partiçãoChave** | **PartitionKey** |Opcional. A chave de partição da entidade de mesa para ler. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**rowKey** |**RowKey** | Opcional. A chave da fila da entidade da mesa para ler. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**tomar** |**Tomar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**filtro** |**Filtro** | Opcional. Uma expressão de filtro OData para entrada de mesa no JavaScript. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. A definição pode ser o nome de uma definição de aplicação pré-fixa "AzureWebJobs" ou nome de corda de ligação. Por exemplo, se o seu nome de definição for "AzureWebJobsMyStorage", pode especificar "MyStorage" aqui. O tempo de execução das Funções procurará automaticamente uma definição de aplicação que se incomode "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza `AzureWebJobsStorage`a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada .|
+|**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de mesa para ler. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de mesa para ler. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**tomar** |**Tomar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**filtro** |**Filtro** | Opcional. Uma expressão de filtro OData para entrada de tabela em JavaScript. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**conexão** |**Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. A definição pode ser o nome de uma definição de aplicação pré-fixa "AzureWebJobs" ou nome de cadeia de ligação. Por exemplo, se o seu nome de definição for "AzureWebJobsMyStorage", pode especificar "MyStorage" aqui. O tempo de execução das Funções procurará automaticamente uma definição de aplicação com o nome de "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Entrada - utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * **Leia uma linha em**
 
-  Conjunto `partitionKey` `rowKey`e . Aceda aos dados da tabela `T <paramName>`utilizando um parâmetro de método . No script C#, `paramName` é o `name` valor especificado na propriedade da *função.json*. `T`é tipicamente um tipo `ITableEntity` que implementa ou deriva de `TableEntity`. As `filter` `take` propriedades e propriedades não são usadas neste cenário.
+  Conjunto `partitionKey` e `rowKey` . Aceda aos dados da tabela utilizando um parâmetro de `T <paramName>` método. No script `paramName` C#, é o valor especificado na propriedade da `name` *função.json*. `T`é tipicamente um tipo que implementa `ITableEntity` ou deriva de `TableEntity` . As `filter` propriedades e propriedades não são `take` utilizadas neste cenário.
 
-* **Leia uma ou mais linhas**
+* **Leia uma ou mais filas**
 
-  Aceda aos dados da tabela `IQueryable<T> <paramName>`utilizando um parâmetro de método . No script C#, `paramName` é o `name` valor especificado na propriedade da *função.json*. `T`deve ser um tipo `ITableEntity` que implemente ou deriva de `TableEntity`. Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. `partitionKey`Os, `rowKey` `filter`e `take` as propriedades não são usados neste cenário.  
+  Aceda aos dados da tabela utilizando um parâmetro de `IQueryable<T> <paramName>` método. No script `paramName` C#, é o valor especificado na propriedade da `name` *função.json*. `T`deve ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity` . Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. Os `partitionKey` , e propriedades não são `rowKey` `filter` `take` usados neste cenário.  
 
   > [!NOTE]
-  > `IQueryable`não é suportado nas [funções v2 tempo](functions-versions.md)de funcionamento . Uma alternativa é usar um parâmetro de parâmetro [CloudTable para](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de Armazenamento Azure. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable`não é suportado no [tempo de execução funções v2](functions-versions.md). Uma alternativa é [usar um parâmetro do método cloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para ler a tabela utilizando o Azure Storage SDK. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 * **Leia uma linha em**
 
-  Conjunto `partitionKey` `rowKey`e . Aceda aos dados da tabela `T <paramName>`utilizando um parâmetro de método . No script C#, `paramName` é o `name` valor especificado na propriedade da *função.json*. `T`é tipicamente um tipo `ITableEntity` que implementa ou deriva de `TableEntity`. As `filter` `take` propriedades e propriedades não são usadas neste cenário.
+  Conjunto `partitionKey` e `rowKey` . Aceda aos dados da tabela utilizando um parâmetro de `T <paramName>` método. No script `paramName` C#, é o valor especificado na propriedade da `name` *função.json*. `T`é tipicamente um tipo que implementa `ITableEntity` ou deriva de `TableEntity` . As `filter` propriedades e propriedades não são `take` utilizadas neste cenário.
 
-* **Leia uma ou mais linhas**
+* **Leia uma ou mais filas**
 
-  Aceda aos dados da tabela `IQueryable<T> <paramName>`utilizando um parâmetro de método . No script C#, `paramName` é o `name` valor especificado na propriedade da *função.json*. `T`deve ser um tipo `ITableEntity` que implemente ou deriva de `TableEntity`. Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. `partitionKey`Os, `rowKey` `filter`e `take` as propriedades não são usados neste cenário.  
+  Aceda aos dados da tabela utilizando um parâmetro de `IQueryable<T> <paramName>` método. No script `paramName` C#, é o valor especificado na propriedade da `name` *função.json*. `T`deve ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity` . Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. Os `partitionKey` , e propriedades não são `rowKey` `filter` `take` usados neste cenário.  
 
   > [!NOTE]
-  > `IQueryable`não é suportado nas [funções v2 tempo](functions-versions.md)de funcionamento . Uma alternativa é usar um parâmetro de parâmetro [CloudTable para](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de Armazenamento Azure. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable`não é suportado no [tempo de execução funções v2](functions-versions.md). Uma alternativa é [usar um parâmetro do método cloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para ler a tabela utilizando o Azure Storage SDK. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Desloque as propriedades e propriedades. `filter` `take` Não se `partitionKey` acomode ou. `rowKey` Aceda à entidade da tabela de `context.bindings.<BINDING_NAME>`entrada (ou entidades) utilizando . Os objetos desserializados têm `RowKey` e `PartitionKey` propriedades.
+Desa estação `filter` e `take` propriedades. Não se `partitionKey` desemalte ou `rowKey` . . Aceda à entidade de tabela de entrada (ou entidades) que `context.bindings.<BINDING_NAME>` utiliza. Os objetos deserizados têm `RowKey` e `PartitionKey` propriedades.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Os dados da tabela são transmitidos para a função como uma cadeia JSON. Desserialize a mensagem `json.loads` ligando como mostrado no [exemplo](#input)da entrada .
+Os dados da tabela são transmitidos para a função como uma cadeia JSON. Des-serialize a mensagem ligando `json.loads` como mostrado no [exemplo](#input)de entrada .
 
 # <a name="java"></a>[Java](#tab/java)
 
-O atributo [tableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) dá-lhe acesso à linha da mesa que desencadeou a função.
+O atributo [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) dá-lhe acesso à linha de mesa que desencadeou a função.
 
 ---
 
 ## <a name="output"></a>Saída
 
-Utilize uma ligação de saída de armazenamento de mesa Azure para escrever entidades para uma tabela numa conta de Armazenamento Azure.
+Utilize uma ligação de saída de armazenamento da tabela Azure para escrever entidades a uma tabela numa conta de Armazenamento Azure.
 
 > [!NOTE]
-> Esta ligação de saída não suporta a atualização das entidades existentes. Utilize `TableOperation.Replace` a operação [a partir do Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) para atualizar uma entidade existente.
+> Esta vinculação de saída não suporta a atualização das entidades existentes. Utilize a `TableOperation.Replace` operação [a partir da Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) para atualizar uma entidade existente.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que usa um gatilho HTTP para escrever uma única linha de mesa. 
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que utiliza um gatilho HTTP para escrever uma única linha de tabela. 
 
 ```csharp
 public class TableStorage
@@ -643,9 +643,9 @@ public class TableStorage
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação de saída de tabela num ficheiro *function.json* e código [de script C#](functions-reference-csharp.md) que utiliza a encadernação. A função escreve várias entidades de tabela.
+O exemplo a seguir mostra uma ligação de saída de tabela num ficheiro *de funções.json* e código [de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve várias entidades de tabela.
 
-Aqui está o ficheiro *função.json:*
+Aqui está o ficheiro *function.json:*
 
 ```json
 {
@@ -667,9 +667,9 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#output---configuration) explica estas propriedades.
+A secção [de configuração](#output---configuration) explica estas propriedades.
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
@@ -698,9 +698,9 @@ public class Person
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação de saída de tabela num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve várias entidades de tabela.
+O exemplo a seguir mostra uma ligação de saída de tabela num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve várias entidades de tabela.
 
-Aqui está o ficheiro *função.json:*
+Aqui está o ficheiro *function.json:*
 
 ```json
 {
@@ -722,7 +722,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#output---configuration) explica estas propriedades.
+A secção [de configuração](#output---configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -745,7 +745,7 @@ module.exports = function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo que se segue demonstra como utilizar a ligação de saída de armazenamento da tabela. A `table` ligação está configurada na *função.json* `partitionKey`atribuindo `connection`valores a, `name` `tableName`, , e:
+O exemplo a seguir demonstra como utilizar a ligação de saída de armazenamento da tabela. A `table` ligação é configurada na *função.json* atribuindo valores `name` `tableName` `partitionKey` a, e `connection` :
 
 ```json
 {
@@ -778,7 +778,7 @@ O exemplo que se segue demonstra como utilizar a ligação de saída de armazena
 }
 ```
 
-A função seguinte gera um UUI único para o `rowKey` valor e persiste a mensagem no armazenamento de mesa.
+A seguinte função gera um UUI único pelo `rowKey` valor e persiste a mensagem no armazenamento de mesa.
 
 ```python
 import logging
@@ -804,7 +804,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo seguinte mostra uma função Java que usa um gatilho HTTP para escrever uma única linha de mesa.
+O exemplo a seguir mostra uma função Java que usa um gatilho HTTP para escrever uma única linha de tabela.
 
 ```java
 public class Person {
@@ -845,7 +845,7 @@ public class AddPerson {
 }
 ```
 
-O exemplo seguinte mostra uma função Java que usa um gatilho HTTP para escrever várias linhas de mesa.
+O exemplo a seguir mostra uma função Java que usa um gatilho HTTP para escrever várias linhas de tabela.
 
 ```java
 public class Person {
@@ -883,11 +883,11 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>Saída - atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
+Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
-O construtor do atributo tem o nome da mesa. O atributo pode ser `out` utilizado num parâmetro ou no valor de retorno da função, como se pode ver no seguinte exemplo:
+O construtor do atributo tem o nome da mesa. O atributo pode ser utilizado num `out` parâmetro ou no valor de retorno da função, como mostra o seguinte exemplo:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -900,7 +900,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-Pode definir `Connection` a propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
+Pode definir a `Connection` propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -913,13 +913,13 @@ public static MyPoco TableOutput(
 }
 ```
 
-Para um exemplo completo, consulte [a saída - C# exemplo](#output).
+Para um exemplo completo, consulte [o exemplo de Saída - C#](#output).
 
-Pode utilizar `StorageAccount` o atributo para especificar a conta de armazenamento na classe, método ou nível de parâmetro. Para mais informações, consulte [Input - atributos](#input---attributes-and-annotations).
+Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Input - atributos](#input---attributes-and-annotations).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -931,61 +931,61 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Na [biblioteca de tempo de funcionamento das funções Java,](/java/api/overview/azure/functions/runtime)utilize a anotação [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) em parâmetros para escrever valores em armazenamento de mesa.
+Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a anotação [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) nos parâmetros para escrever valores no armazenamento de mesa.
 
-Veja o [exemplo para mais detalhes](#output).
+Veja o [exemplo para mais detalhes.](#output)
 
 ---
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `Table` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Table` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.json propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de `table`ser definido para. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
-|**direção** | n/d | Tem de `out`ser definido para. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
-|**nome** | n/d | O nome variável utilizado no código de função que representa a tabela ou entidade. `$return` Decidiu para referenciar o valor de devolução da função.| 
+|**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
+|**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
+|**nome** | n/a | O nome variável usado no código de função que representa a tabela ou entidade. Definir `$return` para referenciar o valor de retorno da função.| 
 |**tableName** |**Nome de mesa** | O nome da mesa.| 
-|**partiçãoChave** |**PartitionKey** | A chave de partição da entidade de mesa para escrever. Consulte a secção de [utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**rowKey** |**RowKey** | A chave da linha da entidade da mesa para escrever. Consulte a secção de [utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se `connection` definir para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza `AzureWebJobsStorage`a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada .|
+|**partitionKey** |**PartitionKey** | A chave de partição da entidade de mesa para escrever. Consulte a [secção de utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**rowKey** |**RowKey** | A chave de linha da entidade de mesa para escrever. Consulte a [secção de utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**conexão** |**Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma configuração de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Saída - utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Aceda à entidade da tabela `ICollector<T> paramName` de `IAsyncCollector<T> paramName` `T` saída `PartitionKey` utilizando `RowKey` um parâmetro de método ou onde inclua as propriedades e propriedades. Estas propriedades são frequentemente `ITableEntity` acompanhadas `TableEntity`pela implementação ou herdação.
+Aceda à entidade de tabela de saída utilizando um parâmetro de método `ICollector<T> paramName` ou `IAsyncCollector<T> paramName` onde `T` inclua o e `PartitionKey` `RowKey` propriedades. Estas propriedades são frequentemente acompanhadas pela implementação `ITableEntity` ou `TableEntity` herdação.
 
-Em alternativa, pode `CloudTable` utilizar um parâmetro de método para escrever à mesa utilizando o SDK de Armazenamento Azure. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
+Em alternativa, pode utilizar um `CloudTable` parâmetro de método para escrever à mesa utilizando o Azure Storage SDK. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Aceda à entidade da tabela `ICollector<T> paramName` de `IAsyncCollector<T> paramName` `T` saída `PartitionKey` utilizando `RowKey` um parâmetro de método ou onde inclua as propriedades e propriedades. Estas propriedades são frequentemente `ITableEntity` acompanhadas `TableEntity`pela implementação ou herdação. O `paramName` valor é especificado na `name` propriedade da *função.json*.
+Aceda à entidade de tabela de saída utilizando um parâmetro de método `ICollector<T> paramName` ou `IAsyncCollector<T> paramName` onde `T` inclua o e `PartitionKey` `RowKey` propriedades. Estas propriedades são frequentemente acompanhadas pela implementação `ITableEntity` ou `TableEntity` herdação. O `paramName` valor é especificado na propriedade da `name` *função.json*.
 
-Em alternativa, pode `CloudTable` utilizar um parâmetro de método para escrever à mesa utilizando o SDK de Armazenamento Azure. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à versão [SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
+Em alternativa, pode utilizar um `CloudTable` parâmetro de método para escrever à mesa utilizando o Azure Storage SDK. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceda ao evento `context.bindings.<name>` `<name>` de saída utilizando onde `name` está o valor especificado na propriedade da *função.json*.
+Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade da `<name>` `name` *função.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Existem duas opções para colocar uma mensagem de linha de armazenamento de tabela a partir de uma função:
+Existem duas opções para a saída de uma mensagem de linha de armazenamento de mesa a partir de uma função:
 
-- **Valor de devolução**: Coloque a `name` propriedade em *função.json* para `$return`. Com esta configuração, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
+- **Valor de retorno**: Desa estale a `name` propriedade em *função.json* para `$return` . Com esta configuração, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
 
-- **Imperativo**: Passe um valor para o método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor `set` passado é persistiu como uma mensagem do Event Hub.
+- **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem do Event Hub.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para eliminar uma linha de armazenamento de tabela sacar de uma função utilizando a anotação [TableStorageOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet)
+Existem duas opções para a saída de uma linha de armazenamento de mesa a partir de uma função, utilizando a anotação [TableStorageOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet)
 
-- **Valor de devolução**: Aplicando a anotação à própria função, o valor de retorno da função é persinedo como linha de armazenamento de mesa.
+- **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
 
-- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)a `T` anotação a um parâmetro específico do tipo, onde inclua as propriedades e propriedades. `PartitionKey` `RowKey` Estas propriedades são frequentemente `ITableEntity` acompanhadas `TableEntity`pela implementação ou herdação.
+- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) tipo, onde `T` inclui o e as `PartitionKey` `RowKey` propriedades. Estas propriedades são frequentemente acompanhadas pela implementação `ITableEntity` ou `TableEntity` herdação.
 
 ---
 
@@ -993,11 +993,11 @@ Existem duas opções para eliminar uma linha de armazenamento de tabela sacar d
 
 | Enlace | Referência |
 |---|---|
-| Tabela | [Códigos de erro de mesa](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Tabela | [Códigos de erro de tabela](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, Mesa, Fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Mesa, Fila | [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as funções azure gatilhos e encadernações](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

@@ -1,6 +1,7 @@
 ---
 title: Use o Ruby para consultar
-description: Este tópico mostra-lhe como usar a Ruby para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL e questioná-lo usando declarações Transact-SQL.
+description: Este tópico mostra-lhe como usar a Ruby para criar um programa que se conecta a uma base de dados e o consulta usando declarações Transact-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,24 +11,24 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: d8d5ca8c6d583ec50788ef42632a07310d043f41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: c297a40a5452938d8e706bf2e0791e4a7d03210c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189068"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267295"
 ---
-# <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use o Ruby para consultar uma base de dados na Base de Dados Azure SQL
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use o Ruby para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Este quickstart demonstra como usar a [Ruby](https://www.ruby-lang.org) para ligar a uma base de dados na Base de Dados Azure SQL e dados de consulta com declarações Transact-SQL.
+Este quickstart demonstra como usar a [Ruby](https://www.ruby-lang.org) para ligar a uma base de dados e consultar dados com declarações Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
-- Uma base de dados na Base de Dados Azure SQL. Pode utilizar um destes quickstarts para criar e, em seguida, configurar a base de dados:
+- Uma base de dados. Pode utilizar um destes quickstarts para criar e, em seguida, configurar a base de dados:
 
   || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|

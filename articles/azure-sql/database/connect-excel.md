@@ -1,30 +1,30 @@
 ---
 title: Ligar com o Excel
-description: Saiba como ligar o Microsoft Excel a uma base de dados na Base de Dados Azure SQL. Importe dados para o Excel para criação de relatórios e exploração de dados.
+description: Saiba como ligar o Microsoft Excel a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance. Importe dados para o Excel para criação de relatórios e exploração de dados.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: joseidz
-ms.author: craigg
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/12/2019
-ms.openlocfilehash: 332620699e30facb2fbbfee90e3328b8dcf1e179
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195487"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267516"
 ---
-# <a name="connect-excel-to-a-database-in-azure-sql-database-and-create-a-report"></a>Ligue o Excel a uma base de dados na Base de Dados Azure SQL e crie um relatório
+# <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Ligue o Excel a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância, e crie um relatório
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+Pode ligar o Excel a uma base de dados e depois importar dados e criar tabelas e gráficos com base em valores na base de dados. Neste tutorial, irá configurar a ligação entre o Excel e uma tabela de base de dados, guardar o ficheiro que armazena os dados e as informações de ligação para o Excel e, em seguida, criar um gráfico dinâmico a partir dos valores da base de dados.
 
-Pode ligar o Excel a uma base de dados na Base de Dados Azure SQL e, em seguida, importar dados e criar tabelas e gráficos com base em valores na base de dados. Neste tutorial, irá configurar a ligação entre o Excel e uma tabela de base de dados, guardar o ficheiro que armazena os dados e as informações de ligação para o Excel e, em seguida, criar um gráfico dinâmico a partir dos valores da base de dados.
-
-Terá de criar uma base de dados na Base de Dados SQL antes de começar. Se não tiver uma, consulte [criar uma base de dados na Base de Dados Azure SQL](single-database-create-quickstart.md) e criar firewall IP ao [nível do servidor](firewall-create-server-level-portal-quickstart.md) para obter uma base de dados com dados de amostra em funcionamento em poucos minutos.
+Tens de criar uma base de dados antes de começares. Se não tiver uma, consulte [criar uma base de dados na Base de Dados Azure SQL](single-database-create-quickstart.md) e criar firewall IP ao [nível do servidor](firewall-create-server-level-portal-quickstart.md) para obter uma base de dados com dados de amostra em funcionamento em poucos minutos.
 
 Neste artigo, irá importar dados de amostras para o Excel a partir desse artigo, mas pode seguir passos semelhantes com os seus próprios dados.
 
@@ -101,6 +101,6 @@ Para guardar permanentemente os dados de ligação, pode criar um ficheiro .odc 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [Ligar a Base de Dados SQL com o SQL Server Management Studio](connect-query-ssms.md) para consulta e análise avançadas.
+* Saiba como [conectar e consultar o SQL Server Management Studio](connect-query-ssms.md) para consultas e análises avançadas.
 * Saiba mais sobre as vantagens dos [conjuntos elásticos](elastic-pool-overview.md).
-* Saiba como [criar uma aplicação Web que estabelece ligação à Base de Dados SQL no back-end](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
+* Saiba como [criar uma aplicação web que se conecta à Base de Dados Azure SQL na parte de trás](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

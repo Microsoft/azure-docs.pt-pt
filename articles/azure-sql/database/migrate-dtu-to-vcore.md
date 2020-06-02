@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: e9ba6f2e2f6b6e6c4c4738576816e4473b4951a5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4802e9e6fa2fdd918266d3ddc58b783bdb6bb83e
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235821"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258473"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar base de dados Azure SQL do modelo baseado em DTU para o modelo baseado em vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -187,7 +187,7 @@ Pode criar uma base de dados secundária de geo-replicação (uma geoconsuserda)
 
 Se estiver a criar um geo-secundário na piscina elástica para uma única base de dados primária, certifique-se de que `maxVCore` a configuração da piscina corresponde ao tamanho do cálculo da base de dados primária. Se estiver a criar um geo-secundário para uma primária em outra piscina elástica, recomendamos que as piscinas tenham as `maxVCore` mesmas configurações.
 
-## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilize cópia de base de dados para converter uma base de dados baseada em DTU numa base de dados baseada em vCore
+## <a name="use-database-copy-to-migrate-from-dtu-to-vcore"></a>Utilize a cópia da base de dados para migrar de DTU para vCore
 
 Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseado em vCore sem restrições ou sequenciação especial, desde que o tamanho do cálculo-alvo suporte o tamanho máximo da base de dados da base de dados de origem. A cópia da base de dados cria uma imagem instantânea dos dados a partir do momento de início da operação de cópia e não sincroniza os dados entre a fonte e o alvo.
 

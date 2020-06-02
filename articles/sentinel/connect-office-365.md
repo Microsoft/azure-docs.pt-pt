@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Gabinete 365 ao Azure Sentinel. Microsoft Docs
+title: Ligar registos do Office 365 ao Azure Sentinel Microsoft Docs
 description: Saiba como ligar os dados do Office 365 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -9,49 +9,54 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 05/21/2020
 ms.author: yelevin
-ms.openlocfilehash: c3e63063b3ea4e7fba3997ddd645aa59fe857488
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: bcd00247486faeea47ef4a4a43fa1df5420321e6
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758576"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248945"
 ---
-# <a name="connect-data-from-office-365-logs"></a>Ligar dados do Office 365 Logs
+# <a name="connect-office-365-logs-to-azure-sentinel"></a>Ligar registos do Office 365 ao Azure Sentinel
 
-
-
-Pode transmitir registos de auditoria do [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) para o Azure Sentinel com um único clique. Pode transmitir registos de auditoria do seu Office 365 para o seu espaço de trabalho Azure Sentinel no mesmo inquilino. O conector de registo de atividade sonorizador do Office 365 fornece informações sobre as atividades de utilizador em curso. Obterá informações sobre vários utilizadores, administradores, sistemas e ações de política e eventos do Office 365. Ao ligar os logs do Office 365 ao Azure Sentinel pode utilizar estes dados para visualizar dashboards, criar alertas personalizados e melhorar o seu processo de investigação.
-
-> [!IMPORTANT]
-> Se tiver uma licença E3, antes de poder aceder a dados através da API de Atividade de Gestão do Office 365, deve permitir a exploração de auditoria unificada para a sua organização office 365. Faça-o ligando o registo de auditoria do Office 365. Para obter instruções, consulte a pesquisa de registo de auditoria do [Turn Office 365 dentro ou fora](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Consulte o [Office 365 management Activity API reference,](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference)para mais informações.
+O conector de log [office 365](https://docs.microsoft.com/office/) traz informações sobre o Azure Sentinel sobre as atividades de utilizador e administração em curso em **Exchange** and **SharePoint** (incluindo **o OneDrive).** Esta informação inclui detalhes de ações como transferências de ficheiros, pedidos de acesso enviados, alterações em eventos de grupo e operações de caixa de correio, bem como os detalhes do utilizador que realizou as ações. Ligar os registos do Office 365 ao Azure Sentinel permite-lhe visualizar e analisar estes dados nos seus livros, consultar-se para criar alertas personalizados e incorporá-los para melhorar o seu processo de investigação, dando-lhe mais informações sobre a segurança do seu Office 365.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Deve ter lido e escrito permissões no seu espaço de trabalho Azure Sentinel.
+
 - Deve ser administrador global ou administrador de segurança do seu inquilino.
-- O seu inquilino deve ter uma auditoria unificada ativada. Os inquilinos com licenças Do Office 365 E3 ou E5 têm auditoria unificada viavida por defeito. <br>Se o seu inquilino não tiver uma destas licenças, deve permitir uma auditoria unificada ao seu inquilino utilizando um destes métodos:
-    - [Utilizando o cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e ativar o parâmetro "UnificadoAuditLogIngestionEnabled").
-    - [Utilização do Centro](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin)de Conformidade & de Segurança UI .
-   
+
+- O seu escritório 365 deve estar no mesmo inquilino que o seu espaço de trabalho Azure Sentinel.
+
+> [!IMPORTANT]
+> - Para que o conector possa aceder aos dados através da API de Atividade de Gestão 365, deve ter **registo de auditoria unificado** ativado no seu Office 365. Dependendo do tipo de licença Do Office 365 / Microsoft 365 que tem, pode ou não ser ativada por padrão. Consulte o [Centro de Segurança e Conformidade do Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) para verificar o estado de registo de auditoria unificado de acordo com o seu tipo de licença.
+> - Também pode ativar, desativar e verificar o estado atual do registo de auditoria unificado do Office 365. Para obter instruções, consulte [o Registo de auditoria do Turn Office 365 para ligar ou desligar](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Para mais informações, consulte a [referência API da Atividade de Gestão 365.](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference)
+
+
    > [!NOTE]
-   > Atualmente o Conector de Dados O365 apenas captura a Activty Exchange e Sharepoint automaticamente como mencionado na página do conector na secção tipos de Dados. Recomendamos que verifique este artigo caso necessite de [equipas auditando dados e proteja as equipas usando o Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
+   > Como referido acima, e como pode ver na página de conector nos **tipos de dados,** o conector Azure Sentinel Office 365 suporta atualmente a ingestão de registos de auditoria apenas a partir de Microsoft Exchange e SharePoint (incluindo OneDrive). No entanto, existem algumas soluções externas se estiver interessado em trazer [dados de equipas](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761) ou [outros dados do Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) para o Azure Sentinel. 
 
-## <a name="connect-to-office-365"></a>Ligar ao Office 365
+## <a name="enable-the-office-365-log-connector"></a>Ativar o conector de registo do Office 365
 
-1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no azulejo **365 do Office.**
+1. A partir do menu de navegação Azure Sentinel, selecione **Conectores de dados**.
 
-2. Se ainda não o tiver ativado, pode fazê-lo indo à lâmina dos **Conectores** de Dados e selecionando o conector **do Office 365.** Aqui pode clicar na página do **Conector Aberto** e na secção de configuração **configuração** configuração selecione todos os registos de atividade do Office 365 que pretende ligar ao Azure Sentinel. 
+1. Na lista de **conectores de dados,** clique **no Office 365**e, em seguida, no botão de página do **conector Open** no direito inferior.
+
+1. Sob a secção **configuração**marcada, marque as caixas de verificação dos registos de atividade do Office 365 que pretende ligar ao Azure Sentinel, e clique em **Alterar Alterações**. 
+
    > [!NOTE]
-   > Se já ligou vários inquilinos numa versão previamente suportada do conector Office 365 em Azure Sentinel, poderá visualizar e modificar quais os registos que recolhe de cada inquilino. Você não poderá adicionar inquilinos adicionais, mas você pode remover inquilinos anteriormente adicionados.
-3. Para utilizar o esquema relevante no Log Analytics para os registos do Office 365, procure **officeActivity**.
+   > Se já tinha ligado vários inquilinos ao Azure Sentinel, utilizando uma versão mais antiga do conector do Office 365 que o suportava, poderá visualizar e modificar os registos que recolhe de cada inquilino. Você não será capaz de adicionar inquilinos adicionais, mas você pode remover inquilinos previamente adicionados.
 
+1. Para consultar os dados de registo do Office 365 no Log Analytics, `OfficeActivity` digite na primeira linha da janela de consulta.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar o Office 365 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+Neste documento, aprendeu a ligar o Office 365 ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começa a detetar ameaças com o Azure Sentinel, utilizando regras [incorporadas](tutorial-detect-threats-built-in.md) ou [personalizadas.](tutorial-detect-threats-custom.md)
 

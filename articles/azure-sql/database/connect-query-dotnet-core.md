@@ -1,6 +1,7 @@
 ---
-title: Utilize o núcleo .NET para consultar
-description: Este tópico mostra-lhe como usar o Núcleo .NET para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL e o consulta utilizando declarações Transact-SQL.
+title: Utilize o núcleo .NET para ligar e consultar uma base de dados
+description: Este tópico mostra-lhe como usar o Núcleo .NET para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL, ou Azure SQL Managed Instance, e consulta-o utilizando declarações Transact-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,18 +11,18 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/29/2019
-ms.openlocfilehash: ff90cf7de3bb83a235f866d8035ccb036e021b83
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 87acf1ab1591dadd5b3ac9c96fa36654bcbb4368
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189587"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267448"
 ---
-# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados na Base de Dados Azure SQL
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.com/net/) e C# para ligar a uma base de dados na Base de Dados Azure SQL. Em seguida, irá executar uma declaração Transact-SQL para consultar dados.
+Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.com/net/) e C# para ligar a uma base de dados. Em seguida, irá executar uma declaração Transact-SQL para consultar dados.
 
 > [!TIP]
 > O módulo seguinte do Microsoft Learn ajuda-o a aprender gratuitamente como [desenvolver e configurar uma aplicação ASP.NET que consulta uma base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
@@ -31,7 +32,7 @@ Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.c
 Para concluir este guia de início rápido, necessita de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma base de dados na Base de Dados Azure SQL. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
+- Uma base de dados. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
 
   || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|
@@ -204,6 +205,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
-- Saiba [como conectar e consultar uma base de dados na Base de Dados Azure SQL utilizando o .NET Framework e o Visual Studio](connect-query-dotnet-visual-studio.md).  
-- Saiba como desenhar a [sua primeira base de dados na Base de Dados Azure SQL utilizando SSMS](design-first-database-tutorial.md) ou [Desenhe uma base de dados na Base de Dados Azure SQL e ligue-se a C# e ADO.NET](design-first-database-csharp-tutorial.md).
+- Saiba [como conectar e consultar a Base de Dados Azure SQL ou Azure SQL Managed Instance, utilizando o .NET Framework and Visual Studio](connect-query-dotnet-visual-studio.md).  
+- Saiba como desenhar a [sua primeira base de dados com SSMS](design-first-database-tutorial.md) ou [Desenhe uma base de dados e conecte-se com C# e ADO.NET](design-first-database-csharp-tutorial.md).
 - Para obter mais informações sobre o .NET, veja a [Documentação .NET](https://docs.microsoft.com/dotnet/).

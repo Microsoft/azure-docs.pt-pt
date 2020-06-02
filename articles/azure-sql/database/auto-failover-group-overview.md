@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: bea815dbf9f0da6c0acda000478203f514b2fb2f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220386"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258577"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -309,8 +309,8 @@ Vamos assumir que o exemplo A é o caso principal, o caso B é o caso secundári
 ### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>Ativar cenários dependentes de objetos das bases de dados do sistema
 As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Para ativar cenários que dependam de objetos a partir das bases de dados do sistema, no caso secundário, certifique-se de criar os mesmos objetos no secundário. Por exemplo, se pretender utilizar os mesmos logins na instância secundária, certifique-se de criá-los com o SID idêntico. 
 ```SQL
--- Sample code to create login on the secondary instance
-CREATE LOGIN foo WITH PASSWORD = 'password', SID = 0x12345
+-- Code to create login on the secondary instance
+CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
 
 

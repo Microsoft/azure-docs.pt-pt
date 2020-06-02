@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 79d29ef228fc27655da30edbeb64abcb01e45d5e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 5edba7f5a7576cac189aa44936f9d8f24f3ffcaf
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237179"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249009"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utilize o Logstash para ligar fontes de dados ao Azure Sentinel
 
@@ -51,7 +51,7 @@ O plugin de saída Azure Sentinel para Logstash envia dados formatados por JSON 
 - [Saiba mais sobre a API Log Analytics REST](https://docs.microsoft.com/rest/api/loganalytics/create-request).
 - [Saiba mais sobre registos personalizados.](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs)
 
-## <a name="installing-and-configuring-the-azure-sentinel-output-plugin-in-logstash"></a>Instalação e configuração do plugin de saída Azure Sentinel em Logstash
+## <a name="deploying-the-azure-sentinel-output-plugin-in-logstash"></a>Implantação do plugin de saída Azure Sentinel em Logstash
 
 1. **Instalação**
 
@@ -112,11 +112,11 @@ O plugin de saída Azure Sentinel para Logstash envia dados formatados por JSON 
 
     1. A partir do menu de navegação Azure Sentinel, clique em **Registos**. No título **tabelas,** expanda a categoria **Registos Personalizados.** Encontre e clique no nome da tabela especificada (com um `_CL` sufixo) na configuração.
 
-        ![Logstash registos personalizados](./media/connect-logstash/logstash-custom-logs-menu.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-menu.png" alt-text="Logstash registos personalizados":::
 
     1. Para ver os registos na tabela, consulte a tabela, usando o nome da mesa como esquema.
 
-        ![Consulta de registos personalizados de logstash](./media/connect-logstash/logstash-custom-logs-query.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Consulta de registos personalizados de logstash":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Monitor de saída plugin registos de auditoria
 

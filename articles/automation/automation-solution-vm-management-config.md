@@ -3,14 +3,14 @@ title: Configurar Azure Automation Start/Stop VMs durante as horas de folga
 description: Este artigo diz como configurar os VMs iniciar/parar durante o período de folga para suportar diferentes casos ou cenários de utilização.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b2f2939c6b7d07e128688f43e98b2a6b29595e1f
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204394"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266721"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar VMs de início/paragem durante as horas fora de horas
 
@@ -46,11 +46,11 @@ Pode ativar a ação contra um grupo de subscrição e recursos, ou direcionar u
 
 1. Executar o **ScheduledStartStop_Parent** runbook com **AÇÃO** definido para **começar**.
 
-2. Adicione uma lista separada de VMs (sem espaços em branco) no campo de parâmetros **VMList.** Uma lista de exemplos é `vm1,vm2,vm3` .
+2. Adicione uma lista separada de VMs (sem espaços) no campo de parâmetros **VMList.** Uma lista de exemplos é `vm1,vm2,vm3` .
 
 3. Desa esta qual é o campo de **parâmetros WHATIF** para True.
 
-4. Configure a `External_ExcludeVMNames` variável com uma lista separada por vms (VM1, VM2, VM3).
+4. Configure a `External_ExcludeVMNames` variável com uma lista separada por vMs (VM1,VM2,VM3), sem espaços entre valores separados por vírgula.
 
 5. Este cenário não honra as `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variáveis e variáveis. Para este cenário, precisa de criar o seu próprio horário de Automação. Para mais informações, consulte [um livro de recortes na Azure Automation](shared-resources/schedules.md).
 
@@ -77,11 +77,11 @@ Num ambiente que inclua dois ou mais componentes em vários VMs suportando uma c
 
 2. Executar o **SequencedStartStop_Parent** runbook com **AÇÃO** definido para **começar**.
 
-3. Adicione uma lista separada de VMs (sem espaços em branco) no campo de parâmetros **VMList.** Uma lista de exemplos é `vm1,vm2,vm3` .
+3. Adicione uma lista separada de VMs (sem espaços) no campo de parâmetros **VMList.** Uma lista de exemplos é `vm1,vm2,vm3` .
 
 4. **Desafasar o WHATIF** para o Verdadeiro. 
 
-5. Configurar a `External_ExcludeVMNames` variável com uma lista separada por vm.
+5. Configure a `External_ExcludeVMNames` variável com uma lista separada por vms, sem espaços entre valores separados por vírgula.
 
 6. Este cenário não honra as `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` variáveis e variáveis. Para este cenário, precisa de criar o seu próprio horário de Automação. Para mais informações, consulte [um livro de recortes na Azure Automation](shared-resources/schedules.md).
 
@@ -128,7 +128,7 @@ Quando executam o **AutoStop_CreateAlert_Parent** runbook, verifica-se que exist
 
 1. Crie um novo [horário](shared-resources/schedules.md#create-a-schedule) e ligue-o ao **AutoStop_CreateAlert_Parent** runbook, adicionando uma lista separada de vm de nomes VM ao `VMList` parâmetro.
 
-2. Opcionalmente, se pretender excluir alguns VMs da ação de autostop, pode adicionar uma lista separada de vm à `External_ExcludeVMNames` variável.
+2. Opcionalmente, se pretender excluir alguns VMs da ação de autostop, pode adicionar uma lista separada de vm de nomes VM (sem espaços) à `External_ExcludeVMNames` variável.
 
 ## <a name="configure-email-notifications"></a>Configurar as notificações por e-mail
 
@@ -159,13 +159,13 @@ A funcionalidade permite-lhe adicionar VMs para serem direcionados ou excluídos
 
 Existem duas formas de garantir que um VM seja incluído quando a funcionalidade é executado:
 
-* Cada um dos livros de bordo dos [pais](automation-solution-vm-management.md#runbooks) da funcionalidade tem um `VMList` parâmetro. Pode passar uma lista separada de vm para este parâmetro ao agendar o livro de aplicação dos pais apropriado para a sua situação, e estes VMs serão incluídos quando a funcionalidade for executada.
+* Cada um dos livros de bordo dos [pais](automation-solution-vm-management.md#runbooks) da funcionalidade tem um `VMList` parâmetro. Pode passar uma lista separada de vm de nomes VM (sem espaços) para este parâmetro ao agendar o livro de aplicação dos pais apropriado para a sua situação, e estes VMs serão incluídos quando a funcionalidade for executada.
 
 * Para selecionar vários VMs, definir `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` com os nomes de grupo de recursos que contêm os VMs que pretende iniciar ou parar. Também pode definir as variáveis para um valor de `*` ter a funcionalidade executada contra todos os grupos de recursos na subscrição.
 
 ### <a name="exclude-a-vm"></a>Excluir uma VM
 
-Para excluir um VM de VM de Stop/start VMs durante o horário de folga, pode adicionar o seu nome à `External_ExcludeVMNames` variável. Esta variável é uma lista separada por vms específicos para excluir da funcionalidade. Esta lista está limitada a 140 VMs. Se adicionar mais de 140 VMs a esta lista, os VMs que estão programados para serem excluídos podem ser inadvertidamente iniciados ou parados.
+Para excluir um VM de VM de Stop/start VMs durante o horário de folga, pode adicionar o seu nome à `External_ExcludeVMNames` variável. Esta variável é uma lista separada por vms específicos (sem espaços) para excluir da funcionalidade. Esta lista está limitada a 140 VMs. Se adicionar mais de 140 VMs a esta lista, os VMs que estão programados para serem excluídos podem ser inadvertidamente iniciados ou parados.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modifique os horários de arranque e de paragem
 

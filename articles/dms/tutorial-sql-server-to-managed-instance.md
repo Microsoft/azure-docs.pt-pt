@@ -9,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 28be6c46f3d914d76ed14dd5d4ac61a4dc5aee68
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194261"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247449"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance offline usando DMS
 
@@ -76,6 +76,9 @@ Para concluir este tutorial, precisa de:
 - Tome nota de um utilizador do Windows (e da palavra-passe) que tenha privilégio de controlo total na partilha de rede que criou anteriormente. O Serviço de Migração da Base de Dados Azure personifica a credencial do utilizador para enviar os ficheiros de cópia de segurança para o contentor de armazenamento Azure para restaurar o funcionamento.
 - Crie um contentor de blobs e obtenha o URI da SAS com os passos no artigo [Manage Azure Blob Storage resources with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) (Gerir recursos do Armazenamento de Blobs do Azure com o Explorador de Armazenamento). Confirme que seleciona todas as permissões (Leitura, Escrita, Eliminação, Listagem) na janela da política quando criar o URI da SAS. Este detalhe fornece ao Serviço de Migração da Base de Dados de Azure acesso ao seu contentor de conta de armazenamento para o upload dos ficheiros de backup utilizados para bases de dados migratórias para a SQL Managed Instance.
 
+    > [!NOTE]
+    > O Serviço de Migração de Bases de Dados Azure não suporta a utilização de um token SAS de nível de conta ao configurar as definições da Conta de Armazenamento durante a etapa [configurações de configuração de configurações de configuração.](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#configure-migration-settings)
+    
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
 1. Inicie sessão no portal do Azure, selecione **Todos os serviços** e **Subscrições**.
@@ -201,7 +204,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
     |**Partilha de localização na rede** | A rede SMB local partilha que o Azure Database Migration Service pode levar as cópias de dados de base de dados de origem para. A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”.|
     |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O Serviço de Migração da Base de Dados Azure personificará a credencial do utilizador para enviar os ficheiros de cópia de segurança para o contentor de armazenamento Azure para restaurar o funcionamento. Se estiverem selecionadas bases de dados ativadas para TDE para migração, o utilizador do Windows acima tem de ser a conta de administrador incorporada e o [Controlo de Conta de Utilizador](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) tem de ser desativado, para que o Azure Database Migration Service carregue e elimine os ficheiros de certificado. |
     |**Palavra-passe** | A palavra-passe do utilizador. |
-    |**Definições da conta de armazenamento** | O SAS URI que fornece ao Serviço de Migração da Base de Dados de Azure acesso ao seu contentor de conta de armazenamento para o qual o serviço envia os ficheiros de backup e que é utilizado para migrar bases de dados para SQL Managed Instance. Veja [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) (Saiba como obter o URI da SAS para o contentor de blobs).|
+    |**Definições da conta de armazenamento** | O SAS URI que fornece ao Serviço de Migração da Base de Dados de Azure acesso ao seu contentor de conta de armazenamento para o qual o serviço envia os ficheiros de backup e que é utilizado para migrar bases de dados para SQL Managed Instance. Veja [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) (Saiba como obter o URI da SAS para o contentor de blobs). Este SAS URI deve ser para o recipiente blob, não para a conta de armazenamento.|
     |**Definições de TDE** | Se estiver a migrar as bases de dados de origem com encriptação de dados transparente (TDE) ativada, precisa de ter privilégios de escrita no exemplo de gestão sql alvo.  Selecione a subscrição na qual o SQL Managed Instance adestamos no menu suspenso.  Selecione a **Instância Gerida da Base de Dados SQL do Azure** de destino no menu pendente. |
 
     ![Configurar as Definições da Migração](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)

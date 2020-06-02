@@ -1,35 +1,35 @@
 ---
 title: Back up VMs Azure usando REST API
-description: Neste artigo, aprenda a configurar, iniciar e gerir operações de backup do Azure VM Backup utilizando a Rest API.
+description: Neste artigo, aprenda a configurar, iniciar e gerir operações de backup da Azure VM Backup utilizando a API REST.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248167"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248690"
 ---
-# <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup num Azure VM utilizando o Azure Backup via REST API
+# <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
 
-Este artigo descreve como gerir backups para um Azure VM usando O Backup Azure via REST API. Configure a proteção pela primeira vez para um VM Azure anteriormente desprotegido, desencadeie uma cópia de segurança a pedido de um VM Azure protegido e modifique as propriedades de backup de um VM apoiado através da API REST, como explicado aqui.
+Este artigo descreve como gerir backups para um Azure VM usando Azure Backup via REST API. Proteção de configuração pela primeira vez para um Azure VM anteriormente desprotegido, desencadeie uma cópia de segurança a pedido de um Azure VM protegido e modifique propriedades de backup de um VM apoiado através da API REST, como explicado aqui.
 
-Consulte a criação de [abóbadas](backup-azure-arm-userestapi-createorupdatevault.md) e [crie](backup-azure-arm-userestapi-createorupdatepolicy.md) tutoriais de API DE REPOUSO para criar novos cofres e políticas.
+Consulte para [criar cofre](backup-azure-arm-userestapi-createorupdatevault.md) e criar tutoriais de API [de política](backup-azure-arm-userestapi-createorupdatepolicy.md) REST para criar novos cofres e políticas.
 
-Vamos assumir que pretende proteger um VM "testVM" no âmbito de um grupo de recursos "testRG" para um cofre de serviços de recuperação "testVault", presente no grupo de recursos "testVaultRG", com a política predefinida (denominada "DefaultPolicy").
+Vamos supor que pretende proteger um VM "testVM" sob um grupo de recursos "testRG" para um cofre de Serviços de Recuperação "testVault", presente no grupo de recursos "testVaultRG", com a política padrão (denominada "DefaultPolicy").
 
-## <a name="configure-backup-for-an-unprotected-azure-vm-using-rest-api"></a>Configure a cópia de segurança para um Azure VM desprotegido utilizando a Rest API
+## <a name="configure-backup-for-an-unprotected-azure-vm-using-rest-api"></a>Configure backup para um VM Azure desprotegido usando REST API
 
 ### <a name="discover-unprotected-azure-vms"></a>Descubra VMs Azure desprotegidos
 
-Primeiro, o cofre deve ser capaz de identificar o VM Azure. Isto é acionado com a operação de [atualização](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Trata-se de uma operação *postais* assíncronas que garante que o cofre obtém a mais recente lista de todos os VM desprotegidos na subscrição atual e 'caches' deles. Uma vez que o VM esteja 'cached', os serviços de recuperação poderão aceder ao VM e protegê-lo.
+Primeiro, o cofre deve ser capaz de identificar o Azure VM. Isto é acionado utilizando a [operação de atualização](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). É uma operação *POST* assíncronea que garante que o cofre recebe a mais recente lista de todos os VM desprotegidos na subscrição atual e 'caches' neles. Uma vez que o VM é 'cached', os serviços de recuperação poderão aceder ao VM e protegê-lo.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-O POST `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}`tem, `{fabricName}` parâmetros. O `{fabricName}` é "Azure". De acordo com `{vaultName}` o nosso exemplo, é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
+O POST URI `{subscriptionId}` `{vaultName}` tem, `{vaultresourceGroupName}` , `{fabricName}` parâmetros. O `{fabricName}` é "Azure". De acordo com o nosso exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Dado que todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -37,18 +37,18 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Respostas
 
-A operação "atualização" é uma [operação assíncrona.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+A operação "refresh" é uma [operação assíncronea.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada e depois 200 (OK) quando essa operação estiver concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|204 Sem Conteúdo     |         |  OK sem conteúdo devolvido      |
-|202 Aceite     |         |     Aceite    |
+|204 Sem Conteúdo     |         |  OK sem nenhum conteúdo devolvido      |
+|202 Aceito     |         |     Aceite    |
 
 ##### <a name="example-responses"></a>Respostas de exemplo
 
-Uma vez apresentado o pedido *do POST,* uma resposta de 202 (Aceite) é devolvida.
+Uma vez apresentado o pedido *do CORREIO,* é devolvida uma resposta 202 (Aceite).
 
 ```http
 HTTP/1.1 202 Accepted
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selecionando o Azure VM relevante
 
- Pode confirmar que o "cache" é feito através da listagem de [todos os itens protegidos](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) ao abrigo da subscrição e localizar o VM desejado na resposta. [A resposta desta operação](#example-responses-1) também lhe dá informações sobre como os Serviços de Recuperação identificam um VM.  Uma vez familiarizado com o padrão, pode saltar este passo e proceder diretamente à [proteção.](#enabling-protection-for-the-azure-vm)
+ Pode confirmar que o "caching" é feito [listando todos os itens protegidos](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) sob a subscrição e localizar o VM desejado na resposta. [A resposta desta operação](#example-responses-1) também lhe dá informações sobre como os Serviços de Recuperação identificam um VM.  Uma vez que esteja familiarizado com o padrão, pode saltar este passo e proceder diretamente à [proteção ativa.](#enabling-protection-for-the-azure-vm)
 
 Esta operação é uma operação *GET.*
 
@@ -104,13 +104,13 @@ O *GET* URI tem todos os parâmetros necessários. Não é necessário nenhum co
 
 #### <a name="responses"></a><a name="responses-1"></a>Respostas
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     | [Lista de Recursos DeItemProtectable de Carga de Carga](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
 #### <a name="example-responses"></a><a name="example-responses-1"></a>Respostas de exemplo
 
-Uma vez que o pedido *GET* é submetido, uma resposta de 200 (OK) é devolvida.
+Uma vez que o pedido *GET* é apresentado, uma resposta de 200 (OK) é devolvida.
 
 ```http
 HTTP/1.1 200 OK
@@ -147,30 +147,30 @@ X-Powered-By: ASP.NET
 ```
 
 > [!TIP]
-> O número de valores numa resposta *GET* é limitado a 200 para uma 'página'. Utilize o campo 'nextLink' para obter o URL para o próximo conjunto de respostas.
+> O número de valores numa resposta *GET* está limitado a 200 para uma 'página'. Utilize o campo 'nextLink' para obter o URL para o próximo conjunto de respostas.
 
-A resposta contém a lista de todos os VMs Azure desprotegidos e cada um `{value}` contém todas as informações necessárias pelo Serviço de Recuperação do Azure para configurar a cópia de segurança. Para configurar a cópia `{name}` de `{virtualMachineId}` segurança, `{properties}` note o campo e o campo na secção. Construa duas variáveis a partir destes valores de campo, como mencionado abaixo.
+A resposta contém a lista de todos os VMs Azure desprotegidos e cada um `{value}` contém todas as informações necessárias pelo Serviço de Recuperação Azure para configurar a cópia de segurança. Para configurar a cópia de segurança, observe o `{name}` campo e o campo na `{virtualMachineId}` `{properties}` secção. Construa duas variáveis a partir destes valores de campo, como mencionado abaixo.
 
-- nome do recipiente = "iaasvmcontainer;" +`{name}`
+- containerName = "iaasvmcontainer;" +`{name}`
 - protectedItemName = "vm;" +`{name}`
 - `{virtualMachineId}`é usado mais tarde [no corpo de pedido](#example-request-body)
 
-No exemplo, os valores acima traduzidos para:
+No exemplo, os valores acima traduzidos traduzem-se em:
 
-- nome do recipiente = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
 - protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
-### <a name="enabling-protection-for-the-azure-vm"></a>Habilitar a proteção para o Azure VM
+### <a name="enabling-protection-for-the-azure-vm"></a>Habilitação de proteção para o VM Azure
 
-Depois de o VM relevante ser "cached" e "identificado", selecione a política a proteger. Para saber mais sobre as políticas existentes no cofre, consulte a [lista Política API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Em [seguida,](/rest/api/backup/protectionpolicies/get) selecione a política relevante referindo-se ao nome da apólice. Para criar políticas, consulte a criação de [tutoriais políticos.](backup-azure-arm-userestapi-createorupdatepolicy.md) "DefaultPolicy" é selecionado no exemplo abaixo.
+Depois de o VM relevante ser "cached" e "identificado", selecione a política para proteger. Para saber mais sobre as políticas existentes no cofre, consulte a [Lista API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list)política . Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) referindo-se ao nome da apólice. Para criar políticas, consulte a [criação de tutoriais políticos.](backup-azure-arm-userestapi-createorupdatepolicy.md) "DefaultPolicy" é selecionado no exemplo abaixo.
 
-Permitir a proteção é uma operação *put* assíncrona que cria um "item protegido".
+Permitir a proteção é uma operação *PUT* assíncronea que cria um "item protegido".
 
 ```http
 https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Os `{containerName}` `{protectedItemName}` e são construídos acima. O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
+Os `{containerName}` e `{protectedItemName}` são construídos acima. O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
 
 ```http
 PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
@@ -178,13 +178,13 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### <a name="create-the-request-body"></a>Criar o corpo de pedido
 
-Para criar um item protegido, seguem-se os componentes do organismo de pedido.
+Para criar um item protegido, seguem-se os componentes do corpo de pedido.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|propriedades     | Item AzureIaASVMProtectedItem        |Propriedades de recursos ProtegidosItem         |
+|propriedades     | AzureIaaSVMProtectedItem        |Propriedades de recursos ProtectEdItem         |
 
-Para a lista completa de definições do organismo de pedido e outros detalhes, consulte a criação do [documento rest API do artigo protegido](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
+Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte a [criação do documento API do artigo de proteção](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
 
 ##### <a name="example-request-body"></a>Corpo de pedido de exemplo
 
@@ -200,22 +200,22 @@ O seguinte órgão de pedido define as propriedades necessárias para criar um i
 }
 ```
 
-Estes `{sourceResourceId}` são `{virtualMachineId}` os acima mencionados da [resposta dos itens protegidos da lista.](#example-responses-1)
+O `{sourceResourceId}` que é mencionado acima da resposta de `{virtualMachineId}` [itens protegidos da lista](#example-responses-1).
 
 #### <a name="responses"></a>Respostas
 
-A criação de um item protegido é uma [operação assíncrona.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+A criação de um item protegido é uma [operação assíncronea.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada e depois 200 (OK) quando essa operação estiver concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 Aceite     |         |     Aceite    |
+|200 OK     |    [ProtectEdItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|202 Aceito     |         |     Aceite    |
 
 ##### <a name="example-responses"></a>Respostas de exemplo
 
-Uma vez apresentado o pedido *PUT* para criação ou atualização de itens protegidos, a resposta inicial é 202 (Aceite) com um cabeçalho de localização ou cabeçalho Azure-assync.
+Uma vez que envie o pedido *PUT* para criação ou atualização de artigos protegidos, a resposta inicial é 202 (Aceite) com um cabeçalho de localização ou cabeçalho Azure-async.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -235,13 +235,13 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante utilizando o cabeçalho de localização ou o cabeçalho da Operação Azure-Asynccom um simples comando *GET.*
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET.*
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 ```
 
-Uma vez concluída a operação, devolve 200 (OK) com o teor de item protegido no organismo de resposta.
+Uma vez concluída a operação, devolve 200 (OK) com o conteúdo do artigo protegido no organismo de resposta.
 
 ```json
 {
@@ -272,11 +272,11 @@ Uma vez concluída a operação, devolve 200 (OK) com o teor de item protegido n
 }
 ```
 
-Isto confirma que a proteção está ativada para o VM e que o primeiro backup será acionado de acordo com o calendário de apólices.
+Isto confirma que a proteção está ativada para o VM e que o primeiro backup será acionado de acordo com o calendário da política.
 
-## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Desencadear um backup a pedido para um VM Azure protegido
+## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Desencadear uma cópia de segurança a pedido de um Azure VM protegido
 
-Uma vez que um VM Azure é configurado para backup, os backups acontecem de acordo com o calendário de política. Pode esperar pelo primeiro backup agendado ou acionar um reforço a qualquer momento. A retenção de cópias de segurança a pedido é separada da retenção da política de backup e pode ser especificada para uma data-data específica. Se não for especificado, presume-se que seja a 30 dias do dia do gatilho do reforço a pedido.
+Uma vez que um Azure VM é configurado para cópia de segurança, as cópias de segurança acontecem de acordo com o calendário da apólice. Pode esperar pelo primeiro backup programado ou desencadear uma cópia de segurança a pedido a qualquer momento. A retenção para cópias de segurança a pedido é separada da retenção da política de backup e pode ser especificada para uma determinada data. Se não for especificado, presume-se que esteja a 30 dias do dia do desencadeamento do backup a pedido.
 
 Desencadear uma cópia de segurança a pedido é uma operação *POST.*
 
@@ -284,7 +284,7 @@ Desencadear uma cópia de segurança a pedido é uma operação *POST.*
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-Os `{containerName}` `{protectedItemName}` e são construídos [acima.](#responses-1) O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
+Os `{containerName}` e `{protectedItemName}` são construídos [acima.](#responses-1) O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
@@ -292,17 +292,17 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 ### <a name="create-the-request-body"></a>Criar o corpo de pedido
 
-Para desencadear uma cópia de segurança a pedido, seguem-se os componentes do organismo de pedido.
+Para desencadear uma cópia de segurança a pedido, seguem-se os componentes do corpo de pedido.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|propriedades     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
+|propriedades     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource propriedades         |
 
-Para obter a lista completa de definições do organismo de pedido e outros detalhes, consulte o gatilho de cópias de [segurança para itens protegidos REST API documento](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte as [cópias de segurança para itens protegidos REST Documento API](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
 
 #### <a name="example-request-body"></a>Corpo de pedido de exemplo
 
-O seguinte órgão de pedido define as propriedades necessárias para desencadear uma cópia de segurança para um item protegido. Se a retenção não for especificada, será retida durante 30 dias a partir do momento do gatilho do trabalho de reserva.
+O seguinte órgão de pedido define as propriedades necessárias para acionar uma cópia de segurança para um item protegido. Se a retenção não for especificada, será mantida por 30 dias a partir do momento do desencadeamento do trabalho de reserva.
 
 ```json
 {
@@ -315,17 +315,17 @@ O seguinte órgão de pedido define as propriedades necessárias para desencadea
 
 ### <a name="responses"></a>Respostas
 
-Desencadear uma cópia de segurança a pedido é uma [operação assíncrona.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+Desencadear uma cópia de segurança a pedido é uma [operação assíncronea.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada e depois 200 (OK) quando essa operação estiver concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|202 Aceite     |         |     Aceite    |
+|202 Aceito     |         |     Aceite    |
 
 #### <a name="example-responses"></a><a name="example-responses-3"></a>Respostas de exemplo
 
-Uma vez apresentado o pedido *de post* para um backup a pedido, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou cabeçalho Azure-async.
+Uma vez que envie o pedido *DEM* para um backup a pedido, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou cabeçalho Azure-async.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -345,13 +345,13 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante utilizando o cabeçalho de localização ou o cabeçalho da Operação Azure-Asynccom um simples comando *GET.*
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET.*
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 ```
 
-Uma vez concluída a operação, devolve 200 (OK) com a identificação do trabalho de backup resultante no organismo de resposta.
+Uma vez concluída a operação, retorna 200 (OK) com o ID do trabalho de backup resultante no organismo de resposta.
 
 ```json
 HTTP/1.1 200 OK
@@ -381,13 +381,13 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Uma vez que o trabalho de reserva é uma operação de longa duração, tem de ser rastreado, tal como explicado nos trabalhos de [monitorização utilizando o documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Uma vez que o trabalho de backup é uma operação de longa duração, tem de ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="modify-the-backup-configuration-for-a-protected-azure-vm"></a>Modificar a configuração de backup para um VM Azure protegido
+## <a name="modify-the-backup-configuration-for-a-protected-azure-vm"></a>Modifique a configuração de backup para um Azure VM protegido
 
 ### <a name="changing-the-policy-of-protection"></a>Alteração da política de proteção
 
-Para alterar a política com a qual o VM está protegido, pode utilizar o mesmo formato que [permitir a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a nova identificação [política no órgão de pedido](#example-request-body) e submeter o pedido. Por exemplo: Para alterar a política de testeVM de 'DefaultPolicy' para 'ProdPolicy', fornecer o ID 'ProdPolicy' no organismo de pedido.
+Para alterar a política com a qual o VM está protegido, pode utilizar o mesmo formato [que permitir a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a nova identificação de política [no órgão de pedido](#example-request-body) e apresentar o pedido. Por exemplo: Para alterar a política de testVM de 'DefaultPolicy' para 'ProdPolicy', forneça o ID 'ProdPolicy' no organismo de pedido.
 
 ```http
 {
@@ -399,11 +399,11 @@ Para alterar a política com a qual o VM está protegido, pode utilizar o mesmo 
 }
 ```
 
-A resposta seguirá o mesmo formato que mencionado [para permitir a proteção](#responses-2)
+A resposta seguirá o mesmo formato mencionado [para permitir a proteção](#responses-2)
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Parar a proteção, mas reter os dados existentes
 
-Para remover a proteção de um VM protegido, mas reter os dados já apoiados, remova a política no órgão de pedido e submeta o pedido. Uma vez removida a associação com a política, os backups já não são desencadeados e não são criados novos pontos de recuperação.
+Para remover a proteção de um VM protegido, mas reter os dados já apoiados, remova a política no órgão de pedido e submeta o pedido. Uma vez que a associação com a política é removida, os backups já não são desencadeados e não são criados novos pontos de recuperação.
 
 ```http
 {
@@ -415,11 +415,11 @@ Para remover a proteção de um VM protegido, mas reter os dados já apoiados, r
 }
 ```
 
-A resposta seguirá o mesmo formato que mencionado [para desencadear uma cópia de segurança a pedido.](#example-responses-3) O trabalho resultante deve ser acompanhado, tal como explicado nos trabalhos de [controlo utilizando o documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+A resposta seguirá o mesmo formato mencionado [para desencadear uma cópia de segurança a pedido](#example-responses-3). O trabalho resultante deve ser acompanhado, tal como explicado nos postos de controlo, utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-### <a name="stop-protection-and-delete-data"></a>Parar a proteção e eliminar dados
+### <a name="stop-protection-and-delete-data"></a>Parar a proteção e apagar dados
 
-Para remover a proteção num VM protegido e eliminar também os dados de cópia de segurança, execute uma operação de eliminação conforme descrito [aqui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Para remover a proteção de um VM protegido e eliminar os dados de cópia de segurança também, execute uma operação de eliminação conforme detalhado [aqui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
 Parar a proteção e eliminar dados é uma operação *DELETE.*
 
@@ -427,7 +427,7 @@ Parar a proteção e eliminar dados é uma operação *DELETE.*
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Os `{containerName}` `{protectedItemName}` e são construídos [acima.](#responses-1) `{fabricName}`é "Azure". Para o nosso exemplo, isto traduz-se em:
+Os `{containerName}` e `{protectedItemName}` são construídos [acima.](#responses-1) `{fabricName}`é "Azure". Para o nosso exemplo, isto traduz-se em:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
@@ -435,23 +435,23 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 #### <a name="responses"></a><a name="responses-2"></a>Respostas
 
-*A* proteção DELETE é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+*A* proteção DELETE é uma [operação assíncronea](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
-Devolve duas respostas: 202 (Aceite) quando outra operação é criada e depois 204 (NoContent) quando essa operação estiver concluída.
+Devolve duas respostas: 202 (Aceite) quando outra operação é criada e, em seguida, 204 (NoContent) quando essa operação estiver concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
-|202 Aceite     |         |     Aceite    |
+|202 Aceito     |         |     Aceite    |
 
 > [!IMPORTANT]
-> Para proteger contra cenários de eliminação acidental, existe uma [funcionalidade de eliminação suave disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de eliminação suave do cofre estiver programado para ativar, então a operação de eliminação NÃO eliminará imediatamente os dados. Será mantido por 14 dias e depois permanentemente purgado. O cliente não é cobrado pelo armazenamento para este período de 14 dias. Para desfazer a operação de eliminação, consulte a [secção de desapagamento .](#undo-the-stop-protection-and-delete-data)
+> Para proteger contra cenários de eliminação acidental, existe uma [funcionalidade de eliminação suave disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de eliminação suave do cofre estiver definido para ativar, a operação de eliminação NÃO apagará imediatamente os dados. Será mantido por 14 dias e depois permanentemente purgado. O cliente não é cobrado para armazenamento durante este período de 14 dias. Para desfazer a operação de eliminação, consulte a [secção de eliminação](#undo-the-stop-protection-and-delete-data).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Desfazer a proteção stop e apagar dados
+### <a name="undo-the-stop-protection-and-delete-data"></a>Desfazer a proteção de stop e eliminar dados
 
-Desfazer a eliminação acidental é semelhante a criar o item de reserva. Depois de desfazer a eliminação, o item é retido, mas não são acionados futuros backups.
+Desfazer a eliminação acidental é semelhante à criação do item de reserva. Depois de desfazer a eliminação, o item é retido, mas não são acionados futuros backups.
 
-A eliminação do desfazer é uma operação *PUT* muito semelhante à [alteração da política](#changing-the-policy-of-protection) e/ou à [proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a intenção de desfazer a eliminação com a variável *isRehydrate* no órgão de [pedido](#example-request-body) e submeter o pedido. Por exemplo: Para desfazer a supressão do testeVM, deve ser utilizado o seguinte organismo de pedido.
+A eliminação de desfazer é uma operação *PUT* muito semelhante a [alterar a política](#changing-the-policy-of-protection) e/ou permitir a [proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a intenção de desfazer a supressão com a variável *é Reidratar* no [órgão de pedido](#example-request-body) e apresentar o pedido. Por exemplo: Para desfazer a supressão para o testVM, deve ser utilizado o seguinte organismo de pedido.
 
 ```http
 {
@@ -464,13 +464,13 @@ A eliminação do desfazer é uma operação *PUT* muito semelhante à [alteraç
 }
 ```
 
-A resposta seguirá o mesmo formato que mencionado [para desencadear uma cópia de segurança a pedido.](#example-responses-3) O trabalho resultante deve ser acompanhado, tal como explicado nos trabalhos de [controlo utilizando o documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+A resposta seguirá o mesmo formato mencionado [para desencadear uma cópia de segurança a pedido](#example-responses-3). O trabalho resultante deve ser acompanhado, tal como explicado nos postos de controlo, utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Restaurar os dados de uma cópia de segurança da máquina Azure Virtual.](backup-azure-arm-userestapi-restoreazurevms.md)
+[Restaurar os dados de uma cópia de segurança da máquina Virtual Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 
-Para obter mais informações sobre as APIs DE REPOUSO DE Backup Azure, consulte os seguintes documentos:
+Para obter mais informações sobre as APIs de backup Azure, consulte os seguintes documentos:
 
-- [Prestador de serviços de recuperação azure REST API](/rest/api/recoveryservices/)
+- [Prestador de Serviços de Recuperação Azure REST API](/rest/api/recoveryservices/)
 - [Introdução à API REST do Azure](/rest/api/azure/)
