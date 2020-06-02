@@ -123,6 +123,8 @@
               href: howto-customize-ui.md
             - name: Exportar a aplicação
               href: howto-use-app-templates.md
+            - name: Monitorizar o estado de funcionamento de aplicações
+              href: howto-monitor-application-health.md
         - name: Gerir a partir de outros locais
           items:
             - name: Gerir a partir do portal do Azure
