@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 06/01/2020
 ms.author: victorh
-ms.openlocfilehash: d9afb93611712109d5e8fcc8a686f4f9196f3396
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204043"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267703"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Firewall Azure forçou o túnel
 
@@ -31,6 +31,10 @@ Dentro desta configuração, o *AzureFirewallSubnet* pode agora incluir rotas pa
 Por exemplo, pode criar uma rota padrão na *AzureFirewallSubnet* com o seu gateway VPN como o próximo salto para chegar ao seu dispositivo no local. Ou pode permitir a **propagação da rota de gateway de rede virtual** para obter as rotas apropriadas para a rede no local.
 
 ![Propagação da rota do gateway de rede virtual](media/forced-tunneling/route-propagation.png)
+
+Se ativar o túnel forçado, o tráfego ligado à Internet é SNATed para um dos endereços IP privados de firewall em AzureFirewallSubnet, escondendo a fonte da sua firewall no local.
+
+Se a sua organização utilizar um intervalo de endereços IP público para redes privadas, o Azure Firewall SNATs faz o tráfego para um dos endereços IP privados de firewall em AzureFirewallSubnet. No entanto, pode configurar o Azure Firewall para **não** SNAT o seu intervalo de endereço IP público. Para obter mais informações, consulte [as gamas de endereços IP privados Azure Firewall SNAT](snat-private-range.md).
 
 Uma vez configurar o Azure Firewall para suportar o túnel forçado, não pode desfazer a configuração. Se remover todas as outras configurações IP na sua firewall, a configuração IP de gestão também é removida e a firewall élocada. O endereço IP público atribuído à configuração IP de gestão não pode ser removido, mas pode atribuir um endereço IP público diferente.
 

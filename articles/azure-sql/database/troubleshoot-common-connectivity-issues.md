@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 53bfe029038e9bf2a85cc8c571417be462fd4502
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188042"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266972"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -357,7 +357,7 @@ No espaço de **nomes Microsoft.Practices.EnterpriseLibrary.TransientFaultHandli
 Aqui estão algumas ligações com informações sobre o EntLib60:
 
 - Download gratuito de livros: [Guia do Desenvolvedor para a Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
-- Boas práticas: [A orientação geral da retry](/architecture/best-practices/transient-faults) tem uma excelente discussão aprofundada sobre a lógica de retíria.
+- Boas práticas: [A orientação geral da retry](/azure/architecture/best-practices/transient-faults) tem uma excelente discussão aprofundada sobre a lógica de retíria.
 - Descarregamento nuGet: [Enterprise Library - Transiente Falha no Bloco de Aplicação 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>

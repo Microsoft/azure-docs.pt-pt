@@ -1,7 +1,7 @@
 ---
 title: Use código de estúdio visual para ligar e consultar
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Saiba como ligar-se à Base de Dados Azure SQL ou a uma sql Managed Instance on Azure utilizando o Código do Estúdio Visual. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
+description: Saiba como ligar-se à Base de Dados Azure SQL ou à SQL Managed Instance on Azure utilizando o Código do Estúdio Visual. Em seguida, execute declarações do Transact-SQL (T-SQL) para consultar e editar dados.
 keywords: ligar à base de dados SQL
 services: sql-database
 ms.service: sql-database
@@ -12,24 +12,24 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: ed7cd7db24e26ea8705628916e31ce95b5c17a6e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189023"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267261"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Quickstart: Use o Código do Estúdio Visual para ligar e consultar 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Suporta extensões, incluindo a [extensão de mssql](https://aka.ms/mssql-marketplace) para consulta de uma instância do SQL Server, Base de Dados Azure SQL, uma Instância Gerida Azure SQL e uma base de dados em Azure Synapse Analytics. Neste arranque rápido, utilizará o Código do Estúdio Visual para ligar à Base de Dados Azure SQL ou à Instância Gerida Azure SQL e, em seguida, executará declarações Transact-SQL para consultar, inserir, atualizar e apagar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma base de dados na Base de Dados Azure SQL ou uma SqL Managed Instance. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
+- Uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
 
-  || SQL Database | Instância Gerida do SQL |
+  || Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
   |:--- |:--- |:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

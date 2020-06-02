@@ -1,6 +1,7 @@
 ---
 title: Use Ir para consulta
-description: Use Go para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL e use declarações Transact-SQL para consultar e modificar dados.
+description: Use Go para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance, e executa consultas.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -8,27 +9,27 @@ ms.custom: sqldbrb=2 
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: craigg
+ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: d9cb49fdc425028e718216e0127821933fcc3b9f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1dd92a8178b7da475e44298f09d696ab1907bc0f
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189539"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267414"
 ---
-# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use Golang para consultar uma base de dados na Base de Dados Azure SQL
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Golang para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Neste arranque rápido, utilizará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para se ligar a uma base de dados na Base de Dados Azure SQL. Em seguida, executará declarações Transact-SQL para consultar e modificar dados. [Golang](https://golang.org/) é uma linguagem de programação de código aberto que facilita a construção de software simples, fiável e eficiente.  
+Neste arranque rápido, utilizará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para ligar a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance. Em seguida, executará declarações Transact-SQL para consultar e modificar dados. [Golang](https://golang.org/) é uma linguagem de programação de código aberto que facilita a construção de software simples, fiável e eficiente.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, necessita de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma base de dados na Base de Dados Azure SQL. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
+- Uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada. Pode utilizar um destes quickstarts para criar uma base de dados:
 
   || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|
@@ -52,7 +53,7 @@ Para concluir este guia de início rápido, necessita de:
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 
-Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
+Obtenha a informação de ligação que precisa para ligar à base de dados. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d3b337a697151f7f9ae1e3a1fb75795068da9e68
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: f6909acc5e4d4f56fb301a225f6dd854ba6f21e4
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204978"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259563"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -389,7 +389,7 @@ Para obter mais informações, consulte [FILESTREAM](/sql/relational-databases/b
 
 Servidores ligados em SQL Managed Instances suportam um número limitado de alvos:
 
-- Os alvos suportados são as instâncias geridas sql, base de dados SQL e os casos do SQL Server. 
+- Os alvos suportados são sql Gestd Instance, SQL Database, Azure Synapse SQL e SQL Server. 
 - Os servidores ligados não suportam transações writable distribuídas (MS DTC).
 - Os alvos que não são suportados são ficheiros, Serviços de Análise e outros RDBMS. Tente utilizar a importação de CSV nativa do Azure Blob Storage utilizando `BULK INSERT` ou como alternativa para a importação de `OPENROWSET` ficheiros.
 

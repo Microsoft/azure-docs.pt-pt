@@ -221,6 +221,8 @@
           href: resource-manager-exceptions.md
 - name: Referência
   items:
+    - name: SDKs
+      href: sdks.md
     - name: .NET
       items:
         - name: Biblioteca de cliente
@@ -271,6 +273,12 @@
               href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
         - name: Biblioteca de gestão
           href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
+    - name: Ir
+      items:
+        - name: Biblioteca de cliente
+          href: 'https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc'
+        - name: Biblioteca de gestão
+          href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc'
     - name: REST
       href: /rest/api/eventhub
     - name: Modelo do Resource Manager

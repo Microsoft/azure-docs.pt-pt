@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2e3a08521e503a9f73bdccca3a125c7d2416b534
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 13cafdcd7ac4b7f46bd5f7c3b007372228234ba6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219663"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267805"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,13 +37,11 @@ Para utilizar o Backup Automatizado v2, reveja os seguintes pré-requisitos:
 
 **Sistema operativo:**
 
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 R2 ou posterior
 
 **Versão/edição do SQL Server:**
 
-- SQL Server 2016: Developer, Standard ou Enterprise
-- SQL Server 2017: Developer, Standard ou Enterprise
+- SQL Server 2016 ou superior: Developer, Standard ou Enterprise
 
 > [!IMPORTANT]
 > Cópia de segurança automática v2 funciona com SQL Server 2016 ou mais tarde. Se estiver a utilizar o SQL Server 2014, pode utilizar o Backup Automático v1 para fazer backup das suas bases de dados. Para obter mais informações, consulte [cópia de segurança automatizada para máquinas virtuais SQL Server 2014 Azure (VMs)](automated-backup-sql-2014.md).

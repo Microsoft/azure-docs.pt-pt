@@ -1,5 +1,5 @@
 ---
-title: Dados personalizados e Máquinas Virtuais Azure
+title: Dados personalizados e máquinas virtuais Azure
 description: Detalhes sobre a utilização de dados personalizados e Cloud-Init em Máquinas Virtuais Azure
 services: virtual-machines
 author: mimckitt
@@ -7,24 +7,24 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759132"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259121"
 ---
-# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dados personalizados e Cloud-Init em Máquinas Virtuais Azure
+# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dados personalizados e Cloud-Init em Azure Virtual Machines
 
 ## <a name="what-is-custom-data"></a>O que são dados personalizados?
 
-Os clientes perguntam frequentemente como podem injetar um script ou outros metadados numa máquina virtual do Microsoft Azure no momento da provisionio.  Noutras nuvens, este conceito é muitas vezes referido como dados do utilizador.  No Microsoft Azure, temos uma funcionalidade semelhante chamada dados personalizados. 
+Os clientes perguntam frequentemente como podem injetar um script ou outros metadados numa máquina virtual microsoft Azure no tempo de fornecimento.  Noutras nuvens, este conceito é frequentemente referido como dados do utilizador.  No Microsoft Azure, temos uma funcionalidade similar chamada dados personalizados. 
 
-Os dados personalizados só são disponibilizados ao VM durante a primeira configuração/configuração inicial, chamamos a isto "provisionamento". O provisionamento é o processo em que os parâmetros VM Create (por exemplo, nome de anfitrião, nome de utilizador, palavra-passe, certificados, dados personalizados, chaves, etc.) são disponibilizados ao VM e um agente de provisionamento os processa, como o [Agente Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) e o [cloud-init.](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init) 
+Os dados personalizados só são disponibilizados ao VM durante a primeira configuração inicial, chamamos a isto 'provisionamento'. O provisionamento é o processo em que os parâmetros VM Create (por exemplo, nome de hospedeiro, nome de utilizador, palavra-passe, certificados, dados personalizados, chaves, etc.) são disponibilizados ao VM e um agente de provisionamento processa-os, como o [Agente Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) e o [cloud-init.](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init) 
 
 
 ## <a name="passing-custom-data-to-the-vm"></a>Passar dados personalizados para o VM
-Para utilizar dados personalizados, deve codificar primeiro o conteúdo antes de o passar para a API, a não ser que esteja a utilizar uma ferramenta CLI que faça a conversão para si, como o AZ CLI. O tamanho não pode exceder 64 KB.
+Para utilizar dados personalizados, tem de codificar o conteúdo primeiro antes de o passar para a API, a não ser que esteja a utilizar uma ferramenta CLI que faça a conversão para si, como o AZ CLI. O tamanho não pode exceder 64 KB.
 
 No CLI, pode passar os seus dados personalizados como um ficheiro, e será convertido para base64.
 ```bash
@@ -59,38 +59,38 @@ No Azure Resource Manager (ARM), existe uma [função base64](https://docs.micro
 ```
 
 ## <a name="processing-custom-data"></a>Processamento de dados personalizados
-Os agentes de provisionamento instalados nos VMs lidam com a plataforma e colocam-no no sistema de ficheiros. 
+Os agentes de provisionamento instalados nos VMs lidam com a interação com a plataforma e colocam-no no sistema de ficheiros. 
 
 ### <a name="windows"></a>Windows
-Os dados personalizados são colocados em *%SYSTEMDRIVE%\AzureData\CustomData.bin* como um ficheiro binário, mas não é processado. Se desejar processar este ficheiro, terá de construir uma imagem personalizada e escrever código para processar o CustomData.bin.
+Os dados personalizados são colocados em *%SYSTEMDRIVE%\AzureData\CustomData.bin* como um ficheiro binário, mas não são processados. Se desejar processar este ficheiro, terá de construir uma imagem personalizada e escrever código para processar o CustomData.bin.
 
 ### <a name="linux"></a>Linux  
-No Linux OS's, os dados personalizados são transmitidos para o VM através do ficheiro ovf-env.xml, que é copiado para o diretório */var/lib/waagent* durante o provisionamento.  As versões mais recentes do Agente Microsoft Azure Linux também copiarão os dados codificados base64 para */var/lib/waagent/CustomData,* bem como para conveniência.
+No Linux OS's, os dados personalizados são transmitidos para o VM através do ficheiro ovf-env.xml, que é copiado para o diretório */var/lib/waagent* durante o provisionamento.  As versões mais recentes do Agente Linux do Microsoft Azure também copiarão os dados codificados de base64 para */var/lib/waagent/CustomData,* bem como para conveniência.
 
 A Azure apoia atualmente dois agentes de provisionamento:
-* Agente Linux - Por padrão, o agente não irá processar dados personalizados, terá de construir uma imagem personalizada com ela ativada. As configurações relevantes, de acordo com a [documentação](https://github.com/Azure/WALinuxAgent#configuration) são:
-    * Provisionamento.DecodeCustomData
-    * Provisionamento.ExecuteCustomData
+* Agente Linux - Por padrão, o agente não irá processar dados personalizados, terá de construir uma imagem personalizada com ela ativada. As definições relevantes, de acordo com a [documentação,](https://github.com/Azure/WALinuxAgent#configuration) são:
+    * Provisioning.DecodeCustomData
+    * Provisioning.ExecuteCustomData
 
-Quando activaos dados personalizados e executares um script, irá atrasar o relatório vm que está pronto ou que o fornecimento tenha sido bem sucedido até que o script esteja concluído. Se o guião exceder o subsídio total de tempo de fornecimento de VM de 40 minutos, o VM Create falhará. Note que, se o script não executar, ou erros durante a execução, não for considerado uma falha fatal de provisionamento, terá de criar um caminho de notificação para alertá-lo para o estado de conclusão do script.
+Quando ativar dados personalizados e executar um script, atrasará a reportagem VM que está pronta ou que o provisionamento foi bem sucedido até que o script esteja concluído. Se o script exceder o prazo total de 40 minutos de provisão de VM, o VM Create falhará. Note que se o script não executar, ou erros durante a execução, não é considerado uma falha fatal de provisão, você precisará criar um caminho de notificação para alertá-lo para o estado de conclusão do script.
 
-Para resolução de problemas na execução de dados personalizados, reveja */var/log/waagent.log*
+Para resolver problemas na execução de dados personalizados, reveja */var/log/waagent.log*
 
-* cloud-init - Por padrão, processará dados personalizados por padrão, o cloud-init aceita [vários formatos](https://cloudinit.readthedocs.io/en/latest/topics/format.html) de dados personalizados, tais como configuração de cloud-init, scripts etc. Semelhante ao Agente Linux, quando o cloud-init processa os dados personalizados. Se houver erros durante a execução do processamento de configuração ou scripts, não é considerado uma falha fatal de provisionamento, e terá de criar um caminho de notificação para alertá-lo para o estado de conclusão do script. No entanto, diferente do Agente Linux, o cloud-init não aguarda as configurações de dados personalizadas do utilizador para completar antes de informar para a plataforma que o VM está pronto. Para obter mais informações sobre cloud-init no azure, reveja a [documentação](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+* cloud-init - Por padrão irá processar dados personalizados por padrão, o cloud-init aceita [vários formatos de dados personalizados,](https://cloudinit.readthedocs.io/en/latest/topics/format.html) tais como configuração de cloud-init, scripts etc. Semelhante ao Agente Linux, quando o cloud-init processa os dados personalizados. Se houver erros durante a execução do processamento de configuração ou scripts, não é considerado uma falha fatal de provisão, e você precisará criar um caminho de notificação para alertá-lo para o estado de conclusão do script. No entanto, diferente do Agente Linux, o cloud-in não espera que as configurações de dados personalizadas do utilizador completem antes de reportar à plataforma que o VM está pronto. Para obter mais informações sobre cloud-init on azure, reveja a [documentação](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
 
-Para resolver a execução de dados personalizados, reveja a [documentação](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)de resolução de problemas.
+Para resolver problemas na execução de dados personalizados, reveja a [documentação](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)de resolução de problemas .
 
 
 ## <a name="faq"></a>FAQ
-### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Posso atualizar dados personalizados depois da criação do VM?
-Para VMs individuais, os dados personalizados no modelo VM não podem ser atualizados, mas para VMSS, pode atualizar dados personalizados VMSS via REST API (não aplicável aos clientes PS ou AZ CLI). Quando atualiza os dados personalizados no modelo VMSS:
-* As instâncias existentes no VMSS não obterão os dados personalizados atualizados, apenas até serem reimagemdos.
-* As instâncias existentes no VMSS que são atualizadas não obterão os dados personalizados atualizados.
-* Novos casos receberão os novos dados personalizados.
+### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Posso atualizar os dados personalizados após a criação do VM?
+Para os VMs individuais, os dados personalizados no modelo VM não podem ser atualizados, mas para vMSS, pode atualizar os dados personalizados VMSS através [da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (não aplicável aos clientes PS ou AZ CLI). Ao atualizar dados personalizados no modelo VMSS:
+* As instâncias existentes no VMSS não receberão os dados personalizados atualizados, apenas até que sejam reesimagem.
+* As instâncias existentes no VMSS que são atualizadas não receberão os dados personalizados atualizados.
+* Novas instâncias receberão os novos dados personalizados.
 
 ### <a name="can-i-place-sensitive-values-in-custom-data"></a>Posso colocar valores sensíveis em dados personalizados?
-Aconselhamos a **não** armazenar dados sensíveis em dados personalizados. Para mais informações, consulte [as melhores práticas de Segurança Azure e encriptação.](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices)
+Aconselhamos a **não** armazenar dados sensíveis em dados personalizados. Para mais informações, consulte [a Azure Security e as melhores práticas de encriptação.](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices)
 
 
 ### <a name="is-custom-data-made-available-in-imds"></a>Os dados personalizados são disponibilizados no IMDS?

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: fd69e8b50fdd66267b5751e9c706d5181f7795a0
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d551f05dd0700a93a94c6b836b896a99d7f5d96c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148196"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267091"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves geridas pelo cliente para a sua conta do Azure Cosmos com o Azure Key Vault
 
@@ -222,7 +222,7 @@ az cosmosdb show \
 
 ## <a name="error-handling"></a>Processamento de erros
 
-Ao utilizar chaves geridas pelo cliente (CMK) em Azure Cosmos DB, se houver algum erro, a Azure Cosmos DB devolve os detalhes de erro juntamente com um código de sub-estado HTTP na resposta. Pode utilizar este código de sub-estado para depurar a causa principal do problema. Consulte os códigos de estado HTTP para o artigo [DB da Azure Cosmos](/rest/api/cosmos-db/http-status-codes-for-cosmosdb.md) para obter a lista de códigos de sub-estado HTTP suportados.
+Ao utilizar chaves geridas pelo cliente (CMK) em Azure Cosmos DB, se houver algum erro, a Azure Cosmos DB devolve os detalhes de erro juntamente com um código de sub-estado HTTP na resposta. Pode utilizar este código de sub-estado para depurar a causa principal do problema. Consulte os códigos de estado HTTP para o artigo [DB da Azure Cosmos](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) para obter a lista de códigos de sub-estado HTTP suportados.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -290,7 +290,7 @@ Em alternativa, para revogar todas as chaves de uma instância do Cofre da Chave
 
 A única operação possível quando a chave de encriptação foi revogada é a eliminação da conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [encriptação de dados em Azure Cosmos DB](./database-encryption-at-rest.md).
 - Obtenha uma visão geral do [acesso seguro aos dados em Cosmos DB](secure-access-to-data.md).

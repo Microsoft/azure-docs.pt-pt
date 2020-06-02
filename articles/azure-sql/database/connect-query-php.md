@@ -1,6 +1,7 @@
 ---
 title: Use PHP para consultar
-description: Como utilizar o PHP para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL e o consulta utilizando declarações T-SQL.
+description: Como utilizar o PHP para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance, e questioná-lo utilizando declarações T-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,26 +10,26 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/12/2019
+ms.date: 05/29/2020
 ms.custom: sqldbrb=2 
-ms.openlocfilehash: 8c6ba33ac522272e36b8cd297ca525ec9f97875f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5443955bd24ed269ebf35f974be8c0497e2bfb60
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189327"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267346"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use PHP para consultar uma base de dados na Base de Dados Azure SQL
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Este artigo demonstra como utilizar [o PHP](https://php.net/manual/en/intro-whatis.php) para ligar a uma base de dados na Base de Dados Azure SQL. Em seguida, pode utilizar declarações T-SQL para consultar dados.
+Este artigo demonstra como utilizar [o PHP](https://php.net/manual/en/intro-whatis.php) para ligar a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance. Em seguida, pode utilizar declarações T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, necessita de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma base de dados na Base de Dados Azure SQL. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
+- Uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados:
 
   || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|

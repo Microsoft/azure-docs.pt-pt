@@ -1,6 +1,7 @@
 ---
 title: Use Python para consultar uma base de dados
 description: Este tópico mostra-lhe como usar python para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL e questioná-lo usando declarações Transact-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,18 +11,18 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: 4a6bcee7e2868c80491471640f33bb7709f740a5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 1d1d4ca6d3ccd20d851f0a88d1879f9e9a8175c4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189176"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267329"
 ---
-# <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use Python para consultar uma base de dados na Base de Dados Azure SQL
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Python para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Neste arranque rápido, você usa Python para ligar a uma base de dados Azure SQL e usar declarações T-SQL para consultar dados.
+Neste arranque rápido, você usa Python para ligar à Base de Dados Azure SQL ou Azure SQL Managed Instance, e usar declarações T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

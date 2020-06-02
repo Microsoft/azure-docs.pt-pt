@@ -1,6 +1,6 @@
 ---
-title: Notas de lançamento para o Centro de Segurança Azure
-description: Uma descrição do que é novo e alterado no Centro de Segurança Azure.
+title: Notas de lançamento para O Centro de Segurança Azure
+description: Uma descrição do que é novo e mudou no Centro de Segurança Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 6909bcbc67680f9205af8a79782907d4671d668b
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 3fa9de1057160340fdf10d72809a104cae985162
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860720"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248163"
 ---
-# <a name="whats-new-in-azure-security-center"></a>Quais as novidades no Centro de Segurança Azure?
+# <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
-A Azure Security está em desenvolvimento ativo e recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, esta página fornece-lhe informações sobre:
+A Azure Security está em desenvolvimento ativo e recebe melhorias continuamente. Para se manter atualizado com os desenvolvimentos mais recentes, esta página fornece-lhe informações sobre:
 
 - Novas funcionalidades
 - Correções de erros
 - Funcionalidade preterida
 
-Esta página é atualizada regularmente, por isso revisite-a com frequência. Se procura artigos com mais de seis meses, vai encontrá-los no [Arquivo para o que há de novo no Azure Security Center.](release-notes-archive.md)
+Esta página é atualizada regularmente, por isso revisite-a com frequência. Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
 
 
 ## <a name="may-2020"></a>Maio de 2020
@@ -35,244 +35,246 @@ Esta página é atualizada regularmente, por isso revisite-a com frequência. Se
 
 ### <a name="alert-suppression-rules-preview"></a>Regras de supressão de alerta (pré-visualização)
 
-Esta nova funcionalidade (atualmente em pré-visualização) ajuda a reduzir a fadiga do alerta. Utilize regras para ocultar automaticamente alertas que são conhecidos por serem inócuos ou relacionados com atividades normais na sua organização. Isto permite-lhe concentrar-se nas ameaças mais relevantes. 
+Esta nova funcionalidade (atualmente em pré-visualização) ajuda a reduzir a fadiga do alerta. Use regras para ocultar automaticamente alertas que são conhecidos por serem inócuos ou relacionados com atividades normais na sua organização. Isto permite-lhe focar nas ameaças mais relevantes. 
 
-Os alertas que correspondam às suas regras de supressão ativadas continuarão a ser gerados, mas o seu estado será descartado. Pode ver o estado no portal Azure ou no que tiver acesso aos seus alertas de segurança do Security Center.
+Os alertas que correspondam às suas regras de supressão ativadas ainda serão gerados, mas o seu estado será definido para ser rejeitado. Pode ver o estado no portal Azure ou no entanto acede aos alertas de segurança do Seu Centro de Segurança.
 
-As regras de supressão definem os critérios para os quais os alertas devem ser automaticamente rejeitados. Normalmente, usaria uma regra de supressão para:
+As regras de supressão definem os critérios para os quais os alertas devem ser automaticamente dispensados. Normalmente, usaria uma regra de supressão para:
 
 - suprimir alertas que identificou como falsos positivos
 
-- suprimir alertas que estão sendo desencadeados demasiadas vezes para ser útil
+- suprimir alertas que estão sendo desencadeados com demasiada frequência para ser útil
 
-Saiba mais sobre [a supressão de alertas da proteção contra ameaças do Azure Security Center.](alerts-suppression-rules.md)
+Saiba mais sobre [a supressão de alertas da proteção contra ameaças do Azure Security Center](alerts-suppression-rules.md).
 
 
-### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>A avaliação da vulnerabilidade virtual da máquina está agora geralmente disponível
+### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>A avaliação da vulnerabilidade da máquina virtual está agora geralmente disponível
 
-O nível padrão do Security Center inclui agora uma avaliação integrada de vulnerabilidade para máquinas virtuais sem qualquer taxa adicional. Esta extensão é alimentada pela Qualys, mas reporta as suas descobertas diretamente ao Centro de Segurança. Não precisas de uma licença qualys ou mesmo de uma conta qualys- tudo é manuseado sem problemas dentro do Centro de Segurança.
+O nível padrão do Security Center inclui agora uma avaliação integrada de vulnerabilidade para máquinas virtuais sem qualquer custo adicional. Esta extensão é alimentada pela Qualys, mas reporta as suas descobertas diretamente ao Centro de Segurança. Você não precisa de uma licença Qualys ou mesmo uma conta Qualys - tudo é tratado perfeitamente dentro do Centro de Segurança.
 
 A nova solução pode digitalizar continuamente as suas máquinas virtuais para encontrar vulnerabilidades e apresentar as descobertas no Centro de Segurança. 
 
 Para implementar a solução, utilize a nova recomendação de segurança:
 
-"Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentada por Qualys)"
+"Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys)"
 
-Saiba mais sobre a [avaliação integrada de vulnerabilidade do Security Center para máquinas virtuais.](built-in-vulnerability-assessment.md)
+Saiba mais sobre [a avaliação integrada de vulnerabilidade do Security Center para máquinas virtuais.](built-in-vulnerability-assessment.md)
 
 
 
-### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Alterações no acesso à máquina virtual (VM) just-in-time (VM)
+### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Alterações no acesso à máquina virtual (JIT) (JIT)
 
 O Security Center inclui uma funcionalidade opcional para proteger as portas de gestão dos seus VMs. Isto fornece uma defesa contra a forma mais comum de ataques de força bruta.
 
-Esta atualização traz as seguintes alterações para esta funcionalidade:
+Esta atualização traz as seguintes alterações a esta funcionalidade:
 
-- A recomendação que o aconselha a permitir o JIT num VM foi renomeada. Anteriormente, "O controlo de acesso à rede just-in-time deve ser aplicado em máquinas virtuais" é agora: "As portas de gestão de máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time".
+- A recomendação que o aconselha a ativar o JIT num VM foi renomeada. Anteriormente, "O controlo de acesso à rede just-in-time deve ser aplicado em máquinas virtuais" é agora: "As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time".
 
 - A recomendação só foi desencadeada se existirem portos de gestão abertos.
 
-Saiba mais sobre [a funcionalidade de acesso jit.](security-center-just-in-time.md)
+Saiba mais sobre [a funcionalidade de acesso JIT.](security-center-just-in-time.md)
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Recomendações personalizadas foram transferidas para um controlo de segurança separado
 
-Um dos controlos de segurança introduzidos com a pontuação segura reforçada foi "Implementar as melhores práticas de segurança". Quaisquer recomendações personalizadas criadas para as suas subscrições foram automaticamente colocadas nesse controlo. 
+Um dos controlos de segurança introduzidos com a pontuação de segurança reforçada foi "Implementar as melhores práticas de segurança". Quaisquer recomendações personalizadas criadas para as suas subscrições foram automaticamente colocadas nesse controlo. 
 
-Para facilitar a descoberta das suas recomendações personalizadas, mudámo-las para um controlo de segurança dedicado, "Recomendações personalizadas". Este controlo não tem impacto na sua pontuação segura.
+Para facilitar a procura das suas recomendações personalizadas, transferimo-las para um controlo de segurança dedicado, "Recomendações personalizadas". Este controlo não tem impacto na sua pontuação segura.
 
-Saiba mais sobre os controlos de segurança na [pontuação segura melhorada (pré-visualização) no Centro de Segurança Azure](secure-score-security-controls.md).
+Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
 
 
-### <a name="toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list"></a>Alternado adicionado para ver recomendações em controlos ou como uma lista plana
+### <a name="toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list"></a>Toggle adicionado para ver recomendações em controlos ou como uma lista plana
 
 Os controlos de segurança são grupos lógicos de recomendações de segurança relacionadas. Refletem as suas superfícies vulneráveis de ataque. Um controlo é um conjunto de recomendações de segurança, com instruções que o ajudam a implementar essas recomendações.
 
-Para ver imediatamente como a sua organização está a garantir cada superfície de ataque individual, reveja as pontuações de cada controlo de segurança.
+Para ver imediatamente o quão bem a sua organização está a proteger cada superfície de ataque individual, reveja as pontuações para cada controlo de segurança.
 
-Por padrão, as suas recomendações são mostradas nos controlos de segurança. A partir desta atualização, também pode apresentá-los como uma lista. Para vê-los como uma lista simples ordenada pelo estado de saúde dos recursos afetados, utilize o novo "Grupo por controlos". O toggle está acima da lista no portal.
+Por predefinição, as suas recomendações são apresentadas nos controlos de segurança. A partir desta atualização também pode exibi-los como uma lista. Para vê-los como uma lista simples classificada pelo estado de saúde dos recursos afetados, utilize o novo "Grupo por controlos". O toggle está acima da lista no portal.
 
-Os controlos de segurança - e este alternância - fazem parte da nova experiência de pontuação segura. Lembre-se de nos enviar o seu feedback de dentro do portal.
+Os controlos de segurança - e este alternador - fazem parte da nova experiência de pontuação segura. Lembre-se de enviar-nos o seu feedback de dentro do portal.
 
-Saiba mais sobre os controlos de segurança na [pontuação segura melhorada (pré-visualização) no Centro de Segurança Azure](secure-score-security-controls.md).
+Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
 
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controlo de segurança alargado "Implementar as melhores práticas de segurança" 
 
-Um dos controlos de segurança introduzidos com a pontuação segura reforçada é "Implementar as melhores práticas de segurança". Quando uma recomendação está neste controlo, não afeta a pontuação segura. 
+Um dos controlos de segurança introduzidos com a pontuação de segurança reforçada é "Implementar as melhores práticas de segurança". Quando uma recomendação está neste controlo, não afeta a pontuação segura. 
 
-Com esta atualização, três recomendações saíram dos controlos em que foram inicialmente colocadas, e para este controlo das melhores práticas. Demos este passo porque determinámos que o risco destas três recomendações é menor do que se pensava inicialmente.
+Com esta atualização, três recomendações saíram dos controlos em que foram inicialmente colocados, e para este controlo das boas práticas. Demos este passo porque determinámos que o risco destas três recomendações é menor do que se pensava inicialmente.
 
-Além disso, foram introduzidas e acrescentadas a este controlo duas novas recomendações.
+Além disso, foram introduzidas duas novas recomendações e acrescentadas a este controlo.
 
-As três recomendações que se moviam são:
+As três recomendações que se moveram são:
 
 - **O MFA deve ser ativado em contas com permissões de leitura na sua subscrição** (originalmente no controlo "Enable MFA")
-- **As contas externas com permissões de leitura devem ser removidas da sua subscrição** (originalmente no controlo "Gerir o acesso e as permissões")
-- **Um máximo de 3 proprietários deve ser designado para a sua subscrição** (originalmente no controlo "Gerir o acesso e as permissões")
+- **As contas externas com permissões de leitura devem ser removidas da sua subscrição** (originalmente no controlo "Gerir o acesso e permissões")
+- **Um máximo de 3 proprietários deve ser designado para a sua subscrição** (originalmente no controlo "Gerir o acesso e permissões")
 
 As duas novas recomendações adicionadas ao controlo são:
 
-- **[Pré-visualização]** O agente de configuração do hóspede deve ser instalado - A configuração de hóspedes da [política azure](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) fornece visibilidade dentro de máquinas virtuais para configurações de servidor e aplicação (apenas windows).
+- **[Pré-visualização] O agente de configuração do hóspede deve ser instalado** - A utilização da [Configuração do Hóspede Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) proporciona visibilidade dentro de máquinas virtuais às definições de servidor e aplicação (apenas windows).
 
-- **[Pré-visualização]** O guarda de exploração do Windows deve ser ativado - o Windows Defender Exploit Guard aproveita o agente de configuração de hóspedes da política Azure. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio comumente usados em ataques de malware, permitindo às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas windows).
+- **[Pré-visualização] A proteção de exploração** do Windows deve ser ativada - o Windows Defender Exploit Guard aproveita o agente de configuração de convidados Azure Policy. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio geralmente usados em ataques de malware, ao mesmo tempo que permite às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas Windows).
 
-Saiba mais sobre o Windows Defender Exploit Guard em [Create e implemente uma política de Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+Saiba mais sobre o Windows Defender Exploit Guard in [Create e implemente uma política de Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
-Saiba mais sobre os controlos de segurança na [pontuação segura melhorada (pré-visualização) no Centro de Segurança Azure](secure-score-security-controls.md).
+Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
+
 
 
 ### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>As políticas personalizadas com metadados personalizados estão agora geralmente disponíveis
 
-As políticas personalizadas fazem agora parte da experiência de recomendações do Security Center, pontuação segura e o dashboard de normas de conformidade regulamentar. Esta funcionalidade está agora geralmente disponível e permite-lhe alargar a cobertura de avaliação de segurança da sua organização no Security Center. 
+As políticas personalizadas fazem agora parte da experiência de recomendações do Centro de Segurança, pontuação segura e o painel de padrões de conformidade regulamentar. Esta funcionalidade está agora geralmente disponível e permite-lhe alargar a cobertura de avaliação de segurança da sua organização no Security Center. 
 
-Crie uma iniciativa personalizada na política do Azure, adicione políticas e a bordo ao Azure Security Center, e visualize-a como recomendações.
+Crie uma iniciativa personalizada na política Azure, adicione políticas a ela e embarque-a no Azure Security Center, e visualize-a como recomendações.
 
-Agora também adicionámos a opção de editar os metadados de recomendação personalizada. As opções de metadados incluem gravidade, passos de reparação, informações de ameaças e muito mais.  
+Agora também acrescentámos a opção de editar os metadados de recomendação personalizados. As opções de metadados incluem gravidade, medidas de reparação, informações de ameaças e muito mais.  
 
-Saiba mais sobre o reforço das [suas recomendações personalizadas com informações detalhadas.](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information)
+Saiba mais sobre [o reforço das suas recomendações personalizadas com informações detalhadas.](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information)
 
 
-### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Capacidades de análise de despejo de acidentes migrando para deteção de ataque sem arquivo 
 
-Estamos a integrar as capacidades de deteção de deteção de despeção de falhas do Windows (CDA) na [deteção de ataques sem ficheiros.](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless) A análise de deteção de ataques sem ficheiros traz versões melhoradas dos seguintes alertas de segurança para máquinas Windows: Descoberta a injeção de código, masquerading Windows Module Detetado, Shellcode descoberto e segmento de código suspeito detetado.
+### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Capacidades de análise de despejo de colisão migram para deteção de ataque sem ficheiros 
+
+Estamos a integrar as capacidades de deteção de falhas do Windows (CDA) na [deteção de ataques sem ficheiros.](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless) A análise de deteção de ataques sem ficheiros traz versões melhoradas dos seguintes alertas de segurança para máquinas Windows: Injeção de código descoberta, Módulo do Windows de mascarado detetado, Shellcode descoberto e segmento de código suspeito detetado.
 
 Alguns dos benefícios desta transição:
 
-- **Deteção proativa e oportuna de malware** - A abordagem do CDA envolveu esperar que ocorresse um acidente e, em seguida, executar análises para encontrar malware ativo. A utilização de deteção de ataques sem ficheiros traz uma identificação proactiva de ameaças na memória enquanto estão em execução. 
+- **Deteção proativa e oportuna de malware** - A abordagem do CDA envolveu esperar que ocorresse um acidente e, em seguida, executar análises para encontrar artefactos maliciosos. A deteção de ataques sem ficheiros traz identificação proactiva de ameaças na memória enquanto estão em execução. 
 
-- **Alertas enriquecidos** - Os alertas de segurança da deteção de ataques sem ficheiros incluem enriquecimentos que não estão disponíveis no CDA, como a informação sobre ligações de rede ativa. 
+- **Alertas enriquecidos** - Os alertas de segurança da deteção de ataques sem ficheiros incluem enriquecimentos que não estão disponíveis no CDA, como a informação de ligações de rede ativa. 
 
-- **Agregação** de alerta - Quando a CDA detetou vários padrões de ataque dentro de um único depósito de colisão, desencadeou vários alertas de segurança. A deteção de ataques sem ficheiros combina todos os padrões de ataque identificados do mesmo processo num único alerta, removendo a necessidade de correlacionar vários alertas.
+- **Agregação de alerta** - Quando o CDA detetou vários padrões de ataque dentro de uma única lixeira de colisão, desencadeou vários alertas de segurança. A deteção de ataques sem ficheiro combina todos os padrões de ataque identificados do mesmo processo num único alerta, removendo a necessidade de correlacionar vários alertas.
 
-- **Requisitos reduzidos no seu espaço** de trabalho Log Analytics - Os despejos de crash contendo dados potencialmente sensíveis deixarão de ser enviados para o seu espaço de trabalho log Analytics.
+- **Requisitos reduzidos no seu espaço de trabalho Log Analytics** - Os despejos de crash que contenham dados potencialmente sensíveis deixarão de ser enviados para o seu espaço de trabalho Log Analytics.
 
 
 
 ## <a name="april-2020"></a>Abril de 2020
 
-### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Pacotes dinâmicos de conformidade estão agora geralmente disponíveis
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Pacotes de conformidade dinâmicos estão agora geralmente disponíveis
 
-O painel de conformidade regulamentar do Azure Security Center inclui agora **pacotes dinâmicos** de conformidade (agora geralmente disponíveis) para acompanhar normas adicionais da indústria e regulamentares.
+O painel de conformidade regulamentar do Azure Security Center inclui agora **pacotes de conformidade dinâmicos** (agora geralmente disponíveis) para acompanhar normas adicionais da indústria e regulamentares.
 
-Os pacotes dinâmicos de conformidade podem ser adicionados ao seu grupo de subscrição ou gestão a partir da página de política de segurança do Security Center. Quando você está a bordo de um padrão ou benchmark, o padrão aparece no seu dashboard de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Um relatório sumário de qualquer uma das normas que tenham sido a bordo estará disponível para download.
+Pacotes de conformidade dinâmicos podem ser adicionados ao seu grupo de subscrição ou gestão a partir da página de política de segurança do Centro de Segurança. Quando você tem bordo um padrão ou benchmark, o padrão aparece no seu painel de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Um relatório resumo de qualquer uma das normas que foram a bordo estará disponível para download.
 
 Agora, pode adicionar padrões como:
 
 - **NIST SP 800-53 R4**
 - **SWIFT CSP CSCF-v2020**
-- **NHS oficiais e do Reino Unido**
+- **UK Official and UK NHS**
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (novo)** (que é uma representação mais completa do Azure CIS 1.1.0)
 
-Além disso, adicionámos recentemente o **Azure Security Benchmark,** as diretrizes específicas do Azure para a segurança e conformidade com base em quadros comuns de conformidade. Normas adicionais serão suportadas no painel de instrumentos à medida que forem disponibilizadas.  
+Além disso, adicionámos recentemente o **Azure Security Benchmark**, as diretrizes específicas para segurança e conformidade da Microsoft para as melhores práticas de segurança e conformidade baseadas em quadros comuns de conformidade. As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis.  
  
-Saiba mais sobre [personalizar o conjunto de normas no seu dashboard](update-regulatory-compliance-packages.md)de conformidade regulamentar.
+Saiba mais sobre [a personalização do conjunto de normas no seu painel de conformidade regulamentar.](update-regulatory-compliance-packages.md)
 
 
-### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Recomendações de identidade agora incluídas no azure Security Center free tier
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Recomendações de identidade agora incluídas no free tier do Azure Security Center
 
-Recomendações de segurança para identidade e acesso no centro de segurança Azure estão agora geralmente disponíveis. Isto faz parte do esforço para que a gestão da postura de segurança na nuvem (CSPM) seja gratuita. Até agora, estas recomendações só estavam disponíveis no nível de preços padrão.
+Recomendações de segurança para identidade e acesso no free tier do Azure Security Center estão agora geralmente disponíveis. Isto faz parte do esforço para tornar gratuita a gestão da postura de segurança na nuvem (CSPM). Até agora, estas recomendações só estavam disponíveis no nível normal de preços.
 
 Exemplos de recomendações de identidade e acesso incluem:
 
 - "A autenticação multifactor deve ser ativada em contas com permissões do proprietário na sua subscrição."
-- "Um máximo de três proprietários deve ser designado para a sua subscrição."
-- "As contas depreciadas devem ser removidas da sua subscrição."
+- "Um máximo de três proprietários deve ser designado para a sua assinatura."
+- "As contas precotados devem ser removidas da sua subscrição."
 
 Se tiver subscrições no nível de preços gratuitos, as suas pontuações seguras serão impactadas por esta alteração, uma vez que nunca foram avaliadas pela sua identidade e segurança de acesso.
 
-Saiba mais sobre as recomendações de [identidade e acesso.](recommendations-reference.md#recs-identity)
+Saiba mais sobre [recomendações de identidade e acesso.](recommendations-reference.md#recs-identity)
 
-Saiba mais sobre [monitorização da identidade e acesso.](security-center-identity-access.md)
+Saiba mais sobre [a monitorização da identidade e do acesso.](security-center-identity-access.md)
 
 
 ## <a name="march-2020"></a>Março de 2020
 
 ### <a name="workflow-automation-is-now-generally-available"></a>A automatização do fluxo de trabalho está agora geralmente disponível
 
-A funcionalidade de automatização de fluxos de trabalho do Azure Security Center está agora geralmente disponível. Use-o para ativar automaticamente aplicações lógicas em alertas de segurança e recomendações. Além disso, os gatilhos manuais estão disponíveis para alertas e todas as recomendações que tenham a opção de correção rápida disponível.
+A funcionalidade de automatização do fluxo de trabalho do Azure Security Center está agora geralmente disponível. Utilize-o para ativar automaticamente as Aplicações Lógicas em alertas de segurança e recomendações. Além disso, os gatilhos manuais estão disponíveis para alertas e todas as recomendações que têm a opção de correção rápida disponível.
 
-Todos os programas de segurança incluem múltiplos fluxos de trabalho para resposta a incidentes. Estes processos podem incluir notificar as partes interessadas relevantes, lançar um processo de gestão de alterações e aplicar medidas específicas de reparação. Os peritos em segurança recomendam que automatizar o máximo de passos possível desses procedimentos. A automatização reduz a sobrecarga e pode melhorar a sua segurança garantindo que os passos do processo são feitos de forma rápida, consistente e de acordo com os seus requisitos predefinidos.
+Todos os programas de segurança incluem vários fluxos de trabalho para resposta a incidentes. Estes processos podem incluir notificar as partes interessadas relevantes, lançar um processo de gestão de mudanças e aplicar medidas de reparação específicas. Os peritos em segurança recomendam que automatize o máximo de passos possível. A automatização reduz a sobrecarga e pode melhorar a sua segurança garantindo que os passos do processo são feitos de forma rápida, consistente e de acordo com os seus requisitos predefinidos.
 
-Para obter mais informações sobre as capacidades automáticas e manuais do Centro de Segurança para executar os seus fluxos de trabalho, consulte a [automatização do fluxo de trabalho.](workflow-automation.md)
+Para obter mais informações sobre as capacidades automáticas e manuais do Centro de Segurança para executar os seus fluxos de trabalho, consulte [a automatização do fluxo de trabalho.](workflow-automation.md)
 
-Saiba mais sobre [a criação](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)de Apps Lógicas.
+Saiba mais sobre [a criação de Aplicações Lógicas.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integração do Centro de Segurança Azure com o Windows Admin Center
 
-Agora é possível mover os seus servidores Windows no local do Windows Admin Center diretamente para o Centro de Segurança Azure. O Security Center torna-se então o seu único painel de vidro para visualizar informações de segurança para todos os recursos do Windows Admin Center, incluindo servidores no local, máquinas virtuais e cargas de trabalho adicionais do PaaS.
+Agora é possível mover os seus servidores Windows no local do Windows Admin Center diretamente para o Centro de Segurança Azure. O Security Center torna-se então o seu único painel de vidro para visualizar informações de segurança para todos os seus recursos do Windows Admin Center, incluindo servidores no local, máquinas virtuais e cargas de trabalho adicionais do PaaS.
 
 Depois de mover um servidor do Windows Admin Center para o Azure Security Center, poderá:
 
-- Consulte alertas de segurança e recomendações na extensão do Centro de Segurança do Windows Admin Center.
-- Veja a postura de segurança e recupere informações detalhadas adicionais dos servidores geridos pelo Windows Admin Center no Centro de Segurança dentro do portal Azure (ou através de uma API).
+- Ver alertas de segurança e recomendações na extensão do Centro de Segurança do Windows Admin Center.
+- Veja a postura de segurança e recupere informações detalhadas adicionais dos servidores geridos do Windows Admin Center no Centro de Segurança dentro do portal Azure (ou através de uma API).
 
 Saiba mais sobre [como integrar o Azure Security Center com o Windows Admin Center](windows-admin-center-integration.md).
 
 
 ### <a name="protection-for-azure-kubernetes-service"></a>Proteção para o Serviço Azure Kubernetes
 
-O Azure Security Center está a expandir as suas funcionalidades de segurança de contentores para proteger o Serviço Azure Kubernetes (AKS).
+O Azure Security Center está a expandir as suas funcionalidades de segurança para proteger o Serviço Azure Kubernetes (AKS).
 
-A popular plataforma de código aberto Kubernetes foi adotada de forma tão ampla que agora é um padrão da indústria para a orquestração de contentores. Apesar desta implementação generalizada, ainda há falta de compreensão sobre como garantir um ambiente kubernetes. A defesa das superfícies de ataque de uma aplicação contentorizada requer conhecimentos especializados para garantir que a infraestrutura seja configurada de forma segura e constante para potenciais ameaças.
+A popular plataforma de código aberto Kubernetes foi adotada de forma tão ampla que agora é um padrão da indústria para a orquestração de contentores. Apesar desta implementação generalizada, ainda há uma falta de compreensão sobre como garantir um ambiente Kubernetes. A defesa das superfícies de ataque de uma aplicação contentorizada requer conhecimentos especializados para garantir que a infraestrutura seja configurada de forma segura e constante para potenciais ameaças.
 
 A defesa do Centro de Segurança inclui:
 
-- **Descoberta e visibilidade** - Descoberta contínua de casos de AKS geridos dentro das subscrições registadas no Security Center.
-- **Recomendações** de segurança - Recomendações acionáveis para ajudá-lo a cumprir as melhores práticas de segurança para a AKS. Estas recomendações estão incluídas na sua pontuação segura para garantir que são vistas como parte da postura de segurança da sua organização. Um exemplo de uma recomendação relacionada com a AKS que pode ver é "O controlo de acesso baseado em papéis deve ser usado para restringir o acesso a um cluster de serviços Kubernetes".
-- **Proteção contra ameaças** - Através da análise contínua da sua implementação AKS, o Security Center alerta-o para ameaças e atividades maliciosas detetadas ao nível do hospedeiro e do cluster AKS.
+- **Descoberta e visibilidade** - Descoberta contínua de instâncias AKS geridas dentro das subscrições registadas no Centro de Segurança.
+- **Recomendações de segurança** - Recomendações acccáveis para ajudá-lo a cumprir as melhores práticas de segurança para a AKS. Estas recomendações estão incluídas na sua pontuação segura para garantir que são vistas como parte da postura de segurança da sua organização. Um exemplo de uma recomendação relacionada com a AKS que pode ver é "O controlo de acesso baseado em papéis deve ser usado para restringir o acesso a um cluster de serviços Kubernetes".
+- **Proteção contra ameaças** - Através de uma análise contínua da sua implementação AKS, o Security Center alerta-o para ameaças e atividades maliciosas detetadas ao nível do cluster hospedeiro e AKS.
 
-Saiba mais sobre a [integração dos Serviços Azure Kubernetes com o Centro](azure-kubernetes-service-integration.md)de Segurança.
+Saiba mais sobre [a integração dos Serviços Azure Kubernetes com o Security Center.](azure-kubernetes-service-integration.md)
 
-Saiba mais sobre [as funcionalidades de segurança do contentor no Centro](container-security.md)de Segurança .
+Saiba mais sobre [as funcionalidades de segurança do contentor no Centro de Segurança.](container-security.md)
 
 
-### <a name="improved-just-in-time-experience"></a>Melhor experiência just-in-time
+### <a name="improved-just-in-time-experience"></a>Experiência just-in-time melhorada
 
 As funcionalidades, operação e UI para as ferramentas just-in-time do Azure Security Center que protegem as suas portas de gestão foram melhoradas da seguinte forma: 
 
-- Campo de **justificação** - Ao solicitar o acesso a uma máquina virtual (VM) através da página just-in-time do portal Azure, está disponível um novo campo opcional para introduzir uma justificação para o pedido. As informações introduzidas neste campo podem ser rastreadas no registo de atividade. 
-- **Limpeza automática de regras redundantes just-in-time (JIT) -** Sempre que atualiza uma política de JIT, uma ferramenta de limpeza funciona automaticamente para verificar a validade de todo o seu conjunto de regras. A ferramenta procura desencontros entre regras na sua política e regras no NSG. Se a ferramenta de limpeza encontrar uma incompatibilidade, determina a causa e, quando é seguro fazê-lo, remove regras incorporadas que já não são necessárias. O limpador nunca apaga as regras que criaste. 
+- **Campo de justificação** - Ao solicitar o acesso a uma máquina virtual (VM) através da página just-in-time do portal Azure, está disponível um novo campo opcional para introduzir uma justificação para o pedido. As informações inseridas neste campo podem ser rastreadas no registo de atividades. 
+- **Limpeza automática das regras redundantes just-in-time (JIT)** - Sempre que atualiza uma política JIT, uma ferramenta de limpeza funciona automaticamente para verificar a validade de todo o seu conjunto de regras. A ferramenta procura desencontros entre regras na sua política e regras no NSG. Se a ferramenta de limpeza encontrar um desfasamento, determina a causa e, quando é seguro fazê-lo, remove regras incorporadas que já não são necessárias. O aspirador nunca apaga as regras que criaste. 
 
-Saiba mais sobre [a funcionalidade de acesso jit.](security-center-just-in-time.md)
+Saiba mais sobre [a funcionalidade de acesso JIT.](security-center-just-in-time.md)
 
 
 ### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Duas recomendações de segurança para aplicações web depreciadas
 
-Estão a ser consideradas duas recomendações de segurança relacionadas com aplicações web: 
+Duas recomendações de segurança relacionadas com aplicações web estão a ser depreciadas: 
 
-- As regras relativas às aplicações web em NsGs IaaS devem ser reforçadas.
-    (Política conexa: As regras do SNS para aplicações web em IaaS devem ser reforçadas)
+- As regras para aplicações web em IAAS NSGs devem ser endurecidas.
+    (Política relacionada: as regras do INE para aplicações web no IAAS devem ser endurecidas)
 
 - O acesso aos Serviços de Aplicações deve ser restringido.
-    (Política relacionada: O acesso aos Serviços de Aplicações deve ser restringido [pré-visualização])
+    (Política relacionada: o acesso aos Serviços de Aplicações deve ser restringido [pré-visualização])
 
-Estas recomendações deixarão de figurar na lista de recomendações do Centro de Segurança. As políticas conexas deixarão de ser incluídas na iniciativa denominada "Falha do Centro de Segurança".
+Estas recomendações deixarão de constar da lista de recomendações do Centro de Segurança. As políticas relacionadas deixarão de ser incluídas na iniciativa denominada "Security Center Default".
 
-Saiba mais sobre recomendações de [segurança.](recommendations-reference.md)
+Saiba mais sobre [recomendações de segurança.](recommendations-reference.md)
 
 
 
 ## <a name="february-2020"></a>Fevereiro de 2020
 
-### <a name="fileless-attack-detection-for-linux-preview"></a>Deteção de ataque sem ficheiros para Linux (pré-visualização)
+### <a name="fileless-attack-detection-for-linux-preview"></a>Deteção de ataque sem ficheiro para Linux (pré-visualização)
 
-À medida que os atacantes aumentam empregam métodos mais furtivos para evitar a deteção, o Azure Security Center está a alargar a deteção de ataques sem ficheiros para o Linux, além do Windows. Os ataques sem ficheiroexploram vulnerabilidades de software, injetam cargas maliciosas em processos benignos do sistema e escondem-se na memória. Estas técnicas:
+À medida que os atacantes aumentam empregam métodos mais furtivos para evitar a deteção, o Azure Security Center está a alargar a deteção de ataques sem ficheiros para o Linux, além do Windows. Os ataques sem ficheiros exploram vulnerabilidades de software, injetam cargas maliciosas em processos benignos do sistema e escondem-se na memória. Estas técnicas:
 
 - minimizar ou eliminar vestígios de malware no disco
-- reduzir consideravelmente as chances de deteção por soluções de pesquisa de malware baseadas em disco
+- reduzir consideravelmente as chances de deteção por soluções de digitalização de malware baseadas em disco
 
-Para combater esta ameaça, o Azure Security Center divulgou a deteção de ataques sem ficheiros para windows em outubro de 2018, e já alargou a deteção de ataques sem ficheiros no Linux. 
+Para combater esta ameaça, o Azure Security Center lançou a deteção de ataques sem ficheiros para o Windows em outubro de 2018, e agora alargou também a deteção de ataques sem ficheiros no Linux. 
 
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
 ### <a name="enhanced-secure-score-preview"></a>Pontuação segura melhorada (pré-visualização)
 
-Uma versão melhorada da funcionalidade de pontuação segura do Azure Security Center está agora disponível na pré-visualização. Nesta versão, várias recomendações são agrunadas em Controlos de Segurança que melhor refletem as suas superfícies de ataque vulneráveis (por exemplo, restringir o acesso a portas de gestão).
+Uma versão melhorada da funcionalidade de pontuação segura do Azure Security Center está agora disponível na pré-visualização. Nesta versão, várias recomendações são agrupadas em Controlos de Segurança que melhor refletem as suas superfícies de ataque vulneráveis (por exemplo, restringir o acesso a portas de gestão).
 
 Familiarize-se com as alterações de pontuação seguras durante a fase de pré-visualização e determine outras reparações que o ajudarão a proteger ainda mais o seu ambiente.
 
-Saiba mais sobre a [pontuação segura melhorada (pré-visualização) no Centro de Segurança Azure](secure-score-security-controls.md).
+Saiba mais sobre [a pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 31d326b19c560981531ebf0716b614046b2337b6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1b2db92106e0dad79c90188c904b07d7bb1d7212
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217250"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258645"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -31,7 +31,7 @@ Pode adicionar APIs sem servidor a Azure Static Web Apps através da integraçã
 
 Os seguintes passos demonstram como criar um novo repositório e clonar os ficheiros para o seu computador.
 
-1. Navegue https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
+1. Certifique-se de que está a iniciar sessão no GitHub e, navegue https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
 1. Na caixa de _nomes repositório,_ insira **o meu-baunilha-api.**
 1. Clique **em Criar repositório a partir do modelo.**
 

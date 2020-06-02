@@ -1,7 +1,7 @@
 ---
-title: Auto-train um modelo de previsão de série de tempo
+title: Treina automaticamente um modelo de previsão da série de tempo
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar o Azure Machine Learning para treinar um modelo de regressão de previsão de séries temportivas utilizando machine learning automatizado.
+description: Aprenda a usar a Azure Machine Learning para treinar um modelo de regressão de previsão de séries temporizadas utilizando machine learning automatizado.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,63 +10,63 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bfb53893031300926944ca97a760aec199f699c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646138"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266445"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>Auto-train um modelo de previsão de série de tempo
+# <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a configurar e a treinar um modelo de regressão de previsão de séries temportivas utilizando machine learning automatizado no [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+Neste artigo, aprende-se a configurar e a treinar um modelo de regressão de previsão de séries temporizadas utilizando aprendizagem automática de máquinas no [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
 
-Para uma experiência de código baixo, consulte o [Tutorial: Previsão da procura com machine learning automatizado](tutorial-automated-ml-forecast.md) para um exemplo de previsão de séries temporais utilizando machine learning automatizado no estúdio [Azure Machine Learning](https://ml.azure.com/).
+Para uma experiência de baixo código, consulte o [Tutorial: Previsão de procura com machine learning automatizado](tutorial-automated-ml-forecast.md) para um exemplo de previsão de séries temporizadas usando machine learning automatizado no estúdio [Azure Machine Learning](https://ml.azure.com/).
 
-Configurar um modelo de previsão é semelhante à configuração de um modelo de regressão padrão utilizando machine learning automatizado, mas existem certas opções de configuração e passos de pré-processamento para trabalhar com dados da série de tempo. 
+Configurar um modelo de previsão é semelhante à criação de um modelo de regressão padrão utilizando machine learning automatizado, mas existem certas opções de configuração e passos de pré-processamento para trabalhar com dados da série de tempo. 
 
-Por exemplo, pode [configurar](#config) até onde deve ser a previsão para o futuro (o horizonte de previsão), bem como os lags e muito mais. O ML automatizado aprende um modelo único, mas muitas vezes ramificado internamente para todos os itens nos horizontes de dataset e previsão. Mais dados estão assim disponíveis para estimar os parâmetros dos modelos e a generalização para séries invisíveis torna-se possível.
+Por exemplo, pode [configurar](#config) até que ponto a previsão deve estender-se no futuro (o horizonte de previsão), bem como os atrasos e muito mais. ML automatizado aprende um modelo único, mas muitas vezes ramificado internamente para todos os itens nos horizontes de dataset e previsão. Mais dados estão, assim, disponíveis para estimar os parâmetros do modelo e a generalização para séries invisíveis torna-se possível.
 
 Os seguintes exemplos mostram-lhe como:
 
-* Preparar dados para modelação de séries temporais
-* Configure parâmetros específicos da série temporal num [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objeto
+* Preparar dados para modelação de séries de tempo
+* Configure parâmetros específicos da série de tempo num [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objeto
 * Executar previsões com dados da série de tempo
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Ao contrário dos métodos clássicos da série time, em ml automatizado os valores das séries temporais passadas são "pivôs" para se tornarem dimensões adicionais para o regressor juntamente com outros preditores. Esta abordagem incorpora múltiplas variáveis contextuais e a sua relação entre si durante o treino. Uma vez que vários fatores podem influenciar uma previsão, este método alinha-se bem com cenários de previsão do mundo real. Por exemplo, ao prever vendas, as interações das tendências históricas, da taxa de câmbio e do preço impulsionam conjuntamente o resultado das vendas. 
+Ao contrário dos métodos clássicos das séries de tempo, em ml automatizados os valores das séries de tempo passadas são "apostados" para se tornarem dimensões adicionais para o regressor juntamente com outros preditores. Esta abordagem incorpora múltiplas variáveis contextuais e a sua relação entre si durante o treino. Uma vez que vários fatores podem influenciar uma previsão, este método alinha-se bem com cenários de previsão do mundo real. Por exemplo, ao prever vendas, interações de tendências históricas, taxa de câmbio e preço impulsionam conjuntamente o resultado das vendas. 
 
-As funcionalidades extraídas dos dados de treino desempenham um papel fundamental. E, ml automatizado executa passos padrão de pré-processamento e gera funcionalidades adicionais da série de tempo para capturar efeitos sazonais e maximizar a precisão preditiva
+As características extraídas dos dados de treino desempenham um papel crítico. E, ml automatizado executa etapas de pré-processamento padrão e gera funcionalidades adicionais de séries de tempo para capturar efeitos sazonais e maximizar a precisão preditiva
 
-## <a name="time-series-and-deep-learning-models"></a>Séries temporais e modelos de aprendizagem profunda
+## <a name="time-series-and-deep-learning-models"></a>Séries de tempo e modelos de aprendizagem profunda
 
-A aprendizagem profunda automatizada do ML permite a previsão de dados de séries de tempo univariadae multivariada.
+A aprendizagem profunda automatizada da ML permite a previsão de dados univariados e multivariados de séries de tempo.
 
 Os modelos de aprendizagem profunda têm três capacidades intrínsecas:
-1. Eles podem aprender com mapeamentos arbitrários de inputs a saídas
-1. Suportam várias inputs e saídas
+1. Eles podem aprender com mapeamentos arbitrários de entradas para saídas
+1. Suportam múltiplas entradas e saídas
 1. Podem extrair automaticamente padrões em dados de entrada que se estendem por longas sequências
 
 Dados maiores, modelos de aprendizagem profunda, como o ForecastTCN da Microsoft, podem melhorar as pontuações do modelo resultante. Aprenda a configurar a [sua experiência para uma aprendizagem profunda.](#configure-a-dnn-enable-forecasting-experiment)
 
-O ML automatizado fornece aos utilizadores modelos de time-series e deep learning nativos como parte do sistema de recomendação. 
+A ML automatizada fornece aos utilizadores séries temporais nativas e modelos de aprendizagem profunda como parte do sistema de recomendação. 
 
 Modelos| Descrição | Benefícios
 ----|----|---
-Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporais que têm fortes efeitos sazonais e várias estações de dados históricos. | A precisão & rápida, robusta para os outliers, os dados em falta e mudanças dramáticas na sua série de horários.
-Auto-ARIMA (Pré-visualização)|A Média Móvel Integrada AutoRegressive (ARIMA) tem melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes ao longo de todo o conjunto. Por exemplo, se lançares uma moeda, então a probabilidade de ficares com a cabeça é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
-ForecastTCN (Pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes, capturando tendências locais e globais não lineares nos seus dados, bem como relações entre séries temporais.|Capaz de alavancar tendências complexas nos seus dados e facilmente dimensiona para o maior dos conjuntos de dados.
+Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
+Auto-ARIMA (Pré-visualização)|A Média Móvel Integrada AutoRegressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
+PrevisãoTCN (pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes, capturando tendências locais e globais não lineares nos seus dados, bem como relações entre séries de tempo.|Capaz de alavancar tendências complexas nos seus dados e facilmente escalar para o maior dos conjuntos de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Azure Machine Learning. Para criar o espaço de trabalho, consulte Criar um espaço de [trabalho azure machine learning](how-to-manage-workspace.md).
-* Este artigo assume a familiaridade básica com a criação de uma experiência automatizada de aprendizagem automática de máquinas. Siga o [tutorial](tutorial-auto-train-models.md) ou [como](how-to-configure-auto-train.md) ver os padrões básicos de design de experiências automatizadas de aprendizagem automática.
+* Uma área de trabalho do Azure Machine Learning. Para criar o espaço de trabalho, consulte Criar um espaço de trabalho para [aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
+* Este artigo assume uma familiaridade básica com a criação de uma experiência automatizada de aprendizagem automática de máquinas. Siga o [tutorial](tutorial-auto-train-models.md) ou [como](how-to-configure-auto-train.md) ver os padrões básicos de design de experiências automatizadas de aprendizagem automática.
 
 ## <a name="preparing-data"></a> Preparar dados
 
-A diferença mais importante entre um tipo de tarefa de regressão de previsão e o tipo de tarefa de regressão dentro do machine learning automatizado é incluir uma funcionalidade nos seus dados que representa uma série de tempo válida. Uma série de tempo regular tem uma frequência bem definida e consistente e tem um valor em cada ponto de amostra num período de tempo contínuo. Considere a seguinte foto de um ficheiro `sample.csv` .
+A diferença mais importante entre um tipo de tarefa de regressão de previsão e tipo de tarefa de regressão no machine learning automatizado é incluir uma funcionalidade nos seus dados que representa uma série de tempo válida. Uma série de tempo regular tem uma frequência bem definida e consistente e tem um valor em cada ponto de amostra num período de tempo contínuo. Considere a seguinte imagem de um `sample.csv` ficheiro.
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -80,7 +80,7 @@ A diferença mais importante entre um tipo de tarefa de regressão de previsão 
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Este conjunto de dados é um simples exemplo de dados de vendas diárias para uma empresa que tem duas lojas diferentes, A e B. Além disso, existe uma funcionalidade para `week_of_year` que permita ao modelo detetar sazonalidade semanal. O campo `day_datetime` representa uma série de tempo limpo com frequência diária, e o campo é a coluna alvo para as `sales_quantity` previsões de execução. Leia os dados num quadro de dados do Pandas e, em seguida, use a função para garantir que a série de `to_datetime` tempo é um `datetime` tipo.
+Este conjunto de dados é um exemplo simples de dados de vendas diárias para uma empresa que tem duas lojas diferentes, A e B. Além disso, existe uma funcionalidade para `week_of_year` que permita ao modelo detetar sazonalidade semanal. O campo `day_datetime` representa uma série de tempo limpo com frequência diária, e o campo é a `sales_quantity` coluna-alvo para as previsões de execução. Leia os dados num dataframe do Pandas e, em seguida, utilize a `to_datetime` função para garantir que a série de tempos é um `datetime` tipo.
 
 ```python
 import pandas as pd
@@ -88,7 +88,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-Neste caso, os dados já estão classificados ascendentes pelo campo `day_datetime` temporal. No entanto, ao configurar uma experiência, certifique-se de que a coluna de tempo desejada é ordenada em forma ascendente para construir uma série de tempo válida. Assuma que os dados contêm 1.000 registos, e faça uma divisão determinística nos dados para criar conjuntos de dados de treino e teste. Identifique o nome da coluna da etiqueta e coloque-o no rótulo. Neste exemplo, o rótulo será `sales_quantity` . Em seguida, separe o campo de etiquetas `test_data` para formar o `test_target` conjunto.
+Neste caso, os dados já estão classificados ascendendo pelo campo de tempo `day_datetime` . No entanto, ao configurar uma experiência, certifique-se de que a coluna de tempo desejada é ordenada de forma ascendente para construir uma série de tempo válida. Assuma que os dados contêm 1.000 registos, e faça uma divisão determinística nos dados para criar conjuntos de dados de treino e teste. Identifique o nome da coluna do rótulo e coloque-o na etiqueta. Neste exemplo, o rótulo `sales_quantity` será. Em seguida, separe o campo de `test_data` etiquetas para formar o `test_target` conjunto.
 
 ```python
 train_data = data.iloc[:950]
@@ -100,19 +100,19 @@ test_labels = test_data.pop(label).values
 ```
 
 > [!NOTE]
-> Ao treinar um modelo para a previsão de valores futuros, certifique-se de que todas as funcionalidades utilizadas no treino podem ser usadas ao executar previsões para o seu horizonte pretendido. Por exemplo, ao criar uma previsão de procura, incluindo uma característica para o preço atual das ações poderia aumentar maciçamente a precisão da formação. No entanto, se pretender prever com um horizonte longo, poderá não ser capaz de prever com precisão os valores de stock futuros correspondentes a futuros pontos da série temporal, e a precisão do modelo poderá sofrer.
+> Ao treinar um modelo para a previsão de valores futuros, certifique-se de que todas as funcionalidades utilizadas no treino podem ser utilizadas ao executar previsões para o seu horizonte pretendido. Por exemplo, ao criar uma previsão da procura, incluindo uma característica do preço atual das ações, poderia aumentar maciçamente a precisão da formação. No entanto, se pretender prever com um horizonte longo, poderá não ser capaz de prever com precisão os valores de ações futuros correspondentes a futuros pontos de série sonora, e a precisão do modelo poderá sofrer.
 
 <a name="config"></a>
 
-## <a name="train-and-validation-data"></a>Dados de comboio e validação
-Pode especificar conjuntos separados de comboios e validação diretamente no `AutoMLConfig` construtor.
+## <a name="train-and-validation-data"></a>Dados de treino e validação
+Pode especificar conjuntos de comboios e validação separados diretamente no `AutoMLConfig` construtor.
 
-### <a name="rolling-origin-cross-validation"></a>Validação cruzada de origem rolante
-Para a série de tempo que prevê a Validação Cruzada da Origem Rolante (ROCV) é usada para dividir séries de tempo de forma temporalmente consistente. O ROCV divide a série em dados de treino e validação utilizando um ponto de tempo de origem. Deslizar a origem no tempo gera as dobras de validação cruzada.  
+### <a name="rolling-origin-cross-validation"></a>Validação da Cruz de Origem Rolante
+Para a previsão de séries de tempo rolling origin cross validation (ROCV) é usado para dividir séries de tempo de uma forma temporalmente consistente. ROCV divide a série em dados de treino e validação usando um ponto de tempo de origem. Deslizar a origem no tempo gera as dobras de validação cruzada.  
 
 ![texto alternativo](./media/how-to-auto-train-forecast/ROCV.svg)
 
-Esta estratégia preservará a integridade dos dados da série temporal e eliminará o risco de fuga de dados. O ROCV é automaticamente utilizado para a previsão de tarefas, através da passagem dos dados de formação e validação e definindo o número de dobras de validação cruzada utilizando `n_cross_validations` . Saiba mais sobre como o auto ML aplica validação cruzada para [evitar modelos de sobremontagem](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+Esta estratégia preservará a integridade dos dados das séries temporítem e eliminará o risco de fuga de dados. O ROCV é automaticamente utilizado para a previsão de tarefas, transmitindo os dados de formação e validação em conjunto e definindo o número de dobras de validação cruzada utilizando `n_cross_validations` . Saiba mais sobre como a ML automóvel aplica validação cruzada para [evitar modelos de sobreajustamento](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -120,32 +120,32 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
-Saiba mais sobre o [AutoMLConfig.](#configure-and-run-experiment)
+Saiba mais sobre o [AutoMLConfig](#configure-and-run-experiment).
 
 ## <a name="configure-and-run-experiment"></a>Configurar e executar experiência
 
-Para as tarefas de previsão, o machine learning automatizado utiliza passos de pré-processamento e estimativa específicos dos dados da série temporal. Serão executadas as seguintes etapas de pré-processamento:
+Para as tarefas de previsão, a aprendizagem automática de máquinas utiliza etapas de pré-processamento e estimativa específicas dos dados da série de tempo. Serão executadas as seguintes etapas de pré-processamento:
 
-* Detete a frequência da amostra da série de tempo (por exemplo, de hora em hora, diariamente, semanalmente) e crie novos registos para pontos de tempo ausentes para tornar a série contínua.
-* Impute valores em falta no alvo (através de colunas de preenchimento para a frente) e colunas de características (utilizando valores médios de coluna)
-* Criar funcionalidades à base de cereais para permitir efeitos fixos em diferentes séries
+* Detetar a frequência da amostra de séries temporárias (por exemplo, hora, dia, semanalmente) e criar novos registos para pontos de tempo ausentes para tornar a série contínua.
+* Imputar valores em falta no alvo (via preenchimento de reencaminhamento) e colunas de características (utilizando valores medianos de coluna)
+* Criar funcionalidades baseadas em cereais para permitir efeitos fixos em diferentes séries
 * Criar funcionalidades baseadas no tempo para ajudar na aprendizagem de padrões sazonais
-* Codificar variáveis categóricas a quantidades numéricas
+* Codificar variáveis categóricas para quantidades numéricas
 
-O [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objeto define as definições e dados necessários para uma tarefa automatizada de aprendizagem automática de máquinas. Semelhante a um problema de regressão, define-se parâmetros de treino padrão como tipo de tarefa, número de iterações, dados de treino e número de validações cruzadas. Para as tarefas de previsão, existem parâmetros adicionais que devem ser definidos que afetam a experiência. A tabela seguinte explica cada parâmetro e a sua utilização.
+O [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objeto define as configurações e dados necessários para uma tarefa automatizada de aprendizagem automática de máquinas. À semelhança de um problema de regressão, define-se parâmetros de treino padrão como tipo de tarefa, número de iterações, dados de treino e número de validações cruzadas. Para as tarefas de previsão, há parâmetros adicionais que devem ser definidos que afetam a experiência. A tabela seguinte explica cada parâmetro e a sua utilização.
 
 | Nome do parâmetro &nbsp; | Descrição | Necessário |
 |-------|-------|-------|
-|`time_column_name`|Utilizada para especificar a coluna data nos dados de entrada utilizados para a construção da série de tempo e inferindo a sua frequência.|✓|
-|`grain_column_names`|Nomes ou grupos de séries individuais nos dados de entrada. Se o grão não for definido, presume-se que o conjunto de dados é uma série de tempo.||
-|`max_horizon`|Define o horizonte de previsão máximo desejado em unidades de frequência de série seleção. As unidades baseiam-se no intervalo de tempo dos seus dados de treino, por exemplo, mensalmente, semanalmente, que o meteorologista deve prever.|✓|
-|`target_lags`|Número de linhas para atrasar os valores-alvo com base na frequência dos dados. O lag é representado como uma lista ou único inteiro. O lag deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou correlaciona por padrão. Por exemplo, ao tentar prever a procura de um produto, a procura em qualquer mês pode depender do preço de mercadorias específicas 3 meses antes. Neste exemplo, pode querer atrasar o alvo (procura) negativamente por 3 meses para que o modelo esteja a treinar na relação correta.||
-|`target_rolling_window_size`|*n* períodos históricos a utilizar para gerar valores previstos, <= tamanho do conjunto de treino. Se omitida, *n* é o tamanho completo do conjunto de treino. Especifique este parâmetro quando só quiser considerar uma certa quantidade de história ao treinar o modelo.||
-|`enable_dnn`|Ativar DNNs de previsão.||
+|`time_column_name`|Utilizado para especificar a coluna de datas nos dados de entrada utilizados para a construção da série de tempo e inferir a sua frequência.|✓|
+|`grain_column_names`|Nome(s) que define grupos de séries individuais nos dados de entrada. Se o grão não for definido, presume-se que o conjunto de dados é uma série temporal.||
+|`max_horizon`|Define o horizonte de previsão máximo desejado em unidades de frequência de série sonora. As unidades baseiam-se no intervalo de tempo dos seus dados de treino, por exemplo, mensais, semanais que o meteorologista deve prever.|✓|
+|`target_lags`|Número de linhas para atrasar os valores-alvo com base na frequência dos dados. O lag é representado como uma lista ou inteiro único. O lag deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou correlaciona por defeito. Por exemplo, ao tentar prever a procura de um produto, a procura em qualquer mês pode depender do preço de mercadorias específicas 3 meses antes. Neste exemplo, pode querer atrasar negativamente o alvo (procura) em 3 meses para que o modelo esteja a treinar sobre a relação correta.||
+|`target_rolling_window_size`|*n* períodos históricos a utilizar para gerar valores previstos, <= tamanho do conjunto de treino. Se omitido, *n* é o tamanho completo do conjunto de treino. Especifique este parâmetro quando apenas pretende considerar uma certa quantidade de história ao treinar o modelo.||
+|`enable_dnn`|Ativar as DNNs de Previsão.||
 
-Consulte a [documentação](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) de referência para mais informações.
+Consulte a [documentação de referência](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para obter mais informações.
 
-Crie as definições da série de tempo como um objeto de dicionário. Desloque o campo no conjunto de `time_column_name` `day_datetime` dados. Defina o `grain_column_names` parâmetro para garantir a criação de dois **grupos separados de séries** de tempo para os dados; um para a loja A e B. Por último, defina o `max_horizon` para 50 de forma a prever para todo o conjunto de testes. Defina uma janela de previsão para 10 períodos com `target_rolling_window_size` , e especifique um único atraso nos valores-alvo durante dois períodos à frente com o `target_lags` parâmetro. Recomenda-se definir `max_horizon` , `target_rolling_window_size` e `target_lags` "auto" que detete automaticamente estes valores para si. No exemplo abaixo, foram utilizadas definições "auto" para estes parâmetros. 
+Crie as definições da série de tempo como um objeto dicionário. Desa parte `time_column_name` para o campo no conjunto de `day_datetime` dados. Defina o `grain_column_names` parâmetro para garantir que são **criados dois grupos separados de séries de tempo** para os dados; um para a loja A e B. Por último, defina o `max_horizon` 50 para prever para todo o conjunto de testes. Desaponte uma janela de previsão para 10 períodos com `target_rolling_window_size` , e especifique um único lag nos valores-alvo para dois períodos à frente com o `target_lags` parâmetro. Recomenda-se a definição `max_horizon` `target_rolling_window_size` e `target_lags` "auto" que detete automaticamente estes valores para si. No exemplo abaixo, foram utilizadas definições "auto" para estes parâmetros. 
 
 ```python
 time_series_settings = {
@@ -159,11 +159,11 @@ time_series_settings = {
 ```
 
 > [!NOTE]
-> Os passos automatizados de pré-processamento de aprendizagem automática (normalização de recursos, manuseamento de dados em falta, conversão de texto para numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treino são aplicadas automaticamente aos seus dados de entrada.
+> As etapas de pré-processamento de aprendizagem automática automatizadas (normalização de recurso, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treino são aplicadas automaticamente aos seus dados de entrada.
 
-Ao definir o `grain_column_names` código acima, o AutoML criará dois grupos separados de séries de tempo, também conhecidos como várias séries de tempo. Se nenhum grão for definido, a AutoML assumirá que o conjunto de dados é uma série de tempo única. Para saber mais sobre as séries de tempo únicas, consulte o [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Ao definir o `grain_column_names` corte de código acima, o AutoML criará dois grupos separados de séries de tempo, também conhecidos como séries de tempo múltiplas. Se nenhum grão for definido, a AutoML assumirá que o conjunto de dados é uma única série de tempo. Para saber mais sobre séries únicas, consulte o [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-Agora crie um `AutoMLConfig` objeto padrão, especificando o tipo de `forecasting` tarefa, e submeta a experiência. Depois do modelo terminar, recupere a melhor iteração de execução.
+Agora crie um `AutoMLConfig` objeto padrão, especificando o `forecasting` tipo de tarefa, e submeta a experiência. Depois de terminar o modelo, recupere a melhor iteração de corrida.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -188,20 +188,20 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-Consulte os cadernos de [amostras de previsão](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obter exemplos de código detalhados de configuração de previsão avançada, incluindo:
+Consulte os [cadernos de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) de previsão para exemplos de código detalhados de configuração avançada de previsão, incluindo:
 
 * [deteção e caracterização de férias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
 * [validação cruzada de origem rolante](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [lags configuráveis](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [características agregados de janela sonantes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [atrasos configuráveis](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [funcionalidades agregadas de janelas rolantes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
 * [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
-### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configure uma experiência de previsão de dnn
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurar um DNN permitir a experiência de previsão
 
 > [!NOTE]
-> O suporte do DNN para previsão em Machine Learning Automatizado está em Pré-visualização e não é suportado para corridas locais.
+> O suporte do DNN para a previsão em Machine Learning automatizado está em Pré-visualização e não é suportado para execuções locais.
 
-Para alavancar os DNNs para previsão, terá de definir o `enable_dnn` parâmetro no AutoMLConfig como verdadeiro. 
+Para aproveitar os DNNs para a previsão, terá de definir o `enable_dnn` parâmetro no AutoMLConfig para ser verdadeiro. 
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -209,33 +209,33 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
-Saiba mais sobre [o AutoMLConfig.](#configure-and-run-experiment)
+Saiba mais sobre [o AutoMLConfig](#configure-and-run-experiment).
 
 Em alternativa, pode selecionar a `Enable deep learning` opção no estúdio.
 ![texto alternativo](./media/how-to-auto-train-forecast/enable_dnn.png)
 
-Recomendamos a utilização de um cluster AML Compute com GPU SKUs e pelo menos dois nós como alvo da computação. Para permitir tempo suficiente para que o treino de DNN termine, recomendamos que o tempo de experimentação seja no mínimo um par de horas.
-Para obter mais informações sobre os tamanhos de computação AML e VM que incluam GPU's, consulte a documentação da [AML Compute](how-to-set-up-training-targets.md#amlcompute) e a [documentação otimizada de tamanhos de máquinavirtual da GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
+Recomendamos a utilização de um cluster AML Compute com SKUs GPU e pelo menos dois nós como alvo de computação. Para permitir a conclusão do treino de DNN, recomendamos definir o tempo limite da experiência para um mínimo de algumas horas.
+Para obter mais informações sobre os tamanhos de computação AML e VM que incluem GPU's, consulte a [documentação AML Compute](how-to-set-up-training-targets.md#amlcompute) e [a documentação de tamanhos de máquinas virtuais otimizadas da GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
 
-Consulte o caderno de previsão de produção de [bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para obter um exemplo de código detalhado que alavanca os DNNs.
+Consulte o [caderno de previsão de produção de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para obter um código detalhado que utiliza dnns.
 
-### <a name="target-rolling-window-aggregation"></a>Agregação da janela de rolamento alvo
-Muitas vezes, a melhor informação que um meteorologista pode ter é o valor recente do alvo. A criação de estatísticas cumulativas do alvo pode aumentar a precisão das suas previsões. As agregações de janelas de rolamento de destino permitem adicionar uma agregação contínua dos valores de dados como funcionalidades. Para ativar as janelas de rolamento do alvo, desloque o tamanho da `target_rolling_window_size` janela deteger desejada. 
+### <a name="target-rolling-window-aggregation"></a>Agregação da janela de rolamento do alvo
+Muitas vezes, a melhor informação que um meteorologista pode ter é o valor recente do alvo. Criar estatísticas cumulativas do alvo pode aumentar a precisão das suas previsões. As agregações de janelas de rolamento de alvos permitem adicionar uma agregação rolante dos valores de dados como funcionalidades. Para ativar as janelas de rolamento de alvos, ajuste `target_rolling_window_size` o tamanho da janela de inteiros desejado. 
 
-Um exemplo disso pode ser visto na previsão da procura de energia. Pode adicionar uma característica de janela rolante de três dias para ter em conta as alterações térmicas dos espaços aquecidos. No exemplo abaixo, criamos esta janela do tamanho três colocando `target_rolling_window_size=3` no `AutoMLConfig` construtor. A tabela mostra a engenharia de características que ocorre quando é aplicada a agregação da janela. As colunas para o mínimo, máximo e soma são geradas numa janela deslizante de três com base nas definições definidas. Cada linha tem uma nova característica calculada, no caso do carimbo de tempo para 8 de setembro de 2017 4:00 am os valores máximos, mínimos e soma são calculados com base nos valores da procura para 8 de setembro de 2017 1:00AM - 3:00AM. Esta janela de três mudanças ao longo para povoar dados para as restantes linhas.
+Um exemplo disso pode ser visto na previsão da procura de energia. Pode adicionar uma característica de janela rolante de três dias para explicar as alterações térmicas dos espaços aquecidos. No exemplo abaixo, criamos esta janela de tamanho três, colocando `target_rolling_window_size=3` no `AutoMLConfig` construtor. A tabela mostra a engenharia de características que ocorre quando a agregação da janela é aplicada. As colunas para mínimo, máximo e soma são geradas numa janela deslizante de três com base nas definições definidas. Cada linha tem uma nova característica calculada, no caso do carimbo de hora para 8 de setembro de 2017 4:00am os valores máximos, mínimos e somas são calculados usando os valores da procura para 8 de setembro de 2017 1:00AM - 3:00AM. Esta janela de três turnos ao longo para povoar dados para as restantes linhas.
 
 ![texto alternativo](./media/how-to-auto-train-forecast/target-roll.svg)
 
-Gerar e usar estas funcionalidades adicionais como dados contexuísticos extra ajuda na precisão do modelo do comboio.
+Gerar e utilizar estas funcionalidades adicionais como dados contextuais extra ajuda na precisão do modelo do comboio.
 
-Veja um exemplo de código Python aproveitando a [função agregada](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)da janela de rolamento do alvo .
+Ver um exemplo de código Python aproveitando a [função agregado de janelas de rolamento do alvo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ### <a name="view-feature-engineering-summary"></a>Ver resumo de engenharia de recursos
 
-Para tipos de tarefas de série seleção em machine learning automatizado, pode visualizar detalhes do processo de engenharia de funcionalidades. O seguinte código mostra cada característica bruta juntamente com os seguintes atributos:
+Para tipos de tarefas de séries tempotarefas em machine learning automatizado, pode ver detalhes do processo de engenharia de recursos. O seguinte código mostra cada característica em bruto juntamente com os seguintes atributos:
 
 * Nome de recurso cru
-* Número de características projetadas formadas a partir desta característica bruta
+* Número de recursos projetados formados a partir desta característica bruta
 * Tipo detetado
 * Se a funcionalidade foi abandonada
 * Lista de transformações de recursos para a característica bruta
@@ -248,7 +248,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Utilize a melhor iteração do modelo para prever valores para o conjunto de dados de teste.
 
-A `forecast()` função deve ser utilizada em vez `predict()` de, isto permitirá especificações de quando as previsões devem começar. No exemplo seguinte, substitui-se primeiro todos os valores `y_pred` por `NaN` . A origem prevista será no final dos dados de formação neste caso, como normalmente seria quando utilizar `predict()` . No entanto, se substituísse apenas a segunda metade do `y_pred` com `NaN` , a função deixaria os valores numéricos na primeira parte inalterados, mas previa os `NaN` valores na segunda parte. A função devolve tanto os valores previstos como as características alinhadas.
+A `forecast()` função deve ser utilizada em vez de `predict()` , isto permitirá especificações de quando as previsões devem começar. No exemplo seguinte, substitui-se primeiro todos os valores `y_pred` em `NaN` . A origem prevista será no final dos dados de formação neste caso, como seria normalmente quando se utiliza `predict()` . No entanto, se substituísse apenas a segunda metade com `y_pred` `NaN` , a função deixaria os valores numéricos no primeiro semestre sem modificar, mas previu os `NaN` valores na segunda parte. A função devolve tanto os valores previstos como as características alinhadas.
 
 Também pode utilizar o `forecast_destination` parâmetro na `forecast()` função para prever valores até uma data especificada.
 
@@ -259,7 +259,7 @@ label_fcst, data_trans = fitted_pipeline.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Calcular rMSE (erro quadrado médio raiz) entre os `actual_labels` valores reais e os valores previstos em `predict_labels` .
+Calcular RMSE (erro quadrado de raiz) entre os `actual_labels` valores reais e os valores previstos em `predict_labels` .
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -269,18 +269,18 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Agora que a precisão global do modelo foi determinada, o próximo passo mais realista é usar o modelo para prever valores futuros desconhecidos. Forneça um conjunto de dados no mesmo formato que o conjunto de teste, `test_data` mas com datas futuras, e o conjunto de previsão resultante são os valores previstos para cada passo da série temporal. Assuma que os últimos registos da série de tempo no conjunto de dados foram para 12/31/2018. Para prever a procura para o dia seguinte (ou quantos períodos for necessário prever, <= `max_horizon` ), crie um recorde de séries de tempo único para cada loja para 01/01/2019.
+Agora que a precisão global do modelo foi determinada, o próximo passo mais realista é usar o modelo para prever valores futuros desconhecidos. Forneça um conjunto de dados no mesmo formato que o conjunto de `test_data` testes, mas com datas futuras, e o conjunto de previsão resultante é os valores previstos para cada etapa da série de tempo. Assumindo que os últimos registos da série de tempos no conjunto de dados foram para 12/31/2018. Para prever a procura para o dia seguinte (ou quantos períodos precisa prever, <= `max_horizon` ), crie um recorde de séries de tempo única para cada loja para 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-Repita os passos necessários para carregar estes dados futuros para um dataframe e, em seguida, correr `best_run.predict(test_data)` para prever valores futuros.
+Repita os passos necessários para carregar estes dados futuros num dataframe e, em seguida, corra `best_run.predict(test_data)` para prever valores futuros.
 
 > [!NOTE]
-> Não se podem prever valores para um número de períodos superiores aos `max_horizon` . O modelo deve ser retreinado com um horizonte maior para prever valores futuros para além do horizonte atual.
+> Não se pode prever valores para um número de períodos superiores aos do `max_horizon` . O modelo deve ser re-treinado com um horizonte maior para prever valores futuros para além do horizonte atual.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Siga o [tutorial](tutorial-auto-train-models.md) para aprender a criar experiências com machine learning automatizado.
-* Consulte o [Azure Machine Learning SDK para obter](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) documentação de referência python.
+* Consulte o [Azure Machine Learning SDK para](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) documentação de referência python.

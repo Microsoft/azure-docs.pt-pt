@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: dfd8051c7fc803d57a14cd740a830b8f6b63d9ac
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4ad793ee27d00359dd63f3394b8d7fd4a70b297f
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195109"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266683"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 
@@ -53,17 +53,13 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 | ---| --- |
 | Novas gerações de hardware da série Fsv2 e da série M| Para obter informações, consulte [as gerações de Hardware.](service-tiers-vcore.md#hardware-generations)|
 | Recuperação acelerada da base de dados com bases de dados únicas e piscinas elásticas | Para obter informações, consulte [a Recuperação acelerada da base de dados.](../accelerated-database-recovery.md)|
-|Contagem Aproximada Distinta|Para obter informações, consulte [o Conde Aproximado Distinto.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
-|Modo lote na Rowstore (em compatibilidade nível 150)|Para obter informações, consulte [o modo lote na Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Deteção e classificação de dados  |Para obter informações, consulte [a Base de Dados Azure SQL e a Azure Synapse Analytics para a descoberta de dados & classificação](data-discovery-and-classification-overview.md).|
 | Tarefas de base de dados elástica | Para obter informações, consulte [Criar, configurar e gerir trabalhos elásticos.](elastic-jobs-overview.md) |
 | Consultas elásticas | Para obter informações, consulte [a visão geral da consulta elástica.](elastic-query-overview.md) |
 | Transações elásticas | [Transações distribuídas através de bases de dados em nuvem.](elastic-transactions-overview.md) |
-|Feedback do subsídio de memória (modo de linha) (em compatibilidade nível 150)|Para obter informações, consulte [o Feedback do Subsídio de Memória (Modo de Linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Editor de consulta no portal Azure |Para obter informações, consulte [o editor de consulta SQL do portal Azure para ligar e consultar dados](connect-query-portal.md).|
 | R serviços/machine learning com bases de dados individuais e piscinas elásticas |Para obter informações, consulte [os Serviços de Aprendizagem automática na Base de Dados Azure SQL](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |Análise de SQL|Para obter informações, consulte [a Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
-|Compilação Diferida Variável da Tabela (em compatibilidade nível 150)|Para obter informações, consulte [a compilação diferida variável da tabela.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
 | &nbsp; |
 
 ### <a name="azure-sql-managed-instance"></a>[Instância Gerida do SQL no Azure](#tab/managed-instance)

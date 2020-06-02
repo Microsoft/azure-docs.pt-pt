@@ -9,21 +9,22 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 75c8d52a750567d3b34ad2aea236477ca8c97245
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171417"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248333"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Começando com Azure Synapse Analytics
 
-Este tutorial irá guiá-lo através de todos os passos básicos necessários para configurar e usar a Azure Synapse Analytics.
+Este documento guia-o através de todos os passos básicos necessários para configurar e utilizar o Azure Synapse Analytics.
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Prepare uma conta de armazenamento para uso com um espaço de trabalho Synapse
 
 * Abra o [portal do Azure](https://portal.azure.com)
 * Criar uma nova conta de armazenamento com as seguintes definições:
+
     |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
     |---|---|---|---|
     |Noções básicas|**Nome da conta de armazenamento**| Pode dar-lhe qualquer nome.|Neste documento, vamos chamar-lhe como `contosolake` .|
@@ -32,14 +33,18 @@ Este tutorial irá guiá-lo através de todos os passos básicos necessários pa
     |Avançado|**Armazenamento do Data Lake Ger2**|`Enabled`| A Azure Synapse só funciona com contas de armazenamento onde esta definição está ativada.|
 
 1. Assim que a conta de armazenamento for criada, selecione **Access control (IAM)** a partir da navegação à esquerda. Em seguida, atribua as seguintes funções ou certifique-se de que já estão atribuídas. 
+
     a. * Atribua-se à função **Proprietário** na conta de armazenamento b. * Atribua-se à função **de Proprietário de Dados** de Armazenamento na Conta de Armazenamento
+
 1. A partir da navegação à esquerda, selecione **Recipientes** e crie um recipiente. Pode dar-lhe qualquer nome. Aceite o nível de **acesso público predefinido.** Neste documento, chamaremos o `users` contentor. Selecione **Criar**. 
+
+No passo seguinte, configurará o seu espaço de trabalho Synapse para utilizar esta conta de armazenamento como a sua conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazenará dados em tabelas Apache Spark e registos de aplicações Spark nesta conta sob uma pasta chamada `/synapse/workspacename` .
 
 ## <a name="create-a-synapse-workspace"></a>Criar um espaço de trabalho sinapse
 
 * Abra o [portal Azure](https://portal.azure.com) e na procura superior por `Synapse` .
 * Nos resultados de pesquisa em **Serviços**, selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**
-* **Selecione + Adicionar** para criar um novo espaço de trabalho com estas definições
+* **Selecione + Adicionar** para criar um espaço de trabalho usando estas definições
 
     |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
     |---|---|---|---|
@@ -47,8 +52,6 @@ Este tutorial irá guiá-lo através de todos os passos básicos necessários pa
     |Noções básicas|**Região**|Combine a região da conta de armazenamento|
 
 1. Em **Select Data Lake Storage Gen 2,** selecione a conta e o recipiente que criou anteriormente.
-    > [!NOTE]
-    > Referimo-nos à conta de armazenamento escolhida aqui como a conta de armazenamento "primária" do espaço de trabalho da Sinapse. Esta conta é utilizada para armazenar dados em tabelas de faíscas Apache e para registos criados quando as piscinas Spark são criadas ou as aplicações Spark são executadas.
 
 1. Selecione **Rever + criar**. Selecione **Criar**. O seu espaço de trabalho estará pronto em alguns minutos.
 
@@ -61,7 +64,7 @@ Isto pode já ter sido feito por si. De qualquer forma, deve verificar.
     a. Atribua a identidade do espaço de trabalho à função **de Contribuinte de Dados do Depósito** de Armazenamento na conta de armazenamento. A identidade do espaço de trabalho tem o mesmo nome que o espaço de trabalho. Neste documento, o nome do espaço de trabalho é `myworkspace` assim que a identidade do espaço de trabalho é`myworkspaced`
 1. Selecione **Guardar**.
     
-## <a name="launch-synapse-studio"></a>Estúdio De Lançamento Synapse
+## <a name="launch-synapse-studio"></a>Iniciar o Synapse Studio
 
 Uma vez criado o seu espaço de trabalho Synapse, tem duas formas de abrir o Synapse Studio:
 * Abra o seu espaço de trabalho synapse no [portal Azure](https://portal.azure.com) e no topo da secção De **visão geral** selecione **Launch Synapse Studio**
@@ -70,10 +73,6 @@ Uma vez criado o seu espaço de trabalho Synapse, tem duas formas de abrir o Syn
 ## <a name="create-a-sql-pool"></a>Criar uma piscina SQL
 
 1. No Synapse Studio, na navegação do lado esquerdo, **selecione Gerir > piscinas SQL**
-
-    > [!NOTE] 
-    > Todos os espaços de trabalho da Synapse vêm com uma piscina pré-criada chamada **SQL on-demand**.
-
 1. Selecione **+Novo** e introduza estas definições:
 
     |Definição | Valor sugerido | 
@@ -82,14 +81,9 @@ Uma vez criado o seu espaço de trabalho Synapse, tem duas formas de abrir o Syn
     |**Nível de desempenho**|`DW100C`|
 
 1. Selecione **Review+create** e, em seguida, **selecione Criar**.
-1. A sua piscina SQL estará pronta em poucos minutos.
+1. A sua piscina SQL estará pronta em poucos minutos. Quando a sua piscina SQL for criada, será associada a uma base de dados de piscinas SQL também chamada **SQLDB1**.
 
-    > [!NOTE]
-    > Uma piscina Sinapse SQL corresponde ao que costumava ser chamado de "Azure SQL Data Warehouse"
-
-Uma piscina SQL consome recursos faturados desde que esteja em funcionamento. Assim, você pode parar a piscina quando necessário para reduzir custos.
-
-Quando a sua piscina SQL for criada, será associada a uma base de dados de piscinas SQL também chamada **SQLDB1**.
+Uma piscina SQL consome recursos faturados desde que esteja ativo. Pode fazer uma pausa na piscina mais tarde para reduzir custos.
 
 ## <a name="create-an-apache-spark-pool"></a>Criar uma piscina Apache Spark
 
@@ -113,7 +107,7 @@ Por serem metadados, as piscinas spark não podem ser iniciadas ou paradas.
 Quando fizer qualquer atividade de Faísca em Synapse, especifique uma piscina spark para usar. A piscina informa a Synapse quantos recursos de faíscas usar. Paga-se apenas pelos recursos que o Thar usa. Quando parar ativamente de usar a piscina, os recursos serão automaticamente eliminados e reciclados.
 
 > [!NOTE]
-> As bases de dados spark são criadas independentemente a partir de piscinas Spark. Um espaço de trabalho tem sempre um DB spark chamado **predefinido** e pode criar bases de dados de Spark adicionais.
+> As bases de dados spark são criadas independentemente a partir de piscinas Spark. Um espaço de trabalho tem sempre uma base de dados Spark chamada **predefinição** e pode criar bases de dados adicionais de Spark.
 
 ## <a name="the-sql-on-demand-pool"></a>A piscina a pedido do SQL
 
@@ -136,7 +130,7 @@ Cada espaço de trabalho vem com uma piscina pré-construída e indelegável cha
 1. Navegue para **as tabelas de > SQLDB1**. Verá que várias mesas foram carregadas.
 1. Clique à direita no **dbo. Tabela** de trip e selecione **Novo Script SQL > Selecione TOP 100 Linhas**
 1. Um novo script SQL será criado e executado automaticamente.
-1. Note que no topo do script SQL **Connect** é automaticamente definido para a piscina SQL chamada SQLDB1.
+1. Note que no topo do script SQL **Connect é** automaticamente definido para a piscina SQL chamada `SQLDB1` .
 1. Substitua o texto do script SQL por este código e execute-o.
 
     ```sql
@@ -154,7 +148,7 @@ Cada espaço de trabalho vem com uma piscina pré-construída e indelegável cha
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-spark-nyctaxi-database"></a>Carregue os dados da amostra de táxi de NYC na base de dados Spark nyctaxi
 
-Temos dados disponíveis numa tabela em `SQLDB1` . Agora colocamos numa base de dados spark chamada "nyctaxi".
+Temos dados disponíveis numa tabela em `SQLDB1` . Agora colocamos numa base de dados de faíscas `nyctaxi` chamada.
 
 1. No Estúdio Synapse, navegue para o centro **de Desenvolvimento**
 1. Selecione **+** e selecione **Caderno**
@@ -176,7 +170,7 @@ Temos dados disponíveis numa tabela em `SQLDB1` . Agora colocamos numa base de 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analise os dados do Táxi de NYC usando Spark e cadernos
 
 1. Volte ao seu caderno
-1. Crie uma nova célula de código, introduza o texto abaixo e execute a célula para exemplo os dados de táxi de NYC que carregamos no `nyctaxi` Spark DB.
+1. Crie uma nova célula de código, introduza o texto abaixo e execute a célula para exemplo os dados de táxi de NYC que carregamos na `nyctaxi` base de dados Spark.
 
    ```py
    %%pyspark
@@ -286,8 +280,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Selecione **Ligado**
 1. Navegue para **as contas de armazenamento > myworkspace (Primário - contosolake)**
 1. Selecione **utilizadores (Primário)"**
-1. Devias ver uma pasta chamada "NYCTaxi". No interior deverá ver duas pastas 'PassengerCountStats.csv' e 'PassengerCountStats.parquet'.
-1. Navegue na pasta 'PassengerCountStats.parquet'.
+1. Devia ver uma pasta chamada `NYCTaxi` . No interior deverá ver duas pastas `PassengerCountStats.csv` e `PassengerCountStats.parquet` .
+1. Navegue na `PassengerCountStats.parquet` pasta.
 1. Clique com o botão direito no ficheiro parquet no interior e selecione **um novo caderno,** criará um caderno com uma célula como esta:
 
     ```py
@@ -380,7 +374,7 @@ Pode ligar um espaço de trabalho Power BI ao seu espaço de trabalho Synapse. I
 1. Neste local, você pode ver uma história de todas as atividades que estão acontecendo no espaço de trabalho e quais estão ativas agora.
 1. Explore as **correções**do Pipeline, **aplicações Apache Spark**e **SQL** e poderá ver o que já fez no espaço de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a Azure Synapse Analytics (pré-visualização)](overview-what-is.md)
 

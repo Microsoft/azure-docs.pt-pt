@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Ligue o SQL a pedido (pré-visualização) ao Power BI Desktop & criar relatório'
-description: Neste tutorial, aprenda a ligar o SQL on-demand (pré-visualização) no Azure Synapse Analytics ao power bi desktop e crie um relatório de demonstração baseado numa vista.
+title: 'Tutorial: Ligue o SQL on-demand (pré-visualização) ao Power BI Desktop & criar relatório'
+description: Neste tutorial, aprenda a ligar SQL on-demand (pré-visualização) em Azure Synapse Analytics ao power bi desktop e crie um relatório de demonstração baseado numa vista.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,45 +9,49 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745406"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258288"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand (pré-visualização) com power BI Desktop & criar um relatório
+# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand (pré-visualização) com Power BI Desktop & criar um relatório
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
 > - Criar base de dados de demonstração
 > - Criar vista usada para relatório
-> - Ligue o Power BI Desktop à SQL a pedido
-> - Criar relatório com base na vista
+> - Ligue o Power BI Desktop ao SQL a pedido
+> - Criar relatório com base na visualização
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este tutorial, precisa do seguinte software:
+Para concluir este tutorial, precisa dos seguintes pré-requisitos:
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/) - necessário para visualizar os dados e criar um relatório.
+- [Espaço de trabalho Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) - necessário para criar base de dados, fonte de dados externa e vista.
+
+Opcional:
 
 - Uma ferramenta de consulta SQL, como [o Azure Data Studio,](/sql/azure-data-studio/download-azure-data-studio)ou [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Valores para os seguintes parâmetros:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço final do serviço sql on-demand    | Usado como nome do servidor                                   |
-| Região de ponto final do serviço sql a pedido     | Usado para determinar o armazenamento usado nas amostras |
+| Endereço de ponto final de serviço a pedido da SQL    | Usado como nome de servidor                                   |
+| SqL região de ponto final de serviço a pedido     | Usado para determinar o armazenamento utilizado nas amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Usado para aceder ao ponto final                               |
-| Base de Dados que utilizará para criar pontos de vista     | A base de dados usada como ponto de partida nas amostras       |
+| Base de dados que utilizará para criar pontos de vista     | A base de dados utilizada como ponto de partida nas amostras       |
 
 ## <a name="1---create-database"></a>1 - Criar base de dados
 
 Para o ambiente de demonstração, crie a sua própria base de dados de demonstração. Utiliza esta base de dados para visualizar metadados, não para armazenar dados reais.
 
-Crie a base de dados de demonstração (e deixe cair uma base de dados existente, se necessário) executando o seguinte script Transact-SQL (T-SQL):
+Crie a base de dados de demonstração (e deixe cair uma base de dados existente se necessário) executando o seguinte script Transact-SQL (T-SQL):
 
 ```sql
 -- Drop database if it exists
@@ -61,9 +65,9 @@ GO
 
 ## <a name="2---create-data-source"></a>2 - Criar fonte de dados
 
-Uma fonte de dados é necessária para que o serviço SQL on-demand aceda a ficheiros armazenados. Crie a fonte de dados para uma conta de armazenamento localizada na mesma região que o seu ponto final. Embora a SQL a pedido possa aceder a contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto final na mesma região proporciona um melhor desempenho.
+Uma fonte de dados é necessária para que o serviço a pedido do SQL aceda a ficheiros armazenados. Crie a fonte de dados para uma conta de armazenamento que esteja localizada na mesma região que o seu ponto final. Embora o SQL on demand possa aceder a contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto final na mesma região proporciona um melhor desempenho.
 
-Criar a fonte de dados executando o seguinte script Transact-SQL (T-SQL):
+Crie a fonte de dados executando o seguinte script Transact-SQL (T-SQL):
 
 ```sql
 -- There is no credential in data surce. We are using public storage account which doesn't need a secret.
@@ -73,9 +77,9 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 
 ## <a name="3---prepare-view"></a>3 - Preparar vista
 
-Crie a visão com base nos dados externos de demonstração para que o Power BI consuma, executando o seguinte script Transact-SQL (T-SQL):
+Crie a vista com base nos dados de demonstração externa para o Power BI consumir executando o seguinte script Transact-SQL (T-SQL):
 
-Crie a vista `usPopulationView` dentro da base de dados com a seguinte `Demo` consulta:
+Criar a vista `usPopulationView` dentro da base de dados com a seguinte `Demo` consulta:
 
 ```sql
 DROP VIEW IF EXISTS usPopulationView;
@@ -92,28 +96,28 @@ FROM
     ) AS uspv;
 ```
 
-Os dados da demonstração contêm os seguintes conjuntos de dados:
+Os dados de demonstração contêm os seguintes conjuntos de dados:
 
-População americana por sexo e raça para cada condado dos EUA provém de 2000 e 2010 Censos Decennial em formato parquet.
+População dos EUA por sexo e raça para cada condado dos EUA, proveniente de 2000 e 2010 Censos Decennial em formato parquet.
 
 | Folder path                                                  | Descrição                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| /libertação/                                                    | Pasta dos pais para dados na conta de armazenamento de demonstração               |
-| /libertação/us_population_county/                               | Ficheiros de dados da população dos EUA em formato Parquet, divididos por ano usando o esquema de partição Hive/Hadoop. |
+| /libertação/                                                    | Pasta-mãe para dados na conta de armazenamento de demonstração               |
+| /lançamento/us_population_county/                               | Ficheiros de dados populacionais dos EUA no formato Parquet, divididos por ano usando o esquema de partição hive/Hadoop. |
 
 ## <a name="4---create-power-bi-report"></a>4 - Criar relatório Power BI
 
-Crie o relatório para o Power BI Desktop utilizando os seguintes passos:
+Crie o relatório para Power BI Desktop utilizando os seguintes passos:
 
 1. Abra a aplicação Power BI Desktop e selecione **Obter dados**.
 
-   ![Abra a aplicação de ambiente de trabalho Do Power BI e selecione obter dados.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
+   ![Abrir a aplicação de ambiente de trabalho DO BI e selecionar obter dados.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Selecione **Base**de Dados  >  **SQL Azure Azure**. 
+2. Selecione **Azure**  >  **Azure SQL Database**. 
 
    ![Selecione fonte de dados.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 
-3. Digite o nome do servidor onde a base de dados está localizada no campo **Server** e, em seguida, digite o nome da base de `Demo` dados. Selecione a opção **Import** e, em seguida, selecione **OK**. 
+3. Digite o nome do servidor onde a base de dados está localizada no campo **Server** e, em seguida, digite `Demo` o nome da base de dados. Selecione a opção **Importar** e, em seguida, selecione **OK**. 
 
    ![Selecione base de dados no ponto final.](./media/tutorial-connect-power-bi-desktop/step-2-db.png)
 
@@ -123,27 +127,27 @@ Crie o relatório para o Power BI Desktop utilizando os seguintes passos:
   
         ![Clique em Iniciar sessão.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
-    - Exemplo para SQL Login - Digite o seu nome de utilizador e palavra-passe.
+    - Exemplo para Sessão De Acesso SQL - Digite o nome de utilizador e a palavra-passe.
 
         ![Utilize o login SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Selecione a vista `usPopulationView` e, em seguida, **selecione Carregar**. 
 
-   ![Selecione uma Visualização na base de dados selecionada.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
+   ![Selecione uma vista na base de dados selecionada.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
 
-6. Aguarde a operação e, em seguida, aparecerá um pop-up afirmando `There are pending changes in your queries that haven't been applied` . Selecione **Aplicar alterações**. 
+6. Aguarde que a operação esteja concluída e, em seguida, aparecerá um pop-up indicando `There are pending changes in your queries that haven't been applied` . **Selecione Aplicar alterações**. 
 
-   ![Clique em alterar alterações.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
+   ![Clique em aplicar alterações.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
 
-7. Aguarde que a caixa de dialog alterações de **consulta de aplicação** desapareça, o que pode demorar alguns minutos. 
+7. Aguarde que a caixa de diálogo **de alterações** de consulta de Aplicação desapareça, o que pode demorar alguns minutos. 
 
-   ![Espere uma consulta para terminar.](./media/tutorial-connect-power-bi-desktop/step-5-wait-for-query-to-finish.png)
+   ![Espere que a consulta termine.](./media/tutorial-connect-power-bi-desktop/step-5-wait-for-query-to-finish.png)
 
-8. Uma vez concluída a carga, selecione as seguintes colunas nesta forma para criar o relatório:
-   - condadoNome
+8. Uma vez concluída a carga, selecione as seguintes colunas neste despacho para criar o relatório:
+   - nome do condado
    - população
-   - estadoNome
+   - nome do estado
 
    ![Selecione colunas de interesse para gerar um relatório de mapa.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
@@ -151,7 +155,7 @@ Crie o relatório para o Power BI Desktop utilizando os seguintes passos:
 
 Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passos:
 
-1. Eliminar a credencial da conta de armazenamento
+1. Apagar a credencial para a conta de armazenamento
 
    ```sql
    DROP EXTENAL DATA SOURCE AzureOpenData
@@ -163,7 +167,7 @@ Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passo
    DROP VIEW usPopulationView;
    ```
 
-3. Largue a base de dados
+3. Deixe cair a base de dados
 
    ```sql
    DROP DATABASE Demo;
@@ -171,4 +175,4 @@ Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avance para os [ficheiros](develop-storage-files-overview.md) de armazenamento da Consulta para saber como consultar ficheiros de armazenamento usando synapse SQL.
+Avance para os [ficheiros de armazenamento de consulta](develop-storage-files-overview.md) para aprender a consultar ficheiros de armazenamento usando o Synapse SQL.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 99549be75e812668c07d9d71062d9d0f8c7b58ec
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 882a94034831b1c710031031918e70bf3581a4a6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217534"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266649"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -87,15 +87,15 @@ Se o seu circuito ExpressRoute estiver ativado para o Azure Microsoft, pode aced
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI - Disponível através de uma Comunidade Regional Azure, consulte [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) como descobrir a região do seu inquilino Power BI.
 * Azure Active Directory
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade Azure Global Services)
-* Endereços IP públicos Azure para IaaS (Máquinas Virtuais, Gateways de Rede Virtual, Equilibradores de Carga, etc)  
+* Endereços IP públicos Azure para IaaS (Máquinas Virtuais, Gateways de Rede Virtual, Equilibradores de Carga, etc.)  
 * A maioria dos outros serviços da Azure também são apoiados. Verifique diretamente com o serviço que pretende utilizar para verificar o suporte.
 
 **Não suportado:**
 
 * CDN
 * Azure Front Door
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Servidor de Autenticação multi-factor (legado)
 * Gestor de Tráfego
 
