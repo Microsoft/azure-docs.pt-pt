@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 7ee69feccb59270d14e86185d0cd6112e5e2ab4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a99045359d9d6c6a327ef646ba15457c3e4fbbda
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190078"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299813"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -36,8 +36,8 @@ Tanto a SQL Database como a SQL Managed Instance utilizam a tecnologia SQL Serve
 
 Pode utilizar estas cópias de segurança para:
 
-- **Restaurar uma base de dados existente a um ponto no tempo no passado** dentro do período de retenção, utilizando o portal Azure PowerShell, Azure CLI ou a API REST. Para bases de dados individuais e agrárias, esta operação criará uma nova base de dados no mesmo servidor que a base de dados original. Num caso gerido, esta operação pode criar uma cópia da base de dados ou a mesma ou uma instância gerida diferente sob a mesma subscrição.
-- **Restaurar uma base de dados eliminada à hora de eliminação** ou a qualquer momento dentro do período de retenção. A base de dados eliminada só pode ser restaurada no mesmo servidor ou caso gerido onde a base de dados original foi criada.
+- **Restaurar uma base de dados existente a um ponto no tempo no passado** dentro do período de retenção, utilizando o portal Azure PowerShell, Azure CLI ou a API REST. Para bases de dados individuais e agrárias, esta operação criará uma nova base de dados no mesmo servidor na mesma subscrição que a base de dados original. Num caso gerido, esta operação pode criar uma cópia da base de dados ou a mesma ou uma instância gerida diferente sob a mesma subscrição.
+- **Restaurar uma base de dados eliminada à hora de eliminação** ou a qualquer momento dentro do período de retenção. A base de dados eliminada só pode ser restaurada no mesmo servidor ou caso gerido e na mesma subscrição onde a base de dados original foi criada.
 - **Restaurar uma base de dados para outra região geográfica.** O geo-restauro permite-lhe recuperar de um desastre geográfico quando não consegue aceder ao seu servidor e base de dados. Cria uma nova base de dados em qualquer servidor existente, em qualquer parte do mundo.
 - **Restaurar uma base de dados a partir de uma cópia de segurança específica a longo prazo** numa única base de dados ou numa base de dados agrária, se a base de dados estiver configurada com uma política de retenção a longo prazo (LTR). O LTR permite restaurar uma versão antiga da base de dados utilizando [o portal Azure](long-term-backup-retention-configure.md#using-azure-portal) ou [a Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para satisfazer um pedido de conformidade ou executar uma versão antiga da aplicação. Para obter mais informações, veja [Retenção de longa duração](long-term-retention-overview.md).
 

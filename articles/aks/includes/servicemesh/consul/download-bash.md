@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594281"
 ---
-Numa concha baseada em golpes no Linux, [Subsistema Windows para Linux][install-wsl] ou MacOS, utilize `curl` para descarregar a versão da tabela do Cônsul Helm da seguinte forma:
+Numa concha baseada em bash no Linux, [Subsistema Windows para Linux][install-wsl] ou MacOS, utilize `curl` para descarregar a versão da tabela Cônsul Helm da seguinte forma:
 
 ```bash
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions
