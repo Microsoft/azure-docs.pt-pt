@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 9ce69e3c783ad8d2fb42be4c358cd1c292bbe026
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: dcaa87b8bf37cc0410c052b82014209327d5fe99
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015374"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310653"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -32,7 +32,7 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: App Service e WebJobs
-Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar a frente no Serviço de [Aplicações Azure](/azure/app-service/) e usar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte o [Azure App Service, os Cloud Services e a comparação de máquinas virtuais.](/azure/architecture/guide/technology-choices/compute-decision-tree)
+Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar a frente no [Azure App Service](/azure/app-service/) e utilizar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [o Azure App Service, Cloud Services e a comparação de máquinas virtuais.](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
 ## <a name="what-youll-learn"></a>O que irá aprender
 * Como ativar o computador para a programação do Azure instalando o Azure SDK.
@@ -124,7 +124,7 @@ Um serviço em nuvem do Azure é o ambiente onde a aplicação irá ser executad
 5. Selecione a região onde pretende implementar a aplicação.
 
     Este campo especifica em qual datacenter será alojado o serviço em nuvem. Para uma aplicação de produção, deverá escolher a região mais próxima dos seus clientes. Para este tutorial, escolha a região mais próxima de si.
-5. Clique em **Criar**.
+5. Clique **em Criar**.
 
     Na imagem seguinte, é criado um serviço cloud com o URL CSvccontosoads.cloudapp.net.
 
@@ -153,7 +153,7 @@ Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada
 9. Clique em **Selecionar** para o novo servidor.
 
     ![Novo servidor](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Clique em **Criar**.
+10. Clique **em Criar**.
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 Uma conta do Storage do Azure fornece recursos para armazenar dados de fila e blob na nuvem.
@@ -176,7 +176,7 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
     Se o serviço em nuvem e a conta do Storage estiverem em datacenters diferentes (regiões diferentes), a latência aumentará e será ser-lhe-á debitada a largura de banda fora do datacenter. A largura de banda dentro de um datacenter é gratuita.
 
     Os grupos de afinidades do Azure fornecem um mecanismo para minimizar a distância entre os recursos num data center, o que poderá reduzir a latência. Este tutorial não utiliza grupos de afinidades. Para obter mais informações, consulte [Como Criar um Grupo de Afinidades no Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Clique em **Criar**.
+7. Clique **em Criar**.
 
     ![Nova conta do Storage](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -229,7 +229,7 @@ As cadeias de ligação da conta do Storage do Azure para o projeto da função 
 1. No **Explorador de Soluções**, clique com o botão direito do rato em **ContosoAdsWeb**, em **Funções** no projeto **ContosoAdsCloudService**, e clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Clique no separador **Definições.** Na caixa de entrega de configuração de **serviço,** escolha **Cloud**.
+2. Clique no **separador Definições.** Na caixa de lançamento da configuração de **serviço,** escolha **Cloud**.
 
     ![Configuração da nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecione a entrada **StorageConnectionString**, verá um botão de reticências (**…**) na extremidade direita da linha. Clique no botão de reticências para abrir a caixa de diálogo **Criar Cadeia de Ligação da Conta do Storage**.
@@ -353,8 +353,8 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 6. Localize o pacote NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instale-o num projeto da função de trabalho.
 
 ### <a name="set-project-references"></a>Definir referências do projeto
-1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique no projeto ContosoAdsWeb e, em seguida, clique em **Referências**  -  **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
-2. No projeto ContosoAdsWorker, estabeleceu uma referência ao projeto ContosoAdsCommon.
+1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito no projeto ContosoAdsWeb e, em seguida, clique em **Referências**  -  **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
+2. No projeto ContosoAdsWorker, estabeleça uma referência ao projeto ContosoAdsCommon.
 
     O ContosoAdsCommon conterá o modelo de dados e a classe de contexto do Entity Framework, que serão utilizados no front-end e back-end.
 3. No projeto ContosoAdsWorker, defina uma referência para `System.Drawing`.
@@ -398,7 +398,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 ### <a name="add-code-files"></a>Adicionar ficheiros de código
 Nesta secção, deverá copiar os ficheiros de código da solução transferida para a solução nova. As secções seguintes irão mostrar e explicar as partes principais deste código.
 
-Para adicionar ficheiros a um projeto ou a uma pasta, clique no projeto ou na pasta e clique em **Adicionar**  -  **Item Existente**. Selecione os ficheiros desejados e clique em **Adicionar**. Caso lhe seja perguntado se pretende substituir os ficheiros existentes, clique em **Sim**.
+Para adicionar ficheiros a um projeto ou a uma pasta, clique com o direito no projeto ou na pasta e clique em **Adicionar**  -  **Item Existente**. Selecione os ficheiros desejados e clique em **Adicionar**. Caso lhe seja perguntado se pretende substituir os ficheiros existentes, clique em **Sim**.
 
 1. No projeto ContosoAdsCommon, elimine o ficheiro *Class1.cs* e adicione no seu lugar os ficheiros *Ad.cs* e *ContosoAdscontext.cs* do projeto transferido.
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
@@ -530,7 +530,7 @@ O ficheiro *Views\Home\Index.cshtml* apresenta ligações das categorias na pág
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
 No ficheiro *AdController.cs*, o construtor chama o método `InitializeStorage` para criar objetos de Biblioteca de Clientes do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
-Em seguida, o código obtém uma referência para o contentor de blob de *imagens*, conforme mostrado anteriormente no *Global.asax.cs*. Ao fazer isso, define uma [política de repetição](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinida adequada para uma aplicação Web. A política de repetição de término exponencial predefinida poderá suspender a aplicação Web durante mais de um minuto em tentativas repetidas quando ocorrer um erro transitório. A política de repetição especificada aqui aguarda três segundos após cada tentativa (até três tentativas).
+Em seguida, o código obtém uma referência para o contentor de blob de *imagens*, conforme mostrado anteriormente no *Global.asax.cs*. Ao fazer isso, define uma [política de repetição](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinida adequada para uma aplicação Web. A política de retrocesso exponencial padrão pode fazer com que a aplicação web deixe de responder por mais de um minuto em retrações repetidas por uma falha transitória. A política de repetição especificada aqui aguarda três segundos após cada tentativa (até três tentativas).
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -758,7 +758,7 @@ Para alterar o projeto para utilizar o emulador completo, clique com o botão di
 
 Para executar a aplicação com o emulador completo, terá de abrir o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um tutorial de introdução. Por exemplo, não implementa a [inserção de dependências](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nem o [repositório e unidade de padrões de trabalho](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), não [utiliza uma interface para registo](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não utiliza as [Migrações do EF Code First](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir as alterações dos modelos de dados nem [Resiliência da Ligação do EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir erros de rede transitórios e etc.
 
 Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que demonstram mais práticas de codificação do mundo real, das menos complexas à mais complexas:
@@ -773,9 +773,6 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte 1 dos Cloud Services do Azure: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Como gerir os Serviços cloud](cloud-services-how-to-manage-portal.md)
-* [Armazenamento Azure](https://docs.microsoft.com/azure/storage/)
+* [Como gerir os Serviços Cloud](cloud-services-how-to-manage-portal.md)
+* [Storage do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

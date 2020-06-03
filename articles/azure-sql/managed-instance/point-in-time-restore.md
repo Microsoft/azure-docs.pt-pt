@@ -1,7 +1,7 @@
 ---
 title: Restauro pontual (PITR)
 titleSuffix: Azure SQL Managed Instance
-description: Restaurar uma base de dados num Azure SQL Managed Instance até um ponto anterior no tempo.
+description: Restaurar uma base de dados em Azure SQL Gestd instance para um ponto anterior no tempo.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,64 +12,64 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 238d9ec814b19499e73533d067202641193aa574
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 379d5e59024174c8f6cfbc185b3514287b7d5031
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046902"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310177"
 ---
-# <a name="restore-an-azure-sql-managed-instance-database-to-a-previous-point-in-time"></a>Restaurar uma base de dados Azure SQL Managed Instance para um ponto anterior no tempo
+# <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados em Azure SQL Gestd Instance para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Utilize a restauração ponto-a-hora (PITR) para criar uma base de dados como cópia de outra base de dados de algum tempo no passado. Este artigo descreve como fazer uma restauração pontual de uma base de dados numa Instância Gerida Azure SQL.
+Utilize a restauração pontual (PITR) para criar uma base de dados como cópia de outra base de dados de algum tempo no passado. Este artigo descreve como fazer uma restauração pontual de uma base de dados em Azure SQL Managed Instance.
 
-A restauração pontual é útil em cenários de recuperação, tais como incidentes causados por erros, dados carregados incorretamente ou eliminação de dados cruciais. Também pode utilizá-lo apenas para testes ou auditorias. Os ficheiros de backup são mantidos durante 7 a 35 dias, dependendo das definições da sua base de dados.
+A restauração pontual é útil em cenários de recuperação, tais como incidentes causados por erros, dados carregados incorretamente ou eliminação de dados cruciais. Também pode usá-lo simplesmente para testar ou auditar. Os ficheiros de cópia de segurança são mantidos durante 7 a 35 dias, dependendo das definições da base de dados.
 
 A restauração pontual pode restaurar uma base de dados:
 
-- de uma base de dados existente.
-- de uma base de dados apagada.
-- para a mesma Instância Gerida SQL, ou para outra Instância Gerida SQL. 
+- a partir de uma base de dados existente.
+- a partir de uma base de dados eliminada.
+- para a mesma SQL Managed Instance, ou para outra SQL Managed Instance. 
 
 ## <a name="limitations"></a>Limitações
 
-O tempo de restabelecimento do tempo para uma Instância Gerida SQL tem as seguintes limitações:
+A restauração pontual da SQL Managed Instance tem as seguintes limitações:
 
-- Quando está a restaurar de um SQL Managed Instance para outro, ambos os casos devem estar na mesma subscrição e região. A tualmente, a restauração transversal e a subscrição cruzada não são suportadas.
-- A restauração pontual de toda uma instância gerida pela SQL não é possível. Este artigo explica apenas o que é possível: restauro pontual de uma base de dados que está hospedada numa Instância Gerida SQL.
+- Quando você está restaurando de um caso de SQL Managed Instance para outro, ambos os casos devem estar na mesma subscrição e região. A restauração de cross-region e cross-subscrição não é suportada atualmente.
+- Não é possível restaurar o ponto a tempo de toda uma sql Gestd Instance. Este artigo explica apenas o que é possível: restauro pontual de uma base de dados que está hospedada em SQL Managed Instance.
 
 > [!WARNING]
-> Esteja ciente do tamanho do armazenamento da sua Instância Gerida SQL. Dependendo do tamanho dos dados a restaurar, pode ficar sem armazenamento de instâncias. Se não houver espaço suficiente para os dados restaurados, use uma abordagem diferente.
+> Esteja ciente do tamanho de armazenamento da sua SQL Managed Instance. Dependendo do tamanho dos dados a restaurar, poderá ficar sem armazenamento de exemplo. Se não houver espaço suficiente para os dados restaurados, use uma abordagem diferente.
 
-A tabela que se segue mostra cenários de restauro pontual para instâncias geridas pela SQL:
+A tabela a seguir mostra cenários de restauro pontual para a ocorrência gerida do SQL:
 
-|           |Restaurar o DB existente para a mesma instância gerida pela SQL| Restaurar o DB existente para outra instância gerida pela SQL|Restaurar caiu DB para a mesma Instância Gerida SQL|Restaurar caiu DB para outra instância gerida pela SQL|
+|           |Restaurar a DB existente no mesmo caso de SQL Managed Instance| Restaurar o DB existente para outra sql gestditua instância|Restauro caiu DB para a mesma SQL Managed Instance|Restauro deixou cair DB para outra SqL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Sim|Não |Sim|Não|
+|**Portal do Azure**| Yes|No |Yes|No|
 |**CLI do Azure**|Sim |Sim |Não|Não|
 |**PowerShell**| Sim|Sim |Sim|Sim|
 
 ## <a name="restore-an-existing-database"></a>Restaurar uma base de dados existente
 
-Restaurar uma base de dados existente na mesma Instância Gerida SQL utilizando o portal Azure, PowerShell ou o Azure CLI. Para restaurar uma base de dados para outra Instância Gerida sQL, utilize o PowerShell ou o Azure CLI para que possa especificar as propriedades para o grupo de recursos geridos sQL alvo. Se não especificar estes parâmetros, a base de dados será restaurada por padrão para a Instância Gerida SQL existente. O portal Azure não suporta atualmente restaurar para outra Instância Gerida SQL.
+Restaurar uma base de dados existente na mesma SQL Managed Instance utilizando o portal Azure, PowerShell ou o Azure CLI. Para restaurar uma base de dados para outra SqL Managed Instance, utilize o PowerShell ou o Azure CLI para que possa especificar as propriedades para o target SQL Managed Instance e grupo de recursos. Se não especificar estes parâmetros, a base de dados será restaurada para a padrão da 22AL Existente. O portal Azure não suporta atualmente restaurar para outra SQL Managed Instance.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Vá ao seu SQL Managed Instance e selecione a base de dados que pretende restaurar.
-3. Selecione **Restaurar** na página de base de dados:
+3. Selecione **Restaurar** na página da base de dados:
 
     ![Restaurar uma base de dados utilizando o portal Azure](./media/point-in-time-restore/restore-database-to-mi.png)
 
-4. Na página **Restaurar,** selecione o ponto para a data e hora a que pretende restaurar a base de dados.
-5. Selecione **Confirmar** para restaurar a sua base de dados. Esta ação inicia o processo de restauro, que cria uma nova base de dados e o povoa com dados da base de dados original no ponto de tempo especificado. Para mais informações sobre o processo de recuperação, consulte o [tempo de recuperação.](../database/recovery-using-backups.md#recovery-time)
+4. Na página **'Restaurar',** selecione o ponto para a data e hora a que pretende restaurar a base de dados.
+5. **Selecione Confirmar** para restaurar a sua base de dados. Esta ação inicia o processo de restauro, que cria uma nova base de dados e povoa-a com dados da base de dados original no ponto especificado no tempo. Para obter mais informações sobre o processo de recuperação, consulte o [tempo de recuperação.](../database/recovery-using-backups.md#recovery-time)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se ainda não tiver o Azure PowerShell instalado, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se ainda não tiver o Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Para restaurar a base de dados utilizando o PowerShell, especifique os seus valores para os parâmetros no seguinte comando. Em seguida, executar o comando:
+Para restaurar a base de dados utilizando o PowerShell, especifique os seus valores para os parâmetros no comando seguinte. Então, executar o comando:
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -90,7 +90,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-Para restaurar a base de dados em outra Instância Gerida sQL, também especifique os nomes do grupo de recursos-alvo e alvo SQL Managed Instance:  
+Para restaurar a base de dados para outra sql Managed Instance, especificar também os nomes do grupo de recursos-alvo e o alvo SQL Managed Instance:  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
@@ -106,20 +106,20 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Para mais detalhes, consulte [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Para mais informações, consulte [a Base de Dados Restore-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se ainda não tiver o Azure CLI instalado, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se ainda não tiver o Azure CLI instalado, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Para restaurar a base de dados utilizando o CLI Azure, especifique os seus valores para os parâmetros no seguinte comando. Em seguida, executar o comando:
+Para restaurar a base de dados utilizando o CLI Azure, especifique os seus valores para os parâmetros no comando seguinte. Então, executar o comando:
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename |
 -n mymanageddbname --dest-name targetmidbname --time "2018-05-20T05:34:22"
 ```
 
-Para restaurar a base de dados em outra Instância Gerida sQL, especifique também os nomes do grupo de recursos-alvo e da Instância Gerida SQL:  
+Para restaurar a base de dados para outra sql Gestd Instance, especificar também os nomes do grupo de recursos-alvo e da SQL Managed Instance:  
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
@@ -128,26 +128,26 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação do CLI para restaurar uma base de dados numa instância gerida pela SQL](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a documentação do [CLI para restaurar uma base de dados numa 22.ºC.](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore)
 
 ---
 
 ## <a name="restore-a-deleted-database"></a>Restaurar uma base de dados eliminada
 
-Restaurar uma base de dados eliminada pode ser feito utilizando o portal PowerShell ou Azure. Para restaurar uma base de dados eliminada na mesma instância, utilize o portal Azure ou o PowerShell. Para restaurar uma base de dados eliminada para outra instância, utilize o PowerShell. 
+Restaurar uma base de dados eliminada pode ser feito utilizando o portal PowerShell ou Azure. Para restaurar uma base de dados eliminada na mesma instância, utilize o portal Azure ou o PowerShell. Para restaurar uma base de dados eliminada para outro caso, utilize o PowerShell. 
 
 ### <a name="portal"></a>Portal 
 
 
-Para recuperar uma base de dados gerida utilizando o portal Azure, abra a página geral da Instância Gerida SQL e selecione bases de **dados eliminadas**. Escolha uma base de dados eliminada que pretenda restaurar e escreva o nome para a nova base de dados que será criada com os dados restaurados a partir da cópia de segurança.
+Para recuperar uma base de dados gerida utilizando o portal Azure, abra a página de visão geral do SQL Managed Instance e selecione **bases de dados eliminadas**. Escolha uma base de dados eliminada que pretenda restaurar e digite o nome para a nova base de dados que será criada com dados restaurados a partir da cópia de segurança.
 
-  ![Screenshot da base de dados de instância sql do Restauro eliminada](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
+  ![Screenshot da restauração eliminada base de dados de instâncias Azure SQL](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
-.. /.. /base de dados sql
+.. /.. /sql-base de dados
 
 ### <a name="powershell"></a>PowerShell
 
-Para restaurar uma base de dados na mesma instância, atualize os valores do parâmetro e, em seguida, execute o seguinte comando PowerShell: 
+Para restaurar uma base de dados na mesma instância, atualize os valores dos parâmetros e, em seguida, execute o seguinte comando PowerShell: 
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -170,7 +170,7 @@ Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
    -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
-Para restaurar a base de dados em outra Instância Gerida sQL, também especifique os nomes do grupo de recursos-alvo e alvo SQL Managed Instance:
+Para restaurar a base de dados para outra sql Managed Instance, especificar também os nomes do grupo de recursos-alvo e o alvo SQL Managed Instance:
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
@@ -191,19 +191,19 @@ Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
 Para substituir uma base de dados existente, deve:
 
 1. Largue a base de dados existente que pretende substituir.
-2. Mude o nome da base de dados restaurada no ponto de tempo para o nome da base de dados que deixou cair.
+2. Mude o nome da base de dados restaurada no tempo para o nome da base de dados que deixou cair.
 
-### <a name="drop-the-original-database"></a>Largue a base de dados original
+### <a name="drop-the-original-database"></a>Deixe cair a base de dados original
 
 Pode deixar cair a base de dados utilizando o portal Azure, PowerShell ou o Azure CLI.
 
-Também pode deixar cair a base de dados ligando-se diretamente à Instância Gerida sQL, iniciando o Estúdio de Gestão de Servidores SQL (SSMS), e executando o seguinte comando Transact-SQL (T-SQL):
+Também pode deixar cair a base de dados ligando-se diretamente ao SQL Managed Instance, iniciando o SQL Server Management Studio (SSMS) e executando o seguinte comando Transact-SQL (T-SQL):
 
 ```sql
 DROP DATABASE WorldWideImporters;
 ```
 
-Utilize um dos seguintes métodos para se ligar à sua base de dados na Instância Gerida SQL:
+Utilize um dos seguintes métodos para ligar à sua base de dados na SqL Managed Instance:
 
 - [Estúdio de Dados SSMS/Azure através de uma máquina virtual Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
@@ -211,13 +211,13 @@ Utilize um dos seguintes métodos para se ligar à sua base de dados na Instânc
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal Azure, selecione a base de dados da Instância Gerida SQL e, em seguida, selecione **Delete**.
+No portal Azure, selecione a base de dados a partir da SqL Managed Instance e, em seguida, **selecione Delete**.
 
    ![Eliminar uma base de dados utilizando o portal Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilize o seguinte comando PowerShell para deixar cair uma base de dados existente a partir de uma instância gerida pela SQL:
+Utilize o seguinte comando PowerShell para lançar uma base de dados existente a partir de uma sql Gestd Instance:
 
 ```powershell
 $resourceGroupName = "<Resource group name>"
@@ -229,7 +229,7 @@ Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceN
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Utilize o seguinte comando Azure CLI para deixar cair uma base de dados existente a partir de uma instância gerida pela SQL:
+Utilize o seguinte comando Azure CLI para lançar uma base de dados existente a partir de uma sql Managed Instance:
 
 ```azurecli-interactive
 az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
@@ -237,20 +237,20 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 
 ---
 
-### <a name="alter-the-new-database-name-to-match-the-original-database-name"></a>Altere o novo nome da base de dados para combinar com o nome original da base de dados
+### <a name="alter-the-new-database-name-to-match-the-original-database-name"></a>Altere o novo nome da base de dados para corresponder ao nome original da base de dados
 
-Conecte-se diretamente à Instância Gerida sQL e inicie o Estúdio de Gestão de Servidores SQL. Em seguida, executar a seguinte consulta Transact-SQL (T-SQL). A consulta irá alterar o nome da base de dados restaurada para a base de dados que pretende substituir.
+Ligue-se diretamente ao SQL Managed Instance e inicie o SQL Server Management Studio. Em seguida, executar a seguinte consulta Transact-SQL (T-SQL). A consulta alterará o nome da base de dados restaurada para a base de dados que pretende substituir.
 
 ```sql
 ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
-Utilize um dos seguintes métodos para se ligar à sua base de dados na Instância Gerida SQL:
+Utilize um dos seguintes métodos para ligar à sua base de dados em SQL Managed Instance:
 
-- [Máquina virtual azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Máquina virtual Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [cópias de segurança automatizadas.](../database/automated-backups-overview.md)
+Saiba mais [sobre cópias de segurança automatizadas.](../database/automated-backups-overview.md)
