@@ -73,6 +73,12 @@
       items:
         - name: Rotação de chaves de acesso
           href: signalr-howto-key-rotation.md
+        - name: Utilizar Etiquetas de Serviço do Azure
+          href: howto-service-tags.md
+        - name: Utilizar Pontos Finais Privados do Azure
+          href: howto-private-endpoints.md
+        - name: Gerir o controlo de acesso à rede
+          href: howto-network-access-control.md
     - name: Integrar
       items:
         - name: Enlaces das Funções do Azure
@@ -101,7 +107,7 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
-    - name: Perguntas mais frequentes
+    - name: FAQs
       href: signalr-resource-faq.md
     - name: Limites do nível de subscrição do SignalR Service
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'

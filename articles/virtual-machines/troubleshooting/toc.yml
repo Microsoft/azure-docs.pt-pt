@@ -69,6 +69,8 @@
       items:
         - name: Diagnósticos de arranque
           href: boot-diagnostics.md
+        - name: Erro de Arranque - Ocorreu um Erro de Leitura de Disco
+          href: boot-error-disk-read-error-occurred.md
         - name: Erros de disco BitLocker
           href: troubleshoot-bitlocker-boot-error.md
         - name: Erros comuns de ecrã azul

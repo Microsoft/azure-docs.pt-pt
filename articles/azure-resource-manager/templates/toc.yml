@@ -20,6 +20,8 @@
           href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cópia de segurança
           href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Batch
+          href: ../../batch/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cognitive Search
           href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Container Instances
@@ -28,6 +30,8 @@
           href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Orçamento do Cost Management
           href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Database for MariaDB
+          href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Base de Dados para MySQL
           href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Base de Dados para PostgreSQL
@@ -68,6 +72,8 @@
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Gráfico de Recursos
           href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Controlo de acesso baseado em funções (RBAC)
+          href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Mensagens do Service Bus
           href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Service Fabric

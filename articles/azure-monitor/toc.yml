@@ -464,6 +464,8 @@
               href: platform/alerts-metric-logs.md
             - name: Com o modelo do Resource Manager
               href: platform/alerts-metric-create-templates.md
+            - name: Resolver problemas dos alertas de métricas
+              href: platform/alerts-troubleshoot-metric.md
         - name: Regras de alerta de registos
           items:
             - name: Configurar alertas nas consultas de análise
@@ -992,10 +994,10 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
-        - name: Cofre de Chaves
-          href: insights/key-vaults-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
+        - name: Cofre de Chaves
+          href: insights/key-vault-insights-overview.md
         - name: Armazenamento
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
@@ -1096,6 +1098,7 @@
     - name: Livros
       items:
         - name: Descrição geral
+          displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualizações
           href: platform/workbooks-visualizations.md

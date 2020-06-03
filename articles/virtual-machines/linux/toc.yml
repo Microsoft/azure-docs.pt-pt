@@ -952,8 +952,10 @@
               href: configure-raid.md
             - name: Configurar LVM
               href: configure-lvm.md
-        - name: Encontrar discos desanexados
+        - name: Localizar discos desanexados - CLI
           href: find-unattached-disks.md
+        - name: Localizar discos desanexados - Portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Utilizar o Armazenamento de Ficheiros
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: FAQ sobre discos

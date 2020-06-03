@@ -120,3 +120,10 @@
               href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Concluir uma revisão de acesso
               href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+- name: Referência
+  expanded: true
+  items:
+    - name: Revisões de acesso - Graph API
+      href: 'https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta'
+    - name: Gestão de direitos - Graph API
+      href: 'https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta'

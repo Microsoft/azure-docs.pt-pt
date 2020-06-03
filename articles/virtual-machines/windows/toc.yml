@@ -860,8 +860,10 @@
               href: disks-enable-ultra-ssd.md
             - name: Criar um disco de referência
               href: disks-benchmarks.md
-        - name: Encontrar discos desanexados
+        - name: Localizar discos desanexados - PowerShell
           href: find-unattached-disks.md
+        - name: Localizar discos desanexados - Portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: FAQ sobre discos
           href: faq-for-disks.md
     - name: Gerir redes

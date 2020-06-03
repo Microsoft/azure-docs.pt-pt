@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 0d54189212a3597902c58f2889959891f6c8c07c
-  ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+  ms.openlocfilehash: b99ded362ea366222a656d9c127defc63ff6b37b
+  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/02/2020
-  ms.locfileid: "80584299"
+  ms.lasthandoff: 06/03/2020
+  ms.locfileid: "84309803"
 landingContent:
 - title: Acerca da BD do Cosmos para o Azure
   linkLists:
@@ -248,8 +248,12 @@ landingContent:
     links:
     - text: .NET
       url: create-cassandra-dotnet.md
-    - text: Java
+    - text: .NET Core
+      url: create-cassandra-dotnet-core.md
+    - text: Java v3
       url: create-cassandra-java.md
+    - text: Java v4
+      url: create-cassandra-java-v4.md
     - text: Node.js
       url: create-cassandra-nodejs.md
     - text: Python
