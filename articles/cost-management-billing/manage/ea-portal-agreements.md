@@ -3,16 +3,16 @@ title: Contratos e emendas do Azure EA
 description: Este artigo explica como os contratos e as emendas do Azure EA afetam a utilização do Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648178"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298147"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -43,7 +43,7 @@ Uma inscrição tem um dos seguintes valores de estado. Cada estado determina co
 
 **Expirado** – a inscrição EA expira quando atinge a data de fim do contrato Enterprise. O cliente EA é excluído do período alargado e todos os serviços são desativados.
 
-Desde 1 de agosto de 2019 que não são aceites novos formulários de exclusão para clientes comerciais do Azure. Em vez disso, todas as inscrições entram no período alargado indefinidamente. Se quiser deixar de utilizar os serviços do Azure, termine a subscrição no [Azure EA Portal](https://portal.azure.com). Em alternativa, o seu parceiro pode submeter um pedido de cessação em https://www.explore.ms. Não existem alterações para os clientes com tipos de contratos governamentais.
+Desde 1 de agosto de 2019 que não são aceites novos formulários de exclusão para clientes comerciais do Azure. Em vez disso, todas as inscrições entram no período alargado indefinidamente. Se quiser deixar de utilizar os serviços do Azure, feche a subscrição no [portal do Azure](https://portal.azure.com). Em alternativa, o seu parceiro pode submeter um pedido de cessação em https://www.explore.ms. Não existem alterações para os clientes com tipos de contratos governamentais.
 
 **Transferido** – o estado Transferido aplica-se a inscrições cujas contas e serviços foram transferidos para uma nova inscrição. As inscrições não serão transferidas automaticamente se for gerado um novo número de inscrição durante a renovação. O número de inscrição anterior tem de ser incluído no pedido de renovação do cliente para que exista uma transferência automática.
 

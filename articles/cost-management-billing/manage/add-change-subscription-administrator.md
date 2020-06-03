@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 3e4ad74a55504367de18a3dc9f0a7d33c462b329
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199845"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267567"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrições do Azure
 
@@ -71,7 +71,7 @@ Se não tiver a certeza de quem é o administrador de conta de uma subscrição,
 
 * [O que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md)
 * [Compreender as diferentes funções no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [How to: Associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Administrator role permissions in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
