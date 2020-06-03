@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Back-up Windows Server para Azure
+title: Tutorial - Re-apoie o Servidor do Windows para O Azure
 description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 560a4907fc812aae027ad9e1a1c262fc994c0da9
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238749"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295546"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
@@ -19,11 +19,11 @@ Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e 
 >
 > * Transferir e configurar o Agente MARS
 > * Configurar horas de cópia de segurança e agenda de retenção para as cópias de segurança do servidor
-> * Faça um back-up a pedido
+> * Realizar um back-up on-demand
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em <https://portal.azure.com.>
+Inicie sessão no portal do Azure em <https://portal.azure.com>.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -59,7 +59,7 @@ O agente dos Serviços de Recuperação do Microsoft Azure (MARS) cria uma assoc
 
 3. No menu **Objetivo de Cópia de Segurança**:
 
-   * para **Onde está a sua carga de trabalho?** **On-premises**
+   * para onde está a sua **On-premises** carga **de trabalho?**
    * para **Pretende efetuar uma cópia de segurança?**, selecione **Ficheiros e pastas** e clique em **Estado do Sistema**
 
    ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)

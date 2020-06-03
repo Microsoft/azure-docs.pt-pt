@@ -4,23 +4,24 @@ description: Conecte-se privadamente a uma Aplicação Web usando o Azure Privat
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2151b72e647726a075e11bbaea968ccf30cdc78a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196401"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295444"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
 > [!Note]
 > Com a atualização de pré-visualização, divulgámos a funcionalidade de proteção de exfiltração de dados.
-> A pré-visualização está disponível nas regiões leste dos EUA e West US 2 para todas as aplicações Do Windows e Linux e Funções Premium Elásticas. 
+>
+> A pré-visualização está disponível em todas as regiões públicas para As Aplicações Web PremiumV2 e Linux Web e Funções Premium Elásticas. 
 
 Pode utilizar o Private Endpoint para a sua Azure Web App para permitir que os clientes localizados na sua rede privada acedam de forma segura à aplicação sobre o Private Link. O Private Endpoint utiliza um endereço IP a partir do seu espaço de endereço Azure VNet. O tráfego de rede entre um cliente na sua rede privada e a Web App atravessa o VNet e uma Ligação Privada na rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública.
 
