@@ -1,52 +1,52 @@
 ---
-title: Visão geral de Kubernetes habilitada a Azure Arc
+title: Visão geral de Kubernetes ativados pelo Arco Azure
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
-description: ''
+description: Este artigo fornece uma visão geral de Kubernetes ativados por Azure Arc.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.custom: references_regions
-ms.openlocfilehash: badade7e89d0b03f330bfbe3578d02429220001b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194841"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309939"
 ---
-# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é Kubernetes ativado por Azure Arc (Preview)
+# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é a pré-visualização de Kubernetes ativada pelo Arco Azure?
 
-Pode anexar e configurar aglomerados Kubernetes dentro ou fora de Azure com Azure Arc ativado Kubernetes (Preview). Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no Portal Azure, terá um ID do Gestor de Recursos Azure e uma Identidade Gerida. Os clusters estão ligados às subscrições padrão do Azure, vivem num grupo de recursos e podem receber tags como qualquer outro recurso Azure. 
+Pode anexar e configurar aglomerados Kubernetes dentro ou fora de Azure utilizando a pré-visualização de Kubernetes ativada pelo Arco Azure. Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no portal Azure. Terá um ID do Azure Resource Manager e uma identidade gerida. Os clusters estão ligados às subscrições padrão do Azure, estão localizados num grupo de recursos, e podem receber tags como qualquer outro recurso Azure. 
 
+Para ligar um cluster Kubernetes ao Azure, o administrador do cluster precisa de enviar agentes. Estes agentes funcionam num espaço de nome Kubernetes chamado `azure-arc` e são implementações padrão de Kubernetes. Os agentes são responsáveis pela conectividade com o Azure, recolhendo registos e métricas do Arco Azure e observando pedidos de configuração. 
 
-Ligar um cluster Kubernetes ao Azure requer um administrador de cluster para implantar agentes. Estes agentes funcionam num espaço de nome Kubernetes chamado `azure-arc` e são implementações padrão de Kubernetes. Os agentes são responsáveis pela conectividade com o Azure, recolhendo registos e métricas do Arco Azure e observando pedidos de configuração.  
+A Azure Arc-enabled Kubernetes suporta sSL padrão da indústria para garantir dados em trânsito. Além disso, os dados são armazenados encriptados em repouso numa base de dados DB Azure Cosmos para garantir a confidencialidade dos dados.
  
  > [!NOTE]
-> Azure Arc habilitado Kubernetes está em pré-visualização e não é recomendado para cargas de trabalho de produção. 
+> Azure Arc-enabled Kubernetes está em pré-visualização. Não recomendamos para cargas de trabalho de produção. 
 
 
-## <a name="supported-scenarios"></a>Cenários Suportados 
+## <a name="supported-scenarios"></a>Cenários suportados 
 
-Azure Arc habilitado Kubernetes suporta os seguintes cenários: 
+Azure Arc-enabled Kubernetes suporta estes cenários: 
 
-* Ligação de Kubernetes fora de Azure para inventário, agrupamento e marcação 
+* Ligue kubernetes correndo fora de Azure para inventário, agrupamento e marcação.
 
-* Implementar aplicações e aplicar configuração usando a gestão de configuração baseada em GitOps 
+* Implemente aplicações e aplique a configuração utilizando a gestão de configuração baseada em GitOps. 
 
-* Utilize o Monitor Azure para que os recipientes vejam e monitorizem os seus aglomerados 
+* Utilize o Monitor Azure para que os recipientes vejam e monitorizem os seus aglomerados. 
 
-* Aplicar políticas usando a política Azure para Kubernetes 
+* Aplicar políticas utilizando a Política Azure para Kubernetes. 
 
  
-## <a name="supported-regions"></a>Regiões apoiadas 
+## <a name="supported-regions"></a>Regiões suportadas 
 
-Azure Arc habilitado Kubernetes é atualmente apoiado nas seguintes regiões: 
+Azure Arc-enabled Kubernetes é atualmente apoiado nestas regiões: 
 
 * E.U.A. Leste 
 * Europa Ocidental 
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

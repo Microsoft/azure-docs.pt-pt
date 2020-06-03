@@ -1,88 +1,88 @@
 ---
-title: Monitorizar a recuperação do site azure com registos de monitores Azure
-description: Saiba como monitorizar a recuperação do site azure com registos do Monitor Azure (Log Analytics)
+title: Monitor Azure Site Recovery with Azure Monitor Logs
+description: Saiba como monitorizar a recuperação do site Azure com registos do monitor Azure (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131197"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300795"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
-Este artigo descreve como monitorizar máquinas replicadas pela [Recuperação](site-recovery-overview.md)do Site Azure, utilizando [registos de monitores Azure](../azure-monitor/platform/data-platform-logs.md)e [Log Analytics.](../azure-monitor/log-query/log-query-overview.md)
+Este artigo descreve como monitorizar as máquinas replicadas pela Azure [Site Recovery](site-recovery-overview.md), utilizando [registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md)e [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
-O Azure Monitor Logs fornece uma plataforma de dados de registo que recolhe registos de atividade e recursos, juntamente com outros dados de monitorização. Dentro dos Registos do Monitor Azure, utiliza o Log Analytics para escrever e testar consultas de registo e analisar interativamente os dados de registo. Pode visualizar e consultar os resultados do registo e configurar alertas para tomar ações com base em dados monitorizados.
+Os Registos do Monitor Azure fornecem uma plataforma de dados de registo que recolhe atividade e registos de recursos, juntamente com outros dados de monitorização. Nos Registos do Monitor Azure, utiliza o Log Analytics para escrever e testar consultas de registo e para analisar interativamente dados de registo. Pode visualizar e consultar os resultados dos registos e configurar alertas para tomar ações com base em dados monitorizados.
 
-Para a recuperação do site, pode aceder a registos do Monitor Azure para o ajudar a fazer o seguinte:
+Para a recuperação do site, pode Azure Monitor Logs para ajudá-lo a fazer o seguinte:
 
-- Monitorizar a **saúde e o estado**da recuperação do site. Por exemplo, pode monitorizar a saúde da replicação, o estado de failover do teste, eventos de recuperação do site, objetivos de ponto de recuperação (RPOs) para máquinas protegidas e taxas de mudança de disco/dados.
-- **Configurar alertas para a recuperação**do local. Por exemplo, pode configurar alertas para a saúde da máquina, o estado de falha de teste ou o estado do trabalho de recuperação do site.
+- **Monitorizar a saúde e o estado da recuperação do local.** Por exemplo, pode monitorizar a saúde da replicação, o estado de falha do teste, os eventos de recuperação do local, os objetivos do ponto de recuperação (RPOs) para máquinas protegidas e as taxas de alteração do disco/dados.
+- **Configurar alertas para a Recuperação do Local.** Por exemplo, pode configurar alertas para a saúde da máquina, para testar o estado de falha do trabalho ou para a recuperação do local.
 
-A utilização de registos de monitores Azure com recuperação do site é suportada para a replicação **de Azure a Azure,** e **VMware VM/servidor físico para** a replicação do Azure.
+A utilização de Registos monitores Azure com Recuperação de Locais é suportada para replicação **de Azure a Azure** e **VMware VM/servidor físico para** a replicação do Azure.
 
 > [!NOTE]
-> Para obter os registos de dados e os registos de taxa de carregamento para VMware e máquinas físicas, é necessário instalar um agente de monitorização da Microsoft no Servidor de Processos. Este agente envia os registos das máquinas de replicação para o espaço de trabalho. Esta capacidade está disponível apenas para a versão 9.30 do agente de mobilidade.
+> Para obter os registos de dados de churn e registos de taxas de carregamento para VMware e máquinas físicas, é necessário instalar um agente de monitorização da Microsoft no Process Server. Este agente envia os registos das máquinas de replicação para o espaço de trabalho. Esta capacidade está disponível apenas para a versão 9.30 do agente de mobilidade.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 Eis o que necessita:
 
 - Pelo menos uma máquina protegida num cofre dos Serviços de Recuperação.
-- Um espaço de trabalho de Log Analytics para armazenar registos de recuperação do site. [Aprenda a](../azure-monitor/learn/quick-create-workspace.md) criar um espaço de trabalho.
-- Uma compreensão básica de como escrever, executar e analisar consultas de log no Log Analytics. [Saiba mais](../azure-monitor/log-query/get-started-portal.md).
+- Um espaço de trabalho log Analytics para armazenar registos de recuperação do site. [Saiba como](../azure-monitor/learn/quick-create-workspace.md) criar um espaço de trabalho.
+- Uma compreensão básica de como escrever, executar e analisar consultas de registo em Log Analytics. [Saiba mais](../azure-monitor/log-query/get-started-portal.md).
 
-Recomendamos que reveja [as questões comuns](monitoring-common-questions.md) de monitorização antes de começar.
+Recomendamos que reveja [questões comuns de monitorização](monitoring-common-questions.md) antes de começar.
 
-## <a name="configure-site-recovery-to-send-logs"></a>Configurar a recuperação do site para enviar registos
+## <a name="configure-site-recovery-to-send-logs"></a>Configurar a Recuperação do Site para enviar registos
 
-1. No cofre, clique em **definições** > de**diagnóstico Adicione a definição de diagnóstico**.
+1. No cofre, clique nas **definições de Diagnóstico**  >  **Adicione a definição de diagnóstico**.
 
-    ![Selecione a exploração madeireira de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Selecione a registo de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. Nas **definições de Diagnóstico,** especifique um nome e verifique a caixa **Enviar para Registar Análises**.
-3. Selecione a subscrição de Registos do Monitor Azure e o espaço de trabalho do Log Analytics.
-4. Selecione **Diagnósticos Azure** no alternância.
+2. Nas **definições de Diagnóstico**, especifique um nome e verifique a caixa Enviar para Registar **Analytics**.
+3. Selecione a subscrição de Registos do Monitor Azure e o espaço de trabalho Log Analytics.
+4. Selecione **Azure Diagnostics** no toggle.
 5. Na lista de registos, selecione todos os registos com o prefixo **AzureSiteRecovery**. Em seguida, clique em **OK**.
 
     ![Selecionar área de trabalho](./media/monitoring-log-analytics/select-workspace.png)
 
-Os registos de recuperação do site começam a alimentar-se numa tabela **(AzureDiagnostics**) no espaço de trabalho selecionado.
+Os registos de recuperação do local começam a alimentar-se numa tabela **(AzureDiagnostics)** no espaço de trabalho selecionado.
 
-## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Configure o agente de monitorização da Microsoft no Servidor de Processos para enviar registos de taxa de carregamento e churn
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Configure o agente de monitorização da Microsoft no Servidor de Processos para enviar registos de tarifas de churn e upload
 
-Pode capturar as informações da taxa de recolha de dados e a informação da taxa de carregamento de dados de origem para os seus VMware/máquinas físicas no local. Para o ativar, é necessário instalar um agente de monitorização da Microsoft no Servidor de Processos.
+Pode capturar as informações sobre a taxa de bito de dados e a informação de cartão de dados de origem para as suas VMware/máquinas físicas no local. Para ativar isto, é necessário instalar um agente de monitorização da Microsoft no Servidor de Processos.
 
 1. Vá ao espaço de trabalho do Log Analytics e clique em **Definições Avançadas**.
-2. Clique na página **De Fontes Conectadas** e selecione ainda mais **os Servidores do Windows**.
-3. Descarregue o Agente Windows (64 bits) no Servidor de Processos. 
+2. Clique na página **'Fontes Conectadas'** e selecione ainda **servidores do Windows**.
+3. Descarregue o Windows Agent (64 bit) no Servidor de Processos. 
 4. [Obtenha o ID e a chave do espaço de trabalho](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
-5. [Configure o agente para utilizar TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Complete a instalação do agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) fornecendo o ID e a chave obtidos no espaço de trabalho.
-7. Assim que a instalação estiver concluída, aceda ao espaço de trabalho do Log Analytics e clique em **Definições Avançadas**. Vá à página **dados** e clique mais nos **Balcões**de Desempenho do Windows . 
-8. Clique em **'+'** para adicionar os dois contadores seguintes com intervalo de amostra de 300 segundos:
+5. [Configure o agente para utilizar o TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Complete a instalação do agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) fornecendo o ID e a chave do espaço de trabalho obtidos.
+7. Uma vez concluída a instalação, vá ao espaço de trabalho do Log Analytics e clique em **Definições Avançadas**. Aceda à página **de Dados** e clique mais em **Contadores de Desempenho do Windows**. 
+8. Clique em **'+'** para adicionar os seguintes dois contadores com intervalo de amostra de 300 segundos:
 
         ASRAnalytics(*)\SourceVmChurnRate 
         ASRAnalytics(*)\SourceVmThrpRate 
 
-Os dados da taxa de carregamento começarão a alimentar-se no espaço de trabalho.
+Os dados da taxa de churn e upload começarão a alimentar-se no espaço de trabalho.
 
 
-## <a name="query-the-logs---examples"></a>Consulta dos registos - exemplos
+## <a name="query-the-logs---examples"></a>Consultar os registos - exemplos
 
-Obtém dados de registos utilizando consultas de registo escritas com a linguagem de [consulta Kusto](../azure-monitor/log-query/get-started-queries.md). Esta secção fornece alguns exemplos de consultas comuns que pode utilizar para monitorização da recuperação do site.
+Obtém dados de registos utilizando consultas de registo escritas com o [idioma de consulta kusto](../azure-monitor/log-query/get-started-queries.md). Esta secção fornece alguns exemplos de consultas comuns que pode utilizar para monitorização da recuperação do local.
 
 > [!NOTE]
-> Alguns dos exemplos usam **replicationProviderName_s** definido para **A2A**. Isto recupera VMs Azure que são replicados para uma região secundária de Azure usando a Recuperação do Local. Nestes exemplos, pode substituir **a A2A** por **InMageAzureV2,** se quiser recuperar VMs no local ou servidores físicos que são replicados para Azure utilizando a Recuperação do Site.
+> Alguns dos exemplos utilizam **replicationProviderName_s** definidos para **A2A**. Isto recupera VMs Azure que são replicados para uma região secundária de Azure usando a Recuperação do Local. Nestes exemplos, pode substituir **o A2A** pelo **InMageAzureV2,** se pretender recuperar VMware VMware no local ou servidores físicos que sejam replicados para Azure utilizando a Recuperação do Site.
 
 
-### <a name="query-replication-health"></a>Saúde de replicação de consulta
+### <a name="query-replication-health"></a>Saúde da replicação de consultas
 
 Esta consulta traça um gráfico de tartes para a saúde de replicação atual de todos os VMs Azure protegidos, divididos em três estados: Normal, Aviso ou Crítico.
 
@@ -95,9 +95,9 @@ AzureDiagnostics 
 | summarize count() by replicationHealth_s  
 | render piechart   
 ```
-### <a name="query-mobility-service-version"></a>Versão do serviço de Mobilidade Consulta
+### <a name="query-mobility-service-version"></a>Versão do serviço de mobilidade de consulta
 
-Esta consulta traça um gráfico de tartes para VMs Azure replicado com Recuperação do Site, dividido pela versão do agente de Mobilidade que estão a executar.
+Esta consulta traça um gráfico de tartes para VMs Azure replicados com Recuperação de Sítio, dividido pela versão do agente de Mobilidade que estão a executar.
 
 ```
 AzureDiagnostics  
@@ -109,9 +109,9 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### <a name="query-rpo-time"></a>Hora do RPO de consulta
+### <a name="query-rpo-time"></a>Consulta RPO tempo
 
-Esta consulta traça um gráfico de barras de VMs Azure replicado com Recuperação do Local, dividido pelo objetivo do ponto de recuperação (RPO): Menos de 15 minutos, entre 15-30 minutos, mais de 30 minutos.
+Esta consulta traça um gráfico de barras de VMs Azure replicados com Recuperação do Local, dividido por objetivo de ponto de recuperação (RPO): Menos de 15 minutos, entre 15-30 minutos, mais de 30 minutos.
 
 ```
 AzureDiagnostics 
@@ -125,11 +125,11 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![RPO de consulta](./media/monitoring-log-analytics/example1.png)
+![Consulta RPO](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Trabalhos de recuperação de locais de consulta
 
-Esta consulta recupera todos os trabalhos de recuperação do site (para todos os cenários de recuperação de desastres), desencadeados nas últimas 72 horas, e o seu estado de conclusão.
+Esta consulta recupera todos os trabalhos de Recuperação de Locais (para todos os cenários de recuperação de desastres), desencadeados nas últimas 72 horas, e o seu estado de conclusão.
 
 ```
 AzureDiagnostics  
@@ -140,7 +140,7 @@ AzureDiagnostics 
 
 ### <a name="query-site-recovery-events"></a>Eventos de recuperação do site de consulta
 
-Esta consulta recupera todos os eventos de Recuperação do Site (para todos os cenários de recuperação de desastres) levantados nas últimas 72 horas, juntamente com a sua gravidade. 
+Esta consulta recupera todos os eventos de Recuperação do Local (para todos os cenários de recuperação de desastres) levantados nas últimas 72 horas, juntamente com a sua gravidade. 
 
 ```
 AzureDiagnostics   
@@ -149,9 +149,9 @@ AzureDiagnostics  
 | project AffectedObject=affectedResourceName_s , VaultName = Resource, Description_s = healthErrors_s , Severity = Level  
 ```
 
-### <a name="query-test-failover-state-pie-chart"></a>Teste de consulta failover estado (gráfico de torta)
+### <a name="query-test-failover-state-pie-chart"></a>Estado de falha do teste de consulta (gráfico de tarte)
 
-Esta consulta traça um gráfico de tartes para o estado de failover de teste dos VMs Azure replicados com a Recuperação do Site.
+Esta consulta traça um gráfico de tartes para o estado de failover de teste de VMs Azure replicados com Recuperação de Local.
 
 ```
 AzureDiagnostics  
@@ -164,9 +164,9 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### <a name="query-test-failover-state-table"></a>Teste de consulta failover estado (tabela)
+### <a name="query-test-failover-state-table"></a>Estado de failover do teste de consulta (tabela)
 
-Esta consulta traça uma tabela para o estado de falha de teste dos VMs Azure replicados com a Recuperação do Local.
+Esta consulta traça uma tabela para o estado de failover de teste de VMs Azure replicados com Recuperação de Local.
 
 ```
 AzureDiagnostics   
@@ -194,7 +194,7 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Taxa de alteração de dados de consulta (churn) e taxa de upload para um VM Azure
 
-Esta consulta traça um gráfico de tendência para um Azure VM específico (ContosoVM123), que representa a taxa de mudança de dados (Write Bytes por Segundo) e a taxa de upload de dados. 
+Esta consulta traça um gráfico de tendência para um VM Azure específico (ContosoVM123), que representa a taxa de alteração de dados (Write Bytes por Segundo) e taxa de upload de dados. 
 
 ```
 AzureDiagnostics   
@@ -214,7 +214,7 @@ Category contains "Upload", "UploadRate", "none") 
 > [!Note]
 > Certifique-se de que configura o agente de monitorização no Servidor de Processos para recolher estes registos. Consulte [os passos para configurar o agente de monitorização](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
 
-Esta consulta traça um gráfico de tendência para um disco específico **de** um item replicado **win-9r7sfh9qlru**, que representa a taxa de mudança de dados (Write Bytes por Segundo) e a taxa de upload de dados. Pode encontrar o nome do disco na lâmina dos **Discos** do item replicado no cofre dos serviços de recuperação. O nome da instância a ser usado na consulta é o nome DNS da máquina seguido de _ e o nome do disco como neste exemplo.
+Esta consulta traça um gráfico de tendência para um disco específico **0** de um item replicado **win-9r7sfh9qlru,** que representa a taxa de alteração de dados (Write Bytes por Segundo) e a taxa de upload de dados. Pode encontrar o nome do disco na lâmina **dos Discos** do item replicado no cofre dos serviços de recuperação. O nome da instância a ser usado na consulta é o nome DNS da máquina seguido por _ e nome do disco como neste exemplo.
 
 ```
 Perf
@@ -226,9 +226,9 @@ Perf
 ```
 O Process Server empurra estes dados a cada 5 minutos para o espaço de trabalho do Log Analytics. Estes pontos de dados representam a média calculada durante 5 minutos.
 
-### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Resumo de recuperação de desastres de consulta (Azure to Azure)
+### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Resumo da recuperação de desastres de consulta (Azure to Azure)
 
-Esta consulta traça uma tabela sumária para VMs Azure replicada para uma região secundária de Azure.  Mostra o nome, o estado de replicação e proteção do VM, o RPO, o estado de falha de teste, a versão do agente de mobilidade, quaisquer erros de replicação ativas e a localização da fonte.
+Esta consulta traça uma tabela de resumo para VMs Azure replicados para uma região secundária de Azure.  Mostra o nome VM, o estado de replicação e proteção, RPO, estado de falha de teste, versão do agente de mobilidade, quaisquer erros de replicação ativos e a localização da fonte.
 
 ```
 AzureDiagnostics 
@@ -238,9 +238,9 @@ AzureDiagnostics 
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, SourceLocation = primaryFabricName_s 
 ```
 
-### <a name="query-disaster-recovery-summary-vmwarephysical-servers"></a>Resumo de recuperação de desastres de consulta (VMware/servidores físicos)
+### <a name="query-disaster-recovery-summary-vmwarephysical-servers"></a>Resumo da recuperação de desastres de consulta (VMware/servidores físicos)
 
-Esta consulta traça uma tabela de resumo para VMware VMs e servidores físicos replicados para Azure.  Mostra o nome da máquina, o estado de replicação e proteção, o RPO, o estado de falha de teste, a versão do agente de mobilidade, quaisquer erros de replicação ativas e o servidor de processo relevante.
+Esta consulta traça uma tabela de resumo para VMware VMs e servidores físicos replicados para Azure.  Mostra o nome da máquina, o estado de replicação e proteção, RPO, estado de falha de teste, versão do agente de mobilidade, quaisquer erros de replicação ativos e o servidor de processo relevante.
 
 ```
 AzureDiagnostics  
@@ -252,14 +252,14 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurar alertas - exemplos
 
-Pode configurar alertas de recuperação do site com base em dados do Monitor Do Azure. [Saiba mais](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) sobre a configuração de alertas de registo. 
+Pode configurar alertas de Recuperação do Local com base nos dados do Azure Monitor. [Saiba mais](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre a configuração de alertas de registo. 
 
 > [!NOTE]
-> Alguns dos exemplos usam **replicationProviderName_s** definido para **A2A**. Isto define alertas para VMs Azure que são replicados para uma região secundária de Azure. Nestes exemplos, pode substituir **a A2A** por **InMageAzureV2** se pretender definir alertas para VMware VMware no local ou servidores físicos replicados para o Azure.
+> Alguns dos exemplos utilizam **replicationProviderName_s** definidos para **A2A**. Isto estabelece alertas para VMs Azure que são replicados para uma região secundária de Azure. Nestes exemplos, pode substituir **o A2A** pelo **InMageAzureV2** se quiser definir alertas para VMware VMware no local ou servidores físicos replicados no Azure.
 
-### <a name="multiple-machines-in-a-critical-state"></a>Múltiplas máquinas em estado crítico
+### <a name="multiple-machines-in-a-critical-state"></a>Várias máquinas em estado crítico
 
-Estabeleça um alerta se mais de 20 VMs Azure replicados entrarem em estado crítico.
+Confiúde um alerta se mais de 20 VMs Azure replicados entrarem num estado crítico.
 
 ```
 AzureDiagnostics   
@@ -269,11 +269,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count() 
 ```
-Para o alerta, detete o **valor limiar** para 20.
+Para o alerta, desa um **valor de limiar** para 20.
 
 ### <a name="single-machine-in-a-critical-state"></a>Máquina única em estado crítico
 
-Instale um alerta se um VM Azure replicado específico entrar em estado crítico.
+Confiúde um alerta se um VM Azure replicado específico entrar num estado crítico.
 
 ```
 AzureDiagnostics   
@@ -284,11 +284,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Para o alerta, detete o **valor limiar** para 1.
+Para o alerta, desa um **valor de limiar** para 1.
 
-### <a name="multiple-machines-exceed-rpo"></a>Várias máquinas excedem RPO
+### <a name="multiple-machines-exceed-rpo"></a>Várias máquinas excedem a RPO
 
-Instale um alerta se o RPO por mais de 20 VMs Azure exceder 30 minutos.
+Confiúde um alerta se o RPO por mais de 20 VMs Azure exceder 30 minutos.
 ```
 AzureDiagnostics   
 | where replicationProviderName_s == "A2A"   
@@ -298,11 +298,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-Para o alerta, detete o **valor limiar** para 20.
+Para o alerta, desa um **valor de limiar** para 20.
 
 ### <a name="single-machine-exceeds-rpo"></a>Máquina única excede RPO
 
-Instale um alerta se o RPO para um único VM Azure exceder 30 minutos.
+Confiúde um alerta se o RPO para um único VM Azure exceder 30 minutos.
 
 ```
 AzureDiagnostics   
@@ -314,11 +314,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-Para o alerta, detete o **valor limiar** para 1.
+Para o alerta, desa um **valor de limiar** para 1.
 
-### <a name="test-failover-for-multiple-machines-exceeds-90-days"></a>Falha no teste para várias máquinas excede 90 dias
+### <a name="test-failover-for-multiple-machines-exceeds-90-days"></a>Teste de failover para várias máquinas excede 90 dias
 
-Criar um alerta se o último teste falhar foi de mais de 90 dias, para mais de 20 VMs. 
+Estabeleça um alerta se o último teste de sucesso falhou mais de 90 dias, para mais de 20 VMs. 
 
 ```
 AzureDiagnostics  
@@ -329,11 +329,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Para o alerta, detete o **valor limiar** para 20.
+Para o alerta, desa um **valor de limiar** para 20.
 
-### <a name="test-failover-for-single-machine-exceeds-90-days"></a>Falha no teste para máquina única ultrapassa os 90 dias
+### <a name="test-failover-for-single-machine-exceeds-90-days"></a>Teste de failover para máquina única excede 90 dias
 
-Criar um alerta se o último teste bem sucedido falhar para um VM específico foi há mais de 90 dias.
+Estabeleça um alerta se o último teste bem sucedido falhar para um VM específico foi há mais de 90 dias.
 ```
 AzureDiagnostics  
 | where replicationProviderName_s == "A2A"   
@@ -344,11 +344,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Para o alerta, detete o **valor limiar** para 1.
+Para o alerta, desa um **valor de limiar** para 1.
 
-### <a name="site-recovery-job-fails"></a>Trabalho de recuperação do site falha
+### <a name="site-recovery-job-fails"></a>Trabalho de recuperação de local falha
 
-Configurar um alerta se um trabalho de Recuperação do Site (neste caso o trabalho de Reproteção) falhar em qualquer cenário de Recuperação do Site, durante o último dia. 
+Estabeleça um alerta se um trabalho de Recuperação do Site (neste caso, o trabalho de Reprotect) falhar para qualquer cenário de Recuperação do Local, durante o último dia. 
 ```
 AzureDiagnostics   
 | where Category == "AzureSiteRecoveryJobs"   
@@ -357,8 +357,8 @@ AzureDiagnostics  
 | summarize count()  
 ```
 
-Para o alerta, estabeleça o **valor limiar** para 1, e **periode** para 1440 minutos, para verificar falhas no último dia.
+Para o alerta, desa um **valor de limiar** para 1 e **periode** para 1440 minutos, para verificar falhas no último dia.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre](site-recovery-monitor-and-troubleshoot.md) a monitorização incorporada da recuperação do site.
+[Saiba mais sobre](site-recovery-monitor-and-troubleshoot.md) a monitorização incorporada da Recuperação do Local.

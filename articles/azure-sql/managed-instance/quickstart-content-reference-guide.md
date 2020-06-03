@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 105c7ae2b0e7f39c29500634391b4388fa2a4723
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5ed88514650b9931a52e5f155abc34fbf734a3b7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194956"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310772"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Começando com Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,16 +50,16 @@ Como alternativa à criação manual de SQL Managed Instance, pode utilizar [o P
 
 Depois de criar um SQL Managed Instance e configurar o acesso, pode começar a migrar as bases de dados do SQL Server. A migração pode falhar se tiver algumas funcionalidades não apoiadas na base de dados de origem que pretende migrar. Para evitar falhas e verificar a compatibilidade, pode utilizar [o Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) para analisar as suas bases de dados no SQL Server e encontrar qualquer problema que possa bloquear a migração para uma SqL Managed Instance, como a existência de [FicheiroStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou vários ficheiros de registo. Se resolver estes problemas, as suas bases de dados estão prontas para migrar para a SQL Managed Instance. [O Assistant de Experimentação de Base de Dados](/sql/dea/database-experimentation-assistant-overview) é outra ferramenta útil que pode gravar a sua carga de trabalho no SQL Server e reproduzi-la numa SQL Managed Instance para que possa determinar se haverá problemas de desempenho se migrar para uma SqL Managed Instance.
 
-Uma vez que tenha a certeza de que pode migrar a sua base de dados para uma SqL Managed Instance, pode utilizar as capacidades de restauro do SQL Server nativo para restaurar uma base de dados numa SqL Managed Instance a partir de um `.bak` ficheiro. Pode utilizar este método para migrar bases de dados do motor de base de dados SQL Server instalado no local ou Azure VM. Para um arranque rápido, consulte [Restaurar de backup para uma SQL Managed Instance](restore-sample-database-quickstart.md). Neste arranque rápido, restaura-se a partir de um `.bak` ficheiro armazenado no armazenamento Azure Blob utilizando o comando `RESTORE` Transact-SQL.
+Uma vez que tenha a certeza de que pode migrar a sua base de dados para uma SqL Managed Instance, pode utilizar as capacidades de restauro do SQL Server nativo para restaurar uma base de dados numa SqL Managed Instance a partir de um `.bak` ficheiro. Pode utilizar este método para migrar bases de dados a partir do motor de base de dados SQL Server instalado no local ou máquinas virtuais Azure. Para um arranque rápido, consulte [Restaurar de backup para uma SQL Managed Instance](restore-sample-database-quickstart.md). Neste arranque rápido, restaura-se a partir de um `.bak` ficheiro armazenado no armazenamento Azure Blob utilizando o comando `RESTORE` Transact-SQL.
 
 > [!TIP]
 > Para utilizar o `BACKUP` comando Transact-SQL para criar uma cópia de segurança da sua base de dados no armazenamento Azure Blob, consulte [a cópia de segurança do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-Estes quickstarts permitem-lhe criar, configurar e restaurar a cópia de segurança da base de dados para uma SqL Managed Instance. Em alguns cenários, você precisaria personalizar ou automatizar a implementação de SQL Managed Instances e o ambiente de networking necessário. Estes cenários serão descritos abaixo.
+Estes quickstarts permitem-lhe criar, configurar e restaurar a cópia de segurança da base de dados para uma SqL Managed Instance. Em alguns cenários, você precisaria personalizar ou automatizar a implementação de SQL Managed Instance e o ambiente de networking necessário. Estes cenários serão descritos abaixo.
 
 ## <a name="customize-network-environment"></a>Personalizar ambiente de rede
 
-Embora a VNet/sub-rede possa ser configurada automaticamente quando a instância é [criada usando o portal Azure,](instance-create-quickstart.md)pode ser bom criá-la antes de começar a criar SQL Managed Instances porque pode configurar os parâmetros do VNet e da sub-rede. A forma mais fácil de criar e configurar o ambiente de rede é utilizar o modelo [de implementação de Recursos Azure](virtual-network-subnet-create-arm-template.md) que cria e configura a sua rede e sub-rede onde o caso será colocado. Basta premir o botão de implantação do Gestor de Recursos Azure e preencher o formulário com parâmetros.
+Embora o VNet/sub-rede possa ser configurado automaticamente quando o caso é [criado usando o portal Azure,](instance-create-quickstart.md)pode ser bom criá-lo antes de começar a criar instâncias em SQL Managed Instance porque pode configurar os parâmetros de VNet e sub-rede. A forma mais fácil de criar e configurar o ambiente de rede é utilizar o modelo [de implementação de Recursos Azure](virtual-network-subnet-create-arm-template.md) que cria e configura a sua rede e sub-rede onde o caso será colocado. Basta premir o botão de implantação do Gestor de Recursos Azure e preencher o formulário com parâmetros.
 
 Como alternativa, também pode utilizar este [script PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar a criação da rede.
 

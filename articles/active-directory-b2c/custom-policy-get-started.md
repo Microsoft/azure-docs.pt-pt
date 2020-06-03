@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd1bd85e76bdda52e2f3b3b60c705792ca82a6eb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247993"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295529"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
 
@@ -74,22 +74,9 @@ Você precisa registrar estas duas aplicações no seu inquilino Azure AD B2C ap
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registar a aplicação IdentityExperienceFramework
 
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência **de registos de aplicações (Legado)** ou a nossa nova experiência de registos de **Aplicações Unificadas (Pré-visualização).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência de registos da **App.**
 
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
-1. No menu geral do **Azure Ative Directory,** em **Manage,** selecione **Registos de Aplicações (Legado)**.
-1. Selecione **Novo registo de aplicação**.
-1. Para **nome,** insira `IdentityExperienceFramework` .
-1. Para **o tipo de aplicação,** escolha aplicativo **Web/API.**
-1. Para **URL de inscrição,** `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` insira, onde `your-tenant-name` está o nome de domínio do seu inquilino Azure AD B2C. Todos os URLs devem agora estar a utilizar [b2clogin.com](b2clogin.md).
-1. Selecione **Criar**. Depois de criado, copie o ID da aplicação e guarde-o para usar mais tarde.
-
-#### <a name="app-registrations-preview"></a>[Inscrições de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
-
-1. Selecione **as inscrições da App (Pré-visualização)** e, em seguida, selecione **Novo registo**.
+1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
 1. Para **nome,** insira `IdentityExperienceFramework` .
 1. Nos **tipos de conta suportada,** selecione Contas **apenas neste diretório organizacional**.
 1. Em **Redirect URI**, selecione **Web**, e, em seguida, insira , onde está o seu nome de domínio de `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` inquilino `your-tenant-name` Azure AD B2C.
@@ -111,21 +98,7 @@ Em seguida, expor a API adicionando um âmbito:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registar a aplicação ProxyIdentityExperienceFramework
 
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
-
-1. Nas **inscrições da App (Legacy)**, selecione **Novo registo de aplicações.**
-1. Para **nome,** insira `ProxyIdentityExperienceFramework` .
-1. Para **o tipo de aplicação**, escolha **Native**.
-1. Para **redirecionar URI,** insira `myapp://auth` .
-1. Selecione **Criar**. Depois de criado, copie o ID da aplicação e guarde-o para usar mais tarde.
-1. Selecione **Definições**e, em seguida, **selecione permissões necessárias**e, em seguida, selecione **Adicionar**.
-1. Escolha **Selecione uma API,** procure e selecione **IdentityExperienceFramework**e, em seguida, clique em **Select**.
-1. Selecione a caixa de verificação ao lado **do Access IdentityExperienceFramework**, clique em **Selecionar**e, em seguida, clique em **'Fazer'.**
-1. Selecione **permissões grant**, e, em seguida, confirme selecionando **Sim**.
-
-#### <a name="app-registrations-preview"></a>[Inscrições de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
-
-1. Selecione **as inscrições da App (Pré-visualização)** e, em seguida, selecione **Novo registo**.
+1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
 1. Para **nome,** insira `ProxyIdentityExperienceFramework` .
 1. Nos **tipos de conta suportada,** selecione Contas **apenas neste diretório organizacional**.
 1. Em **Redirecionar URI,** utilize o drop-down para selecionar **cliente público/nativo (ambiente de trabalho móvel &)**.
@@ -137,7 +110,6 @@ Em seguida, expor a API adicionando um âmbito:
 Em seguida, especifique que o pedido deve ser tratado como um cliente público:
 
 1. Em **Gestão**, **selecione Autenticação**.
-1. Selecione **Experimente a nova experiência** (se mostrada).
 1. Em **definições avançadas,** ative **a aplicação Treat como cliente público** (selecione **Sim).** Certifique-se de que **"permite o Mencimento Público": o verdadeiro** está definido no manifesto de aplicação. 
 1. Selecione **Guardar**.
 

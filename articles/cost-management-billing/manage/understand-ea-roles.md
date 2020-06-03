@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 79d0a648645743751eed3b50edb628a20023546e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660349"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295308"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerir as funções Enterprise do Azure
 
