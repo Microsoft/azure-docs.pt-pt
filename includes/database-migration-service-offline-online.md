@@ -12,4 +12,4 @@ ms.lasthandoff: 04/26/2020
 ms.locfileid: "67184891"
 ---
 > [!TIP]
-> Ao migrar bases de dados para o Azure utilizando o Serviço de Migração de Bases de Dados Azure, pode fazer uma migração *offline* ou *online.* Com uma migração offline, o período de indisponibilidade da aplicação começa quando inicia a migração. Com uma migração online, o período de indisponibilidade tem um tempo limitado para transitar no final da migração. Sugerimos que teste uma migração offline para determinar se o período de inatividade é aceitável; se não for, faça uma migração online.
+> Quando migrar bases de dados para Azure utilizando o Azure Database Migration Service, pode fazer uma migração *offline* ou *on-line.* Com uma migração offline, o período de indisponibilidade da aplicação começa quando inicia a migração. Com uma migração online, o período de indisponibilidade tem um tempo limitado para transitar no final da migração. Sugerimos que teste uma migração offline para determinar se o período de inatividade é aceitável; se não for, faça uma migração online.

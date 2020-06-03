@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: c6f3a912a9b3c9ff65fb9975eaf13b38ee3d9483
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195291"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298040"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
 
 Este artigo demonstra como criar e implementar uma aplicação web [Hugo](https://gohugo.io/) para [Azure Azure Static Web Apps](overview.md). O resultado final é uma nova Azure Static Web Apps com as ações gitHub associadas que lhe dão controlo sobre como a aplicação é construída e publicada.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. No _grupo de recursos_, selecione **New**. No _nome do grupo de novos recursos,_ insira a **aplicação hugo-estática** e selecione **OK**.
 
-1. Em seguida, forneça um nome globalmente único para a sua aplicação na caixa **Nome.** Os caracteres válidos `a-z` `A-Z` incluem, e `0-9` `-` . Este valor é usado como prefixo URL para a sua aplicação estática no formato de `https://<APP_NAME>....` .
+1. Em seguida, um nome para a sua aplicação na caixa **Nome.** Os caracteres válidos `a-z` `A-Z` incluem, e `0-9` `-` .
 
 1. Para _a Região_, selecione uma região disponível perto de si.
 

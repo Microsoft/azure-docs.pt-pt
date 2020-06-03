@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594283"
 ---
-Numa concha baseada em PowerShell `Invoke-WebRequest` no Windows, utilize para descarregar a `Expand-Archive` versão da tabela do Cônsul Helm e, em seguida, extrair com o seguinte:
+Numa concha baseada em PowerShell no Windows, utilize `Invoke-WebRequest` para descarregar a versão do gráfico do Cônsul Helm e, em seguida, extrair com o `Expand-Archive` seguinte:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions
