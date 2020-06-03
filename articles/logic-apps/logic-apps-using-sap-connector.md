@@ -111,7 +111,7 @@ Estes pré-requisitos aplicam-se quando as suas aplicações lógicas funcionam 
    
    1. No Adicionar um novo painel de **conector gerido,** na caixa **de embalagem SAP,** cole o URL para o ficheiro .zip que tem os conjuntos SAP. *Certifique-se de que inclui o token SAS.*
 
-   1. Quando terminar, selecione **Criar**.
+   1. Quando concluir, selecione **Criar**.
 
    Para obter mais informações, consulte [os conectores ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
 

@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 9e4ec8ae9f62ccf1ff7f98ff06a43218b90e6c75
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: eaad361ba82ee6adf139174c728c2ef9ffa94849
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190336"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310908"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -52,7 +52,7 @@ Para obter mais informações, veja [Integrating your on-premises identities wit
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
-1. Associe a sua subscrição Azure ao Azure Ative Directory, tornando o diretório de confiança para a subscrição do Azure que hospeda a base de dados. Para mais detalhes, consulte [como as subscrições do Azure estão associadas ao Azure AD](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Associe a sua subscrição Azure ao Azure Ative Directory, tornando o diretório de confiança para a subscrição do Azure que hospeda a base de dados. Para mais detalhes, consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 2. Utilize o comutador de diretório no portal Azure para mudar para a subscrição associada ao domínio.
 
@@ -188,7 +188,7 @@ Para obter um administrador AD Azure, execute os seguintes comandos Azure PowerS
 
 Os cmdlets utilizados para a prestação e gestão do administrador AdD Ad para a sua SQL Managed Instance estão listados na tabela seguinte:
 
-| Nome do cmdlet | Descrição |
+| Nome do cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Disposições um administrador AD Azure para a SQL Managed Instance na subscrição atual. (Deve ser da subscrição atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador AD Azure para a SqL Managed Instance na subscrição atual. |
@@ -216,7 +216,7 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 Também pode providenciar um administrador AD AD Azure para a SqL Managed Instance, chamando os seguintes comandos CLI:
 
-| Comando | Descrição |
+| Comando | Description |
 | --- | --- |
 |[az sql mi ad-admin criar](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | Disposições um administrador do Azure Ative Directory para a SqL Managed Instance (deve ser da subscrição atual). |
 |[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | Remove um administrador do Azure Ative Directory para a SQL Managed Instance. |
@@ -279,7 +279,7 @@ Para executar os cmdlets PowerShell, é necessário ter o Azure PowerShell insta
 
 Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a Base de Dados SQL e Azure Synapse:
 
-| Nome do cmdlet | Descrição |
+| Nome do cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse.|
@@ -324,7 +324,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 Pode providenciar um administrador AD Azure, chamando os seguintes comandos CLI:
 
-| Comando | Descrição |
+| Comando | Description |
 | --- | --- |
 |[az sql servidor ad-admin criar](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 |[ad-ad-admin do servidor az sql](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. |

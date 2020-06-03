@@ -6,5 +6,5 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84041123"
 ---
-<Token>**Aplica-se a:** ![ sim ](../media/applies-to/yes.png) Instância Gerida Azure SQL</Token>
+<Token>**APLICA-SE A:** ![ sim ](../media/applies-to/yes.png) Azure SQL Gestão De Instância</Token>
 

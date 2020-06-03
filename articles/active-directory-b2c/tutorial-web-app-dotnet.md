@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9bf7339e500a006c168311145a9a5d992b07f145
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231811"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298772"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web utilizando o Azure Ative Directory B2C
 
 Este tutorial mostra-lhe como usar o Azure Ative Directory B2C (Azure AD B2C) para iniciar seduções e inscrever utilizadores numa aplicação web ASP.NET. O Azure AD B2C permite que as suas aplicações autentem para as contas sociais, contas empresariais e contas do Azure Ative Directory utilizando protocolos de série aberta.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação em Azure AD B2C
@@ -42,28 +42,27 @@ No tutorial que completou como parte dos pré-requisitos, registou uma aplicaç�
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Adicione um URI de redirecionamento (URL de resposta)
 
-Pode utilizar a experiência atual das **Aplicações** ou a nossa nova experiência de registos de **Aplicações unificadas (Pré-visualização)** para atualizar a aplicação. [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
+Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
 
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
-1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-1. Selecione **Aplicações**e, em seguida, selecione a aplicação *webapp1.*
-1. Em **URL de resposta**, adicione `https://localhost:44316` .
-1. Selecione **Guardar**.
-1. Na página de propriedades, grave o ID da aplicação para utilização num passo posterior quando configurar a aplicação web.
-
-#### <a name="app-registrations-preview"></a>[Inscrições de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **registos de aplicações (Pré-visualização)**, selecione o separador **aplicações Possuídas** e, em seguida, selecione a aplicação *webapp1.*
-1. Selecione **autenticação,** em seguida, **selecione Experimente a nova experiência** (se mostrada).
+1. Selecione **registos de Aplicações**, selecione o **separador aplicações Próprias** e, em seguida, selecione a aplicação *webapp1.*
 1. Na **Web**, selecione a ligação **Add URI,** introduza `https://localhost:44316` e, em seguida, selecione **Save**.
 1. Selecione **Descrição geral**.
 1. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior quando configurar a aplicação web.
+
+#### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+1. Selecione **Aplicações (Legado)** e, em seguida, selecione a aplicação *webapp1.*
+1. Em **URL de resposta**, adicione `https://localhost:44316` .
+1. Selecione **Guardar**.
+1. Na página de propriedades, grave o ID da aplicação para utilização num passo posterior quando configurar a aplicação web.
 
 * * *
 

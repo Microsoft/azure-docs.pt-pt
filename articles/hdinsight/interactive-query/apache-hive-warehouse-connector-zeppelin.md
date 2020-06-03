@@ -1,77 +1,77 @@
 ---
-title: Hive Warehouse Connector - Apache Zeppelin usando Livy - Azure HDInsight
-description: Saiba como integrar o Conector de Armazém hive com Apache Zeppelin no Azure HDInsight.
+title: Conector do Armazém hive - Apache Zeppelin usando Livy - Azure HDInsight
+description: Saiba como integrar o Conector do Armazém da Hive com o Apache Zeppelin no Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f9d2d9bd2a58fa4c6f14db8ffd067bb39fc1553
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/28/2020
+ms.openlocfilehash: fa90c3579e241fd6b7dc53c9df7d996402fc78a5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853814"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296898"
 ---
-# <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrar O Apache Zeppelin com o Conector de Armazém hive em Azure HDInsight
+# <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre Apache Zeppelin com Conector de Armazém de Colmeia em Azure HDInsight
 
-Os clusters HDInsight Spark incluem cadernos Apache Zeppelin com diferentes intérpretes. Neste artigo, vamos focar-nos apenas no intérprete livy para aceder às mesas da Colmeia da Spark usando o Conector hive Warehouse.
+Os clusters HDInsight Spark incluem cadernos Apache Zeppelin com diferentes intérpretes. Neste artigo, vamos focar-nos apenas no intérprete Livy para aceder às mesas de Colmeia da Spark usando o Conector do Armazém da Colmeia.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Complete os passos de configuração do [Conector do Armazém hive.](apache-hive-warehouse-connector.md#hive-warehouse-connector-setup)
+Complete os passos de [configuração do Conector do Armazém da Colmeia.](apache-hive-warehouse-connector.md#hive-warehouse-connector-setup)
 
 ## <a name="getting-started"></a>Introdução
 
-1. Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se ligar ao seu aglomerado de Faíscas Apache. Editar o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, introduzir o comando:
+1. Use [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu aglomerado de faíscas Apache. Edite o comando abaixo substituindo o CLUSTERNAME pelo nome do seu cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. A partir da sua sessão ssh, execute o seguinte comando para observar as versões para `hive-warehouse-connector-assembly` `pyspark_hwc` e:
+1. A partir da sua sessão de sessão, execute o seguinte comando para anotar as versões `hive-warehouse-connector-assembly` `pyspark_hwc` para:
 
     ```bash
     ls /usr/hdp/current/hive_warehouse_connector
     ```
 
-    Guarde a saída para posterior utilização ao configurar o Apache Zeppelin.
+    Guarde a saída para utilização posterior ao configurar o Apache Zeppelin.
 
 ## <a name="configure-livy"></a>Configure Livy
 
-As seguintes configurações são necessárias para aceder às mesas de colmeia de Zeppelin com o intérprete Livy.
+As configurações seguintes são necessárias para aceder a mesas de colmeia de Zeppelin com o intérprete Livy.
 
-### <a name="interactive-query-cluster"></a>Cluster de consulta interativa
+### <a name="interactive-query-cluster"></a>Cluster de Consulta Interativa
 
-1. De um navegador web, navegue até `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HDFS/configs` onde LLAPCLUSTERNAME é o nome do seu cluster De consulta interativa.
+1. A partir de um navegador web, navegue `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HDFS/configs` até onde LLAPCLUSTERNAME é o nome do seu cluster de consultainterna.
 
-1. Navegue **Advanced**para o  >  **núcleo do site personalizado**avançado. Selecione **Adicionar Propriedade...** para adicionar as seguintes configurações:
+1. Navegue **Advanced**para o  >  **núcleo avançado personalizado.** Selecione **Adicionar Propriedade...** para adicionar as seguintes configurações:
 
     | Configuração                 | Valor |
     | ----------------------------- |-------|
     | hadoop.proxyuser.livy.groups  | *     |
     | hadoop.proxyuser.livy.hosts   | *     |
 
-1. Guarde alterações e reinicie todos os componentes afetados.
+1. Guarde as alterações e reinicie todos os componentes afetados.
 
-### <a name="spark-cluster"></a>Aglomerado de Faíscas
+### <a name="spark-cluster"></a>Aglomerado de faíscas
 
-1. A partir de um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` onde clusterNAME é o nome do seu cluster Apache Spark.
+1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` até onde CLUSTERNAME é o nome do seu cluster Apache Spark.
 
-1. Expandir **custom livy2-conf**. Selecione **Adicionar Propriedade...** para adicionar a seguinte configuração:
+1. Expandir **livy2-conf personalizado.** Selecione **Adicionar Propriedade...** para adicionar a seguinte configuração:
 
     | Configuração                 | Valor                                      |
     | ----------------------------- |------------------------------------------  |
     | livy.file.local-dir-whitelist | /usr/hdp/current/hive_warehouse_connector/ |
 
-1. Guarde alterações e reinicie todos os componentes afetados.
+1. Guarde as alterações e reinicie todos os componentes afetados.
 
-### <a name="configure-livy-interpreter-in-zeppelin-ui-spark-cluster"></a>Configure Livy Interpreter em Zeppelin UI (Cluster de Faíscas)
+### <a name="configure-livy-interpreter-in-zeppelin-ui-spark-cluster"></a>Configure o intérprete livy em Zeppelin UI (Spark Cluster)
 
-1. De um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/zeppelin/#/interpreter` até, onde `CLUSTERNAME` está o nome do seu cluster Apache Spark.
+1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/zeppelin/#/interpreter` para, onde `CLUSTERNAME` está o nome do seu cluster Apache Spark.
 
-1. Navegue até **livy2**.
+1. Navegue até **livy2.**
 
 1. Adicione as seguintes configurações:
 
@@ -82,28 +82,35 @@ As seguintes configurações são necessárias para aceder às mesas de colmeia 
     | livy.spark.sql.hive.llap | true |
     | livy.spark.yarn.security.credentials.hiveserver2.enabled | true |
     | livy.superusers | livy,zeppelin |
-    | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`.<br>Substitua a VERSÃO pelo valor obtido de [Getting started,](#getting-started)mais cedo. |
-    | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`.<br>Substitua a VERSÃO pelo valor obtido de [Getting started,](#getting-started)mais cedo. |
-    | livy.spark.sql.hive.hiveserver2.jdbc.url | Delineie-o para o URL JDBC Interativo HiveServer2 do cluster De consulta interativa. |
+    | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`.<br>Substitua a VERSÃO pelo valor obtido a partir de [Iniciar,](#getting-started)mais cedo. |
+    | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`.<br>Substitua a VERSÃO pelo valor obtido a partir de [Iniciar,](#getting-started)mais cedo. |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url | Coloque-o no URL JDBC Interativo HiveServer2 do cluster de consultas interativas. |
     | spark.security.credentials.hiveserver2.enabled | true |
 
 1. Apenas para clusters ESP, adicione a seguinte configuração:
 
     | Configuração| Valor|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    `<headnode-FQDN>`Substitua-a com o nome de domínio totalmente qualificado do nó de cabeça do cluster De consulta interativa.
-    Substitua `<AAD-DOMAIN>` pelo nome do Diretório Ativo Azure (AAD) a que o cluster está unido. Use uma corda maiúscula para o `<AAD-DOMAIN>` valor, caso contrário a credencial não será encontrada. Verifique `/etc/krb5.conf` se é necessário o nome do reino.
+    * A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` até onde CLUSTERNAME é o nome do seu cluster de consultainterna. Clique na **HiveServer2 Interactive**. Verá o Nome de Domínio Totalmente Qualificado (FQDN) do nó de cabeça no qual llap está em execução como mostrado na imagem. `<llap-headnode>`Substitua-o por este valor.
+
+        ![Nó de cabeça do conector do armazém de colmeia](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Utilize [o comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para ligar ao seu cluster de consultas interativos. Procure `default_realm` por um parâmetro no `/etc/krb5.conf` ficheiro. `<AAD-DOMAIN>`Substitua-o por este valor como uma corda maiúscula, caso contrário a credencial não será encontrada.
+
+        ![conector de armazém de colmeiaS Domínio AAD](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Por exemplo, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` . .
 
 1. Guarde as alterações e reinicie o intérprete Livy.
 
-Se o intérprete da Livy não estiver acessível, modifique o ficheiro presente dentro do `shiro.ini` componente Zeppelin em Ambari. Para mais informações, consulte [Configurar a Segurança Apache Zeppelin](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.0.1/configuring-zeppelin-security/content/enabling_access_control_for_interpreter__configuration__and_credential_settings.html).  
+Se o intérprete Livy não estiver acessível, modifique o `shiro.ini` ficheiro presente no componente Zeppelin em Ambari. Para mais informações, consulte [a Configuração da Segurança Apache Zeppelin.](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.0.1/configuring-zeppelin-security/content/enabling_access_control_for_interpreter__configuration__and_credential_settings.html)  
 
 
-## <a name="running-queries-in-zeppelin"></a>Perguntas de execução em Zeppelin 
+## <a name="running-queries-in-zeppelin"></a>Consultas em execução em Zeppelin 
 
-Lance um caderno Zeppelin usando o intérprete da Livy e execute o seguinte
+Lançar um caderno Zeppelin usando o intérprete Livy e executar o seguinte
 
 ```python
 %livy2
@@ -134,6 +141,6 @@ hive.executeQuery("select * from testers").show()
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Operações de HWC e Apache Spark](./apache-hive-warehouse-connector-operations.md)
-* [Integração de HWC com Apache Spark e Apache Hive](./apache-hive-warehouse-connector.md)
+* [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
+* [Integração do HWC no Apache Spark e no Apache Hive](./apache-hive-warehouse-connector.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).

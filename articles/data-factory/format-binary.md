@@ -1,44 +1,44 @@
 ---
-title: Formato binário na Fábrica de Dados Azure
-description: Este tópico descreve como lidar com o formato Binário na Azure Data Factory.
+title: Formato binário na Azure Data Factory
+description: Este tópico descreve como lidar com o formato binário na Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 05/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 4560560b3677030a66e277e96eb552d39f5c82c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7fd5cb3c6c8a991a8b5ef9b6460e9dce35dd873
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416331"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298589"
 ---
-# <a name="binary-format-in-azure-data-factory"></a>Formato binário na Fábrica de Dados Azure
+# <a name="binary-format-in-azure-data-factory"></a>Formato binário na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-O formato binário é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
+O formato binário é suportado para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
 
-Pode utilizar o conjunto de dados binário na [atividade da Cópia,](copy-activity-overview.md) [a atividade do GetMetadata,](control-flow-get-metadata-activity.md)ou [eliminar a atividade](delete-activity.md). Ao utilizar o conjunto de dados binário, a ADF não analisa o conteúdo dos ficheiros, mas trata-o como está. 
+Pode utilizar o conjunto de dados binário na [atividade Copy](copy-activity-overview.md), [GetMetadata](control-flow-get-metadata-activity.md)ou [eliminar a atividade](delete-activity.md). Ao utilizar o conjunto de dados binário, a ADF não analisa o conteúdo dos ficheiros, mas trata-o como está. 
 
 >[!NOTE]
->Ao utilizar o conjunto de dados binário na atividade da cópia, só é possível copiar do conjunto de dados binário para o conjunto de dados binário.
+>Ao utilizar o conjunto de dados binário na atividade de cópia, só pode copiar do conjunto de dados binário para o conjunto de dados binários.
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados binário.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados binários.
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Binary**. | Sim      |
-| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem `location`o seu próprio tipo de localização e propriedades suportadas em . Consulte os detalhes na secção de propriedades do conjunto de dados **do conector ->**. | Sim      |
-| compressão | Grupo de propriedades para configurar a compressão de ficheiros. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
-| tipo | O código de compressão usado para ler/escrever ficheiros binários. <br>Os valores permitidos são **bzip2,** **gzip,** **esvaziar,** **ZipDeflate**. para usar ao guardar o ficheiro.<br>Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para `<path specified in dataset>/<folder named as source zip file>/`a loja de dados do lavatório baseado em ficheiros, os ficheiros serão extraídos para a pasta: . | Não       |
-| nível | A relação de compressão. Aplicar quando o conjunto de dados for utilizado no afundatório de atividade da Cópia.<br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Ótimo:** O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **Binary**. | Yes      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
+| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | No |
+| tipo | O códice de compressão usado para ler/escrever ficheiros binários. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate**. para utilizar ao guardar o ficheiro.<br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#binary-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta.| No       |
+| nível | A relação de compressão. Aplicar quando o conjunto de dados for utilizado na pia de atividade do Copy.<br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | No       |
 
-Abaixo está um exemplo de conjunto de dados binário no armazenamento de Blob Azure:
+Abaixo está um exemplo do conjunto de dados binário no Armazenamento Azure Blob:
 
 ```json
 {
@@ -65,31 +65,67 @@ Abaixo está um exemplo de conjunto de dados binário no armazenamento de Blob A
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte binária e pia.
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte binária e pia.
 
 >[!NOTE]
->Ao utilizar o conjunto de dados binário na atividade da cópia, só é possível copiar do conjunto de dados binário para o conjunto de dados binário.
+>Ao utilizar o conjunto de dados binário na atividade de cópia, só pode copiar do conjunto de dados binário para o conjunto de dados binários.
 
 ### <a name="binary-as-source"></a>Binário como fonte
 
-As seguintes propriedades são suportadas na secção de *** \*origem\* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **BinarySource**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de leitura suportadas em . . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **BinarySource**. | Yes      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de leitura binária** abaixo. | No       |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
+
+Definições **de leitura binária** suportadas em `formatSettings` :
+
+| Propriedade      | Descrição                                                  | Necessário |
+| ------------- | ------------------------------------------------------------ | -------- |
+| tipo          | O tipo de formatoSettings deve ser definido para **BinaryReadSettings**. | Yes      |
+| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | No       |
+| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia. Quando definido para verdadeiro (predefinido), a Data Factory escreve ficheiros desapertados `<path specified in dataset>/<folder named as source zip file>/` para; quando definidos para falsos, a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` .  | No |
+
+```json
+"activities": [
+    {
+        "name": "CopyFromBinary",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "BinarySource",
+                "storeSettings": {
+                    "type": "AzureBlobStorageReadSettings",
+                    "recursive": true
+                },
+                "formatSettings": {
+                    "type": "BinaryReadSettings",
+                    "compressionProperties": {
+                        "type": "ZipDeflateReadSettings",
+                        "preserveZipFileNameAsFolder": false
+                    }
+                }
+            },
+            ...
+        }
+        ...
+    }
+]
+```
 
 ### <a name="binary-as-sink"></a>Binário como pia
 
-As seguintes propriedades são suportadas na secção de *** \*sumidouro\* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **BinarySink**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de escrita suportadas em baixo . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **BinarySink**. | Yes      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
-- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Atividade getMetadata](control-flow-get-metadata-activity.md)
 - [Eliminar atividade](delete-activity.md)

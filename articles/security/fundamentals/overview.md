@@ -88,7 +88,7 @@ Se houver falhas, falhas ou problemas de desempenho, pode pesquisar em detalhe o
 
 Os registos do Azure Monitor podem ser uma ferramenta útil na análise forense e outras análises de segurança, uma vez que a ferramenta permite pesquisar rapidamente através de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexível. Além disso, os registos de firewall e proxy no local [podem ser exportados para Azure e disponibilizados para análise utilizando registos do Azure Monitor.](../../log-analytics/log-analytics-agent-windows.md)
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Assistente do Azure
 [O Azure Advisor](../../advisor/index.yml) é um consultor de nuvem personalizado que o ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Em seguida, recomenda soluções para ajudar a melhorar o [desempenho,](../../advisor/advisor-performance-recommendations.md) [segurança](../../advisor/advisor-security-recommendations.md)e [alta disponibilidade](../../advisor/advisor-high-availability-recommendations.md) dos seus recursos, enquanto procura oportunidades para reduzir o seu gasto global [do Azure.](../../advisor/advisor-cost-recommendations.md) O Azure Advisor fornece recomendações de segurança, que podem melhorar significativamente a sua postura de segurança global para as soluções que implementa no Azure. Estas recomendações são retiradas da análise de segurança realizada pelo [Azure Security Center.](../../security-center/security-center-intro.md)
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
