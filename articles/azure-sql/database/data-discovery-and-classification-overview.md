@@ -127,14 +127,14 @@ Estas funções incorporadas podem ler a classificação de dados de uma base de
 
 - Proprietário
 - Leitor
-- Contribuinte
+- Contribuidor
 - Gestor de Segurança SQL
 - Administrador de Acesso de Utilizador
 
 Estas funções incorporadas podem modificar a classificação de dados de uma base de dados:
 
 - Proprietário
-- Contribuinte
+- Contribuidor
 - Gestor de Segurança SQL
 
 Saiba mais sobre permissões baseadas em funções no [RBAC para recursos Azure.](https://docs.microsoft.com/azure/role-based-access-control/overview)
@@ -189,7 +189,7 @@ Pode utilizar a API REST para gerir programáticamente classificações e recome
 - [Lista Corrente por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém as etiquetas de sensibilidade atuais da base de dados especificada.
 - [Lista Recomendada por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Obtém as etiquetas de sensibilidade recomendadas da base de dados especificada.
 
-## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a><a id="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Segurança Avançada de Dados.](advanced-data-security.md)
 - Considere configurar [a Auditoria Azure SQL](../../azure-sql/database/auditing-overview.md) para monitorizar e auditar o acesso aos seus dados confidenciais confidenciais.
