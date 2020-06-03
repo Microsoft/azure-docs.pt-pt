@@ -1,7 +1,7 @@
 ---
 title: Suporte linguístico - API moderador de conteúdo
 titleSuffix: Azure Cognitive Services
-description: Esta é uma lista de línguas naturais que a API moderadora de conteúdos dos Serviços Cognitivos Azure suporta.
+description: Esta é uma lista de línguas naturais que o API moderador de conteúdos cognitivos do Azure suporta.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,40 +10,40 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73744360"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310313"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte linguístico para API moderador de conteúdo
 
 > [!NOTE]
-> Para o parâmetro **linguístico,** atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida pela máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
+> Para o parâmetro do **idioma,** `eng` atribua-o ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
 >
-> Para deteção de **termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas enumeradas neste artigo, ou deixe-o vazio.
+> Para deteção **de termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas listadas neste artigo ou deixe-o vazio.
 
 
 | Deteção de idioma | Palavras ofensivas   | OCR    | Correção automática     |
 | -------------------- |-------------|--------|---------------------|
 | Árabe (romanizado)   | Afrikaans   | Árabe   | Árabe |
 | Balinesa | Albanês | Chinês (Simplificado)    | Dinamarquês |
-| Bengalês | Amanócio | Chinês (Tradicional)     | Neerlandês |
+| Bengalês | Amárico | Chinês (Tradicional)     | Neerlandês |
 | Buginese | Árabe | Checo                     | Inglês |
 | Rio Buhid | Arménio | Dinamarquês                     | Finlandês |
 | Cariano | Assamese | Neerlandês                     | Francês |
 | Chinês (Simplificado) | Azerbaijão | Inglês  | Grego (moderno) |
 | Chinês (Tradicional) | Bangla - Bangladesh | Finlandês  | Italiano |
-| Igreja (Eslavo) | Bangla - Índia | Francês     | Coreano |
+| Igreja (Eslava) | Bangla - Índia | Francês     | Coreano |
 | Copta | Basco | Alemão                      | Norueguês |
 | Checo |  Bielorrusso | Grego (moderno)         | Polaco |
-| Dhivehi | Bósnio - Cirílico | Húngaro      | Português |
+| Rio Dhivehi | Bósnio - Cirílico | Húngaro      | Português |
 | Neerlandês | Bósnio - Latim | Italiano             | Romeno |
 | Inglês (Crioulo) | Breton [não-GeoPol] | Japonês  | Russo |
-| Farsi | Búlgaro | Coreano                        | Eslovaco |
+| Rio Farsi | Búlgaro | Coreano                        | Eslovaco |
 | Francês | Catalão | Norueguês                        | Espanhol |
-| Alemão | Curdo central | Polaco        | Turco |
+| Alemão | Centro curdo | Polaco        | Turco |
 | Grego | Cherokee | Português | |
 | Haitiano | Chinês (Simplificado) | Romeno | |
 | Hebraico | Chinês (Tradicional) - Hong Kong SAR | Russo | |
@@ -51,45 +51,45 @@ ms.locfileid: "73744360"
 | Hmong | Croata | Latim sérvio | |
 | Húngaro | Checo | Eslovaco | |
 | Italiano | Dinamarquês | Espanhol | |
-| Japonês | Dari | Sueco | |
+| Japonês | Rio Dari | Sueco | |
 | Coreano | Neerlandês | Turco | |
 | Curdo (árabe) | Inglês | | |
 | Curdo (latim) | Estónio | | |
 | Rio Lepcha | Filipino | | |
 | Limbu | Finlandês | | |
-| Lu | Francês | | |
-| Rio Lycian | Galego | | |
-| Lydian | Georgiano | | |
-| Micêceano (grego) | Alemão | | |
-| Estação Nko | Grego | | |
+| Rio Lu | Francês | | |
+| Líciuco | Galego | | |
+| Lídia | Georgiano | | |
+| Cénánico (grego) | Alemão | | |
+| Nko | Grego | | |
 | Norueguês (Bokmal) | Guzerate | | |
 | Norueguês (Nynorsk) |  Rio Hausa | | |
-| Velho (Persa) | Hebraico | | |
+| Velho (persa) | Hebraico | | |
 | Rio Pashto | Hindi | | |
 | Polaco | Húngaro | | |
 | Português | Islandês | | |
-| Punjabi | Rio Igbo | | |
-| Rejang | Indonésio | | |
+| Punjabi | Igbo | | |
+| Rio Rejang | Indonésio | | |
 | Russo | Inuktitut | | |
 | Santali | Irlandês | | |
 | Rio Sasak | isiXhosa | | |
-| Saurashtra | isiZulu | | |
+| Rio Saurashtra | isiZulu | | |
 | Sérvio (Cirílico) | Italiano | | |
 | Sérvio (Latim) | Japonês | | |
-| Rio Sinhala | Canarês | | |
+| Sinhala | Canarês | | |
 | Esloveno | Cazaque | | |
-| Espanhol | Khmer | | |
+| Espanhol | Rio Khmer | | |
 | Sueco | K'iche | | |
 | Sylheti | Kinyarwanda | | |
 | Síria | Rio Kiswahili | | |
-| Rio Tagbanwa | Konkani | | |
+| Estação Tagbanwa | Rio Konkani | | |
 | Tai (Nua) | Coreano | | |
 | Rio Tamashek | Quirguiz | | |
 | Turco | Rio Lao | | |
-| Ugarítico | Letão | | |
+| Ugaritic | Letão | | |
 | Usbeque (Cirílico) | Lituano | | |
 | Uzbeque (latim) | Luxemburguês | | |
-| Rio Vai | Macedónio | | |
+| Vai | Macedónio | | |
 | Yi | Malaio | | |
 | Zhuang | Malaiala | | |
 | | Maltês | | |
@@ -115,21 +115,21 @@ ms.locfileid: "73744360"
 | | Sérvio (Cirílico) | | |
 | | Sérvio (cirílico, Bósnia e Herzegovina) | | |
 | | Sérvio (Latim) | | |
-| | Sesotho | | |
+| | Rio Sesotho | | |
 | | Sesotho sa Leboa | | |
 | | Estação Setswana | | |
 | | Sindhi | | |
-| | Rio Sinhala | | |
+| | Sinhala | | |
 | | Eslovaco | | |
 | | Esloveno | | |
 | | Espanhol | | |
 | | Sueco | | |
-| | Tajique | | |
+| | Rio Tajik | | |
 | | Tâmil | | |
 | | Tártaro | | |
 | | Telugu | | |
 | | Tailandês | | |
-| | Tigrinya | | |
+| | Rio Tigrinya | | |
 | | Turco | | |
 | | Turcos | | |
 | | Ucraniano | | |
@@ -140,4 +140,4 @@ ms.locfileid: "73744360"
 | | Vietnamita | | |
 | | Galês | | |
 | | Rio Wolof | | |
-| | Yoruba | | |
+| | Rio Yoruba | | |

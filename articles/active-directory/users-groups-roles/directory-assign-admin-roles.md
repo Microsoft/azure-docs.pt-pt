@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4ed0b011e7b82ce95c002d2af68e577f1d10c84
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 63a4285725db4dcb41affa93261fbbc03d11598e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266207"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310755"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -1943,4 +1943,4 @@ Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis preco
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para obter mais informações sobre como o Azure Active Directory está relacionado com a sua subscrição do Azure, veja [Como as subscrições do Azure estão associadas ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* Para mais detalhes sobre a relação entre subscrições e um inquilino AZure AD, ou para instruções para associar ou adicionar uma subscrição, consulte [Associado ou adicione uma assinatura Azure ao seu inquilino Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

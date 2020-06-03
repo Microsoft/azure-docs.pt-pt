@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: b215e938bb4de7d6831e45997148a84b655611be
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: d3d1b8a9e822d3a314df887ad9aff8fe70b93210
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84230976"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298657"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Implementar serviços dedicados da Azure em redes virtuais
 
@@ -28,7 +28,7 @@ Quando implementa serviços Azure dedicados numa [rede virtual,](virtual-network
 A implantação de serviços dentro de uma rede virtual fornece as seguintes capacidades:
 
 - Os recursos dentro da rede virtual podem comunicar-se entre si em privado, através de endereços IP privados. Exemplo, transferindo diretamente dados entre o HDInsight e o SQL Server a funcionar numa máquina virtual, na rede virtual.
-- Os recursos no local podem aceder a recursos numa rede virtual utilizando endereços IP privados através de uma [VPN site-to-site (VPN Gateway)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) ou [ExpressRoute.](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Os recursos no local podem aceder a recursos numa rede virtual utilizando endereços IP privados através de uma [VPN site-to-site (VPN Gateway)](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) ou [ExpressRoute.](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - As redes virtuais podem ser [espreitadas](virtual-network-peering-overview.md) para permitir que os recursos nas redes virtuais se comuniquem entre si, utilizando endereços IP privados.
 - As instâncias de serviço numa rede virtual são normalmente totalmente geridas pelo serviço Azure. Isto inclui monitorizar a saúde dos recursos e escalar com carga.
 - As instâncias de serviço são implantadas numa sub-rede numa rede virtual. O acesso à rede de entrada e saída da sub-rede deve ser aberto através de [grupos de segurança de rede,](security-overview.md#network-security-groups)de acordo com as orientações fornecidas pelo serviço.
@@ -40,7 +40,7 @@ A implantação de serviços dentro de uma rede virtual fornece as seguintes cap
 
 |Categoria|Serviço| Dedicado<sup>1</sup>sup></sup> 1 Sub-rede
 |-|-|-|
-| Computação | Máquinas virtuais: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Serviço cloud](https://msdn.microsoft.com/library/azure/jj156091): Rede virtual (clássica) apenas<br/> [Azure Batch](../batch/nodes-and-pools.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Não <br/> Não <br/> Não <br/> No<sup>2</sup>sup>2</sup>
+| Computação | Máquinas virtuais: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Serviço cloud](https://msdn.microsoft.com/library/azure/jj156091): Rede virtual (clássica) apenas<br/> [Azure Batch](../batch/nodes-and-pools.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Não <br/> Não <br/> Não <br/> No<sup>2</sup>sup>2</sup>
 | Rede | [Gateway de aplicação - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Aparelhos virtuais de rede](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Sim <br/> Sim <br/> Sim <br/> No
 |Dados|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/connectivity-architecture-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Sim <br/> Sim <br/> 
 |Análise | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |No<sup>2</sup>sup>2</su<sup>2</sup>> <br/> Nº<sup>2</sup> <br/> 

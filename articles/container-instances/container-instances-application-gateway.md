@@ -1,33 +1,33 @@
 ---
 title: Endereço IP estático para grupo de contentores
-description: Crie um grupo de contentores numa rede virtual e utilize uma porta de aplicação Azure para expor um endereço IP frontal estático a uma aplicação web contentorizada
+description: Crie um grupo de contentores numa rede virtual e use uma porta de entrada de aplicação Azure para expor um endereço IP estático para uma aplicação web contentorizada
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481794"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299167"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Expor um endereço IP estático para um grupo de contentores
 
-Este artigo mostra uma maneira de expor um endereço IP público estático para um grupo de [contentores](container-instances-container-groups.md) utilizando uma porta de [aplicação](../application-gateway/overview.md)Azure . Siga estes passos quando necessitar de um ponto de entrada estático para uma aplicação contentorizada virada para o exterior que funciona em Instâncias de Contentores Azure. 
+Este artigo mostra uma maneira de expor um endereço IP público estático para um [grupo de contentores](container-instances-container-groups.md) utilizando um [gateway de aplicação](../application-gateway/overview.md)Azure . Siga estes passos quando precisar de um ponto de entrada estático para uma aplicação contentorizada virada para o exterior que funciona em Instâncias de Contentores Azure. 
 
-Neste artigo utiliza-se o Azure CLI para criar os recursos para este cenário:
+Neste artigo utiliza-se o CLI Azure para criar os recursos para este cenário:
 
 * Uma rede virtual Azure
-* Um grupo de contentores implantado [na rede virtual (pré-visualização)](container-instances-vnet.md) que acolhe uma pequena aplicação web
-* Um portal de aplicação com um endereço IP frontend público, um ouvinte para hospedar um site na porta de entrada, e uma rota para o grupo de contentores backend
+* Um grupo de contentores implantado [na rede virtual](container-instances-vnet.md) que acolhe uma pequena aplicação web
+* Um gateway de aplicação com um endereço IP frontal público, um ouvinte para hospedar um site no gateway, e uma rota para o grupo de contentores backend
 
-Enquanto o gateway de aplicação for executado e o grupo de contentores expor um endereço IP privado estável na subnet delegada da rede, o grupo de contentores está acessível neste endereço IP público.
+Enquanto o gateway de aplicação for executado e o grupo de contentores expor um endereço IP privado estável na sub-rede delegada da rede, o grupo de contentores está acessível neste endereço IP público.
 
 > [!NOTE]
-> O Azure cobra por um gateway de aplicação com base no tempo em que o gateway é provisionado e disponível, bem como a quantidade de dados que processa. Ver [preços](https://azure.microsoft.com/pricing/details/application-gateway/).
+> A azure cobra por um gateway de aplicação com base no tempo que o gateway é a provisionado e disponível, bem como a quantidade de dados que processa. Ver [preços.](https://azure.microsoft.com/pricing/details/application-gateway/)
 
 ## <a name="create-virtual-network"></a>Criar a rede virtual
 
-Num caso típico, pode já ter uma rede virtual Azure. Se não tiver um, crie um como mostrado com os seguintes comandos exemplo. A rede virtual necessita de subredes separadas para o gateway de aplicação e para o grupo de contentores.
+Num caso típico, pode já ter uma rede virtual Azure. Se não tiver um, crie um como mostrado com os seguintes comandos de exemplo. A rede virtual necessita de sub-redes separadas para o gateway de aplicação e para o grupo de contentores.
 
 Se precisar de um, crie um grupo de recursos Azure. Por exemplo:
 
@@ -35,7 +35,7 @@ Se precisar de um, crie um grupo de recursos Azure. Por exemplo:
 az group create --name myResourceGroup --location eastus
 ```
 
-Criar uma rede virtual com a [rede az vnet criar][az-network-vnet-create] comando. Este comando cria a sub-rede *myAGSubnet* na rede.
+Criar uma rede virtual com o [vnet de rede az criar][az-network-vnet-create] comando. Este comando cria a *sub-rede myAGSubnet* na rede.
 
 ```azurecli
 az network vnet create \
@@ -47,7 +47,7 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
-Utilize a [subnet az rede vnet criar][az-network-vnet-subnet-create] comando para criar uma sub-rede para o grupo de contentores de backend. Aqui chama-se *myACISubnet.*
+Utilize a [sub-rede vnet de rede az para][az-network-vnet-subnet-create] criar uma sub-rede para o grupo de recipientes de backend. Aqui chama-se *myACISubnet.*
 
 ```azurecli
 az network vnet subnet create \
@@ -57,7 +57,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Utilize a [rede az public-ip criar][az-network-public-ip-create] comando para criar um recurso IP público estático. Num passo posterior, este endereço é configurado como a extremidade frontal do gateway da aplicação.
+Utilize o comando [público-ip da rede az][az-network-public-ip-create] para criar um recurso IP público estático. Num passo posterior, este endereço é configurado como a extremidade frontal do gateway de aplicação.
 
 ```azurecli
 az network public-ip create \
@@ -69,9 +69,9 @@ az network public-ip create \
 
 ## <a name="create-container-group"></a>Criar grupo de contentores
 
-Executar o [seguinte recipiente az criar][az-container-create] para criar um grupo de contentores na rede virtual configurada no passo anterior. 
+Executar o [seguinte recipiente az criar][az-container-create] para criar um grupo de contentores na rede virtual que configuraste no passo anterior. 
 
-O grupo é implantado na subnet *myACISubnet* e contém um único `aci-helloworld` contentor de *aplicação* chamado que puxa a imagem. Como mostrado em outros artigos na documentação, esta imagem embala uma pequena aplicação web escrita no Node.js que serve uma página html estática. 
+O grupo é implantado na sub-rede *myACISubnet* e contém um único exemplo chamado *appcontainer* que puxa a `aci-helloworld` imagem. Como mostrado em outros artigos na documentação, esta imagem embala uma pequena aplicação web escrita em Node.js que serve uma página de HTML estática. 
 
 ```azurecli
 az container create \
@@ -82,7 +82,7 @@ az container create \
   --subnet myACISubnet
 ```
 
-Quando implantado com sucesso, o grupo de contentores é atribuído a um endereço IP privado na rede virtual. Por exemplo, executar o seguinte comando de demonstração de [contentores az][az-container-show] para recuperar o endereço IP do grupo:
+Quando implementado com sucesso, o grupo de contentores é atribuído um endereço IP privado na rede virtual. Por exemplo, executar o seguinte comando [de demonstração de recipiente az][az-container-show] para recuperar o endereço IP do grupo:
 
 ```azurecli
 az container show \
@@ -92,7 +92,7 @@ az container show \
 
 O resultado é semelhante a: `10.0.2.4`.
 
-Para utilização num passo posterior, guarde o endereço IP numa variável ambiental:
+Para ser utilizado num passo posterior, guarde o endereço IP numa variável ambiental:
 
 ```azurecli
 ACI_IP=$(az container show \
@@ -103,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Criar um gateway de aplicação
 
-Crie um portal de aplicação na rede virtual, seguindo os passos no gateway da [aplicação.](../application-gateway/quick-create-cli.md) O seguinte comando de [aplicação de rede Az cria][az-network-application-gateway-create] uma porta de entrada com um endereço IP frontal público e uma rota para o grupo de contentores backend. Consulte a documentação do Gateway de [Aplicação](/azure/application-gateway/) para obter detalhes sobre as definições do gateway.
+Crie um gateway de aplicação na rede virtual, seguindo os passos no gateway de [aplicação quickstart](../application-gateway/quick-create-cli.md). O comando [de aplicação-gateway de aplicação az][az-network-application-gateway-create] seguinte cria um gateway com um endereço IP frontal público e uma rota para o grupo de contentores backend. Consulte a [documentação do Gateway](/azure/application-gateway/) de Aplicação para obter mais detalhes sobre as definições do gateway.
 
 ```azurecli
 az network application-gateway create \
@@ -120,13 +120,13 @@ az network application-gateway create \
 ```
 
 
-Pode levar até 15 minutos para o Azure criar o portal de aplicação. 
+Pode levar até 15 minutos para a Azure criar o gateway de aplicação. 
 
-## <a name="test-public-ip-address"></a>Teste endereço IP público
+## <a name="test-public-ip-address"></a>Testar endereço IP público
   
-Agora pode testar o acesso à aplicação web que funciona no grupo de contentores atrás do gateway da aplicação.
+Agora pode testar o acesso à aplicação web em execução no grupo de contentores por detrás do gateway de aplicações.
 
-Executar o comando [público-ip da rede az][az-network-public-ip-show] para recuperar o endereço IP público frontend da porta de entrada:
+Executar o comando [de show público-ip da rede az][az-network-public-ip-show] para recuperar o endereço IP público frontend do gateway:
 
 ```azurecli
 az network public-ip show \
@@ -136,17 +136,17 @@ az network public-ip show \
 --output tsv
 ```
 
-A saída é um endereço `52.142.18.133`IP público, semelhante a: .
+A saída é um endereço IP público, semelhante a: `52.142.18.133` .
 
-Para ver a aplicação web em execução quando configurada com sucesso, navegue para o endereço IP público do gateway no seu navegador. O acesso bem sucedido é semelhante a:
+Para ver a aplicação web em execução quando configurada com sucesso, navegue para o endereço IP público do gateway no seu navegador. O acesso com sucesso é semelhante a:
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure](./media/container-instances-application-gateway/aci-app-app-gateway.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Consulte um [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) para criar um grupo de contentores com uma instância de contentor WordPress como um servidor de backend atrás de um gateway de aplicação.
-* Também pode configurar um gateway de candidatura com um certificado para a rescisão do SSL. Veja a [visão geral](../application-gateway/ssl-overview.md) e o [tutorial.](../application-gateway/create-ssl-portal.md)
-* Dependendo do seu cenário, considere utilizar outras soluções de equilíbrio de carga Azure com instâncias de contentores Azure. Por exemplo, utilize o [Gestor de Tráfego Azure](../traffic-manager/traffic-manager-overview.md) para distribuir o tráfego em várias instâncias de contentores e em várias regiões. Ver esta publicação do [blog.](https://aaronmsft.com/posts/azure-container-instances/)
+* Consulte um [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) para criar um grupo de contentores com uma instância de contentor WordPress como um servidor de backend atrás de um gateway de aplicações.
+* Também pode configurar um gateway de aplicação com um certificado de rescisão SSL. Veja a [visão geral](../application-gateway/ssl-overview.md) e o [tutorial.](../application-gateway/create-ssl-portal.md)
+* Dependendo do seu cenário, considere utilizar outras soluções de equilíbrio de carga Azure com instâncias de contentores Azure. Por exemplo, use [o Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para distribuir o tráfego em várias instâncias de contentores e em várias regiões. Consulte esta [publicação de blog.](https://aaronmsft.com/posts/azure-container-instances/)
 
 [az-network-vnet-create]:  /cli/azure/network/vnet#az-network-vnet-create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create

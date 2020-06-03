@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117134"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317476"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos finais de cliente VPN posso ter na minha configuração Ponto a Site?
 
-Depende da porta de entrada SKU. Para obter mais informações sobre o número de ligações suportadas, consulte [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Depende do portal SKU. Para obter mais informações sobre o número de ligações suportadas, consulte [gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
-### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>Que sistemas operativos cliente posso utilizar com a ligação Ponto a Site?
+### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>Que sistemas operativos de clientes posso usar com o Ponto a Local?
 
 São suportados os seguintes sistemas operativos cliente:
 
@@ -29,6 +29,7 @@ São suportados os seguintes sistemas operativos cliente:
 * Windows Server 2012 (apenas 64 bits)
 * Windows Server 2012 R2 (apenas 64 bits)
 * Windows Server 2016 (apenas 64 bits)
+* Windows Server 2019 (apenas 64 bits)
 * Windows 10
 * Mac OS X versão 10.11 ou superior
 * Linux (StrongSwan)
@@ -40,11 +41,11 @@ São suportados os seguintes sistemas operativos cliente:
 
 O Azure suporta três tipos de opções VPN ponto-a-local:
 
-* Secure Socket Tunneling Protocol (SSTP). O SSTP é uma solução baseada em SSL proprietária da Microsoft que pode penetrar firewalls uma vez que a maioria das firewalls abre a porta TCP de saída que 443 SSL utiliza.
+* Secure Socket Tunneling Protocol (SSTP). SSTP é uma solução baseada em SSL proprietária da Microsoft que pode penetrar firewalls uma vez que a maioria das firewalls abre a porta TCP de saída que 443 SSL usa.
 
-* OpenVPN. O OpenVPN é uma solução baseada em SSL que pode penetrar firewalls uma vez que a maioria das firewalls abre a porta TCP de saída que 443 SSL utiliza.
+* OpenVPN. OpenVPN é uma solução baseada em SSL que pode penetrar firewalls uma vez que a maioria das firewalls abre a porta TCP de saída que 443 SSL usa.
 
-* VPN IKEv2. IKEv2 VPN é uma solução VPN iPsec baseada em padrões que utiliza portas UDP de saída 500 e 4500 e protocolo IP nº. 50. As firewalls nem sempre abrem estas portas, pelo que existe a possibilidade de a VPN IKEv2 não conseguir atravessar proxies e firewalls.
+* VPN IKEv2. IKEv2 VPN é uma solução IPsec VPN baseada em padrões que utiliza portas UDP de saída 500 e 4500 e protocolo IP nº. 50. As firewalls nem sempre abrem estas portas, pelo que existe a possibilidade de a VPN IKEv2 não conseguir atravessar proxies e firewalls.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Se reiniciar o computador cliente configurado para Ponto a Site, a VPN restabelece ligação automaticamente?
 
@@ -56,15 +57,15 @@ Atualmente, o restabelecimento de ligação automático e DDNS não são suporta
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Posso ter configurações Site a Site e Ponto a Site coexistentes na mesma rede virtual?
 
-Sim. Para o modelo de implementação do Resource Manager, tem de ter um tipo de VPN RouteBased para o seu gateway. No modelo de implementação clássica, precisa de um gateway dinâmico. Não suportamos a ligação Ponto a Site para gateways de VPN de encaminhamento estático ou gateways de VPN PolicyBased.
+Yes. Para o modelo de implementação do Resource Manager, tem de ter um tipo de VPN RouteBased para o seu gateway. No modelo de implementação clássica, precisa de um gateway dinâmico. Não suportamos a ligação Ponto a Site para gateways de VPN de encaminhamento estático ou gateways de VPN PolicyBased.
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Posso configurar um cliente ponto-a-site para ligar a vários gateways de rede virtual ao mesmo tempo?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Posso configurar um cliente ponto-a-local para ligar a vários gateways de rede virtuais ao mesmo tempo?
 
-Dependendo do software VPN Client utilizado, poderá ser capaz de se conectar a vários Gateways de Rede Virtual desde que as redes virtuais que estão ligadas não tenham espaços de endereços contraditórios entre eles ou a rede a partir do cliente está a ligar-se.  Enquanto o Cliente VpN Azure suporta muitas ligações VPN, apenas uma ligação pode ser conectada a qualquer momento.
+Dependendo do software VPN Client utilizado, poderá ser capaz de se conectar a vários Gateways de Rede Virtual, desde que as redes virtuais ligadas não tenham espaços de endereço conflituosos entre eles ou a rede a partir do qual o cliente está a ligar..  Enquanto o Cliente Azure VPN suporta muitas ligações VPN, apenas uma ligação pode ser conectada a qualquer momento.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Posso configurar um cliente Ponto a Site para ligar a várias redes virtuais ao mesmo tempo?
 
-Sim, as ligações Ponto-a-Local a um Gateway de Rede Virtual implantado num VNet que é espartado com outros VNets podem ter acesso a outros VNets.  Desde que os VNets com parifiquem as funcionalidades UseRemoteGateway / AllowGatewayTransit, o cliente Ponto-a-Site poderá ligar-se aos VNets em pares.  Para mais informações, por favor leia as [coisas.](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
+Sim, as ligações ponto-a-local a um Gateway de rede virtual implantado num VNet que é espremiado com outros VNets podem ter acesso a outros VNets esprevados.  Desde que os VNets espreitentes estejam a utilizar as funcionalidades UseRemoteGateway / AllowGatewayTransit, o cliente ponto-a-local poderá ligar-se aos VNets esprevados.  Para mais informações, por favor, consulte [este](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) artigo.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Que débito posso esperar através das ligações Site a Site ou Ponto a Site?
 
@@ -76,17 +77,17 @@ Não. Só pode utilizar o cliente VPN nativo no Windows para SSTP e o cliente VP
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>O Azure suporta a VPN IKEv2 no Windows?
 
-O IKEv2 é suportado no Windows 10 e Windows Server 2016. No entanto, para poder utilizar o IKEv2, tem de instalar as atualizações e definir uma chave de registo localmente. As versões OS anteriores ao Windows 10 não são suportadas e só podem utilizar o Protocolo SSTP ou **OpenVPN®**.
+O IKEv2 é suportado no Windows 10 e Windows Server 2016. No entanto, para poder utilizar o IKEv2, tem de instalar as atualizações e definir uma chave de registo localmente. As versões OS antes do Windows 10 não são suportadas e só podem utilizar SSTP ou **OpenVPN® Protocol**.
 
 Para preparar o Windows 10 ou o Windows Server 2016 para o IKEv2:
 
 1. Instale a atualização.
 
-   | Versão do SO | Date | Número/Ligação |
+   | Versão do SO | Data | Número/Ligação |
    |---|---|---|
    | Windows Server 2016<br>Windows 10, Versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, Versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-   | Windows 10 Versão 1709 | 22 de março de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   | Versão 1709 do Windows 10 | 22 de março de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |
 
 2. Defina o valor da chave de registo. Crie ou defina a chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD no registo como 1.
@@ -105,7 +106,7 @@ Sim, pode ativar estas novas funcionalidades nos gateways que já estejam implem
 
 ### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>Como remover a configuração de uma ligação P2S?
 
-Uma configuração P2S pode ser removida utilizando o Azure CLI e o PowerShell utilizando os seguintes comandos:
+Uma configuração P2S pode ser removida utilizando O Azure CLI e PowerShell utilizando os seguintes comandos:
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 

@@ -1,16 +1,16 @@
 ---
 title: Configurar um projeto do Unity do zero
-description: Explica como configurar um projeto de Unidade em branco para a utilização com a Renderização Remota Azure.
+description: Explica como configurar um projeto de Unidade em branco para a utilização com renderização remota Azure.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: d68a3b1291d2e001c535a0c5a6b0c754c9d2b2e1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021352"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300594"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutorial: Criação de um projeto de unidade do zero
 
@@ -18,39 +18,42 @@ Neste tutorial, vai aprender:
 
 > [!div class="checklist"]
 >
-> * Configurar um projeto de unidade de risco para ARR.
-> * Criação e paragem de sessões de renderização.
-> * Reutilizar as sessões existentes.
+> * Configurar um projeto de unidade de risco para a ARR.
+> * Criar e parar as sessões de renderização.
+> * Reutilização das sessões existentes.
 > * Ligação e desconexão das sessões.
 > * Carregar modelos numa sessão de renderização.
-> * Exibindo estatísticas de ligação.
+> * Apresentando estatísticas de ligação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para este tutorial você precisa:
 
-* Informação da sua conta (ID da conta, chave de conta, ID de subscrição). Se não tem uma conta, [crie uma conta.](../../how-tos/create-an-account.md)
+* Informação da sua conta (ID de conta, chave de conta, ID de subscrição). Se não tiver uma conta, [crie uma conta.](../../how-tos/create-an-account.md)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* A versão mais recente do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* A versão mais recente do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+  * **Desenvolvimento de desktop com C++**
+  * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unidade 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Instale estes módulos na Unidade:
-    * **UWP** - Suporte universal para construir plataforma Windows
-    * **IL2CPP** - Suporte para construção de janelas (IL2CPP)
+    * **UWP** - Suporte universal de construção de plataformas windows
+    * **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
 
 > [!TIP]
-> O [repositório](https://github.com/Azure/azure-remote-rendering) de amostras ARR contém projetos de unidade preparados para todos os tutoriais. Pode suster esses projetos como referência.
+> O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering) contém projetos de unidade preparados para todos os tutoriais. Podes usar esses projetos como referência.
 
 ## <a name="create-a-new-unity-project"></a>Criar um novo projeto de Unidade
 
 A partir do Centro de Unidade, crie um novo projeto.
-Neste exemplo, assumimos que o projeto está a ser criado numa pasta chamada `RemoteRendering` .
+Neste exemplo, vamos assumir que o projeto está a ser criado numa pasta chamada `RemoteRendering` .
 
 ![nova janela do projeto](media/new-project.png)
 
 ## <a name="configure-the-projects-manifest"></a>Configure o manifesto do projeto
 
-Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pasta do projeto Unidade. Abra o ficheiro num editor de texto e apreenda as linhas listadas abaixo:
+Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pasta do projeto Unidade. Abra o ficheiro num editor de texto e apencha as linhas listadas abaixo:
 
 ```json
 {
@@ -70,80 +73,80 @@ Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pas
 ```
 
 O pacote de gasoduto de renderização Universal é opcional, mas recomendado por razões de desempenho.
-Depois de modificar e guardar o manifesto, a Unidade irá automaticamente refrescar-se. Confirme que os pacotes foram carregados na janela do *Projeto:*
+Depois de modificar e guardar o manifesto, a Unidade irá automaticamente refrescar-se. Confirme que as embalagens foram carregadas na janela do *Projeto:*
 
 ![confirmar importações de pacotes](media/confirm-packages.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Certifique-se de que tem a versão mais recente do pacote
 
-Os seguintes passos garantem que o seu projeto está a utilizar a versão mais recente do pacote de renderização remota.
-1. Selecione o pacote na janela do Projeto e clique no :::no-loc text="package"::: ícone: ![ Selecionando o ícone do pacote](media/package-icons.png)
-1. No Inspetor, clique em "View in Package Manager": inspetor de ![ pacotes](media/package-properties.png)
-1. Na página do gestor do pacote para o pacote de renderização remota, veja se o botão de atualização está disponível. Se for, clicar ás irá atualizar o pacote para a versão mais recente disponível: ![ O pacote ARR no gestor de pacotes](media/package-manager.png)
-1. Por vezes, a atualização do pacote pode levar a erros na consola. Se isto ocorrer, tente fechar e reabrir o projeto.
+Os seguintes passos asseguram que o seu projeto está a utilizar a versão mais recente do pacote de renderização remota.
+1. Selecione o pacote na janela do Projeto e clique no :::no-loc text="package"::: ícone: ![ Selecionar o ícone do pacote](media/package-icons.png)
+1. No Inspetor, clique em "Ver em Gestor de Pacotes": ![ inspetor de pacotes](media/package-properties.png)
+1. Na página do gestor de pacotes para o pacote de renderização remota, veja se o botão de atualização está disponível. Se for, em seguida, clicará nele irá atualizar o pacote para a versão mais recente disponível: ![ O pacote ARR no gestor de pacotes](media/package-manager.png)
+1. Por vezes, a atualização do pacote pode levar a erros na consola. Se isso ocorrer, tente fechar e reabrir o projeto.
 
 ## <a name="configure-the-camera"></a>Configure a câmara
 
-Selecione o nó **da Câmara Principal.**
+Selecione o nó **da câmara principal.**
 
-1. Redefinir a sua *Transformação:*
+1. Repor a sua *transformação:*
 
-    ![redefinir a transformação da câmara](media/camera-reset-transform.png)
+    ![transformação de câmara de reset](media/camera-reset-transform.png)
 
-1. Definido **:::no-loc text="Clear flags":::** para*:::no-loc text="Solid Color":::*
+1. Definir **:::no-loc text="Clear flags":::** para*:::no-loc text="Solid Color":::*
 
-1. Definido **:::no-loc text="Background":::** para*:::no-loc text="Black":::*
+1. Definir **:::no-loc text="Background":::** para*:::no-loc text="Black":::*
 
-1. Desloque o **:::no-loc text="Clipping Planes":::** *a Perto = 0,3* e *Far = 20*. Isto significa que a renderização irá cortar a geometria que está mais perto de 30 cm ou mais distante do que 20 metros.
+1. Definir **:::no-loc text="Clipping Planes":::** o *de Perto = 0,3* e *Far = 20*. Isto significa que a reprodução irá cortar a geometria que está mais perto de 30 cm ou mais longe que 20 metros.
 
-    ![Propriedades da câmara de unidade](media/camera-properties.png)
+    ![Propriedades de câmara de unidade](media/camera-properties.png)
 
 ## <a name="adjust-the-project-settings"></a>Ajuste as definições do projeto
 
-1. Open *Edit > Project Settings...*
+1. Abra *as definições > projeto de edição de edição...*
 1. Na lista à esquerda selecione Qualidade.
-1. Alterar o **Nível de Qualidade Padrão** para *Baixo*
+1. Alterar o **nível de qualidade predefinido** para *baixo*
 
-    ![alterar as definições de qualidade do projeto](media/settings-quality.png)
+    ![alterar definições de qualidade do projeto](media/settings-quality.png)
 
 1. Selecione **Gráficos** à esquerda.
-1. Altere a definição de pipeline de **renderização scriptable** para *HybridRenderingPipeline*. Salte este passo se o gasoduto de renderização Universal não for utilizado.
+1. Altere a definição **de Pipeline de Renderização Scriptable** para *HybridRenderingPipeline*. Salte este passo se o gasoduto de renderização Universal não for utilizado.
 
-    ![alterando as definições gráficas do projeto ](media/settings-graphics-lwrp.png) Às vezes a UI não povoa a lista de tipos de pipeline disponíveis a partir das embalagens, caso em que o ativo *HybridRenderingPipeline* deve ser arrastado para o campo manualmente: ![ alterar as definições gráficas do projeto](media/hybrid-rendering-pipeline.png)
-1. Selecione **Jogador** à esquerda.
-1. Selecione o separador de **definições** da Plataforma Universal windows
-1. Alterar as **definições de XR** para suportar a realidade mista do Windows: ![ definições do jogador](media/xr-player-settings.png)
+    ![alteração das definições de gráficos de projeto ](media/settings-graphics-lwrp.png) Por vezes, a UI não preenche a lista de tipos de gasodutos disponíveis a partir dos pacotes, caso em que o ativo *HybridRenderingPipeline* deve ser arrastado para o campo manualmente: ![ alterando as definições de gráficos de projeto](media/hybrid-rendering-pipeline.png)
+1. Selecione **Player** à esquerda.
+1. Selecione o separador **de definições da Plataforma Universal windows**
+1. Alterar as **definições de XR** para suportar realidade mista do Windows: ![ definições do jogador](media/xr-player-settings.png)
 1. Selecione as definições como na imagem acima:
     1. Ativar **a realidade virtual suportada**
     1. Definir **formato de profundidade** para profundidade de *16 bits*
-    1. Ativar **a partilha do tampão** de profundidade
-    1. Definir modo de **renderização estéreo** para *passe único atempouado*
+    1. Ativar a **partilha do tampão de profundidade**
+    1. Definir **modo de renderização estéreo** para *single pass instanced*
 
-1. Na mesma janela, acima das *Definições XR,* expandir **as Definições de Publicação**
-1. Percorra até **Capacidades** e selecione:
+1. Na mesma janela, acima de *Definições XR,* expandir **Definições de Publicação**
+1. Desloque-se para baixo para **as capacidades** e selecione:
     * **InternetClient**
     * **InternetClientServer**
     * **Perceção Espacial**
-    * Opcional para desenvolvimento: **PrivateNetworkClientServer**
+    * Opcional para o desenvolvimento: **PrivateNetworkClientServer**
 
-      Esta opção é necessária se quiser ligar o desordeiro remoto unidade ao seu dispositivo.
+      Esta opção é necessária se pretender ligar o depurar remoto Unidade ao seu dispositivo.
 
-1. Em **Famílias de Dispositivos Suportados,** ative **Holographic** e **Desktop**
+1. Nas **Famílias de Dispositivos Suportados,** ativar **o Holográfico** e **o Desktop**
 
-1. Se pretender utilizar o Kit de Ferramentas de Realidade Mista, consulte a [documentação MRTK,](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview)para obter mais informações sobre as definições e capacidades recomendadas.
+1. Se pretender utilizar o Conjunto de Ferramentas de Realidade Mista, consulte a [documentação mrtk,](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview)para obter mais informações sobre as definições e capacidades recomendadas.
 
 ## <a name="validate-project-setup"></a>Validar a configuração do projeto
 
 Execute os seguintes passos para validar que as definições do projeto estão corretas.
 
-1. Escolha a entrada do ValidateProject a partir do menu RemoteRendering na barra de ferramentas do editor da Unidade.
+1. Escolha a entrada ValidateProject a partir do menu RemoteRendering na barra de ferramentas do editor Unidade.
 1. Utilize a janela ValidateProject para verificar e corrigir as definições do projeto sempre que necessário.
 
-    ![Validação do projeto editor de unidade](media/arr-unity-validation.png)
+    ![Validação do projeto do editor de unidade](media/arr-unity-validation.png)
 
-## <a name="create-a-script-to-initialize-azure-remote-rendering"></a>Criar um script para inicializar a renderização remota de Azure
+## <a name="create-a-script-to-initialize-azure-remote-rendering"></a>Criar um script para rubricar a renderização remota do Azure
 
-Crie um [novo script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) e dê-lhe o nome **RemoteRendering**. Abra o ficheiro script e substitua todo o seu conteúdo pelo código abaixo:
+Crie um [novo script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) e dê-lhe o nome **RemoteRendering**. Abra o ficheiro de script e substitua todo o seu conteúdo pelo código abaixo:
 
 ```csharp
 using System.Collections;
@@ -290,37 +293,37 @@ public class RemoteRendering : MonoBehaviour
 }
 ```
 
-Este script inicializa a renderização remota azure, diga-lhe qual o objeto da câmara a utilizar para renderização e coloca um botão **Create Session** na porta de visão, quando o Modo *de Reprodução* estiver ativado.
+Este script inicializa a renderização remota do Azure, diz-lhe qual o objeto da câmara a utilizar para renderização e coloca um botão **De sessão de Criação** no viewport, quando o *Modo de Reprodução* é ativado.
 
 > [!CAUTION]
-> Modificar o script e guardá-lo enquanto o modo de jogo está ativo em Unidade pode resultar em congelamento de Unidade e você é forçado a desligá-lo através do gestor de tarefas. Por isso, pare sempre o modo de reprodução antes de editar o script *RemoteRendering.*
+> Modificar o script e guardá-lo enquanto o modo de reprodução estiver ativo na Unidade pode resultar no congelamento da Unidade e és forçado a desligá-lo através do gestor de tarefas. Portanto, pare sempre o modo de reprodução antes de editar o script *RemoteRendering.*
 
-## <a name="test-azure-remote-rendering-session-creation"></a>Criação de sessão de renderização remota De teste Azure
+## <a name="test-azure-remote-rendering-session-creation"></a>Teste Azure Criação de sessão de renderização remota
 
-Crie um novo GameObject na cena e adicione-lhe o componente *RemoteRendering.* Preencha o domínio de *conta*apropriado, id *de conta*e chave de *conta* para a sua conta de renderização remota:
+Crie um novo GameObject na cena e adicione-lhe o componente *RemoteRendering.* Preencha o domínio de *conta*apropriado, *id de conta*e chave de *conta* para a sua conta de renderização remota:
 
-![Propriedades dos componentes de renderização remota](media/remote-rendering-component.png)
+![Propriedades de componentes de renderização remota](media/remote-rendering-component.png)
 
-Inicie a aplicação no editor **(prima Play** ou CTRL+P). Deve ver o botão **Create Session** aparecer no viewport. Clique nele para iniciar a sua primeira sessão de ARR:
+Inicie a aplicação no editor **(prima Play** ou CTRL+P). Deve ver o botão **'Criar Sessão'** aparecer no viewport. Clique nele para iniciar a sua primeira sessão de ARR:
 
 ![Criar uma primeira sessão](media/test-create.png)
 
-Se isto falhar, certifique-se de que inseriu corretamente os dados da sua conta nas propriedades do componente RemoteRendering. Caso contrário, aparecerá uma mensagem na janela da consola mostrando o ID da sessão que lhe foi atribuído e afirmando que a sessão está atualmente no estado *de partida:*
+Se isto falhar, certifique-se de que introduziu os dados da sua conta corretamente nas propriedades do componente RemoteRendering. Caso contrário, aparecerá uma mensagem na janela da consola mostrando o ID da sessão que lhe foi atribuído, e afirmando que a sessão está atualmente no estado *inicial:*
 
-![Saída de início da sessão](media/create-session-output.png)
+![Saída inicial da sessão](media/create-session-output.png)
 
-Neste momento, o Azure está a fornecer um servidor para si e a iniciar uma máquina virtual de renderização remota. Isto normalmente **demora 3 a 5 minutos.** Quando o VM estiver pronto, o nosso script de unidade `OnSessionStatusChanged` é executado e irá imprimir o novo estado da sessão:
+Neste momento, o Azure está a providenciar um servidor para si e a iniciar uma máquina virtual de renderização remota. Isto normalmente **demora 3 a 5 minutos.** Quando o VM estiver pronto, a chamada do nosso script de Unidade `OnSessionStatusChanged` é executada e imprimirá o novo estado de sessão:
 
-![Saída pronta da sessão](media/create-session-output-2.png)
+![Saída pronta para sessão](media/create-session-output-2.png)
 
-É isso! Por enquanto, nada mais vai acontecer. Para evitar encargos, deve sempre parar as sessões quando já não são necessárias. Nesta amostra, pode fazê-lo clicando no botão **Stop Session** ou parando a simulação de Unidade. Devido à propriedade **Autosstop Session** no componente *ARRServiceUnity,* que está ligado por defeito, a sessão será interrompida automaticamente para si. Se tudo falhar, devido a falhas ou problemas de ligação, a sua sessão poderá decorrer durante o tempo que o seu *MaxLeaseTime* antes de ser desligado pelo servidor.
+É isso! Por enquanto, nada mais vai acontecer. Para evitar cargas, deve sempre parar as sessões quando já não são necessárias. Nesta amostra, pode fazê-lo clicando no botão **'Sessão de paragem'** ou interrompendo a simulação Unidade. Devido à propriedade **Autosstop Session** no componente *ARRServiceUnity,* que está ligado por padrão, a sessão será interrompida automaticamente para si. Se tudo falhar, devido a falhas ou problemas de ligação, a sessão poderá decorrer enquanto o seu *MaxLeaseTime* for desligado pelo servidor.
 
 > [!NOTE]
-> Parar uma sessão terá efeito imediato e não pode ser desfeito. Uma vez parado, tem que criar uma nova sessão, com a mesma despesa de arranque.
+> Parar uma sessão terá efeito imediato e não pode ser desfeito. Uma vez parado, tem que criar uma nova sessão, com a mesma sobrecarga de arranque.
 
-## <a name="reusing-sessions"></a>Reutilização de sessões
+## <a name="reusing-sessions"></a>Sessões de reutilização
 
-Criar uma nova sessão é, infelizmente, uma operação morosa. Por isso, deve-se tentar criar sessões raramente, e reutilizá-las sempre que possível.
+A criação de uma nova sessão é, infelizmente, uma operação morosa. Portanto, deve-se tentar criar sessões raramente, e reutilizá-las sempre que possível.
 
 Insira o seguinte código no script *RemoteRendering* e remova as versões antigas das funções duplicadas:
 
@@ -413,20 +416,20 @@ Insira o seguinte código no script *RemoteRendering* e remova as versões antig
 ```
 
 > [!CAUTION]
-> Antes de executar este código, certifique-se de desativar a **opção Sessão de Paragem Automática** no componente RemoteRendering. Caso contrário, cada sessão que criar será automaticamente interrompida quando parar a simulação, e tentar reutilizá-la falhará.
+> Antes de executar este código, certifique-se de desativar a **sessão de paragem automática** de opção no componente RemoteRendering. Caso contrário, todas as sessões que criar serão automaticamente interrompidas quando parar a simulação e tentar reutilizá-la falhará.
 
-Quando premir *Reprodução,* obtém agora três botões no viewport: **Create Session,** **Consulta Ative Sessions**, e Use A **Sessão Existente**. O primeiro botão cria sempre uma nova sessão. As segundas consultas de botão que existem sessões *ativas.* Se não especificou manualmente um ID da sessão para tentar utilizar, esta ação selecionará automaticamente esse ID da sessão para utilização futura. O terceiro botão tenta ligar-se a uma sessão existente. Ou um que especificou manualmente através da propriedade do componente *Session Id,* ou um encontrado pela *Query Ative Sessions*.
+Quando premir *Play,* tem agora três botões no viewport: **Criar Sessão,** **Sessões Ativas de Consulta**e Utilizar **sessão existente**. O primeiro botão cria sempre uma nova sessão. As segundas consultas de botão que sessões *ativas* existem. Se não especificou manualmente um ID de sessão para tentar utilizar, esta ação selecionará automaticamente esse ID de sessão para utilização futura. O terceiro botão tenta ligar-se a uma sessão existente. Ou especificaste manualmente através da propriedade do componente *Session Id,* ou uma encontrada por *Consultas Ative Sessions*.
 
-A função **AutoStartSessionAsync** é utilizada para simular as prensas de botões fora do editor.
+A função **AutoStartSessionAsync** é utilizada para simular as pressãos de botão fora do editor.
 
 > [!TIP]
-> É possível abrir sessões que tenham sido interrompidas, expiradas ou em estado de erro. Embora já não possam ser usados para renderização, pode consultar os seus detalhes, uma vez que abriu uma sessão inativa. O código acima verifica o estado de uma sessão, `ARRService_OnSessionStarted` para parar automaticamente quando a sessão se tornar inutilizável.
+> É possível abrir sessões que tenham sido interrompidas, caducadas ou que estejam em estado de erro. Embora já não possam ser usados para renderização, pode consultar os seus dados, uma vez que abriu uma sessão inativa. O código acima verifica o estado de uma sessão em `ARRService_OnSessionStarted` , para parar automaticamente quando a sessão se tornar inutilizável.
 
 Com esta funcionalidade, pode agora criar e reutilizar sessões, o que deverá melhorar significativamente o seu fluxo de trabalho de desenvolvimento.
 
 Normalmente, a criação de uma sessão seria desencadeada fora da aplicação do cliente devido ao tempo necessário para girar o servidor.
 
-## <a name="connect-to-an-active-session"></a>Ligue-se a uma sessão ativa
+## <a name="connect-to-an-active-session"></a>Conecte-se a uma sessão ativa
 
 Até agora criámos ou abrimos sessões. O próximo passo é *ligar-se* a uma sessão. Uma vez ligado, o servidor de renderização produzirá imagens e enviará um fluxo de vídeo para a nossa aplicação.
 
@@ -555,19 +558,19 @@ Insira o seguinte código no script *RemoteRendering* e remova as versões antig
 
 Para testar esta funcionalidade:
 
-1. Press **Play** in Unitity.
-1. Abra uma sessão:
-    1. Se já tiver uma sessão, prima **Consultas Ative Sessions** e, em seguida, use a **sessão existente**.
-    1. Caso contrário, prima **Create Session**.
+1. **Press Play** in Unitity.
+1. Abrir uma sessão:
+    1. Se já tiver uma sessão, prima **Sessões Ativas de Consulta** e, em seguida, **Utilize a sessão existente**.
+    1. Caso contrário, prima **Criar Sessão**.
 1. Prima **Ligar**.
-1. Após alguns segundos, a saída da consola deve imprimir que está ligado.
-1. Por enquanto, nada mais deve acontecer.
-1. Prima **Desligue** ou pare o modo de reprodução da Unidade.
+1. Após alguns segundos, a saída da consola deve imprimir que está ligada.
+1. Por enquanto, nada mais deveria acontecer.
+1. Prima **Desligar** ou parar o modo de reprodução da Unidade.
 
 >[!NOTE]
-> Vários utilizadores podem *abrir* uma sessão para consultar as suas informações, mas apenas um utilizador pode ser *ligado* a uma sessão de cada vez. Se outro utilizador já estiver ligado, a ligação falhará com um erro de **aperto**de mão .
+> Vários utilizadores podem *abrir* uma sessão para consultar as suas informações, mas apenas um utilizador pode estar *ligado* a uma sessão de cada vez. Se outro utilizador já estiver ligado, a ligação falhará com um **erro de aperto de mão**.
 
-## <a name="load-a-model"></a>Carregar um modelo
+## <a name="load-a-model"></a>Carregue um modelo
 
 Insira o seguinte código no script *RemoteRendering* e remova as versões antigas das funções duplicadas:
 
@@ -724,20 +727,20 @@ Insira o seguinte código no script *RemoteRendering* e remova as versões antig
 #endif
 ```
 
-Quando agora premir a reprodução, abra uma sessão e ligue-a, aparece o botão **Load Model.** Depois de clicar nele, a saída da consola mostrará o progresso de carregamento e quando chegar a 100% deve ver aparecer o modelo de um motor:
+Quando premir agora, abra uma sessão e ligue-a, aparece o botão **Modelo de Carga.** Depois de clicar nele, a saída da consola mostrará o progresso do carregamento e quando atingir 100% deve ver o modelo de um motor aparecer:
 
 ![Modelo carregado no editor](media/model-loaded-replace-me.png)
 
-O [WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) é um componente importante usado para a [estabilidade do holograma.](https://docs.microsoft.com/windows/mixed-reality/hologram-stability) No entanto, só terá efeito quando implantado num dispositivo de Realidade Mista.
+O [WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) é um componente importante utilizado para a [estabilidade do holograma.](https://docs.microsoft.com/windows/mixed-reality/hologram-stability) No entanto, só terá efeito quando implantado num dispositivo de Realidade Mista.
 
 > [!TIP]
-> Se seguiu o [Quickstart: Converta um modelo para renderização,](../../quickstarts/convert-model.md)já sabe como converter os seus próprios modelos. Tudo o que precisa fazer agora para o renderizar, é colocar o URI num modelo convertido na propriedade *Nome Modelo.*
+> Se seguiu o [Quickstart: Converta um modelo para renderização,](../../quickstarts/convert-model.md)já sabe como converter os seus próprios modelos. Tudo o que precisa fazer agora para o renderizar, é colocar o URI num modelo convertido na propriedade *Model Name.*
 
 ## <a name="display-frame-statistics"></a>Estatísticas de quadros de exibição
 
-A Renderização Remota Azure rastreia várias informações sobre a qualidade da ligação. Para uma forma rápida de exibir esta informação, faça o seguinte:
+A Azure Remote Rendering rastreia várias informações sobre a qualidade da ligação. Para uma forma rápida de exibir estas informações, faça o seguinte:
 
-Crie um [novo script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) e dê-lhe o nome **RemoteFrameStats**. Abra o ficheiro script e substitua todo o seu conteúdo pelo código abaixo:
+Crie um [novo script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) e dê-lhe o nome **RemoteFrameStats**. Abra o ficheiro de script e substitua todo o seu conteúdo pelo código abaixo:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -778,29 +781,29 @@ public class RemoteFrameStats : MonoBehaviour
 }
 ```
 
-Crie um GameObject e nomeie-o *FrameStats*. Prenda-o como nó de criança ao objeto *da Câmara Principal* e coloque a sua posição em x = **0, y = 0, z = 0,325**. Adicione o componente **RemoteFrameStats** ao objeto.
+Crie um GameObject e nomeie-o *FrameStats*. Prenda-o como nó de criança ao objeto *da câmara principal* e coloque a sua posição em x = **0, y = 0, z = 0,325**. Adicione o componente **RemoteFrameStats** ao objeto.
 
-Adicione um objeto de criança **de Tela de > UI** ao objeto *FrameStats* e detete as suas propriedades desta forma:
+Adicione um objeto de criança **UI > Canvas** ao objeto *FrameStats* e desemprete as suas propriedades desta forma:
 
-![propriedades de lona](media/framestats-canvas.png)
+![propriedades de tela](media/framestats-canvas.png)
 
-Adicione um objeto **de texto > UI** como uma criança da tela e coloque as suas propriedades assim:
+Adicione um objeto **ui > texto** como uma criança da tela e definir as suas propriedades assim:
 
 ![propriedades de texto](media/framestats-text.png)
 
-Selecione o objeto *FrameStats* e povoe o **campo FrameStats** clicando no ícone do círculo e selecionando o objeto **de texto:**
+Selecione o objeto *FrameStats* e povoe o **campo FrameStats** clicando no ícone círculo e selecionando o objeto **De texto:**
 
 ![definição de propriedade de texto](media/framestats-set-text.png)
 
 Agora, quando ligado à sessão remota, o texto deve mostrar as estatísticas de streaming:
 
-![saída de estatísticas de quadros](media/framestats-output.png)
+![saída de estatísticas de quadro](media/framestats-output.png)
 
-O código desativa a atualização estatística fora do editor como uma caixa de texto trancada na cabeça seria uma distração. Uma implementação mais sofisticada encontra-se no projeto [Quickstart.](../../quickstarts/render-model.md)
+O código desativa a atualização estatística fora do editor, uma vez que uma caixa de texto fechada à cabeça seria uma distração. Uma implementação mais sofisticada encontra-se no projeto [Quickstart.](../../quickstarts/render-model.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu todos os passos necessários para tomar um projeto de Unidade em branco e fazê-lo trabalhar com a Renderização Remota Azure. No próximo tutorial, vamos ver mais de perto como trabalhar com entidades remotas.
+Neste tutorial, aprendeu todos os passos necessários para tomar um projeto de Unidade em branco e fazê-lo trabalhar com a Azure Remote Rendering. No próximo tutorial, vamos analisar mais de perto como trabalhar com entidades remotas.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Trabalhar com entidades remotas na Unidade](working-with-remote-entities.md)

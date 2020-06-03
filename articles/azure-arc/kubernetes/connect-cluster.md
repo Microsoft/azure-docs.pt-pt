@@ -9,23 +9,23 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 097301a8704da24918dac70760f0540576975353
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 868964361e6089eb3417b0f2e2681d82d4aa0b75
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191729"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299648"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
-Ligue um cluster Kubernetes ao Arco de Azure. 
+Ligue um cluster Kubernetes ao Arco de Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Verifique se tem os seguintes requisitos prontos:
 
 * Um cluster Kubernetes que está a funcionar
-* Você precisará de acesso com kubeconfig, e acesso de administração de cluster. 
+* Você precisará de acesso com kubeconfig, e acesso de administração de cluster.
 * O utilizador ou o principal de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões de 'Ler' e 'Escrever' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Azure Arc for Kubernetes Onboarding" com estas permissões pode ser usada para atribuições de funções no utilizador ou principal de serviço utilizado com Azure CLI para o embarque.
 * Versão mais recente das *extensões connectedk8s* e *k8sconfiguration*
 
@@ -41,7 +41,7 @@ Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída
 * TCP no porto 443 -- >`https://:443`
 * TCP no porto 9418 -- >`git://:9418`
 
-| Ponto final (DNS)                                                                                               | Descrição                                                                                                                 |
+| Ponto final (DNS)                                                                                               | Description                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Necessário para que o agente se conecte ao Azure e registe o cluster                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Ponto final do plano de dados para o agente empurrar o estado e obter informações de configuração                                      |
@@ -70,7 +70,8 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## <a name="install-azure-cli-extensions"></a>Instalar extensões CLI do Azure
+## <a name="install-azure-cli-and-arc-enabled-kubernetes-extensions"></a>Instale extensões de Azure CLI e Arc habilitados
+A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
 
 Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:
 
@@ -90,6 +91,9 @@ Execute os seguintes comandos para atualizar as extensões para as versões mais
 az extension update --name connectedk8s
 az extension update --name k8sconfiguration
 ```
+
+## <a name="install-helm"></a>Instalar Leme
+O leme 3 é necessário para o embarque do cluster utilizando a extensão connectedk8s. [Instale a mais recente versão do Helm 3](https://helm.sh/docs/intro/install) para satisfazer este requisito.
 
 ## <a name="create-a-resource-group"></a>Criar um Grupo de Recursos
 
@@ -167,6 +171,8 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
+Também pode ver este recurso no [portal de pré-visualização do Azure](https://preview.portal.azure.com/). Assim que tiver o portal aberto no seu navegador, navegue para o grupo de recursos e o Arco Azure ativou o recurso Kubernetes com base no nome de recursos e entradas de nome de grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.
+
 Azure Arc habilitado a Kubernetes implanta alguns operadores no `azure-arc` espaço de nomes. Pode ver estas implementações e cápsulas aqui:
 
 ```console
@@ -211,11 +217,18 @@ Azure Arc habilitado Kubernetes é composto por alguns agentes (operadores) que 
 
 Pode eliminar um `Microsoft.Kubernetes/connectedcluster` recurso utilizando o portal Azure CLI ou Azure.
 
-O comando Azure CLI `az connectedk8s delete` remove o recurso em `Microsoft.Kubernetes/connectedCluster` Azure. O Azure CLI elimina quaisquer recursos associados `sourcecontrolconfiguration` em Azure. O CLI Azure usa o helm desinstalar para remover os agentes do cluster.
 
-O portal Azure elimina o `Microsoft.Kubernetes/connectedcluster` recurso em Azure e elimina quaisquer recursos associados `sourcecontrolconfiguration` em Azure.
+* **Supressão utilizando o Azure CLI**: O seguinte comando Azure CLI pode ser utilizado para iniciar a supressão do recurso Kubernetes ativado pelo Arco Azure.
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
+  Isto remove o `Microsoft.Kubernetes/connectedCluster` recurso e quaisquer recursos associados `sourcecontrolconfiguration` em Azure. O CLI Azure usa o helm desinstalar para remover os agentes que estão a trabalhar no cluster também.
 
-Para remover os agentes do cluster é necessário executar `az connectedk8s delete` ou `helm uninstall azurearcfork8s` .
+* **Eliminação no portal Azure**: A eliminação do Arco Azure permitiu que o recurso Kubernetes no portal Azure elimina o `Microsoft.Kubernetes/connectedcluster` recurso e quaisquer recursos associados `sourcecontrolconfiguration` em Azure, mas não elimina os agentes que estão a executar o cluster. Para eliminar os agentes que funcionam no cluster, executar o seguinte comando.
+
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
 
 ## <a name="next-steps"></a>Passos seguintes
 

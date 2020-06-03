@@ -1,88 +1,88 @@
 ---
-title: Compreenda o Hub Azure IoT embutido no ponto final [ Microsoft Docs
-description: Guia de desenvolvimento - descreve como usar o ponto final compatível com o Event Hub para ler mensagens dispositivo-a-nuvem.
+title: Compreenda o Azure IoT Hub embutido no ponto final Microsoft Docs
+description: Developer guide - descreve como usar o ponto final incorporado, compatível com o Event Hub para ler mensagens dispositivo-a-nuvem.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 791d41aae7dde3e1ef2ae511de4ffd84141f0232
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872695"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310789"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
-Por predefinição, as mensagens são encaminhadas para o ponto final virado para o serviço incorporado **(mensagens/eventos**) que é compatível com [os Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)de Eventos . Este ponto final só está atualmente exposto utilizando o protocolo [AMQP](https://www.amqp.org/) na porta 5671. Um hub IoT expõe as seguintes propriedades para permitir controlar as **mensagens/eventos**compatíveis com o Event Hub .
+Por predefinição, as mensagens são encaminhadas para o ponto final incorporado **(mensagens/eventos)** que é compatível com [os Centros de Eventos.](https://azure.microsoft.com/documentation/services/event-hubs/) Este ponto final só está atualmente exposto utilizando o protocolo [AMQP](https://www.amqp.org/) na porta 5671. Um hub IoT expõe as seguintes propriedades para permitir controlar as **mensagens/eventos**de mensagens compatíveis com o Event Hub.
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |
-| **Contagem de partição** | Defina esta propriedade na criação para definir o número de [divisórias](../event-hubs/event-hubs-features.md#partitions) para a ingestão de eventos dispositivo-nuvem. |
+| **Contagem de divisórias** | Defina esta propriedade na criação para definir o número de [divisórias](../event-hubs/event-hubs-features.md#partitions) para ingestão de eventos dispositivo-a-nuvem. |
 | **Tempo de retenção**  | Esta propriedade especifica quanto tempo em dias as mensagens são retidas pelo IoT Hub. O incumprimento é um dia, mas pode ser aumentado para sete dias. |
 
-O IoT Hub permite a retenção de dados nos Centros de Eventos incorporados por um máximo de 7 dias. Pode definir o tempo de retenção durante a criação do seu Hub IoT. O tempo de retenção de dados no IoT Hub depende do seu nível de hub IoT e do tipo de unidade. Em termos de tamanho, os Centros de Eventos incorporados podem reter mensagens do tamanho máximo da mensagem até pelo menos 24 horas de quota. Por exemplo, para 1 Unidade S1 IoT Hub fornece armazenamento suficiente para reter pelo menos 400k mensagens de tamanho 4k cada. Se os seus dispositivos estiverem a enviar mensagens menores, podem ser retidas por mais tempo (até 7 dias), dependendo da quantidade de armazenamento consumida. Garantimos a conservação dos dados para o tempo de retenção especificado como mínimo. As mensagens expirarão e não serão acessíveis após o tempo de retenção ter passado. 
+O IoT Hub permite a retenção de dados nos Centros de Eventos incorporados por um máximo de 7 dias. Pode definir o tempo de retenção durante a criação do seu Hub IoT. O tempo de retenção de dados no IoT Hub depende do nível do hub IoT e do tipo de unidade. Em termos de tamanho, os Centros de Eventos incorporados podem reter mensagens do tamanho máximo da mensagem até pelo menos 24 horas de quota. Por exemplo, para 1 unidade S1, o IoT Hub fornece armazenamento suficiente para reter pelo menos 400k mensagens de tamanho 4k cada. Se os seus dispositivos estiverem a enviar mensagens mais pequenas, podem ser conservadas por mais tempo (até 7 dias) dependendo da quantidade de armazenamento consumida. Garantimos a retenção dos dados para o tempo de retenção especificado como mínimo. As mensagens caducarão e não serão acessíveis após o tempo de retenção. 
 
-O IoT Hub também permite gerir os grupos de consumidores no ponto final incorporado do dispositivo-para-nuvem. Pode ter até 20 grupos de consumidores por cada Hub IoT.
+O IoT Hub também permite gerir grupos de consumidores no ponto final de receção de dispositivos a nuvem incorporado. Você pode ter até 20 grupos de consumidores para cada IoT Hub.
 
-Se estiver a usar [o encaminhamento](iot-hub-devguide-messages-d2c.md) de mensagens e a rota de [recuo](iot-hub-devguide-messages-d2c.md#fallback-route) estiver ativada, todas as mensagens que não correspondem a uma consulta em qualquer rota vão para o ponto final incorporado. Se desativar esta rota de recuo, as mensagens que não correspondem a qualquer consulta são retiradas.
+Se estiver a utilizar o [encaminhamento de mensagens](iot-hub-devguide-messages-d2c.md) e a rota de [retorno](iot-hub-devguide-messages-d2c.md#fallback-route) estiver ativada, todas as mensagens que não correspondam a uma consulta em qualquer rota vão para o ponto final incorporado. Se desativar esta rota de retorno, as mensagens que não correspondem a qualquer consulta são deixadas.
 
-Pode modificar o tempo de retenção, quer programáticamente utilizando o fornecedor de [recursos Do IoT Hub REST APIs,](/rest/api/iothub/iothubresource)ou com o [portal Azure](https://portal.azure.com).
+Pode modificar o tempo de retenção, quer programáticamente utilizando o [fornecedor de recursos IoT Hub REST APIs,](/rest/api/iothub/iothubresource)quer com o [portal Azure](https://portal.azure.com).
 
-O IoT Hub expõe as **mensagens/eventos incorporados** para os seus serviços de back-end para ler as mensagens dispositivo-to-cloud recebidas pelo seu hub. Este ponto final é compatível com o Event Hub, que lhe permite utilizar qualquer um dos mecanismos que o serviço De Evento Hubs suporta para ler mensagens.
+O IoT Hub expõe as **mensagens/eventos incorporados** no ponto final para os seus serviços de back-end para ler as mensagens de dispositivo para nuvem recebidas pelo seu hub. Este ponto final é compatível com o Event Hub, que lhe permite utilizar qualquer um dos mecanismos que o serviço Event Hubs suporta para ler mensagens.
 
-## <a name="read-from-the-built-in-endpoint"></a>Leia a partir do ponto final incorporado
+## <a name="read-from-the-built-in-endpoint"></a>Leia do ponto final incorporado
 
-Algumas integrações de produtos e SDKs de Hubs de Eventos estão cientes do IoT Hub e permitem-lhe usar a sua cadeia de ligação de ligação de hub IoT para se ligar ao ponto final incorporado.
+Algumas integrações de produtos e SDKs de Centros de Eventos estão cientes do IoT Hub e permitem-lhe usar o seu fio de serviço de serviço IoT para ligar ao ponto final incorporado.
 
-Quando utiliza SDKs de Hubs de Eventos ou integrações de produtos que desconhecem o IoT Hub, precisa de um ponto final compatível com o Event Hub e um nome compatível com o Event Hub. Pode recuperar estes valores do portal da seguinte forma:
+Quando utilizar SDKs de Centros de Eventos ou integrações de produtos que não sabem do IoT Hub, precisa de um ponto final compatível com o Event Hub e um nome compatível com o Event Hub. Pode recuperar estes valores do portal da seguinte forma:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
 
-2. Clique **em pontos finais incorporados**.
+2. Clique **em pontos finais incorporados.**
 
-3. A secção **Eventos** contém os **seguintes valores: Partições,** nome compatível com o Hub de **Eventos,** **ponto final compatível com o Hub de Eventos,** tempo de **retenção**e **grupos de consumidores.**
+3. A secção **Eventos** contém os **seguintes valores: Partições,** **nome compatível com o Event Hub,** **ponto final compatível com o Event Hub,** Tempo de **Retenção**e **Grupos de Consumidores**.
 
-    ![Definições de dispositivo-para-nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![Configurações dispositivo-a-nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-No portal, o campo final compatível com o Event Hub contém uma cadeia completa de ligação De Event Hubs que se parece com: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/; SharedAccessKeyName=iothubowner; SharedAccessKey=keykeykeykeykeykey=; EntidadePath=iothub-ehub-abcd-1234-123456**. Se o SDK que está a usar requer outros valores, então seriam:
+No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia completa de conexão Event Hubs que se parece **com: Endpoint=sb://abcd1234namespace.servicebus.windows.net/; SharedAccessKeyName=iothubowner; SharedAccessKey=keykeykeykeykeykey=; EntityPath=iothub-ehub-abcd-1234-123456**. Se o SDK que está a usar requer outros valores, então eles seriam:
 
 | Name | Valor |
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
-| Espaço de Nomes | espaço abcd1234nome |
+| Espaço de Nomes | abcd1234namespace |
 
-Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as permissões **ServiceConnect** para se ligar ao Centro de Eventos especificado.
+Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as permissões **ServiceConnect** para ligar ao Centro de Eventos especificado.
 
-Os SDKs que pode utilizar para ligar ao ponto final compatível com o Hub de Eventos incorporado que o IoT Hub expõe incluem:
+Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
 | Linguagem | SDK | Exemplo |
 | -------- | --- | ------ |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início Rápido](quickstart-send-telemetry-dotnet.md) |
- Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início Rápido](quickstart-send-telemetry-java.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Início Rápido](quickstart-send-telemetry-dotnet.md) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início Rápido](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Início Rápido](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 
 As integrações do produto que pode utilizar com o ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
-* [Funções Azure.](https://docs.microsoft.com/azure/azure-functions/) Consulte [o Processamento de dados do IoT Hub com funções Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics.](https://docs.microsoft.com/azure/stream-analytics/) Consulte [os dados do Stream como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Insights da Série Time.](https://docs.microsoft.com/azure/time-series-insights/) Consulte Adicionar uma fonte de evento de [hub IoT ao seu ambiente Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
-* [Apache Storm bico.](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md) Pode ver a fonte de [bico](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
-* [Integração Apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
-* [Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/)
+* [Funções Azure](https://docs.microsoft.com/azure/azure-functions/). Consulte [os dados de processamento do IoT Hub com Funções Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Consulte os [dados do Stream como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Insights da Série de Tempo](https://docs.microsoft.com/azure/time-series-insights/). Consulte [uma fonte de evento do hub IoT ao ambiente time series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Bico de tempestade Apache.](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md) Pode ver a [fonte do bico](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
+* [Integração apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
+* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre os pontos finais do Hub IoT, consulte os [pontos finais do Hub IoT](iot-hub-devguide-endpoints.md).
+* Para obter mais informações sobre os pontos finais do [IoT Hub, consulte os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
 
-* Os [Quickstarts](quickstart-send-telemetry-node.md) mostram-lhe como enviar mensagens dispositivo-nuvem a partir de dispositivos simulados e ler as mensagens a partir do ponto final incorporado. 
+* Os [Quickstarts](quickstart-send-telemetry-node.md) mostram-lhe como enviar mensagens dispositivo-a-nuvem a partir de dispositivos simulados e ler as mensagens do ponto final incorporado. 
 
-Para mais detalhes, consulte as mensagens de [dispositivo-para-nuvem do Process IoT Hub utilizando o](tutorial-routing.md) tutorial de rotas.
+Para obter mais detalhes, consulte as [mensagens process IoT Hub dispositivo-nuvem usando](tutorial-routing.md) o tutorial de rotas.
 
-* Se pretender encaminhar as mensagens de dispositivo para nuvem para pontos finais personalizados, consulte [as rotas de mensagens e os pontos finais personalizados para mensagens dispositivo-cloud](iot-hub-devguide-messages-read-custom.md).
+* Se pretender encaminhar as mensagens do dispositivo para a nuvem para pontos finais personalizados, consulte [as rotas de mensagens e pontos finais personalizados para mensagens dispositivo-nuvem](iot-hub-devguide-messages-read-custom.md).

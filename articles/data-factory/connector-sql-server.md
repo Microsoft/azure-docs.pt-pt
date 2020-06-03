@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/29/2020
-ms.openlocfilehash: e08dca8fee93aa80b585f0df30a1534b6705821c
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c2a3b40f5ac79d11e0a80ba31c3bbc10f4e82276
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221358"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299592"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copie dados de e para o SQL Server utilizando a Azure Data Factory
 
@@ -521,7 +521,7 @@ Quando copia dados de e para o SQL Server, os seguintes mapeamentos são usados 
 | xml |Xml |
 
 >[!NOTE]
-> Para tipos de dados que mapeiam para o tipo decimal provisório, atualmente a Azure Data Factory suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se a uma cadeia numa consulta SQL.
+> Para tipos de dados que mapeiam para o tipo decimal provisório, atualmente a atividade Copy suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se a uma cadeia numa consulta SQL.
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

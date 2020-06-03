@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: ba4acf32e13304c62ec5091670fe0b45ec3cb32c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 452cef0a65dd9c994b5d010676e402013b195ed3
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235257"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300652"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar uma rede virtual de espreitar
 
@@ -121,7 +121,7 @@ Se quiser que as redes virtuais se comuniquem às vezes, mas nem sempre, em vez 
 - As redes virtuais podem estar na mesma, ou subscrições diferentes. Ao espreitar redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao mesmo ou diferente inquilino do Azure Ative Directory. Se ainda não tem um inquilino da AD, pode [criar um.](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant) O suporte para espreitar através de redes virtuais a partir de subscrições associadas a diferentes inquilinos do Azure Ative Directory não está disponível no Portal. Pode utilizar CLI, PowerShell ou Modelos.
 - As redes virtuais que você peer deve ter espaços de endereço IP não sobrepostos.
 - Não é possível adicionar intervalos de endereços ou eliminar intervalos de endereços a partir do espaço de endereços de uma rede virtual uma vez que uma rede virtual é espreitada com outra rede virtual. Para adicionar ou remover os intervalos de endereços, elimine os pontos de observação, adicione ou remova as gamas de endereços e, em seguida, re-crie o espreitante. Para adicionar intervalos de endereços ou remover intervalos de endereços de redes virtuais, consulte [Gerir redes virtuais](manage-virtual-network.md).
-- Pode consultar duas redes virtuais implementadas através do Resource Manager ou uma rede virtual implantada através do Resource Manager com uma rede virtual implantada através do modelo de implementação clássico. Não é possível espreitar duas redes virtuais criadas através do modelo clássico de implementação. Se não está familiarizado com os modelos de implementação da Azure, leia o artigo dos [modelos de implementação Understand Azure.](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais criadas através do modelo de implementação clássica.
+- Pode consultar duas redes virtuais implementadas através do Resource Manager ou uma rede virtual implantada através do Resource Manager com uma rede virtual implantada através do modelo de implementação clássico. Não é possível espreitar duas redes virtuais criadas através do modelo clássico de implementação. Se não está familiarizado com os modelos de implementação da Azure, leia o artigo dos [modelos de implementação Understand Azure.](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Pode utilizar um [Gateway de VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais criadas através do modelo de implementação clássica.
 - Ao configurar o peering de duas redes virtuais criadas através do Resource Manager, tem de ser configurado um peering para cada rede virtual no peering. Vê-se um dos seguintes tipos para o estado de observação: 
   - *Iniciado:* Quando cria o espreitamento para a segunda rede virtual a partir da primeira rede virtual, o estado de observação é *iniciado*. 
   - *Ligado:* Quando cria o espreitamento da segunda rede virtual para a primeira rede virtual, o seu estado de observação está *ligado*. Se visualizar o estado de observação da primeira rede virtual, vê o seu estado alterado de *Iniciado* para *Conectado*. O espreitamento não é estabelecido com sucesso até que o estado de observação de ambos os espreiteiros de rede virtuais esteja *ligado*.

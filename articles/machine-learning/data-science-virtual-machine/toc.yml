@@ -6,8 +6,6 @@
   items:
     - name: O que é a Máquina Virtual de Ciência de Dados (DSVM)?
       href: overview.md
-    - name: O que é a Máquina Virtual de Ciência de Dados de IA Geográfica?
-      href: geo-ai-dsvm-overview.md
     - name: Ferramentas incluídas na Máquina Virtual de Ciência de Dados
       href: tools-included.md
 - name: Guias de Início Rápido
@@ -17,8 +15,6 @@
       href: provision-vm.md
     - name: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu
       href: dsvm-ubuntu-intro.md
-    - name: Criar uma Máquina Virtual de Ciência de Dados de IA Geográfica
-      href: provision-geo-ai-dsvm.md
 - name: Conceitos
   items:
     - name: Arquiteturas de Aprendizagem Profunda e AI
@@ -45,8 +41,6 @@
       href: vm-do-ten-things.md
     - name: Utilizar uma Máquina Virtual de Ciência de Dados do Linux
       href: linux-dsvm-walkthrough.md
-    - name: Utilizar uma Máquina Virtual de Ciência de Dados de IA Geográfica
-      href: use-geo-ai-dsvm.md
     - name: Criar um conjunto de Máquina Virtual de Ciência de Dados dimensionado automaticamente
       href: dsvm-pools.md
     - name: Integrar no Active Directory

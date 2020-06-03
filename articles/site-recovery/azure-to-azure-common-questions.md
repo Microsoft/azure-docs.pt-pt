@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98a2765b7adf31465fa0317cc626157137933af7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248350"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299787"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
 
@@ -28,7 +28,7 @@ Todos os casos protegidos com recuperação do local de Azure são gratuitos dur
 
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, vou incorrer em outras acusações do Azure?
 
-Sim. Mesmo que a Recuperação do Site Azure seja gratuita durante os primeiros 31 dias de uma instância protegida, poderá incorrer em encargos para o Armazenamento Azure, transações de armazenamento e transferências de dados. Uma Máquina Virtual recuperada também pode incorrer em taxas de computação Azure. Obtenha detalhes completos sobre os preços nos [preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery).
+Yes. Mesmo que a Recuperação do Site Azure seja gratuita durante os primeiros 31 dias de uma instância protegida, poderá incorrer em encargos para o Armazenamento Azure, transações de armazenamento e transferências de dados. Uma Máquina Virtual recuperada também pode incorrer em taxas de computação Azure. Obtenha detalhes completos sobre os preços nos [preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery).
 
 ### <a name="what-are-the-best-practices-for-azure-virtual-machines-disaster-recovery"></a>Quais são as melhores práticas para a recuperação de desastres das Máquinas Virtuais Azure?
 
@@ -46,12 +46,20 @@ A equipa de recuperação do local e o plano da equipa de gestão de capacidades
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>Posso replicar VMs ativados através da encriptação do disco Azure?
 
-Sim. A Recuperação do Site suporta a recuperação de desastres de VMs que têm encriptação de disco Azure ativada. Quando ativa a replicação, o Azure copia todas as chaves e segredos de encriptação de disco necessários da região de origem para a região alvo no contexto do utilizador. Se não tiver as permissões apropriadas, o seu administrador de segurança pode usar um script para copiar as chaves e segredos.
+Yes. A Recuperação do Site suporta a recuperação de desastres de VMs que têm encriptação de disco Azure ativada. Quando ativa a replicação, o Azure copia todas as chaves e segredos de encriptação de disco necessários da região de origem para a região alvo no contexto do utilizador. Se não tiver as permissões apropriadas, o seu administrador de segurança pode usar um script para copiar as chaves e segredos.
 
 - A Recuperação do Site suporta a encriptação do disco Azure para VMs Azure que estão a executar o Windows.
 - A Recuperação do Site suporta a versão 0.1 de encriptação do disco Azure, que tem um esquema que requer diretório Azure Ative (Azure AD). A Recuperação do Site também suporta a versão 1.1, que não requer Azure AD. [Saiba mais sobre o esquema de extensão para encriptação do disco Azure](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - Para a versão 1.1 de encriptação do disco Azure, tem de utilizar os VMs do Windows com discos geridos.
   - [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre como permitir a replicação de VMs encriptados.
+
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Posso selecionar uma conta De automação de um grupo de recursos diferente?
+
+Atualmente não é suportado via portal, mas pode escolher uma conta Demôm automação de um grupo de recursos diferente através da Powershell.
+
+### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>Depois de especificar uma conta Automation que está num grupo de recursos diferente do cofre, posso apagar o livro de execução se não houver outro cofre para especificar?
+
+O runbook personalizado criado é uma ferramenta e é seguro apagar se o mesmo já não for necessário.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Posso replicar VMs para outra subscrição?
 
@@ -175,7 +183,7 @@ Sim, se aumentar o período de retenção de 24 horas para 72 horas, a Recupera�
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso permitir a replicação com consistência de aplicações nos servidores Linux?
 
-Sim. A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com pré e pós-opções será usado pelo Agente de Mobilidade de Recuperação do Site Azure durante a consistência da aplicação. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Yes. A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com pré e pós-opções será usado pelo Agente de Mobilidade de Recuperação do Site Azure durante a consistência da aplicação. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Consistência multi-VM
 
@@ -238,7 +246,7 @@ A opção **mais recente (mais baixa RPO)** processa primeiro todos os dados que
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>Os últimos pontos de recuperação **(rpo mais baixos)** têm impacto no RTO de falha?
 
-Sim. A Recuperação do Site processa todos os dados pendentes antes de falhar, pelo que esta opção tem um maior objetivo de tempo de recuperação (RTO) em comparação com outras opções.
+Yes. A Recuperação do Site processa todos os dados pendentes antes de falhar, pelo que esta opção tem um maior objetivo de tempo de recuperação (RTO) em comparação com outras opções.
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>O que significa a última opção **processada** em pontos de recuperação?
 

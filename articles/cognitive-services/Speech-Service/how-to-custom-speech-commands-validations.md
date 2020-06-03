@@ -1,7 +1,7 @@
 ---
-title: 'Como: Adicionar validações aos parâmetros de comando personalizados'
+title: Adicionar validações em Pré-visualização de Comandos Personalizados - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, explicamos como adicionar validações a um parâmetro em Comandos Personalizados.
+description: Saiba como adicionar validações a um parâmetro de comando numa aplicação de pré-visualização de comandos personalizados.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -10,56 +10,59 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2b7fd608156ab269cfc0c85c6c508fa9d5eebc83
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6686016f109fad4ee8b7f4e494b1374a6003658c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857177"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310415"
 ---
-# <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Como: Adicionar validações aos parâmetros de comando personalizados (Pré-visualização)
+# <a name="add-validations-to-a-command-parameter-in-a-custom-commands-preview-application"></a>Adicionar validações a um parâmetro de comando numa aplicação de pré-visualização de comandos personalizados
 
-Neste artigo, irá adicionar validações a parâmetros e solicitações para correção.
+Neste artigo, você vai aprender a adicionar validações a parâmetros e solicitações para correção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve ter completado os passos nos seguintes artigos:
+Complete os passos nos seguintes artigos:
 
 > [!div class="checklist"]
-> * [Quickstart: Criar um comando personalizado](./quickstart-custom-speech-commands-create-new.md)
-> * [Quickstart: Criar um comando personalizado com parâmetros](./quickstart-custom-speech-commands-create-parameters.md)
+ 
+> * [Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados com parâmetros](./quickstart-custom-speech-commands-create-parameters.md)
 
-## <a name="create-a-settemperature-command"></a>Criar um comando settemperature
+## <a name="create-a-settemperature-command"></a>Criar um comando SetTemperature
 
-Para demonstrar validações, vamos criar um novo Comando que permita aos utilizadores definir a temperatura.
+Para demonstrar validações, crie um novo comando que permita aos utilizadores definir a temperatura.
 
-1. Abra a sua aplicação de Comandos Personalizados previamente criada no [Estúdio de Discurso](https://speech.microsoft.com/)
-1. Criar um novo Comando`SetTemperature`
-1. Adicione um parâmetro para a temperatura-alvo.
+1. No [Speech Studio,](https://speech.microsoft.com/)abra a aplicação de pré-visualização de comandos personalizados que criou.
+1. Crie um novo comando **SetTemperature.**
+1. Adicione um parâmetro de temperatura que tenha a seguinte configuração:
 
-   | Configuração do parâmetro           | Valor sugerido    |Descrição                 |                                    
+   | Configuração de parâmetros           | Valor sugerido    |Descrição                 |                                    
    | ----------------- | ----------------------------------| -------------|
-   | Name              | Temperatura                       | Um nome descritivo para parâmetro                                |
-   | Necessário          | verificado                           | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando |
-   | Resposta para parâmetro sinuoso     | Editor simples - > que temperatura gostaria?  | Um pedido para pedir o valor deste parâmetro quando não é conhecido |
-   | Tipo              | Número                            | Tipo de parâmetro, como Número, Corda, Hora da Data ou Geografia   |
+   | **Nome**              | **Temperatura**                       | Um nome descritivo para parâmetro                                |
+   | **Necessário**          | Assinalado                           | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o comando |
+   | **Resposta para parâmetro requerido**     | **Editor simples - > Que temperatura gostaria?**  | Um pedido para pedir o valor deste parâmetro quando não se sabe |
+   | **Tipo**              | **Number**                            | Tipo de parâmetro, como Número, Cadeia, DataTime ou Geografia   |
 
 1. Adicione uma validação para o parâmetro de temperatura.
 
-    - Na página de configuração dos `Add a validation` **parâmetros** para `Temperature` parâmetros, selecione na secção Validações.
-    - Preencha os valores no pop-up de **validação Nova** da seguinte forma e selecione **Criar**.
+    1. Na página de configuração **de Parâmetros** para o parâmetro de temperatura, selecione **Adicionar uma validação** na secção **Validações.**
 
+    1. Na nova janela pop-up de **validação,** configuure a validação da seguinte forma:
   
-       | Configuração do parâmetro         | Valor sugerido                                          | Descrição                                                                        |
+       | Configuração de parâmetros         | Valor sugerido                                          | Descrição                                                                        |
        | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-       | Valor Mínimo        | 60               | Para os parâmetros número, o valor mínimo que este parâmetro pode assumir |
-       | Valor Máximo        | 80               | Para os parâmetros número, o valor máximo que este parâmetro pode assumir |
-       | Resposta de falha - Editor simples| Primeira Variação - Desculpe, só posso definir entre 60 e 80 graus      | Solicita-me que peça um novo valor se a validação falhar                                       |
+       | **Valor Mínimo**        | **60**               | Para os parâmetros número, o valor mínimo que este parâmetro pode assumir |
+       | **Valor Máximo**        | **80**               | Para os parâmetros número, o valor máximo que este parâmetro pode assumir |
+       | **Resposta de falha - Editor simples**| **Primeira Variação - Desculpe, só posso definir entre 60 e 80 graus**      | A prompt para pedir um novo valor se a validação falhar                                       |
 
        > [!div class="mx-imgBorder"]
-       > ![Adicione uma validação de gama](media/custom-speech-commands/validations-add-temperature.png)
+       > ![Adicionar uma validação de gama](media/custom-speech-commands/validations-add-temperature.png)
 
-1. Adicione algumas frases de exemplo
+1. Selecione **Criar**.
+
+1. Adicione algumas frases de exemplo.
 
    ```
    set the temperature to {Temperature} degrees
@@ -68,31 +71,31 @@ Para demonstrar validações, vamos criar um novo Comando que permita aos utiliz
    change the temperature
    ```
 
-1. Adicione uma regra de conclusão para confirmar o resultado
+1. Adicione uma regra de conclusão que tenha a seguinte configuração. Esta regra confirma o resultado.
 
    | Definição    | Valor sugerido                                           |Descrição                                     |
    | ---------- | --------------------------------------------------------- |-----|
    | Name       | Mensagem de Confirmação                                      |Um nome que descreve o propósito da regra |
-   | Condições | Parâmetros necessários -`Temperature`                       |Condições que determinam quando a regra pode ser executada    |   
-   | Actions (Ações)    | Enviar resposta da fala -`Ok, setting temperature to {Temperature} degrees` | A ação a tomar quando a condição da regra é verdadeira |
+   | **Condições** | **Parâmetros necessários - Temperatura**                       |Condições que determinam quando a regra pode ser executada    |   
+   | **Ações**    | **Enviar resposta da fala - Ok, ajustar a temperatura para graus {Temperatura}** | A ação a tomar quando a condição de regra é verdadeira |
 
 > [!TIP]
-> Este exemplo usa uma resposta da fala para confirmar o resultado. Por exemplo, ao completar o Comando com uma ação de cliente ver: [Como: Cumprir comandos sobre o cliente com o SDK de Fala](./how-to-custom-speech-commands-fulfill-sdk.md)
-
+> Este exemplo usa uma resposta de fala para confirmar o resultado. Por exemplo, ao completar o comando com uma ação do cliente, consulte [Como: Cumprir comandos no cliente com o Discurso SDK](./how-to-custom-speech-commands-fulfill-sdk.md).
 
 ## <a name="try-it-out"></a>Experimente
-1. Selecione `Train` o ícone presente em cima do painel direito.
 
-1. Uma vez, o `Test` treino completa, selecione e experimente algumas interações.
+1. Selecione **Comboio**.
 
-    - Entrada: Desajuste a temperatura para 72 graus
-    - Saída: Ok, regulação da temperatura para 72 graus
-    - Entrada: Desajuste a temperatura para 45 graus
+1. Depois do treino, selecione **Teste**e, em seguida, experimente estas interações:
+
+    - Entrada: Definir a temperatura para 72 graus
+    - Saída: Ok, ajustar a temperatura para 72 graus
+    - Entrada: Definir a temperatura para 45 graus
     - Saída: Desculpe, só posso definir entre 60 e 80 graus
-    - Entrada: torná-lo 72 graus em vez
-    - Saída: Ok, regulação da temperatura para 72 graus
+    - Entrada: faça 72 graus em vez
+    - Saída: Ok, ajustar a temperatura para 72 graus
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como: Adicionar uma confirmação a um Comando Personalizado (Pré-visualização)](./how-to-custom-speech-commands-confirmations.md)
+> [Adicione confirmações a um comando numa aplicação de pré-visualização de comandos personalizados](./how-to-custom-speech-commands-confirmations.md)

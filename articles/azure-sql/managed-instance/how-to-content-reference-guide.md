@@ -33,7 +33,7 @@ Neste artigo pode encontrar uma referência de conteúdo a vários guias, script
 - [Carregar dados com o BCP](../load-from-csv-with-bcp.md)
 - [Carregar dados com o Azure Data Factory](../../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
-## <a name="network-configuration"></a>Configuração da rede
+## <a name="network-configuration"></a>Configuração de rede
 
 - Determine o [tamanho da sub-rede](vnet-subnet-determine-size.md): Uma vez que a sub-rede não pode ser redimensionada após a implementação do SQL Managed Instance, é necessário calcular qual a gama de endereços IP necessária para o número e tipos de instâncias geridas que pretende implantar na sub-rede. 
 - [Criar um novo VNet e sub-rede](virtual-network-subnet-create-arm-template.md): Configurar a rede virtual e a sub-rede de acordo com os [requisitos](connectivity-architecture-overview.md#network-requirements)da rede . 

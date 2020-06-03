@@ -4,12 +4,12 @@ description: Saiba como proteger o seu cluster utilizando uma gama de endereços
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 357c8ea4da2a07864215225f7d618f9eb58b7e49
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 45f82d5a6531b2a9584140d6ff309a799656926a
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266190"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299575"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando intervalos de endereços IP autorizados no Serviço Azure Kubernetes (AKS)
 
@@ -36,7 +36,7 @@ Para obter mais informações sobre o servidor API e outros componentes do clust
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Criar um cluster AKS com gamas IP autorizadas por servidor API ativadas
 
-Os intervalos de IP autorizados pelo servidor API apenas funcionam para novos clusters AKS. Crie um cluster utilizando os [az aks criar][az-aks-create] e especificar o parâmetro *--api-servidor-autorizado-ip-ranges* para fornecer uma lista de intervalos de endereços IP autorizados. Estes intervalos de endereços IP são geralmente intervalos de endereços utilizados pelas suas redes no local ou iPs públicos. Quando especificar uma gama CIDR, comece com o primeiro endereço IP na gama. Por exemplo, *137.117.106.90/29* é um intervalo válido, mas certifique-se de especificar o primeiro endereço IP na gama, como *137.117.106.88/29*.
+Os intervalos ip autorizados pelo servidor API apenas funcionam para novos clusters AKS e não são suportados para clusters AKS privados. Crie um cluster utilizando os [az aks criar][az-aks-create] e especificar o parâmetro *--api-servidor-autorizado-ip-ranges* para fornecer uma lista de intervalos de endereços IP autorizados. Estes intervalos de endereços IP são geralmente intervalos de endereços utilizados pelas suas redes no local ou iPs públicos. Quando especificar uma gama CIDR, comece com o primeiro endereço IP na gama. Por exemplo, *137.117.106.90/29* é um intervalo válido, mas certifique-se de especificar o primeiro endereço IP na gama, como *137.117.106.88/29*.
 
 > [!IMPORTANT]
 > Por predefinição, o seu cluster utiliza o [balanceador de carga Standard SKU][standard-sku-lb] que pode utilizar para configurar o gateway de saída. Quando ativa os intervalos IP autorizados pelo servidor API durante a criação do cluster, o IP público do seu cluster também é permitido por padrão, além das gamas especificadas. Se especificar *""* ou nenhum valor para *os intervalos ip-ip-autorizados pelo servidor api-servidor,* os intervalos IP autorizados pelo servidor API serão desativados. Note que se estiver a utilizar o PowerShell, utilize *--api-servidor-autorizado-ip-ranges="* (com sinal de iguais) para evitar quaisquer problemas de análise.

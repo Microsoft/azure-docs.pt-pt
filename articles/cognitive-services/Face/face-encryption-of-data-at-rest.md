@@ -1,7 +1,7 @@
 ---
-title: Encriptação de dados do serviço de rosto em repouso
+title: Encriptação do serviço facial de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação de dados do serviço de rosto em repouso.
+description: Encriptação do serviço facial de dados em repouso.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
@@ -9,23 +9,23 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 1e0275c91b2243132650be7af256071589091c4b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 33495dd5b092cb51b3421e7204f3b529077d63b3
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201934"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309038"
 ---
-# <a name="face-service-encryption-of-data-at-rest"></a>Encriptação de dados do serviço de rosto em repouso
+# <a name="face-service-encryption-of-data-at-rest"></a>Encriptação do serviço facial de dados em repouso
 
-O serviço Face encripta automaticamente os seus dados quando persistia na nuvem. A encriptação do serviço Face protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade.
+O serviço Face encripta automaticamente os seus dados quando os persiste na nuvem. A encriptação do serviço Face protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade.
 
-[!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar as chaves geridas pelo cliente, preencha e envie o Formulário de [Pedido de Chave Gerido](https://aka.ms/cogsvc-cmk)pelo Cliente gerido pelo cliente do Serviço Face . Levará aproximadamente 3-5 dias úteis para voltar a ouvir o estado do seu pedido. Dependendo da procura, pode ser colocado numa fila e aprovado à medida que o espaço se torna disponível. Uma vez aprovado para utilizar a CMK com o serviço Face, terá de criar um novo recurso Face e selecionar e0 como Nível de Preços. Assim que for criado o seu recurso Face com o nível de preços E0, pode utilizar o Cofre chave Azure para configurar a sua identidade gerida.
+> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente](https://aka.ms/cogsvc-cmk)do Serviço Facial . Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com o serviço Face, terá de criar um novo recurso Face e selecionar o E0 como O Nível de Preços. Uma vez criado o seu recurso Face com o nível de preços E0, pode utilizar o Cofre da Chave Azure para configurar a sua identidade gerida.
 
-### <a name="regional-availability"></a>Disponibilidade regional
+## <a name="regional-availability"></a>Disponibilidade regional
 
 As chaves geridas pelo cliente estão atualmente disponíveis nestas regiões:
 
@@ -34,11 +34,10 @@ As chaves geridas pelo cliente estão atualmente disponíveis nestas regiões:
 * E.U.A. Leste
 * US Gov - Virginia
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Formulário de pedido de chave gerido pelo cliente do serviço de rosto](https://aka.ms/cogsvc-cmk)
-* [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-
-
+* Para obter uma lista completa de serviços que suportam a CMK, consulte [chaves geridas pelo cliente para serviços cognitivos](../encryption/cognitive-services-encryption-keys-portal.md)
+* [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Formulário de pedido de chave gerido pelo cliente de serviços cognitivos](https://aka.ms/cogsvc-cmk)

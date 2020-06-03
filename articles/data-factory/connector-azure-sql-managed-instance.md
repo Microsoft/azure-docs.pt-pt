@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 05/29/2020
-ms.openlocfilehash: 91674aaaedc828122602ce1dd9373056db4bf33d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8566b5d1d1beb87ccf7cd2b25f536732bb8d1f8e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220474"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298062"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Azure SQL Caso Gerido através da Azure Data Factory
 
@@ -128,7 +128,7 @@ Para utilizar uma autenticação simbólica de aplicação Azure AD baseada em s
 
 2. [Crie uma aplicação Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) a partir do portal Azure. Tome nota do nome da aplicação e dos seguintes valores que definem o serviço ligado:
 
-    - ID da aplicação
+    - ID da Aplicação
     - Chave de aplicação
     - ID do inquilino
 
@@ -601,7 +601,7 @@ Quando os dados são copiados de e para a SQL Managed Instance, os seguintes map
 | xml |Xml |
 
 >[!NOTE]
-> Para tipos de dados que mapeiam para o tipo decimal provisório, atualmente a Azure Data Factory suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se a uma cadeia numa consulta SQL.
+> Para tipos de dados que mapeiam para o tipo decimal provisório, atualmente a atividade Copy suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se a uma cadeia numa consulta SQL.
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
@@ -631,7 +631,7 @@ Mais especificamente:
 
     - Para utilizar a **autenticação de identidade gerida pela fábrica de dados:** 
 
-        1. Siga os [mesmos pré-requistas](#managed-identity) para criar o utilizador de base de dados para a identidade gerida e conceder o papel adequado na sua base de dados.
+        1. Siga os [mesmos pré-requisitos](#managed-identity) para criar o utilizador de base de dados para a identidade gerida e conceder o papel adequado na sua base de dados.
         2. No serviço ligado, especifique a cadeia de ligação ODBC como abaixo e selecione a autenticação **anónima** como a própria cadeia de ligação indica `Authentication=ActiveDirectoryMsi` .
 
         ```

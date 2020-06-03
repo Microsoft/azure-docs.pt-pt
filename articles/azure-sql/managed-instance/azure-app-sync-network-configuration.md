@@ -1,7 +1,7 @@
 ---
-title: Configuração da rede Sync para o Serviço de Aplicações Azure
+title: Configuração da rede sync para O Serviço de Aplicações Azure
 titleSuffix: Azure SQL Managed Instance
-description: Este artigo discute como sincronizar a configuração da sua rede para o plano de hospedagem do Serviço de Aplicações Azure com a sua Instância Gerida Azure SQL.
+description: Este artigo discute como sincronizar a sua configuração de rede para o plano de hospedagem do Azure App Service com o seu Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,40 +12,40 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 12/13/2018
-ms.openlocfilehash: 6e4f6789be2faa8d1af0fd75830541f8a9e27a7e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8aca5a4f76504f1e9c33f55101f697ea6b3b6856
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044571"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309905"
 ---
-# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan-with-azure-sql-managed-instance"></a>Configuração de rede sync para o plano de hospedagem do Serviço de Aplicações Azure com instância gerida azure SQL
+# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan-with-azure-sql-managed-instance"></a>Configuração de rede sincronizada para o plano de hospedagem do Azure App Service com Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Pode acontecer que, apesar de ter integrado a [sua aplicação com uma Rede Virtual Azure,](../../app-service/web-sites-integrate-with-vnet.md)não é possível estabelecer uma ligação com a SQL Managed Instance. Refrescante, ou sincronizando, a configuração de rede para o seu plano de serviço pode resolver este problema. 
+Pode acontecer que, apesar de [ter integrado a sua aplicação com uma Rede Virtual Azure,](../../app-service/web-sites-integrate-with-vnet.md)não é possível estabelecer uma ligação com a SQL Managed Instance. Refrescante, ou sincronizado, a configuração de rede para o seu plano de serviço pode resolver este problema. 
 
 ## <a name="sync-network-configuration"></a>Configuração de rede sincronizada 
 
 Para tal, siga estes passos:  
 
-1. Vá ao plano de App Service de aplicações web.
+1. Vá ao seu plano de Serviço de Aplicações web.
 
-   ![plano de serviço de aplicações](./media/azure-app-sync-network-configuration/app-service-plan.png)
+   ![Screenshot do plano de serviço de aplicações](./media/azure-app-sync-network-configuration/app-service-plan.png)
 
-2. Selecione **Networking** e, em seguida, selecione **Clique aqui para gerir**.
+2. Selecione **Networking** e, em seguida, **selecione Clique aqui para Gerir**.
 
-   ![gerir plano de serviço](./media/azure-app-sync-network-configuration/manage-plan.png)
+   ![Screenshot do plano de serviço de gestão](./media/azure-app-sync-network-configuration/manage-plan.png)
 
 3. Selecione o seu **VNet** e clique em **Sync Network**.
 
-   ![rede de sincronização](./media/azure-app-sync-network-configuration/sync.png)
+   ![Screenshot da rede de sincronização](./media/azure-app-sync-network-configuration/sync.png)
 
 4. Espere até que a sincronização esteja feita.
   
-   ![sincronização feito](./media/azure-app-sync-network-configuration/sync-done.png)
+   ![Screenshot da sincronização feita](./media/azure-app-sync-network-configuration/sync-done.png)
 
-Está agora pronto para tentar restabelecer a sua ligação com a sua Instância Gerida SQL.
+Está agora pronto para tentar restabelecer a sua ligação à sua SQL Managed Instance.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre a configuração do seu VNet para SQL Managed Instance, consulte a arquitetura VNet gerida pela [SQL](connectivity-architecture-overview.md) e [como configurar a VNet existente](vnet-existing-add-subnet.md).
+- Para obter informações sobre a configuração do seu VNet para sql Managed Instance, consulte [a arquitetura VNet de Instância Gerida SQL](connectivity-architecture-overview.md) e [Como Configurar o VNet existente](vnet-existing-add-subnet.md).

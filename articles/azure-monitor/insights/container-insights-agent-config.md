@@ -2,13 +2,13 @@
 title: Configure Monitor Azure para recolha de dados de agente de contentores Microsoft Docs
 description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores controlar a recolha de registos de variáveis stdout/stderr e ambiente.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 000f68d5498324fa0e68bce178688a79f3ce9c5b
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 06/01/2020
+ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220249"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299286"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Recolha de dados de agente configurado para O Monitor Azure para contentores
 
@@ -31,16 +31,17 @@ Este artigo demonstra como criar a ConfigMap e configurar a recolha de dados com
 
 Seguem-se as definições que podem ser configuradas para controlar a recolha de dados.
 
-|Chave |Tipo de dados |Valor |Descrição |
-|----|----------|------|------------|
-|`schema-version` |Corda (sensível a maiôs) |v1 |Esta é a versão de esquema utilizada pelo agente ao analisar este ConfigMap. A versão de esquema suportada atualmente é v1. A modificação deste valor não é suportada e será rejeitada quando a ConfigMap for avaliada.|
-|`config-version` |Cadeia | | Suporta a capacidade de acompanhar a versão deste ficheiro config no seu sistema/repositório de controlo de origem. Os caracteres máximos permitidos são 10, e todos os outros caracteres são truncados. |
-|`[log_collection_settings.stdout] enabled =` |Booleano | true ou false | Isto controla se a recolha do registo do contentor de stdout estiver ativada. Quando `true` definidos e não forem excluídos espaços de nome para a recolha de registos de stdout `log_collection_settings.stdout.exclude_namespaces` (definição abaixo), os registos de estatudos serão recolhidos de todos os recipientes em todas as cápsulas/nós do cluster. Se não for especificado em ConfigMaps, o valor predefinido é `enabled = true` . |
-|`[log_collection_settings.stdout] exclude_namespaces =`|Cadeia | Matriz separada por vírgula |Array de espaços de nome Kubernetes para os quais os registos de stdout não serão recolhidos. Esta definição só é eficaz se `log_collection_settings.stdout.enabled` estiver definida para `true` . Se não for especificado no ConfigMap, o valor predefinido é `exclude_namespaces = ["kube-system"]` .|
-|`[log_collection_settings.stderr] enabled =` |Booleano | true ou false |Isto controla se a recolha de registos de contentores stderr estiver ativada. Quando `true` definidos e não forem excluídos espaços de nome para a recolha de registos de stdout `log_collection_settings.stderr.exclude_namespaces` (configuração), os registos stderr serão recolhidos de todos os recipientes em todas as cápsulas/nós do cluster. Se não for especificado em ConfigMaps, o valor predefinido é `enabled = true` . |
-|`[log_collection_settings.stderr] exclude_namespaces =` |Cadeia |Matriz separada por vírgula |Array de espaços de nomes Kubernetes para os quais os registos stderr não serão recolhidos. Esta definição só é eficaz se `log_collection_settings.stdout.enabled` estiver definida para `true` . Se não for especificado no ConfigMap, o valor predefinido é `exclude_namespaces = ["kube-system"]` . |
-| `[log_collection_settings.env_var] enabled =` |Booleano | true ou false | Esta definição controla a recolha variável ambiental em todas as cápsulas/nós do cluster e predefinição `enabled = true` quando não especificado em ConfigMaps. Se a recolha de variáveis ambientais estiver ativada globalmente, pode desativá-la para um recipiente específico, definindo a variável ambiente `AZMON_COLLECT_ENV` para **Falso,** quer com uma definição de Dockerfile quer no [ficheiro de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sob a secção **env:** secção. Se a recolha de variáveis ambientais for globalmente desativada, então não é possível permitir a recolha de um recipiente específico (isto é, a única sobreposição que pode ser aplicada ao nível do contentor é desativar a recolha quando já está ativada globalmente). |
-| `[log_collection_settings.enrich_container_logs] enabled =` |Booleano | true ou false | Esta definição controla o enriquecimento de registo de contentores para povoar os valores de propriedade name e Image para cada registo escrito na tabela ContainerLog para todos os registos de contentores no cluster. É padrão quando `enabled = false` não especificado no ConfigMap. |
+| Chave | Tipo de dados | Valor | Description |
+|--|--|--|--|
+| `schema-version` | Corda (sensível a maiôs) | v1 | Esta é a versão de esquema usada pelo agente<br> ao analisar este ConfigMap.<br> A versão de esquema suportada atualmente é v1.<br> Modificar este valor não é suportado e será<br> rejeitado quando configMap é avaliado. |
+| `config-version` | Cadeia |  | Suporta a capacidade de acompanhar a versão deste ficheiro config no seu sistema/repositório de controlo de origem.<br> Os caracteres máximos permitidos são 10, e todos os outros caracteres são truncados. |
+| `[log_collection_settings.stdout] enabled =` | Booleano | true ou false | Isto controla se a recolha do registo do contentor de stdout estiver ativada. Quando `true` definidos e nenhum espaço de nome é excluído para a coleção de registos de stdout<br> `log_collection_settings.stdout.exclude_namespaces`(definição abaixo), os registos de estatido serão recolhidos de todos os recipientes em todas as cápsulas/nós do cluster. Se não for especificado em ConfigMaps,<br> o valor predefinido é `enabled = true` . |
+| `[log_collection_settings.stdout] exclude_namespaces =` | Cadeia | Matriz separada por vírgula | Array de espaços de nome Kubernetes para os quais os registos de stdout não serão recolhidos. Esta definição só é eficaz se<br> `log_collection_settings.stdout.enabled`<br> está definido para `true` .<br> Se não for especificado no ConfigMap, o valor predefinido é<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] enabled =` | Booleano | true ou false | Isto controla se a recolha de registos de contentores stderr estiver ativada.<br> Quando `true` definidos e nenhum espaço de nome é excluído para a coleção de registos de stdout<br> `log_collection_settings.stderr.exclude_namespaces`(regulação), os registos stderr serão recolhidos de todos os recipientes em todas as cápsulas/nós do cluster.<br> Se não for especificado em ConfigMaps, o valor predefinido é<br> `enabled = true`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | Cadeia | Matriz separada por vírgula | Array de espaços de nomes Kubernetes para os quais os registos stderr não serão recolhidos.<br> Esta definição só é eficaz se<br> `log_collection_settings.stdout.enabled`está definido para `true` .<br> Se não for especificado no ConfigMap, o valor predefinido é<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` | Booleano | true ou false | Esta definição controla a coleção variável ambiental<br> em todas as cápsulas/nós no cluster<br> e incumprimentos para `enabled = true` quando não especificado<br> em ConfigMaps.<br> Se a recolha de variáveis ambientais estiver ativada globalmente, pode desativá-la para um recipiente específico<br> definindo a variável ambiental<br> `AZMON_COLLECT_ENV`para **Falso** quer com uma definição de Dockerfile quer no [ficheiro de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sob o **env:** secção.<br> Se a recolha de variáveis ambientais for globalmente desativada, então não é possível permitir a recolha de um recipiente específico (isto é, a única sobreposição que pode ser aplicada ao nível do contentor é desativar a recolha quando já está ativada globalmente). |
+| `[log_collection_settings.enrich_container_logs] enabled =` | Booleano | true ou false | Esta definição controla o enriquecimento de registo de contentores para povoar os valores de propriedade name e Image<br> para cada registo escrito na tabela ContainerLog para todos os registos de contentores do cluster.<br> É padrão quando `enabled = false` não especificado no ConfigMap. |
+| `[log_collection_settings.collect_all_kube_events]` | Booleano | true ou false | Esta definição permite a recolha de eventos Kube de todos os tipos.<br> Por predefinição, os eventos Kube com o tipo *Normal* não são recolhidos. Quando esta definição está definida para `true` , os eventos *normais* já não são filtrados e todos os eventos são recolhidos.<br> Por predefinição, isto está definido para `false` . |
 
 ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Não pode ter outro ConfigMaps a anular as coleções.
 

@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Descreve os requisitos de networking para executar Azure Dev Spaces em Serviços Azure Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, CNI, kubenet, SDN, rede
-ms.openlocfilehash: a5cac4eaf1f87e6e704bb643279637902c792c7c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267533"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300696"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurar a rede para espaços Azure Dev em diferentes topologias de rede
 
@@ -83,7 +83,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 ## <a name="client-requirements"></a>Requisitos do cliente
 
-O Azure Dev Spaces utiliza ferramentas do lado do cliente, como a extensão CLI do Azure Dev Spaces, a extensão do Código do Estúdio Visual e a extensão do Visual Studio, para comunicar com o seu cluster AKS para depuração. Para utilizar a ferramenta do lado do cliente Azure Dev Spaces, permita o tráfego das máquinas de desenvolvimento para o domínio *azds- \* .azds.io* domínio. Consulte *dataplaneFqdn* `USERPROFILE\.azds\settings.json` para obter o FQDN exato. Se utilizar [os intervalos IP autorizados pelo servidor API,][auth-range-section]também precisa de permitir o endereço IP de quaisquer máquinas de desenvolvimento que se conectem ao seu cluster AKS para depurar para se ligar ao seu servidor API.
+O Azure Dev Spaces utiliza ferramentas do lado do cliente, como a extensão CLI do Azure Dev Spaces, a extensão do Código do Estúdio Visual e a extensão do Visual Studio, para comunicar com o seu cluster AKS para depuração. Para utilizar a ferramenta do lado do cliente da Azure Dev Spaces, permita o tráfego das máquinas de desenvolvimento até à [infraestrutura Azure Dev Spaces][dev-spaces-allow-infrastructure]. Se utilizar [os intervalos IP autorizados pelo servidor API,][auth-range-section]também precisa de permitir o endereço IP de quaisquer máquinas de desenvolvimento que se conectem ao seu cluster AKS para depurar para se ligar ao seu servidor API.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -103,6 +103,7 @@ Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas 
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
 [azure-cli-install]: /cli/azure/install-azure-cli
+[dev-spaces-allow-infrastructure]: #virtual-network-or-subnet-configurations
 [dev-spaces-routing]: how-dev-spaces-works-routing.md
 [endpoint-options]: #using-different-endpoint-options
 [firewall-service-tags]: ../firewall/service-tags.md

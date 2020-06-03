@@ -3,12 +3,12 @@ title: Sobre a Azure file share backup
 description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 5d4129b3618810d80df7d5289a7a7417d74fd077
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259031"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299235"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
 
@@ -16,12 +16,12 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principais benefícios da cópia de segurança da partilha de ficheiros Azure
 
-* Infraestrutura zero: Não é necessária qualquer implantação para configurar a proteção das suas ações de ficheiros.
-* Retenção personalizada: Pode configurar backups com retenção diária/semanal/mensal/anual de acordo com os seus requisitos.
-* Construído em capacidades de gestão: Pode agendar backups e especificar o período de retenção pretendido sem a sobrecarga adicional da poda de dados.
-* Restaurar instantaneamente: A cópia de segurança da partilha de ficheiros Azure utiliza instantâneos de partilha de ficheiros, para que possa selecionar apenas os ficheiros que pretende restaurar instantaneamente.
-* Alerta e reportagem: Pode configurar alertas para backup e restaurar falhas e utilizar a solução de reporte fornecida pela Azure Backup para obter informações sobre cópias de segurança através das partilhas dos seus ficheiros.
-* Proteção contra a eliminação acidental das ações de ficheiros: O Azure Backup permite a [função de eliminação suave](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) num nível de conta de armazenamento com um período de retenção de 14 dias. Mesmo que um ator malicioso elimine a partilha de ficheiros, o conteúdo e pontos de recuperação da partilha de ficheiros (instantâneos) são retidos por um período de retenção configurável, permitindo a recuperação bem sucedida e completa de conteúdos de origem e instantâneos sem perda de dados.
+* **Infraestrutura zero**: Não é necessária qualquer implantação para configurar a proteção das suas ações de ficheiros.
+* **Retenção personalizada**: Pode configurar backups com retenção diária/semanal/mensal/anual de acordo com os seus requisitos.
+* **Incorporado nas capacidades de gestão**: Pode agendar backups e especificar o período de retenção pretendido sem a sobrecarga adicional da poda de dados.
+* **Restaurar instantaneamente**: A cópia de segurança da partilha de ficheiros Azure utiliza instantâneos de partilha de ficheiros, para que possa selecionar apenas os ficheiros que pretende restaurar instantaneamente.
+* **Alertar e reportar**: Pode configurar alertas para cópias de segurança e restaurar falhas e utilizar a solução de reporte fornecida pela Azure Backup para obter informações sobre cópias de segurança através das partilhas dos seus ficheiros.
+* **Proteção contra a eliminação acidental das ações de ficheiros**: O Azure Backup permite a [função de eliminação suave](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) num nível de conta de armazenamento com um período de retenção de 14 dias. Mesmo que um ator malicioso elimine a partilha de ficheiros, o conteúdo e pontos de recuperação da partilha de ficheiros (instantâneos) são retidos por um período de retenção configurável, permitindo a recuperação bem sucedida e completa de conteúdos de origem e instantâneos sem perda de dados.
 
 ## <a name="architecture"></a>Arquitetura
 

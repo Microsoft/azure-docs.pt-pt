@@ -1,16 +1,16 @@
 ---
 title: Conceito de gráfico de mídia - Azure
-description: O gráfico de mídia permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
+description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: ee055c34fd37d2d1cc5e7d0bb5147c945dcbff94
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 05/01/2020
+ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260968"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300812"
 ---
-# <a name="media-graph-concept"></a>Conceito de gráfico de mídia
+# <a name="media-graph"></a>Grafo do suporte de dados
 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida
 
@@ -19,10 +19,11 @@ ms.locfileid: "84260968"
 
 ## <a name="overview"></a>Descrição geral
 
-O gráfico de mídia permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Um gráfico de mídia é composto por gódes de origem, processador e pia. O diagrama abaixo fornece uma representação gráfica de um gráfico mediático.   
+Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Consegue-o ligando componentes, ou nós, da maneira desejada. O diagrama abaixo fornece uma representação gráfica de um gráfico mediático.  
 
 ![Uma representação gráfica de um gráfico mediático](./media/media-graph/overview.png)
 
+Live Video Analytics on IoT Edge suporta diferentes tipos de fontes, processadores e pias.
 
 * **Os nós de origem** permitem a captura de meios de comunicação no gráfico de mídia. Os meios de comunicação neste contexto, conceptualmente, podem ser um fluxo de áudio, um fluxo de vídeo, um fluxo de dados, ou um fluxo que tenha áudio, vídeo e/ou dados combinados num único fluxo.
 * **Os nós do processador** permitem o processamento de meios de comunicação dentro do gráfico de mídia.
@@ -30,11 +31,13 @@ O gráfico de mídia permite definir de onde os meios de comunicação devem ser
 
 ## <a name="media-graph-topologies-and-instances"></a>Topologias e instâncias de gráficos de mídia 
 
-O Live Video Analytics on IoT Edge permite-lhe gerir gráficos de mídia através de dois conceitos – "topologia de gráficos" e "exemplo de gráfico". Uma topologia de gráfico permite definir uma planta de um gráfico, com parâmetros como espaços reservados para valores. A topologia define quais os nós que são usados no gráfico mediático, e como estão ligados dentro do gráfico mediático. Os valores para os parâmetros podem ser especificados ao criar instâncias de gráfico referentes à topologia. Isto permite-lhe criar múltiplas instâncias referentes à mesma topologia, mas com valores diferentes para os parâmetros especificados na topologia. 
+O Live Video Analytics on IoT Edge permite-lhe gerir gráficos de mídia através de dois conceitos – "topologia de gráficos" e "exemplo de gráfico". Uma topologia de gráfico permite definir a planta de um gráfico, com parâmetros como espaços reservados para valores. A topologia define quais os nós que são usados no gráfico mediático, e como estão ligados dentro do gráfico mediático. Por exemplo, se quisesse gravar o feed a partir de uma câmara, precisaria de um gráfico com um nó de origem que recebe vídeo e um nó de pia que escreve o vídeo.
+
+Os valores para os parâmetros na topologia são especificados quando cria instâncias de gráfico que referenciam a topologia. Isto permite-lhe criar múltiplas instâncias referentes à mesma topologia, mas com valores diferentes para os parâmetros especificados na topologia. No exemplo acima, poderia ter usado parâmetros para representar o endereço IP da câmara e o nome para o vídeo gravado. Você poderia criar muitas instâncias de gráfico com essa topologia - um exemplo para cada câmara em um edifício, talvez, cada um com o endereço IP específico e nome específico.
 
 ## <a name="media-graph-states"></a>Estados gráficos de mídia  
 
-O gráfico de mídia pode estar num dos seguintes estados:
+Um gráfico mediático pode estar num dos seguintes estados:
 
 * Inativo – representa o estado em que um gráfico mediático é configurado, mas não ativo.
 * Ativação – o estado quando um gráfico mediático está a ser instantâneo (isto é, o estado de transição entre inativo e ativo).
@@ -56,11 +59,11 @@ Live Video Analytics on IoT Edge suporta os seguintes tipos de nó de nó dentro
 
 #### <a name="rtsp-source"></a>Fonte RTSP 
 
-Uma fonte RTSP permite capturar meios de comunicação a partir de um servidor [RTSP.](https://tools.ietf.org/html/rfc2326) O RTSP é utilizado para estabelecer e controlar as sessões de mídia entre um servidor e um cliente. O nó de origem RTSP no gráfico de mídia funciona como cliente e pode estabelecer uma sessão com o servidor RTSP especificado. Muitos dispositivos, como a maioria das [câmaras IP,](https://en.wikipedia.org/wiki/IP_camera) têm um servidor RTSP incorporado. [A ONVIF](https://www.onvif.org/) obriga o RTSP a ser apoiado na sua definição de [dispositivos compatíveis com perfis G, S & T.](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) O nó de origem RTSP no gráfico de mídia requer que especifique um URL RTSP, juntamente com credenciais para ativar uma ligação autenticada.
+Um nó de origem RTSP permite-lhe ingerir meios de comunicação a partir de um https://tools.ietf.org/html/rfc2326 servidor [RTSP]. As câmaras de vigilância e ip transmitem os seus dados num protocolo chamado RTSP (protocolo de streaming em tempo real) que é diferente de outros tipos de dispositivos, como telefones e câmaras de vídeo. Este protocolo é utilizado para estabelecer e controlar as sessões de mídia entre um servidor (a câmara) e um cliente. O nó de origem RTSP num gráfico de mídia funciona como cliente e pode estabelecer uma sessão com um servidor RTSP. Muitos dispositivos, como a maioria das [câmaras IP,](https://en.wikipedia.org/wiki/IP_camera) têm um servidor RTSP incorporado. [A ONVIF](https://www.onvif.org/) obriga o RTSP a ser apoiado na sua definição de [dispositivos compatíveis com perfis G, S & T.](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) O nó de origem RTSP requer que especifique um URL RTSP, juntamente com credenciais para ativar uma ligação autenticada.
 
 #### <a name="iot-hub-message-source"></a>Fonte de mensagem IoT Hub 
 
-À semelhança de [outros módulos IoT Edge,](../../iot-edge/iot-edge-glossary.md#iot-edge-module)o live video analytics no módulo IoT Edge pode receber mensagens através do [hub IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Estas mensagens podem ser enviadas a partir de outros módulos, ou aplicações em execução no dispositivo Edge, ou a partir da nuvem. Tais mensagens podem ser entregues (encaminhadas) para uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Uma fonte de mensagem IoT Hub permite que tais mensagens sejam encaminhadas para uma instância de gráfico de mídia. Estas mensagens ou sinais podem então ser utilizados internamente no gráfico de mídia, normalmente para ativar portões de sinal (ver [processador do portão de sinal](#signal-gate-processor) abaixo). 
+À semelhança de [outros módulos IoT Edge,](../../iot-edge/iot-edge-glossary.md#iot-edge-module)o live video analytics no módulo IoT Edge pode receber mensagens através do [hub IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Estas mensagens podem ser enviadas a partir de outros módulos, ou aplicações em execução no dispositivo Edge, ou a partir da nuvem. Tais mensagens são entregues (encaminhadas) para uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de mensagem IoT Hub permite que tais mensagens cheguem a um gráfico de mídia. Estas mensagens ou sinais podem então ser utilizados internamente no gráfico de mídia, normalmente para ativar os portões de sinal (ver [portões](#signal-gate-processor) de sinal abaixo). 
 
 Por exemplo, pode ter um módulo IoT Edge que gera uma mensagem quando uma porta é aberta. A mensagem desse módulo pode ser encaminhada para o hub IoT Edge, de onde pode ser encaminhado para a mensagem do hub IoT de um gráfico de mídia. Dentro do gráfico de mídia, a fonte de mensagem do hub IoT pode passar o evento para um processador do portão de sinal, que pode então ligar a gravação do vídeo a partir de uma fonte RTSP para um ficheiro. 
 
@@ -68,42 +71,46 @@ Por exemplo, pode ter um módulo IoT Edge que gera uma mensagem quando uma porta
 
 #### <a name="motion-detection-processor"></a>Processador de deteção de movimentos 
 
-O processador de deteção de movimentos permite-lhe detetar movimento em vídeo ao vivo. Examina o vídeo de entrada e determina se há movimento no vídeo. Se o movimento for detetado, passa o vídeo para o nó a jusante e emite um evento. O processador de deteção de movimentos (em conjunto com outros nós gráficos de mídia) pode ser utilizado para ativar a gravação do vídeo de entrada quando houver movimento detetado.
+O nó do processador de deteção de movimentos permite-lhe detetar movimento em vídeo ao vivo. Examina os quadros de vídeo que entram e determina se há movimento no vídeo. Se o movimento for detetado, passa nas molduras de vídeo para o componente a jusante e emite um evento. O nó do processador de deteção de movimentos (em conjunto com outros nós) pode ser utilizado para ativar a gravação do vídeo de entrada quando houver movimento detetado.
 
 #### <a name="frame-rate-filter-processor"></a>Processador de filtro de taxa de fotogramas  
 
-O processador de filtro de taxa de fotogramas permite-lhe recolher quadros a partir do fluxo de vídeo de entrada a uma taxa de fotogramas especificada. Isto permite-lhe reduzir o número de quadros enviados para nós de fluxo (como processador de extensão HTTP) para posterior processamento.
+O nó do processador do filtro de taxa de fotogramas permite-lhe recolher os quadros da transmissão de vídeo recebida a uma taxa especificada. Isto permite-lhe reduzir o número de fotogramas enviados para componentes de fluxo (como o nó do processador de extensão HTTP) para posterior processamento.
 
-#### <a name="http-extension-processor"></a>Processador de extensão HTTP 
+#### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
-O processador de extensão HTTP permite-lhe ligar a sua própria IA a um gráfico de mídia. O processador de extensão HTTP toma como quadros de vídeo descodificados de entrada e retransmite tais quadros para um ponto final HTTP. O processador tem a capacidade de autenticar com o ponto final HTTP, se necessário. Além disso, o processador tem formato de imagem incorporado que permite a escala e codificação de quadros de vídeo antes de serem retransmitidos para a frente. O dimensionamento tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada, enquanto a codificação fornece opções para diferentes codificações de imagem, tais como jpeg, png ou bmp.
+O nó do processador de extensão HTTP permite-lhe ligar o seu próprio módulo IoT Edge a um gráfico de mídia. Este nó leva quadros de vídeo descodificados como a entrada, e transmite tais quadros para um ponto final HTTP REST exposto pelo seu módulo. Este nó tem a capacidade de autenticar com o ponto final REST, se necessário. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final REST. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
 
 #### <a name="signal-gate-processor"></a>Processador do portão de sinal  
 
-O processador do portão de sinal permite que os meios de comunicação sejam reencaminhados condicionalmente de um nó para outro. Também funciona como um tampão, permitindo a sincronização de meios e eventos. Um exemplo de utilização é inserir um processador de portão de sinal entre uma fonte RTSP e um lavatório de ativos e usar a saída do processador de detetor de movimento para ativar o portão. Com um gráfico de mídia deste tipo, só pode desencadear a gravação dos meios de comunicação quando o movimento for detetado no vídeo de entrada. 
+O nó do processador do portão de sinal permite-lhe encaminhar os meios de um nó para outro. Também funciona como um tampão, permitindo a sincronização de meios e eventos. Uma caixa de utilização típica é inserir um nó do processador do portão de sinal entre o nó de origem RTSP e o nó da pia do ativo, e usar a saída de um nó do processador de processador de movimento para acionar o portão. Com um gráfico tão mediático, só estaria a gravar vídeos quando o movimento for detetado.
 
 ### <a name="sinks"></a>Pias  
 
 #### <a name="asset-sink"></a>Pia de ativos  
 
-Um lavatório de ativos permite que um gráfico de mídia escreva dados de meios (vídeo e/ou áudio) para um ativo da Azure Media Services. Consulte a secção [de ativos](terminology.md#asset) para obter mais informações sobre os ativos e o seu papel na gravação e reprodução de meios de comunicação.  
+Um nó de afundanço de ativos permite-lhe escrever dados de meios (vídeo e/ou áudio) a um ativo da Azure Media Services. Só pode haver um nó de afundar um ativo num gráfico mediático. Consulte a secção [de ativos](terminology.md#asset) para obter mais informações sobre os ativos e o seu papel na gravação e reprodução de meios de comunicação. Também pode ver o artigo [de gravação de vídeo contínuo](continuous-video-recording-concept.md) para obter detalhes sobre como as propriedades deste nó são usadas.
 
 #### <a name="file-sink"></a>Pia de arquivo  
 
-O lavatório de ficheiros permite que um gráfico de mídia escreva dados de mídia (vídeo e/ou áudio) para uma localização no sistema de ficheiros local do dispositivo IoT Edge. A pia deve estar a jusante de um processador do portão de sinalização. Isto limita a duração dos ficheiros de saída aos valores especificados nas propriedades do processador do portão de sinal.
+O nó da pia do ficheiro permite-lhe escrever dados de mídia (vídeo e/ou áudio) para uma localização no sistema de ficheiros local do dispositivo IoT Edge. Só pode haver um nó de lavatório de ficheiros num gráfico de mídia, e deve ser a jusante de um nó do processador do portão de sinal. Isto limita a duração dos ficheiros de saída aos valores especificados nas propriedades do nó do processador do portão de sinal.
 
 #### <a name="iot-hub-message-sink"></a>Pia de mensagem IoT Hub  
 
-Um lavatório de mensagens IoT Hub permite-lhe publicar eventos no hub IoT Edge. O hub de borda pode então encaminhar os dados para outros módulos ou aplicações no dispositivo de borda, ou para IoT Hub na nuvem (por rotas especificadas no manifesto de implantação). O lava-mensagens IoT Hub pode aceitar eventos de processadores a montante, como um processador de deteção de movimentos ou de um serviço de inferência externa através de processador de extensão HTTP.
+Um nó de pia de mensagem IoT Hub permite-lhe publicar eventos no hub IoT Edge. O hub IoT Edge pode então encaminhar os dados para outros módulos ou aplicações no dispositivo de borda, ou para ioT Hub na nuvem (por rotas especificadas no manifesto de implantação). O nó da pia de mensagem IoT Hub pode aceitar eventos de processadores a montante, como um nó do processador de deteção de movimentos, ou de um serviço de inferência externa através de um nó de processador de extensão HTTP.
+
+## <a name="rules-on-the-use-of-nodes"></a>Regras relativas à utilização de nosdes
+
+Consulte [as quotas](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para regras adicionais sobre como diferentes nós podem ser usados dentro de um gráfico de mídia.
 
 ## <a name="scenarios"></a>Cenários
 
-Utilizando uma combinação da origem, processador e nós de pia, definidos acima, pode construir gráficos de mídia para uma variedade de cenários. Alguns cenários de exemplo são os seguintes
+Utilizando uma combinação das fontes, processadores e pias acima definidas, pode construir gráficos de mídia para uma variedade de cenários que envolvam a análise de vídeo ao vivo. Os cenários de exemplo são:
 
-* [Gravação contínua de vídeo](continuous-video-recording-concept.md)
+* [Gravação de vídeo contínua](continuous-video-recording-concept.md)
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
-* [Análise de vídeo ao vivo sem gravação de vídeo](analyze-live-video-concept.md)
+* [Live Video Analytics sem gravação de vídeo](analyze-live-video-concept.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Siga o [Quickstart: Executar Live Video Analytics com o seu próprio](use-your-model-quickstart.md) artigo de modelo para ver como pode executar a deteção de movimentos num feed de vídeo ao vivo.
+Para ver como pode executar a deteção de movimentos num feed de vídeo ao vivo, consulte [Quickstart: Run Live Video Analytics com o seu próprio modelo](use-your-model-quickstart.md).

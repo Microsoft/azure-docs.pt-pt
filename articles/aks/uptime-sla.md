@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: references_regions
-ms.openlocfilehash: 986bb835f319cebf3006d7e1bd31bd7f04a1ae82
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193999"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299558"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
@@ -26,18 +26,6 @@ Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de n
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
 Uptime SLA é uma funcionalidade paga e ativada por cluster. Os preços de SLA de uptime são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver [os detalhes dos preços do Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
-
-## <a name="region-availability"></a>Disponibilidade da Região
-
-O Uptime SLA está disponível nas seguintes regiões:
-
-* Leste da Austrália
-* Canadá Central
-* E.U.A. Leste
-* E.U.A. Leste 2
-* E.U.A. Centro-Sul
-* Ásia Sudeste
-* E.U.A.Oeste 2
 
 ## <a name="before-you-begin"></a>Antes de começar
 

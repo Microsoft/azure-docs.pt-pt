@@ -1,6 +1,6 @@
 ---
-title: Crie um conjunto de escala que utilize VMs De Mancha Azure
-description: Aprenda a criar conjuntos de escala de máquinas virtuais Azure que usam VMs spot para economizar em custos.
+title: Crie um conjunto de escala que utilize VMs Azure Spot
+description: Saiba como criar conjuntos de escala de máquina virtual Azure que usam VMs spot para economizar em custos.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,41 +9,41 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125048"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310568"
 ---
-# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs de Spot Azure para conjuntos de escala de máquinas virtuais 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
 
-A utilização do Azure Spot em conjuntos de escala permite-lhe tirar partido da nossa capacidade não utilizada a uma significativa poupança de custos. Em qualquer momento em que o Azure precise de capacidade de volta, a infraestrutura Azure despejará as instâncias do Spot. Por isso, os casos de spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes de v/teste, grandes cargas de trabalho de computação, e muito mais.
+A utilização do Azure Spot em conjuntos de escala permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que Azure precisa da capacidade de volta, a infraestrutura Azure irá despejar instâncias spot. Por isso, as instâncias spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
-A quantidade de capacidade disponível pode variar em função do tamanho, região, hora do dia e muito mais. Ao implementar as instâncias spot em conjuntos de escala, o Azure só atribuirá a instância se houver capacidade disponível, mas não existe SLA para estes casos. Um conjunto de escala spot é implantado num domínio de falha única e não oferece garantias de alta disponibilidade.
+A quantidade de capacidade disponível pode variar em função do tamanho, região, hora do dia e muito mais. Ao implementar instâncias spot em conjuntos de escala, a Azure só atribuirá o caso se houver capacidade disponível, mas não há SLA para estes casos. Um conjunto de escala spot é implantado num único domínio de falha e não oferece garantias de disponibilidade elevadas.
 
 
 ## <a name="pricing"></a>Preços
 
-Os preços dos casos spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
+Os preços dos casos spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows.](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/) 
 
 
-Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo para `-1` ser, a instância não será despejada com base no preço. O preço por exemplo será o preço atual para o Spot ou o preço de uma instância padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
+Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o caso não será despejado com base no preço. O preço, por exemplo, será o preço atual para o Spot ou o preço de uma instância padrão, que sempre é menor, desde que haja capacidade e quota disponíveis.
 
 ## <a name="eviction-policy"></a>Política de despejo
 
-Ao criar conjuntos de escala spot, pode definir a política de despejo para *Deallocate (padrão)* ou *Eliminar*. 
+Ao criar conjuntos de escala spot, pode definir a política de despejo para *Deallocate* (predefinição) ou *Eliminar*. 
 
-A política *de Deatribuição* move as suas instâncias despejadas para o estado de parado, permitindo-lhe recolocar casos despejados. No entanto, não há garantias de que a dotação seja bem sucedida. Os VMs deallocated contarão com a sua quota de instância definida de escala e você será cobrado pelos seus discos subjacentes. 
+A política *deallocate* move as suas instâncias despejadas para o estado de paragem que lhe permite redistribuir casos despejados. No entanto, não há garantias de que a dotação seja bem sucedida. Os VMs deallocados contarão com a sua quota de instância definida em escala e você será cobrado pelos seus discos subjacentes. 
 
-Se quiser que as suas instâncias na sua escala Spot sejam eliminadas quando forem despejadas, pode definir a política de despejo para *apagar*. Com a política de despejo definida para apagar, você pode criar novos VMs aumentando a escala definida de contagem de propriedades. Os VMs despejados são eliminados juntamente com os seus discos subjacentes, pelo que não serão cobrados pelo armazenamento. Também pode utilizar a função de escala automática de conjuntos de escala para tentar compensar automaticamente os VMs despejados, no entanto, não há garantias de que a atribuição tenha sucesso. Recomenda-se que utilize apenas a função de escala automática nos conjuntos de escala Spot quando definir a política de despejo para eliminar para evitar o custo dos seus discos e atingir os limites de quota. 
+Se quiser que as suas instâncias na escala spot sejam eliminadas quando forem despejadas, pode definir a política de despejo para *eliminar*. Com a política de despejo definida para apagar, pode criar novos VMs aumentando a escala definida caso contando propriedade. Os VMs despejados são eliminados juntamente com os seus discos subjacentes, pelo que não será cobrado pelo armazenamento. Também pode utilizar a função de escala automática dos conjuntos de escala para tentar compensar automaticamente os VMs despejados, no entanto, não há garantias de que a atribuição tenha sucesso. Recomenda-se que utilize apenas a função de escala automática nos conjuntos de escala spot quando definir a política de despejo para eliminar para evitar o custo dos seus discos e bater os limites de quota. 
 
-Os utilizadores podem optar por receber notificações in-VM através de [Eventos Agendados do Azure.](../virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estão sendo despejados e você terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
+Os utilizadores podem optar por receber notificações in-VM através de [Eventos Agendados Azure.](../virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estiverem a ser despejados e terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Implantação de VMs spot em conjuntos de escala
 
-Para implantar VMs spot em conjuntos de escala, pode definir a nova bandeira *Prioritária* para *o Spot*. Todos os VMs no seu conjunto de escala serão definidos para spot. Para criar um conjunto de escala com VMs spot, utilize um dos seguintes métodos:
+Para implantar VMs spot em conjuntos de escala, pode definir a nova bandeira *prioritária* para *o Spot*. Todos os VMs da sua escala serão definidos para Spot. Para criar um conjunto de escala com VMs spot, utilize um dos seguintes métodos:
 - [Portal do Azure](#portal)
 - [CLI do Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
@@ -51,12 +51,12 @@ Para implantar VMs spot em conjuntos de escala, pode definir a nova bandeira *Pr
 
 ## <a name="portal"></a>Portal
 
-O processo de criação de um conjunto de escala que utiliza VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-portal.md) Quando estiver a implantar um conjunto de escala, pode optar por definir a bandeira do Spot e a política de despejo: ![ Criar uma escala com VMs de mancha](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+O processo para criar um conjunto de escala que utilize VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-portal.md) Ao implementar um conjunto de escala, pode optar por definir a bandeira do Spot e a política de despejo: ![ Criar um conjunto de escala com VMs spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O processo de criação de um conjunto de escala com VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Basta adicionar o "-Ponto Prioritário", e adicionar `--max-price` . Neste exemplo, usamos `-1` para que a instância não seja `--max-price` despejada com base no preço.
+O processo de criação de um conjunto de escala com VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Basta adicionar o "--Ponto Prioritário", e adicionar `--max-price` . Neste exemplo, usamos `-1` para que o caso não seja despejado com base no `--max-price` preço.
 
 ```azurecli
 az vmss create \
@@ -73,7 +73,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 O processo de criação de um conjunto de escala com VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-powershell.md)
-Basta adicionar 'Ponto Prioritário', e fornecer um `-max-price` ao [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+Basta adicionar '-Ponto Prioritário', e fornecer um `-max-price` ao [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -87,9 +87,9 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
-O processo para criar um conjunto de escala que utiliza VMs spot é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
+O processo para criar um conjunto de escala que utilize VMs spot é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
 
-Para implementações de modelos spot, utilize `"apiVersion": "2019-03-01"` ou mais tarde. Adicione as `priority` propriedades e propriedades à secção do seu `evictionPolicy` `billingProfile` `"virtualMachineProfile":` modelo: 
+Para implementações de modelos spot, use `"apiVersion": "2019-03-01"` ou mais tarde. Adicione o `priority` , e propriedades à secção no seu `evictionPolicy` `billingProfile` `"virtualMachineProfile":` modelo: 
 
 ```json
                 "priority": "Spot",
@@ -99,75 +99,75 @@ Para implementações de modelos spot, utilize `"apiVersion": "2019-03-01"` ou m
                 }
 ```
 
-Para eliminar a ocorrência depois de ter sido despejada, mude o `evictionPolicy` parâmetro para `Delete` .
+Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` parâmetro para `Delete` .
 
 ## <a name="faq"></a>FAQ
 
-**Q:** Uma vez criado, um spot é o mesmo que o caso padrão?
+**Q:** Uma vez criado, um caso spot é o mesmo que a instância padrão?
 
-**A:** Sim, exceto que não há SLA para VMs spot e eles podem ser despejados a qualquer momento.
+**A:** Sim, exceto que não há SLA para VMs spot e podem ser despejados a qualquer momento.
 
 
-**Q:** O que fazer quando é despejado, mas ainda precisa de capacidade?
+**Q:** O que fazer quando for despejado, mas ainda precisa de capacidade?
 
 **A:** Recomendamos que utilize VMs padrão em vez de VMs spot se precisar de capacidade imediatamente.
 
 
 **Q:** Como é gerida a quota para o Spot?
 
-**A:** As instâncias pontuais e as instâncias padrão terão piscinas de quotas separadas. A quota spot será partilhada entre VMs e instâncias de escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** As instâncias pontuais e as instâncias-padrão terão piscinas de quotas separadas. A quota pontual será partilhada entre VMs e instâncias definidas em escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
-**Q:** Posso pedir quota adicional para o Spot?
+**Q:** Posso pedir uma quota adicional para o Spot?
 
-**A:** Sim, poderá submeter o pedido de aumento da sua quota para VMs spot através do processo padrão de pedido de [quotas.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
-
-
-**Q:** Posso converter conjuntos de escala existentes em conjuntos de escala spot?
-
-**A:** Não, a colocação da bandeira só é apoiada no momento da `Spot` criação.
+**A:** Sim, poderá submeter o pedido de aumento da sua quota de VMs spot através do [processo padrão de pedido de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
 
 
-**Q:** Se eu estava a usar `low` para conjuntos de baixa prioridade, preciso de começar a `Spot` usar?
+**Q:** Posso converter os conjuntos de escala existentes em conjuntos de escala spot?
 
-**A:** Por enquanto, ambos `low` e `Spot` vão funcionar, mas deve começar a transitar para a utilização. `Spot`
+**A:** Não, a colocação da `Spot` bandeira só é suportada no momento da criação.
 
 
-**Q:** Posso criar um conjunto de escala sem VMs regulares e VMs spot?
+**Q:** Se eu estava a usar `low` para conjuntos de escala de baixa prioridade, preciso de começar a `Spot` usar?
+
+**A:** Por enquanto, ambos `low` e `Spot` vão funcionar, mas deve começar a transitar para a utilização `Spot` .
+
+
+**Q:** Posso criar um conjunto de escala com VMs regulares e VMs?
 
 **A:** Não, um conjunto de escala não pode suportar mais do que um tipo prioritário.
 
 
 **Q:**  Posso usar a escala automática com conjuntos de escala spot?
 
-**A:** Sim, pode definir regras de autoscalcificação no seu conjunto de escala spot. Se os seus VMs forem despejados, a escala automática pode tentar criar novos VMs spot. Lembre-se, não é garantida esta capacidade. 
+**A:** Sim, pode definir regras de auto-cálculo no seu conjunto de escala spot. Se os seus VMs forem despejados, a autoescalada pode tentar criar novos VMs spot. Lembre-se, mas não tem a garantia desta capacidade. 
 
 
-**Q:**  A escala automática funciona com ambas as políticas de despejo (desolo e eliminação)?
+**Q:**  A autoescalação funciona com ambas as políticas de despejo (deallocate e delete)?
 
-**A:** Recomenda-se que defina a sua política de despejo para eliminar ao utilizar a escala automática. Isto porque as instâncias de negociação são contadas contra a sua contagem de capacidade seleções na escala definida. Ao utilizar a escala automática, provavelmente irá acertar a sua contagem de exemplos de alvo rapidamente devido às ocorrências de saques e desalojados. 
+**A:** Recomenda-se que desemote a sua política de despejo para eliminar quando utilizar a autoescala. Isto porque os casos de negociação são contados contra a sua capacidade de contar na escala definida. Ao utilizar a autoescala, é provável que atinja a contagem de casos de alvo rapidamente devido às situações de despejo e desalojados. 
 
 
-**Q:** Que canais suportam Os VMs spot?
+**Q:** Que canais suportam Spot VMs?
 
-**A:** Consulte a tabela abaixo para obter disponibilidade de Spot VM.
+**A:** Consulte a tabela abaixo para obter disponibilidade do Spot VM.
 
 <a name="channel"></a>
 
-| Canais Azure               | Disponibilidade de VMs spot azure       |
+| Canais Azure               | Disponibilidade de VMs Azure Spot       |
 |------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pay As You Go                | Sim                               |
-| Provedor de Serviço sinuoso (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Contrato Enterprise         | Yes                               |
+| Pay As You Go                | Yes                               |
+| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
-| Patrocinado                    | Não disponível                     |
+| Patrocinado                    | Yes                               |
 | Avaliação Gratuita                   | Não disponível                     |
 
 
 **Q:** Onde posso fazer perguntas?
 
-**A:** Pode publicar e marcar a sua pergunta `azure-spot` no Q&[A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte a página de preços da [escala de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes de preços.
+Consulte a [página de preços da escala de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes sobre os preços.

@@ -1,60 +1,62 @@
 ---
-title: Fluxos de exportação de Power Automate para Azure Logic Apps
-description: Migrar flui de Power Automate para Azure Logic Apps exportando como modelos de Gestor de Recursos Azure
+title: Exportação flui de Power Automamate para Azure Logic Apps
+description: Migrar fluxos de Power Automamate para Azure Logic Apps exportando como modelos de Gestor de Recursos Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b30a2ae8d90a193e23229dc6743c7e92ebf83b52
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75428888"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298725"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implementá-los no Azure Logic Apps
 
-Para alargar e expandir as capacidades do seu fluxo, pode migrar esse fluxo de [Power Automate](https://flow.microsoft.com) para [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Você pode exportar o seu fluxo como um modelo de Gestor de Recursos Azure para uma aplicação lógica, implementar esse modelo de aplicação lógica para um grupo de recursos Azure, e, em seguida, abrir essa aplicação lógica no Logic App Designer.
+Para alargar e expandir as capacidades do seu fluxo, pode migrar esse fluxo de [Power Automamate](https://flow.microsoft.com) para [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Você pode exportar o seu fluxo como um modelo de Gestor de Recursos Azure para uma aplicação lógica, implementar esse modelo de aplicação lógica para um grupo de recursos Azure e, em seguida, abrir essa aplicação lógica no Logic App Designer.
 
 > [!NOTE]
-> Nem todos os conectores Power Automate estão disponíveis em Aplicações Lógicas Azure. Pode importar fluxos que tenham [conectores equivalentes](../connectors/apis-list.md) em Aplicações Lógicas Azure. Por exemplo, o gatilho do botão, o conector de homologação de aprovação e o conector de notificação são específicos do Power Automate.
+> Nem todos os conectores Power Automate estão disponíveis em Azure Logic Apps. Só pode migrar fluxos Power Automamate que tenham os conectores equivalentes em Azure Logic Apps. Por exemplo, o gatilho do botão, o conector de aprovação e o conector de notificação são específicos do Automatismo de Energia. Atualmente, os fluxos baseados no OpenAPI no Power Automamate não são suportados para exportação e implementação como modelos de aplicações lógicas.
 >
-> Os fluxos baseados em OpenAPI exportados da Power Automate não são atualmente suportados para implementação como modelos de aplicações lógicas. 
+> * Para descobrir quais os conectores Power Automamate que não têm equivalentes de Aplicações Lógicas, consulte [conectores Power Automamate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * Para descobrir quais os conectores de Aplicações Lógicas que não possuem equivalentes power automate, consulte [conectores de Aplicações Lógicas](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* O fluxo que pretende exportar da Power Automate
+* O fluxo que pretende exportar da Power Automamate
 
 ## <a name="export-a-flow"></a>Exportar um fluxo
 
-1. Inscreva-se no [Power Automate](https://flow.microsoft.com)e selecione **Os meus fluxos**. Encontre e selecione o seu fluxo. Na barra de ferramentas, selecione o botão elipses (**...**). Selecione modelo de aplicativos de lógica de **exportação** > **(.json)**.
+1. Inscreva-se no [Automatismo](https://flow.microsoft.com)de Potência e selecione **Os meus fluxos**. Encontre e selecione o seu fluxo. Na barra de ferramentas, selecione o botão elipses **(...**) . Selecione modelo de Apps lógicas **de exportação**  >  **(.json)**.
 
    ![Exportar fluxo](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
-1. Guarde o seu modelo para o local que deseja.
+1. Guarde o seu modelo para o local que pretende.
 
-Para mais informações, consulte [Grow up até Azure Logic Apps](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
+Para mais informações, consulte [Grow up to Azure Logic Apps](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
 
-## <a name="deploy-template-by-using-the-azure-portal"></a>Implementar modelo utilizando o portal Azure
+## <a name="deploy-template-by-using-the-azure-portal"></a>Implementar o modelo utilizando o portal Azure
 
-1. Assine no [portal Azure](https://portal.azure.com) com a sua conta Azure.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) com a sua conta Azure.
 
-1. No menu principal do Azure, selecione **Criar um recurso**. Na caixa de pesquisa, introduza "implantação do modelo". Selecione **a implementação do modelo (implante utilizando modelos personalizados)** e, em seguida, selecione **Criar**.
+1. No menu principal do Azure, selecione **Criar um recurso**. Na caixa de pesquisa, introduza "implantação do modelo". Selecione **a implementação do modelo (implementar usando modelos personalizados)** e, em seguida, selecione **Criar**.
 
-   ![Selecione "Implementação do modelo"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
+   ![Selecione "Implantação do modelo"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
-1. Sob **implementação personalizada,** selecione **Construa o seu próprio modelo no editor**.
+1. Em **implementação personalizada,** selecione **Construa o seu próprio modelo no editor**.
 
    ![Selecione "Construa o seu próprio modelo no editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. A partir da barra de ferramentas **de modelo Editar,** selecione **ficheiro load**. Encontre e selecione o modelo JSON que exportou da Power Automate e selecione **Open**.
+1. A partir da barra de ferramentas **do modelo editar,** selecione **Ficheiro de carga**. Encontre e selecione o modelo JSON que exportou a partir do Power Automamate e selecione **Open**.
 
-   ![Selecione "Ficheiro de carga"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
+   ![Selecione "Carregar ficheiro"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
-1. Depois de o editor mostrar o JSON, parâmetros e recursos no seu modelo, selecione **Save**.
+1. Depois de o editor mostrar o JSON, parâmetros e recursos no seu modelo, **selecione Save**.
   
    ![Guardar o modelo](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
@@ -64,16 +66,16 @@ Para mais informações, consulte [Grow up até Azure Logic Apps](https://flow.m
    * Grupo de recursos do Azure
    * Localização para o grupo de recursos Azure
    * Nome para o recurso de aplicação lógica
-   * Localização para o recurso lógico da aplicação, se diferente do grupo de recursos Azure
+   * Localização para o recurso de aplicação lógica, se diferente do grupo de recursos Azure
    * O nome de quaisquer ligações previamente criadas que a aplicação lógica pode reutilizar
 
-      Se estiver a criar a sua primeira aplicação lógica, todas as ligações são criadas como novas, para que possa aceitar os nomes padrão. Caso contrário, pode especificar os nomes para ligações previamente criadas, que pode utilizar em várias aplicações lógicas.
+      Se estiver a criar a sua primeira aplicação lógica, todas as ligações são criadas como novas, para que possa aceitar os nomes predefinidos. Caso contrário, pode especificar os nomes para ligações previamente criadas, que pode utilizar em várias aplicações lógicas.
 
-   Depois de fornecer esta informação para o modelo, reveja e concorde com os Termos e Condições do Mercado Azure para criar os recursos e faturação necessários da sua subscrição Azure em conformidade, e, em seguida, selecione **Comprar**.
+   Depois de fornecer estas informações para o modelo, reveja e concorde com os Termos e Condições do Mercado Azure para criar os recursos Azure necessários e faturar a sua subscrição Azure em conformidade, e, em seguida, selecione **Comprar**.
   
-   ![Especificar parâmetros de entrada para o modelo](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
+   ![Especifique os parâmetros de entrada para o modelo](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   O Azure implementa o seu modelo como uma aplicação lógica para o seu grupo de recursos especificado. Todas as aplicações lógicas que migra da Power Automate são implantadas num estado desativado.
+   O Azure implementa o seu modelo como uma aplicação lógica para o seu grupo de recursos especificado. Todas as aplicações lógicas que migrar do Power Automamate são implementadas num estado desativado.
 
 1. Antes de ativar a sua aplicação lógica, autorize quaisquer novas ligações seguindo estes passos:
 
@@ -83,61 +85,61 @@ Para mais informações, consulte [Grow up até Azure Logic Apps](https://flow.m
 
       ![Ícone de aviso](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
 
-   1. Para cada passo que requer uma ligação autorizada, expanda esse passo e selecione **Adicionar novo**.
+   1. Para cada passo que requer uma ligação autorizada, expanda esse passo e **selecione Adicione novo**.
 
-      ![Adicione nova ligação](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Adicionar nova ligação](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Inscreva-se em cada serviço ou forneça as credenciais necessárias para autorizar a ligação.
 
-1. Guarde a aplicação lógica. Quando estiver pronto para ativar a sua aplicação lógica, no menu da aplicação lógica, selecione **Visão Geral**, e depois selecione **Enable**.
+1. Guarde a aplicação lógica. Quando estiver pronto para ativar a sua aplicação lógica, no menu da aplicação lógica, selecione **Overview**e, em seguida, selecione **Enable**.
 
-   ![Ativar app lógica](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
+   ![Ativar aplicativo de lógica](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
-1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de que desativa ou elimina o fluxo original.
+1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de desativar ou eliminar o seu fluxo original.
 
-## <a name="deploy-template-by-using-visual-studio"></a>Implementar modelo usando o Estúdio Visual
+## <a name="deploy-template-by-using-visual-studio"></a>Implementar o modelo usando o Estúdio Visual
 
-Se criou o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) para criar aplicações lógicas, pode implementar o seu modelo exportado do Visual Studio para as Aplicações Lógicas Azure.
+Se configurar o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) para a criação de aplicações lógicas, pode implementar o seu modelo exportado de Visual Studio para Azure Logic Apps.
 
-1. No Estúdio Visual, abra o ficheiro de modelo que exportou da Power Automate.
+1. No Visual Studio, abra o ficheiro de modelo que exportou da Power Automamate.
 
-1. No Estúdio Visual, crie um projeto do Grupo de Recursos Azure e selecione o modelo de **Aplicação Lógica** seguindo os passos em [Quickstart: Criar tarefas automatizadas, processos e fluxos de trabalho com aplicações lógicas Azure - Estúdio Visual,](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)por exemplo:
+1. No Visual Studio, crie um projeto do Grupo de Recursos Azure e selecione o modelo **de Aplicação Lógica** seguindo os passos em [Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com Apps Azure Logic - Visual Studio,](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)por exemplo:
 
    ![Criar projeto do Grupo de Recursos do Azure](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. Do Solution Explorer, abra o ficheiro **LogicApp.json,** caso o ficheiro ainda não esteja aberto.
+1. A partir do Solution Explorer, abra o ficheiro **LogicApp.json,** se o ficheiro ainda não estiver aberto.
 
-1. Copie os conteúdos do modelo exportado e sobreescreva os conteúdos no ficheiro **LogicApp.json.**
+1. Copie o conteúdo do modelo exportado e substitua o conteúdo no ficheiro **LogicApp.json.**
 
 1. Antes de implementar a sua aplicação lógica, autorize quaisquer novas ligações seguindo estes passos:
 
-   1. Abra o menu de atalho **LogicApp.json** e, em seguida, selecione **Open With Logic App Designer**.
+   1. Abra o menu de atalho **LogicApp.json** e, em seguida, **selecione Open With Logic App Designer**.
 
-      ![Modelo aberto com designer de aplicações lógica](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
+      ![Modelo aberto com designer de aplicativos de lógica](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 
    1. Se solicitado, selecione o grupo de subscrição e recursos Azure que pretende utilizar para implementar a sua aplicação lógica.
 
-      ![Selecione grupo de subscrição e recursos Azure](./media/export-from-microsoft-flow-logic-app-template/select-azure-subscription-resource-group-deployment.png)
+      ![Selecione a subscrição e grupo de recursos da Azure](./media/export-from-microsoft-flow-logic-app-template/select-azure-subscription-resource-group-deployment.png)
 
-      Depois da sua aplicação lógica aparecer no designer, quaisquer ligações que exijam autorização mostram ícones de aviso:
+      Após a sua aplicação lógica aparecer no designer, quaisquer ligações que exijam autorização mostram ícones de aviso:
 
-      ![Conexões com ícones de aviso](./media/export-from-microsoft-flow-logic-app-template/authorize-connections-vs.png)
+      ![Ligações com ícones de aviso](./media/export-from-microsoft-flow-logic-app-template/authorize-connections-vs.png)
 
-   1. Para cada passo que requer uma ligação autorizada, expanda esse passo e selecione **Adicionar novo**.
+   1. Para cada passo que requer uma ligação autorizada, expanda esse passo e **selecione Adicione novo**.
 
-      ![Adicione nova ligação](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
+      ![Adicionar nova ligação](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
 
    1. Inscreva-se em cada serviço ou forneça as credenciais necessárias para autorizar a ligação.
 
    1. Guarde a sua solução antes de implementar a aplicação lógica.
 
-1. No Solution Explorer, abra o menu de atalho do projeto e selecione **Implementar** > **Novo**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
+1. No Solution Explorer, abra o menu de atalho do projeto e selecione **Implementar**  >  **Novo**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
 
-1. Quando solicitado, confirme a subscrição do Azure, o grupo de recursos Azure e quaisquer outras definições que pretenda utilizar para a implementação, como um ficheiro de [parâmetros](../azure-resource-manager/templates/parameter-files.md) para utilizar para passar os valores dos parâmetros do modelo e, em seguida, selecione **Deploy**.
+1. Quando solicitado, confirme a subscrição do Azure, o grupo de recursos Azure e quaisquer outras definições que pretenda utilizar para implantação, como um [ficheiro de parâmetros](../azure-resource-manager/templates/parameter-files.md) para usar para passar valores de parâmetros do modelo e, em seguida, selecione **Implementar**.
 
-   ![Confirmar as definições de implementação](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
+   ![Confirmar definições de implantação](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 
-1. Se aparecer a caixa de parâmetros de **edição,** forneça o nome para o seu recurso de aplicação lógica em Azure e selecione **Save**.  
+1. Se aparecer a caixa **de parâmetros de edição,** forneça o nome do seu recurso de aplicação lógica em Azure e selecione **Save**.  
 
    ![Editar parâmetros de implantação](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
@@ -145,19 +147,19 @@ Se criou o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-creat
 
    ![Janela de saída](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 
-   Se alguma ligação na sua aplicação lógica necessitar de entrada de si, uma janela PowerShell abre-se em segundo plano e solicita quaisquer senhas ou chaves secretas necessárias. Após introduzir estas informações, a implementação continua.
+   Se alguma ligação na sua aplicação lógica precisar de entrada de si, uma janela PowerShell abre em segundo plano e pede quaisquer senhas ou chaves secretas necessárias. Após introduzir estas informações, a implementação continua.
 
-   ![Ligações autenticadas](./media/export-from-microsoft-flow-logic-app-template/logic-apps-powershell-window.png)
+   ![Autenticar ligações](./media/export-from-microsoft-flow-logic-app-template/logic-apps-powershell-window.png)
 
-   Após a implementação termina, a sua aplicação lógica é publicada mas não é ativada no portal Azure.
+   Após a implementação, a sua aplicação lógica é publicada mas não é ativada no portal Azure.
 
-1. Quando estiver pronto para ativar a sua aplicação lógica no portal Azure, encontre e abra a sua aplicação lógica no Logic App Designer. No menu da aplicação lógica, selecione **Visão Geral**, e, em seguida, selecione **Enable**.
+1. Quando estiver pronto para ativar a sua aplicação lógica no portal Azure, encontre e abra a sua aplicação lógica no Logic App Designer. No menu da aplicação lógica, selecione **Overview**e, em seguida, selecione **Enable**.
 
-1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de que desativa ou elimina o fluxo original.
+1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de desativar ou eliminar o seu fluxo original.
 
-Para obter mais informações sobre estes passos de implementação, consulte [Quickstart: Criar tarefas automatizadas, processos e fluxos de trabalho com aplicações lógicas azure - Estúdio Visual](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
+Para obter mais informações sobre estes passos de implementação, consulte [Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com Apps Azure Logic - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [Conectores para Aplicações Lógicas Azure](../connectors/apis-list.md)
-* Saiba mais sobre [as aplicações da Lógica Azure](../logic-apps/logic-apps-overview.md)
+* Saiba mais sobre [Conectores para Apps Azure Logic](../connectors/apis-list.md)
+* Saiba mais sobre [a Azure Logic Apps](../logic-apps/logic-apps-overview.md)

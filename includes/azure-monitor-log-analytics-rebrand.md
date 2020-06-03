@@ -12,4 +12,4 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "67183985"
 ---
 >[!NOTE]
-> Este artigo foi recentemente atualizado para utilizar os registos do Monitor Azure em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Monitor Azure.](../articles/azure-monitor/platform/data-platform-logs.md) Consulte [as alterações da terminologia do Monitor Azure](../articles/azure-monitor/azure-monitor-rebrand.md) para obter detalhes.
+> Este artigo foi recentemente atualizado para utilizar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](../articles/azure-monitor/platform/data-platform-logs.md) Consulte [as alterações da terminologia do Azure Monitor](../articles/azure-monitor/azure-monitor-rebrand.md) para mais detalhes.

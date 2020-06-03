@@ -1,42 +1,42 @@
 ---
-title: Amostras de modelo de gestor de recursos azure
+title: Amostras de modelo do gestor de recursos Azure
 description: Encontre amostras de modelo do Gestor de Recursos Azure para implementar instâncias de contentores Azure em diferentes configurações
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981652"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299762"
 ---
-# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de Gestor de Recursos Azure para instâncias de contentores azure
+# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de gestor de recursos Azure para instâncias de contentores Azure
 
 Os seguintes modelos de amostra implantam instâncias de contentores em várias configurações.
 
-Para opções de implementação, consulte a secção [de implantação.](#deployment) Se quiser criar os seus próprios modelos, o modelo de referência do Gestor de [Recursos][ref] de Casos de Contentores Azure e as propriedades disponíveis.
+Para obter opções de implantação, consulte a secção [De Implementação.](#deployment) Se você quiser criar os seus próprios modelos, o modelo de design de design de design de dados [do modelo do][ref] Azure Container Instances e as propriedades disponíveis.
 
 ## <a name="sample-templates"></a>Modelos de exemplo
 
 | | |
 |-|-|
 | **Aplicações** ||
-| [WordPress][app-wp] | Cria um website WordPress e a sua base de dados MySQL num grupo de contentores. O conteúdo do site WordPress e a base de dados MySQL persistem numa partilha de Ficheiros Azure. Também cria uma porta de aplicação para expor o acesso da rede pública ao WordPress. |
-| [MS NAV com SQL Server e IIS][app-nav] | Implementa um único recipiente Windows com um ambiente Central de Negócios NaV / Dynamics 365. |
+| [WordPress][app-wp] | Cria um website WordPress e a sua base de dados MySQL num grupo de contentores. O conteúdo do site WordPress e a base de dados MySQL são persistidos a uma partilha de Ficheiros Azure. Também cria uma porta de aplicação para expor o acesso da rede pública ao WordPress. |
+| [MS NAV com SQL Server e IIS][app-nav] | Implementa um único recipiente Windows com um ambiente de Centro de Negócios Dynamics NAV / Dynamics 365 totalmente apresentado. |
 | **Volumes** ||
-| [emptyDir][vol-emptydir] | Implanta dois contentores Linux que partilham um volume dir vazio. |
+| [emptyDir][vol-emptydir] | Implanta dois recipientes Linux que partilham um volume deDir vazio. |
 | [gitRepo][vol-gitrepo] | Implanta um recipiente Linux que clona um repo GitHub e o monta como um volume. |
-| [segredo][vol-secret] | Implanta um recipiente Linux com um certificado PFX montado como um volume secreto. |
+| [segredo][vol-secret] | Implanta um recipiente Linux com um cert PFX montado como um volume secreto. |
 | **Redes** ||
-| [Recipiente exposto à UDP][net-udp] | Implementa um recipiente Windows ou Linux que expõe uma porta UDP. |
-| [Recipiente linux com IP público][net-publicip] | Implanta um único recipiente Linux acessível através de um IP público. |
-| [Implementar um grupo de contentores com uma rede virtual (pré-visualização)][net-vnet] | Implementa uma nova rede virtual, subnet, perfil de rede e grupo de contentores. |
+| [Recipiente exposto pela UDP][net-udp] | Implanta um recipiente Windows ou Linux que expõe uma porta UDP. |
+| [Recipiente Linux com IP público][net-publicip] | Implanta um único recipiente Linux acessível através de um IP público. |
+| [Implementar um grupo de contentores com uma rede virtual][net-vnet] | Implementa uma nova rede virtual, sub-rede, perfil de rede e grupo de contentores. |
 | **Recursos do Azure** ||
-| [Criar conta de armazenamento Azure e partilha de ficheiros][az-files] | Utiliza o Azure CLI numa instância de contentores para criar uma conta de armazenamento e uma partilha de Ficheiros Azure.
+| [Criar conta de armazenamento Azure e partilha de ficheiros][az-files] | Utiliza o CLI Azure num caso de contentor para criar uma conta de armazenamento e uma partilha de Ficheiros Azure.
 
 ## <a name="deployment"></a>Implementação
 
-Tem várias opções para implementar recursos com modelos de Gestor de Recursos:
+Tem várias opções para a implementação de recursos com modelos de Gestor de Recursos:
 
 [CLI do Azure][deploy-cli]
 

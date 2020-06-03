@@ -46,7 +46,7 @@ Os eventos de auditoria são escritos para log analytics espaço de trabalho def
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campos de registo de auditoria
 
-| Nome (blob) | Nome (Centros de Eventos/Análise de Registo) | Descrição | Tipo de blob | Hubs de eventos/tipo de Analítica de Log |
+| Nome (blob) | Nome (Centros de Eventos/Análise de Registo) | Description | Tipo de blob | Hubs de eventos/tipo de Analítica de Log |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID da ação | varchar(4) | string |
 | action_name | action_name_s | Nome da ação | N/D | string |

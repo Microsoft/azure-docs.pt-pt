@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170720"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299703"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilize o Link Privado Azure para ligar de forma segura as redes ao Azure Monitor
 
@@ -74,11 +74,17 @@ Por exemplo, se as suas redes virtuais internas VNet1 e VNet2 deverão ligar-se 
 
 Comece por criar um recurso Azure Monitor Private Link Scope.
 
-1. Vá para **criar um recurso** no portal Azure e procure o **Azure Monitor Private Link Scope**. 
-2. Clique **em criar**. 
-3. Escolha um Grupo de Subscrição e Recursos. 
-4. Dê um nome aos AMPLS. É melhor usar um nome que seja claro para que finalidade e fronteira de segurança o Scope será usado para que alguém não quebre acidentalmente os limites de segurança da rede. Por exemplo, "AppServerProdTelem". 
+1. Vá para **criar um recurso** no portal Azure e procure o **Azure Monitor Private Link Scope**.
+
+   ![Encontre o âmbito de ligação privada do monitor Azure](./media/private-link-security/ampls-find-1c.png)
+
+2. Clique **em criar**.
+3. Escolha um Grupo de Subscrição e Recursos.
+4. Dê um nome aos AMPLS. É melhor usar um nome que seja claro para que finalidade e fronteira de segurança o Scope será usado para que alguém não quebre acidentalmente os limites de segurança da rede. Por exemplo, "AppServerProdTelem".
 5. Clique **em Rever + Criar**. 
+
+   ![Criar âmbito de ligação privada do Monitor Azure](./media/private-link-security/ampls-create-1d.png)
+
 6. Deixe passar a validação e, em seguida, clique em **Criar**.
 
 ## <a name="connect-azure-monitor-resources"></a>Ligar recursos do Monitor Azure
@@ -174,7 +180,7 @@ Para criar e gerir os âmbitos de ligação privados, utilize [a az monitorar o 
 
 Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou nos componentes do [Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## <a name="collect-custom-logs-over-private-link"></a>Colete registos personalizados sobre link privado
+## <a name="collect-custom-logs-over-private-link"></a>Colete registos personalizados sobre o Link Privado
 
 As contas de armazenamento são utilizadas no processo de ingestão de registos personalizados. Por predefinição, são utilizadas contas de armazenamento geridas pelo serviço. No entanto, para ingerir registos personalizados em links privados, deve utilizar as suas próprias contas de armazenamento e associá-las ao espaço de trabalho log Analytics. Consulte mais detalhes sobre como configurar tais contas utilizando a [linha de comando](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -224,3 +230,6 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
 
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba mais sobre [armazenamento privado](private-storage.md)

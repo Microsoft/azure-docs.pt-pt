@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb25b0398dca05f32f944962e2fc8630ea10870
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267652"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300669"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Quickstart: Adicione uma atribuição de função Azure usando um modelo de Gestor de Recursos Azure
 
@@ -40,6 +40,10 @@ Para adicionar uma atribuição de funções, deve especificar três elementos: 
 O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). O modelo tem três parâmetros e uma secção de recursos. Na secção de recursos, note que tem os três elementos de uma atribuição de funções: principal de segurança, definição de função e âmbito. 
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+
+O recurso definido no modelo é:
+
+- [Microsoft.Autorização/funAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 

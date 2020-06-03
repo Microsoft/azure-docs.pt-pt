@@ -9,27 +9,27 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 63526454bb366b214c27bddce24ed9ebc09556b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10eb627a340b45c93b2cfb2973e294d8d5d7c7e5
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80071091"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307834"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>Encriptação de serviço personalizado de dados em repouso
 
-O serviço Personalizer encripta automaticamente os seus dados quando persistia na nuvem. A encriptação do serviço Personalizer protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade.
+O serviço Personalizar encripta automaticamente os seus dados quando os persistia na nuvem. A encriptação do serviço Personalizer protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade.
 
-[!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar as chaves geridas pelo cliente, preencha e envie o Formulário de [Pedido de Chave Gerido](https://aka.ms/cogsvc-cmk)pelo Cliente gerido pelo cliente do Serviço Personalizado . Levará aproximadamente 3-5 dias úteis para voltar a ouvir o estado do seu pedido. Dependendo da procura, pode ser colocado numa fila e aprovado à medida que o espaço se torna disponível. Uma vez aprovado para utilizar a CMK com o serviço Personalizer, terá de criar um novo recurso Personalizer e selecionar e0 como Nível de Preços. Assim que for criado o seu recurso Personalizer com o nível de preços E0, pode utilizar o Cofre de Chave Azure para configurar a sua identidade gerida.
+> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Serviço Personalizado](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Personalizar, terá de criar um novo recurso Personalizer e selecionar o E0 como O Nível de Preços. Uma vez criado o seu recurso Personalizer com o nível de preços E0, pode utilizar o Cofre de Chaves Azure para configurar a sua identidade gerida.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Formulário de pedido de chave gerido pelo cliente gerido pelo cliente](https://aka.ms/cogsvc-cmk)
-* [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Formulário de pedido de chave gerido pelo cliente personalizado](https://aka.ms/cogsvc-cmk)
+* [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 016a907e3e660ca6da9dc637b2c9c844b7077b84
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193970"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300097"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -266,7 +266,7 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Government| USDod Leste| 52.181.32.192|
 
 ## <a name="related-content"></a><a name="related-content"> </a>Conteúdo relacionado
-* [Ligar uma Rede Virtual para fazer backend usando o Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Ligar uma Rede Virtual para fazer backend usando o Vpn Gateway](../vpn-gateway/design.md#s2smulti)
 * [Ligação de uma Rede Virtual de diferentes modelos de implantação](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Como usar o Inspetor da API para rastrear chamadas na Azure API Management](api-management-howto-api-inspector.md)
 * [Rede Virtual Perguntas frequentes](../virtual-network/virtual-networks-faq.md)

@@ -1,23 +1,23 @@
 ---
-title: Leia os dados da tabela Cassandra API usando a Spark
+title: Leia os dados da tabela da API de Cassandra usando a Spark
 titleSufix: Azure Cosmos DB
-description: Este artigo descreve como ler dados de tabelas da API cassandra em Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+description: Este artigo descreve como ler dados das tabelas da API de Cassandra em Azure Cosmos DB.
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c01d9970de1ab610333c129505cef75dfcaa35b1
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60893406"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309731"
 ---
-# <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Leia os dados das tabelas da API da Azure Cosmos DB Cassandra usando a Spark
+# <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Leia os dados das tabelas Azure Cosmos DB Cassandra API usando Spark
 
  Este artigo descreve como ler dados armazenados em Azure Cosmos DB Cassandra API da Spark.
 
@@ -48,7 +48,7 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 ## <a name="dataframe-api"></a>Dataframe API
 
-### <a name="read-table-using-sessionreadformat-command"></a>Leia a tabela usando o comando session.read.format
+### <a name="read-table-using-sessionreadformat-command"></a>Leia a tabela usando o comando sessão.read.formato
 
 ```scala
 val readBooksDF = sqlContext
@@ -66,7 +66,7 @@ readBooksDF.show
 val readBooksDF = spark.read.cassandraFormat("books", "books_ks", "").load()
 ```
 
-### <a name="read-specific-columns-in-table"></a>Ler colunas específicas na tabela
+### <a name="read-specific-columns-in-table"></a>Leia colunas específicas na tabela
 
 ```scala
 val readBooksDF = spark
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Aplicar filtros
 
-Atualmente, o pushdown predicado não é suportado, as amostras abaixo refletem a filtragem do lado do cliente. 
+Você pode empurrar predicados para baixo para a base de dados para permitir consultas de faíscas melhor otimizadas. Um predicado é uma condição para uma consulta que devolve verdadeiro ou falso, tipicamente localizado na cláusula WHERE. Um pré-empurrão filtra os dados na consulta da base de dados, reduzindo o número de entradas obtidas na base de dados e melhorando o desempenho da consulta. Por predefinição, a API do Conjunto de Dados de Faíscas irá automaticamente empurrar para baixo cláusulas WHERE válidas para a base de dados. 
 
 ```scala
 val readBooksDF = spark
@@ -103,6 +103,10 @@ readBooksDF.explain
 readBooksDF.show
 ```
 
+A secção PushFilters do plano físico inclui o filtro push Down GreaterThan. 
+
+![partitions](./media/cassandra-spark-read-ops/pushdown-predicates.png)
+
 ## <a name="rdd-api"></a>RDD API
 
 ### <a name="read-table"></a>Ler tabela
@@ -111,7 +115,7 @@ val bookRDD = sc.cassandraTable("books_ks", "books")
 bookRDD.take(5).foreach(println)
 ```
 
-### <a name="read-specific-columns-in-table"></a>Ler colunas específicas na tabela
+### <a name="read-specific-columns-in-table"></a>Leia colunas específicas na tabela
 
 ```scala
 val booksRDD = sc.cassandraTable("books_ks", "books").select("book_id","book_name").cache
@@ -140,8 +144,8 @@ select * from books_vw where book_pub_year > 1891
 
 Seguem-se artigos adicionais sobre o trabalho com a Azure Cosmos DB Cassandra API da Spark:
  
- * [Operações upsert](cassandra-spark-upsert-ops.md)
+ * [Operações de upsert](cassandra-spark-upsert-ops.md)
  * [Eliminar operações](cassandra-spark-delete-ops.md)
  * [Operações de agregação](cassandra-spark-aggregation-ops.md)
- * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
+ * [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)
 

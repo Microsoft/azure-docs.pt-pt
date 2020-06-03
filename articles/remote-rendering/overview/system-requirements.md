@@ -1,87 +1,90 @@
 ---
 title: Requisitos de sistema
-description: Lista os requisitos do sistema para a renderização remota azure
+description: Lista os requisitos do sistema para renderização remota Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411134"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300611"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
 
 > [!IMPORTANT]
-> **A Renderização Remota Azure** está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> **A Azure Remote Rendering** está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este capítulo enumera os requisitos mínimos do sistema para trabalhar com a *Renderização Remota Azure* (ARR).
+Este capítulo enumera os requisitos mínimos do sistema para trabalhar com *a renderização remota Azure* (ARR).
 
-## <a name="development-pc"></a>PC de desenvolvimento
+## <a name="development-pc"></a>Desenvolvimento PC
 
-* Windows 10 versão 1903 ou superior.
+* Versão 10 do Windows 1903 ou superior.
 * Condutores gráficos atualizados.
-* Opcional: Descodificador de vídeo de hardware H265, se pretender utilizar a pré-visualização local de conteúdo renderizado remotamente (por exemplo, em Unidade).
+* Opcional: Descodificador de vídeo de hardware H265, se quiser utilizar a pré-visualização local de conteúdo renderizado remotamente (por exemplo, em Unidade).
 
 > [!IMPORTANT]
-> A atualização do Windows nem sempre fornece os mais recentes controladores GPU, consulte o site do fabricante da GPU para obter os mais recentes condutores:
+> A atualização do Windows nem sempre fornece os mais recentes controladores da GPU, consulte o site do fabricante da GPU para obter os mais recentes condutores:
 >
-> * [Condutores amd](https://www.amd.com/en/support)
-> * [Motoristas de informação](https://www.intel.com/content/www/us/en/support/detect.html)
+> * [Motoristas da AMD](https://www.amd.com/en/support)
+> * [Condutores de informação](https://www.intel.com/content/www/us/en/support/detect.html)
 > * [Condutores da NVIDIA](https://www.nvidia.com/Download/index.aspx)
 
-A tabela abaixo lista quais AS GPUs suportam a descodificação de vídeo de hardware H265.
+A tabela abaixo lista quais as GPUs suportam a descodagem de hardware H265.
 
 | Fabricante de GPU | Modelos suportados |
 |-----------|:-----------|
 | NVIDIA | Verifique a Matriz de **Suporte NVDEC** [na parte inferior desta página](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix). A sua GPU precisa de um SIM na coluna **H.265 4:2:0 8-bit.** |
-| AMD | GPUs com pelo menos a versão 6 do [Descodificador de Vídeo Unificado](https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6)da AMD . |
-| Informação | Skylake e cpUs mais recentes |
+| AMD | GPUs com pelo menos a versão 6 do [descodificador](https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6)de vídeo unificado da AMD . |
+| Informação | Skylake e novos CPUs |
 
-Mesmo que o código H265 correto possa ser instalado, as propriedades de segurança nos DLLs codec podem causar falhas de inicialização codec. O [guia de resolução](../resources/troubleshoot.md#h265-codec-not-available) de problemas descreve passos como resolver este problema. O problema dLL só pode ocorrer quando se utiliza o serviço numa aplicação de ambiente de trabalho, por exemplo em Unidade.
+Mesmo que o código H265 correto possa ser instalado, as propriedades de segurança nos DLLs codec podem causar falhas de inicialização de codec. O [guia de resolução de problemas](../resources/troubleshoot.md#h265-codec-not-available) descreve medidas como resolver este problema. O problema DLL só pode ocorrer quando se utiliza o serviço numa aplicação de ambiente de trabalho, por exemplo na Unidade.
 
 ## <a name="devices"></a>Dispositivos
 
-A renderização remota Azure atualmente apenas suporta **holoLens 2** e Windows desktop como um dispositivo alvo. Consulte a secção de limitações da [plataforma.](../reference/limits.md#platform-limitations)
+A Azure Remote Rendering suporta atualmente apenas **o holoLens 2** e o windows desktop como um dispositivo alvo. Consulte a secção [de limitações](../reference/limits.md#platform-limitations) da plataforma.
 
 É importante usar o mais recente codec HEVC, uma vez que as versões mais recentes têm melhorias significativas na latência. Para verificar qual a versão instalada no seu dispositivo:
 
 1. Inicie a **Microsoft Store**.
 1. Clique no botão **"..."** no topo direito.
 1. Selecione **Downloads e Atualizações**.
-1. Pesquise na lista as **extensões de vídeo HEVC do Fabricante do Dispositivo**.
+1. Pesse na lista de **extensões de vídeo HEVC do Fabricante do Dispositivo**.
 1. Certifique-se de que o codec listado tem pelo menos a versão **1.0.21821.0**.
-1. Clique no botão **'Obter Actualizações'** e aguarde a sua instalação.
+1. Clique no botão **Get Updates** e aguarde a sua instalação.
 
 ## <a name="network"></a>Rede
 
-Uma ligação estável e de baixa latência é fundamental para uma boa experiência do utilizador.
+Uma ligação de rede estável e de baixa latência é fundamental para uma boa experiência do utilizador.
 
-Consulte o capítulo dedicado para [obter requisitos](../reference/network-requirements.md)de rede .
+Consulte o capítulo dedicado para [os requisitos da rede.](../reference/network-requirements.md)
 
-Para problemas de rede de resolução de problemas, consulte o [Guia de Resolução](../resources/troubleshoot.md#unstable-holograms)de Problemas .
+Para resolver problemas de rede, consulte o [Guia de Resolução de Problemas](../resources/troubleshoot.md#unstable-holograms).
 
 ## <a name="software"></a>Software
 
 Deve ser instalado o seguinte software:
 
-* A versão mais recente do **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* A mais recente versão do **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+  * **Desenvolvimento de desktop com C++**
+  * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
-* Opcional: Para visualizar o fluxo de vídeo do servidor num PC de ambiente de trabalho, precisa das extensões de **vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Opcional: Para visualizar o fluxo de vídeo do servidor num PC de secretária, precisa das **extensões de vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
 
 ## <a name="unity"></a>Unidade
 
-Para desenvolvimento com unidade, instale
+Para o desenvolvimento com Unidade, instale
 
 * Unidade 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
 * Instale estes módulos na Unidade:
-  * **UWP** - Suporte universal para construir plataforma Windows
-  * **IL2CPP** - Suporte para construção de janelas (IL2CPP)
+  * **UWP** - Suporte universal de construção de plataformas windows
+  * **IL2CPP** - Suporte à Construção de Janelas (IL2CPP)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Render um modelo com Unidade](../quickstarts/render-model.md)
+* [Quickstart: Renderiza um modelo com Unidade](../quickstarts/render-model.md)
