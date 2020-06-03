@@ -6,5 +6,5 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84041340"
 ---
-<Token>**Aplica-se a:** ![ Sim ](../media/applies-to/yes.png) Base de Dados Azure SQL sim ![ ](../media/applies-to/yes.png) Azure SQL Managed Instance ![ yes ](../media/applies-to/yes.png) Azure Synapse Analytics (Pré-visualização)</Token>
+<Token>**APLICA-SE A:** ![ sim ](../media/applies-to/yes.png) Azure SQL Base de Dados ![ sim ](../media/applies-to/yes.png) Azure SQL Managed Instance ![ yes ](../media/applies-to/yes.png) Azure Synapse Analytics (Preview)</Token>
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 13e41f6346f2ce32ed65aefb7d50680d1302ca26
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193718"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299796"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -40,6 +40,7 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 | Data Store específico   | Carregar dados em **Azure Synpase Analytics (anteriormente SQL DW)**: sugerir a utilização da declaração PolyBase ou COPY se não for utilizado. |
 | &nbsp;                | Copiar dados de/para **Azure SQL Database:** quando o DTU estiver em alta utilização, sugira a atualização para um nível mais elevado. |
 | &nbsp;                | Copiando dados de/para **Azure Cosmos DB:** quando ru estiver em alta utilização, sugira upgrade para RU maior. |
+|                       | Copiar dados da **Tabela SAP:** ao copiar uma grande quantidade de dados, sugira aproveitar a opção de partição do conector SAP para ativar a carga paralela e aumentar o número máximo de partição. |
 | &nbsp;                | Ingerir dados da **Amazon Redshift**: sugerir usar UNLOAD se não for usado. |
 | Estrangulamento da loja de dados | Se algumas operações de leitura/escrita forem estranguladas pela loja de dados durante a cópia, sugira verificar e aumentar a taxa de pedido permitida para a loja de dados, ou reduzir a carga de trabalho simultânea. |
 | Tempo de execução da integração  | Se utilizar um **Tempo de Execução de Integração Auto-hospedado (IR)** e a atividade de cópias aguardar muito tempo na fila até que o IR tenha recursos disponíveis para executar, sugira que escalone o seu IR. |
@@ -52,7 +53,7 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 
 Os detalhes e durações de execução na parte inferior da visualização de monitorização da atividade da cópia descrevem as fases-chave pela qual a sua atividade de cópia passa (ver exemplo no início deste artigo), o que é especialmente útil para resolver problemas no desempenho da cópia. O estrangulamento da sua cópia é o que tem a maior duração. Consulte a tabela seguinte na definição de cada etapa e aprenda a lidar com a atividade de [cópia de resolução de problemas na](#troubleshoot-copy-activity-on-azure-ir) atividade de cópia Azure IR e [Troubleshoot copy em IR auto-hospedado](#troubleshoot-copy-activity-on-self-hosted-ir) com tais informações.
 
-| Fase           | Descrição                                                  |
+| Fase           | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Filas           | O tempo decorrido até que a atividade da cópia realmente comece no tempo de integração. |
 | Script pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para lavatórios de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
@@ -187,7 +188,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Copiar o desempenho da atividade e o guia de escalabilidade](copy-activity-performance.md)
 - [Copiar funcionalidades de otimização do desempenho da atividade](copy-activity-performance-features.md)
 - [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para Azure](data-migration-guidance-overview.md)

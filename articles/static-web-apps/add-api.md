@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 1b2db92106e0dad79c90188c904b07d7bb1d7212
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 1720ea31c8f0b15485df194e62e463671d092b26
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258645"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310857"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -127,7 +127,7 @@ Em seguida, mudará a `GetMessage` função para devolver uma mensagem à parte 
 
 Com as definições acima, o ponto final da API é:
 
-- Desencadeado com um pedido HTTP é feito para a função
+- Desencadeado quando um pedido HTTP é feito para a função
 - Disponível para todos os pedidos independentemente do estado de autenticação
 - Exposto através da rota _/api/mensagem_
 

@@ -22,7 +22,7 @@ ms.locfileid: "84194298"
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o Servidor RDS SQL para a base de dados Azure SQL ou uma instância gerida Azure SQL online usando DMS
 Pode utilizar o Serviço de Migração da Base de Dados Azure para migrar as bases de dados de uma instância do Servidor RDS SQL para [a Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/) ou uma [Instância Gerida Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com tempo de inatividade mínimo. Neste tutorial, migra a base de **dados Adventureworks2012** restaurada para uma instância do SERVIDOR RDS SQL do SQL Server 2012 (ou mais tarde) para a Base de Dados SQL ou uma SqL Managed Instance utilizando o Serviço de Migração da Base de Dados Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Crie uma instância de Azure SQL Database ou uma SQL Managed Instance. 
 > * Utilizar o Assistente de Migração de Dados para migrar o esquema de exemplo.
@@ -247,7 +247,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 4. **Selecione Guardar**, depois de definir as **seguintes definições avançadas de migração on-line**.
 
-    | Definição | Descrição |
+    | Definição | Description |
     | ------------- | ------------- |
     | **Número máximo de tabelas para carregar em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades específicas de migração com base em quaisquer migrações de POC. |
     | **Quando a tabela de origem é truncada** | Especifica se o DMS trunca a tabela-alvo durante a migração. Esta definição pode ser útil se uma ou mais tabelas forem truncadas como parte do processo de migração. |
