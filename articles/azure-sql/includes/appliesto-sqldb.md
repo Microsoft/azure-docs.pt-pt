@@ -6,4 +6,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84041737"
 ---
-<Token>**Aplica-se a:** ![ Sim ](../media/applies-to/yes.png) Base de Dados Azure SQL</Token>
+<Token>**APLICA-SE A:** ![ Sim ](../media/applies-to/yes.png) Azure SQL Base de Dados</Token>

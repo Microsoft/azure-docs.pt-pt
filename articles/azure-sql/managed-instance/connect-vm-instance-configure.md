@@ -53,10 +53,10 @@ Os passos seguintes criam uma nova sub-rede no SQL Managed Instance VNet para qu
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Uma gama válida | O valor predefinido é bom para este arranque rápido.|
-   | **Grupo de segurança de rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
-   | **Tabela de rota** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Grupo de segurança de rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
+   | **Tabela de rota** | Nenhum | O valor predefinido é bom para este arranque rápido.|
    | **Pontos finais de serviço** | 0 selecionados | O valor predefinido é bom para este arranque rápido.|
-   | **Delegação de sub-rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Delegação de sub-rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
 
    ![Nova sub-rede sql de instância gerida para cliente VM](./media/connect-vm-instance-configure/new-subnet.png)
 

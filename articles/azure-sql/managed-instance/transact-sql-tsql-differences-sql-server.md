@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: f6909acc5e4d4f56fb301a225f6dd854ba6f21e4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 190d0bd242a685487480d4da613f354277663d9c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259563"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308035"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -54,7 +54,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 
 ### <a name="backup"></a>Cópia de segurança
 
-As ocorrências geridas sql têm cópias de segurança automáticas, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
+SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
 - Com uma SQL Managed Instance, pode fazer uma rede de dados de casos apenas para uma conta de armazenamento Azure Blob:
   - Só `BACKUP TO URL` é apoiado.
@@ -69,16 +69,16 @@ Limitações:
 
 - Com uma SQL Managed Instance, pode fazer backup de uma base de dados de casos para uma cópia de segurança com até 32 listras, o que é suficiente para bases de dados até 4 TB se for utilizada compressão de backup.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados encriptada com encriptação de dados transparentes gerida pelo serviço (TDE). O TDE gerido pelo serviço obriga a que as cópias de segurança sejam encriptadas com uma chave TDE interna. A chave não pode ser exportada, por isso não podes restaurar a reserva. Utilize cópias de segurança automáticas e restauro pontual ou utilize [o TDE gerido pelo cliente (BYOK).](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) Também pode desativar a encriptação na base de dados.
-- O tamanho máximo de faixa de backup utilizando o `BACKUP` comando numa SQL Managed Instance é de 195 GB, que é o tamanho máximo de bolha. Aumente o número de listras no comando de backup para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
+- O tamanho máximo de listra de backup utilizando o `BACKUP` comando em SQL Managed Instance é de 195 GB, que é o tamanho máximo de blob. Aumente o número de listras no comando de backup para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
 
     > [!TIP]
     > Para contornar esta limitação, quando faz uma produção de uma base de dados a partir de um SQL Server num ambiente no local ou numa máquina virtual, pode:
     >
     > - Voltar para `DISK` em vez de recuar até `URL` .
     > - Faça o upload dos ficheiros de reserva para o armazenamento blob.
-    > - Restaurar na Sql Managed Instance.
+    > - Restaurar em SQL Caso Gerido.
     >
-    > O `Restore` comando numa SQL Managed Instance suporta tamanhos de bolhas maiores nos ficheiros de cópia de segurança porque um tipo de blob diferente é usado para armazenamento dos ficheiros de backup carregados.
+    > O `Restore` comando em SQL Managed Instance suporta tamanhos de bolhas maiores nos ficheiros de cópia de segurança porque um tipo de blob diferente é usado para armazenamento dos ficheiros de backup carregados.
 
 Para obter informações sobre cópias de segurança utilizando o T-SQL, consulte [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
@@ -97,7 +97,7 @@ A auditoria do XEvent em SQL Managed Instance suporta alvos de armazenamento Azu
 As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazenamento da Azure Blob são:
 
 - Uma nova sintaxe `TO URL` é fornecida que pode usar para especificar o URL do recipiente de armazenamento Azure Blob onde os `.xel` ficheiros são colocados.
-- A sintaxe `TO FILE` não é suportada porque uma SQL Managed Instance não pode aceder a partilhas de ficheiros do Windows.
+- A sintaxe `TO FILE` não é suportada porque a SQL Managed Instance não consegue aceder às partilhas de ficheiros do Windows.
 
 Para obter mais informações, consulte: 
 
@@ -107,7 +107,7 @@ Para obter mais informações, consulte:
 
 ### <a name="certificates"></a>Certificados
 
-Uma sql Managed Instance não pode aceder a partilhas de ficheiros e pastas Windows, pelo que aplicam-se os seguintes constrangimentos:
+A SQL Managed Instance não pode aceder a partilhas de ficheiros e pastas Windows, pelo que aplicam-se os seguintes constrangimentos:
 
 - O `CREATE FROM` / `BACKUP TO` ficheiro não é suportado para certificados.
 - O `CREATE` / `BACKUP` certificado `FILE` / `ASSEMBLY` não é suportado. Ficheiros de chaves privadas não podem ser usados. 
@@ -130,7 +130,7 @@ Consulte [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sq
 
 ### <a name="cryptographic-providers"></a>Fornecedores criptográficos
 
-Um SQL Managed Instance não pode aceder a ficheiros, por isso os fornecedores criptográficos não podem ser criados:
+A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedores criptográficos não podem ser criados:
 
 - `CREATE CRYPTOGRAPHIC PROVIDER`não é apoiado. Consulte [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER`não é apoiado. Consulte [o PROVEDOR CRIPTOGRÁFICO ALTER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
@@ -165,13 +165,13 @@ Um SQL Managed Instance não pode aceder a ficheiros, por isso os fornecedores c
     - Exporte uma base de dados da SQL Managed Instance e importe para a SQL Database dentro do mesmo domínio AD Azure. 
     - Exporte uma base de dados da Base de Dados SQL e importe para a SQL Managed Instance dentro do mesmo domínio AD Azure.
     - Exporte uma base de dados da SQL Managed Instance e importe para o SQL Server (versão 2012 ou posterior).
-      - Nesta configuração, todos os utilizadores AZure AD são criados como principais da base de dados SQL (utilizadores) sem logins. O tipo de utilizadores está listado como SQL (visível como SQL_USER em sys.database_principals). As suas permissões e funções permanecem nos metadados da base de dados do SQL Server e podem ser utilizados para a personificação. No entanto, não podem ser utilizados para aceder e iniciar sessão no SQL Server utilizando as suas credenciais.
+      - Nesta configuração, todos os utilizadores AD do Azure são criados como principais da base de dados do SQL Server (utilizadores) sem logins. O tipo de utilizadores está listado como `SQL` e é visível como em `SQL_USER` sys.database_principals). As suas permissões e funções permanecem nos metadados da base de dados do SQL Server e podem ser utilizados para a personificação. No entanto, não podem ser utilizados para aceder e iniciar sessão no SQL Server utilizando as suas credenciais.
 
 - Apenas o login principal de nível de servidor, que é criado pelo processo de provisionamento de instância gerida SQL, membros das funções do servidor, tais como `securityadmin` `sysadmin` ou , ou outros logins com permissão DE LOGIN alter any ao nível do servidor podem criar principais do servidor Azure (logins) na base de dados principal para SQL Managed Instance.
 - Se o login for um principal SQL, apenas os logins que fazem parte da `sysadmin` função podem usar o comando criar para criar logins para uma conta AD Azure.
 - O login Azure AD deve ser membro de um AD Azure dentro do mesmo diretório que é usado para Azure SQL Managed Instance.
 - Os principais servidores AD do Azure (logins) são visíveis no Object Explorer a partir do SQL Server Management Studio 18.0 pré-visualização 5.
-- São permitidos os principais dos servidores AZure AD (logins) com uma conta de administração AD Azure. Os principais servidores AD do Azure (logins) têm precedência sobre a administração AD Azure quando resolve o principal e aplica permissões à SqL Managed Instance.
+- São permitidos os principais dos servidores AZure AD (logins) com uma conta de administração AD Azure. Os principais servidores AD do Azure (logins) têm precedência sobre a administração AD Azure quando resolve o principal e aplica permissões à SQL Managed Instance.
 - Durante a autenticação, é aplicada a seguinte sequência para resolver o principal autenticador:
 
     1. Se a conta AD Azure existir como diretamente mapeada para o principal do servidor AD Azure (login), que está presente em sys.server_principals como tipo "E", conceder acesso e aplicar permissões do servidor Azure AD principal (login).
@@ -243,7 +243,7 @@ Para mais informações, consulte [a BASE DE DADOS CREATE.](/sql/t-sql/statement
 
 Algumas propriedades de ficheiros não podem ser definidas ou alteradas:
 
-- Um caminho de arquivo não pode ser especificado na `ALTER DATABASE ADD FILE (FILENAME='path')` declaração T-SQL. `FILENAME`Remova do script porque uma sql Managed Instance coloca automaticamente os ficheiros. 
+- Um caminho de arquivo não pode ser especificado na `ALTER DATABASE ADD FILE (FILENAME='path')` declaração T-SQL. `FILENAME`Remova do script porque SQL Managed Instance coloca automaticamente os ficheiros. 
 - Um nome de ficheiro não pode ser alterado usando a `ALTER DATABASE` declaração.
 
 As seguintes opções são definidas por padrão e não podem ser alteradas:
@@ -291,7 +291,7 @@ Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter
     - O passo de trabalho de replicação de fusão não é suportado. 
     - O Leitor de Fila não é apoiado. 
     - A cápsula de comando ainda não está suportada.
-  - Sql Managed Instances não pode aceder a recursos externos, por exemplo, partilhas de rede via robocopia. 
+  - A SQL Managed Instance não consegue aceder a recursos externos, por exemplo, partilhas de rede via robocopia. 
   - Os Serviços de Análise de Servidores SQL não são suportados.
 - As notificações são parcialmente suportadas.
 - A notificação por e-mail é suportada, embora exija que configuure um perfil de Correio de Base de Dados. O Agente do Servidor SQL pode utilizar apenas um perfil de Correio de base de dados, e deve ser chamado `AzureManagedInstance_dbmail_profile` de . 
@@ -325,11 +325,11 @@ Para obter informações sobre como criar e alterar tabelas, consulte [CREATE TA
 
 ### <a name="bulk-insert--openrowset"></a>Inserção a granel / OPENROWSET
 
-Uma sql Managed Instance não pode aceder a partilhas de ficheiros e pastas Windows, pelo que os ficheiros devem ser importados do armazenamento da Azure Blob:
+A SQL Managed Instance não consegue aceder a partilhas de ficheiros e pastas Windows, pelo que os ficheiros devem ser importados a partir do armazenamento do Azure Blob:
 
 - `DATASOURCE`é necessário no `BULK INSERT` comando enquanto importa ficheiros do armazenamento Azure Blob. Ver [INSERÇÃO A GRANEL](/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE`é necessário na `OPENROWSET` função quando ler o conteúdo de um ficheiro a partir do armazenamento da Azure Blob. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET`pode ser usado para ler dados de outras bases de dados únicas do Azure SQL, sql Managed Instances ou SQL Server. Outras fontes, como bases de dados Oracle ou ficheiros Excel, não são suportadas.
+- `OPENROWSET`pode ser usado para ler dados a partir de Azure SQL Database, Azure SQL Managed Instance, ou SQL Server instances. Outras fontes, como bases de dados Oracle ou ficheiros Excel, não são suportadas.
 
 ### <a name="clr"></a>CLR
 
@@ -345,7 +345,7 @@ Uma sql Managed Instance não pode aceder a partilhas de ficheiros e pastas Wind
  
 ### <a name="dbcc"></a>DBCC
 
-As declarações não documentadas do DBCC que estão ativadas no SQL Server não são suportadas em SQL Managed Instances.
+As declarações não documentadas do DBCC que estão ativadas no SQL Server não são suportadas em SQL Managed Instance.
 
 - Apenas um número limitado de bandeiras globais de rastreio são suportados. O nível da `Trace flags` sessão não é suportado. Ver [trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) e [DBCC TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) trabalham com o número limitado de trace-flags globais.
@@ -353,7 +353,7 @@ As declarações não documentadas do DBCC que estão ativadas no SQL Server nã
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-MsDTC e [transações elásticas](../database/elastic-transactions-overview.md) atualmente não são suportadas em SQL Managed Instances.
+MsDTC e [transações elásticas](../database/elastic-transactions-overview.md) atualmente não são suportados em SQL Managed Instance.
 
 ### <a name="extended-events"></a>Eventos Expandidos
 
@@ -387,7 +387,7 @@ Para obter mais informações, consulte [FILESTREAM](/sql/relational-databases/b
 
 ### <a name="linked-servers"></a>Servidores ligados
 
-Servidores ligados em SQL Managed Instances suportam um número limitado de alvos:
+Servidores ligados em SQL Managed Instance suportam um número limitado de alvos:
 
 - Os alvos suportados são sql Gestd Instance, SQL Database, Azure Synapse SQL e SQL Server. 
 - Os servidores ligados não suportam transações writable distribuídas (MS DTC).
@@ -409,8 +409,8 @@ As tabelas externas que referenciam os ficheiros no armazenamento hdfs ou Azure 
 
 - Os tipos de replicação snapshot e bidis são suportados. A replicação de fusão, a replicação peer-to-peer e as subscrições updatable não são suportadas.
 - [A replicação transacional](replication-transactional-overview.md) está disponível para pré-visualização pública em SQL Managed Instance com alguns constrangimentos:
-    - Todos os tipos de participantes de replicação (Editor, Distribuidor, Assinante Pull e Assinante Push) podem ser colocados em SQL Managed Instances, mas o editor e o distribuidor devem estar tanto na nuvem como em ambos os locais.
-    - Sql Managed Instances pode comunicar com as versões recentes do SQL Server. Consulte a matriz de [versões suportadas](replication-transactional-overview.md#supportability-matrix) para obter mais informações.
+    - Todos os tipos de participantes de replicação (Editor, Distribuidor, Assinante Pull e Push) podem ser colocados em SQL Managed Instance, mas o editor e o distribuidor devem estar tanto na nuvem como em ambos no local.
+    - SQL Managed Instance pode comunicar com as versões recentes do SQL Server. Consulte a matriz de [versões suportadas](replication-transactional-overview.md#supportability-matrix) para obter mais informações.
     - A Replicação Transacional tem alguns [requisitos adicionais de rede.](replication-transactional-overview.md#requirements)
 
 Para obter mais informações sobre a configuração da replicação transacional, consulte os seguintes tutoriais:
@@ -486,10 +486,10 @@ O corretor de serviços de cross-instance não é suportado:
 As seguintes variáveis, funções e vistas retornam diferentes resultados:
 
 - `SERVERPROPERTY('EngineEdition')`devolve o valor 8. Esta propriedade identifica exclusivamente uma SQL Managed Instance. Ver [SERVERProPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`retorna NU PORQUE o conceito de instância tal como existe para o SQL Server não se aplica a uma SqL Managed Instance. Ver [SERVERPROPERTY ('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')`retorna NU PORQUE o conceito de instância tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [SERVERPROPERTY ('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME`retorna um nome "conectável" DNS completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Ver [ @SERVERNAME @](/sql/t-sql/functions/servername-transact-sql) 
 - `SYS.SERVERS`retorna um nome "conectável" DNS completo, como `myinstance.domain.database.windows.net` para as propriedades "nome" e "data_source". Ver [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`retorna NU PORQUE o conceito de serviço tal como existe para o SQL Server não se aplica a uma SQL Managed Instance. Ver [ @SERVICENAME @](/sql/t-sql/functions/servicename-transact-sql)
+- `@@SERVICENAME`retorna NU PORQUE o conceito de serviço tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [ @SERVICENAME @](/sql/t-sql/functions/servicename-transact-sql)
 - `SUSER_ID`é apoiado. Retorna NU SE o login AZURE AD não estiver em sys.syslogins. Ver [SUSER_ID.](/sql/t-sql/functions/suser-id-transact-sql) 
 - `SUSER_SID`não é apoiado. Os dados errados são devolvidos, o que é uma questão temporária conhecida. Ver [SUSER_SID.](/sql/t-sql/functions/suser-sid-transact-sql) 
 
@@ -505,7 +505,7 @@ As seguintes variáveis, funções e vistas retornam diferentes resultados:
 ### <a name="vnet"></a>VNET
 - O VNet pode ser implementado utilizando o Modelo de Recurso - O modelo clássico para o VNet não é suportado.
 - Após a criação de um SQL Managed Instance, a deslocação da SQL Managed Instance ou VNet para outro grupo de recursos ou subscrição não é suportada.
-- Alguns serviços como Ambientes de Serviço de Aplicações, aplicações lógicas e casos geridos sql (utilizados para geo-replicação, replicação transacional ou através de servidores ligados) não podem aceder a SqL Managed Instances em diferentes regiões se os seus VNets estiverem ligados através de [um espreguite global.](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) Pode ligar-se a estes recursos através do ExpressRoute ou VNet-to-VNet através do VNet Gateways.
+- Alguns serviços como Ambientes de Serviço de Aplicações, aplicações lógicas e sql Managed Instance (utilizados para geo-replicação, replicação transacional ou através de servidores ligados) não podem aceder ao SQL Managed Instance em diferentes regiões se os seus VNets estiverem ligados através de [um espreguite global.](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) Pode ligar-se a estes recursos através do ExpressRoute ou VNet-to-VNet através do VNet Gateways.
 
 ### <a name="failover-groups"></a>Grupos de ativação pós-falha
 As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
@@ -536,11 +536,11 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 ### <a name="error-logs"></a>Registos de erros
 
-Uma ocorrência gerida SQL coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
+SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre as instâncias geridas do SQL, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
+- Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).
 - Para atualizações de lançamento e problemas conhecidos, consulte [as notas de lançamento da SQL Managed Instance](../database/doc-changes-updates-release-notes.md)
 - Para um arranque rápido que lhe mostre como criar uma nova SQL Managed Instance, consulte [Criar uma SqL Managed Instance](instance-create-quickstart.md).

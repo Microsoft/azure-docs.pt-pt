@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: 79a9f59b4fb6f7ae71c1e6866e8c50baa4e7974b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a050e38f037ee0ed2741cfa2e509e21fa9e1151d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193756"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310228"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migrar utilizadores e grupos windows em uma instância sql servidor para Azure SQL Managed Instance usando a sintaxe T-SQL DDL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84193756"
 
 Este artigo leva-o através do processo de migração dos seus utilizadores e grupos windows no seu SQL Server para Azure SQL Managed Instance usando a sintaxe T-SQL.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -314,7 +314,7 @@ Execute o comando ALTER USER para concluir o processo de migração em SQL Manag
 
 Teste autenticando a SQL Managed Instance utilizando o utilizador previamente mapeado para o login AD Azure utilizando a sintaxe ALTER USER.
 
-1. Inicie sessão no VM federado usando a sua subscrição mi como`aadsqlmi\testUser1`
+1. Inicie sessão no VM federado utilizando a sua subscrição de Instância Gerida Azure SQL como`aadsqlmi\testUser1`
 1. Utilizando o SQL Server Management Studio (SSMS), inscreva-se na sua SQL Managed Instance utilizando a autenticação **integrada do Diretório Ativo,** conectando-se à base de dados `migration` .
     1. Também pode iniciar serção utilizando as testUser1@aadsqlmi.net credenciais com a opção SSMS **Ative Directory – Universal com suporte MFA.** No entanto, neste caso, não pode utilizar o mecanismo Single Sign On e deve escrever uma palavra-passe. Não precisará de usar um VM federado para iniciar sessão na sua SQL Managed Instance.
 1. Como parte do membro da função **SELECT,** pode selecionar a partir da `test` tabela
@@ -325,8 +325,8 @@ Teste autenticando a SQL Managed Instance utilizando o utilizador previamente ma
 
 Teste autenticado para uma SQL Managed Instance utilizando um membro de um grupo Windows `migration` . O utilizador `aadsqlmi\testGroupUser` deveria ter sido adicionado ao grupo antes da `migration` migração.
 
-1. Inicie sessão no VM federado usando a sua subscrição mi como`aadsqlmi\testGroupUser`
-1. Utilizando SSMS com autenticação **integrada do Diretório Ativo,** ligue-se ao servidor MI e à base de dados`migration`
+1. Inicie sessão no VM federado utilizando a sua subscrição de Instância Gerida Azure SQL como`aadsqlmi\testGroupUser`
+1. Utilizando SSMS com autenticação **integrada do Diretório Ativo,** ligue-se ao servidor Azure SQL Managed Instance e à base de dados`migration`
     1. Também pode iniciar serção utilizando as testGroupUser@aadsqlmi.net credenciais com a opção SSMS **Ative Directory – Universal com suporte MFA.** No entanto, neste caso, não pode utilizar o mecanismo Single Sign On e deve escrever uma palavra-passe. Não precisará de utilizar um VM federado para iniciar sessão na sua SQL Managed Instance.
 1. Como parte do `db_owner` papel, pode criar uma nova mesa.
 

@@ -1,45 +1,30 @@
 ---
-title: 'Quickstart: Computer Vision 2.1 e 3.0 - Extrair texto impresso e manuscrito - REST, Java'
+title: 'Quickstart: Visão Computacional 2.1 e 3.0 - Extrato de texto impresso e manuscrito - REST, Java'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem utilizando a API computer Vision com Java.
+description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador com Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 05/28/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d26b75e3839eac6c1a2ad32507a4d708495fda36
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d01cb759dcbddfbe23e3a5695209786ecc573451
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683175"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298742"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e Java de Visão Computacional
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e Java da Visão de Computador
 
-Neste arranque rápido, irá extrair texto impresso e/ou manuscrito de uma imagem utilizando a API DE DESCANSO DA Visão Computacional. Com os métodos [de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e leitura do resultado da [operação,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legível por máquina. O serviço determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, de modo a suportar imagens com texto impresso e manuscrito.
+Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador. Com os métodos [Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina.
 
-Esta funcionalidade está disponível tanto num API v2.1 como num API de pré-visualização pública v3.0. Em comparação com o v2.1, o 3.0 API tem:
-
-* Precisão melhorada
-* Pontuações de confiança para palavras
-* Apoio tanto ao espanhol como ao inglês com o parâmetro adicional `language`
-* Um formato de saída diferente
-
-Selecione o separador abaixo para a versão que está a utilizar.
-
-#### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
-
-#### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
-
-> [!IMPORTANT]
-> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.
 
 ---
 
@@ -48,149 +33,11 @@ Selecione o separador abaixo para a versão que está a utilizar.
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 - Tem de ter a plataforma [Java&trade;, Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalada.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [conta Criar serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão de Computador e obter a sua chave. 
+- [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e cadeia de ponto final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
-#### <a name="version-2"></a>[Versão 2](#tab/version-2)
-
-Para criar e executar o exemplo, siga os seguintes passos:
-
-1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
-1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
-   - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
-   - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
-   - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-1. Adicione as seguintes instruções `import` ao ficheiro que contém a classe pública `Main` do seu projeto.  
-
-   ```java
-   import java.net.URI;
-   import org.apache.http.HttpEntity;
-   import org.apache.http.HttpResponse;
-   import org.apache.http.client.methods.HttpGet;
-   import org.apache.http.client.methods.HttpPost;
-   import org.apache.http.client.utils.URIBuilder;
-   import org.apache.http.entity.StringEntity;
-   import org.apache.http.impl.client.CloseableHttpClient;
-   import org.apache.http.impl.client.HttpClientBuilder;
-   import org.apache.http.util.EntityUtils;
-   import org.apache.http.Header;
-   import org.json.JSONObject;
-   ```
-
-1. Substitua a `Main` classe pública pelo seguinte código.
-1. Opcionalmente, substitua o valor de uma imagem diferente a `imageToAnalyze` partir da qual pretende extrair texto.
-1. Guarde e, em seguida, crie o projeto Java.
-1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
-
-```java
-public class Main {
-    // Add your Computer Vision subscription key and endpoint to your environment variables.
-    // After setting, close and then re-open your command shell or project for the changes to take effect.
-    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
-
-    private static final String uriBase = endpoint + 
-            "vision/v2.1/read/core/asyncBatchAnalyze";
-
-    private static final String imageToAnalyze =
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
-        "Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg";
-
-    public static void main(String[] args) {
-        CloseableHttpClient httpTextClient = HttpClientBuilder.create().build();
-        CloseableHttpClient httpResultClient = HttpClientBuilder.create().build();;
-
-        try {
-            // This operation requires two REST API calls. One to submit the image
-            // for processing, the other to retrieve the text found in the image.
-
-            URIBuilder builder = new URIBuilder(uriBase);
-
-            // Prepare the URI for the REST API method.
-            URI uri = builder.build();
-            HttpPost request = new HttpPost(uri);
-
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // Request body.
-            StringEntity requestEntity =
-                    new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
-            request.setEntity(requestEntity);
-
-            // Two REST API methods are required to extract text.
-            // One method to submit the image for processing, the other method
-            // to retrieve the text found in the image.
-
-            // Call the first REST API method to detect the text.
-            HttpResponse response = httpTextClient.execute(request);
-
-            // Check for success.
-            if (response.getStatusLine().getStatusCode() != 202) {
-                // Format and display the JSON error message.
-                HttpEntity entity = response.getEntity();
-                String jsonString = EntityUtils.toString(entity);
-                JSONObject json = new JSONObject(jsonString);
-                System.out.println("Error:\n");
-                System.out.println(json.toString(2));
-                return;
-            }
-
-            // Store the URI of the second REST API method.
-            // This URI is where you can get the results of the first REST API method.
-            String operationLocation = null;
-
-            // The 'Operation-Location' response header value contains the URI for
-            // the second REST API method.
-            Header[] responseHeaders = response.getAllHeaders();
-            for (Header header : responseHeaders) {
-                if (header.getName().equals("Operation-Location")) {
-                    operationLocation = header.getValue();
-                    break;
-                }
-            }
-
-            if (operationLocation == null) {
-                System.out.println("\nError retrieving Operation-Location.\nExiting.");
-                System.exit(1);
-            }
-
-            // If the first REST API method completes successfully, the second
-            // REST API method retrieves the text written in the image.
-            //
-            // Note: The response may not be immediately available. Text
-            // recognition is an asynchronous operation that can take a variable
-            // amount of time depending on the length of the text.
-            // You may need to wait or retry this operation.
-
-            System.out.println("\nText submitted.\n" +
-                    "Waiting 10 seconds to retrieve the recognized text.\n");
-            Thread.sleep(10000);
-
-            // Call the second REST API method and get the response.
-            HttpGet resultRequest = new HttpGet(operationLocation);
-            resultRequest.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            HttpResponse resultResponse = httpResultClient.execute(resultRequest);
-            HttpEntity responseEntity = resultResponse.getEntity();
-
-            if (responseEntity != null) {
-                // Format and display the JSON response.
-                String jsonString = EntityUtils.toString(responseEntity);
-                JSONObject json = new JSONObject(jsonString);
-                System.out.println("Text recognition result response: \n");
-                System.out.println(json.toString(2));
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-}
-```
-
-#### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
@@ -217,8 +64,8 @@ Para criar e executar o exemplo, siga os seguintes passos:
     ```
 
 1. Substitua a `Main` classe pública pelo seguinte código.
-1. Opcionalmente, substitua o valor da `language` linguagem que pretende reconhecer. Os valores aceites são "en" para inglês e "es" para o espanhol.
-1. Opcionalmente, substitua o valor de uma imagem diferente a `imageToAnalyze` partir da qual pretende extrair texto.
+1. Opcionalmente, substitua o valor do `language` idioma que pretende reconhecer. Valores aceites são "en" para inglês e "es" para espanhol.
+1. Opcionalmente, substitua o valor de `imageToAnalyze` uma imagem diferente da qual pretende extrair texto.
 1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
@@ -235,7 +82,7 @@ public class Main {
     // Accepted values are "en" for English, or "es" for Spanish
     private static String language = "en";  
 
-    private static String uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+    private static String uriBase = endpoint + "/vision/v3.0/read/analyze";
 
     private static String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
@@ -339,430 +186,209 @@ public class Main {
 }
 ```
 
----
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
 O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
-#### <a name="version-2"></a>[Versão 2](#tab/version-2)
-
-```json
-Text submitted. Waiting 10 seconds to retrieve the recognized text.
-
-Text recognition result response:
-
-{
-  "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 349.59,
-      "width": 3200,
-      "height": 3200,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [202,618,2047,643,2046,840,200,813],
-          "text": "Our greatest glory is not",
-          "words": [
-            {
-              "boundingBox": [204,627,481,628,481,830,204,829],
-              "text": "Our"
-            },
-            {
-              "boundingBox": [519,628,1057,630,1057,832,518,830],
-              "text": "greatest"
-            },
-            {
-              "boundingBox": [1114,630,1549,631,1548,833,1114,832],
-              "text": "glory"
-            },
-            {
-              "boundingBox": [1586,631,1785,632,1784,834,1586,833],
-              "text": "is"
-            },
-            {
-              "boundingBox": [1822,632,2115,633,2115,835,1822,834],
-              "text": "not"
-            }
-          ]
-        },
-        {
-          "boundingBox": [420,1273,2954,1250,2958,1488,422,1511],
-          "text": "but in rising every time we fall",
-          "words": [
-            {
-              "boundingBox": [423,1269,634,1268,635,1507,424,1508],
-              "text": "but"
-            },
-            {
-              "boundingBox": [667,1268,808,1268,809,1506,668,1507],
-              "text": "in"
-            },
-            {
-              "boundingBox": [874,1267,1289,1265,1290,1504,875,1506],
-              "text": "rising"
-            },
-            {
-              "boundingBox": [1331,1265,1771,1263,1772,1502,1332,1504],
-              "text": "every"
-            },
-            {
-              "boundingBox": [1812, 1263, 2178, 1261, 2179, 1500, 1813, 1502],
-              "text": "time"
-            },
-            {
-              "boundingBox": [2219, 1261, 2510, 1260, 2511, 1498, 2220, 1500],
-              "text": "we"
-            },
-            {
-              "boundingBox": [2551, 1260, 3016, 1258, 3017, 1496, 2552, 1498],
-              "text": "fall"
-            }
-          ]
-        },
-        {
-          "boundingBox": [1612, 903, 2744, 935, 2738, 1139, 1607, 1107],
-          "text": "in never failing ,",
-          "words": [
-            {
-              "boundingBox": [1611, 934, 1707, 933, 1708, 1147, 1613, 1147],
-              "text": "in"
-            },
-            {
-              "boundingBox": [1753, 933, 2132, 930, 2133, 1144, 1754, 1146],
-              "text": "never"
-            },
-            {
-              "boundingBox": [2162, 930, 2673, 927, 2674, 1140, 2164, 1144],
-              "text": "failing"
-            },
-            {
-              "boundingBox": [2703, 926, 2788, 926, 2790, 1139, 2705, 1140],
-              "text": ",",
-              "confidence": "Low"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-#### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
 
 ```json
 {
+  "status": "succeeded",
+  "createdDateTime": "2020-05-28T05:13:21Z",
+  "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "readResults": [{
-      "unit": "pixel",
-      "width": 800,
-      "angle": 0.8206,
-      "language": "en",
-      "page": 1,
-      "lines": [
-        {
-          "boundingBox": [
-            6,
-            4,
-            774,
-            14,
-            773,
-            61,
-            5,
-            49
-          ],
-          "words": [
-            {
-              "boundingBox": [
-                14,
-                5,
-                76,
-                6,
-                74,
-                49,
-                12,
-                48
-              ],
-              "confidence": 0.83,
-              "text": "The"
-            },
-            {
-              "boundingBox": [
-                84,
-                6,
-                182,
-                7,
-                180,
-                51,
-                82,
-                49
-              ],
-              "confidence": 0.762,
-              "text": "quick"
-            },
-            {
-              "boundingBox": [
-                191,
-                7,
-                312,
-                9,
-                309,
-                54,
-                189,
-                51
-              ],
-              "confidence": 0.67,
-              "text": "brown"
-            },
-            {
-              "boundingBox": [
-                320,
-                9,
-                382,
-                10,
-                379,
-                55,
-                317,
-                54
-              ],
-              "confidence": 0.849,
-              "text": "fox"
-            },
-            {
-              "boundingBox": [
-                390,
-                10,
-                497,
-                11,
-                493,
-                57,
-                387,
-                55
-              ],
-              "confidence": 0.703,
-              "text": "jumps"
-            },
-            {
-              "boundingBox": [
-                506,
-                11,
-                596,
-                12,
-                591,
-                59,
-                502,
-                57
-              ],
-              "confidence": 0.799,
-              "text": "over"
-            },
-            {
-              "boundingBox": [
-                604,
-                12,
-                666,
-                13,
-                661,
-                60,
-                600,
-                59
-              ],
-              "confidence": 0.923,
-              "text": "the"
-            },
-            {
-              "boundingBox": [
-                674,
-                13,
-                773,
-                14,
-                768,
-                62,
-                670,
-                60
-              ],
-              "confidence": 0.863,
-              "text": "lazy"
-            }
-          ],
-          "language": "en",
-          "text": "The quick brown fox jumps over the lazy"
-        },
-        {
-          "boundingBox": [
-            5,
-            53,
-            79,
-            56,
-            77,
-            95,
-            4,
-            92
-          ],
-          "words": [{
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "en",
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
+        "unit": "pixel",
+        "lines": [
+          {
             "boundingBox": [
-              6,
-              53,
-              74,
-              56,
-              72,
-              95,
-              5,
-              92
+              67,
+              646,
+              2582,
+              713,
+              2580,
+              876,
+              67,
+              821
             ],
-            "confidence": 0.418,
-            "text": "dog"
-          }],
-          "language": "en",
-          "text": "dog"
-        },
-        {
-          "boundingBox": [
-            0,
-            90,
-            787,
-            95,
-            787,
-            145,
-            0,
-            136
-          ],
-          "words": [
-            {
-              "boundingBox": [
-                1,
-                96,
-                79,
-                93,
-                79,
-                135,
-                0,
-                136
-              ],
-              "confidence": 0.835,
-              "text": "Pack"
-            },
-            {
-              "boundingBox": [
-                87,
-                93,
-                151,
-                92,
-                151,
-                135,
-                87,
-                135
-              ],
-              "confidence": 0.88,
-              "text": "my"
-            },
-            {
-              "boundingBox": [
-                162,
-                92,
-                226,
-                91,
-                225,
-                135,
-                161,
-                135
-              ],
-              "confidence": 0.301,
-              "text": "box"
-            },
-            {
-              "boundingBox": [
-                234,
-                91,
-                335,
-                90,
-                335,
-                135,
-                233,
-                135
-              ],
-              "confidence": 0.959,
-              "text": "with"
-            },
-            {
-              "boundingBox": [
-                346,
-                91,
-                418,
-                91,
-                417,
-                136,
-                345,
-                135
-              ],
-              "confidence": 0.489,
-              "text": "five"
-            },
-            {
-              "boundingBox": [
-                426,
-                91,
-                527,
-                93,
-                527,
-                138,
-                425,
-                136
-              ],
-              "confidence": 0.727,
-              "text": "dozen"
-            },
-            {
-              "boundingBox": [
-                554,
-                94,
-                687,
-                98,
-                687,
-                143,
-                553,
-                139
-              ],
-              "confidence": 0.377,
-              "text": "liquor"
-            },
-            {
-              "boundingBox": [
-                701,
-                99,
-                787,
-                103,
-                787,
-                146,
-                700,
-                143
-              ],
-              "confidence": 0.693,
-              "text": "jugs"
-            }
-          ],
-          "language": "en",
-          "text": "Pack my box with five dozen liquor jugs"
-        }
-      ],
-      "height": 154
-    }],
-    "version": "3.0.0"
-  },
-  "createdDateTime": "2020-02-11T21:21:14Z",
-  "lastUpdatedDateTime": "2020-02-11T21:21:19Z",
-  "status": "succeeded"
+            "text": "The quick brown fox jumps",
+            "words": [
+              {
+                "boundingBox": [
+                  143,
+                  650,
+                  435,
+                  661,
+                  436,
+                  823,
+                  144,
+                  824
+                ],
+                "text": "The",
+                "confidence": 0.958
+              },
+              {
+                "boundingBox": [
+                  540,
+                  665,
+                  926,
+                  679,
+                  926,
+                  825,
+                  541,
+                  823
+                ],
+                "text": "quick",
+                "confidence": 0.57
+              },
+              {
+                "boundingBox": [
+                  1125,
+                  686,
+                  1569,
+                  700,
+                  1569,
+                  838,
+                  1125,
+                  828
+                ],
+                "text": "brown",
+                "confidence": 0.799
+              },
+              {
+                "boundingBox": [
+                  1674,
+                  703,
+                  1966,
+                  711,
+                  1966,
+                  851,
+                  1674,
+                  841
+                ],
+                "text": "fox",
+                "confidence": 0.442
+              },
+              {
+                "boundingBox": [
+                  2083,
+                  714,
+                  2580,
+                  725,
+                  2579,
+                  876,
+                  2083,
+                  855
+                ],
+                "text": "jumps",
+                "confidence": 0.878
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              187,
+              1062,
+              485,
+              1056,
+              486,
+              1120,
+              189,
+              1126
+            ],
+            "text": "over",
+            "words": [
+              {
+                "boundingBox": [
+                  190,
+                  1064,
+                  439,
+                  1059,
+                  441,
+                  1122,
+                  192,
+                  1126
+                ],
+                "text": "over",
+                "confidence": 0.37
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              664,
+              1008,
+              1973,
+              1023,
+              1969,
+              1178,
+              664,
+              1154
+            ],
+            "text": "the lazy dog!",
+            "words": [
+              {
+                "boundingBox": [
+                  668,
+                  1008,
+                  923,
+                  1015,
+                  923,
+                  1146,
+                  669,
+                  1117
+                ],
+                "text": "the",
+                "confidence": 0.909
+              },
+              {
+                "boundingBox": [
+                  1107,
+                  1018,
+                  1447,
+                  1023,
+                  1445,
+                  1178,
+                  1107,
+                  1162
+                ],
+                "text": "lazy",
+                "confidence": 0.853
+              },
+              {
+                "boundingBox": [
+                  1639,
+                  1024,
+                  1974,
+                  1023,
+                  1971,
+                  1170,
+                  1636,
+                  1178
+                ],
+                "text": "dog!",
+                "confidence": 0.41
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
----
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Próximos passos
-
-Em seguida, explore uma aplicação Java Swing que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
+Em seguida, explore uma aplicação Java Swing que usa a Visão de Computador para realizar o reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 
 > [!div class="nextstepaction"]
 > [Tutorial de Java de API de Imagem Digitalizada](../Tutorials/java-tutorial.md)

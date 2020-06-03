@@ -1,71 +1,74 @@
 ---
-title: Integrar a renderização remota numa aplicação holográfica C++/DirectX11
-description: Explica como integrar a Renderização Remota numa simples Aplicação Holográfica C++/DirectX11 criada com o assistente do projeto Visual Studio
+title: Integrar renderização remota numa aplicação holográfica C++/DirectX11
+description: Explica como integrar a renderização remota numa simples App Holográfica C++/DirectX11 criada com o assistente de projeto visual Studio
 author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9db32912e86079875ad382fb23e521c720fc7fbd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b6dceff8b777d09a6f791437eb4aaca70365b518
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776886"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300722"
 ---
-# <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integrar a renderização remota numa aplicação holográfica HoloLens
+# <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integrar renderização remota numa app holográfica HoloLens
 
 Neste tutorial, vai aprender:
 
 > [!div class="checklist"]
 >
-> * Usando o Estúdio Visual para criar uma App Holográfica que pode ser implementada para HoloLens
-> * Adicione os códigos necessários e as definições do projeto para combinar renderização local com conteúdo tornado remotamente
+> * Usando o Visual Studio para criar uma App Holográfica que pode ser implementada para HoloLens
+> * Adicione os snippets de código necessários e as definições de projeto para combinar renderização local com conteúdo prestado remotamente
 
-Este tutorial centra-se em adicionar as partes necessárias a uma amostra nativa `Holographic App` para combinar renderização local com renderização remota Azure. O único tipo de feedback de estado nesta aplicação é através do painel de saída de depuração dentro do Visual Studio, pelo que é aconselhável iniciar a amostra a partir do Estúdio Visual. A adição de feedback adequado na aplicação está fora do âmbito desta amostra, porque construir um painel de texto dinâmico de raiz envolve muita codificação. Um bom ponto de partida é a classe, que faz parte do projeto de amostra do `StatusDisplay` [Jogador Remoting no GitHub.](https://github.com/microsoft/MixedReality-HolographicRemoting-Samples/tree/master/player/common/Content) Na verdade, a versão pré-enlatada deste tutorial usa uma cópia local dessa classe.
+Este tutorial centra-se em adicionar as partes necessárias a uma amostra nativa `Holographic App` para combinar renderização local com renderização remota Azure. O único tipo de feedback de estado nesta aplicação é através do painel de saída de depuração dentro do Visual Studio, pelo que é recomendado iniciar a amostra a partir de inside Visual Studio. Adicionar feedback adequado na aplicação está fora do âmbito desta amostra, porque construir um painel de texto dinâmico de raiz envolve muito código. Um bom ponto de partida é a classe `StatusDisplay` , que faz parte do projeto de amostra do [Remoting Player no GitHub](https://github.com/microsoft/MixedReality-HolographicRemoting-Samples/tree/master/player/common/Content). Na verdade, a versão pré-enlatada deste tutorial usa uma cópia local dessa classe.
 
 > [!TIP]
-> O [repositório](https://github.com/Azure/azure-remote-rendering) de amostras ARR contém o resultado deste tutorial como um projeto do Estúdio Visual que está pronto a ser usado. É também enriquecido com um erro adequado e um relatório de estado através da classe `StatusDisplay` UI. Dentro do tutorial, todas as adições específicas de ARR são reparadas `#ifdef USE_REMOTE_RENDERING`  /  `#endif` por, por isso é fácil identificar as adições de Renderização Remota.
+> O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering) contém o resultado deste tutorial como um projeto do Estúdio Visual que está pronto a usar. É também enriquecido com erros e relatórios de estado adequados através da classe UI `StatusDisplay` . Dentro do tutorial, todas as adições específicas do ARR são miradas `#ifdef USE_REMOTE_RENDERING`  /  `#endif` por, por isso é fácil identificar as adições de renderização remota.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para este tutorial você precisa:
 
-* Informação da sua conta (ID da conta, chave de conta, ID de subscrição). Se não tem uma conta, [crie uma conta.](../../../how-tos/create-an-account.md)
+* Informação da sua conta (ID de conta, chave de conta, ID de subscrição). Se não tiver uma conta, [crie uma conta.](../../../how-tos/create-an-account.md)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * A versão mais recente do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/).
-* Os modelos de aplicações de realidade mista do Windows para estúdio visual [(download)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
+* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+  * **Desenvolvimento de desktop com C++**
+  * **Desenvolvimento da Plataforma Universal windows (UWP)**
+* Os modelos de aplicativo de realidade mista do Windows para estúdio visual [(download)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
 
-## <a name="create-a-new-holographic-app-sample"></a>Crie uma nova amostra de App Holográfica
+## <a name="create-a-new-holographic-app-sample"></a>Criar uma nova amostra de Aplicação Holográfica
 
-Como primeiro passo, criamos uma amostra de stock que é a base para a integração da Renderização Remota. Open Visual Studio e selecione "Create a new project" e procure "Holographic DirectX 11 App (Universal Windows) (C++/WinRT)"
+Como primeiro passo, criamos uma amostra de stock que é a base para a integração de renderização remota. Abra o Estúdio Visual e selecione "Criar um novo projeto" e procure "Holographic DirectX 11 App (Universal Windows) (C++/WinRT)"
 
 ![Criar novo projeto](media/new-project-wizard.png)
 
 Digite um nome de projeto à sua escolha, escolha um caminho e selecione o botão "Criar".
-No novo projeto, altere a configuração para **"Debug / ARM64".** Agora deve ser capaz de compilar e implantá-lo num dispositivo HoloLens 2 ligado. Se o publicares no HoloLens, devias ver um cubo rotativo à tua frente.
+No novo projeto, altere a configuração para **"Debug/ARM64".** Deverá agora ser capaz de compilá-lo e implantá-lo num dispositivo HoloLens 2 ligado. Se o fizeres no HoloLens, devias ver um cubo rotativo à tua frente.
 
-## <a name="add-remote-rendering-dependencies-through-nuget"></a>Adicione dependências de renderização remota através do NuGet
+## <a name="add-remote-rendering-dependencies-through-nuget"></a>Adicionar dependências de renderização remota através do NuGet
 
 O primeiro passo para adicionar capacidades de renderização remota é adicionar as dependências do lado do cliente. Dependências relevantes estão disponíveis como um pacote NuGet.
-No Solution Explorer, clique no direito do projeto e selecione **"Manage NuGet Packages..."** do menu de contexto.
+No Solution Explorer, clique com o botão direito no projeto e selecione **"Gerir pacotes NuGet..."** a partir do menu de contexto.
 
-No diálogo solicitado, procure o pacote NuGet denominado **"Microsoft.Azure.RemoteRendering.Cpp":**
+No diálogo solicitado, consulte o pacote NuGet denominado **"Microsoft.Azure.RemoteRendering.Cpp"**:
 
-![Procure o pacote NuGet](media/add-nuget.png)
+![Navegue para pacote NuGet](media/add-nuget.png)
 
-e adicioná-lo ao projeto selecionando a embalagem e, em seguida, premindo o botão "Instalar".
+e adicione-o ao projeto selecionando a embalagem e, em seguida, pressionando o botão "Instalar".
 
 O pacote NuGet adiciona as dependências de renderização remota ao projeto. Mais concretamente:
-* Link contra a biblioteca do cliente (RemoteRenderingClient.lib).
-* Instale as dependências .dll.
-* Desloque o caminho correto para o diretório incluído.
+* Ligação contra a biblioteca do cliente (RemoteRenderingClient.lib).
+* Estabeleça as dependências .dll.
+* Desacorda o caminho correto para o diretório incluído.
 
 ## <a name="project-preparation"></a>Preparação do projeto
 
-Precisamos de fazer pequenas alterações ao projeto existente. Estas mudanças são subtis, mas sem elas a Renderização Remota não funcionaria.
+Precisamos de fazer pequenas alterações ao projeto existente. Estas mudanças são subtis, mas sem elas a renderização remota não funcionaria.
 
-### <a name="enable-multithread-protection-on-directx-device"></a>Ativar a proteção multithread no dispositivo DirectX
-O `DirectX11` aparelho deve ter uma proteção multifios ativada. Para alterar isso, abra o ficheiro DeviceResources.cpp na pasta "Common", e insira o seguinte código no final da `DeviceResources::CreateDeviceResources()` função:
+### <a name="enable-multithread-protection-on-directx-device"></a>Ativar a proteção multi-lirísta no dispositivo DirectX
+O `DirectX11` aparelho deve ter uma proteção multi-televisão ativada. Para alterar isso, abra o ficheiro DeviceResources.cpp na pasta "Common", e insira o seguinte código no final da `DeviceResources::CreateDeviceResources()` função:
 
 ```cpp
 // Enable multi thread protection as now multiple threads use the immediate context.
@@ -77,8 +80,8 @@ if (context.As(&contextMultithread) == S_OK)
 ```
 
 ### <a name="enable-network-capabilities-in-the-app-manifest"></a>Ativar as capacidades de rede no manifesto da aplicação
-As capacidades de rede devem ser ativadas explicitamente para a aplicação implementada. Sem que isto seja configurado, as consultas de ligação resultarão eventualmente em intervalos. Para ativar, clique duas vezes no `package.appxmanifest` item no explorador de soluções. No próximo UI, vá ao separador **Capabilities** e selecione:
-* Internet (Servidor de & cliente)
+As capacidades de rede devem ser explicitamente ativadas para a aplicação implementada. Sem que isto seja configurado, as consultas de ligação resultarão eventualmente em intervalos de tempo. Para ativar, clique duas vezes no `package.appxmanifest` item no explorador de solução. Na próxima UI, vá ao separador **Capabilities** e selecione:
+* Internet (Servidor & cliente)
 * Internet (Cliente)
 
 ![Capacidades de rede](media/appx-manifest-caps.png)
@@ -86,11 +89,11 @@ As capacidades de rede devem ser ativadas explicitamente para a aplicação impl
 
 ## <a name="integrate-remote-rendering"></a>Integrar renderização remota
 
-Agora que o projeto está preparado, podemos começar com o código. Um bom ponto de entrada na aplicação é a classe `HolographicAppMain` (ficheiro HolographicAppMain.h/cpp) porque tem todos os ganchos necessários para inicialização, desinicialização e renderização.
+Agora que o projeto está preparado, podemos começar com o código. Um bom ponto de entrada na aplicação é a classe `HolographicAppMain` (arquivo HolographicAppMain.h/cpp) porque tem todos os ganchos necessários para a inicialização, desinexminagem e renderização.
 
 ### <a name="includes"></a>Inclusões
 
-Começamos por adicionar os incluimentos necessários. Adicione o seguinte inclua o ficheiro HolographicAppMain.h:
+Começamos por adicionar as incluições necessárias. Adicione o seguinte incluir para arquivar HolographicAppMain.h:
 
 ```cpp
 #include <AzureRemoteRendering.h>
@@ -109,11 +112,11 @@ Para a simplicidade do código, definimos o seguinte atalho de espaço de nome n
 namespace RR = Microsoft::Azure::RemoteRendering;
 ```
 
-Este atalho é útil para que não tenhamos que escrever o espaço completo de nomes em todo o lado, mas ainda podemos reconhecer estruturas de dados específicas do ARR. É claro que também poderíamos utilizar a `using namespace...` diretiva.
+Este atalho é útil para que não tenhamos que escrever o espaço completo de nomes em todos os lugares, mas ainda podemos reconhecer estruturas de dados específicas do ARR. Naturalmente, também poderíamos utilizar a `using namespace...` diretiva.
 
 ### <a name="remote-rendering-initialization"></a>Inicialização de renderização remota
  
-Precisamos de segurar alguns objetos para a sessão, etc. durante a vida útil da aplicação. A vida inteira coincide com a vida útil do objeto da `HolographicAppMain` aplicação, por isso adicionamos os nossos objetos como membros à `HolographicAppMain` aula. O próximo passo é adicionar os seguintes membros da classe no ficheiro HolographicAppMain.h:
+Precisamos de guardar alguns objetos para a sessão, etc. durante o período de vida da aplicação. A vida útil coincide com a vida útil do objeto da `HolographicAppMain` aplicação, por isso adicionamos os nossos objetos como membros à `HolographicAppMain` classe. O próximo passo é adicionar os seguintes membros da classe no ficheiro HolographicAppMain.h:
 
 ```cpp
 class HolographicAppMain
@@ -128,14 +131,14 @@ class HolographicAppMain
 }
 ```
 
-Um bom lugar para fazer a implementação real é o construtor de `HolographicAppMain` classe. Temos que fazer três tipos de inicialização lá:
+Um bom lugar para fazer a implementação real é o construtor de classe `HolographicAppMain` . Temos que fazer três tipos de inicialização lá:
 1. A inicialização única do sistema de renderização remota
 1. Criação frontal
-1. Criação de sessões
+1. Criação de sessão
 
-Fazemos tudo isso sequencialmente no construtor. No entanto, em casos de utilização real, seria apropriado fazer estas etapas separadamente.
+Fazemos tudo isso sequencialmente no construtor. No entanto, em casos de utilização real, seria conveniente fazer estas etapas separadamente.
 
-Adicione o seguinte código ao início do corpo de construtores em ficheiro HolographicAppMain.cpp:
+Adicione o seguinte código ao início do corpo do construtor em ficheiro HolographicAppMain.cpp:
 
 ```cpp
 HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> const& deviceResources) :
@@ -229,9 +232,9 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
     ...
 }
 ```
-Dentro da função `SetNewSession` local, registamo-nos num callback que é desencadeado sempre que o estado de ligação na determinada sessão muda. Redirecionamos essa chamada para a nossa própria `OnConnectionStatusChanged` função. Vamos declará-lo e implementá-lo (e o resto do código de máquina do Estado) no parágrafo seguinte. Note também que as credenciais estão codificadas na amostra e precisam de ser preenchidas no local[(ID de conta, chave](../../../how-tos/create-an-account.md#retrieve-the-account-information)de conta, e [domínio).](../../../reference/regions.md)
+Dentro da função `SetNewSession` local, registamos uma chamada que é acionada sempre que o estado de ligação em determinada sessão muda. Redirecionamos essa chamada para a nossa própria `OnConnectionStatusChanged` função. Vamos declará-lo e implementá-lo (e o resto do código de máquina estatal) no parágrafo seguinte. Note também que as credenciais são codificadas em código rígido na amostra e precisam de ser preenchidas no lugar[(ID de conta, chave de conta,](../../../how-tos/create-an-account.md#retrieve-the-account-information)e [domínio).](../../../reference/regions.md)
 
-Fazemos a desinicialização simetricamente e em ordem inversa no final do corpo de structor:
+Fazemos a des-inicialização simetricamente e em ordem inversa no final do corpo destrutor:
 
 ```cpp
 HolographicAppMain::~HolographicAppMain()
@@ -256,11 +259,11 @@ HolographicAppMain::~HolographicAppMain()
 
 ## <a name="state-machine"></a>Máquina do Estado
 
-Na renderização remota, as funções-chave para criar uma sessão e carregar um modelo são funções assíncronas. Para ter em conta isto, precisamos de uma máquina de Estado simples que essencialmente transite através dos seguintes Estados automaticamente:
+Na renderização remota, as funções-chave para criar uma sessão e carregar um modelo são funções assíncronos. Para responder a isto, precisamos de uma máquina estatal simples que essencialmente transite pelos seguintes Estados automaticamente:
 
-*Inicialização -> Sessão criação -> carregamento de modelos (com progresso)*
+*Inicialização -> Sessão criação -> carregamento de modelo (com progresso)*
 
-Assim, como próximo passo, adicionamos um pouco de manipulação de máquinas estatais à classe. Declaramos o nosso próprio enum `AppConnectionStatus` para os vários estados em que a nossa aplicação pode estar. É semelhante `RR::ConnectionStatus` a, mas tem um estado adicional para a ligação falhada.
+Assim, como próximo passo, adicionamos um pouco de manuseamento de máquinas estatais à classe. Declaramos o nosso próprio enum `AppConnectionStatus` para os vários Estados em que a nossa candidatura pode ser apresentada. É semelhante a `RR::ConnectionStatus` , mas tem um estado adicional para ligação falhada.
 
 Adicione os seguintes membros e funções à declaração de classe:
 
@@ -434,7 +437,7 @@ HolographicFrame HolographicAppMain::Update()
 
 ### <a name="rendering"></a>Composição
 
-A última coisa a fazer é invocar a renderização do conteúdo remoto. Temos de fazer esta chamada na posição exata dentro do gasoduto de renderização, depois do alvo de renderização estar claro. Insira o seguinte corte na `UseHolographicCameraResources` função interior: `HolographicAppMain::Render`
+A última coisa a fazer é invocar a renderização do conteúdo remoto. Temos de fazer esta chamada na posição exata dentro do gasoduto de renderização, depois do alvo de renderização ser claro. Insira o seguinte corte na função interior do `UseHolographicCameraResources` `HolographicAppMain::Render` bloqueio:
 
 ```cpp
         ...
@@ -455,17 +458,17 @@ A última coisa a fazer é invocar a renderização do conteúdo remoto. Temos d
 
 A amostra deve agora estar num estado em que compila e corre.
 
-Quando a amostra funciona corretamente, mostra o cubo rotativo mesmo à sua frente, e após alguma criação de sessão e carregamento de modelos, torna o modelo do motor localizado na posição atual da cabeça. A criação de sessões e o carregamento do modelo podem demorar até alguns minutos. O estado atual só está escrito para o painel de saída do Estúdio Visual. Assim, recomenda-se iniciar a amostra a partir do Estúdio Visual.
+Quando a amostra funciona corretamente, mostra o cubo rotativo mesmo à sua frente, e depois de alguma sessão de criação e carregamento de modelos, torna o modelo do motor localizado na posição atual da cabeça. A criação de sessão e o carregamento de modelos podem demorar até alguns minutos. O estado atual é apenas escrito para o painel de saída do Visual Studio. Assim, recomenda-se iniciar a amostra a partir do Interior do Estúdio Visual.
 
 > [!CAUTION]
-> O cliente desliga-se do servidor quando a função de carrapato não é chamada durante alguns segundos. Assim, desencadear pontos de rutura pode facilmente fazer com que a aplicação se desconecte.
+> O cliente desliga-se do servidor quando a função de marcação não é chamada durante alguns segundos. Assim, desencadear pontos de rutura pode facilmente fazer com que a aplicação se desligue.
 
-Para um ecrã de estado adequado com um painel de texto, consulte a versão pré-enlatada deste tutorial no GitHub.
+Para visualizar o estado adequado com um painel de texto, consulte a versão pré-enlatada deste tutorial no GitHub.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu todos os passos necessários para adicionar a Renderização Remota a uma amostra de **app holográfica** c++/DirectX11.
-Para converter o seu próprio modelo, consulte o seguinte arranque rápido:
+Neste tutorial, aprendeu todos os passos necessários para adicionar renderização remota a uma amostra **de app holográfica** de stock C++/DirectX11.
+Para converter o seu próprio modelo, consulte o seguinte quickstart:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Converter um modelo para renderização](../../../quickstarts/convert-model.md)
