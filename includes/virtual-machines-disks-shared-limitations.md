@@ -5,36 +5,35 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/09/2020
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce964ac197fbff64bbb7cc36e8c2bf762f93663f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008362"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337360"
 ---
-Durante a pré-visualização, a ativação de discos partilhados só está disponível para um subconjunto de tipos de discos. Atualmente, apenas discos ultra e SSDs premium podem ativar discos partilhados. Cada disco gerido que tenha discos partilhados está sujeito às seguintes limitações, organizadas por tipo de disco:
+Durante a pré-visualização, permitir discos partilhados só está disponível para um subconjunto de tipos de discos. Atualmente apenas discos ultra e SSDs premium podem ativar discos partilhados. Cada disco gerido que tenha discos partilhados ativados estão sujeitos às seguintes limitações, organizadas por tipo de disco:
 
 ### <a name="ultra-disks"></a>Discos Ultra
 
-Os discos ultra têm a sua própria lista separada de limitações, não relacionadas com discos partilhados. Para limitações ultra discos, consulte a Utilização de [discos ultra Azure](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+Os discos ultra têm a sua própria lista de limitações separadas, não relacionadas com discos partilhados. Para obter limitações ultra disco, consulte a [Utilização de discos ultra Azure](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
 
 Ao partilhar discos ultra, têm as seguintes limitações adicionais:
 
-- Atualmente apenas apoiado nos EUA Ocidentais.
-- Atualmente limitado ao Gestor de Recursos Azure ou suporte SDK.
-- Apenas os discos básicos podem ser usados com algumas versões do Cluster Failover do Windows Server, para detalhes ver requisitos de hardware de [clusterde Failover e opções](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)de armazenamento .
+- Atualmente limitado ao Azure Resource Manager ou suporte SDK.
+- Apenas discos básicos podem ser utilizados com algumas versões do Windows Server Failover Cluster, para mais detalhes ver [os requisitos de hardware e opções de armazenamento de clustering failover.](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)
 
 ### <a name="premium-ssds"></a>SSDs Premium
 
-- Atualmente apenas apoiado na região centro-oeste dos EUA.
-- Todas as máquinas virtuais que partilhem um disco devem ser implantadas nos [mesmos grupos](../articles/virtual-machines/windows/proximity-placement-groups.md)de colocação de proximidade.
-- Só pode ser ativado em discos de dados, não em discos OS.
-- Apenas os discos básicos podem ser usados com algumas versões do Cluster Failover do Windows Server, para detalhes ver requisitos de hardware de [clusterde Failover e opções](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)de armazenamento .
-- LeiaSó o cache do hospedeiro não está `maxShares>1`disponível para SSDs premium com .
-- Os conjuntos de disponibilidade e os conjuntos `FaultDomainCount` de escala de máquinas virtuais só podem ser utilizados com o conjunto de 1.
-- O suporte de backup azure e de recuperação do site Azure ainda não está disponível.
+- Atualmente, apenas apoiado na região centro-americana.
+- Todas as máquinas virtuais que partilham um disco devem ser implantadas nos [mesmos grupos de colocação de proximidade.](../articles/virtual-machines/windows/proximity-placement-groups.md)
+- Só pode ser ativado em discos de dados, não em discos de SO.
+- Apenas discos básicos podem ser utilizados com algumas versões do Windows Server Failover Cluster, para mais detalhes ver [os requisitos de hardware e opções de armazenamento de clustering failover.](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements)
+- O caching do anfitrião ReadOnly não está disponível para SSDs premium com `maxShares>1` .
+- Os conjuntos de disponibilidade e a balança de máquinas virtuais só podem ser utilizados com `FaultDomainCount` o conjunto de 1.
+- O suporte de backup e recuperação do local de Azure ainda não está disponível.
 
-Se está interessado em experimentar discos partilhados, [inscreva-se para a nossa pré-visualização](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Se está interessado em experimentar discos partilhados, então [inscreva-se para a nossa pré-visualização](https://aka.ms/AzureSharedDiskPreviewSignUp).

@@ -1,7 +1,7 @@
 ---
-title: Remova o protetor TDE (PowerShell & Azure CLI)
+title: Remover o protetor TDE (PowerShell & o Azure CLI)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Aprenda a responder a um protetor TDE potencialmente comprometido para uma Base de Dados Azure SQL ou Azure Synapse Analytics usando o suporte TDE com Bring YOur Own Key (BYOK).
+description: Aprenda a responder a um protetor TDE potencialmente comprometido para a Base de Dados Azure SQL ou Azure Synapse Analytics usando o suporte TDE com suporte Bring YOur Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,54 +12,54 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: e0817e21369824769a9248d7ac7c947bcc98ace5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9ffc2af0309f8a682db04b36675a3c29725c44fe
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050969"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324458"
 ---
-# <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor transparente de encriptação de dados (TDE) utilizando powerShell
+# <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor de encriptação de dados transparente (TDE) usando o PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-Este tópico descreve como responder a um protetor TDE potencialmente comprometido para uma Base de Dados Azure SQL ou Azure Synapse Analytics que está a usar o TDE com chaves geridas pelo cliente no Cofre de Chaves Azure - Traga a sua própria chave (BYOK). Para saber mais sobre o suporte byok para TDE, consulte a [página de visão geral](transparent-data-encryption-byok-overview.md).
+Este tópico descreve como responder a uma proteção TDE potencialmente comprometida para a Base de Dados Azure SQL ou Azure Synapse Analytics que está a usar o TDE com chaves geridas pelo cliente no suporte Azure Key Vault - Traga a sua própria chave (BYOK). Para saber mais sobre o suporte da BYOK para o TDE, consulte a [página geral.](transparent-data-encryption-byok-overview.md)
 
 > [!CAUTION]
-> Os procedimentos descritos neste artigo só devem ser feitos em casos extremos ou em ambientes de ensaio. Reveja cuidadosamente os passos, uma vez que a abater protetores TDE ativamente utilizados do Cofre chave Azure resultará na **indisponibilidade**da base de dados .
+> Os procedimentos descritos neste artigo só devem ser efetuados em casos extremos ou em ambientes de ensaio. Reveja cuidadosamente os passos, uma vez que eliminar protetores TDE ativamente utilizados do Azure Key Vault resultará na **indisponibilidade da base de dados**.
 
-Se alguma vez se suspeita que uma chave esteja comprometida, de modo a que um serviço ou utilizador tenha acesso não autorizado à chave, o melhor é apagar a chave.
+Se alguma vez se suspeitar que uma chave está comprometida, de modo a que um serviço ou utilizador tenha acesso não autorizado à chave, o melhor é apagar a chave.
 
-Tenha em mente que uma vez eliminado o protetor TDE no Cofre chave, em até 10 minutos, todas as bases de dados encriptadas começarão a negar todas as ligações com a mensagem de erro correspondente e mudaro seu estado para [Inacessível](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+Tenha em mente que uma vez que o protetor TDE é eliminado no Cofre de Chaves, em até 10 minutos, todas as bases de dados encriptadas começarão a negar todas as ligações com a mensagem de erro correspondente e alterar o seu estado para [Inacessível](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
 
-Este guia como orientar passa por duas abordagens dependendo do resultado desejado após uma resposta de incidente comprometida:
+Este guia de como orientar passa por duas abordagens dependendo do resultado desejado após uma resposta comprometida do incidente:
 
-- Para manter as bases de dados na Base de Dados Azure SQL / Azure Synapse **acessível**
-- Para tornar **inacessíveis** as bases de dados em Azure SQL Database / Data Warehouses
+- Para tornar **inacessíveis**as bases de dados em Azure SQL Database / Azure Synapse Analytics .
+- Para tornar **inacessíveis**as bases de dados em Azure SQL Database / Azure SQL Data Warehouse .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter uma assinatura Azure e ser um administrador nessa subscrição
-- Tem de ter o Azure PowerShell instalado e em funcionamento.
-- Este guia de como orientar assume que já está a usar uma chave do Cofre de Chaves Azure como protetor TDE para uma Base de Dados Azure SQL ou Azure Synapse (anteriormente Armazém de Dados SQL). Consulte a [Encriptação transparente de dados com suporte BYOK](transparent-data-encryption-byok-overview.md) para saber mais.
+- Deve ter a Azure PowerShell instalada e a funcionar.
+- Este guia assume que já está a utilizar uma chave do Azure Key Vault como protetor TDE para uma Base de Dados Azure SQL ou Azure Synapse (anteriormente SQL Data Warehouse). Consulte [encriptação de dados transparentes com suporte BYOK](transparent-data-encryption-byok-overview.md) para saber mais.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
  Para obter instruções de instalação do módulo Az, veja [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager (RM) ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
+> O módulo PowerShell Azure Resource Manager (RM) ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
 
-Para a instalação, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
+Para a instalação, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
 ## <a name="check-tde-protector-thumbprints"></a>Verifique as impressões digitais do Protetor TDE
 
-Os seguintes passos descrevem como verificar as impressões digitais do Protetor TDE ainda em uso por Ficheiros de Registo Virtual (VLF) de uma determinada base de dados.
-A impressão digital do atual protetor TDE da base de dados, e o ID da base de dados podem ser encontrados executando:
+Os passos a seguir descrevem como verificar as impressões digitais do Protetor TDE ainda em uso por Ficheiros de Registo Virtual (VLF) de uma determinada base de dados.
+A impressão digital do protetor TDE atual da base de dados, e o ID da base de dados podem ser encontrados executando:
 
 ```sql
 SELECT [database_id],
@@ -69,7 +69,7 @@ SELECT [database_id],
  FROM [sys].[dm_database_encryption_keys]
 ```
 
-A seguinte consulta devolve os VLFs e o Protetor TDE respetivas impressões digitais em uso. Cada impressão digital diferente refere-se a diferentes teclas no Cofre de Chaves Azure (AKV):
+A seguinte consulta devolve os VLFs e o Protetor TDE respetivas impressões digitais em uso. Cada impressão digital diferente refere-se a chave diferente no Cofre da Chave Azure (AKV):
 
 ```sql
 SELECT * FROM sys.dm_db_log_info (database_id)
@@ -79,11 +79,11 @@ Em alternativa, pode utilizar o PowerShell ou o Azure CLI:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-O comando PowerShell **Get-AzureRmSqlServerKeyKeyfornece**   a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
+O comando PowerShell **Get-AzureRmSqlServerKeyVaultKey**   fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a guardar e quais as teclas a eliminar em AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre da Chave Azure.
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
 
-O programa de teclas do servidor powerShell **az sql**   fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
+O programa de teclado do servidor de comando PowerShell **az sql**   fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a guardar e quais as teclas a eliminar em AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre da Chave Azure.
 
 * * *
 
@@ -91,9 +91,9 @@ O programa de teclas do servidor powerShell **az sql**   fornece a impressão 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Crie uma [nova chave no Cofre chave.](/powershell/module/az.keyvault/add-azkeyvaultkey) Certifique-se de que esta nova chave é criada num cofre separado do protetor TDE potencialmente comprometido, uma vez que o controlo de acesso é provisionado a um nível de cofre.
+1. Crie uma [nova chave no Key Vault.](/powershell/module/az.keyvault/add-azkeyvaultkey) Certifique-se de que esta nova chave é criada num cofre separado do protetor TDE potencialmente comprometido, uma vez que o controlo de acesso é aprovisionado a um nível de abóbada.
 
-2. Adicione a nova chave ao servidor utilizando o [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) e [o Set-AzSqlServerTransparentTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets e atualize-o como o novo protetor TDE do servidor.
+2. Adicione a nova chave ao servidor utilizando o [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) e [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets e atualizá-lo como o novo protetor TDE do servidor.
 
    ```powershell
    # add the key from Key Vault to the server  
@@ -104,39 +104,39 @@ O programa de teclas do servidor powerShell **az sql**   fornece a impressão 
        -ServerName <LogicalServerName> -Type AzureKeyVault -KeyId <KeyVaultKeyId>
    ```
 
-3. Certifique-se de que o servidor e quaisquer réplicas atualizaram para o novo protetor TDE utilizando o [Get-AzSqlServerTransparentDataCryptOnCryptEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet.
+3. Certifique-se de que o servidor e quaisquer réplicas foram atualizados para o novo protetor TDE utilizando o [cmdlet Get-AzSqlServerTransparentDataEncryptionProtector.](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector)
 
    > [!NOTE]
-   > Pode levar alguns minutos para que o novo protetor TDE se propague a todas as bases de dados e bases de dados secundárias no servidor.
+   > Pode levar alguns minutos para que o novo protetor TDE se propague a todas as bases de dados e bases de dados secundárias sob o servidor.
 
    ```powershell
    Get-AzSqlServerTransparentDataEncryptionProtector -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Pegue uma [cópia da nova chave](/powershell/module/az.keyvault/backup-azkeyvaultkey) no Cofre chave.
+4. Pegue uma [cópia da nova chave](/powershell/module/az.keyvault/backup-azkeyvaultkey) em Key Vault.
 
    ```powershell
    # -OutputFile parameter is optional; if removed, a file name is automatically generated.
    Backup-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName> -OutputFile <DesiredBackupFilePath>
    ```
 
-5. Elimine a tecla comprometida do Cofre de Chaves utilizando o cmdlet [Remove-AzKeyVaultKey.](/powershell/module/az.keyvault/remove-azkeyvaultkey)
+5. Elimine a chave comprometida do Key Vault utilizando o cmdlet [Remove-AzKeyVaultKey.](/powershell/module/az.keyvault/remove-azkeyvaultkey)
 
    ```powershell
    Remove-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName>
    ```
 
-6. Para restaurar uma chave para o Cofre chave no futuro usando o cmdlet [Restore-AzKeyVaultKey:](/powershell/module/az.keyvault/restore-azkeyvaultkey)
+6. Para restaurar uma chave para o Cofre de Chaves no futuro usando o [cmdlet Restore-AzKeyVaultKey:](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
    ```powershell
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
 
-Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/keyvault/key).
+Para obter referência de comando, consulte o [keyvault Azure CLI](/cli/azure/keyvault/key).
 
-1. Crie uma [nova chave no Cofre chave.](/cli/azure/keyvault/key#az-keyvault-key-create) Certifique-se de que esta nova chave é criada num cofre separado do protetor TDE potencialmente comprometido, uma vez que o controlo de acesso é provisionado a um nível de cofre.
+1. Crie uma [nova chave no Key Vault.](/cli/azure/keyvault/key#az-keyvault-key-create) Certifique-se de que esta nova chave é criada num cofre separado do protetor TDE potencialmente comprometido, uma vez que o controlo de acesso é aprovisionado a um nível de abóbada.
 
 2. Adicione a nova chave ao servidor e atualize-a como o novo protetor TDE do servidor.
 
@@ -151,26 +151,26 @@ Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/k
 3. Certifique-se de que o servidor e quaisquer réplicas foram atualizadas para o novo protetor TDE.
 
    > [!NOTE]
-   > Pode levar alguns minutos para que o novo protetor TDE se propague a todas as bases de dados e bases de dados secundárias no servidor.
+   > Pode levar alguns minutos para que o novo protetor TDE se propague a todas as bases de dados e bases de dados secundárias sob o servidor.
 
    ```azurecli
    az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
-4. Pegue uma cópia da nova chave no Cofre chave.
+4. Pegue uma cópia da nova chave em Key Vault.
 
    ```azurecli
    # --file parameter is optional; if removed, a file name is automatically generated.
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
-5. Apague a chave comprometida do Cofre chave.
+5. Apague a chave comprometida do Key Vault.
 
    ```azurecli
    az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
-6. Para restaurar a chave do Cofre chave no futuro.
+6. Para restaurar uma chave para o Cofre chave no futuro.
 
    ```azurecli
    az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>
@@ -182,14 +182,14 @@ Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/k
 
 1. Largue as bases de dados que estão a ser encriptadas pela chave potencialmente comprometida.
 
-   A base de dados e os ficheiros de registo são automaticamente apoiados, pelo que um restabelecimento pontual da base de dados pode ser feito em qualquer ponto (desde que forneça a chave). As bases de dados devem ser retiradas antes da eliminação de um protetor TDE ativo para evitar uma potencial perda de dados até 10 minutos das transações mais recentes.
+   A base de dados e os ficheiros de registo são automaticamente apoiados, pelo que uma restauração pontual da base de dados pode ser feita em qualquer ponto (desde que forneça a chave). As bases de dados devem ser retiradas antes da eliminação de um protetor TDE ativo para evitar a perda de dados potenciais até 10 minutos das transações mais recentes.
 
-2. Volte a apoiar o material chave do protetor TDE no Cofre chave.
-3. Remova a chave potencialmente comprometida do Cofre chave
+2. Faça o reforço do material chave do protetor TDE no Cofre de Chaves.
+3. Remova a chave potencialmente comprometida do Cofre de Chaves
 
 [!INCLUDE [sql-database-akv-permission-delay](../includes/sql-database-akv-permission-delay.md)]
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Aprenda a rodar o protetor TDE de um servidor para cumprir os requisitos de segurança: Rode o protetor de encriptação transparente de [dados utilizando powerShell](transparent-data-encryption-byok-key-rotation.md)
-- Inicie com bring your own key support for TDE: [Ligue tDE usando a sua própria chave do Key Vault usando powerShell](transparent-data-encryption-byok-configure.md)
+- Saiba como rodar o protetor TDE de um servidor para cumprir os requisitos de segurança: [Rode o protetor de encriptação de dados transparente utilizando o PowerShell](transparent-data-encryption-byok-key-rotation.md)
+- Começa com o suporte Bring Your Own Key para TDE: [Ligue o TDE utilizando a sua própria chave a partir do Key Vault usando o PowerShell](transparent-data-encryption-byok-configure.md)

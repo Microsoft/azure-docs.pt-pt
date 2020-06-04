@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7d071a98b8d82d6f11278b59e1dfc91882a9bfcc
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192863"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338129"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
 
@@ -95,7 +95,10 @@ O seguinte serviço ligado é um serviço ligado ao Azure Storage. Note que o ti
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
-Pode criar serviços ligados utilizando uma destas ferramentas ou SDKs: [.NET API,](quickstart-create-data-factory-dot-net.md) [PowerShell,](quickstart-create-data-factory-powershell.md) [REST API,](quickstart-create-data-factory-rest-api.md)Modelo de Gestor de Recursos Azure e Portal Azure
+Os serviços ligados podem ser criados no Azure Data Factory UX através do [centro de gestão](author-management-hub.md) e quaisquer atividades, conjuntos de dados ou fluxos de dados que os refiram.
+
+Pode criar serviços ligados utilizando uma destas ferramentas ou SDKs: [.NET API,](quickstart-create-data-factory-dot-net.md) [PowerShell,](quickstart-create-data-factory-powershell.md) [REST API,](quickstart-create-data-factory-rest-api.md)Azure Resource Manager e Portal Azure.
+
 
 ## <a name="data-store-linked-services"></a>Serviços ligados à loja de dados
 
@@ -105,7 +108,7 @@ Pode encontrar a lista de lojas de dados suportadas pela Data Factory a partir d
 
 Ambientes [computativos](compute-linked-services.md) de referência suportados para detalhes sobre diferentes ambientes de computação a que pode ligar a partir da sua fábrica de dados, bem como as diferentes configurações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o seguinte tutorial para obter instruções passo a passo para a criação de oleodutos e conjuntos de dados utilizando uma destas ferramentas ou SDKs.
 

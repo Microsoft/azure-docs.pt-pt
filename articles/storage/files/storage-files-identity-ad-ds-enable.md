@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/02/2020
 ms.author: rogarana
-ms.openlocfilehash: 5592a3c53a57e9cd96468bfca187e02faef28b05
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 4423067fde70728a5449485434cc40c5c3d3ee8f
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268507"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324101"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte um: ativar a autenticação AD DS para as suas ações de ficheiroS Azure 
 
@@ -89,7 +89,18 @@ Primeiro, tem de verificar o estado do seu ambiente. Especificamente, deve verif
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Criar uma identidade que represente a conta de armazenamento na sua AD manualmente
 
-Para criar esta conta manualmente, crie uma nova chave Kerberos para a sua conta de armazenamento utilizando `New-AzStorageAccountKey -KeyName kerb1` . Em seguida, use a chave Kerberos como a senha da sua conta. Esta chave é utilizada apenas durante a configuração e não pode ser utilizada para qualquer controlo ou operações de plano de dados contra a conta de armazenamento. Assim que tiver essa chave, crie um serviço ou uma conta de computador sob a sua U. Utilize a seguinte especificação (lembre-se de substituir o texto do exemplo pelo nome da sua conta de armazenamento):
+Para criar esta conta manualmente, crie uma nova chave Kerberos para a sua conta de armazenamento. Em seguida, use a chave Kerberos como a palavra-passe para a sua conta com os cmdlets PowerShell abaixo. Esta chave é utilizada apenas durante a configuração e não pode ser utilizada para qualquer controlo ou operações de plano de dados contra a conta de armazenamento. 
+
+```PowerShell
+# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
+Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
+```
+
+Assim que tiver essa chave, crie um serviço ou uma conta de computador sob a sua U. Utilize a seguinte especificação (lembre-se de substituir o texto do exemplo pelo nome da sua conta de armazenamento):
 
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Password: Chave Kerberos para a sua conta de armazenamento.
 
@@ -140,7 +151,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Por esta altura, conseguiu ativar a funcionalidade na sua conta de armazenamento. Para utilizar a funcionalidade, tem de configurar e fazer alterações. Continue para a próxima secção.
 

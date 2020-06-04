@@ -1,7 +1,7 @@
 ---
 title: Gerir após a migração
 titleSuffix: Azure SQL Database
-description: Saiba como gerir a sua base de dados única e agrizada após a migração para a Base de Dados Azure SQL.
+description: Saiba como gerir as suas bases de dados individuais e agrêmidas após a migração para a Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,17 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: e36e11e4150c977b72b445e5bda7dce410c77925
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 17c0e02aa091d1271967b5a238f71123cc7aeede
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193934"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322674"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Passar do ambiente tradicional auto-gerido e auto-controlado para um ambiente PaaS pode parecer um pouco esmagador no início. Como desenvolvedor de aplicações ou DBA, gostaria de conhecer as capacidades centrais da plataforma que o ajudariam a manter a sua aplicação disponível, performante, segura e resiliente - sempre. Este artigo pretende fazer exatamente isso. O artigo organiza sucintamente recursos e dá-lhe algumas orientações sobre como utilizar melhor as capacidades-chave da BASE de Dados SQL com bases de dados únicas e agrizadas para gerir e manter a sua aplicação a funcionar de forma eficiente e obter os melhores resultados na nuvem. O público típico deste artigo seria aqueles que:
+Passar do ambiente tradicional auto-gerido e auto-controlado para um ambiente PaaS pode parecer um pouco esmagador no início. Como desenvolvedor de aplicações ou DBA, gostaria de conhecer as capacidades centrais da plataforma que o ajudariam a manter a sua aplicação disponível, performante, segura e resiliente - sempre. Este artigo pretende fazer exatamente isso. O artigo organiza sucintamente recursos e dá-lhe algumas orientações sobre como utilizar melhor as capacidades-chave da Base de Dados Azure SQL com bases de dados únicas e agrizadas para gerir e manter a sua aplicação a funcionar de forma eficiente e obter os melhores resultados na nuvem. O público típico deste artigo seria aqueles que:
 
 - Estão a avaliar a migração das suas aplicações para a Base de Dados Azure SQL – Modernizando a sua(s) aplicação.s.
 - Estão em processo de migração das suas aplicações (s) – Cenário de migração em curso.
@@ -30,7 +30,7 @@ Passar do ambiente tradicional auto-gerido e auto-controlado para um ambiente Pa
 
 Este artigo discute algumas das características fundamentais da Azure SQL Database como uma plataforma que pode facilmente aproveitar ao trabalhar com bases de dados únicas e bases de dados em piscinas elásticas. São os seguintes:
 
-- Base de dados monitor usando o portal Azure
+- Monitorizar bases de dados com o portal do Azure
 - Continuidade de negócio e recuperação após desastre (BCDR)
 - Segurança e conformidade
 - Monitorização e manutenção de bases de dados inteligentes
@@ -90,7 +90,7 @@ Para saber mais sobre a recuperação de desastres, consulte: [Azure SQL Databas
 
 A Base de Dados SQL leva a Segurança e Privacidade muito a sério. A segurança dentro da BASE de Dados SQL está disponível ao nível da base de dados e ao nível da plataforma e é melhor compreendida quando categorizada em várias camadas. Em cada camada você pode controlar e fornecer a segurança ideal para a sua aplicação. As camadas são:
 
-- Autenticação & de identidade[(autenticação SQL e autenticação do Azure Ative Directory [AAD]](logins-create-manage.md)
+- Autenticação & de identidade[(autenticação SQL e autenticação do Azure Ative Directory [Azure AD]](logins-create-manage.md)).
 - Atividade de[monitorização (Auditoria](../../azure-sql/database/auditing-overview.md) e [deteção de ameaças).](threat-detection-configure.md)
 - Proteger dados reais[(Encriptação de Dados Transparentes [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e [Sempre Encriptado [AE]).](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - Controlo do Acesso a dados sensíveis e privilegiados[(Segurança de nível de linha](/sql/relational-databases/security/row-level-security) e [máscara de dados dinâmicos).](/sql/relational-databases/security/dynamic-data-masking)
@@ -104,13 +104,13 @@ Existem dois métodos de autenticação oferecidos na Base de Dados SQL:
 - [Autenticação do Azure Active Directory](authentication-aad-overview.md)
 - [Autenticação do SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-A autenticação tradicional das janelas não é suportada. O Azure Ative Directory (AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Único Acesso De Acesso (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços da Azure para uma autenticação mais simples. O AAD suporta [o MFA (Multi Fator Authentication)](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) a AAD pode ser integrada com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a BASE de Dados SQL e o SQL Data Warehouse ofereçam autenticação multi-factor e contas de utilizadores de hóspedes dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
+A autenticação tradicional das janelas não é suportada. O Azure Ative Directory (Azure AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Único Acesso De Acesso (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços da Azure para uma autenticação mais simples. O Azure AD suporta [a autenticação multi-factor Azure](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a BASE de Dados SQL e o SQL Data Warehouse ofereçam autenticação multi-factor e contas de utilizadores de hóspedes dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
 
 |**Se...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
-|Prefere não usar o Azure Ative Directory (AD) em Azure|Use [a autenticação SQL](security-overview.md)|
+|Prefere não usar O Diretório Ativo Azure (Azure AD) em Azure|Use [a autenticação SQL](security-overview.md)|
 |AD usado no SQL Server no local|[Federate AD com Azure AD,](../../active-directory/hybrid/whatis-hybrid-identity.md)e use a autenticação AZure AD. Com isto, pode utilizar o Single Sign-On.|
-|Necessidade de impor a autenticação de vários fatores (MFA)|Exija mFA como uma política através do [Microsoft Conditional Access](conditional-access-configure.md), e use [a autenticação Universal AZure AD com suporte MFA](authentication-mfa-ssms-overview.md).|
+|Necessidade de impor a autenticação multi-factor|Requera a autenticação multi-factor como uma política através do [Microsoft Conditional Access](conditional-access-configure.md), e utilize [a autenticação universal Azure AD com suporte à autenticação multi-factor](authentication-mfa-ssms-overview.md).|
 |Ter contas de hóspedes a partir de contas da Microsoft (live.com, outlook.com) ou outros domínios (gmail.com)|Utilize [a autenticação universal Azure AD](authentication-mfa-ssms-overview.md) na Base de Dados SQL/Data Warehouse, que aproveita [a colaboração Azure AD B2B](../../active-directory/b2b/what-is-b2b.md).|
 |Estão registados no Windows utilizando as suas credenciais AD Azure a partir de um domínio federado|Utilize [a autenticação integrada Azure AD](authentication-aad-configure.md).|
 |São iniciados no Windows usando credenciais de um domínio não federado com Azure|Utilize [a autenticação integrada Azure AD](authentication-aad-configure.md).|
@@ -211,13 +211,13 @@ O diagrama seguinte mostra as opções de loja chave para as teclas principais d
 
 ### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Como posso otimizar e proteger o tráfego entre a minha organização e a BASE de Dados SQL
 
-O tráfego de rede entre a sua organização e a SQL Database seria geralmente encaminhado para a rede pública. No entanto, se optar por otimizar este caminho e torná-lo mais seguro, pode olhar para a Rota Expressa. A rota expressa permite-lhe essencialmente estender a sua rede corporativa à plataforma Azure através de uma ligação privada. Ao fazê-lo, não se passa pela Internet pública. Você também obtém maior segurança, fiabilidade e otimização de encaminhamento que se traduz em latências de rede mais baixas e velocidades muito mais rápidas do que você normalmente experimentaria através da internet pública. Se está a planear transferir uma parte significativa de dados entre a sua organização e a Azure, a utilização da Rota Expresso pode trazer benefícios de custos. Pode escolher entre três modelos de conectividade diferentes para a ligação da sua organização ao Azure:
+O tráfego de rede entre a sua organização e a SQL Database seria geralmente encaminhado para a rede pública. No entanto, se optar por otimizar este caminho e torná-lo mais seguro, pode olhar para o Azure ExpressRoute. O ExpressRoute permite-lhe essencialmente estender a sua rede corporativa à plataforma Azure através de uma ligação privada. Ao fazê-lo, não se passa pela Internet pública. Você também obtém maior segurança, fiabilidade e otimização de encaminhamento que se traduz em latências de rede mais baixas e velocidades muito mais rápidas do que você normalmente experimentaria através da internet pública. Se está a planear transferir uma parte significativa de dados entre a sua organização e a Azure, a utilização do ExpressRoute pode trazer benefícios de custos. Pode escolher entre três modelos de conectividade diferentes para a ligação da sua organização ao Azure:
 
 - [Co-localização de troca de nuvens](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [Qualquer-para-qualquer](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Ponto a Ponto](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-A Rota Expressa também permite que você rebente até 2x o limite de largura de banda que você compra sem custo adicional. Também é possível configurar a conectividade da região transversal utilizando a rota Express. Para ver uma lista de fornecedores de conectividade ER, consulte: [Express Route Partners e Perso Locais](../../expressroute/expressroute-locations.md). Os seguintes artigos descrevem a Rota Expressa com mais pormenor:
+O ExpressRoute também permite que rebente até 2x o limite de largura de banda que compra sem custos adicionais. Também é possível configurar a conectividade da região transversal utilizando o ExpressRoute. Para ver uma lista de fornecedores de conectividade ExpressRoute, consulte: [ExpressRoute Partners e Peering Locations](../../expressroute/expressroute-locations.md). Os seguintes artigos descrevem a Rota Expressa com mais pormenor:
 
 - [Introdução na Rota Expressa](../../expressroute/expressroute-introduction.md)
 - [Pré-requisitos](../../expressroute/expressroute-prerequisites.md)
@@ -237,7 +237,7 @@ Depois de migrar a sua base de dados para a Base de Dados SQL, vai querer monito
 
 ### <a name="performance-monitoring-and-optimization"></a>Monitorização e otimização de desempenho
 
-Com o Questionry Performance Insights, pode obter recomendações personalizadas para a carga de trabalho da sua base de dados para que as suas aplicações possam continuar a funcionar a um nível ideal - sempre. Também pode configurar para que estas recomendações seja aplicada automaticamente e não tenha que se preocupar em executar tarefas de manutenção. Com o Index Advisor, pode implementar automaticamente recomendações de índice com base na sua carga de trabalho - isto chama-se Auto-Sintonização. As recomendações evoluem à medida que a sua aplicação muda de carga de trabalho para lhe fornecer as sugestões mais relevantes. Você também tem a opção de rever manualmente estas recomendações e aplicá-las a seu critério.  
+Com o Questionry Performance Insights, pode obter recomendações personalizadas para a carga de trabalho da sua base de dados para que as suas aplicações possam continuar a funcionar a um nível ideal - sempre. Também pode configurar para que estas recomendações seja aplicada automaticamente e não tenha que se preocupar em executar tarefas de manutenção. Com o SQL Database Advisor, pode implementar automaticamente recomendações de índice com base na sua carga de trabalho - isto chama-se Auto-Sintonização. As recomendações evoluem à medida que a sua aplicação muda de carga de trabalho para lhe fornecer as sugestões mais relevantes. Você também tem a opção de rever manualmente estas recomendações e aplicá-las a seu critério.  
 
 ### <a name="security-optimization"></a>Otimização de segurança
 
@@ -269,7 +269,7 @@ O portal Azure mostra a utilização de uma base de dados selecionando a base de
 
 A partir deste gráfico, também pode configurar alertas por recurso. Estes alertas permitem-lhe responder às condições de recursos com um e-mail, escrever para um ponto final HTTPS/HTTP ou realizar uma ação. Para mais informações, consulte [Criar alertas.](alerts-insights-configure-portal.md)
 
-#### <a name="dynamic-management-views"></a>Vistas de Gestão Dinâmica
+#### <a name="dynamic-management-views"></a>Pontos de vista dinâmicos de gestão
 
 Pode consultar a visão de gestão dinâmica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para devolver o histórico de estatísticas de consumo de recursos da última hora e a visão do catálogo do sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para devolver a história dos últimos 14 dias.
 
@@ -281,7 +281,7 @@ Pode consultar a visão de gestão dinâmica [sys.dm_db_resource_stats](/sql/rel
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (Pré-visualização) em registos do Monitor Azure
 
-[Os registos do Azure Monitor](../../azure-monitor/insights/azure-sql.md) permitem-lhe recolher e visualizar as principais métricas de desempenho da Base de Dados Azure SQL, suportando até 150.000 BASES de Dados SQL e 5.000 piscinas elásticas SQL por espaço de trabalho. Pode usá-lo para monitorizar e receber notificações. Você pode monitorizar a Base de Dados SQL e métricas elásticas de piscina em várias subscrições Azure e piscinas elásticas e pode ser usado para identificar problemas em cada camada de uma pilha de aplicações.
+[Os registos do Azure Monitor](../../azure-monitor/insights/azure-sql.md) permitem recolher e visualizar as principais métricas de desempenho da Base de Dados Azure SQL, suportando até 150.000 bases de dados e 5.000 piscinas elásticas SQL por espaço de trabalho. Pode usá-lo para monitorizar e receber notificações. Você pode monitorizar a Base de Dados SQL e métricas elásticas de piscina em várias subscrições Azure e piscinas elásticas e pode ser usado para identificar problemas em cada camada de uma pilha de aplicações.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estou a notar problemas de desempenho: Como é que a minha metodologia de resolução de problemas da BASE de Dados SQL difere do SQL Server
 
@@ -333,6 +333,6 @@ Tem várias formas de o conseguir:
 - **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – Esta funcionalidade ajuda-o a sincronizar os dados bi-direccionalmente entre várias bases de dados do SQL Server e a BASE de Dados SQL. Para sincronizar com as bases de dados do SQL Server, é necessário instalar e configurar o agente de sincronização num computador local ou numa máquina virtual e abrir a porta TCP de saída 1433.
 - **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com a replicação de transações pode sincronizar os seus dados de uma base de dados do SQL Server para a Base de Dados Azure SQL, sendo a instância do SQL Server o editor e a Base de Dados Azure SQL o assinante. Por enquanto, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os seus dados de uma base de dados do SQL Server para Azure SQL com o mínimo de tempo de inatividade, consulte: [Use a replicação de transações](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a Base de Dados SQL.](sql-database-paas-overview.md)

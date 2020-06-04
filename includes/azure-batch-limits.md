@@ -2,31 +2,34 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: batch
-author: LauraBrenner
+author: JnHs
 ms.service: batch
 ms.topic: include
-ms.date: 05/28/2019
-ms.author: labrenne
+ms.date: 06/03/2020
+ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: a0d74aa38dffdd41fbe617066391ef271a507349
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81734680"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323892"
 ---
 | **Recurso** | **Limite predefinido** | **Limite máximo** |
 | --- | --- | --- |
-| Contas do Lote Azure por região por subscrição | 1-3 |50 |
+| Contas Azure Batch por região por subscrição | 1-3 |50 |
 | Núcleos dedicados por conta Batch | 90-900 | Contactar o suporte |
-| Núcleos de baixa prioridade por conta Batch | 10-100 | Contactar o suporte |
-| **[Empregos ativos](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** e horários de trabalho por conta Batch **(empregos concluídos** não têm limite) | 100-300 | 1.000<sup>1</sup> |
+| Núcleos de baixa prioridade por conta batch | 10-100 | Contactar o suporte |
+| **[Empregos ativos](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** e horários de trabalho por conta batch (os empregos**concluídos** não têm limite) | 100-300 | 1.000<sup>1</sup> |
 | Conjuntos por conta do Batch | 20-100 | 500<sup>1</sup> |
 
 <sup>1</sup> Para solicitar um aumento para além deste limite, contacte o Suporte Azure.
 
+> [!IMPORTANT]
+> Estamos a mudar a forma como solicita e gere quota dedicada.  O total de vCPUs dedicados é o valor atualmente aplicado, mas em breve iremos impor quotas dedicadas por série VM. A quota de baixa prioridade continuará a ser aplicada com base no limite total; não será aplicada pela série VM.
+
 > [!NOTE]
-> Os limites de predefinição variam consoante o tipo de subscrição que utiliza para criar uma conta Batch. As quotas de cores apresentadas são para contas de Lote no modo de serviço batch. [Consulte as quotas na sua conta Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
+> Os limites predefinidos variam consoante o tipo de subscrição que utiliza para criar uma conta Batch. As quotas de núcleos apresentadas são para contas Batch no modo de serviço Batch. [Veja as quotas na sua conta Batch.](../articles/batch/batch-quota-limit.md#view-batch-quotas)
 
 > [!IMPORTANT]
-> Para nos ajudar a gerir melhor a capacidade durante a pandemia global de saúde, as quotas centrais padrão para novas contas do Lote em algumas regiões e para alguns tipos de subscrição foram reduzidas do intervalo acima de valores, em alguns casos para zero núcleos. Quando criar uma nova conta De Lote, [verifique a sua quota central](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento de quota central,](../articles/batch/batch-quota-limit.md#increase-a-quota)se necessário. 
+> Para nos ajudar a gerir melhor a capacidade durante a pandemia global de saúde, as quotas fundamentais padrão para novas contas de Lote em algumas regiões e para alguns tipos de subscrição foram reduzidas do intervalo de valores acima, em alguns casos para núcleos zero. Quando criar uma nova conta Batch, [verifique a sua quota principal](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento de quota de base,](../articles/batch/batch-quota-limit.md#increase-a-quota)se necessário. 

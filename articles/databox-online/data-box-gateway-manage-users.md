@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 137531ab0d96c24a3ce19e429a5765d6e4a13c93
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561226"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338979"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway
 
@@ -33,7 +33,7 @@ Os utilizadores podem ser só de leitura ou ter privilégios máximos. Conforme 
  - **Utilizador com privilégios máximos** - um utilizador local com acesso total.
  - **Utilizador só de leitura** - um utilizador local com acesso só de leitura. Estes utilizadores estão associados a partilhas que permitem operações só de leitura.
 
-As permissões de utilizador são definidas pela primeira vez quando o utilizador é criado durante a criação da partilha. Atualmente, a modificação das permissões de nível de partilha não é suportada.
+As permissões de utilizador são definidas pela primeira vez quando o utilizador é criado durante a criação da partilha. Atualmente, não é suportada a modificação das permissões de nível de ação.
 
 ## <a name="add-a-user"></a>Adicionar um utilizador
 
@@ -77,6 +77,6 @@ A lista de utilizadores é atualizada para refletir o utilizador eliminado.
 ![Eliminar um utilizador](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

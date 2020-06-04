@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 643c94736d6ee519907913bc9ec59f808081f089
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216410"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343256"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-A Base de Dados SQL do Azure é um Motor de Base de Dados de Plataforma como Serviço (PaaS) totalmente gerida que processa a maioria das funções de gestão de bases de dados, tais como a atualização, a aplicação de patches, as cópias de segurança e a monitorização sem a intervenção do utilizador. A Base de Dados SQL do Azure está sempre em execução na versão estável mais recente do Motor de Base de Dados do SQL Server e no SO com patches com 99,99% de disponibilidade. As capacidades paaS que são incorporadas na Base de Dados Azure SQL permitem-lhe focar-se na administração de bases de dados específicas do domínio e atividades de otimização que são fundamentais para o seu negócio.
+O Azure SQL Database é uma plataforma totalmente gerida como um motor de base de dados de serviço (PaaS) que lida com a maioria das funções de gestão de bases de dados, tais como upgrade, patching, backups e monitorização sem o envolvimento do utilizador. O Azure SQL Database está sempre a funcionar na versão mais recente e estável do motor de base de dados sql Server e o SISTEMA remendado com 99,99% de disponibilidade. As capacidades paaS que são incorporadas na Base de Dados Azure SQL permitem-lhe focar-se na administração de bases de dados específicas do domínio e atividades de otimização que são fundamentais para o seu negócio.
 
 Com a Azure SQL Database, pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para as aplicações e soluções em Azure. A BASE de Dados SQL pode ser a escolha certa para uma variedade de aplicações em nuvem modernas porque permite processar dados relacionais e [estruturas não relacionais](../multi-model-features.md), tais como gráficos, JSON, espacial e XML.
 
@@ -34,18 +34,18 @@ A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de d
 
 A Azure SQL Database fornece as seguintes opções de implantação para uma base de dados:
 
-- [Uma base de dados única](single-database-overview.md) representa uma base de dados totalmente gerida e isolada. Poderá utilizar esta opção se tiver aplicações em nuvem modernas e microserviços que necessitem de uma única fonte de dados fiável. Uma única base de dados é semelhante a uma [base de dados contida](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) no Microsoft [SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Uma base de dados única](single-database-overview.md) representa uma base de dados totalmente gerida e isolada. Poderá utilizar esta opção se tiver aplicações em nuvem modernas e microserviços que necessitem de uma única fonte de dados fiável. Uma única base de dados é semelhante a uma [base de dados contida](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) no motor de base de [dados SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [A piscina elástica](elastic-pool-overview.md) é uma coleção de bases de [dados individuais](single-database-overview.md) com um conjunto partilhado de recursos, como CPU ou memória. Bases de dados individuais podem ser transferidas para dentro e para fora de uma piscina elástica.
 
 > [!IMPORTANT]
 > Para compreender as diferenças de funcionalidades entre a Base de Dados SQL e o SQL Server, bem como as diferenças entre as diferentes opções de Base de Dados Azure SQL, consulte [as funcionalidades da Base de Dados SQL](features-comparison.md).
 
-A SQL Database oferece um desempenho previsível com vários tipos de recursos, níveis de serviço e tamanhos de cálculo. Proporciona uma escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade e disponibilidade globais, e opções avançadas de segurança. Estas capacidades permitem-lhe focar-se no rápido desenvolvimento de apps e acelerar o seu tempo para o mercado, em vez de gerir máquinas virtuais e infraestruturas. O serviço SQL Database está atualmente em 38 datacenters em todo o mundo, para que possa executar a sua base de dados num datacenter perto de si.
+A SQL Database oferece um desempenho previsível com vários tipos de recursos, níveis de serviço e tamanhos de cálculo. Proporciona uma escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade e disponibilidade globais, e opções avançadas de segurança. Estas capacidades permitem-lhe focar-se no rápido desenvolvimento de apps e acelerar o seu tempo para o mercado, em vez de gerir máquinas virtuais e infraestruturas. A BASE de Dados SQL está atualmente em 38 datacenters em todo o mundo, para que possa executar a sua base de dados num datacenter perto de si.
 
 ## <a name="scalable-performance-and-pools"></a>Dimensionar o desempenho e os conjuntos
 
 Pode definir a quantidade de recursos atribuídos. 
-- Com bases de dados individuais, cada base de dados é isolada de outras e é portátil. Cada um tem a sua própria quantidade garantida de recursos de computação, memória e armazenamento. A quantidade de recursos atribuídos à base de dados é dedicada a essa base de dados, e não é partilhada com outras bases de dados em Azure. Pode escalar dinamicamente [os recursos de uma única base de dados](single-database-scale.md) para cima e para baixo. A opção de base de dados única fornece diferentes recursos de computação, memória e armazenamento para diferentes necessidades. Por exemplo, pode obter 1 a 80 vCores, ou 32 GB a 4 TB. O [nível de serviço de hiperescala](service-tier-hyperscale.md) para uma única base de dados permite-lhe escalar até 100 TB, com capacidades rápidas de backup e restauro.
+- Com bases de dados individuais, cada base de dados é isolada de outras e é portátil. Cada um tem a sua própria quantidade garantida de recursos de computação, memória e armazenamento. A quantidade de recursos atribuídos à base de dados é dedicada a essa base de dados, e não é partilhada com outras bases de dados em Azure. Pode escalar dinamicamente [os recursos de uma única base de dados](single-database-scale.md) para cima e para baixo. A opção de base de dados única fornece diferentes recursos de computação, memória e armazenamento para diferentes necessidades. Por exemplo, pode obter 1 a 80 vCores, ou 32 GB a 4 TB. O [nível de serviço de hiperescala](service-tier-hyperscale.md) para bases de dados individuais permite escalar até 100 TB, com capacidades rápidas de backup e restauro.
 - Com piscinas elásticas, você pode atribuir recursos que são partilhados por todas as bases de dados na piscina. Pode criar uma nova base de dados ou mover as bases de dados únicas existentes para um conjunto de recursos para maximizar o uso de recursos e economizar dinheiro. Esta opção também lhe dá a capacidade de [escalar dinamicamente os recursos elásticos da piscina](elastic-pool-scale.md) para cima e para baixo.
 
 Pode construir a sua primeira aplicação numa base de dados pequena e única a um custo baixo por mês no nível de serviço para fins gerais. Em seguida, pode alterar o seu nível de serviço manualmente ou programáticamente a qualquer momento para o nível de serviço crítico de negócios, para atender às necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Só pagas os recursos de que precisas quando precisas deles.
@@ -76,7 +76,7 @@ Com piscinas elásticas, não precisa de se concentrar em marcar o desempenho da
 
 Pode [adicionar e remover bases de dados para a piscina,](elastic-pool-overview.md)escalando a sua aplicação de um punhado de bases de dados para milhares, tudo dentro de um orçamento que controla. Você também pode controlar os recursos mínimos e máximos disponíveis para bases de dados na piscina, para garantir que nenhuma base de dados na piscina usa todos os recursos do pool, e que cada base de dados agrida tem uma quantidade mínima garantida de recursos. Para saber mais sobre padrões de design para software como aplicações de serviço (SaaS) que usam piscinas elásticas, consulte [padrões de design para aplicações SaaS multi-inquilinos com Base de Dados SQL](saas-tenancy-app-design-patterns.md).
 
-Os scripts podem ajudar na monitorização e no dimensionamento dos conjuntos elásticos. Por exemplo, consulte [Use PowerShell para monitorizar e escalar uma piscina elástica SQL na Base de Dados Azure SQL](scripts/monitor-and-scale-pool-powershell.md).
+Os scripts podem ajudar na monitorização e no dimensionamento dos conjuntos elásticos. Por exemplo, consulte [Use PowerShell para monitorizar e escalar uma piscina elástica na Base de Dados Azure SQL](scripts/monitor-and-scale-pool-powershell.md).
 
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Combinar bases de dados individuais com bases de dados de conjunto
@@ -86,7 +86,7 @@ Pode misturar bases de dados individuais com piscinas elásticas e alterar os n�
 ## <a name="extensive-monitoring-and-alerting-capabilities"></a>Capacidades alargadas de monitorização e alertas
 
 A Azure SQL Database fornece funcionalidades avançadas de monitorização e resolução de problemas que o ajudam a obter informações mais profundas sobre as características da carga de trabalho. Estas funcionalidades e ferramentas incluem:
- - As capacidades de monitorização incorporadas fornecidas pela versão mais recente do SQL Server Database Engine. Permitem-lhe encontrar insights de desempenho em tempo real. 
+ - As capacidades de monitorização incorporadas fornecidas pela versão mais recente do motor de base de dados SQL Server. Permitem-lhe encontrar insights de desempenho em tempo real. 
  - Capacidades de monitorização paaS fornecidas pelo Azure que lhe permitem monitorizar e resolver problemas num grande número de casos de base de dados.
 
 [A Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), uma funcionalidade de monitorização do SQL Server incorporada, regista o desempenho das suas consultas em tempo real e permite identificar os potenciais problemas de desempenho e os consumidores de recursos de topo. A sintonização automática e recomendações fornecem aconselhamento sobre as consultas com o desempenho regressado e índices em falta ou duplicados. A sintonização automática na Base de Dados SQL permite-lhe aplicar manualmente os scripts que podem corrigir os problemas, ou deixar a SQL Database aplicar a correção. A BASE de Dados SQL também pode testar e verificar se a correção proporciona algum benefício, e reter ou reverter a alteração dependendo do resultado. Além da Loja de Consultas e das capacidades de afinação automática, pode utilizar [DMVs standard e XEvent](monitoring-with-dmvs.md) para monitorizar o desempenho da carga de trabalho.
@@ -105,7 +105,7 @@ A Azure SQL Database permite que o seu negócio continue a operar durante as int
 
 A recuperação de desastres pressupõe que um evento catastrófico esteja geograficamente localizado o suficiente para ter outra máquina ou conjunto de máquinas com uma cópia dos seus dados longe. No SQL Server, pode utilizar grupos sempre em disponibilidade em funcionamento no modo async para obter esta capacidade. Muitas vezes, as pessoas não querem esperar que a replicação aconteça tão longe antes de cometer uma transação, por isso há potencial para a perda de dados quando se faz falhas não planeadas.
 
-As bases de dados nos níveis de serviço crítico de prémios e negócios já [fazem algo semelhante](high-availability-sla.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. As bases de dados em níveis de serviço mais baixos proporcionam redundância através do armazenamento utilizando um [mecanismo diferente, mas equivalente.](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger contra uma única falha na máquina. A funcionalidade de geo-replicação ativa dá-lhe a capacidade de se proteger contra desastres onde toda uma região é destruída.
+As bases de dados nos níveis de serviço Premium e Business Critical já [fazem algo semelhante](high-availability-sla.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. As bases de dados em níveis de serviço mais baixos proporcionam redundância através do armazenamento utilizando um [mecanismo diferente, mas equivalente.](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger contra uma única falha na máquina. A funcionalidade de geo-replicação ativa dá-lhe a capacidade de se proteger contra desastres onde toda uma região é destruída.
 
 As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de um único edifício de datacenter dentro de uma única região. Ajuda-o a proteger-se contra a perda de energia ou rede para um edifício. Na Base de Dados SQL, coloca as diferentes réplicas em diferentes zonas de disponibilidade (diferentes edifícios, efetivamente).
 
@@ -119,7 +119,7 @@ Além disso, a SQL Database fornece funcionalidades de continuidade de negócios
 
 - [Restauros pontuais:](recovery-using-backups.md)
 
-  Todas as opções de implementação da Base de Dados SQL suportam a recuperação a qualquer ponto do tempo dentro do período automático de retenção de backup para qualquer base de dados SQL.
+  Todas as opções de implementação da base de dados SQL suportam a recuperação a qualquer ponto no tempo dentro do período automático de retenção de backup para qualquer base de dados.
 - [Geo-replicação ativa:](active-geo-replication-overview.md)
 
   As opções de bases de dados únicas e de bases de dados agrárias permitem configurar até quatro bases de dados secundárias legíveis nos mesmos centros de dados Azure distribuídos globalmente. Por exemplo, se tiver uma aplicação SaaS com uma base de dados de catálogo que tenha um grande volume de transações de leitura simultânea, utilize a geo-replicação ativa para permitir a escala de leitura global. Isto remove estrangulamentos nas primárias que são devidos à leitura de cargas de trabalho. Para casos geridos, utilize grupos de falha automática.
@@ -128,7 +128,7 @@ Além disso, a SQL Database fornece funcionalidades de continuidade de negócios
   Todas as opções de implementação da Base de Dados SQL permitem-lhe utilizar grupos de failover para permitir uma elevada disponibilidade e equilíbrio de carga à escala global. Isto inclui a geo-replicação transparente e o fracasso de grandes conjuntos de bases de dados, piscinas elásticas e instâncias geridas. Os grupos de failover permitem a criação de aplicações SaaS distribuídas globalmente, com despesas mínimas de administração. Isto deixa toda a complexa monitorização, encaminhamento e orquestração falhada para a Base de Dados SQL.
 - [Bases de dados redundantes de zonas:](high-availability-sla.md)
 
-  A BASE de Dados SQL permite-lhe a provisionar bases de dados críticas premium ou empresariais ou piscinas elásticas em várias zonas de disponibilidade. Como estas bases de dados e piscinas elásticas têm múltiplas réplicas redundantes para alta disponibilidade, colocar estas réplicas em várias zonas de disponibilidade proporciona maior resiliência. Isto inclui a capacidade de recuperar automaticamente das falhas da escala do datacenter, sem perda de dados.
+  A BASE de Dados SQL permite-lhe aloquir bases de dados Premium ou Business Critical ou piscinas elásticas em várias zonas de disponibilidade. Como estas bases de dados e piscinas elásticas têm múltiplas réplicas redundantes para alta disponibilidade, colocar estas réplicas em várias zonas de disponibilidade proporciona maior resiliência. Isto inclui a capacidade de recuperar automaticamente das falhas da escala do datacenter, sem perda de dados.
 
 ## <a name="built-in-intelligence"></a>Inteligência incorporada
 
@@ -138,7 +138,7 @@ Com a BASE de Dados SQL, obtém informações incorporadas que o ajudam a reduzi
 
 A Base de Dados SQL disponibiliza informações detalhadas sobre as consultas que tem de monitorizar. A SQL Database aprende sobre os seus padrões de base de dados e permite-lhe adaptar o seu esquema de base de dados à sua carga de trabalho. A Base de Dados SQL disponibiliza [recomendações de otimização de desempenho](database-advisor-implement-performance-recommendations.md), onde pode ver as ações de otimização e aplicá-las.
 
-No entanto, monitorizar constantemente uma base de dados é uma tarefa difícil e aborrecida, especialmente quando se trata de muitas bases de dados. [A Intelligent Insights](intelligent-insights-overview.md) faz este trabalho para si, monitorizando automaticamente o desempenho da Base de Dados SQL à escala. Informa-o sobre problemas de degradação de desempenho, identifica a causa principal de cada problema e fornece recomendações de melhoria de desempenho sempre que possível.
+No entanto, monitorizar constantemente uma base de dados é uma tarefa difícil e aborrecida, especialmente quando se lida com muitas bases de dados. [A Intelligent Insights](intelligent-insights-overview.md) faz este trabalho para si, monitorizando automaticamente o desempenho da Base de Dados SQL à escala. Informa-o sobre problemas de degradação de desempenho, identifica a causa principal de cada problema, e fornece recomendações de melhoria de desempenho sempre que possível.
 
 Gerir um grande número de bases de dados pode ser impossível de fazer de forma eficiente, mesmo com todas as ferramentas e relatórios disponíveis que a SQL Database e a Azure fornecem. Em vez de monitorizar e afinar manualmente a sua base de dados, poderá considerar delegar algumas das ações de monitorização e afinação à Base de Dados SQL utilizando [a sintonização automática](automatic-tuning-overview.md). A SQL Database aplica automaticamente recomendações, testes e verifica cada uma das suas ações de afinação para garantir que o desempenho continua a melhorar. Desta forma, a SQL Database adapta-se automaticamente à sua carga de trabalho de forma controlada e segura. A sintonização automática significa que o desempenho da sua base de dados é cuidadosamente monitorizado e comparado antes e depois de cada ação de afinação. Se o desempenho não melhorar, a ação de afinação é revertida.
 
@@ -180,7 +180,7 @@ A segurança avançada dos dados é um pacote unificado para capacidades avança
 
 ### <a name="data-encryption"></a>Encriptação de dados
 
-A SQL Database ajuda a proteger os seus dados fornecendo encriptação. Para os dados em movimento, utiliza [a segurança da camada de transporte.](https://support.microsoft.com/kb/3135244) Para dados em repouso, utiliza [encriptação de dados transparentes.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Para os dados utilizados, utiliza [sempre encriptados.](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+A SQL Database ajuda a proteger os seus dados fornecendo encriptação. Para os dados em movimento, utiliza [a segurança da camada de transporte.](https://support.microsoft.com/kb/3135244) Para dados em repouso, utiliza [encriptação de dados transparentes.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Para os dados utilizados, utiliza [Sempre Encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
@@ -190,12 +190,12 @@ A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores d
 
 Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo. A Base de Dados SQL permite-lhe dedicar-se ao que sabe fazer melhor: criar aplicações excelentes. Pode gerir e desenvolver na SQL Database utilizando ferramentas e competências que já tem.
 
-|Ferramenta|Descrição|
+|Ferramenta|Description|
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Uma aplicação baseada na web para gerir todos os serviços Azure.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, MacOS e Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
-|[Ferramentas de dados do servidor SQL no Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados DO Microsoft Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
+|[Ferramentas de dados do servidor SQL no Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados na Base de Dados Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure SQL Data Warehouse.|
 
 A SQL Database suporta aplicações de construção com Python, Java, Node.js, PHP, Ruby e .NET em macOS, Linux e Windows. A Base de Dados SQL suporta as mesmas [bibliotecas de ligações](connect-query-content-reference-guide.md#libraries) que o SQL Server.
@@ -215,17 +215,17 @@ Não. O impacto do patching geralmente não é percetível se [você empregar a 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Pergunte a questões de administração de bases de dados.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Faça perguntas de desenvolvimento.
 - [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
-- [Feedback](https://aka.ms/sqlfeedback): Reportar bugs e funcionalidade de pedido.
+- [Feedback](https://aka.ms/sqlfeedback): Reportar bugs e funcionalidades de pedido.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o SQL Server.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [a página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para comparações de custos e calculadoras relativas a bases de dados individuais e piscinas elásticas.
 - Veja estes quickstarts para começar:
 
-  - [Criar uma base de dados SQL no portal do Azure](single-database-create-quickstart.md)  
-  - [Criar uma base de dados SQL com a CLI do Azure](az-cli-script-samples-content-guide.md)
-  - [Criar uma base de dados SQL utilizando o PowerShell](powershell-script-content-guide.md)
+  - [Criar uma base de dados no portal do Azure](single-database-create-quickstart.md)  
+  - [Criar uma base de dados com o Azure CLI](az-cli-script-samples-content-guide.md)
+  - [Criar uma base de dados utilizando o PowerShell](powershell-script-content-guide.md)
 
 - Para um conjunto de amostras de CLI do Azure e PowerShell, veja:
   - [Exemplos da CLI do Azure para a Base de Dados SQL (Azure CLI samples for SQL Database)](az-cli-script-samples-content-guide.md)

@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 547b268a43cdd4b362d56b34cf9129a8b5efe16e
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 78b38f5059d50d56158e31c65299e5f747c8c073
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266428"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323608"
 ---
-# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mariadb-server"></a>Quickstart: Use um modelo de Gestor de Recursos para criar uma Base de Dados Azure para servidor MariaDB
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para servidor MariaDB
 
 A Azure Database for MariaDB é um serviço gerido que utiliza para executar, gerir e escalar bases de dados MariaDB altamente disponíveis na nuvem. Neste arranque rápido, utiliza-se um modelo ARM para criar uma Base de Dados Azure para servidor MariaDB no portal Azure, PowerShell ou Azure CLI.
 
@@ -205,7 +205,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte:
 

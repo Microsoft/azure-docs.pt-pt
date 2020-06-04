@@ -4,37 +4,37 @@ description: Traga as suas próprias chaves (BYOK) para encriptar os discos AKS 
 services: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.openlocfilehash: ac6c4d2c4b3f309e2098ff6a6513aab8a3f8ea5f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: c16bdb613c60a8eef3efd1be8d7ab1a78e002f98
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141539"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84325104"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga as suas próprias chaves (BYOK) com discos Azure no Serviço Azure Kubernetes (AKS)
 
-O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por padrão, os dados são encriptados com chaves geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer [chaves geridas pelo cliente][customer-managed-keys] para usar para encriptação em repouso tanto para o SISTEMA como para os discos de dados para os seus clusters AKS.
+O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, os dados são encriptados com as teclas geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer [chaves geridas pelo cliente][customer-managed-keys] para usar para encriptação em repouso tanto para o SISTEMA como para os discos de dados para os seus clusters AKS.
 
 > [!NOTE]
-> Os clusters AKS baseados em BYOK Linux e Windows estão disponíveis nas [regiões do Azure][supported-regions] que suportam a encriptação lateral do servidor dos discos geridos pelo Azure.
+> Os clusters AKS baseados em BYOK Linux e Windows estão disponíveis nas [regiões de Azure][supported-regions] que suportam a encriptação lateral do servidor dos discos geridos pelo Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Este artigo assume que está a criar um *novo cluster AKS.*
+* Este artigo pressupõe que está a criar um *novo cluster AKS.*
 
-* Deve ativar uma proteção suave para eliminar e purgar a proteção para *o Cofre de Chaves Azure* ao utilizar o Cofre chave para encriptar discos geridos.
+* Tem de ativar a proteção para a eliminação e purga suave do *Cofre da Chave Azure* quando utilizar o Cofre de Chaves para encriptar discos geridos.
 
-* Você precisa da versão Azure CLI 2.0.79 ou mais tarde e a extensão aks-preview 0.4.26
+* Precisa da versão 2.0.79 ou posterior do Azure CLI e da extensão aks-preview 0.4.26
 
 > [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são opt-in self-service. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos acordos de nível de serviço e da garantia limitada. As pré-visualizações aks são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam à utilização da produção. Para obter informações adicionais, consulte os seguintes artigos de apoio:
+> As funcionalidades de pré-visualização AKS são opt-in de autosserviço. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos contratos de nível de serviço e garantia limitada. As pré-visualizações AKS são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam ao uso da produção. Para obter informações adicionais, consulte os seguintes artigos de apoio:
 >
-> * [Políticas de apoio aks](support-policies.md)
-> * [FaQ de suporte azure](faq.md)
+> * [Políticas de apoio da AKS](support-policies.md)
+> * [FAQ de suporte Azure](faq.md)
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Instale a mais recente extensão de pré-visualização AKS CLI
+## <a name="install-latest-aks-cli-preview-extension"></a>Instale a mais recente extensão de pré-visualização do AKS CLI
 
-Para utilizar as chaves geridas pelo cliente, necessita da versão de extensão CLI de *pré-visualização* de aks 0.4.26 ou superior. Instale a extensão Azure CLI de *pré-visualização de aks* utilizando o comando de adição de [extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
+Para utilizar as teclas geridas pelo cliente, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.26 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,11 +44,11 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-azure-key-vault-instance"></a>Crie uma instância de cofre de chave azure
+## <a name="create-an-azure-key-vault-instance"></a>Criar uma instância Azure Key Vault
 
-Utilize uma instância do Cofre de Chaves Azure para armazenar as suas chaves.  Você pode opcionalmente usar o portal Azure para [configurar chaves geridas pelo cliente com cofre][byok-azure-portal] de chave Azure
+Utilize uma instância Azure Key Vault para guardar as suas chaves.  Pode utilizar opcionalmente o portal Azure para [configurar chaves geridas pelo cliente com cofre de chaves Azure][byok-azure-portal]
 
-Crie um novo grupo de *recursos,* em seguida, crie uma nova instância *key vault* e permita eliminar suavemente e purgar a proteção.  Certifique-se de que utiliza os nomes de grupos da mesma região e recursos para cada comando.
+Crie um novo *grupo de recursos,* em seguida, crie uma nova instância *Key Vault* e permita a proteção de eliminação e purga suave.  Certifique-se de que utiliza os mesmos nomes de grupos de recursos e região para cada comando.
 
 ```azurecli-interactive
 # Optionally retrieve Azure region short names for use on upcoming commands
@@ -63,9 +63,9 @@ az group create -l myAzureRegionName -n myResourceGroup
 az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
 ```
 
-## <a name="create-an-instance-of-a-diskencryptionset"></a>Criar uma instância de um DiskEncryptionSet
+## <a name="create-an-instance-of-a-diskencryptionset"></a>Criar um exemplo de um DiskEncrypationSet
 
-Substitua o *meu Nome KeyVault* pelo nome do seu cofre chave.  Também necessitará de uma *chave* armazenada no Cofre de Chaves Azure para completar os seguintes passos.  Ou armazena a chave existente no Cofre de Chaves que criou nos passos anteriores, ou [gera uma nova tecla][key-vault-generate] e substitui o *myKeyName* abaixo com o nome da sua chave.
+Substitua *o meu Nome ChaveVault* pelo nome do seu cofre de chaves.  Também necessitará de uma *chave* armazenada no Cofre da Chave Azure para completar os seguintes passos.  Ou armazena a chave existente no Cofre de Chaves que criou nos passos anteriores, ou [gera uma nova chave][key-vault-generate] e substitui o *myKeyName* abaixo pelo nome da sua chave.
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -78,9 +78,9 @@ keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyN
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
-## <a name="grant-the-diskencryptionset-access-to-key-vault"></a>Conceder o acesso do DiskEncryptionSet ao cofre da chave
+## <a name="grant-the-diskencryptionset-access-to-key-vault"></a>Conceder ao DiskEncrypationSet acesso ao cofre de chaves
 
-Utilize o DiskEncryptionSet e os grupos de recursos que criou nos passos anteriores e conceda o acesso ao recurso DiskEncryptionSet para o Cofre de Chaves Azure.
+Utilize o DiskEncryptionSet e os grupos de recursos que criou nos passos anteriores e conceda ao diskEncrypationSet acesso ao Cofre da Chave Azure.
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -92,7 +92,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>Crie um novo cluster AKS e criptografe o disco OS
 
-Crie um **novo grupo** de recursos e um cluster AKS e, em seguida, use a sua chave para encriptar o disco OS. As chaves geridas pelo cliente só são suportadas nas versões Kubernetes superiores a 1.17. 
+Crie um **novo grupo de recursos** e um cluster AKS e, em seguida, use a sua chave para encriptar o disco OS. As chaves geridas pelo cliente só são suportadas nas versões Kubernetes superiores a 1.17. 
 
 > [!IMPORTANT]
 > Certifique-se de criar um novo grupo de resoruce para o seu cluster AKS
@@ -108,14 +108,13 @@ az group create -n myResourceGroup -l myAzureRegionName
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
 ```
 
-Quando novos conjuntos de nós são adicionados ao cluster criado acima, a chave gerida pelo cliente fornecida durante a criação é usada para encriptar o disco OS.
+Quando novos conjuntos de nós são adicionados ao cluster criado acima, a chave gerida pelo cliente fornecida durante a criação é usada para encriptar o disco de SO.
 
-## <a name="encrypt-your-aks-cluster-data-disk"></a>Criptografe o seu disco de dados do cluster AKS
-
-Também pode encriptar os discos de dados AKS com as suas próprias chaves.
+## <a name="encrypt-your-aks-cluster-data-diskoptional"></a>Criptografe o seu disco de dados de cluster AKS (opcional)
+A chave de encriptação do disco de OS será usada para encriptar o disco de dados se não for fornecida a chave para o disco de dados a partir de v1.17.2, e também pode encriptar discos de dados AKS com as outras teclas.
 
 > [!IMPORTANT]
-> Certifique-se de que tem as credenciais AKS adequadas. O diretor do Serviço terá de ter acesso ao grupo de recursos onde o conjunto de encriptação do disco está implantado. Caso contrário, terá um erro que sugere que o diretor de serviço não tem permissões.
+> Certifique-se de que tem as credenciais AKS adequadas. O diretor do Serviço terá de ter acesso ao grupo de recursos onde o diskencrypationset é implantado. Caso contrário, terá um erro sugerindo que o principal do serviço não tem permissões.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below
@@ -141,7 +140,7 @@ someuser@Azure:~$ az account list
 ]
 ```
 
-Crie um ficheiro chamado **byok-azure-disk.yaml** que contenha as seguintes informações.  Substitua o myAzureSubscriptionId, o myResourceGroup e o myDiskEncrptionSetName com os seus valores e aplique o yaml.  Certifique-se de utilizar o grupo de recursos onde o seu DiskCryptonSet está implantado.  Se utilizar a Casca de Nuvem Azure, este ficheiro pode ser criado utilizando vi ou nano como se funcionasse num sistema virtual ou físico:
+Crie um ficheiro chamado **byok-azure-disk.yaml** que contenha as seguintes informações.  Substitua o myAzureSubscriptionId, myResourceGroup e myDiskEncrptionSetName pelos seus valores e aplique o yaml.  Certifique-se de que utiliza o grupo de recursos onde o seu DiskEncrypationSet está implantado.  Se utilizar o Azure Cloud Shell, este ficheiro pode ser criado usando vi ou nano como se trabalhasse num sistema virtual ou físico:
 
 ```
 kind: StorageClass
@@ -154,7 +153,7 @@ parameters:
   kind: managed
   diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
-Em seguida, execute esta implantação no seu cluster AKS:
+Em seguida, execute esta implementação no seu cluster AKS:
 ```azurecli-interactive
 # Get credentials
 az aks get-credentials --name myAksCluster --resource-group myResourceGroup --output table
@@ -165,12 +164,10 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Limitações
 
-* BYOK só está disponível atualmente em GA e Preview em certas [regiões de Azure][supported-regions]
-* Encriptação de disco ossuportado com versão Kubernetes 1.17 e acima   
-* Disponível apenas em regiões onde o BYOK é apoiado
-* A encriptação com chaves geridas pelo cliente atualmente é apenas para novos clusters AKS, clusters existentes não podem ser atualizados
-* Cluster AKS utilizando conjuntos de escala de máquina virtual são necessários, sem suporte para conjuntos de disponibilidade de máquinas virtuais
-
+* BYOK só está atualmente disponível em GA e Pré-visualização em [certas regiões do Azure][supported-regions]
+* Encriptação do disco de dados suportada com a versão 1.17 e superior de Kubernetes   
+* Disponível apenas em regiões onde a BYOK é apoiada
+* A encriptação com as chaves geridas pelo cliente atualmente é apenas para novos clusters AKS, os clusters existentes não podem ser atualizados
 
 ## <a name="next-steps"></a>Próximos passos
 

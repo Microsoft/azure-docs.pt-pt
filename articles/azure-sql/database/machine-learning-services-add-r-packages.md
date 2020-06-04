@@ -1,7 +1,7 @@
 ---
-title: Adicione um pacote R aos Serviços de Aprendizagem Automática (pré-visualização)
+title: Adicione um pacote R aos Serviços de Aprendizagem automática (pré-visualização)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Este artigo explica como instalar um pacote R que ainda não está instalado nos Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL (pré-visualização).
+description: Este artigo explica como instalar um pacote R que ainda não está instalado nos Serviços de Aprendizagem de Máquinas de Base de Dados Azure SQL (pré-visualização).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,49 +14,49 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289b1346fce2e79a2c1e546f5e42e98734ef800c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053568"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324237"
 ---
-# <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicione um pacote R aos Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL (pré-visualização)
+# <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicione um pacote R aos Serviços de Aprendizagem de Máquinas de Base de Dados Azure SQL (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este artigo explica como adicionar um pacote R aos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização).
+Este artigo explica como adicionar um pacote R ao Azure SQL Database Machine Learning Services (pré-visualização).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale [o R](https://www.r-project.org) e [o RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) no seu computador local. O R está disponível para Windows, macOS e Linux. Este artigo assume que está a usar o Windows.
+- Instale [o Ambiente](https://www.r-project.org) de Trabalho R e [RStudio](https://www.rstudio.com/products/rstudio/download/) no seu computador local. R está disponível para Windows, macOS e Linux. Este artigo pressupõe que está a usar o Windows.
 
-- Este artigo inclui um exemplo de utilização do [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) ou [do SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) para executar um script R na Base de Dados Azure SQL. Pode executar scripts R utilizando outras ferramentas de gestão de bases de dados ou consultas, mas este exemplo pressupõe o Azure Data Studio ou o SSMS.
+- Este artigo inclui um exemplo de utilização do [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) ou [do SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) para executar um script R na Base de Dados Azure SQL. Pode executar scripts R utilizando outras ferramentas de gestão de bases de dados ou ferramentas de consulta, mas este exemplo assume o Azure Data Studio ou SSMS.
    
 > [!NOTE]
-> Não é possível instalar um pacote executando um script R utilizando **sp_execute_external_script** no Azure Data Studio ou SSMS. Só é possível instalar e remover pacotes utilizando a linha de comando R e rStudio, conforme descrito neste artigo. Uma vez instalado o pacote, pode aceder às funções do pacote num script R utilizando **sp_execute_external_script**.
+> Não é possível instalar um pacote executando um script R utilizando **sp_execute_external_script** no Azure Data Studio ou SSMS. Só é possível instalar e remover pacotes utilizando a linha de comando R e o RStudio, conforme descrito neste artigo. Uma vez instalada a embalagem, pode aceder às funções do pacote num script R utilizando **sp_execute_external_script**.
 
 ## <a name="list-r-packages"></a>Listar pacotes de R
 
-A Microsoft fornece uma série de pacotes R pré-instalados com serviços de aprendizagem automática na sua base de dados Azure SQL.
+A Microsoft fornece uma série de pacotes R pré-instalados com Serviços de Machine Learning na sua base de dados Azure SQL.
 Pode ver uma lista de pacotes R instalados executando o seguinte comando no Azure Data Studio ou SSMS.
 
-1. Abra o Estúdio de Dados Azure ou SSMS e ligue-se à sua Base de Dados Azure SQL.
+1. Abra o Azure Data Studio ou SSMS e ligue-se à sua Base de Dados Azure SQL.
 
 1. Execute o seguinte comando:
 
-```sql
-EXECUTE sp_execute_external_script @language = N'R'
+    ```sql
+    EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License")]);'
-WITH RESULT SETS((
-            Package NVARCHAR(255)
-            , Version NVARCHAR(100)
-            , Depends NVARCHAR(4000)
-            , License NVARCHAR(1000)
-            ));
-```
+    OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License")]);'
+    WITH RESULT SETS((
+                Package NVARCHAR(255)
+                , Version NVARCHAR(100)
+                , Depends NVARCHAR(4000)
+                , License NVARCHAR(1000)
+                ));
+    ```
 
 A saída deve ser semelhante à seguinte.
 
@@ -66,15 +66,15 @@ A saída deve ser semelhante à seguinte.
 
 ## <a name="add-a-package-with-sqlmlutils"></a>Adicione um pacote com sqlmlutils
 
-Se necessitar de utilizar um pacote que ainda não esteja instalado na sua Base de Dados Azure SQL, pode instalá-lo utilizando [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **Sqlmlutils** é um pacote projetado para ajudar os utilizadores a interagir com as bases de dados microsoft Azure SQL e SQL Server e executar código R ou Python em SQL a partir de um cliente R ou Python. Atualmente, apenas a versão R de **sqlmlutils** é suportada na Base de Dados Azure SQL.
+Se precisar de utilizar um pacote que ainda não esteja instalado na sua Base de Dados Azure SQL, pode instalá-lo utilizando [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **Sqlmlutils** é um pacote projetado para ajudar os utilizadores a interagir com as bases de dados do Microsoft Azure SQL e SQL Server e executar código R ou Python em SQL a partir de um cliente R ou Python. Atualmente, apenas a versão R de **sqlmlutils** é suportada na Base de Dados Azure SQL.
 
-No exemplo seguinte, irá instalar o pacote de **[cola](https://cran.r-project.org/web/packages/glue/)** que pode formatar e interpolar cordas. Estes passos instalam **sqlmlutils** e **RODBCext** (um pré-requisito para **sqlmlutils)** e adicione o pacote de **cola.**
+No exemplo seguinte, instalará o pacote **[de cola](https://cran.r-project.org/web/packages/glue/)** que pode formatar e interpolar cordas. Estes passos **instalam sqlmlutils** e **RODBCext** (um pré-requisito para **sqlmlutils),** e adicionam o pacote **de cola.**
 
-### <a name="install-sqlmlutils"></a>Instale **sqlmlutils**
+### <a name="install-sqlmlutils"></a>Instalar **sqlmlutils**
 
-1. Descarregue o mais recente ficheiro zip **sqlmlutils** de https://github.com/Microsoft/sqlmlutils/tree/master/R/dist para o seu computador local. Não precisas de desapertar o ficheiro.
+1. Descarregue o mais recente ficheiro zip **sqlmlutils** https://github.com/Microsoft/sqlmlutils/tree/master/R/dist do seu computador local. Não precisas de desapertar o ficheiro.
 
-1. Abra um **Comando Solicitação** e execute os seguintes comandos para instalar **RODBCext** e **sqlmlutils** no seu computador local. Substitua o caminho completo para o ficheiro zip **sqlmlutil sqlmlutils** que descarregou (o exemplo pressupõe que o ficheiro está na sua pasta Documentos).
+1. Abra um **Pedido de Comando** e execute os seguintes comandos para instalar **RODBCext** e **sqlmlutils** no seu computador local. Substitua todo o caminho para o ficheiro zip **sqlmlutils** que descarregou (o exemplo pressupõe que o ficheiro está na pasta Documentos).
     
     ```console
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
@@ -90,13 +90,13 @@ No exemplo seguinte, irá instalar o pacote de **[cola](https://cran.r-project.o
     ```
 
     > [!TIP]
-    > Se tiver o erro, "R" não é reconhecido como um comando interno ou externo, programa operável ou ficheiro de lote", o que provavelmente significa que o caminho para R.exe não está incluído na variável ambiente **PATH** no Windows. Pode adicionar o caminho à variável ambiental ou navegar para a pasta no pedido de comando (por `cd C:\Program Files\R\R-3.5.3\bin` exemplo) e, em seguida, voltar a tentar o comando.
+    > Se tiver o erro, "R" não é reconhecido como um comando interno ou externo, programa operável ou ficheiro de lote", provavelmente significa que o caminho para R.exe não está incluído na variável do ambiente **PATH** no Windows. Pode adicionar o caminho à variável ambiente ou navegar para a pasta na indicação de comando (por `cd C:\Program Files\R\R-3.5.3\bin` exemplo) e, em seguida, voltar a tentar o comando.
 
 ### <a name="add-the-package"></a>Adicione o pacote
 
 1. Abra o RStudio e crie um ficheiro **R Script** novo. 
 
-1. Utilize o seguinte código R para instalar a embalagem de **cola** utilizando **sqlmlutils**. Substitua as suas próprias informações de ligação à base de dados Azure SQL.
+1. Utilize o seguinte código R para instalar a **embalagem de cola** utilizando **sqlmlutils**. Substitua as informações de ligação da base de dados Azure SQL.
 
     ```R
     library(sqlmlutils)
@@ -110,11 +110,11 @@ No exemplo seguinte, irá instalar o pacote de **[cola](https://cran.r-project.o
     ```
 
     > [!TIP]
-    > O público **público** ou o **público.** **PRIVATE** O âmbito público é útil para o administrador da base de dados instalar pacotes que todos os utilizadores podem utilizar. O âmbito privado disponibiliza o pacote apenas ao utilizador que o instala. Se não indicar o âmbito, a predefinição é **PRIVADO**.
+    > O **âmbito** pode ser **PÚBLICO** ou **PRIVADO.** O âmbito público é útil para o administrador da base de dados instalar pacotes que todos os utilizadores podem utilizar. O âmbito privado disponibiliza o pacote apenas ao utilizador que o instala. Se não indicar o âmbito, a predefinição é **PRIVADO**.
 
 ### <a name="verify-the-package"></a>Verifique a embalagem
 
-Verifique se o pacote de **cola** foi instalado executando o seguinte script R no RStudio. Utilize a mesma **ligação** definida no passo anterior.
+Verifique se a embalagem de **cola** foi instalada executando o seguinte script R em RStudio. Utilize a mesma **ligação** definida no passo anterior.
 
 ```R
 r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Version", "Depends", "License"))
@@ -125,11 +125,11 @@ View(r)
 
 ![Conteúdos da tabela RTestData](./media/machine-learning-services-add-r-packages/r-verify-package-install.png)
 
-### <a name="use-the-package"></a>Use a embalagem
+### <a name="use-the-package"></a>Use o pacote
 
-Uma vez instalado o pacote, pode usá-lo num script R através **sp_execute_external_script**.
+Uma vez instalada a embalagem, pode usá-la num script R através **de sp_execute_external_script**.
 
-1. Abra o Estúdio de Dados Azure ou SSMS e ligue-se à sua Base de Dados Azure SQL.
+1. Abra o Azure Data Studio ou SSMS e ligue-se à sua Base de Dados Azure SQL.
 
 1. Execute o seguinte comando:
 
@@ -159,19 +159,19 @@ Uma vez instalado o pacote, pode usá-lo num script R através **sp_execute_exte
 
 ### <a name="remove-the-package"></a>Retire a embalagem
 
-Se quiser remover o pacote, execute o seguinte script R no RStudio. Use a mesma **ligação** que definiu anteriormente.
+Se quiser remover a embalagem, execute o seguinte script R em RStudio. Utilize a mesma **ligação** que definiu anteriormente.
 
 ```R
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
 ```
 
 > [!TIP]
-> Outra forma de instalar um pacote R na sua base de dados Azure SQL é carregar o pacote R a partir de um fluxo de byte utilizando a declaração Create **EXTERNAL LIBRARY** T-SQL. Consulte [Criar uma biblioteca a partir de um fluxo de byte](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência create [external LIBRARY.](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql)
+> Outra forma de instalar um pacote R na sua base de dados Azure SQL é fazer o upload do pacote R a partir de um fluxo byte utilizando a declaração **CREATE EXTERNAL LIBRARY** T-SQL. Consulte [Criar uma biblioteca a partir de um fluxo de byte](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência [DA BIBLIOTECA EXTERNA CREATE.](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql)
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre os Serviços de Machine Learning de Máquinas de Base de Dados Azure SQL com R (pré-visualização), consulte os seguintes artigos.
+Para obter mais informações sobre os Serviços de Aprendizagem automática de máquinas de base de dados Azure SQL com R (pré-visualização), consulte os seguintes artigos.
 
-- [Serviços de Machine Learning de Base de Dados Azure SQL com R (pré-visualização)](machine-learning-services-overview.md)
+- [Azure SQL Database Machine Learning Services com R (pré-visualização)](machine-learning-services-overview.md)
 - [Escreva funções R avançadas na Base de Dados Azure SQL utilizando serviços de aprendizagem automática (pré-visualização)](machine-learning-services-functions.md)
-- [Trabalhar com dados R e SQL nos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)](machine-learning-services-data-issues.md)
+- [Trabalhar com dados R e SQL em Azure SQL Database Machine Learning Services (pré-visualização)](machine-learning-services-data-issues.md)

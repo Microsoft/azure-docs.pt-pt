@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 8bff8cf1111675446c1c9fb2e5dde8b19e2ef5c1
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 9a80adbbeda2754f9f08a4d2f16b8caf9263b087
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310891"
+ms.locfileid: "84340861"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente Azure Monitor 
 
@@ -40,7 +40,7 @@ O Azure Monitor aproveita a identidade gerida atribuída pelo sistema para dar a
 Após a configuração cmk, quaisquer dados ingeridos em espaços de trabalho associados ao seu recurso *Cluster* são encriptados com a sua chave no Key Vault. Pode dissociar espaços de trabalho a partir do recurso *Cluster* a qualquer momento. Novos dados são ingeridos para o armazenamento do Log Analytics e encriptados com a chave Microsoft, enquanto pode consultar os seus dados novos e antigos sem problemas.
 
 
-![Visão geral da CMK](media/customer-managed-keys/cmk-overview-8bit.png)
+![Visão geral da CMK](media/customer-managed-keys/cmk-overview.png)
 
 1. Cofre de Chaves
 2. Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster de Log Analytics dedicado

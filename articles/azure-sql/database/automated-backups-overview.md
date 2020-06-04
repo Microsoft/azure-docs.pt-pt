@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: a99045359d9d6c6a327ef646ba15457c3e4fbbda
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62e8bbbc3781c7e27671e8cb303ef2dcad2a30f3
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299813"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324339"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -39,7 +39,7 @@ Pode utilizar estas cópias de segurança para:
 - **Restaurar uma base de dados existente a um ponto no tempo no passado** dentro do período de retenção, utilizando o portal Azure PowerShell, Azure CLI ou a API REST. Para bases de dados individuais e agrárias, esta operação criará uma nova base de dados no mesmo servidor na mesma subscrição que a base de dados original. Num caso gerido, esta operação pode criar uma cópia da base de dados ou a mesma ou uma instância gerida diferente sob a mesma subscrição.
 - **Restaurar uma base de dados eliminada à hora de eliminação** ou a qualquer momento dentro do período de retenção. A base de dados eliminada só pode ser restaurada no mesmo servidor ou caso gerido e na mesma subscrição onde a base de dados original foi criada.
 - **Restaurar uma base de dados para outra região geográfica.** O geo-restauro permite-lhe recuperar de um desastre geográfico quando não consegue aceder ao seu servidor e base de dados. Cria uma nova base de dados em qualquer servidor existente, em qualquer parte do mundo.
-- **Restaurar uma base de dados a partir de uma cópia de segurança específica a longo prazo** numa única base de dados ou numa base de dados agrária, se a base de dados estiver configurada com uma política de retenção a longo prazo (LTR). O LTR permite restaurar uma versão antiga da base de dados utilizando [o portal Azure](long-term-backup-retention-configure.md#using-azure-portal) ou [a Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para satisfazer um pedido de conformidade ou executar uma versão antiga da aplicação. Para obter mais informações, veja [Retenção de longa duração](long-term-retention-overview.md).
+- **Restaurar uma base de dados a partir de uma cópia de segurança específica a longo prazo** numa única base de dados ou numa base de dados agrária, se a base de dados estiver configurada com uma política de retenção a longo prazo (LTR). O LTR permite restaurar uma versão antiga da base de dados utilizando [o portal Azure](long-term-backup-retention-configure.md#using-the-azure-portal) ou [a Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para satisfazer um pedido de conformidade ou executar uma versão antiga da aplicação. Para obter mais informações, veja [Retenção de longa duração](long-term-retention-overview.md).
 
 Para efetuar uma restauração, consulte [a base de dados Restaurar a partir de backups](recovery-using-backups.md).
 
@@ -246,7 +246,7 @@ Código de estado: 200
 
 Para obter mais informações, consulte [a API de Retenção de Retenção de Reserva.](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - As cópias de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres porque protegem os seus dados de corrupção acidental ou eliminação. Para conhecer as outras soluções de continuidade de negócios da SQL Database, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Obtenha mais informações sobre como [restaurar uma base de dados a um ponto no tempo, utilizando o portal Azure](recovery-using-backups.md).

@@ -5,45 +5,56 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249166"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84325138"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
 Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e a ação incorporada de detonação e resposta do Pedido, pode criar tarefas e fluxos de trabalho automatizados que recebam e respondam aos pedidos HTTPS recebidos. Por exemplo, pode ter a sua aplicação lógica:
 
 * Receber e responder a um pedido HTTPS de dados numa base de dados no local.
+
 * Desencadeie um fluxo de trabalho quando um evento externo de webhook acontece.
+
 * Receber e responder a uma chamada HTTPS de outra aplicação lógica.
 
 O gatilho request suporta [a autenticação aberta do Azure Ative](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar chamadas de entrada na sua aplicação lógica. Para obter mais informações sobre como ativar esta autenticação, consulte [acesso seguro e dados em Azure Logic Apps - Enable Azure AD OAuth autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
-
-> [!NOTE]
-> O gatilho request suporta *apenas* a Segurança da Camada de Transporte (TLS) 1.2 para chamadas recebidas. As chamadas de saída apoiam o suporte TLS 1.0, 1.1 e 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
->
-> Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. 
-> Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, pode [inscrever-se numa conta Azure gratuita.](https://azure.microsoft.com/free/)
 
 * Conhecimento básico sobre [aplicações lógicas.](../logic-apps/logic-apps-overview.md) Se é novo em aplicações lógicas, aprenda [a criar a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+* As chamadas de entrada *suportam apenas* a Segurança da Camada de Transporte (TLS) 1.2. Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). As chamadas de saída suportam o suporte TLS 1.0, 1.1 e 1.2, com base na capacidade do ponto final do alvo.
+
+* As chamadas de entrada suportam estas suítes de cifra:
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 
@@ -207,7 +218,7 @@ Para obter mais informações sobre a definição de JSON subjacente do gatilho 
 
 Aqui está mais informações sobre as saídas do gatilho do Pedido:
 
-| Nome da propriedade JSON | Tipo de dados | Descrição |
+| Nome da propriedade JSON | Tipo de dados | Description |
 |--------------------|-----------|-------------|
 | `headers` | Objeto | Um objeto JSON que descreve os cabeçalhos do pedido |
 | `body` | Objeto | Um objeto JSON que descreve o conteúdo do corpo a partir do pedido |
@@ -273,6 +284,6 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [temp
 
 1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conectores para as Logic Apps](../connectors/apis-list.md)

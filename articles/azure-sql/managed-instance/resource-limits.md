@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8007966482ba5f046a918ddfc02025e06fadc8d6
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309106"
+ms.locfileid: "84324186"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,6 +82,7 @@ Sql Managed Instance tem dois níveis de serviço: [Final geral](../database/ser
 | Latência IO de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
 | OLTP dentro da memória | Não suportado | Disponível, [o tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Sessões max | 30000 | 30000 |
+| Trabalhadores max simultâneos (pedidos) | Gen4: 210 * número de vCores + 800<br>Gen5: 105 * número de vCores + 800 | Gen4: 210 * vCore count + 800<br>Gen5: 105 * vCore count + 800 |
 | [Réplicas só de leitura](../database/read-scale-out.md) | 0 | 1 (incluído no preço) |
 | Isolamento computacional | Gen5:<br/>-suportado por 80 vCores<br/>-não suportado para outros tamanhos<br/><br/>A Gen4 não é apoiada por depreciação|Gen5:<br/>-suportado por 60, 64, 80 vCores<br/>-não suportado para outros tamanhos<br/><br/>A Gen4 não é apoiada por depreciação|
 
@@ -126,6 +127,9 @@ A SQL Managed Instance suporta atualmente a implementação apenas nos seguintes
 
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
+> [!Note]
+> Para obter as informações mais recentes sobre a disponibilidade da região para subscrições, consulte primeiro o [post oficial do blog COVID-19](https://aka.ms/sqlcapacity).
+
 Os tipos de subscrição suportados podem conter um número limitado de recursos por região. A SQL Managed Instance tem dois limites por defeito por região de Azure (que podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure,](../database/quota-increase-request.md) dependendo de um tipo de subscrição:
 
 - **Limite da sub-rede**: O número máximo de sub-redes em que os casos de SQL Managed Instance são implantados numa única região.
@@ -150,11 +154,14 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 \*\*Os limites de sub-rede e vCore de maiores dimensões estão disponíveis nas seguintes regiões: Austrália Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, South Central US, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Eua Ocidental 2.
 
+> [!IMPORTANT]
+> Caso o seu vCore e o limite de sub-rede seja 0, significa que o limite regional padrão para o seu tipo de subscrição não está definido. Também pode utilizar o pedido de aumento de quota para obter acesso por subscrição em região específica seguindo o mesmo procedimento - fornecendo valores de vCore e sub-redes necessários.
+
 ## <a name="request-a-quota-increase"></a>Solicitar um aumento de quota
 
 Se precisar de mais casos nas suas regiões atuais, envie um pedido de apoio para alargar a quota através do portal Azure. Para obter mais informações, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](../database/quota-increase-request.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre o SQL Managed Instance, veja [o que é uma sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter informações sobre preços, consulte [os preços da SQL Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

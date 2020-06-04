@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63a4285725db4dcb41affa93261fbbc03d11598e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: b38ac6400a882d98c68ea39ae359e20ed237cd5f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310755"
+ms.locfileid: "84340271"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -224,7 +224,7 @@ Este administrador gere a federação entre organizações AD da Azure e fornece
 
 ### <a name="global-administrator--company-administrator"></a>[Administrador Global / Administrador da Empresa](#company-administrator-permissions)
 
-Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Ative Directory, bem como serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, o Microsoft 365 compliance center, o Exchange Online, o SharePoint Online e o Skype para business online. A pessoa que se inscreve na organização AZure AD torna-se um administrador global. Pode haver mais de um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
+Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Ative Directory, bem como serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, o Microsoft 365 compliance center, o Exchange Online, o SharePoint Online e o Skype para business online. Além disso, a Global Admins pode [elevar o seu acesso](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) para gerir todas as subscrições e grupos de gestão da Azure. Isto permite que os Administradores Globais tenham acesso total a todos os recursos Azure usando o respetivo Azure AD Tenant. A pessoa que se inscreve na organização AZure AD torna-se um administrador global. Pode haver mais de um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
 
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal Azure.](https://portal.azure.com)
@@ -389,7 +389,7 @@ Os utilizadores com esta função podem visualizar dados de reporte de utilizaç
 
 ### <a name="search-administrator"></a>[Administrador de Pesquisa](#search-administrator-permissions)
 
-Os utilizadores desta função têm acesso total a todas as funcionalidades de gestão da Microsoft Search no centro de administração microsoft 365. Os Administradores de Pesquisa podem delegar os papéis de Administradores de Pesquisa e Editor de Pesquisa para os utilizadores, e criar e gerir conteúdos, como marcadores, Q&As e localizações. Além disso, estes utilizadores podem ver o centro de mensagens, monitorizar a saúde do serviço e criar pedidos de serviço.
+Os utilizadores desta função têm acesso total a todas as funcionalidades de gestão da Microsoft Search no centro de administração microsoft 365. Além disso, estes utilizadores podem ver o centro de mensagens, monitorizar a saúde do serviço e criar pedidos de serviço.
 
 ### <a name="search-editor"></a>[Editor de Pesquisa](#search-editor-permissions)
 
@@ -1939,7 +1939,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

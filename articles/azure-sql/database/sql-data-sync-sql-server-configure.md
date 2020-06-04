@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 405705bee3ada2d2c43e9a243724d823a5e28602
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4c0ae83a0ed3a7f9fc550af2d64d5fcd1f42c998
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188701"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324682"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
 
 ## <a name="create-sync-group"></a>Criar grupo de sincronização
 
-1. Vá ao [portal Azure](https://portal.azure.com) para encontrar a sua base de dados SQL. Procure e selecione **bases de dados SQL.**
+1. Vá ao [portal Azure](https://portal.azure.com) para encontrar a sua base de dados na Base de Dados SQL. Procure e selecione **bases de dados SQL.**
 
     ![Pesquisa de bases de dados SQL, portal Microsoft Azure](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
@@ -55,7 +55,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
 
    Na página **'Criar Grupo de Sincronização de Dados',** altere as seguintes definições:
 
-   | Definição                        | Descrição |
+   | Definição                        | Description |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome do grupo de sincronização** | Insira um nome para o novo grupo de sincronização. Este nome é distinto do nome da própria base de dados. |
    | **Base de Dados de Metadados sincronizado** | Opte por criar uma base de dados (recomendada) ou utilizar uma base de dados existente.<br/><br/>Se escolher **Nova base de dados,** selecione Criar uma nova base de **dados.** Em seguida, na página **sql Database,** nome e configurar a nova base de dados e selecione **OK**.<br/><br/>Se escolher **Utilizar a base de dados existente,** selecione a base de dados da lista. |
@@ -63,7 +63,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
    | **Resolução de Conflitos** | Selecione **o Hub ganhe** ou o Membro **ganhe**.<br/><br/>**A vitória** do hub significa que quando ocorrem conflitos, os dados na base de dados do hub substituem dados contraditórios na base de dados dos membros.<br/><br/>**A vitória do membro** significa que quando ocorrem conflitos, os dados na base de dados dos membros substituem dados contraditórios na base de dados do hub. |
 
    > [!NOTE]
-   > A Microsoft recomenda a criação de uma nova base de dados vazia para utilização como **Base de Dados de Metadados de Sincronização**. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada como base **de dados de metadados de sincronização** para todos os Grupos de Sincronização numa região selecionada e não é possível alterar a base de dados ou o seu nome sem remover todos os Sync Groups e Sync Agents na região.
+   > A Microsoft recomenda a criação de uma nova base de dados vazia para utilização como **Base de Dados de Metadados de Sincronização**. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada como base **de dados de metrô sincronizado** para todos os grupos de sincronização numa região selecionada e não é possível alterar a base de dados ou o seu nome sem remover todos os grupos de sincronização e agentes de sincronização na região.
 
    Selecione **OK** e aguarde que o grupo de sincronização seja criado e implantado.
 
@@ -75,20 +75,20 @@ Na secção **Base de Dados do Hub,** introduza as credenciais existentes para o
 
 ![Definições do passo 2](./media/sql-data-sync-sql-server-configure/steptwo.png)
 
-### <a name="to-add-an-azure-sql-database"></a>Para adicionar uma Base de Dados Azure SQL
+### <a name="to-add-a-database-in-azure-sql-database"></a>Para adicionar uma base de dados na Base de Dados Azure SQL
 
-Na secção **Base de Dados** dos Membros, adicione opcionalmente uma Base de Dados Azure SQL ao grupo de sincronização selecionando **Adicionar uma Base de Dados Azure SQL**. A página **Configure Azure SQL Database** abre.
+Na secção **Base de Dados** dos Membros, adicione opcionalmente uma base de dados na Base de Dados Azure SQL ao grupo de sincronização selecionando **Adicionar uma Base de Dados Azure SQL**. A página **Configure Azure SQL Database** abre.
 
   ![Passo 2 - base de dados de configuração](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
 
   Na página **Configure Azure SQL Database,** altere as seguintes definições:
 
-  | Definição                       | Descrição |
+  | Definição                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome do membro do sync** | Forneça um nome para o novo membro da sincronização. Este nome é distinto do próprio nome da base de dados. |
   | **Subscrição** | Selecione a subscrição Azure associada para efeitos de faturação. |
   | **Azure SQL Server** | Selecione o servidor existente. |
-  | **Base de Dados SQL do Azure** | Selecione a base de dados SQL existente. |
+  | **Base de Dados SQL do Azure** | Selecione a base de dados existente na Base de Dados SQL. |
   | **Direções de Sincronização** | Selecione **Sincronização bidional**, **para o hub**, ou a partir do **hub**. |
   | **Nome de utilizador** e **senha** | Introduza as credenciais existentes para o servidor no qual a base de dados dos membros está localizada. Não introduza *novas* credenciais nesta secção. |
 
@@ -110,7 +110,7 @@ Na secção **Base de Dados** dos Membros, adicione opcionalmente uma base de da
 
    Se escolher **Criar um novo agente,** faça as seguintes coisas:
 
-   1. Descarregue o agente de sincronização de dados a partir do link fornecido e instale-o no computador onde está localizado o SQL Server. Também pode descarregar o agente diretamente do [SqL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. Descarregue o agente de sincronização de dados a partir do link fornecido e instale-o no computador onde está localizado o SQL Server. Também pode descarregar o agente diretamente a partir do [Azure SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > Tem de abrir a porta TCP de saída 1433 na firewall para permitir que o agente cliente comunique com o servidor.
@@ -167,11 +167,11 @@ Após a criação e implantação dos novos membros do grupo sincronizado, o **g
 
 1. Selecione **Guardar**.
 
-1. Por predefinição, as bases de dados não são sincronizadas até que seja programado ou executado manualmente. Para executar uma sincronização manual, navegue na base de dados SQL no portal Azure, selecione **Sync para outras bases de dados**e selecione o grupo de sincronização. A página **Data Sync** abre. Selecione **Sincronizar**.
+1. Por predefinição, as bases de dados não são sincronizadas até que seja programado ou executado manualmente. Para executar uma sincronização manual, navegue na sua base de dados na Base de Dados SQL no portal Azure, selecione **Sync para outras bases de dados**e selecione o grupo de sincronização. A página **Data Sync** abre. Selecione **Sincronizar**.
 
     ![Sincronização manual](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>PERGUNTAS FREQUENTES
 
 **Com que frequência o Data Sync pode sincronizar os meus dados?**
 
@@ -231,7 +231,7 @@ Depois de exportar uma base de dados como ficheiro *.bacpac* e importar o fichei
 
 Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-data-sync-agent-overview.md#agent-faq)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Parabéns! Criou um grupo de sincronização que inclui uma instância sql database e uma base de dados SQL Server.
 

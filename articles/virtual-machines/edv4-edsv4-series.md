@@ -8,20 +8,16 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 795891f56985504a3584089d7377f753605ba4dd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d6f70e00bc33430cba13895b6d0c9a0aac5ef246
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263045"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338690"
 ---
-# <a name="edv4-and-edsv4-series"></a>Série Edv4 e Edsv4
+# <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
 A série Edv4 e Edsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, e são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504 GiB de RAM, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Tecnologia de &reg; Hiper-Threading Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [ &reg; Extensões Avançadas de Vetores Intel 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local tanto para ler como escrever em comparação com os tamanhos [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) com [VMs Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
-
-
-> [!IMPORTANT]
-> Se estiver a implementar uma nova Máquina Virtual utilizando a série Edv4 ou Edsv4 e pretender utilizar uma Imagem Linux, tem de utilizar o RHEL 8.x, CentOS 8.x ou o Oracle 7.x ou mais recente. Se escolher RHEL 7.x, CentOS 7.x ou Orcale 6.x, haverá um erro de Pânico Kernel. A Microsoft está a implementar ativamente uma correção. Apenas RHEL, CentOS e Oráculo são impactados.
 
 ## <a name="edv4-series"></a>Série Edv4
 
@@ -88,6 +84,6 @@ Atualizações de preservação da memória: Suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
