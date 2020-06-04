@@ -10,12 +10,12 @@ metadata:
   author: marleva
   ms.author: maevan
   ms.date: 04/02/2020
-  ms.openlocfilehash: 330dd34e19189dbcd641549f1cd42bf5c5cbaacb
-  ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+  ms.openlocfilehash: 694dd8e2e856c997def8b6af000322d63477d3e4
+  ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/08/2020
-  ms.locfileid: "82983895"
+  ms.lasthandoff: 06/03/2020
+  ms.locfileid: "84340526"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: ./marketplace-faq-publisher-guide.md
     - text: Notas de versão
       url: ./marketplace-roadmap.md
+    - text: Contrato do Microsoft Publisher
+      url: https://go.microsoft.com/fwlink/?LinkID=699560
 - title: Cenários comuns e tarefas
   linkLists:
   - linkListType: overview

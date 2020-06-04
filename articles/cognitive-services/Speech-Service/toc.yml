@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Noções básicas do reconhecimento de voz
           href: speech-to-text-basics.md
-    - name: Início Rápido
+    - name: Guias de Início Rápido
       items:
         - name: Reconhecer a voz com entrada do microfone
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Reconhecer a voz armazenada no armazenamento de blobs
           href: quickstarts/from-blob.md
+        - name: Testar um modelo com ficheiros de áudio no Speech Studio
+          href: quickstarts/speech-studio-test-model.md
     - name: Guias de procedimentos
       items:
         - name: Escolher o modo de reconhecimento de voz
@@ -466,7 +468,7 @@
           items:
             - name: API REST do Reconhecimento de Voz
               href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Alojamento
+- name: Hosting
   items:
     - name: Documentação do alojamento
       href: index-hosting.yml

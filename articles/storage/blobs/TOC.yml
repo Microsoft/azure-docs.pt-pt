@@ -190,6 +190,18 @@
               href: storage-blob-reserved-capacity.md
             - name: Planear e gerir custos
               href: ../common/storage-plan-manage-costs.md
+            - name: Metas de escalabilidade e desempenho
+              items:
+                - name: Armazenamento de blobs
+                  href: scalability-targets.md
+                - name: Contas de armazenamento Standard
+                  href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Contas de armazenamento de blobs de blocos Premium
+                  href: scalability-targets-premium-block-blobs.md
+                - name: Contas de armazenamento de blobs de páginas Premium
+                  href: scalability-targets-premium-page-blobs.md
+                - name: Fornecedor de recursos de armazenamento
+                  href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Simultaneidade
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Localizar, procurar e compreender dados de blob'
@@ -473,60 +485,8 @@
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referência
       items:
-        - name: Metas de escalabilidade e desempenho
-          items:
-            - name: Armazenamento de blobs
-              href: scalability-targets.md
-            - name: Contas de armazenamento Standard
-              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Contas de armazenamento de blobs de blocos Premium
-              href: scalability-targets-premium-block-blobs.md
-            - name: Contas de armazenamento de blobs de páginas Premium
-              href: scalability-targets-premium-page-blobs.md
-            - name: Fornecedor de recursos de armazenamento
-              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure PowerShell
-          href: /powershell/module/az.storage
-        - name: CLI do Azure
-          href: /cli/azure/storage
-        - name: .NET
-          items:
-            - name: Blobs (versão 12.x)
-              href: /dotnet/api/azure.storage.blobs
-            - name: Movimento de Dados
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Fornecedor de Recursos de Armazenamento
-              href: /dotnet/api/overview/azure/storage/management
-        - name: Java
-          items:
-            - name: Blobs (versão 12.x)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
-            - name: Blobs (versão 8.x)
-              href: /java/api/com.microsoft.azure.storage.blob
-            - name: Fornecedor de Recursos de Armazenamento
-              href: /java/api/overview/azure/storage/management
-        - name: JavaScript (versão 12.x)
-          href: /javascript/api/@azure/storage-blob/
-        - name: Python (versão 12.x)
-          href: /python/api/azure-storage-blob/
-        - name: REST
-          items:
-            - name: 'Blobs, Filas, Tabelas e Ficheiros'
-              href: /rest/api/storageservices
-            - name: Fornecedor de Recursos de Armazenamento
-              href: /rest/api/storagerp
-            - name: Importação/Exportação
-              href: /rest/api/storageimportexport
-        - name: C++
-          href: 'https://azure.github.io/azure-storage-cpp'
-        - name: Ruby
-          href: 'https://azure.github.io/azure-storage-ruby'
-        - name: PHP
-          href: 'https://azure.github.io/azure-storage-php/'
-        - name: iOS
-          href: 'https://azure.github.io/azure-storage-ios/'
-        - name: Android
-          href: 'https://azure.github.io/azure-storage-android'
+        - name: Referência de armazenamento de Blobs do Azure
+          href: ../blobs/reference.md
         - name: AzCopy v10
           items:
             - name: azcopy
