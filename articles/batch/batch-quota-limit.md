@@ -2,14 +2,14 @@
 title: Quotas e limites do serviço
 description: Saiba mais sobre as quotas, limites e restrições do Lote Azure padrão e como solicitar aumentos de quota
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 45eefd10f7227509e7db8730e5e7192bd5833721
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229840"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323893"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -83,41 +83,41 @@ Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a
 1. Selecione **Novo pedido de suporte**  >  **Básicos**.
 1. No **Básico:**
    
-    a. Tipo de **Emissão**  >  **Limites de serviço e subscrição (quotas)**
+    1. Tipo de **Emissão**  >  **Limites de serviço e subscrição (quotas)**
    
-    b. Selecione a sua subscrição.
+    1. Selecione a sua subscrição.
    
-    c. **Tipo de quota**  >  **Lote**
+    1. **Tipo de quota**  >  **Lote**
       
-    Selecione **Seguinte**.
+       Selecione **Seguinte**.
     
 1. Em **Detalhes**:
       
-    a. Em **Fornecer detalhes**, especifique a localização, o tipo de quota e a conta Batch.
+    1. Em **Fornecer detalhes**, especifique a localização, o tipo de quota e a conta Batch.
     
-    ![Aumento da quota de lote][quota_increase]
+       ![Aumento da quota de lote][quota_increase]
 
-    Os tipos de quotas incluem:
+       Os tipos de quotas incluem:
 
-    * **Por conta de lote**  
-        Valores específicos de uma única conta batch, incluindo núcleos dedicados e de baixa prioridade, e número de empregos e piscinas.
+       * **Por conta de lote**  
+         Valores específicos de uma única conta batch, incluindo núcleos dedicados e de baixa prioridade, e número de empregos e piscinas.
         
-    * **Por região**  
-        Valores aplicáveis a todas as contas do Batch numa região e que incluem o número de contas batch por região por subscrição.
+       * **Por região**  
+         Valores aplicáveis a todas as contas do Batch numa região e que incluem o número de contas batch por região por subscrição.
 
-    A quota de baixa prioridade é um valor único em todas as séries VM. Se precisar de SKUs limitados, deve selecionar **núcleos de baixa prioridade** e incluir as famílias VM a solicitar.
+       A quota de baixa prioridade é um valor único em todas as séries VM. Se precisar de SKUs limitados, deve selecionar **núcleos de baixa prioridade** e incluir as famílias VM a solicitar.
 
-    b. Selecione uma **Severidade** de acordo com o impacto do seu [negócio][support_sev].
+    1. Selecione uma **Severidade** de acordo com o impacto do seu [negócio][support_sev].
 
-    Selecione **Seguinte**.
+       Selecione **Seguinte**.
 
 1. Nas **informações de contacto:**
    
-    a. Selecione um **método de contacto preferido.**
+    1. Selecione um **método de contacto preferido.**
    
-    b. Verifique e introduza os dados de contacto necessários.
+    1. Verifique e introduza os dados de contacto necessários.
    
-    **Selecione Criar** para submeter o pedido de suporte.
+       **Selecione Criar** para submeter o pedido de suporte.
 
 Assim que submeter o seu pedido de apoio, o suporte da Azure entrará em contacto consigo. Os pedidos de quota podem ser preenchidos dentro de poucos minutos ou até dois dias úteis.
 
@@ -132,7 +132,7 @@ Os lotes na Configuração de Máquina Virtual implantados numa rede virtual Azu
 Estes recursos são atribuídos na subscrição que contém a rede virtual fornecida ao criar o pool batch. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Se planeia grandes implantações de piscinas numa rede virtual, verifique as quotas da subscrição para estes recursos. Se necessário, solicite um aumento no portal Azure selecionando **o suporte Help +**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 * Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * Conheça os [limites de subscrição e serviço da Azure, quotas e constrangimentos.](../azure-resource-manager/management/azure-subscription-service-limits.md)

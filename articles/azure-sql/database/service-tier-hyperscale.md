@@ -1,6 +1,6 @@
 ---
-title: O que é o nível de serviço de hiperescala?
-description: Este artigo descreve o nível de serviço hyperscale no modelo de compra baseado em vCore na Base de Dados Azure SQL e explica como é diferente dos níveis de serviço De Propósito Geral e Critical de Negócios.
+title: O que é o nível de serviço de Hiperescala?
+description: Este artigo descreve o nível de serviço hyperscale no modelo de compra baseado em vCore na Base de Dados Azure SQL e explica como é diferente dos níveis de serviço de Finalidade Geral e Crítica de Negócios.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: 65d7cb60d0d3df43323833f254278c20abacc9d1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/03/2020
+ms.openlocfilehash: 7fe29bfa7d6140f3abce8feb9e372a5c066b9692
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231224"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343885"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 O Azure SQL Database é baseado na arquitetura do motor de base de dados do SQL Server que é ajustada para o ambiente em nuvem de forma a garantir uma disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três modelos arquitetónicos que são usados na Base de Dados Azure SQL:
 
@@ -45,7 +44,7 @@ O nível de serviço de hiperescala na Base de Dados Azure SQL fornece as seguin
 - Escala rápida para fora - você pode providenciar um ou mais nódoas apenas de leitura para descarregar a sua carga de trabalho de leitura e para ser usado como hot-standbys
 - Rapid Scale up - você pode, em tempo constante, aumentar os seus recursos de computação para acomodar cargas de trabalho pesadas quando necessário, e, em seguida, escalar os recursos de cálculo de volta quando não é necessário.
 
-O nível de serviço Hyperscale remove muitos dos limites práticos tradicionalmente vistos nas bases de dados em nuvem. Quando a maioria das outras bases de dados são limitadas pelos recursos disponíveis num único nó, as bases de dados no nível de serviço hyperscale não têm esses limites. Com a sua arquitetura de armazenamento flexível, o armazenamento cresce conforme necessário. Na verdade, as bases de dados de hiperescala não são criadas com um tamanho máximo definido. Uma base de dados de hiperescala cresce conforme necessário - e você é cobrado apenas pela capacidade que você usa. Para cargas de trabalho intensivas de leitura, o nível de serviço de Hiperescala proporciona uma escala rápida, fornecendo réplicas de leitura adicionais, conforme necessário para descarregar cargas de trabalho de leitura.
+O nível de serviço Hyperscale remove muitos dos limites práticos tradicionalmente vistos nas bases de dados em nuvem. Quando a maioria das outras bases de dados são limitadas pelos recursos disponíveis num único nó, as bases de dados no nível de serviço hyperscale não têm esses limites. Com a sua arquitetura de armazenamento flexível, o armazenamento cresce conforme necessário. Na verdade, as bases de dados de hiperescala não são criadas com um tamanho máximo definido. Uma base de dados de hiperescala cresce conforme necessário - e é cobrado apenas pela capacidade que usa. Para cargas de trabalho intensivas de leitura, o nível de serviço de Hiperescala proporciona uma escala rápida, fornecendo réplicas de leitura adicionais, conforme necessário para descarregar cargas de trabalho de leitura.
 
 Além disso, o tempo necessário para criar cópias de segurança na base de dados ou para escalar para cima ou para baixo já não está ligado ao volume de dados na base de dados. As bases de dados de hiperescala podem ser apoiadas instantaneamente. Também pode escalar uma base de dados nas dezenas de terabytes para cima ou para baixo em minutos. Esta capacidade liberta-o das preocupações de ser encurralado pelas suas escolhas iniciais de configuração.
 
@@ -53,7 +52,7 @@ Para obter mais informações sobre os tamanhos de cálculo para o nível de ser
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>Quem deve considerar o nível de serviço de Hiperescala
 
-O nível de serviço de Hiperescala destina-se à maioria das cargas de trabalho do negócio, uma vez que proporciona grande flexibilidade e alto desempenho com recursos de computação e armazenamento escaláveis independentemente. Com a capacidade de armazenamento em escala automática até 100 TB, é uma ótima escolha para clientes que:
+O nível de serviço de Hiperescala destina-se à maioria das cargas de trabalho do negócio, uma vez que proporciona grande flexibilidade e alto desempenho com recursos de computação e armazenamento escaláveis independentemente. Com a capacidade de autodimensionar o armazenamento até 100 TB, é uma ótima escolha para clientes que:
 
 - Têm grandes bases de dados no local e querem modernizar as suas aplicações movendo-se para a nuvem
 - Já estão na nuvem e estão limitados pelas restrições máximas de tamanho da base de dados de outros níveis de serviço (1-4 TB)
@@ -74,7 +73,7 @@ O nível de serviço de hiperescala só está disponível no [modelo vCore.](ser
 
 - **Armazenamento:**
 
-  Não é necessário especificar o tamanho máximo dos dados ao configurar uma base de dados hyperscale. No nível de hiperescala, é cobrado para armazenamento para a sua base de dados com base na alocação real. O armazenamento é automaticamente atribuído entre 40 GB e 100 TB, em incrementos de 10 GB. Vários ficheiros de dados podem crescer ao mesmo tempo, se necessário. Uma base de dados de hiperescala é criada com um tamanho inicial de 10 GB e começa a crescer 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
+  Não é necessário especificar o tamanho máximo dos dados ao configurar uma base de dados hyperscale. No nível de hiperescala, é cobrado para armazenamento para a sua base de dados com base na alocação real. O armazenamento é automaticamente atribuído entre 40 GB e 100 TB, em incrementos de 10-GB. Vários ficheiros de dados podem crescer ao mesmo tempo, se necessário. Uma base de dados de hiperescala é criada com um tamanho inicial de 10 GB e começa a crescer 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
 
 Para obter mais informações sobre preços em escala, consulte preços [da base de dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -106,7 +105,7 @@ O Azure Storage contém todos os ficheiros de dados numa base de dados. Os servi
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-As cópias de segurança são baseadas em ficheiros e, portanto, são quase instantâneas. A separação de armazenamento e computação permite empurrar a operação de backup/restauro para a camada de armazenamento para reduzir o fardo de processamento na réplica do cálculo primário. Como resultado, a cópia de segurança da base de dados não afeta o desempenho do nó de computação primário; da mesma forma, as restaurações são feitas revertendo para arquivar instantâneos, e como tal não são um tamanho de operação de dados. Restaurar é uma operação de tempo constante, e mesmo bases de dados de múltiplos terabytes podem ser restauradas em minutos em vez de horas ou dias. A criação de novas bases de dados através da restauração de uma cópia de segurança existente também tira partido desta funcionalidade: a criação de cópias de bases de dados para fins de desenvolvimento ou testes, mesmo de bases de dados de tamanho terabyte, é exequível em minutos.
+As cópias de segurança são baseadas em ficheiros e, portanto, são quase instantâneas. A separação de armazenamento e computação permite empurrar a operação de backup/restauro para a camada de armazenamento para reduzir o fardo de processamento na réplica do cálculo primário. Como resultado, a cópia de segurança da base de dados não afeta o desempenho do nó de computação primária. Da mesma forma, as restaurações são feitas revertendo para arquivar instantâneos, e como tal não são um tamanho de operação de dados. Restaurar é uma operação de tempo constante, e mesmo bases de dados de múltiplos terabytes podem ser restauradas em minutos em vez de horas ou dias. A criação de novas bases de dados através da restauração de uma cópia de segurança existente também tira partido desta funcionalidade: a criação de cópias de bases de dados para fins de desenvolvimento ou testes, mesmo de bases de dados de tamanho terabyte, é exequível em minutos.
 
 ## <a name="scale-and-performance-advantages"></a>Vantagens de escala e desempenho
 
@@ -114,7 +113,7 @@ Com a capacidade de girar rapidamente para cima/para baixo nos nós de computaç
 
 ## <a name="create-a-hyperscale-database"></a>Criar uma base de dados de hiperescala
 
-Uma base de dados de hiperescala pode ser criada utilizando o [portal Azure](https://portal.azure.com), [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). As bases de dados de hiperescala só estão disponíveis utilizando o [modelo de compra baseado em vCore.](service-tiers-vcore.md)
+Uma base de dados de hiperescala pode ser criada utilizando o [portal Azure](https://portal.azure.com), [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). As bases de dados de hiperescala só estão disponíveis utilizando o [modelo de compra baseado em vCore.](service-tiers-vcore.md)
 
 O seguinte comando T-SQL cria uma base de dados de hiperescala. Deve especificar tanto a edição como o objetivo de serviço no `CREATE DATABASE` comunicado. Consulte os [limites](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) de recursos para obter uma lista de objetivos de serviço válidos.
 
@@ -124,11 +123,11 @@ CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS
 GO
 ```
 
-Isto criará uma base de dados de hiperescala no hardware da Gen5 com 4 núcleos.
+Isto criará uma base de dados de hiperescala no hardware da Gen5 com quatro núcleos.
 
-## <a name="upgrade-existing-database-to-hyperscale"></a>Atualizar a base de dados existente para hiperescala
+## <a name="upgrade-existing-database-to-hyperscale"></a>Atualizar a base de dados existente para Hyperscale
 
-Pode mover as bases de dados existentes na Base de Dados Azure SQL para Hyperscale utilizando o [portal Azure](https://portal.azure.com), [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Neste momento, esta é uma migração unidirecciona. Não é possível mover bases de dados de Hyperscale para outro nível de serviço, a não ser exportando e importando dados. Para provas de conceito (POCs), recomendamos fazer uma cópia das suas bases de dados de produção e migrar a cópia para Hyperscale. Migrar uma base de dados existente na Base de Dados Azure SQL para o nível de Hiperescala é um tamanho de operação de dados.
+Pode mover as bases de dados existentes na Base de Dados Azure SQL para Hyperscale utilizando o [portal Azure](https://portal.azure.com), [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Neste momento, esta é uma migração unidirecciona. Não é possível mover bases de dados de Hyperscale para outro nível de serviço, a não ser exportando e importando dados. Para provas de conceito (POCs), recomendamos fazer uma cópia das suas bases de dados de produção e migrar a cópia para Hyperscale. Migrar uma base de dados existente na Base de Dados Azure SQL para o nível de Hiperescala é um tamanho de operação de dados.
 
 O seguinte comando T-SQL move uma base de dados para o nível de serviço de Hiperescala. Deve especificar tanto a edição como o objetivo de serviço no `ALTER DATABASE` comunicado.
 
@@ -140,16 +139,16 @@ GO
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ligue-se a uma réplica em escala de leitura de uma base de dados de hiperescala
 
-Nas bases de dados hyperscale, o `ApplicationIntent` argumento na cadeia de ligação fornecida pelo cliente dita se a ligação é encaminhada para a réplica de escrita ou para uma réplica secundária apenas de leitura. Se o `ApplicationIntent` conjunto e a base de `READONLY` dados não tiver uma réplica secundária, a ligação será encaminhada para a réplica primária e predefinições ao `ReadWrite` comportamento.
+Nas bases de dados hyperscale, o `ApplicationIntent` argumento na cadeia de ligação fornecida pelo cliente dita se a ligação é encaminhada para a réplica de escrita ou para uma réplica secundária apenas de leitura. Se o `ApplicationIntent` conjunto e a base de `READONLY` dados não tiverem uma réplica secundária, a ligação será encaminhada para a réplica primária e predefinições ao `ReadWrite` comportamento.
 
 ```cmd
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-As réplicas secundárias de hiperescala são todas idênticas, utilizando o mesmo Objetivo de Nível de Serviço que a réplica primária. Se houver mais de uma réplica secundária, a carga de trabalho é distribuída por todos os secundários disponíveis. Cada réplica secundária é atualizada de forma independente, pelo que réplicas diferentes podem ter latência de dados diferente em relação à réplica primária.
+As réplicas secundárias de hiperescala são todas idênticas, utilizando o mesmo Objetivo de Nível de Serviço que a réplica primária. Se houver mais de uma réplica secundária, a carga de trabalho é distribuída por todos os secundários disponíveis. Cada réplica secundária é atualizada de forma independente. Assim, diferentes réplicas poderiam ter latência de dados diferentes em relação à réplica primária.
 
-## <a name="database-high-availability-in-hyperscale"></a>Alta disponibilidade da base de dados em hiperescala
+## <a name="database-high-availability-in-hyperscale"></a>Alta disponibilidade da base de dados em Hiperescala
 
 Como em todos os outros níveis de serviço, a Hyperscale garante a durabilidade dos dados para transações comprometidas, independentemente da disponibilidade de réplicas computacionais. A extensão do tempo de inatividade devido à inserção da réplica primária depende do tipo de falha (planeada vs. não planeada), e da presença de pelo menos uma réplica secundária. Numa falha planeada (isto é, um evento de manutenção), o sistema cria a nova réplica primária antes de iniciar uma falha, ou utiliza uma réplica secundária existente como alvo de falha. Numa falha não planeada (isto é, uma falha de hardware na réplica primária), o sistema utiliza uma réplica secundária como alvo de falha, caso exista, ou cria uma nova réplica primária a partir do pool de capacidade de computação disponível. Neste último caso, a duração do tempo de inatividade é mais longa devido aos passos adicionais necessários para criar a nova réplica primária.
 
@@ -159,20 +158,27 @@ Para hiperescala SLA, consulte [sLA para a base de dados Azure SQL](https://azur
 
 ### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Restaurar uma base de dados de hiperescala para uma geografia diferente
 
-Se precisar de restaurar uma Hiperescala de Hiperescala de Base de Dados Azure SQL para uma região diferente daquela em que está atualmente hospedada, como parte de uma operação de recuperação de desastres ou perfuração, deslocalização ou qualquer outra razão, o método principal é fazer um geo-restauro da base de dados.  Isto envolve exatamente os mesmos passos que você usaria para restaurar qualquer outra Base de Dados SQL para uma região diferente:
+Se precisar de restaurar uma base de dados de Hiperescala na Base de Dados Azure SQL para uma região diferente daquela em que está atualmente hospedada, como parte de uma operação de recuperação de desastres ou perfuração, deslocalização ou qualquer outra razão, o método principal é fazer um geo-restauro da base de dados. Isto envolve exatamente os mesmos passos que você usaria para restaurar qualquer outra base de dados na Base de Dados SQL para uma região diferente:
 
 1. Crie um [servidor](logical-servers.md) na região alvo se ainda não tiver um servidor apropriado lá.  Este servidor deve ser propriedade da mesma subscrição que o servidor original (fonte).
-2. Siga as instruções no tópico [de geo-restauro](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) da página sobre a restauração das bases de dados Azure SQL a partir de backups automáticos.
+2. Siga as instruções no tópico [de geo-restauro](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) da página sobre a restauração de uma base de dados na Base de Dados Azure SQL a partir de cópias de segurança automáticas.
 
 > [!NOTE]
 > Uma vez que a fonte e o alvo se encontram em regiões distintas, a base de dados não pode partilhar o armazenamento instantâneo com a base de dados de origem como em restauros não geo geo, que se completam muito rapidamente. No caso de um geo-restauro de uma base de dados de hiperescala, será uma operação de tamanho de dados, mesmo que o alvo esteja na região emparelhada do armazenamento geo-replicado.  Isto significa que fazer um geo-restauro levará tempo proporcional ao tamanho da base de dados que está a ser restaurada.  Se o alvo estiver na região emparelhada, a cópia será dentro de uma região, que será significativamente mais rápida do que uma cópia inter-região, mas continuará a ser uma operação de tamanho de dados.
 
 ## <a name="available-regions"></a><a name=regions></a>Regiões disponíveis
 
-O nível de hiperescala de base de dados Azure SQL está atualmente disponível nas seguintes regiões:
+O nível de hiperescala de base de dados Azure SQL está disponível em todas as regiões, mas ativado por padrão nas seguintes regiões listadas abaixo.
+Se quiser criar uma base de dados hyperscale numa região que não esteja listada como suportada, pode enviar um pedido de embarque através do portal Azure. Para obter instruções, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](quota-increase-request.md) para obter instruções. Ao submeter o seu pedido, utilize as seguintes orientações:
 
+- Utilize o [Outro tipo de quota de pedido](quota-increase-request.md#other) SQL tipo de quota de base de dados.
+- Nos detalhes de texto, adicione os núcleos SKU/total do cálculo, incluindo réplicas legíveis.
+- Especificar também a tuberculose estimada.
+
+Regiões Habilitados:
 - Leste da Austrália
 - Austrália Sudeste
+- Austrália Central
 - Sul do Brasil
 - Canadá Central
 - E.U.A. Central
@@ -182,52 +188,56 @@ O nível de hiperescala de base de dados Azure SQL está atualmente disponível 
 - E.U.A. Leste
 - Leste de Nós 2
 - França Central
+- Alemanha Centro-Oeste
 - Leste do Japão
 - Oeste do Japão
 - Coreia do Sul Central
 - Sul da Coreia do Sul
 - E.U.A. Centro-Norte
 - Europa do Norte
+- Leste da Noruega
+- Oeste da Noruega
 - África do Sul Norte
 - E.U.A. Centro-Sul
 - Ásia Sudeste
+- Suíça Oeste
 - Sul do Reino Unido
 - Oeste do Reino Unido
+- US DoD Centro
+- US DoD - Leste
+- Eua Govt Arizona
+- Eua Govt Texas
+- E.U.A. Centro-Oeste
 - Europa Ocidental
 - E.U.A. Oeste
 - E.U.A.Oeste 2
 
-Se pretender criar uma base de dados Hyperscale numa região que não esteja listada como suportada, pode enviar um pedido de embarque através do portal Azure. Para obter instruções, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](quota-increase-request.md) para obter instruções. Ao submeter o seu pedido, utilize as seguintes orientações:
-
-- Utilize o [Outro tipo de quota de pedido](quota-increase-request.md#other) SQL tipo de quota de base de dados.
-- Nos detalhes de texto, adicione os núcleos SKU/total do cálculo, incluindo réplicas legíveis.
-- Especificar também a tuberculose estimada.
-
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Estas são as limitações atuais para o nível de serviço de Hiperescala a partir de GA.  Estamos a trabalhar ativamente para eliminar o maior número possível destas limitações.
+Estas são as limitações atuais para o nível de serviço de Hiperescala a partir de GA.  Estamos a trabalhar ativamente para remover o maior número possível destas limitações.
 
-| Problema | Descrição |
+| Problema | Description |
 | :---- | :--------- |
-| O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala, estas serão filtradas a partir da vista  | A hiperescala tem um método separado para gerir backups, e como tal as definições de retenção de retenção de longo prazo e ponto em tempo de retenção não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.|
+| O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala, estas serão filtradas a partir da vista  | A hiperescala tem um método separado para gerir backups, e como tal as definições de retenção de retenção de longo prazo e ponto no tempo não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.|
 | Restauro para um ponto anterior no tempo | Uma base de dados não-Hyperscale não pode ser restaurada como uma base de dados de hiperescala, e uma base de dados de hiperescala não pode ser restaurada como uma base de dados não-Hyperscale. Para uma base de dados não-Hyperscale que tenha sido migrada para Hyperscale alterando o seu nível de serviço, restaure a um ponto no tempo antes da migração e dentro do período de retenção de backup da base de dados é possível [programáticamente](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). A base de dados restaurada não será de Hiperescala. |
 | Se uma base de dados tiver um ou mais ficheiros de dados maiores do que 1 TB, a migração falha | Em alguns casos, pode ser possível contornar esta questão reduzindo os grandes ficheiros para menos de 1 TB. Se migrar uma base de dados que está a ser utilizada durante o processo de migração, certifique-se de que nenhum ficheiro fica maior que 1 TB. Utilize a seguinte consulta para determinar o tamanho dos ficheiros de base de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
-| Instância Gerida do SQL | A azure SQL Managed Instance não é atualmente suportado com bases de dados de Hiperescala. |
-| Conjuntos Elásticos |  As Piscinas Elásticas não são suportadas atualmente com Hyperscale.|
+| Instância Gerida do SQL | A azure SQL Managed Instance não é suportado atualmente com bases de dados de hiperescala. |
+| Conjuntos Elásticos |  As Piscinas Elásticas não são suportadas atualmente com a Hyperscale.|
 | A migração para a Hiperescala é atualmente uma operação unidireccionar | Uma vez que uma base de dados é migrada para Hyperscale, não pode ser migrada diretamente para um nível de serviço não-Hyperscale. Atualmente, a única forma de migrar uma base de dados de Hyperscale para não-Hyperscale é exportar/importar usando um ficheiro bacpac ou outras tecnologias de movimento de dados (Cópia a granel, Fábrica de Dados Azure, Azure Databricks, SSIS, etc.) A exportação/importação bacpac do portal Azure, da PowerShell utilizando [a New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) ou [a New-AzSqlDatabaseImport,](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)da Azure CLI utilizando [a exportação de az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) e a importação de [az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import), e da [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) não é suportada. A importação/exportação de Bacpac para bases de dados de hiperescala mais pequenas (até 200 GB) é suportada utilizando a versão SSMS e [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 18.4 e posterior. No que diz as bases de dados de maiores dimensões, a exportação/importação de bacpac pode demorar muito tempo, podendo falhar por várias razões.|
-| Migração de bases de dados com persistentes objetos OLTP de memória | A hiperescala suporta apenas objetos OLTP in-memory não persistentes (tipos de tabela, SPs nativos e funções).  As tabelas OLTP persistentes e outros objetos devem ser largados e recriados como objetos baseados em disco antes de migrarem uma base de dados para o nível de serviço hyperscale.|
+| Migração de bases de dados com persistentes objetos OLTP de memória | A hiperescala suporta apenas objetos OLTP de memória não-escutados (tipos de tabela, SPs nativos e funções).  As tabelas OLTP persistentes e outros objetos devem ser largados e recriados como objetos baseados em disco antes de migrarem uma base de dados para o nível de serviço hyperscale.|
 | Georreplicação  | Ainda não é possível configurar a geo-replicação para a hiperescala da base de dados Azure SQL. |
-| Cópia da base de dados | Ainda não é possível utilizar a Cópia de Base de Dados para criar uma nova base de dados em Hiperescala Azure SQL. |
+| Cópia da base de dados | Ainda não é possível utilizar a Cópia de Base de Dados para criar uma nova base de dados na Hiperescala Azure SQL. |
 | Integração TDE/AKV | A encriptação transparente da base de dados utilizando o Cofre de Chaves Azure (vulgarmente designado por Bring-Your-Your-Own-Key ou BYOK) está atualmente em pré-visualização. |
-| Funcionalidades inteligentes da base de dados | Com exceção da opção "Plano de Força", todas as outras opções de Sintonização Automática ainda não são suportadas em Hyperscale: as opções podem parecer ativadas, mas não haverá recomendações ou ações feitas. |
+| Funcionalidades inteligentes da base de dados | Com exceção da opção "Plano de Força", todas as outras opções de Sintonização Automática ainda não são suportadas na Hyperscale: as opções podem parecer ativadas, mas não haverá recomendações ou ações feitas. |
 | Query Performance Insight | A Consulta Performance Insights não é suportada atualmente para bases de dados de hiperescala. |
-| Base de Dados de Encolher | DBCC SHRINKDATABASE ou DBCC SHRINKFILE não é atualmente suportado para bases de dados de hiperescala. |
-| Verificação de integridade da base de dados | O DBCC CHECKDB não é atualmente suportado para bases de dados de hiperescala. DBCC CHECKFILEGROUP e DBCC CHECKTABLE podem ser usados como uma solução alternativa. Consulte [a Integridade dos Dados na Base de Dados Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) para obter mais informações sobre a gestão da integridade dos dados na Base de Dados Azure SQL. |
+| Base de Dados de Encolher | DBCC SHRINKDATABASE ou DBCC SHRINKFILE não é suportado atualmente para bases de dados de hiperescala. |
+| Verificação de integridade da base de dados | O DBCC CHECKDB não é suportado atualmente para bases de dados de hiperescala. DBCC CHECKFILEGROUP e DBCC CHECKTABLE podem ser usados como uma solução alternativa. Consulte [a Integridade dos Dados na Base de Dados Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) para obter mais informações sobre a gestão da integridade dos dados na Base de Dados Azure SQL. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma FAQ em Hyperscale, consulte [perguntas frequentes sobre Hiperescala.](service-tier-hyperscale-frequently-asked-questions-faq.md)
 - Para obter informações sobre os níveis de serviço, consulte [os níveis de serviço](purchasing-models.md)
 - Consulte [a visão geral dos limites de recursos num servidor](resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e subscrição.
 - Para comprar limites de modelos para uma única base de dados, consulte [os limites do modelo de compra baseado em Azure SQL Database vCore para uma única base de dados](resource-limits-vcore-single-databases.md).
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](features-comparison.md).
+ 

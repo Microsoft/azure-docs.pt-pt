@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 5995242f84738eca1b2be680e3f744e36831d78f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8d385e956aaa2888d72d711571fa8e7cb91da772
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235343"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323812"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -49,7 +49,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Limites de descoberta** | Um aparelho pode descobrir até 10.000 VMware VMs num servidor vCenter.<br/> Um aparelho pode ligar-se a um único servidor vCenter.
 **Modelo de OVA** | Descarregue a partir do portal ou a partir de https://aka.ms/migrate/appliance/vmware .<br/><br/> O tamanho do download é de 11,2 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
 **Script do PowerShell** | Download [do script](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> 
-**Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho num VMware VMware, precisa de recursos suficientes no servidor vCenter para alocar um VM que satisfaça os requisitos.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
+**Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho num VMware VMware, precisa de recursos suficientes no servidor vCenter para alocar um VM que satisfaça os requisitos.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.
 **Requisitos de VMware** | Se colocar o aparelho como VMware VM, deve ser implantado numa versão de execução do anfitrião ESXi 5.5 ou posterior.<br/><br/> vCenter Server com execução de 5.5, 6.0, 6.5 ou 6.7.
 **VDDK (migração sem agente)** | Se colocar o aparelho como VMware VMware e estiver a executar uma migração sem agentes, o VMware vSphere VDDK deve ser instalado no VM do aparelho.
 **Valor de haxixe-OVA** | [Verifique](tutorial-assess-vmware.md#verify-security) os valores do hash do modelo OVA.
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

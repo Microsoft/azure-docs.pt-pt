@@ -1,6 +1,6 @@
 ---
-title: 'Instância gerida azure SQL: Retenção de backup a longo prazo (PowerShell)'
-description: Aprenda a armazenar e restaurar cópias automáticas em recipientes de armazenamento Azure Blob separados para uma Instância Gerida Azure SQL utilizando o PowerShell.
+title: 'Exemplo gerido aZure SQL: Retenção de backup a longo prazo (PowerShell)'
+description: Aprenda a armazenar e restaurar cópias de segurança automatizadas em recipientes de armazenamento separados Azure Blob para uma Instância Gerida Azure SQL utilizando o PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,44 +12,44 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/29/2020
-ms.openlocfilehash: 385a7594de48f1bcf04d79d0dcd9dfb521d4ff08
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f7625f7dda4553a160f11ecd7f6d5c44943f6a6b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045117"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338741"
 ---
-# <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerir a retenção de backup gerida pela Azure SQL (PowerShell)
+# <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerir a azure SQL Gestão de Casos de reserva a longo prazo (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Em Azure SQL Managed Instance, pode configurar uma política de [retenção](../database/long-term-retention-overview.md#managed-instance-support) de backup a longo prazo (LTR) como uma funcionalidade de pré-visualização pública limitada. Isto permite-lhe reter automaticamente cópias de dados em recipientes de armazenamento Azure Blob separados por um período de até 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança com o PowerShell.
+Em Azure SQL Managed Instance, pode configurar uma política [de retenção de backup de longo prazo](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) como uma funcionalidade de pré-visualização pública limitada. Isto permite-lhe reter automaticamente cópias de dados em recipientes de armazenamento separados Azure Blob por um prazo de até 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança com o PowerShell.
 
    > [!IMPORTANT]
-   > O LTR para casos geridos encontra-se atualmente em pré-visualização limitada e disponível para subscrições de EA e CSP caso a caso. Para solicitar a inscrição, por favor crie um bilhete de [apoio Azure.](https://azure.microsoft.com/support/create-ticket/) Para problemas de tipo de problema, escolha o caso de controlo de base de dados SQL e para o tipo de problema **selecione Backup, Restore e Business Continuity/Retenção de backup a longo prazo**. No seu pedido, por favor, diga que gostaria de estar inscrito na antevisão pública limitada do LTR para instância gerida.
+   > A LTR para casos geridos encontra-se atualmente em pré-visualização limitada e está disponível para as assinaturas EA e CSP caso a caso. Para solicitar a inscrição, por favor crie um [bilhete de apoio Azure.](https://azure.microsoft.com/support/create-ticket/) Para o tipo de problema selecione problema técnico, para o serviço escolha SQL Database Managed Instance e para o tipo de problema **selecione Backup, Restore e Business Continuity/Long-term back retention**. No seu pedido, por favor, diga que gostaria de estar inscrito na antevisão pública limitada da LTR para instância gerida.
 
-As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de cópiade cópias de segurança a longo prazo, ver backups no armazenamento Azure SQL e restaurar a partir de uma cópia de segurança no armazenamento Azure SQL.
+As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de backup a longo prazo, ver cópias de segurança no armazenamento Azure SQL e restaurar a partir de uma cópia de segurança no armazenamento Azure SQL.
 
-## <a name="rbac-roles-to-manage-long-term-retention"></a>Funções rBAC para gerir a retenção a longo prazo
+## <a name="rbac-roles-to-manage-long-term-retention"></a>Funções do RBAC para gerir a retenção a longo prazo
 
-Para **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase,** terá de ter uma das seguintes funções:
+Para **a Seta-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase,** terá de ter uma das seguintes funções:
 
-- Função do Proprietário da Subscrição ou
-- Função de Colaborador de Instância Gerida ou
-- Papel personalizado com as seguintes permissões:
+- Função do Proprietário de Assinatura ou
+- Papel de contribuinte de instância gerida ou
+- Função personalizada com as seguintes permissões:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
 Para **remover-AzSqlInstanceDatabaseLongTermRetentionBackup,** terá de ter uma das seguintes funções:
 
-- Função do Proprietário da Subscrição ou
-- Papel personalizado com a seguinte permissão:
+- Função do Proprietário de Assinatura ou
+- Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 > [!NOTE]
-> A função de Colaborador de Instância Gerida não tem permissão para eliminar cópias de segurança LTR.
+> A função contribuidora de casos geridos não tem permissão para eliminar cópias de segurança LTR.
 
-As permissões RBAC podem ser concedidas no âmbito de *subscrição* ou de grupo de *recursos.* No entanto, para aceder a cópias de segurança LTR que pertencem a uma instância abandonada, a autorização deve ser concedida no âmbito de *subscrição* desse caso.
+As permissões do RBAC poderiam ser concedidas no âmbito *de subscrição* ou *grupo de recursos.* No entanto, para aceder a cópias de segurança LTR que pertençam a uma instância abandonada, a permissão deve ser concedida no âmbito de *subscrição* desse caso.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
@@ -76,7 +76,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
     -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
-## <a name="view-ltr-policies"></a>Ver políticas LTR
+## <a name="view-ltr-policies"></a>Ver as políticas LTR
 
 Este exemplo mostra como listar as políticas LTR dentro de um caso
 
@@ -86,9 +86,9 @@ $ltrPolicies = Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceN
     -DatabaseName $dbName -ResourceGroupName $resourceGroup
 ```
 
-## <a name="clear-an-ltr-policy"></a>Limpar uma política lTR
+## <a name="clear-an-ltr-policy"></a>Limpar uma política LTR
 
-Este exemplo mostra como limpar uma política LTR a partir de uma base de dados
+Este exemplo mostra como limpar uma política LTR de uma base de dados
 
 ```powershell
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
@@ -97,7 +97,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## <a name="view-ltr-backups"></a>Ver backups LTR
 
-Este exemplo mostra como listar os backups LTR dentro de uma instância.
+Este exemplo mostra como listar as cópias de segurança LTR num caso.
 
 ```powershell
 # get the list of all LTR backups in a specific Azure region
@@ -119,7 +119,7 @@ $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instan
 
 ## <a name="delete-ltr-backups"></a>Eliminar backups LTR
 
-Este exemplo mostra como eliminar uma cópia de segurança LTR da lista de backups.
+Este exemplo mostra como eliminar uma cópia de segurança LTR da lista de cópias de segurança.
 
 ```powershell
 # remove the earliest backup
@@ -128,11 +128,11 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 ```
 
 > [!IMPORTANT]
-> A descontinuação do LTR não é reversível. Para eliminar uma cópia de segurança LTR depois de a instância ter sido eliminada, deve ter permissão de âmbito de subscrição. Pode configurar notificações sobre cada eliminação no Monitor Azure filtrando para operação 'Elimina uma cópia de segurança de retenção a longo prazo'. O registo de atividade contém informações sobre quem e quando fez o pedido. Consulte [criar alertas](../../azure-monitor/platform/alerts-activity-log.md) de registo de atividade para obter instruções detalhadas.
+> Eliminar a cópia de segurança LTR não é reversível. Para eliminar uma cópia de segurança LTR após a eliminação do caso, tem de ter permissão de âmbito de subscrição. Pode configurar notificações sobre cada exclusão no Azure Monitor filtrando para a operação "Elimina uma cópia de segurança de retenção a longo prazo". O registo de atividades contém informações sobre quem e quando foi feito o pedido. Consulte [Criar alertas de registo de atividade](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 
-## <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
+## <a name="restore-from-ltr-backups"></a>Restauro a partir de backups LTR
 
-Este exemplo mostra como restaurar a partir de uma cópia de segurança LTR. Note que esta interface não mudou, mas o parâmetro id de recurso agora requer o id de recurso de reserva LTR.
+Este exemplo mostra como restaurar a partir de uma cópia de segurança LTR. Nota: esta interface não mudou, mas o parâmetro de identificação de recursos requer agora o id de recursos de backup LTR.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup
@@ -141,7 +141,7 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 ```
 
 > [!IMPORTANT]
-> Para restaurar a partir de um backup LTR após a eliminação da instância, você deve ter permissões à aplicação da assinatura da instância e essa subscrição deve estar ativa. Também deve omitir o parâmetro opcional -ResourceGroupName.
+> Para restaurar a partir de uma cópia de segurança LTR após a eliminação do caso, você deve ter permissões no âmbito da subscrição do caso e essa subscrição deve estar ativa. Também deve omitir o parâmetro opcional -ResourceGroupName.
 
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente. Ver [ponto no tempo restaurar](../database/recovery-using-backups.md#point-in-time-restore).

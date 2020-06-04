@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1ea47dbc743c980b0509a3da42da13d294bc64fc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f8b31b97752a39724a4b1b7073c2d4282bc54763
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300128"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344854"
 ---
 # <a name="create-an-azure-files-file-share-with-a-domain-controller"></a>Criar uma partilha de ficheiros Azure Com um controlador de domínio
 
@@ -43,7 +43,7 @@ Para criar uma conta de armazenamento:
     - Introduza um nome único para a conta de armazenamento.
     - Para **localização**, recomendamos que escolha o mesmo local que a piscina de anfitriões virtual do Windows Desktop.
     - Em **Desempenho**, selecione **Standard**. (Dependendo dos seus requisitos de IOPS. Para obter mais informações, consulte [as opções de Armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).)
-    - Para **o tipo de conta**, selecione **StorageV2**.
+    - Para **o tipo de conta**, selecione **StorageV2** ou **FileStorage**.
     - Para **replicação,** selecione **armazenamento localmente redundante (LRS)**.
 
 5. Quando terminar, selecione **'Rever + criar'** e, em seguida, selecione **Criar**.
@@ -64,15 +64,15 @@ Para criar uma partilha de ficheiros:
 
 4. Selecione **Criar**.
 
-## <a name="enable-azure-active-directory-authentication"></a>Ativar a autenticação do Diretório Ativo Azure
+## <a name="enable-active-directory-authentication"></a>Ativar a autenticação do Diretório Ativo
 
-Em seguida, você precisará ativar a autenticação do Azure Ative Directory (AD). Para ativar esta política, terá de seguir as instruções desta secção numa máquina que já se juntou ao domínio. Para ativar a autenticação, siga estas instruções sobre o VM que executa o controlador de domínio:
+Em seguida, você precisará ativar a autenticação do Ative Directory (AD). Para ativar esta política, terá de seguir as instruções desta secção numa máquina que já se juntou ao domínio. Para ativar a autenticação, siga estas instruções sobre o VM que executa o controlador de domínio:
 
 1. Protocolo remoto de ambiente de trabalho no VM de domínio.
 
 2. Siga as instruções na [autenticação Enable Azure AD DS para as suas ações de ficheiroS Azure](../storage/files/storage-files-identity-ad-ds-enable.md) para instalar o módulo AzFilesHybrid e ativar a autenticação.
 
-3.  Abra o portal Azure, abra a sua conta de armazenamento, **selecione Configuração**e confirme que **o Azure Ative Directory (AD)** está definido para **Ativado**.
+3.  Abra o portal Azure, abra a sua conta de armazenamento, **selecione Configuração**e confirme que **o Ative Directory (AD)** está definido como **Ativado**.
 
      ![Uma imagem da página de Configuração com diretório ativo Azure (AD) ativada.](media/active-directory-enabled.png)
 
@@ -233,6 +233,6 @@ Para verificar as suas permissões na sua sessão:
 
 Para testes adicionais, siga as instruções em [Certificar-se de que o seu perfil funciona](create-profile-container-adds.md#make-sure-your-profile-works).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para resolver problemas, consulte [este guia de resolução de problemas](/fslogix/fslogix-trouble-shooting-ht).

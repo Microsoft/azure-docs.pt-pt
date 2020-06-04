@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886a25fbf78f6071db55c02517621146b507f4ac
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 16b26d63c11bce073c544848db4a9cc9987efd77
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221284"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338429"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -82,8 +82,6 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 - Quando adicionas um grupo de segurança para lançamento encenado, estás limitado a 200 utilizadores para evitar uma saída sem acordo com o UX. Depois de ter adicionado o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
 
->[!NOTE]
-> Como os pontos finais inquilinos não enviam dicas de login, não são suportados para o lançamento encenado. 
 
 ## <a name="get-started-with-staged-rollout"></a>Começar com lançamento encenado
 
@@ -242,5 +240,5 @@ R: Não, esta funcionalidade foi concebida para migrar da autenticação federad
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

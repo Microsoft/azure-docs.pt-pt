@@ -1,62 +1,64 @@
 ---
-title: Visão geral de rastreio e inventário de alterações de automatização azure
-description: Este artigo descreve a funcionalidade Change Tracking and Inventory, que o ajuda a identificar alterações de software e de serviço da Microsoft no seu ambiente.
+title: Rastreio de alteração de alteração de automação Azure e visão geral do inventário
+description: Este artigo descreve a funcionalidade De Rastreio e Inventário de Alterações, que o ajuda a identificar o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cef323fd5b73b1befec5261e56357751ac72adae
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117534"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342923"
 ---
-# <a name="change-tracking-and-inventory-overview"></a>Alterar visão geral do rastreio e do inventário
+# <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
-Este artigo apresenta-o ao Change Tracking and Inventory in Azure Automation. Esta funcionalidade rastreia alterações em máquinas virtuais e infraestrutura de servidores para ajudá-lo a identificar problemas operacionais e ambientais com software gerido pelo Gestor de Pacotes de Distribuição. Os itens que são rastreados por Change Tracking e Inventário incluem: 
+Este artigo apresenta-lhe a Alteração tracking and Inventory in Azure Automation. Esta funcionalidade rastreia alterações em máquinas virtuais e infraestruturas de servidores para ajudá-lo a identificar problemas operacionais e ambientais com software gerido pelo Gestor de Pacotes de Distribuição. Os itens que são rastreados por Change Tracking e Inventory incluem: 
 
-- Software windows
+- Software Windows
 - Software Linux (pacotes)
-- Arquivos Windows e Linux
-- Chaves de registo de janelas
+- Ficheiros Windows e Linux
+- Chaves de registo do Windows
 - Serviços da Microsoft
 - Daemons linux
 
 > [!NOTE]
-> Para acompanhar as mudanças de propriedade do Gestor de Recursos Azure, consulte o histórico de [alterações](../governance/resource-graph/how-to/get-resource-changes.md)do Gráfico de Recursos Azure.
+> Para acompanhar as alterações de propriedade do Azure Resource Manager, consulte o histórico de [alteração](../governance/resource-graph/how-to/get-resource-changes.md)do Gráfico de Recursos Azure .
 
-Alterar rastreio e inventário obtém os seus dados do Monitor Azure. As máquinas virtuais ligadas aos espaços de trabalho do Log Analytics utilizam agentes Do Log Analytics para recolher dados sobre alterações a software instalado, serviços microsoft, registo e ficheiros windows e daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, os agentes enviam-nos para o Monitor Azure para processamento. O Monitor Azure aplica lógica aos dados recebidos, regista-os e disponibiliza-os. 
+O Change Tracking and Inventory obtém os seus dados do Azure Monitor. Máquinas virtuais ligadas aos espaços de trabalho do Log Analytics utilizam agentes do Log Analytics para recolher dados sobre alterações a software instalado, serviços microsoft, registo do Windows e ficheiros e daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, os agentes enviam-nos para o Azure Monitor para tratamento. O Azure Monitor aplica lógica aos dados recebidos, regista-os e disponibiliza-os. 
 
 > [!NOTE]
-> Para utilizar a funcionalidade De Rastreio e Inventário de Alterações, tem de localizar todos os seus VMs na mesma subscrição e região da conta Automation.
+> Para utilizar a função De Rastreio e Inventário de Alterações, tem de localizar todos os seus VMs na mesma subscrição e região da conta Automação.
 
 Alterar rastreio e inventário atualmente não suporta os seguintes itens:
 
-* Recursion para rastreio de registo do Windows
+* Recursão para rastreio do registo do Windows
 * Sistemas de ficheiros de rede
 * Diferentes métodos de instalação
 * ***.exe** ficheiros para Windows
 
 Outras limitações:
 
-* A coluna max **file size** e os valores não são utilizados na implementação atual.
-* Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho de Change Tracking e Inventário poderá ser degradado.
+* A coluna e os valores **do Tamanho do Ficheiro Max** não são bem-utados na implementação atual.
+* Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho do Change Tracking e do Inventário poderá ser degradado.
 * Quando o tráfego da rede é elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
-* Se modificar uma configuração enquanto um computador é desligado, o computador pode publicar alterações pertencentes à configuração anterior.
+* Se modificar uma configuração enquanto um computador é desligado, o computador pode registar alterações pertencentes à configuração anterior.
 
-Change Tracking and Inventory está atualmente a ter os seguintes problemas:
+O Change Tracking and Inventory está atualmente a experimentar as seguintes questões:
 
-* As atualizações hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
-* Os daemons linux podem mostrar um estado mudado, mesmo que não tenha ocorrido nenhuma mudança. Este problema surge devido à forma como os `SvcRunLevels` dados no registo de [Configuração](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) do Monitor Azure são capturados.
+* As atualizações do Hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
+* Os daemons de Linux podem mostrar um estado alterado, mesmo que não tenha ocorrido qualquer alteração. Este problema surge devido à forma como os `SvcRunLevels` dados no registo Azure Monitor [ConfigurationChange são capturados.](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-O Rastreio e Inventário de Alterações é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões oficiais do sistema operativo são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. A funcionalidade também é suportada em vários sistemas operativos Linux. Para sistemas operativos que suportem o Log Analytics, consulte a [visão geral do agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões oficiais do sistema operativo são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. A funcionalidade também é suportada em vários sistemas operativos Linux. Para sistemas operativos que suportam o Log Analytics, consulte [a visão geral do agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
-Alterar o Rastreio e o Inventário requer especificamente os endereços de rede listados na tabela seguinte. As comunicações para estes endereços utilizam a porta 443.
+Alterar o Tracking e o Inventário requer especificamente os endereços de rede listados na tabela seguinte. As comunicações a estes endereços utilizam a porta 443.
 
 |Azure Público  |Azure Government  |
 |---------|---------|
@@ -65,15 +67,15 @@ Alterar o Rastreio e o Inventário requer especificamente os endereços de rede 
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-## <a name="change-tracking-and-inventory-user-interface"></a>Alterar a interface de utilizador de rastreio e inventário
+## <a name="change-tracking-and-inventory-user-interface"></a>Alterar interface de utilizador de rastreio e inventário
 
-Utilize o Rastreio e O Inventário de Alterações no portal Azure para ver o resumo das alterações para computadores monitorizados. A funcionalidade está disponível selecionando uma das opções de VMs adicionais para **alterar o rastreio** ou o **inventário** sob gestão de **configuração** na sua conta Deautomação.  
+Utilize o Change Tracking and Inventory no portal Azure para ver o resumo das alterações para computadores monitorizados. A funcionalidade está disponível selecionando uma das opções de VMs adicionais para **alterar o rastreio** ou o **inventário** em **Gestão de Configuração** na sua conta de Automação.  
 
 ![Alterar painel de rastreio](./media/change-tracking/change-tracking-dash01.png)
 
-As desistências estão disponíveis na parte superior do painel de instrumentos para limitar o gráfico de rastreio de alterações e informações detalhadas com base nos intervalos de tipo e tempo de mudança. Também pode clicar e arrastar na tabela para selecionar um intervalo de tempo personalizado. 
+As dropdowns estão disponíveis no topo do painel de instrumentos para limitar o gráfico de rastreio de alterações e informações detalhadas com base no tipo de alteração e intervalos de tempo. Também pode clicar e arrastar na tabela para selecionar um intervalo de tempo personalizado. 
 
-Pode clicar numa alteração ou evento para apresentar os seus detalhes. Os tipos de alterações disponíveis são:
+Pode clicar numa alteração ou evento para apresentar os seus detalhes. Os tipos de alteração disponíveis são:
 
 * Eventos
 * Daemons
@@ -82,120 +84,120 @@ Pode clicar numa alteração ou evento para apresentar os seus detalhes. Os tipo
 * Software
 * Serviços da Microsoft
 
-Pode adicionar, modificar ou remover cada alteração. O exemplo abaixo mostra uma mudança no tipo de arranque de um serviço de Manual para Auto.
+Pode adicionar, modificar ou remover cada alteração. O exemplo abaixo mostra uma alteração no tipo de arranque de um serviço de Manual para Automóvel.
 
 ![Alterar detalhes de rastreio e inventário](./media/change-tracking/change-tracking-details.png)
 
 ## <a name="fim-support-in-azure-security-center"></a>Suporte FIM no Centro de Segurança Azure
 
-Alterar rastreio e inventário faz uso da Monitorização de Integridade do Ficheiro do Centro de [Segurança Azure (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Enquanto o FIM monitoriza apenas ficheiros e registos, a funcionalidade completa de Rastreio e Inventário de Alterações também inclui rastreio para:
+O Rastreio e Inventário de Alteração faz uso da Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Enquanto o FIM monitoriza apenas ficheiros e registos, a funcionalidade completa de Rastreio e Inventário de Alterações também inclui rastreio para:
 
 - Alterações de software
 - Serviços da Microsoft
 - Daemons linux
 
 > [!NOTE]
-> Ativar a funcionalidade completa de rastreio e inventário de alterações pode causar encargos adicionais. Ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/). É possível eliminar o FIM da [lista de soluções de monitorização instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions) disponíveis no portal Azure. Ver [Remover uma solução de monitorização](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+> Ativar a funcionalidade completa de Rastreio e Inventário de Alterações pode causar custos adicionais. Ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/). É possível eliminar o FIM da [lista de soluções de monitorização instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions) disponíveis no portal Azure. Ver [Remover uma solução de monitorização](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
 
 ## <a name="tracking-of-file-changes"></a>Rastreio de alterações de ficheiros
 
-Para rastrear alterações nos ficheiros tanto no Windows como no Linux, o Change Tracking e o Inventory utiliza hashes MD5 dos ficheiros. A funcionalidade utiliza os hashes para detetar se foram feitas alterações desde o último inventário.
+Para rastrear alterações em ficheiros tanto no Windows como no Linux, o Change Tracking e o Inventário utilizam hashes MD5 dos ficheiros. A funcionalidade utiliza os hashes para detetar se foram feitas alterações desde o último inventário.
 
-## <a name="tracking-of-file-content-changes"></a>Rastreio das alterações de conteúdo de ficheiros
+## <a name="tracking-of-file-content-changes"></a>Rastreio das alterações do conteúdo de ficheiros
 
-Alterar rastreio e inventário permite-lhe visualizar o conteúdo de um ficheiro Windows ou Linux. Para cada alteração a um ficheiro, alterar o rastreio e o inventário armazena o conteúdo do ficheiro numa [conta de Armazenamento Azure](../storage/common/storage-create-storage-account.md). Quando estiver a seguir um ficheiro, pode ver o seu conteúdo antes ou depois de uma alteração. O conteúdo do ficheiro pode ser visualizado tanto em linha como lado a lado. 
+Alterar o Tracking e o Inventário permite-lhe visualizar o conteúdo de um ficheiro Windows ou Linux. Para cada alteração a um ficheiro, o Change Tracking and Inventory armazena o conteúdo do ficheiro numa [conta de Armazenamento Azure](../storage/common/storage-create-storage-account.md). Quando está a seguir um ficheiro, pode ver o seu conteúdo antes ou depois de uma alteração. O conteúdo do ficheiro pode ser visto dentro ou lado a lado. 
 
 ![Ver alterações num ficheiro](./media/change-tracking/view-file-changes.png)
 
-## <a name="tracking-of-registry-keys"></a>Rastreio das chaves do registo
+## <a name="tracking-of-registry-keys"></a>Rastreio de chaves de registo
 
-Alterar o rastreio e o inventário permite a monitorização das alterações nas teclas de registo do Windows. A monitorização permite identificar pontos de exsensibilidade onde código e malware de terceiros podem ser ativados. As seguintes listas de tabelas pré-configuradas (mas não ativadas) chaves de registo. Para rastrear estas teclas, tem de ativar cada uma delas.
+O Change Tracking and Inventory permite monitorizar as alterações nas chaves do registo do Windows. A monitorização permite identificar pontos de extensibilidade onde o código e o malware de terceiros podem ser ativados. As seguintes tabelas listam chaves de registo pré-configuradas (mas não ativadas). Para rastrear estas chaves, tem de ativar cada uma delas.
 
 > [!div class="mx-tdBreakAll"]
 > |Chave do Registo | Objetivo |
 > | --- | --- |
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitoriza scripts que funcionam no arranque.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitoriza os scripts que funcionam no encerramento.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitorize as teclas que são carregadas antes de o utilizador entrar na conta Do Windows. A chave é usada para aplicações de 32 bits em computadores de 64 bits.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitoriza alterações nas definições de aplicação.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoriza os manipuladores de menus de contexto que se ligam diretamente ao Windows Explorer e que normalmente são executados em processo com **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitores copiam manipuladores de gancho que se ligam diretamente ao Windows Explorer e geralmente são executados em processo com **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para registo de manipulador de sobreposição de ícones.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para registo de manipulador de sobreposição de ícones para aplicações de 32 bits em execução em computadores de 64 bits.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitores para novos plugins de objetos de ajuda de navegador para o Internet Explorer. Utilizado para aceder ao Modelo de Objeto sinuoso (DOM) da página atual e para controlar a navegação.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitores para novos plugins de objetos de ajuda de navegador para o Internet Explorer. Utilizado para aceder ao Modelo de Objeto sinuoso (DOM) da página atual e para controlar a navegação para aplicações de 32 bits em execução em computadores de 64 bits.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitores para novas extensões do Internet Explorer, tais como menus de ferramentas personalizadas e botões de barra de ferramentas personalizados.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitores para novas extensões do Internet Explorer, tais como menus de ferramentas personalizadas e botões de barra de ferramentas personalizados para aplicações de 32 bits em execução em computadores de 64 bits.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados a wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à secção [dos condutores] no ficheiro **system.ini.**
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados a wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para aplicações de 32 bits em execução em computadores de 64 bits. Semelhante à secção [dos condutores] no ficheiro **system.ini.**
-> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoriza a lista de DLLs conhecidos ou comumente utilizados do sistema. A monitorização impede as pessoas de explorarem permissões fracas de diretório de aplicações, deixando cair em versões de cavalos de Troia de DLLs do sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes que podem receber notificações de eventos a partir de **winlogon.exe**, o modelo de suporte de logon interativo para Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitoriza as teclas que são carregadas antes do utilizador entrar na conta do Windows. A chave é usada para aplicações de 32 bits em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitorize alterações nas definições de aplicações.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoriza os manipuladores de menus de contexto que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de ganchos de cópia que se ligam diretamente ao Windows Explorer e geralmente executam em processo com **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para o registo do manipulador de sobreposição de ícones.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para o registo do manipulador de sobreposição de ícones para aplicações de 32 bits em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitores para novos plugins de objetos de ajuda ao navegador para o Internet Explorer. Utilizado para aceder ao Modelo de Objeto de Documento (DOM) da página atual e para controlar a navegação.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitores para novos plugins de objetos de ajuda ao navegador para o Internet Explorer. Utilizado para aceder ao Modelo de Objeto de Documento (DOM) da página atual e para controlar a navegação para aplicações de 32 bits em execução em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitores para novas extensões do Internet Explorer, tais como menus de ferramentas personalizados e botões personalizados da barra de ferramentas.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitores para novas extensões do Internet Explorer, tais como menus de ferramentas personalizados e botões de barra de ferramentas personalizados para aplicações de 32 bits em execução em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados com amapper, onda1 e onda2, msacm.imaadpcm, .msadpcm, .msgsm610, e vidc. Semelhante à secção [de condutores] no ficheiro **system.ini.**
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados com massa de onda, onda1 e onda2, msacm.imaadpcm, .msadpcm, .msgsm610, e vidc para aplicações de 32 bits em computadores de 64 bits. Semelhante à secção [de condutores] no ficheiro **system.ini.**
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoriza a lista de DLLs de sistema conhecidos ou comumente utilizados. A monitorização impede que as pessoas explorem permissões fracas de diretório de aplicações, largando nas versões de cavalos de Troia dos DLLs do sistema.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes que podem receber notificações de eventos de **winlogon.exe,** o modelo de suporte de início de são interativo para o Windows.
 
-## <a name="recursion-support"></a>Apoio à recursão
+## <a name="recursion-support"></a>Suporte à recursão
 
-Alterar rastreio e inventário suporta a recursição, o que lhe permite especificar wildcards para simplificar o rastreio entre diretórios. A recursion também fornece variáveis ambientais que lhe permitem rastrear ficheiros em ambientes com nomes de unidade múltiplos ou dinâmicos. A lista que se segue inclui informações comuns que deve saber ao configurar a recursão:
+O Change Tracking and Inventory suporta a recursão, que permite especificar wildcards para simplificar o rastreio em todos os diretórios. A recursão também fornece variáveis ambientais que permitem rastrear ficheiros em ambientes com nomes de unidades múltiplos ou dinâmicos. A lista que se segue inclui informações comuns que deve saber ao configurar a recursão:
 
-* Os wildcards são necessários para rastrear vários ficheiros.
-* Só pode utilizar wildcards no último segmento de um caminho de ficheiros, por exemplo, ** \\ ficheiro c:\folder*** ou **/etc/*.conf**.
-* Se uma variável ambiental tem um caminho inválido, a validação é bem sucedida, mas o caminho falha durante a execução.
-* Deve evitar nomes de caminhos gerais ao definir o caminho, uma vez que este tipo de definição pode fazer com que muitas pastas sejam atravessadas.
+* Wildcards são necessários para rastrear vários ficheiros.
+* Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, ** \\ c:\ficheiro de pasta*** ou **/etc//**.conf**.
+* Se uma variável ambiental tem um caminho inválido, a validação tem sucesso, mas o caminho falha durante a execução.
+* Deve evitar nomes gerais do caminho ao definir o caminho, uma vez que este tipo de regulação pode fazer com que demasiadas pastas sejam atravessadas.
 
-## <a name="change-tracking-and-inventory-data-collection"></a>Alterar a recolha de dados de rastreio e inventário
+## <a name="change-tracking-and-inventory-data-collection"></a>Alterar recolha de dados de rastreio e inventário
 
-O quadro seguinte mostra a frequência de recolha de dados para os tipos de alterações suportadas pelo Change Tracking e Pelo Inventário. Para cada tipo, o instantâneo de dados do estado atual também é atualizado pelo menos a cada 24 horas.
+A tabela seguinte mostra a frequência de recolha de dados para os tipos de alterações suportadas por Change Tracking e Inventory. Para cada tipo, a imagem instantânea do estado atual também é atualizada pelo menos a cada 24 horas.
 
 | **Alterar Tipo** | **Frequência** |
 | --- | --- |
 | Registo de janelas | 50 minutos |
-| Arquivo windows | 30 minutos |
+| Ficheiro Windows | 30 minutos |
 | Arquivo Linux | 15 minutos |
-| Serviços da Microsoft | 10 segundos a 30 minutos</br> Padrão: 30 minutos |
+| Serviços da Microsoft | 10 segundos a 30 minutos</br> Predefinição: 30 minutos |
 | Daemons linux | 5 minutos |
-| Software windows | 30 minutos |
+| Software Windows | 30 minutos |
 | Software Linux | 5 minutos |
 
-A tabela seguinte mostra os limites de item rastreados por máquina para rastreio e inventário de alterações.
+A tabela a seguir mostra os limites de produto rastreado por máquina para Change Tracking and Inventory.
 
 | **Recurso** | **Limite** |
 |---|---|---|
 |Ficheiro|500|
 |Registo|250|
-|Software windows (sem incluir hotfixes) |250|
+|Software Windows (sem incluir hotfixes) |250|
 |Pacotes Linux|1250|
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina que utilize o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho log Analytics, pode ver os dados ingeridos pelo Change Tracking e Inventário num gráfico de utilização. Utilize esta visão de dados para avaliar a utilização dos seus dados e determinar como isso afeta a sua conta. Ver [Compreender o seu uso e estimar custos.](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) 
+O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 
-A frequência de recolha padrão dos serviços da Microsoft é de 30 minutos. Pode configurar a frequência utilizando um slider no separador de **serviços** da Microsoft em definições de **edição**.
+A frequência de recolha padrão dos serviços da Microsoft é de 30 minutos. Pode configurar a frequência utilizando um slider no separador **de serviços** da Microsoft em **Definições de Edição**.
 
 ![Slider de serviços da Microsoft](./media/change-tracking/windowservices.png)
 
-Para otimizar o desempenho, o agente Log Analytics apenas rastreia alterações. A fixação de um limiar elevado pode falhar alterações se o serviço reverter para o seu estado original. A definição da frequência para um valor menor permite-lhe apanhar alterações que podem ser perdidas de outra forma.
+Para otimizar o desempenho, o agente Log Analytics apenas rastreia as alterações. A fixação de um limiar elevado pode falhar alterações se o serviço reverter para o seu estado original. Definir a frequência para um valor menor permite-lhe apanhar alterações que podem não ser perdidas de outra forma.
 
 > [!NOTE]
-> Enquanto o agente pode rastrear as alterações para um intervalo de 10 segundos, os dados ainda demoram alguns minutos a ser exibidos no portal Azure. As alterações que ocorrem durante o tempo de visualização no portal ainda são rastreadas e registadas.
+> Embora o agente possa rastrear as alterações até um intervalo de 10 segundos, os dados ainda demoram alguns minutos a ser exibidos no portal Azure. As alterações que ocorrem durante o tempo de visualização no portal ainda são rastreadas e registadas.
 
-## <a name="support-for-alerts-on-configuration-state"></a>Suporte para alertas sobre estado de configuração
+## <a name="support-for-alerts-on-configuration-state"></a>Suporte para alertas no estado de configuração
 
-Uma capacidade chave de Change Tracking and Inventory está a alertar sobre alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas, por exemplo, ações sobre funções Azure, livros de automação, webhooks, e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para dados de Rastreio de Alterações e Inventário. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte. 
+Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas, por exemplo, ações em funções Azure, runbooks de automação, webhooks, e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte. 
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
-|ConfiguraçãoChange <br>&#124; onde configChangeType == "Ficheiros" e FileSystemPath contém " c: \\ controladores do sistema de \\ \\ janelas32 \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
-|ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ windows \\ system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração chave.|
-|ConfiguraçãoChange <br>&#124; onde configChangeType == "Serviços Microsoft" e SvcName contém "w3svc" e SvcState == "Parou"|Útil para rastrear alterações nos serviços críticos do sistema.|
-|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Daemons" e SvcName contém "ssh" e SvcState!= "Running"|Útil para rastrear alterações nos serviços críticos do sistema.|
-|ConfiguraçãoChange <br>&#124; onde configChangeType == "Software" e ChangeCategory == "Adicionado"|Útil para ambientes que precisam de configurações de software bloqueados.|
-|ConfiguraçãoData <br>&#124; onde o SoftwareName contém "Monitoring Agent" e CurrentVersion!= "8.0.11081.0"|Útil para ver quais as máquinas que têm versão de software desatualizada ou não conforme instalada. Esta consulta relata o último estado de configuração relatado, mas não reporta alterações.|
-|ConfiguraçãoChange <br>&#124; onde registryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE \\ Microsoft \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em teclas antivírus cruciais.|
-|ConfiguraçãoChange <br>&#124; onde o RegistoKey contém serviços de controlo partilhado de parâmetros de acesso partilhados por parte do sistema de acesso partilhado do sistema de acesso partilhado @"HKEY_LOCAL_MACHINE system \\ \\ CurrentControlSet \\ \\ \\ \\ Services"| Útil para rastrear alterações nas definições de firewall.|
+|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Ficheiros" e FileSystemPath contém " c: \\ sistema de \\ janelas32 \\ controladores \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
+|ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ \\ windows system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração de chaves.|
+|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Serviços Microsoft" e SvcName contém "w3svc" e SvcState == "Parado"|Útil para rastrear alterações em serviços críticos do sistema.|
+|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Daemons" e SvcName contém "ssh" e SvcState!= "Running"|Útil para rastrear alterações em serviços críticos do sistema.|
+|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Software" e ChangeCategory == "Adicionado"|Útil para ambientes que precisam de configurações de software bloqueadas.|
+|Data de Configuração <br>&#124; onde o SoftwareName contém "Monitoring Agent" e CurrentVersion!= "8.0.11081.0"|Útil para ver quais máquinas têm versão de software desatualizada ou não conforme instalada. Esta consulta reporta o último estado de configuração relatado, mas não reporta alterações.|
+|ConfiguraçãoChange <br>&#124; onde o RegistryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE Microsoft Windows \\ \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em chaves antivírus cruciais.|
+|ConfiguraçãoChange <br>&#124; onde o RegistryKey contém @"HKEY_LOCAL_MACHINE \\ SYSTEM \\ CurrentControlSet \\ Services \\ SharedAccess \\ Parameters \\ FirewallPolicy"| Útil para rastrear alterações nas definições de firewall.|
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Para ativar a funcionalidade a partir de uma conta Automation, consulte [Enable Change Tracking and Inventory a partir de uma conta De automação](automation-enable-changes-from-auto-acct.md).
-* Para ativar a funcionalidade navegando no portal Azure, consulte [Enable Change Tracking and Inventory a partir do portal Azure](automation-onboard-solutions-from-browse.md).
-* Para ativar a funcionalidade a partir de um livro de execução, consulte ativar o [rastreio e o inventário de alterações a partir de um livro](automation-enable-changes-from-runbook.md)de execução .
-* Para ativar a funcionalidade a partir de um VM Azure, consulte [Enable Change Tracking and Inventory a partir de um Azure VM](automation-enable-changes-from-vm.md).
+* Para ativar a funcionalidade a partir de uma conta de Automação, consulte [Ativar o Tracking e o Inventário de Mudança a partir de uma conta de Automação.](automation-enable-changes-from-auto-acct.md)
+* Para ativar a funcionalidade navegando no portal Azure, consulte [Ativar o Tracking e o Inventário de Alterações a partir do portal Azure](automation-onboard-solutions-from-browse.md).
+* Para ativar a funcionalidade a partir de um livro de recortes, consulte [Ativar o Tracking e o Inventário de Alterações a partir de um livro de recortes.](automation-enable-changes-from-runbook.md)
+* Para ativar a funcionalidade a partir de um VM Azure, consulte [Ativar o Tracking e o Inventário de Alterações a partir de um VM Azure](automation-enable-changes-from-vm.md).

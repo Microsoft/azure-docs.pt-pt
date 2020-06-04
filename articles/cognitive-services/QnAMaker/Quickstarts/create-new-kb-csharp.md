@@ -4,15 +4,15 @@ description: Este início rápido baseado em REST do C# descreve a criação pro
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: 78608d3acdfea07f21ccc42e8d530ff502fbb0b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: how-to
+ms.openlocfilehash: e3f3e457a0eb9bcce08499bf7d10c69185d7f211
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851929"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337721"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Quickstart: Criar uma base de conhecimento no Fabricante QnA usando C# com REST
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Quickstart: Criar uma base de conhecimento no QnA Maker usando C# com REST
 
 Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/knowledge-base.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
 
@@ -20,7 +20,7 @@ Este início rápido chama as API do Criador de FAQ:
 * [Criar KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Obter Detalhes da operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [C# Amostra](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Amostra C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -31,9 +31,9 @@ Este início rápido chama as API do Criador de FAQ:
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Crie uma nova aplicação .NET Core no seu editor ou IDE preferido.
+Crie uma nova aplicação .NET Core no seu editor preferido ou IDE.
 
-Numa janela de consola (como cmd, PowerShell `dotnet new` ou Bash), utilize o comando `qna-maker-quickstart`para criar uma nova aplicação de consola com o nome . Este comando cria um simples projeto C# "Hello World" com um único ficheiro fonte: *Program.cs*.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `qna-maker-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs*.
 
 ```dotnetcli
 dotnet new console -n qna-maker-quickstart
@@ -65,10 +65,10 @@ Na parte superior de Program.cs, substitua a instrução using única pelas segu
 
 No topo da classe Program, adicione as constantes necessárias para aceder ao QnA Maker.
 
-Desdefinir os seguintes valores nas variáveis ambientais:
+Definir os seguintes valores em variáveis ambientais:
 
-* `QNA_MAKER_SUBSCRIPTION_KEY`- A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.
-* `QNA_MAKER_ENDPOINT`- O **ponto final** é o URL para `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`autoria, no formato de . Este não é o mesmo URL usado para consultar o ponto final da previsão.
+* `QNA_MAKER_SUBSCRIPTION_KEY`- A **chave** é uma cadeia de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final de previsão.
+* `QNA_MAKER_ENDPOINT`- O **ponto final** é o URL para autoria, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Este não é o mesmo URL usado para consultar o ponto final de previsão.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
 
@@ -157,7 +157,7 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 47879ab55a91904cdc41d9a486d77d55ed27f706
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a916d6b181acfc8b32b243ee14ed35aa8565a76e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235693"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343346"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bases de dados individuais utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Este artigo fornece os limites de recursos detalhados para bases de dados indivi
 
 Para os limites do modelo de compra de DTU para bases de dados individuais num servidor, consulte [a visão geral dos limites de recursos num servidor](resource-limits-logical-server.md).
 
-Pode definir o nível de serviço, o tamanho do cálculo e o valor de armazenamento para uma única base de dados utilizando o [portal Azure](single-database-manage.md#azure-portal), [Transact-SQL,](single-database-manage.md#transact-sql-t-sql) [PowerShell,](single-database-manage.md#powershell) [O CLI Azure,](single-database-manage.md#azure-cli)ou o [REST API](single-database-manage.md#rest-api).
+Pode definir o nível de serviço, o tamanho do cálculo e o valor de armazenamento para uma única base de dados utilizando o [portal Azure](single-database-manage.md#the-azure-portal), [Transact-SQL,](single-database-manage.md#transact-sql-t-sql) [PowerShell,](single-database-manage.md#powershell) [O CLI Azure,](single-database-manage.md#the-azure-cli)ou o [REST API](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Para obter orientações e considerações de escalonamento, consulte [Escala uma única base de dados](single-database-scale.md).
@@ -481,7 +481,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)
 - Para limites de recursos vCore para piscinas elásticas, consulte [os limites de recursos para piscinas elásticas utilizando o modelo de compra vCore](resource-limits-vcore-elastic-pools.md)

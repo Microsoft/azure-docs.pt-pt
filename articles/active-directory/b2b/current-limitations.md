@@ -1,6 +1,6 @@
 ---
-title: Limitações da colaboração B2B - Diretório Ativo Azure / Microsoft Docs
-description: Limitações atuais para a colaboração Azure Ative Directory B2B
+title: Limitações da colaboração B2B - Azure Ative Directory Microsoft Docs
+description: Limitações atuais para a colaboração B2B do Diretório Ativo Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,47 +11,46 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffee01488ecf658ce02a20a41252aca19288667c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 127f05298483dcf155000c2eda8f590fc069a1e9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263364"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337670"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração Azure AD B2B
-A colaboração do Azure Ative Directory (Azure AD) B2B está atualmente sujeita às limitações descritas neste artigo.
+A colaboração B2B do Azure Ative Directory (Azure AD) está atualmente sujeita às limitações descritas neste artigo.
 
 ## <a name="possible-double-multi-factor-authentication"></a>Possível autenticação dupla de vários fatores
-Com o Azure AD B2B, pode impor a autenticação de vários fatores na organização de recursos (a organização convidativa). As razões desta abordagem são detalhadas no Acesso Condicional aos utilizadores de [colaboração B2B.](conditional-access.md) Se um parceiro já tiver a autenticação multifactor configurada e executada, os seus utilizadores poderão ter de realizar a autenticação uma vez na sua organização doméstica e depois novamente na sua.
+Com o Azure AD B2B, pode impor a autenticação de vários fatores na organização de recursos (a organização convidativa). As razões desta abordagem são detalhadas no [Acesso Condicional para utilizadores de colaboração B2B](conditional-access.md). Se um parceiro já tiver a autenticação multi-factor configurada e aplicada, os seus utilizadores poderão ter de realizar a autenticação uma vez na sua organização doméstica e depois novamente na sua.
 
-## <a name="instant-on"></a>Instantâneo
-Nos fluxos de colaboração B2B, adicionamos os utilizadores ao diretório e atualizamo-los dinamicamente durante o resgate de convites, atribuição de apps, e assim por diante. As atualizações e os escritos costumam acontecer num único exemplo de diretório e devem ser replicados em todos os casos. A replicação é concluída assim que todas as instâncias forem atualizadas. Por vezes, quando o objeto é escrito ou atualizado num caso e a chamada para recuperar este objeto é para outro caso, as tardios de replicação podem ocorrer. Se isso acontecer, refresque ou tente ajudar. Se está a escrever uma aplicação usando a nossa API, então a tentativa de retenção com algum back-off é uma boa prática defensiva para aliviar esta questão.
+## <a name="instant-on"></a>Instantaneamente
+Nos fluxos de colaboração B2B, adicionamos os utilizadores ao diretório e atualizamo-los dinamicamente durante a redenção de convites, atribuição de aplicações, e assim por diante. As atualizações e as gravações normalmente acontecem num só diretório e devem ser replicadas em todos os casos. A replicação é concluída assim que todas as instâncias forem atualizadas. Por vezes, quando o objeto é escrito ou atualizado num caso e a chamada para recuperar este objeto é para outra instância, podem ocorrer latências de replicação. Se isso acontecer, refresque ou retentou ajudar. Se está a escrever uma app usando a nossa API, então as retração com algum back-off são uma boa prática defensiva para aliviar esta questão.
 
-## <a name="azure-ad-directories"></a>Diretórios da AD Azure
-O Azure AD B2B está sujeito aos limites de diretório de serviço da Azure AD. Para mais detalhes sobre o número de diretórios que um utilizador pode criar e o número de diretórios a que um utilizador ou utilizador convidado pode pertencer, consulte [os limites e restrições de serviço da Azure AD.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)
+## <a name="azure-ad-directories"></a>Diretórios AD de Azure
+O Azure AD B2B está sujeito aos limites do diretório de serviçoS Azure AD. Para obter detalhes sobre o número de diretórios que um utilizador pode criar e o número de diretórios a que um utilizador ou utilizador convidado pode pertencer, consulte [os limites e restrições de serviço AD AZure](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
-## <a name="national-clouds"></a>Nuvens nacionais
-[Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) são casos fisicamente isolados de Azure. A colaboração B2B não é apoiada através dos limites nacionais da nuvem. Por exemplo, se o seu inquilino Azure está na nuvem pública e global, não pode convidar um utilizador cuja conta está numa nuvem nacional. Para colaborar com o utilizador, peça-lhe outro endereço de e-mail ou crie uma conta de utilizador membro para eles no seu diretório.
+## <a name="national-clouds"></a>Clouds nacionais
+[Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) são casos fisicamente isolados de Azure. A colaboração B2B não é suportada através das fronteiras nacionais da nuvem. Por exemplo, se o seu inquilino Azure estiver na nuvem global e pública, não pode convidar um utilizador cuja conta está numa nuvem nacional. Para colaborar com o utilizador, peça-lhes outro endereço de e-mail ou crie uma conta de utilizador membro para eles no seu diretório.
 
-## <a name="azure-us-government-clouds"></a>Nuvens do Governo dos EUA azure
-Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apoiada apenas entre inquilinos que estão tanto dentro da nuvem do Governo dos EUA azure como que ambos apoiam a colaboração B2B. Se convidar um utilizador num inquilino que não faça parte da nuvem do Governo dos EUA ou que ainda não apoie a colaboração B2B, o convite falhará ou o utilizador não poderá resgatar o convite. Para mais detalhes sobre outras limitações, consulte [O Diretório Ativo Azure Premium P1 e As Variações P2.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)
+## <a name="azure-us-government-clouds"></a>Nuvens do Governo dos EUA Azure
+Dentro da nuvem do Governo dos EUA, a colaboração B2B é apoiada entre inquilinos que estão dentro da nuvem do Governo dos EUA e que ambos apoiam a colaboração B2B. Os inquilinos do Governo dos EUA que apoiam a colaboração B2B também podem colaborar com utilizadores sociais usando contas da Microsoft ou do Google. Se convidar um utilizador para fora destes grupos (por exemplo, se o utilizador estiver num inquilino que não faça parte da nuvem do Governo dos EUA ou ainda não apoiar a colaboração B2B), o convite falhará ou o utilizador não poderá resgatar o convite. Para mais informações sobre outras limitações, consulte [as Variações Azure Ative Directory Premium P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
-### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Como posso saber se a colaboração B2B está disponível no meu inquilino do Governo dos EUA?
-Para saber se o seu inquilino de nuvem azure us apoia a colaboração B2B, faça o seguinte:
+### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Como posso saber se a colaboração B2B está disponível no meu inquilino do Governo Azure US?
+Para saber se o seu inquilino em nuvem do Governo dos EUA Azure apoia a colaboração B2B, faça o seguinte:
 
-1. Num browser, vá ao seguinte URL, substituindo * &lt;&gt;* o nome do seu inquilino pelo nome do inquilino:
+1. Num browser, aceda ao seguinte URL, substituindo o nome do seu inquilino pelo * &lt; nome &gt; de inquilino:*
 
    `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
 
-2. Encontre `"tenant_region_scope"` na resposta da JSON:
+2. Encontre `"tenant_region_scope"` na resposta JSON:
 
-   - Se `"tenant_region_scope":"USGOV”` aparecer, o B2B é suportado.
-   - Se `"tenant_region_scope":"USG"` aparecer, b2B não é suportado.
+   - Se `"tenant_region_scope":"USGOV”` aparecer, b2B é suportado.
+   - Se `"tenant_region_scope":"USG"` aparecer, o B2B não é suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Convites de colaboração B2B delegados](delegate-invitations.md)
-
+- [Convites de colaboração do delegado B2B](delegate-invitations.md)

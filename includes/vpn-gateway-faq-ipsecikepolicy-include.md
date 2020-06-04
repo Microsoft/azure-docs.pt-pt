@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e17eee8de789b813e5aab726207233e8607ec97f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200342"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84346142"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>A política de IPsec/IKE personalizado é suportada em todos os SKU de Gateway de VPN do Azure?
 A política personalizada IPsec/IKE é suportada em todos os SKUs Azure, exceto no SKU Básico.
@@ -92,22 +92,22 @@ Não, a ligação ainda estará protegida pelo IPsec/IKE. Quando remove a polít
 Sim, pode causar uma pequena interrupção (alguns segundos), pois o gateway de VPN do Azure quebra a ligação existente e reinicia o handshake IKE para restabelecer o túnel IPsec com os novos parâmetros e algoritmos criptográficos. Verifique se o dispositivo VPN local também é configurado com os algoritmos correspondentes e os principais pontos fortes para minimizar a interrupção.
 
 ### <a name="can-i-use-different-policies-on-different-connections"></a>Posso usar políticas diferentes em ligações diferentes?
-Sim. A política personalizada é aplicada consoante a ligação. Pode criar e aplicar diferentes políticas de IPsec/IKE em diferentes ligações. Também pode optar por aplicar políticas personalizadas num subconjunto de ligações. As restantes utilizam os conjuntos de políticas predefinidas de IPsec/IKE do Azure.
+Yes. A política personalizada é aplicada consoante a ligação. Pode criar e aplicar diferentes políticas de IPsec/IKE em diferentes ligações. Também pode optar por aplicar políticas personalizadas num subconjunto de ligações. As restantes utilizam os conjuntos de políticas predefinidas de IPsec/IKE do Azure.
 
 ### <a name="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well"></a>Também posso usar a política personalizada na ligação de VNet para VNet?
 Sim, pode aplicar a política personalizada em ligações entre locais de IPsec ou em ligações VNet para VNet.
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>É necessário especificar a mesma política em ambos os recursos de ligação de VNet para VNet?
-Sim. Um túnel de VNet para VNet consiste em dois recursos de ligação no Azure, uma para cada direção. Confirme que os recursos de ligação têm a mesma política, senão a ligação VNet para VNet não é estabelecida.
+Yes. Um túnel de VNet para VNet consiste em dois recursos de ligação no Azure, uma para cada direção. Confirme que os recursos de ligação têm a mesma política, senão a ligação VNet para VNet não é estabelecida.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>A política de IPsec/IKE personalizada funciona na ligação do ExpressRoute?
 Não. A política de IPsec/IKE só funciona em ligações VPN S2S e VNet para VNet por meio de gateways de VPN do Azure.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Como posso criar ligações com o tipo de protocolo IKEv1 ou IKEv2?
-As ligações IKEv1 podem ser criadas em todas as SKUs do tipo VPN routeBased, exceto no Legacy SKU. Pode especificar um tipo de protocolo de ligação de IKEv1 ou IKEv2 enquanto cria ligações. Se não especificar um tipo de protocolo de ligação, o IKEv2 é utilizado como opção padrão, quando aplicável. Para obter mais informações, consulte a documentação [do cmdlet PowerShell.](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) Para os tipos SKU e suporte IKEv1/IKEv2, consulte [as portas de ligação para dispositivos VPN baseados em políticas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+As ligações IKEv1 podem ser criadas em todas as SKUs do tipo VPN routebased, com exceção do SKU Básico, SKU padrão e [outros SKUs legados.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku) Pode especificar um tipo de protocolo de ligação de IKEv1 ou IKEv2 enquanto cria ligações. Se não especificar um tipo de protocolo de ligação, o IKEv2 é utilizado como opção padrão, quando aplicável. Para obter mais informações, consulte a documentação [do cmdlet PowerShell.](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) Para os tipos SKU e suporte IKEv1/IKEv2, consulte [as portas de ligação para dispositivos VPN baseados em políticas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>O trânsito entre as ligações IKEv1 e IKEv2 é permitido?
-Sim. O trânsito entre as ligações IKEv1 e IKEv2 é suportado.
+Yes. O trânsito entre as ligações IKEv1 e IKEv2 é suportado.
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Posso ter ligações iKEv1 site-to-site em SKUs Básicos do tipo VPN RouteBased?
 Não. O SKU Básico não apoia isto.

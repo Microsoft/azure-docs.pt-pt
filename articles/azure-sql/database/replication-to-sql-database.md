@@ -1,6 +1,6 @@
 ---
-title: Replicação do SQL Server para Azure SQL Database
-description: Pode configurar uma Base de Dados Azure SQL como assinante de push numa topologia de replicação transacional ou instantânea de ida.
+title: Replicação do Servidor Azure SQL para Azure SQL Database
+description: Pode configurar uma base de dados na Base de Dados Azure SQL como assinante de um topologia de replicação transacional ou instantânea de ida.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192957"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324152"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicação para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,16 +26,16 @@ Pode configurar uma Base de Dados Azure SQL como assinante de push numa topologi
 > [!NOTE]
 > Este artigo descreve a utilização de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) na Base de Dados Azure SQL. Não está relacionado com a [geo-replicação ativa,](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication)uma funcionalidade de Base de Dados Azure SQL que permite criar réplicas legíveis completas de bases de dados individuais.
 
-## <a name="supported-configurations"></a>Configurações Suportadas
+## <a name="supported-configurations"></a>Configurações suportadas
   
 - A Azure SQL Database só pode ser o assinante push de um editor e distribuidor SQL Server.  
-- O SQL Server atuando como editor e/ou distribuidor pode ser um exemplo do [SQL Server a funcionar no local](https://www.microsoft.com/sql-server/sql-server-downloads), um [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md), ou um exemplo de [SQL Server a funcionar numa máquina virtual Azure na nuvem](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- A base de dados de distribuição e os agentes de replicação não podem ser colocados numa Base de Dados Azure SQL.  
+- A instância do SQL Server agindo como editora e/ou distribuidor pode ser um exemplo do [SQL Server a funcionar no local](https://www.microsoft.com/sql-server/sql-server-downloads), um [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md), ou um exemplo de [SQL Server a funcionar numa máquina virtual Azure na nuvem](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
+- A base de dados de distribuição e os agentes de replicação não podem ser colocados numa base de dados na Base de Dados Azure SQL.  
 - [O instantâneo](/sql/relational-databases/replication/snapshot-replication) e a replicação [transacional unidirecional](/sql/relational-databases/replication/transactional/transactional-replication) são suportados. A replicação transacional entre pares e a replicação da fusão não são suportadas.
 
 ### <a name="versions"></a>Versões  
 
-Para replicar com sucesso uma Base de Dados Azure SQL, os editores e distribuidores do SQL Server devem estar a utilizar (pelo menos) uma das seguintes versões: 
+Para replicar com sucesso uma base de dados na Base de Dados Azure SQL, os editores e distribuidores do SQL Server devem estar a utilizar (pelo menos) uma das seguintes versões:
 
 A publicação de qualquer Base de Dados Azure SQL a partir de uma base de dados do SQL Server é suportada pelas seguintes versões do SQL Server:
 
@@ -116,7 +116,6 @@ As seguintes opções não são suportadas para as subscrições da Base de Dado
 - Converter hierarquias para tipos de dados MAX  
 - Converter o espaço para os tipos de dados MAX  
 - Copiar propriedades estendidas  
-- Permissões de cópia  
 
 ### <a name="limitations-to-be-determined"></a>Limitações a determinar
 
@@ -130,7 +129,7 @@ Crie uma publicação e uma subscrição push. Para obter mais informações, co
 - [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Crie uma Subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor como assinante (por **exemplo, N'azuresqldbdns.database.windows.net'**) e o nome Azure SQL Database como base de dados de destino (por **exemplo, AdventureWorks).**  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 - [Replicação transacional](../managed-instance/replication-transactional-overview.md)
 - [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

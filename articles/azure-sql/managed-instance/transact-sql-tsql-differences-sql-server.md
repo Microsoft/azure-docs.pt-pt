@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 190d0bd242a685487480d4da613f354277663d9c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 3a912e636c8bd8f762b401bda9623f23913047cb
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308035"
+ms.locfileid: "84344531"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -510,6 +510,9 @@ As seguintes variáveis, funções e vistas retornam diferentes resultados:
 ### <a name="failover-groups"></a>Grupos de ativação pós-falha
 As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
 
+### <a name="failover-groups"></a>Grupos de ativação pós-falha
+As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
+
 ### <a name="tempdb"></a>TEMPDB
 
 O tamanho máximo do ficheiro `tempdb` não pode ser superior a 24 GB por núcleo num nível de Finalidade Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento SQL Managed Instance. `Tempdb`o tamanho do ficheiro de registo é limitado a 120 GB no nível de Finalidade Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
@@ -538,7 +541,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).

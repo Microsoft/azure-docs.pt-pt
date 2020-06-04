@@ -1,58 +1,59 @@
 ---
-title: Módulo C# IoT Edge para Azure Stack Edge [ Microsoft Docs
-description: Aprenda a desenvolver um módulo C# IoT Edge que pode ser implantado no seu Azure Stack Edge.
+title: Módulo IoT Edge para Azure Stack Edge Microsoft Docs
+description: Saiba como desenvolver um módulo C# IoT Edge que pode ser implantado no seu Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 206d63e05b68cbcec65b0d06e11da48065251ea0
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569995"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339897"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolva um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge
 
-Este artigo intervém sobre como criar um módulo IoT Edge para implementação com o seu dispositivo Azure Stack Edge. O Azure Stack Edge é uma solução de armazenamento que lhe permite processar dados e enviá-lo por rede para o Azure.
+Este artigo percorre a forma de criar um módulo IoT Edge para implantação com o seu dispositivo Azure Stack Edge. Azure Stack Edge é uma solução de armazenamento que lhe permite processar dados e enviá-lo para a rede para o Azure.
 
-Pode utilizar módulos Azure IoT Edge com o seu Azure Stack Edge para transformar os dados à medida que se mudou para o Azure. O módulo utilizado neste artigo implementa a lógica de copiar um ficheiro de uma parte local para uma partilha de nuvem no seu dispositivo Azure Stack Edge.
+Pode utilizar os módulos Azure IoT Edge com o seu Azure Stack Edge para transformar os dados à medida que se deslocam para Azure. O módulo utilizado neste artigo implementa a lógica de copiar um ficheiro de uma partilha local para uma partilha de nuvem no seu dispositivo Azure Stack Edge.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Crie um registo de contentores para armazenar e gerir os seus módulos (imagens Does).
-> * Crie um módulo IoT Edge para implantar no seu dispositivo Azure Stack Edge. 
+>
+> * Crie um registo de contentores para armazenar e gerir os seus módulos (imagens Docker).
+> * Crie um módulo IoT Edge para implementar no seu dispositivo Azure Stack Edge. 
 
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo IoT Edge
 
-O seu dispositivo Azure Stack Edge pode implantar e executar módulos IoT Edge. Os módulos de borda são essencialmente recipientes Docker que executam uma tarefa específica, como ingerir uma mensagem a partir de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, irá criar um módulo que copia ficheiros de uma parte local para uma partilha na nuvem no seu dispositivo Azure Stack Edge.
+O seu dispositivo Azure Stack Edge pode implantar e executar módulos IoT Edge. Os módulos edge são essencialmente recipientes Docker que executam uma tarefa específica, como ingerir uma mensagem a partir de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, irá criar um módulo que copia ficheiros de uma partilha local para uma partilha na nuvem no seu dispositivo Azure Stack Edge.
 
-1. Os ficheiros estão escritos para a parte local no seu dispositivo Azure Stack Edge.
-2. O gerador de eventos de arquivo cria um evento de arquivo para cada ficheiro escrito à parte local. Os eventos de ficheiros também são gerados quando um ficheiro é modificado. Os eventos de ficheiro são então enviados para ioT Edge Hub (em tempo de execução IoT Edge).
-3. O módulo personalizado IoT Edge processa o evento de arquivo para criar um objeto de evento de arquivo que também contém um caminho relativo para o ficheiro. O módulo gera um caminho absoluto usando o caminho relativo do ficheiro e copia o ficheiro da parte local para a partilha da nuvem. Em seguida, o módulo elimina o ficheiro da parte local.
+1. Os ficheiros são escritos para a parte local do seu dispositivo Azure Stack Edge.
+2. O gerador de eventos de ficheiros cria um evento de ficheiro para cada ficheiro escrito para a parte local. Os eventos de ficheiro também são gerados quando um ficheiro é modificado. Os eventos de ficheiro são então enviados para ioT Edge Hub (em tempo de execução IoT Edge).
+3. O módulo personalizado IoT Edge processa o evento de ficheiro para criar um objeto de evento de ficheiro que também contém um caminho relativo para o ficheiro. O módulo gera um caminho absoluto usando o caminho relativo do ficheiro e copia o ficheiro da partilha local para a partilha de nuvem. Em seguida, o módulo elimina o ficheiro da parte local.
 
-![Como funciona o módulo Azure IoT Edge em Azure Stack Edge](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Como o módulo Azure IoT Edge funciona no Azure Stack Edge](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
-Uma vez que o ficheiro esteja na partilha da nuvem, é automaticamente enviado para a sua conta de Armazenamento Azure.
+Uma vez que o ficheiro esteja na partilha de nuvem, é automaticamente enviado para a sua conta de Armazenamento Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que tem:
 
-- Um dispositivo Azure Stack Edge que está a funcionar.
+- Um dispositivo Azure Stack Edge que está em funcionamento.
 
     - O dispositivo também tem um recurso IoT Hub associado.
-    - O dispositivo tem a função de computação Edge configurada.
-    Para mais informações, vá à [Configure compute](azure-stack-edge-deploy-configure-compute.md#configure-compute) para o seu Azure Stack Edge.
+    - O dispositivo tem o papel de computação Edge configurado.
+    Para mais informações, aceda ao [computo Configure](azure-stack-edge-deploy-configure-compute.md#configure-compute) para o seu Azure Stack Edge.
 
 - Os seguintes recursos de desenvolvimento:
 
-    - [Código de estúdio visual.](https://code.visualstudio.com/)
+    - [Visual Studio Code](https://code.visualstudio.com/).
     - [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Extensão Azure IoT Edge para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
@@ -60,18 +61,18 @@ Antes de começar, certifique-se de que tem:
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Os dois populares serviços de registo docker disponíveis na nuvem são o Registo de Contentores Azure e Docker Hub. Este artigo utiliza o Registo de Contentores.
+Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Os dois populares serviços de registo docker disponíveis na nuvem são O Registo de Contentores Azure e Docker Hub. Este artigo utiliza o Registo de Contentores.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Selecione **Criar um recurso > contentores > registo de contentores**. Clique em **Criar**.
+2. **Selecione Criar um recurso > contentores > registo de contentores**. Clique **em Criar**.
 3. Fornecer:
 
    1. Um **nome único de registo** dentro de Azure que contém 5 a 50 caracteres alfanuméricos.
-   2. Escolha uma **Subscrição**.
-   3. Crie novos ou escolha um grupo de **Recursos**existentes.
-   4. Selecione um **Local**. Recomendamos que este local seja o mesmo que está associado ao recurso Azure Stack Edge.
+   2. Escolha uma **subscrição.**
+   3. Criar novo ou escolher um grupo de **Recursos**existente.
+   4. Selecione uma **localização**. Recomendamos que esta localização seja a mesma que está associada ao recurso Azure Stack Edge.
    5. Mude **Utilizador administrador** para **Ativar**.
-   6. Desloque o SKU para **Basic**.
+   6. Desa estação o SKU para **Basic**.
 
       ![Criar registo de contentor](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
@@ -80,18 +81,18 @@ Um registo de contentor do Azure é um registo do Docker privado no Azure, onde 
 
     ![Obter chaves de acesso](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)
  
-6. Copie os valores de **Servidor de início de sessão**, **Nome de utilizador** e **Palavra-passe**. Usa estes valores mais tarde para publicar a imagem do Docker no seu registo e para adicionar as credenciais de registo ao tempo de execução do Azure IoT Edge.
+6. Copie os valores de **Servidor de início de sessão**, **Nome de utilizador** e **Palavra-passe**. Utilize estes valores mais tarde para publicar a imagem do Docker no seu registo e para adicionar as credenciais de registo ao tempo de execução do Azure IoT Edge.
 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto do módulo do IoT Edge
 
-Os passos seguintes criam um projeto de módulo IoT Edge baseado no .NET Core 2.1 SDK. O projeto utiliza o Visual Studio Code e a extensão Azure IoT Edge.
+Os passos seguintes criam um projeto de módulo IoT Edge baseado no .NET Core 2.1 SDK. O projeto utiliza o Código do Estúdio Visual e a extensão Azure IoT Edge.
 
 ### <a name="create-a-new-solution"></a>Criar uma nova solução
 
 Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
-1. No Código do Estúdio Visual, selecione **Ver > Paleta de Comando** para abrir a paleta de comando vs Code.
+1. No Código do Estúdio Visual, selecione **Ver > Paleta de Comando** para abrir a paleta de comando vs Código.
 2. Na paleta de comandos, introduza e execute o comando **Azure: Iniciar Sessão** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 3. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução:
 
@@ -100,22 +101,22 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
     
         ![Criar nova solução 1](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-1.png)
 
-    3. Escolha o **Módulo C#** como modelo de módulo.
+    3. Escolha **o módulo C#** como modelo do módulo.
     4. Substitua o nome do módulo predefinido pelo nome que pretende atribuir, neste caso, é **FileCopyModule**.
     
         ![Criar nova solução 2](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-2.png)
 
-    5. Especifique o registo de contentores que criou na secção anterior como o repositório de imagem para o seu primeiro módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão que copiou.
+    5. Especifique o registo do contentor que criou na secção anterior como o repositório de imagem para o seu primeiro módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão que copiou.
 
-        A corda final `<Login server name>/<Module name>`parece. Neste exemplo, a corda `mycontreg2.azurecr.io/filecopymodule`é: .
+        A corda final `<Login server name>/<Module name>` parece. Neste exemplo, a corda é: `mycontreg2.azurecr.io/filecopymodule` .
 
         ![Criar nova solução 3](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-3.png)
 
-4. Vá para **file> open folder**.
+4. Vá para **arquivar > pasta aberta**.
 
     ![Criar nova solução 4](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-4.png)
 
-5. Navegue e aponte para a pasta **EdgeSolution** que criou anteriormente. A janela VS Code carrega o espaço de trabalho da solução IoT Edge com os seus cinco componentes de nível superior. Não editará a pasta **.vscode,** **ficheiro .gitignore,** ficheiro **.env** e o **deployment.template.json** neste artigo.
+5. Navegue e aponte para a pasta **EdgeSolution** que criou anteriormente. A janela vs Code carrega o seu espaço de trabalho de solução IoT Edge com os seus cinco componentes de nível superior. Não editará a pasta **.vscode,** **ficheiro .gitignore,** **ficheiro .env** e a **implementação.template.json** neste artigo.
     
     O único componente que modifica é a pasta dos módulos. Esta pasta tem o código C# para o seu módulo e ficheiros Docker para construir o seu módulo como imagem de recipiente.
 
@@ -123,8 +124,8 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-1. No explorador de código VS, abra **os módulos > FileCopyModule > Program.cs**.
-2. Na parte superior do espaço de **nome FileCopyModule,** adicione as seguintes declarações utilizando os tipos que são utilizados posteriormente. **Microsoft.Azure.Devices.Client.Transport.Mqtt** é um protocolo para enviar mensagens para o IoT Edge Hub.
+1. No explorador de código VS, **abram os módulos > FileCopyModule > Program.cs**.
+2. No topo do espaço de **nome FileCopyModule**, adicione o seguinte usando declarações para tipos que são usados mais tarde. **Microsoft.Azure.Devices.Client.Transport.Mqtt** é um protocolo para enviar mensagens para ioT Edge Hub.
 
     ```
     namespace FileCopyModule
@@ -132,7 +133,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
         using Microsoft.Azure.Devices.Client.Transport.Mqtt;
         using Newtonsoft.Json;
     ```
-3. Adicione a variável **InputFolderPath** e **OutputFolderPath** à classe Program.
+3. Adicione a variável **InputFolderPath** e **OutputFolderPath** à classe Programa.
 
     ```
     class Program
@@ -158,7 +159,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
     }
     ```
 
-5. No **método Init,** o código cria e configura um objeto **ModuleClient.** Este objeto permite que o módulo se coneca ao tempo de funcionação do Azure IoT Edge local utilizando o protocolo MQTT para enviar e receber mensagens. A cadeia de ligação utilizada no método Init é dada ao módulo através do runtime do IoT Edge. O código regista uma chamada FileCopy para receber mensagens de um hub IoT Edge através do ponto final de **entrada1.** Substitua o **método Init** pelo seguinte código.
+5. No **método Init,** o código cria e configura um **objeto MóduloClient.** Este objeto permite que o módulo se conecte ao tempo de funcionamento do Azure IoT Edge local utilizando o protocolo MQTT para enviar e receber mensagens. A cadeia de ligação utilizada no método Init é dada ao módulo através do runtime do IoT Edge. O código regista uma chamada FileCopy para receber mensagens de um hub IoT Edge através do ponto final **de entrada1.** Substitua o **método Init** pelo seguinte código.
 
     ```
     /// <summary>
@@ -180,7 +181,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
     }
     ```
 
-6. Remova o código para o **método PipeMessage** e, no seu lugar, insira o código para **FileCopy**.
+6. Remova o código para **o método PipeMessage** e, no seu lugar, insira o código para **FileCopy**.
 
     ```
         /// <summary>
@@ -238,42 +239,42 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
     ```
 
 7. Guarde este ficheiro.
-8. Também pode [descarregar uma amostra](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) de código existente para este projeto. Pode então validar o ficheiro que guardou contra o ficheiro **program.cs** nesta amostra.
+8. Também pode [descarregar uma amostra de código existente](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) para este projeto. Em seguida, pode validar o ficheiro que guardou contra o ficheiro **program.cs** nesta amostra.
 
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
-Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCopyModule para copiar ficheiros de partilha local para a partilha na nuvem. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
+Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCopyModule para copiar ficheiros da partilha local para a partilha na nuvem. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
 
-1. No VSCode, vá ao Terminal > Novo Terminal para abrir um novo terminal integrado do Código do Estúdio Visual.
+1. No VSCode, vá ao Terminal > Novo Terminal para abrir um novo terminal integrado visual Studio Code.
 2. Inscreva-se no Docker introduzindo o seguinte comando no terminal integrado.
 
     `docker login <ACR login server> -u <ACR username>`
 
     Utilize o servidor de login e o nome de utilizador que copiou do registo do seu contentor.
 
-    ![Construir e empurrar a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
+    ![Construa e empurre a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 
-2. Quando solicitado para obter senha, forneça a senha. Também pode recuperar os valores para o servidor de login, nome de utilizador e palavra-passe das **Teclas** de Acesso no seu registo de contentores no portal Azure.
+2. Quando solicitado para obter a senha, forneça a senha. Também pode recuperar os valores do servidor de login, nome de utilizador e palavra-passe a partir das Chaves de **Acesso** no registo do seu contentor no portal Azure.
  
-3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No Vs Code Explorer, clique no ficheiro **module.json** e selecione **build and Push IoT Edge solution**.
+3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique com o botão direito no ficheiro **module.json** e selecione **a solução Build and Push IoT Edge**.
 
-    ![Construir e empurrar a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Construa e empurre a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
-    Quando diz ao Visual Studio Code para construir a sua solução, executa dois comandos no terminal integrado: construção de estivadores e pressão de estivador. Estes dois comandos criam o código, colocam o CSharpModule.dll em contentores e enviam-no para o registo de contentor que especificou quando inicializou a solução.
+    Quando diz ao Visual Studio Code para construir a sua solução, executa dois comandos no terminal integrado: estivador e estivador. Estes dois comandos criam o código, colocam o CSharpModule.dll em contentores e enviam-no para o registo de contentor que especificou quando inicializou a solução.
 
-    Será solicitado a escolher a plataforma do módulo. Selecione *amd64* correspondente ao Linux.
+    Ser-lhe-á solicitado que escolha a plataforma do módulo. Selecione *amd64* correspondente ao Linux.
 
     ![Selecione plataforma](./media/azure-stack-edge-create-iot-edge-module/select-platform.png)
 
     > [!IMPORTANT] 
     > Apenas os módulos Linux são suportados.
 
-    Pode ver o seguinte aviso que pode ignorar:
+    Pode ver o seguinte aviso de que pode ignorar:
 
-    *Program.cs (77,44): aviso CS1998: Este método de asincronização carece de operadores 'aguarda' e funcionará sincronizadamente. Considere utilizar o operador 'aguarda' para aguardar chamadas API não bloqueadas, ou "aguardar Task.Run(...)" para fazer trabalhos ligados ao CPU numa linha de fundo.*
+    *Programa.cs (77,44): aviso CS1998: Este método assíclo carece de operadores de "espera" e funcionará de forma sincronizada. Considere usar o operador "aguardar" para aguardar chamadas de API não bloqueando, ou "aguardar Tarefa.Run(...)" para fazer trabalhos ligados ao CPU numa linha de fundo.*
 
-4. Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal integrado do VS Code. O endereço de imagem é construído a partir de informações `<repository>:<version>-<platform>`que estão no ficheiro módulo.json com o formato . Para este artigo, deve `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`parecer.
+4. Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal integrado do VS Code. O endereço de imagem é construído a partir de informações que estão no ficheiro module.json com o formato `<repository>:<version>-<platform>` . Para este artigo, deve `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` parecer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para implantar e executar este módulo no Azure Stack Edge, veja os passos em [Adicionar um módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).
+Para implementar e executar este módulo no Azure Stack Edge, consulte os passos em [Adicionar um módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).

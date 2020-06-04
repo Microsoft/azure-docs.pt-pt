@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: fcb1e5f45bc4f8d234952e338052a18d4b03ee0f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196455"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344684"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ No nível de computação previsto do modelo de compra baseado em vCore, pode tr
 
 ## <a name="choose-a-license-model"></a>Escolha um modelo de licença
 
-Com o Azure Hybrid Benefit, pode optar por pagar apenas pela infraestrutura Azure subjacente utilizando a licença existente do SQL Server para o próprio motor de base de dados SQL (preço base compute), ou pode pagar tanto pela infraestrutura subjacente como pela licença SQL Server (preço incluído na licença).
+Com o Azure Hybrid Benefit, pode optar por pagar apenas pela infraestrutura Azure subjacente utilizando a licença existente do SQL Server para o próprio motor de base de dados SQL Server (preço base compute), ou pode pagar tanto pela infraestrutura subjacente como pela licença SQL Server (preço incluído na licença).
 
 Pode escolher ou alterar o seu modelo de licenciamento utilizando o portal Azure ou utilizando uma das seguintes APIs:
 
@@ -77,7 +77,7 @@ Oferecemos benefícios de mobilidade de licença a clientes do SQL Server com So
 O Benefício Híbrido Azure para o SQL Server difere da mobilidade de licenças em duas áreas-chave:
 
 - Proporciona benefícios económicos para a deslocação de cargas de trabalho altamente virtualizadas para Azure. Os clientes da SQL Server Enterprise Edition podem obter quatro núcleos em Azure no SKU de Finalidade Geral para cada núcleo que possuam no local para aplicações altamente virtualizadas. A mobilidade de licenças não permite benefícios especiais de custos para mover cargas de trabalho virtualizadas para a nuvem.
-- Ele fornece um destino PaaS em Azure (SQL Database Managed Instance) que é altamente compatível com o SQL Server.
+- Ele fornece um destino PaaS em Azure (SQL Managed Instance) que é altamente compatível com o SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quais são os direitos específicos do Benefício Híbrido Azure para o SQL Server?
 
@@ -90,7 +90,7 @@ Os clientes da SQL Database têm os seguintes direitos associados ao Azure Hybri
 |||
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter ajuda na escolha de uma opção de implementação Azure SQL, consulte [Escolha a opção de implementação certa em Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - Para uma comparação das funcionalidades SQL Database e SQL Managed Instance, consulte a [Base de Dados SQL & as funcionalidades sql Managed Instance](database/features-comparison.md).

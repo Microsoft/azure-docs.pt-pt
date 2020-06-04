@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 74f89629c783a444633fe276d99dc75d6c7fc8d8
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268046"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331972"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -64,7 +64,7 @@ A imagem abaixo destaca os diferentes passos deste ciclo de vida.
 
 Segue-se um guia para a criação de um lançamento da Azure Pipelines que automatiza a implantação de uma fábrica de dados em vários ambientes.
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
 -   Uma subscrição Azure ligada ao Servidor da Fundação Visual Studio Team ou ao Azure Repos que utiliza o ponto final do [serviço Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -98,7 +98,7 @@ Segue-se um guia para a criação de um lançamento da Azure Pipelines que autom
 
     ![Vista de palco](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Criar uma nova tarefa. Procure a **implementação do grupo de recursos Azure**e, em seguida, selecione **Adicionar**.
+    b.  Criar uma nova tarefa. Procure a **implementação do modelo ARM**e, em seguida, selecione **Adicionar**.
 
     c.  Na tarefa De implementação, selecione a subscrição, o grupo de recursos e a localização para a fábrica de dados-alvo. Fornecer credenciais, se necessário.
 
@@ -108,7 +108,7 @@ Segue-se um guia para a criação de um lançamento da Azure Pipelines que autom
 
     f.  Selecione **...** ao lado da caixa **de parâmetros do modelo** para escolher o ficheiro de parâmetros. Procure o ficheiro `ARMTemplateParametersForFactory.json` na pasta do ramo <FactoryName> adf_publish.
 
-    g.  Selecione **...** ao lado da caixa de **parâmetros do modelo de substituição** e introduza os valores de parâmetros desejados para a fábrica de dados-alvo. Para credenciais que vêm de Azure Key Vault, insira o nome do segredo entre as aspas duplas. Por exemplo, se o nome do segredo for cred1, insira **"$(cred1)"** por este valor.
+    exemplo,  Selecione **...** ao lado da caixa de **parâmetros do modelo de substituição** e introduza os valores de parâmetros desejados para a fábrica de dados-alvo. Para credenciais que vêm de Azure Key Vault, insira o nome do segredo entre as aspas duplas. Por exemplo, se o nome do segredo for cred1, insira **"$(cred1)"** por este valor.
 
     h. Selecione **Incremental** para o **modo de implementação**.
 
@@ -325,7 +325,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A `connectionString` propriedade será parametrizada como um `securestring` valor. Não terá um valor padrão. Terá um nome de parâmetro encurtado que é sufixado com `connectionString` .
 * A propriedade `secretAccessKey` passa a ser um `AzureKeyVaultSecret` (por exemplo, num serviço ligado ao Amazon S3). É automaticamente parametrizado como um cofre de chave Azure e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre da chave em si.
 
-#### <a name="datasets"></a>Conjuntos de dados
+#### <a name="datasets"></a>Conjuntos de Dados
 
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
 

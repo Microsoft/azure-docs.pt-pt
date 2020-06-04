@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1ccf87bfd387182af269670abf1d86833854834d
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191863"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331632"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -37,6 +37,7 @@ A tabela a seguir mostra os mapeamentos suportados:
 |AustráliaSoutheast|AustráliaSoutheast|
 |Sudeste da Ásia|Sudeste da Ásia|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapãoEast|JapãoEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -47,6 +48,8 @@ A tabela a seguir mostra os mapeamentos suportados:
 <sup>1</sup> O mapeamento de EastUS para os espaços de trabalho do Log Analytics para as contas de Automação não é um mapeamento de região-a-região exato, mas é o mapeamento correto.
 
 <sup>2</sup> Devido a restrições de capacidade, a região não está disponível quando se está a criar novos recursos. Isto inclui contas de Automação e espaços de trabalho Log Analytics. No entanto, os recursos pré-existentes ligados na região devem continuar a funcionar.
+
+<sup>3</sup> No Azure China, apenas a Update Management é suportada, e outras funcionalidades como Change Tracking e Inventory não estão disponíveis neste momento. 
 
 ## <a name="unlink-a-workspace"></a>Desvincular um espaço de trabalho
 
@@ -79,7 +82,7 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.** 
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../automation-update-management.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking.md).

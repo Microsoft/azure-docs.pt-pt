@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 799f38cff1c10da1b0d280121a7a5ab4a380152d
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171621"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331428"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -42,11 +42,17 @@ Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operaçõe
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentação da API**|[Documentação de referência da API de Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuir para a SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Introdução**|[Começa com o Java SDK](sql-api-java-get-started.md)|
+|**Começar**|[Começa com o Java SDK](sql-api-java-get-started.md)|
 |**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-java-application.md)|
 |**Tempo mínimo suportado**|[Kit de Desenvolvimento de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="251"></a><a name="2.5.1"></a>2.5.1
+* Corrige a emissão de cache de partição principal na consulta documentCollection.
+
+### <a name="250"></a><a name="2.5.0"></a>2.5.0
+* Suporte adicionado para 449 retíria configuração personalizada.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Corrige o problema do tempo limite de tempo da piscina de ligação.
@@ -268,6 +274,8 @@ Qualquer pedido à Cosmos DB usando um SDK reformado será rejeitado pelo servi�
 
 | Versão | Data de Lançamento | Data de Aposentadoria |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |03 de junho de 2020 |--- |
+| [2.5.0](#2.5.0) |12 de maio de 2020 |--- |
 | [2.4.7](#2.4.7) |20 de fevereiro de 2020 |--- |
 | [2.4.6](#2.4.6) |24 de janeiro de 2020 |--- |
 | [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
@@ -322,9 +330,9 @@ Qualquer pedido à Cosmos DB usando um SDK reformado será rejeitado pelo servi�
 | 0.9.1 pré-lease |19 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.0 pré-lease |10 de dezembro de 2014 |29 de fevereiro de 2016 |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>PERGUNTAS FREQUENTES
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

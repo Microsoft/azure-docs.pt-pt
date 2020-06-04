@@ -8,21 +8,18 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 42b42a7477326196546ad445367691192f00569a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 23644736370d4a875d1f9c0e65f3097fcffa07f6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263250"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338707"
 ---
-# <a name="ddv4-and-ddsv4-series"></a>Série Ddv4 e Ddsv4
+# <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 e Ddsv4
 
 A série Ddv4 e Ddsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho de uso geral. Apresenta uma velocidade do relógio Turbo de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e Intel Advanced Vetor [ &reg; Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local para leitura e escrita em comparação com os [tamanhos Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) com [VMs Gen2.](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
 
 Os casos de utilização em série D incluem aplicações de nível empresarial, bases de dados relacionais, caching na memória e análise.
-
-> [!IMPORTANT]
-> Se estiver a implementar uma nova Máquina Virtual utilizando a série Ddv4 ou Ddsv4 e pretender utilizar uma Imagem Linux, tem de utilizar o RHEL 8.x, o CentOS 8.x ou o Oracle 7.x ou o mais recente. Se escolher RHEL 7.x, CentOS 7.x ou Orcale 6.x, haverá um erro de Pânico Kernel. A Microsoft está a implementar ativamente uma correção. Apenas RHEL, CentOS e Oráculo são impactados. 
 
 ## <a name="ddv4-series"></a>Série Ddv4
 
@@ -90,6 +87,6 @@ Atualizações de preservação da memória: Suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

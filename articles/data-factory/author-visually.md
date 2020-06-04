@@ -1,6 +1,6 @@
 ---
 title: Autoria visual
-description: Saiba como usar a autoria visual na Azure Data Factory
+description: Saiba como utilizar a autoria visual na Azure Data Factory
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,44 +10,50 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832790"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343123"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Autoria visual na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A experiência de interface de utilizador da Azure Data Factory (UX) permite-lhe autor visualmente e implementar recursos para a sua fábrica de dados sem ter de escrever qualquer código. Você pode arrastar atividades para uma tela de gasoduto, realizar ensaios, depurar iterativamente e implantar e monitorizar as suas corridas de gasodutos.
+A experiência de interface de utilizador da Azure Data Factory (UX) permite-lhe autoria visual e implanta recursos para a sua fábrica de dados sem ter de escrever nenhum código. Pode arrastar as atividades para uma tela de gasoduto, realizar ensaios, depurar iterativamente e implementar e monitorizar as suas operações de oleoduto.
 
 Atualmente, o Azure Data Factory UX só é suportado no Microsoft Edge e no Google Chrome.
 
 ## <a name="authoring-canvas"></a>Tela de autoria
 
-Para abrir a **tela de autor,** clique no ícone do lápis. 
+Para abrir **a tela de autoria,** clique no ícone do lápis. 
 
-![Tela de autoria](media/author-visually/authoring-canvas.png)
+![Tela de Autoria](media/author-visually/authoring-canvas.png)
 
-Aqui, é autor dos pipelines, atividades, conjuntos de dados, serviços ligados, fluxos de dados, gatilhos e tempos de execução de integração que compõem a sua fábrica. Para começar a construir um oleoduto utilizando a tela de autor, consulte [os dados da Cópia utilizando a atividade da cópia](tutorial-copy-data-portal.md). 
+Aqui, você autoriza os oleodutos, atividades, conjuntos de dados, serviços ligados, fluxos de dados, gatilhos e tempos de integração que compõem a sua fábrica. Para começar a construir um oleoduto utilizando a tela de autoria, consulte [os dados do Copy utilizando a atividade de cópia](tutorial-copy-data-portal.md). 
 
-A experiência de autor visual padrão está a trabalhar diretamente com o serviço Data Factory. A integração azure Repos Git ou GitHub também é suportada para permitir o controlo de fontes e colaboração para o trabalho nos seus oleodutos de fábrica de dados. Para saber mais sobre as diferenças entre estas experiências de autoria, consulte o [controlo de origem na Azure Data Factory.](source-control.md)
+A experiência de autoria visual padrão está a trabalhar diretamente com o serviço Data Factory. A integração do Azure Repos Git ou GitHub também é apoiada para permitir o controlo de fontes e colaboração para o trabalho nos seus oleodutos de fábrica de dados. Para saber mais sobre as diferenças entre estas experiências de autoria, consulte [o controlo de origem na Azure Data Factory.](source-control.md)
 
 ### <a name="properties-pane"></a>Painel Propriedades
 
-Para recursos de alto nível, tais como oleodutos, conjuntos de dados e fluxos de dados, propriedades de alto nível são editáveis no painel de propriedades no lado direito da tela. O painel de propriedades contém propriedades como nome, descrição, anotações e outras propriedades de alto nível. Subrecursos como as atividades de gasoduto e as transformações de fluxo de dados são editados utilizando o painel na parte inferior da tela. 
+Para recursos de alto nível, tais como oleodutos, conjuntos de dados e fluxos de dados, propriedades de alto nível são editáveis no painel de propriedades no lado direito da tela. O painel de propriedades contém propriedades como nome, descrição, anotações e outras propriedades de alto nível. Subreufontes como atividades de pipeline e transformações de fluxo de dados são editados usando o painel na parte inferior da tela. 
 
-![Tela de autoria](media/author-visually/properties-pane.png)
+![Tela de Autoria](media/author-visually/properties-pane.png)
 
-O painel de propriedades só abre por padrão na criação de recursos. Para editá-lo, clique no ícone do painel de propriedades localizado no canto superior direito da tela.
+O painel de propriedades só abre por defeito na criação de recursos. Para editá-lo, clique no ícone do painel de propriedades localizado no canto superior direito da tela.
+
+## <a name="management-hub"></a>Centro de gestão
+
+O centro de gestão, acedido pelo *separador Manage* no Azure Data Factory UX, é um portal que acolhe ações de gestão global para a sua fábrica de dados. Aqui, pode gerir as suas ligações a lojas de dados e cálculos externos, configuração de controlo de fontes e definições de gatilho. Para mais informações, saiba mais sobre as capacidades do centro de [gestão.](author-management-hub.md)
+
+![Gerir serviços ligados](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>Expressões e funções
 
 Expressões e funções podem ser usadas em vez de valores estáticos para especificar muitas propriedades na Azure Data Factory.
 
-Para especificar uma expressão para um valor de propriedade, **selecione Adicionar Conteúdo Dinâmico** ou clique em Alt + **P** enquanto se concentra no campo.
+Para especificar uma expressão para um valor de propriedade, **selecione Add Dynamic Content** ou clique em Alt + **P** enquanto se foca no campo.
 
 ![Adicionar Conteúdo Dinâmico](media/author-visually/dynamic-content-1.png)
 
@@ -59,10 +65,10 @@ Para obter informações sobre a linguagem de expressão, consulte [Expressões 
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-Selecione **Feedback** para comentar sobre funcionalidades ou para notificar a Microsoft sobre problemas com a ferramenta:
+Selecione **Feedback** para comentar funcionalidades ou para notificar a Microsoft sobre problemas com a ferramenta:
 
 ![Comentários](media/author-visually/provide-feedback.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre monitorização e gestão de gasodutos, consulte [monitor e gerenciar os gasodutos programáticamente](monitor-programmatically.md).
+Para saber mais sobre monitorização e gestão de gasodutos, consulte [o Monitor e gere os gasodutos programáticamente.](monitor-programmatically.md)

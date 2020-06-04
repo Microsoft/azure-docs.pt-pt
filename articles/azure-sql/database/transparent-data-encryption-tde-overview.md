@@ -1,7 +1,7 @@
 ---
 title: Encriptação de Dados Transparente
-titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse
-description: Uma visão geral da encriptação transparente de dados para a Base de Dados Azure SQL, Instância Gerida Azure SQL e Azure Synapse . O documento cobre os seus benefícios e as opções de configuração, que inclui encriptação de dados transparentes geridas pelo serviço e Bring Your Own Key.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
+description: Uma visão geral da encriptação transparente de dados para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics. O documento cobre os seus benefícios e as opções de configuração, que inclui encriptação de dados transparentes geridas pelo serviço e Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,24 +12,24 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 04/10/2020
-ms.openlocfilehash: 05bd4b83a6387eefb243ed8058c3fe833615cfb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4ea4ad98fcea022a22196e359e24f56cb3d0f4d8
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188279"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321381"
 ---
-# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance--azure-synapse"></a>Encriptação de dados transparente para base de dados SQL, SQL & Azure Synapse
+# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[A encriptação transparente de dados (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ajuda a proteger a Base de Dados Azure SQL, Azure SQL Managed Instance e Synapse SQL in Azure Synapse Analytics contra a ameaça de atividade offline maliciosa encriptando dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, o TDE está ativado para todas as bases de dados recentemente implantadas e deve ser ativado manualmente para bases de dados mais antigas da Base de Dados Azure SQL, Instância Gerida Azure SQL ou Azure Synapse.
+[A encriptação de dados transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ajuda a proteger a Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics contra a ameaça de atividade offline maliciosa, encriptando dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, o TDE está ativado para todas as bases de dados recentemente implantadas e deve ser ativado manualmente para bases de dados mais antigas da Base de Dados Azure SQL, instância gerida Azure SQL ou Azure Synapse Analytics.
 
 O TDE executa a encriptação e desencriptação em tempo real dos dados ao nível da página. Cada página é desencriptada quando é lida na memória e encriptada antes de ser escrita no disco. O TDE encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada Chave de Encriptação da Base de Dados (DEK). No arranque da base de dados, o DEK encriptado é desencriptado e depois utilizado para desencriptação e reencriminação dos ficheiros de base de dados no processo do motor do motor de base de dados sql Server. O DEK está protegido pelo protetor TDE. O protetor TDE é um certificado gerido pelo serviço (encriptação de dados transparente gerido pelo serviço) ou uma chave assimétrica armazenada no [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (encriptação de dados transparente gerida pelo cliente).
 
 Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao nível do [servidor](logical-servers.md) e é herdado por todas as bases de dados associadas a esse servidor. Para Azure SQL Managed Instance (recurso BYOK em pré-visualização), o protetor TDE é definido ao nível da instância e é herdado por todas as bases de dados encriptadas nesse caso. O *servidor* de termo refere-se tanto ao servidor como à instância em todo este documento, a menos que indicado de forma diferente.
 
 > [!IMPORTANT]
-> Todas as bases de dados recentemente criadas na Base de Dados SQL e na Azure Synapse são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de Caso Gerido criados antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados de Instância geridas criadas através do restauro do estado de encriptação herdada da fonte.
+> Todas as bases de dados recentemente criadas na Base de Dados SQL e na Azure Synapse são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de SqL Managed Instance criadas antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados SQL Managed Instance criadas através da restauração do estado de encriptação herdada da fonte.
 
 > [!NOTE]
 > O TDE não pode ser utilizado para encriptar a base de dados **principal** na Base de Dados SQL.  A base de dados **principal** contém objetos necessários para realizar as operações do TDE nas bases de dados dos utilizadores.
@@ -67,11 +67,11 @@ Quando exporta uma base de dados protegida pelo TDE, o conteúdo exportado da ba
 
 Por exemplo, se o ficheiro BACPAC for exportado a partir de uma instância do SQL Server, o conteúdo importado da nova base de dados não é automaticamente encriptado. Da mesma forma, se o ficheiro BACPAC for importado para uma instância do SQL Server, a nova base de dados também não é automaticamente encriptada.
 
-A única exceção é quando exporta de e para uma Base de Dados SQL. O TDE está ativado na nova base de dados, mas o ficheiro BACPAC ainda não está encriptado.
+A única exceção é quando exporta uma base de dados de e para a Base de Dados SQL. O TDE está ativado na nova base de dados, mas o ficheiro BACPAC ainda não está encriptado.
 
 ## <a name="manage-transparent-data-encryption"></a>Gerir encriptação de dados transparentes
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
 
 Gerir o TDE no portal Azure.
 
@@ -99,7 +99,7 @@ Para configurar o TDE através do PowerShell, tem de estar ligado como Propriet�
 
 Utilize os seguintes cmdlets para a Base de Dados Azure SQL e para a Azure Synapse:
 
-| Cmdlet | Descrição |
+| Cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Permite ou desativa encriptação de dados transparente para uma base de dados.|
 | [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Obtém o estado de encriptação de dados transparente para uma base de dados. |
@@ -120,7 +120,7 @@ Gerir o TDE utilizando o Transact-SQL.
 
 Ligue-se à base de dados utilizando um login que seja um administrador ou membro da função **dbmanager** na base de dados principal.
 
-| Comando | Descrição |
+| Comando | Description |
 | --- | --- |
 | [ALTER DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) | DEFINIR ENCRIPTAÇÃO ON/OFF encripta ou desencripta uma base de dados |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Devolve informações sobre o estado de encriptação de uma base de dados e as chaves de encriptação da base de dados associadas |
@@ -136,7 +136,7 @@ Gerir o TDE utilizando a API REST.
 Para configurar o TDE através da API REST, tem de estar ligado como Proprietário, Colaborador ou Gestor de Segurança da SQL.
 Utilize o seguinte conjunto de comandos para Azure SQL Database e Azure Synapse:
 
-| Comando | Descrição |
+| Comando | Description |
 | --- | --- |
 |[Criar ou atualizar servidor](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Adiciona uma identidade do Azure Ative Directory a um servidor. (usado para conceder acesso ao Cofre-Chave)|
 |[Criar ou atualizar chave de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Adiciona uma chave do Cofre chave a um servidor.|
@@ -150,7 +150,7 @@ Utilize o seguinte conjunto de comandos para Azure SQL Database e Azure Synapse:
 |[Obtenha configuração de encriptação de dados transparentes](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtém a configuração TDE para uma base de dados.|
 |[Lista resultados de configuração de encriptação de dados transparentes](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtém o resultado da encriptação de uma base de dados.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - O SQL Server a funcionar numa máquina virtual Azure também pode utilizar uma chave assimétrica do Key Vault. Os passos de configuração são diferentes de usar uma chave assimétrica na Base de Dados SQL e na SQL Managed Instance. Para obter mais informações, consulte [a gestão de chaves extensíveis utilizando o Cofre da Chave Azure (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
 - Para obter uma descrição geral do TDE, consulte [encriptação de dados transparentes](/sql/relational-databases/security/encryption/transparent-data-encryption).

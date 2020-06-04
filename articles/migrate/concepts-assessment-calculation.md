@@ -3,12 +3,12 @@ title: Avaliações na Avaliação do Servidor migratório Azure
 description: Conheça as avaliações na Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ee6b13edd12109b7f748abeaf13a5e8f3ded2a8e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171009"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343953"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Avaliações em Azure Migrate: Avaliação do servidor
 
@@ -110,7 +110,7 @@ Propriedade | Detalhes
 **Localização de destino** | O local para onde quer migrar. A Avaliação do Servidor suporta atualmente estas regiões-alvo do Azure:<br/><br/> Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Índia Central, Eua Central, China Oriental, China Norte, Leste asiático, Leste dos EUA 2, Alemanha Central, Alemanha Nordeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte-Americano, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sudeste asiático, Reino Unido, Reino Unido , Centro Oeste dos EUA, Europa Ocidental, Índia Ocidental, Eua Ocidental e Oeste dos EUA 2.
 **Disco de armazenamento de destino (as-is dimensionamento)** | O tipo de disco a utilizar para armazenamento em Azure. <br/><br/> Especifique o disco de armazenamento alvo como gerido por Premium, gerido standard SSD ou gerido por HDD standard.
 **Disco de armazenamento de destino (dimensionamento baseado no desempenho)** | Especifica o tipo de disco de armazenamento alvo como automático, gerido com Premium, gerido por HDD padrão ou gerido por SSD standard.<br/><br/> **Automático**: A recomendação do disco baseia-se nos dados de desempenho dos discos, ou seja, no IOPS e no produção.<br/><br/>**Premium ou Standard**: A avaliação recomenda um SKU de disco dentro do tipo de armazenamento selecionado.<br/><br/> Se pretender um acordo de nível de serviço VM de uma só instância (SLA) de 99,9%, considere a utilização de discos geridos com Premium. Esta utilização garante que todos os discos da avaliação são recomendados como discos geridos por Premium.<br/><br/> A azure Migrate suporta apenas discos geridos para avaliação de migração.
-**Azure Reservado VM Instances** | Especifica [casos reservados](https://azure.microsoft.com/pricing/reserved-vm-instances/) de modo a que as estimativas de custos na avaliação as levem em conta.<br/><br/> Se forem selecionadas instâncias reservadas, deixe as definições padrão em desconto (%) e propriedades de uptime VM.<br/><br/> A Azure Migrate suporta atualmente a Azure Reserved VM Instances apenas para ofertas pay-as-you-go.
+**Azure Reservado VM Instances** | Especifica [casos reservados](https://azure.microsoft.com/pricing/reserved-vm-instances/) de modo a que as estimativas de custos na avaliação as levem em conta.<br/><br/> Quando seleciona 'Instâncias Reservadas', o 'Desconto (%)» e as propriedades de 'uptime' VM não são aplicáveis.<br/><br/> A Azure Migrate suporta atualmente a Azure Reserved VM Instances apenas para ofertas pay-as-you-go.
 **Critérios de dimensionamento** | Usado para direitos de direito o Azure VM.<br/><br/> Use o tamanho de tamanho ou tamanho baseado no desempenho.
 **Histórico de desempenho** | Usado com tamanho baseado no desempenho. O histórico de desempenho especifica a duração utilizada quando os dados de desempenho são avaliados.
 **Utilização de percentil** | Usado com tamanho baseado no desempenho. A utilização percentil especifica o valor percentil da amostra de desempenho utilizada para a direito.
@@ -154,7 +154,8 @@ Propriedade | Detalhes | Estatuto de prontidão Azure
 Juntamente com a revisão das propriedades de VM, a Avaliação do Servidor olha para o sistema operativo de um hóspede de uma máquina para determinar se pode funcionar no Azure.
 
 > [!NOTE]
-> Para lidar com a análise dos VMware VMs, a Avaliação do Servidor utiliza o sistema operativo especificado para o VM no vCenter Server. Para os VMs Linux em execução em VMware, a Avaliação do Servidor não identifica atualmente a versão kernel do SISTEMA convidado.
+> Para lidar com a análise dos VMware VMs, a Avaliação do Servidor utiliza o sistema operativo especificado para o VM no vCenter Server. No entanto, o vCenter Server não fornece a versão kernel para sistemas operativos Linux VM. Para descobrir a versão, é necessário configurar a [descoberta da aplicação.](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) Em seguida, o aparelho descobre informações de versão usando as credenciais de hóspedes que especifica quando configura a descoberta de aplicações.
+
 
 A Avaliação do Servidor utiliza a seguinte lógica para identificar a prontidão do Azure com base no sistema operativo:
 
@@ -199,7 +200,8 @@ Se utilizar o dimensionamento baseado no desempenho, a Avaliação do Servidor f
 
 Para o tamanho do armazenamento, a Azure Migrate tenta mapear cada disco que está ligado à máquina a um disco Azure. As obras de dimensionamento são as seguintes:
 
-1. A Avaliação do Servidor adiciona a leitura e a escrita de IOPS de um disco para obter o total de IOPS necessário. Da mesma forma, adiciona os valores de leitura e de produção para obter a produção total de cada disco.
+1. A Avaliação do Servidor adiciona a leitura e a escrita de IOPS de um disco para obter o total de IOPS necessário. Da mesma forma, adiciona os valores de leitura e de produção para obter a produção total de cada disco. No caso de avaliações baseadas em importações, tem a opção de fornecer o total de IOPS, produção total e total nº. de discos no ficheiro importado sem especificar as definições individuais do disco. Se o fizer, o tamanho do disco individual é ignorado e os dados fornecidos são utilizados diretamente para calcular o tamanho e selecione um VM SKU apropriado.
+
 1. Se especificou o tipo de armazenamento como automático, o tipo selecionado baseia-se nos valores efetivos de IOPS e de produção. A Avaliação do Servidor determina se mapeia o disco para um disco Standard HDD, Standard SSD ou Premium em Azure. Se o tipo de armazenamento for definido para um desses tipos de disco, a Avaliação do Servidor tenta encontrar um SKU de disco dentro do tipo de armazenamento selecionado.
 1. Os discos são selecionados da seguinte forma:
     - Se a Avaliação do Servidor não conseguir encontrar um disco com o IOPS e a produção necessários, ele marca a máquina como inadequada para o Azure.

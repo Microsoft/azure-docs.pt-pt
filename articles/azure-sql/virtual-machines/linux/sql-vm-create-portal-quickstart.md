@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 767bdeef48ed78b32ad5e3b0e43002a21cb1c9b6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259529"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343715"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionar uma máquina virtual do SQL Server do Linux no portal do Azure
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Fornecimento de uma máquina virtual Linux que executa o SQL Server no portal Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "84259529"
 Neste tutorial de arranque rápido, utiliza-se o portal Azure para criar uma máquina virtual Linux com SQL Server 2017 instalada. Aprende-se o seguinte: 
 
 
-* [Criar uma VM do SQL do Linux a partir da galeria](#create)
+* [Criar um Linux VM executando SQL Server a partir da galeria](#create)
 * [Ligar à VM nova com ssh](#connect)
 * [Alterar a palavra-passe SA](#password)
 * [Configuração para ligações remotas](#remote)
@@ -125,7 +125,7 @@ Se estiver a correr no Windows e não tiver uma concha BASH, instale um cliente 
 
 Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma VM do Linux no Azure com o Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > Se vir um alerta de segurança PuTTY sobre a chave de anfitrião do servidor não estar em cache no registo, escolha entre as seguintes opções. Se confiar neste anfitrião, selecione **Sim** para adicionar a chave à cache do PuTTy e continue a ligar. Se pretender continuar a ligar apenas uma vez, sem adicionar a chave à cache, selecione **Nº**. Se não confia neste anfitrião, **selecione Cancelar** para abandonar a ligação.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a>Alterar a palavra-passe SA
@@ -193,7 +193,7 @@ Este tutorial orientou-o na criação de uma VM do Red Hat Enterprise Linux (RHE
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem uma máquina virtual do SQL Server 2017 no Azure, pode ligar localmente com **sqlcmd** para executar consultas de Transact-SQL.
 

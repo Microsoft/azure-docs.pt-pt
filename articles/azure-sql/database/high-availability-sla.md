@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 527fe8fa2ad8916f9e5209e4823457d81e745034
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a5c55149b9cfbe1c82208347f96383a60b6b1817
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219358"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331547"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -75,12 +75,14 @@ Para obter mais informações sobre a elevada disponibilidade em Hiperescala, co
 
 ## <a name="zone-redundant-configuration"></a>Configuração redundante de zona
 
-Por padrão, o cluster de nós para o modelo de disponibilidade premium é criado no mesmo datacenter. Com a introdução de Zonas de [Disponibilidade Azure,](../../availability-zones/az-overview.md)base de dados SQL e SQL Managed Instance podem colocar diferentes réplicas da base de dados Business Critical para diferentes zonas de disponibilidade na mesma região. Para eliminar um único ponto de falha, o anel de controlo também é duplicado em várias zonas como três anéis de gateway (GW). O encaminhamento para um anel de gateway específico é controlado pelo [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Uma vez que a configuração redundante da zona nos níveis de serviço Premium ou Business Critical não cria redundância de base de dados adicional, pode permitir-lhe sem custos adicionais. Ao selecionar uma configuração redundante de zona, pode tornar as suas bases de dados Premium ou Business Critical resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem alterações na lógica da aplicação. Também pode converter quaisquer bases de dados premium ou business critical existentes para a configuração redundante da zona.
+Por padrão, o cluster de nós para o modelo de disponibilidade premium é criado no mesmo datacenter. Com a introdução de Zonas de [Disponibilidade Azure,](../../availability-zones/az-overview.md)a SQL Database pode colocar diferentes réplicas da base de dados Business Critical em diferentes zonas de disponibilidade na mesma região. Para eliminar um único ponto de falha, o anel de controlo também é duplicado em várias zonas como três anéis de gateway (GW). O encaminhamento para um anel de gateway específico é controlado pelo [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Uma vez que a configuração redundante da zona nos níveis de serviço Premium ou Business Critical não cria redundância de base de dados adicional, pode permitir-lhe sem custos adicionais. Ao selecionar uma configuração redundante de zona, pode tornar as suas bases de dados Premium ou Business Critical resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem alterações na lógica da aplicação. Também pode converter quaisquer bases de dados premium ou business critical existentes para a configuração redundante da zona.
 
 Como as bases de dados redundantes da zona têm réplicas em diferentes datacenters com alguma distância entre eles, o aumento da latência da rede pode aumentar o tempo de compromisso e, assim, impactar o desempenho de algumas cargas de trabalho OLTP. Pode sempre voltar à configuração de uma única zona desativando a definição de redundância de zona. Este processo é uma operação online semelhante à atualização regular do nível de serviço. No final do processo, a base de dados ou piscina é migrada de um anel redundante de uma zona para um anel de uma única zona ou vice-versa.
 
 > [!IMPORTANT]
-> As bases de dados redundantes da zona e as piscinas elásticas são atualmente suportadas apenas nos níveis de serviço Premium e Business Critical em regiões selecionadas. Ao utilizar o nível Business Critical, a configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Para obter informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o apoio dos Serviços por região.](../../availability-zones/az-region.md)  
+> As bases de dados redundantes da zona e as piscinas elásticas são atualmente suportadas apenas nos níveis de serviço Premium e Business Critical em regiões selecionadas. Ao utilizar o nível Business Critical, a configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Para obter informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o apoio dos Serviços por região.](../../availability-zones/az-region.md)
+
+> [!NOTE]
 > Esta funcionalidade não está disponível em SQL Managed Instance.
 
 A versão redundante da zona da arquitetura de alta disponibilidade é ilustrada pelo seguinte diagrama:
@@ -104,7 +106,7 @@ Uma falha pode ser iniciada usando REST API ou PowerShell. Para REST API, consul
 
 A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Está dependente do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para uma maior tolerância a falhas. Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

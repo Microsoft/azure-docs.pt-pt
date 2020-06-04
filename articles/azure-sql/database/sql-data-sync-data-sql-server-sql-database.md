@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: c2c0e6d1d3ffd9ec3091e92530ec5c191f3f7ca6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 94479bda00e2ea7fa7cf2d0b7cd8001a070a5703
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297960"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343273"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync é um serviço construído na Base de Dados Azure SQL que permite sincronizar os dados que seleciona bidireccionalmente através de várias bases de dados, tanto no local como na nuvem. 
 
@@ -29,9 +28,9 @@ SQL Data Sync é um serviço construído na Base de Dados Azure SQL que permite 
 
 ## <a name="overview"></a>Descrição geral 
 
-O Data Sync baseia-se no conceito de um Grupo Sync. Um Sync Group é um grupo de bases de dados que pretende sincronizar.
+O Data Sync baseia-se no conceito de um grupo de sincronização. Um grupo de sincronização é um grupo de bases de dados que pretende sincronizar.
 
-Data Sync usa um hub e falou topologia para sincronizar dados. Define uma das bases de dados do grupo de sincronização como base de dados do Hub. O resto das bases de dados são bases de dados de membros. O sincronização ocorre apenas entre o Hub e os membros individuais.
+Data Sync usa um hub e falou topologia para sincronizar dados. Define uma das bases de dados do grupo de sincronização como base de dados do hub. O resto das bases de dados são bases de dados de membros. O sincronização ocorre apenas entre o hub e os membros individuais.
 
 - A **Base de Dados do Hub** deve ser uma Base de Dados Azure SQL.
 - As **bases de dados dos membros** podem ser bases de dados na Base de Dados Azure SQL ou em casos de SQL Server.
@@ -42,7 +41,7 @@ Data Sync usa um hub e falou topologia para sincronizar dados. Define uma das ba
 
 ![Sincronizar dados entre bases de dados](./media/sql-data-sync-data-sql-server-sql-database/sync-data-overview.png)
 
-Um Grupo Sync tem as seguintes propriedades:
+Um grupo de sincronização tem as seguintes propriedades:
 
 - O **Sync Schema** descreve quais os dados que estão a ser sincronizados.
 - A **Direção de Sincronização** pode ser bidis ou fluir numa só direção. Ou seja, a Direção de Sincronização pode ser *Hub para Membro*, ou Membro do *Hub*, ou ambos.
@@ -72,7 +71,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 ## <a name="how-it-works"></a>Como funciona
 
 - **Alterações de dados de rastreio:** Data Sync rastreia alterações utilizando inserção, atualização e eliminação de gatilhos. As alterações são registadas numa tabela lateral na base de dados do utilizador. Note que o BULK INSERT não dispara disparos por defeito. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção executa. Adicione a opção FIRE_TRIGGERS para que o Data Sync possa rastrear esses inserções. 
-- **Sincronizar dados:** Data Sync é projetado num modelo Hub e Spoke. O Hub sincroniza-se com cada membro individualmente. As alterações do Hub são transferidas para o membro e, em seguida, as alterações do membro são enviadas para o Hub.
+- **Sincronizar dados:** Data Sync é projetado num hub e modelo de fala. O hub sincroniza-se com cada membro individualmente. As mudanças do hub são transferidas para o membro e, em seguida, as alterações do membro são enviadas para o centro.
 - **Resolução de conflitos:** O Data Sync oferece duas opções para a resolução de conflitos, *o Hub vence* ou o Membro *ganha.*
   - Se selecionar *o Hub ganha,* as mudanças no hub substituem sempre as alterações no membro.
   - Se selecionar *o Membro ganha,* as alterações no membro substituem as alterações no centro. Se houver mais de um membro, o valor final depende de qual membro sincroniza primeiro.
@@ -138,7 +137,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 - A autenticação do Diretório Ativo Azure não é suportada.
 - As tabelas com o mesmo nome mas esquemas diferentes (por exemplo, dbo.clientes e vendas.clientes) não são suportados.
 - Colunas com tipos de dados definidos pelo utilizador não são suportadas
-- A deslocação de servidores entre diferentes subscrições não é suportada. 
+- A movimentação de servidores entre diferentes subscrições não é suportada. 
 
 #### <a name="unsupported-data-types"></a>Tipos de dados não suportados
 
@@ -194,22 +193,22 @@ O SQL Data Sync está disponível em todas as regiões.
 
 ### <a name="is-a-sql-database-account-required"></a>É necessária uma conta SQL Database
 
-Yes. Deve ter uma conta SQL Database para hospedar a Base de Dados do Hub.
+Yes. Deve ter uma conta SQL Database para hospedar a base de dados do hub.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-databases-only"></a>Posso usar o Data Sync para sincronizar apenas entre bases de dados do SQL Server
 
 Não diretamente. No entanto, pode sincronizar indiretamente entre bases de dados do SQL Server, criando uma base de dados Hub em Azure e, em seguida, adicionando as bases de dados no local ao grupo de sincronização.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados SQL que pertencem a diferentes subscrições
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados na Base de Dados SQL que pertencem a diferentes subscrições
 
-Yes. Pode sincronizar entre bases de dados SQL que pertencem a grupos de recursos pertencentes a diferentes subscrições.
+Yes. Pode sincronizar entre bases de dados pertencentes a grupos de recursos pertencentes a diferentes subscrições.
 
 - Se as subscrições pertencerem ao mesmo inquilino, e tiver permissão para todas as subscrições, pode configurar o grupo de sincronização no portal Azure.
 - Caso contrário, terá de utilizar o PowerShell para adicionar os membros sincronizados que pertencem a diferentes subscrições.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados SQL que pertencem a diferentes nuvens (como Azure Public Cloud e Azure China 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados na Base de Dados SQL que pertencem a diferentes nuvens (como Azure Public Cloud e Azure China 21Vianet)
 
-Yes. Pode sincronizar entre bases de dados SQL que pertencem a diferentes nuvens, tem de usar o PowerShell para adicionar os membros sincronizados que pertencem às diferentes subscrições.
+Yes. Pode sincronizar entre bases de dados que pertencem a diferentes nuvens. Tem de utilizar o PowerShell para adicionar os membros sincronizados que pertencem às diferentes subscrições.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Posso usar o Data Sync para sementerar dados da minha base de dados de produção para uma base de dados vazia, e depois sincronizá-los
 
@@ -237,7 +236,7 @@ Yes. SQL Data Sync suporta a colagem nos seguintes cenários:
 
 A Federation Root Database pode ser utilizada no Serviço de Sincronização de Dados SQL sem qualquer limitação. Não é possível adicionar o ponto final da Base de Dados Federada à versão atual do SQL Data Sync.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="update-the-schema-of-a-synced-database"></a>Atualizar o esquema de uma base de dados sincronizada
 
@@ -259,3 +258,4 @@ Para obter mais informações sobre a Base de Dados Azure SQL, consulte os segui
 
 - [Descrição Geral da Base de Dados SQL](sql-database-paas-overview.md)
 - [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)
+ 

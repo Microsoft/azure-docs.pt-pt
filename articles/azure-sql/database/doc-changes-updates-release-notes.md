@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 4ad793ee27d00359dd63f3394b8d7fd4a70b297f
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9d3ba2f6106171b78584d74498df0bbe3d1306a6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266683"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344803"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 
@@ -90,7 +90,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
   - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Crie sql Casos geridos com <a href="https://aka.ms/managed-instance-collation">colagem ao nível de instância</a> e <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> à sua escolha.
   - As ocorrências geridas SQL estão agora protegidas com [firewall incorporada.](../managed-instance/management-endpoint-verify-built-in-firewall.md)
-  - Configure as instâncias geridas da SQL para utilizar [pontos finais públicos,](../managed-instance/public-endpoint-configure.md)ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 vCores na geração de hardware da Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">retenção de backup Configure até 35 dias</a> para a restauração do ponto-a-tempo. [A retenção de backup de longo prazo](long-term-retention-overview.md#managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
+  - Configure as instâncias geridas da SQL para utilizar [pontos finais públicos,](../managed-instance/public-endpoint-configure.md)ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 vCores na geração de hardware da Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">retenção de backup Configure até 35 dias</a> para a restauração do ponto-a-tempo. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
   - As novas funcionalidades <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">permitem-lhe restaurar a sua base de dados para outro centro de dados utilizando o PowerShell,</a>a base de [dados do nome,](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) [eliminar o cluster virtual.](../managed-instance/virtual-cluster-delete.md)
   - O novo [papel de contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporado permite a separação do dever (SoD) o cumprimento dos princípios de segurança e o cumprimento das normas empresariais.
   - SQL Managed Instance está disponível nas seguintes regiões do Governo Azure para GA (EUA Gov Texas, EUA Gov Arizona) bem como na China Norte 2 e China East 2. Também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, Brasil Sul, França Sul, UAE Central, UAE North, África do Sul Norte, África do Sul Oeste.

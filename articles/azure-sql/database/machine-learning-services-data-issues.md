@@ -1,7 +1,7 @@
 ---
 title: Trabalhar com tipos e objetos de dados R e SQL
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Saiba como trabalhar com tipos de dados e objetos de dados em R com base de dados Azure SQL utilizando serviços de aprendizagem automática (pré-visualização), incluindo questões comuns que poderá encontrar.
+description: Saiba como trabalhar com tipos de dados e objetos de dados em R com Azure SQL Database usando Serviços de Aprendizagem automática (pré-visualização), incluindo questões comuns que poderá encontrar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,40 +14,40 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f784d6ef56ad5cb800c0061fbb5d0d4ca3252fa0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d7f33dd782b46afa1aa3845d2acb5712a76ea420
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048232"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324203"
 ---
-# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Trabalhar com dados R e SQL nos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
+# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Trabalhar com dados R e SQL em Azure SQL Database Machine Learning Services (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este artigo discute algumas das questões comuns que pode encontrar ao mover dados entre a Base de Dados R e SQL em Serviços de [Aprendizagem Automática (com R) na Base de Dados Azure SQL](machine-learning-services-overview.md). A experiência que ganha através deste exercício fornece um fundo essencial ao trabalhar com dados no seu próprio script.
+Este artigo discute algumas das questões comuns que pode encontrar ao mover dados entre R e Azure SQL Database in [Machine Learning Services (com R) na Base de Dados Azure SQL](machine-learning-services-overview.md). A experiência que você ganha através deste exercício fornece fundo essencial ao trabalhar com dados no seu próprio script.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
 Questões comuns que pode encontrar incluem:
 
-- Os tipos de dados às vezes não coincidem
+- Os tipos de dados às vezes não combinam
 - Conversões implícitas podem ocorrer
-- As operações de elenco e conversão são por vezes necessárias
+- As operações de elenco e conversão são, por vezes, necessárias
 - R e SQL usam diferentes objetos de dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
+- Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-- Para executar o código de exemplo nestes exercícios, tem primeiro de ter a Base de [Dados Azure SQL com serviços de aprendizagem automática (com R)](machine-learning-services-overview.md) ativados.
+- Para executar o código de exemplo nestes exercícios, você deve primeiro ter [Azure SQL Database com Serviços de Aprendizagem automática (com R)](machine-learning-services-overview.md) ativado.
 
-- Certifique-se de que instalou o mais recente Estúdio de Gestão de [Servidores SQL](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Pode executar scripts R utilizando outras ferramentas de gestão de bases de dados ou consultas, mas neste arranque rápido irá utilizar SSMS.
+- Certifique-se de que instalou o mais recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Pode executar scripts R utilizando outras ferramentas de gestão de bases de dados ou de consulta, mas neste arranque rápido utilizará SSMS.
 
 ## <a name="working-with-a-data-frame"></a>Trabalhar com um quadro de dados
 
-Quando o seu script devolve os resultados de R a SQL, deve devolver os dados como um **data.frame**. Qualquer outro tipo de objeto que gere no seu script - seja uma lista, fator, vetor ou dados binários - deve ser convertido para um quadro de dados se quiser produzi-lo como parte dos resultados do procedimento armazenado. Felizmente, existem múltiplas funções R para suportar a mudança de outros objetos para um quadro de dados. Pode até serializar um modelo binário e devolvê-lo num quadro de dados, o que fará mais tarde neste artigo.
+Quando o seu script retorna os resultados de R para SQL, deve devolver os dados como um **data.frame**. Qualquer outro tipo de objeto que gere no seu script - seja uma lista, fator, vetor ou dados binários - deve ser convertido para um quadro de dados se quiser desaudá-lo como parte dos resultados do procedimento armazenado. Felizmente, existem múltiplas funções R para suportar a mudança de outros objetos para um quadro de dados. Pode até serializar um modelo binário e devolvê-lo num quadro de dados, o que fará mais tarde neste artigo.
 
-Primeiro, vamos experimentar alguns objetos R básicos - vetores, matrizes e listas - e ver como a conversão para um quadro de dados muda a saída passada para SQL.
+Primeiro, vamos experimentar alguns objetos R básicos - vetores, matrizes e listas - e ver como a conversão para um quadro de dados altera a saída passada para SQL.
 
 Compare estes dois scripts "Hello World" em R. Os scripts parecem quase idênticos, mas o primeiro devolve uma única coluna de três valores, enquanto a segunda devolve três colunas com um único valor cada.
 
@@ -71,11 +71,11 @@ EXECUTE sp_execute_external_script @language = N'R'
 
 Por que os resultados são tão diferentes?
 
-A resposta pode geralmente ser encontrada usando o `str()` comando R. Adicione a função `str(object_name)` em qualquer lugar do seu script R para que o esquema de dados do objeto R especificado fosse devolvido como uma mensagem informativa. Pode ver as mensagens no separador **Mensagens** no SSMS.
+A resposta pode geralmente ser encontrada usando o `str()` comando R. Adicione a função `str(object_name)` em qualquer lugar do seu script R para que o esquema de dados do objeto R especificado seja devolvido como uma mensagem informativa. Pode ver as mensagens no separador **Mensagens** em SSMS.
 
-Para descobrir por que exemplo 1 e exemplo 2 têm resultados tão diferentes, insira a linha `str(OutputDataSet)` no final da `@script` definição variável em cada declaração, como esta:
+Para descobrir por que razão o Exemplo 1 e o Exemplo 2 têm resultados tão diferentes, insira a linha `str(OutputDataSet)` no final da `@script` definição variável em cada declaração, como esta:
 
-**Exemplo 1 com função str adicionada**
+**Exemplo 1 com função de str adicionado**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -87,7 +87,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-**Exemplo 2 com função str adicionada**
+**Exemplo 2 com função de str adicionado**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -118,18 +118,18 @@ $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1
 ```
 
-Como pode ver, uma ligeira alteração na sintaxe r teve um grande efeito no esquema dos resultados. Para todos os detalhes, as diferenças nos tipos de dados R são explicadas em detalhes na secção *Data Structures* em ["Advanced R" de Hadley Wickham](http://adv-r.had.co.nz).
+Como pode ver, uma ligeira alteração na sintaxe R teve um grande efeito no esquema dos resultados. Para todos os detalhes, as diferenças nos tipos de dados R são explicadas em detalhes na secção *Estruturas de Dados* em ["Advanced R" de Hadley Wickham](http://adv-r.had.co.nz).
 
-Por enquanto, esteja ciente de que precisa de verificar os resultados esperados ao coagir objetos R em quadros de dados.
+Por enquanto, esteja ciente de que precisa de verificar os resultados esperados ao coagir os objetos R em quadros de dados.
 
 > [!TIP]
 > Também pode utilizar funções de identidade R, tais `is.matrix` como, `is.vector` para devolver informações sobre a estrutura interna de dados.
 
 ## <a name="implicit-conversion-of-data-objects"></a>Conversão implícita de objetos de dados
 
-Cada objeto de dados R tem as suas próprias regras de como os valores são tratados quando combinados com outros objetos de dados se os dois objetos de dados tiverem o mesmo número de dimensões, ou se qualquer objeto de dados contiver tipos de dados heterogéneos.
+Cada objeto de dados R tem as suas próprias regras para a forma como os valores são tratados quando combinados com outros objetos de dados se os dois objetos de dados tiverem o mesmo número de dimensões, ou se algum objeto de dados contiver tipos de dados heterogéneos.
 
-Por exemplo, assuma que pretende realizar multiplicação da matriz usando R. Você quer multiplicar uma matriz de uma coluna com os três valores por uma matriz com quatro valores, e esperar uma matriz 4x3 como resultado.
+Por exemplo, assuma que pretende realizar multiplicação de matriz usando R. Pretende-se multiplicar uma matriz de uma coluna com os três valores por uma matriz com quatro valores, e esperar uma matriz 4x3 como resultado.
 
 Primeiro, crie uma pequena tabela de dados de teste.
 
@@ -147,7 +147,7 @@ VALUES (100);
 GO
 ```
 
-Agora executa o seguinte guião.
+Agora executar o seguinte roteiro.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -165,7 +165,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Sob as coberturas, a coluna de três valores é convertida para uma matriz de coluna única. Como uma matriz é apenas um caso especial de uma matriz em R, a matriz `y` é implicitamente coagida a uma matriz de uma coluna única para fazer os dois argumentos se conformarem.
+Sob as capas, a coluna de três valores é convertida numa matriz de coluna única. Como uma matriz é apenas um caso especial de uma matriz em R, a matriz `y` é implicitamente coagida a uma matriz de uma coluna para fazer os dois argumentos se conformarem.
 
 **Resultados**
 
@@ -175,7 +175,7 @@ Sob as coberturas, a coluna de três valores é convertida para uma matriz de co
 |120|130|140|150|
 |1200|1300|1400|1500|
 
-No entanto, note o que acontece quando muda o tamanho da matriz `y` .
+No entanto, note o que acontece quando se muda o tamanho da matriz `y` .
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -196,9 +196,9 @@ Agora R devolve um único valor como resultado.
 |---|
 |1542|
 
-Porquê? Neste caso, como os dois argumentos podem ser tratados como vetores do mesmo comprimento, R devolve o produto interno como uma matriz.  Este é o comportamento esperado de acordo com as regras da álgebra linear. No entanto, pode causar problemas se a sua aplicação a jusante esperar que o esquema de saída nunca mude!
+Porquê? Neste caso, como os dois argumentos podem ser manuseados como vetores do mesmo comprimento, R devolve o produto interno como uma matriz.  Este é o comportamento esperado de acordo com as regras da álgebra linear. No entanto, pode causar problemas se a sua aplicação a jusante espera que o esquema de saída nunca mude!
 
-## <a name="merge-or-multiply-columns-of-different-length"></a>Fundir ou multiplicar colunas de diferentes comprimentos
+## <a name="merge-or-multiply-columns-of-different-length"></a>Fundir ou multiplicar colunas de comprimento diferente
 
 R proporciona uma grande flexibilidade para trabalhar com vetores de diferentes tamanhos, e para combinar estas estruturas semelhantes a colunas em quadros de dados. Listas de vetores podem parecer uma mesa, mas não seguem todas as regras que regem as tabelas de bases de dados.
 
@@ -218,7 +218,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Para preencher o quadro de dados, R repete os elementos recuperados do RTestData quantas vezes for necessário para corresponder ao número de elementos na matriz `df1` .
+Para preencher o quadro de dados, R repete os elementos recuperados do RTestData quantas vezes forem necessários para corresponder ao número de elementos na matriz `df1` .
 
 **Resultados**
     
@@ -233,16 +233,16 @@ Para preencher o quadro de dados, R repete os elementos recuperados do RTestData
 
 Lembre-se que um quadro de dados só parece uma mesa, mas na verdade é uma lista de vetores.
 
-## <a name="cast-or-convert-sql-data"></a>Molde ou converter dados SQL
+## <a name="cast-or-convert-sql-data"></a>Elenco ou conversão de dados SQL
 
-R e SQL não usam os mesmos tipos de dados, por isso, quando executa uma consulta no SQL para obter dados e, em seguida, passar isso para o tempo de execução R, algum tipo de conversão implícita geralmente ocorre. Outro conjunto de conversões ocorre quando devolve os dados de R a SQL.
+R e SQL não usam os mesmos tipos de dados, por isso, quando você executou uma consulta em SQL para obter dados e, em seguida, passar isso para o tempo de execução R, algum tipo de conversão implícita geralmente ocorre. Outro conjunto de conversões ocorre quando devolve dados de R a SQL.
 
-- A SQL empurra os dados da consulta para o processo R e converte-os para uma representação interna para uma maior eficiência.
-- O tempo de funcionação R carrega os dados numa variável data.frame e executa as suas próprias operações nos dados.
-- O motor de base de dados devolve os dados à SQL utilizando uma ligação interna segura e apresenta os dados em termos de tipos de dados SQL.
-- Obtém os dados ligando-se à SQL utilizando um cliente ou biblioteca de rede que pode emitir consultas SQL e lidar com conjuntos de dados tabular. Esta aplicação de cliente pode potencialmente afetar os dados de outras formas.
+- O SQL empurra os dados da consulta para o processo R e converte-os numa representação interna para uma maior eficiência.
+- O tempo de execução R carrega os dados numa variável data.frame e executa as suas próprias operações nos dados.
+- O motor de base de dados devolve os dados ao SQL utilizando uma ligação interna segura e apresenta os dados em termos de tipos de dados SQL.
+- Obtém os dados ligando-se ao SQL utilizando um cliente ou biblioteca de rede que pode emitir consultas SQL e lidar com conjuntos de dados tabulares. Esta aplicação do cliente pode potencialmente afetar os dados de outras formas.
 
-Para ver como isto funciona, execute uma consulta como esta no armazém de dados [AdventureWorksDW.](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) Esta visão devolve os dados de vendas utilizados na criação de previsões.
+Para ver como isto funciona, executar uma consulta como esta no armazém de dados [AdventureWorksDW.](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) Esta vista devolve os dados de vendas utilizados na criação de previsões.
 
 ```sql
 USE AdventureWorksDW
@@ -277,7 +277,7 @@ OutputDataSet <- InputDataSet;
 WITH RESULT SETS undefined;
 ```
 
-Se tiver um erro, provavelmente terá de fazer algumas edificações no texto de consulta. Por exemplo, o predicado de cadeia na cláusula WHERE deve ser incluído por dois conjuntos de aspas únicas.
+Se tiver um erro, provavelmente terá de fazer algumas edições para o texto da consulta. Por exemplo, o predicado de cadeia na cláusula WHERE deve ser incluído por dois conjuntos de aspas únicas.
 
 Depois de obter a consulta funcionando, reveja os resultados da `str` função para ver como R trata os dados de entrada.
 
@@ -290,16 +290,16 @@ STDOUT message(s) from external script: $ ProductSeries: Factor w/ 1 levels "M20
 STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 16950 16950
 ```
 
-- A coluna datetime foi processada utilizando o tipo de dados R, **POSIXct**.
-- A coluna de texto "Séries de Produtos" foi identificada como um **fator,** o que significa uma variável categórica. Os valores das cordas são tratados como fatores por padrão. Se passar uma corda a R, é convertido para um inteiro para uso interno, e depois mapeado de volta para a corda na saída.
+- A coluna data foi processada utilizando o tipo de dados R, **POSIXct**.
+- A coluna de texto "ProductSeries" foi identificada como um **fator,** o que significa uma variável categórica. Os valores de cadeia são tratados como fatores por defeito. Se passar uma corda para R, é convertido para um inteiro para uso interno e, em seguida, mapeado de volta para a cadeia na saída.
 
 ## <a name="summary"></a>Resumo
 
-A partir destes exemplos curtos, pode ver a necessidade de verificar os efeitos da conversão de dados ao passar consultas SQL como entrada. Como alguns tipos de dados SQL não são suportados por R, considere estas formas de evitar erros:
+Mesmo a partir destes exemplos curtos, você pode ver a necessidade de verificar os efeitos da conversão de dados ao passar as consultas SQL como entrada. Como alguns tipos de dados SQL não são suportados por R, considere estas formas de evitar erros:
 
-- Teste antecipadamente os seus dados e verifique colunas ou valores no seu esquema que podem ser um problema quando passados para código R.
-- Especifique as colunas na fonte de dados de entrada individualmente, em vez de `SELECT *` utilizar, e saiba como cada coluna será manuseada.
+- Teste os seus dados com antecedência e verifique as colunas ou valores no seu esquema que podem ser um problema quando passado para código R.
+- Especifique as colunas na sua fonte de dados de entrada individualmente, em vez de usar `SELECT *` , e saiba como cada coluna será manuseada.
 - Execute moldes explícitos conforme necessário ao preparar os seus dados de entrada, para evitar surpresas.
-- Evite passar colunas de dados (como GUIDS ou rowguids) que causam erros e não são úteis para modelar.
+- Evite passar colunas de dados (como GUIDS ou guias de linha) que causam erros e não são úteis para modelar.
 
-Para obter mais informações sobre os tipos de dados R suportados e não suportados, consulte [bibliotecas R e tipos](/sql/advanced-analytics/r/r-libraries-and-data-types)de dados .
+Para obter mais informações sobre tipos de dados R suportados e não suportados, consulte [bibliotecas R e tipos de dados](/sql/advanced-analytics/r/r-libraries-and-data-types).
