@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 06/02/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 970c20edd3a24594f22ff7e72cd4275118193845
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300097"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323795"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -120,14 +120,13 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência da Azure File Share para [GIT](api-management-configuration-repository-git.md)                      | & Internos Externos  |
 | * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Necessário para publicar o estado de saúde para a Saúde dos Recursos          | & Internos Externos  |
 | * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registos e Métricas de Diagnóstico](api-management-howto-use-azure-monitor.md)                       | & Internos Externos  |
-| * / 25                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue ao Relé SMTP para envio de e-mails                    | & Internos Externos  |
-| * / 587                      | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue ao Relé SMTP para envio de e-mails                    | & Internos Externos  |
-| * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue ao Relé SMTP para envio de e-mails                    | & Internos Externos  |
-| * / 6381 - 6383              | Entrada & Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acesso Ao Serviço Redis para políticas [limite de tarifa](api-management-access-restriction-policies.md#LimitCallRateByKey) entre máquinas         | & Internos Externos  |
+| * / 25, 587, 25028                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue ao Relé SMTP para envio de e-mails                    | & Internos Externos  |
+| * / 6381 - 6383              | Entrada & Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acesso Ao Serviço Redis para políticas [cache](api-management-caching-policies.md) entre máquinas         | & Internos Externos  |
+| * / 4290              | Entrada & Saída | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters para políticas [de limite de](api-management-access-restriction-policies.md#LimitCallRateByKey) taxa entre máquinas         | & Internos Externos  |
 | * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Balanceador de carga de infraestrutura Azure                          | & Internos Externos  |
 
 >[!IMPORTANT]
-> Os Portos para os quais o *Objetivo* é **arrojado** são necessários para que o serviço de Gestão da API seja implantado com sucesso. No entanto, bloquear as outras portas irá provocar uma degradação na capacidade de utilização e monitorização do serviço de funcionamento.
+> Os Portos para os quais o *Objetivo* é **arrojado** são necessários para que o serviço de Gestão da API seja implantado com sucesso. O bloqueio das outras portas, no entanto, provocará **uma degradação** na capacidade de utilização e **monitorização do serviço de funcionamento e fornecerá o SLA comprometido**.
 
 + **Funcionalidade TLS**: Para permitir a construção e validação da cadeia de certificados TLS/SSL, o serviço de Gestão API necessita de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Esta dependência não é necessária, se qualquer certificado que você carregar para a API Management contiver toda a cadeia para a raiz de CA.
 

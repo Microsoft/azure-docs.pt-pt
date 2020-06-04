@@ -1,6 +1,6 @@
 ---
-title: Os recursos dTU limitam bases de dados únicas
-description: Esta página descreve alguns limites comuns de recursos DTU para bases de dados únicas na Base de Dados Azure SQL.
+title: O recurso DTU limita as bases de dados individuais
+description: Esta página descreve alguns limites de recursos DTU comuns para bases de dados individuais na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,99 +11,99 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 5adb09389e1d5be13f766240d9fac5a644190d6d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd8c3c7eaaee6a31acbc4cf513adb3e0e0fa566b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051011"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342005"
 ---
-# <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra DTU - Base de Dados Azure SQL
+# <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra DTU - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este artigo fornece os limites de recursos detalhados para as bases de dados únicas da Azure SQL utilizando o modelo de compra dTU.
+Este artigo fornece os limites de recursos detalhados para bases de dados únicas da Azure SQL Database utilizando o modelo de compra DTU.
 
-Para a aquisição de limites de recursos do modelo dTU para piscinas elásticas, consulte [os limites de recursos DTU - piscinas elásticas](resource-limits-dtu-elastic-pools.md). Para os limites de recursos vCore, consulte os limites de [recursos vCore - bases de dados únicas](resource-limits-vcore-single-databases.md) e limites de [recursos vCore - piscinas elásticas](resource-limits-vcore-elastic-pools.md). Para obter mais informações sobre os diferentes modelos de compra, consulte [modelos de compra e níveis de serviço.](purchasing-models.md)
+Para a aquisição de limites de recursos para piscinas elásticas, consulte [os limites de recursos da DTU - piscinas elásticas.](resource-limits-dtu-elastic-pools.md) Para limites de recursos vCore, consulte [os limites de recursos vCore - bases de dados únicas](resource-limits-vcore-single-databases.md) e [limites de recursos vCore - piscinas elásticas](resource-limits-vcore-elastic-pools.md). Para obter mais informações sobre os diferentes modelos de compra, consulte [modelos de compras e tiers de serviço.](purchasing-models.md)
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de dados única: tamanhos de armazenamento e tamanhos de cálculo
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de dados única: Tamanhos de armazenamento e tamanhos de cálculo
 
-As tabelas que se seguem mostram os recursos disponíveis para uma única base de dados em cada nível de serviço e tamanho da computação. Pode definir o nível de serviço, o tamanho da computação e o valor de armazenamento para uma única base de dados utilizando o [portal Azure,](single-database-manage.md#azure-portal) [Transact-SQL,](single-database-manage.md#transact-sql-t-sql) [PowerShell,](single-database-manage.md#powershell)o [Azure CLI](single-database-manage.md#azure-cli)ou o [REST API](single-database-manage.md#rest-api).
+As tabelas a seguir mostram os recursos disponíveis para uma única base de dados em cada nível de serviço e tamanho de cálculo. Pode definir o nível de serviço, o tamanho do cálculo e o valor de armazenamento para uma única base de dados utilizando o [portal Azure](single-database-manage.md#the-azure-portal), [Transact-SQL,](single-database-manage.md#transact-sql-t-sql) [PowerShell,](single-database-manage.md#powershell) [O CLI Azure,](single-database-manage.md#the-azure-cli)ou o [REST API](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
-> Para orientação e considerações de escala, consulte [Escala uma única base de dados](single-database-scale.md)
+> Para obter orientações e considerações de escala, consulte [Escala uma única base de dados](single-database-scale.md)
 
 ### <a name="basic-service-tier"></a>Escalão de serviços básicos
 
-| **Tamanho da computação** | **Básico** |
+| **Tamanho do cálculo** | **Básico** |
 | :--- | --: |
 | Máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
-| Escolhas de armazenamento max (GB) | 2 |
+| Escolhas de armazenamento máximas (GB) | 2 |
 | Armazenamento em OLTP na memória máx. (GB) |N/D |
-| Trabalhadores simultâneos max (pedidos) | 30 |
+| Trabalhadores max simultâneos (pedidos) | 30 |
 | Sessões simultâneas máx. | 300 |
 |||
 
 > [!IMPORTANT]
-> O nível de serviço Básico fornece menos de um vCore (CPU).  Para cargas de trabalho intensivas em CPU, recomenda-se um nível de serviço de S3 ou superior. 
+> O nível de serviço Básico fornece menos de um vCore (CPU).  Para cargas de trabalho intensivas de CPU, recomenda-se um nível de serviço de S3 ou superior. 
 >
->No que diz respeito ao armazenamento de dados, o nível de serviço Básico é colocado em Standard Page Blobs. Standard Page Blobs usam suportes de armazenamento baseados em disco rígido (HDD) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho pouco acedidas que são menos sensíveis à variabilidade do desempenho.
+>No que diz respeito ao armazenamento de dados, o nível de serviço Básico é colocado em Blobs de Página Padrão. As Blobs Standard Page utilizam suportes de armazenamento baseados em discos rígidos (HDD) e são mais adequados para desenvolvimento, testes e outras cargas de trabalho pouco frequentes que são menos sensíveis à variabilidade do desempenho.
 >
 
 ### <a name="standard-service-tier"></a>Escalão de serviço Standard
 
-| **Tamanho da computação** | **S0** | **S1** | **S2** | **S3** |
+| **Tamanho do cálculo** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | Máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
-| Escolhas de armazenamento max (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Escolhas de armazenamento máximas (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |
-| Trabalhadores simultâneos max (pedidos)| 60 | 90 | 120 | 200 |
+| Trabalhadores max simultâneos (pedidos)| 60 | 90 | 120 | 200 |
 | Sessões simultâneas máx. |600 | 900 | 1200 | 2400 |
 ||||||
 
 > [!IMPORTANT]
-> Os níveis Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho intensivas em CPU, recomenda-se um nível de serviço de S3 ou superior. 
+> Os níveis Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho intensivas de CPU, recomenda-se um nível de serviço de S3 ou superior. 
 >
->No que diz respeito ao armazenamento de dados, os níveis de serviço Standard S0 e S1 são colocados em Standard Page Blobs. Standard Page Blobs usam suportes de armazenamento baseados em disco rígido (HDD) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho pouco acedidas que são menos sensíveis à variabilidade do desempenho.
+>No que diz respeito ao armazenamento de dados, os níveis de serviço Standard S0 e S1 são colocados em Blobs de Página Standard. As Blobs Standard Page utilizam suportes de armazenamento baseados em discos rígidos (HDD) e são mais adequados para desenvolvimento, testes e outras cargas de trabalho pouco frequentes que são menos sensíveis à variabilidade do desempenho.
 >
 
-### <a name="standard-service-tier-continued"></a>Nível de serviço padrão (continuação)
+### <a name="standard-service-tier-continued"></a>Nível de serviço standard (continuado)
 
-| **Tamanho da computação** | **S4** | **S6** | **S7** | **S9** | **S12** |
+| **Tamanho do cálculo** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
 | Máximo de DTUs | 200 | 400 | 800 | 1600 | 3.000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
-| Escolhas de armazenamento max (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Escolhas de armazenamento máximas (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |N/D |
-| Trabalhadores simultâneos max (pedidos)| 400 | 800 | 1600 | 3200 |6000 |
+| Trabalhadores max simultâneos (pedidos)| 400 | 800 | 1600 | 3200 |6000 |
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
 ### <a name="premium-service-tier"></a>Escalão de serviços Premium
 
-| **Tamanho da computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
+| **Tamanho do cálculo** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Máximo de DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
 | Armazenamento incluído (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| Escolhas de armazenamento max (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
+| Escolhas de armazenamento máximas (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Armazenamento em OLTP na memória máx. (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Trabalhadores simultâneos max (pedidos)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Trabalhadores max simultâneos (pedidos)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Sessões simultâneas máx. | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 \*De 1024 GB até 4096 GB em incrementos de 256 GB
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China North, Alemanha Central, Alemanha Nordeste, Oeste Dos EUA, regiões do DoD dos EUA e Central do Governo dos EUA. Nestas regiões, o máximo de armazenamento no nível Premium está limitado a 1 TB.  Para mais informações, consulte as [limitações atuais p11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central, Alemanha Nordeste, Centro Oeste dos EUA, eua doD regiões e governo dos EUA Central. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB.  Para obter mais informações, consulte [as limitações atuais do P11-P15.](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)  
 > [!NOTE]
 > Para `tempdb` limites, consulte [os limites temporários](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para os limites de recursos vCore para uma única base de dados, consulte [os limites de recursos para bases de dados únicas utilizando o modelo](resource-limits-vcore-single-databases.md) de compra vCore
-- Para os limites de recursos vCore para piscinas elásticas, consulte [os limites de recursos para piscinas elásticas utilizando o modelo](resource-limits-vcore-elastic-pools.md) de compra vCore
-- Para os limites de recursos dTU para piscinas elásticas, consulte [os limites de recursos para piscinas elásticas utilizando o modelo](resource-limits-dtu-elastic-pools.md) de compra dTU
-- Para os limites de recursos para instâncias geridas em 1º Lugar, consulte os limites de recursos da [Instância Gerida SQL](../managed-instance/resource-limits.md).
-- Para obter informações sobre os limites gerais do Azure, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-- Para obter informações sobre os limites de recursos num servidor SQL lógico, consulte a [visão geral dos limites de recursos num servidor SQL lógico](resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e subscrição.
+- Para limites de recursos vCore para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra vCore](resource-limits-vcore-single-databases.md)
+- Para limites de recursos vCore para piscinas elásticas, consulte [os limites de recursos para piscinas elásticas utilizando o modelo de compra vCore](resource-limits-vcore-elastic-pools.md)
+- Para limites de recursos DTU para piscinas elásticas, consulte [limites de recursos para piscinas elásticas utilizando o modelo de compra DTU](resource-limits-dtu-elastic-pools.md)
+- Para limites de recursos para casos geridos em Instância Gerida Azure SQL, consulte [os limites de recursos de instância gerida SQL](../managed-instance/resource-limits.md).
+- Para obter informações sobre os limites gerais do Azure, consulte [os limites de subscrição e serviços, quotas e restrições da Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+- Para obter informações sobre os limites de recursos num servidor lógico do SQL, consulte [a visão geral dos limites de recursos num servidor lógico SQL](resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e subscrição.

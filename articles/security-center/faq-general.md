@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 3db9dc260cb8546109870834f364c62305aa3fbb
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248554"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324526"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Azure Security Center
 
@@ -37,14 +37,8 @@ O Azure Security Center monitoriza os seguintes recursos Azure:
 
 * Máquinas virtuais (VMs) (incluindo [serviços em nuvem)](../cloud-services/cloud-services-choose-me.md)
 * Conjuntos de dimensionamento de máquinas virtuais
-* Redes Virtuais do Azure
-* Contentores
-* Serviço Azure SQL
-* Conta de armazenamento do Azure
-* Azure Web Apps (em [Ambiente de Serviço de Aplicações)](../app-service/environment/intro.md)
 * Soluções de parceiros integradas com a sua subscrição Azure, como uma firewall de aplicações web em VMs e no Ambiente de Serviço de Aplicações
-
-Além disso, as máquinas não-Azure (incluindo no local) também podem ser monitorizadas pelo Azure Security Center. Ambas as [máquinas Windows](./quick-onboard-windows-computer.md) e [Linux](./quick-onboard-linux-computer.md) são suportadas.
+* [Os muitos serviços Azure PaaS listados na visão geral do produto](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Como posso ver o estado de segurança atual dos meus recursos Azure?

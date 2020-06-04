@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1006b8719a1141bd38792bdbbe116d0c477071dd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a17b5d80817637f1038996b034f926ee74cf54e9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190047"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344667"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Amostras de Azure CLI para Azure SQL Database e SQL Managed Instance 
  
@@ -57,7 +57,7 @@ A tabela seguinte inclui links para exemplos de scripts Azure CLI para gerir bas
 | [Importar uma base de dados de um ficheiro BACPAC](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Importa uma base de dados para a Base de Dados SQL a partir de um ficheiro BACPAC. |
 |||
 
-Saiba mais sobre a [AZure CLI API de uma única base de dados.](single-database-manage.md#azure-cli)
+Saiba mais sobre a [AZure CLI API de uma única base de dados.](single-database-manage.md#the-azure-cli)
 
 # <a name="azure-sql-managed-instance"></a>[Instância Gerida do SQL no Azure](#tab/managed-instance)
 

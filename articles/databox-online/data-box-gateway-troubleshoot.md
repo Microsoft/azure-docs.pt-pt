@@ -5,25 +5,26 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 675ee8b19a870221488ade2f578199f4f53599b9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562462"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338996"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway
 
-Este artigo descreve como resolver problemas no Azure Data Box Gateway. Neste artigo, vai aprender a:
+Este artigo descreve como resolver problemas no Azure Data Box Gateway.
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
+>
 > * Executar diagnósticos
 > * Recolher pacote de Suporte
 > * Utilizar registos para resolução de problemas
-
 
 ## <a name="run-diagnostics"></a>Executar diagnósticos
 
@@ -98,7 +99,7 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Não foi possível carregar dados para a conta porque a conta ou a partilha está desativada.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Não foi possível ligar ao contentor porque as permissões de conta estão erradas ou desatualizadas. Verifique o seu acesso.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Não foi possível adicionar novos dados porque o contentor está cheio. Verifique as especificações do Azure para tamanhos de contentor suportados com base no tipo. Por exemplo, o Azure Files só suporta um tamanho de ficheiro máximo de 5 TB.                                     |
-    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Não conseguiu fazer o upload dos dados porque o contentor associado à parte não existe.                                     |    
+    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Não foi consegui carregar dados porque o contentor associado à partilha não existe.                                     |    
     |    2997            |    ERROR_ITEM_CANCELED                                     |    Ocorreu um erro inesperado. Este é um erro transitório que se resolverá sozinho.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Ocorreu um erro inesperado. O erro pode ser resolvido de forma automática mas se persistir durante mais de 24 horas, contacte o Suporte da Microsoft.                                                                                                     |
     |    16000           |    RefreshException                                        |    Não foi possível atualizar este ficheiro.                                                                                                                                                                                                        |
@@ -106,6 +107,6 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     |    16002           |    RefreshWorkNeededException                              |    Não foi possível atualizar este ficheiro porque não está totalmente carregado.                                                                                                                                                                          | 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

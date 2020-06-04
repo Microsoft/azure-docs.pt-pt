@@ -1,36 +1,36 @@
 ---
-title: Apoio linguístico - LUIS
+title: Suporte linguístico - LUIS
 titleSuffix: Azure Cognitive Services
-description: O LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as características estão na mesma paridade linguística. Certifique-se de que as funcionalidades que lhe interessam são suportadas na cultura linguística que está a ser alvo. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
+description: A LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as características estão na mesma paridade linguística. Certifique-se de que as funcionalidades que lhe interessam são apoiadas na cultura linguística que está a ser alvo. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 69ff3aa3f649b054192f9dd001af83dc8dbc2317
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745697"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340203"
 ---
-# <a name="language-and-region-support-for-luis"></a>Apoio à língua e à região para o LUIS
+# <a name="language-and-region-support-for-luis"></a>Apoio linguístico e regional ao LUIS
 
-O LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as características estão na mesma paridade linguística. Certifique-se de que as funcionalidades que lhe interessam são suportadas na cultura linguística que está a ser alvo. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
+A LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as características estão na mesma paridade linguística. Certifique-se de que as funcionalidades que lhe interessam são apoiadas na cultura linguística que está a ser alvo. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
 
-## <a name="multi-language-luis-apps"></a>Aplicativos LUIS multilingidiomas
+## <a name="multi-language-luis-apps"></a>Aplicativos LUIS multi-linguísticos
 
-Se precisa de uma aplicação de cliente LUIS multilingues, como um chatbot, tem algumas opções. Se o LUIS apoiar todas as línguas, desenvolve uma aplicação LUIS para cada idioma. Cada aplicação LUIS tem um ID de aplicação único e registo de ponto final. Se precisar de fornecer compreensão linguística para uma língua que o LUIS não suporta, pode utilizar o [serviço Tradutor](../Translator/translator-info-overview.md) para traduzir a expressão numa linguagem apoiada, submeter a expressão ao ponto final do LUIS e receber as pontuações resultantes.
+Se precisar de uma aplicação de clientes LUIS multi-idiomas, como um chatbot, tem algumas opções. Se o LUIS suporta todos os idiomas, desenvolve uma aplicação LUIS para cada idioma. Cada aplicação LUIS tem um ID de aplicação único e registo de ponto final. Se precisar de fornecer compreensão linguística para uma língua que o LUIS não suporta, pode utilizar o [serviço De Tradutor](../Translator/translator-info-overview.md) para traduzir a expressão numa língua apoiada, submeter a expressão ao ponto final DO LUIS e receber as pontuações resultantes.
 
 ## <a name="languages-supported"></a>Idiomas suportados
 
-LUIS entende as expressões nas seguintes línguas:
+LUIS compreende expressões nas seguintes línguas:
 
-| Linguagem |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -42,39 +42,39 @@ LUIS entende as expressões nas seguintes línguas:
 | Guzerate | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
-| *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Só frase-chave|
-| Coreano |`ko-KR` |✔|-|-|Só frase-chave|
+| *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Frase-chave apenas|
+| Coreano |`ko-KR` |✔|-|-|Frase-chave apenas|
 | Marata | `mr-IN`|-|-|-|-|
 | Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as subculturas|
 | Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Espanhol (México)|`es-MX` |-|-|✔|✔|
 | Tâmil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|
-| Turco | `tr-TR` |✔|✔|-|Apenas sentimento|
+| Turco | `tr-TR` |✔|✔|-|Sentimento apenas|
 
 
 
 
-O apoio linguístico varia para [entidades pré-construídas](luis-reference-prebuilt-entities.md) e [domínios pré-construídos.](luis-reference-prebuilt-domains.md)
+O suporte linguístico varia para [entidades pré-construídas](luis-reference-prebuilt-entities.md) e [domínios pré-construídos.](luis-reference-prebuilt-domains.md)
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
 ### <a name="japanese-support-notes"></a>*Notas de apoio japonesas
 
- - Como o LUIS não fornece análises sintáticas e não compreenderá a diferença entre Keigo e japonês informal, é necessário incorporar os diferentes níveis de formalidade como exemplos de formação para as suas aplicações.
-     - Não é o mesmo que o que aconteceu.
-     - Não é o mesmo que.
+ - Como a LUIS não fornece análise sintática e não vai entender a diferença entre Keigo e japonês informal, é necessário incorporar os diferentes níveis de formalidade como exemplos de formação para as suas aplicações.
+     - Não é o mesmo que o que é.
+     - Não é o mesmo que o que se passa.
 
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
-### <a name="speech-api-supported-languages"></a>Línguas apoiadas pela API da fala
-Consulte [as línguas apoiadas](../speech-service/speech-to-text.md) pela fala para as línguas do modo de ditado da fala.
+### <a name="speech-api-supported-languages"></a>A API da Fala apoiou as línguas
+Consulte [línguas apoiadas por discurso](../speech-service/speech-to-text.md) para línguas do modo ditador da fala.
 
-### <a name="bing-spell-check-supported-languages"></a>Bing Spell Check idiomas suportados
-Consulte bing spell check [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) para obter uma lista de idiomas e estatuto suportados.
+### <a name="bing-spell-check-supported-languages"></a>Bing Spell Check línguas suportadas
+Consulte [as línguas suportadas por](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) Bing Spell Check para obter uma lista de línguas e estado suportados.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raras ou estrangeiras numa aplicação
-Na `en-us` cultura, LUIS aprende a distinguir a maioria das palavras inglesas, incluindo a gíria. Na `zh-cn` cultura, LUIS aprende a distinguir a maioria dos caracteres chineses. Se usar uma palavra rara `en-us` ou personagem em , e vir que LUIS parece incapaz de distinguir essa palavra ou `zh-cn` personagem, pode adicionar essa palavra ou personagem a uma [característica de lista de frases](luis-how-to-add-features.md). Por exemplo, palavras fora da cultura da aplicação -- isto é, palavras estrangeiras - devem ser adicionadas a uma característica da lista de frases.
+Na `en-us` cultura, LUIS aprende a distinguir a maioria das palavras inglesas, incluindo a gíria. Na `zh-cn` cultura, LUIS aprende a distinguir a maioria dos caracteres chineses. Se utilizar uma palavra rara `en-us` ou personagem em `zh-cn` , e você vê que LUIS parece incapaz de distinguir essa palavra ou personagem, você pode adicionar essa palavra ou personagem a uma [característica de lista de frases](luis-how-to-add-features.md). Por exemplo, palavras fora da cultura da aplicação - isto é, palavras estrangeiras - devem ser adicionadas a uma característica de lista de frases.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -82,7 +82,7 @@ Na `en-us` cultura, LUIS aprende a distinguir a maioria das palavras inglesas, i
 As línguas híbridas combinam palavras de duas culturas como o inglês e o chinês. Estas línguas não são suportadas no LUIS porque uma aplicação é baseada numa única cultura.
 
 ## <a name="tokenization"></a>Tokenização
-Para realizar machine learning, LUIS quebra uma expressão em [tokens baseados](luis-glossary.md#token) na cultura.
+Para realizar machine learning, LUIS quebra uma expressão em [fichas baseadas](luis-glossary.md#token) na cultura.
 
 |Linguagem|  cada espaço ou caráter especial | nível de caráter|palavras compostas
 |--|:--:|:--:|:--:|
@@ -107,19 +107,19 @@ Para realizar machine learning, LUIS quebra uma expressão em [tokens baseados](
 |Turco|✔|||
 
 
-### <a name="custom-tokenizer-versions"></a>Versões personalizadas de tokenizer
+### <a name="custom-tokenizer-versions"></a>Versões tokenizer personalizadas
 
-As seguintes culturas têm versões personalizadas de tokenizer:
+As seguintes culturas têm versões tokenizer personalizadas:
 
 |Cultura|Versão|Objetivo|
 |--|--|--|
-|Alemão<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, é virado para `Ich fahre einen kranken wagen` . Permitindo a marcação `kranken` e de forma independente como `wagen` diferentes entidades.|
-|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcado como uma entidade única. |
-|Neerlandês<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, é virado para `Ik ga naar de kleuter school` . Permitindo a marcação `kleuter` e de forma independente como `school` diferentes entidades.|
-|Neerlandês<br>`de-de`|1.0.1|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcado como uma entidade única. |
+|Alemão<br>`de-de`|1.0.0|Tokenizes palavras dividindo-as usando um tokenizer baseado em aprendizagem automática que tenta quebrar palavras compósitas em seus únicos componentes.<br>Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, é virado para `Ich fahre einen kranken wagen` . Permitindo a marcação `kranken` de e `wagen` independentemente como diferentes entidades.|
+|Alemão<br>`de-de`|1.0.2|Tokenizes palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcada como uma entidade única. |
+|Neerlandês<br>`de-de`|1.0.0|Tokenizes palavras dividindo-as usando um tokenizer baseado em aprendizagem automática que tenta quebrar palavras compósitas em seus únicos componentes.<br>Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, é virado para `Ik ga naar de kleuter school` . Permitindo a marcação `kleuter` de e `school` independentemente como diferentes entidades.|
+|Neerlandês<br>`de-de`|1.0.1|Tokenizes palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcada como uma entidade única. |
 
 
-### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões de tokenizer
+### <a name="migrating-between-tokenizer-versions"></a>Migração entre versões tokenizer
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
@@ -224,4 +224,4 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 
 A tokenização acontece ao nível da aplicação. Não há suporte para a tokenização ao nível da versão.
 
-[Importe o ficheiro como uma nova app](luis-how-to-start-new-app.md), em vez de uma versão. Esta ação significa que a nova aplicação tem um ID de aplicação diferente, mas utiliza a versão tokenizer especificada no ficheiro.
+[Importe o ficheiro como uma nova aplicação](luis-how-to-start-new-app.md), em vez de uma versão. Esta ação significa que a nova aplicação tem um ID de aplicação diferente, mas utiliza a versão tokenizer especificada no ficheiro.

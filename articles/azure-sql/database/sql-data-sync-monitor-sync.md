@@ -1,6 +1,6 @@
 ---
 title: Monitor SQL Data Sync com registos do Monitor Azure
-description: Saiba como monitorizar o SQL Data Sync utilizando registos do Monitor Azure
+description: Aprenda a monitorizar o SQL Data Sync utilizando registos do Monitor Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: b7c801d75d778deccae645e0945fba557dbc6782
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188800"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343239"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitor SQL Data Sync com registos do Monitor Azure 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Para verificar o registo de atividade do SQL Data Sync e detetar erros e avisos, teve anteriormente de verificar o SQL Data Sync manualmente no portal Azure ou utilizar o PowerShell ou a API REST. Siga os passos deste artigo para configurar uma solução personalizada que melhore a experiência de monitorização do Data Sync. Pode personalizar esta solução para se adaptar ao seu cenário.
 
@@ -30,9 +29,9 @@ Para obter uma visão geral do SQL Data Sync, consulte [os dados do Sync em vár
 > [!IMPORTANT]
 > O SQL Data Sync **não** suporta a Azure SQL Managed Instance neste momento.
 
-## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Painel de monitorização para todos os seus Grupos de Sincronização 
+## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Painel de monitorização para todos os seus grupos de sincronização 
 
-Já não é necessário olhar os registos de cada Grupo Sync individualmente para procurar problemas. Pode monitorizar todos os seus Sync Groups a partir de qualquer uma das suas subscrições num só local, utilizando uma vista personalizada do Azure Monitor. Esta visualização surge na informação que interessa aos clientes sql Data Sync.
+Já não é necessário olhar os registos de cada grupo sincronizado individualmente para procurar problemas. Pode monitorizar todos os seus grupos de sincronização a partir de qualquer uma das suas subscrições num só local, utilizando uma vista personalizada do Azure Monitor. Esta visualização surge na informação que interessa aos clientes sql Data Sync.
 
 ![Painel de monitorização do Data Sync](./media/sql-data-sync-monitor-sync/sync-monitoring-dashboard.png)
 
@@ -100,7 +99,7 @@ Para obter mais informações sobre a criação de um livro de recortes, consult
 
     1.  Informação do Azure.
 
-    2.  Informação do Grupo Sync.
+    2.  sincronizar informações de grupo.
 
     3.  O Monitor Azure regista informações. Encontre esta informação no portal Azure Configurações / Fontes ligadas. Para obter mais informações sobre o envio de dados para registos do Azure Monitor, consulte [Enviar dados para registos do Azure Monitor com a API do Colecionador de Dados HTTP (pré-visualização)](../../azure-monitor/platform/data-collector-api.md).
 
@@ -160,7 +159,7 @@ Este passo cria uma visão do Azure Monitor para monitorizar visualmente todos o
 
 -   Um azulejo para todos os grupos de sincronização, que mostra a contagem de erros e avisos por grupo de sincronização. Grupos sem problemas não aparecem neste azulejo.
 
--   Um azulejo para cada Sync Group, que mostra o número de erros, sucessos e avisos, e as recentes mensagens de erro.
+-   Um azulejo para cada grupo de sincronização, que mostra o número de erros, sucessos e avisos, e as recentes mensagens de erro.
 
 Para configurar a vista do Monitor Azure, faça as seguintes coisas:
 
@@ -176,7 +175,7 @@ Para configurar a vista do Monitor Azure, faça as seguintes coisas:
 
         1.  Em cada azulejo, altere o intervalo de TimeStamp_t conforme desejado.
 
-        2.  Nos azulejos de cada Grupo Sync, atualize os nomes do Grupo Sync.
+        2.  Nos azulejos de cada grupo de sincronização, atualize os nomes do grupo de sincronização.
 
     3.  Em cada azulejo, atualize o título conforme necessário.
 
@@ -198,7 +197,7 @@ Descarregue as amostras de código descritas neste artigo a partir dos seguintes
 
 -   [Vista do monitor Azure de Sincronização de Dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sync dados em várias bases de dados de nuvem e no local com SQL Data Sync em Azure](sql-data-sync-data-sql-server-sql-database.md)

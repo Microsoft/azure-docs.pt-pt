@@ -1,26 +1,26 @@
 ---
-title: Selecione um tipo de disco para VMs Linux Azure IaaS - discos geridos
-description: Conheça os tipos de discos Azure disponíveis para máquinas virtuais Linux, incluindo discos ultra, SSDs premium, SSDs padrão e HDDs Standard.
+title: Selecione um tipo de disco para Azure IaaS Linux VMs - discos geridos
+description: Saiba mais sobre os tipos de discos Azure disponíveis para máquinas virtuais Linux, incluindo discos ultra, SSDs premium, SSDs padrão e HDDs standard.
 author: roygara
 ms.author: rogarana
-ms.date: 11/04/2019
+ms.date: 06/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 7990c178f18ac5219fde0882c24d5854001ba63e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc8bd3877297db1677c4b838132b954fb033fe0f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267381"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337393"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Se quiser começar a utilizar discos ultra, consulte o nosso artigo sobre o assunto: Utilização de [discos ultra Azure](disks-enable-ultra-ssd.md).
+Se quiser começar a utilizar discos ultra, consulte o nosso artigo sobre o assunto: [Utilizar discos ultra Azure](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
-Para obter mais informações sobre imagens, consulte a secção em imagens na visão geral do [disco gerida](managed-disks-overview.md).
+Para obter mais informações sobre instantâneos, consulte a secção de instantâneos na [visão geral](managed-disks-overview.md)do disco gerido .
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]

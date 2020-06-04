@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267907"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323931"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Tutorial: Garantir uma Base de Dados Azure SQL
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste tutorial, ficará a saber como:
@@ -25,7 +25,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > - Criar regras de firewall ao nível do servidor e de nível de base de dados
-> - Configure um administrador do Azure Ative Directory (AD)
+> - Configure um administrador do Azure Ative Directory (Azure AD)
 > - Gerir o acesso do utilizador com autenticação SQL, autenticação AZure AD e cadeias de ligação seguras
 > - Ativar funcionalidades de segurança, tais como segurança avançada de dados, auditoria, mascaramento de dados e encriptação
 
@@ -42,7 +42,7 @@ A Azure SQL Database protege os dados permitindo-lhe:
 Para saber mais, consulte a visão geral de segurança da [Base de Dados Azure SQL](/azure/sql-database/sql-database-security-index) e [os artigos de capacidades.](security-overview.md)
 
 > [!TIP]
-> O módulo seguinte Microsoft Learn ajuda-o a aprender gratuitamente sobre como proteger a [sua Base de Dados Azure SQL](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> O módulo seguinte Do Microsoft Learn ajuda-o a aprender gratuitamente sobre como proteger a [sua base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um [servidor](logical-servers.md) e uma única base de dados
-  - Crie-os com [portal Azure,](single-database-create-quickstart.md) [CLI](az-cli-script-samples-content-guide.md)ou [PowerShell](powershell-script-content-guide.md)
+  - Crie-os com o [portal Azure,](single-database-create-quickstart.md) [CLI](az-cli-script-samples-content-guide.md)ou [PowerShell](powershell-script-content-guide.md)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -73,7 +73,7 @@ As regras de firewall IP de nível de servidor aplicam-se a todas as bases de da
 
 Para configurar uma regra de firewall ao nível do servidor:
 
-1. No portal Azure, selecione bases de **dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
+1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
     ![regra de firewall do servidor](./media/secure-database-tutorial/server-name.png)
 
@@ -223,7 +223,7 @@ A ligação é estabelecida usando a Segurança da Camada de Transporte (TLS) e 
 
 Para copiar uma cadeia de ligação segura:
 
-1. No portal Azure, selecione bases de **dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
+1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
 1. Na página **'Vista Geral',** selecione **'Mostrar' as cadeias de ligação à base de dados**.
 
@@ -244,13 +244,13 @@ A funcionalidade avançada de segurança de dados deteta potenciais ameaças à 
 
 Para permitir a segurança avançada dos dados:
 
-1. No portal Azure, selecione bases de **dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
+1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
 1. Na página **'Vista Geral',** selecione o link **de nomes do Servidor.** A página do servidor será aberta.
 
 1. Na página do **servidor SQL,** encontre a secção **de Segurança** e selecione Advanced **Data Security**.
 
-   1. Selecione **ON** em **Segurança Avançada de Dados** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar os resultados da avaliação da vulnerabilidade. Em seguida, **selecione Guardar**.
+   1. Selecione **ON** em **Segurança Avançada de Dados** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar os resultados da avaliação da vulnerabilidade. Em seguida, selecione **Guardar**.
 
       ![Painel de navegação](./media/secure-database-tutorial/threat-settings.png)
 
@@ -270,7 +270,7 @@ O recurso de auditoria rastreia eventos de base de dados e escreve eventos para 
 
 Para permitir a auditoria:
 
-1. No portal Azure, selecione bases de **dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
+1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
 1. Na secção **Segurança,** selecione **Auditing**.
 
@@ -309,7 +309,7 @@ A função de mascaramento de dados ocultará automaticamente dados sensíveis n
 
 Para permitir a mascaramento de dados:
 
-1. No portal Azure, selecione bases de **dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
+1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
 1. Na secção **Segurança,** selecione **Máscara de Dados Dinâmicos**.
 
@@ -327,7 +327,7 @@ A funcionalidade de encriptação encripta automaticamente os seus dados em repo
 
 Para ativar ou verificar encriptação:
 
-1. No portal Azure, selecione bases de **dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
+1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
 1. Na secção **Segurança,** selecione **encriptação de dados transparentes.**
 
@@ -338,7 +338,7 @@ Para ativar ou verificar encriptação:
 > [!NOTE]
 > Para visualizar o estado de encriptação, ligue-se à base de dados utilizando [SSMS](connect-query-ssms.md) e consulte a `encryption_state` coluna da vista [sys.dm_database_encryption_keys.](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) Um estado indica `3` que a base de dados está encriptada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a melhorar a segurança da sua base de dados com apenas alguns passos simples. Aprendeu a:
 

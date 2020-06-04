@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: jgao
-ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 2ca6848ed8fe16baea49311ee4b4b15ae8c64b56
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168578"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344718"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -131,7 +131,7 @@ O seguinte json é um exemplo.  O esquema de modelo mais recente pode ser encont
 ```
 
 > [!NOTE]
-> O exemplo é para o propósito de demonstração.  **scriptContent** e **primaryScriptUris** não podem coexistir em um modelo.
+> O exemplo é para o propósito de demonstração.  **scriptContent** e **primaryScriptUri** não podem coexistir em um modelo.
 
 Detalhes do valor da propriedade:
 

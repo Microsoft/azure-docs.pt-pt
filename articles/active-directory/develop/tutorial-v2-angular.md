@@ -1,7 +1,7 @@
 ---
-title: Tutorial de aplicativo de uma página única angular - Azure
+title: Tutorial de aplicação de página única angular - Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como as aplicações angulares do SPA podem chamar uma API que requer acesso a fichas do ponto final da plataforma de identidade da Microsoft.
+description: Saiba como as aplicações angulares de SPA podem chamar uma API que requer acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,56 +12,53 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1ede6592b3da979136d70b873142af6d2bb8b593
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201335"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322775"
 ---
-# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única angular
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
-> [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem mudar antes da disponibilidade geral (GA).
-
-Este tutorial demonstra como uma aplicação angular de uma única página (SPA) pode:
+Este tutorial demonstra como uma aplicação de uma página única angular (SPA) pode:
 - Inscreva-se em contas pessoais, contas de trabalho ou contas escolares.
-- Adquira um sinal de acesso.
-- Ligue para o Microsoft Graph API ou outros APIs que requerem fichas de acesso do ponto final da *plataforma de identidade*da Microsoft .
+- Adquira um símbolo de acesso.
+- Ligue para a Microsoft Graph API ou outras APIs que requerem tokens de acesso a partir do ponto final da plataforma de identidade da *Microsoft.*
 
 >[!NOTE]
->Este tutorial explica-o como criar um novo SPA angular utilizando a Microsoft Authentication Library (MSAL). Se quiser descarregar uma aplicação de amostra, consulte o [arranque rápido](quickstart-v2-angular.md).
+>Este tutorial acompanha-o como criar um novo SPA Angular utilizando a Microsoft Authentication Library (MSAL). Se quiser descarregar uma aplicação de amostra, consulte o [quickstart](quickstart-v2-angular.md).
 
 ## <a name="how-the-sample-app-works"></a>Como funciona a aplicação da amostra
 
-![Diagrama que mostra como a aplicação de amostra gerada neste tutorial funciona](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagrama que mostra como a app da amostra gerada neste tutorial funciona](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
 ### <a name="more-information"></a>Mais informações
 
-A aplicação de amostra criada neste tutorial permite que um SPA angular questione o Microsoft Graph API ou um API web que aceita tokens do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro da biblioteca core MSAL.js. Permite que aplicações Angulares (6+) atentiquem os utilizadores da empresa utilizando o Microsoft Azure Ative Directory, os utilizadores da conta microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de nuvem da Microsoft ou ao Microsoft Graph.
+A aplicação de amostra criada neste tutorial permite a um SPA angular consultar a API do Microsoft Graph ou uma API web que aceita fichas do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro da biblioteca core MSAL.js. Permite que as aplicações Angular (6+) autensem os utilizadores empresariais utilizando o Microsoft Azure Ative Directory, os utilizadores de contas microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de cloud da Microsoft ou ao Microsoft Graph.
 
-Neste cenário, após a adesão de um utilizador, é solicitado um sinal de acesso e adicionado aos pedidos http através do cabeçalho de autorização. A aquisição e renovação simbólicas são tratadas pela MSAL.
+Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP através do cabeçalho de autorização. A aquisição e renovação da Token são tratadas pela MSAL.
 
 ### <a name="libraries"></a>Bibliotecas
 
 Este tutorial utiliza a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para invólucro angular JavaScript|
 
-Pode encontrar o código fonte para a biblioteca MSAL.js no repositório [AzureAD/microsoft-autenticação-biblioteca-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
+Pode encontrar o código fonte da biblioteca MSAL.js no repositório [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar este tutorial, precisa de:
+Para executar este tutorial, você precisa:
 
-* Um servidor web local, como [Node.js](https://nodejs.org/en/download/). As instruções neste tutorial baseiam-se no Node.js.
+* Um servidor web local, como [o Node.js.](https://nodejs.org/en/download/) As instruções deste tutorial são baseadas em Node.js.
 * Um ambiente de desenvolvimento integrado (IDE), como [o Visual Studio Code,](https://code.visualstudio.com/download)para editar os ficheiros do projeto.
 
 ## <a name="create-your-project"></a>Crie o seu projeto
 
-Gerar uma nova aplicação Angular utilizando os seguintes comandos npm:
+Gere uma nova aplicação Angular utilizando os seguintes comandos npm:
 
 ```Bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
@@ -73,15 +70,15 @@ ng generate component page-name                  # To add a new page (such as a 
 
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
-Siga as [instruções para registar uma aplicação de uma página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
+Siga as [instruções para registar uma aplicação de uma página](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
 
-Na página de **visão geral** da sua inscrição, note o valor de ID da **Aplicação (cliente)** para posterior utilização.
+Na página **geral** da aplicação do seu registo, note o valor de **ID da Aplicação (cliente)** para posterior utilização.
 
-Registe o seu valor **URI redirecionamento** e **http://localhost:4200/** ative as definições implícitas de subvenção.
+Registe o seu valor **URI de redirecionamento** como **http://localhost:4200/** e permita configurações implícitas de concessão.
 
-## <a name="configure-the-application"></a>Configurar a aplicação
+## <a name="configure-the-application"></a>Configure a aplicação
 
-1. Na pasta *src/app,* editar *app.module.ts* e adicionar `MSALModule` `imports` a, bem como a `isIE` constante:
+1. Na pasta *src/app,* edite *app.module.ts* e adicione `MSALModule` a bem como a `imports` `isIE` constante:
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -123,14 +120,14 @@ Registe o seu valor **URI redirecionamento** e **http://localhost:4200/** ative 
 
     Substitua estes valores:
 
-    |Nome do valor|Acerca de|
+    |Nome do valor|Sobre|
     |---------|---------|
-    |Enter_the_Application_Id_Here|Na página **de síntese** do registo da sua candidatura, este é o seu valor de ID de **Aplicação (cliente).** |
-    |Enter_the_Cloud_Instance_Id_Here|Este é o caso da nuvem Azure. Para a nuvem azure principal ou global, entre **https://login.microsoftonline.com** . Para as nuvens nacionais (por exemplo, China), veja [as nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)|
-    |Enter_the_Tenant_Info_Here| Definir para uma das seguintes opções: Se a sua candidatura apoiar *contas neste diretório organizacional,* substitua este valor pelo nome de ID de diretório (inquilino) ou nome de inquilino (por exemplo, **contoso.microsoft.com).** Se a sua aplicação apoiar *contas em qualquer diretório organizacional,* substitua este valor por **organizações.** Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais*da Microsoft, substitua este valor por **comum**. Para restringir o suporte apenas às *contas pessoais*da Microsoft, substitua este valor pelos **consumidores.** |
-    |Enter_the_Redirect_Uri_Here|Substitua por **http://localhost:4200** .|
+    |Enter_the_Application_Id_Here|Na página **geral** do registo da sua candidatura, este é o seu valor **de ID de candidatura (cliente).** |
+    |Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)|
+    |Enter_the_Tenant_Info_Here| Definir uma das seguintes opções: Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo ID do diretório (inquilino) ou nome do inquilino (por exemplo, **contoso.microsoft.com).** Se a sua candidatura suporta *contas em qualquer diretório organizacional,* substitua este valor por **organizações.** Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por **comum**. Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor pelos **consumidores**. |
+    |Enter_the_Redirect_Uri_Here|Substitua-a por **http://localhost:4200** .|
 
-    Para obter mais informações sobre as opções configuráveis disponíveis, consulte [Inicialize as aplicações do cliente.](msal-js-initializing-client-applications.md)
+    Para obter mais informações sobre as opções disponíveis, consulte [As aplicações do cliente Inicialize.](msal-js-initializing-client-applications.md)
 
 2. No topo do mesmo ficheiro, adicione a seguinte declaração de importação:
 
@@ -146,7 +143,7 @@ Registe o seu valor **URI redirecionamento** e **http://localhost:4200/** ative 
     ```
 ## <a name="sign-in-a-user"></a>Inscreva-se num utilizador
 
-Adicione o seguinte código `AppComponent` para iniciar sessão num utilizador:
+Adicione o seguinte código `AppComponent` para iniciar sinsução num utilizador:
 
 ```javascript
 export class AppComponent implements OnInit {
@@ -175,9 +172,9 @@ export class AppComponent implements OnInit {
 
 ### <a name="angular-interceptor"></a>Angular Interceptor
 
-A MSAL Angular fornece uma `Interceptor` classe que adquire automaticamente fichas para pedidos de saída que utilizam o cliente Angular para recursos `http` protegidos conhecidos.
+A MSAL Angular fornece uma `Interceptor` classe que adquire automaticamente fichas para pedidos de saída que usam o cliente Angular para recursos `http` protegidos conhecidos.
 
-Em primeiro lugar, inclua a `Interceptor` classe como fornecedor a sua aplicação:
+Em primeiro lugar, inclua a `Interceptor` classe como fornecedor à sua aplicação:
 
 ```javascript
 import { MsalInterceptor, MsalModule } from "@azure/msal-angular";
@@ -195,7 +192,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Em seguida, forneça um mapa dos recursos protegidos para incluir `MsalModule.forRoot()` `protectedResourceMap` esses âmbitos `consentScopes` em:
+Em seguida, fornecer um mapa dos recursos `MsalModule.forRoot()` `protectedResourceMap` protegidos para, como e incluir, esses âmbitos `consentScopes` em :
 
 ```javascript
 @NgModule({
@@ -230,7 +227,7 @@ Em seguida, forneça um mapa dos recursos protegidos para incluir `MsalModule.fo
 });
 ```
 
-Por fim, recupere o perfil de um utilizador com um pedido HTTP:
+Finalmente, recupere o perfil de um utilizador com um pedido HTTP:
 
 ```JavaScript
 const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
@@ -244,11 +241,11 @@ getProfile() {
 ```
 
 ### <a name="acquiretokensilent-acquiretokenpopup-acquiretokenredirect"></a>adquirirTokenSilent, adquirirTokenPopup, adquirirTokenRedirect
-A MSAL utiliza três métodos para adquirir fichas: `acquireTokenRedirect` `acquireTokenPopup` , e `acquireTokenSilent` . No entanto, recomendamos a utilização da classe em vez de `MsalInterceptor` aplicações Angulares, como mostra a secção anterior.
+A MSAL utiliza três métodos para adquirir fichas: `acquireTokenRedirect` `acquireTokenPopup` e `acquireTokenSilent` . No entanto, recomendamos a utilização da `MsalInterceptor` classe para aplicações Angular, como mostra a secção anterior.
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-O `acquireTokenSilent` método lida com aquisições simbólicas e renovação sem interação do utilizador. Após a execução ou `loginRedirect` método pela primeira `loginPopup` vez, é comumente usado para obter `acquireTokenSilent` fichas usadas para aceder a recursos protegidos em chamadas posteriores. Chamadas para solicitar ou renovar fichas são feitas silenciosamente.
+O `acquireTokenSilent` método lida com aquisições simbólicas e renovação sem interação do utilizador. Após o `loginRedirect` ou método ser executado pela primeira `loginPopup` vez, é `acquireTokenSilent` comumente usado para obter fichas usadas para aceder a recursos protegidos em chamadas posteriores. As chamadas para solicitar ou renovar fichas são feitas silenciosamente.
 
 ```javascript
 const requestObj = {
@@ -263,24 +260,24 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 });
 ```
 
-Nesse código, os âmbitos que estão a `scopes` ser solicitados para serem devolvidos no sinal de acesso à API.
+Nesse código, `scopes` solicita-se que sejam devolvidos âmbitos no token de acesso à API.
 
 Por exemplo:
 
 * `["user.read"]`para o Microsoft Graph
-* `["<Application ID URL>/scope"]`para APIs web personalizados (isto é, `api://<Application ID>/access_as_user` )
+* `["<Application ID URL>/scope"]`para APIs web personalizado (isto é, `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
 Por vezes, é necessário que o utilizador interaja com o ponto final da plataforma de identidade da Microsoft. Por exemplo:
 
-* Os utilizadores podem ter de reintroduzir as suas credenciais porque a sua palavra-passe expirou.
-* A sua aplicação está a solicitar o acesso a âmbitos de recursos adicionais que o utilizador necessita de consentir.
+* Os utilizadores podem precisar de reentrar nas suas credenciais porque a sua palavra-passe expirou.
+* A sua aplicação está a solicitar acesso a âmbitos de recursos adicionais aos quais o utilizador precisa de consentir.
 * É necessária autenticação de dois fatores.
 
-O padrão recomendado para a maioria das aplicações é ligar `acquireTokenSilent` primeiro, depois pegar a exceção, e depois ligar `acquireTokenPopup` `acquireTokenRedirect` (ou) para iniciar um pedido interativo.
+O padrão recomendado para a maioria das aplicações é ligar `acquireTokenSilent` primeiro, depois pegar a exceção e, em seguida, ligar `acquireTokenPopup` (ou `acquireTokenRedirect` ) para iniciar um pedido interativo.
 
-A chamada `acquireTokenPopup` resulta numa janela pop-up. Em alternativa, `acquireTokenRedirect` redireciona os utilizadores para o ponto final da plataforma de identidade da Microsoft. Nessa janela, os utilizadores precisam de confirmar as suas credenciais, dar o seu consentimento ao recurso necessário ou concluir a autenticação de dois fatores.
+A chamada `acquireTokenPopup` resulta numa janela de inscrição pop-up. Em alternativa, `acquireTokenRedirect` redireciona os utilizadores para o ponto final da plataforma de identidade da Microsoft. Nessa janela, os utilizadores precisam de confirmar as suas credenciais, dar consentimento ao recurso necessário ou completar a autenticação de dois fatores.
 
 ```javascript
   const requestObj = {
@@ -296,11 +293,11 @@ A chamada `acquireTokenPopup` resulta numa janela pop-up. Em alternativa, `acqui
 ```
 
 > [!NOTE]
-> Este quickstart usa os `loginRedirect` métodos e métodos com o Microsoft Internet Explorer devido a um problema `acquireTokenRedirect` [conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado com o manuseamento de janelas pop-up pelo Internet Explorer.
+> Este quickstart utiliza os `loginRedirect` métodos e métodos com o Microsoft Internet Explorer devido a um problema `acquireTokenRedirect` [conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado com o manuseamento de janelas pop-up pelo Internet Explorer.
 
-## <a name="log-out"></a>Iniciar sessão
+## <a name="log-out"></a>Registar-se
 
-Adicione o seguinte código para iniciar sessão com um utilizador:
+Adicione o seguinte código para iniciar sessão de um utilizador:
 
 ```javascript
 logout() {
@@ -309,40 +306,40 @@ logout() {
 ```
 
 ## <a name="add-ui"></a>Adicionar UI
-Para um exemplo de como adicionar UI utilizando a biblioteca de componentes de Materiais Angulares, consulte a [aplicação](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular)da amostra .
+Para um exemplo de como adicionar UI utilizando a biblioteca de componentes de material angular, consulte a [aplicação](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular)da amostra .
 
 ## <a name="test-your-code"></a>Teste o seu código
 
-1.  Inicie o servidor web para ouvir a porta executando os seguintes comandos numa solicitação de linha de comando a partir da pasta de aplicação:
+1.  Inicie o servidor web para ouvir a porta executando os seguintes comandos num pedido de linha de comando da pasta de aplicação:
 
     ```bash
     npm install
     npm start
     ```
-1. No seu navegador, entre **http://localhost:4200** ou , onde a **http://localhost:{port}** *porta* é a porta que o seu servidor web está a ouvir.
+1. No seu navegador, insira **http://localhost:4200** **http://localhost:{port}** ou, onde a *porta* é a porta que o seu servidor web está a ouvir.
 
 
 ### <a name="provide-consent-for-application-access"></a>Fornecer consentimento para acesso à aplicação
 
-A primeira vez que começa a iniciar o início da sua inscrição, é-lhe pedido que lhe conceda acesso ao seu perfil e permita que o inscreva:
+A primeira vez que começa a iniciar o seu contrato de inscrição, é-lhe pedido que lhe conceda acesso ao seu perfil e o deixe entrar:
 
-![A janela "Permissões solicitadas"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+![A janela "Permissões Solicitadas"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ## <a name="add-scopes-and-delegated-permissions"></a>Adicionar âmbitos e permissões delegadas
 
-O Microsoft Graph API requer que o *utilizador.leia* o âmbito para ler o perfil de um utilizador. Por predefinição, este âmbito é adicionado automaticamente em todas as aplicações registadas no portal de registo. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor back-end, podem requerer âmbitos adicionais. Por exemplo, a Microsoft Graph API requer os *Calendários.Leia* o âmbito para listar os calendários do utilizador.
+A API do Microsoft Graph requer que o âmbito de leitura do *utilizador.leia* para ler o perfil de um utilizador. Por predefinição, este âmbito é automaticamente adicionado em todas as aplicações registadas no portal de registo. Outros APIs para o Microsoft Graph, bem como APIs personalizados para o seu servidor back-end, podem necessitar de âmbitos adicionais. Por exemplo, a API do Gráfico microsoft requer o âmbito *calendários.Leia* o âmbito de aplicação para listar os calendários do utilizador.
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione os *Calendários.Leia* a permissão delegada à informação de registo de aplicações. Em seguida, adicione os *Calendários.Leia* o âmbito da `acquireTokenSilent` chamada.
+Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione os *Calendários.Leia* a permissão delegada na informação de registo de candidatura. Em seguida, adicione os *Calendários.Leia* o âmbito da `acquireTokenSilent` chamada.
 
 >[!NOTE]
->O utilizador pode ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.
+>O utilizador poderá ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.
 
-Se uma API de back-end não necessitar de um âmbito (não recomendado), pode utilizar o *clienteId* como âmbito nas chamadas para adquirir fichas.
+Se uma API de back-end não necessitar de um âmbito (não recomendado), pode utilizar *o clientId* como o âmbito das chamadas para adquirir fichas.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se é novo na gestão de identidade e acesso, temos vários artigos para o ajudar a aprender conceitos modernos de autenticação, começando pela [autenticação vs. autorização.](authentication-vs-authorization.md)
+Se é novo na gestão de identidade e acesso, temos vários artigos para ajudá-lo a aprender conceitos modernos de autenticação, começando pela [autenticação vs. autorização.](authentication-vs-authorization.md)
 
-Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de uma página única na plataforma de identidade da Microsoft, o cenário em várias partes: Série de aplicações de página única pode [ajudá-lo](scenario-spa-overview.md) a começar.
+Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de uma página na plataforma de identidade da Microsoft, o cenário multi-partes: série de aplicações de uma página única pode [ajudá-lo](scenario-spa-overview.md) a começar.

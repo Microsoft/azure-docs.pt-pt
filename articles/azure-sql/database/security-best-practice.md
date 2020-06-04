@@ -1,6 +1,6 @@
 ---
 title: Livro de jogadas para abordar requisitos comuns de segurança
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Este artigo fornece requisitos de segurança comuns e boas práticas na Base de Dados Azure SQL e na Azure SQL Gestd Instance
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,14 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: a462c3480d58a7895429863cb3d09874cd6ef0f8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 5a35d9f9ff611576f26a55cb5792bc4b1718bee0
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217920"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323846"
 ---
-# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database--sql-managed-instance"></a>Livro de jogadas para abordar requisitos de segurança comuns com base de dados Azure SQL & sql instância gerida
+# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo fornece as melhores práticas sobre como resolver os requisitos comuns de segurança. Nem todos os requisitos são aplicáveis a todos os ambientes, e deverá consultar a sua base de dados e a sua equipa de segurança sobre quais as funcionalidades a implementar.
@@ -28,10 +28,10 @@ Este documento fornece orientações sobre como resolver requisitos de seguranç
 
 ### <a name="azure-sql-database-deployment-offers-covered-in-this-guide"></a>Ofertas de implementação de bases de dados Azure SQL abrangidas por este guia
 
-- [Bases de dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [bases de dados únicas](single-database-overview.md) e [piscinas elásticas](elastic-pool-overview.md) em [servidores](logical-servers.md)
-- [Azure SQL Casos Geridos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
+- [Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [bases de dados individuais](single-database-overview.md) e [piscinas elásticas](elastic-pool-overview.md) em [servidores](logical-servers.md)
+- [Instância Gerida do SQL no Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
-### <a name="sql-deployment-offers-not-covered-in-this-guide"></a>Ofertas de implantação SQL não abrangidas por este guia
+### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implantação não abrangidas por este guia
 
 - Azure SQL Data Warehouse
 - VMs Azure SQL (IaaS)
@@ -78,7 +78,7 @@ A autenticação é o processo de provar que o utilizador é quem diz ser. Azure
 
 A gestão central da identidade oferece os seguintes benefícios:
 
-- Gerencie as contas do grupo e controle as permissões dos utilizadores sem duplicar os logins em servidores, bases de dados e SQL Managed Instances.
+- Gerencie as contas do grupo e controle as permissões dos utilizadores sem duplicar os logins em servidores, bases de dados e instâncias geridas.
 - Gestão de permissões simplificadas e flexíveis.
 - Gestão de aplicações em escala.
 
@@ -103,52 +103,52 @@ A gestão central da identidade oferece os seguintes benefícios:
 
 - Monitor Azure AD altera alterações de membros do grupo usando relatórios de atividade de auditoria Azure AD.
 
-- Para uma SQL Managed Instance, é necessário um passo separado para criar a administração AD Azure.
+- Para um caso gerido, é necessário um passo separado para criar um administrador AD Azure.
   - Consulte o artigo, [Provision a Azure Ative Directory para a sua instância gerida](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 > [!NOTE]
 >
 > - A autenticação Azure AD é registada em registos de auditoria Azure SQL, mas não em registos de login Azure AD.
 > - As permissões RBAC concedidas no Azure não se aplicam às permissões de Azure SQL Database ou SQL Managed Instance. Tais permissões devem ser criadas/mapeadas manualmente utilizando permissões SQL existentes.
-> - Do lado do cliente, a autenticação AZure AD necessita de acesso à internet ou via Rota Definida pelo Utilizador (UDR) a um VNet.
+> - Do lado do cliente, a autenticação AZure AD necessita de acesso à internet ou via Rota Definida pelo Utilizador (UDR) a uma rede virtual.
 > - O token de acesso Azure AD está em cache no lado do cliente e a sua vida útil depende da configuração simbólica. Veja o artigo, [Configurar vidas simbólicas no Azure Ative Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientações sobre problemas de resolução de problemas Azure AD Authentication, consulte o seguinte blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
+### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
 
 > Mencionado em: Osa Practice #2, ISO Access Control (AC)
 
-A Azure Multi-Factor Authentication (MFA) ajuda a fornecer segurança adicional, exigindo mais do que uma forma de autenticação.
+A autenticação multi-factor Azure ajuda a fornecer segurança adicional, exigindo mais de uma forma de autenticação.
 
 **Como implementar:**
 
-- [Ativar o MFA](../../active-directory/authentication/concept-mfa-howitworks.md) em Ad Azure utilizando o Acesso Condicional e utilizar a autenticação interativa.
+- [Ativar a autenticação multi-factor](../../active-directory/authentication/concept-mfa-howitworks.md) em Ad Azure utilizando o Acesso Condicional e utilizar a autenticação interativa.
 
-- A alternativa é ativar o MFA para todo o domínio AZure AD ou AD.
+- A alternativa é ativar a autenticação multi-factor para todo o domínio AD ou AD AZure.
 
 **Boas práticas:**
 
 - Ativar o Acesso Condicional em AD Azure (requer subscrição Premium).
   - Consulte o artigo, [Acesso Condicional em Azure AD](../../active-directory/conditional-access/overview.md).  
 
-- Crie grupos Azure AD e permita a política de MFA para grupos selecionados que utilizem o Acesso Condicional AZure AD.
+- Crie grupos AD Azure e ative a política de autenticação multi-factor para grupos selecionados que utilizem o Acesso Condicional AD Azure.
   - Consulte o artigo, [Plan Conditional Access Deployment](../../active-directory/conditional-access/plan-conditional-access.md).
 
-- O MFA pode ser ativado para todo o Azure AD ou para todo o Ative Directory federado com Azure AD.
+- A Autenticação Multi-Factor pode ser ativada para todo o AD Azure ou para todo o Ative Directory federado com Azure AD.
 
-- Utilize o modo de autenticação Azure AD Interactive para Azure SQL Database e Azure SQL Managed Instance onde uma palavra-passe é solicitada interativamente, seguida da autenticação MFA:
-  - Utilize autenticação universal em SSMS. Consulte o artigo, [utilizando a autenticação AAD multi-factor com Base de Dados Azure SQL, SQL Managed Instance, Azure Synapse (suporte SSMS para MFA)](authentication-mfa-ssms-overview.md).
+- Utilize o modo de autenticação interativa Azure AD para a Base de Dados Azure SQL e a exemplo gerida do Azure SQL onde uma palavra-passe é solicitada interativamente, seguida de Autenticação Multi-Factor:
+  - Utilize autenticação universal em SSMS. Consulte o artigo, utilizando a [autenticação Azure AD multi-factor com base de dados Azure SQL, SQL Managed Instance, Azure Synapse (suporte SSMS para autenticação multi-factor)](authentication-mfa-ssms-overview.md).
   - Utilize autenticação interativa suportada em Ferramentas de Dados do Servidor SQL (SSDT). Consulte o artigo, [suporte ao Diretório Ativo Azure em Ferramentas de Dados do Servidor SQL (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
-  - Utilize outras ferramentas SQL que suportem MFA.
+  - Utilize outras ferramentas SQL que suportem a autenticação multi-factor.
     - Suporte ao assistente SSMS para base de dados de exportação/extração/implantação  
     - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): opção '/ua'
     - [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility): opção -G (interativo)
     - [bcp Utilitário](https://docs.microsoft.com/sql/tools/bcp-utility): opção -G (interativo)
 
-- Implemente as suas aplicações para ligar à Base de Dados Azure SQL ou à Azure SQL Managed Instance utilizando a autenticação interativa com suporte MFA.
+- Implemente as suas aplicações para ligar à Base de Dados Azure SQL ou à Azure SQL Managed Instance utilizando a autenticação interativa com suporte à autenticação multi-factor.
   - Consulte o artigo, [Ligue-se à Base de Dados Azure SQL com autenticação multi-factor Azure](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
-  > Este modo de autenticação requer identidades baseadas no utilizador. Nos casos em que seja utilizado um modelo de identidade fidedigno que esteja a contornar a autenticação individual do utilizador Azure AD (por exemplo, utilização de identidade gerida para recursos Azure), o MFA não se aplica.
+  > Este modo de autenticação requer identidades baseadas no utilizador. Nos casos em que seja utilizado um modelo de identidade fidedigno que esteja a contornar a autenticação individual do utilizador Azure AD (por exemplo, utilização de identidade gerida para recursos Azure), a Autenticação Multi-Factor não se aplica.
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-users"></a>Minimizar a utilização da autenticação baseada em palavras-passe para os utilizadores
 
@@ -178,7 +178,7 @@ Os métodos de autenticação baseados em palavras-passe são uma forma mais fra
 - Utilize [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
   - [Identidade gerida atribuída pelo utilizador](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
-  - [Utilize a Base de Dados Azure SQL do serviço de aplicações com identidade gerida (sem alterações de código)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
+  - [Utilize a Base de Dados Azure SQL do Azure App Service com identidade gerida (sem alterações de código)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
 
 - Utilize a autenticação baseada em cert para uma aplicação.
   - Consulte esta [amostra de código.](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/token)
@@ -192,7 +192,7 @@ Para casos em que as palavras-passe não são evitáveis, certifique-se de que e
 
 **Como implementar:**
 
-- Use o Cofre de Chaves Azure para armazenar senhas e segredos. Sempre que aplicável, utilize mFA para Azure SQL Database com utilizadores AZure AD.
+- Use o Cofre de Chaves Azure para armazenar senhas e segredos. Sempre que aplicável, utilize a Autenticação Multi-Factor para Azure SQL Database com utilizadores AZure AD.
 
 **Boas práticas:**
 
@@ -294,7 +294,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 
 - Criar funções de acordo com os grupos de utilizador necessários e atribuir permissões a funções.
   - Para tarefas de nível de gestão no portal Azure ou através da automação PowerShell utilize funções DE RBAC. Ou encontra uma função incorporada que corresponda ao requisito, ou crie um papel RBAC personalizado usando as permissões disponíveis
-  - Criar funções de Servidor para tarefas em todo o servidor (criando novos logins, bases de dados) numa SqL Managed Instance.
+  - Criar funções de Servidor para tarefas em todo o servidor (criando novos logins, bases de dados) num caso gerido.
   - Criar funções de base de dados para tarefas ao nível da base de dados.
 
 - Para determinadas tarefas sensíveis, considere a criação de procedimentos especiais armazenados assinados por um certificado para executar as tarefas em nome dos utilizadores. Uma vantagem importante dos procedimentos armazenados assinados digitalmente é que, se o procedimento for alterado, as permissões concedidas à versão anterior do procedimento são imediatamente eliminadas.
@@ -312,7 +312,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 
 **Boas práticas:**
 
-- Certifique-se de que são utilizadas contas diferentes para ambientes de Desenvolvimento/Teste e Produção. Contas diferentes ajudam a cumprir a separação dos sistemas de teste & produção.
+- Certifique-se de que são utilizadas contas diferentes para ambientes de Desenvolvimento/Teste e Produção. Contas diferentes ajudam a cumprir a separação dos sistemas de teste e produção.
 
 - Abstenha-se de atribuir permissões a utilizadores individuais. Utilize as funções (bases de dados ou funções de servidor) de forma consistente. Ter papéis ajuda muito com permissões de relato e resolução de problemas.
 
@@ -337,7 +337,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 
 Para os leitores que querem mergulhar mais profundamente no SoD, recomendamos os seguintes recursos:
 
-- Para a base de dados Azure SQL e sql caso gerido :  
+- Para a base de dados Azure SQL e para a sql Gestded Instance:  
   - [Controlar e conceder acesso à base de dados](logins-create-manage.md)
   - [Separação de funções do motor para o desenvolvedor de aplicações](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
   - [Separação de Deveres](https://www.microsoft.com/download/details.aspx?id=39269)
@@ -352,7 +352,7 @@ Para os leitores que querem mergulhar mais profundamente no SoD, recomendamos os
 
 > Mencionado em: PCI: 6.3.2, SOC: SDL-3
 
-A separação de direitos não se limita aos dados na base de dados, mas inclui o código de aplicação. O código malicioso pode potencialmente contornar os controlos de segurança. Antes de implementar código personalizado para a produção, é essencial rever o que está a ser implementado.
+A separação de direitos não se limita aos dados numa base de dados, mas inclui o código de aplicação. O código malicioso pode potencialmente contornar os controlos de segurança. Antes de implementar código personalizado para a produção, é essencial rever o que está a ser implementado.
 
 **Como implementar:**
 
@@ -400,7 +400,7 @@ A encriptação em repouso é a proteção criptográfica dos dados quando são 
 **Como implementar:**
 
 - [A Encriptação transparente da Base de Dados (TDE)](transparent-data-encryption-tde-overview.md) com chaves geridas pelo serviço são ativadas por padrão para quaisquer bases de dados criadas após 2017 na Base de Dados Azure SQL e na SQL Managed Instance.
-- Numa SqL Managed Instance, se a base de dados for criada a partir de uma operação de restauro utilizando um servidor no local, a definição de TDE da base de dados original será honrada. Se a base de dados original não tiver O TDE ativado, recomendamos que o TDE seja ligado manualmente para a Sql Managed Instance.
+- Num caso gerido, se a base de dados for criada a partir de uma operação de restauro utilizando um servidor no local, a definição de TDE da base de dados original será honrada. Se a base de dados original não tiver O TDE ativado, recomendamos que o TDE seja ligado manualmente para a instância gerida.
 
 **Boas práticas:**
 
@@ -468,7 +468,7 @@ Ao utilizar o CLE:
 
 Tenha em mente que a Always Encrypted foi concebida principalmente para proteger dados sensíveis na utilização de utilizadores de alto privilégio da Base de Dados Azure SQL (operadores de nuvem, DBAs) - consulte [Proteger dados sensíveis na utilização de utilizadores altamente privilegiados e não autorizados.](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users) Esteja atento aos seguintes desafios ao utilizar o Always Encrypted para proteger os dados dos utilizadores da aplicação:
 
-- Por padrão, todos os controladores de clientes da Microsoft que suportam Sempre Encriptado mantêm uma cache global (uma por aplicação) de chaves de encriptação de colunas. Uma vez que um condutor de cliente adquire uma chave de encriptação de coluna de texto simples contactando uma loja de chaves segurando uma chave principal de coluna, a chave de encriptação da coluna de texto simples está em cache. Isto torna os dados isolados dos utilizadores de uma aplicação multiutilizador desafiante. Se a sua aplicação se destinar a utilizadores finais ao interagir com uma loja de chaves (como o Azure Key Vault), depois de a consulta de um utilizador povoar a cache com uma chave de encriptação de coluna, uma consulta subsequente que requer a mesma chave mas que é desencadeada por outro utilizador utilizará a chave em cache. O controlador não liga para a loja de chaves e não verificará se o segundo utilizador tem permissão para aceder à chave de encriptação da coluna. Como resultado, o utilizador poderá ver os dados encriptados mesmo que o utilizador não tenha acesso às teclas. Para conseguir o isolamento dos utilizadores dentro de uma aplicação multiutilizador, pode desativar a chave de encriptação de colunas. A desativação da caching irá causar despesas adicionais de desempenho, uma vez que o controlador terá de contactar a loja de chaves para cada operação de encriptação ou desencriptação de dados.
+- Por padrão, todos os controladores de clientes da Microsoft que suportam Sempre Encriptado mantêm uma cache global (uma por aplicação) de chaves de encriptação de colunas. Uma vez que um condutor de cliente adquire uma chave de encriptação de coluna de texto simples contactando uma loja de chaves segurando uma chave principal de coluna, a chave de encriptação da coluna de texto simples está em cache. Isto torna os dados isolados dos utilizadores de uma aplicação multiutilizador desafiante. Se a sua aplicação se destinar a utilizadores finais ao interagir com uma loja de chaves (como o Azure Key Vault), depois de a consulta de um utilizador povoar a cache com uma chave de encriptação de coluna, uma consulta subsequente que requer a mesma chave mas que é desencadeada por outro utilizador utilizará a chave em cache. O controlador não liga para a loja de chaves e não verificará se o segundo utilizador tem permissão para aceder à chave de encriptação da coluna. Como resultado, o utilizador pode ver os dados encriptados mesmo que o utilizador não tenha acesso às chaves. Para conseguir o isolamento dos utilizadores dentro de uma aplicação multiutilizador, pode desativar a chave de encriptação de colunas. A desativação da caching irá causar despesas adicionais de desempenho, uma vez que o controlador terá de contactar a loja de chaves para cada operação de encriptação ou desencriptação de dados.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Proteja os dados contra a visualização não autorizada pelos utilizadores da aplicação, preservando o formato de dados
 
@@ -503,7 +503,7 @@ As melhores práticas sobre como impedir que máquinas e aplicações de cliente
 
 **Como implementar:**
 
-- Certifique-se de que as máquinas clientes que se ligam à Base de Dados Azure SQL e à SQL Managed Instance estão a utilizar [a Segurança da Camada de Transporte (TLS)](security-overview.md#transport-layer-security-tls-encryption-in-transit).
+- Certifique-se de que as máquinas clientes que se ligam à Base de Dados Azure SQL e à SQL Managed Instance estão a utilizar [a Segurança da Camada de Transporte (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Boas práticas:**
 
@@ -520,7 +520,7 @@ As melhores práticas sobre como impedir que máquinas e aplicações de cliente
 
 - Para mais informações, consulte [Azure SQL Database Connectivity Architecture - Política de conexão](connectivity-architecture.md#connection-policy).
 
-### <a name="minimize-attack-surface"></a>Minimizar superfície de ataque
+### <a name="minimize-attack-surface"></a>Minimizar a superfície de ataque
 
 Minimize o número de funcionalidades que podem ser atacadas por um utilizador malicioso. Implementar controlos de acesso à rede para a Base de Dados Azure SQL.
 
@@ -534,30 +534,30 @@ Na Base de Dados SQL:
 - Utilize pontos finais do Serviço VNet e regras de firewall VNet.
 - Utilizar Link Privado (pré-visualização).
 
-Numa ocorrência gerida pela SQL:
+Em SQL Caso gerido:
 
 - Siga as diretrizes dos [requisitos da Rede](../managed-instance/connectivity-architecture-overview.md#network-requirements).
 
 **Boas práticas:**
 
 - Restringir o acesso à Base de Dados Azure SQL e à SQL Managed Instance através da ligação num ponto final privado (por exemplo, utilizando uma via de dados privado):
-  - Uma sql Managed Instance pode ser isolada dentro de um VNet para impedir o acesso externo. As aplicações e ferramentas que estejam no mesmo VNet ou esprevadas na mesma região poderiam aceder diretamente a ele. Aplicações e ferramentas que se encontram em diferentes regiões poderiam utilizar a ligação VNet-vNet ou o circuito ExpressRoute para estabelecer a ligação. O cliente deve utilizar os Grupos de Segurança da Rede (NSG) para restringir o acesso ao porto 1433 apenas a recursos que exijam acesso a uma instância gerida.
-  - Para uma Base de Dados SQL, utilize a funcionalidade [Private Link](../../private-link/private-endpoint-overview.md) que fornece um IP privado dedicado para o servidor dentro do seu VNet. Também pode utilizar [pontos finais do Serviço VNet com regras de firewall VNet](vnet-service-endpoint-rule-overview.md) para restringir o acesso aos seus servidores.
+  - Um caso gerido pode ser isolado dentro de uma rede virtual para impedir o acesso externo. As aplicações e ferramentas que se encontram na mesma rede virtual ou esprevada na mesma região poderiam aceder diretamente à mesma. Aplicações e ferramentas que se encontram em diferentes regiões poderiam utilizar a ligação virtual rede-rede para rede virtual ou o circuito ExpressRoute para estabelecer a ligação. O cliente deve utilizar os Grupos de Segurança da Rede (NSG) para restringir o acesso ao porto 1433 apenas a recursos que exijam acesso a uma instância gerida.
+  - Para uma Base de Dados SQL, utilize a funcionalidade [Private Link](../../private-link/private-endpoint-overview.md) que fornece um IP privado dedicado para o servidor dentro da sua rede virtual. Também pode utilizar [pontos finais de serviço de rede virtual com regras de firewall de rede virtual](vnet-service-endpoint-rule-overview.md) para restringir o acesso aos seus servidores.
   - Os utilizadores móveis devem utilizar ligações VPN ponto a local para se conectarem sobre a via dos dados.
   - Os utilizadores ligados à sua rede no local devem utilizar a ligação VPN local ou o ExpressRoute para se conectarem ao longo da via de dados.
 
 - Pode aceder à Base de Dados Azure SQL e à SQL Managed Instance ligando-se a um ponto final público (por exemplo, utilizando uma via de dados públicos). Devem ser consideradas as seguintes boas práticas:
   - Para um servidor na Base de Dados SQL, utilize [as regras de firewall IP](firewall-configure.md) para restringir o acesso a apenas endereços IP autorizados.
-  - Para um exemplo em SQL Managed Instance, use Grupos de Segurança de Rede (NSG) para restringir o acesso sobre a porta 3342 apenas aos recursos necessários. Para obter mais informações, [consulte uma Instância Gerida Azure SQL com os pontos finais públicos.](../managed-instance/public-endpoint-overview.md)
+  - Para a SQL Managed Instance, utilize grupos de segurança de rede (NSG) para restringir o acesso sobre a porta 3342 apenas aos recursos necessários. Para obter mais informações, consulte [uma instância gerida de forma segura com pontos finais públicos](../managed-instance/public-endpoint-overview.md).
 
 > [!NOTE]
-> Um ponto final público de instância gerida SQL não é ativado por padrão e deve ser explicitamente ativado. Se a política da empresa não permitir a utilização de pontos finais públicos, utilize a [Política Azure](../../governance/policy/overview.md) para evitar, em primeiro lugar, a colocação de pontos finais públicos.
+> O ponto final público sql Managed Instance não está ativado por defeito e deve ser explicitamente ativado. Se a política da empresa não permitir a utilização de pontos finais públicos, utilize a [Política Azure](../../governance/policy/overview.md) para evitar, em primeiro lugar, a colocação de pontos finais públicos.
 
 - Configurar componentes de rede Azure:
   - Siga [as melhores práticas da Azure para a segurança da rede.](../../security/fundamentals/network-best-practices.md)
-  - Configuração de Rede Virtual de Plano (VNet) de acordo com as melhores práticas descritas na [Rede Virtual Azure frequentemente fez perguntas (FAQ)](../../virtual-network/virtual-networks-faq.md) e plano.
-  - Segmentar um VNet em várias sub-redes e atribuir recursos para funções semelhantes à mesma sub-rede (por exemplo, recursos frontais vs back-end).
-  - Utilize [grupos de segurança de rede (NSGs)](../../virtual-network/security-overview.md) para controlar o tráfego entre sub-redes dentro do limite Azure VNet.
+  - Planeie a configuração da Rede Virtual de acordo com as melhores práticas descritas na [Rede Virtual Azure frequentemente feitas perguntas (FAQ)](../../virtual-network/virtual-networks-faq.md) e plano.
+  - Segmentar uma rede virtual em várias sub-redes e atribuir recursos para funções semelhantes à mesma sub-rede (por exemplo, recursos frontais vs back-end).
+  - Utilize [grupos de segurança de rede (NSGs)](../../virtual-network/security-overview.md) para controlar o tráfego entre sub-redes dentro do limite da rede virtual Azure.
   - Ativar [o Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) para a sua subscrição para monitorizar o tráfego de rede de entrada e saída.
 
 ### <a name="configure-power-bi-for-secure-connections-to-sql-databasesql-managed-instance"></a>Configure o Power BI para ligações seguras à Base de Dados SQL/SqL Gestded Instance
@@ -578,23 +578,23 @@ Numa ocorrência gerida pela SQL:
 
 - Para uma simples Aplicação Web, a ligação sobre o ponto final público requer a definição **de Allow Azure Services** to ON.
 
-- [Integre a sua aplicação com uma Rede Virtual Azure](../../app-service/web-sites-integrate-with-vnet.md) para a conectividade do caminho de dados privados a uma SQL Managed Instance. Opcionalmente, também pode implementar uma Web App com [Ambientes de Serviço de Aplicações (ASE)](../../app-service/environment/intro.md).
+- [Integre a sua aplicação com uma Rede Virtual Azure](../../app-service/web-sites-integrate-with-vnet.md) para a conectividade do caminho de dados privados a uma instância gerida. Opcionalmente, também pode implementar uma Web App com [Ambientes de Serviço de Aplicações (ASE)](../../app-service/environment/intro.md).
 
-- Para a Web App com aplicação web integrada ASE ou VNet conectando-se a uma base de dados na Base de Dados SQL, pode utilizar [pontos finais do Serviço VNet e regras de firewall VNet](vnet-service-endpoint-rule-overview.md) para limitar o acesso a partir de um VNet e sub-rede específicos. Em **seguida, desemote Os Serviços Azure** off. Também pode ligar o ASE a uma instância gerida em SQL Managed Instance sobre uma via de dados privada.  
+- Para a Web App com ase ou rede virtual Integrada Web App conectando-se a uma base de dados na Base de Dados SQL, pode utilizar [pontos finais de serviço de rede virtual e regras de firewall de rede virtual](vnet-service-endpoint-rule-overview.md) para limitar o acesso a partir de uma rede virtual específica e sub-rede. Em **seguida, desemote Os Serviços Azure** off. Também pode ligar o ASE a uma instância gerida em SQL Managed Instance sobre uma via de dados privada.  
 
-- Certifique-se de que a sua Web App está configurada de acordo com o artigo, [as melhores práticas para garantir aplicações web e móveis PaaS utilizando o Azure App Service](../../security/fundamentals/paas-applications-using-app-services.md).
+- Certifique-se de que a sua Web App está configurada de acordo com o artigo, [as melhores práticas para garantir a plataforma como um serviço (PaaS) web e aplicações móveis usando o Azure App Service](../../security/fundamentals/paas-applications-using-app-services.md).
 
 - Instale [firewall de aplicação web (WAF)](../../web-application-firewall/ag/ag-overview.md) para proteger a sua aplicação web de explorações e vulnerabilidades comuns.
 
-### <a name="configure-azure-vm-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>Configure Azure VM hospedagem para ligações seguras à Base de Dados SQL/SQL Instância Gerida
+### <a name="configure-azure-virtual-machine-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>Configurar a máquina virtual Azure hospedagem para ligações seguras à Base de Dados SQL/SQL Gestão de Instâncias
 
 **Boas práticas:**
 
-- Utilize uma combinação de regras de Permitir e Negar sobre os NSGs de VMs Azure para controlar quais as regiões que podem ser acedidas a partir do VM.
+- Utilize uma combinação de regras de Permitir e Negar sobre os NSGs das máquinas virtuais Azure para controlar quais as regiões que podem ser acedidas a partir do VM.
 
 - Certifique-se de que o seu VM está configurado de acordo com o artigo, [As melhores práticas de segurança para cargas de trabalho iaaS em Azure](../../security/fundamentals/iaas.md).
 
-- Certifique-se de que todos os VMs estão associados a um VNet específico e a uma sub-rede.
+- Certifique-se de que todos os VMs estão associados a uma rede virtual específica e a uma sub-rede.
 
 - Avalie se precisa da rota padrão 0.0.0/Internet por orientação [sobre túneis forçados](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md#about-forced-tunneling).
   - Se sim – por exemplo, sub-rede frontal – então mantenha a rota predefinido.
@@ -602,9 +602,9 @@ Numa ocorrência gerida pela SQL:
 
 - Implemente [as rotas predefinicionais opcionais](../../virtual-network/virtual-networks-udr-overview.md#optional-default-routes) se estiver a usar o seu conhecimento ou ligação às instalações.
 
-- Implemente [as Rotas Definidas](../../virtual-network/virtual-networks-udr-overview.md#user-defined) para o Utilizador se precisar de enviar todo o tráfego do VNet para um Aparelho Virtual de Rede para inspeção de pacotes.
+- Implemente [as Rotas Definidas](../../virtual-network/virtual-networks-udr-overview.md#user-defined) para o Utilizador se precisar enviar todo o tráfego da rede virtual para um Aparelho Virtual de Rede para inspeção de pacotes.
 
-- Utilize [pontos finais do Serviço VNet](vnet-service-endpoint-rule-overview.md) para acesso seguro a serviços PaaS como o Azure Storage através da rede de espinha dorsal Azure.
+- Utilize [pontos finais de serviço de rede virtual](vnet-service-endpoint-rule-overview.md) para acesso seguro a serviços PaaS como o Azure Storage através da rede de espinha dorsal Azure.
 
 ### <a name="protect-against-distributed-denial-of-service-ddos-attacks"></a>Proteger contra ataques de Negação de Serviço Distribuídos (DDoS)
 
@@ -616,7 +616,7 @@ Os ataques de Negação de Serviço Distribuído (DDoS) são tentativas de um ut
 
 A proteção DDoS é ativada automaticamente como parte da Plataforma Azure. Inclui a monitorização do tráfego sempre on-on e a mitigação em tempo real dos ataques a nível da rede em pontos finais públicos.
 
-- Utilize [a Proteção DDoS Azure](../../virtual-network/ddos-protection-overview.md) para monitorizar endereços IP públicos associados aos recursos implantados em VNets.
+- Utilize [a Proteção DDoS Azure](../../virtual-network/ddos-protection-overview.md) para monitorizar endereços IP públicos associados a recursos implantados em redes virtuais.
 
 - Utilize [proteção de ameaças avançadas para a base de dados Azure SQL](threat-detection-overview.md) para detetar ataques de Negação de Serviço (DoS) contra bases de dados.
 
@@ -666,7 +666,7 @@ O rastreio de eventos de base de dados ajuda-o a compreender a atividade da base
 **Boas práticas:**
 
 - Ao configurar a [Auditoria de Bases de Dados SQL](../../azure-sql/database/auditing-overview.md) no seu servidor ou auditoria de [instâncias geridas](../managed-instance/auditing-configure.md) para eventos de auditoria, todas as bases de dados existentes e recém-criadas nesse servidor serão auditadas.
-- Por política de auditoria por defeito inclui todas as ações (consultas, procedimentos armazenados e logins bem sucedidos e falhados) contra as bases de dados, o que pode resultar em elevado volume de registos de auditoria. Recomenda-se que os clientes [configurem auditorias para diferentes tipos de ações e grupos de ação utilizando o PowerShell.](../../sql-database/sql-database-auditing.md#manage-auditing) Configurar isto ajudará a controlar o número de ações auditadas e minimizar o risco de perda de eventos. A configuração personalizada da auditoria permite que os clientes capturem apenas os dados de auditoria necessários.
+- Por política de auditoria por defeito inclui todas as ações (consultas, procedimentos armazenados e logins bem sucedidos e falhados) contra as bases de dados, o que pode resultar em elevado volume de registos de auditoria. Recomenda-se que os clientes [configurem auditorias para diferentes tipos de ações e grupos de ação utilizando o PowerShell.](../../sql-database/sql-database-auditing.md#manage-auditing) Configurar isto ajudará a controlar o número de ações auditadas e minimizar o risco de perda de eventos. As configurações de auditoria personalizadas permitem que os clientes capturem apenas os dados de auditoria necessários.
 - Os registos de auditoria podem ser consumidos diretamente no [portal Azure,](https://portal.azure.com/)ou a partir do local de armazenamento que foi configurado.
 
 > [!NOTE]
@@ -696,7 +696,7 @@ Restringir o acesso à conta de armazenamento para apoiar a Separação de Direi
 
 Esta secção descreve os diferentes aspetos e boas práticas para gerir a postura de segurança das suas bases de dados. Inclui as melhores práticas para garantir que as suas bases de dados estão configuradas para cumprir os padrões de segurança, para descobrir e classificar e rastrear o acesso a dados potencialmente sensíveis nas suas bases de dados.
 
-### <a name="ensure-that-the-databases-are-configured-to-meet-security-best-practices"></a>Certifique-se de que a(s) base de dados está configurada para satisfazer as melhores práticas de segurança
+### <a name="ensure-that-the-databases-are-configured-to-meet-security-best-practices"></a>Certifique-se de que as bases de dados estão configuradas para atender às melhores práticas de segurança
 
 Melhorar proativamente a segurança da sua base de dados descobrindo e remediando potenciais vulnerabilidades de base de dados.
 
@@ -728,7 +728,7 @@ Descubra colunas que possam conter dados sensíveis. O que é considerado dados 
 - Utilize [a SQL Data Discovery and Classification](data-discovery-and-classification-overview.md) para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados.
   - Veja as recomendações de classificação que são criadas pela descoberta automatizada no painel de deteção e classificação de dados SQL. Aceite as classificações relevantes, de modo a que os seus dados sensíveis são persistentemente marcados com etiquetas de classificação.
   - Adicione manualmente classificações para quaisquer campos de dados sensíveis adicionais que não foram descobertos pelo mecanismo automatizado.
-- Para mais informações, consulte [a Classificação & de descoberta de dados SQL.](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification)
+- Para mais informações, consulte [a SQL Data Discovery and Classification](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 **Boas práticas:**
 
@@ -745,7 +745,7 @@ Monitorize quem acede a dados sensíveis e capture consultas sobre dados sensív
 **Como implementar:**
 
 - Utilize a Auditoria SQL e a Classificação de Dados em combinação.
-  - No seu registo [de Auditoria de Base de Dados SQL,](../../azure-sql/database/auditing-overview.md) pode rastrear o acesso especificamente a dados sensíveis. Também pode ver informações como os dados acedidos, bem como o seu rótulo de sensibilidade. Para obter mais informações, consulte [data Discovery & Classificação](data-discovery-and-classification-overview.md) e [Auditoria ao acesso a dados sensíveis.](data-discovery-and-classification-overview.md#audit-sensitive-data)
+  - No seu registo [de Auditoria de Base de Dados SQL,](../../azure-sql/database/auditing-overview.md) pode rastrear o acesso especificamente a dados sensíveis. Também pode ver informações como os dados acedidos, bem como o seu rótulo de sensibilidade. Para mais informações, consulte [data Discovery e Classification](data-discovery-and-classification-overview.md) and [Auditing access a dados sensíveis.](data-discovery-and-classification-overview.md#audit-sensitive-data)
 
 **Boas práticas:**
 
@@ -755,7 +755,7 @@ Monitorize quem acede a dados sensíveis e capture consultas sobre dados sensív
 
 ### <a name="visualize-security-and-compliance-status"></a>Visualizar o estado de segurança e conformidade
 
-Utilize um sistema unificado de gestão de segurança de infraestrutura que fortaleça a postura de segurança dos seus centros de dados (incluindo bases de dados SQL). Consulte uma lista de recomendações relativas à segurança das suas bases de dados e ao estado de conformidade.
+Utilize um sistema unificado de gestão de segurança de infraestrutura que fortaleça a postura de segurança dos seus centros de dados (incluindo bases de dados na Base de Dados SQL). Consulte uma lista de recomendações relativas à segurança das suas bases de dados e ao estado de conformidade.
 
 **Como implementar:**
 
@@ -784,14 +784,14 @@ Hoje, a Azure SQL Database e a SQL Managed Instance oferecem as seguintes técni
   - Permitir que os Serviços Azure off.
   - Apenas permita o tráfego a partir da sub-rede que contém o seu Azure VM, configurando uma regra VNet Firewall.
   - Utilizar [link privado](../../private-link/private-endpoint-overview.md)
-- Para uma SQL Managed Instance, a utilização do acesso IP privado por predefinição aborda a primeira preocupação de exfiltração de dados de um VM fraudulento. Ligue a função de delegação da sub-rede numa sub-rede para definir automaticamente a política mais restritiva numa sub-rede SQL Managed Instance.
-- A preocupação da Rogue DBA está mais exposta com uma SQL Managed Instance, uma vez que tem uma área de superfície maior e os requisitos de networking são visíveis para os clientes. A melhor mitigação para isso é aplicar todas as práticas neste guia de segurança para evitar o cenário rogue DBA em primeiro lugar (não só para exfiltração de dados). Sempre Encriptado é um método para proteger dados sensíveis encriptando-os e mantendo a chave inacessível para o DBA.
+- Para a SQL Managed Instance, a utilização do acesso IP privado por predefinição aborda a primeira preocupação de exfiltração de dados de um VM fraudulento. Ligue a função de delegação da sub-rede numa sub-rede para definir automaticamente a política mais restritiva numa sub-rede SQL Managed Instance.
+- A preocupação da Rogue DBA está mais exposta com a SQL Managed Instance, uma vez que tem uma área de superfície maior e os requisitos de networking são visíveis para os clientes. A melhor mitigação para isso é aplicar todas as práticas neste guia de segurança para evitar o cenário rogue DBA em primeiro lugar (não só para exfiltração de dados). Sempre Encriptado é um método para proteger dados sensíveis encriptando-os e mantendo a chave inacessível para o DBA.
 
 ## <a name="security-aspects-of-business-continuity-and-availability"></a>Aspetos de segurança da continuidade e disponibilidade do negócio
 
 A maioria das normas de segurança aborda a disponibilidade de dados em termos de continuidade operacional, conseguida através da implementação de redundância e capacidades de fail-over para evitar pontos únicos de falha. Para cenários de desastres, é uma prática comum manter cópias de segurança dos ficheiros Data e Log.A secção seguinte fornece uma visão geral de alto nível das capacidades que são incorporadas em Azure. Também fornece opções adicionais que podem ser configuradas para atender a necessidades específicas:
 
-- A Azure oferece alta disponibilidade incorporada: [Alta disponibilidade com base de dados SQL & SQL Gestd Instance](high-availability-sla.md)
+- A Azure oferece alta disponibilidade incorporada: [Alta disponibilidade com Base de Dados SQL e SqL Gestd Instance](high-availability-sla.md)
 
 - O nível Business Critical inclui grupos de failover, zonas de multi-disponibilidade, cópias de segurança completas e diferenciais de registo e cópias de segurança de restauração pontuais ativadas por padrão:  
   - [Alta disponibilidade - Configuração redundante de zona](high-availability-sla.md#zone-redundant-configuration)
@@ -800,6 +800,6 @@ A maioria das normas de segurança aborda a disponibilidade de dados em termos d
 
 - Características adicionais de continuidade do negócio, tais como grupos de auto-failover em diferentes geos Azure podem ser configurados como descrito aqui: [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [uma visão geral das capacidades de segurança da Base de Dados Azure SQL](security-overview.md)

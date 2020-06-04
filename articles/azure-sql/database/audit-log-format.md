@@ -9,17 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
-ms.date: 04/28/2020
-ms.openlocfilehash: 82e0cec514849eb41272e6b25dcce74eabfa2b8d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/03/2020
+ms.openlocfilehash: 760720d133dc382ba7af4aa5f0519d4d918e93cd
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190316"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322214"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato de registo de auditoria de base de dados SQL
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [A Azure SQL Database auditando](auditing-overview.md) rastreia eventos de base de dados e escreve-os para um registo de auditoria na sua conta de armazenamento Azure, ou envia-os para o Event Hub ou Log Analytics para processamento e análise a jusante.
 
@@ -92,6 +92,6 @@ Os eventos de auditoria são escritos para log analytics espaço de trabalho def
 | user_defined_event_id | user_defined_event_id_d | O ID do evento definido pelo utilizador passou como um argumento para sp_audit_write. NULO para eventos do sistema (padrão) e não zero para evento definido pelo utilizador. Para mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | A informação definida pelo utilizador passou como um argumento para sp_audit_write. NULO para eventos do sistema (padrão) e não zero para evento definido pelo utilizador. Para mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a auditoria da Base de Dados Azure SQL.](auditing-overview.md)

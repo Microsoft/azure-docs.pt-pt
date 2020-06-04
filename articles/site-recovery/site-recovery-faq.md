@@ -4,12 +4,12 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 2e6cbac9896fc2bc6b3d4d95a28a25d8177bd7a5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: b16301bb092395ac71a5bfd6f53f392ab708b10c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193549"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345177"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre recuperação do local de Azure
 
@@ -48,7 +48,7 @@ Não. A relação de faturação do Azure é diretamente com o fornecedor de ser
 Não, os dados são replicados no armazenamento Azure na sua subscrição. Quando efetua uma ativação pós-falha de teste (simulação de recuperação após desastre) ou uma ativação pós-falha real, a Recuperação de Sites cria automaticamente máquinas virtuais na sua subscrição.
 
 ### <a name="do-you-ensure-tenant-level-isolation-when-i-replicate-to-azure"></a>Garantem o isolamento de inquilinos quando faço replicação para o Azure?
-Sim.
+Yes.
 
 ### <a name="what-platforms-do-you-currently-support"></a>Quais as plataformas a que atualmente dão suporte?
 Apoiamos implementações do Azure Pack, Cloud Platform System e System Center (2012 e superior). [Saiba mais](https://technet.microsoft.com/library/dn850370.aspx) sobre a integração do Azure Pack e da Recuperação do Local.
@@ -75,7 +75,7 @@ Não, não há taxas adicionais para cache. Quando se replica na conta de armaze
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Sou um utilizador de recuperação do site Azure há mais de um mês. Ainda tenho os primeiros 31 dias livres para cada instância protegida?
 
-Sim. Todas as instâncias protegidas não incorrem em taxas de recuperação do local de Azure nos primeiros 31 dias. Por exemplo, se tem estado a proteger 10 instâncias nos últimos 6 meses e ligar uma 11ª instância à Recuperação do Site Azure, não há encargos para a 11ª instância nos primeiros 31 dias. As primeiras 10 ocorrências continuam a incorrer em acusações de recuperação do local de Azure, uma vez que estão protegidas há mais de 31 dias.
+Yes. Todas as instâncias protegidas não incorrem em taxas de recuperação do local de Azure nos primeiros 31 dias. Por exemplo, se tem estado a proteger 10 instâncias nos últimos 6 meses e ligar uma 11ª instância à Recuperação do Site Azure, não há encargos para a 11ª instância nos primeiros 31 dias. As primeiras 10 ocorrências continuam a incorrer em acusações de recuperação do local de Azure, uma vez que estão protegidas há mais de 31 dias.
 
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, vou incorrer em outras acusações do Azure?
 
@@ -97,7 +97,7 @@ Os dados de replicação são trocados entre os anfitriões Hyper-V no local, os
 A Recuperação do Local é ISO 27001:2013, 27018, HIPAA, DPA certificada, e está em processo de avaliações SOC2 e FedRAMP JAB.
 
 ### <a name="for-compliance-reasons-even-our-on-premises-metadata-must-remain-within-the-same-geographic-region-can-site-recovery-help-us"></a>Por razões de conformidade, até os nossos metadados no local devem permanecer na mesma região geográfica. A Recuperação do Local pode ajudar-nos?
-Sim. Quando cria um cofre de recuperação de locais numa região, garantimos que todos os metadados que precisamos para permitir e orquestrar a replicação e falha permanecem dentro da fronteira geográfica dessa região.
+Yes. Quando cria um cofre de recuperação de locais numa região, garantimos que todos os metadados que precisamos para permitir e orquestrar a replicação e falha permanecem dentro da fronteira geográfica dessa região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
 Para máquinas virtuais e servidores físicos, é suportada a replicação entre sites no local de encriptação em trânsito. Para máquinas virtuais e servidores físicos que se replicam no Azure, são suportados tanto a encriptação em trânsito como a [encriptação em repouso (em Azure).](https://docs.microsoft.com/azure/storage/storage-service-encryption)
@@ -123,7 +123,7 @@ Toda a comunicação entre os microserviços da Recuperação do Sítio Azure oc
 Pode utilizar a Recuperação do Site para proteger a maioria das cargas de trabalho em execução num VM ou servidor físico suportado. A Recuperação do Site fornece suporte para replicação consciente da aplicação, para que as aplicações possam ser recuperadas para um estado inteligente. Integra-se com aplicações da Microsoft como SharePoint, Exchange, Dynamics, SQL Server e Ative Directory, e trabalha em estreita colaboração com os principais fornecedores, incluindo Oracle, SAP, IBM e Red Hat. [Saiba mais](site-recovery-workload.md) sobre proteção de carga de trabalho.
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Posso gerir a recuperação após desastre para as minhas sucursais com a Recuperação de Sites?
-Sim. Quando utilizar o Site Recovery para orquestrar a replicação e o failover nas suas filiais, terá uma orquestração unificada e uma visão de todas as cargas de trabalho da sua filial numa localização central. Pode facilmente executar as ativações pós-falha e administrar a recuperação após desastre de todas as sucursais a partir da sede, sem visitar as sucursais.
+Yes. Quando utilizar o Site Recovery para orquestrar a replicação e o failover nas suas filiais, terá uma orquestração unificada e uma visão de todas as cargas de trabalho da sua filial numa localização central. Pode facilmente executar as ativações pós-falha e administrar a recuperação após desastre de todas as sucursais a partir da sede, sem visitar as sucursais.
 
 
 ### <a name="is-disaster-recovery-supported-for-azure-vms"></a>A recuperação de desastres é apoiada para os VMs do Azure?
@@ -190,13 +190,13 @@ Os discos dinâmicos são suportados ao replicar máquinas virtuais Hyper-V e ao
 
 
 ### <a name="can-i-throttle-bandwidth-allotted-for-replication-traffic"></a>Posso acelerar a largura de banda atribuída para o tráfego de replicação?
-Sim. Pode ler mais sobre a largura de banda de estrangulamento nestes artigos:
+Yes. Pode ler mais sobre a largura de banda de estrangulamento nestes artigos:
 
 * [Planeamento de capacidade para replicar VMware VMs e servidores físicos](site-recovery-plan-capacity-vmware.md)
 * [Planeamento de capacidade para replicar VMs hiper-V para Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso permitir a replicação com consistência de aplicações nos servidores Linux? 
-Sim. A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com pré e pós-opções será usado pelo Agente de Mobilidade de Recuperação do Site Azure durante a consistência da aplicação. Abaixo estão os passos para o permitir.
+Yes. A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com pré e pós-opções será usado pelo Agente de Mobilidade de Recuperação do Site Azure durante a consistência da aplicação. Abaixo estão os passos para o permitir.
 
 1. Inscreva-se como raiz na máquina.
 2. Alterar o diretório para o Agente de Mobilidade do Local de Azure instalar o local. O padrão é "/usr/local/ASR"<br>
@@ -226,6 +226,9 @@ Sim. A Azure Site Recovery for Linux Operation System suporta scripts personaliz
 ```
 
 5. Adicione o congelamento e descongele os comandos de entrada/saída em pré e pós-etapas para as aplicações que requerem consistência da aplicação. Pode optar por adicionar outro script especificando esses e invocá-lo de "customscript.sh" com pré e pós-opções.
+
+>[!Note]
+>A versão do agente de recuperação do site deve ser 9.24 ou superior para suportar scripts personalizados.
 
 ## <a name="failover"></a>Ativação pós-falha
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se estou a falhar com o Azure, como acedo aos VMs do Azure depois do fracasso?
@@ -257,7 +260,7 @@ Sim, pode usar a recuperação de localização alternativa para falhar com um a
 ## <a name="automation"></a>Automatização
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Posso automatizar cenários de recuperação de sítios com um SDK?
-Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, os cenários suportados para a implementação da Recuperação do Local utilizando o PowerShell:
+Yes. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, os cenários suportados para a implementação da Recuperação do Local utilizando o PowerShell:
 
 * [Replicar VMs hiper-V em nuvens VMMs para Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
 * [Replicar VMs Hiper-V sem VMM para Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
@@ -269,6 +272,6 @@ Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a 
 
 [Conheça novas](site-recovery-whats-new.md) atualizações e [obtenha informações sobre rollup](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Leia a [Descrição geral da Recuperação de Sites](site-recovery-overview.md)
 

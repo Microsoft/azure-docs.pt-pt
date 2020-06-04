@@ -13,15 +13,15 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 49b669627507af0e3e7386f31e344082cc4686df
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d7ce3a19ddb5f14e53a8821cf070500f8e3eb061
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219314"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338446"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registar várias máquinas virtuais SQL em Azure com o fornecedor de recursos SQL VM
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo descreve como registar as suas máquinas virtuais SQL Server (VMs) a granel em Azure com o fornecedor de recursos SQL VM utilizando o `Register-SqlVMs` cmdlet PowerShell.
 
@@ -35,7 +35,7 @@ Para obter mais informações sobre o fornecedor de recursos, consulte o [fornec
 
 Para registar o seu SQL Server VM com o fornecedor de recursos, necessitará do seguinte: 
 
-- Uma [subscrição do Azure](https://azure.microsoft.com/free/) que foi [registada com o fornecedor de recursos](sql-vm-resource-provider-register.md#register-subscription-with-rp) e contém máquinas virtuais SQL Server não registadas. 
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/) que foi [registada com o fornecedor de recursos](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) e contém máquinas virtuais SQL Server não registadas. 
 - As credenciais de cliente utilizadas para registar as máquinas virtuais existem em qualquer uma das seguintes funções RBAC: **Contribuinte máquina virtual,** **contribuinte**ou **Proprietário.** 
 - A versão mais recente do [Az PowerShell.](/powershell/azure/new-azureps-module-az) 
 - A versão mais recente de [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
@@ -78,7 +78,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Exemplo de saída: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -155,7 +155,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="register-specific-vms-in-single-resource-group"></a>Registar VMs específicos em grupo de recursos únicos
+## <a name="register-specific-vms-in-a-single-resource-group"></a>Registar VMs específicos num único grupo de recursos
 
 Utilize o seguinte cmdlet para registar máquinas virtuais específicas do SQL Server num único grupo de recursos:
 
@@ -234,7 +234,7 @@ Copie o guião completo e guarde-o como `RegisterSqLVMs.psm1` .
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes artigos: 
 

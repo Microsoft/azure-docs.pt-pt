@@ -1,43 +1,45 @@
 ---
 title: Escolha tamanhos VM para piscinas
-description: Como escolher entre os tamanhos vm disponíveis para os nódosos de computação em piscinas de Lote Azure
-ms.topic: how-to
-ms.date: 09/12/2019
+description: Como escolher entre os tamanhos VM disponíveis para nóns computacional em piscinas Azure Batch
+ms.topic: conceptual
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 1e3bcc51fafe10f4a753bdc79795f9afd00821d7
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779159"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323829"
 ---
-# <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para comum de cafés em uma piscina de lote azure
+# <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para nó de computação numa piscina Azure Batch
 
-Ao selecionar um tamanho de nó para uma piscina de Lote Azure, pode escolher entre quase todos os tamanhos vm disponíveis em Azure. O Azure oferece uma gama de tamanhos para VMs Linux e Windows para diferentes cargas de trabalho.
+Ao selecionar um tamanho de nó para uma piscina Azure Batch, pode escolher entre quase todos os tamanhos VM disponíveis em Azure. O Azure oferece uma gama de tamanhos para Os VMs Linux e Windows para diferentes cargas de trabalho.
 
-Existem algumas exceções e limitações para escolher um tamanho VM:
+Existem algumas exceções e limitações à escolha de um tamanho VM:
 
-* Algumas séries VM ou tamanhos VM não são suportadas em Batch.
-* Alguns tamanhos vm são restritos e precisam de ser especificamente ativados antes de poderem ser atribuídos.
+* Algumas séries VM ou tamanhos VM não são suportados em Batch.
+* Alguns tamanhos VM são restritos e precisam de ser especificamente ativados antes de poderem ser atribuídos.
 
 ## <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos VM suportados
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Piscinas na configuração da Máquina Virtual
 
-As piscinas de lote na configuração da Máquina Virtual suportam quase todos os tamanhos vm[(Linux,](../virtual-machines/linux/sizes.md) [Windows).](../virtual-machines/windows/sizes.md) Consulte a tabela seguinte para saber mais sobre tamanhos e restrições suportadas.
+As piscinas de lote na configuração da Máquina Virtual suportam quase todos os tamanhos VM[(Linux,](../virtual-machines/linux/sizes.md) [Windows](../virtual-machines/windows/sizes.md)). Consulte a tabela seguinte para saber mais sobre tamanhos e restrições suportados.
 
 | Série das VMs  | Tamanhos suportados |
 |------------|---------|
 | Básico A | Todos os *tamanhos, exceto* Basic_A0 (A0) |
-| A | Todos os tamanhos, *exceto* Standard_A0 |
+| A | Todos os *tamanhos, exceto* Standard_A0 |
 | Av2 | Todos os tamanhos |
 | B | Nenhum |
 | DC | Nenhum |
 | Dv2, DSv2 | Todos os tamanhos |
-| Dv3, Dsv3 | Todos os tamanhos |
-| Dav4 | Nenhum - ainda não disponível |
-| Ev3, Esv3 | Todos os tamanhos, exceto E64is_v3 e E64i_v3 |
-| Eav4 | Nenhum - ainda não disponível |
+| Dv3 | Todos os tamanhos |
+| Dav4<sup>1</sup> | Nenhum - ainda não disponível |
+| Dasv4<sup>1</sup> | Todos os tamanhos, exceto Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Ev3 | Todos os tamanhos, exceto E64is_v3 e E64i_v3 |
+| Eav4<sup>1</sup> | Todos os tamanhos, exceto Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
+| Easv4<sup>1</sup> | Todos os tamanhos, exceto Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
@@ -46,8 +48,8 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | HBv2<sup>1</sup> | Todos os tamanhos |
 | HC<sup>1</sup> | Todos os tamanhos |
 | Ls | Todos os tamanhos |
-| Rio Lsv2 | Nenhum - ainda não disponível |
-| M<sup>1</sup> | Todos os tamanhos, com exceção de M64, M64m, M128, M128m |
+| Lsv2<sup>1</sup> | Todos os tamanhos |
+| M<sup>1</sup> | Todos os tamanhos |
 | Mv2 | Nenhum - ainda não disponível |
 | NC | Todos os tamanhos |
 | NCv2<sup>1</sup> | Todos os tamanhos |
@@ -59,11 +61,11 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | NVv4 | Nenhum |
 | SAP HANA | Nenhum |
 
-<sup>1</sup> Estes tamanhos vm podem ser atribuídos em piscinas de lote na configuração da Máquina Virtual, mas você deve criar uma nova conta Batch e solicitar um aumento específico de [quota](batch-quota-limit.md#increase-a-quota). Esta limitação será removida assim que a quota vCPU por série VM for totalmente suportada para as contas do Lote.
+<sup>1</sup> Estes tamanhos VM podem ser atribuídos em piscinas de Lote na configuração da Máquina Virtual, mas você deve criar uma nova conta Batch e solicitar um aumento específico [de quota.](batch-quota-limit.md#increase-a-quota) Esta limitação será eliminada uma vez que a quota vCPU por série VM seja totalmente suportada para as contas batch.
 
-### <a name="pools-in-cloud-service-configuration"></a>Piscinas na configuração do Serviço cloud
+### <a name="pools-in-cloud-service-configuration"></a>Piscinas na configuração do Serviço de Nuvem
 
-As piscinas de lote na configuração do Serviço Cloud suportam todos os [tamanhos vm para serviços](../cloud-services/cloud-services-sizes-specs.md) de nuvem, **exceto** para o seguinte:
+As piscinas de lote na configuração do Serviço de Nuvem suportam todos os [tamanhos VM para serviços em nuvem,](../cloud-services/cloud-services-sizes-specs.md) **exceto** para os seguintes:
 
 | Série das VMs  | Tamanhos não suportados |
 |------------|-------------------|
@@ -72,19 +74,19 @@ As piscinas de lote na configuração do Serviço Cloud suportam todos os [taman
 
 ## <a name="size-considerations"></a>Considerações sobre o tamanho
 
-* **Requisitos de aplicação** - Considere as características e requisitos da aplicação que executará nos nódosos. Alguns aspetos, como se a aplicação tem vários threads e a quantidade de memória que consome, podem ajudar a determinar o tamanho de nó mais adequado e económico. Para cargas de trabalho de MPI em [várias instâncias](batch-mpi.md) ou aplicações CUDA, considere tamanhos de VM sancionados de [HPC](../virtual-machines/linux/sizes-hpc.md) ou [GPU,](../virtual-machines/linux/sizes-gpu.md) respectivamente. (Ver utilização de [instâncias com capacidade rdma ou GPU em piscinas](batch-pool-compute-intensive-sizes.md)de lote .)
+* **Requisitos de aplicação** - Considere as características e requisitos da aplicação que irá executar nos nós. Alguns aspetos, como se a aplicação tem vários threads e a quantidade de memória que consome, podem ajudar a determinar o tamanho de nó mais adequado e económico. Para [cargas de trabalho de MPI](batch-mpi.md) de várias instâncias ou aplicações CUDA, considere tamanhos de [VM](../virtual-machines/linux/sizes-hpc.md) especializados ou [de GPU,](../virtual-machines/linux/sizes-gpu.md) respectivamente. (Ver [utilizar casos com capacidade de RDMA ou GPU em piscinas de lote](batch-pool-compute-intensive-sizes.md).)
 
-* **Tarefas por nó** - É típico selecionar um tamanho de nó assumindo que uma tarefa corre num nó de cada vez. No entanto, pode ser vantajoso ter múltiplas tarefas (e, portanto, múltiplas instâncias de aplicação) [executadas em paralelo](batch-parallel-node-tasks.md) em nós de cálculo durante a execução do emprego. Neste caso, é comum escolher um tamanho de nó multicore para acomodar a procura crescente de execução de tarefas paralelas.
+* **Tarefas por nó** - É típico selecionar um tamanho de nó assumindo que uma tarefa é executado num nó de cada vez. No entanto, pode ser vantajoso ter múltiplas tarefas (e, portanto, múltiplas instâncias de aplicação) [executadas em paralelo em](batch-parallel-node-tasks.md) nós computacional durante a execução do trabalho. Neste caso, é comum escolher um tamanho de nó multicore para acomodar a procura crescente de execução paralela de tarefas.
 
-* Níveis de **carga para diferentes tarefas** - Todos os nós de uma piscina têm o mesmo tamanho. Se quiser executar aplicações com requisitos de sistema e/ou níveis de carga diferentes, recomendamos utilizar conjuntos separados.
+* **Níveis de carga para diferentes tarefas** - Todos os nós numa piscina têm o mesmo tamanho. Se quiser executar aplicações com requisitos de sistema e/ou níveis de carga diferentes, recomendamos utilizar conjuntos separados.
 
-* **Disponibilidade da região** - Uma série ou tamanho VM pode não estar disponível nas regiões onde cria as suas contas de Lote. Para verificar se existe um tamanho disponível, consulte [produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
+* **Disponibilidade da região** - Uma série ou tamanho VM pode não estar disponível nas regiões onde cria as suas contas Batch. Para verificar se existe um tamanho, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 
-* **Quotas** - As quotas de [núcleos](batch-quota-limit.md#resource-quotas) na sua conta Batch podem limitar o número de nós de um dado tamanho que pode adicionar a uma piscina de Lote. Para solicitar um aumento de quota, consulte [este artigo.](batch-quota-limit.md#increase-a-quota) 
+* **Quotas** - As [quotas de núcleos](batch-quota-limit.md#resource-quotas) na sua conta Batch podem limitar o número de nós de um dado tamanho que pode adicionar a uma piscina de Lote. Para solicitar um aumento de quota, consulte [este artigo.](batch-quota-limit.md#increase-a-quota) 
 
-* **Configuração** da piscina - Em geral, tem mais opções de tamanho VM quando cria uma piscina na configuração da Máquina Virtual, em comparação com a configuração do Cloud Service.
+* **Configuração da piscina** - Em geral, tem mais opções de tamanho VM quando cria uma piscina na configuração da Máquina Virtual, em comparação com a configuração do Serviço de Nuvem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Conheça o fluxo de trabalho do [serviço Batch e recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
-* Para obter informações sobre a utilização de tamanhos vm intensivos de computação, consulte [Utilize instâncias capazes de RDMA ou gpu-habilitadas em piscinas](batch-pool-compute-intensive-sizes.md)de lote .
+* Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
+* Para obter informações sobre a utilização de tamanhos de VM intensivos em computação, consulte [utilize casos com capacidade de RDMA ou GPU em piscinas de Lote](batch-pool-compute-intensive-sizes.md).
