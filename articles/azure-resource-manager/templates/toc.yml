@@ -61,11 +61,13 @@
         - name: HDInsight - ML Services
           href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cofre de Chaves
-          href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Load balancer
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Aplicação gerida
           href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Machine Learning
+          href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Hubs de Notificação
           href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Política
@@ -81,7 +83,7 @@
         - name: Site Recovery
           href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: SQL Database
-          href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Conjuntos de dimensionamento de máquinas virtuais - Linux
           href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Conjuntos de dimensionamento de máquinas virtuais - Windows
@@ -164,6 +166,8 @@
   items:
     - name: Modelo de melhores práticas
       href: template-best-practices.md
+    - name: Perguntas mais frequentes
+      href: frequently-asked-questions.md
     - name: Modelos para a consistência de cloud
       href: templates-cloud-consistency.md
     - name: Modos de implementação

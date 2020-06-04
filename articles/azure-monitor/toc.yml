@@ -1081,20 +1081,6 @@
               href: platform/view-designer-parts.md
             - name: Filtros
               href: platform/view-designer-filters.md
-        - name: Soluções personalizadas
-          items:
-            - name: Estrutura e compilação
-              href: insights/solutions-creating.md
-            - name: Ficheiro de solução
-              href: insights/solutions-solution-file.md
-            - name: Recursos de automatização
-              href: insights/solutions-resources-automation.md
-            - name: Pesquisas de registos e alertas
-              href: insights/solutions-resources-searches-alerts.md
-            - name: Vistas
-              href: insights/solutions-resources-views.md
-            - name: Melhores práticas
-              href: insights/solutions-best-practices.md
     - name: Livros
       items:
         - name: Descrição geral
