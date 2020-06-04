@@ -3,16 +3,16 @@ title: 'Quickstart: Adicione perguntas e resposta no portal QnA Maker'
 description: Este quickstart mostra como adicionar pares de perguntas e respostas com metadados para que os seus utilizadores possam encontrar a resposta certa à sua pergunta.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266581"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331394"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Quickstart: Adicione perguntas e responda com o portal QnA Maker
 
-Uma vez criada uma base de conhecimento, adicione pares de perguntas e respostas (QnA) com metadados para filtrar a resposta. As perguntas na tabela seguinte são sobre os limites de serviço da Azure, mas cada um tem a ver com um serviço Azure diferente.
+Uma vez criada uma base de conhecimento, adicione pares de perguntas e respostas (QnA) com metadados para filtrar a resposta. As perguntas na tabela seguinte são sobre os limites de serviço Azure, mas cada um tem a ver com um serviço de pesquisa Azure diferente.
 
 <a name="qna-table"></a>
 
@@ -103,7 +103,7 @@ Editou a sua base de conhecimentos para suportar mais perguntas e forneceu pares
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Obter respostas com o Postman ou cURL](get-answer-from-knowledge-base-using-url-tool.md)
