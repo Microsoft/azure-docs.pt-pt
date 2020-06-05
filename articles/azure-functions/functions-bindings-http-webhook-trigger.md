@@ -1,29 +1,29 @@
 ---
-title: Gatilho DE funções azure HTTP
-description: Aprenda a chamar uma Função Azure via HTTP.
+title: Azure Funções HTTP Trigger
+description: Saiba como chamar uma Função Azure via HTTP.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2f102a2a335d61326ccb02a898f425e7924f7fdb
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648955"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434033"
 ---
-# <a name="azure-functions-http-trigger"></a>Gatilho DE funções azure HTTP
+# <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
 O gatilho HTTP permite-lhe invocar uma função com um pedido HTTP. Pode utilizar um gatilho HTTP para construir APIs sem servidor e responder a webhooks.
 
-O valor de devolução predefinido para uma função desencadeada pelo HTTP é:
+O valor de retorno predefinido para uma função desencadeada por HTTP é:
 
 - `HTTP 204 No Content`com um corpo vazio em Funções 2.x e superior
-- `HTTP 200 OK`com um corpo vazio nas Funções 1.x
+- `HTTP 200 OK`com um corpo vazio em Funções 1.x
 
-Para modificar a resposta HTTP, configure uma [ligação de saída](./functions-bindings-http-webhook-output.md).
+Para modificar a resposta HTTP, configurar uma [ligação de saída](./functions-bindings-http-webhook-output.md).
 
-Para obter mais informações sobre as ligações HTTP, consulte a [visão geral](./functions-bindings-http-webhook.md) e a [referência vinculativa](./functions-bindings-http-webhook-output.md)de saída .
+Para obter mais informações sobre as ligações HTTP, consulte a [visão geral](./functions-bindings-http-webhook.md) e [a referência de encadernação de saída.](./functions-bindings-http-webhook-output.md)
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -31,7 +31,7 @@ Para obter mais informações sobre as ligações HTTP, consulte a [visão geral
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que procura um parâmetro na corda de `name` consulta ou no corpo do pedido HTTP. Note que o valor de retorno é usado para a encadernação de saída, mas não é necessário um atributo de valor de retorno.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP. Note que o valor de devolução é usado para a ligação de saída, mas não é necessário um atributo de valor de devolução.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -55,9 +55,9 @@ public static async Task<IActionResult> Run(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função procura um parâmetro na corda de `name` consulta ou no corpo do pedido HTTP.
+O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
 
-Aqui está o ficheiro *função.json:*
+Aqui está o ficheiro *function.json:*
 
 ```json
 {
@@ -82,7 +82,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código de script C# que se liga `HttpRequest` a:
 
@@ -110,7 +110,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-Pode ligar-se a um objeto personalizado em vez de `HttpRequest` . Este objeto é criado a partir do corpo do pedido e analisado como JSON. Da mesma forma, um tipo pode ser passado para a ligação de saída de resposta HTTP e devolvido como o corpo de resposta, juntamente com um código de `200` estado.
+Pode ligar-se a um objeto personalizado em vez de `HttpRequest` . Este objeto é criado a partir do corpo do pedido e analisado como JSON. Da mesma forma, um tipo pode ser passado para a ligação de saída http e devolvido como o corpo de resposta, juntamente com um `200` código de estado.
 
 ```csharp
 using System.Net;
@@ -131,9 +131,9 @@ public class Person {
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função procura um parâmetro na corda de `name` consulta ou no corpo do pedido HTTP.
+O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
 
-Aqui está o ficheiro *função.json:*
+Aqui está o ficheiro *function.json:*
 
 ```json
 {
@@ -154,7 +154,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código JavaScript:
 
@@ -178,11 +178,11 @@ module.exports = function(context, req) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação. A função procura um parâmetro na corda de `name` consulta ou no corpo do pedido HTTP.
+O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
 
-Aqui está o ficheiro *função.json:*
+Aqui está o ficheiro *function.json:*
 
 ```json
 {
@@ -204,7 +204,7 @@ Aqui está o ficheiro *função.json:*
 }
 ```
 
-A secção de [configuração](#configuration) explica estas propriedades.
+A secção [de configuração](#configuration) explica estas propriedades.
 
 Aqui está o código Python:
 
@@ -236,16 +236,16 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-* [Leia o parâmetro da corda de consulta](#read-parameter-from-the-query-string)
-* [Ler corpo de um pedido post](#read-body-from-a-post-request)
-* [Ler parâmetro de uma rota](#read-parameter-from-a-route)
-* [Leia o corpo pojo de um pedido post](#read-pojo-body-from-a-post-request)
+* [Leia o parâmetro da cadeia de consulta](#read-parameter-from-the-query-string)
+* [Leia o corpo a partir de um pedido de POST](#read-body-from-a-post-request)
+* [Leia o parâmetro de uma rota](#read-parameter-from-a-route)
+* [Leia o corpo do POJO a partir de um pedido de CORREIO](#read-pojo-body-from-a-post-request)
 
-Os exemplos seguintes mostram a ligação do gatilho HTTP.
+Os exemplos a seguir mostram a ligação do gatilho HTTP.
 
-#### <a name="read-parameter-from-the-query-string"></a>Leia o parâmetro da corda de consulta
+#### <a name="read-parameter-from-the-query-string"></a>Leia o parâmetro da cadeia de consulta
 
-Este exemplo lê um parâmetro, nomeado, a partir da corda de `id` consulta, e usa-o para construir um documento JSON devolvido ao cliente, com tipo de conteúdo `application/json` .
+Este exemplo lê um parâmetro, denominado `id` , a partir da cadeia de consulta, e usa-o para construir um documento JSON devolvido ao cliente, com o tipo de conteúdo `application/json` .
 
 ```java
 @FunctionName("TriggerStringGet")
@@ -282,9 +282,9 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-body-from-a-post-request"></a>Ler corpo de um pedido post
+#### <a name="read-body-from-a-post-request"></a>Leia o corpo a partir de um pedido de POST
 
-Este exemplo lê o corpo de um pedido post, como `String` a , e usa-o para construir um documento JSON devolvido ao cliente, com tipo de conteúdo `application/json` .
+Este exemplo lê o corpo de um pedido POST, como `String` um, e usa-o para construir um documento JSON devolvido ao cliente, com tipo de `application/json` conteúdo.
 
 ```java
     @FunctionName("TriggerStringPost")
@@ -318,9 +318,9 @@ Este exemplo lê o corpo de um pedido post, como `String` a , e usa-o para const
     }
 ```
 
-#### <a name="read-parameter-from-a-route"></a>Ler parâmetro de uma rota
+#### <a name="read-parameter-from-a-route"></a>Leia o parâmetro de uma rota
 
-Este exemplo lê um parâmetro obrigatório, `id` nomeado, e um parâmetro opcional `name` da rota, e usa-os para construir um documento JSON devolvido ao cliente, com tipo de conteúdo `application/json` . T
+Este exemplo lê um parâmetro obrigatório, `id` nomeado, e um parâmetro opcional `name` a partir do percurso, e usa-os para construir um documento JSON devolvido ao cliente, com tipo de `application/json` conteúdo. T
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -356,7 +356,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-pojo-body-from-a-post-request"></a>Leia o corpo pojo de um pedido post
+#### <a name="read-pojo-body-from-a-post-request"></a>Leia o corpo do POJO a partir de um pedido de CORREIO
 
 Aqui está o código para a `ToDoItem` classe, referenciado neste exemplo:
 
@@ -388,7 +388,7 @@ public class ToDoItem {
 
 ```
 
-Este exemplo lê o corpo de um pedido do POST. O organismo de pedido é automaticamente desserializado num `ToDoItem` objeto, e é devolvido ao cliente, com tipo de conteúdo `application/json` . O parâmetro é serializado pelo tempo de `ToDoItem` funcionamento das Funções, uma vez que é atribuído à `body` propriedade da `HttpMessageResponse.Builder` classe.
+Este exemplo lê o corpo de um pedido de CORREIO. O corpo de pedido é automaticamente des serializado num `ToDoItem` objeto, e é devolvido ao cliente, com o tipo de conteúdo `application/json` . O `ToDoItem` parâmetro é serializado pelo tempo de execução de Funções, uma vez que é atribuído à `body` propriedade da `HttpMessageResponse.Builder` classe.
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -424,13 +424,13 @@ public HttpResponseMessage run(
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-Nas bibliotecas da [classe C#](functions-dotnet-class-library.md) e em Java, o `HttpTrigger` atributo está disponível para configurar a função.
+Nas [bibliotecas de classe C#](functions-dotnet-class-library.md) e Java, o `HttpTrigger` atributo está disponível para configurar a função.
 
-Pode definir o nível de autorização e métodos HTTP admissíveis em parâmetros de construção de atributos, tipo webhook e um modelo de rota. Para obter mais informações sobre estas definições, consulte [a configuração](#configuration).
+Pode definir o nível de autorização e os métodos HTTP admissíveis nos parâmetros de construção de atributos, tipo webhook e um modelo de rota. Para obter mais informações sobre estas definições, consulte [a configuração](#configuration).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Este exemplo demonstra como usar o atributo [HttpTrigger.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs)
+Este exemplo demonstra como utilizar o atributo [HttpTrigger.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs)
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -445,19 +445,19 @@ Para um exemplo completo, consulte o exemplo do [gatilho](#example).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Este exemplo demonstra como usar o atributo [HttpTrigger.](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java)
+Este exemplo demonstra como utilizar o atributo [HttpTrigger.](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java)
 
 ```java
 @FunctionName("HttpTriggerJava")
@@ -477,29 +477,29 @@ Para um exemplo completo, consulte o exemplo do [gatilho](#example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `HttpTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `HttpTrigger` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.json propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-| **tipo** | n/a| Obrigatório - deve ser definido para `httpTrigger` . |
-| **direção** | n/a| Obrigatório - deve ser definido para `in` . |
-| **nome** | n/a| Obrigatório - o nome variável utilizado no código de função para o corpo de pedido ou pedido. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais as teclas, se houver, que devem estar presentes no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave API.</li><li><code>function</code>&mdash;É necessária uma chave API específica para a função. Este é o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave principal é necessária.</li></ul> Para mais informações, consulte a secção sobre [as chaves](#authorization-keys)de autorização . |
-| **métodos** |**Métodos** | Uma série dos métodos HTTP aos quais a função responde. Se não especificada, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final http](#customize-the-http-endpoint). |
-| **rota** | **Encaminhar** | Define o modelo de rota, controlando a que solicitam URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final http](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Suportado apenas para o tempo de execução da versão 1.x._<br/><br/>Configures o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não deprete a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final de webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o tipo de `application/json` conteúdo.</li><li><code>github</code>&mdash;A função responde aos [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [ganchos de teia Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção Slack webhooks mais tarde neste artigo.</li></ul>|
+| **tipo** | n/a| Necessário - deve ser definido para `httpTrigger` . |
+| **direção** | n/a| Necessário - deve ser definido para `in` . |
+| **nome** | n/a| Requerido - o nome variável utilizado no código de função para o órgão de pedido ou pedido. |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais as teclas, se houver, que precisam de estar presentes no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave API.</li><li><code>function</code>&mdash;É necessária uma chave API específica para a função. Este é o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave principal é necessária.</li></ul> Para mais informações, consulte a secção sobre [as chaves de autorização.](#authorization-keys) |
+| **métodos** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
+| **rota** | **Encaminhar** | Define o modelo de rota, controlando a que pedido URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
+| **webHookType** | **WebHookType** | _Suportado apenas para a versão 1.x tempo de execução._<br/><br/>Configura o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não desateia a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks do GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção De webhooks Slack mais tarde neste artigo.</li></ul>|
 
 ## <a name="payload"></a>Carga útil
 
-O tipo de entrada do gatilho é declarado como um `HttpRequest` tipo ou um tipo personalizado. Se `HttpRequest` escolher, terá acesso total ao objeto de pedido. Para um tipo personalizado, o tempo de execução tenta analisar o corpo de pedido da JSON para definir as propriedades do objeto.
+O tipo de entrada do gatilho é declarado como `HttpRequest` um ou outro tipo personalizado. Se `HttpRequest` escolher, terá acesso total ao objeto pedido. Para um tipo personalizado, o tempo de execução tenta analisar o corpo de pedido JSON para definir as propriedades do objeto.
 
-## <a name="customize-the-http-endpoint"></a>Personalize o ponto final http
+## <a name="customize-the-http-endpoint"></a>Personalize o ponto final HTTP
 
-Por predefinição quando cria uma função para um gatilho HTTP, a função é endereçada com uma rota do formulário:
+Por predefinição, quando cria uma função para um gatilho HTTP, a função é endereçada com uma rota do formulário:
 
     http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 
-Pode personalizar esta rota utilizando a propriedade opcional `route` na encadernação de entrada do gatilho HTTP. Como exemplo, o seguinte ficheiro *função.json* define uma `route` propriedade para um gatilho HTTP:
+Pode personalizar esta rota utilizando a propriedade opcional `route` na ligação de entrada do gatilho HTTP. Como exemplo, o seguinte ficheiro *função.json* define uma `route` propriedade para um gatilho HTTP:
 
 ```json
 {
@@ -530,7 +530,7 @@ Esta configuração permite que o código de função suporte dois parâmetros n
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Pode utilizar qualquer restrição de [rota Web API](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os seus parâmetros. O código de função C# seguinte utiliza ambos os parâmetros.
+Pode utilizar qualquer [Restrição de Rota da API web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os seus parâmetros. O seguinte código de função C# utiliza ambos os parâmetros.
 
 ```csharp
 using System.Net;
@@ -546,7 +546,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Pode utilizar qualquer restrição de [rota Web API](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os seus parâmetros. O código de função C# seguinte utiliza ambos os parâmetros.
+Pode utilizar qualquer [Restrição de Rota da API web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os seus parâmetros. O seguinte código de função C# utiliza ambos os parâmetros.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -564,9 +564,9 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-No Nó, o tempo de funcionamento das funções fornece o corpo de pedido do `context` objeto. Para mais informações, consulte o exemplo do [gatilho javaScript](#example).
+Em Nó, o tempo de execução de Funções fornece o corpo de pedido do `context` objeto. Para obter mais informações, consulte o exemplo do [gatilho JavaScript](#example).
 
-O exemplo que se segue mostra como ler os parâmetros da rota a partir de `context.bindingData` .
+O exemplo a seguir mostra como ler os parâmetros da rota a partir de `context.bindingData` .
 
 ```javascript
 module.exports = function (context, req) {
@@ -583,11 +583,11 @@ module.exports = function (context, req) {
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-O contexto de execução da função é exposto através de um parâmetro declarado como `func.HttpRequest` . Esta instância permite que uma função aceda a parâmetros de rota de dados, valores de cordas de consulta e métodos que lhe permitam devolver respostas HTTP.
+O contexto de execução da função é exposto através de um parâmetro declarado como `func.HttpRequest` . Este caso permite que uma função aceda a parâmetros de rota de dados, valores de cadeia de consulta e métodos que lhe permitam devolver respostas HTTP.
 
-Uma vez definidos, os parâmetros da rota estão disponíveis para a função, chamando o `route_params` método.
+Uma vez definidos, os parâmetros de rota estão disponíveis para a função, chamando o `route_params` método.
 
 ```python
 import logging
@@ -605,9 +605,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O contexto de execução da função é propriedades declaradas no `HttpTrigger` atributo. O atributo permite definir parâmetros de rota, níveis de autorização, verbos HTTP e a instância de pedido de entrada.
+O contexto de execução da função são propriedades declaradas no `HttpTrigger` atributo. O atributo permite-lhe definir parâmetros de rota, níveis de autorização, verbos HTTP e a instância de pedido de entrada.
 
-Os parâmetros da rota são definidos através do `HttpTrigger` atributo.
+Os parâmetros de rota são definidos através do `HttpTrigger` atributo.
 
 ```java
 package com.function;
@@ -634,21 +634,23 @@ public class HttpTriggerJava {
 
 ---
 
-Por predefinição, todas as rotas de função são pré-fixadas com *api*. Também pode personalizar ou remover o prefixo utilizando a `http.routePrefix` propriedade no seu ficheiro [host.json.](functions-host-json.md) O exemplo seguinte remove o prefixo da rota *api* utilizando uma corda vazia para o prefixo no ficheiro *host.json.*
+Por predefinição, todas as vias de função são prefixadas com *api*. Também pode personalizar ou remover o prefixo usando a `extensions.http.routePrefix` propriedade no seu ficheiro [host.json.](functions-host-json.md) O exemplo a seguir remove o prefixo da rota *api* utilizando uma corda vazia para o prefixo no ficheiro *host.json.*
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
 
-## <a name="using-route-parameters"></a>Utilização de parâmetros de rota
+## <a name="using-route-parameters"></a>Usando parâmetros de rota
 
-Os parâmetros de rota que definem o padrão de uma função `route` estão disponíveis para cada encadernação. Por exemplo, se tiver uma rota definida como `"route": "products/{id}"` então uma ligação de armazenamento de mesa pode usar o valor do parâmetro na `{id}` configuração de encadernação.
+Os parâmetros de rota que definiram o padrão de uma função `route` estão disponíveis para cada encadernação. Por exemplo, se tiver uma rota definida como `"route": "products/{id}"` então uma ligação de armazenamento de mesa pode usar o valor do `{id}` parâmetro na configuração de encadernação.
 
-A configuração seguinte mostra como o `{id}` parâmetro é passado para o encadernação `rowKey` .
+A seguinte configuração mostra como o `{id}` parâmetro é passado para o da encadernação `rowKey` .
 
 ```json
 {
@@ -661,15 +663,15 @@ A configuração seguinte mostra como o `{id}` parâmetro é passado para o enca
 }
 ```
 
-## <a name="working-with-client-identities"></a>Trabalhar com identidades de clientes
+## <a name="working-with-client-identities"></a>Trabalhar com identidades de cliente
 
-Se a sua aplicação de funções estiver a utilizar a [Autenticação /Autorização](../app-service/overview-authentication-authorization.md)do Serviço app, pode ver informações sobre clientes autenticados a partir do seu código. Esta informação está disponível como [cabeçalhos de pedido injetados pela plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+Se a sua aplicação de função estiver a utilizar [a Autenticação/Autorização do Serviço de Aplicações,](../app-service/overview-authentication-authorization.md)pode visualizar informações sobre clientes autenticados a partir do seu código. Esta informação está disponível como [cabeçalhos de pedido injetados pela plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-Pode também ler esta informação a partir de dados vinculativos. Esta capacidade só está disponível para o tempo de funcionamento das Funções em 2.x e superior. Atualmente, apenas está disponível para línguas .NET.
+Também pode ler estas informações a partir de dados vinculativos. Esta capacidade só está disponível para o tempo de funcionamento das Funções em 2.x ou superior. Atualmente também está disponível apenas para idiomas .NET.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-As informações relativas aos clientes autenticados estão disponíveis como Diretor de [Sinistros.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostra o seguinte exemplo:
+Informações relativas a clientes autenticados estão disponíveis como [SinistrosPrincipal.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostrado no seguinte exemplo:
 
 ```csharp
 using System.Net;
@@ -684,7 +686,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 }
 ```
 
-Alternativamente, o ClaimsPrincipal pode simplesmente ser incluído como um parâmetro adicional na assinatura da função:
+Em alternativa, o ClaimsPrincipal pode simplesmente ser incluído como um parâmetro adicional na assinatura da função:
 
 ```csharp
 using System.Net;
@@ -701,7 +703,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-As informações relativas aos clientes autenticados estão disponíveis como Diretor de [Sinistros.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostra o seguinte exemplo:
+Informações relativas a clientes autenticados estão disponíveis como [SinistrosPrincipal.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostrado no seguinte exemplo:
 
 ```csharp
 using System.Net;
@@ -716,7 +718,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 }
 ```
 
-Alternativamente, o ClaimsPrincipal pode simplesmente ser incluído como um parâmetro adicional na assinatura da função:
+Em alternativa, o ClaimsPrincipal pode simplesmente ser incluído como um parâmetro adicional na assinatura da função:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -735,88 +737,88 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+O utilizador autenticado está disponível através [de cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+O utilizador autenticado está disponível através [de cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # <a name="java"></a>[Java](#tab/java)
 
-O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+O utilizador autenticado está disponível através [de cabeçalhos HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>Teclas de acesso de função
 
 > [!IMPORTANT]
-> Embora as teclas possam ajudar a obfusizar os seus pontos finais HTTP durante o desenvolvimento, não se destinam a assegurar um gatilho HTTP na produção. Para saber mais, consulte [Secure um ponto final HTTP na produção.](#secure-an-http-endpoint-in-production)
+> Embora as teclas possam ajudar a obstacular os seus pontos finais HTTP durante o desenvolvimento, não se destinam a proteger um gatilho HTTP na produção. Para saber mais, consulte [Secure a HTTP endpoint na produção.](#secure-an-http-endpoint-in-production)
 
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Obtenção de chaves
 
-As chaves são armazenadas como parte da sua aplicação de funções em Azure e são encriptadas em repouso. Para ver as suas teclas, crie novas, ou role chaves para novos valores, navegue para uma das suas funções desencadeadas pelo HTTP no [portal Azure](https://portal.azure.com) e selecione **Manage**.
+As chaves são armazenadas como parte da sua aplicação de função em Azure e são encriptadas em repouso. Para visualizar as suas teclas, crie as novas ou role teclas para novos valores, navegue numa das suas funções desencadeadas por HTTP no [portal Azure](https://portal.azure.com) e selecione **Gerir**.
 
-![Gerencie as teclas de função no portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+![Gerir as teclas de função no portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Pode obter chaves de função programáticamente utilizando APIs de [gestão chave](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+Pode obter teclas de função programáticamente utilizando [APIs de gestão de chave](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
-## <a name="api-key-authorization"></a>Autorização chave DaPi
+## <a name="api-key-authorization"></a>Autorização chave da API
 
-A maioria dos modelos de gatilho http requerem uma chave API no pedido. Assim, o seu pedido http normalmente se parece com o seguinte URL:
+A maioria dos modelos de gatilho HTTP requerem uma chave API no pedido. Assim, o seu pedido HTTP normalmente parece o seguinte URL:
 
     https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
-A chave pode ser incluída numa variável de corda consulta `code` chamada, como acima. Também pode ser incluído num `x-functions-key` cabeçalho HTTP. O valor da chave pode ser qualquer chave de função definida para a função, ou qualquer chave hospedeira.
+A chave pode ser incluída numa variável de cadeia de consulta denominada `code` , como acima. Também pode ser incluído num `x-functions-key` cabeçalho HTTP. O valor da chave pode ser qualquer chave de função definida para a função, ou qualquer chave de anfitrião.
 
-Pode permitir pedidos anónimos, que não requerem chaves. Também pode exigir que a chave principal seja utilizada. Altera o nível de autorização por defeito utilizando a `authLevel` propriedade no JSON vinculativo. Para mais informações, consulte [Trigger - configuração](#configuration).
+Pode permitir pedidos anónimos, que não requerem chaves. Também pode exigir que a chave principal seja usada. Altera o nível de autorização por defeito utilizando a `authLevel` propriedade no JSON de encadernação. Para obter mais informações, consulte [a configuração do Gatilho](#configuration).
 
 > [!NOTE]
-> Quando o funcionamento funciona localmente, a autorização é desativada independentemente da definição de nível de autorização especificada. Depois de publicar para o Azure, a `authLevel` regulação do gatilho é executada. As chaves ainda são necessárias quando se funciona [localmente num recipiente](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
+> Ao executar funções localmente, a autorização é desativada independentemente da definição de nível de autorização especificado. Após a publicação no Azure, a `authLevel` definição no seu gatilho é aplicada. As chaves ainda são necessárias quando [funcionam localmente num recipiente](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
-## <a name="secure-an-http-endpoint-in-production"></a>Assegurar um ponto final http na produção
+## <a name="secure-an-http-endpoint-in-production"></a>Garantir um ponto final HTTP na produção
 
-Para garantir totalmente os pontos finais da sua função em produção, deve considerar a implementação de uma das seguintes opções de segurança ao nível da aplicação. Ao utilizar um destes métodos de segurança ao nível da aplicação de função, deverá definir o nível de autorização de função acionado pelo HTTP para `anonymous` .
+Para garantir plenamente os pontos finais da sua função na produção, deve considerar a implementação de uma das seguintes opções de segurança ao nível da aplicação da função. Ao utilizar um destes métodos de segurança ao nível da aplicação de funções, deve definir o nível de autorização de função acionado pelo HTTP para `anonymous` .
 
 [!INCLUDE [functions-enable-auth](../../includes/functions-enable-auth.md)]
 
-#### <a name="deploy-your-function-app-in-isolation"></a>Implemente a sua aplicação de função isoladamente
+#### <a name="deploy-your-function-app-in-isolation"></a>Implemente a sua app de função isoladamente
 
 [!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
 ## <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> O modo Webhook só está disponível para a versão 1.x do tempo de execução das funções. Esta alteração foi feita para melhorar o desempenho dos gatilhos HTTP na versão 2.x e superior.
+> O modo Webhook só está disponível para a versão 1.x do tempo de execução de Funções. Esta alteração foi feita para melhorar o desempenho dos gatilhos HTTP na versão 2.x e superior.
 
-Na versão 1.x, os modelos de webhook fornecem validação adicional para cargas de webhook. Na versão 2.x e superior, o gatilho base HTTP ainda funciona e é a abordagem recomendada para webhooks. 
+Na versão 1.x, os modelos webhook fornecem validação adicional para cargas webhook. Na versão 2.x e superior, o gatilho HTTP base ainda funciona e é a abordagem recomendada para webhooks. 
 
-### <a name="github-webhooks"></a>Webhooks GitHub
+### <a name="github-webhooks"></a>Webhooks gitHub
 
-Para responder aos webhooks GitHub, primeiro crie a sua função com um Gatilho HTTP e detetete a propriedade **webHookType** para `github` . Em seguida, copie a sua url e a chave API na página **Add webhook** do seu repositório GitHub. 
+Para responder a webhooks GitHub, primeiro crie a sua função com um trigger HTTP e desloque a propriedade **webHookType** para `github` . Em seguida, copie a sua chave URL e API na página **Add webhook** do seu repositório GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-### <a name="slack-webhooks"></a>Ganchos de teia slack
+### <a name="slack-webhooks"></a>Webhooks de slack
 
-O webhook Slack gera um símbolo para si em vez de o deixar especificar, por isso deve configurar uma chave específica da função com o símbolo de Slack. Ver [Chaves de Autorização](#authorization-keys).
+O webhook Slack gera um símbolo para si em vez de o deixar especificar, por isso deve configurar uma chave específica da função com o token de Slack. Ver [chaves de autorização](#authorization-keys).
 
 ## <a name="webhooks-and-keys"></a>Webhooks e chaves
 
-A autorização do webhook é manuseada pelo componente recetor webhook, parte do gatilho HTTP, e o mecanismo varia com base no tipo webhook. Cada mecanismo depende de uma chave. Por predefinição, a tecla de função denominada "padrão" é utilizada. Para utilizar uma tecla diferente, configure o fornecedor de webhook para enviar o nome chave com o pedido de uma das seguintes formas:
+A autorização webhook é manuseada pelo componente recetor webhook, parte do gatilho HTTP, e o mecanismo varia com base no tipo webhook. Cada mecanismo depende de uma chave. Por predefinição, é utilizada a chave de função denominada "predefinição". Para utilizar uma chave diferente, configuure o fornecedor webhook para enviar o nome chave com o pedido de uma das seguintes formas:
 
-* **Cadeia de consulta**: O fornecedor passa o nome-chave no parâmetro de `clientid` corda de consulta, como `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
+* **Cadeia de**consulta : O fornecedor passa o nome chave no parâmetro da `clientid` cadeia de consulta, tal como `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
 * **Cabeçalho de pedido**: O fornecedor passa o nome chave no `x-functions-clientid` cabeçalho.
 
 ## <a name="limits"></a>Limites
 
-O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do [ficheiro Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config)do tempo de execução .
+O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do [ficheiro Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config)do tempo de execução.
 
-Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balancer de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esteriro e devolverá um erro HTTP 502. A função continuará a funcionar, mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga padrões de asincronização e devolva um local onde possa obter o estado do pedido. Para obter informações sobre quanto tempo uma função pode decorrer, consulte [Escala e hospedagem - Plano](functions-scale.md#timeout)de consumo .
+Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Devolver uma resposta HTTP a partir de uma função](./functions-bindings-http-webhook-output.md)
+- [Devolver uma resposta HTTP de uma função](./functions-bindings-http-webhook-output.md)

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: v-erkel
-ms.openlocfilehash: 34f29eda703cb019cca3e9ca293e31288c6e151b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 226483666491197013c5f4d9ab8e04911f4b1198
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343677"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432960"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerencie a sua cache a partir do portal Azure
 
@@ -33,7 +33,7 @@ Leia mais sobre estas opções abaixo.
 
 Clique na imagem abaixo para ver um [vídeo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) que demonstra tarefas de gestão de cache.
 
-[![miniatura de vídeo: Azure HPC Cache: Gerir (clique para visitar a página de vídeo)](media/video5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
+[![miniatura de vídeo: Azure HPC Cache: Gerir (clique para visitar a página de vídeo)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## <a name="stop-the-cache"></a>Pare a cache
 
@@ -101,7 +101,7 @@ A página geral mostra gráficos para algumas estatísticas básicas de cache - 
 
 Estes gráficos fazem parte das ferramentas de monitorização e análise incorporadas da Azure. Estão disponíveis ferramentas e alertas adicionais a partir das páginas sob o título **de Monitorização** na barra lateral do portal. Saiba mais na secção do portal da [documentação de Monitorização do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [as métricas e ferramentas estatísticas do Azure](../azure-monitor/index.yml)
 * Obtenha [ajuda com o seu Cache Azure HPC](hpc-cache-support-ticket.md)

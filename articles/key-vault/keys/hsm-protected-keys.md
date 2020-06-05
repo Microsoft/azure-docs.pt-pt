@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 011ef67e5dbbf5b391e8bdaad20a42688022a0a9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5433d9746cd64d0e942e056cfcd1940eba35c77d
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296770"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417927"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -34,7 +34,7 @@ A transferência de chaves protegidas pelo HSM para o Key Vault é suportada atr
 |Nome do fornecedor|Tipo de Fornecedor|Modelos HSM suportados|Método de transferência de chaves HSM suportado|
 |---|---|---|---|
 |[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como serviço|<ul><li>nShield família de HSMs</li><li>nShield como um serviço</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (com forte atestado para importação de chaves e validação de HSM)<br/>**Método 2:** [Utilizar o novo método BYOK](hsm-protected-keys-byok.md) |
-|Thales|Fabricante|<ul><li>Família SafeNet Luna HSM 7 com a versão 7.3 ou mais recente do firmware</li></ul>| [Use o novo método BYOK](hsm-protected-keys-byok.md)|
+|Thales|Fabricante|<ul><li>Família Luna HSM 7 com a versão 7.3 ou mais recente</li></ul>| [Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Serviço de Gestão de Chaves auto-defendido (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Rio Marvell|Fabricante|Todos os HSMs de LiquidSecurity com<ul><li>Versão firmware 2.0.4 ou posterior</li><li>Versão firmware 3.2 ou mais recente</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Use o novo método BYOK](hsm-protected-keys-byok.md)|

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: v-erkel
-ms.openlocfilehash: d8f345b12d635f0ab683929fc67d5d789bfea8d9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 817c03780b91e39d43a5348f84105236ee811cc8
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343639"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433641"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -25,11 +25,11 @@ Veja estes vídeos para uma visão geral rápida dos componentes do sistema e do
 
 * [Como funciona](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) - Explica como a Azure HPC Cache interage com o armazenamento e os clientes
 
-  [![imagem miniatura de vídeo: Azure HPC Cache: Como funciona (clique para visitar a página de vídeo)](media/video2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+  [![imagem miniatura de vídeo: Azure HPC Cache: Como funciona (clique para visitar a página de vídeo)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
 
 * [Pré-requisitos](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) - Descreve os requisitos para armazenamento NAS, armazenamento Azure Blob, acesso à rede e acesso ao cliente
 
-  [![imagem miniatura de vídeo: Azure HPC Cache: Pré-requisitos (clique para visitar a página de vídeo)](media/video3-prereqs.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+  [![imagem miniatura de vídeo: Azure HPC Cache: Pré-requisitos (clique para visitar a página de vídeo)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
 
 Leia o resto deste artigo para recomendações específicas.
 
@@ -160,6 +160,6 @@ Mais informações estão incluídas na [configuração do Troubleshoot NAS e no
 
 * O armazenamento de back-end NFS deve ser uma plataforma de hardware/software compatível. Contacte a equipa da Azure HPC Cache para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma instância cache Azure HPC](hpc-cache-create.md) a partir do portal Azure

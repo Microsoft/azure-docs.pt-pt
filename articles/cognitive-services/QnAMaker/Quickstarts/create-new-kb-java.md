@@ -139,7 +139,7 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

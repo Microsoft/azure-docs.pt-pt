@@ -187,7 +187,7 @@ Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indispon
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart 1: In-Memory OLTP Technologies para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Utilize o OLTP in-memory numa aplicação Azure SQL existente](in-memory-oltp-configure.md)

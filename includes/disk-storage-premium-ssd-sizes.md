@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 71489b1b2cd4897489135cb001439444e6c817ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b5cf3caaaf8c2360bc8555b38713d21aaf811ff
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80385168"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424758"
 ---
-| Tamanhos SSD premium | P1 | P2 | P3 | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
+| Tamanhos Premium SSD | P1 | P2 | P3 | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
 |-------------------|----|----|----|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
 | Tamanho do disco em GiB | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1,024 | 2048 | 4,096 | 8,192 | 16 384 | 32 767 |
-| IOPS provisionado por disco | 120 | 120 | 120 | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7.500 | 7.500 | 16 000 | 18 000 | 20 000 |
-| Perput provisionado por disco | 25 MiB/seg | 25 MiB/seg | 25 MiB/seg | 25 MiB/seg | 50 MiB/seg | 100 MiB/seg | 125 MiB/seg | 150 MiB/seg | 200 MiB/seg | 250 MiB/seg | 250 MiB/seg| 500 MiB/seg | 750 MiB/seg | 900 MiB/seg |
-| IOPS de explosão máxima por disco | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 |
-| Potência máxima por disco | 170 MiB/seg | 170 MiB/seg | 170 MiB/seg | 170 MiB/seg | 170 MiB/seg | 170 MiB/seg | 170 MiB/seg | 170 MiB/seg |
-| Duração máxima de rajada | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
+| OPS provisos por disco | 120 | 120 | 120 | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7.500 | 7.500 | 16 000 | 18 000 | 20 000 |
+| Produção a provisionada por disco | 25 MB/seg | 25 MB/seg | 25 MB/seg | 25 MB/seg | 50 MB/seg | 100 MB/seg | 125 MB/seg | 150 MB/seg | 200 MB/seg | 250 MB/seg | 250 MB/seg| 500 MB/seg | 750 MB/seg | 900 MB/seg |
+| IOPS de explosão de max por disco | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 |
+| Produção de rutura de Max por disco | 170 MB/seg | 170 MB/seg | 170 MB/seg | 170 MB/seg | 170 MB/seg | 170 MB/seg | 170 MB/seg | 170 MB/seg |
+| Duração máxima da explosão | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
 | Elegível para reserva | Não  | Não  | Não  | Não  | Não  | Não  | Não  | Não  | Sim, até um ano. | Sim, até um ano. | Sim, até um ano. | Sim, até um ano. | Sim, até um ano. | Sim, até um ano. |

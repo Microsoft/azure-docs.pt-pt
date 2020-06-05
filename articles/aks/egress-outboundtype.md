@@ -4,12 +4,12 @@ description: Saiba como definir uma rota de saída personalizada no Serviço Azu
 services: container-service
 ms.topic: article
 ms.date: 06/05/2020
-ms.openlocfilehash: d62f40fb835bfe6993ad31ddd20cfdea1d9135c2
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 03b18a9cb8fa28d54952a77bf8721c63dd56a9ad
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310874"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416788"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota definida pelo utilizador
 
@@ -227,11 +227,11 @@ Consulte [a documentação da tabela de rotas de rede virtual](../virtual-networ
 ## <a name="adding-network-firewall-rules"></a>Adicionar regras de firewall de rede
 
 > [!WARNING]
-> Abaixo mostra um exemplo de adicionar uma regra de firewall. Todos os pontos finais de saída definidos nos [pontos finais de saídas necessários](egress.md) devem ser ativados pelas regras de firewall de aplicação para que os clusters AKS funcionem. Sem estes pontos finais ativados, o seu cluster não pode funcionar.
+> Abaixo mostra um exemplo de adicionar uma regra de firewall. Todos os pontos finais de saída definidos nos [pontos finais de saídas necessários](limit-egress-traffic.md) devem ser ativados pelas regras de firewall de aplicação para que os clusters AKS funcionem. Sem estes pontos finais ativados, o seu cluster não pode funcionar.
 
 Abaixo está um exemplo de uma regra de rede e aplicação. Adicionamos uma regra de rede que permite qualquer protocolo, endereço de origem, endereço de destino e portos de destino. Também adicionamos uma regra de aplicação para **alguns** dos pontos finais exigidos pela AKS.
 
-Num cenário de produção, só deve permitir o acesso aos pontos finais necessários para a sua aplicação e aos definidos em [saídas necessárias à AKS.](egress.md)
+Num cenário de produção, só deve permitir o acesso aos pontos finais necessários para a sua aplicação e aos definidos em [saídas necessárias à AKS.](limit-egress-traffic.md)
 
 ```
 # Add Network FW Rules

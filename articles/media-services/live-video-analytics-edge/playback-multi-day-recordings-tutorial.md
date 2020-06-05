@@ -3,12 +3,12 @@ title: Reprodução de gravações de vários dias - Azure
 description: Neste tutorial, você aprenderá a usar APIs do Azure Media Service para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 0b294769fce58f5aaae82fec590c783e8328d826
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261889"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433653"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reprodução de gravações de vários dias  
 
@@ -29,7 +29,7 @@ Recomenda-se que leia as seguintes páginas de documentação:
 * [Análise de vídeo ao vivo na visão geral do IoT Edge](overview.md)
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
 * [Conceito de gráfico de mídia](media-graph-concept.md)
-* [Gravação contínua de vídeo](continuous-video-recording-concept.md) 
+* [Gravação de vídeo contínua](continuous-video-recording-concept.md) 
 * [Como guiar: Reprodução de gravações](playback-recordings-how-to.md)
 * [Tutorial: Gravação contínua de vídeo](continuous-video-recording-tutorial.md)
 
@@ -57,7 +57,7 @@ Como parte do tutorial da [CVR,](continuous-video-recording-tutorial.md)teria cr
 }
 ```
 
-Em seguida, no código Visual Studio, aberto src/ams-asset-player. Esta pasta contém os ficheiros necessários para este tutorial. Abra o ficheiro appsettings.json e copie o seu conteúdo num novo ficheiro, appsettings. Developer.json. Faça as seguintes edições para este último ficheiro:
+Em seguida, no código Visual Studio, aberto src/ams-asset-player. Esta pasta contém os ficheiros necessários para este tutorial. Abra o ficheiro appsettings.json e copie o seu conteúdo num novo ficheiro, appsettings.development.json. Faça as seguintes edições para este último ficheiro:
 
 ```
   "AMS" : {

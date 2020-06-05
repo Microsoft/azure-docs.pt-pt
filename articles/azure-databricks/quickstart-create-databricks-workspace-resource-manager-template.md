@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/27/2020
-ms.openlocfilehash: 8435704963e832020ecff27a11d00793ad28890c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 1fe0eb0a69e8522fa0eb8683e2eb706f3e60b92c
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171043"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433027"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-by-using-the-azure-resource-manager-template"></a>Quickstart: Criar um espaço de trabalho Azure Databricks utilizando o modelo Azure Resource Manager
 
@@ -31,15 +31,15 @@ Para completar este artigo, precisa:
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
-### <a name="review-the-template"></a>Reveja o modelo
+### <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-databricks-workspace/).
 
-:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53":::
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-O recurso Azure definido no modelo é Microsoft.Databricks/workspaces: criar um espaço de trabalho Azure Databricks. 
+O recurso Azure definido no modelo é [Microsoft.Databricks/workspaces:](/azure/templates/microsoft.databricks/workspaces): criar um espaço de trabalho Azure Databricks.
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+### <a name="deploy-the-template"></a>Implementar o modelo
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o modelo do Azure Resource Manager.
 
@@ -56,7 +56,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o modelo
    |Propriedade  |Descrição  |
    |---------|---------|
    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
-   |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
+   |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
    |**Localização**     | Selecione **E.U.A. Leste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
    |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
    |**Nível de preços**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
@@ -108,7 +108,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou um espaço de trabalho Azure Databricks usando um modelo de Gestor de Recursos Azure e validou a implementação. Avance para o artigo seguinte para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) com o Azure Databricks.
 

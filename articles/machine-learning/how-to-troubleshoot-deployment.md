@@ -5,18 +5,18 @@ description: Aprenda a trabalhar, resolver e resolver problemas com os erros com
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4
-ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 758e0b19cd249215dc8531224bc2685703b9fc85
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307950"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433720"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Resolução de problemas Colocação de Docker de modelos com serviço Azure Kubernetes e Instâncias de Contentores Azure 
 
@@ -451,7 +451,7 @@ Para parar o recipiente, utilize o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a implementação:
 

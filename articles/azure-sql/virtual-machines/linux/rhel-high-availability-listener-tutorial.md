@@ -290,7 +290,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
 
     Devias ver que estás agora ligado ao VM ao qual falhaste.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os equilibradores de carga em Azure, consulte:
 

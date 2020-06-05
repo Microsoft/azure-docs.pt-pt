@@ -167,7 +167,7 @@ Para **o SQL em Azure VM,** a Microsoft fornece um SLA de disponibilidade de 99,
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [A sua primeira Base de Dados SQL do Azure](database/single-database-create-quickstart.md) para começar a utilizar a Base de Dados SQL.
 - Consulte [o seu primeiro Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md) para começar com a SQL Managed Instance. 

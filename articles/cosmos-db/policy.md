@@ -1,48 +1,48 @@
 ---
-title: Use a Política Azure para implementar a governação e os controlos dos recursos db da Azure Cosmos
-description: Aprenda a usar a Política Azure para implementar a governação e os controlos dos recursos DB da Azure Cosmos.
+title: Utilizar a Política Azure para implementar a governação e os controlos dos recursos DB da Azure Cosmos
+description: Saiba como usar a Política Azure para implementar a governação e os controlos para os recursos DB da Azure Cosmos.
 author: plzm
 ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747384"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432017"
 ---
-# <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use a Política Azure para implementar a governação e os controlos dos recursos db da Azure Cosmos
+# <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Utilizar a Política Azure para implementar a governação e os controlos dos recursos DB da Azure Cosmos
 
-[A Política Azure](../governance/policy/overview.md) ajuda a impor as normas de governação organizacional, a avaliar a conformidade com os recursos e a implementar a reparação automática. Os casos de uso comum incluem segurança, gestão de custos e consistência de configuração.
+[A Azure Policy](../governance/policy/overview.md) ajuda a impor normas de governação organizacional, avaliar o cumprimento dos recursos e implementar a remediação automática. Os casos de uso comum incluem segurança, gestão de custos e consistência de configuração.
 
-A Política Azure fornece definições políticas incorporadas. Pode criar definições políticas personalizadas para cenários que não sejam abordados pelas definições políticas incorporadas. Consulte a documentação da [Política Azure](../governance/policy/overview.md) para mais detalhes.
+A Azure Policy fornece definições políticas incorporadas. Pode criar definições de política personalizadas para cenários que não são abordados pelas definições políticas incorporadas. Consulte a [documentação da Política Azure](../governance/policy/overview.md) para obter mais detalhes.
 
-## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição política incorporada
+## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 
-As definições de política descrevem as condições de conformidade dos recursos e o efeito a tomar se uma condição for satisfeita. As atribuições políticas são _criadas_ a partir de _definições_políticas. Você pode usar definições políticas incorporadas ou personalizadas para os seus recursos Azure Cosmos DB. As atribuições políticas são aplicadas a um grupo de gestão Azure, a uma subscrição Azure ou a um grupo de recursos e são aplicadas aos recursos dentro do âmbito selecionado. Opcionalmente, pode excluir recursos específicos do âmbito.
+As definições de política descrevem as condições de conformidade dos recursos e o efeito a ter em conta se uma condição for satisfeita. As _atribuições de políticas_ são criadas a partir de _definições_políticas. Você pode usar definições de política incorporadas ou personalizadas para os seus recursos DB Azure Cosmos. As atribuições de política são procuradas por um grupo de gestão Azure, uma subscrição do Azure ou um grupo de recursos e são aplicadas aos recursos dentro do âmbito selecionado. Opcionalmente, pode excluir recursos específicos do âmbito de aplicação.
 
-Pode criar atribuições políticas com o [portal Azure,](../governance/policy/assign-policy-portal.md) [Azure PowerShell,](../governance/policy/assign-policy-powershell.md) [Azure CLI](../governance/policy/assign-policy-azurecli.md)ou [modelo ARM](../governance/policy/assign-policy-template.md).
+Pode criar atribuições de política com o [portal Azure](../governance/policy/assign-policy-portal.md), [Azure PowerShell,](../governance/policy/assign-policy-powershell.md) [Azure CLI](../governance/policy/assign-policy-azurecli.md)ou [modelo ARM](../governance/policy/assign-policy-template.md).
 
-Para criar uma atribuição política a partir de uma definição política incorporada para o Azure Cosmos DB, use os passos para criar uma atribuição de políticas com o artigo [do portal Azure.](../governance/policy/assign-policy-portal.md)
+Para criar uma atribuição de política a partir de uma definição de política incorporada para Azure Cosmos DB, use os passos para criar uma atribuição de política com o artigo [do portal Azure.](../governance/policy/assign-policy-portal.md)
 
-Na altura de selecionar uma definição de política, insira `Cosmos DB` no campo de Pesquisa para filtrar a lista de definições políticas incorporadas disponíveis. Selecione uma das definições políticas incorporadas disponíveis e, em seguida, escolha **Selecionar** para continuar a criar a atribuição de políticas.
+Na etapa para selecionar uma definição de política, insira `Cosmos DB` no campo Procurar para filtrar a lista de definições de política incorporadas disponíveis. Selecione uma das definições de política incorporadas disponíveis e, em seguida, escolha **Selecione** para continuar a criar a atribuição de políticas.
 
 > [!TIP]
-> Também pode utilizar os nomes de definição de política incorporados mostrados no painel **Definições Disponíveis** com modelos Azure PowerShell, Azure CLI ou ARM para criar atribuições políticas.
+> Também pode utilizar os nomes de definição de política incorporados indicados no painel **definições disponíveis** com modelos Azure PowerShell, Azure CLI ou ARM para criar atribuições de políticas.
 
-:::image type="content" source="./media/policy/available-definitions.png" alt-text="Pesquisa de definições políticas integradas da Azure Cosmos DB":::
+:::image type="content" source="./media/policy/available-definitions.png" alt-text="Pesquisa de definições políticas incorporadas da Azure Cosmos":::
 
 ## <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
-Para cenários específicos que não são abordados por políticas incorporadas, pode criar [uma definição de política personalizada.](../governance/policy/tutorials/create-custom-policy-definition.md) Mais tarde, cria uma _atribuição_ de Política a partir da sua _definição_de política personalizada.
+Para cenários específicos que não sejam abordados por políticas incorporadas, pode criar [uma definição de política personalizada.](../governance/policy/tutorials/create-custom-policy-definition.md) Mais tarde, cria uma _atribuição_ de Política a partir da sua _definição_de política personalizada.
 
-### <a name="property-types-and-property-aliases-in-policy-rules"></a>Tipos de propriedades e pseudónimos imobiliários nas regras políticas
+### <a name="property-types-and-property-aliases-in-policy-rules"></a>Tipos de propriedade e pseudónimos de propriedade nas regras políticas
 
-Utilize os [passos de definição de política personalizadas](../governance/policy/tutorials/create-custom-policy-definition.md) para identificar as propriedades de recursos e pseudónimos imobiliários, que são necessários para criar regras políticas.
+Use as [etapas de definição de política personalizada](../governance/policy/tutorials/create-custom-policy-definition.md) para identificar as propriedades dos recursos e os pseudónimos de propriedade, que são necessários para criar regras de política.
 
-Para identificar pseudónimos específicos da propriedade azure Cosmos DB, utilize o espaço de nome `Microsoft.DocumentDB` com um dos métodos mostrados no artigo de definição de política personalizada.
+Para identificar pseudónimos de propriedade específica Azure Cosmos DB, utilize o espaço de nome `Microsoft.DocumentDB` com um dos métodos mostrados no artigo de definição de política personalizada.
 
 #### <a name="use-the-azure-cli"></a>Utilize o Azure CLI:
 ```azurecli-interactive
@@ -52,7 +52,7 @@ Para identificar pseudónimos específicos da propriedade azure Cosmos DB, utili
 az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
 ```
 
-#### <a name="use-azure-powershell"></a>Utilize a PowerShell Azure:
+#### <a name="use-azure-powershell"></a>Use Azure PowerShell:
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
 
@@ -60,7 +60,7 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.DocumentDB').Aliases
 ```
 
-Estes comandos saem da lista de nomes de pseudónimos de propriedade para a propriedade Azure Cosmos DB. Segue-se um excerto da saída:
+Estes comandos desemprezam a lista de nomes de pseudónimos de propriedade para a propriedade DB Azure Cosmos. Segue-se um excerto da saída:
 
 ```json
 [
@@ -77,50 +77,58 @@ Estes comandos saem da lista de nomes de pseudónimos de propriedade para a prop
 ]
 ```
 
-Você pode usar qualquer um destes nomes de pseudónimos de propriedade nas regras de [definição de política personalizada](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
+Você pode usar qualquer um destes nomes de pseudónimos de propriedade nas [regras de definição de política personalizada.](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule)
 
-Segue-se uma definição de política de exemplo que verifica se a entrada prevista de uma base de dados Azure Cosmos DB SQL é superior a um limite máximo permitido de 400 RU/s. Uma definição de política personalizada inclui duas regras: uma para verificar o tipo específico de pseudónimo de propriedade, e a segunda para a propriedade específica do tipo. Ambas as regras usam os nomes de pseudónimos.
+Segue-se uma definição de política de exemplo que verifica se uma conta DB Azure Cosmos está configurada para vários locais de escrita. A definição de política personalizada inclui duas regras: uma para verificar o tipo específico de pseudónimo de propriedade, e a segunda para a propriedade específica do tipo, neste caso o campo que armazena a configuração de localização de escrita múltipla. Ambas as regras usam os nomes de pseudónimos.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
 
-As definições políticas personalizadas podem ser usadas para criar atribuições políticas, tal como as definições políticas incorporadas são utilizadas.
+As definições de política personalizada podem ser usadas para criar atribuições políticas, tal como as definições de política incorporada são utilizadas.
 
 ## <a name="policy-compliance"></a>Conformidade com a política
 
-Após a criação das atribuições políticas, a Azure Policy avalia os recursos no âmbito da atribuição. O _cumprimento_ de cada recurso com a política é avaliado. O _efeito_ especificado na política é então aplicado a recursos não conformes.
+Após a criação das atribuições políticas, a Azure Policy avalia os recursos no âmbito da atribuição. O _cumprimento_ da política de cada recurso é avaliado. O _efeito_ especificado na política é então aplicado a recursos não conformes.
 
-Pode rever os resultados de conformidade e os detalhes de reparação no [portal Azure](../governance/policy/how-to/get-compliance-data.md#portal) ou através do [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) ou dos [registos do Azure Monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
+Pode rever os resultados de conformidade e os detalhes de reparação no [portal Azure](../governance/policy/how-to/get-compliance-data.md#portal) ou através do [CLI Azure](../governance/policy/how-to/get-compliance-data.md#command-line) ou dos registos do [Azure Monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-A imagem que se segue mostra dois exemplos de atribuições políticas. Uma missão baseia-se numa definição política incorporada, que verifica se os recursos da Azure Cosmos DB são implantados apenas para as regiões de Azure permitidas. A outra atribuição baseia-se numa definição de política personalizada. Esta atribuição verifica que a provisão prevista para os recursos DB da Azure Cosmos não excede um limite máximo especificado.
+A imagem que se segue mostra duas atribuições de política de exemplo.
 
-Após a implementação das atribuições políticas, o painel de controlo de conformidade mostra os resultados da avaliação. Note que isto pode demorar até 30 minutos após a implementação de uma atribuição de política.
+Uma atribuição baseia-se numa definição de política incorporada, que verifica que os recursos DB do Azure Cosmos são implantados apenas nas regiões de Azure permitidas. A conformidade com os recursos mostra o resultado da avaliação da política (conforme ou não conforme) para recursos em âmbito.
 
-A imagem mostra os seguintes resultados de avaliação de conformidade:
+A outra atribuição baseia-se numa definição de política personalizada. Esta atribuição verifica se as contas da Cosmos DB estão configuradas para vários locais de escrita.
 
-- Zero de uma conta Azure Cosmos DB no âmbito especificado estão em conformidade com a atribuição de políticas para verificar se os recursos foram mobilizados para regiões permitidas.
-- Um em cada dois recursos de base de dados da Azure Cosmos DB ou recursos de recolha no âmbito especificado estão em conformidade com a atribuição de políticas para verificar se a provisão prevista excede o limite máximo especificado.
+Após a implementação das atribuições políticas, o painel de conformidade apresenta os resultados da avaliação. Note que isto pode demorar até 30 minutos após a implementação de uma atribuição de política. Além disso, [as análises de avaliação de políticas podem ser iniciadas](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) a pedido imediatamente após a criação de atribuições políticas.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Pesquisa de definições políticas integradas da Azure Cosmos DB":::
+A imagem mostra os seguintes resultados de avaliação de conformidade para contas DB da Azure Cosmos no âmbito:
 
-Para remediar os recursos não conformes, consulte o remediado com o artigo da [Política Azure.](../governance/policy/how-to/remediate-resources.md)
+- Zero de duas contas estão em conformidade com uma política que a filtragem da Rede Virtual (VNet) deve ser configurada.
+- Zero de duas contas estão em conformidade com uma política que exige que a conta seja configurada para vários locais de escrita
+- Zero de duas contas estão em conformidade com uma política que os recursos foram mobilizados para permitir às regiões de Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de conformidade para as atribuições da Política Azure listadas":::
 
-- [Reveja as definições de política personalizadas da amostra para o Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+Para remediar os recursos não conformes, ver [como remediar os recursos com a Política Azure.](../governance/policy/how-to/remediate-resources.md)
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Reveja as definições de política personalizada da amostra para Azure Cosmos DB,](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)incluindo para a localização de escrita múltipla e as políticas de filtragem VNet mostradas acima.
 - [Criar uma atribuição de políticas no portal Azure](../governance/policy/assign-policy-portal.md)
-- [Rever definições políticas integradas da Política Azure para o Azure Cosmos DB](./policy-samples.md)
+- [Rever definições políticas incorporadas da Azure Cosmos para Azure Cosmos DB](./policy-samples.md)

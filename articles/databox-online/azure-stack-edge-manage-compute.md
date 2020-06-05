@@ -129,6 +129,6 @@ Tome os seguintes passos no portal Azure para sincronizar as teclas de acesso do
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como gerir a [rede de computação Edge através do portal Azure](azure-stack-edge-extend-compute-access-modules.md).

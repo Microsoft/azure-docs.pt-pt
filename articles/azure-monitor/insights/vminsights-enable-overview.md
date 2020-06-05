@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/28/2020
-ms.openlocfilehash: 3c9c5e69eea72b20da485ffb1edf806f2c9f3b41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 87d8b26110eba647975de577e9d7b5b0ed138266
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195306"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84423977"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
 
@@ -43,6 +43,7 @@ O Azure Monitor for VMs suporta um espaço de trabalho Log Analytics nas seguint
 - E.U.A. Leste 2
 - E.U.A. Central
 - E.U.A. Centro-Norte
+- Gov Va dos EUA
 - Canadá Central
 - Sul do Reino Unido
 - Europa do Norte
@@ -165,7 +166,7 @@ Num ambiente híbrido, pode descarregar e instalar manualmente o agente Dependen
 
 A tabela seguinte descreve as fontes ligadas que a funcionalidade Map suporta num ambiente híbrido.
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportado | Description |
 |:--|:--|:--|
 | Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../../azure-monitor/platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
 | Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../../azure-monitor/platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
@@ -188,7 +189,7 @@ Para obter mais informações sobre como controlar o acesso a um espaço de trab
 
 Ativar o Monitor Azure para VMs utilizando um dos métodos descritos neste quadro:
 
-| Estado de implantação | Método | Descrição |
+| Estado de implantação | Método | Description |
 |------------------|--------|-------------|
 | Único VM azul ou conjunto de balança de máquina virtual | [Ativar a partir do VM](vminsights-enable-single-vm.md) | Pode ativar um único Azure VM selecionando **Insights** diretamente a partir do conjunto de escala de VM ou de máquina virtual. |
 | VMs múltiplos azure ou conjuntos de escala de máquina virtual | [Ativar através da Política Azure](vminsights-enable-at-scale-policy.md) | Pode ativar vários VMs Azure utilizando a Política Azure e definições de política disponíveis. |

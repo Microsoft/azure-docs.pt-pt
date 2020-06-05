@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 99204657b7604250826ff0a4a870ad92fdb4df32
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 332b0193059c2c60cce0bc653d48bace45eca38d
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249149"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432716"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -32,9 +32,11 @@ Hiper-V sem Gestor de Máquinas Virtuais | Você pode realizar a recuperação d
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hiper-V (funcionando sem gestor de máquinas virtuais) |  Windows Server 2019, Windows Server 2016 (incluindo a instalação do núcleo do servidor), Windows Server 2012 R2 com as mais recentes atualizações | Se já configurar o Windows Server 2012 R2 com/ou SCVMM 2012 R2 com a Recuperação do Site Azure e planeia atualizar o SISTEMA, siga a [documentação](upgrade-2012R2-to-2016.md) de orientação. <br/><br/> Nota: O Failback não é suportado para a versão core do servidor do Windows Server 2019.
+Hiper-V (funcionando sem gestor de máquinas virtuais) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as mais recentes atualizações (incluindo a instalação principal do servidor destes sistemas operativos) | Se já configurar o Windows Server 2012 R2 com/ou SCVMM 2012 R2 com a Recuperação do Site Azure e planeia atualizar o SISTEMA, siga a [documentação](upgrade-2012R2-to-2016.md) de orientação. <br/><br/> Nota: O Failback não é suportado para a versão core do servidor do Windows Server 2019.
 Hiper-V (em execução com Gestor de Máquinas Virtuais) | Gestor de Máquinas Virtuais 2019, Gestor de Máquinas Virtuais 2016, Gestor de Máquinas Virtuais 2012 R2 | Se o Gestor de Máquinas Virtuais for utilizado, os anfitriões do Windows Server 2019 deverão ser geridos no Virtual Machine Manager 2019. Da mesma forma, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.<br/><br/> Nota: O failback para a localização alternativa não é suportado para os anfitriões do Windows Server 2019.
 
+> [!NOTE]
+> Certifique-se de que o quadro .NET 4.6.2 ou superior está presente no servidor no local.
 
 ## <a name="replicated-vms"></a>VMs replicados
 
@@ -134,7 +136,7 @@ Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas para falhas a gerir discos)| Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
+Contas de Armazenamento Azure com firewall ativadas | Yes. Para armazenamento de alvo e cache. | Yes. Para armazenamento de alvo e cache.
 Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | No
 
 

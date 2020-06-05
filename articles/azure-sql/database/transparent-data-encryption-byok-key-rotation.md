@@ -128,7 +128,7 @@ Os exemplos a seguir usam [o conjunto de teclas de tde do servidor az sql](/powe
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Em caso de risco de segurança, aprenda a remover um protetor TDE potencialmente comprometido: [Remova uma chave potencialmente comprometida](transparent-data-encryption-byok-remove-tde-protector.md).
 

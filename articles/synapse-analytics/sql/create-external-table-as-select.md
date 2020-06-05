@@ -94,6 +94,6 @@ ORDER BY
     [population] DESC;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como consultar diferentes tipos de ficheiros, consulte o [ficheiro CSV único,](query-single-csv-file.md) [os ficheiros Query Parquet](query-parquet-files.md)e [os ficheiros de ficheiros De consulta JSON.](query-json-files.md)

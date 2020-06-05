@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: 6944d2e6a8f762e62c14f6f3fa3f600a9b3c333e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 55c64048e0604987c5a4c26961e5617106358e76
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195034"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84436169"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
@@ -17,7 +17,7 @@ Executar a sua função iniciando o anfitrião local do tempo de execução Azur
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
-func host start
+func start
 ```
 ::: zone-end
 

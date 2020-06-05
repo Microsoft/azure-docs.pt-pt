@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "67433060"
 ---
-Se não tiver uma [subscrição do Azure](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+Se não tiver uma [subscrição do Azure,](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.

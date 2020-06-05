@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 05/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 3cbde9564e17dc67d2b41f138efb4d8622d84abd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c0d32beeedba61bc2ecdc444685f7e81073459be
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343592"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433686"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
@@ -21,7 +21,7 @@ A Azure HPC Cache é fácil de lançar e monitorizar a partir do portal Azure. O
 
 ## <a name="overview-video"></a>Vídeo de descrição geral
 
-[![miniatura de vídeo: Azure HPC Cache visão geral - clique para visitar a página de vídeo](media/video1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+[![miniatura de vídeo: Azure HPC Cache visão geral - clique para visitar a página de vídeo](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
 
 Clique na imagem acima para ver uma [breve visão geral da Cache Azure HPC](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 
@@ -76,7 +76,7 @@ Tem de solicitar acesso a cada subscrição que utilizará com a Cache Azure HPC
 
 Solicitar acesso preenchendo [este formulário.](https://aka.ms/onboard-hpc-cache) Depois da sua subscrição ser adicionada à lista de acesso, pode criar caches.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a página de [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para saber mais sobre as suas capacidades
 * Conheça os [pré-requisitos do](hpc-cache-prereqs.md) produto

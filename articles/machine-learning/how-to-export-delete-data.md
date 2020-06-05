@@ -1,28 +1,28 @@
 ---
-title: Exportar ou eliminar dados do espaço de trabalho
+title: Exportar ou apagar dados do espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: Aprenda a exportar ou a eliminar o seu espaço de trabalho com o estúdio Azure Machine Learning, CLI, SDK e APIs REST autenticados.
+description: Saiba como exportar ou apagar o seu espaço de trabalho com o estúdio Azure Machine Learning, CLI, SDK e APIs de REPOUSO autenticado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
 ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d10228eb76f95a7d5225b6b414ca622c92bf1c5
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191639"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434271"
 ---
-# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou eliminar os seus dados do espaço de trabalho do serviço de aprendizagem automática
+# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou eliminar os dados do seu espaço de trabalho do serviço de Machine Learning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-No Azure Machine Learning, pode exportar ou eliminar os seus dados do espaço de trabalho com a API REST autenticada. Este artigo diz-lhe como.
+No Azure Machine Learning, pode exportar ou eliminar os seus dados do espaço de trabalho com a API DE REPOUSO autenticada. Este artigo diz-lhe como.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -30,21 +30,21 @@ No Azure Machine Learning, pode exportar ou eliminar os seus dados do espaço de
 
 ## <a name="control-your-workspace-data"></a>Controle os seus dados do espaço de trabalho
 
-Os dados in-product armazenados pela Azure Machine Learning estão disponíveis para exportação e eliminação através do estúdio Azure Machine Learning, CLI, SDK e APIs REST autenticados. Os dados de telemetria podem ser acedidos através do portal de privacidade Azure. 
+Os dados do produto armazenados pela Azure Machine Learning estão disponíveis para exportação e eliminação através do estúdio Azure Machine Learning, CLI, SDK e REA DE REPOUSO autenticado. Os dados de telemetria podem ser acedidos através do portal Azure Privacy. 
 
-No Azure Machine Learning, os dados pessoais consistem em informações do utilizador em documentos de histórico de execução e registos de telemetria de algumas interações do utilizador com o serviço.
+No Azure Machine Learning, os dados pessoais consistem em informações do utilizador em documentos de histórico executados e registos de telemetria de algumas interações do utilizador com o serviço.
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Eliminar dados do espaço de trabalho com a API REST
 
-Para eliminar os dados, as seguintes chamadas API podem ser efetuadas com o verbo HTTP DELETE. Estes são autorizados `Authorization: Bearer <arm-token>` por ter um `<arm-token>` cabeçalho no pedido, onde `https://management.core.windows.net/` está o sinal de acesso AAD para o ponto final.  
+Para eliminar dados, as seguintes chamadas API podem ser feitas com o verbo HTTP DELETE. Estes são autorizados por ter um `Authorization: Bearer <arm-token>` cabeçalho no pedido, onde está o sinal de `<arm-token>` acesso AAD para o `https://management.core.windows.net/` ponto final.  
 
-Para aprender a obter este símbolo e ligar para os pontos finais do Azure, consulte [Use REST para gerir os recursos ml](how-to-manage-rest.md) e [documentação Azure REST API](https://docs.microsoft.com/rest/api/azure/).  
+Para aprender a obter este token e ligue para os pontos finais do Azure, consulte [Use REST para gerir os recursos ML](how-to-manage-rest.md) e [documentação API AZURE REST](https://docs.microsoft.com/rest/api/azure/).  
 
-Nos exemplos seguintes, substitua o texto {} pelos nomes da instância que determinam o recurso associado.
+Nos exemplos seguintes, substitua o texto {} pelos nomes de instância que determinam o recurso associado.
 
-### <a name="delete-an-entire-workspace"></a>Eliminar todo um espaço de trabalho
+### <a name="delete-an-entire-workspace"></a>Apagar um espaço de trabalho inteiro
 
-Utilize esta chamada para eliminar todo um espaço de trabalho.  
+Utilize esta chamada para apagar todo um espaço de trabalho.  
 > [!WARNING]
 > Toda a informação será eliminada e o espaço de trabalho deixará de ser utilizável.
 
@@ -52,7 +52,7 @@ Utilize esta chamada para eliminar todo um espaço de trabalho.
 
 ### <a name="delete-models"></a>Eliminar modelos
 
-Use esta chamada para obter uma lista de modelos e suas iDs:
+Utilize esta chamada para obter uma lista de modelos e seus IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models?api-version=2019-11-01
 
@@ -62,7 +62,7 @@ Os modelos individuais podem ser eliminados com:
 
 ### <a name="delete-assets"></a>Eliminar ativos
 
-Use esta chamada para obter uma lista de bens e suas iDs:
+Use esta chamada para obter uma lista de ativos e suas iDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets?api-version=2019-11-01
 
@@ -72,7 +72,7 @@ Os ativos individuais podem ser eliminados com:
 
 ### <a name="delete-images"></a>Eliminar imagens
 
-Use esta chamada para obter uma lista de imagens e suas iDs:
+Use esta chamada para obter uma lista de imagens e seus IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images?api-version=2019-11-01
 
@@ -80,9 +80,9 @@ As imagens individuais podem ser eliminadas com:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images/{id}?api-version=2019-11-01
 
-### <a name="delete-services"></a>Eliminar serviços
+### <a name="delete-services"></a>Apagar serviços
 
-Use esta chamada para obter uma lista de serviços e suas iDs:
+Utilize esta chamada para obter uma lista de serviços e seus IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services?api-version=2019-11-01
 
@@ -92,43 +92,43 @@ Os serviços individuais podem ser eliminados com:
 
 ## <a name="export-service-data-with-the-rest-api"></a>Dados do serviço de exportação com a API REST
 
-Para exportar dados, as seguintes chamadas API podem ser feitas com o verbo HTTP GET. Estes são autorizados `Authorization: Bearer <arm-token>` por ter um `<arm-token>` cabeçalho no pedido, onde está o sinal de acesso AAD para o ponto final`https://management.core.windows.net/`  
+Para exportar dados, as seguintes chamadas API podem ser feitas com o verbo HTTP GET. Estes são autorizados por ter um `Authorization: Bearer <arm-token>` cabeçalho no pedido, onde `<arm-token>` está o token de acesso da AAD para o ponto final`https://management.core.windows.net/`  
 
-Para aprender a obter este símbolo e ligar para os pontos finais do Azure, consulte [use o REST para gerir os recursos ml](how-to-manage-rest.md) e [documentação Azure REST API](https://docs.microsoft.com/rest/api/azure/)..   
+Para aprender a obter este token e ligue para os pontos finais do Azure, consulte [Use REST para gerir os recursos ML](how-to-manage-rest.md) e [documentação AZure REST API](https://docs.microsoft.com/rest/api/azure/)..   
 
-Nos exemplos seguintes, substitua o texto {} pelos nomes da instância que determinam o recurso associado.
+Nos exemplos seguintes, substitua o texto {} pelos nomes de instância que determinam o recurso associado.
 
-### <a name="export-workspace-information"></a>Informação do Espaço de Trabalho de Exportação
+### <a name="export-workspace-information"></a>Informação sobre o espaço de trabalho de exportação
 
 Use esta chamada para obter uma lista de todos os espaços de trabalho:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces?api-version=2019-11-01
 
-A informação sobre um espaço de trabalho individual pode ser obtida por:
+Informações sobre um espaço de trabalho individual podem ser obtidas por:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2019-11-01
 
-### <a name="export-compute-information"></a>Informação computacional de exportação
+### <a name="export-compute-information"></a>Informação sobre o Cálculo de Exportação
 
-Todos os alvos de computação ligados a um espaço de trabalho podem ser obtidos por:
+Todos os alvos de cálculo ligados a um espaço de trabalho podem ser obtidos por:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes?api-version=2019-11-01
 
-A informação sobre um único objetivo de cálculo pode ser obtida por:
+As informações sobre um único alvo de cálculo podem ser obtidas:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}?api-version=2019-11-01
 
-### <a name="export-run-history-data"></a>Dados do histórico de exportação
+### <a name="export-run-history-data"></a>Dados do histórico da exportação
 
 Use esta chamada para obter uma lista de todas as experiências e suas informações:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments 
 
-Todas as corridas para uma determinada experiência podem ser obtidas por:
+Todas as corridas para uma experiência específica podem ser obtidas por:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs 
 
-Os itens de histórico de execução podem ser obtidos por:
+Os itens de história de execução podem ser obtidos por:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId} 
 
@@ -136,7 +136,7 @@ Todas as métricas de execução para uma experiência podem ser obtidas por:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/metrics 
 
-Uma única métrica de execução pode ser obtida por:
+Uma única métrica de corrida pode ser obtida por:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/metrics/{metricId}
 
@@ -152,7 +152,7 @@ Utilize esta chamada para obter uma lista de tarefas armazenadas:
 
     https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/tasks
 
-As notificações para uma única tarefa podem ser obtidas por:
+As notificações para uma única tarefa podem ser obtidas:
 
     https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}tasks/{taskId}
 
@@ -168,7 +168,7 @@ As lojas de dados individuais podem ser obtidas por:
 
 ### <a name="export-models"></a>Exportar modelos
 
-Use esta chamada para obter uma lista de modelos e suas iDs:
+Utilize esta chamada para obter uma lista de modelos e seus IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models?api-version=2019-11-01
 
@@ -178,7 +178,7 @@ Os modelos individuais podem ser obtidos por:
 
 ### <a name="export-assets"></a>Ativos de exportação
 
-Use esta chamada para obter uma lista de bens e suas iDs:
+Use esta chamada para obter uma lista de ativos e suas iDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets?api-version=2019-11-01
 
@@ -188,7 +188,7 @@ Os ativos individuais podem ser obtidos por:
 
 ### <a name="export-images"></a>Imagens de exportação
 
-Use esta chamada para obter uma lista de imagens e suas iDs:
+Use esta chamada para obter uma lista de imagens e seus IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images?api-version=2019-11-01
 
@@ -198,7 +198,7 @@ As imagens individuais podem ser obtidas por:
 
 ### <a name="export-services"></a>Serviços de exportação
 
-Use esta chamada para obter uma lista de serviços e suas iDs:
+Utilize esta chamada para obter uma lista de serviços e seus IDs:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services?api-version=2019-11-01
 
@@ -206,19 +206,19 @@ Os serviços individuais podem ser obtidos por:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services/{id}?api-version=2019-11-01
 
-### <a name="export-pipeline-experiments"></a>Experiências de gasoduto de exportação
+### <a name="export-pipeline-experiments"></a>Experiências de Gasoduto de Exportação
 
 As experiências individuais podem ser obtidas por:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Experiments/{experimentId}
 
-### <a name="export-pipeline-graphs"></a>Gráficos de gasoduto de exportação
+### <a name="export-pipeline-graphs"></a>Gráficos de pipeline de exportação
 
 Os gráficos individuais podem ser obtidos por:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Graphs/{graphId}
 
-### <a name="export-pipeline-modules"></a>Módulos de gasoduto de exportação
+### <a name="export-pipeline-modules"></a>Módulos de Gasoduto de Exportação
 
 Os módulos podem ser obtidos por:
 
@@ -232,7 +232,7 @@ Os modelos podem ser obtidos por:
 
 ### <a name="export-pipeline-data-sources"></a>Fontes de dados do gasoduto de exportação
 
-As Fontes de Dados podem ser obtidas por:
+As fontes de dados podem ser obtidas por:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
@@ -240,15 +240,15 @@ As Fontes de Dados podem ser obtidas por:
 
 No designer onde criou a sua experiência, elimine os ativos individuais:
 
-1. Ir ao designer
+1. Ir para designer
 
     ![Eliminar ativos](./media/how-to-export-delete-data/delete-experiment.png)
 
-1. Na lista, selecione o projeto de gasoduto individual para eliminar.
+1. Na lista, selecione o rascunho do pipeline individual para eliminar.
 
 1. Selecione **Eliminar**.
 
 ### <a name="delete-datasets-in-the-designer"></a>Eliminar conjuntos de dados no designer
 
-Para eliminar conjuntos de dados no designer, utilize o portal Azure ou o Storage Explorer para navegar para contas de armazenamento conectadas e eliminar conjuntos de dados lá. O desregistar conjuntos de dados no designer apenas remove o ponto de referência no armazenamento.
+Para eliminar conjuntos de dados no designer, utilize o portal Azure ou o Storage Explorer para navegar para contas de armazenamento conectadas e eliminar conjuntos de dados lá. Não registar conjuntos de dados no designer apenas remove o ponto de referência no armazenamento.
 

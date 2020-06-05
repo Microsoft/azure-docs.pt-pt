@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: 746366675501c80776f0a4308e22250f344a00c9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ed8a46683d79211559b4af7972c6d1bb784e1f02
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343443"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434170"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -90,8 +90,8 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
->| Erro Global tomcat (precotado)<br><br>(a ser removido após 1 de julho de 2020)  | tomcat.global.erro | Contagem | Número de erros ocorre de pedidos processados |
->| tomcat.global.erro | tomcat.global.erro | Contagem | Número de erros ocorre de pedidos processados |
+>| Erro Global tomcat (precotado)<br><br>(a ser removido após 1 de julho de 2020)  | tomcat.global.erro | Contagem | Número de erros ocorridos em pedidos processados |
+>| tomcat.global.erro | tomcat.global.erro | Contagem | Número de erros ocorridos em pedidos processados |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
@@ -101,7 +101,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >| system.cpu.usage | system.cpu.usage | Percentagem | Uso recente do CPU para todo o sistema. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que todos os CPUs estiveram inativos durante o período de tempo observado recentemente, enquanto um valor de 1.0 significa que todas as CPUs estavam a funcionar ativamente a 100% do tempo durante o período recente observado.|
 >| Percentagem de Utilização cpu de aplicação (precotado)<br><br>(removido após 1 de julho de 2020) | Percentagem de Utilização cpu de aplicação | Percentagem | Utilização recente do CPU para o processo Java Virtual Machine. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
 >| process.cpu.usage | Percentagem de Utilização cpu de aplicação | Percentagem | Utilização recente do CPU para o processo Java Virtual Machine. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
->| Memória de aplicação Atribuída (precotado)<br><br>(a ser removido após 1 de julho de 2020) | jvm.memory.committed | Bytes | Representa a quantidade de memória que é garantida para ser usada pelo JVM. O JVM pode libertar memória para o sistema e comprometido pode ser menor do que o init. comprometido será sempre maior ou igual a usado. |
+>| Memória de aplicação Atribuída (precotado)<br><br>(a ser removido após 1 de julho de 2020) | jvm.memory.committed | Bytes | Representa a quantidade de memória que é garantida para ser usada pelo JVM. O JVM pode libertar memória para o sistema e a memória comprometida pode ser inferior à memória inicial. A memória comprometida será sempre maior ou igual à memória utilizada. |
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Representa a quantidade de memória que é garantida para ser usada pelo JVM. O JVM pode libertar memória para o sistema e comprometido pode ser menor do que o init. comprometido será sempre maior ou igual a usado. |
 >| Memória de aplicativo utilizada (depreciada)<br><br>(a ser removido após 1 de julho de 2020) | jvm.memory.usado | Bytes | Representa a quantidade de memória atualmente utilizada nos bytes. |
 >| jvm.memory.usado | jvm.memory.usado | Bytes | Representa a quantidade de memória atualmente utilizada nos bytes. |
@@ -140,8 +140,8 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >|----|----|----|------------|
 >| Tomcat Session Max Ative Count (precotado)<br><br>(removido após 1 de julho de 2020) | tomcat.sessions.ative.max | Contagem | Número máximo de sessões que estiveram ativas ao mesmo tempo |
 >| tomcat.sessions.ative.max | tomcat.sessions.ative.max | Contagem | Número máximo de sessões que estiveram ativas ao mesmo tempo |
->| Tomcat Session Max Alive Tempo (precedido)<br><br>(removido após 1 de julho de 2020) | tomcat.sessions.alive.max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada tinha sido vivo |
->| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada tinha sido vivo |
+>| Tomcat Session Max Alive Tempo (precedido)<br><br>(removido após 1 de julho de 2020) | tomcat.sessions.alive.max | Milissegundos | Mais tempo (em segundos) que uma sessão expirada estava viva |
+>| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milissegundos | Mais tempo (em segundos) que uma sessão expirada estava viva |
 >| Tomcat Session Criou Conde (precotado)<br><br>(removido após 1 de julho de 2020) | tomcat.sessions.created | Contagem | Número de sessões que foram criadas |
 >| tomcat.sessions.created | tomcat.sessions.created | Contagem | Número de sessões que foram criadas |
 >| Contagem expirada da sessão de Tomcat (prevada)<br><br>(removido após 1 de julho de 2020) | tomcat.sessions.expirou | Contagem | Número de sessões que expiraram |
@@ -155,7 +155,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 
 * [Analisar registos e métricas com definições de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Tutorial: Monitorar recursos da Nuvem de primavera usando alertas e grupos de ação](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Quotas e Planos de Serviço para Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)

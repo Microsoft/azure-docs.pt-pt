@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 31c285b8130e7df549ae9f3bb7f1e30cd8a0546c
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195228"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432669"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitorização do armazenamento Azure
 
@@ -32,11 +32,15 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="account-level"></a>Nível de conta
 
+Esta tabela mostra [métricas de nível de conta.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts)
+
 | Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade Usada | A quantidade de armazenamento utilizada pela conta de armazenamento. Para as contas de armazenamento standard, é a soma da capacidade utilizada pelos blobs, tabelas, ficheiros e filas. Para as contas de armazenamento premium e contas de armazenamento de blobs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 #### <a name="blob-storage"></a>Armazenamento de blobs
+
+Esta tabela mostra [métricas de armazenamento Blob](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Descrição |
 | ------------------- | ----------------- |
@@ -47,6 +51,8 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="table-storage"></a>Table Storage
 
+Esta tabela mostra [métricas de armazenamento de mesa.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices)
+
 | Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Mesa | A quantidade de armazenamento de mesa utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -55,6 +61,8 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="queue-storage"></a>Armazenamento de filas
 
+Esta tabela mostra [métricas de armazenamento de fila.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices)
+
 | Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Fila | A quantidade de armazenamento de fila utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -62,6 +70,8 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 | QueueMessageCount | O número de mensagens de fila não piradas na conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 #### <a name="file-storage"></a>Armazenamento de ficheiros
+
+Esta tabela mostra [métricas de armazenamento de ficheiros.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)
 
 | Metric | Descrição |
 | ------------------- | ----------------- |
@@ -90,7 +100,7 @@ O Azure Storage fornece as seguintes métricas de transação no Azure Monitor.
 
 O Azure Storage suporta as seguintes dimensões para métricas no Azure Monitor.
 
-| Nome da dimensão | Descrição |
+| Nome da dimensão | Description |
 | ------------------- | ----------------- |
 | **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage**. Append Blob está incluído no BlockBlob. |
 | **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente**: Nível quente</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para bolha de página premium</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tipo de nível para fins gerais conta de armazenamento v1</li> |

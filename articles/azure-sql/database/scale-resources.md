@@ -71,7 +71,7 @@ A escala de recursos é a forma mais fácil e eficaz de melhorar o desempenho da
 - [A escala de leitura](read-scale-out.md) é uma funcionalidade disponível onde está a obter uma réplica apenas de leitura dos seus dados onde pode executar consultas exigentes apenas de leitura, como relatórios. Uma réplica só de leitura irá lidar com a sua carga de trabalho apenas de leitura sem afetar o uso de recursos na sua base de dados primária.
 - [O fragmento de base de dados](elastic-scale-introduction.md) é um conjunto de técnicas que lhe permite dividir os seus dados em várias bases de dados e escaloná-los de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a melhoria do desempenho da base de dados alterando o código da base de [dados,](database-advisor-find-recommendations-portal.md)consulte Localizar e aplicar recomendações de desempenho .
 - Para obter informações sobre a informação de uma base de dados incorporada que otimize a sua base de dados, consulte [a sintonização automática](automatic-tuning-overview.md).

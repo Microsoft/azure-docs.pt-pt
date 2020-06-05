@@ -1,21 +1,19 @@
 ---
-title: 'Quickstart: Tenha intenção com APIs REST - LUIS'
-description: Neste rest API quickstart, utilize uma aplicação PÚBLICA LUIS disponível para determinar a intenção de um utilizador a partir de texto de conversação.
+title: 'Quickstart: Obtenha intenção com APIs DE REST - LUIS'
+description: Neste rest API quickstart, use uma aplicação pública disponível LUIS para determinar a intenção de um utilizador de texto de conversação.
 ms.topic: quickstart
 ms.date: 05/18/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 90d98e56e53e28991fb5aada9eab5a7e9c2e69c3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 919308bbb557247516e85017909df9caed8eafdf
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654303"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418101"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs rest
+# <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs de DESCANSO
 
-Neste arranque rápido, utilizará uma aplicação LUIS para determinar a intenção de um utilizador a partir de texto de conversação. Envie a intenção do utilizador como texto para o ponto final de previsão HTTP da aplicação Pizza. No final, a LUIS aplica o modelo da app Pizza para analisar o texto de linguagem natural para significado, determinando a intenção geral e extraindo dados relevantes para o domínio da app.
-
-Este guia de início rápido utiliza a API REST de ponto final. Para obter mais informações, veja a [documentação de APIs de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
+Neste arranque rápido, utilizará uma aplicação LUIS para determinar a intenção de um utilizador a partir de texto sonoro. Envie a intenção do utilizador como texto para o ponto final de previsão HTTP da aplicação Pizza. No ponto final, a LUIS aplica o modelo da app Pizza para analisar o texto de linguagem natural para significado, determinando a intenção geral e extraindo dados relevantes para o domínio da app.
 
 Para este artigo, precisa de uma conta gratuita do [LUIS](https://www.luis.ai).
 

@@ -3,12 +3,12 @@ title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f077548f2de06ef35a80aea0e8e33718a18ff229
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308885"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424351"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -115,7 +115,7 @@ Exemplo: Utilização do efeito de auditoria.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists permite a auditoria de recursos que correspondam à condição **de se,** mas não tem os componentes especificados nos **detalhes** da condição **então.**
+AuditIfNotExists permite a auditoria de recursos _relacionados com_ o recurso que corresponde à condição **de se,** mas não tem as propriedades especificadas nos **detalhes** da condição **então.**
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação auditIfNotExists
 

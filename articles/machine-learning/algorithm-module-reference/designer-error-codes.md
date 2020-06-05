@@ -5,16 +5,16 @@ description: Exceções do módulo de resolução de problemas no designer de ap
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9a6e77f630d9a78706a82bdc020dd7fd3eb11230
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167252"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431410"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
 

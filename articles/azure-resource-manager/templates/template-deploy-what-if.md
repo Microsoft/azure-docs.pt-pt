@@ -3,14 +3,14 @@ title: Implantação do modelo e se (Pré-visualização)
 description: Determine quais as alterações que irão acontecer aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/04/2020
 ms.author: tomfitz
-ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 62f46d158bea9507246fda7f24750c3743a5e1f1
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218299"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424249"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM e se operação (Pré-visualização)
 
@@ -19,19 +19,23 @@ Antes de implementar um modelo Azure Resource Manager (ARM), pode visualizar as 
 > [!NOTE]
 > A operação "e se" está atualmente em pré-visualização. Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso vai mudar quando realmente não acontecerá nenhuma alteração. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Pode utilizar a operação "e se" com as operações Azure PowerShell, Azure CLI ou REST API.
+Pode utilizar a operação "e se" com as operações Azure PowerShell, Azure CLI ou REST API. E se for suportado para implementações de grupo de recursos e de nível de subscrição.
 
-## <a name="install-powershell-module"></a>Instalar módulo PowerShell
+## <a name="install-azure-powershell-module"></a>Instalar módulo Azure PowerShell
 
-Para utilizar o "e se" no PowerShell, tem de instalar uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell. Mas, antes de instalar o módulo, certifique-se de que tem PowerShell Core (6.x ou 7.x). Se tiver PowerShell 5.x ou mais cedo, [atualize a sua versão do PowerShell](/powershell/scripting/install/installing-powershell). Não é possível instalar o módulo de pré-visualização no PowerShell 5.x ou mais cedo.
+Para utilizar o que se em PowerShell, tem de ter a versão **4.2 ou posterior do módulo Az**.
 
-### <a name="install-preview-version"></a>Instalar versão de pré-visualização
+Mas, antes de instalar o módulo necessário, certifique-se de que tem PowerShell Core (6.x ou 7.x). Se tiver PowerShell 5.x ou mais cedo, [atualize a sua versão do PowerShell](/powershell/scripting/install/installing-powershell). Não é possível instalar o módulo necessário no PowerShell 5.x ou mais cedo.
 
-Para instalar o módulo de pré-visualização, utilize:
+### <a name="install-latest-version"></a>Instalar a versão mais recente
+
+Para instalar o módulo, utilize:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+Para obter mais informações sobre a instalação de módulos, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="uninstall-alpha-version"></a>Desinstalar a versão alfa
 
@@ -101,7 +105,7 @@ Resource changes: 1 to modify.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Para visualizar alterações antes de implementar um modelo, adicione o `-Whatif` parâmetro do interruptor ao comando de implementação.
+Para pré-visualizar alterações antes de implementar um modelo, utilize [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) ou [o New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Adicione o `-Whatif` parâmetro do interruptor ao comando de implantação.
 
 * `New-AzResourceGroupDeployment -Whatif`para implementações de grupos de recursos
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implementações de nível de subscrição
@@ -111,19 +115,19 @@ Pode utilizar o `-Confirm` parâmetro do switch para visualizar as alterações 
 * `New-AzResourceGroupDeployment -Confirm`para implementações de grupos de recursos
 * `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` para implementações de nível de subscrição
 
-Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto que possa inspecionar programaticamente para obter alterações, use:
+Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto que possa inspecionar programaticamente as alterações, utilize [o Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) ou [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`para implementações de grupos de recursos
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`ou `$results = Get-AzDeploymentWhatIfResult` para implementações de nível de subscrição
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para visualizar alterações antes de implementar um modelo, utilize `what-if` com o comando de implementação.
+Para pré-visualizar alterações antes de implementar um modelo, utilize [o grupo de implementação az what-if](/cli/azure/deployment/group#az-deployment-group-what-if) ou [az deployment sub-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
 
 * `az deployment group what-if`para implementações de grupos de recursos
 * `az deployment sub what-if`para implementações de nível de subscrição
 
-Pode utilizar o `--confirm-with-what-if` interruptor (ou a sua forma `-c` curta) para visualizar as alterações e ser solicitado para continuar com a implementação.
+Pode utilizar o `--confirm-with-what-if` interruptor (ou a sua forma `-c` curta) para visualizar as alterações e ser solicitado para continuar com a implementação. Adicione este interruptor à [criação do grupo de implantação AZ](/cli/azure/deployment/group#az-deployment-group-create) ou [à criação do submarino de implantação AZ](/cli/azure/deployment/sub#az-deployment-sub-create).
 
 * `az deployment group create --confirm-with-what-if`ou `-c` para implantações de grupos de recursos
 * `az deployment sub create --confirm-with-what-if`ou `-c` para implementações de nível de subscrição

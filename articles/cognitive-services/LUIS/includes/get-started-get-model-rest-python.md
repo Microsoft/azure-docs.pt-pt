@@ -6,21 +6,19 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 4d8da7d2bc51c4fc4ebc8d71f230f24f20b3aa24
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a8ac208c77a3c25d03b09e0c70eb5edcd9bd0383
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368448"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416422"
 ---
+[Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/python-model-with-rest/model.py)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
-* O ID da aplicação LUIS para a aplicação TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
-* O ID da versão na aplicação que recebe as expressões. O ID predefinido é "0.1".
 * [Python 3.6](https://www.python.org/downloads/) ou mais tarde.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -28,33 +26,141 @@ ms.locfileid: "77368448"
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
+## <a name="create-pizza-app"></a>Criar aplicativo Pizza
+
+[!INCLUDE [Create pizza app](get-started-get-model-create-pizza-app.md)]
+
 ## <a name="change-model-programmatically"></a>Alterar modelo programáticamente
 
 1. Crie um novo ficheiro com o nome `model.py`. Adicione o seguinte código:
 
-    [!code-python[Add example utterances to Language Understanding in python](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
+    [!code-python[Add example utterances to Language Understanding in python](~/cognitive-services-quickstart-code/python/LUIS/python-model-with-rest/model.py)]
 
-1. Substitua os valores a começar pelos `YOUR-` seus próprios valores.
+1. Substitua os valores a partir dos `YOUR-` seus próprios valores.
 
     |Informações|Objetivo|
     |--|--|
-    |`YOUR-KEY`|A tua chave de autor de 32 personagens.|
-    |`YOUR-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Definiu o seu nome de recurso quando criou o recurso.|
-    |`YOUR-APP-ID`| O seu ID de aplicativo LUIS. |
+    |`YOUR-APP-ID`| Sua identificação de aplicativo LUIS. |
+    |`YOUR-AUTHORING-KEY`|A sua chave de autoria de 32 caracteres.|
+    |`YOUR-AUTHORING-ENDPOINT`| O seu ponto final de autoria de URL. Por exemplo, `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. Define o nome do seu recurso quando criou o recurso.|
 
-    As chaves e recursos atribuídos são visíveis no portal LUIS na secção Gerir, na página de **recursos do Azure.** O ID da aplicação está disponível na mesma secção Gerir, na página definições de **aplicações.**
+    As chaves e recursos atribuídos são visíveis no portal LUIS na secção Gerir, na página de **recursos Azure.** O ID da aplicação está disponível na mesma secção Gerir, na página Definições de **Aplicação.**
 
-1. Com um pedido de comando no mesmo diretório onde criou o ficheiro, introduza o seguinte comando para executar o ficheiro:
+1. Com um pedido de comando no mesmo diretório que criou o ficheiro, insira o seguinte comando para executar o ficheiro:
 
     ```console
     python model.py
     ```
 
+1. Reveja a resposta de autoria:
+
+    ```console
+    Add the list of utterances:
+    [{'value': {'ExampleId': 1137150691, 'UtteranceText': 'order a pizza'}, 'hasError': False}, {'value': {'ExampleId': 1137150692, 'UtteranceText': 'order a large pepperoni pizza'}, 'hasError': False}, {'value': {'ExampleId': 1137150693, 'UtteranceText': 'i want two large pepperoni pizzas on thin crust'}, 'hasError': False}]
+    Request training:
+    {'statusId': 9, 'status': 'Queued'}
+    Request training status:
+    [{'modelId': 'edb46abf-0000-41ab-beb2-a41a0fe1630f', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': 'a5030be2-616c-4648-bf2f-380fa9417d37', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': '3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': 'e4b6704b-1636-474c-9459-fe9ccbeba51c', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': '031d3777-2a00-4a7a-9323-9a3280a30000', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}, {'modelId': '9250e7a1-06eb-4413-9432-ae132ed32583', 'details': {'statusId': 3, 'status': 'InProgress', 'exampleCount': 0, 'progressSubstatus': 'CollectingData'}}]
+    ```
+
+    Aqui está a saída formatada para a legibilidade:
+
+    ```json
+    Add the list of utterances:
+    [
+      {
+        'value': {
+          'ExampleId': 1137150691,
+          'UtteranceText': 'order a pizza'
+        },
+        'hasError': False
+      },
+      {
+        'value': {
+          'ExampleId': 1137150692,
+          'UtteranceText': 'order a large pepperoni pizza'
+        },
+        'hasError': False
+      },
+      {
+        'value': {
+          'ExampleId': 1137150693,
+          'UtteranceText': 'i want two large pepperoni pizzas on thin crust'
+        },
+        'hasError': False
+      }
+    ]
+
+    Request training:
+    {
+      'statusId': 9,
+      'status': 'Queued'
+    }
+
+    Request training status:
+    [
+      {
+        'modelId': 'edb46abf-0000-41ab-beb2-a41a0fe1630f',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': 'a5030be2-616c-4648-bf2f-380fa9417d37',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': '3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': 'e4b6704b-1636-474c-9459-fe9ccbeba51c',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': '031d3777-2a00-4a7a-9323-9a3280a30000',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      },
+      {
+        'modelId': '9250e7a1-06eb-4413-9432-ae132ed32583',
+        'details': {
+          'statusId': 3,
+          'status': 'InProgress',
+          'exampleCount': 0,
+          'progressSubstatus': 'CollectingData'
+        }
+      }
+    ]
+    ```
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este arranque rápido, elimine o ficheiro do sistema de ficheiros.
+Quando terminar com este arranque rápido, elimine o ficheiro do sistema de ficheiros.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Boas práticas para uma aplicação](../luis-concept-best-practices.md)
+> [Melhores práticas para uma aplicação](../luis-concept-best-practices.md)

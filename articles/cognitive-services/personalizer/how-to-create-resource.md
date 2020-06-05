@@ -76,6 +76,6 @@ Crie um recurso Personalizer para cada ciclo de feedback.
 
     Precisa tanto do ponto final do recurso como da chave para utilizar as APIs rank e reward.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configuração](how-to-settings.md) Ciclo de aprendizagem personalizado
