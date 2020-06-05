@@ -230,7 +230,7 @@
                     - name: Histórico de versões
                       href: platform/diagnostics-extension-versions.md
                     - name: Formato dos registos de recursos JSON Lines
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: Resolução de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -1173,8 +1173,10 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Registos da plataforma
       items:
+        - name: Tipos e categorias de registo de recursos suportados
+          href: platform/resource-logs-categories.md
         - name: Esquemas do registo de recursos
-          href: platform/diagnostic-logs-schema.md
+          href: platform/resource-logs-schema.md
         - name: Esquema de registo de atividades
           href: platform/activity-log-schema.md
     - name: Esquemas da extensão de diagnóstico

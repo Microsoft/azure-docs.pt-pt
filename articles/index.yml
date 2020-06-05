@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 4ab8f0e5a7356772f15ab6727f1712f5ff7f8cf9
-  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+  ms.openlocfilehash: 9c54a338e58d2c454c3686fd32de798fd556186d
+  ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84308936"
+  ms.lasthandoff: 06/04/2020
+  ms.locfileid: "84433394"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -725,6 +725,7 @@ productDirectory:
     imageSrc: ./media/index/github-actions-icon.svg
     azureCategories:
     - devops
+    - developer-tools
     url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
   - title: Azure Active Directory (AD)
     summary: Sincronize diretórios no local e ative o início de sessão único
