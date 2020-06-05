@@ -82,6 +82,8 @@
           href: specify-marketplace-images.md
         - name: Especificar informações de suporte (proprietário de conta de laboratório)
           href: lab-account-owner-support-information.md
+        - name: Gestão de custos para laboratórios
+          href: cost-management-guide.md
     - name: Criar e configurar laboratórios de sala de aula (educador)
       items:
         - name: Criar e gerir laboratórios de sala de aula

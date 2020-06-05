@@ -235,6 +235,10 @@
               href: howto-migrate-using-export-and-import.md
             - name: Migração com tempo de inatividade mínimo
               href: howto-migrate-online.md
+        - name: Ligar a aplicações
+          items:
+            - name: Configurar TLS
+              href: howto-tls-configurations.md
         - name: Configurar parâmetros do servidor
           items:
             - name: Portal do Azure

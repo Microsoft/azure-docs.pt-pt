@@ -466,7 +466,7 @@
       items:
         - name: APIs REST
           items:
-            - name: API REST do Reconhecimento de Voz
+            - name: API REST do Reconhecimento de Orador
               href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:

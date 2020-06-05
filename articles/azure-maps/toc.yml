@@ -177,6 +177,14 @@
               href: map-get-information-from-coordinate.md
             - name: Mostrar as direções de A para B
               href: map-route.md
+        - name: Módulo de Mapas do interior
+          items:
+            - name: Módulo de Mapas do interior
+              href: how-to-use-indoor-module.md
+            - name: Estilo dinâmico para mapas do interior
+              href: indoor-map-dynamic-styling.md
+            - name: Visualizador do erro de desenho
+              href: drawing-error-visualizer.md
         - name: Módulo IO espacial
           items:
             - name: Utilizar o módulo IO espacial
@@ -211,14 +219,6 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar dados de tráfego
           href: how-to-show-traffic-android.md
-    - name: Desenvolver com Mapas do interior do Criador
-      items:
-        - name: Módulo de Mapas do interior
-          href: how-to-use-indoor-module.md
-        - name: Estilo dinâmico para mapas do interior
-          href: indoor-map-dynamic-styling.md
-        - name: Visualizador do erro de desenho
-          href: drawing-error-visualizer.md
     - name: Fornecer comentários sobre dados
       href: how-to-use-feedback-tool.md
 - name: Referência
