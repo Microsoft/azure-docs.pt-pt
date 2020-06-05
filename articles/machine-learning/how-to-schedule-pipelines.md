@@ -1,36 +1,36 @@
 ---
-title: Agendar oleodutos de aprendizagem automática Azure
+title: Agendar gasodutos de aprendizagem automática Azure
 titleSuffix: Azure Machine Learning
-description: Agende os gasodutos azure machine learning utilizando o Azure Machine Learning SDK para Python. Os oleodutos programados permitem automatizar tarefas de rotina, demoradas, tais como processamento de dados, treino e monitorização.
+description: Agendar os oleodutos Azure Machine Learning utilizando o Azure Machine Learning SDK para Python. Os gasodutos programados permitem automatizar tarefas rotineiras e demoradas, tais como processamento de dados, formação e monitorização.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec2f6d51387bd6054ffc39835c46071108cb0de3
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024562"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434232"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar oleodutos de aprendizagem automática com Azure Machine Learning SDK para Python
 
-Neste artigo, você vai aprender a programar programáticamente um oleoduto para funcionar em Azure. Pode optar por criar um horário baseado no tempo decorrido ou nas alterações do sistema de ficheiros. Os horários baseados no tempo podem ser usados para cuidar de tarefas rotineiras, tais como monitorização para deriva de dados. Os horários baseados na mudança podem ser usados para reagir a alterações irregulares ou imprevisíveis, tais como novos dados a serem carregados ou dados antigos a serem editados. Depois de aprender a criar horários, aprenderá a recuperá-los e desaticioná-los.
+Neste artigo, você vai aprender a programar programáticamente um oleoduto para executar em Azure. Pode optar por criar um horário baseado no tempo decorrido ou em alterações no sistema de ficheiros. Os horários baseados no tempo podem ser usados para tratar de tarefas rotineiras, tais como monitorização para a deriva de dados. Os horários baseados em alterações podem ser usados para reagir a alterações irregulares ou imprevisíveis, tais como novos dados a serem carregados ou dados antigos a serem editados. Depois de aprender a criar horários, aprenderá a recuperá-los e desativá-los.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://aka.ms/AMLFree)
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
 
-* Um ambiente Python no qual está instalado o Azure Machine Learning SDK para Python. Para mais informações, consulte [Criar e gerir ambientes reutilizáveis para formação e implantação com o Azure Machine Learning.](how-to-use-environments.md)
+* Um ambiente Python no qual está instalado o Azure Machine Learning SDK para Python. Para obter mais informações, consulte [Criar e gerir ambientes reutilizáveis para treino e implantação com a Azure Machine Learning.](how-to-use-environments.md)
 
-* Um espaço de trabalho de Machine Learning com um oleoduto publicado. Pode utilizar o incorporado em Criar e executar gasodutos de [aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* Um espaço de trabalho de Machine Learning com um oleoduto publicado. Você pode usar o construído em [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inicializar o espaço de trabalho & obter dados
+## <a name="initialize-the-workspace--get-data"></a>Inicialize o espaço de trabalho & obter dados
 
-Para agendar um oleoduto, você precisará de uma referência ao seu espaço de trabalho, ao identificador do seu oleoduto publicado, e ao nome da experiência em que pretende criar o horário. Pode obter estes valores com o seguinte código:
+Para agendar um oleoduto, você precisará de uma referência ao seu espaço de trabalho, o identificador do seu oleoduto publicado, e o nome da experiência em que deseja criar o horário. Pode obter estes valores com o seguinte código:
 
 ```Python
 import azureml.core
@@ -54,9 +54,9 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>Criar um horário
 
-Para executar um oleoduto de forma recorrente, vai criar um horário. Um `Schedule` associado um oleoduto, uma experiência, e um gatilho. O gatilho pode`ScheduleRecurrence` ser um que descreve a espera entre as corridas ou um caminho datastore que especifica um diretório para assistir a alterações. Em qualquer dos casos, você precisará do identificador de gasoduto e o nome da experiência para criar o horário.
+Para executar um oleoduto numa base recorrente, criará um horário. Um `Schedule` associado um oleoduto, uma experiência e um gatilho. O gatilho pode ser um `ScheduleRecurrence` que descreve a espera entre as corridas ou um caminho datastore que especifica um diretório para observar as alterações. Em qualquer dos casos, você precisará do identificador do gasoduto e o nome da experiência para criar o horário.
 
-No topo do seu ficheiro `Schedule` python, importe as e `ScheduleRecurrence` classes:
+No topo do seu ficheiro python, importe as `Schedule` classes e `ScheduleRecurrence` as classes:
 
 ```python
 
@@ -65,9 +65,9 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Criar um horário baseado no tempo
 
-O `ScheduleRecurrence` construtor tem um `frequency` argumento exigido que deve ser uma das seguintes cordas: "Minuto", "Hora", "Dia", "Semana", ou "Mês". Também requer um `interval` argumento inteiro especificando quantas `frequency` das unidades devem decorrer entre o início do horário. Os argumentos opcionais permitem-lhe ser mais específico sobre os tempos de início, conforme detalhado nos [docs SDK scheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+O `ScheduleRecurrence` construtor tem um argumento obrigatório que deve ser uma das `frequency` seguintes cordas: "Minuto", "Hora", "Dia", "Semana" ou "Mês". Também requer um argumento inteiro `interval` especificando quantas unidades devem decorrer entre o início do `frequency` horário. Os argumentos opcionais permitem-lhe ser mais específico sobre os horários de início, conforme detalhado nos [docs SDK da AgendaRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
 
-Crie `Schedule` uma corrida que comece a cada 15 minutos:
+Criar uma `Schedule` corrida a cada 15 minutos:
 
 ```python
 recurrence = ScheduleRecurrence(frequency="Minute", interval=15)
@@ -78,15 +78,15 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
                             recurrence=recurrence)
 ```
 
-### <a name="create-a-change-based-schedule"></a>Criar um horário baseado em mudanças
+### <a name="create-a-change-based-schedule"></a>Criar um horário baseado em alterações
 
-Os gasodutos que são desencadeados por alterações de ficheiros podem ser mais eficientes do que os horários baseados no tempo. Por exemplo, pode querer realizar uma etapa de pré-processamento quando um ficheiro é alterado, ou quando um novo ficheiro é adicionado a um diretório de dados. Pode monitorizar quaisquer alterações a uma loja de dados ou alterações dentro de um diretório específico dentro da loja de dados. Se monitorizar um diretório específico, as alterações dentro dos subdiretórios desse diretório _não_ desencadearão uma execução.
+Os oleodutos que são desencadeados por alterações de ficheiros podem ser mais eficientes do que os horários baseados no tempo. Por exemplo, pode querer executar um passo de pré-processamento quando um ficheiro é alterado, ou quando um novo ficheiro é adicionado a um diretório de dados. Pode monitorizar quaisquer alterações a uma datastore ou alterações dentro de um diretório específico dentro da datastore. Se monitorizar um diretório específico, as alterações dentro das subdiretivas desse diretório _não_ desencadearão uma execução.
 
-Para criar um reativo `Schedule`de ficheiros, tem de definir o `datastore` parâmetro na chamada para [Agendar.criar](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorizar uma pasta, detete o `path_on_datastore` argumento.
+Para criar um ficheiro `Schedule` reativo, tem de definir o parâmetro na chamada para `datastore` [Agendar.criar](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorizar uma pasta, desate o `path_on_datastore` argumento.
 
-O `polling_interval` argumento permite especificar, em minutos, a frequência a que o datastore é verificado para obter alterações.
+O `polling_interval` argumento permite especificar, em minutos, a frequência em que a datastore é verificada para alterações.
 
-Se o gasoduto foi construído com um [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)pode definir essa variável para o nome do ficheiro alterado, definindo o `data_path_parameter_name` argumento.
+Se o pipeline foi construído com um [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)pode definir essa variável para o nome do ficheiro alterado definindo o `data_path_parameter_name` argumento.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
@@ -97,30 +97,30 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Argumentos opcionais ao criar um horário
 
-Além dos argumentos discutidos anteriormente, pode `status` definir `"Disabled"` o argumento para criar uma programação inativa. Finalmente, `continue_on_step_failure` permite-lhe passar por um Boolean que irá anular o comportamento de falha padrão do oleoduto.
+Além dos argumentos discutidos anteriormente, pode definir o `status` argumento para criar um calendário `"Disabled"` inativo. Finalmente, `continue_on_step_failure` permite-lhe passar um Boolean que irá sobrepor-se ao comportamento de falha padrão do oleoduto.
 
-### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Use aplicativos de lógica Azure para fluxos de trabalho mais complexos
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Use aplicativos Azure Logic para fluxos de trabalho mais complexos
 
-As Aplicações Lógicas Azure suportam fluxos de trabalho mais complexos e são muito mais amplamente integrados do que os oleodutos Azure Machine Learning. Consulte [trigger uma série de um pipeline de Machine Learning a partir de uma Aplicação Lógica](how-to-trigger-published-pipeline.md) para obter mais informações.
+A Azure Logic Apps suporta fluxos de trabalho mais complexos e está muito mais amplamente integrado do que os oleodutos Azure Machine Learning. Consulte [o Trigger uma execução de um pipeline machine learning a partir de uma App lógica](how-to-trigger-published-pipeline.md) para obter mais informações.
 
 ## <a name="view-your-scheduled-pipelines"></a>Veja os seus oleodutos programados
 
-No seu navegador Web, navegue para Azure Machine Learning. A partir da secção **Pontos Finais** do painel de navegação, escolha **pontos finais do Pipeline**. Isto leva-o a uma lista dos oleodutos publicados no Workspace.
+No seu navegador Web, navegue para Azure Machine Learning. A partir da secção **ponto final** do painel de navegação, escolha **pontos finais do Pipeline**. Isto leva-o a uma lista dos oleodutos publicados no Espaço de Trabalho.
 
-![Página de pipelines da AML](./media/how-to-schedule-pipelines/scheduled-pipelines.png)
+![Página de gasodutos de AML](./media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
-Nesta página pode ver informações sumárias sobre todos os oleodutos no Espaço de Trabalho: nomes, descrições, estado, etc. Faça a broca clicando no seu oleoduto. Na página resultante, existem mais detalhes sobre o seu pipeline e poderá perfurar em corridas individuais.
+Nesta página pode ver informações resumidas sobre todos os oleodutos no Espaço de Trabalho: nomes, descrições, estado e assim por diante. Faça um broco clicando no seu oleoduto. Na página resultante, há mais detalhes sobre o seu oleoduto e pode perfurar em corridas individuais.
 
 ## <a name="deactivate-the-pipeline"></a>Desativar o oleoduto
 
-Se tiver `Pipeline` um que seja publicado, mas não agendado, pode desativá-lo com:
+Se tiver um `Pipeline` que seja publicado, mas não agendado, pode desativá-lo com:
 
 ```python
 pipeline = PublishedPipeline.get(ws, id=pipeline_id)
 pipeline.disable()
 ```
 
-Se o oleoduto estiver programado, deve cancelar primeiro o horário. Recupere o identificador do horário do portal ou executando:
+Se o gasoduto estiver programado, deve cancelar primeiro o horário. Recupere o identificador do horário a partir do portal ou executando:
 
 ```python
 ss = Schedule.list(ws)
@@ -128,7 +128,7 @@ for s in ss:
     print(s)
 ```
 
-Uma vez `schedule_id` que tenha o desejo de desativar, corra:
+Uma vez que tenha o `schedule_id` desejo de desativar, corra:
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -139,17 +139,17 @@ def stop_by_schedule_id(ws, schedule_id):
 stop_by_schedule_id(ws, schedule_id)
 ```
 
-Se correr `Schedule.list(ws)` de novo, deve conseguir uma lista vazia.
+Se voltar a `Schedule.list(ws)` correr, deve ter uma lista vazia.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, usou o Azure Machine Learning SDK para python para agendar um oleoduto de duas maneiras diferentes. Um horário repete-se com base no tempo decorrido do relógio. O outro horário é executado se um `Datastore` ficheiro for modificado num determinado ou dentro de um diretório nessa loja. Viu como usar o portal para examinar o oleoduto e as corridas individuais. Finalmente, aprendeste a desativar um horário para que o oleoduto pare de funcionar.
+Neste artigo, você usou o Azure Machine Learning SDK para Python para agendar um oleoduto de duas maneiras diferentes. Um horário repete-se com base na hora do relógio decorrido. O outro horário é executado se um ficheiro for modificado num determinado `Datastore` ou dentro de um diretório nessa loja. Viu como usar o portal para examinar o oleoduto e as corridas individuais. Finalmente, aprendeu a desativar um horário para que o gasoduto deixe de funcionar.
 
 Para obter mais informações, consulte:
 
 > [!div class="nextstepaction"]
-> [Utilize pipelines de aprendizagem automática azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)
+> [Utilize gasodutos de aprendizagem de máquinas Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)
 
 * Saiba mais sobre [os oleodutos](concept-ml-pipelines.md)
-* Saiba mais sobre [explorar a Aprendizagem automática azure com jupyter](samples-notebooks.md)
+* Saiba mais sobre [a exploração da Azure Machine Learning com o Jupyter](samples-notebooks.md)
 

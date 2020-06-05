@@ -12,4 +12,4 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "70392863"
 ---
 > [!NOTE]
-> Novos recursos criados após 1 de julho de 2019, usarão nomes de subdomínio personalizados. Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../articles/cognitive-services/cognitive-services-custom-subdomains.md).
+> Os novos recursos criados após 1 de julho de 2019, usarão nomes de subdomínios personalizados. Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../articles/cognitive-services/cognitive-services-custom-subdomains.md)

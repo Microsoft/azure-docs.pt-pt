@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 877dab3376e1a4397d9f1c6971baea957b4eea68
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310514"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424198"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
@@ -92,7 +92,7 @@ Subscreva um tópico para comunicar ao Event Grid os eventos que pretende contro
    ![Selecionar webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Na página **'Criar Subscrição de** Eventos', faça os seguintes passos: 
     1. Insira um **nome** para a subscrição do evento.
-    2. Insira um **nome** para o tópico do **sistema**. 
+    2. Insira um **nome** para o tópico do **sistema**. Anteriormente, quando criou uma subscrição para um evento criado por fontes do Azure Blob Ou Azure Event Hubs, o serviço Desempreitado criou automaticamente um tópico de sistema com um **nome gerado aleatoriamente.** Agora, pode especificar um nome para o tópico do sistema enquanto cria o tópico no portal Azure, como mostra a imagem a seguir. Pode utilizar este recurso tópico do sistema para descobrir métricas e registos de diagnóstico.
 
        ![Introduza nomes para subscrição de eventos e tópico do sistema](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
 

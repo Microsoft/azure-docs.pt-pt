@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: v-erkel
-ms.openlocfilehash: 122ef938aad51e83f88cd7f1e4ab18e3975d7d80
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344306"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434090"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
@@ -21,7 +21,7 @@ Utilize o portal Azure para criar o seu cache.
 
 Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) de vídeo de criar uma cache e adicionar um alvo de armazenamento.
 
-[![miniatura de vídeo: Azure HPC Cache: Configuração (clique para visitar a página de vídeo)](media/video4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![miniatura de vídeo: Azure HPC Cache: Configuração (clique para visitar a página de vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="define-basic-details"></a>Definir detalhes básicos
 
@@ -96,7 +96,7 @@ Quando a criação termina, uma notificação aparece com um link para a nova in
 > [!NOTE]
 > Se o seu cache utilizar chaves de encriptação geridas pelo cliente, a cache pode aparecer na lista de recursos antes que o estado de implantação seja concluído. Assim que o estado da cache estiver à espera da **chave,** pode [autorizar a](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) utilização do cofre da chave.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois da sua cache aparecer na lista **de Recursos,** pode passar para o próximo passo.
 

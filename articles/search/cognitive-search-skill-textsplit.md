@@ -1,53 +1,53 @@
 ---
-title: Habilidade cognitiva dividida por texto
+title: Habilidade cognitiva dividida de texto
 titleSuffix: Azure Cognitive Search
-description: Parta o texto em pedaços ou páginas de texto com base no comprimento de um oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure.
+description: Parta o texto em pedaços ou páginas de texto com base no comprimento de um oleoduto de enriquecimento de IA na Pesquisa Cognitiva de Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: 558f7ef250c99d85cb957162b6d098e586bc0fc4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73479656"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433252"
 ---
-# <a name="text-split-cognitive-skill"></a>Habilidade cognitiva dividida por texto
+# <a name="text-split-cognitive-skill"></a>Habilidade cognitiva dividida de texto
 
-A habilidade **Text Split** divide texto em pedaços de texto. Pode especificar se pretende dividir o texto em frases ou em páginas de um determinado comprimento. Esta habilidade é especialmente útil se houver requisitos máximos de comprimento de texto noutras competências a jusante. 
+A habilidade **text split** divide texto em pedaços de texto. Pode especificar se pretende dividir o texto em frases ou em páginas de um determinado comprimento. Esta habilidade é especialmente útil se houver requisitos máximos de comprimento de texto noutras competências a jusante. 
 
 > [!NOTE]
-> Esta habilidade não está ligada a uma API de Serviços Cognitivos e você não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md)para anular a opção de recursos **gratuitos** que o limita a um pequeno número de enriquecimentos diários por dia.
+> Esta habilidade não está ligada a uma API de Serviços Cognitivos e você não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso de Serviços Cognitivos](cognitive-search-attach-cognitive-services.md)para anular a opção de recursos **Gratuitos** que o limita a um pequeno número de enriquecimentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.SplitSkill 
+Microsoft.Skills.text.splitSkill 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | Description |
 |--------------------|-------------|
 | textSplitMode      | Ou "páginas" ou "frases" | 
-| maximumPageLength | Se o textoSplitMode for definido para "páginas", este refere-se ao comprimento máximo da página medido por `String.Length`. O valor mínimo é 100.  Se o textoSplitMode estiver definido para "páginas", o algoritmo tentará dividir o texto em pedaços que são no máximo "maximumPageLength" em tamanho. Neste caso, o algoritmo fará o seu melhor para quebrar a frase num limite de frase, pelo que o tamanho do pedaço pode ser ligeiramente inferior ao "maximumPageLength". | 
-| código de idioma padrão   | (opcional) Um dos seguintes códigos linguísticos: `da, de, en, es, fi, fr, it, ko, pt`. Padrão é inglês (pt). Poucas coisas a considerar:<ul><li>Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.</li><li>Se a linguagem não estiver na lista anterior, a habilidade dividida quebra o texto nos limites do carácter.</li><li>Fornecer um código linguístico é útil para evitar cortar uma palavra ao meio para línguas não-espaciais como o chinês, o japonês e o coreano.</li><li>Se não conhece o idioma (ou seja, tem de dividir o texto para entrada no [IdiomDetectionSkill),](cognitive-search-skill-language-detection.md)o padrão do inglês (en) deve ser suficiente. </li></ul>  |
+| máximoPageLength | Se o textoSplitMode estiver definido como "páginas", este refere-se ao comprimento máximo da página medido por `String.Length` . O valor mínimo é 300.  Se o textoSplitMode estiver definido como "páginas", o algoritmo tentará dividir o texto em pedaços que são no máximo "Comprimento De PáginaL" em tamanho. Neste caso, o algoritmo fará o seu melhor para quebrar a frase num limite de frase, pelo que o tamanho do pedaço pode ser ligeiramente inferior ao "comprimento máximo de PageL". | 
+| Código de padrãoLanguage   | (opcional) Um dos seguintes códigos linguísticos: `da, de, en, es, fi, fr, it, ko, pt` . O padrão é inglês (pt). Poucas coisas a considerar:<ul><li>Se passar num formato de código de identificação de idiomas, apenas é utilizada a parte do código de idiomas do formato.</li><li>Se a língua não estiver na lista anterior, a habilidade dividida quebra o texto nos limites do personagem.</li><li>Fornecer um código linguístico é útil para evitar cortar uma palavra ao meio para línguas não-brancas como o chinês, o japonês e o coreano.</li><li>Se não conhece o idioma (ou seja, tem de dividir o texto para entrada no [LanguageDetectionSkill),](cognitive-search-skill-language-detection.md)o padrão de inglês (pt) deve ser suficiente. </li></ul>  |
 
 
-## <a name="skill-inputs"></a>Inputs de habilidade
+## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome do parâmetro       | Descrição      |
+| Nome do parâmetro       | Description      |
 |----------------------|------------------|
-| texto  | O texto para dividir em substring. |
-| languageCode  | (Opcional) Código linguístico para o documento. Se não conhece o idioma (ou seja, é necessário dividir o texto para entrada no [IdiomDetectionSkill),](cognitive-search-skill-language-detection.md)é seguro remover esta entrada.  |
+| texto  | O texto para dividir em sub-corda. |
+| languageCode  | (Opcional) Código linguístico para o documento. Se não conhece o idioma (ou seja, tem de dividir o texto para inserir no [LanguageDetectionSkill),](cognitive-search-skill-language-detection.md)é seguro remover esta entrada.  |
 
-## <a name="skill-outputs"></a>Saídas de Habilidades 
+## <a name="skill-outputs"></a>Saídas de competências 
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | Description |
 |--------------------|-------------|
-| textoItems | Uma série de subcordas que foram extraídas. |
+| textitems | Uma série de sublmotores que foram extraídos. |
 
 
 ##  <a name="sample-definition"></a>Definição de amostra
@@ -128,9 +128,9 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ```
 
 ## <a name="error-cases"></a>Casos de erro
-Se uma linguagem não for suportada, gera-se um aviso e o texto é dividido nos limites do carácter.
+Se uma língua não for suportada, é gerada uma advertência e o texto é dividido nos limites do personagem.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)

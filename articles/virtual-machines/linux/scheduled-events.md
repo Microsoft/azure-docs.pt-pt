@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1f34066b9f8fa16a2889c1872ebfd3f8cf33ee69
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299524"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418114"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados Azure: Eventos Agendados para VMs Linux
 
@@ -53,7 +53,12 @@ Os eventos agendados são entregues para:
 - Máquinas virtuais autónomas.
 - Todos os VMs num serviço de nuvem.
 - Todos os VMs num conjunto de disponibilidade.
+- Todos os VMs em uma zona de disponibilidade. 
 - Todos os VMs de um grupo de colocação de conjunto de escala. 
+
+> [!NOTE]
+> Específicos dos VMs numa zona de disponibilidade, os eventos programados vão para VMs individuais numa zona.
+> Por exemplo, se tiver 100 VMs num conjunto de disponibilidade e houver uma atualização para um deles, o evento agendado irá para todos os 100, enquanto que se houver 100 VMs individuais numa zona, então o evento só irá para o VM que está a ser impactado.
 
 Como resultado, verifique o `Resources` campo no caso de identificar quais os VMs afetados.
 
@@ -67,7 +72,7 @@ Se o VM não for criado dentro de uma Rede Virtual, os casos padrão para servi�
 ### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
 O serviço Eventos Agendados é versão. As versões são obrigatórias; a versão atual é `2019-01-01` .
 
-| Versão | Tipo de libertação | Regiões | Release Notes (Notas de Lançamento) | 
+| Versão | Tipo de libertação | Regiões | Notas de Versão | 
 | - | - | - | - | 
 | 2019-08-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para EventSource |
 | 2019-04-01 | Disponibilidade Geral | Todos | <li> Apoio adicional para descrição do evento |

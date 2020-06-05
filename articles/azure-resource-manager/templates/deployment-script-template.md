@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: jgao
-ms.openlocfilehash: 2ca6848ed8fe16baea49311ee4b4b15ae8c64b56
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fb910260c562a41871fe0cd13d5e5e9652b2017d
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344718"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417111"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -248,8 +248,9 @@ As saídas de scripts de implementação devem ser guardadas no local AZ_SCRIPTS
 
 ### <a name="handle-non-terminating-errors"></a>Lidar com erros não terminantes
 
-Pode controlar como o PowerShell responde a erros não terminantes utilizando a variável [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) no seu script de implementação. O serviço de scripts não define/altera o valor.  Apesar do valor definido para $ErrorActionPreference, o script de implementação define o estado de fornecimento de recursos para *Falhado* quando o script encontra um erro.
+Pode controlar como o PowerShell responde a erros não terminantes utilizando a variável **$ErrorActionPreference** no seu script de implementação. Se a variável não estiver definida no seu script de implementação, o serviço de script utiliza o valor predefinido **Continue**.
+
+O serviço de script define o estado de fornecimento de recursos para **Falhado** quando o script encontra um erro apesar da definição de $ErrorActionPreference.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passe cordas seguras para script de implementação
 
@@ -354,7 +355,7 @@ O ciclo de vida destes recursos é controlado pelas seguintes propriedades no mo
 
 - **limpezaPreferência**: Limpar a preferência quando a execução do script chegar a um estado terminal. Os valores suportados são:
 
-  - **Sempre:** Elimine os recursos automaticamente criados assim que a execução do script chegar a um estado terminal. Se for utilizada uma conta de armazenamento existente, o serviço de scripts elimina a parte de ficheiro criada na conta de armazenamento. Como o recurso de implementaçãoScripts ainda pode estar presente após a limpeza dos recursos, os serviços de script persistem os resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes que os recursos sejam eliminados.
+  - **Sempre:** Elimine os recursos automaticamente criados assim que a execução do script chegar a um estado terminal. Se for utilizada uma conta de armazenamento existente, o serviço de scripts elimina a parte de ficheiro criada na conta de armazenamento. Como o recurso de implementaçãoScripts ainda pode estar presente após a limpeza dos recursos, o serviço de scripts persiste nos resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes de os recursos serem eliminados.
   - **OnSuccess**: Elimine os recursos criados automaticamente apenas quando a execução do script for bem sucedida. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a partilha de ficheiros apenas quando a execução do script for bem sucedida. Você ainda pode aceder aos recursos para encontrar a informação de depurar.
   - **OnExpiration**: Elimine os recursos automaticamente apenas quando a **definição de retençãoInterval** expirar. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a parte do ficheiro, mas conserva a conta de armazenamento.
 
@@ -433,7 +434,7 @@ Você pode usar uma imagem de recipiente de estiva pré-configurado como o seu a
 
 Depois de o script ser testado com sucesso, pode usá-lo como um script de implementação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 

@@ -325,7 +325,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

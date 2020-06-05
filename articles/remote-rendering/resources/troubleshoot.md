@@ -5,49 +5,49 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4fccf7b786de91c8bcce0b2073e0519ef6c1f2ab
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018825"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424409"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
-Esta página lista questões comuns que interferem com a Renderização Remota Azure, e formas de resolvê-las.
+Esta página lista questões comuns que interferem com a renderização remota do Azure e formas de resolvê-las.
 
 ## <a name="cant-link-storage-account-to-arr-account"></a>Não é possível ligar a conta de armazenamento à conta ARR
 
-Às vezes, durante a [ligação de uma conta de armazenamento,](../how-tos/create-an-account.md#link-storage-accounts) a conta de renderização remota não está listada. Para corrigir este problema, vá à conta ARR no portal Azure e selecione **Identidade** no grupo **Definições** à esquerda. Certifique-se de que **o Estado** está definido para **.**.
-![Debugger quadro de unidade](./media/troubleshoot-portal-identity.png)
+Por vezes, durante [a ligação de uma conta de armazenamento,](../how-tos/create-an-account.md#link-storage-accounts) a conta de renderização remota não está listada. Para corrigir este problema, aceda à conta ARR no portal Azure e selecione **Identidade** no grupo **Definições** à esquerda. Certifique-se de que **o estado** está definido para **On**.
+![Depurador de quadro de unidade](./media/troubleshoot-portal-identity.png)
 
-## <a name="client-cant-connect-to-server"></a>O cliente não pode ligar-se ao servidor
+## <a name="client-cant-connect-to-server"></a>O cliente não consegue ligar-se ao servidor
 
-Certifique-se de que as suas firewalls (no dispositivo, dentro dos routers, etc.) não bloqueiam as seguintes portas:
+Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers, etc.) não bloqueiem as seguintes portas:
 
 * **50051 (TCP)** - necessário para a ligação inicial (aperto de mão HTTP)
-* **8266 (TCP+UDP)** - necessário para a transferência de dados
-* **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - necessário para [arrinspector](tools/arr-inspector.md)
+* **8266 (TCP+UDP)** - necessário para transferência de dados
+* **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - necessário para [o ArrInspector](tools/arr-inspector.md)
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erro `Disconnected: VideoFormatNotAvailable` ' '
 
-Verifique se a sua GPU suporta a descodificação de vídeo de hardware. Ver [Desenvolvimento PC](../overview/system-requirements.md#development-pc).
+Verifique se a sua GPU suporta a descodificamento de vídeo de hardware. Ver [Desenvolvimento PC](../overview/system-requirements.md#development-pc).
 
-Se estiver a trabalhar num portátil com duas GPUs, é possível que a GPU em que está a ser em execução por defeito, não forneça funcionalidade seletiva de descodificação de vídeo de hardware. Em caso afirmativo, tente forçar a sua aplicação a utilizar a outra GPU. Isto é muitas vezes possível nas configurações do condutor da GPU.
+Se estiver a trabalhar num portátil com duas GPUs, é possível que a GPU em que esteja a funcionar por defeito não forneça funcionalidades de descodagem de vídeo de hardware. Em caso afirmativo, tente forçar a sua aplicação a utilizar a outra GPU. Isto é frequentemente possível nas definições do condutor da GPU.
 
 ## <a name="h265-codec-not-available"></a>Código H265 não disponível
 
 Existem duas razões pelas quais o servidor pode recusar-se a ligar-se a um `codec not available` erro.
 
-**O código H265 não está instalado:**
+**O codec H265 não está instalado:**
 
-Primeiro certifique-se de instalar as extensões de **vídeo HEVC** como mencionado na secção [software](../overview/system-requirements.md#software) dos requisitos do sistema.
+Primeiro certifique-se de instalar as **Extensões de Vídeo HEVC,** conforme mencionado na secção [de Software](../overview/system-requirements.md#software) dos requisitos do sistema.
 
-Se ainda tiver problemas, certifique-se de que a sua placa gráfica suporta H265 e tem o mais recente controlador gráfico instalado. Consulte a secção [de Desenvolvimento PC](../overview/system-requirements.md#development-pc) dos requisitos do sistema para informações específicas do fornecedor.
+Se ainda tiver problemas, certifique-se de que a sua placa gráfica suporta H265 e tem o mais recente controlador gráfico instalado. Consulte a secção [de PC de Desenvolvimento](../overview/system-requirements.md#development-pc) dos requisitos do sistema para informações específicas do fornecedor.
 
 **O codec está instalado, mas não pode ser usado:**
 
-A razão para esta questão é uma definição de segurança incorreta nos DLLs. Este problema não se manifesta ao tentar ver vídeos codificados com H265. A reinstalação do codec também não resolve o problema. Em vez disso, execute os seguintes passos:
+A razão para esta questão é uma definição de segurança incorreta nos DLLs. Este problema não se manifesta quando se tenta ver vídeos codificados com H265. Reinstalar o codec também não resolve o problema. Em vez disso, execute os seguintes passos:
 
 1. Abra um **PowerShell com direitos de administração** e corra
 
@@ -55,63 +55,63 @@ A razão para esta questão é uma definição de segurança incorreta nos DLLs.
     Get-AppxPackage -Name Microsoft.HEVCVideoExtension
     ```
   
-    Esse comando deve forrindo o `InstallLocation` do codec, algo como:
+    Este comando deve dar o `InstallLocation` código, algo como:
   
     ```cmd
     InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
     ```
 
-1. Abra essa pasta no Windows Explorer
-1. Deve haver um **x86** e uma subpasta **x64.** Clique à direita numa das pastas e escolha **Propriedades**
-    1. Selecione o separador **'Segurança'** e clique no botão de definições **avançadas**
+1. Abra a pasta no Windows Explorer
+1. Deve haver um **x86** e um **sub-14.** Clique com o direito numa das pastas e escolha **Propriedades**
+    1. Selecione o separador **Segurança** e clique no botão **Definições Avançadas**
     1. Clique em **Alterar** para o **Proprietário**
-    1. Digitar **administradores** no campo de texto
-    1. Clique em **Ver Nomes** e **OK**
+    1. Tipo **de Administradores** no campo de texto
+    1. Clique **em Verificar Nomes** e **OK**
 1. Repita os passos acima para a outra pasta
-1. Repita também os passos acima de cada ficheiro DLL dentro de ambas as pastas. Deve haver quatro DLLs no total.
+1. Repita também os passos acima em cada ficheiro DLL dentro de ambas as pastas. Deve haver quatro DLLs no total.
 
 Para verificar se as definições estão agora corretas, faça-o para cada um dos quatro DLLs:
 
-1. **Selecione Propriedades > > De Segurança Editar**
-1. Consulte a lista de todos os **Grupos /Utilizadores** e certifique-se de que cada um tem o conjunto direito **Read & Executar** (a marca de verificação na coluna de **espera** deve ser assinalada)
+1. Selecione **propriedades > > de segurança Editar**
+1. Consulte a lista de todos os **Grupos / Utilizadores** e certifique-se de que cada um tem o conjunto de **leitura & Executar** o conjunto certo (a marca de verificação na coluna de **permitir** deve ser assinalada)
 
 ## <a name="low-video-quality"></a>Baixa qualidade de vídeo
 
 A qualidade do vídeo pode ser comprometida quer pela qualidade da rede, quer pelo código de vídeo H265 em falta.
 
-* Consulte os passos para [identificar problemas](#unstable-holograms)de rede .
-* Consulte os [requisitos](../overview/system-requirements.md#development-pc) do sistema para instalar o controlador gráfico mais recente.
+* Consulte as etapas para [identificar problemas de rede.](#unstable-holograms)
+* Consulte os [requisitos](../overview/system-requirements.md#development-pc) do sistema para instalar o mais recente controlador gráfico.
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Vídeo gravado com MRC não reflete a qualidade da experiência ao vivo
 
-Um vídeo pode ser gravado em Hololens através da [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
-* O framerate de vídeo está limitado a 30 Hz em oposição a 60 Hz.
-* As imagens de vídeo não passam pelo passo de processamento de [reprojeção](../overview/features/late-stage-reprojection.md) em fase tardia, pelo que o vídeo parece ser mais picador.
+Um vídeo pode ser gravado em Hololens através de [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
+* O framerate de vídeo é limitado a 30 Hz em oposição a 60 Hz.
+* As imagens de vídeo não passam pelo passo de processamento de [reprojecção do estágio tardio,](../overview/features/late-stage-reprojection.md) pelo que o vídeo parece ser mais picante.
 
 Ambos são limitações inerentes à técnica de gravação.
 
-## <a name="black-screen-after-successful-model-loading"></a>Tela preta após carregamento de modelo bem sucedido
+## <a name="black-screen-after-successful-model-loading"></a>Tela preta após carregamento de modelo bem-sucedido
 
-Se estiver ligado ao tempo de execução da renderização e tiver carregado um modelo com sucesso, mas só veja um ecrã preto depois, então isto pode ter algumas causas distintas.
+Se estiver ligado ao tempo de execução de renderização e tiver carregado um modelo com sucesso, mas só vir uma tela preta depois, então isto pode ter algumas causas distintas.
 
 Recomendamos testar as seguintes coisas antes de fazer uma análise mais aprofundada:
 
-* O código H265 está instalado? Embora deva haver uma recaída no código H264, vimos casos em que este recuo não funcionou corretamente. Consulte os [requisitos](../overview/system-requirements.md#development-pc) do sistema para instalar o controlador gráfico mais recente.
-* Ao utilizar um projeto de Unidade, feche a Unidade, elimine a *biblioteca* temporária e as pastas *obj* no diretório do projeto e carregue/construa novamente o projeto. Em alguns casos, os dados em cache fizeram com que a amostra não funcionasse corretamente sem razão óbvia.
+* O codec H265 está instalado? Embora deva haver uma recaída para o codec H264, temos visto casos em que este recuo não funcionou corretamente. Consulte os [requisitos](../overview/system-requirements.md#development-pc) do sistema para instalar o mais recente controlador gráfico.
+* Ao utilizar um projeto De unidade, feche a Unidade, elimine as *pastas* temporárias da biblioteca e *do obj* no diretório do projeto e volte a carregar/construir o projeto. Em alguns casos, os dados em cache fizeram com que a amostra não funcionasse corretamente sem razão óbvia.
 
-Se estes dois passos não ajudaram, é necessário descobrir se os quadros de vídeo são ou não recebidos pelo cliente. Isto pode ser consultado programáticamente, como explicado no capítulo de [consultas de desempenho do lado do servidor.](../overview/features/performance-queries.md) O `FrameStatistics struct` tem um membro que indica quantos quadros de vídeo foram recebidos. Se este número for maior do que 0 e aumentar ao longo do tempo, o cliente recebe quadros de vídeo reais do servidor. Consequentemente, deve ser um problema do lado do cliente.
+Se estes dois passos não ajudaram, é necessário descobrir se os quadros de vídeo são recebidos pelo cliente ou não. Isto pode ser consultado programáticamente como explicado no capítulo das consultas de desempenho do lado do [servidor.](../overview/features/performance-queries.md) O `FrameStatistics struct` tem um membro que indica quantos quadros de vídeo foram recebidos. Se este número for maior do que 0 e aumentando ao longo do tempo, o cliente recebe quadros de vídeo reais do servidor. Consequentemente, deve ser um problema do lado do cliente.
 
-### <a name="common-client-side-issues"></a>Problemas comuns do lado do cliente
+### <a name="common-client-side-issues"></a>Questões comuns do lado do cliente
 
 **O modelo excede os limites do VM selecionado, especificamente o número máximo de polígonos:**
 
-Consulte [limitações específicas do tamanho](../reference/limits.md#overall-number-of-polygons)do VM .
+Consulte [as limitações específicas do tamanho do VM](../reference/limits.md#overall-number-of-polygons).
 
-**O modelo não está dentro do frustum da câmara:**
+**O modelo não está dentro da câmara frustum:**
 
-Em muitos casos, o modelo é apresentado corretamente, mas localizado fora do frustum da câmara. Uma razão comum é que o modelo foi exportado com um pivô muito fora do centro, por isso é cortado pelo avião de corte da câmara. Ajuda a consultar a caixa de delimitação do modelo programáticamente e visualizar a caixa com a Unidade como uma caixa de linha ou imprimir os seus valores para o registo de depuração.
+Em muitos casos, o modelo é apresentado corretamente, mas localizado fora da câmara frustum. Uma razão comum é que o modelo foi exportado com um pivô distante do centro, por isso é cortado pelo plano de corte distante da câmara. Ajuda a consultar a caixa de deliminação do modelo programáticamente e visualizar a caixa com a Unidade como uma caixa de linha ou imprimir os seus valores ao registo de depuração.
 
-Além disso, o processo de conversão gera um [ficheiro json de saída](../how-tos/conversion/get-information.md) ao lado do modelo convertido. Para depurar problemas de posicionamento do modelo, vale a pena olhar para a `boundingBox` entrada na [secção outputEstatísticas:](../how-tos/conversion/get-information.md#the-outputstatistics-section)
+Além disso, o processo de conversão gera um [ficheiro json de saída](../how-tos/conversion/get-information.md) juntamente com o modelo convertido. Para depurar problemas de posicionamento do modelo, vale a pena olhar para a `boundingBox` entrada na secção de [resultadosStatistics](../how-tos/conversion/get-information.md#the-outputstatistics-section):
 
 ```JSON
 {
@@ -134,45 +134,95 @@ Além disso, o processo de conversão gera um [ficheiro json de saída](../how-t
 }
 ```
 
-A caixa de delimitação é descrita como a `min` e posição no espaço `max` 3D, em metros. Assim, uma coordenada de 1000.0 significa que está a 1 km de distância da origem.
+A caixa de delimitação é descrita como uma `min` e `max` posição no espaço 3D, em metros. Uma coordenada de 1000.0 significa que está a 1 km da origem.
 
-Pode haver dois problemas com esta caixa de delimitação que levam a geometria invisível:
-* **A caixa pode estar muito fora do centro,** por isso o objeto é completamente cortado devido a um recorte de avião distante. Os `boundingBox` valores neste caso seriam assim: `min = [-2000, -5,-5], max = [-1990, 5,5]` usando uma grande compensação no eixo X como exemplo aqui. Para resolver este tipo de problema, ative a `recenterToOrigin` opção na [configuração](../how-tos/conversion/configure-model-conversion.md)de conversão do modelo .
-* **A caixa pode ser centrada, mas ser ordens de magnitude demasiado grande.** Isto significa que, embora a câmara comece no centro do modelo, a sua geometria é cortada em todas as direções. Valores `boundingBox` típicos neste caso seriam assim: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . A razão para este tipo de problema é geralmente uma incompatibilidade de escala unitária. Para compensar, especifique um [valor de escala durante a conversão](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) ou marque o modelo de origem com as unidades corretas. A escala também pode ser aplicada no nó raiz ao carregar o modelo em tempo de execução.
+Pode haver dois problemas com esta caixa de delimitação que levam à geometria invisível:
+* **A caixa pode estar muito longe do centro,** por isso o objeto é completamente cortado devido ao corte do plano distante. Os `boundingBox` valores neste caso seriam assim: `min = [-2000, -5,-5], max = [-1990, 5,5]` , usando uma grande compensação no eixo x como exemplo aqui. Para resolver este tipo de problema, ative a `recenterToOrigin` opção na [configuração](../how-tos/conversion/configure-model-conversion.md)de conversão do modelo .
+* **A caixa pode ser centrada, mas ser ordens de grandeza demasiado grandes.** Isto significa que, embora a câmara comece no centro do modelo, a sua geometria é cortada em todas as direções. Valores `boundingBox` típicos neste caso seriam assim: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . A razão para este tipo de problema é geralmente uma incompatibilidade da escala unitária. Para compensar, especifique um [valor de escala durante a conversão](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) ou marque o modelo de origem com as unidades corretas. A escala também pode ser aplicada no nó de raiz ao carregar o modelo em tempo de execução.
 
-**O oleoduto de renderização da Unidade não inclui os ganchos de renderização:**
+**O gasoduto de renderização da Unidade não inclui os ganchos de renderização:**
 
-Os ganchos de renderização remota Azure no pipeline de renderização da Unidade para fazer a composição da moldura com o vídeo e para fazer a reprojeção. Para verificar se estes ganchos existem, abra o *:::no-loc text="Window > Analysis > Frame debugger":::* menu. Ative-o e certifique-se de que existem duas entradas para `HolographicRemotingCallbackPass` o gasoduto:
+Azure Remote Rendering ganchos no pipeline De unidade para fazer a composição da moldura com o vídeo, e para fazer a reprojecção. Para verificar se existem estes ganchos, abra o menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Assegure-o e certifique-se de que existem duas entradas para `HolographicRemotingCallbackPass` o pipeline:
 
-![Debugger quadro de unidade](./media/troubleshoot-unity-pipeline.png)
+![Depurador de quadro de unidade](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Código de unidade usando a API de renderização remota não compila
 
-### <a name="use-debug-when-compiling-for-unity-editor"></a>Use debug ao compilar para Editor de Unidade
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Use o Debug ao compilar para o Editor de Unidade
 
-Mude o tipo de *construção* da solução Deunidade para **Debug**. Ao testar arr no editor de Unidade, o definição `UNITY_EDITOR` só está disponível nas construções 'Debug'. Note que isto não está relacionado com o tipo de construção utilizado para [aplicações implantadas,](../quickstarts/deploy-to-hololens.md)onde deve preferir as construções 'Release'.
+Mude o tipo de *construção* da solução Unidade para **Debug**. Ao testar ARR no editor da Unidade, o define `UNITY_EDITOR` só está disponível nas construções 'Debug'. Note que este não está relacionado com o tipo de construção utilizado para [aplicações implementadas,](../quickstarts/deploy-to-hololens.md)onde deve preferir as construções de 'Lançamento'.
 
-### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Compile falhas ao compilar amostras de unidade para HoloLens 2
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Compilar falhas ao compilar amostras de Unidade para HoloLens 2
 
-Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart, ShowCaseApp, ..) para HoloLens 2. O Visual Studio queixa-se de não poder copiar alguns ficheiros, apesar de estarem lá. Se acertar neste problema:
-* Remova todos os ficheiros de Unidade temporários do projeto e tente novamente. Ou seja, close Unitity, apagar a *biblioteca* temporária e as pastas *obj* no diretório do projeto e carregar/construir o projeto novamente.
-* Certifique-se de que os projetos estão localizados num diretório no disco com um percurso razoavelmente curto, uma vez que o passo da cópia às vezes parece ter problemas com nomes de ficheiros longos.
-* Se isso não ajudar, pode ser que a MS Sense interfira com o passo da cópia. Para estabelecer uma exceção, executar este comando de registo a partir da linha de comando (requer direitos de administração):
+Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart, ShowCaseApp, ..) para HoloLens 2. O Visual Studio queixa-se de não poder copiar alguns ficheiros, embora estejam lá. Se resolver este problema:
+* Remova todos os ficheiros temporários da Unidade do projeto e tente novamente. Ou seja, fechar a Unidade, apagar as *pastas* temporárias da biblioteca e *do obj* no diretório do projeto e carregar/construir novamente o projeto.
+* Certifique-se de que os projetos estão localizados num diretório em disco com um caminho razoavelmente curto, uma vez que o passo de cópia às vezes parece ter problemas com os longos filenames.
+* Se isso não ajudar, pode ser que a MS Sense interfira com o passo de cópia. Para estabelecer uma exceção, executar este comando de registo a partir da linha de comando (requer direitos de administração):
     ```cmd
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 
-No caso de objetos renderizados parecerem mover-se juntamente com movimentos da cabeça, pode estar a encontrar problemas com a *Reprojection Late Stage* (LSR). Consulte a secção de [Reprojeção](../overview/features/late-stage-reprojection.md) de Fase Tardia para obter orientações sobre como abordar tal situação.
+No caso de os objetos renderizados parecerem estar a mover-se juntamente com os movimentos da cabeça, pode estar a deparar-se com problemas com *a Reprojecção do Estágio Tardio* (LSR). Consulte a secção de [Reprojecção do Estágio Tardio](../overview/features/late-stage-reprojection.md) para obter orientações sobre como abordar tal situação.
 
-Outra razão para hologramas instáveis (oscilações, desasque, nervosismo ou hologramas saltitantes) pode ser a fraca conectividade da rede, em particular a largura de banda insuficiente da rede, ou a latência demasiado elevada. Um bom indicador para a qualidade da sua ligação de rede é o valor [das estatísticas](../overview/features/performance-queries.md) de `ARRServiceStats.VideoFramesReused` desempenho. Os quadros reutilizados indicam situações em que uma antiga moldura de vídeo precisava de ser reutilizada do lado do cliente porque não havia nova moldura de vídeo disponível – por exemplo, devido à perda de pacotes ou devido a variações na latência da rede. Se `ARRServiceStats.VideoFramesReused` for frequentemente maior do que zero, isto indica um problema de rede.
+Outra razão para hologramas instáveis (oscilantes, deformas, nervosismo ou hologramas de salto) pode ser a fraca conectividade da rede, em particular a largura de banda de rede insuficiente, ou uma latência demasiado alta. Um bom indicador para a qualidade da sua ligação de rede é o valor das [estatísticas de desempenho.](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused` Os quadros reutilizados indicam situações em que uma antiga moldura de vídeo precisava de ser reutilizada do lado do cliente porque não havia uma nova moldura de vídeo disponível – por exemplo, devido à perda de pacotes ou devido a variações na latência da rede. Se `ARRServiceStats.VideoFramesReused` for frequentemente maior do que zero, isto indica um problema de rede.
 
-Outro valor a olhar `ARRServiceStats.LatencyPoseToReceiveAvg` é. Deve ser consistentemente inferior a 100 ms. Se vir valores mais elevados, isto indica que está ligado a um centro de dados que está muito longe.
+Outro valor a olhar `ARRServiceStats.LatencyPoseToReceiveAvg` é. Deve ser consistentemente abaixo dos 100 ms. Se vir valores mais elevados, isto indica que está ligado a um centro de dados que está muito longe.
 
-Para obter uma lista de potenciais atenuações, consulte as [diretrizes para](../reference/network-requirements.md#guidelines-for-network-connectivity)a conectividade da rede.
+Para obter uma lista de potenciais mitigações, consulte as diretrizes para a [conectividade da rede.](../reference/network-requirements.md#guidelines-for-network-connectivity)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="z-fighting"></a>Luta z
+
+Enquanto o ARR oferece [uma funcionalidade de mitigação de combate a z,](../overview/features/z-fighting-mitigation.md)o z-fighting ainda pode aparecer no local. Este guia visa resolver estes problemas restantes.
+
+### <a name="recommended-steps"></a>Passos recomendados
+
+Utilize o seguinte fluxo de trabalho para mitigar a luta z:
+
+1. Teste a cena com as definições padrão de ARR (mitigação de luta z em)
+
+1. Desativar a mitigação do combate ao z através da sua [API](../overview/features/z-fighting-mitigation.md) 
+
+1. Mude a câmara perto e longe do plano para um alcance mais próximo
+
+1. Resolução de problemas na cena através da próxima secção
+
+### <a name="investigating-remaining-z-fighting"></a>Investigando a restante luta z
+
+Se os passos acima referidos foram esgotados e os restantes combates z são inaceitáveis, a causa subjacente ao combate ao z tem de ser investigada. Como indicado na [página de mitigação de z-fighting,](../overview/features/z-fighting-mitigation.md)existem duas razões principais para o combate z: perda de precisão de profundidade na extremidade da gama de profundidade, e superfícies que se cruzam enquanto são coplanares. A perda de precisão de profundidade é uma eventualidade matemática e só pode ser atenuada seguindo o passo 3 acima. As superfícies coplanares indicam uma falha do ativo de origem e são melhor corrigidas nos dados de origem.
+
+O ARR tem uma característica para determinar se as superfícies podem ser z-fight: [Checkerboard realçando](../overview/features/z-fighting-mitigation.md). Também pode determinar visualmente o que causa o combate z. A primeira animação que se segue mostra um exemplo de perda de profundidade e precisão na distância, e a segunda mostra um exemplo de superfícies quase coplanares:
+
+![profundidade precisão-z-fighting](./media/depth-precision-z-fighting.gif)  ![coplanar-z-fighting](./media/coplanar-z-fighting.gif)
+
+Compare estes exemplos com o seu z-fighting para determinar a causa ou seguir opcionalmente este fluxo de trabalho passo a passo:
+
+1. Posicione a câmara acima das superfícies de combate z para olhar diretamente para a superfície.
+1. Mova lentamente a câmara para trás, para longe das superfícies.
+1. Se o z-fighting é visível todo o tempo, as superfícies são perfeitamente coplanares. 
+1. Se o z-fighting é visível a maior parte do tempo, as superfícies são quase coplanares.
+1. Se o z-fighting só é visível de longe, a causa é a falta de precisão de profundidade.
+
+Superfícies coplanares podem ter uma série de causas diferentes:
+
+* Um objeto foi duplicado pela aplicação de exportação devido a um erro ou a diferentes abordagens de fluxo de trabalho.
+
+    Verifique estes problemas com o respetivo suporte de candidatura e candidatura.
+
+* As superfícies são duplicadas e viradas para parecer em dupla face em renderizadores que usam o abate frontal ou traseiro.
+
+    A importação através da conversão do [modelo](../how-tos/conversion/model-conversion.md) determina a principal sideritude do modelo. A dupla lateral é assumida como o padrão. A superfície será transformada como uma parede fina com iluminação fisicamente correta de ambos os lados. A unilateralidade pode ser implícita por bandeiras no ativo de origem, ou explicitamente forçada durante a conversão do [modelo](../how-tos/conversion/model-conversion.md). Adicionalmente, mas opcionalmente, o [modo unilateral único](../overview/features/single-sided-rendering.md) pode ser definido como "normal".
+
+* Os objetos cruzam-se nos ativos de origem.
+
+     Objetos transformados de uma forma que algumas das suas superfícies se sobrepõem também criam luta z. Transformar partes da árvore de cena na cena importada em ARR também pode criar este problema.
+
+* As superfícies são propositadamente da autoria do toque, como decalques ou texto nas paredes.
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)
 * [Requisitos de rede](../reference/network-requirements.md)

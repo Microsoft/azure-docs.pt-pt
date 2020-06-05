@@ -1,30 +1,30 @@
 ---
-title: GitHub Actions fluxos de trabalho para web apps estáticas azure
-description: Aprenda a usar os repositórios GitHub para configurar a implementação contínua para aplicações web estáticas azure.
+title: GitHub Actions fluxos de trabalho para Azure Static Web Apps
+description: Aprenda a usar repositórios GitHub para configurar a implementação contínua para Azure Static Web Apps.
 services: static-web-apps
 author: christiannwamba
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e2cc1e20c20c17742f2bea56f4e87e8678e4cc03
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655199"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434010"
 ---
-# <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para pré-visualização de aplicações web estáticas azure
+# <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
-Ao criar um novo recurso Azure Static Web App, o Azure gera um fluxo de trabalho gitHub Actions para controlar a implementação contínua da app. O fluxo de trabalho é conduzido por um ficheiro YAML. Este artigo detalha a estrutura e as opções do ficheiro workflow.
+Quando cria um novo recurso Azure Static Web App, o Azure gera um fluxo de trabalho GitHub Actions para controlar a implementação contínua da aplicação. O fluxo de trabalho é impulsionado por um ficheiro YAML. Este artigo detalha a estrutura e as opções do ficheiro de fluxo de trabalho.
 
-As implantações são [iniciadas](#triggers)por gatilhos , que executam [trabalhos](#jobs) definidos por [passos](#steps)individuais .
+As implementações são iniciadas por [gatilhos,](#triggers)que executam [trabalhos](#jobs) que são definidos por [passos](#steps)individuais.
 
 ## <a name="file-location"></a>Localização do arquivo
 
-Quando liga o seu repositório GitHub a Aplicações Web Estáticas Azure, um ficheiro de fluxo de trabalho é adicionado ao repositório.
+Quando liga o seu repositório GitHub a Azure Static Web Apps, um ficheiro de fluxo de trabalho é adicionado ao repositório.
 
-Siga estes passos para visualizar o ficheiro de fluxo de trabalho gerado.
+Siga estes passos para ver o ficheiro de fluxo de trabalho gerado.
 
 1. Abra o repositório da aplicação no GitHub.
 1. A partir do separador _Código,_ clique na `.github/workflows` pasta.
@@ -79,7 +79,7 @@ jobs:
 
 ## <a name="triggers"></a>Acionadores
 
-Um [gatilho](https://help.github.com/actions/reference/events-that-trigger-workflows) gitHub Actions identifica um fluxo de trabalho gitHub Actions para executar um trabalho baseado em gatilhos de eventos. Os gatilhos estão listados usando a `on` propriedade no ficheiro de fluxo de trabalho.
+Um [gatilho](https://help.github.com/actions/reference/events-that-trigger-workflows) de ações gitHub notifica um fluxo de trabalho de GitHub Actions para executar um trabalho baseado em gatilhos de eventos. Os gatilhos estão listados utilizando a `on` propriedade no ficheiro workflow.
 
 ```yml
 on:
@@ -92,35 +92,35 @@ on:
     - master
 ```
 
-Através de configurações associadas à `on` propriedade, pode definir quais os ramos que desencadeiam um trabalho, e acionar gatilhos para disparar para diferentes estados de pedido de puxar.
+Através de configurações associadas à `on` propriedade, pode definir quais os ramos que desencadeiam um trabalho, e definir gatilhos para disparar para diferentes estados de pedido de pull.
 
-Neste exemplo, um fluxo de trabalho é iniciado à medida que o ramo _principal_ muda. As alterações que iniciam o fluxo de trabalho incluem empurrar os compromissos e abrir pedidos de puxar contra o ramo escolhido.
+Neste exemplo, um fluxo de trabalho é iniciado à medida que o ramo _principal_ muda. As alterações que iniciam o fluxo de trabalho incluem a flexidção de compromissos e a abertura de pedidos contra o ramo escolhido.
 
 ## <a name="jobs"></a>Tarefas
 
-Cada gatilho de evento requer um manipulador de eventos. [Os empregos](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#jobs) definem o que acontece quando um evento é desencadeado.
+Cada gatilho do evento requer um manipulador de eventos. [Os](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#jobs) empregos definem o que acontece quando um evento é desencadeado.
 
-No ficheiro de fluxo de trabalho de Aplicações Web Estáticas, existem dois postos de trabalho disponíveis.
+No ficheiro de fluxo de trabalho static Web Apps, existem dois empregos disponíveis.
 
-| Name  | Descrição |
+| Name  | Description |
 |---------|---------|
-|`build_and_deploy_job` | Executa quando empurra compromete ou abre um pedido de puxão contra a sucursal listada na `on` propriedade. |
-|`close_pull_request_job` | Executa apenas quando fecha um pedido de puxão. |
+|`build_and_deploy_job` | Executa quando empurra comete ou abre um pedido de puxão contra a sucursal listada na `on` propriedade. |
+|`close_pull_request_job` | Executa apenas quando fecha um pedido de puxar que remove o ambiente de encenação criado a partir de pedidos de puxar. |
 
 ## <a name="steps"></a>Passos
 
-Os passos são tarefas sequenciais para um trabalho. Um passo realiza ações como instalar dependências, fazer testes e implementar a sua aplicação para a produção.
+Passos são tarefas sequenciais para um trabalho. Um passo realiza ações como instalar dependências, fazer testes e implementar a sua aplicação para a produção.
 
 Um ficheiro de fluxo de trabalho define os seguintes passos.
 
 | Tarefa  | Passos  |
 |---------|---------|
-| `build_and_deploy_job` |<ol><li>Verifica o repositório no ambiente da Ação.<li>Constrói e implementa o repositório para Aplicações Web Estáticas Azure.</ol>|
-| `close_pull_request_job` | <ol><li>Notifica as Aplicações Web Estáticas Azure que um pedido de pull foi fechado.</ol>|
+| `build_and_deploy_job` |<ol><li>Verifica o repositório no ambiente da Ação.<li>Constrói e implementa o repositório para a Azure Static Web Apps.</ol>|
+| `close_pull_request_job` | <ol><li>Notifica a Azure Static Web Apps que um pedido de pull foi fechado.</ol>|
 
 ## <a name="build-and-deploy"></a>Criar e implementar
 
-O passo nomeado constrói e desdobra para a sua instância de `Build and Deploy` Aplicações Web Estáticas Azure. Por baixo da `with` secção, pode personalizar os seguintes valores para a sua implementação.
+O passo nomeado `Build and Deploy` constrói e implementa para o seu exemplo de Aplicações Web Estáticas Azure. Na `with` secção, pode personalizar os seguintes valores para a sua implantação.
 
 ```yml
 with:
@@ -136,34 +136,34 @@ with:
 
 | Propriedade | Descrição | Necessário |
 |---|---|---|
-| `app_location` | Localização do seu código de candidatura.<br><br>Por exemplo, introduza `/` se o código fonte da sua aplicação estiver na raiz do repositório, ou se o seu código de `/app` aplicação estiver num diretório chamado `app` . | Sim |
-| `api_location` | Localização do seu código funções Azure.<br><br>Por exemplo, introduza se o seu código de `/api` aplicação estiver numa pasta chamada `api` . Se não for detetada nenhuma aplicação De Funções Azure na pasta, a construção não falha, o fluxo de trabalho assume que não quer uma API. | Não |
-| `app_artifact_location` | Localização do diretório de saída de construção em relação ao `app_location` .<br><br>Por exemplo, se o código fonte da aplicação estiver localizado em `/app` , e o script de construção for ficheiros para a `/app/build` pasta, então definido `build` como o `app_artifact_location` valor. | Não |
+| `app_location` | Localização do seu código de inscrição.<br><br>Por exemplo, insira `/` se o código fonte da sua aplicação estiver na raiz do repositório, ou se o seu código de `/app` aplicação estiver num diretório chamado `app` . | Yes |
+| `api_location` | Localização do seu código Azure Functions.<br><br>Por exemplo, insira `/api` se o seu código de aplicação estiver numa pasta chamada `api` . Se nenhuma aplicação Azure Functions for detetada na pasta, a construção não falha, o fluxo de trabalho assume que não quer uma API. | No |
+| `app_artifact_location` | Localização do diretório de saída de construção relativamente ao `app_location` .<br><br>Por exemplo, se o código fonte da sua aplicação estiver localizado em `/app` , e o script de construção descosões de saídas para a `/app/build` pasta, então definido `build` como o `app_artifact_location` valor. | No |
 
-As `repo_token` , e os `action` `azure_static_web_apps_api_token` valores são definidos para si por Aplicações Web Estáticas Do Azure não devem ser alterados manualmente.
+Os `repo_token` `action` valores , e `azure_static_web_apps_api_token` valores são definidos para si por Azure Static Web Apps não devem ser alterados manualmente.
 
 ## <a name="custom-build-commands"></a>Comandos de construção personalizados
 
-Pode ter um controlo fino sobre os comandos executados durante uma implantação. Os seguintes comandos podem ser definidos sob a secção de um `with` trabalho.
+Pode ter um controlo fino sobre o que os comandos funcionam durante uma implantação. Os seguintes comandos podem ser definidos sob a secção de um `with` trabalho.
 
-A implantação liga sempre antes de `npm install` qualquer comando personalizado.
+A implantação chama sempre `npm install` antes de qualquer comando personalizado.
 
-| Comando            | Descrição |
+| Comando            | Description |
 |---------------------|-------------|
-| `app_build_command` | Define um comando personalizado a executar durante a implementação da aplicação de conteúdo estático.<br><br>Por exemplo, configurar uma construção de produção para uma aplicação Angular entrar `ng build --prod` . Se ficar em branco, o fluxo de trabalho tenta executar os `npm run build` comandos ou `npm run build:Azure` comandos.  |
-| `api_build_command` | Define um comando personalizado a executar durante a implementação da aplicação API funções Azure. |
+| `app_build_command` | Define um comando personalizado para executar durante a implementação da aplicação de conteúdo estático.<br><br>Por exemplo, para configurar uma construção de produção para uma aplicação angular entrar `ng build --prod` . Se ficar em branco, o fluxo de trabalho tenta executar os `npm run build` comandos ou `npm run build:Azure` comandos.  |
+| `api_build_command` | Define um comando personalizado para executar durante a implementação da aplicação API de Funções Azure. |
 
-## <a name="route-file-location"></a>Localização de ficheiros de rota
+## <a name="route-file-location"></a>Localização do ficheiro de rota
 
 Pode personalizar o fluxo de trabalho para procurar as [rotas.json](routes.md) em qualquer pasta do seu repositório. A seguinte propriedade pode ser definida sob a secção de um `with` trabalho.
 
 | Propriedade            | Descrição |
 |---------------------|-------------|
-| `routes_location` | Define a localização do diretório onde o ficheiro _routes.json_ é encontrado. Esta localização é relativa à raiz do repositório. |
+| `routes_location` | Define o local do diretório onde se encontra o ficheiro _rotas.json._ Esta localização é relativa à raiz do repositório. |
 
- Ser explícito sobre a localização do ficheiro _routes.json_ é particularmente importante se o seu passo de construção de estrutura frontal não mover este ficheiro para o `app_artifact_location` padrão.
+ Ser explícito sobre a localização do seu ficheiro _rotas.json_ é particularmente importante se o seu passo de construção de quadro frontal não mover este ficheiro para o `app_artifact_location` por defeito.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Reveja os pedidos de retirada em ambientes de pré-produção](review-publish-pull-requests.md)
+> [Reveja os pedidos pull em ambientes de pré-produção](review-publish-pull-requests.md)

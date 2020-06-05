@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 921a9c5f7136713f278d9c50bf67f02d9742a470
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309140"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430672"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge
 
@@ -272,7 +272,7 @@ No entanto, é uma boa prática evitar usar o mesmo nome.
 ## <a name="create-downstream-device-certificates"></a>Criar certificados de dispositivo a jusante
 
 Se estiver a configurar um dispositivo IoT a jusante para um cenário de gateway e quiser utilizar a autenticação X.509, pode gerar certificados de demonstração para o dispositivo a jusante.
-Se pretender utilizar a autenticação de chave simétrica, não precisa de certificados para o dispositivo a jusante.
+Se pretender utilizar a autenticação de chaves simétricas, não precisa de criar certificados adicionais para o dispositivo a jusante.
 Existem duas formas de autenticar um dispositivo IoT utilizando certificados X.509: utilizar certificados auto-assinados ou utilizar certificados assinados pela Autoridade de Certificados (CA).
 Para a autenticação auto-assinada X.509, por vezes referida como autenticação por impressão digital, é necessário criar novos certificados para colocar no seu dispositivo IoT.
 Estes certificados têm uma impressão digital que partilha com o IoT Hub para autenticação.

@@ -1,33 +1,49 @@
 ---
-title: Transformação de origem no fluxo de dados de mapeamento
-description: Aprenda a configurar uma transformação de origem no fluxo de dados de mapeamento.
+title: Transformação de fonte no fluxo de dados de mapeamento
+description: Saiba como configurar uma transformação de origem no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: b2f533e8bd9199025260aaca9cff587b13adce64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: 6da0c56e11b8531192ba77d8f0c27fa16eea5de2
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606313"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433306"
 ---
-# <a name="source-transformation-in-mapping-data-flow"></a>Transformação de origem no fluxo de dados de mapeamento 
+# <a name="source-transformation-in-mapping-data-flow"></a>Transformação de fonte no fluxo de dados de mapeamento 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uma transformação de origem confunde a sua fonte de dados para o fluxo de dados. Ao conceber fluxos de dados, o seu primeiro passo será sempre configurar uma transformação de origem. Para adicionar uma fonte, clique na caixa **Adicionar Fonte** na tela de fluxo de dados.
+Uma transformação de fonte configura a sua fonte de dados para o fluxo de dados. Ao desenhar fluxos de dados, o seu primeiro passo será sempre configurar uma transformação de fonte. Para adicionar uma fonte, clique na caixa **Add Source** na tela de fluxo de dados.
 
-Cada fluxo de dados requer pelo menos uma transformação de origem, mas pode adicionar o máximo de fontes necessárias para completar as suas transformações de dados. Pode juntar-se a essas fontes juntamente com uma adesão, procura ou transformação sindical.
+Cada fluxo de dados requer pelo menos uma transformação de origem, mas pode adicionar o número de fontes necessárias para completar as suas transformações de dados. Pode juntar-se a essas fontes juntamente com uma junção, uma procura ou uma transformação sindical.
 
 Cada transformação de origem está associada a exatamente um conjunto de dados da Data Factory. O conjunto de dados define a forma e a localização dos dados a que pretende escrever ou ler. Se utilizar um conjunto de dados baseado em ficheiros, pode utilizar wildcards e listas de ficheiros na sua fonte para trabalhar com mais de um ficheiro de cada vez.
 
-## <a name="supported-source-connectors-in-mapping-data-flow"></a>Conectores de origem suportados no fluxo de dados de mapeamento
+## <a name="inline-datasets"></a>Conjuntos de dados inline
 
-O Mapping Data Flow segue uma abordagem de extração, carga, transformação (ELT) e trabalha com conjuntos de dados de *encenação* que estão todos em Azure. Atualmente, os seguintes conjuntos de dados podem ser utilizados numa transformação de origem:
+A primeira decisão que tomar ao criar uma transformação de fonte é se a sua informação de origem é definida dentro de um objeto de conjunto de dados ou dentro da transformação da fonte. A maioria dos formatos só estão disponíveis num ou noutro. Por favor, consulte o documento de conector apropriado para aprender a usar um conector específico.
+
+Quando um formato é suportado tanto para inline como para um objeto conjunto de dados, existem benefícios para ambos. Os objetos do conjunto de dados são entidades reutilizáveis que podem ser alavancadas em outros fluxos de dados e atividades como copy. Estes são especialmente úteis quando se utiliza um esquema endurecido. Os conjuntos de dados não são baseados em Spark e ocasionalmente poderá ser necessário anular determinadas definições ou projeção de esquemas na transformação da fonte.
+
+Os conjuntos de dados inline são recomendados quando se utilizam esquemas flexíveis, instâncias de origem pontuais ou fontes parametrizadas. Se a sua fonte for fortemente parametrizada, os conjuntos de dados em linha permitem-lhe não criar um objeto "manequim". Os conjuntos de dados inline são baseados em faíscas e as suas propriedades são nativas do fluxo de dados.
+
+Para utilizar um conjunto de dados inline, selecione o formato pretendido no seletor **de tipo Fonte.** Em vez de selecionar um conjunto de dados de origem, selecione o serviço ligado ao que pretende ligar.
+
+![Conjunto de dados inline](media/data-flow/inline-selector.png "Conjunto de dados inline")
+
+### <a name="supported-inline-dataset-formats"></a>Formatos de conjunto de dados inline suportados
+
+Atualmente, o único formato de conjunto de dados inline disponível é o [Modelo de Dados Comuns](format-common-data-model.md#source-properties) lido a partir da [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
+
+## <a name="supported-source-datasets-in-mapping-data-flow"></a>Conjuntos de dados de origem suportados no fluxo de dados de mapeamento
+
+Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformação (ELT) e trabalha com conjuntos de dados de *encenação* que estão todos em Azure. Atualmente, os seguintes conjuntos de dados podem ser utilizados numa transformação de fonte:
     
 * [Armazenamento Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
 * [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
@@ -36,73 +52,73 @@ O Mapping Data Flow segue uma abordagem de extração, carga, transformação (E
 * [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
 * [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-As definições específicas destes conectores estão localizadas no separador **opções Fonte.** Informações sobre estas definições estão localizadas na documentação do conector. 
+As definições específicas destes conectores estão localizadas no separador **opções Source.** 
 
-A Azure Data Factory tem acesso a mais de [90 conectores nativos.](connector-overview.md) Para incluir dados dessas outras fontes no fluxo de dados, utilize a Atividade de Cópia para carregar esses dados numa das áreas de paragem suportadas.
+O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para incluir dados dessas outras fontes no seu fluxo de dados, utilize a Atividade de Cópia para carregar esses dados numa das áreas de preparação suportadas.
 
 ## <a name="source-settings"></a>Definições de origem
 
-Depois de adicionar uma fonte, configure através do separador **Definições de Origem.** Aqui pode escolher ou criar o conjunto de dados em que os seus pontos de origem se situam. Também pode selecionar opções de schema e de amostragem para os seus dados.
+Depois de ter adicionado uma fonte, configufique através do separador **Definições de Origem.** Aqui pode escolher ou criar o conjunto de dados onde os seus pontos de origem. Também pode selecionar opções de esquema e amostragem para os seus dados.
 
 ![Separador de definições de origem](media/data-flow/source1.png "Separador de definições de origem")
 
-**Ligação de teste:** Teste se o serviço de faíscas do fluxo de dados pode ou não ligar-se com sucesso ao serviço ligado utilizado no seu conjunto de dados de origem. O modo dedepuração deve estar ligado para que esta funcionalidade esteja ativada.
+**Ligação de teste:** Teste se o serviço de faíscas do fluxo de dados pode ou não ligar-se com sucesso ao serviço ligado utilizado no seu conjunto de dados de origem. O modo Debug deve estar ligado para que esta função seja ativada.
 
-**Deriva de schema:** [Schema Drift](concepts-data-flow-schema-drift.md) é a capacidade da fábrica de dados de lidar de forma nativa com schemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de coluna.
+**Schema Drift:** [Schema Drift](concepts-data-flow-schema-drift.md) é a capacidade da fábrica de dados de lidar de forma nativa com esquemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de colunas.
 
-* Verifique a caixa **de deriva de esquemas de íma** permitir se as colunas de origem mudarão frequentemente. Esta definição permite que todos os campos de origem que chegam fluam através das transformações para a pia.
+* Verifique a caixa **de deriva de esquema de permitir** se as colunas de origem mudarem frequentemente. Esta definição permite que todos os campos de origem que entram fluam através das transformações para a pia.
 
-* Escolher os tipos de **colunas à deriva infer** instruirá a fábrica de dados a detetar e definir tipos de dados para cada nova coluna descoberta. Com esta característica desligada, todas as colunas derivadas serão de cadeia tipo.
+* A escolha dos tipos de **colunas derivadas infer** irá instruir a fábrica de dados a detetar e definir tipos de dados para cada nova coluna descoberta. Com esta função desligada, todas as colunas à deriva serão de tipo de cadeia.
 
-**Validar o esquema:** Se o esquema de validação for selecionado, o fluxo de dados não será executado se os dados de origem que chegam não corresponderem ao esquema definido do conjunto de dados.
+**Validar esquema:** Se o esquema de validação for selecionado, o fluxo de dados não será executado se os dados de origem recebidas não corresponderem ao esquema definido do conjunto de dados.
 
-**Contagem de linha de salto:** O campo de contagem de linha de salto especifica quantas linhas ignorar no início do conjunto de dados.
+**Contagem de linhas:** O campo de contagem de linhas de salto especifica quantas linhas devem ignorar no início do conjunto de dados.
 
-**Amostragem:** Ative a amostragem para limitar o número de linhas da sua fonte. Utilize esta definição quando testar ou provar dados da sua fonte para fins de depuração.
+**Amostragem:** Ativar a amostragem para limitar o número de linhas da sua fonte. Utilize esta definição quando testar ou recolher dados da sua fonte para fins de depuragem.
 
-**Linhas multilinhas:** Selecione linhas multilinhas se o seu ficheiro de texto de origem contiver valores de cordas que abrangem várias linhas, ou seja, novas linhas dentro de um valor. Esta definição só está disponível em conjuntos de dados DelimitedText.
+**Linhas multiline:** Selecione linhas multiline se o seu ficheiro de texto de origem contiver valores de cadeia que se estendem por várias linhas, ou seja, novas linhas dentro de um valor. Esta definição só está disponível nos conjuntos de dados DelimitedText.
 
-Para validar a sua fonte está configurada corretamente, ligue o modo de depuração e recolha uma pré-visualização de dados. Para mais informações, consulte o [modo Debug](concepts-data-flow-debug-mode.md).
+Para validar a sua fonte está configurada corretamente, ligue o modo de depurar e reveja uma pré-visualização de dados. Para mais informações, consulte [o modo Debug.](concepts-data-flow-debug-mode.md)
 
 > [!NOTE]
-> Quando o modo de depuração é ligado, a configuração do limite da linha nas definições de depuração irá sobrepor a definição de amostragem na fonte durante a pré-visualização de dados.
+> Quando o modo de depurador é ligado, a configuração do limite de linha nas definições de depurador substituirá a definição de amostragem na fonte durante a pré-visualização dos dados.
 
 ## <a name="projection"></a>Projeção
 
-Tal como os esquemas em conjuntos de dados, a projeção numa fonte define as colunas de dados, tipos e formatos a partir dos dados de origem. Para a maioria dos tipos de conjuntos de dados, como o SQL e o Parquet, a projeção numa fonte é fixada para refletir o esquema definido num conjunto de dados. Quando os seus ficheiros de origem não são fortemente digitados (por exemplo, ficheiros csv planos em vez de ficheiros Parquet), pode definir os tipos de dados para cada campo na transformação de origem.
+Tal como os esquemas em conjuntos de dados, a projeção numa fonte define as colunas de dados, tipos e formatos a partir dos dados de origem. Para a maioria dos tipos de conjuntos de dados, como SQL e Parquet, a projeção numa fonte é fixada para refletir o esquema definido num conjunto de dados. Quando os seus ficheiros de origem não são fortemente digitados (por exemplo, ficheiros csv planos em vez de ficheiros Parquet), pode definir os tipos de dados para cada campo na transformação da fonte.
 
 ![Definições no separador Projeção](media/data-flow/source3.png "Projeção")
 
-Se o seu ficheiro de texto não tiver esquema definido, selecione **Detetar o tipo** de dados para que a Data Factory aprove e inferirá os tipos de dados. Selecione **Definir o formato predefinido** para detetar automaticamente os formatos de dados predefinidos.
+Se o seu ficheiro de texto não tiver um esquema definido, selecione **Detetar o tipo de dados** para que a Data Factory recolha e infera os tipos de dados. Selecione **Definir o formato predefinido** para fazer adetectação automática dos formatos de dados predefinidos.
 
-**Redefinir** o esquema repõe a projeção para o que é definido no conjunto de dados referenciado.
+**O esquema de reset** repõe a projeção para o que é definido no conjunto de dados referenciado.
 
-Pode modificar os tipos de dados da coluna numa transformação de coluna derivada a jusante. Utilize uma transformação selecionada para modificar os nomes das colunas.
+Pode modificar os tipos de dados de coluna numa transformação de coluna derivada abaixo. Utilize uma transformação selecionada para modificar os nomes das colunas.
 
 ### <a name="import-schema"></a>Esquema de importação
 
-O botão **Import Schema** no separador **Projeção** permite-lhe utilizar um cluster de depuração ativo para criar uma projeção de esquemas. Disponível em todos os tipos de origem, importar o esquema aqui substituirá a projeção definida no conjunto de dados. O objeto conjunto de dados não será alterado.
+O botão **Desembargador** de Importação no **separador Projeção** permite-lhe utilizar um cluster de depuração ativo para criar uma projeção de esquema. Disponível em todos os tipos de origem, a importação do esquema aqui irá sobrepor-se à projeção definida no conjunto de dados. O objeto do conjunto de dados não será alterado.
 
-Isto é útil em conjuntos de dados como a Avro e a CosmosDB que suportam estruturas de dados complexas não requerem definições de esquemas para existir no conjunto de dados.
+Isto é útil em conjuntos de dados como Avro e CosmosDB que suportam estruturas de dados complexas não requerem definições de esquemas no conjunto de dados.
 
-## <a name="optimize-the-source-transformation"></a>Otimizar a transformação de fontes
+## <a name="optimize-the-source-transformation"></a>Otimizar a transformação da fonte
 
-No separador **Otimize** para a transformação da fonte, pode ver um tipo de partição **Fonte.** Esta opção só está disponível quando a sua fonte for base de dados Azure SQL. Isto porque a Data Factory tenta fazer ligações paralelas para executar grandes consultas contra a sua fonte de Base de Dados SQL.
+No **separador Otimize** para a transformação da fonte, poderá ver um tipo de partição **Source.** Esta opção só está disponível quando a sua fonte for Azure SQL Database. Isto porque a Data Factory tenta fazer ligações paralelas para executar grandes consultas com a sua fonte de Base de Dados SQL.
 
 ![Definições de partição de origem](media/data-flow/sourcepart3.png "partição")
 
-Não é preciso dados de partilha na sua fonte de base de dados SQL, mas as divisórias são úteis para grandes consultas. Pode basear a sua divisória numa coluna ou numa consulta.
+Não é preciso dividir dados na sua fonte de base de dados SQL, mas as divisórias são úteis para grandes consultas. Pode basear a sua partição numa coluna ou numa consulta.
 
-### <a name="use-a-column-to-partition-data"></a>Utilize uma coluna para dados de partilha
+### <a name="use-a-column-to-partition-data"></a>Use uma coluna para dados de partição
 
-A partir da sua tabela de origem, selecione uma coluna para a partilha. Também detete tese o número de divisórias.
+A partir da sua tabela de origem, selecione uma coluna para a partição. Também definir o número de divisórias.
 
-### <a name="use-a-query-to-partition-data"></a>Use uma consulta aos dados de partilha
+### <a name="use-a-query-to-partition-data"></a>Use uma consulta para dados de partição
 
-Pode optar por dividir as ligações com base numa consulta. Introduza o conteúdo de um predicado WHERE. Por exemplo, entrar no ano > 1980.
+Pode optar por dividir as ligações com base numa consulta. Insira o conteúdo de um predicado WHERE. Por exemplo, entre no ano > 1980.
 
 Para obter mais informações sobre a otimização dentro do fluxo de dados de mapeamento, consulte o [separador Otimize](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Comece a construir uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionada.](data-flow-select.md)
+Comece a construir uma [transformação de colunas derivadas](data-flow-derived-column.md) e uma [transformação selecionada.](data-flow-select.md)

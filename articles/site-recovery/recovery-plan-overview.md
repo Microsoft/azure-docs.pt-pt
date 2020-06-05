@@ -91,7 +91,7 @@ Veja um vídeo de exemplo rápido mostrando um failover no clique para um plano 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
 - [Executar](site-recovery-failover.md) os fracassos. 

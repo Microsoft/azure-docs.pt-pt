@@ -85,6 +85,6 @@ Depois de alterar este valor, certifique-se de selecionar **Guardar**.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como gerir o seu modelo](how-to-manage-model.md)

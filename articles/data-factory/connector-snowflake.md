@@ -1,0 +1,401 @@
+---
+title: Copiar dados de/para Floco de Neve
+description: Saiba como copiar dados de e para Snowflake utilizando a Data Factory.
+services: data-factory
+ms.author: jingwang
+author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 05/15/2020
+ms.openlocfilehash: fd067a0a0e99291dd4cea924a15c1157bc3b9f9f
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84425503"
+---
+# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para Snowflake utilizando a Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+Este artigo descreve como utilizar a Copy Activity na Azure Data Factory para copiar dados de e para Snowflake. Para saber mais sobre a Azure Data Factory, leia o [artigo introdutório](introduction.md).
+
+## <a name="supported-capabilities"></a>Capacidades suportadas
+
+Este conector snowflake é suportado para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com tabela [de matriz de fonte/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
+
+Para a atividade copy, este conector Snowflake suporta estas funções:
+
+- Copie os dados do Snowflake que utiliza o COPY de Snowflake no comando [[local]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) para obter o melhor desempenho.
+- Copie os dados em Snowflake que tira partido da COPY de Snowflake no comando [[tabela]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) para obter o melhor desempenho. Apoia o Floco de Neve em Azure.
+
+## <a name="get-started"></a>Introdução
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+
+As secções seguintes fornecem detalhes sobre propriedades que definem entidades da Data Factory específicas de um conector snowflake.
+
+## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
+
+As seguintes propriedades são suportadas para um serviço ligado a Snowflake:
+
+| Propriedade         | Descrição                                                  | Necessário |
+| :--------------- | :----------------------------------------------------------- | :------- |
+| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Yes      |
+| conexãoStragem | Configure o [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (incluindo segmentos adicionais que identificam a região e plataforma em nuvem), nome de utilizador, senha, base de dados e armazém. Especifique a cadeia de ligação JDBC para ligar à instância snowflake. Também pode colocar senha no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Yes      |
+| connectVia       | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No       |
+
+**Exemplo:**
+
+```json
+{
+    "name": "SnowflakeLinkedService",
+    "properties": {
+        "type": "Snowflake",
+        "typeProperties": {
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Senha no cofre da chave Azure:**
+
+```json
+{
+    "name": "SnowflakeLinkedService",
+    "properties": {
+        "type": "Snowflake",
+        "typeProperties": {
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                }, 
+                "secretName": "<secretName>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) 
+
+As seguintes propriedades são suportadas para conjunto de dados de Floco de Neve:
+
+| Propriedade  | Descrição                                                  | Necessário                    |
+| :-------- | :----------------------------------------------------------- | :-------------------------- |
+| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Yes                         |
+| esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
+| table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
+
+**Exemplo:**
+
+```json
+{
+    "name": "SnowflakeDataset",
+    "properties": {
+        "type": "SnowflakeTable",
+        "typeProperties": {
+            "schema": "<Schema name for your Snowflake database>",
+            "table": "<Table name for your Snowflake database>"
+        },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
+        "linkedServiceName": {
+            "referenceName": "<name of linked service>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>Propriedades de Atividade de Cópia
+
+Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte de Floco de Neve e pia.
+
+### <a name="snowflake-as-the-source"></a>Floco de neve como a fonte
+
+O conector snowflake utiliza o COPY de Snowflake no comando [[local]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) por baixo para obter o melhor desempenho.
+
+* Se a loja de dados e o formato da pia forem suportados de forma nativa pelo comando Snowflake COPY, pode utilizar a atividade de cópia para copiar diretamente de Snowflake para afundar. Para mais informações, consulte [a cópia direta do Floco de Neve.](#direct-copy-from-snowflake)
+* Caso contrário, utilize [uma cópia encenada](#staged-copy-from-snowflake)incorporada do Floco de Neve.
+
+Para copiar dados de Snowflake, as seguintes propriedades são suportadas na secção **origem** da Atividade de Cópia:
+
+| Propriedade                     | Descrição                                                  | Necessário |
+| :--------------------------- | :----------------------------------------------------------- | :------- |
+| tipo                         | A propriedade tipo da fonte de Atividade de Cópia deve ser definida como **SnowflakeSource**. | Yes      |
+| consulta          | Especifica a consulta SQL para ler dados de Snowflake. | No       |
+| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a ADF passará quando invocar a declaração. | No       |
+| ***Em `exportSettings` :*** |  |  |
+| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Yes |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Saiba mais sobre as opções de [cópia snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions) | No |
+| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Saiba mais a partir de opções do [tipo de formato snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions) | No |
+
+#### <a name="direct-copy-from-snowflake"></a>Cópia direta de Snowflake
+
+Se a sua loja de dados e formato de lavatório satisfaçam os critérios descritos nesta secção, pode utilizar a atividade de cópia para copiar diretamente de Snowflake para afundar. A Azure Data Factory verifica as definições e falha a atividade de cópia executada se os critérios não forem cumpridos.
+
+1. O **serviço ligado à pia** é do tipo [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.**
+
+2. O **formato de dados** da pia é de **Parquet** ou **texto delimitado,** com as seguintes configurações:
+
+   - Para o formato **Parquet,** o codec de compressão é **Nenhum,** **Snappy,** ou **Lzo.**
+   - Para formato **de texto delimitado:**
+     - `rowDelimiter`é **\r\n**, ou qualquer personagem único.
+     - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+     - `encodingName`é deixado como padrão ou definido para **utf-8**.
+     - `quoteChar`é **citação dupla,** **citação única** ou **corda vazia** (sem carvão de citação).
+3. Na fonte de atividade de cópia, `additionalColumns` não é especificado.
+4. O mapeamento da coluna não é especificado.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Snowflake input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SnowflakeSource",
+                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "exportSettings": {
+                    "type": "SnowflakeExportCopyCommand",
+                    "additionalCopyOptions": {
+                        "MAX_FILE_SIZE": "64000000",
+                        "OVERWRITE": true
+                    },
+                    "additionalFormatOptions": {
+                        "DATE_FORMAT": "'MM/DD/YYYY'"
+                    }
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="staged-copy-from-snowflake"></a>Cópia encenada de Snowflake
+
+Quando a sua loja ou formato de dados da pia não for compatível com o comando Snowflake COPY, como mencionado na última secção, ative a cópia encenada incorporada através de uma instância de armazenamento provisória de Azure Blob. A funcionalidade de cópia encenada também lhe fornece uma melhor produção - A Data Factory exporta dados de Snowflake para o armazenamento de encenação, em seguida, copia dados para afundar, finalmente limpa os seus dados temporários do armazenamento de encenação. Consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy) para obter mais detalhes sobre a cópia dos dados através de uma encenação.
+
+Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que se refira à conta de armazenamento Azure como a encenação provisória. Em seguida, especifique as `enableStaging` propriedades e propriedades na Atividade de `stagingSettings` Cópia.
+
+> [!NOTE]
+>
+> O serviço ligado a Azure Blob tem de utilizar a autenticação de assinatura de acesso partilhado, conforme exigido pelo comando Snowflake COPY. 
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Snowflake input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SnowflakeSource",
+                "sqlReaderQuery": "SELECT * FROM MyTable"
+            },
+            "sink": {
+                "type": "<sink type>"
+            },
+            "enableStaging": true,
+            "stagingSettings": {
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                },
+                "path": "mystagingpath"
+            }
+        }
+    }
+]
+```
+
+### <a name="snowflake-as-sink"></a>Floco de neve como pia
+
+O conector snowflake utiliza o COPY de Snowflake no comando [[mesa]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) por baixo para obter o melhor desempenho. Suporta escrever dados para Snowflake em Azure.
+
+* Se a loja de dados de origem e o formato forem suportados de forma nativa pelo comando Snowflake COPY, pode utilizar a atividade de cópia para copiar diretamente da fonte para Snowflake. Para mais informações, consulte [a cópia direta do Floco de Neve.](#direct-copy-to-snowflake)
+* Caso contrário, utilize [uma cópia encenada](#staged-copy-to-snowflake)incorporada para o Floco de Neve.
+
+Para copiar dados para Snowflake, as seguintes propriedades são suportadas na secção de **lavatório** Copy Activity:
+
+| Propriedade          | Descrição                                                  | Necessário                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| tipo              | A propriedade do tipo do lavatório Copy Activity deve ser definida como **SnowflakeSink**. | Yes                                           |
+| preCopyScript     | Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | No                                            |
+| importaçõesS | *Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a ADF passará quando invocar a declaração.* | *Não* |
+| ***Em `importSettings` :*** |                                                              |  |
+| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Yes |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Saiba mais sobre as opções de [cópia snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions) | No |
+| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Saiba mais a partir de opções do [tipo de formato snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions) | No |
+
+#### <a name="direct-copy-to-snowflake"></a>Cópia direta para Snowflake
+
+Se a sua loja de dados de origem e o seu formato satisfaçam os critérios descritos nesta secção, pode utilizar a atividade de cópia para copiar diretamente da fonte para Snowflake. A Azure Data Factory verifica as definições e falha a atividade de cópia executada se os critérios não forem cumpridos.
+
+1. O **serviço ligado à fonte** é do tipo [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.**
+
+2. O **formato de dados de origem** é **o Parquet** ou **texto delimitado** com as seguintes configurações:
+
+   - Para o formato **Parquet,** o codec de compressão é **Nenhum,** ou **Snappy**.
+
+   - Para formato **de texto delimitado:**
+     - `rowDelimiter`é **\r\n**, ou qualquer personagem único. Se o delimiter de linha não for "\r\n", `firstRowAsHeader` tem de ser **falso,** e `skipLineCount` não está especificado.
+     - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+     - `encodingName`é deixado como padrão ou definido para "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859"-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+     - `quoteChar`é **citação dupla,** **citação única** ou **corda vazia** (sem carvão de citação).
+
+3. Na fonte de atividade de cópia, 
+
+   -  `additionalColumns`não é especificado.
+   - Se a sua fonte for uma pasta, `recursive` deve ser definida como verdadeira.
+   - `prefix`, `modifiedDateTimeStart` `modifiedDateTimeEnd` não são especificados.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Snowflake output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SnowflakeSink",
+                "importSettings": {
+                    "type": "SnowflakeImportCopyCommand",
+                    "copyOptions": {
+                        "FORCE": "TRUE",
+                        "ON_ERROR": "SKIP_FILE",
+                    },
+                    "fileFormatOptions": {
+                        "DATE_FORMAT": "YYYY-MM-DD",
+                    }
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="staged-copy-to-snowflake"></a>Cópia encenada para Floco de Neve
+
+Quando a sua loja ou formato de dados da pia não for compatível com o comando Snowflake COPY, como mencionado na última secção, ative a cópia encenada incorporada através de uma instância de armazenamento provisória de Azure Blob. A funcionalidade de cópia encenada também lhe proporciona uma melhor produção - A Data Factory converte automaticamente os dados para satisfazer os requisitos do formato de dados do Floco de Neve. Em seguida, invoca o comando COPY para carregar dados em Snowflake. Finalmente, limpa os seus dados temporários do armazenamento de bolhas. Consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy) para obter mais detalhes sobre a cópia dos dados através de uma encenação.
+
+Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que se refira à conta de armazenamento Azure como a encenação provisória. Em seguida, especifique as `enableStaging` propriedades e propriedades na Atividade de `stagingSettings` Cópia.
+
+> [!NOTE]
+>
+> O serviço ligado a Azure Blob tem de utilizar a autenticação de assinatura de acesso partilhado, conforme exigido pelo comando Snowflake COPY.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToSnowflake",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Snowflake output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SnowflakeSink"
+            },
+            "enableStaging": true,
+            "stagingSettings": {
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                },
+                "path": "mystagingpath"
+            }
+        }
+    }
+]
+```
+
+
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
+
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para uma lista de lojas de dados suportadas como fontes e sumidouros pela Copy Activity na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

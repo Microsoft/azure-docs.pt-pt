@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248248"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417298"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -31,7 +31,7 @@ Certifique-se de que faz o seguinte antes de configurar backups:
 
 * Permitir a conectividade do VM para a internet, para que possa chegar ao Azure, conforme descrito no procedimento de conectividade de [rede configurado](#set-up-network-connectivity) abaixo.
 * Deve existir uma chave na **hdbuserstore** que presivam os seguintes critérios:
-  * Deve estar presente na **hdbuserstore** padrão
+  * Deve estar presente na **hdbuserstore**padrão. O padrão é a conta sob a `<sid>adm` qual o SAP HANA está instalado.
   * Para o MDC, a chave deve apontar para a porta SQL de **NAMEERVER**. No caso do SDC, deve apontar para a porta SQL do **INDEXSERVER**
   * Deve ter credenciais para adicionar e apagar utilizadores
 * Executar o script de configuração de backup SAP HANA (script pré-registo) na máquina virtual onde o HANA está instalado, como utilizador principal. [Este guião](https://aka.ms/scriptforpermsonhana) prepara o sistema HANA para cópias de segurança. Consulte a secção [O que o script de pré-registo faz](#what-the-pre-registration-script-does) para saber mais sobre o script pré-registo.
@@ -100,7 +100,7 @@ Use um representante HTTP | É permitido o controlo granular no proxy sobre os U
 
 Executar o script de pré-registo executa as seguintes funções:
 
-* Instala ou atualiza os pacotes necessários exigidos pelo agente Azure Backup na sua distribuição.
+* Com base na sua distribuição Linux, o script instala ou atualiza os pacotes necessários pelo agente Azure Backup.
 * Realiza verificações de conectividade de rede de saída com servidores Azure Backup e serviços dependentes como O Azure Ative Directory e Azure Storage.
 * Entra no seu sistema HANA utilizando a chave de utilizador listada como parte dos [pré-requisitos](#prerequisites). A chave do utilizador é utilizada para criar um utilizador de cópia de segurança (AZUREWLBACKUPHANAUSER) no sistema HANA e a chave do utilizador pode ser eliminada após o script pré-registo ser executado com sucesso.
 * A AZUREWLUPHANAUSER é atribuída a estas funções e permissões necessárias:

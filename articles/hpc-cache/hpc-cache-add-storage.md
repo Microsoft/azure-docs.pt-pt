@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9d08526334a9891788df63b156cdf65f55c587ca
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 442c9897c5f02e9ed9cbcda96b6a540b9201f428
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344939"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434117"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -25,7 +25,7 @@ Adicione os alvos de armazenamento depois de criar o seu cache. O procedimento �
 
 Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) de vídeo de criar uma cache e adicionar um alvo de armazenamento.
 
-[![miniatura de vídeo: Azure HPC Cache: Configuração (clique para visitar a página de vídeo)](media/video4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![miniatura de vídeo: Azure HPC Cache: Configuração (clique para visitar a página de vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Abra a página de alvos de armazenamento
 
@@ -157,7 +157,7 @@ Esta tabela resume as diferenças do modelo de utilização:
 | Mais de 15% escreve | Leitura/escrita | Nunca | Uma hora |
 | Os clientes contornam a cache | Leitura | 30 segundos | Nenhum |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar metas de armazenamento, considere uma destas tarefas:
 

@@ -123,7 +123,7 @@ Depois de escolher a classificação adequada, adicione algum texto descritivo n
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a investigar incidentes usando Azure Sentinel. Continue a tutorial para [responder a ameaças usando livros de jogadas automatizados](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Responda às ameaças](tutorial-respond-threats-playbook.md) de automatizar as suas respostas a ameaças.

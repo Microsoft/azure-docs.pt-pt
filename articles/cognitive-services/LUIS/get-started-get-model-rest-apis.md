@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Tenha intenção com APIs REST - LUIS'
+title: 'Quickstart: Obtenha intenção com APIs DE REST - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste rest API quickstart, utilize uma aplicação PÚBLICA LUIS disponível para determinar a intenção de um utilizador a partir de texto de conversação.
+description: Neste rest API quickstart, use uma aplicação pública disponível LUIS para determinar a intenção de um utilizador de texto de conversação.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: cf5f2094d1db18550e8225b328adef92a6afd02a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b73b149e955eee0cb24308d2c1b5b1616b95d7e7
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655520"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416452"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Alterar modelo com APIs REST
+# <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Mude o modelo com APIs REST
 
-Neste arranque rápido, adicione declarações de exemplo a uma aplicação pizza e treine a app. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+Neste quickstart, você vai adicionar palavras de exemplo a uma app Pizza e treinar a app. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]

@@ -281,6 +281,6 @@ Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender a a
 
 A API V2 não será depreciada durante pelo menos 9 meses após a pré-visualização do V3.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize a documentação V3 API para atualizar as chamadas REST existentes para ASP do [ponto final](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) da LUIS.

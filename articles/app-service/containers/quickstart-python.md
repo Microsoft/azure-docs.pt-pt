@@ -221,7 +221,7 @@ Se não espera precisar destes recursos no futuro, elimine o grupo de recursos e
 az group delete -n <resource-group-name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python (Django) web app com PostgreSQL](tutorial-python-postgresql-app.md)

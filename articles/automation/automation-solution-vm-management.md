@@ -3,20 +3,23 @@ title: Azure Automation Start/Stop VMs durante a visão geral fora de horas
 description: Este artigo descreve os VMs iniciar/parar durante o período de folga, que inicia ou para os VMs num horário e os monitoriza proactivamente a partir de registos do Monitor Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205131"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424079"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
-Os VMs de início/paragem durante o arranque ou paragens ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários. 
+Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários. 
 
-Esta função utiliza [o cmdlet Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar VMs. Utiliza [o Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para parar os VMs.
+Esta função utiliza [o cmdlet Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) para iniciar VMs. Utiliza [o Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar os VMs.
+
+> [!NOTE]
+> Embora os livros tenham sido atualizados para utilizar os novos cmdlets do módulo Azure Az, utilizam o pseudónimo prefixo AzureRM.
 
 > [!NOTE]
 > Os VMs de início/paragem durante o horário de folga foram atualizados para suportar as versões mais recentes dos módulos Azure que estão disponíveis. A versão atualizada desta funcionalidade, disponível no Marketplace, não suporta os módulos AzureRM porque migramos de módulos AzureRM para Az.
@@ -90,7 +93,7 @@ Pode ativar VMs para os VMs iniciar/parar durante o período de folga utilizando
 
 ## <a name="components"></a>Componentes
 
-Os VMs de início/paragem durante as horas fora de horas incluem livros de execução pré-configurados, horários e integração com registos do Azure Monitor. Pode utilizar estes elementos para adaptar o arranque e o encerramento dos seus VMs de acordo com as suas necessidades de negócio.
+Os VMs de início/paragem durante o período de folga incluem livros de execução pré-configurados, horários e integração com registos do Monitor Azure. Pode utilizar estes elementos para adaptar o arranque e o encerramento dos seus VMs de acordo com as suas necessidades de negócio.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -132,7 +135,7 @@ A tabela seguinte lista as variáveis criadas na sua conta Automation. Apenas mo
 |External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo aplicado ao tamanho da janela selecionado para avaliar a condição. Valores aceitáveis `Average` são, `Minimum` , , e `Maximum` `Total` `Last` .|
 |External_AutoStop_TimeWindow | O tamanho da janela durante a qual a Azure analisa métricas selecionadas para desencadear um alerta. Este parâmetro aceita a entrada no formato timepan. Os valores possíveis são de 5 minutos a 6 horas.|
 |External_EnableClassicVMs| Valor especificando se os VM clássicos são alvo da funcionalidade. O valor predefinido é verdadeiro. Desave esta variável para subscrições falsas para o Azure Cloud Solution Provider (CSP). Os VMs clássicos requerem uma [conta Classic Run As](automation-create-standalone-account.md#create-a-classic-run-as-account).|
-|External_ExcludeVMNames | Lista separada por vma de nomes VM para excluir, limitada a 140 VMs. Se adicionar mais de 140 VMs à lista, os VMs que estão programados para serem excluídos podem ser inadvertidamente iniciados ou parados.|
+|External_ExcludeVMNames | Lista separada por vma de nomes VM para excluir, limitada a 140 VMs. Se adicionar mais de 140 VMs à lista, os VM especificados para exclusão podem ser inadvertidamente iniciados ou parados.|
 |External_Start_ResourceGroupNames | Lista separada por vírgula de um ou mais grupos de recursos que são direcionados para ações de início.|
 |External_Stop_ResourceGroupNames | Lista separada por vírgula de um ou mais grupos de recursos que são direcionados para ações de paragem.|
 |External_WaitTimeForVMRetrySeconds |O tempo de espera em segundos para que as ações sejam executadas nos VMs para o **SequencedStartStop_Parent** livro de recortes. Esta variável permite que o livro de bordo aguarde as operações infantis por um número especificado de segundos antes de prosseguir com a ação seguinte. O tempo máximo de espera é de 10800, ou três horas. O valor predefinido é de 2100 segundos.|
