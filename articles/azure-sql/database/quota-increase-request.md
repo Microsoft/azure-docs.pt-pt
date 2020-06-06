@@ -1,46 +1,46 @@
 ---
 title: Solicitar um aumento de quota
-description: Esta página descreve como criar um pedido de apoio para aumentar as quotas para a Base de Dados Azure SQL e para a Instância Gerida Azure SQL.
+description: Esta página descreve como criar um pedido de suporte para aumentar as quotas para Azure SQL Database e Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 02/04/2020
-ms.openlocfilehash: 53160fa5a2d24f747b0653673a6f817ae14a7975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: bded7c33493c63a565ebab2dda2dccd320c6aecb
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118853"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456694"
 ---
-# <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Aumento das quotas de pedido para a Base de Dados Azure SQL e para a Instância Gerida SQL
+# <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Aumentos de quota de pedido para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Este artigo explica como solicitar um aumento de quota para a Base de Dados Azure SQL e para a Instância Gerida Azure SQL. Também explica como permitir o acesso por subscrição a uma região.
+Este artigo explica como solicitar um aumento de quota para a Azure SQL Database e Azure SQL Managed Instance. Também explica como permitir o acesso por subscrição a uma região.
 
 ## <a name="create-a-new-support-request"></a><a id="newquota"></a>Criar um novo pedido de apoio
 
-Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure para a Base de Dados SQL.
+Utilize as seguintes etapas para criar um novo pedido de suporte a partir do portal Azure para a Base de Dados SQL.
 
-1. No menu [do portal Azure,](https://portal.azure.com) selecione **Ajuda + suporte**.
+1. No menu [do portal Azure,](https://portal.azure.com) selecione **Help + support**.
 
-   ![O link de ajuda + suporte](./media/quota-increase-request/help-plus-support.png)
+   ![O link de suporte Help +](./media/quota-increase-request/help-plus-support.png)
 
-1. Em **Ajuda + suporte,** selecione **Novo pedido de suporte**.
+1. No **Suporte Help +**, selecione Novo pedido de **suporte**.
 
     ![Criar um novo pedido de apoio](./media/quota-increase-request/new-support-request.png)
 
-1. Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)**.
+1. Para **o tipo de emissão**, selecione **limites de serviço e de subscrição (quotas)**.
 
    ![Selecione um tipo de problema](./media/quota-increase-request/select-quota-issue-type.png)
 
-1. Para **Subscrição,** selecione a subscrição cuja quota pretende aumentar.
+1. Para **Subscrição**, selecione a subscrição cuja quota pretende aumentar.
 
    ![Selecione uma subscrição para uma quota aumentada](./media/quota-increase-request/select-subscription-support-request.png)
 
-1. Para **o tipo quota,** selecione um dos seguintes tipos de quotas:
+1. Para **o tipo de quota**, selecione um dos seguintes tipos de quota:
 
    - **Base de Dados SQL** para base de dados única e quotas elásticas de piscina.
    - **SQL Database Managed Instance** para casos geridos.
@@ -49,69 +49,87 @@ Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure
 
    ![Selecione um tipo de quota](./media/quota-increase-request/select-quota-type.png)
 
-1. Na janela **Detalhes,** selecione **Fornecer detalhes** para introduzir informações adicionais.
+1. Na janela **Detalhes,** selecione **Introduzir detalhes** para introduzir informações adicionais.
 
-   ![O link "Fornecer detalhes"](./media/quota-increase-request/provide-details-link.png)
+   ![Introduzir link de detalhes](./media/quota-increase-request/provide-details-link.png)
 
-Clique **em Fornecer detalhes** mostra a janela de **detalhes da Quota** que lhe permite adicionar informações adicionais. As seguintes secções descrevem as diferentes opções para os tipos de quotas de instância geridas pela Base de **Dados SQL** e pela Base de **Dados SQL.**
+Clicar **em introduzir detalhes** mostra a janela **de detalhes da Quota** que lhe permite adicionar informações adicionais. As seguintes secções descrevem as diferentes opções para os tipos de quota de placas de **base de dados SQL** e **SQL Database Managed Instance.**
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>Tipos de quotas de base de dados SQL
 
-As seguintes secções descrevem três opções de aumento de quota para os tipos de quotas da Base de **Dados SQL:**
+As seguintes secções descrevem as opções de aumento de quota para os tipos de quotas **sql Database:**
 
 - Unidades de transação de base de dados (DTUs) por servidor
 - Servidores por subscrição
-- Permitir o acesso por subscrição a uma região
+- Acesso à região da série M
+- Acesso à região
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Unidades de transação de base de dados (DTUs) por servidor
 
-Utilize os seguintes passos para solicitar um aumento das DTUs por servidor.
+Utilize os seguintes passos para solicitar um aumento dos DTUs por servidor.
 
-1. Selecione as unidades de **transação da Base de Dados (DTUs) por** tipo de quota de servidor.
+1. Selecione as **unidades de transação de base de dados (DTUs) por** tipo de quota de servidor.
 
 1. Na lista **de Recursos,** selecione o recurso para o alvo.
 
-1. No novo campo de **quotas,** introduza o novo limite de DTU que está a solicitar.
+1. No campo novas **quotas,** insira o novo limite DTU que está a solicitar.
 
-   ![Detalhes da quota dTU](./media/quota-increase-request/quota-details-dtus.png)
+   ![Detalhes da quota da DTU](./media/quota-increase-request/quota-details-dtus.png)
 
-Para obter mais informações, consulte [os limites de recursos para bases de dados únicas utilizando o modelo](resource-limits-dtu-single-databases.md) de compra dTU e os [limites de recursos para piscinas elásticas utilizando o modelo](resource-limits-dtu-elastic-pools.md)de compra DTU .
+Para obter mais informações, consulte [os limites de recursos para bases de dados únicas utilizando o modelo de compra DTU](resource-limits-dtu-single-databases.md) e [limites de Recursos para piscinas elásticas utilizando o modelo de compra DTU](resource-limits-dtu-elastic-pools.md).
 
 ### <a name="servers-per-subscription"></a>Servidores por subscrição
 
-Utilize os seguintes passos para solicitar um aumento do número de servidores por subscrição.
+Utilize as seguintes etapas para solicitar um aumento do número de servidores por subscrição.
 
 1. Selecione os Servidores por tipo de quota **de subscrição.**
 
-1. Na lista **de localização,** selecione a região azure para utilizar. A quota é por subscrição em cada região.
+1. Na lista **de Localização,** selecione a região Azure para utilizar. A quota é por subscrição em cada região.
 
-1. No **campo de cotações New,** insira o seu pedido para o número máximo de servidores naquela região.
+1. No campo **novas quotas,** insira o seu pedido para o número máximo de servidores naquela região.
 
    ![Detalhes da quota dos servidores](./media/quota-increase-request/quota-details-servers.png)
 
-Para mais informações, consulte os limites de recursos da Base de [Dados SQL e a governação dos recursos.](resource-limits-logical-server.md)
+Para obter mais informações, consulte [os limites de recursos da Base de Dados SQL e a governação dos recursos.](resource-limits-logical-server.md)
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a>Permitir o acesso por subscrição a uma região
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Permitir o acesso por subscrição a uma região
 
-Alguns tipos de ofertas não estão disponíveis em todas as regiões. Pode ver um erro como o seguinte:
+Alguns tipos de oferta não estão disponíveis em todas as regiões. Pode ver um erro como o seguinte:
 
-`This location is not available for subscription`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
-Se a sua subscrição necessitar de acesso numa determinada região, utilize a opção de pedido de **outra quota** para solicitar acesso. No seu pedido, especifique a oferta e os detalhes sKU que pretende ativar para a região. Para explorar a oferta e as opções SKU, consulte os preços da Base de [Dados Azure SQL.](https://azure.microsoft.com/pricing/details/sql-database/single/)
+Se a sua subscrição precisar de acesso numa determinada região, selecione a opção **de acesso da Região.** No seu pedido, especifique a oferta e os detalhes da SKU que deseja ativar para a região. Para explorar as opções de oferta e SKU, consulte [os preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Outros detalhes da quota](./media/quota-increase-request/quota-details-whitelisting.png)
+1. Selecione o tipo de quota de **acesso da Região.**
+
+1. Na lista **de localização Selecione,** selecione a região Azure para utilizar. A quota é por subscrição em cada região.
+
+1. Insira o **Modelo de Compra**e Detalhes do Consumo **Esperado.**
+
+   ![Solicitar acesso à região](./media/quota-increase-request/quota-details-whitelisting.png)
+
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>Permitir o acesso da série M a uma região
+
+Para permitir o hardware da série M para uma subscrição e região, deve ser aberto um pedido de apoio.
+
+1. Selecione o tipo de quota **de acesso da região M.**
+
+1. Na lista **de localização Selecione,** selecione a região Azure para utilizar. A quota é por subscrição em cada região.
+
+
+   ![Solicitar acesso à região](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>Tipo de quota de instância gerida SQL
 
-Para o tipo de quota **SQL Managed Instance,** utilize os seguintes passos:
+Para o tipo de quota **de instância gerida SQL,** utilize os seguintes passos:
 
-1. Na lista **da Região,** selecione a região de Azure para atingir o alvo.
+1. Na lista da **Região,** selecione a região de Azure para o alvo.
 
-1. Introduza os novos limites que está a solicitar para **subnet** e **vCore**.
+1. Introduza os novos limites que está a solicitar para **a Subnet** e **vCore.**
 
-   ![Detalhes da quota de instância gerida sQL](./media/quota-increase-request/quota-details-managed-instance.png)
+   ![Detalhes da quota de instância gerida da SQL](./media/quota-increase-request/quota-details-managed-instance.png)
 
-Para mais informações, consulte os limites de recursos de Instância Gerida de [Overview Azure SQL](../managed-instance/resource-limits.md).
+Para obter mais informações, consulte [os limites de recursos de exemplo gerido a azure SQL](../managed-instance/resource-limits.md).
 
 ## <a name="submit-your-request"></a>Submeter o pedido
 
@@ -121,4 +139,4 @@ O passo final é preencher os detalhes restantes do seu pedido de quota de Base 
 
 Depois de submeter o seu pedido, este será revisto. Será contactado com uma resposta com base nas informações fornecidas no formulário.
 
-Para obter mais informações sobre outros limites Do Azure, consulte [os limites de subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+Para obter mais informações sobre outros limites do Azure, consulte [os limites de subscrição e serviços, quotas e restrições de subscrição da Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md)

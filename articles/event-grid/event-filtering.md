@@ -1,22 +1,22 @@
 ---
-title: Filtragem de eventos para grelha de eventos azure
-description: Descreve como filtrar eventos ao criar uma subscrição da Rede de Eventos Azure.
+title: Filtragem de eventos para Azure Event Grid
+description: Descreve como filtrar eventos ao criar uma subscrição da Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888784"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456851"
 ---
-# <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem de eventos para subscrições da Grelha de Eventos
+# <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem do evento para subscrições de Grade de Eventos
 
-Este artigo descreve as diferentes formas de filtrar quais os eventos enviados para o seu ponto final. Ao criar uma subscrição de evento, tem três opções para filtrar:
+Este artigo descreve as diferentes formas de filtrar quais os eventos enviados para o seu ponto final. Ao criar uma subscrição de eventos, tem três opções para filtrar:
 
 * Tipos de evento
 * O assunto começa com ou termina com
@@ -24,7 +24,7 @@ Este artigo descreve as diferentes formas de filtrar quais os eventos enviados p
 
 ## <a name="event-type-filtering"></a>Filtragem do tipo de evento
 
-Por predefinição, todos os [tipos de eventos](event-schema.md) para a fonte do evento são enviados para o ponto final. Pode decidir enviar apenas certos tipos de eventos para o seu ponto final. Por exemplo, pode ser notificado de atualizações aos seus recursos, mas não notificado para outras operações, como supressões. Nesse caso, filtrar `Microsoft.Resources.ResourceWriteSuccess` pelo tipo de evento. Forneça uma matriz com os `All` tipos de eventos, ou especifique para obter todos os tipos de eventos para a fonte do evento.
+Por predefinição, todos os [tipos de eventos](event-schema.md) para a fonte do evento são enviados para o ponto final. Pode decidir enviar apenas certos tipos de eventos para o seu ponto final. Por exemplo, pode ser notificado das atualizações dos seus recursos, mas não notificado para outras operações, como supressões. Nesse caso, filtre pelo tipo de `Microsoft.Resources.ResourceWriteSuccess` evento. Forneça uma matriz com os tipos de eventos, ou especifique `All` para obter todos os tipos de eventos para a fonte do evento.
 
 A sintaxe JSON para filtragem por tipo de evento é:
 
@@ -39,11 +39,11 @@ A sintaxe JSON para filtragem por tipo de evento é:
 
 ## <a name="subject-filtering"></a>Filtragem do sujeito
 
-Para uma simples filtragem por sujeito, especifique um valor inicial ou final para o sujeito. Por exemplo, pode especificar que `.txt` o assunto termina apenas com eventos relacionados com o upload de um ficheiro de texto para a conta de armazenamento. Ou, pode filtrar o `/blobServices/default/containers/testcontainer` sujeito começa por obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento.
+Para uma filtragem simples por sujeito, especifique um valor inicial ou final para o sujeito. Por exemplo, pode especificar que o assunto termina apenas com `.txt` eventos relacionados com o upload de um ficheiro de texto para a conta de armazenamento. Ou, pode filtrar o assunto começa com `/blobServices/default/containers/testcontainer` a obter todos os eventos para aquele recipiente, mas não outros recipientes na conta de armazenamento.
 
-Ao publicar eventos para tópicos personalizados, crie temas para os seus eventos que facilitem aos assinantes saber se estão interessados no evento. Os assinantes usam a propriedade do sujeito para filtrar e route events. Considere adicionar o caminho para onde o evento aconteceu, para que os assinantes possam filtrar por segmentos desse caminho. O caminho permite aos assinantes filtrar eventos de forma estreita ou ampla. Se fornecer um caminho `/A/B/C` de três segmentos como no assunto, os assinantes podem filtrar pelo primeiro segmento `/A` para obter um vasto conjunto de eventos. Esses assinantes recebem eventos `/A/B/C` `/A/D/E`com temas como ou . Outros subscritores podem `/A/B` filtrar para obter um conjunto mais restrito de eventos.
+Ao publicar eventos para tópicos personalizados, crie temas para os seus eventos que facilitem aos subscritores saber se estão interessados no evento. Os assinantes usam a propriedade do assunto para filtrar e encaminhar eventos. Considere adicionar o caminho para onde o evento aconteceu, para que os subscritores possam filtrar por segmentos desse caminho. O caminho permite que os assinantes filtram eventos de forma estreita ou ampla. Se fornecer um caminho de três segmentos como `/A/B/C` no assunto, os subscritores podem filtrar pelo primeiro segmento `/A` para obter um vasto conjunto de eventos. Esses assinantes obtêm eventos com temas como `/A/B/C` ou `/A/D/E` . Outros subscritores podem filtrar `/A/B` para obter um conjunto mais restrito de eventos.
 
-A sintaxe JSON para filtragem por objeto é:
+A sintaxe JSON para filtragem por sujeito é:
 
 ```json
 "filter": {
@@ -55,13 +55,13 @@ A sintaxe JSON para filtragem por objeto é:
 
 ## <a name="advanced-filtering"></a>Filtragem avançada
 
-Para filtrar por valores nos campos de dados e especificar o operador de comparação, utilize a opção de filtragem avançada. Em filtragem avançada, especifica o:
+Para filtrar por valores nos campos de dados e especificar o operador de comparação, utilize a opção de filtragem avançada. Na filtragem avançada, especifica::
 
 * tipo de operador - O tipo de comparação.
-* chave - Os dados do campo no caso que está a usar para filtrar. Pode ser um número, booleano, ou corda.
-* valores - O valor ou valores a comparar com a chave.
+* tecla - O campo nos dados do evento que está a utilizar para filtragem. Pode ser um número, booleano, ou corda.
+* valores - O valor ou valores para comparar com a chave.
 
-Se especificar um único filtro com múltiplos valores, é executada uma operação **DE,** pelo que o valor do campo-chave deve ser um desses valores. Segue-se um exemplo:
+Se especificar um único filtro com vários valores, é efetuada uma operação **OR,** pelo que o valor do campo-chave deve ser um destes valores. Segue-se um exemplo:
 
 ```json
 "advancedFilters": [
@@ -76,7 +76,7 @@ Se especificar um único filtro com múltiplos valores, é executada uma operaç
 ]
 ```
 
-Se especificar vários filtros diferentes, é executada uma operação **e operação E,** pelo que cada condição do filtro deve ser satisfeita. Segue-se um exemplo: 
+Se especificar vários filtros diferentes, é efetuada uma operação **E,** pelo que cada condição do filtro deve ser satisfeita. Segue-se um exemplo: 
 
 ```json
 "advancedFilters": [
@@ -101,25 +101,25 @@ Se especificar vários filtros diferentes, é executada uma operação **e opera
 
 Os operadores disponíveis para **números** são:
 
-* Número maiorthan
-* NumberGreaterThanOrEquals
-* número inútil
-* NumberlessThanOrEquals
-* Númeroin
-* Notina número
+* NúmeroGreaterThan
+* NúmeroGreaterThanOrEquals
+* NúmeroSLessTh
+* NumberLessThanOrEquals
+* NúmeroIn
+* NúmeroNotIn
 
 O operador disponível para **booleans** é: 
 - BoolEquals
 
 Os operadores disponíveis para **cordas** são:
 
-* StringContains
+* CordasContains
 * StringBeginsWith
 * StringEndsWith
-* Corda
-* Nottina stringnotin
+* StringIn
+* StringNotIn
 
-Todas as comparações de cordas **não** são sensíveis ao caso.
+Todas as comparações de cordas **não** são sensíveis a casos.
 
 ### <a name="key"></a>Chave
 
@@ -128,19 +128,19 @@ Para eventos no esquema da Grelha de Eventos, utilize os seguintes valores para 
 * ID
 * Tópico
 * Assunto
-* Tipo de evento
+* EventType
 * Versão de Dados
 * Dados do evento (como Data.key1)
 
-Para eventos em Cloud Events schema, use os seguintes valores para a chave:
+Para eventos no esquema de Eventos em Nuvem, utilize os seguintes valores para a chave:
 
-* Eventid
+* EventId
 * Origem
-* Tipo de evento
+* EventType
 * EventTypeVersion
 * Dados do evento (como Data.key1)
 
-Para obter esquemas de entrada personalizados, utilize os campos de dados do evento (como Data.key1).
+Para esquemas de entrada personalizados, utilize os campos de dados do evento (como o Data.key1).
 
 ### <a name="values"></a>Valores
 
@@ -155,16 +155,16 @@ Os valores podem ser:
 
 A filtragem avançada tem as seguintes limitações:
 
-* Cinco filtros avançados por subscrição da grelha de eventos
-* 512 caracteres por valor de cadeia
-* Cinco valores para **dentro** e **não para operadores**
-* Chaves com ** `.` (ponto)** caráter neles. Por `http://schemas.microsoft.com/claims/authnclassreference` exemplo: `john.doe@contoso.com`ou . Atualmente, não há suporte para caracteres de fuga em teclas. 
+* 5 filtros avançados e 25 valores de filtro em todos os filtros por subscrição da grelha de evento
+* 512 caracteres por valor de corda
+* Cinco valores para **dentro** e **não nos** operadores
+* Chaves com ** `.` (ponto)** caráter neles. Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com` . . Atualmente, não há suporte para caracteres de fuga em teclas. 
 
-A mesma tecla pode ser utilizada em mais de um filtro.
+A mesma chave pode ser utilizada em mais de um filtro.
 
 ### <a name="examples"></a>Exemplos
 
-### <a name="stringcontains"></a>StringContains
+### <a name="stringcontains"></a>CordasContains
 
 ```json
 "advancedFilters": [{
@@ -204,7 +204,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="stringin"></a>Corda
+### <a name="stringin"></a>StringIn
 
 ```json
 "advancedFilters": [{
@@ -218,7 +218,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="stringnotin"></a>Nottina stringnotin
+### <a name="stringnotin"></a>StringNotIn
 
 ```json
 "advancedFilters": [{
@@ -231,7 +231,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="numberin"></a>Númeroin
+### <a name="numberin"></a>NúmeroIn
 
 ```json
 
@@ -246,7 +246,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 
 ```
 
-### <a name="numbernotin"></a>Notina número
+### <a name="numbernotin"></a>NúmeroNotIn
 
 ```json
 "advancedFilters": [{
@@ -260,7 +260,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="numberlessthan"></a>número inútil
+### <a name="numberlessthan"></a>NúmeroSLessTh
 
 ```json
 "advancedFilters": [{
@@ -270,7 +270,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="numbergreaterthan"></a>Número maiorthan
+### <a name="numbergreaterthan"></a>NúmeroGreaterThan
 
 ```json
 "advancedFilters": [{
@@ -280,7 +280,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="numberlessthanorequals"></a>NumberlessThanOrEquals
+### <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
 
 ```json
 "advancedFilters": [{
@@ -290,7 +290,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 }]
 ```
 
-### <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
+### <a name="numbergreaterthanorequals"></a>NúmeroGreaterThanOrEquals
 
 ```json
 "advancedFilters": [{
@@ -311,7 +311,7 @@ A mesma tecla pode ser utilizada em mais de um filtro.
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para aprender sobre a filtragem de eventos com powerShell e Azure CLI, consulte [os eventos de filtro para a Grelha de Eventos](how-to-filter-events.md).
-* Para começar rapidamente a usar a Grelha de Eventos, consulte [create e encaminhe eventos personalizados com a Grelha de Eventos Azure](custom-event-quickstart.md).
+* Para conhecer os eventos de filtragem com PowerShell e Azure CLI, consulte [os eventos filter para a Grade de Eventos.](how-to-filter-events.md)
+* Para começar rapidamente a utilizar a Grade de Eventos, consulte [Criar e encaminhar eventos personalizados com a Azure Event Grid](custom-event-quickstart.md).

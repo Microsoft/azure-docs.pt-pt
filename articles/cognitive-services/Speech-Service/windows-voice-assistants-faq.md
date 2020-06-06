@@ -1,7 +1,7 @@
 ---
-title: Assistentes de Voz no Windows - FAQ
+title: Assistentes de voz no Windows - FAQ
 titleSuffix: Azure Cognitive Services
-description: Perguntas comuns que surgem frequentemente durante o desenvolvimento do agente de voz Windows.
+description: Perguntas comuns que surgem frequentemente durante o desenvolvimento do agente de voz do Windows.
 services: cognitive-services
 author: cfogg6
 manager: trrwilson
@@ -10,48 +10,48 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: aa71057d3819acb335153ee5b4b65960320405be
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997416"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457019"
 ---
-# <a name="samples-and-faqs"></a>Amostras e Perguntas Frequentes
+# <a name="samples-and-faqs"></a>Amostras e FaQs
 
-## <a name="the-uwp-voice-assistant-sample"></a>A amostra de assistente de voz da UWP
+## <a name="the-uwp-voice-assistant-sample"></a>A amostra do assistente de voz uWP
 
-A Amostra de Assistente de Voz do UWP é um assistente de voz no Windows que serve para
+A Amostra de Assistente de Voz UWP é um assistente de voz no Windows que serve para
 
-- demonstrar o uso das APIs do Agente de Conversação do Windows
+- demonstrar a utilização das APIs do Windows ConversationalAgent
 - exibir as melhores práticas para um agente de voz no Windows
 - fornecer uma aplicação adaptável e componentes reutilizáveis para a sua aplicação de agente MVP
-- mostrar como o Discurso de Linha Direta, juntamente com o Quadro Bot ou comandos personalizados, pode ser usado juntamente com as APIs do Agente de Conversação do Windows para uma experiência de agente de voz de ponta a ponta
+- mostrar como o Direct Line Speech, juntamente com o Bot Framework ou comandos personalizados, podem ser usados juntamente com as APIs do Windows ConversationalAgent para uma experiência de agente de voz de ponta a ponta
 
-A documentação fornecida com a aplicação da amostra percorre o código de ativação de voz e gestão de agentes, desde os pré-requisitos do arranque através de uma limpeza adequada.
+A documentação fornecida com a app da amostra percorre o caminho de código da ativação de voz e gestão de agentes, desde os pré-requisitos do arranque até à limpeza adequada.
 
 > [!div class="nextstepaction"]
-> [Visite o repo github para a amostra da UWP](https://aka.ms/MVA/sample)
+> [Visite o gitHub repo para a amostra do UWP](https://aka.ms/MVA/sample)
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="how-do-i-contact-microsoft-for-resources-like-limited-access-feature-tokens-and-keyword-model-files"></a>Como posso contactar a Microsoft para obter recursos como fichas de acesso limitado e ficheiros de modelos de palavras-chave?
+### <a name="how-do-i-contact-microsoft-for-resources-like-limited-access-feature-tokens-and-keyword-model-files"></a>Como posso contactar a Microsoft por recursos como fichas de funcionalidade de acesso limitada e ficheiros de modelos de palavras-chave?
 
 Contacto winvoiceassistants@microsoft.com para solicitar estes recursos.
 
 ### <a name="my-app-is-showing-in-a-small-window-when-i-activate-it-by-voice-how-can-i-transition-from-the-compact-view-to-a-full-application-window"></a>A minha aplicação está a aparecer numa pequena janela quando a ativo por voz. Como posso transitar da vista compacta para uma janela de aplicação completa?
 
-Quando a sua aplicação é ativada pela primeira vez por voz, é iniciada numa vista compacta. Leia a [orientação do Design para visualização](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) de ativação de voz para orientação sobre as diferentes visões e transições entre elas para assistentes de voz no Windows.
+Quando a sua aplicação é ativada pela primeira vez por voz, é iniciada numa vista compacta. Leia a [orientação do Design para pré-visualização de ativação de voz](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) para obter orientações sobre as diferentes visões e transições entre eles para assistentes de voz no Windows.
 
-Para fazer a transição da vista compacta para `TryEnterViewModeAsync`a visão completa da aplicação, utilize a appView API:
+Para fazer a transição de vista compacta para vista completa da aplicação, utilize a appView API `TryEnterViewModeAsync` :
 
 `var appView = ApplicationView.GetForCurrentView();
  await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`
 
-### <a name="why-are-voice-assistant-features-on-windows-only-enabled-for-uwp-applications"></a>Porque é que as funcionalidades do assistente de voz no Windows só estão ativadas para aplicações UWP?
+### <a name="why-are-voice-assistant-features-on-windows-only-enabled-for-uwp-applications"></a>Porque é que as funcionalidades de assistente de voz no Windows só estão ativadas para aplicações UWP?
 
-Tendo em conta os riscos de privacidade associados a funcionalidades como a ativação de voz, as funcionalidades da plataforma UWP são necessárias para permitir que as funcionalidades do assistente de voz no Windows sejam suficientemente seguras.
+Tendo em conta os riscos de privacidade associados a funcionalidades como a ativação por voz, as funcionalidades da plataforma UWP são necessárias para permitir que as funcionalidades do assistente de voz no Windows sejam suficientemente seguras.
 
-### <a name="the-uwp-voice-assistant-sample-uses-direct-line-speech-do-i-have-to-use-direct-line-speech-for-my-voice-assistant-on-windows"></a>A amostra de assistente de voz da UWP usa o Discurso da Linha Direta. Tenho de usar o Discurso da Linha Direta para o meu assistente de voz no Windows?
+### <a name="the-uwp-voice-assistant-sample-uses-direct-line-speech-do-i-have-to-use-direct-line-speech-for-my-voice-assistant-on-windows"></a>A amostra de assistente de voz UWP utiliza discurso de linha direta. Tenho de usar o Discurso da Linha Direta para o meu assistente de voz no Windows?
 
-A Aplicação de Amostras UWP foi desenvolvida usando o Direct Line Speech e o Speech Services SDK como uma demonstração de como usar um serviço de diálogo com a capacidade do Agente Conversacional windows. No entanto, pode utilizar qualquer serviço para verificação de palavras-chave locais e em nuvem, conversão de discurso-texto, diálogo bot e conversão de texto-a-fala.
+A Aplicação de Amostra uWP foi desenvolvida usando o Direct Line Speech e o Speech Services SDK como uma demonstração de como usar um serviço de diálogo com a capacidade do Windows Conversational Agent. No entanto, pode utilizar qualquer serviço para verificação de palavras-chave locais e em nuvem, conversão de palavras-chave fala-a-texto, diálogo de bot e conversão texto-a-voz.

@@ -6,15 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: f1d5161b0efe0b8d9b9c0b84ac149050c3823ab6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 581d77a5568b9533d85ff476b63001c8a237bc4e
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429471"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457206"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Como auto-diagnosticar e resolver problemas na Nuvem de primavera de Azure
-O diagnóstico do Serviço de Aplicações é uma experiência interativa para ajudá-lo a resolver problemas na sua aplicação. Não é necessária qualquer configuração. Quando encontra problemas, o diagnóstico do Serviço de Aplicações aponta o que está errado e guia-o para informações que ajudam a resolver problemas e resolver o problema.
+O diagnóstico Azure Spring Cloud é uma experiência interativa para ajudá-lo a resolver problemas na sua aplicação. Não é necessária qualquer configuração. Quando encontra problemas, o diagnóstico da Azure Spring Cloud aponta o que está errado e guia-o para informações que ajudam a resolver problemas e resolver o problema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, precisa de:
@@ -51,6 +51,6 @@ Alguns resultados contêm documentação relacionada.
 
  ![Detalhes relacionados](media/spring-cloud-diagnose/related-details.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Monitorar recursos do Spring Cloud com alertas e grupos de ações](spring-cloud-tutorial-alerts-action-groups.md)
 * [Controlos de segurança do Serviço Azure Spring Cloud](spring-cloud-concept-security-controls.md)

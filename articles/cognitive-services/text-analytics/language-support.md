@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142168"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465597"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
 > [!IMPORTANT]
-> A versão 3.x do Text Analytics API está atualmente indisponível nas seguintes regiões: Índia Central, Fairfax, UAE Norte, África do Sul Norte, China Norte 2, China Leste.
+> A versão 3.x da Text Analytics API está atualmente indisponível nas seguintes regiões: Índia Central, Uae North, China Norte 2, China Leste.
 
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
 
-| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
+| Idioma              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Chinês-Simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`também aceitou |
 | Chinês-Tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "84142168"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (apenas v3.1-pré-visualização)
 
-| Linguagem              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
+| Idioma              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
@@ -60,7 +60,7 @@ ms.locfileid: "84142168"
 > * Atualmente, o NER v3 apenas suporta a língua inglesa. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
 > * v2.1 apenas devolve o conjunto completo de entidades disponíveis para as línguas inglesa, chinesa-simplificada, francesa, alemã e espanhola.  As entidades "Pessoa", "Localização" e "Organização" são devolvidas para as outras línguas apoiadas.
 
-| Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
+| Idioma               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
 | Checo                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -88,7 +88,7 @@ ms.locfileid: "84142168"
 
 #### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
-| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
+| Idioma              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -108,7 +108,7 @@ ms.locfileid: "84142168"
 
 #### <a name="entity-linking"></a>[Ligação de entidades](#tab/entity-linking)
 
-| Linguagem | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
+| Idioma | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
@@ -123,6 +123,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a API de Análise de Texto?](overview.md)   

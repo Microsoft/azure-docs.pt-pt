@@ -1,104 +1,115 @@
 ---
-title: Elimine um cofre dos Serviços de Recuperação do Microsoft Azure
-description: Neste artigo, aprenda a remover dependências e, em seguida, apague um cofre dos Serviços de Recuperação de Backup Azure.
+title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
+description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 5fcf8004cd5792b30ec57537d5d8ab0bc085dfb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: 07e6a0297d131f4a0b7dc93817d9abcf2ae109d2
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183760"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447752"
 ---
-# <a name="delete-an-azure-backup-recovery-services-vault"></a>Elimine um cofre de serviços de recuperação de backup azure
+# <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
-Este artigo descreve como apagar um cofre dos Serviços de Recuperação de [Backup Azure.](backup-overview.md) Contém instruções para remover dependências e, em seguida, apagar um cofre.
+Este artigo descreve como apagar um cofre dos Serviços de Recuperação [de Backup Azure.](backup-overview.md) Contém instruções para remover dependências e depois apagar um cofre.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Não é possível eliminar um cofre de Serviços de Recuperação que tenha dependências, tais como servidores protegidos ou servidores de gestão de backup, associados a ele.
+Não é possível apagar um cofre dos Serviços de Recuperação com qualquer uma das seguintes dependências:
 
-- Os cofres que contêm dados de backup não podem ser eliminados (mesmo que tenha parado a proteção, mas tenha retido os dados de backup).
+- Não é possível apagar um cofre que contenha fontes de dados protegidas (por exemplo, IaaS VMs, bases de dados SQL, partilhas de ficheiros Azure, etc.)  
+- Não é possível apagar um cofre que contenha dados de reserva. Uma vez eliminados os dados de backup, entrará no estado de apagação suave.
+- Não é possível apagar um cofre que contenha dados de backup no estado de eliminação suave.
+- Não se pode apagar um cofre que tenha contas de armazenamento registadas.
 
-- Se eliminar um cofre que contenha dependências, aparece a seguinte mensagem:
+Se tentar apagar o cofre sem remover as dependências, encontrará uma das seguintes mensagens de erro:
 
-  ![Apague o erro do cofre.](./media/backup-azure-delete-vault/error.png)
+- Não é possível eliminar o cofre, pois existem recursos dentro do cofre. Certifique-se de que não existem itens de backup, servidores protegidos ou servidores de gestão de cópias de segurança associados a este cofre. Desmarça os seguintes recipientes associados a este cofre antes de proceder à eliminação.
 
-- Se eliminar um item protegido no local de um portal que contém dependências, aparece uma mensagem de aviso:
+- O cofre dos Serviços de Recuperação não pode ser eliminado, uma vez que existem muitos itens de cópias de segurança no estado de eliminação de forma recuperável no cofre. Os itens apagados suaves são permanentemente eliminados após 14 dias de operação de eliminação. Tente a eliminação do cofre depois de os itens de reserva serem permanentemente apagados e não há nenhum item em estado de eliminação suave deixado no cofre. Para obter mais informações, consulte [Soft delete for Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
-  ![Elimine o erro do servidor protegido.](./media/backup-azure-delete-vault/error-message.jpg)
+## <a name="proper-way-to-delete-a-vault"></a>Maneira apropriada de apagar um cofre
 
-- Se os itens de backup estiverem em estado suave mente apagado abaixo aparece a mensagem de aviso e terá de esperar até que sejam permanentemente eliminados. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)
+>[!WARNING]
+>A seguinte operação é destrutiva e não pode ser desfeita. Todos os dados de backup e itens de backup associados ao servidor protegido serão permanentemente eliminados. Avance com cuidado.
 
-   ![Apague o erro do cofre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+Para eliminar corretamente um cofre, deve seguir os passos desta ordem:
 
-- Cofres que tenham contas de armazenamento registadas não podem ser apagados. Para saber como desregistar a conta, consulte [Desregistar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
-  
-Para eliminar o cofre, escolha o cenário que corresponde à sua configuração e siga os passos recomendados:
+- **Passo 1**: Desative a função de eliminação suave. [Consulte aqui](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) os passos para desativar a exclusão suave.
 
-Cenário | Passos para remover dependências para apagar cofre |
--- | --
-Tenho ficheiros e pastas no local protegidos usando o agente de backup Azure, apoiando-se no Azure. | Execute os [passos](#delete-backup-items-from-the-mars-management-console) em Eliminar itens de backup da consola de gestão MARS
-Tenho máquinas no local que estão protegidas usando MABS (Microsoft Azure Backup Server) ou DPM (System Center Data Protection Manager) para O Azure | Execute os passos em Eliminar itens de backup da consola de [gestão MABS](#delete-backup-items-from-the-mabs-management-console)
-Tenho itens protegidos na nuvem (por exemplo, uma máquina virtual laaS ou uma partilha de Ficheiros Azure)  | Execute os [passos](#delete-protected-items-in-the-cloud) em Eliminar itens protegidos na nuvem
-Tenho protegido itens tanto nas instalações como na nuvem | Efetuar os passos em todas as seguintes secções, na seguinte ordem: <br> 1. [Eliminar itens protegidos na nuvem](#delete-protected-items-in-the-cloud)<br> 2. Eliminar itens de [backup da consola de gestão MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. Eliminar itens de [backup da consola De Gestão MABS](#delete-backup-items-from-the-mabs-management-console)
-Não tenho nenhum artigo protegido no local ou na nuvem; no entanto, ainda estou recebendo o erro de eliminação do Cofre | Execute os passos em [Eliminar o cofre dos Serviços de Recuperação utilizando o Gestor](#delete-the-recovery-services-vault-by-using-azure-resource-manager) de Recursos Azure <br><br> Certifique-se de que não há contas de armazenamento registadas no cofre. Para saber como desregistar a conta, consulte [Desregistar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
+- **Passo 2**: Depois de desativar a eliminação suave, verifique se existem itens anteriormente restantes no estado de eliminação suave. Se houver itens em estado de eliminação suave, então tem de *os desembolar* e *apagar* novamente. [Siga estes passos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) para encontrar itens de eliminação suave e elimine-os permanentemente.
+
+- **Passo 3**: Deve verificar todos os três locais seguintes para verificar se existem itens protegidos:
+
+  - **Itens protegidos em nuvem**: Vá ao menu do painel de abóbadas > **itens de reserva**. Todos os itens listados aqui devem ser removidos com **Backup stop** ou **eliminar dados de backup,** juntamente com os seus dados de cópia de segurança.  [Siga estes passos](#delete-protected-items-in-the-cloud) para remover estes itens.
+  - **Servidores protegidos por MARS**: Vá ao menu do painel de abóbadas > servidores protegidos por **infraestruturas**de backup  >  **Protected Servers**. Se tiver servidores protegidos pela MARS, todos os itens listados aqui devem ser eliminados juntamente com os seus dados de cópia de segurança. [Siga estes passos](#delete-protected-items-on-premises) para eliminar servidores protegidos pela MARS.
+  - **Servidores de gestão MABS ou DPM**: Vá ao menu do painel de abóbadas > **Backup Infrastructure**Backup  >  **Management Servers**. Se tiver DPM ou Azure Backup Server (MABS), todos os itens listados aqui devem ser eliminados ou não registados juntamente com os seus dados de backup. [Siga estes passos](#delete-protected-items-on-premises) para eliminar os servidores de gestão.
+
+- **Passo 4**: Deve assegurar-se de que todas as contas de armazenamento registadas são eliminadas. Aceda ao menu do painel de abóbadas > Contas de Armazenamento **de Infraestruturas de Backup**  >  **Storage Accounts**. Se tem contas de armazenamento listadas aqui, então deve não registar todas. Para aprender a desregistralmente da conta, consulte [Não registar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
+
+Depois de ter concluído estes passos, pode continuar a [apagar o cofre.](#delete-the-recovery-services-vault)
+
+Se não tiver quaisquer itens protegidos no local ou na nuvem, mas ainda estiver a obter o erro de eliminação do cofre, execute os passos no [cofre delete the Recovery Services usando o Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Eliminar itens protegidos na nuvem
 
-Primeiro, leia a secção **[Antes de começar](#before-you-start)** para entender as dependências e o processo de eliminação do cofre.
+Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender as dependências e o processo de eliminação do cofre.
 
-Para parar a proteção e eliminar os dados de backup, execute os seguintes passos:
+Para parar a proteção e eliminar os dados de cópia de segurança, execute os seguintes passos:
 
-1. A partir do portal, vá ao cofre dos Serviços de **Recuperação,** e depois vá para **itens de backup.** Em seguida, escolha os itens protegidos na nuvem (por exemplo, Máquinas Virtuais Azure, Armazenamento Azure [serviço De Ficheiros Azure], ou Servidor SQL em Máquinas Virtuais Azure).
+1. A partir do portal, vá ao **cofre dos Serviços de Recuperação**e, em seguida, vá para **itens de reserva**. Em seguida, escolha os itens protegidos na nuvem (por exemplo, Máquinas Virtuais Azure, Armazenamento Azure [o serviço de Ficheiros Azure], ou SQL Server em Máquinas Virtuais Azure).
 
     ![Selecione o tipo de cópia de segurança.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Clique à direita para selecionar o item de reserva. Dependendo se o item de reserva está protegido ou não, o menu exibe o painel stop **backup** ou o painel de dados de cópia de **segurança de eliminação.**
+2. Clique com o botão direito para selecionar o item de cópia de segurança. Dependendo se o item de cópia de segurança está protegido ou não, o menu apresenta o painel **de backup stop** ou o painel de **dados de cópia de segurança de eliminar.**
 
-    - Se aparecer o painel stop **backup,** **selecione Eliminar dados** de backup do menu suspenso. Introduza o nome do item de reserva (este campo é sensível a casos) e, em seguida, selecione uma razão do menu suspenso. Insira os seus comentários, se tiver algum. Em seguida, selecione **parar a cópia de segurança**.
+    - Se aparecer o **painel de backup stop,** selecione **Eliminar dados** de cópia de segurança do menu suspenso. Introduza o nome do item de cópia de segurança (este campo é sensível a casos e, em seguida, selecione uma razão do menu suspenso. Insira os seus comentários, se tiver algum. Em seguida, **selecione Stop backup**.
 
-        ![O painel stop backup.](./media/backup-azure-delete-vault/stop-backup-item.png)
+        ![O painel de apoio de paragem.](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - Se aparecer o painel de dados de cópia de **segurança eliminar,** introduza o nome do item de reserva (este campo é sensível a casos) e, em seguida, selecione uma razão do menu suspenso. Insira os seus comentários, se tiver algum. Em seguida, selecione **Delete**.
+    - Se aparecer o painel **de dados de cópia de segurança,** insira o nome do item de cópia de segurança (este campo é sensível a casos e, em seguida, selecione uma razão do menu suspenso. Insira os seus comentários, se tiver algum. Em seguida, **selecione Delete**.
 
-         ![O painel de dados de cópia de segurança eliminar.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+         ![O painel de dados de cópia de segurança delete.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-3. Verifique o ícone ![ **notificação:** O ícone notificação.](./media/backup-azure-delete-vault/messages.png) Após o final do processo, o serviço apresenta a seguinte mensagem: Parar a *cópia de segurança e apagar dados*de backup para " Backup Item *"*. *Concluída com sucesso a operação*.
-4. Selecione **Refresh** no menu **'Backup Itens',** para se certificar de que o item de reserva foi eliminado.
+3. Verifique o ícone **de Notificação:** ![ O ícone de Notificação.](./media/backup-azure-delete-vault/messages.png) Após o fim do processo, o serviço apresenta a seguinte mensagem: *Parar a cópia de segurança e eliminar dados de backup para "* Item de cópia de segurança *".* *Concluída com sucesso a operação.*
+4. Selecione **Refresh** no menu **Itens de cópia de segurança,** para se certificar de que o item de cópia de segurança foi eliminado.
 
-      ![A página eliminar itens de backup.](./media/backup-azure-delete-vault/empty-items-list.png)
+      ![A página 'Eliminar Itens de Cópia de Segurança'.](./media/backup-azure-delete-vault/empty-items-list.png)
 
 ## <a name="delete-protected-items-on-premises"></a>Eliminar artigos protegidos nas instalações
 
-Primeiro, leia a secção **[Antes de começar](#before-you-start)** para entender as dependências e o processo de eliminação do cofre.
+Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender as dependências e o processo de eliminação do cofre.
 
-1. A partir do menu do painel de instrumentos do cofre, selecione **Backup Infrastructure**.
+1. A partir do menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup**.
 2. Dependendo do seu cenário no local, escolha uma das seguintes opções:
 
       - Para o MARS, selecione **Servidores Protegidos** e, em seguida, **Agente de Backup Azure**. Em seguida, selecione o servidor que pretende eliminar.
 
-        ![Para o MARS, selecione o seu cofre para abrir o painel de instrumentos.](./media/backup-azure-delete-vault/identify-protected-servers.png)
+        ![Para o MARS, selecione o seu cofre para abrir o seu painel de instrumentos.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Para MABS ou DPM, selecione **Backup Management Servers**. Em seguida, selecione o servidor que pretende eliminar.
+      - Para MABS ou DPM, selecione **Servidores de Gestão de Cópias de Segurança**. Em seguida, selecione o servidor que pretende eliminar.
 
-          ![Para mABS, selecione o seu cofre para abrir o painel de instrumentos.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![Para o MABS, selecione o seu cofre para abrir o seu painel de instrumentos.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-3. O painel **Delete** aparece com uma mensagem de aviso.
+3. O **painel delete** aparece com uma mensagem de aviso.
 
-     ![O painel de apagar.](./media/backup-azure-delete-vault/delete-protected-server.png)
+     ![O painel de exclusão.](./media/backup-azure-delete-vault/delete-protected-server.png)
 
      Reveja a mensagem de aviso e as instruções na caixa de verificação de consentimento.
     > [!NOTE]
     >
-    >- Se o servidor protegido estiver sincronizado com os serviços Do Azure e os itens de backup existirem, a caixa de verificação de consentimento apresentará o número de itens de backup dependentes e o link para visualizar os itens de backup.
-    >- Se o servidor protegido não estiver sincronizado com os serviços Do Azure e os itens de backup existirem, a caixa de verificação de consentimento apresentará apenas o número de itens de backup.
+    >- Se o servidor protegido estiver sincronizado com os serviços Azure e existirem itens de backup, a caixa de verificação de consentimento apresentará o número de itens de backup dependentes e o link para visualizar os itens de cópia de segurança.
+    >- Se o servidor protegido não estiver sincronizado com os serviços Azure e existirem itens de backup, a caixa de verificação de consentimento apresentará apenas o número de itens de cópia de segurança.
     >- Se não houver itens de reserva, a caixa de verificação de consentimento pedirá a eliminação.
 
-4. Selecione a caixa de verificação de consentimento e, em seguida, **selecione Eliminar**.
+4. Selecione a caixa de verificação de consentimento e, em seguida, **selecione Delete**.
 
-5. Verifique o ![ícone](./media/backup-azure-delete-vault/messages.png) **Notificação** eliminar dados de backup . Após o acabamento da operação, o serviço exibe a mensagem: Parar a cópia de segurança e apagar os dados de *backup para "Backup Item".* *Concluída com sucesso a operação*.
-6. Selecione **Refresh** no menu **'Backup Itens',** para se certificar de que o item de reserva é eliminado.
+5. Verifique o ícone **de Notificação** ![ apagar dados de cópia de segurança ](./media/backup-azure-delete-vault/messages.png) . Após o fim da operação, o serviço exibe a mensagem: *Parar a cópia de segurança e eliminar dados de backup para "Item de cópia de segurança".* *Concluída com sucesso a operação.*
+6. Selecione **Refresh** no menu **Itens de cópia de segurança,** para se certificar de que o item de cópia de segurança é eliminado.
+
+>[!NOTE]
+>Se eliminar um item protegido no local de um portal que contenha dependências, receberá um aviso dizendo "Eliminar o registo do servidor é uma operação destrutiva e não pode ser desfeito. Todos os dados de backup (pontos de recuperação necessários para restaurar os dados) e itens de backup associados ao servidor protegido serão permanentemente eliminados."
 
 Após o final deste processo, pode eliminar os itens de backup da consola de gestão:
 
@@ -107,26 +118,26 @@ Após o final deste processo, pode eliminar os itens de backup da consola de ges
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Eliminar itens de backup da consola de gestão MARS
 
-1. Abra a consola de gestão MARS, vá ao painel **DeAções** e selecione **'Backup'** de Agenda .
-2. A partir da página De alteração ou paragem de uma página **de backup agendada,** selecione Parar usando esta agenda de cópia de **segurança e eliminar todas as cópias de segurança armazenadas**. Em seguida, selecione **Next**.
+1. Abra a consola de gestão MARS, vá ao painel **de Ações** e selecione **Agendar Backup**.
+2. A partir da página **Modificar ou Parar uma** página de Backup agendada, selecione Parar de usar este horário de backup e eliminar todas as **cópias de segurança armazenadas**. Em seguida, selecione **Seguinte**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
-3. A partir da página de **backup Stop,** selecione **Finish**.
+3. A partir da página **Stop a Scheduled Backup,** selecione **Finish**.
 
-    ![Parem com um reforço programado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-4. É solicitado a introduzir um PIN de segurança (número de identificação pessoal), que deve gerar manualmente. Para isso, assine primeiro o portal Azure.
-5. Vá ao cofre de recuperação De **serviços de** > **configurações** > **propriedades**.
-6. Em **'Pin' de segurança,** selecione **Generate**. Copie este PIN. O PIN é válido por apenas cinco minutos.
-7. Na consola de gestão, cola o PIN e, em seguida, selecione **OK**.
+    ![Pare com um reforço programado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+4. É-lhe pedido que introduza um PIN de segurança (número de identificação pessoal), que deve gerar manualmente. Para isso, primeiro inscreva-se no portal Azure.
+5. Vá para **o cofre dos serviços de recuperação**  >  **Propriedades de**  >  **configurações**.
+6. Em **Pin de segurança,** selecione **Gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
+7. Na consola de gestão, cole o PIN e, em seguida, selecione **OK**.
 
     ![Gere um PIN de segurança.](./media/backup-azure-delete-vault/security-pin.png)
 
-8. Na página Modificar O Progresso de Cópia de **Segurança,** aparece a seguinte mensagem: Os dados de *backup eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente.*  
+8. Na página **Modificar Backup Progress** aparece: Os dados de cópia de *segurança eliminados serão retidos durante 14 dias. Após esse período, os dados de backup serão permanentemente eliminados.*  
 
     ![Apague a infraestrutura de reserva.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
-Depois de eliminar os itens de backup no local, siga os próximos passos do portal.
+Depois de eliminar os itens de backup no local, siga os próximos passos a partir do portal.
 
 ### <a name="delete-backup-items-from-the-mabs-management-console"></a>Eliminar itens de backup da consola de gestão MABS
 
@@ -134,50 +145,50 @@ Existem dois métodos que pode utilizar para eliminar itens de backup da consola
 
 #### <a name="method-1"></a>Método 1
 
-Para parar a proteção e eliminar os dados de backup, faça os seguintes passos:
+Para parar a proteção e eliminar dados de backup, faça os seguintes passos:
 
-1. Abra a Consola de Administrador DPM e, em seguida, selecione **Protection** na barra de navegação.
-2. No painel de visualização, selecione o membro do grupo de proteção que pretende remover. Clique à direita para selecionar a opção **Stop Protection of Group Members.**
-3. Na caixa de diálogo **Stop Protection,** selecione **Eliminar dados protegidos**e, em seguida, selecione a caixa de verificação **online de armazenamento Eliminar.** Em seguida, selecione **Stop Protection**.
+1. Abra a consola de administrador DPM e, em seguida, **selecione Proteção** na barra de navegação.
+2. No painel de visualização, selecione o membro do grupo de proteção que pretende remover. Clique com o botão direito para selecionar a opção **Stop Protection of Group Members.**
+3. A partir da caixa de diálogo **Stop Protection,** selecione **Eliminar dados protegidos**e, em seguida, selecione a caixa de verificação **de armazenamento online Delete.** Em seguida, **selecione Stop Protection**.
 
-    ![Selecione Eliminar dados protegidos do painel stop protection.](./media/backup-azure-delete-vault/delete-storage-online.png)
+    ![Selecione Eliminar dados protegidos do painel stop Protection.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-    O estado do membro protegido altera-se à *réplica inativa disponível*.
+    O estado do membro protegido altera a *réplica inativa disponível*.
 
-4. Clique no grupo de proteção inativo e selecione **Remover a proteção inativa**.
+4. Clique com o botão direito no grupo de proteção inativo e **selecione Remover a proteção inativa**.
 
-    ![Remova a proteção inativa.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+    ![Remover proteção inativa.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-5. A partir da janela **Eliminar Proteção Inativa,** selecione a caixa de verificação de **armazenamento on-line Delete** e, em seguida, selecione **OK**.
+5. A partir da janela **Eliminar Proteção Inativa,** selecione a caixa de **verificação de armazenamento on-line Delete** e, em seguida, selecione **OK**.
 
-    ![Eliminar o armazenamento online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+    ![Apague o armazenamento online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
 #### <a name="method-2"></a>Método 2
 
-Abra a consola de **gestão MABS.** No **método de proteção de dados Select,** limpe a caixa de verificação de **proteção on-line.**
+Abra a consola **de gestão MABS.** De acordo com **o método de proteção de dados Select,** limpe a caixa **de verificação de proteção** on-line.
 
   ![Selecione o método de proteção de dados.](./media/backup-azure-delete-vault/data-protection-method.png)
 
-Depois de eliminar os itens de backup no local, siga os próximos passos do portal.
+Depois de eliminar os itens de backup no local, siga os próximos passos a partir do portal.
 
 ## <a name="delete-the-recovery-services-vault"></a>Eliminar o cofre dos Serviços de Recuperação
 
-1. Quando todas as dependências tiverem sido removidas, desloque-se para o painel **Essentials** no menu do cofre.
+1. Quando todas as dependências tiverem sido **removidas,** percorra o painel Essentials no menu do cofre.
 2. Verifique se não existem itens de backup, servidores de gestão de backup ou itens replicados listados. Se os itens ainda aparecerem no cofre, consulte a secção Antes de [iniciar.](#before-you-start)
 
-3. Quando não houver mais itens no cofre, **selecione Delete** no painel de instrumentos do cofre.
+3. Quando não houver mais itens no cofre, **selecione Delete** no painel de abóbada.
 
-    ![Selecione Eliminar no painel do cofre.](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
+    ![Selecione Excluir no painel de instrumentos do cofre.](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-4. Selecione **Sim** para verificar se pretende eliminar o cofre. O cofre foi apagado. O portal regressa ao **novo** menu de serviço.
+4. Selecione **Sim** para verificar se deseja apagar o cofre. O cofre está apagado. O portal regressa ao menu de serviço **Novo.**
 
 ## <a name="delete-the-recovery-services-vault-by-using-powershell"></a>Elimine o cofre dos Serviços de Recuperação utilizando o PowerShell
 
-Primeiro, leia a secção **[Antes de começar](#before-you-start)** para entender as dependências e o processo de eliminação do cofre.
+Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender as dependências e o processo de eliminação do cofre.
 
-Para parar a proteção e eliminar os dados de backup:
+Para parar a proteção e eliminar os dados de cópia de segurança:
 
-- Se estiver a utilizar a Cópia de Segurança SQL em VMs Azure e a proteção automática ativada para instâncias SQL, desative primeiro a proteção automática.
+- Se estiver a utilizar a cópia de segurança SQL em Azure VMs e ativar a proteção automática para casos DE SQL, desative primeiro a proteção automática.
 
     ```PowerShell
         Disable-AzRecoveryServicesBackupAutoProtection
@@ -192,9 +203,9 @@ Para parar a proteção e eliminar os dados de backup:
            [<CommonParameters>]
     ```
 
-  [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sobre como desativar a proteção de um artigo protegido por backup Azure.
+  [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sobre como desativar a proteção de um artigo protegido por cópia de segurança Azure.
 
-- Pare a proteção e elimine os dados de todos os itens protegidos por backup na nuvem (ex. laaS VM, Partilha de Ficheiros Azure etc.):
+- Pare a proteção e elimine os dados de todos os itens protegidos por cópia de segurança na nuvem (por exemplo: IaaS VM, partilha de ficheiros Azure, etc.)
 
     ```PowerShell
        Disable-AzRecoveryServicesBackupProtection
@@ -208,32 +219,32 @@ Para parar a proteção e eliminar os dados de backup:
        [<CommonParameters>]
     ```
 
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) sobre a proteção contra desativações para um artigo protegido por backup.
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   sobre desativar a proteção de um item protegido por cópia de segurança.
 
-- Para ficheiros e pastas no local protegidos utilizando o Agente de Backup Azure (MARS) a apoiar o Azure, utilize o seguinte comando PowerShell para eliminar os dados de reserva de cada módulo MARS PowerShell:
-
-    ```powershell
-    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
-    ```
-
-    Post onde aparece o seguinte pedido:
-
-    *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópia de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente. <br/> Sim [A] Sim a Todos [N] Não [L] Não a Todos [S] Suspender [?] Ajuda (padrão é "Y"):*
-
-- Para máquinas no local protegidas utilizando MABS (Microsoft Azure Backup Server) ou DPM para Azure (System Center Data Protection Manager), utilize o seguinte comando para eliminar os dados de back-up no Azure.
+- Para ficheiros e pastas no local protegidos utilizando o Agente de Backup Azure (MARS) que está a fazer backup até ao Azure, utilize o seguinte comando PowerShell para eliminar os dados de backup de cada módulo MARS PowerShell:
 
     ```powershell
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post onde aparece o seguinte pedido:
+    Posto onde aparece o seguinte pedido:
 
-   *Backup do Microsoft Azure* Tem certeza de que quer remover esta política de reserva? Os dados de cópia de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente. <br/>
-   Sim [A] Sim a Todos [N] Não [L] Não a Todos [S] Suspender [?] Ajuda (padrão é "Y"):*
+    *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópias de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de backup serão permanentemente eliminados. <br/>[Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspender [?] Ajuda (padrão é "Y"):*
 
-Depois de apagar os dados de back-up, não registe quaisquer contentores no local e servidores de gestão.
+- Para máquinas no local protegidas utilizando MABS (Microsoft Azure Backup Server) ou DPM (System Center Data Protection Manager) para Azure, utilize o seguinte comando para eliminar os dados de backup em Azure.
 
-- Para ficheiros e pastas no local protegidos utilizando o Agente de Backup Azure (MARS) a apoiar o Azure:
+    ```powershell
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
+    ```
+
+    Posto onde aparece o seguinte pedido:
+
+   *Backup microsoft Azure* Tem a certeza de que pretende remover esta política de reserva? Os dados de cópias de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente. <br/>
+   [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspender [?] Ajuda (padrão é "Y"):*
+
+Depois de eliminar os dados de back-up, desmarcem quaisquer contentores no local e servidores de gestão.
+
+- Para ficheiros e pastas no local protegidos utilizando o Agente de Backup Azure (MARS) que está a fazer backup até ao Azure:
 
     ```PowerShell
     Unregister-AzRecoveryServicesBackupContainer
@@ -246,9 +257,9 @@ Depois de apagar os dados de back-up, não registe quaisquer contentores no loca
               [<CommonParameters>]
     ```
 
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o desinscrição de um Servidor do Windows ou de outro recipiente a partir do cofre.
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre a desinsuserção de um Servidor Windows ou outro recipiente a partir do cofre.
 
-- Para máquinas no local protegidas utilizando MABS (Microsoft Azure Backup Server) ou DPM para Azure (System Center Data Protection Manage:
+- Para máquinas no local protegidas utilizando MABS (Microsoft Azure Backup Server) ou DPM to Azure (System Center Data Protection Manage:
 
     ```PowerShell
         Unregister-AzRecoveryServicesBackupManagementServer
@@ -261,9 +272,9 @@ Depois de apagar os dados de back-up, não registe quaisquer contentores no loca
           [<CommonParameters>]
     ```
 
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o desinscrição de um recipiente de gestão de backup a partir do cofre.
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre a desinsusagem de um recipiente de gestão de reserva do cofre.
 
-Depois de eliminar permanentemente os dados de back-up e desregistar todos os contentores, proceda à eliminação do cofre.
+Depois de eliminar permanentemente os dados de retenção e desinscrever todos os contentores, proceda à eliminação do cofre.
 
 Para eliminar um cofre dos Serviços de Recuperação:
 
@@ -276,16 +287,16 @@ Para eliminar um cofre dos Serviços de Recuperação:
       [<CommonParameters>]
    ```
 
-[Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre a apagar um cofre de serviços de recuperação.
+[Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre a eliminação de um cofre de serviços de recuperação.
 
-## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Eliminar o cofre dos Serviços de Recuperação utilizando o CLI
+## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Elimine o cofre dos Serviços de Recuperação utilizando o CLI
 
-Primeiro, leia a secção **[Antes de começar](#before-you-start)** para entender as dependências e o processo de eliminação do cofre.
+Primeiro, leia a secção **[Antes de começar](#before-you-start)** a entender as dependências e o processo de eliminação do cofre.
 
 > [!NOTE]
-> Atualmente, o Azure Backup CLI suporta a gestão apenas de backups Azure VM, pelo que o seguinte comando para apagar o cofre funciona apenas se o cofre contiver backups Azure VM. Não é possível eliminar um cofre utilizando o AZURE Backup CLI, se o cofre contiver qualquer objeto de reserva do tipo que não seja os VMs Azure.
+> Atualmente, o Azure Backup CLI suporta a gestão apenas de backups Azure VM, pelo que o seguinte comando para apagar o cofre funciona apenas se o cofre contiver backups Azure VM. Não é possível apagar um cofre utilizando o CLI de backup Azure, se o cofre contiver qualquer produto de backup do tipo diferente dos VMs Azure.
 
-Para eliminar o cofre de serviços de Recuperação existente, execute o seguinte:
+Para eliminar o cofre de serviços de recuperação existente, execute o seguinte:
 
 - Para parar a proteção e eliminar os dados de backup
 
@@ -302,7 +313,7 @@ Para eliminar o cofre de serviços de Recuperação existente, execute o seguint
 
     Para mais informações, consulte este [artigo.](/cli/azure/backup/protection#az-backup-protection-disable)
 
-- Eliminar um cofre de serviços de Recuperação existente:
+- Eliminar um cofre de serviços de recuperação existente:
 
     ```azurecli
     az backup vault delete [--force]
@@ -317,32 +328,32 @@ Para eliminar o cofre de serviços de Recuperação existente, execute o seguint
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Elimine o cofre dos Serviços de Recuperação utilizando o Gestor de Recursos Azure
 
-Esta opção de eliminar o cofre dos Serviços de Recuperação só é recomendada se todas as dependências forem removidas e ainda tiver o erro de *eliminação*do Cofre . Experimente todas ou todas as seguintes dicas:
+Esta opção de eliminar o cofre dos Serviços de Recuperação só é recomendada se todas as dependências forem removidas e ainda estiver a receber o *erro de eliminação*do Cofre . Experimente todas ou todas as seguintes dicas:
 
-- A partir do painel **Essentials** no menu do cofre, verifique se não existem itens de backup, servidores de gestão de backup ou itens replicados listados. Se houver itens de reserva, consulte a secção Antes de [iniciar.](#before-you-start)
+- A partir do painel **Essentials** no menu do cofre, verifique se não existem itens de backup, servidores de gestão de backup ou itens replicados listados. Se existirem itens de reserva, consulte a secção [Antes de iniciar.](#before-you-start)
 - Tente [apagar o cofre do portal](#delete-the-recovery-services-vault) de novo.
-- Se todas as dependências forem removidas e ainda tiver o erro de eliminação do *Cofre,* utilize a ferramenta ARMClient para executar os seguintes passos (após a nota).
+- Se todas as dependências forem removidas e ainda estiver a obter o erro de eliminação do *Cofre,* utilize a ferramenta ARMClient para executar os seguintes passos (após a nota).
 
-1. Vá a [chocolatey.org](https://chocolatey.org/) para descarregar e instalar o Chocolatey. Em seguida, instale o ARMClient executando o seguinte comando:
+1. Vá a [chocolatey.org](https://chocolatey.org/) para descarregar e instalar chocolatey. Em seguida, instale o ARMClient executando o seguinte comando:
 
    `choco install armclient --source=https://chocolatey.org/api/v2/`
 2. Inscreva-se na sua conta Azure e, em seguida, execute o seguinte comando:
 
     `ARMClient.exe login [environment name]`
 
-3. No portal Azure, recolha o nome de grupo de subscrição e de grupo de recursos para o cofre que pretende eliminar.
+3. No portal Azure, reúna o ID de subscrição e o nome do grupo de recursos para o cofre que pretende eliminar.
 
-Para mais informações sobre o comando ARMClient, consulte [ARMClient README](https://github.com/projectkudu/ARMClient/blob/master/README.md).
+Para obter mais informações sobre o comando ARMClient, consulte [ARMClient README](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
-### <a name="use-the-azure-resource-manager-client-to-delete-a-recovery-services-vault"></a>Use o cliente do Gestor de Recursos Azure para apagar um cofre de Serviços de Recuperação
+### <a name="use-the-azure-resource-manager-client-to-delete-a-recovery-services-vault"></a>Utilize o cliente Azure Resource Manager para apagar um cofre dos Serviços de Recuperação
 
-1. Execute o seguinte comando utilizando o seu ID de subscrição, nome do grupo de recursos e nome do cofre. Se não tiver dependências, o cofre é apagado quando executa o seguinte comando:
+1. Executar o seguinte comando utilizando o seu ID de subscrição, nome de grupo de recursos e nome do cofre. Se não tiver dependências, o cofre é apagado quando executar o seguinte comando:
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 
-2. Se o cofre não estiver vazio, receberá a seguinte mensagem de erro: O cofre não pode ser apagado, uma vez que *existem recursos existentes dentro deste cofre.* Para remover um item ou recipiente protegido dentro de um cofre, executar o seguinte comando:
+2. Se o cofre não estiver vazio, receberá a seguinte mensagem de erro: *O cofre não pode ser apagado, uma vez que existem recursos existentes dentro deste cofre.* Para remover um item ou recipiente protegido dentro de um cofre, executar o seguinte comando:
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
@@ -350,7 +361,7 @@ Para mais informações sobre o comando ARMClient, consulte [ARMClient README](h
 
 3. No portal Azure, certifique-se de que o cofre é apagado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Saiba mais sobre cofres de Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md)<br/>
-[Conheça a monitorização e gestão dos cofres dos Serviços de Recuperação](backup-azure-manage-windows-server.md)
+[Conheça os cofres dos Serviços](backup-azure-recovery-services-vault-overview.md) 
+ de Recuperação [Conheça a monitorização e gestão dos cofres dos Serviços de Recuperação](backup-azure-manage-windows-server.md)

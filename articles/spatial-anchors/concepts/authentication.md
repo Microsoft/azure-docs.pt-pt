@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8a64c8cabe91bb7bbfb533b38a32f58a82fd3351
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434383"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456509"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure
 
@@ -174,13 +174,14 @@ O token de acesso Azure AD é recuperado através da [biblioteca MSAL](../../act
         1.  No portal Azure, navegue para **o Azure Ative Directory**e selecione **registos de aplicações**
         2.  Selecione **novo registo de candidaturas**
         3.  Introduza o nome da sua aplicação, selecione **Web app /API** como o tipo de aplicação e insira o URL auth para o seu serviço. Em seguida, bata **em Criar**.
-        4.  Nessa aplicação, atinja **As Definições**e, em seguida, selecione o separador **Chaves.** Introduza o nome da sua chave, selecione uma duração e bata **em Guardar**. Certifique-se de que guarda o valor chave que é apresentado nessa altura, pois terá de o incluir no código do seu serviço web.
+        4.  Nessa aplicação, acerte **As Definições,** em seguida, selecione o separador **Certificados e Segredos.** Criar um novo segredo de cliente, selecionar uma duração e bater **Add**. Certifique-se de guardar o valor secreto, pois terá de o incluir no código do seu serviço web.
     2.  Conceder à sua aplicação e/ou ao acesso dos utilizadores ao seu recurso:
         1.  Navegue para o seu recurso De Âncoras Espaciais no portal Azure
         2.  Mudar para o **separador Controlo de Acesso (IAM)**
         3.  Hit **Add atribuição de função**
         1.  [Selecionar uma função](#role-based-access-control)
         2.  No campo **selecionado,** insira o nome das(s) aplicações que criou e a que pretende atribuir acesso. Se quiser que os utilizadores da sua aplicação tenham papéis diferentes contra a conta Spatial Anchors, deverá registar várias aplicações em AD Azure e atribuir a cada um um papel diferente. Em seguida, implemente a sua lógica de autorização para utilizar o papel certo para os seus utilizadores.
+        3.  Nota - Na seleção **de atribuição de funções Add** pretende que o acesso do **Atribua** seja definido para "Utilizador, grupo ou principal de serviço Azure".
     3.  Prima **Guardar**.
 2.  No seu código (nota: pode utilizar a amostra de serviço incluída no GitHub):
     1.  Certifique-se de usar o ID da aplicação, o segredo da aplicação e redirecione Uri da sua própria aplicação AZure AD como os parâmetros de ID, segredo e RedirectUri do cliente em MSAL
@@ -258,7 +259,7 @@ Para ajudar a controlar o nível de acesso concedido a aplicações, serviços o
 - **Contribuinte de Conta De Âncoras Espaciais**: aplicações ou utilizadores com esta função são capazes de criar âncoras espaciais, consulta para elas, mas não podem eliminá-las.
 - **Leitor de contas de âncoras espaciais**: aplicações ou utilizadores com esta função só podem consultar âncoras espaciais, mas não podem criar novas, eliminar as existentes ou atualizar metadados em âncoras espaciais. Isto é normalmente usado para aplicações onde alguns utilizadores curam o ambiente, enquanto outros só podem recordar âncoras anteriormente colocadas nesse ambiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Crie a sua primeira aplicação com âncoras espaciais Azure.
 

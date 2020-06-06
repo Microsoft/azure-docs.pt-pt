@@ -10,12 +10,12 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 3af87af0dca34b6587cf92bcc65568ad6dd943be
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 513f0240296debb5e878461ed1ca7cffecad760a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324305"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462996"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauro pontual para bolhas de bloco (pré-visualização)
 
@@ -85,7 +85,7 @@ As seguintes regiões apoiam o ponto de compensação no momento em visualizaç�
 A pré-visualização inclui as seguintes limitações:
 
 - Restaurar bolhas de bloco premium não é suportado.
-- Restaurar bolhas no nível de arquivo não é suportado. Por exemplo, se uma bolha no nível quente foi movida para o nível de arquivo há dois dias, e uma operação de restauro restaura a um ponto há três dias, a bolha não é restaurada para o nível quente.
+- O restauro de blobs na camada de arquivo não é suportado. Por exemplo, se um blob na camada de acesso frequente tiver sido movido para a camada de arquivo há dois dias e uma operação de restauro restaurar para um ponto há três dias, o blob não é restaurado para a camada de acesso frequente.
 - Restaurar espaços de nome plano e hierárquico de armazenamento de dados Azure Data Lake Gen2 não é suportado.
 - Restaurar as contas de armazenamento utilizando chaves fornecidas pelo cliente não é suportado.
 
@@ -122,7 +122,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### <a name="check-registration-status"></a>Verifique o estado do registo
 
-Para verificar o estado do seu registo, execute os seguintes comandos:
+O registo de point in time restore é automático e deve demorar menos de 10 minutos. Para verificar o estado do seu registo, execute os seguintes comandos:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell

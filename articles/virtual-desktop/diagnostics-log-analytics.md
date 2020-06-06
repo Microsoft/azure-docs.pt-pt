@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9b18b596e0be0e410f1d868f405e2a30105276d8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234561"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456458"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
 
@@ -242,16 +242,6 @@ WVDErrors
 | render barchart 
 ```
 
-Para encontrar a ocorrência de um erro em todos os utilizadores:
-
-```kusto
-WVDErrors 
-| where ServiceError =="false" 
-| summarize usercount = count(UserName) by CodeSymbolic 
-| sort by usercount desc
-| render barchart 
-```
-
 Para consultar aplicações que os utilizadores abriram, execute esta consulta:
 
 ```kusto
@@ -269,6 +259,6 @@ WVDCheckpoints
 >- A tabela WVDErrors mostra erros de gestão, problemas de registo de anfitrião e outros problemas que ocorrem enquanto o utilizador subscreve uma lista de aplicações ou desktops.
 >- A WVDErrors ajuda-o a identificar problemas que podem ser resolvidos através de tarefas de administração. O valor no ServiceError diz sempre "falso" para este tipo de problemas. Se o ServiceError = "verdadeiro", terá de aumentar o problema para a Microsoft. Certifique-se de que fornece o CorrelationID para os erros que agrava.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 Para rever cenários de erro comuns que a funcionalidade de diagnóstico pode identificar para si, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).

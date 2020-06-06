@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310364"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456538"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo de Gestor de Recursos Azure
 
@@ -47,7 +47,7 @@ Recursos azuis definidos no modelo:
 
 1. Especificar as definições para o membro do Serviço Azure Blockchain.
 
-    Definição | Description
+    Definição | Descrição
     --------|------------
     Subscrição | Selecione a subscrição Azure que pretende utilizar para o seu serviço. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
     Grupo de recursos | Crie um novo nome de grupo de recursos ou escolha um existente da sua subscrição.
@@ -62,6 +62,12 @@ Recursos azuis definidos no modelo:
 
   O portal Azure é usado aqui para implementar o modelo. Também pode utilizar a Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../../azure-resource-manager/templates/deploy-powershell.md).
 
+## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
+
+Pode utilizar o portal Azure para visualizar detalhes do membro do Serviço Azure Blockchain implantado. No portal, aceda ao grupo de recursos que contém o seu membro do Serviço Azure Blockchain. Selecione o membro blockchain que criou.
+
+![Implementado Azure Blockchain Membro resumo detalhes no portal Azure](./media/create-member-template/deployed-member.png)
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não é necessário, pode eliminar os recursos eliminando o grupo de recursos que criou para o arranque rápido.
@@ -71,7 +77,7 @@ Para eliminar o grupo de recursos:
 1. No portal Azure, navegue para o **grupo De recursos** no painel de navegação esquerdo e selecione o grupo de recursos que pretende eliminar.
 2. Selecione **Eliminar grupo de recursos**. Verifique a eliminação introduzindo o nome do grupo de recursos e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você lançou um membro do Azure Blockchain Service e um novo consórcio. Experimente o próximo quickstart para usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para se ligar a um membro do Serviço Azure Blockchain.
 

@@ -1,19 +1,19 @@
 ---
-title: Seleção de caminhos azure em vários links ISP
+title: Registos e métricas
 titleSuffix: Azure Virtual WAN
-description: Saiba mais sobre a seleção de caminhos Azure e O WAN Virtual
+description: Saiba mais sobre os registos e métricas de WAN virtuais do Azure
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 06/01/2020
+ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 73249b2c66c7e064aa5c07ae1b78d819f4f44c23
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7fa5353449db04184c60be79adece63489de0a74
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300359"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466209"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registos e métricas Azure Virtual WAN
 
@@ -121,7 +121,7 @@ Substitua os valores abaixo, após o **= =**, conforme necessário.
 
 **As** entradas de registo de atividade são recolhidas por predefinição e podem ser vistas no portal Azure. Pode utilizar registos de atividades da Azure (anteriormente conhecidos como *registos operacionais* e *registos de auditoria)* para visualizar todas as operações submetidas à sua subscrição do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](../firewall/tutorial-diagnostics.md)
 * Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

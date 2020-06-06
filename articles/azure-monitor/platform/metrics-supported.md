@@ -1,41 +1,41 @@
 ---
-title: Métricas suportadas pelo Monitor Azure por tipo de recurso
-description: Lista de métricas disponíveis para cada tipo de recurso com o Monitor Azure.
+title: Azure Monitor suportado métricas por tipo de recurso
+description: Lista de métricas disponíveis para cada tipo de recurso com monitor Azure.
 author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 09aa3a5febe9ea25d8614a99ec3f832cc2d0309f
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196620"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456951"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
 > [!NOTE]
-> Esta lista é em grande parte gerada automaticamente a partir da API DE MÉTRICAS de Monitor Azure. Qualquer modificação feita nesta lista via Github pode ser redigida sem aviso prévio. Contacte o autor deste artigo para obter mais informações sobre como efazer atualizações permanentes.
+> Esta lista é gerada em grande parte automaticamente a partir da Azure Monitor Metrics REST API. Qualquer modificação feita a esta lista via GitHub pode ser escrita sem aviso prévio. Contacte o autor deste artigo para obter mais detalhes sobre como fazer atualizações permanentes.
 
-O Azure Monitor fornece várias formas de interagir com métricas, incluindo mapeá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. 
+O Azure Monitor fornece várias formas de interagir com as métricas, incluindo cartografá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. 
 
-Este artigo é uma lista completa de todas as métricas da plataforma (isto é, recolhidas automaticamente) atualmente disponíveis com o pipeline métrico consolidado do Azure Monitor. A lista foi atualizada pela última vez a 27 de março de 2020. As métricas alteradas ou adicionadas após esta data podem não aparecer abaixo. Para consultar e aceder à lista de métricas programáticamente, utilize a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Outras métricas que não estão nesta lista podem estar disponíveis no portal ou usando APIs legados.
+Este artigo é uma lista completa de todas as métricas da plataforma (isto é, automaticamente recolhidas) atualmente disponíveis com o pipeline métrico consolidado do Azure Monitor. A lista foi atualizada pela última vez a 27 de março de 2020. As métricas alteradas ou adicionadas após esta data podem não aparecer abaixo. Para consultar e aceder à lista de métricas programáticamente, utilize a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Outras métricas que não constam desta lista podem estar disponíveis no portal ou usando APIs legados.
 
-As métricas são organizadas por fornecedores de recursos e tipo de recursos. Para obter uma lista de serviços e os fornecedores de recursos que lhes pertencem, consulte os fornecedores de [recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) 
+As métricas são organizadas por fornecedores de recursos e tipo de recursos. Para obter uma lista de serviços e os fornecedores de recursos que lhes pertencem, consulte [os fornecedores de recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) 
 
 
-## <a name="guest-os-metrics"></a>Métricas de Os
+## <a name="guest-os-metrics"></a>Métricas de OS Convidados
 
-As métricas para o sistema operativo convidado (guest os) que funciona em Máquinas Virtuais Azure, Tecido de Serviço e Serviços cloud **não** estão listadas aqui. Em vez disso, as métricas de desempenho dos hóspedes devem ser recolhidas através de um ou mais agentes que funcionam em ou como parte do sistema operativo convidado.  As métricas dos hóspedes incluem contadores de desempenho que acompanham a percentagem de CPU ou o uso da memória, ambos frequentemente utilizados para escalas automáticas ou alertas.  Utilizando a [extensão De diagnóstico do Azure,](diagnostics-extension-overview.md)pode enviar métricas de desempenho do os do hóspede para a mesma base de dados onde as métricas da plataforma são armazenadas. Ele direciona as métricas dos hóspedes através das [métricas personalizadas](metrics-custom-overview.md) API. Depois pode traçar, alertar e usar métricas de os convidados como métricas de plataforma. Para mais informações, consulte [a visão geral dos agentes de monitorização](agents-overview.md).    
+As métricas para o sistema operativo convidado (guest os) que funciona em Azure Virtual Machines, Service Fabric e Cloud Services **NÃO** estão listadas aqui. Em vez disso, as métricas de desempenho do hóspede devem ser recolhidas através de um ou mais agentes que funcionam no ou como parte do sistema operativo convidado.  As métricas de os hóspedes incluem contadores de desempenho que acompanham a percentagem de CPU ou o uso da memória, ambos frequentemente utilizados para o dimensionamento automático ou alerta.  Utilizando a [extensão Azure Diagnostics,](diagnostics-extension-overview.md)pode enviar métricas de desempenho do guest os para a mesma base de dados onde as métricas da plataforma são armazenadas. Ele encaminha as métricas do hóspede através das [métricas personalizadas](metrics-custom-overview.md) API. Em seguida, você pode cartografar, alertar e de outra forma usar métricas de hóspedes como métricas de plataforma. Para obter mais informações, consulte [a visão geral dos agentes de monitorização.](agents-overview.md)    
 
 ## <a name="routing-platform-metrics-to-other-locations"></a>Métricas da plataforma de encaminhamento para outros locais
 
-Pode utilizar [definições](diagnostic-settings.md) de diagnóstico para direcionar as métricas da plataforma para o Armazenamento Azure, Registos do Monitor Azure (e, portanto, Log Analytics) e centros de eventos.  
+Pode utilizar [as definições de diagnóstico](diagnostic-settings.md) para encaminhar as métricas da plataforma para O Azure Storage, Azure Monitor Logs (e, portanto, Log Analytics) e centros de Eventos.  
 
 Existem algumas limitações no que pode ser encaminhado e na forma em que são armazenados. 
-- Nem todas as métricas são exportáveis para outros locais. Para obter uma lista de métricas de plataforma exportáveis através de configurações de diagnóstico, consulte [este artigo](metrics-supported-export-diagnostic-settings.md).
+- Nem todas as métricas são exportáveis para outros locais. Para obter uma lista de métricas de plataforma exportáveis através de definições de diagnóstico, consulte [este artigo](metrics-supported-export-diagnostic-settings.md).
 
 - O envio de métricas multidimensionais para outros locais através de configurações de diagnóstico não é suportado atualmente. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
@@ -45,202 +45,202 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|Contagem|Média|O QPU. Intervalo 0-100 para S1, 0-200 para S2 e 0-400 para S4|Tipo de recursos de servidor|
-|memory_metric|Memória|Bytes|Média|Memória. Intervalo 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|Tipo de recursos de servidor|
-|private_bytes_metric|Bytes Privados|Bytes|Média|Bytes privados.|Tipo de recursos de servidor|
-|virtual_bytes_metric|Bytes Virtuais|Bytes|Média|Bytes virtuais.|Tipo de recursos de servidor|
-|TotalDePedidos de Conexão|Total de pedidos de ligação|Contagem|Média|Pedidos de ligação total. Estas são chegadas.|Tipo de recursos de servidor|
-|SucessoConexsPerSec|Conexões bem sucedidas por Sec|CondeEmSegundo|Média|Taxa de conclusão de ligação bem sucedida.|Tipo de recursos de servidor|
-|TotalDefalhas de ligação|Falhas totais de ligação|Contagem|Média|Total tentativas de ligação falhadas.|Tipo de recursos de servidor|
-|Sessões de Utilizadores Atuais|Sessões de utilizador atuais|Contagem|Média|Número atual de sessões de utilizador estabelecidas.|Tipo de recursos de servidor|
-|ConsultaPoolBusyThreads|Filas movimentadas da piscina de consulta|Contagem|Média|Número de fios ocupados na piscina de fios de consulta.|Tipo de recursos de servidor|
-|Comprimento de fila de trabalho de commandpool|Comprimento da fila do trabalho da piscina de comando|Contagem|Média|Número de empregos na fila da piscina de linhas de comando.|Tipo de recursos de servidor|
-|ProcessingPoolJobQueueLength|Processamento de trabalho de piscina comprimento de fila|Contagem|Média|Número de empregos não-I/O na fila da piscina de fios de processamento.|Tipo de recursos de servidor|
-|CurrentConnections|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações ao cliente estabelecidas.|Tipo de recursos de servidor|
-|Preço Corrente mais limpo|Memória: Preço Atual Mais Limpo|Contagem|Média|Preço atual da memória, $/byte/tempo, normalizado a 1000.|Tipo de recursos de servidor|
-|Memória Mais LimpaEncolhe|Memória: Memória mais limpa encolhe|Bytes|Média|Quantidade de memória, em bytes, sujeito a purga pelo limpador de fundo.|Tipo de recursos de servidor|
-|Memória Mais LimpaNão Encolhe|Memória: Memória mais limpa não encolhe|Bytes|Média|Quantidade de memória, em bytes, não sujeito a purga pelo limpador de fundo.|Tipo de recursos de servidor|
-|Uso da Memória|Memória: Utilização da memória|Bytes|Média|Utilização da memória do processo do servidor como utilizado no cálculo do preço de memória mais limpo. Igual a contra processo\PrivateBytes mais o tamanho dos dados mapeados pela memória, ignorando qualquer memória que tenha sido mapeada ou atribuída pelo motor de análise de memória xVelocity (VertiPaq) em excesso do limite de memória do motor xVelocity.|Tipo de recursos de servidor|
-|MemoryLimithard|Memória: Limite de memória difícil|Bytes|Média|Limite de memória dura, a partir do ficheiro de configuração.|Tipo de recursos de servidor|
-|MemoryLimitHigh|Memória: Limite de memória alto|Bytes|Média|Limite de memória elevado, a partir do ficheiro de configuração.|Tipo de recursos de servidor|
-|Limite de memória|Memória: Limite de memória baixo|Bytes|Média|Baixo limite de memória, a partir do ficheiro de configuração.|Tipo de recursos de servidor|
-|MemoryLimitVertiPaq|Memória: Limite de memória VertiPaq|Bytes|Média|Limite de memória, a partir do ficheiro de configuração.|Tipo de recursos de servidor|
-|Quota|Memória: Quota|Bytes|Média|Quota de memória atual, em bytes. A quota de memória também é conhecida como subsídio de memória ou reserva de memória.|Tipo de recursos de servidor|
-|Bloco de Quotas|Memória: Quota bloqueada|Contagem|Média|Número atual de pedidos de quota que são bloqueados até que outras quotas de memória sejam libertadas.|Tipo de recursos de servidor|
-|VertiPaqNonpaged|Memória: VertiPaq Nonpaged|Bytes|Média|Bytes de memória bloqueados no conjunto de trabalho para utilização pelo motor de memória.|Tipo de recursos de servidor|
-|VertiPaqPaged|Memória: VertiPaq Paged|Bytes|Média|Bytes de memória páginada em uso para dados na memória.|Tipo de recursos de servidor|
-|LinhasReadPerSec|Processamento: Linhas lidas por segundo|CondeEmSegundo|Média|Taxa de linhas lidas a partir de todas as bases de dados relacionais.|Tipo de recursos de servidor|
-|RowsConvertedPerSec|Processamento: Linhas convertidas por seg|CondeEmSegundo|Média|Taxa de linhas convertidas durante o processamento.|Tipo de recursos de servidor|
-|LinhasWrittenPerSec|Processamento: Linhas escritas por seg|CondeEmSegundo|Média|Taxa de linhas escritas durante o processamento.|Tipo de recursos de servidor|
-|CommandPoolBusyThreads|Threads: Comando piscina fios ocupados|Contagem|Média|Número de fios ocupados na piscina de fios de comando.|Tipo de recursos de servidor|
-|CommandPoolIdleThreads|Threads: Linhas ociosas da piscina de comando|Contagem|Média|Número de fios ociosos na piscina de fios de comando.|Tipo de recursos de servidor|
-|LongParsingBusyThreads|Threads: Longo parsing fios ocupados|Contagem|Média|Número de fios ocupados na longa piscina de fios de análise.|Tipo de recursos de servidor|
-|LongParsingIdleThreads|Threads: Longos fios ociosos de análise|Contagem|Média|Número de fios ociosos na longa piscina de fios de análise.|Tipo de recursos de servidor|
-|LongParsingJobQueueLength|Threads: Longa análise do comprimento da fila do trabalho|Contagem|Média|Número de empregos na fila da longa piscina de fios de análise.|Tipo de recursos de servidor|
-|ProcessingPoolBusyIOJobThreads|Threads: Processing pool busy I/O job threads|Contagem|Média|Número de fios em funcionamento de empregos em I/S na piscina de fios de processamento.|Tipo de recursos de servidor|
-|ProcessingPoolBusyNonIOThreads|Threads: Piscina de processamento movimentada fios não-I/O|Contagem|Média|Número de fios que executam trabalhos não-I/O na piscina de fios de processamento.|Tipo de recursos de servidor|
-|ProcessingPoolioJobQueueLength|Threads: Processamento de piscina I/O comprimento da fila de trabalho|Contagem|Média|Número de empregos em I/S na fila da piscina de fios de processamento.|Tipo de recursos de servidor|
-|ProcessingPoolIdleIOJobThreads|Threads: Processing pool idle I/O job threads|Contagem|Média|Número de fios ociosos para trabalhos de I/S na piscina de fios de processamento.|Tipo de recursos de servidor|
-|ProcessingPoolIdleNonIOThreads|Threads: Processamento de fios não-I/O da piscina|Contagem|Média|Número de fios ociosos na piscina de fios de processamento dedicados a empregos não-I/O.|Tipo de recursos de servidor|
-|ConsultaPoolIdleThreads|Threads: Filas ociosas da piscina de consulta|Contagem|Média|Número de fios ociosos para trabalhos de I/S na piscina de fios de processamento.|Tipo de recursos de servidor|
-|ConsultaPoolJobQueueLength|Threads: Fila de trabalho de piscina de consulta lengt|Contagem|Média|Número de empregos na fila da piscina de fios de consulta.|Tipo de recursos de servidor|
-|ShortParsingBusyThreads|Threads: Curto parsing fios ocupados|Contagem|Média|Número de fios ocupados na piscina de fios de análise curta.|Tipo de recursos de servidor|
-|ShortParsingIdleThreads|Threads: Fios ociosos de análise curta|Contagem|Média|Número de fios ociosos na piscina de fios de análise curta.|Tipo de recursos de servidor|
-|ShortParsingJobQueueLength|Threads: Curto período de fila de trabalho de análise|Contagem|Média|Número de empregos na fila da piscina de fios de análise curta.|Tipo de recursos de servidor|
-|memory_thrashing_metric|Degradação de Memória|Percentagem|Média|A memória média a bater.|Tipo de recursos de servidor|
-|mashup_engine_qpu_metric|M Motor QPU|Contagem|Média|Utilização de QPU por processos de monomotor de mashup|Tipo de recursos de servidor|
-|mashup_engine_memory_metric|Memória do Motor M|Bytes|Média|Utilização da memória por processos do motor mashup|Tipo de recursos de servidor|
-|mashup_engine_private_bytes_metric|M Motor Private Bytes|Bytes|Média|Bytes privados de utilização por processos de monomotor mashup.|Tipo de recursos de servidor|
-|mashup_engine_virtual_bytes_metric|Bytes virtuais do motor M|Bytes|Média|Bytes virtuais de utilização por processos de monomotor mashup.|Tipo de recursos de servidor|
+|qpu_metric|QPU|Contagem|Média|QPU. Intervalo 0-100 para S1, 0-200 para S2 e 0-400 para S4|ServerResourceType|
+|memory_metric|Memória|Bytes|Média|Memória. Gama 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|ServerResourceType|
+|private_bytes_metric|Bytes privados|Bytes|Média|Bytes privados.|ServerResourceType|
+|virtual_bytes_metric|Bytes Virtuais|Bytes|Média|Bytes virtuais.|ServerResourceType|
+|TotalConnectionRequests|Total de pedidos de conexão|Contagem|Média|Pedidos de ligação total. Estas são as chegadas.|ServerResourceType|
+|SuccessfullConnectionsPerSec|Conexões de sucesso por seg|CondePerSecond|Média|Taxa de conclusão de conexão bem sucedida.|ServerResourceType|
+|TotalConnectionFailures|Falhas totais de ligação|Contagem|Média|Tentativas de ligação falhadas totais.|ServerResourceType|
+|Atuais Sesessãos de 2009|Sessões de Utilizador atuais|Contagem|Média|Número atual de sessões de utilizador estabelecidas.|ServerResourceType|
+|QueryPoolBusyThreads|Linhas ocupadas da piscina de consulta|Contagem|Média|Número de fios ocupados na piscina de rosca de consulta.|ServerResourceType|
+|ComandoPoolJobQueueLength|Comprimento da fila de trabalho da piscina de comando|Contagem|Média|Número de empregos na fila da piscina de fios de comando.|ServerResourceType|
+|ProcessamentoPoolJobQueueLength|Processamento de comprimento da fila de trabalho da piscina|Contagem|Média|Número de trabalhos não-I/O na fila da piscina de rosca de processamento.|ServerResourceType|
+|Correntes Deconhecões|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações ao cliente estabelecidas.|ServerResourceType|
+|CleanerCurrentPrice|Memória: Preço corrente mais limpo|Contagem|Média|Preço atual da memória, $/byte/time, normalizado para 1000.|ServerResourceType|
+|LimpadorMesshrinkable|Memória: Memória mais limpa encolhível|Bytes|Média|Quantidade de memória, em bytes, sujeito a purga pelo limpador de fundos.|ServerResourceType|
+|CleanerMemoryNonshrinkable|Memória: Memória limpa não é insuportável|Bytes|Média|Quantidade de memória, em bytes, não sujeita a purga pelo limpador de fundos.|ServerResourceType|
+|MemóriaSage|Memória: Utilização da memória|Bytes|Média|Utilização da memória do processo do servidor como usado no cálculo do preço de memória mais limpo. Igual a contrariar o Processo\PrivateBytes mais o tamanho dos dados mapeados pela memória, ignorando qualquer memória que tenha sido mapeada ou atribuída pelo motor de análise em memória xVelocity (VertiPaq) em excesso do limite de memória do motor xVelocity.|ServerResourceType|
+|MemoryLimitHard|Memória: Limite de memória difícil|Bytes|Média|Limite de memória rígido, a partir do ficheiro de configuração.|ServerResourceType|
+|MemóriaLimithigh|Memória: Limite de memória Alto|Bytes|Média|Limite de memória elevado, a partir do ficheiro de configuração.|ServerResourceType|
+|MemoryLimitLow|Memória: Limite de memória baixo|Bytes|Média|Limite de memória baixo, a partir do ficheiro de configuração.|ServerResourceType|
+|MemoryLimitVertiPaq|Memória: Limite de memória VertiPaq|Bytes|Média|Limite de memória, a partir do ficheiro de configuração.|ServerResourceType|
+|Quota|Memória: Quota|Bytes|Média|Quota de memória atual, em bytes. A quota de memória também é conhecida como um subsídio de memória ou reserva de memória.|ServerResourceType|
+|Quota Bloqueada|Memória: Quota Bloqueada|Contagem|Média|Número atual de pedidos de quotas que são bloqueados até que outras quotas de memória sejam libertadas.|ServerResourceType|
+|VertiPaqNonpaged|Memória: VertiPaq Não Pageed|Bytes|Média|Bytes de memória bloqueados no conjunto de trabalho para utilização pelo motor de memória.|ServerResourceType|
+|VertiPaqPaged|Memória: VertiPaq Paged|Bytes|Média|Bytes de memória paged em uso para dados de memória.|ServerResourceType|
+|RowsReadPerSec|Processamento: Linhas lidas por seg|CondePerSecond|Média|Taxa de linhas lidas de todas as bases de dados relacionais.|ServerResourceType|
+|RowsConvertedPerSec|Processamento: Linhas convertidas por seg|CondePerSecond|Média|Taxa de linhas convertidas durante o processamento.|ServerResourceType|
+|RowsWrittenPerSec|Processamento: Linhas escritas por seg|CondePerSecond|Média|Taxa de linhas escritas durante o processamento.|ServerResourceType|
+|CommandPoolBusyThreads|Threads: Linhas movimentadas da piscina de comando|Contagem|Média|Número de fios ocupados na piscina de fio de comando.|ServerResourceType|
+|CommandPoolIdleThreads|Fios: Fios inativos da piscina de comando|Contagem|Média|Número de fios inativos na piscina do fio de comando.|ServerResourceType|
+|LongParsingBusyThreads|Threads: Longas análises de fios ocupados|Contagem|Média|Número de fios ocupados na piscina de rosca de análise longa.|ServerResourceType|
+|LongParsingIdleThreads|Threads: Fios longos de análise ocioso|Contagem|Média|Número de fios ociosos na piscina de rosca de análise longa.|ServerResourceType|
+|LongParsingJobQueueLength|Threads: Comprimento da fila de trabalho de análise longa|Contagem|Média|Número de empregos na fila da piscina de rosca de longas análises.|ServerResourceType|
+|ProcessamentoPoolBusyIOJobThreads|Threads: Processamento de piscina ocupada linhas de trabalho de I/O|Contagem|Média|Número de fios a executar trabalhos de E/S na piscina de fios de processamento.|ServerResourceType|
+|ProcessamentoPoolBusyNonIOThreads|Fios: Piscina de processamento ocupada fios não-I/O|Contagem|Média|Número de fios que executam trabalhos não-I/S na piscina de rosca de processamento.|ServerResourceType|
+|ProcessamentoPoolIOJobQueueLength|Threads: Processamento de piscina I/O comprimento da fila de trabalho|Contagem|Média|Número de trabalhos de E/S na fila da piscina de rosca de processamento.|ServerResourceType|
+|ProcessamentoPoolIdleIOJobThreads|Fios: Processamento de linhas de trabalho I/O inativas da piscina|Contagem|Média|Número de fios inativos para trabalhos de E/S na piscina de rosca de processamento.|ServerResourceType|
+|ProcessamentoPoolIdleNonIOThreads|Fios: Processamento de piscinas ociosas fios não-I/O|Contagem|Média|Número de fios inativos na piscina de fios de processamento dedicada a trabalhos não-I/S.|ServerResourceType|
+|QueryPoolIdleThreads|Fios: Linhas ociosas da piscina de consulta|Contagem|Média|Número de fios inativos para trabalhos de E/S na piscina de rosca de processamento.|ServerResourceType|
+|QueryPoolJobQueueLength|Threads: Consulta de trabalho na piscina fila lengt|Contagem|Média|Número de empregos na fila da piscina de fios de consulta.|ServerResourceType|
+|ShortParsingBusyThreads|Threads: Threads de análise curta|Contagem|Média|Número de fios ocupados na piscina de rosca de parsing curta.|ServerResourceType|
+|ShortParsingIdleThreads|Fios: Fios curtos de parsing ocioso|Contagem|Média|Número de fios ociosos na piscina de rosca de parsing curta.|ServerResourceType|
+|ShortParsingJobQueueLength|Threads: Comprimento da fila do trabalho de análise curta|Contagem|Média|Número de empregos na fila da piscina de rosca de pequena análise.|ServerResourceType|
+|memory_thrashing_metric|Degradação de Memória|Percentagem|Média|Memória média a bater.|ServerResourceType|
+|mashup_engine_qpu_metric|QPU do motor M|Contagem|Média|Utilização do QPU por processos de motor de mashup|ServerResourceType|
+|mashup_engine_memory_metric|Memória do motor M|Bytes|Média|Utilização da memória por processos do motor de mashup|ServerResourceType|
+|mashup_engine_private_bytes_metric|M Motor Private Bytes|Bytes|Média|Bytes privados utiliza-se através de processos de motor de mashup.|ServerResourceType|
+|mashup_engine_virtual_bytes_metric|M Motor Virtual Bytes|Bytes|Média|Uso de bytes virtuais por processos de motor de mashup.|ServerResourceType|
 
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TotalRequests|Total de pedidos de gateway (Preprecated)|Contagem|Total|Número de pedidos de gateway - Utilize métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategory|Localização,Nome de anfitrião|
-|Pedidos bem sucedidos|Pedidos de gateway bem sucedidos (precatiados)|Contagem|Total|Número de pedidos de gateway bem sucedidos - Utilize métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategory|Localização,Nome de anfitrião|
-|Pedidos Não Autorizados|Pedidos de gateway não autorizados (Preprecated)|Contagem|Total|Número de pedidos de gateway não autorizados - Utilize métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategory|Localização,Nome de anfitrião|
-|Pedidos Falhados|Pedidos de gateway falhados (precatiados)|Contagem|Total|Número de falhas nos pedidos de gateway - Utilize métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategory|Localização,Nome de anfitrião|
-|Outros Pedidos|Outros pedidos de gateway (Preprecated)|Contagem|Total|Número de outros pedidos de gateway - Utilize métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategory|Localização,Nome de anfitrião|
-|Duração|Duração global dos pedidos de gateway|Milissegundos|Média|Duração global dos pedidos de gateway em milissegundos|Localização,Nome de anfitrião|
-|BackendDura|Duração dos pedidos de backend|Milissegundos|Média|Duração dos pedidos de backend em milissegundos|Localização,Nome de anfitrião|
+|TotalRequests|Total de pedidos de gateway (precotado)|Contagem|Total|Número de pedidos de gateway - Use métrica de pedido de várias dimensões com dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
+|Requess de sucesso|Pedidos de Gateway bem sucedidos (Deprecados)|Contagem|Total|Número de pedidos de gateway bem sucedidos - Use a métrica de pedido de várias dimensões com a dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
+|Requessionais não autorizados|Pedidos de Gateway não autorizados (Deprecados)|Contagem|Total|Número de pedidos de gateway não autorizados - Use a métrica de pedido de várias dimensões com a dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
+|Requessos Falhados|Pedidos de Gateway falhados (Deprecados)|Contagem|Total|Número de falhas nos pedidos de gateway - Use a métrica de pedido de várias dimensões com a dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
+|Outros Requests|Outros pedidos de gateway (precotados)|Contagem|Total|Número de outros pedidos de gateway - Use a métrica de pedido de várias dimensões com a dimensão GatewayResponseCodeCategoria|Localização,Nome anfitrião|
+|Duração|Duração geral dos pedidos de gateway|Milissegundos|Média|Duração global dos pedidos gateway em milissegundos|Localização,Nome anfitrião|
+|BackendDuration|Duração dos Pedidos de Backend|Milissegundos|Média|Duração dos Pedidos de Backend em milissegundos|Localização,Nome anfitrião|
 |Capacidade|Capacidade|Percentagem|Média|Métrica de utilização para o serviço ApiManagement|Localização|
-|Eventos EventHubTotal|Eventos Totais eventhub|Contagem|Total|Número de eventos enviados para eventHub|Localização|
-|Eventos de Sucesso eventhub|Eventos de Sucesso EventHub|Contagem|Total|Número de eventos de sucesso eventHub|Localização|
-|EventoHubTotalFailedEvents|Eventos falhados do EventHub|Contagem|Total|Número de eventos falhados do EventHub|Localização|
-|Eventos EventHubRejected|Eventos de EventHub rejeitados|Contagem|Total|Número de eventos rejeitados do EventHub (configuração errada ou não autorizada)|Localização|
-|EventoSHubThrottledEvents|Eventos Throttled EventHub|Contagem|Total|Número de eventos do EventHub estrangulados|Localização|
-|EventoHubTimedoutEvents|Eventos Timed out EventHub|Contagem|Total|Número de eventos cronometrados eventHub|Localização|
-|Eventos EventHubDrop|Eventos de EventHub abandonados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho da fila atingido|Localização|
-|EventHubTotalBytesSent|Tamanho dos eventos EventHub|Bytes|Total|Tamanho total dos eventos EventHub em bytes|Localização|
-|Pedidos|Pedidos|Contagem|Total|Gateway solicitar métricas com múltiplas dimensões|Localização,Nome de anfitrião,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory,GatewayResponseCodeCategory|
-|Conectividade de Rede|Estado de Conectividade da Rede de Recursos (Pré-visualização)|Contagem|Total|Estado de conectividade de rede de tipos de recursos dependentes do serviço de gestão da API|Localização,Recurso|
+|EventHubTotalEvents|Total de eventos EventHub|Contagem|Total|Número de eventos enviados para o EventHub|Localização|
+|EventoSHubSuccessfulEvents|Eventos de sucesso EventHub|Contagem|Total|Número de eventos de sucesso do EventHub|Localização|
+|EventHubTotalFailedEvents|Eventos falhados do EventHub|Contagem|Total|Número de eventos falhados do EventHub|Localização|
+|EventosHubRejectedEvents|Eventos de EventHub rejeitados|Contagem|Total|Número de eventos rejeitados do EventHub (configuração errada ou não autorizado)|Localização|
+|EventHubThrottledEvents|Eventos Throttled EventHub|Contagem|Total|Número de eventos acelerados eventHub|Localização|
+|EventHubTimedoutEvents|Eventos Timed out EventHub|Contagem|Total|Número de eventos do EventHub cronometrado|Localização|
+|EventHubDroppedEvents|Eventos do EventHub abandonados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho da fila atingido|Localização|
+|EventHubTotalBytesSent|Tamanho dos eventos Do EventHub|Bytes|Total|Tamanho total dos eventos EventHub em bytes|Localização|
+|Pedidos|Pedidos|Contagem|Total|Métricas de pedido de gateway com múltiplas dimensões|Localização,Nome anfitrião,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory,GatewayResponseCodeCategory|
+|RedeContividade|Estado da conectividade da rede dos recursos (pré-visualização)|Contagem|Total|Estado de conectividade da rede dos tipos de recursos dependentes do serviço de Gestão API|Localização,Tip de Recursos|
 
 
-## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configuraçãoStores
-
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|HttpIncomingRequestCount|HttpIncomingRequestCount|Contagem|Contagem|Número total de pedidos de http de entrada.|Código de Estado|
-|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Contagem|Média|Latência a pedido de http.|Código de Estado|
-
-
-## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
+## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SystemCpuUsagePercentage|Percentagem de utilização do CPU do sistema|Percentagem|Média|O recente uso do CPU para todo o sistema|Nome de aplicativo,Pod|
-|AppCpuUsagePercentage|Percentagem de utilização do CPU da aplicação|Percentagem|Média|Percentagem de utilização do CPU da aplicação JVM|Nome de aplicativo,Pod|
-|AppMemoryCommitted|Memória de aplicativo atribuída|Bytes|Média|Memória atribuída à JVM em bytes|Nome de aplicativo,Pod|
-|AppMemoryUsed|Memória de aplicativo usada|Bytes|Média|Memória de aplicativo usada em bytes|Nome de aplicativo,Pod|
-|AppMemoryMax|Memória de aplicativo Max|Bytes|Máximo|A quantidade máxima de memória em bytes que podem ser usados para a gestão da memória|Nome de aplicativo,Pod|
-|MaxOldGenMemoryPoolBytes|Tamanho de dados de geração antiga disponível Max|Bytes|Média|Tamanho máximo da piscina de memória de geração antiga|Nome de aplicativo,Pod|
-|OldGenMemoryPoolBytes|Tamanho dos dados da geração antiga|Bytes|Média|Tamanho da piscina de memória de geração antiga após um GC completo|Nome de aplicativo,Pod|
-|OldGenPromotedBytes|Promover o tamanho dos dados da geração antiga|Bytes|Máximo|Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes de GC para depois de GC|Nome de aplicativo,Pod|
-|YoungGenPromotedBytes|Promover para o tamanho de dados de geração jovem|Bytes|Máximo|Incrementado para um aumento do tamanho do pool de memória de geração jovem após um GC para antes do próximo|Nome de aplicativo,Pod|
-|GCPauseTotalCount|Contagem de pausas GC|Contagem|Total|Contagem de pausas GC|Nome de aplicativo,Pod|
-|GCPauseTotalTime|GC Pausa Tempo Total|Milissegundos|Total|GC Pausa Tempo Total|Nome de aplicativo,Pod|
-|TomcatSentBytes|Tomcat Total Bytes Enviados|Bytes|Total|Tomcat Total Bytes Enviados|Nome de aplicativo,Pod|
-|TomcatReceivedBytes|Tomcat Total Recebido Bytes|Bytes|Total|Tomcat Total Recebido Bytes|Nome de aplicativo,Pod|
-|TomcatRequestTotalTime|Tomcat Request Total Times|Milissegundos|Total|Tomcat Request Total Times|Nome de aplicativo,Pod|
-|TomcatRequestTotalCount|Tomcat Request Contagem Total|Contagem|Total|Tomcat Request Contagem Total|Nome de aplicativo,Pod|
-|TomcatResponseAvgTime|Tomcat Request Tempo Médio|Milissegundos|Média|Tomcat Request Tempo Médio|Nome de aplicativo,Pod|
-|TomcatRequestMaxTime|Tomcat Request Max Time|Milissegundos|Máximo|Tomcat Request Max Time|Nome de aplicativo,Pod|
-|TomcatErrorCount|Erro Global tomcat|Contagem|Total|Erro Global tomcat|Nome de aplicativo,Pod|
-|TomcatSessionActiveMaxCount|Tomcat Session Max Ative Count|Contagem|Total|Tomcat Session Max Ative Count|Nome de aplicativo,Pod|
-|TomcatSessionAliveMaxTime|Tomcat Session Max Alive Time|Milissegundos|Máximo|Tomcat Session Max Alive Time|Nome de aplicativo,Pod|
-|TomcatSessionActiveCurrentCurrentCount|Tomcat Session Alive Count|Contagem|Total|Tomcat Session Alive Count|Nome de aplicativo,Pod|
-|TomcatSessionCreatedCount|Tomcat Session Criou a Contagem|Contagem|Total|Tomcat Session Criou a Contagem|Nome de aplicativo,Pod|
-|TomcatSessionExpiredCount|Contagem expirada da sessão de Tomcat|Contagem|Total|Contagem expirada da sessão de Tomcat|Nome de aplicativo,Pod|
-|TomcatSessionRejectedCount|Tomcat Session Rejeitou contagem|Contagem|Total|Tomcat Session Rejeitou contagem|Nome de aplicativo,Pod|
+|HttpIncomingRequestCount|HttpIncomingRequestCount|Contagem|Contagem|Número total de pedidos de http recebidas.|Código de Estado|
+|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Contagem|Média|Latência num pedido http.|Código de Estado|
 
 
-## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
+## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/primavera
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TotalJob|Empregototal|Contagem|Total|O número total de postos de trabalho|Livro de execução,Estado|
-|TotalUpdateDeploymentruns|Execuções de implementação total de atualização|Contagem|Total|Executações totais de implementação de atualização de software|Nome de configuração de software,Status|
-|Corridas total de implantação|Corridas de máquinas de implantação de atualização total|Contagem|Total|Máquina de implementação total de atualização de software executa em uma execução de implementação de atualização de software|Nome de configuração de software,Status,Targetcomputer,SoftwareUpdateGenRunid|
+|SystemCpuUsagePercentage|Percentagem de Utilização cpu do sistema|Percentagem|Média|O recente uso do CPU para todo o sistema|AppName,Pod|
+|AppCpuUsagePercentage|Percentagem de Utilização cpu de aplicação|Percentagem|Média|App JVM CPU Percentagem de Utilização|AppName,Pod|
+|AppMemoryCommitted|Memória de aplicativo atribuída|Bytes|Média|Memória atribuída a JVM em bytes|AppName,Pod|
+|AppMemoryUsed|Memória de aplicativo usada|Bytes|Média|Memória de aplicativos utilizada em bytes|AppName,Pod|
+|AppMemoryMax|App Memory Max|Bytes|Máximo|A quantidade máxima de memória em bytes que pode ser usada para a gestão da memória|AppName,Pod|
+|MaxOldGenMemoryPoolBytes|Tamanho máximo de dados de geração antiga disponível|Bytes|Média|Tamanho máximo da piscina de memória de geração antiga|AppName,Pod|
+|OldGenMemoryPoolBytes|Tamanho dos dados da geração velha|Bytes|Média|Tamanho da piscina de memória de geração velha depois de um GC completo|AppName,Pod|
+|OldGenPromotedBytes|Promover para o tamanho dos dados da geração velha|Bytes|Máximo|Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes da GC para depois de GC|AppName,Pod|
+|YoungGenPromotedBytes|Promover para o tamanho de dados de geração jovem|Bytes|Máximo|Incrementado para um aumento no tamanho do pool de memória de geração jovem após um GC para antes do próximo|AppName,Pod|
+|GCPauseTotalCount|Contagem de pausas GC|Contagem|Total|Contagem de pausas GC|AppName,Pod|
+|GCPauseTotalTime|GC Pausa Tempo Total|Milissegundos|Total|GC Pausa Tempo Total|AppName,Pod|
+|TomcatSentBytes|Tomcat Total Enviado Bytes|Bytes|Total|Tomcat Total Enviado Bytes|AppName,Pod|
+|TomcatReceivedBytes|Tomcat Total Recebido Bytes|Bytes|Total|Tomcat Total Recebido Bytes|AppName,Pod|
+|TomcatRequestTotalTime|Pedido tomcat tempos totais|Milissegundos|Total|Pedido tomcat tempos totais|AppName,Pod|
+|TomcatRequestTotalCount|Tomcat Request Contagem Total|Contagem|Total|Tomcat Request Contagem Total|AppName,Pod|
+|TomcatResponseAvgTime|Tomcat Pede tempo médio|Milissegundos|Média|Tomcat Pede tempo médio|AppName,Pod|
+|TomcatRequestMaxTime|Tomcat Request Max Time|Milissegundos|Máximo|Tomcat Request Max Time|AppName,Pod|
+|TomcatErrorCount|Erro Global de Tomcat|Contagem|Total|Erro Global de Tomcat|AppName,Pod|
+|TomcatSessionActiveMaxCount|Tomcat Session Max Ative Count|Contagem|Total|Tomcat Session Max Ative Count|AppName,Pod|
+|TomcatSessionAliveMaxTime|Tomcat Session Max Alive Tempo|Milissegundos|Máximo|Tomcat Session Max Alive Tempo|AppName,Pod|
+|TomcatSessionActiveCurrentCount|Tomcat Session Alive Count|Contagem|Total|Tomcat Session Alive Count|AppName,Pod|
+|TomcatSessionCreatedCount|Tomcat Session Criou Contagem|Contagem|Total|Tomcat Session Criou Contagem|AppName,Pod|
+|TomcatSessionExpiredCount|Contagem expirada da sessão de Tomcat|Contagem|Total|Contagem expirada da sessão de Tomcat|AppName,Pod|
+|TomcatSessionRejectedCount|Contagem rejeitada da sessão de Tomcat|Contagem|Total|Contagem rejeitada da sessão de Tomcat|AppName,Pod|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
+## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automation
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CoreCount|Contagem de núcleos dedicado|Contagem|Total|Número total de núcleos dedicados na conta do lote|Nenhum|
-|TotalNodeCount|Contagem de nódedicados dedicado|Contagem|Total|Número total de nós dedicados na conta do lote|Nenhum|
-|BaixaPrioridadeCoreCount|Contagem do núcleo de baixa prioridade|Contagem|Total|Número total de núcleos de baixa prioridade na conta do lote|Nenhum|
-|TotalLowPriorityNodeCount|Contagem de nódeadebaixas|Contagem|Total|Número total de nós de baixa prioridade na conta do lote|Nenhum|
-|Criando NodeCount|Criando a Contagem do Nó|Contagem|Total|Número de nós sendo criados|Nenhum|
-|InícioNodeCount|Contagem de nósinos insinuantes|Contagem|Total|Número de nós começando|Nenhum|
-|EsperaForStartTaskNodeCount|Esperando para começar contagem de nó de tarefa|Contagem|Total|Número de nós à espera que a Tarefa de Início esteja concluída|Nenhum|
-|StartTaskFailedNodeCount|Contagem de nófalhado de tarefa inicial|Contagem|Total|Número de nós onde a Tarefa de Início falhou|Nenhum|
-|IdleNodeCount|Contagem de nóocioso ocioso|Contagem|Total|Número de nós ociosos|Nenhum|
-|OffNodeCount|Contagem de nó offline|Contagem|Total|Número de nós offline|Nenhum|
-|RebootingNodeCount|Contagem de nóreinicialização|Contagem|Total|Número de nós de reinicialização|Nenhum|
-|ReimagingNodeCount|Contagem de nó de reimaging|Contagem|Total|Número de nós de reimagem|Nenhum|
-|RunningNodeCount|Contagem de nósomas de execução|Contagem|Total|Número de nós de corrida|Nenhum|
-|Deixando PoolNodeCount|Deixando a contagem do nó da piscina|Contagem|Total|Número de nós saindo da Piscina|Nenhum|
-|InutilizávelNodeCount|Contagem inutilizável de nó|Contagem|Total|Número de nós inutilizáveis|Nenhum|
-|Contagem de NodeS pré-empreitada|Contagem de nósinos preempted|Contagem|Total|Número de nós pré-empreitados|Nenhum|
-|Evento TaskStartEvent|Eventos de início de tarefa|Contagem|Total|Número total de tarefas que começaram|poolId,jobId|
-|Evento TaskComplete|Tarefa Completa Eventos|Contagem|Total|Número total de tarefas que completaram|poolId,jobId|
-|TaskFailEvent|Eventos de falha de tarefa|Contagem|Total|Número total de tarefas que completaram num estado falhado|poolId,jobId|
-|Evento PoolCreate|Piscina Criar Eventos|Contagem|Total|Número total de piscinas que foram criadas|poolId|
-|PoolResizeStartEvent|Eventos de início de redimensionar piscina|Contagem|Total|Número total de redimensionos de piscina que começaram|poolId|
-|PoolResizeCompleteEvent|Piscina Redimensionar eventos completos|Contagem|Total|Número total de redimensionos de piscina que tenham concluído|poolId|
-|PoolDeleteStartEvent|Pool Delete Eventos de Início|Contagem|Total|Número total de eliminações de piscinas que começaram|poolId|
-|PoolDeleteCompleteEvent|Pool Eliminar Eventos Completos|Contagem|Total|Número total de eliminações de piscinas que tenham concluído|poolId|
-|JobDeleteCompleteEvent|Job Delete Complete Events|Contagem|Total|Número total de postos de trabalho que foram eliminados com êxito.|jobId|
-|JobDeleteStartEvent|Job Delete Start Events|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem suprimidos.|jobId|
-|Evento Completo jobDisable|Desativação de trabalho eventos completos|Contagem|Total|Número total de postos de trabalho com êxito incapacitados.|jobId|
-|Evento JobDisableStart|Eventos de início de desativação de emprego|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem desativados.|jobId|
-|Evento JobStartEvent|Eventos de início de trabalho|Contagem|Total|Número total de postos de trabalho que foram iniciados com sucesso.|jobId|
-|Evento De Terminação de Trabalho|Trabalho terminar eventos completos|Contagem|Total|Número total de postos de trabalho que foram encerrados com sucesso.|jobId|
-|Evento JobTerminateStartEvent|Trabalho terminar eventos de início|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem encerrados.|jobId|
+|TotalJob|Total de empregos|Contagem|Total|O número total de empregos|Runbook,Status|
+|TotalUpdateDeploymentRuns|Execuções de implementação de atualização total|Contagem|Total|Total de execuções de atualização de software executa|SoftwareUpdateConfigurationName,Status|
+|TotalUpdateDeploymentMachineRuns|Funciona a máquina de implementação total de atualizações|Contagem|Total|A máquina de implementação total de atualização de software é executada numa implementação de atualização de software|SoftwareUpdateConfigurationName,Status,TargetComputer,SoftwareUpdateConfigurationRunId|
+
+
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAcounts
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|CoreCount|Contagem de núcleos dedicada|Contagem|Total|Número total de núcleos dedicados na conta do lote|Nenhum|
+|TotalNodeCount|Conde de Nó dedicado|Contagem|Total|Número total de nós dedicados na conta do lote|Nenhum|
+|LowPriorityCoreCount|Contagem do Núcleo de BaixaPrioridade|Contagem|Total|Número total de núcleos de baixa prioridade na conta do lote|Nenhum|
+|TotalLowPriorityNodeCount|Contagem de nó de baixa prioridade|Contagem|Total|Número total de nós de baixa prioridade na conta do lote|Nenhum|
+|Criação NodeCount|Criação de Contagem de Nó|Contagem|Total|Número de nós a ser criado|Nenhum|
+|InícioNodeCount|Contagem inicial do nó|Contagem|Total|Número de nós a partir|Nenhum|
+|WaitingForStartTaskNodeCount|À espera da contagem de nó de tarefa inicial|Contagem|Total|Número de nós à espera que a Tarefa inicial esteja concluída|Nenhum|
+|StartTaskFailedNodeCount|Início da contagem de nó falhado da tarefa|Contagem|Total|Número de nós onde a Tarefa inicial falhou|Nenhum|
+|IdleNodeCount|Conde nó inativo|Contagem|Total|Número de nós ociosos|Nenhum|
+|OfflineNodeCount|Contagem de nóles offline|Contagem|Total|Número de nós offline|Nenhum|
+|RebootingNodeCount|Contagem de nó de reinicialização|Contagem|Total|Número de nós reiniciantes|Nenhum|
+|ReimagingNodeCount|Contagem de nó de reimaging|Contagem|Total|Número de nós de reimaging|Nenhum|
+|RunningNodeCount|Contagem de nó de corrida|Contagem|Total|Número de nós em execução|Nenhum|
+|LeavingPoolNodeCount|Deixando a contagem do nó de piscina|Contagem|Total|Número de nós que saem da Piscina|Nenhum|
+|Não utilizávelNodeCount|Contagem de nó inutilizáveis|Contagem|Total|Número de nós inutilizáveis|Nenhum|
+|PreemptedNodeCount|Contagem de nódoaista preventiva|Contagem|Total|Número de nós pré-emitidos|Nenhum|
+|TaskStartEvent|Eventos de início de tarefa|Contagem|Total|Número total de tarefas que começaram|poolId,jobId|
+|TaskCompleteEvent|Eventos completos de tarefas|Contagem|Total|Número total de tarefas que completaram|poolId,jobId|
+|TaskFailEvent|Eventos de Falha de Tarefa|Contagem|Total|Número total de tarefas que foram concluídas num estado falhado|poolId,jobId|
+|Evento PoolCreate|Criar Eventos de Criação de Piscinas|Contagem|Total|Número total de piscinas que foram criadas|poolId|
+|PoolResizeStartEvent|Eventos de início de piscina redimensionam|Contagem|Total|Número total de redimensionações de piscina que começaram|poolId|
+|PoolResizeCompleteEvent|Piscina Redimensione Eventos Completos|Contagem|Total|Número total de redimensionações de piscina que completaram|poolId|
+|PoolDeleteStartEvent|Pool Delete Eventos iniciá-lo|Contagem|Total|Número total de eliminações de piscinas que começaram|poolId|
+|PoolDeleteCompleteEvent|Piscina Eliminar Eventos Completos|Contagem|Total|Número total de eliminações de piscinas que tenham concluído|poolId|
+|JobDeleteCompleteEvent|Trabalho Eliminar Eventos Completos|Contagem|Total|Número total de postos de trabalho que foram eliminados com êxito.|jobId|
+|JobDeleteStartEvent|Trabalho eliminar eventos iniciá-lo|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem suprimidos.|jobId|
+|JobDisableCompleteEvent|Eventos completos para desativação de emprego|Contagem|Total|Número total de postos de trabalho que foram incapacitados com sucesso.|jobId|
+|JobDisableStartEvent|Eventos de início de desativação de emprego|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem incapacitados.|jobId|
+|JobStartEvent|Eventos de início de emprego|Contagem|Total|Número total de postos de trabalho que foram iniciados com sucesso.|jobId|
+|JobTerminateCompleteEvent|Emprego termina eventos completos|Contagem|Total|Número total de postos de trabalho que foram encerrados com sucesso.|jobId|
+|JobTerminateStartEvent|Eventos de início de emprego terminam|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem encerrados.|jobId|
 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/espaços de trabalho
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Trabalho Submetido|Trabalho Submetido|Contagem|Total|Número de postos de trabalho apresentados|Cenário,ClusterName|
-|Trabalho Concluído|Trabalho Concluído|Contagem|Total|Número de postos de trabalho concluídos|Cenário,ClusterName,Tipo de Resultados|
-|Nósodes totais|Nósodes totais|Contagem|Média|Número de nós totais|Cenário,ClusterName|
-|Nódosativos Ativos|Nódosativos Ativos|Contagem|Média|Número de nós de corrida|Cenário,ClusterName|
-|Nódoas ociosas|Nódoas ociosas|Contagem|Média|Número de nós ociosos|Cenário,ClusterName|
-|Nós Inutilizáveis|Nós Inutilizáveis|Contagem|Média|Número de nós inutilizáveis|Cenário,ClusterName|
-|Nódosos pré-empreitados|Nódosos pré-empreitados|Contagem|Média|Número de nós pré-empreitados|Cenário,ClusterName|
-|Deixando nódosos|Deixando nódosos|Contagem|Média|Número de nós de saída|Cenário,ClusterName|
+|Trabalho submetido|Trabalho submetido|Contagem|Total|Número de postos de trabalho submetidos|Cenário,ClusterName|
+|Trabalho Concluído|Trabalho Concluído|Contagem|Total|Número de postos de trabalho concluídos|Cenário,ClusterName,ResultadoType|
+|Nómada Total|Nómada Total|Contagem|Média|Número de nós totais|Cenário,ClusterName|
+|Nóns ativos|Nóns ativos|Contagem|Média|Número de nós em execução|Cenário,ClusterName|
+|Nódoas Ociosas|Nódoas Ociosas|Contagem|Média|Número de nós ociosos|Cenário,ClusterName|
+|Nódes Inutilizáveis|Nódes Inutilizáveis|Contagem|Média|Número de nós inutilizáveis|Cenário,ClusterName|
+|Nómadas Preempted|Nómadas Preempted|Contagem|Média|Número de nós pré-emitidos|Cenário,ClusterName|
+|Deixando os nóns|Deixando os nóns|Contagem|Média|Número de nós de saída|Cenário,ClusterName|
 |Núcleos Totais|Núcleos Totais|Contagem|Média|Número de núcleos totais|Cenário,ClusterName|
 |Núcleos Ativos|Núcleos Ativos|Contagem|Média|Número de núcleos ativos|Cenário,ClusterName|
-|Núcleos ociosos|Núcleos ociosos|Contagem|Média|Número de núcleos ociosos|Cenário,ClusterName|
-|Núcleos Inutilizáveis|Núcleos Inutilizáveis|Contagem|Média|Número de núcleos inutilizáveis|Cenário,ClusterName|
-|Núcleos Preempted|Núcleos Preempted|Contagem|Média|Número de núcleos pré-optados|Cenário,ClusterName|
-|Deixando núcleos|Deixando núcleos|Contagem|Média|Número de núcleos de saída|Cenário,ClusterName|
-|Percentagem de Utilização de Quotas|Percentagem de Utilização de Quotas|Contagem|Média|Por cento da quota utilizada|Cenário,ClusterName,VmFamilyName,VmPriority|
+|Núcleos Ociosos|Núcleos Ociosos|Contagem|Média|Número de núcleos ociosos|Cenário,ClusterName|
+|Núcleos inutilizáveis|Núcleos inutilizáveis|Contagem|Média|Número de núcleos inutilizáveis|Cenário,ClusterName|
+|Núcleos Preempted|Núcleos Preempted|Contagem|Média|Número de núcleos pré-apropriados|Cenário,ClusterName|
+|Deixando os Núcleos|Deixando os Núcleos|Contagem|Média|Número de núcleos de saída|Cenário,ClusterName|
+|Percentagem de Utilização de Cots|Percentagem de Utilização de Cots|Contagem|Média|Por cento das quotas utilizadas|Cenário,ClusterName,VmFamilyName,VmPriority|
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CpuUsagePercentageInDouble|Percentagem de utilização do CPU|Percentagem|Máximo|Percentagem de utilização do CPU|Nó|
-|Uso da Memória|Utilização de Memória|Bytes|Média|Utilização de Memória|Nó|
-|Limite de memória|Limite de memória|Bytes|Média|Limite de memória|Nó|
-|MemoryUsagePercentageinDouble|Percentagem de utilização da memória|Percentagem|Média|Percentagem de utilização da memória|Nó|
-|Armazenamento|Utilização de armazenamento|Bytes|Média|Utilização de armazenamento|Nó|
+|CpuUsagePercentageInDouble|Percentagem de Utilização cpu|Percentagem|Máximo|Percentagem de Utilização cpu|Nó|
+|MemóriaSage|Utilização de Memória|Bytes|Média|Utilização de Memória|Nó|
+|MemóriaLimite|Limite de memória|Bytes|Média|Limite de memória|Nó|
+|MemoryUsagePercentageInDouble|Percentagem de Utilização de Memória|Percentagem|Média|Percentagem de Utilização de Memória|Nó|
+|ArmazenamentoUsage|Utilização de armazenamento|Bytes|Média|Utilização de armazenamento|Nó|
 |IOReadBytes|IO Ler Bytes|Bytes|Total|IO Ler Bytes|Nó|
-|IOWriteBytes|IO Write Bytes|Bytes|Total|IO Write Bytes|Nó|
-|Conexão Aceite|Conexões Aceites|Contagem|Total|Conexões Aceites|Nó|
-|Ligação Handled|Conexões manuseadas|Contagem|Total|Conexões manuseadas|Nó|
-|ConexãoActive|Conexões Ativas|Contagem|Média|Conexões Ativas|Nó|
-|RequestHandled|Pedidos tratados|Contagem|Total|Pedidos tratados|Nó|
+|IOWriteBytes|IO Escrever Bytes|Bytes|Total|IO Escrever Bytes|Nó|
+|LigaçãoAccepted|Conexões Aceites|Contagem|Total|Conexões Aceites|Nó|
+|Conexão Tratada|Conexões manuseidas|Contagem|Total|Conexões manuseidas|Nó|
+|ConexãoActiva|Ligações Ativas|Contagem|Média|Ligações Ativas|Nó|
+|Pedido Tratado|Pedidos Tratados|Contagem|Total|Pedidos Tratados|Nó|
 |Blocos Processados|Blocos processados|Contagem|Total|Blocos processados|Nó|
-|Transações Processadas|Transações Processadas|Contagem|Total|Transações Processadas|Nó|
-|Transações Pendentes|Transações Pendentes|Contagem|Média|Transações Pendentes|Nó|
-|Transações em fila|Transações em fila|Contagem|Média|Transações em fila|Nó|
+|Transações processadas|Transações Processadas|Contagem|Total|Transações Processadas|Nó|
+|Processos pendentes|Transações Pendentes|Contagem|Média|Transações Pendentes|Nó|
+|QueuedTransacções|Transações em fila|Contagem|Média|Transações em fila|Nó|
 
 
 
@@ -248,182 +248,182 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|clientes conectados|Clientes Ligados|Contagem|Máximo||ShardId|
-|total de comandos processados|Total de Operações|Contagem|Total||ShardId|
+|connectedclients|Clientes Ligados|Contagem|Máximo||ShardId|
+|totalcommands processado|Total de Operações|Contagem|Total||ShardId|
 |cachehits|Acertos na Cache|Contagem|Total||ShardId|
 |cachemisses|Falhas de Acerto na Cache|Contagem|Total||ShardId|
-|cachemissrate|Cache Miss Rate|Percentagem|cachemissrate||ShardId|
-|obter comandos|Obtenções|Contagem|Total||ShardId|
+|cachemissrate|Taxa de Falha cache|Percentagem|cachemissrate||ShardId|
+|obter commões|Obtenções|Contagem|Total||ShardId|
 |setcommands|Definições|Contagem|Total||ShardId|
-|operaçõesPerSecond|Operações por segundo|Contagem|Máximo||ShardId|
+|operaçõesPerSecond|Operações por Segundo|Contagem|Máximo||ShardId|
 |chaves despejadas|Chaves Excluídas|Contagem|Total||ShardId|
-|totaldechaves|Chaves totais|Contagem|Máximo||ShardId|
-|expiradokeys|Chaves Expiradas|Contagem|Total||ShardId|
-|memória usada|Memória Utilizada|Bytes|Máximo||ShardId|
-|percentagem de memória usada|Percentagem de memória usada|Percentagem|Máximo||ShardId|
-|memória usadaRss|RSS de memória usada|Bytes|Máximo||ShardId|
-|servidorLoad|Carga do servidor|Percentagem|Máximo||ShardId|
-|cacheEscrever|Cache Write|BytesPerSecond|Máximo||ShardId|
-|cacheLer|Leitura de cache|BytesPerSecond|Máximo||ShardId|
+|totalkeys|Chaves totais|Contagem|Máximo||ShardId|
+|chaves caducadas|Chaves Expiradas|Contagem|Total||ShardId|
+|usedmemory|Memória Utilizada|Bytes|Máximo||ShardId|
+|usuário|Percentagem de Memória Utilizada|Percentagem|Máximo||ShardId|
+|usedmemoryRss|RSS de memória usada|Bytes|Máximo||ShardId|
+|servidorAcar|Carga do Servidor|Percentagem|Máximo||ShardId|
+|cacheDite|Escrita na Cache|BytesPerSecond|Máximo||ShardId|
+|cacheRead|Leitura da Cache|BytesPerSecond|Máximo||ShardId|
 |percentProcessorTime|CPU|Percentagem|Máximo||ShardId|
-|cacheLatency|Microsegundos de Latência cache (Pré-visualização)|Contagem|Média||ShardId|
+|cacheLatency|Microsegundos de latência de cache (pré-visualização)|Contagem|Média||ShardId|
 |erros|Erros|Contagem|Máximo||ShardId,ErrorType|
-|clientes conectados0|Clientes Conectados (Fragmento 0)|Contagem|Máximo||Nenhum|
-|total de comandos processados0|Total de Operações (Fragmento 0)|Contagem|Total||Nenhum|
+|connectedclients0|Clientes Conectados (Fragmento 0)|Contagem|Máximo||Nenhum|
+|totalcommands processado0|Total de operações (Fragmento 0)|Contagem|Total||Nenhum|
 |cachehits0|Cache Hits (Fragmento 0)|Contagem|Total||Nenhum|
 |cachemisses0|Cache Misses (Fragmento 0)|Contagem|Total||Nenhum|
-|getcommands0|Recebe (Fragmento 0)|Contagem|Total||Nenhum|
+|obter commands0|Recebe (Fragmento 0)|Contagem|Total||Nenhum|
 |setcommands0|Conjuntos (Fragmento 0)|Contagem|Total||Nenhum|
-|operaçõesPerSecond0|Operações por Segundo (Fragmento 0)|Contagem|Máximo||Nenhum|
+|operaçõesPerSecond0|Operações por segundo (Fragmento 0)|Contagem|Máximo||Nenhum|
 |despejadokeys0|Chaves despejadas (Fragmento 0)|Contagem|Total||Nenhum|
-|totaldekeys0|Chaves totais (Fragmento 0)|Contagem|Máximo||Nenhum|
-|expiradokeys0|Chaves expiradas (Fragmento 0)|Contagem|Total||Nenhum|
-|memória usada0|Memória Usada (Fragmento 0)|Bytes|Máximo||Nenhum|
-|memória usadaRss0|Memória Usada RSS (Fragmento 0)|Bytes|Máximo||Nenhum|
+|totalkeys0|Chaves totais (Fragmento 0)|Contagem|Máximo||Nenhum|
+|40keys0|Chaves expiradas (Fragmento 0)|Contagem|Total||Nenhum|
+|usadomemory0|Memória Usada (Fragmento 0)|Bytes|Máximo||Nenhum|
+|usedmemoryRss0|RSS de memória usado (fragmento 0)|Bytes|Máximo||Nenhum|
 |servidorLoad0|Carga do servidor (Fragmento 0)|Percentagem|Máximo||Nenhum|
 |cacheWrite0|Cache Write (Fragmento 0)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead0|Cache Read (Fragmento 0)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime0|CPU (Fragmento 0)|Percentagem|Máximo||Nenhum|
-|clientes conectados1|Clientes Conectados (Fragmento 1)|Contagem|Máximo||Nenhum|
-|total de comandos processados1|Total de Operações (Fragmento 1)|Contagem|Total||Nenhum|
+|connectedclients1|Clientes Conectados (Fragmento 1)|Contagem|Máximo||Nenhum|
+|totalcommandsprocessado1|Total de operações (Fragmento 1)|Contagem|Total||Nenhum|
 |cachehits1|Cache Hits (Fragmento 1)|Contagem|Total||Nenhum|
 |cachemisses1|Cache Misses (Fragmento 1)|Contagem|Total||Nenhum|
-|getcommands1|Recebe (Fragmento 1)|Contagem|Total||Nenhum|
+|obter commands1|Recebe (Fragmento 1)|Contagem|Total||Nenhum|
 |setcommands1|Conjuntos (Fragmento 1)|Contagem|Total||Nenhum|
-|operaçõesPerSecond1|Operações por Segundo (Fragmento 1)|Contagem|Máximo||Nenhum|
-|despejadoskeys1|Chaves despejadas (Fragmento 1)|Contagem|Total||Nenhum|
-|totaldekeys1|Chaves totais (Fragmento 1)|Contagem|Máximo||Nenhum|
-|expiradokeys1|Chaves expiradas (Fragmento 1)|Contagem|Total||Nenhum|
-|memória usada1|Memória Usada (Fragmento 1)|Bytes|Máximo||Nenhum|
-|memória usadaRss1|Memória Usada RSS (Fragmento 1)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond1|Operações por segundo (Fragmento 1)|Contagem|Máximo||Nenhum|
+|chaves despejadas1|Chaves despejadas (Fragmento 1)|Contagem|Total||Nenhum|
+|totalkeys1|Chaves totais (Fragmento 1)|Contagem|Máximo||Nenhum|
+|400keys validade1|Chaves expiradas (Fragmento 1)|Contagem|Total||Nenhum|
+|usedmemory1|Memória Usada (Fragmento 1)|Bytes|Máximo||Nenhum|
+|usedmemoryRss1|RSS de memória usado (fragmento 1)|Bytes|Máximo||Nenhum|
 |servidorLoad1|Carga do servidor (Fragmento 1)|Percentagem|Máximo||Nenhum|
 |cacheWrite1|Cache Write (Fragmento 1)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead1|Cache Read (Fragmento 1)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime1|CPU (Fragmento 1)|Percentagem|Máximo||Nenhum|
-|clientes conectados2|Clientes Conectados (Fragmento 2)|Contagem|Máximo||Nenhum|
-|total de comandos processados2|Total de Operações (Fragmento 2)|Contagem|Total||Nenhum|
+|connectedclients2|Clientes Conectados (Fragmento 2)|Contagem|Máximo||Nenhum|
+|totalcommands processado2|Total de Operações (Fragmento 2)|Contagem|Total||Nenhum|
 |cachehits2|Cache Hits (Fragmento 2)|Contagem|Total||Nenhum|
 |cachemisses2|Cache Misses (Fragmento 2)|Contagem|Total||Nenhum|
-|getcommands2|Recebe (Fragmento 2)|Contagem|Total||Nenhum|
+|obter commands2|Recebe (Fragmento 2)|Contagem|Total||Nenhum|
 |setcommands2|Conjuntos (Fragmento 2)|Contagem|Total||Nenhum|
-|operaçõesPerSecond2|Operações por Segundo (Fragmento 2)|Contagem|Máximo||Nenhum|
-|despejadoskeys2|Chaves despejadas (Fragmento 2)|Contagem|Total||Nenhum|
-|totaldekeys2|Chaves totais (Fragmento 2)|Contagem|Máximo||Nenhum|
-|expiradokeys2|Chaves expiradas (Fragmento 2)|Contagem|Total||Nenhum|
-|memória usada2|Memória Usada (Fragmento 2)|Bytes|Máximo||Nenhum|
-|memória usadaRss2|Memória Usada RSS (Fragmento 2)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond2|Operações por segundo (Fragmento 2)|Contagem|Máximo||Nenhum|
+|despejadokeys2|Chaves despejadas (Fragmento 2)|Contagem|Total||Nenhum|
+|totalkeys2|Chaves totais (Fragmento 2)|Contagem|Máximo||Nenhum|
+|400keys expirados2|Chaves expiradas (Fragmento 2)|Contagem|Total||Nenhum|
+|usedmemory2|Memória Usada (Fragmento 2)|Bytes|Máximo||Nenhum|
+|usedmemoryRss2|RSS de memória usado (fragmento 2)|Bytes|Máximo||Nenhum|
 |servidorLoad2|Carga do servidor (Fragmento 2)|Percentagem|Máximo||Nenhum|
 |cacheWrite2|Cache Write (Fragmento 2)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead2|Cache Read (Fragmento 2)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime2|CPU (Fragmento 2)|Percentagem|Máximo||Nenhum|
-|clientes conectados3|Clientes Conectados (Fragmento 3)|Contagem|Máximo||Nenhum|
-|total de comandos processados3|Total de Operações (Fragmento 3)|Contagem|Total||Nenhum|
+|connectedclients3|Clientes Conectados (Fragmento 3)|Contagem|Máximo||Nenhum|
+|totalcommands processado3|Total de operações (Fragmento 3)|Contagem|Total||Nenhum|
 |cachehits3|Cache Hits (Fragmento 3)|Contagem|Total||Nenhum|
 |cachemisses3|Cache Misses (Fragmento 3)|Contagem|Total||Nenhum|
-|getcommands3|Recebe (Fragmento 3)|Contagem|Total||Nenhum|
+|obter commands3|Recebe (Fragmento 3)|Contagem|Total||Nenhum|
 |setcommands3|Conjuntos (Fragmento 3)|Contagem|Total||Nenhum|
-|operaçõesPerSecond3|Operações por Segundo (Fragmento 3)|Contagem|Máximo||Nenhum|
-|despejadoschaves3|Chaves despejadas (Fragmento 3)|Contagem|Total||Nenhum|
-|totaldekeys3|Chaves totais (Fragmento 3)|Contagem|Máximo||Nenhum|
-|expiradokeys3|Chaves expiradas (Fragmento 3)|Contagem|Total||Nenhum|
-|memória usada3|Memória Usada (Fragmento 3)|Bytes|Máximo||Nenhum|
-|memória usadaRss3|Memória Usada RSS (Fragmento 3)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond3|Operações por segundo (Fragmento 3)|Contagem|Máximo||Nenhum|
+|despejadokeys3|Chaves despejadas (Fragmento 3)|Contagem|Total||Nenhum|
+|totalkeys3|Chaves totais (Fragmento 3)|Contagem|Máximo||Nenhum|
+|400keys3|Chaves expiradas (Fragmento 3)|Contagem|Total||Nenhum|
+|usadomemory3|Memória Usada (Fragmento 3)|Bytes|Máximo||Nenhum|
+|usedmemoryRss3|RSS de memória usado (fragmento 3)|Bytes|Máximo||Nenhum|
 |servidorLoad3|Carga do servidor (Fragmento 3)|Percentagem|Máximo||Nenhum|
 |cacheWrite3|Cache Write (Fragmento 3)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead3|Cache Read (Fragmento 3)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime3|CPU (Fragmento 3)|Percentagem|Máximo||Nenhum|
-|clientes conectados4|Clientes Conectados (Fragmento 4)|Contagem|Máximo||Nenhum|
-|total de comandos processados4|Total de Operações (Fragmento 4)|Contagem|Total||Nenhum|
+|connectedclients4|Clientes Conectados (Fragmento 4)|Contagem|Máximo||Nenhum|
+|totalcommandsprocessado4|Total de operações (Fragmento 4)|Contagem|Total||Nenhum|
 |cachehits4|Cache Hits (Fragmento 4)|Contagem|Total||Nenhum|
 |cachemisses4|Cache Misses (Fragmento 4)|Contagem|Total||Nenhum|
-|getcommands4|Recebe (Fragmento 4)|Contagem|Total||Nenhum|
+|obter commands4|Recebe (Fragmento 4)|Contagem|Total||Nenhum|
 |setcommands4|Conjuntos (Fragmento 4)|Contagem|Total||Nenhum|
-|operaçõesPerSecond4|Operações por Segundo (Fragmento 4)|Contagem|Máximo||Nenhum|
-|despejadoschaves4|Chaves despejadas (Fragmento 4)|Contagem|Total||Nenhum|
-|totaldekeys4|Chaves totais (Fragmento 4)|Contagem|Máximo||Nenhum|
-|expiradokeys4|Chaves expiradas (Fragmento 4)|Contagem|Total||Nenhum|
-|memória usada4|Memória Usada (Fragmento 4)|Bytes|Máximo||Nenhum|
-|memória usadaRss4|Memória Usada RSS (Fragmento 4)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond4|Operações por segundo (Fragmento 4)|Contagem|Máximo||Nenhum|
+|despejadokeys4|Chaves despejadas (Fragmento 4)|Contagem|Total||Nenhum|
+|totalkeys4|Chaves totais (Fragmento 4)|Contagem|Máximo||Nenhum|
+|4keys expirados|Chaves expiradas (Fragmento 4)|Contagem|Total||Nenhum|
+|usadomemory4|Memória Usada (Fragmento 4)|Bytes|Máximo||Nenhum|
+|usedmemoryRss4|RSS de memória usado (fragmento 4)|Bytes|Máximo||Nenhum|
 |servidorLoad4|Carga do servidor (Fragmento 4)|Percentagem|Máximo||Nenhum|
 |cacheWrite4|Cache Write (Fragmento 4)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead4|Cache Read (Fragmento 4)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime4|CPU (Fragmento 4)|Percentagem|Máximo||Nenhum|
-|clientes conectados5|Clientes Conectados (Fragmento 5)|Contagem|Máximo||Nenhum|
-|total de comandos processados5|Total de Operações (Fragmento 5)|Contagem|Total||Nenhum|
+|connectedclients5|Clientes Conectados (Fragmento 5)|Contagem|Máximo||Nenhum|
+|totalcommands processado5|Total de operações (Fragmento 5)|Contagem|Total||Nenhum|
 |cachehits5|Cache Hits (Fragmento 5)|Contagem|Total||Nenhum|
 |cachemisses5|Cache Misses (Fragmento 5)|Contagem|Total||Nenhum|
-|getcommands5|Recebe (Fragmento 5)|Contagem|Total||Nenhum|
+|obter commands5|Recebe (Fragmento 5)|Contagem|Total||Nenhum|
 |setcommands5|Conjuntos (Fragmento 5)|Contagem|Total||Nenhum|
-|operaçõesPerSecond5|Operações por Segundo (Fragmento 5)|Contagem|Máximo||Nenhum|
-|despejadoskeys5|Chaves despejadas (Fragmento 5)|Contagem|Total||Nenhum|
-|totaldekeys5|Chaves totais (Fragmento 5)|Contagem|Máximo||Nenhum|
-|expiradokeys5|Chaves expiradas (Fragmento 5)|Contagem|Total||Nenhum|
-|memória usada5|Memória Usada (Fragmento 5)|Bytes|Máximo||Nenhum|
-|memória usadaRss5|Memória Usada RSS (Fragmento 5)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond5|Operações por segundo (Fragmento 5)|Contagem|Máximo||Nenhum|
+|despejadokeys5|Chaves despejadas (Fragmento 5)|Contagem|Total||Nenhum|
+|totalkeys5|Chaves totais (Fragmento 5)|Contagem|Máximo||Nenhum|
+|400keys5|Chaves expiradas (Fragmento 5)|Contagem|Total||Nenhum|
+|usadomemory5|Memória Usada (Fragmento 5)|Bytes|Máximo||Nenhum|
+|usedmemoryRss5|RSS de memória usado (fragmento 5)|Bytes|Máximo||Nenhum|
 |servidorLoad5|Carga do servidor (Fragmento 5)|Percentagem|Máximo||Nenhum|
 |cacheWrite5|Cache Write (Fragmento 5)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead5|Cache Read (Fragmento 5)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime5|CPU (Fragmento 5)|Percentagem|Máximo||Nenhum|
-|clientes conectados6|Clientes Conectados (Fragmento 6)|Contagem|Máximo||Nenhum|
-|total de comandos processados6|Total de Operações (Fragmento 6)|Contagem|Total||Nenhum|
+|connectedclients6|Clientes Conectados (Fragmento 6)|Contagem|Máximo||Nenhum|
+|totalcommands processado6|Total de operações (Fragmento 6)|Contagem|Total||Nenhum|
 |cachehits6|Cache Hits (Fragmento 6)|Contagem|Total||Nenhum|
 |cachemisses6|Cache Misses (Fragmento 6)|Contagem|Total||Nenhum|
-|getcommands6|Recebe (Fragmento 6)|Contagem|Total||Nenhum|
+|obter commands6|Recebe (Fragmento 6)|Contagem|Total||Nenhum|
 |setcommands6|Conjuntos (Fragmento 6)|Contagem|Total||Nenhum|
-|operaçõesPerSecond6|Operações por Segundo (Fragmento 6)|Contagem|Máximo||Nenhum|
-|despejados6|Chaves despejadas (Fragmento 6)|Contagem|Total||Nenhum|
-|totalde6|Chaves totais (Fragmento 6)|Contagem|Máximo||Nenhum|
-|expiradokeys6|Chaves expiradas (Fragmento 6)|Contagem|Total||Nenhum|
-|memória usada6|Memória Usada (Fragmento 6)|Bytes|Máximo||Nenhum|
-|memória usadaRss6|Memória Usada RSS (Fragmento 6)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond6|Operações por segundo (Fragmento 6)|Contagem|Máximo||Nenhum|
+|despejadokeys6|Chaves despejadas (Fragmento 6)|Contagem|Total||Nenhum|
+|totalkeys6|Chaves totais (Fragmento 6)|Contagem|Máximo||Nenhum|
+|400keys6|Chaves expiradas (Fragmento 6)|Contagem|Total||Nenhum|
+|usadomemory6|Memória Usada (Fragmento 6)|Bytes|Máximo||Nenhum|
+|usedmemoryRss6|RSS de memória usado (fragmento 6)|Bytes|Máximo||Nenhum|
 |servidorLoad6|Carga do servidor (Fragmento 6)|Percentagem|Máximo||Nenhum|
 |cacheWrite6|Cache Write (Fragmento 6)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead6|Cache Read (Fragmento 6)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime6|CPU (Fragmento 6)|Percentagem|Máximo||Nenhum|
-|clientes conectados7|Clientes Conectados (Shard 7)|Contagem|Máximo||Nenhum|
-|total de comandos processados7|Total de Operações (Fragmento 7)|Contagem|Total||Nenhum|
+|connectedclients7|Clientes Conectados (Fragmento 7)|Contagem|Máximo||Nenhum|
+|totalcommands processado7|Total de operações (Fragmento 7)|Contagem|Total||Nenhum|
 |cachehits7|Cache Hits (Fragmento 7)|Contagem|Total||Nenhum|
 |cachemisses7|Cache Misses (Fragmento 7)|Contagem|Total||Nenhum|
-|getcommands7|Recebe (Fragmento 7)|Contagem|Total||Nenhum|
+|obter commands7|Recebe (Fragmento 7)|Contagem|Total||Nenhum|
 |setcommands7|Conjuntos (Fragmento 7)|Contagem|Total||Nenhum|
-|operaçõesPerSecond7|Operações por Segundo (Fragmento 7)|Contagem|Máximo||Nenhum|
-|despejadoskeys7|Chaves despejadas (Fragmento 7)|Contagem|Total||Nenhum|
-|totaldekeys7|Chaves totais (Fragmento 7)|Contagem|Máximo||Nenhum|
-|expiradokeys7|Chaves expiradas (Fragmento 7)|Contagem|Total||Nenhum|
-|memória usada7|Memória Usada (Fragmento 7)|Bytes|Máximo||Nenhum|
-|memória usadaRss7|Memória Usada RSS (Fragmento 7)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond7|Operações por segundo (Fragmento 7)|Contagem|Máximo||Nenhum|
+|despejadokeys7|Chaves despejadas (Fragmento 7)|Contagem|Total||Nenhum|
+|totalkeys7|Chaves totais (Fragmento 7)|Contagem|Máximo||Nenhum|
+|400keys validade|Chaves expiradas (Fragmento 7)|Contagem|Total||Nenhum|
+|usadomemory7|Memória Usada (Fragmento 7)|Bytes|Máximo||Nenhum|
+|usedmemoryRss7|RSS de memória usado (fragmento 7)|Bytes|Máximo||Nenhum|
 |servidorLoad7|Carga do servidor (Fragmento 7)|Percentagem|Máximo||Nenhum|
 |cacheWrite7|Cache Write (Fragmento 7)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead7|Cache Read (Fragmento 7)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime7|CPU (Fragmento 7)|Percentagem|Máximo||Nenhum|
-|clientes conectados8|Clientes Conectados (Fragmento 8)|Contagem|Máximo||Nenhum|
-|total de comandos processados8|Total de Operações (Fragmento 8)|Contagem|Total||Nenhum|
+|connectedclients8|Clientes Conectados (Fragmento 8)|Contagem|Máximo||Nenhum|
+|totalcommandsprocessado8|Total de operações (Fragmento 8)|Contagem|Total||Nenhum|
 |cachehits8|Cache Hits (Fragmento 8)|Contagem|Total||Nenhum|
 |cachemisses8|Cache Misses (Fragmento 8)|Contagem|Total||Nenhum|
-|getcommands8|Recebe (Fragmento 8)|Contagem|Total||Nenhum|
+|obter commands8|Recebe (Fragmento 8)|Contagem|Total||Nenhum|
 |setcommands8|Conjuntos (Fragmento 8)|Contagem|Total||Nenhum|
-|operaçõesPerSecond8|Operações por Segundo (Fragmento 8)|Contagem|Máximo||Nenhum|
-|despejadoschaves8|Chaves despejadas (Fragmento 8)|Contagem|Total||Nenhum|
-|totaldekeys8|Chaves totais (Fragmento 8)|Contagem|Máximo||Nenhum|
-|expiradokeys8|Chaves expiradas (Fragmento 8)|Contagem|Total||Nenhum|
-|memória usada8|Memória Usada (Fragmento 8)|Bytes|Máximo||Nenhum|
-|memória usadaRss8|Memória Usada RSS (Fragmento 8)|Bytes|Máximo||Nenhum|
+|operaçõesPerSecond8|Operações por segundo (Fragmento 8)|Contagem|Máximo||Nenhum|
+|despejadokeys8|Chaves despejadas (Fragmento 8)|Contagem|Total||Nenhum|
+|totalkeys8|Chaves totais (Fragmento 8)|Contagem|Máximo||Nenhum|
+|400keys8|Chaves expiradas (Fragmento 8)|Contagem|Total||Nenhum|
+|usadomemory8|Memória Usada (Fragmento 8)|Bytes|Máximo||Nenhum|
+|usedmemoryRss8|RSS de memória usado (fragmento 8)|Bytes|Máximo||Nenhum|
 |servidorLoad8|Carga do servidor (Fragmento 8)|Percentagem|Máximo||Nenhum|
 |cacheWrite8|Cache Write (Fragmento 8)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead8|Cache Read (Fragmento 8)|BytesPerSecond|Máximo||Nenhum|
 |percentProcessorTime8|CPU (Fragmento 8)|Percentagem|Máximo||Nenhum|
-|clientes conectados9|Clientes Conectados (Shard 9)|Contagem|Máximo||Nenhum|
-|total de comandos processados9|Total de Operações (Fragmento 9)|Contagem|Total||Nenhum|
+|connectedclients9|Clientes Conectados (Fragmento 9)|Contagem|Máximo||Nenhum|
+|totalcommandsprocessado9|Total de operações (Fragmento 9)|Contagem|Total||Nenhum|
 |cachehits9|Cache Hits (Fragmento 9)|Contagem|Total||Nenhum|
 |cachemisses9|Cache Misses (Fragmento 9)|Contagem|Total||Nenhum|
-|getcommands9|Recebe (Fragmento 9)|Contagem|Total||Nenhum|
+|obter commands9|Recebe (Fragmento 9)|Contagem|Total||Nenhum|
 |setcommands9|Conjuntos (Fragmento 9)|Contagem|Total||Nenhum|
-|operaçõesPerSecond9|Operações por Segundo (Fragmento 9)|Contagem|Máximo||Nenhum|
+|operaçõesPerSecond9|Operações por segundo (Fragmento 9)|Contagem|Máximo||Nenhum|
 |despejadokeys9|Chaves despejadas (Fragmento 9)|Contagem|Total||Nenhum|
-|totaldekeys9|Chaves totais (Fragmento 9)|Contagem|Máximo||Nenhum|
-|expiradokeys9|Chaves expiradas (Fragmento 9)|Contagem|Total||Nenhum|
-|memória usada9|Memória Usada (Fragmento 9)|Bytes|Máximo||Nenhum|
-|memória usadaRss9|Memória Usada RSS (Fragmento 9)|Bytes|Máximo||Nenhum|
+|totalkeys9|Chaves totais (Fragmento 9)|Contagem|Máximo||Nenhum|
+|expirarkeys9|Chaves expiradas (Fragmento 9)|Contagem|Total||Nenhum|
+|usedmemory9|Memória Usada (Fragmento 9)|Bytes|Máximo||Nenhum|
+|usedmemoryRss9|RSS de memória usado (fragmento 9)|Bytes|Máximo||Nenhum|
 |servidorLoad9|Carga do servidor (Fragmento 9)|Percentagem|Máximo||Nenhum|
 |cacheWrite9|Cache Write (Fragmento 9)|BytesPerSecond|Máximo||Nenhum|
 |cacheRead9|Cache Read (Fragmento 9)|BytesPerSecond|Máximo||Nenhum|
@@ -432,381 +432,381 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 
 
-## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationapplicationfirewallpolicies
+## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de pedidos de firewall da web|Contagem de pedidos de firewall de aplicação web|Contagem|Total|O número de pedidos de clientes processados pela Firewall de Aplicação Web|Nome de política,Nome de Regras,Ação|
+|WebApplicationFirewallRequestCount|Contagem de pedidos de firewall de aplicação web|Contagem|Total|O número de pedidos de cliente processados pela Firewall de Aplicação Web|Nome de Política,Nome de Regras,Ação|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades computacionais atribuídas que estão atualmente a ser utilizadas pela(s Máquinas Virtuais).|Nenhum|
-|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Virtual Machine(s) (Tráfego De Entrada).|Nenhum|
-|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De saída).|Nenhum|
-|Discos Ler Bytes/Sec|Leitura do disco|BytesPerSecond|Média|Bytes médios lidos a partir de disco durante o período de monitorização.|Nenhum|
-|Discos Write Bytes/Sec|Escrita de Disco|BytesPerSecond|Média|Bytes médios escritos ao disco durante o período de monitorização.|Nenhum|
-|Operações de leitura do disco/sec|Operações de leitura do disco/sec|CondeEmSegundo|Média|Disco leia IOPS.|Nenhum|
-|Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|Disco escrever IOPS.|Nenhum|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual( s).|Nenhum|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Entrada).|Nenhum|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Saída).|Nenhum|
+|Discos de leitura bytes/sec|Leitura de Disco|BytesPerSecond|Média|Bytes médios lidos a partir do disco durante o período de monitorização.|Nenhum|
+|Discos De Escrita Bytes/Sec|Escrita em Disco|BytesPerSecond|Média|Bytes médios escritos para o disco durante o período de monitorização.|Nenhum|
+|Operações de leitura de disco/sec|Operações de leitura de disco/sec|CondePerSecond|Média|O disco lê iops.|Nenhum|
+|Operações de escrita de discos/seg|Operações de escrita de discos/seg|CondePerSecond|Média|Disco escreve IOPS.|Nenhum|
 
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades computacionais atribuídas que estão atualmente a ser utilizadas pela(s Máquinas Virtuais).|Roleinstanceid|
-|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Virtual Machine(s) (Tráfego De Entrada).|Roleinstanceid|
-|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De saída).|Roleinstanceid|
-|Discos Ler Bytes/Sec|Leitura do disco|BytesPerSecond|Média|Bytes médios lidos a partir de disco durante o período de monitorização.|Roleinstanceid|
-|Discos Write Bytes/Sec|Escrita de Disco|BytesPerSecond|Média|Bytes médios escritos ao disco durante o período de monitorização.|Roleinstanceid|
-|Operações de leitura do disco/sec|Operações de leitura do disco/sec|CondeEmSegundo|Média|Disco leia IOPS.|Roleinstanceid|
-|Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|Disco escrever IOPS.|Roleinstanceid|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual( s).|RoleInstanceId|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Entrada).|RoleInstanceId|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Saída).|RoleInstanceId|
+|Discos de leitura bytes/sec|Leitura de Disco|BytesPerSecond|Média|Bytes médios lidos a partir do disco durante o período de monitorização.|RoleInstanceId|
+|Discos De Escrita Bytes/Sec|Escrita em Disco|BytesPerSecond|Média|Bytes médios escritos para o disco durante o período de monitorização.|RoleInstanceId|
+|Operações de leitura de disco/sec|Operações de leitura de disco/sec|CondePerSecond|Média|O disco lê iops.|RoleInstanceId|
+|Operações de escrita de discos/seg|Operações de escrita de discos/seg|CondePerSecond|Média|Disco escreve IOPS.|RoleInstanceId|
 
 
 
-## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
+## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAcontas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade Utilizada|Capacidade usada|Bytes|Média|Capacidade da conta utilizada|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|Capacidade Usada|Capacidade utilizada|Bytes|Média|Capacidade da conta utilizada|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência final dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponta a ponta de pedidos bem sucedidos feitas a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
 ## <a name="microsoftclassicstoragestorageaccountsblobservices"></a>Microsoft.ClassicStorage/storageAccounts/blobServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BlobCapacity|Capacidade blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType,Tier|
-|BlobCount|Contagem de Bolhas|Contagem|Média|O número de Blob no serviço Blob da conta de armazenamento.|BlobType,Tier|
+|Capacidade blob|Capacidade blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType,Tier|
+|BlobCount|Contagem de blobs|Contagem|Média|O número de Blob no serviço Blob da conta de armazenamento.|BlobType,Tier|
 |Contagem de contentores|Contagem de contentores blob|Contagem|Média|O número de contentores no serviço Blob da conta de armazenamento.|Nenhum|
-|IndexCapacity|Capacidade indexada|Bytes|Média|A quantidade de armazenamento utilizada pelo Índice ADLS Gen2 (Hierárquico) em bytes.|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|Capacidade de Indexação|Capacidade de Índice|Bytes|Média|A quantidade de armazenamento utilizada pelo Índice ADLS Gen2 (Hierárquica) em bytes.|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência final dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponta a ponta de pedidos bem sucedidos feitas a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
 ## <a name="microsoftclassicstoragestorageaccountstableservices"></a>Microsoft.ClassicStorage/storageAccounts/tableServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de Mesa|Capacidade de Mesa|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de mesa da conta de armazenamento em bytes.|Nenhum|
-|Contagem de tabelas|Contagem de mesas|Contagem|Média|O número de mesa no serviço de mesa da conta de armazenamento.|Nenhum|
-|Contagem de tabelas|Contagem de entidades de mesa|Contagem|Média|O número de entidades de mesa no serviço mesa da conta de armazenamento.|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|Capacidade de Mesa|Capacidade de mesa|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de mesa da conta de armazenamento em bytes.|Nenhum|
+|MesaCount|Contagem de tabelas|Contagem|Média|O número de mesa no serviço de mesa da conta de armazenamento.|Nenhum|
+|TabelaseconagemCount|Contagem de Entidades de Tabela|Contagem|Média|O número de entidades de mesa no serviço mesa da conta de armazenamento.|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência final dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponta a ponta de pedidos bem sucedidos feitas a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
-## <a name="microsoftclassicstoragestorageaccountsfileservices"></a>Microsoft.ClassicStorage/storageAccounts/fileServices
+## <a name="microsoftclassicstoragestorageaccountsfileservices"></a>Microsoft.ClassicStorage/storageAcons/fileServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de Arquivo|Capacidade de arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de arquivos da conta de armazenamento em bytes.|FileShare|
-|Contagem de Ficheiros|Contagem de Ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiros da conta de armazenamento.|FileShare|
+|Capacidade de Ficheiros|Capacidade de Arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de ficheiros da conta de armazenamento em bytes.|Partilha de Ficheiros|
+|Contagem de ficheiros|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiros da conta de armazenamento.|Partilha de Ficheiros|
 |FileShareCount|Contagem de partilha de ficheiros|Contagem|Média|O número de ações de ficheiros no serviço de ficheiros da conta de armazenamento.|Nenhum|
-|FileShareSnapshotCount|Contagem de instantâneos de partilha de ficheiros|Contagem|Média|O número de instantâneos presentes na parte no Serviço de Ficheiros da conta de armazenamento.|FileShare|
-|FileShareSnapshotSize|Tamanho instantâneo de partilha de ficheiros|Bytes|Média|A quantidade de armazenamento utilizada pelos instantâneos no serviço de ficheiros da conta de armazenamento em bytes.|FileShare|
-|FileShareQuota|Tamanho da quota de partilha de ficheiros|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usado pelo Serviço de Ficheiros Azure em bytes.|FileShare|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,ApiName,Autenticação,FileShare|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação,FileShare|
+|FileShareSnapshotCount|Contagem de snapshot de partilha de ficheiros|Contagem|Média|O número de instantâneos presentes na parte do Serviço de Ficheiros da conta de armazenamento.|Partilha de Ficheiros|
+|FileShareSnapshotSize|Tamanho do snapshot de partilha de arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelas fotos no serviço de ficheiros da conta de armazenamento em bytes.|Partilha de Ficheiros|
+|FileShareQuota|Tamanho da quota de ações de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usado pelo Azure Files Service em bytes.|Partilha de Ficheiros|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Authentication,FileShare|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação,FileShare|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação,FileShare|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação,FileShare|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência final dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação,FileShare|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação,FileShare|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponta a ponta de pedidos bem sucedidos feitas a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação,FileShare|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação,FileShare|
 
 ## <a name="microsoftclassicstoragestorageaccountsqueueservices"></a>Microsoft.ClassicStorage/storageAccounts/queueServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de fila|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhum|
+|Capacidade de Fila|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhum|
 |Contagem de filas|Contagem de filas|Contagem|Média|O número de filas no serviço de fila da conta de armazenamento.|Nenhum|
-|Contagem de mensagens de fila|Contagem de mensagens de fila|Contagem|Média|O número aproximado de mensagens de fila no serviço de fila da conta de armazenamento.|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|QueueMessageCount|Contagem de mensagens de fila|Contagem|Média|O número aproximado de mensagens de fila no serviço de fila da conta de armazenamento.|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência final dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponta a ponta de pedidos bem sucedidos feitas a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
 
-## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/contas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Totalcall|Total de Chamadas|Contagem|Total|Número total de chamadas.|Nome ApiName,OperaçãoNome,Região|
-|Chamadas bem sucedidas|Chamadas bem sucedidas|Contagem|Total|Número de chamadas bem sucedidas.|Nome ApiName,OperaçãoNome,Região|
-|Erros Totais|Erros Totais|Contagem|Total|Número total de chamadas com resposta a erros (código de resposta HTTP 4xx ou 5xx).|Nome ApiName,OperaçãoNome,Região|
-|Chamadas Bloqueadas|Chamadas Bloqueadas|Contagem|Total|Número de chamadas que excederam a taxa ou o limite de quota.|Nome ApiName,OperaçãoNome,Região|
-|Erros de servidor|Erros do servidor|Contagem|Total|Número de chamadas com erro interno de serviço (código de resposta HTTP 5xx).|Nome ApiName,OperaçãoNome,Região|
-|Erros de cliente|Erros do Cliente|Contagem|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|Nome ApiName,OperaçãoNome,Região|
-|DataIn|Dados em|Bytes|Total|Tamanho dos dados de entrada em bytes.|Nome ApiName,OperaçãoNome,Região|
-|DataOut|Dados out|Bytes|Total|Tamanho dos dados de saída em bytes.|Nome ApiName,OperaçãoNome,Região|
-|Latência|Latência|MilliSeconds|Média|Latência em milissegundos.|Nome ApiName,OperaçãoNome,Região|
-|TotalTokenCalls|Total de chamadas simbólicas|Contagem|Total|Número total de chamadas simbólicas.|Nome ApiName,OperaçãoNome,Região|
-|CaracteresTraduzidos|Caracteres traduzidos|Contagem|Total|Número total de caracteres no pedido de texto.|Nome ApiName,OperaçãoNome,Região|
-|Caracteres Treinados|Personagens treinados|Contagem|Total|Número total de caracteres treinados.|Nome ApiName,OperaçãoNome,Região|
-|Duração das sessões de discurso|Duração da sessão de discurso|Segundos|Total|Duração total da sessão de discurso em segundos.|Nome ApiName,OperaçãoNome,Região|
-|Total de Transações|Total de Transações|Contagem|Total|Número total de transações.|Nenhum|
-|Imagens Processadas|Imagens Processadas|Contagem|Total| Número de Transações para processamento de imagem.|ApiName,Nome de Recurso,Canal,Região|
+|Total de Chamadas|Total de chamadas|Contagem|Total|Número total de chamadas.|ApiName,OperaçãoName,Região|
+|Chamadas de sucesso|Chamadas bem sucedidas|Contagem|Total|Número de chamadas bem sucedidas.|ApiName,OperaçãoName,Região|
+|TotalErrors|Total de Erros|Contagem|Total|Número total de chamadas com resposta a erros (código de resposta HTTP 4xx ou 5xx).|ApiName,OperaçãoName,Região|
+|BlockedCalls|Chamadas bloqueadas|Contagem|Total|Número de chamadas que excederam a taxa ou o limite de quota.|ApiName,OperaçãoName,Região|
+|ServerErrors|Erros do servidor|Contagem|Total|Número de chamadas com erro interno de serviço (código de resposta HTTP 5xx).|ApiName,OperaçãoName,Região|
+|ClientErrors|Erros do Cliente|Contagem|Total|Número de chamadas com erro lateral do cliente (código de resposta HTTP 4xx).|ApiName,OperaçãoName,Região|
+|DataIn|Dados em|Bytes|Total|Tamanho dos dados de entrada em bytes.|ApiName,OperaçãoName,Região|
+|DataOut|Data out|Bytes|Total|Tamanho dos dados de saída em bytes.|ApiName,OperaçãoName,Região|
+|Latência|Latência|MilliSeconds|Média|Latência em milissegundos.|ApiName,OperaçãoName,Região|
+|TotalTokenCalls|Total de chamadas simbólicas|Contagem|Total|Número total de chamadas simbólicas.|ApiName,OperaçãoName,Região|
+|CaracteresTranslatados|Caracteres Traduzidos|Contagem|Total|Número total de caracteres no pedido de texto de entrada.|ApiName,OperaçãoName,Região|
+|Personagens Treinados|Personagens treinados|Contagem|Total|Número total de caracteres treinados.|ApiName,OperaçãoName,Região|
+|DiscursoSSessionDuration|Duração da sessão de discurso|Segundos|Total|Duração total da sessão de discurso em segundos.|ApiName,OperaçãoName,Região|
+|Total de transações|Total de Transações|Contagem|Total|Número total de transações.|Nenhum|
+|Imagens Processadas|Imagens processadas|Contagem|Total| Número de Transações para processamento de imagem.|ApiName,FeatureName,Channel,Região|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades computacionais atribuídas que estão atualmente a ser utilizadas pela ou as máquinas virtuais|Nenhum|
-|Entrada na Rede|Rede Em Billable (Depreciado)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De entrada) (Deprecated)|Nenhum|
-|Saída da Rede|Network out Billable (Depreciado)|Bytes|Total|O número de bytes faturados em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego Desaída) (Deprecated)|Nenhum|
-|Discos Ler Bytes|Discos Ler Bytes|Bytes|Total|Bytes lidos a partir de disco durante o período de monitorização|Nenhum|
-|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes escritos ao disco durante o período de monitorização|Nenhum|
-|Operações de leitura do disco/sec|Operações de leitura do disco/sec|CondeEmSegundo|Média|IOPS de leitura de disco|Nenhum|
-|Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|IOPS de escrita de disco|Nenhum|
-|Créditos cpu restantes|Créditos cpu restantes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhum|
-|Créditos da CPU consumidos|Créditos da CPU consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhum|
-|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
-|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|QD do disco de dados [(preprecated)](portal-disk-metrics-deprecation.md)[portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
-|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS Por Disco QD|QD do disco [osso (depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhum|
-|Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN|
-|Data Disk Write Bytes/seg|Data Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|LUN|
-|Operações de leitura de disco de dados/sec|Data Disk Ler Operações/Sec (Pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|LUN|
-|Operações de escrita de disco de dados/sec|Operações de escrita de disco de dados/sec (pré-visualização)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|LUN|
-|Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (pré-visualização)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|LUN|
-|Os Discos Ler Bytes/seg|Os Discos Ler Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhum|
-|Os Disk Write Bytes/seg|Os Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhum|
-|Operações de leitura de disco osso/sec|As operações/seg de leitura do disco OS (pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|Operações de escrita de disco osso/sec|Operações de escrita de disco osso/sec (pré-visualização)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|Profundidade da Fila do Disco do SO|Profundidade da fila do disco osso (pré-visualização)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhum|
-|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos correntes na direção de entrada (tráfego que vai para o VM)|Nenhum|
-|Fluxos de saída|Fluxos de saída|Contagem|Média|Os fluxos de saída são o número de fluxos correntes na direção de saída (tráfego a sair do VM)|Nenhum|
-|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhum|
-|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|Nenhum|
-|Premium Data Disk Cache Ler Sucesso|Vídeo de cache de disco premium (pré-visualização)|Percentagem|Média|Premium Data Disk Cache Ler Sucesso|LUN|
-|Cache de disco de dados premium ler miss|Cache de disco de dados premium Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium ler miss|LUN|
-|Premium OS Disk Cache Ler Sucesso|Premium OS Cache Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Sucesso|Nenhum|
-|Cache de disco premium DO|Cache de disco premium OS Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco premium DO|Nenhum|
-|Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Virtual Machine(s) (Tráfego De Entrada)|Nenhum|
-|Rede out Total|Rede out Total|Bytes|Total|O número de bytes em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De saída)|Nenhum|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual(s)|Nenhum|
+|Entrada na Rede|Rede em Faturação (Depreciada)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De entrada) (Depreifed)|Nenhum|
+|Saída da Rede|Network out Billable (Precotado)|Bytes|Total|O número de bytes faturados em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De saída) (Depreifed)|Nenhum|
+|Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Bytes lidos a partir de disco durante o período de monitorização|Nenhum|
+|Bytes de escrita de disco|Bytes de escrita de disco|Bytes|Total|Bytes escritos para o disco durante o período de monitorização|Nenhum|
+|Operações de leitura de disco/sec|Operações de leitura de disco/sec|CondePerSecond|Média|IOPS de leitura de disco|Nenhum|
+|Operações de escrita de discos/seg|Operações de escrita de discos/seg|CondePerSecond|Média|IOPS de escrita de disco|Nenhum|
+|Créditos CPU Remanescentes|Créditos CPU Remanescentes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhum|
+|Créditos CPU Consumidos|Créditos CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhum|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização|SlotId|
+|Por Operações de leitura de disco/sec|Operações de leitura de discos de dados/seg [(depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por operações de escrita de disco/sec|Operações de escrita de discos de dados/seg [(depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco QD|QD do disco [de dados (preprecado)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|OS por Disco Ler Bytes/seg|Os Discos De Leitura Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização para o disco de SO|Nenhum|
+|OS por Disco Escrever Bytes/seg|Os Discos De Discos/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização do disco OS|Nenhum|
+|Operações de leitura por disco/seg|Operações de leitura de discos de OS/Sec [(Depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Os por Operações de Escrita de Disco/Sec|Operações de escrita de discos de OS/Sec [(Depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|OS por Disco QD|CO Disk QD [(precotado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco os(ou comprimento da fila)|Nenhum|
+|Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|RIO LUN|
+|Bytes/seg de escrita de disco de dados|Data Disk Write Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização|RIO LUN|
+|Operações de leitura de discos de dados/seg|Operações de leitura de discos de dados/seg (pré-visualização)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização|RIO LUN|
+|Operações de escrita de discos de dados/seg|Operações de escrita de discos de dados/seg (pré-visualização)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|RIO LUN|
+|Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (pré-visualização)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|RIO LUN|
+|Leitura de discos de OS Bytes/seg|Os Discos de Leitura de Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização para o disco de SO|Nenhum|
+|Os Discos de Escrita bytes/seg|Os Discos de Escrita de Discos/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização do disco OS|Nenhum|
+|Operações de leitura de disco de OS/Sec|Operações de leitura de disco de OS/Seg (Pré-visualização)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Operações de escrita de discos de OS/Sec|Operações de escrita de discos de OS/Seg (Pré-visualização)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Profundidade da Fila do Disco do SO|Profundidade da fila do disco os (pré-visualização)|Contagem|Média|Profundidade da fila do disco os(ou comprimento da fila)|Nenhum|
+|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Fluxos de entrada são um número de fluxos correntes no sentido de entrada (tráfego que vai para o VM)|Nenhum|
+|Fluxos de saída|Fluxos de saída|Contagem|Média|Fluxos de saída são um número de fluxos correntes no sentido de saída (tráfego que sai do VM)|Nenhum|
+|Fluxos de entrada Taxa máxima de criação|Fluxos de entrada Taxa máxima de criação|CondePerSecond|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhum|
+|Taxa máxima de criação de fluxos de saída|Taxa máxima de criação de fluxos de saída|CondePerSecond|Média|A taxa máxima de criação dos fluxos de saída (tráfego que sai do VM)|Nenhum|
+|Sucesso de leitura de cache de disco de dados premium|Sucesso de leitura de cache de disco de dados premium (pré-visualização)|Percentagem|Média|Sucesso de leitura de cache de disco de dados premium|RIO LUN|
+|Cache de disco de dados premium Ler Miss|Cache de disco de dados premium Ler Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium Ler Miss|RIO LUN|
+|Premium OS Disk Cache Ler Hit|Premium OS Disk Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Hit|Nenhum|
+|Premium OS Cache De Disco Ler Miss|Cache de disco premium OS Ler Miss (Pré-visualização)|Percentagem|Média|Premium OS Cache De Disco Ler Miss|Nenhum|
+|Rede no total|Rede no total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual(s) (Tráfego de Entrada)|Nenhum|
+|Rede Total|Rede Total|Bytes|Total|O número de bytes em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Saída)|Nenhum|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades computacionais atribuídas que estão atualmente a ser utilizadas pela ou as máquinas virtuais|VMName|
-|Entrada na Rede|Rede Em Billable (Depreciado)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De entrada) (Deprecated)|VMName|
-|Saída da Rede|Network out Billable (Depreciado)|Bytes|Total|O número de bytes faturados em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego Desaída) (Deprecated)|VMName|
-|Discos Ler Bytes|Discos Ler Bytes|Bytes|Total|Bytes lidos a partir de disco durante o período de monitorização|VMName|
-|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes escritos ao disco durante o período de monitorização|VMName|
-|Operações de leitura do disco/sec|Operações de leitura do disco/sec|CondeEmSegundo|Média|IOPS de leitura de disco|VMName|
-|Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|IOPS de escrita de disco|VMName|
-|Créditos cpu restantes|Créditos cpu restantes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhum|
-|Créditos da CPU consumidos|Créditos da CPU consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhum|
-|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
-|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|QD do disco de dados [(depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
-|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS Por Disco QD|QD do disco [osso (depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhum|
-|Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN,VMName|
-|Data Disk Write Bytes/seg|Data Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|LUN,VMName|
-|Operações de leitura de disco de dados/sec|Data Disk Ler Operações/Sec (Pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|LUN,VMName|
-|Operações de escrita de disco de dados/sec|Operações de escrita de disco de dados/sec (pré-visualização)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|LUN,VMName|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual(s)|VMName|
+|Entrada na Rede|Rede em Faturação (Depreciada)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De entrada) (Depreifed)|VMName|
+|Saída da Rede|Network out Billable (Precotado)|Bytes|Total|O número de bytes faturados em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De saída) (Depreifed)|VMName|
+|Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Bytes lidos a partir de disco durante o período de monitorização|VMName|
+|Bytes de escrita de disco|Bytes de escrita de disco|Bytes|Total|Bytes escritos para o disco durante o período de monitorização|VMName|
+|Operações de leitura de disco/sec|Operações de leitura de disco/sec|CondePerSecond|Média|IOPS de leitura de disco|VMName|
+|Operações de escrita de discos/seg|Operações de escrita de discos/seg|CondePerSecond|Média|IOPS de escrita de disco|VMName|
+|Créditos CPU Remanescentes|Créditos CPU Remanescentes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhum|
+|Créditos CPU Consumidos|Créditos CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhum|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização|SlotId|
+|Por Operações de leitura de disco/sec|Operações de leitura de discos de dados/seg [(depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por operações de escrita de disco/sec|Operações de escrita de discos de dados/seg [(depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco QD|QD do disco de dados [(precotado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|OS por Disco Ler Bytes/seg|Os Discos De Leitura Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização para o disco de SO|Nenhum|
+|OS por Disco Escrever Bytes/seg|Os Discos De Discos/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização do disco OS|Nenhum|
+|Operações de leitura por disco/seg|Operações de leitura de discos de OS/Sec [(Depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Os por Operações de Escrita de Disco/Sec|Operações de escrita de discos de OS/Sec [(Depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|OS por Disco QD|CO Disk QD [(precotado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco os(ou comprimento da fila)|Nenhum|
+|Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN,VMName|
+|Bytes/seg de escrita de disco de dados|Data Disk Write Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização|LUN,VMName|
+|Operações de leitura de discos de dados/seg|Operações de leitura de discos de dados/seg (pré-visualização)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização|LUN,VMName|
+|Operações de escrita de discos de dados/seg|Operações de escrita de discos de dados/seg (pré-visualização)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|LUN,VMName|
 |Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (pré-visualização)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|LUN,VMName|
-|Os Discos Ler Bytes/seg|Os Discos Ler Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|VMName|
-|Os Disk Write Bytes/seg|Os Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|VMName|
-|Operações de leitura de disco osso/sec|As operações/seg de leitura do disco OS (pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|VMName|
-|Operações de escrita de disco osso/sec|Operações de escrita de disco osso/sec (pré-visualização)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|VMName|
-|Profundidade da Fila do Disco do SO|Profundidade da fila do disco osso (pré-visualização)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|VMName|
-|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos correntes na direção de entrada (tráfego que vai para o VM)|VMName|
-|Fluxos de saída|Fluxos de saída|Contagem|Média|Os fluxos de saída são o número de fluxos correntes na direção de saída (tráfego a sair do VM)|VMName|
-|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|VMName|
-|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|VMName|
-|Premium Data Disk Cache Ler Sucesso|Vídeo de cache de disco premium (pré-visualização)|Percentagem|Média|Premium Data Disk Cache Ler Sucesso|LUN,VMName|
-|Cache de disco de dados premium ler miss|Cache de disco de dados premium Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium ler miss|LUN,VMName|
-|Premium OS Disk Cache Ler Sucesso|Premium OS Cache Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Sucesso|VMName|
-|Cache de disco premium DO|Cache de disco premium OS Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco premium DO|VMName|
-|Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Virtual Machine(s) (Tráfego De Entrada)|VMName|
-|Rede out Total|Rede out Total|Bytes|Total|O número de bytes em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De saída)|VMName|
+|Leitura de discos de OS Bytes/seg|Os Discos de Leitura de Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização para o disco de SO|VMName|
+|Os Discos de Escrita bytes/seg|Os Discos de Escrita de Discos/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização do disco OS|VMName|
+|Operações de leitura de disco de OS/Sec|Operações de leitura de disco de OS/Seg (Pré-visualização)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização do disco de so|VMName|
+|Operações de escrita de discos de OS/Sec|Operações de escrita de discos de OS/Seg (Pré-visualização)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco de so|VMName|
+|Profundidade da Fila do Disco do SO|Profundidade da fila do disco os (pré-visualização)|Contagem|Média|Profundidade da fila do disco os(ou comprimento da fila)|VMName|
+|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Fluxos de entrada são um número de fluxos correntes no sentido de entrada (tráfego que vai para o VM)|VMName|
+|Fluxos de saída|Fluxos de saída|Contagem|Média|Fluxos de saída são um número de fluxos correntes no sentido de saída (tráfego que sai do VM)|VMName|
+|Fluxos de entrada Taxa máxima de criação|Fluxos de entrada Taxa máxima de criação|CondePerSecond|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|VMName|
+|Taxa máxima de criação de fluxos de saída|Taxa máxima de criação de fluxos de saída|CondePerSecond|Média|A taxa máxima de criação dos fluxos de saída (tráfego que sai do VM)|VMName|
+|Sucesso de leitura de cache de disco de dados premium|Sucesso de leitura de cache de disco de dados premium (pré-visualização)|Percentagem|Média|Sucesso de leitura de cache de disco de dados premium|LUN,VMName|
+|Cache de disco de dados premium Ler Miss|Cache de disco de dados premium Ler Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium Ler Miss|LUN,VMName|
+|Premium OS Disk Cache Ler Hit|Premium OS Disk Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Hit|VMName|
+|Premium OS Cache De Disco Ler Miss|Cache de disco premium OS Ler Miss (Pré-visualização)|Percentagem|Média|Premium OS Cache De Disco Ler Miss|VMName|
+|Rede no total|Rede no total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual(s) (Tráfego de Entrada)|VMName|
+|Rede Total|Rede Total|Bytes|Total|O número de bytes em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Saída)|VMName|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades computacionais atribuídas que estão atualmente a ser utilizadas pela ou as máquinas virtuais|Nenhum|
-|Entrada na Rede|Rede Em Billable (Depreciado)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De entrada) (Deprecated)|Nenhum|
-|Saída da Rede|Network out Billable (Depreciado)|Bytes|Total|O número de bytes faturados em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego Desaída) (Deprecated)|Nenhum|
-|Discos Ler Bytes|Discos Ler Bytes|Bytes|Total|Bytes lidos a partir de disco durante o período de monitorização|Nenhum|
-|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes escritos ao disco durante o período de monitorização|Nenhum|
-|Operações de leitura do disco/sec|Operações de leitura do disco/sec|CondeEmSegundo|Média|IOPS de leitura de disco|Nenhum|
-|Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|IOPS de escrita de disco|Nenhum|
-|Créditos cpu restantes|Créditos cpu restantes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhum|
-|Créditos da CPU consumidos|Créditos da CPU consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhum|
-|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
-|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|QD do disco de dados [(depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
-|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|OS Por Disco QD|QD do disco [osso (depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhum|
-|Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN|
-|Data Disk Write Bytes/seg|Data Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|LUN|
-|Operações de leitura de disco de dados/sec|Data Disk Ler Operações/Sec (Pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|LUN|
-|Operações de escrita de disco de dados/sec|Operações de escrita de disco de dados/sec (pré-visualização)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|LUN|
-|Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (pré-visualização)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|LUN|
-|Os Discos Ler Bytes/seg|Os Discos Ler Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhum|
-|Os Disk Write Bytes/seg|Os Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhum|
-|Operações de leitura de disco osso/sec|As operações/seg de leitura do disco OS (pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|Operações de escrita de disco osso/sec|Operações de escrita de disco osso/sec (pré-visualização)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhum|
-|Profundidade da Fila do Disco do SO|Profundidade da fila do disco osso (pré-visualização)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhum|
-|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos correntes na direção de entrada (tráfego que vai para o VM)|Nenhum|
-|Fluxos de saída|Fluxos de saída|Contagem|Média|Os fluxos de saída são o número de fluxos correntes na direção de saída (tráfego a sair do VM)|Nenhum|
-|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhum|
-|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|Nenhum|
-|Premium Data Disk Cache Ler Sucesso|Vídeo de cache de disco premium (pré-visualização)|Percentagem|Média|Premium Data Disk Cache Ler Sucesso|LUN|
-|Cache de disco de dados premium ler miss|Cache de disco de dados premium Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium ler miss|LUN|
-|Premium OS Disk Cache Ler Sucesso|Premium OS Cache Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Sucesso|Nenhum|
-|Cache de disco premium DO|Cache de disco premium OS Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco premium DO|Nenhum|
-|Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela(s) Virtual Machine(s) (Tráfego De Entrada)|Nenhum|
-|Rede out Total|Rede out Total|Bytes|Total|O número de bytes em todas as interfaces de rede pelas Máquinas Virtuais (Tráfego De saída)|Nenhum|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades de computação atribuídas que estão atualmente a ser utilizadas pela Máquina Virtual(s)|Nenhum|
+|Entrada na Rede|Rede em Faturação (Depreciada)|Bytes|Total|O número de bytes faturados recebidos em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De entrada) (Depreifed)|Nenhum|
+|Saída da Rede|Network out Billable (Precotado)|Bytes|Total|O número de bytes faturados em todas as interfaces de rede pela(s) Máquina Virtual(Tráfego De saída) (Depreifed)|Nenhum|
+|Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Bytes lidos a partir de disco durante o período de monitorização|Nenhum|
+|Bytes de escrita de disco|Bytes de escrita de disco|Bytes|Total|Bytes escritos para o disco durante o período de monitorização|Nenhum|
+|Operações de leitura de disco/sec|Operações de leitura de disco/sec|CondePerSecond|Média|IOPS de leitura de disco|Nenhum|
+|Operações de escrita de discos/seg|Operações de escrita de discos/seg|CondePerSecond|Média|IOPS de escrita de disco|Nenhum|
+|Créditos CPU Remanescentes|Créditos CPU Remanescentes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhum|
+|Créditos CPU Consumidos|Créditos CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhum|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização|SlotId|
+|Por Operações de leitura de disco/sec|Operações de leitura de discos de dados/seg [(depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por operações de escrita de disco/sec|Operações de escrita de discos de dados/seg [(depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco QD|QD do disco de dados [(precotado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|OS por Disco Ler Bytes/seg|Os Discos De Leitura Bytes/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização para o disco de SO|Nenhum|
+|OS por Disco Escrever Bytes/seg|Os Discos De Discos/Sec [(Deprecado)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização do disco OS|Nenhum|
+|Operações de leitura por disco/seg|Operações de leitura de discos de OS/Sec [(Depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Os por Operações de Escrita de Disco/Sec|Operações de escrita de discos de OS/Sec [(Depreciadas)](portal-disk-metrics-deprecation.md)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|OS por Disco QD|CO Disk QD [(precotado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco os(ou comprimento da fila)|Nenhum|
+|Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|RIO LUN|
+|Bytes/seg de escrita de disco de dados|Data Disk Write Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização|RIO LUN|
+|Operações de leitura de discos de dados/seg|Operações de leitura de discos de dados/seg (pré-visualização)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização|RIO LUN|
+|Operações de escrita de discos de dados/seg|Operações de escrita de discos de dados/seg (pré-visualização)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|RIO LUN|
+|Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (pré-visualização)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|RIO LUN|
+|Leitura de discos de OS Bytes/seg|Os Discos de Leitura de Bytes/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização para o disco de SO|Nenhum|
+|Os Discos de Escrita bytes/seg|Os Discos de Escrita de Discos/Sec (Pré-visualização)|CondePerSecond|Média|Bytes/Sec escritos num único disco durante o período de monitorização do disco OS|Nenhum|
+|Operações de leitura de disco de OS/Sec|Operações de leitura de disco de OS/Seg (Pré-visualização)|CondePerSecond|Média|Leia IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Operações de escrita de discos de OS/Sec|Operações de escrita de discos de OS/Seg (Pré-visualização)|CondePerSecond|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco de so|Nenhum|
+|Profundidade da Fila do Disco do SO|Profundidade da fila do disco os (pré-visualização)|Contagem|Média|Profundidade da fila do disco os(ou comprimento da fila)|Nenhum|
+|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Fluxos de entrada são um número de fluxos correntes no sentido de entrada (tráfego que vai para o VM)|Nenhum|
+|Fluxos de saída|Fluxos de saída|Contagem|Média|Fluxos de saída são um número de fluxos correntes no sentido de saída (tráfego que sai do VM)|Nenhum|
+|Fluxos de entrada Taxa máxima de criação|Fluxos de entrada Taxa máxima de criação|CondePerSecond|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhum|
+|Taxa máxima de criação de fluxos de saída|Taxa máxima de criação de fluxos de saída|CondePerSecond|Média|A taxa máxima de criação dos fluxos de saída (tráfego que sai do VM)|Nenhum|
+|Sucesso de leitura de cache de disco de dados premium|Sucesso de leitura de cache de disco de dados premium (pré-visualização)|Percentagem|Média|Sucesso de leitura de cache de disco de dados premium|RIO LUN|
+|Cache de disco de dados premium Ler Miss|Cache de disco de dados premium Ler Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium Ler Miss|RIO LUN|
+|Premium OS Disk Cache Ler Hit|Premium OS Disk Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Hit|Nenhum|
+|Premium OS Cache De Disco Ler Miss|Cache de disco premium OS Ler Miss (Pré-visualização)|Percentagem|Média|Premium OS Cache De Disco Ler Miss|Nenhum|
+|Rede no total|Rede no total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual(s) (Tráfego de Entrada)|Nenhum|
+|Rede Total|Rede Total|Bytes|Total|O número de bytes em todas as interfaces de rede pela(s) Máquina Virtual(s) (Tráfego de Saída)|Nenhum|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CpuUsage|Utilização da CPU|Contagem|Média|Utilização de CPU em todos os núcleos em milislcores.|nome do recipiente|
-|Uso da Memória|Utilização de Memória|Bytes|Média|Uso total da memória em byte.|nome do recipiente|
-|NetworkBytesReceivedPerSecond|Bytes de rede recebidos por segundo|Bytes|Média|Os bytes da rede recebidos por segundo.|Nenhum|
-|NetworkBytesTransmittedPerSecond|Bytes de rede transmitidos por segundo|Bytes|Média|Os bytes da rede transmitidos por segundo.|Nenhum|
+|CpuUsage|Utilização da CPU|Contagem|Média|Utilização do CPU em todos os núcleos em millicores.|nome de contentor|
+|MemóriaSage|Utilização de Memória|Bytes|Média|Uso total da memória em byte.|nome de contentor|
+|NetworkBytesReceivedPerSecond|Bytes de rede recebidos por segundo|Bytes|Média|Os bytes de rede recebidos por segundo.|Nenhum|
+|NetworkBytesTransmittedPerSecond|Bytes de rede transmitidos por segundo|Bytes|Média|Os bytes de rede transmitidos por segundo.|Nenhum|
 
-## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registos
+## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem total de pullcount|Contagem total de puxar|Contagem|Média|Número de imagenpuxa no total|Nenhum|
-|Contagem de PullCount bem sucedida|Contagem de puxar bem sucedida|Contagem|Média|Número de puxões de imagem bem sucedidos|Nenhum|
-|Contagem total de empurras|Contagem total de empurrões|Contagem|Média|Número de impulsos de imagem no total|Nenhum|
-|Contagem de PushCount bem sucedida|Contagem de impulsos bem sucedida|Contagem|Média|Número de impulsos de imagem bem sucedidos|Nenhum|
-|Duração da execução|Duração da execução|Milissegundos|Total|Duração do percurso em milissegundos|Nenhum|
+|TotalPullCount|Contagem total de pull|Contagem|Média|Número de tiras de imagem no total|Nenhum|
+|SucessoPullCount|Contagem de pull com sucesso|Contagem|Média|Número de puxas de imagem bem-sucedidas|Nenhum|
+|TotalPushCount|Contagem total de push|Contagem|Média|Número de impulsos de imagem no total|Nenhum|
+|SucessoPushCount|Contagem de impulsos bem sucedida|Contagem|Média|Número de impulsos de imagem bem sucedidos|Nenhum|
+|RunDuration|Duração do funcional|Milissegundos|Total|Duração da execução em milissegundos|Nenhum|
 
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|kube_node_status_allocatable_cpu_cores|Número total de núcleos de CPU disponíveis num cluster gerido|Contagem|Média|Número total de núcleos de CPU disponíveis num cluster gerido|Nenhum|
+|kube_node_status_allocatable_cpu_cores|Número total de núcleos cpu disponíveis num cluster gerido|Contagem|Média|Número total de núcleos cpu disponíveis num cluster gerido|Nenhum|
 |kube_node_status_allocatable_memory_bytes|Quantidade total de memória disponível num cluster gerido|Bytes|Média|Quantidade total de memória disponível num cluster gerido|Nenhum|
-|kube_pod_status_ready|Número de cápsulas em estado pronto|Contagem|Média|Número de cápsulas em estado pronto|namespace,pod|
-|kube_node_status_condition|Estados para várias condições do nó|Contagem|Média|Estados para várias condições do nó|condição,estado,status2,nó|
+|kube_pod_status_ready|Número de cápsulas no estado de Ready|Contagem|Média|Número de cápsulas no estado de Ready|espaço de nome,pod|
+|kube_node_status_condition|Estados para várias condições de nó|Contagem|Média|Estados para várias condições de nó|condição,estado,status2,nó|
 |kube_pod_status_phase|Número de cápsulas por fase|Contagem|Média|Número de cápsulas por fase|fase,espaço de nome,pod|
 
 
 
-## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/fornecedores de recursos
+## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/resourceproviders
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Pedidos de sucesso|Pedidos bem sucedidos|Contagem|Total|Pedidos bem sucedidos feitos pelo fornecedor personalizado|HttpMethod,CallPath,StatusCode|
-|Pedidos Falhados|Pedidos com Falhas|Contagem|Total|Obtém os registos disponíveis para fornecedores de recursos personalizados|HttpMethod,CallPath,StatusCode|
+|Requestres com sucesso|Pedidos de Sucesso|Contagem|Total|Pedidos bem sucedidos feitos pelo fornecedor personalizado|HttpMethod,CallPath,StatusCode|
+|Requessos Falhados|Pedidos com Falhas|Contagem|Total|Obtém os registos disponíveis para Fornecedores de Recursos Personalizados|HttpMethod,CallPath,StatusCode|
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft.DataBoxEdge/dataBoxEdgeDevices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|NICReadThroughput|Ler A Mais(Rede)|BytesPerSecond|Média|A entrada de leitura da interface de rede no dispositivo no período de reporte para todos os volumes do gateway.|Nome de instância|
-|NICWriteThroughput|Write Throughput (Rede)|BytesPerSecond|Média|A entrada de escrita da interface de rede no dispositivo no período de reporte para todos os volumes do gateway.|Nome de instância|
-|CloudReadThroughputPerShare|Cloud Download Throughput (Share)|BytesPerSecond|Média|O download para Azure a partir de uma parte durante o período de reporte.|Partilhado|
-|CloudUploadThroughputPerShare|Cloud Upload (Partilha)|BytesPerSecond|Média|A entrada de upload para Azure a partir de uma parte durante o período de reporte.|Partilhado|
-|BytesUploadedToCloudPerShare|Cloud Bytes carregado (Partilhar)|Bytes|Média|O número total de bytes que é enviado para OT a partir de uma parte durante o período de reporte.|Partilhado|
+|NICReadThroughput|Ler produção (rede)|BytesPerSecond|Média|A produção de leitura da interface de rede no dispositivo no período de reporte para todos os volumes no gateway.|Nome de exemplo|
+|NICWriteThroughput|Escrever Produção (Rede)|BytesPerSecond|Média|A produção de produção da interface de rede no dispositivo no período de reporte para todos os volumes no gateway.|Nome de exemplo|
+|CloudReadThroughputPerShare|Download cloud 'Produção' (Partilhar)|BytesPerSecond|Média|O download para Azure de uma parte durante o período de reporte.|Partilhar|
+|CloudUploadThroughputPerShare|Produção de upload de nuvem (partilhar)|BytesPerSecond|Média|O envio para a Azure de uma parte durante o período de reporte.|Partilhar|
+|BytesUploadedToCloudPerShare|Cloud Bytes Uploaded (Partilhar)|Bytes|Média|O número total de bytes que é enviado para Azure a partir de uma parte durante o período de reporte.|Partilhar|
 |Capacidade Total|Capacidade Total|Bytes|Média|Capacidade Total|Nenhum|
-|Capacidade Disponível|Capacidade Disponível|Bytes|Média|A capacidade disponível em bytes durante o período de reporte.|Nenhum|
-|CloudUploadThroughput|Cloud Upload Throughput|BytesPerSecond|Média|A entrada de cloud upload para Azure durante o período de reporte.|Nenhum|
-|CloudReadThroughput|Cloud Download Throughput|BytesPerSecond|Média|A entrada de cloud download para Azure durante o período de reporte.|Nenhum|
-|BytesUploadedToCloud|Cloud Bytes Carregado (Dispositivo)|Bytes|Média|O número total de bytes que é enviado para Azure a partir de um dispositivo durante o período de reporte.|Nenhum|
-|Utilização de HiperVVirtualProcessor|Edge Compute - CPU percentual|Percentagem|Média|Por cento de utilização de CPU|Nome de instância|
-|Utilização hyperVMemory|Edge Compute - Uso da Memória|Percentagem|Média|Quantidade de RAM em Uso|Nome de instância|
+|Capacidade disponível|Capacidade disponível|Bytes|Média|A capacidade disponível nos bytes durante o período de reporte.|Nenhum|
+|CloudUploadThroughput|Produção de upload de nuvens|BytesPerSecond|Média|A nuvem envia para Azure durante o período de reporte.|Nenhum|
+|CloudReadThroughput|Download da Cloud|BytesPerSecond|Média|A produção de download da nuvem para Azure durante o período de reporte.|Nenhum|
+|BytesUploadedToCloud|Cloud Bytes Uploaded (Dispositivo)|Bytes|Média|O número total de bytes que é enviado para Azure a partir de um dispositivo durante o período de reporte.|Nenhum|
+|HiperVVirtualProcessorutilização|Edge Compute - Percentagem CPU|Percentagem|Média|Por cento uso cpu|Nome de exemplo|
+|Hipervmemoryutilização|Edge Compute - Utilização da Memória|Percentagem|Média|Quantidade de RAM em uso|Nome de exemplo|
 
 
 ## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.DataCatalog/datacatalogs
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Distribuição de ActivosByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte|
-|Tipo de armazenamento de bens|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|Tipo de armazenamento|
-|NumberOfAssetsWithClassifications|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de etiqueta.|Nenhum|
-|ScanCancelado|Scan Cancelado|Contagem|Total|Indica o número de exames cancelados.|Nenhum|
+|AssetDistributionByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte|
+|AssetDistributionByStorageType|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|Dispositivo de armazenamento|
+|NúmeroOfAssetsWithClassificações|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de etiqueta.|Nenhum|
+|ScanCancelled|Scan cancelado|Contagem|Total|Indica o número de exames cancelados.|Nenhum|
 |ScanCompleted|Digitalização Concluída|Contagem|Total|Indica o número de exames concluídos com sucesso.|Nenhum|
-|ScanFailed|Scan Failed|Contagem|Total|Indica que o número de exames falhou.|Nenhum|
+|ScanFailed|Scan falhou|Contagem|Total|Indica que o número de exames falhou.|Nenhum|
 |ScanTimeTaken|Tempo de digitalização tomado|Segundos|Total|Indica o tempo total de digitalização em segundos.|Nenhum|
-|Utilizadores Catalogativos|Utilizadores Ativos Diários|Contagem|Total|Número de utilizadores ativos diariamente|Nenhum|
-|Utilização de catálogos|Distribuição de Utilização por Operação|Contagem|Total|Indique o número de operação que o utilizador faz para o catálogo, ou é, Acesso, Pesquisa, Glossário.|Operação|
+|CatalogActiveUsers|Utilizadores Ativos Diários|Contagem|Total|Número de utilizadores ativos diariamente|Nenhum|
+|CatalogUsage|Distribuição de utilização por Operação|Contagem|Total|Indicar o número de operação que o utilizador faz ao catálogo, ou seja, Acesso, Pesquisa, Glossário.|Operação|
 
 
-## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactores
+## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Corridas falhadas|Corridas falhadas|Contagem|Total||pipelineName,activityName|
-|Corridas bem sucedidas|Corridas bem sucedidas|Contagem|Total||pipelineName,activityName|
+|Corridas Falhadas|Corridas falhadas|Contagem|Total||pipelineName,atividadeName|
+|Sucesso DeRuns|Corridas de sucesso|Contagem|Total||pipelineName,atividadeName|
 
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/fábricas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PipelineFailedRuns|Gasoduto falhado executa métricas|Contagem|Total||Tipo de falha,Nome|
-|PipelineSucceededRuns|Gasoduto bem sucedido executa métricas|Contagem|Total||Tipo de falha,Nome|
-|PipelineCancelruns|Gasoduto cancelado executa métricas|Contagem|Total||Tipo de falha,Nome|
-|ActivityFailedRuns|A atividade falhada executa métricas|Contagem|Total||Tipo de atividade,PipelineName,Tipo de Falha,Nome|
-|ActivitySucceededRuns|Atividade bem sucedida executa métricas|Contagem|Total||Tipo de atividade,PipelineName,Tipo de Falha,Nome|
-|Atividades Canceladas Runs|Atividade cancelada executa métricas|Contagem|Total||Tipo de atividade,PipelineName,Tipo de Falha,Nome|
-|TriggerFailedRuns|O gatilho falhado corre métricas|Contagem|Total||Nome,FalhaType|
-|TriggerSucceedruns|O gatilho bem sucedido corre métricas|Contagem|Total||Nome,FalhaType|
-|TriggerCancelRuns|O gatilho cancelado corre métricas|Contagem|Total||Nome,FalhaType|
-|IntegraçãoRuntimeCpuPercentage|Utilização do CPU em tempo de integração|Percentagem|Média||IntegraçãoRuntimeName,NodeName|
-|IntegraçãoRuntimeAvailableMemory|Memória disponível de tempo de integração|Bytes|Média||IntegraçãoRuntimeName,NodeName|
-|IntegraçãoRuntimeAverageTaskPickupDelay|Duração da fila de tempo de integração|Segundos|Média||IntegraçãoNome tempo de corrida de integração|
-|IntegraçãoRuntimeQueueLength|Comprimento da fila de tempo de integração|Contagem|Média||IntegraçãoNome tempo de corrida de integração|
-|IntegraçãoRuntimeAvailableNodeNumber|Contagem de tempo de integração disponível no nó|Contagem|Média||IntegraçãoNome tempo de corrida de integração|
-|Contagem máxima de recursos permitidos|Contagem máxima permitida de entidades|Contagem|Máximo||Nenhum|
-|Unidades MaxallowedFactorySizeingb|Tamanho máximo permitido da fábrica (unidade GB)|Contagem|Máximo||Nenhum|
+|PipelineFailedRuns|Gasoduto falhado executa métricas|Contagem|Total||FalhaType,Nome|
+|PipelineSucceededRuns|Pipeline bem sucedido executa métricas|Contagem|Total||FalhaType,Nome|
+|PipelineCancelledRuns|Gasoduto cancelado executa métricas|Contagem|Total||FalhaType,Nome|
+|AtividadeFailedRuns|Atividade falhada executa métricas|Contagem|Total||ActivityType,PipelineName,FailureType,Name|
+|AtividadeSSucceedEdRuns|A atividade bem sucedida executa métricas|Contagem|Total||ActivityType,PipelineName,FailureType,Name|
+|AtividadeCancelledRuns|Atividade cancelada executa métricas|Contagem|Total||ActivityType,PipelineName,FailureType,Name|
+|TriggerFailedRuns|O gatilho falhado executa métricas|Contagem|Total||Nome,FalhaType|
+|TriggerSucceeddRuns|O gatilho bem sucedido executa métricas|Contagem|Total||Nome,FalhaType|
+|TriggerCancelledRuns|Gatilho cancelado executa métricas|Contagem|Total||Nome,FalhaType|
+|IntegraçãoRuntimeCpuPercentage|Utilização do CPU em tempo de integração|Percentagem|Média||IntegraçãoRuntimeName,Nome de Node|
+|IntegrationRuntimeAvailableMemory|Integração memória disponível|Bytes|Média||IntegraçãoRuntimeName,Nome de Node|
+|IntegraçãoRuntimeAverageTaskPickupDelay|Duração da fila de tempo de execução de integração|Segundos|Média||IntegraçãoRuntimeName|
+|IntegraçãoRuntimeQueueLength|Comprimento da fila de tempo de execução de integração|Contagem|Média||IntegraçãoRuntimeName|
+|IntegrationRuntimeAvailableNodeNumber|Contagem de nó disponível de integração|Contagem|Média||IntegraçãoRuntimeName|
+|MaxAllowedResourceCount|Contagem máxima de entidades permitidas|Contagem|Máximo||Nenhum|
+|MaxAllowedFactorySizeInGbUnits|Tamanho máximo permitido da fábrica (unidade GB)|Contagem|Máximo||Nenhum|
 |Contagem de Recursos|Total de entidades contam|Contagem|Máximo||Nenhum|
-|Unidades de FábricaSizeInGb|Tamanho total da fábrica (unidade GB)|Contagem|Máximo||Nenhum|
+|FactorySizeInGbUnits|Tamanho total da fábrica (unidade GB)|Contagem|Máximo||Nenhum|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/contas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |JobEndedSuccess|Empregos bem sucedidos|Contagem|Total|Contagem de trabalhos bem sucedidos.|Nenhum|
-|JobEndedFailure|Empregos falhados|Contagem|Total|Contagem de empregos falhados.|Nenhum|
-|JobEndedCancelado|Empregos Cancelados|Contagem|Total|Contagem de empregos cancelados.|Nenhum|
-|JobauendedSuccess|Tempo de U de sucesso|Segundos|Total|Tempo total da UA para empregos bem sucedidos.|Nenhum|
-|JobauendedFail|Tempo falhado da UA|Segundos|Total|Tempo total da UA para empregos falhados.|Nenhum|
-|JobauendedCancelado|Hora da U Cancelada|Segundos|Total|Total de tempo da UA para trabalhos cancelados.|Nenhum|
-|Palco de Emprego|Empregos em Palco|Contagem|Total|Número de empregos em cada fase.|Nenhum|
+|JobEndedFailure|Empregos Falhados|Contagem|Total|Contagem de trabalhos falhados.|Nenhum|
+|JobEndedCancelled|Empregos Cancelados|Contagem|Total|Contagem de trabalhos cancelados.|Nenhum|
+|JobAUEndedSuccess|Tempo de AU bem sucedido|Segundos|Total|Tempo total da AU para empregos bem sucedidos.|Nenhum|
+|JobAUEndedFailure|Tempo AU falhado|Segundos|Total|Tempo total da AU para trabalhos falhados.|Nenhum|
+|JobAUEndedCancelled|Tempo cancelado da AU|Segundos|Total|Tempo total da AU para trabalhos cancelados.|Nenhum|
+|Palco jobs|Empregos em Palco|Contagem|Total|Número de empregos em cada etapa.|Nenhum|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/contas
@@ -815,116 +815,116 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |---|---|---|---|---|---|
 |TotalStorage|Armazenamento Total|Bytes|Máximo|Quantidade total de dados armazenados na conta.|Nenhum|
 |DataWritten|Dados Escritos|Bytes|Total|Quantidade total de dados escritos na conta.|Nenhum|
-|Leitura de Dados|Leitura de Dados|Bytes|Total|Quantidade total de dados lidos a partir da conta.|Nenhum|
-|WriteRequests|Pedidos de Escrita|Contagem|Total|Contagem de dados escrevem pedidos para a conta.|Nenhum|
-|Pedidos de Leitura|Ler Pedidos|Contagem|Total|Contagem de dados lê pedidos para a conta.|Nenhum|
+|DataRead|Leitura de Dados|Bytes|Total|Quantidade total de dados lidos a partir da conta.|Nenhum|
+|WriteRequests|Escrever Pedidos|Contagem|Total|A contagem de dados escreve pedidos para a conta.|Nenhum|
+|ReadRequests|Ler Pedidos|Contagem|Total|Contagem de dados leia pedidos para a conta.|Nenhum|
 
 
 ## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/contas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de partilhas|Ações Enviadas|Contagem|Máximo|Número de ações enviadas na conta|Nome de partilha|
-|Contagem de Subscrições de Ações|Ações Recebidas|Contagem|Máximo|Número de ações recebidas na conta|Nome de Subscrição de Ações|
-|SucessoShareSynchronizations|Envio de imagens bem sucedidas da partilha|Contagem|Contagem|Número de ações enviadas conseguiu instantâneos na conta|Nenhum|
-|Sincronizações falhadas do ShareSync|Snapshots falhados da partilha enviada|Contagem|Contagem|Número de imagens falhadas da conta|Nenhum|
-|Subscrição de Subscrições de Subscrição de Subscrições bem sucedidas|Fotografias bem sucedidas da partilha recebida|Contagem|Contagem|Número de ações recebidas conseguiu instantâneos na conta|Nenhum|
-|Subscrição falhadaDesubscrição de subscrições|Fotos falhadas de partilha recebidas|Contagem|Contagem|Número de imagens falhadas da conta|Nenhum|
+|ShareCount|Ações enviadas|Contagem|Máximo|Número de ações enviadas na conta|Nome de partilha|
+|ShareSubscriptionCount|Ações Recebidas|Contagem|Máximo|Número de ações recebidas na conta|Nome de Subscrição de Partilha|
+|Sucessos PartilharSynchronizations|Envio de ações instantâneas bem sucedidas|Contagem|Contagem|Número de ações enviadas instantâneas na conta|Nenhum|
+|Falhas nas Sincronizações de Compartilhadas|Envio de imagens falhadas de partilha|Contagem|Contagem|Número de snapshots falhados da ação enviada na conta|Nenhum|
+|SucessoShareSubscriptionSynchronizations|Fotos bem sucedidas de partilha|Contagem|Contagem|Número de ações recebidas sucedeu instantâneos na conta|Nenhum|
+|FalhashareSubscriçãoSynchronizations|Fotos falhadas da partilha recebidas|Contagem|Contagem|Número de snapshots falhados da ação recebida na conta|Nenhum|
 
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servidores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Por cento do CPU|Percentagem|Média|Por cento do CPU|Nenhum|
+|cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
 |io_consumption_percent|IO por cento|Percentagem|Média|IO por cento|Nenhum|
 |storage_percent|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|Nenhum|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhum|
 |storage_limit|Limite de armazenamento|Bytes|Máximo|Limite de armazenamento|Nenhum|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhum|
-|serverlog_storage_usage|Armazenamento de registo do servidor utilizado|Bytes|Média|Armazenamento de registo do servidor utilizado|Nenhum|
-|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhum|
-|active_connections|Conexões Ativas|Contagem|Média|Conexões Ativas|Nenhum|
+|serverlog_storage_percent|Por cento de armazenamento de registo de servidor|Percentagem|Média|Por cento de armazenamento de registo de servidor|Nenhum|
+|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhum|
+|serverlog_storage_limit|Limite de armazenamento de registo de servidor|Bytes|Média|Limite de armazenamento de registo de servidor|Nenhum|
+|active_connections|Ligações Ativas|Contagem|Média|Ligações Ativas|Nenhum|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhum|
-|seconds_behind_master|Rema de replicação em segundos|Contagem|Máximo|Rema de replicação em segundos|Nenhum|
-|backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|Média|Armazenamento de cópia de segurança utilizado|Nenhum|
-|network_bytes_egress|Saída da Rede|Bytes|Total|Network out através de conexões ativas|Nenhum|
-|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhum|
+|seconds_behind_master|Atraso de replicação em segundos|Contagem|Máximo|Atraso de replicação em segundos|Nenhum|
+|backup_storage_used|Armazenamento de backup utilizado|Bytes|Média|Armazenamento de backup utilizado|Nenhum|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede Para fora através de ligações ativas|Nenhum|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em através de ligações ativas|Nenhum|
 
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servidores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Por cento do CPU|Percentagem|Média|Por cento do CPU|Nenhum|
+|cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
 |io_consumption_percent|IO por cento|Percentagem|Média|IO por cento|Nenhum|
 |storage_percent|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|Nenhum|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhum|
 |storage_limit|Limite de armazenamento|Bytes|Máximo|Limite de armazenamento|Nenhum|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhum|
-|serverlog_storage_usage|Armazenamento de registo do servidor utilizado|Bytes|Média|Armazenamento de registo do servidor utilizado|Nenhum|
-|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Máximo|Limite de armazenamento de registo do servidor|Nenhum|
-|active_connections|Conexões Ativas|Contagem|Média|Conexões Ativas|Nenhum|
+|serverlog_storage_percent|Por cento de armazenamento de registo de servidor|Percentagem|Média|Por cento de armazenamento de registo de servidor|Nenhum|
+|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhum|
+|serverlog_storage_limit|Limite de armazenamento de registo de servidor|Bytes|Máximo|Limite de armazenamento de registo de servidor|Nenhum|
+|active_connections|Ligações Ativas|Contagem|Média|Ligações Ativas|Nenhum|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhum|
-|seconds_behind_master|Rema de replicação em segundos|Contagem|Máximo|Rema de replicação em segundos|Nenhum|
-|backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|Média|Armazenamento de cópia de segurança utilizado|Nenhum|
-|network_bytes_egress|Saída da Rede|Bytes|Total|Network out através de conexões ativas|Nenhum|
-|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhum|
+|seconds_behind_master|Atraso de replicação em segundos|Contagem|Máximo|Atraso de replicação em segundos|Nenhum|
+|backup_storage_used|Armazenamento de backup utilizado|Bytes|Média|Armazenamento de backup utilizado|Nenhum|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede Para fora através de ligações ativas|Nenhum|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em através de ligações ativas|Nenhum|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servidores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Por cento do CPU|Percentagem|Média|Por cento do CPU|Nenhum|
+|cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
 |io_consumption_percent|IO por cento|Percentagem|Média|IO por cento|Nenhum|
 |storage_percent|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|Nenhum|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhum|
 |storage_limit|Limite de armazenamento|Bytes|Máximo|Limite de armazenamento|Nenhum|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhum|
-|serverlog_storage_usage|Armazenamento de registo do servidor utilizado|Bytes|Média|Armazenamento de registo do servidor utilizado|Nenhum|
-|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Máximo|Limite de armazenamento de registo do servidor|Nenhum|
-|active_connections|Conexões Ativas|Contagem|Média|Conexões Ativas|Nenhum|
+|serverlog_storage_percent|Por cento de armazenamento de registo de servidor|Percentagem|Média|Por cento de armazenamento de registo de servidor|Nenhum|
+|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhum|
+|serverlog_storage_limit|Limite de armazenamento de registo de servidor|Bytes|Máximo|Limite de armazenamento de registo de servidor|Nenhum|
+|active_connections|Ligações Ativas|Contagem|Média|Ligações Ativas|Nenhum|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhum|
-|backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|Média|Armazenamento de cópia de segurança utilizado|Nenhum|
-|network_bytes_egress|Saída da Rede|Bytes|Total|Network out através de conexões ativas|Nenhum|
-|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhum|
-|pg_replica_log_delay_in_seconds|Réplica Lag|Segundos|Máximo|Rérplica em segundos|Nenhum|
-|pg_replica_log_delay_in_bytes|Max Lag Através de Réplicas|Bytes|Máximo|Lag in bytes da réplica mais atrasada|Nenhum|
+|backup_storage_used|Armazenamento de backup utilizado|Bytes|Média|Armazenamento de backup utilizado|Nenhum|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede Para fora através de ligações ativas|Nenhum|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em através de ligações ativas|Nenhum|
+|pg_replica_log_delay_in_seconds|Lag de réplica|Segundos|Máximo|Réplica lag em segundos|Nenhum|
+|pg_replica_log_delay_in_bytes|Max Lag através de réplicas|Bytes|Máximo|Lag in bytes da réplica mais atrasada|Nenhum|
 
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Por cento do CPU|Percentagem|Média|Por cento do CPU|Nenhum|
+|cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
-|iops|IOPS|Contagem|Média|IO Operações por segundo|Nenhum|
+|iops|IOPS|Contagem|Média|Operações IO por segundo|Nenhum|
 |storage_percent|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|Nenhum|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhum|
-|active_connections|Conexões Ativas|Contagem|Média|Conexões Ativas|Nenhum|
-|network_bytes_egress|Saída da Rede|Bytes|Total|Network out através de conexões ativas|Nenhum|
-|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhum|
+|active_connections|Ligações Ativas|Contagem|Média|Ligações Ativas|Nenhum|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede Para fora através de ligações ativas|Nenhum|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em através de ligações ativas|Nenhum|
 
 
 ## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft.DBforPostgreSQL/singleservers
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Por cento do CPU|Percentagem|Média|Por cento do CPU|Nenhum|
+|cpu_percent|CPU por cento|Percentagem|Média|CPU por cento|Nenhum|
 |memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhum|
-|iops|IOPS|Contagem|Média|IO Operações por segundo|Nenhum|
+|iops|IOPS|Contagem|Média|Operações IO por segundo|Nenhum|
 |storage_percent|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|Nenhum|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhum|
-|active_connections|Conexões Ativas|Contagem|Média|Conexões Ativas|Nenhum|
-|network_bytes_egress|Saída da Rede|Bytes|Total|Network out através de conexões ativas|Nenhum|
-|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhum|
+|active_connections|Ligações Ativas|Contagem|Média|Ligações Ativas|Nenhum|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede Para fora através de ligações ativas|Nenhum|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em através de ligações ativas|Nenhum|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhum|
 |connections_succeeded|Conexões bem sucedidas|Contagem|Total|Conexões bem sucedidas|Nenhum|
-|maximum_used_transactionIDs|IDs máximos de transação usada|Contagem|Média|IDs máximos de transação usada|Nenhum|
+|maximum_used_transactionIDs|IDs máximos de transações usadas|Contagem|Média|IDs máximos de transações usadas|Nenhum|
 
 
 
@@ -934,149 +934,149 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|d2c.telemetria.ingress.allProtocol|Mensagem de telemetria enviar tentativas|Contagem|Total|Número de mensagens de telemetria dispositivo-para-nuvem tentou ser enviada para o seu hub IoT|Nenhum|
-|d2c.telemetria.ingress.success.success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria dispositivo-nuvem enviadas com sucesso para o seu hub IoT|Nenhum|
-|c2d.comandos.egress.complete.success|Entregas de mensagens C2D concluídas|Contagem|Total|Número de entregas de mensagens cloud-to-device concluídas com sucesso pelo dispositivo|Nenhum|
-|c2d.comandos.egress.abandone.success|Mensagens C2D abandonadas|Contagem|Total|Número de mensagens cloud-to-device abandonadas pelo dispositivo|Nenhum|
-|c2d.commands.egress.reject.success.success|Mensagens C2D rejeitadas|Contagem|Total|Número de mensagens cloud-to-device rejeitadas pelo dispositivo|Nenhum|
-|C2DMessagesExpired|Mensagens C2D Expiradas (pré-visualização)|Contagem|Total|Número de mensagens cloud-to-device expiradas|Nenhum|
-|dispositivos.totalDispositivos|Total de dispositivos (depreciados)|Contagem|Total|Número de dispositivos registados no seu hub IoT|Nenhum|
-|dispositivos.connectedDevices.allProtocol|Dispositivos conectados (depreciados) |Contagem|Total|Número de dispositivos ligados ao seu hub IoT|Nenhum|
-|d2c.telemetria.egress.sucesso|Encaminhamento: mensagens de telemetria entregues|Contagem|Total|O número de vezes que as mensagens foram entregues com sucesso a todos os pontos finais usando o encaminhamento do IoT Hub. Se uma mensagem for encaminhada para vários pontos finais, este valor aumenta em um para cada entrega bem sucedida. Se uma mensagem for entregue ao mesmo ponto final várias vezes, este valor aumenta por um para cada entrega bem sucedida.|Nenhum|
-|d2c.telemetria.egress.caiu|Encaminhamento: mensagens de telemetria caídas |Contagem|Total|O número de vezes que as mensagens foram retiradas pelo itinerário do IoT Hub devido a pontos sem saída. Este valor não conta as mensagens entregues para a rota de recuo, uma vez que as mensagens deixadas não são entregues lá.|Nenhum|
-|d2c.telemetria.egress.órfão|Encaminhamento: mensagens de telemetria órfãs |Contagem|Total|O número de mensagens foi órfão pelo encaminhamento do IoT Hub porque não correspondia a nenhuma regra de encaminhamento (incluindo a regra do recuo). |Nenhum|
-|d2c.telemetria.egress.inválido|Encaminhamento: mensagens de telemetria incompatíveis|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub não entregou mensagens devido a uma incompatibilidade com o ponto final. Este valor não inclui repetições.|Nenhum|
-|d2c.telemetria.egress.fallback|Encaminhamento: mensagens entregues para recuo|Contagem|Total|O número de vezes que o ioT Hub encaminha-se entregou mensagens ao ponto final associado à rota de recuo.|Nenhum|
-|d2c.endpoints.egress.eventHubs|Encaminhamento: mensagens entregues ao Event Hub|Contagem|Total|O número de vezes que o IoT Hub envia mensagens com sucesso entregou mensagens aos pontos finais do Event Hub.|Nenhum|
-|d2c.endpoints.latency.eventHubs|Encaminhamento: latência de mensagens para O Hub de Eventos|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a entrada de mensagens num ponto final do Event Hub.|Nenhum|
-|d2c.endpoints.egress.serviceBusQueues|Encaminhamento: mensagens entregues à Fila de Autocarros de Serviço|Contagem|Total|O número de vezes que o ioT Hub encaminha-se com sucesso entregou mensagens aos pontos finais da fila do Service Bus.|Nenhum|
-|d2c.endpoints.latency.serviceBusQueues|Encaminhamento: latência de mensagens para fila de autocarros de serviço|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a mensagem de telemetria entrando num ponto final da fila do Autocarro de Serviço.|Nenhum|
-|d2c.endpoints.egress.serviceBusTopics|Encaminhamento: mensagens entregues ao Tópico do Autocarro de Serviço|Contagem|Total|O número de vezes que o IoT Hub encaminha com sucesso entregou mensagens aos pontos finais do tópico do Bus de Serviço.|Nenhum|
-|d2c.endpoints.latency.serviceBusTopics|Encaminhamento: latência de mensagens para tópico de ônibus de serviço|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a mensagem de telemetria entrando num ponto final do tópico do Bus de Serviço.|Nenhum|
-|d2c.endpoints.egress.builtIn.events|Encaminhamento: mensagens entregues a mensagens/eventos|Contagem|Total|O número de vezes que o ioT Hub envia mensagens com sucesso entregou mensagens ao ponto final incorporado (mensagens/eventos).|Nenhum|
-|d2c.endpoints.latency.builtIn.events|Encaminhamento: latência de mensagens/eventos|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a mensagem de telemetria entrando no ponto final incorporado (mensagens/eventos).|Nenhum|
-|d2c.endpoints.egress.storage|Encaminhamento: mensagens entregues no armazenamento|Contagem|Total|O número de vezes que o ioT Hub encaminha com sucesso entregou mensagens para pontos finais de armazenamento.|Nenhum|
-|d2c.endpoints.latência.storage.storage|Encaminhamento: latência de mensagem para armazenamento|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a mensagem de telemetria entrando num ponto final de armazenamento.|Nenhum|
-|d2c.endpoints.egress.storage.bytes.bytes|Encaminhamento: dados entregues ao armazenamento|Bytes|Total|A quantidade de dados (bytes) IoT Hub encaminhamento entregue em pontos finais de armazenamento.|Nenhum|
-|d2c.endpoints.egress.storage.blobs|Encaminhamento: bolhas entregues ao armazenamento|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou bolhas aos pontos finais de armazenamento.|Nenhum|
-|Entregas eventgrid|Entregas da Grelha de Eventos (pré-visualização)|Contagem|Total|O número de eventos do IoT Hub publicados na Event Grid. Utilize a dimensão Resultado para o número de pedidos bem sucedidos e falhados. A dimensão do Tipo de Evento mostra o tipo de evento https://aka.ms/ioteventgrid) .|Resourceid,Resultado,Tipo de Evento|
-|EventGridLatency|Latência da Grelha de Eventos (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) de quando o evento Iot Hub foi gerado até quando o evento foi publicado para Event Grid. Este número é uma média entre todos os tipos de eventos. Utilize a dimensão EventType para ver a latência de um tipo específico de evento.|ResourceId,EventType|
-|Entregas de encaminhamento|Entregas de encaminhamento (pré-visualização)|Milissegundos|Total|O número de vezes que o IoT Hub tentou entregar mensagens a todos os pontos finais usando o encaminhamento. Para ver o número de tentativas bem sucedidas ou falhadas, utilize a dimensão Resultado. Para ver a razão do fracasso, como inválido, abandonado ou órfão, utilize a dimensão FailureReasonCategory. Também pode utilizar as dimensões EndpointName e EndpointType para entender quantas mensagens foram entregues nos seus diferentes pontos finais. O valor métrico aumenta em uma para cada tentativa de entrega, incluindo se a mensagem é entregue em vários pontos finais ou se a mensagem for entregue ao mesmo ponto final várias vezes.|ResourceId,EndpointType,EndpointName,FailureReasonCategory,Resultado,RoutingSource|
-|EncaminhamentoDeliveryLatency|Latência de entrega de encaminhamento (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a mensagem de telemetria entrando num ponto final. Pode utilizar as dimensões EndpointName e EndpointType para compreender a latência dos seus diferentes pontos finais.|ResourceId,EndpointType,EndpointName,RoutingSource|
-|d2c.twin.read.success.success|Leituras gémeas bem sucedidas de dispositivos|Contagem|Total|A contagem de todas as leituras gémeas bem sucedidas iniciadas pelo dispositivo.|Nenhum|
-|d2c.twin.read.failure.failure|Leituras gémeas falhadas de dispositivos|Contagem|Total|A contagem de todas as leituras gémeas iniciadas pelo dispositivo falhado.|Nenhum|
-|d2c.twin.read.size|Tamanho da resposta das leituras gémeas dos dispositivos|Bytes|Média|A média, min e máximo de todas as leituras gémeas bem sucedidas.|Nenhum|
-|d2c.twin.update.success.success|Atualizações gémeas bem-sucedidas a partir de dispositivos|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas pelo dispositivo.|Nenhum|
-|d2c.twin.update.failure.failure|Atualizações duplas falhadas de dispositivos|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas pelo dispositivo.|Nenhum|
-|d2c.twin.update.size|Tamanho das atualizações gémeas dos dispositivos|Bytes|Média|O tamanho médio, min e máximo de todas as atualizações gémeas iniciadas pelo dispositivo.|Nenhum|
-|c2d.methods.success.success|Invocações de método direto bem-sucedidas|Contagem|Total|A contagem de todas as chamadas de métodos diretos bem sucedidas.|Nenhum|
-|c2d.methods.failure|Invocações de método direto falhado|Contagem|Total|A contagem de todas as chamadas de métodos diretos falhadas.|Nenhum|
-|c2d.methods.requestSize|Solicitar dimensão das invocações do método direto|Bytes|Média|A média, min e máximo de todos os pedidos de método direto bem sucedidos.|Nenhum|
-|c2d.methods.responseSize|Tamanho da resposta das invocações do método direto|Bytes|Média|A média, min e máximo de todas as respostas de método direto bem sucedidas.|Nenhum|
-|c2d.twin.read.success.success|Twin de sucesso lê a partir de trás|Contagem|Total|A contagem de todas as leituras gémeas bem sucedidas.|Nenhum|
-|c2d.twin.read.failure.|Gémeo falhado lê a partir de trás|Contagem|Total|A contagem de todas as leituras gémeas iniciadas no final.|Nenhum|
-|c2d.twin.read.size|Tamanho da resposta de leituras gémeas da parte de trás|Bytes|Média|A média, min, e o máximo de todas as leituras gémeas bem sucedidas.|Nenhum|
-|c2d.twin.update.success|Atualizações gémeas bem sucedidas a partir de trás|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas no back-end.|Nenhum|
-|c2d.twin.update.failure.failure|Atualizações gémeas falhadas a partir de trás|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas no back-end.|Nenhum|
-|c2d.twin.update.size|Tamanho das atualizações gémeas a partir de trás|Bytes|Média|O tamanho médio, min e máximo de todas as atualizações gémeas iniciadas no back-end.|Nenhum|
+|d2c.telemetria.ingress.allProtocol|Mensagem de telemetria envia tentativas|Contagem|Total|Número de mensagens de telemetria dispositivo-nuvem tentadas de ser enviadas para o seu hub IoT|Nenhum|
+|d2c.telemetria.ingress.success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria dispositivo-nuvem enviadas com sucesso para o seu hub IoT|Nenhum|
+|c2d.commands.egress.complete.success|Entregas de mensagens C2D concluídas|Contagem|Total|Número de entregas de mensagens nuvem-para-dispositivo concluídas com sucesso pelo dispositivo|Nenhum|
+|c2d.commands.egress.abandon.success|Mensagens C2D abandonadas|Contagem|Total|Número de mensagens cloud-to-device abandonadas pelo dispositivo|Nenhum|
+|c2d.commands.egress.reject.success|Mensagens C2D rejeitadas|Contagem|Total|Número de mensagens nuvem-dispositivo rejeitadas pelo dispositivo|Nenhum|
+|C2DMessagesExpired|Mensagens C2D Expiradas (pré-visualização)|Contagem|Total|Número de mensagens de nuvem-para-dispositivo expiradas|Nenhum|
+|dispositivos.totalDevices|Total de dispositivos (precotados)|Contagem|Total|Número de dispositivos registados no seu hub IoT|Nenhum|
+|dispositivos.connectedDevices.allProtocol|Dispositivos ligados (precotados) |Contagem|Total|Número de dispositivos ligados ao seu hub IoT|Nenhum|
+|d2c.telemetria.egress.sucesso|Encaminhamento: mensagens de telemetria entregues|Contagem|Total|O número de vezes que as mensagens foram entregues com sucesso em todos os pontos finais utilizando o encaminhamento IoT Hub. Se uma mensagem for encaminhada para vários pontos finais, este valor aumenta um para cada entrega bem sucedida. Se uma mensagem for entregue no mesmo ponto final várias vezes, este valor aumenta um para cada entrega bem sucedida.|Nenhum|
+|d2c.telemetria.egress.drop|Encaminhamento: mensagens de telemetria caídas |Contagem|Total|O número de vezes que as mensagens foram deixadas pelo itinerário do IoT Hub devido a pontos sem saída. Este valor não conta as mensagens entregues para a rota de retorno, uma vez que as mensagens deixadas não são entregues lá.|Nenhum|
+|d2c.telemetria.egress.órfão|Encaminhamento: mensagens de telemetria órfãs |Contagem|Total|O número de vezes que as mensagens foram órfãs pelo encaminhamento do IoT Hub porque não correspondem a nenhuma regra de encaminhamento (incluindo a regra do recuo). |Nenhum|
+|d2c.telemetria.egress.inválido|Encaminhamento: mensagens de telemetria incompatíveis|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub não conseguiu entregar mensagens devido a uma incompatibilidade com o ponto final. Este valor não inclui retrações.|Nenhum|
+|d2c.telemetria.egress.fallback|Encaminhamento: mensagens entregues para recuo|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens ao ponto final associado à rota de retorno.|Nenhum|
+|d2c.endpoints.egress.eventHubs|Encaminhamento: mensagens entregues no Centro de Eventos|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais do Event Hub.|Nenhum|
+|d2c.endpoints.latncy.eventHubs|Encaminhamento: latência da mensagem para o Centro de Eventos|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para ioT Hub e a entrada de mensagens num ponto final do Event Hub.|Nenhum|
+|d2c.endpoints.egress.serviceBusQueues|Encaminhamento: mensagens entregues na Fila de Autocarros de Serviço|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais da fila do Service Bus.|Nenhum|
+|d2c.endpoints.latncy.serviceBusQueues|Encaminhamento: latência da mensagem para a fila do autocarro de serviço|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens de telemetria num ponto final de fila de autocarros de serviço.|Nenhum|
+|d2c.endpoints.egress.serviceBusTopics|Encaminhamento: mensagens entregues no Service Bus Topic|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais do tópico do Service Bus.|Nenhum|
+|d2c.endpoints.latncy.serviceBusTopics|Encaminhamento: latência de mensagem para o tópico do autocarro de serviço|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens de telemetria num ponto final de ônibus de serviço.|Nenhum|
+|d2c.endpoints.egress.builtIn.events|Encaminhamento: mensagens entregues a mensagens/eventos|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso ao ponto final incorporado (mensagens/eventos).|Nenhum|
+|d2c.endpoints.latncy.builtIn.events|Encaminhamento: latência da mensagem para mensagens/eventos|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada da mensagem de telemetria no ponto final incorporado (mensagens/eventos).|Nenhum|
+|d2c.endpoints.egress.storage|Encaminhamento: mensagens entregues no armazenamento|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais de armazenamento.|Nenhum|
+|d2c.endpoints.latncy.storage|Encaminhamento: latência da mensagem para armazenamento|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada da mensagem de telemetria num ponto final de armazenamento.|Nenhum|
+|d2c.endpoints.egress.storage.bytes|Encaminhamento: dados entregues ao armazenamento|Bytes|Total|A quantidade de dados (bytes) IoT Hub de encaminhamento entregue nos pontos finais de armazenamento.|Nenhum|
+|d2c.endpoints.egress.storage.blobs|Encaminhamento: bolhas entregues ao armazenamento|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou bolhas nos pontos finais de armazenamento.|Nenhum|
+|EventGridDeliveries|Entregas de Grelha de Eventos (pré-visualização)|Contagem|Total|O número de eventos IoT Hub publicados para a Event Grid. Utilize a dimensão Resultado para o número de pedidos bem sucedidos e falhados. A dimensão EventType mostra o tipo de evento https://aka.ms/ioteventgrid) (.|ResourceId,Resultado,EventType|
+|EventGridLatency|Latência da grelha de eventos (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) de quando o evento Iot Hub foi gerado para quando o evento foi publicado para a Event Grid. Este número é uma média entre todos os tipos de eventos. Utilize a dimensão EventType para ver a latência de um tipo específico de evento.|ResourceId,EventType|
+|RoteamentoDelivas|Entregas de encaminhamento (pré-visualização)|Milissegundos|Total|O número de vezes que o IoT Hub tentou entregar mensagens a todos os pontos finais utilizando o encaminhamento. Para ver o número de tentativas bem sucedidas ou falhadas, utilize a dimensão Resultado. Para ver a razão da falha, como inválido, caído ou órfão, use a dimensão FailReasonCategory. Também pode utilizar as dimensões EndpointName e EndpointType para entender quantas mensagens foram entregues nos seus diferentes pontos finais. O valor métrico aumenta por um para cada tentativa de entrega, incluindo se a mensagem é entregue em vários pontos finais ou se a mensagem é entregue no mesmo ponto final várias vezes.|ResourceId,EndpointType,EndpointName,FailureReasonCategory,Result,RoutingSource|
+|EncaminhamentoDeliveryLatency|Data de entrega de encaminhamento (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada da mensagem de telemetria num ponto final. Pode utilizar as dimensões EndpointName e EndpointType para entender a latência dos seus diferentes pontos finais.|ResourceId,EndpointType,EndpointName,RoutingSource|
+|d2c.twin.read.success|Leituras gémeas bem sucedidas de dispositivos|Contagem|Total|A contagem de todas as leituras gémeas iniciadas pelo dispositivo.|Nenhum|
+|d2c.twin.read.failure|Leituras gémeas falhadas dos dispositivos|Contagem|Total|A contagem de todas as leituras gémeas iniciadas pelo dispositivo falhados.|Nenhum|
+|d2c.twin.read.size|Tamanho de resposta de leituras gémeas de dispositivos|Bytes|Média|A média, min e max de todas as leituras gémeas iniciadas pelo dispositivo com sucesso.|Nenhum|
+|d2c.twin.update.success|Atualizações gémeas bem sucedidas dos dispositivos|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas pelo dispositivo com sucesso.|Nenhum|
+|d2c.twin.update.failure|Falhas em duas atualizações a partir de dispositivos|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas pelo dispositivo.|Nenhum|
+|d2c.twin.update.size|Tamanho das atualizações gémeas dos dispositivos|Bytes|Média|O tamanho médio, min e máximo de todas as atualizações gémeas iniciadas pelo dispositivo com sucesso.|Nenhum|
+|c2d.methods.success|Invocações de métodos diretos bem-sucedidas|Contagem|Total|A contagem de todas as chamadas de métodos diretos bem sucedidos.|Nenhum|
+|c2d.methods.falha|Invocações de método direto falhadas|Contagem|Total|A contagem de todas as chamadas de métodos diretos falhadas.|Nenhum|
+|c2d.methods.requestSize|Tamanho do pedido de invocações de método direto|Bytes|Média|A média, min e máxima de todos os pedidos de método direto bem sucedidos.|Nenhum|
+|c2d.methods.responseSize|Tamanho da resposta das invocações do método direto|Bytes|Média|A média, min e máxima de todas as respostas de métodos diretos bem sucedidas.|Nenhum|
+|c2d.twin.read.success|Gémea bem sucedida lê a partir da parte de trás|Contagem|Total|A contagem de todas as leituras gémeas iniciadas com sucesso.|Nenhum|
+|c2d.twin.read.failure|Gémeo falhado lê do fundo|Contagem|Total|A contagem de todas as leituras gémeas falhadas.|Nenhum|
+|c2d.twin.read.size|Tamanho de resposta de leituras gémeas da parte de trás|Bytes|Média|A média, min, e máx.|Nenhum|
+|c2d.twin.update.success|Atualizações gémeas bem sucedidas a partir do final|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas com sucesso.|Nenhum|
+|c2d.twin.update.failure|Falhas em duas atualizações a partir do final|Contagem|Total|A contagem de todas as atualizações gémeas iniciadas pela parte de trás.|Nenhum|
+|c2d.twin.update.size|Tamanho das atualizações gémeas a partir da parte de trás|Bytes|Média|O tamanho médio, min e máximo de todas as atualizações gémeas iniciadas com sucesso.|Nenhum|
 |twinQueries.sucesso|Consultas gémeas bem sucedidas|Contagem|Total|A contagem de todas as consultas gémeas bem sucedidas.|Nenhum|
-|twinQueries.failure|Perguntas gémeas falhadas|Contagem|Total|A contagem de todas as perguntas gémeas falhadas.|Nenhum|
-|twinQueries.resultaTamanho|Tamanho do resultado das consultas gémeas|Bytes|Média|A média, min, e o máximo do tamanho do resultado de todas as consultas gémeas bem sucedidas.|Nenhum|
-|jobs.createTwinUpdateJob.success|Criações bem sucedidas de empregos de atualização dupla|Contagem|Total|A contagem de toda a criação bem sucedida de empregos de atualização dupla.|Nenhum|
-|jobs.createTwinUpdateJob.failure|Criações falhadas de empregos de atualização dupla|Contagem|Total|A contagem de todos os empregos falhados de atualização dupla.|Nenhum|
-|jobs.createDirectMethodJob.success|Criações bem sucedidas de empregos de invocação de métodos|Contagem|Total|A contagem de todas as criações bem sucedidas de empregos de invocação de métodos diretos.|Nenhum|
-|jobs.createDirectMethodJob.failure|Criações falhadas de empregos de invocação de métodos|Contagem|Total|A contagem de todos os empregos de invocação de métodos diretos.|Nenhum|
-|empregos.listJobs.success|Chamadas bem sucedidas para listar empregos|Contagem|Total|A contagem de todas as chamadas bem sucedidas para listar empregos.|Nenhum|
-|empregos.listJobs.failure|Chamadas falhadas para listar empregos|Contagem|Total|A contagem de todas as chamadas falhadas para listar empregos.|Nenhum|
-|jobs.cancelJob.success|Cancelamentos de emprego bem sucedidos|Contagem|Total|A contagem de todas as chamadas bem sucedidas para cancelar um trabalho.|Nenhum|
-|jobs.cancelJob.failure|Cancelamentos de emprego falhados|Contagem|Total|A contagem de todas as chamadas falhadas para cancelar um trabalho.|Nenhum|
-|jobs.queryJobs.success|Consultas de emprego bem sucedidas|Contagem|Total|A contagem de todas as chamadas bem sucedidas para trabalhos de consulta.|Nenhum|
-|jobs.queryJobs.failure|Consultas de trabalho falhadas|Contagem|Total|A contagem de todas as chamadas falhadas para trabalhos de consulta.|Nenhum|
-|empregos.concluído|Trabalhos concluídos|Contagem|Total|A contagem de todos os trabalhos concluídos.|Nenhum|
-|empregos.falhou|Empregos falhados|Contagem|Total|A contagem de todos os empregos falhados.|Nenhum|
-|d2c.telemetria.ingress.sendThrottle|Número de erros de estrangulamento|Contagem|Total|Número de erros de estrangulamento devido a aceleração de entrada do dispositivo|Nenhum|
+|twinQueries.falha|Consultas gémeas falhadas|Contagem|Total|A contagem de todas as consultas gémeas falhadas.|Nenhum|
+|twinQueries.resultSize|Tamanho do resultado de consultas gémeas|Bytes|Média|A média, min e máximo do tamanho do resultado de todas as consultas gémeas bem sucedidas.|Nenhum|
+|jobs.createTwinUpdateJob.success|Criações bem sucedidas de trabalhos de atualização dupla|Contagem|Total|A contagem de todos os trabalhos bem sucedidos de criação de trabalhos de atualização dupla.|Nenhum|
+|jobs.createTwinUpdateJob.failure|Criações falhadas de trabalhos de atualização dupla|Contagem|Total|A contagem de todos os trabalhos falhados de atualização dupla.|Nenhum|
+|jobs.createDirectMethodJob.success|Criações bem sucedidas de trabalhos de invocação de métodos|Contagem|Total|A contagem de todos os trabalhos bem sucedidos de criação de trabalhos de invocação de métodos diretos.|Nenhum|
+|jobs.createDirectMethodJob.fail|Criações falhadas de trabalhos de invocação de métodos|Contagem|Total|A contagem de todos os trabalhos falhados de invocação de métodos diretos.|Nenhum|
+|jobs.listJobs.sucesso|Chamadas bem-sucedidas para listar empregos|Contagem|Total|A contagem de todas as chamadas bem sucedidas para listar empregos.|Nenhum|
+|empregos.listJobs.fracasso|Chamadas falhadas para listar empregos|Contagem|Total|A contagem de todas as chamadas falhadas para listar empregos.|Nenhum|
+|jobs.cancelJob.sucesso|Cancelamentos de emprego bem-sucedidos|Contagem|Total|A contagem de todas as chamadas bem sucedidas para cancelar um emprego.|Nenhum|
+|jobs.cancelJob.failure|Cancelamentos de empregos falhados|Contagem|Total|A contagem de todas as chamadas falhadas para cancelar um emprego.|Nenhum|
+|jobs.queryJobs.sucesso|Consultas de trabalho bem sucedidas|Contagem|Total|A contagem de todas as chamadas bem sucedidas para trabalhos de consulta.|Nenhum|
+|jobs.consultaJobs.falha|Consultas de trabalho falhadas|Contagem|Total|A contagem de todas as chamadas falhadas para consultas.|Nenhum|
+|empregos.concluídos|Trabalhos concluídos|Contagem|Total|A contagem de todos os trabalhos concluídos.|Nenhum|
+|empregos.falhou|Empregos falhados|Contagem|Total|A contagem de todos os trabalhos falhados.|Nenhum|
+|d2c.telemetria.ingress.sendThrottle|Número de erros de estrangulamento|Contagem|Total|Número de erros de estrangulamento devido aos aceleradores de produção do dispositivo|Nenhum|
 |dailyMessageQuotaUsed|Número total de mensagens utilizadas|Contagem|Média|Número de mensagens totais usadas hoje|Nenhum|
-|dispositivoDataUsage|Utilização total dos dados do dispositivo|Bytes|Total|Bytes transferidos de e para quaisquer dispositivos ligados ao IotHub|Nenhum|
-|dispositivoDataUsageV2|Utilização total de dados do dispositivo (pré-visualização)|Bytes|Total|Bytes transferidos de e para quaisquer dispositivos ligados ao IotHub|Nenhum|
-|totaldeDispositivoCount|Total de dispositivos (pré-visualização)|Contagem|Média|Número de dispositivos registados no seu hub IoT|Nenhum|
+|dispositivoDataUsage|Total da utilização de dados do dispositivo|Bytes|Total|Bytes transferidos de e para qualquer dispositivo ligado ao IotHub|Nenhum|
+|dispositivoDataUsageV2|Total da utilização dos dados do dispositivo (pré-visualização)|Bytes|Total|Bytes transferidos de e para qualquer dispositivo ligado ao IotHub|Nenhum|
+|totalDeviceCount|Total de dispositivos (pré-visualização)|Contagem|Média|Número de dispositivos registados no seu hub IoT|Nenhum|
 |connectedDeviceCount|Dispositivos conectados (pré-visualização)|Contagem|Média|Número de dispositivos ligados ao seu hub IoT|Nenhum|
-|configurações|Métricas de Configuração|Contagem|Total|Métricas para Operações de Configuração|Nenhum|
+|configurações|Métricas de configuração|Contagem|Total|Métricas para Operações de Configuração|Nenhum|
 
 
-## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Dispositivos/serviços de provisionamento
-
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|Tentativas de Inscrição|Tentativas de registo|Contagem|Total|Número de registos de dispositivos tentados|ProvisioningServiceName,IotHubName,Status|
-|Atribuição de Dispositivos|Dispositivos atribuídos|Contagem|Total|Número de dispositivos atribuídos a um hub IoT|ProvisioningServiceName,IotHubName|
-|Tentativas de Attestation|Tentativas de atestação|Contagem|Total|Número de atestados de dispositivos tentados|ProvisioningServiceName,Status,Protocol|
-
-
-
-
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Região Add|Região Adicionada|Contagem|Contagem|Região Adicionada|Região|
-|Armazenamento Disponível|Armazenamento Disponível|Bytes|Total|Total de armazenamento disponível reportado em 5 minutos granularidade|Nome de recolha,Nome da Base de Dados,Região|
-|Encerramentos de CassandraConnection|Encerramentos de conexões Cassandra|Contagem|Total|Número de ligações cassandra que foram fechadas, reportadas a uma granularidade de 1 minuto|APIType,Região,ClosureReason|
-|CassandraKeyspaceDelete|Cassandra Keyspace apagada|Contagem|Contagem|Cassandra Keyspace apagada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
-|CassandraKeyspaceThroughputUpdate|Cassandra Keyspace Entrada atualizada|Contagem|Contagem|Cassandra Keyspace Entrada atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|CassandraKeyspaceUpdate|Cassandra Keyspace Atualizado|Contagem|Contagem|Cassandra Keyspace Atualizado|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|CassandraRequestCharges|Cassandra Request Charges|Contagem|Total|RUs consumidos para pedidos de Cassandra feitos|APIType,Nome de base de dados,Nome de recolha,Região,Tipo de Funcionamento,Tipo de Recursos|
-|Pedidos de Cassandra|Pedidos de Cassandra|Contagem|Contagem|Número de pedidos de Cassandra feitos|APIType,Nome de base de dados,Nome de recolha,Região,Tipo de Operação,Tipo de Recurso,Errorcode|
-|CassandraTableDelete|Mesa Cassandra apagada|Contagem|Contagem|Mesa Cassandra apagada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
-|CassandraTableThroughputUpdate|Entrada de tabela Cassandra atualizada|Contagem|Contagem|Entrada de tabela Cassandra atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|CassandraTableUpdate|Tabela Cassandra Atualizada|Contagem|Contagem|Tabela Cassandra Atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|CreateAccount|Conta Criada|Contagem|Contagem|Conta Criada|Nenhum|
-|Utilização de dados|Utilização de Dados|Bytes|Total|Utilização total de dados reportado sintetizando a 5 minutos granularidade|Nome de recolha,Nome da Base de Dados,Região|
-|DeleteAccount|Conta Eliminada|Contagem|Contagem|Conta Eliminada|Nenhum|
-|Contagem de documentos|Contagem de Documentos|Contagem|Total|Contagem total de documentos reportada a 5 minutos de granularidade|Nome de recolha,Nome da Base de Dados,Região|
-|DocumentQuota|Quota de Documento|Bytes|Total|Quota total de armazenamento reportada em 5 minutos granularidade|Nome de recolha,Nome da Base de Dados,Região|
-|GremlinDatabaseDelete|Base de Dados Gremlin eliminada|Contagem|Contagem|Base de Dados Gremlin eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
-|GremlinDatabaseThroughputupdate|Entrada de base de dados Gremlin atualizada|Contagem|Contagem|Entrada de base de dados Gremlin atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|GremlinDatabaseUpdate|Base de Dados Gremlin Atualizada|Contagem|Contagem|Base de Dados Gremlin Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|GremlinGraphDelete|Gráfico de Gremlin eliminado|Contagem|Contagem|Gráfico de Gremlin eliminado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
-|GremlinGraphThroughputUpdate|Entrada de gráfico de gremlin atualizada|Contagem|Contagem|Entrada de gráfico de gremlin atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|GremlinGraphUpdate|Gráfico de Gremlin Atualizado|Contagem|Contagem|Gráfico de Gremlin Atualizado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|Utilização de índices|Utilização do Índice|Bytes|Total|Utilização total do índice reportada a 5 minutos de granularidade|Nome de recolha,Nome da Base de Dados,Região|
-|MetadadosPedidos|Pedidos de Metadados|Contagem|Contagem|Contagem de pedidos de metadados. Cosmos DB mantém recolha de metadados do sistema para cada conta, que lhe permite enumerar coleções, bases de dados, etc, e suas configurações, gratuitamente.|Nome de base de dados,Nome de recolha,Região,StatusCode,Função|
-|MongoCollectionDelete|Coleção Mongo apagada|Contagem|Contagem|Coleção Mongo apagada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
-|MongoCollectionThroughputUpdate|Mongo Collection Throughput Atualizado|Contagem|Contagem|Mongo Collection Throughput Atualizado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|MongoCollectionUpdate|Coleção Mongo Atualizada|Contagem|Contagem|Coleção Mongo Atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|MongoDBDatabaseUpdate|Base de Dados de Mongo Atualizada|Contagem|Contagem|Base de Dados de Mongo Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|MongoDatabaseDelete|Base de Dados mongo eliminada|Contagem|Contagem|Base de Dados mongo eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
-|MongoDatabaseThroughputUpdate|Entrada de base de dados de Mongo atualizada|Contagem|Contagem|Entrada de base de dados de Mongo atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|MongoRequestCharge|Taxa de pedido de Mongo|Contagem|Total|Unidades de Pedido de Mongo Consumidas|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode,Status|
-|Pedidos de Mongo|Pedidos de Mongo|Contagem|Contagem|Número de pedidos de Mongo feitos|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode,Status|
-|MongoRequestsCount|Taxa de pedido de Mongo|CondeEmSegundo|Média|Pedido de Mongo Conde por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
-|MongoRequestsDelete|Taxa de pedido de exclusão de Mongo|CondeEmSegundo|Média|Mongo Apagar pedido por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
-|MongoRequestsInsert|Taxa de pedido de inserção de Mongo|CondeEmSegundo|Média|Mongo Inserir contagem por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
-|MongoRequestsQuery|Taxa de pedido de consulta de Mongo|CondeEmSegundo|Média|Pedido de consulta de Mongo por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
-|MongoRequestsUpdate|Taxa de pedido de atualização de Mongo|CondeEmSegundo|Média|Pedido de Atualização de Mongo por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
-|Consumo normalizado RU|Consumo ru normalizado|Percentagem|Máximo|Percentagem de consumo max RU por minuto|Nome de recolha,Nome da Base de Dados,Região|
-|ProvisionedThroughput|Débito Aprovisionado|Contagem|Máximo|Débito Aprovisionado|Nome base de dados,Nome de recolha|
-|RegiãoFailover|Região falhou|Contagem|Contagem|Região falhou|Nenhum|
-|Região de Remoção|Região Removida|Contagem|Contagem|Região Removida|Região|
-|ReplicaçãoTardia|Latência de Replicação P99|MilliSeconds|Média|Latência de replicação P99 entre fonte e regiões-alvo para conta geoactiva|SourceRegion,TargetRegion|
-|ServerSideLatency|Latência lateral do servidor|MilliSeconds|Média|Latência lateral do servidor|nome da base de dados,collectionname,região,Modo de Ligação,Tipo de Operação,PublicaPIType|
-|ServiçoDisponibilidade|Disponibilidade de Serviço|Percentagem|Média|Conta solicita disponibilidade de uma hora, dia ou mês|Nenhum|
-|SqlContainerDelete|Recipiente Sql eliminado|Contagem|Contagem|Recipiente Sql eliminado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
-|SqlContainerThroughputUpdate|Entrada de recipiente sql atualizada|Contagem|Contagem|Entrada de recipiente sql atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|SqlContainerUpdate|Recipiente Sql Atualizado|Contagem|Contagem|Recipiente Sql Atualizado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|SqlDatabaseDelete|Base de Dados Sql Eliminada|Contagem|Contagem|Base de Dados Sql Eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
-|SqlDatabaseThroughputUpdate|Entrada de base de dados Sql atualizada|Contagem|Contagem|Entrada de base de dados Sql atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|SqlDatabaseUpdate|Base de Dados Sql Atualizada|Contagem|Contagem|Base de Dados Sql Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|Tabela tabelaDelete|Tabela AzureTable eliminada|Contagem|Contagem|Tabela AzureTable eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
-|TableTableThroughputUpdate|Entrada de tabela azuretable atualizada|Contagem|Contagem|Entrada de tabela azuretable atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|TableTableUpdate|Tabela AzureTable Atualizada|Contagem|Contagem|Tabela AzureTable Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
-|TotaldeUnidades de Pedidos|Total de Unidades de Pedido|Contagem|Total|Unidades de Pedido consumidas|Nome de base de dados,Nome de recolha,Região,StatusCode,OperationType,Status|
-|TotalRequests|Total de Pedidos|Contagem|Contagem|Número de pedidos feitos|Nome de base de dados,Nome de recolha,Região,StatusCode,OperationType,Status|
-|UpdateAccountKeys|Chaves de conta atualizadas|Contagem|Contagem|Chaves de conta atualizadas|Tipo de chave|
-|Definições de Rede de Atualizações|Definições de rede de conta atualizadas|Contagem|Contagem|Definições de rede de conta atualizadas|Nenhum|
-|Definições de replicação de 'Actualizações', Replicação de Contas|Definições de replicação de conta atualizadas|Contagem|Contagem|Definições de replicação de conta atualizadas|Nenhum|
-|AtualizaçãoDiagnosticsSettings|Definições de diagnóstico de conta atualizadas|Contagem|Contagem|Definições de diagnóstico de conta atualizadas|DiagnósticoDefiniçõesNome,Nome do Grupo de Recursos|
+|InscriçõesAptas|Tentativas de registo|Contagem|Total|Número de registos de dispositivos tentados|ProvisioningServiceName,IotHubName,Status|
+|Configurações de Dispositivos|Dispositivos atribuídos|Contagem|Total|Número de dispositivos atribuídos a um hub IoT|ProvisioningServiceName,IotHubName|
+|AttestationAttempts|Tentativas de atestado|Contagem|Total|Número de atestesações de dispositivos tentados|ProvisioningServiceName,Status,Protocol|
+
+
+
+
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseSacons
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|AddRegion|Região Adicionada|Contagem|Contagem|Região Adicionada|Região|
+|DisponíveisToragem|Armazenamento Disponível|Bytes|Total|Armazenamento total disponível reportado a 5 minutos de granularidade|Nome de coleção,Nome de Base de Dados,Região|
+|CassandraConnectionClosures|Encerramentos de conexão cassandra|Contagem|Total|Número de ligações cassandra que foram fechadas, reportadas a uma granularidade de 1 minuto|APIType,Região,ClosureReason|
+|CassandraKeyspaceDelete|Cassandra Keyspace eliminada|Contagem|Contagem|Cassandra Keyspace eliminada|Nome de recurso,ApiKind,ApiKindResourceType,OperationType|
+|CassandraKeyspaceThroughputUpdate|Cassandra Keyspace Throughput Atualizado|Contagem|Contagem|Cassandra Keyspace Throughput Atualizado|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraKeyspaceUpdate|Cassandra Keyspace Atualizado|Contagem|Contagem|Cassandra Keyspace Atualizado|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraRequestCharges|Cassandra Request Charges|Contagem|Total|RUs consumidos por pedidos de Cassandra feitos|APIType,DatabaseName,CollectionName,Region,OperationType,ResourceType|
+|CassandraRequests|Pedidos de Cassandra|Contagem|Contagem|Número de pedidos de Cassandra feitos|APIType,DatabaseName,CollectionName,Region,OperationType,ResourceType,ErrorCode|
+|CassandraTableDelete|Tabela Cassandra Eliminada|Contagem|Contagem|Tabela Cassandra Eliminada|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|CassandraTableThroughputUpdate|Produção de tabela Cassandra atualizada|Contagem|Contagem|Produção de tabela Cassandra atualizada|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraTableUpdate|Tabela Cassandra Atualizada|Contagem|Contagem|Tabela Cassandra Atualizada|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|Criar Contas|Conta Criada|Contagem|Contagem|Conta Criada|Nenhum|
+|DataUsage|Utilização de Dados|Bytes|Total|Total de utilização de dados reportados a 5 minutos de granularidade|Nome de coleção,Nome de Base de Dados,Região|
+|ExcluirAconta|Conta Eliminada|Contagem|Contagem|Conta Eliminada|Nenhum|
+|Contagem de documentos|Contagem de documentos|Contagem|Total|Contagem total de documentos reportada em 5 minutos granularidade|Nome de coleção,Nome de Base de Dados,Região|
+|DocumentQuota|Quota documental|Bytes|Total|Quota total de armazenamento reportada a 5 minutos de granularidade|Nome de coleção,Nome de Base de Dados,Região|
+|GremlinDatabaseDelete|Gremlin Base de Dados Eliminada|Contagem|Contagem|Gremlin Base de Dados Eliminada|Nome de recurso,ApiKind,ApiKindResourceType,OperationType|
+|GremlinDatabaseThroughputUpdate|Produção de base de dados gremlin atualizada|Contagem|Contagem|Produção de base de dados gremlin atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinDatabaseUpdate|Base de Dados Gremlin Atualizada|Contagem|Contagem|Base de Dados Gremlin Atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphDelete|Gremlin Graph Eliminado|Contagem|Contagem|Gremlin Graph Eliminado|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|GremlinGraphThroughputUpdate|Throughputo de gráfico gremlin atualizado|Contagem|Contagem|Throughputo de gráfico gremlin atualizado|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphUpdate|Gráfico de Gremlin Atualizado|Contagem|Contagem|Gráfico de Gremlin Atualizado|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|IndexUsage|Utilização do Índice|Bytes|Total|Utilização total do índice reportada a 5 minutos de granularidade|Nome de coleção,Nome de Base de Dados,Região|
+|MetadataReques|Pedidos de Metadados|Contagem|Contagem|Contagem de pedidos de metadados. Cosmos DB mantém recolha de metadados do sistema para cada conta, que lhe permite enumerar coleções, bases de dados, etc, e suas configurações, gratuitamente.|Data de dados Nome,Nome de Recolha,Região,Código de Estado,Função|
+|MongoCollectionDelete|Coleção mongo eliminada|Contagem|Contagem|Coleção mongo eliminada|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|MongoCollectionThroughputUpdate|Produção de coleção de Mongo atualizada|Contagem|Contagem|Produção de coleção de Mongo atualizada|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoCollectionUpdate|Coleção Mongo Atualizada|Contagem|Contagem|Coleção Mongo Atualizada|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDBDatabaseUpdate|Base de Dados de Mongo Atualizada|Contagem|Contagem|Base de Dados de Mongo Atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDatabaseDelete|Base de Dados de Mongo eliminada|Contagem|Contagem|Base de Dados de Mongo eliminada|Nome de recurso,ApiKind,ApiKindResourceType,OperationType|
+|MongoDatabaseThroughputUpdate|Produção de base de dados de Mongo atualizada|Contagem|Contagem|Produção de base de dados de Mongo atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoRequestCharge|Taxa de pedido de Mongo|Contagem|Total|Unidades de pedido da Mongo Consumidas|Data de dadosName,Nome de Recolha,Região,Nome de Comando,Código de Erro,Estado|
+|MongoRequests|Pedidos de Mongo|Contagem|Contagem|Número de pedidos da Mongo Feitos|Data de dadosName,Nome de Recolha,Região,Nome de Comando,Código de Erro,Estado|
+|MongoRequestsCount|Taxa de pedido de Mongo|CondePerSecond|Média|Mongo pede Conde por segundo|Nome de dados,Nome de recolha,Região,Nome de Comando,Código de Erro|
+|MongoRequestsDelete|Tarifa de pedido de eliminação de Mongo|CondePerSecond|Média|Mongo Delete request por segundo|Nome de dados,Nome de recolha,Região,Nome de Comando,Código de Erro|
+|MongoRequestsInsert|Taxa de pedido de inserção de Mongo|CondePerSecond|Média|Contagem de Inserção de Mongo por segundo|Nome de dados,Nome de recolha,Região,Nome de Comando,Código de Erro|
+|MongoRequestsQuery|Taxa de pedido de consulta de Mongo|CondePerSecond|Média|Pedido de consulta de Mongo por segundo|Nome de dados,Nome de recolha,Região,Nome de Comando,Código de Erro|
+|MongoRequestsUpdate|Taxa de pedido de atualização de Mongo|CondePerSecond|Média|Pedido de atualização de Mongo por segundo|Nome de dados,Nome de recolha,Região,Nome de Comando,Código de Erro|
+|Ruconsumption normalizado|Consumo de RU normalizado|Percentagem|Máximo|Percentagem de consumo max RU por minuto|Nome de coleção,Nome de Base de Dados,Região|
+|ProvisionedThroughput|Débito Aprovisionado|Contagem|Máximo|Débito Aprovisionado|Nome de dados,Nome de Coleção|
+|RegionFailover|Região falhou|Contagem|Contagem|Região falhou|Nenhum|
+|Remover a Região|Região removida|Contagem|Contagem|Região removida|Região|
+|ReplicationLatency|Latência de replicação P99|MilliSeconds|Média|P99 Replicação Latência em todas as regiões de origem e alvo para conta geo-habilitada|OrigemRegion,TargetRegion|
+|ServerSideLatency|Latência do lado do servidor|MilliSeconds|Média|Latência do lado do servidor|Nome de dados,Nome de Recolha,Região,ConnectionMode,OperationType,PublicAPIType|
+|ServiçoSAdisponibilidade|Disponibilidade de serviço|Percentagem|Média|Conta solicita disponibilidade a uma hora, dia ou mês de granularidade|Nenhum|
+|SqlContainerDelete|Recipiente sql eliminado|Contagem|Contagem|Recipiente sql eliminado|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|SqlContainerThroughputUpdate|Produção de recipiente sql atualizado|Contagem|Contagem|Produção de recipiente sql atualizado|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlContainerUpdate|Recipiente Sql Atualizado|Contagem|Contagem|Recipiente Sql Atualizado|Nome de recurso,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseDelete|Base de Dados Sql Eliminada|Contagem|Contagem|Base de Dados Sql Eliminada|Nome de recurso,ApiKind,ApiKindResourceType,OperationType|
+|SqlDatabaseThroughputUpdate|Produção de base de dados sql atualizada|Contagem|Contagem|Produção de base de dados sql atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseUpdate|Base de Dados Sql Atualizada|Contagem|Contagem|Base de Dados Sql Atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TableTableDelete|Tabela AzureTable Eliminada|Contagem|Contagem|Tabela AzureTable Eliminada|Nome de recurso,ApiKind,ApiKindResourceType,OperationType|
+|TableTableThroughputUpdate|Produção de tabela azuretable atualizado|Contagem|Contagem|Produção de tabela azuretable atualizado|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TableTableUpdate|Tabela AzureTable atualizada|Contagem|Contagem|Tabela AzureTable atualizada|Nome de recurso,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TotalRequestUnits|Total de Unidades de Pedido|Contagem|Total|Unidades de pedido consumidas|Data de dadosName,Nome de Recolha,Região,Código de Estado,OperaçãoType,Estado|
+|TotalRequests|Total de Pedidos|Contagem|Contagem|Número de pedidos feitos|Data de dadosName,Nome de Recolha,Região,Código de Estado,OperaçãoType,Estado|
+|UpdateAccountKeys|Chaves de conta atualizadas|Contagem|Contagem|Chaves de conta atualizadas|Teclas|
+|UpdateAccountNetworkSettings|Definições de rede de conta atualizadas|Contagem|Contagem|Definições de rede de conta atualizadas|Nenhum|
+|UpdateAccountReplicationSettings|Definições de replicação de conta atualizadas|Contagem|Contagem|Definições de replicação de conta atualizadas|Nenhum|
+|AtualizaçãoDiagnosticsSettings|Definições de diagnóstico de conta atualizadas|Contagem|Contagem|Definições de diagnóstico de conta atualizadas|DiagnósticoSettingsName,Nome do Grupo de Recursos|
 
 
 
@@ -1084,74 +1084,74 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|TransacçõesContagem|Contagem de Transações|Contagem|Contagem|Contagem total de transações|TransacçõesContagem|
-|Contagem de Sucessos|Contagens com Êxito|Contagem|Contagem|Contagem de Transações Bem sucedidas|Contagem de Sucessos|
-|FalhaCount|Contagem de Falhas|Contagem|Contagem|Contagem de Transações Falhadas|FalhaCount|
-|SucessoLatency|Latência de Sucesso|MilliSeconds|Média|Latência de Transações Bem Sucedidas|Contagem de Sucessos|
+|TransaçãoCount|Contagem de transações|Contagem|Contagem|Contagem total de transações|TransaçãoCount|
+|SucessoCount|Contagem de Êxitos|Contagem|Contagem|Contagem de Transações Bem Sucedidas|SucessoCount|
+|Contagem de falhas|Contagem de Falhas|Contagem|Contagem|Contagem de Transações Falhadas|Contagem de falhas|
+|SucessoSA|Latência do sucesso|MilliSeconds|Média|Latência de Transações Bem Sucedidas|SucessoCount|
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domínios
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de Sucessos|Eventos Publicados|Contagem|Total|Total de eventos publicados para este tópico|Tópico|
-|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Eventos totais não publicaram para este tópico|Tópico,ErrorType,Error|
-|PublicarSuccessLatencyInMs|Publicar Latência de Sucesso|Milissegundos|Total|Publicar latência de sucesso em milissegundos|Nenhum|
-|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição do evento|Tópico,Nome de Subscrição de Eventos,DomínioEventSubscriptionName|
-|Contagem de falhas de tentativa de entrega|Eventos falhados de entrega|Contagem|Total|Eventos totais não entregaram a esta subscrição do evento|Tópico,Nome de Subscrição de Eventos,DomínioEventSubscriptionName,Error,ErrorType|
-|Contagem de Sucessos de Entrega|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Tópico,Nome de Subscrição de Eventos,DomínioEventSubscriptionName|
-|DestinationProcessingDurationInMs|Duração do processamento do destino|Milissegundos|Média|Duração do processamento do destino em milissegundos|Tópico,Nome de Subscrição de Eventos,DomínioEventSubscriptionName|
-|Contagem de eventos abandonados|Eventos abandonados|Contagem|Total|Total deixou cair eventos correspondentes a esta subscrição de evento|Tópico,Nome de Subscrição de Eventos,DomínioNome de Subscrição de Domínio,DropReason|
-|DeadLetteredCount|Eventos com Letras Mortas|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|Tópico,Nome de Subscrição de Eventos,Nome de Subscrição de Domínio,DeadLetterReason|
+|PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Tópico|
+|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|Tópico,ErrorType,Error|
+|Publicar Inimitrodências|Publicar Latência de Sucesso|Milissegundos|Total|Publique latência de sucesso em milissegundos|Nenhum|
+|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição de evento|Tema,EventSubscriptionName,DomainEventSubscriptionName|
+|EntregaAttemptFailCount|Eventos falhados de entrega|Contagem|Total|Total de eventos não entregaram a esta subscrição do evento|Tópico,EventSubscriptionName,DomainEventSubscriptionName,Error,ErrorType|
+|EntregaSSuccessCount|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Tema,EventSubscriptionName,DomainEventSubscriptionName|
+|DestinationProcessingDurationInMs|Duração do processamento do destino|Milissegundos|Média|Duração do processamento do destino em milissegundos|Tema,EventSubscriptionName,DomainEventSubscriptionName|
+|DropEventCount|Eventos abandonados|Contagem|Total|Total de eventos perdidos correspondentes a esta subscrição do evento|Tópico,EventSubscriptionName,DomainEventSubscriptionName,DropReason|
+|DeadLetteredCount|Eventos lettered mortos|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|Tópico,EventSubscriptionName,DomainEventSubscriptionName,DeadLetterReason|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/tópicos
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de Sucessos|Eventos Publicados|Contagem|Total|Total de eventos publicados para este tópico|Nenhum|
-|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Eventos totais não publicaram para este tópico|ErrorType,Error|
-|Contagem de eventos incomparáveis|Eventos Incomparáveis|Contagem|Total|Eventos totais que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhum|
-|PublicarSuccessLatencyInMs|Publicar Latência de Sucesso|Milissegundos|Total|Publicar latência de sucesso em milissegundos|Nenhum|
-|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição do evento|Nome de subscrição de eventos|
-|Contagem de falhas de tentativa de entrega|Eventos falhados de entrega|Contagem|Total|Eventos totais não entregaram a esta subscrição do evento|Error,ErrorType,EventSubscriptionName|
-|Contagem de Sucessos de Entrega|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nome de subscrição de eventos|
+|PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
+|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
+|InigualávelEventCount|Eventos incomparáveis|Contagem|Total|Total de eventos que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhum|
+|Publicar Inimitrodências|Publicar Latência de Sucesso|Milissegundos|Total|Publique latência de sucesso em milissegundos|Nenhum|
+|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição de evento|Nome de subscrição de eventos|
+|EntregaAttemptFailCount|Eventos falhados de entrega|Contagem|Total|Total de eventos não entregaram a esta subscrição do evento|Erro,ErrorType,EventSubscriptionName|
+|EntregaSSuccessCount|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nome de subscrição de eventos|
 |DestinationProcessingDurationInMs|Duração do processamento do destino|Milissegundos|Média|Duração do processamento do destino em milissegundos|Nome de subscrição de eventos|
-|Contagem de eventos abandonados|Eventos abandonados|Contagem|Total|Total deixou cair eventos correspondentes a esta subscrição de evento|DropReason,EventSubscriptionName|
-|DeadLetteredCount|Eventos com Letras Mortas|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason,EventSubscriptionName|
+|DropEventCount|Eventos abandonados|Contagem|Total|Total de eventos perdidos correspondentes a esta subscrição do evento|DropReason,EventSubscriptionName|
+|DeadLetteredCount|Eventos lettered mortos|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason,EventSubscriptionName|
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft.EventGrid/systemTopics
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de Sucessos|Eventos Publicados|Contagem|Total|Total de eventos publicados para este tópico|Nenhum|
-|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Eventos totais não publicaram para este tópico|ErrorType,Error|
-|Contagem de eventos incomparáveis|Eventos Incomparáveis|Contagem|Total|Eventos totais que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhum|
-|PublicarSuccessLatencyInMs|Publicar Latência de Sucesso|Milissegundos|Total|Publicar latência de sucesso em milissegundos|Nenhum|
-|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição do evento|Nome de subscrição de eventos|
-|Contagem de falhas de tentativa de entrega|Eventos falhados de entrega|Contagem|Total|Eventos totais não entregaram a esta subscrição do evento|Error,ErrorType,EventSubscriptionName|
-|Contagem de Sucessos de Entrega|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nome de subscrição de eventos|
+|PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
+|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
+|InigualávelEventCount|Eventos incomparáveis|Contagem|Total|Total de eventos que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhum|
+|Publicar Inimitrodências|Publicar Latência de Sucesso|Milissegundos|Total|Publique latência de sucesso em milissegundos|Nenhum|
+|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição de evento|Nome de subscrição de eventos|
+|EntregaAttemptFailCount|Eventos falhados de entrega|Contagem|Total|Total de eventos não entregaram a esta subscrição do evento|Erro,ErrorType,EventSubscriptionName|
+|EntregaSSuccessCount|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nome de subscrição de eventos|
 |DestinationProcessingDurationInMs|Duração do processamento do destino|Milissegundos|Média|Duração do processamento do destino em milissegundos|Nome de subscrição de eventos|
-|Contagem de eventos abandonados|Eventos abandonados|Contagem|Total|Total deixou cair eventos correspondentes a esta subscrição de evento|DropReason,EventSubscriptionName|
-|DeadLetteredCount|Eventos com Letras Mortas|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason,EventSubscriptionName|
+|DropEventCount|Eventos abandonados|Contagem|Total|Total de eventos perdidos correspondentes a esta subscrição do evento|DropReason,EventSubscriptionName|
+|DeadLetteredCount|Eventos lettered mortos|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason,EventSubscriptionName|
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição do evento|Nenhum|
-|Contagem de falhas de tentativa de entrega|Eventos falhados de entrega|Contagem|Total|Eventos totais não entregaram a esta subscrição do evento|Error,ErrorType|
-|Contagem de Sucessos de Entrega|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nenhum|
+|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição de evento|Nenhum|
+|EntregaAttemptFailCount|Eventos falhados de entrega|Contagem|Total|Total de eventos não entregaram a esta subscrição do evento|Erro,ErrorType|
+|EntregaSSuccessCount|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nenhum|
 |DestinationProcessingDurationInMs|Duração do processamento do destino|Milissegundos|Média|Duração do processamento do destino em milissegundos|Nenhum|
-|Contagem de eventos abandonados|Eventos abandonados|Contagem|Total|Total deixou cair eventos correspondentes a esta subscrição de evento|DropReason|
-|DeadLetteredCount|Eventos com Letras Mortas|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason|
+|DropEventCount|Eventos abandonados|Contagem|Total|Total de eventos perdidos correspondentes a esta subscrição do evento|GotaReason|
+|DeadLetteredCount|Eventos lettered mortos|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason|
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de Sucessos|Eventos Publicados|Contagem|Total|Total de eventos publicados para este tópico|Nenhum|
-|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Eventos totais não publicaram para este tópico|ErrorType,Error|
-|Contagem de eventos incomparáveis|Eventos Incomparáveis|Contagem|Total|Eventos totais que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhum|
-|PublicarSuccessLatencyInMs|Publicar Latência de Sucesso|Milissegundos|Total|Publicar latência de sucesso em milissegundos|Nenhum|
+|PublicarSuccessCount|Eventos Publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
+|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Total de eventos não publicou para este tópico|ErrorType,Error|
+|InigualávelEventCount|Eventos incomparáveis|Contagem|Total|Total de eventos que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhum|
+|Publicar Inimitrodências|Publicar Latência de Sucesso|Milissegundos|Total|Publique latência de sucesso em milissegundos|Nenhum|
 
 
 
@@ -1160,63 +1160,63 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Pedidos bem sucedidos|Pedidos bem sucedidos|Contagem|Total|Pedidos de sucesso para Microsoft.EventHub.|Nome de entidade,OperationResult|
-|Erros de servidor|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.EventHub.|Nome de entidade,OperationResult|
-|Erros de utilizador|Erros do utilizador.|Contagem|Total|Erros de utilizador para Microsoft.EventHub.|Nome de entidade,OperationResult|
-|Erros Contingentes|Erros ultrapassados da quota.|Contagem|Total|Quota Exceeded Errors for Microsoft.EventHub.|Nome de entidade,OperationResult|
-|ThrottledRequests|Pedidos estrangulados.|Contagem|Total|Pedidos throttled para Microsoft.EventHub.|Nome de entidade,OperationResult|
-|Pedidos de entrada|Pedidos de Entrada|Contagem|Total|Pedidos de entrada para Microsoft.EventHub.|Nome da entidade|
-|Mensagens de entrada|Mensagens de entrada|Contagem|Total|Mensagens de entrada para Microsoft.EventHub.|Nome da entidade|
-|Mensagens de saída|Mensagens de saída|Contagem|Total|Mensagens de saída para Microsoft.EventHub.|Nome da entidade|
-|IncomingBytes|Bytes de entrada.|Bytes|Total|Incoming Bytes para Microsoft.EventHub.|Nome da entidade|
-|OutgoingBytes|Bytes de saída.|Bytes|Total|Bytes de saída para Microsoft.EventHub.|Nome da entidade|
+|Requess de sucesso|Pedidos de Sucesso|Contagem|Total|Pedidos de sucesso para Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
+|ServerErrors|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
+|UserErrors|Erros do utilizador.|Contagem|Total|Erros do utilizador para o Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
+|QuotaExceededErrors|Quota excedeu erros.|Contagem|Total|Quota Excedeu erros para Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
+|ThrottledRequests|Pedidos de aceleração.|Contagem|Total|Pedidos de aceleração para o Microsoft.EventHub.|Nome da Entidade,OperaçãoResult|
+|IncomingRequests|Pedidos de Entrada|Contagem|Total|Pedidos de entrada para Microsoft.EventHub.|Nome de Entidade|
+|Entradas|Mensagens recebidas|Contagem|Total|Mensagens de entrada para Microsoft.EventHub.|Nome de Entidade|
+|Despesas de Saída|Mensagens de saída|Contagem|Total|Mensagens de saída para o Microsoft.EventHub.|Nome de Entidade|
+|IncomingBytes|Entradas bytes.|Bytes|Total|Incoming Bytes para Microsoft.EventHub.|Nome de Entidade|
+|OutgoingBytes|Bytes de saída.|Bytes|Total|Bytes de saída para Microsoft.EventHub.|Nome de Entidade|
 |ActiveConnections|ActiveConnections|Contagem|Média|Total de conexões ativas para Microsoft.EventHub.|Nenhum|
-|Conexões Abertas|Ligações abertas.|Contagem|Média|Ligações abertas para Microsoft.EventHub.|Nome da entidade|
-|Conexões Fechadas|Ligações fechadas.|Contagem|Média|Ligações fechadas para Microsoft.EventHub.|Nome da entidade|
-|CaptureBacklog|Capture Backlog.|Contagem|Total|Capture Backlog para Microsoft.EventHub.|Nome da entidade|
-|Mensagens Capturadas|Mensagens capturadas.|Contagem|Total|Mensagens capturadas para Microsoft.EventHub.|Nome da entidade|
-|CapturedBytes|Bytes capturados.|Bytes|Total|Bytes capturados para Microsoft.EventHub.|Nome da entidade|
-|Tamanho|Tamanho|Bytes|Média|Tamanho de um EventHub em Bytes.|Nome da entidade|
-|INREQS|Pedidos de entrada (Preprecated)|Contagem|Total|Total de pedidos de envio de entrada para um espaço de nome (Deprecated)|Nenhum|
-|SUCCREQ|Pedidos bem sucedidos (Depreciados)|Contagem|Total|Total de pedidos bem sucedidos para um espaço de nome (Deprecated)|Nenhum|
-|FAILREQ|Pedidos Falhados (Preprecated)|Contagem|Total|Total de pedidos falhados para um espaço de nome (Deprecated)|Nenhum|
-|SVRBSY|Erros ocupados do servidor (Deprecated)|Contagem|Total|Total de erros ocupados do servidor para um espaço de nome (Deprecated)|Nenhum|
-|INTERR|Erros internos do servidor (Deprecated)|Contagem|Total|Total de erros internos do servidor para um espaço de nome (Deprecated)|Nenhum|
-|MISCERR|Outros Erros (Deprecated)|Contagem|Total|Total de pedidos falhados para um espaço de nome (Deprecated)|Nenhum|
-|INMSGS|Mensagens de entrada (obsoletas) (Depreciadas)|Contagem|Total|Total de mensagens de entrada para um espaço de nome. Esta métrica está depreciada. Utilize a métrica de Mensagens Incoming (Depreciada)|Nenhum|
-|EHINMSGS|Mensagens de entrada (Depreciadas)|Contagem|Total|Total de mensagens de entrada para um espaço de nome (Deprecated)|Nenhum|
-|Outmsgs|Mensagens de saída (obsoletas) (Depreciadas)|Contagem|Total|Total de mensagens de saída para um espaço de nome. Esta métrica está depreciada. Utilize a métrica das Mensagens De saída (Depreciada)|Nenhum|
-|EHOUTMSGS|Mensagens de saída (Depreciadas)|Contagem|Total|Total de mensagens de saída para um espaço de nome (Deprecated)|Nenhum|
-|EHINMBS|Bytes de entrada (obsoletos) (Depreciados)|Bytes|Total|Entrada de mensagem do Event Hub para um espaço de nome. Esta métrica está depreciada. Utilize a métrica incoming bytes (Depreciada)|Nenhum|
-|EHINBYTES|Bytes de entrada (Deprecated)|Bytes|Total|Entrada de mensagem do Event Hub para um espaço de nome (Deprecated)|Nenhum|
-|EHOUTMBS|Bytes de saída (obsoletos) (Depreciados)|Bytes|Total|Entrada de mensagem de saída do Event Hub para um espaço de nome. Esta métrica está depreciada. Utilize a métrica de bytes de saída (Depreciada)|Nenhum|
-|EHOUTBYTES|Bytes de saída (Deprecated)|Bytes|Total|Entrada de mensagem de saída do Event Hub para um espaço de nome (Deprecated)|Nenhum|
-|EHABL|Mensagens de atraso de arquivo (Depreciadas)|Contagem|Total|Mensagens de arquivo do Event Hub em atraso para um espaço de nome (Deprecated)|Nenhum|
-|EHAMSGS|Mensagens de arquivo (Depreciadas)|Contagem|Total|O Event Hub arquivou mensagens num espaço de nome (Deprecated)|Nenhum|
-|EHAMBs|Entrada de mensagem de arquivo (Depreciada)|Bytes|Total|Web de mensagem arquivada do Event Hub num espaço de nome (Deprecated)|Nenhum|
+|LigaçõesAsa|Ligações Abertas.|Contagem|Média|Ligações abertas para Microsoft.EventHub.|Nome de Entidade|
+|LigaçõesClosed|Ligações fechadas.|Contagem|Média|Ligações fechadas para Microsoft.EventHub.|Nome de Entidade|
+|CaptureBacklog|Capture Backlog.|Contagem|Total|Capture Backlog for Microsoft.EventHub.|Nome de Entidade|
+|Caixas de Captura|Mensagens capturadas.|Contagem|Total|Mensagens capturadas para Microsoft.EventHub.|Nome de Entidade|
+|CapturouBytes|Bytes capturados.|Bytes|Total|Bytes capturados para Microsoft.EventHub.|Nome de Entidade|
+|Tamanho|Tamanho|Bytes|Média|Tamanho de um EventHub em Bytes.|Nome de Entidade|
+|INREQS|Pedidos de Entrada (Deprecados)|Contagem|Total|Total de pedidos de envio para um espaço de nome (Deprecado)|Nenhum|
+|SUCCREQ|Pedidos de sucesso (Deprecados)|Contagem|Total|Total de pedidos bem sucedidos para um espaço de nome (Deprecado)|Nenhum|
+|FAILREQ|Pedidos Falhados (Deprecados)|Contagem|Total|Total de pedidos falhados para um espaço de nome (Deprecado)|Nenhum|
+|SVRBSY|Erros ocupados do servidor (preprecados)|Contagem|Total|Erros de ocupado total do servidor para um espaço de nome (Deprecado)|Nenhum|
+|INTERR|Erros internos do servidor (preprecados)|Contagem|Total|Erros internos totais do servidor para um espaço de nome (Deprecado)|Nenhum|
+|MISCERR|Outros Erros (Precotados)|Contagem|Total|Total de pedidos falhados para um espaço de nome (Deprecado)|Nenhum|
+|INMSGS|Mensagens recebidas (obsoletas) (Depreciadas)|Contagem|Total|Total de mensagens recebidas para um espaço de nome. Esta métrica está prevadida. Utilize a métrica de Mensagens recebidas (Deprecadas)|Nenhum|
+|EFINMSGS|Mensagens recebidas (depreciadas)|Contagem|Total|Total de mensagens recebidas para um espaço de nome (Deprecado)|Nenhum|
+|OUTMSGS|Mensagens de saída (obsoletas) (Depreciadas)|Contagem|Total|Mensagens de saída total para um espaço de nome. Esta métrica está prevadida. Utilize em vez disso a métrica mensagens de saída (deprecadas)|Nenhum|
+|EHOUTMSGS|Mensagens de saída (depreciadas)|Contagem|Total|Total de mensagens de saída para um espaço de nome (Deprecado)|Nenhum|
+|EHINMBS|Bytes de entrada (obsoletos) (Deprecados)|Bytes|Total|Mensagem de entrada do Event Hub para um espaço de nome. Esta métrica está prevadida. Utilize em vez disso a métrica de entrada de bytes (Deprecada)|Nenhum|
+|EHINBYTES|Bytes de entrada (Deprecados)|Bytes|Total|Envio de mensagem do Event Hub para um espaço de nome (Depreciado)|Nenhum|
+|EHOUTMBS|Bytes de saída (obsoletos) (Preprecados)|Bytes|Total|Mensagem de saída do Event Hub para um espaço de nome. Esta métrica está prevadida. Utilize em vez disso bytes outgoing (Deprecado)|Nenhum|
+|EHOUTBYTES|Bytes de saída (Deprecados)|Bytes|Total|Mensagem de saída do Event Hub para um espaço de nome (Depreciado)|Nenhum|
+|EHABL|Mensagens de atraso de arquivo (Deprecadas)|Contagem|Total|Mensagens de arquivo do Event Hub em atraso para um espaço de nome (Depreciado)|Nenhum|
+|EHAMSGS|Mensagens de arquivo (Depreciadas)|Contagem|Total|Event Hub arquivou mensagens num espaço de nome (Depreciado)|Nenhum|
+|EHAMBS|Produção de mensagem de arquivo (Precotada)|Bytes|Total|Event Hub arquivou produção de mensagem num espaço de nome (Depreciado)|Nenhum|
 
 ## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Pedidos bem sucedidos|Pedidos bem sucedidos|Contagem|Total|Pedidos de sucesso para Microsoft.EventHub.|OperaçãoResult|
-|Erros de servidor|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.EventHub.|OperaçãoResult|
-|Erros de utilizador|Erros do utilizador.|Contagem|Total|Erros de utilizador para Microsoft.EventHub.|OperaçãoResult|
-|Erros Contingentes|Erros ultrapassados da quota.|Contagem|Total|Quota Exceeded Errors for Microsoft.EventHub.|OperaçãoResult|
-|ThrottledRequests|Pedidos estrangulados.|Contagem|Total|Pedidos throttled para Microsoft.EventHub.|OperaçãoResult|
-|Pedidos de entrada|Pedidos de Entrada|Contagem|Total|Pedidos de entrada para Microsoft.EventHub.|Nenhum|
-|Mensagens de entrada|Mensagens de entrada|Contagem|Total|Mensagens de entrada para Microsoft.EventHub.|Nenhum|
-|Mensagens de saída|Mensagens de saída|Contagem|Total|Mensagens de saída para Microsoft.EventHub.|Nenhum|
-|IncomingBytes|Bytes de entrada.|Bytes|Total|Incoming Bytes para Microsoft.EventHub.|Nenhum|
+|Requess de sucesso|Pedidos de Sucesso|Contagem|Total|Pedidos de sucesso para Microsoft.EventHub.|OperaçãoResult|
+|ServerErrors|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.EventHub.|OperaçãoResult|
+|UserErrors|Erros do utilizador.|Contagem|Total|Erros do utilizador para o Microsoft.EventHub.|OperaçãoResult|
+|QuotaExceededErrors|Quota excedeu erros.|Contagem|Total|Quota Excedeu erros para Microsoft.EventHub.|OperaçãoResult|
+|ThrottledRequests|Pedidos de aceleração.|Contagem|Total|Pedidos de aceleração para o Microsoft.EventHub.|OperaçãoResult|
+|IncomingRequests|Pedidos de Entrada|Contagem|Total|Pedidos de entrada para Microsoft.EventHub.|Nenhum|
+|Entradas|Mensagens recebidas|Contagem|Total|Mensagens de entrada para Microsoft.EventHub.|Nenhum|
+|Despesas de Saída|Mensagens de saída|Contagem|Total|Mensagens de saída para o Microsoft.EventHub.|Nenhum|
+|IncomingBytes|Entradas bytes.|Bytes|Total|Incoming Bytes para Microsoft.EventHub.|Nenhum|
 |OutgoingBytes|Bytes de saída.|Bytes|Total|Bytes de saída para Microsoft.EventHub.|Nenhum|
 |ActiveConnections|ActiveConnections|Contagem|Média|Total de conexões ativas para Microsoft.EventHub.|Nenhum|
-|Conexões Abertas|Ligações abertas.|Contagem|Média|Ligações abertas para Microsoft.EventHub.|Nenhum|
-|Conexões Fechadas|Ligações fechadas.|Contagem|Média|Ligações fechadas para Microsoft.EventHub.|Nenhum|
-|CaptureBacklog|Capture Backlog.|Contagem|Total|Capture Backlog para Microsoft.EventHub.|Nenhum|
-|Mensagens Capturadas|Mensagens capturadas.|Contagem|Total|Mensagens capturadas para Microsoft.EventHub.|Nenhum|
-|CapturedBytes|Bytes capturados.|Bytes|Total|Bytes capturados para Microsoft.EventHub.|Nenhum|
-|CPU|CPU|Percentagem|Máximo|Utilização do CPU para o Cluster do Hub de Eventos em percentagem|Função|
-|Memória Disponível|Memória Disponível|Percentagem|Máximo|Memória disponível para o Cluster Do Hub de Eventos em percentagem da memória total.|Função|
+|LigaçõesAsa|Ligações Abertas.|Contagem|Média|Ligações abertas para Microsoft.EventHub.|Nenhum|
+|LigaçõesClosed|Ligações fechadas.|Contagem|Média|Ligações fechadas para Microsoft.EventHub.|Nenhum|
+|CaptureBacklog|Capture Backlog.|Contagem|Total|Capture Backlog for Microsoft.EventHub.|Nenhum|
+|Caixas de Captura|Mensagens capturadas.|Contagem|Total|Mensagens capturadas para Microsoft.EventHub.|Nenhum|
+|CapturouBytes|Bytes capturados.|Bytes|Total|Bytes capturados para Microsoft.EventHub.|Nenhum|
+|CPU|CPU|Percentagem|Máximo|Utilização do CPU para o Cluster de Hub de Eventos em percentagem|Função|
+|DisponívelMemory|Memória Disponível|Percentagem|Máximo|Memória disponível para o Cluster De Eventos hub em percentagem da memória total.|Função|
 |Tamanho|Tamanho de um EventHub em Bytes.|Bytes|Média|Tamanho de um EventHub em Bytes.|Função|
 
 
@@ -1224,54 +1224,54 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|GatewayRequests|Pedidos gateway|Contagem|Total|Número de pedidos de gateway|HttpStatus|
-|Pedidos categorizados gateway|Pedidos categorizados de gateway|Contagem|Total|Número de pedidos de gateway por categorias (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
-|Trabalhadores NumActivos|Número de Trabalhadores Ativos|Contagem|Máximo|Número de Trabalhadores Ativos|MetricName|
+|GatewayRequests|Pedidos de Gateway|Contagem|Total|Número de pedidos de gateway|HttpStatus|
+|CategorizadosGatewayRequests|Pedidos de Gateway categorizados|Contagem|Total|Número de pedidos de gateway por categorias (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
+|NumActiveWorkers|Número de trabalhadores ativos|Contagem|Máximo|Número de trabalhadores ativos|MetricName|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Valor Métrico Observado|Valor Métrico Observado|Contagem|Média|O valor calculado por escala automática quando executado|MetricTriggerSource|
-|Limiar Métrico|Limiar Métrico|Contagem|Média|O limiar de escala automática configurado quando a escala automática funcionava.|Regra do gatilho métrico|
-|Capacidade Observada|Capacidade Observada|Contagem|Média|A capacidade reportada à escala automática quando foi executada.|Nenhum|
-|ScaleActionsIniciado|Ações de escala iniciadas|Contagem|Total|A direção da operação de escala.|Direção de Escala|
+|ValorMétrico Observado|Valor métrico observado|Contagem|Média|O valor calculado por autoescala quando executado|MetricTriggerSource|
+|MétricaThreshold|Limiar métrico|Contagem|Média|O limiar de autoescala configurado quando a autoescalada foi executada.|MétricaTriggerrule|
+|Capacidade Observada|Capacidade observada|Contagem|Média|A capacidade reportada para autoescalar quando executou.|Nenhum|
+|ScaleActionsInitiado|Ações de escala iniciadas|Contagem|Total|A direção da operação de escala.|Direção de Escala|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Componentes
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|disponibilidadeResultados/disponibilidadePercentage|Disponibilidade|Percentagem|Média|Percentagem de testes de disponibilidade concluídos com sucesso|disponibilidadeResult/nome,disponibilidadeResult/localização|
-|disponibilidadeResultados/contagem|Testes de disponibilidade|Contagem|Contagem|Contagem de testes de disponibilidade|disponibilidadeResult/nome,disponibilidadeResult/localização,disponibilidadeResult/sucesso|
-|disponibilidadeResultados/duração|Duração do teste de disponibilidade|MilliSeconds|Média|Duração do teste de disponibilidade|disponibilidadeResult/nome,disponibilidadeResult/localização,disponibilidadeResult/sucesso|
-|navegadorTimings/redeDura|Tempo de ligação da rede de carga de página|MilliSeconds|Média|Tempo entre o pedido do utilizador e a ligação à rede. Inclui a aparência DNS e a ligação de transporte.|Nenhum|
-|navegadorTimings/processamentoDuração|Tempo de processamento do cliente|MilliSeconds|Média|Tempo entre receber o último byte de um documento até que o DOM esteja carregado. Os pedidos de asincronização podem ainda estar a ser processados.|Nenhum|
-|navegadorTimings/recepçãoDura|Tempo de resposta de receção|MilliSeconds|Média|Tempo entre o primeiro e o último bytes, ou até a desconexão.|Nenhum|
-|navegadorTimings/sendDura|Enviar tempo de pedido|MilliSeconds|Média|Tempo entre a ligação da rede e receber o primeiro byte.|Nenhum|
-|browserTimings/totalDuração|Tempo de carga da página do navegador|MilliSeconds|Média|O tempo do pedido do utilizador até do M, folhas de estilo, scripts e imagens são carregados.|Nenhum|
-|dependências/contagem|Chamadas de dependência|Contagem|Contagem|Contagem de chamadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,dependência/resultadoCódigo,operação/sintético, nuvem/roleInstance,cloud/roleName|
-|dependências/duração|Duração da dependência|MilliSeconds|Média|Duração das chamadas efetuadas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,dependência/resultadoCódigo,operação/sintético, nuvem/roleInstance,cloud/roleName|
-|dependências/falhado|Falhas de chamada de dependência|Contagem|Contagem|Contagem de chamadas de dependência falhadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,dependência/resultadoCódigo,operação/sintético, nuvem/roleInstance,cloud/roleName|
-|pageViews/count|Vistas da página|Contagem|Contagem|Contagem de visualizações de página.|operação/sintético,cloud/roleName|
-|páginaVistas/duração|Tempo de carga da vista da página|MilliSeconds|Média|Tempo de carga da vista da página|operação/sintético,cloud/roleName|
-|performanceCounters/requestExecutionTime|HTTP solicitar tempo de execução|MilliSeconds|Média|Tempo de execução do pedido mais recente.|nuvem/roleInstance|
-|performanceCounters/requestsInQueue|PEDIDOS HTTP na fila de candidaturas|Contagem|Média|Duração da fila do pedido de pedido de inscrição.|nuvem/roleInstance|
-|performanceCounters/requestsPerSecond|Taxa de pedido http|CondeEmSegundo|Média|Taxa de todos os pedidos ao pedido por segundo a partir de ASP.NET.|nuvem/roleInstance|
-|desempenhoCounters/excepçõesPerSecond|Taxa de exceção|CondeEmSegundo|Média|Contagem de exceções manipuladas e não manipuladas reportadas às janelas, incluindo exceções .NET e exceções não geridas que são convertidas em exceções .NET.|nuvem/roleInstance|
-|performanceCounters/processIOBytesPerSecond|Taxa IO do processo|BytesPerSecond|Média|Total de bytes por segundo lido e escrito para ficheiros, rede e dispositivos.|nuvem/roleInstance|
-|performanceCounters/processCpuPercentage|CpU processo|Percentagem|Média|A percentagem de tempo decorrido que todos os fios de processo utilizaram o processador para executar instruções. Isto pode variar entre 0 a 100. Esta métrica indica o desempenho do processo w3wp sozinho.|nuvem/roleInstance|
-|desempenhoCounters/processadorCpuPercentage|Hora do processador|Percentagem|Média|A percentagem de tempo que o processador passa em fios não ociosos.|nuvem/roleInstance|
-|desempenhoCounters/memoryAvailableBytes|Memória disponível|Bytes|Média|Memória física imediatamente disponível para alocação a um processo ou utilização do sistema.|nuvem/roleInstance|
-|performanceCounters/processPrivateBytes|Processo bytes privados|Bytes|Média|Memória exclusivamente atribuída aos processos da aplicação monitorizada.|nuvem/roleInstance|
-|pedidos/duração|Tempo de resposta do servidor|MilliSeconds|Média|Tempo entre receber um pedido http e terminar o envio da resposta.|pedido/desempenhoBucket,request/resultCódigo,operação/sintético,cloud/roleInstance,request/success,cloud/roleName|
-|pedidos/contagem|Pedidos de servidor|Contagem|Contagem|Contagem dos pedidos http concluídos.|pedido/desempenhoBucket,request/resultCódigo,operação/sintético,cloud/roleInstance,request/success,cloud/roleName|
-|pedidos/falhado|Pedidos falhados|Contagem|Contagem|Contagem de pedidos HTTP marcados como falhados. Na maioria dos casos, trata-se de pedidos com um código de resposta >= 400 e não igual a 401.|pedido/desempenhoBucket,request/resultCódigo,pedido/sucesso,operação/sintético,cloud/roleInstance,cloud/roleName|
-|pedidos/taxa|Taxa de pedido do servidor|CondeEmSegundo|Média|Taxa de pedidos de servidor por segundo|pedido/desempenhoBucket,request/resultCódigo,operação/sintético,cloud/roleInstance,request/success,cloud/roleName|
-|exceções/contagem|Exceções|Contagem|Contagem|Contagem combinada de todas as exceções não apanhadas.|cloud/roleName,cloud/roleInstance,cliente/tipo|
-|exceções/navegador|Exceções de browser|Contagem|Contagem|Contagem de exceções não apanhadas lançadas no navegador.|cliente/isServer,cloud/roleName|
-|exceções/servidor|Exceções ao servidor|Contagem|Contagem|Contagem de exceções não apanhadas lançadas na aplicação do servidor.|cliente/isServer,cloud/roleName,cloud/roleInstance|
-|vestígios/contagem|Traces|Contagem|Contagem|Contagem de documentos de rastreio|traço/gravidadeN,operação/sintético,cloud/roleName,cloud/roleInstance|
+|disponibilidadeResults/disponibilidadePercentage|Disponibilidade|Percentagem|Média|Percentagem de testes de disponibilidade concluídos com sucesso|disponibilidadeResult/name,disponibilidadeResult/location|
+|disponibilidadeResults/contagem|Testes de disponibilidade|Contagem|Contagem|Contagem de testes de disponibilidade|disponibilidadeResult/name,disponibilidadeResult/location,disponibilidadeResult/sucesso|
+|disponibilidadeResults/duração|Duração do teste de disponibilidade|MilliSeconds|Média|Duração do teste de disponibilidade|disponibilidadeResult/name,disponibilidadeResult/location,disponibilidadeResult/sucesso|
+|browserEs/networkDuration|Tempo de ligação da rede de carga de página|MilliSeconds|Média|Tempo entre o pedido do utilizador e a ligação à rede. Inclui a procura de DNS e a ligação de transporte.|Nenhum|
+|browserEs/processamentoDuração|Tempo de processamento do cliente|MilliSeconds|Média|Tempo entre receber o último byte de um documento até que o DOM seja carregado. Os pedidos de async ainda podem estar a ser processados.|Nenhum|
+|browserEs/receberDuration|Tempo de resposta de receção|MilliSeconds|Média|Tempo entre o primeiro e o último bytes, ou até a desconexão.|Nenhum|
+|browserEs/sendDuration|Enviar tempo de pedido|MilliSeconds|Média|Tempo entre a ligação de rede e receber o primeiro byte.|Nenhum|
+|browserEs/totalDuration|Tempo de carregamento da página do navegador|MilliSeconds|Média|Tempo do pedido do utilizador até dom, folhas de estilo, scripts e imagens são carregados.|Nenhum|
+|dependências/contagem|Chamadas de dependência|Contagem|Contagem|Contagem de chamadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/performanceBucket,dependência/sucesso,dependência/destino,dependência/resultadoSCórne,operação/sintético,nuvem/roleInstance,cloud/roleName|
+|dependências/duração|Duração da dependência|MilliSeconds|Média|Duração das chamadas efetuadas pela aplicação a recursos externos.|dependência/tipo,dependência/performanceBucket,dependência/sucesso,dependência/destino,dependência/resultadoSCórne,operação/sintético,nuvem/roleInstance,cloud/roleName|
+|dependências/falhados|Falhas nas chamadas de dependência|Contagem|Contagem|Contagem de chamadas de dependência falhadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/performanceBucket,dependência/sucesso,dependência/destino,dependência/resultadoSCórne,operação/sintético,nuvem/roleInstance,cloud/roleName|
+|pageVers/contagem|Vistas da página|Contagem|Contagem|Contagem de visualizações de página.|operação/sintético,nuvem/funName|
+|páginaVerses/duração|Tempo de carga da visualização da página|MilliSeconds|Média|Tempo de carga da visualização da página|operação/sintético,nuvem/funName|
+|performanceCounters/requestExecutionTime|HTTP solicitar tempo de execução|MilliSeconds|Média|Tempo de execução do mais recente pedido.|nuvem/papelInstância|
+|performanceCounters/requestsInQueue|Pedidos HTTP na fila de candidaturas|Contagem|Média|Duração da fila de pedidos.|nuvem/papelInstância|
+|performanceCounters/requestsPerSecond|Taxa de pedido HTTP|CondePerSecond|Média|Taxa de todos os pedidos para o pedido por segundo a partir de ASP.NET.|nuvem/papelInstância|
+|performanceCounters/excepçõesPerSecond|Taxa de exceção|CondePerSecond|Média|Contagem de exceções manuseadas e não manipuladas reportadas às janelas, incluindo exceções .NET e exceções não geridas que são convertidas em exceções .NET.|nuvem/papelInstância|
+|performanceCounters/processIOBytesPerSecond|Taxa IO do processo|BytesPerSecond|Média|Total de bytes por segundo lido e escrito para ficheiros, rede e dispositivos.|nuvem/papelInstância|
+|performanceCounters/processCpuPercentage|Processo CPU|Percentagem|Média|A percentagem de tempo decorrido que todos os fios de processo utilizaram o processador para executar instruções. Isto pode variar entre 0 a 100. Esta métrica indica apenas o desempenho do processo w3wp.|nuvem/papelInstância|
+|performanceCounters/processadorEsPercentage|Tempo do processador|Percentagem|Média|A percentagem de tempo que o processador gasta em fios não ociosos.|nuvem/papelInstância|
+|performanceCounters/memoryAvailableBytes|Memória disponível|Bytes|Média|Memória física imediatamente disponível para alocação a um processo ou para uso do sistema.|nuvem/papelInstância|
+|performanceCounters/processPrivateBytes|Processar bytes privados|Bytes|Média|Memória exclusivamente atribuída aos processos da aplicação monitorizada.|nuvem/papelInstância|
+|pedidos/duração|Tempo de resposta do servidor|MilliSeconds|Média|Tempo entre receber um pedido HTTP e terminar o envio da resposta.|pedido/performanceBucket,pedido/resultadoSCode,operação/sintético,nuvem/roleInstance,request/success,cloud/roleName|
+|pedidos/contagem|Pedidos de servidor|Contagem|Contagem|Contagem de pedidos HTTP concluídos.|pedido/performanceBucket,pedido/resultadoSCode,operação/sintético,nuvem/roleInstance,request/success,cloud/roleName|
+|pedidos/falhados|Pedidos falhados|Contagem|Contagem|Contagem de pedidos HTTP marcados como falhados. Na maioria dos casos, trata-se de pedidos com um código de resposta >= 400 e não igual a 401.|pedido/performanceBucket,pedido/resultadoSDôr/resultadosDôr/tentar/fazer sucesso,operação/sintético,nuvem/roleInstance,cloud/roleName|
+|pedidos/tarifa|Taxa de pedido do servidor|CondePerSecond|Média|Taxa de pedidos de servidor por segundo|pedido/performanceBucket,pedido/resultadoSCode,operação/sintético,nuvem/roleInstance,request/success,cloud/roleName|
+|exceções/contagem|Exceções|Contagem|Contagem|Contagem combinada de todas as exceções não conseguidas.|cloud/roleName,cloud/roleInstance,cliente/tipo|
+|exceções/navegador|Exceções de browser|Contagem|Contagem|Contagem de exceções não realizadas no navegador.|cliente/isServer,cloud/roleName|
+|exceções/servidor|Exceções do servidor|Contagem|Contagem|Contagem de exceções não realizadas lançadas na aplicação do servidor.|cliente/isServer,cloud/roleName,cloud/roleInstance|
+|vestígios/contagem|Traces|Contagem|Contagem|Contagem de documentos de rastreio|traço/severidadeLevel,operação/sintético,nuvem/funName,nuvem/roleInstance|
 
 
 ## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
@@ -1279,167 +1279,167 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |connectedDeviceCount|Total de dispositivos conectados|Contagem|Média|Número de dispositivos ligados à IoT Central|Nenhum|
-|c2d.property.read.success|Successful Device Property Reads from IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade de sucesso iniciada a partir da IoT Central|Nenhum|
-|c2d.property.read.failure|Propriedade do dispositivo falhado lê da IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade falhada iniciada a partir da IoT Central|Nenhum|
-|d2c.property.read.success|Imóvel de sucesso lê a partir de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedades bem sucedidas iniciadaa a partir de dispositivos|Nenhum|
-|d2c.property.read.failure|Propriedade do dispositivo falhado lê a partir de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedade falhada iniciada a partir de dispositivos|Nenhum|
+|c2d.property.read.success|Propriedade de dispositivo de sucesso lê da IoT Central|Contagem|Total|A contagem de todas as leituras bem sucedidas iniciadas da IoT Central|Nenhum|
+|c2d.property.read.failure|Falha na propriedade do dispositivo lê-se da IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade falhada iniciadas a partir da IoT Central|Nenhum|
+|d2c.property.read.success|Bem sucedida propriedade do dispositivo lê de dispositivos|Contagem|Total|A contagem de todas as leituras bem sucedidas iniciadas a partir de dispositivos|Nenhum|
+|d2c.property.read.failure|Falha na propriedade do dispositivo lê-se a partir de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedade falhada iniciadas a partir de dispositivos|Nenhum|
 |c2d.property.update.success|Atualizações de propriedade de dispositivos bem-sucedidos da IoT Central|Contagem|Total|A contagem de todas as atualizações de propriedade bem sucedidas iniciadas a partir da IoT Central|Nenhum|
 |c2d.property.update.failure|Atualizações de propriedade de dispositivos falhados da IoT Central|Contagem|Total|A contagem de todas as atualizações de propriedade falhadas iniciadas a partir da IoT Central|Nenhum|
-|d2c.property.update.success.success|Atualizações de propriedade de dispositivos bem-sucedidos de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade bem sucedidas iniciadas a partir de dispositivos|Nenhum|
-|d2c.property.update.failure.failure|Atualizações de propriedade de dispositivos falhados a partir de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade falhadas iniciadas a partir de dispositivos|Nenhum|
+|d2c.property.update.success|Atualizações de propriedade de dispositivos bem-sucedidos a partir de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade bem sucedidas iniciadas a partir de dispositivos|Nenhum|
+|d2c.property.update.failure|Falhas nas atualizações de propriedade do dispositivo a partir de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade falhadas iniciadas a partir de dispositivos|Nenhum|
 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/cofres
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ServiceApiHit|Total de acesso síldo de serviço Api Hits|Contagem|Contagem|Número de acessos totais de api de serviço|Tipo de Atividade,Nome de Atividade|
-|AtendimentoApiLatency|Atncy api de serviço geral|Milissegundos|Média|Latência geral dos pedidos de api de serviço|Tipo de atividade,Nome de atividade,StatusCode,StatusCodeClass|
-|ServiçoApiResult|Resultados totais da Api de serviço|Contagem|Contagem|Número de resultados totais da api de serviço|Tipo de atividade,Nome de atividade,StatusCode,StatusCodeClass|
-|Caixa de SaturationShoebox|Saturação geral do cofre|Percentagem|Média|Capacidade do cofre utilizada|Tipo de atividade,Nome de atividade,Tipo de Transação|
-|Disponibilidade|Disponibilidade geral do cofre|Percentagem|Média|Abóbada solicita disponibilidade de pedidos|Tipo de atividade,Nome de atividade,StatusCode,StatusCodeClass|
+|ServiceApiHit|Acessos Api de serviço total|Contagem|Contagem|Número de acessos totais de serviço api|ActivityType,ActivityName|
+|ServiçoApilatency|Latência geral do serviço Api|Milissegundos|Média|Latência geral dos pedidos de serviço api|ActivityType,ActivityName,StatusCode,StatusCodeClass|
+|ServiceApiResult|Resultados totais do serviço Api|Contagem|Contagem|Número de resultados totais da API de serviço|ActivityType,ActivityName,StatusCode,StatusCodeClass|
+|SaturaçãoShoebox|Saturação geral do cofre|Percentagem|Média|Capacidade do cofre utilizada|ActivityType,ActivityName,TransactionType|
+|Disponibilidade|Disponibilidade geral do cofre|Percentagem|Média|Abóbada solicita disponibilidade|ActivityType,ActivityName,StatusCode,StatusCodeClass|
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |CacheUtilização|Utilização de cache|Percentagem|Média|Nível de utilização no âmbito do cluster|Nenhum|
-|ConsultaDuração|Duração da consulta|Milissegundos|Média|Duração das consultas em segundos|ConsultaStatus|
-|IngestionUtilização|Utilização de ingestão|Percentagem|Média|Relação entre as ranhuras de ingestão utilizadas no cluster|Nenhum|
+|Queriaduração|Duração da consulta|Milissegundos|Média|Duração das consultas em segundos|QueriaStatus|
+|Ingestionutilização|Utilização da ingestão|Percentagem|Média|Relação das ranhuras de ingestão usadas no cluster|Nenhum|
 |KeepAlive|Mantenha-se vivo|Contagem|Média|Verificação de sanidade indica que o cluster responde a consultas|Nenhum|
 |IngestionVolumeInMB|Volume de ingestão (em MB)|Contagem|Total|Volume global de dados ingeridos para o cluster (em MB)|Base de Dados|
-|IngestionLatencyInSeconds|Latência de ingestão (em segundos)|Segundos|Média|Tempo de ingestão da fonte (por exemplo, mensagem está no EventHub) para o cluster em segundos|Nenhum|
-|EventosProcessadosForEventHubs|Eventos processados (para Hubs de Evento/IoT)|Contagem|Total|Número de eventos processados pelo cluster ao ingerir em Event/IoT Hub|EventStatus|
+|IngestionLatencyInSeconds|Latência da ingestão (em segundos)|Segundos|Média|Tempo de ingestão da fonte (por exemplo, a mensagem está no EventHub) para o cluster em segundos|Nenhum|
+|EventosProcessadoForEventHubs|Eventos processados (para Centros de Eventos/IoT)|Contagem|Total|Número de eventos processados pelo cluster ao ingerir do Event/IoT Hub|EventStatus|
 |IngestionResult|Resultado da ingestão|Contagem|Contagem|Número de operações de ingestão|IngestionResultDetails|
 |CPU|CPU|Percentagem|Média|Nível de utilização do CPU|Nenhum|
-|Exportação ContínuaNumOfRecordsExported|Exportação contínua – numdos de registos exportados|Contagem|Total|Número de registos exportados, disparados por cada artefacto de armazenamento escrito durante a operação de exportação|Nome de exportação contínua,Base de Dados|
-|ExportUtilização|Utilização das exportações|Percentagem|Máximo|Utilização das exportações|Nenhum|
-|Contagem contínua de gastos com exportações|Contagem pendente de exportação contínua|Contagem|Máximo|O número de postos de trabalho de exportação continuados pendentes prontos para a execução|Nenhum|
-|ContinuamenteExportMaxLatenessMinutes|Exportação Contínua Max Lateness|Contagem|Máximo|O atraso (em minutos) reportado pelos contínuos trabalhos de exportação no cluster|Nenhum|
-|Resultado contínuo da exportação|Resultado contínuo da exportação|Contagem|Contagem|Indica se a Exportação Contínua foi bem sucedida ou fracassada|Nome de exportação contínua,Resultado,Base de Dados|
-|StreamingIngestDura|Duração do ingest de streaming|Milissegundos|Média|Streaming de duração da ingestão em milissegundos|Nenhum|
-|StreamingIngestDataRate|Taxa de dados de ingestão de streaming|Contagem|Média|Taxa de dados de ingerir streaming (MB por segundo)|Nenhum|
-|Taxa de solicitação a vapor|Taxa de pedido de ingestão de streaming|Contagem|RateRequestsPerSecond|Taxa de pedido de influxo de streaming (pedidos por segundo)|Nenhum|
-|StreamingIngestResults|Resultado da ingest de streaming|Contagem|Média|Resultado de streaming de ingerir|Resultado|
+|ContinuousExportNumOfRecordsExported|Exportação contínua - num de registos exportados|Contagem|Total|Número de registos exportados, disparados para cada artefacto de armazenamento escrito durante a operação de exportação|Nome ContínuoExportName,Base de Dados|
+|ExportaçãoUtilização|Utilização das Exportações|Percentagem|Máximo|Utilização das exportações|Nenhum|
+|ContínuaExportPendingCount|Contagem pendente de exportação contínua|Contagem|Máximo|O número de postos de trabalho de exportação permanentes pendentes prontos para a execução|Nenhum|
+|ContinuaExportMaxLatenessMinutes|Exportação Contínua Max Lateness|Contagem|Máximo|O atraso (em minutos) reportado pelos postos de trabalho contínuos de exportação no cluster|Nenhum|
+|ContínuaExportResult|Resultado contínuo da exportação|Contagem|Contagem|Indica se a Exportação Contínua foi bem sucedida ou falhou|Nome deExport Continuous,Resultado,Base de Dados|
+|StreamingIngestDuration|Duração do Streaming Ingest|Milissegundos|Média|Duração da ingestão de streaming em milissegundos|Nenhum|
+|StreamingIngestDataRate|Taxa de dados de ingestão de streaming|Contagem|Média|Taxa de dados de ingestão de streaming (MB por segundo)|Nenhum|
+|SteamingIngestRequestRate|Taxa de pedido de ingestão de streaming|Contagem|RateRequestsPerSecond|Taxa de pedido de ingestão de streaming (pedidos por segundo)|Nenhum|
+|StreamingIngestResults|Resultado do streaming inger|Contagem|Média|Resultado do streaming de ingerir|Resultado|
 |TotalNumberOfConcurrentQueries|Número total de consultas simultâneas|Contagem|Total|Número total de consultas simultâneas|Nenhum|
 |TotalNumberOfThrottledQueries|Número total de consultas estranguladas|Contagem|Total|Número total de consultas estranguladas|Nenhum|
-|TotalNumberOfThrottledCommands|Número total de comandos estrangulados|Contagem|Total|Número total de comandos estrangulados|Tipo de comando|
+|TotalNumberOfThrottledCommands|Número total de comandos acelerados|Contagem|Total|Número total de comandos acelerados|Tipo de Comando|
 |TotalNumberOfExtents|Número total de extensões|Contagem|Total|Número total de extensões de dados|Nenhum|
-|Contagem de casos|Contagem de Instâncias|Contagem|Média|Contagem total de instâncias|Nenhum|
+|InstânciaCount|Contagem de Instâncias|Contagem|Média|Contagem total de casos|Nenhum|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|RunsStarted|Corridas Iniciadas|Contagem|Total|O número de corridas de fluxo de trabalho começou.|Nenhum|
-|Execuções Concluídas|Execuções Concluídas|Contagem|Total|Número de fluxos de trabalho concluídos.|Nenhum|
-|RunsSucceed|Runs Succeeded|Contagem|Total|O número de corridas de fluxo de trabalho foi bem sucedido.|Nenhum|
-|RunsFailed|Execuções falhadas|Contagem|Total|O número de corridas de fluxo de trabalho falhou.|Nenhum|
-|RunsCancelado|Execuções canceladas|Contagem|Total|Número de fluxos de trabalho cancelados.|Nenhum|
-|RunLatency|Executar Latência|Segundos|Média|Latência de corridas completas de fluxo de trabalho.|Nenhum|
-|RunSuccessLatency|Latência de Sucesso de Execução|Segundos|Média|Latência de corridas de fluxo de trabalho bem sucedidas.|Nenhum|
-|Eventos RunThrottled|Eventos Throttled Run|Contagem|Total|Número de ação de fluxo de trabalho ou de provocar eventos acelerados.|Nenhum|
-|Eventos RunStartThrottled|Executar eventos throttled|Contagem|Total|O número de fluxos de trabalho iniciam eventos acelerados.|Nenhum|
-|RunFailurePercentage|Percentagem de falhas de execução|Percentagem|Total|A percentagem de corridas de fluxo de trabalho falhou.|Nenhum|
-|Ações Iniciadas|Ações Iniciadas |Contagem|Total|O número de ações de fluxo de trabalho começou.|Nenhum|
-|AçõesConcluídas|Ações Concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Nenhum|
-|Ações Bem sucedidas|Ações bem sucedidas |Contagem|Total|O número de ações de fluxo de trabalho foi bem sucedido.|Nenhum|
-|Ações Falhadas|Ações falhadas |Contagem|Total|O número de ações de fluxo de trabalho falhou.|Nenhum|
-|Ações Ignoradas|Ações ignoradas |Contagem|Total|O número de ações de fluxo de trabalho ignoradas.|Nenhum|
-|AçãoLatency|Latência de Ação |Segundos|Média|Latência de ações completas de fluxo de trabalho.|Nenhum|
-|ActionSuccessLatency|Latência de Sucesso de Ação |Segundos|Média|Latência de ações de fluxo de trabalho bem sucedidas.|Nenhum|
-|Eventos ActionThrottled|Eventos throttled de ação|Contagem|Total|Número de ação de fluxo de trabalho acelerou eventos.|Nenhum|
-|GatilhosIniciado|Gatilhos Iniciados |Contagem|Total|O número de gatilhos de fluxo de trabalho começou.|Nenhum|
-|Gatilhos Concluídos|Gatilhos Concluídos |Contagem|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhum|
-|Gatilhos Bem sucedidos|Gatilhos bem sucedidos |Contagem|Total|O número de gatilhos de fluxo de trabalho foi bem sucedido.|Nenhum|
-|Gatilhos Falhados|Gatilhos falhados |Contagem|Total|O número de gatilhos de fluxo de trabalho falhou.|Nenhum|
-|Gatilhos Skipped|Gatilhos ignorados|Contagem|Total|O número de gatilhos de fluxo de trabalho saltou.|Nenhum|
-|TriggersFired|Gatilhos disparados |Contagem|Total|Número de acionadores de fluxo de trabalho disparados.|Nenhum|
-|GatilhoLatency|Latência do gatilho |Segundos|Média|Latência dos gatilhos de fluxo de trabalho completos.|Nenhum|
-|TriggerFireLatency|Latência de disparo |Segundos|Média|Latência de disparados acionadores de fluxo de trabalho.|Nenhum|
-|TriggerSuccessLatency|Latência de Sucesso do Gatilho |Segundos|Média|Latência dos desencadeadores de fluxo de trabalho bem sucedidos.|Nenhum|
-|Eventos TriggerThrottled|Eventos throttled de gatilho|Contagem|Total|Número de eventos de fluxo de trabalho acelerados.|Nenhum|
-|Execuções billableAction|Execuções de Ação Billable|Contagem|Total|Número de execuções de ação de fluxo de trabalho a serem cobradas.|Nenhum|
-|Execuções BillableTrigger|Execuções de gatilho sinuosos|Contagem|Total|O número de execuções de fluxo de trabalho a ser cobrado.|Nenhum|
-|Execuções Totais Billáveis|Execuções Totais De Faturação|Contagem|Total|Número de execuções de fluxo de trabalho a ser faturadas.|Nenhum|
-|BillingUsageNativeOperation|Utilização de faturação para execuções de operações nativas|Contagem|Total|Número de execuções de operações nativas a serem cobradas.|Nenhum|
-|BillingUsageStandardConnector|Utilização de faturação para execuções de conector padrão|Contagem|Total|Número de execuções de conector padrão a serem cobradas.|Nenhum|
-|Consumo de armazenamento de armazenamento de dólares de faturação|Utilização de faturação para execuções de consumo de armazenamento|Contagem|Total|Número de execuções de consumo de armazenamento a serem cobradas.|Nenhum|
+|RunsStarted|Execuções iniciadas|Contagem|Total|O número de fluxos de trabalho iniciados.|Nenhum|
+|RunsCompleted|Execuções Concluídas|Contagem|Total|Número de fluxos de trabalho concluídos.|Nenhum|
+|RunsSucceed|Runs Succeeded|Contagem|Total|Número de fluxos de trabalho conseguiu.|Nenhum|
+|RunsFailed|Runs Falhado|Contagem|Total|O número de fluxos de trabalho falhou.|Nenhum|
+|RunsCancelled|Execuções canceladas|Contagem|Total|Número de fluxos de trabalho cancelados.|Nenhum|
+|Estação Runlatency|Executar Latência|Segundos|Média|A latência do fluxo de trabalho concluído funciona.|Nenhum|
+|RunSuccessLatency|Executar Latência de sucesso|Segundos|Média|A latência do fluxo de trabalho bem sucedido corre.|Nenhum|
+|RunThrottledEvents|Executar Eventos Throttled|Contagem|Total|Número de ação de fluxo de trabalho ou eventos acelerados.|Nenhum|
+|RunStartThrottledEvents|Executar eventos throttled do início|Contagem|Total|Número de fluxos de trabalho iniciam eventos acelerados.|Nenhum|
+|RunFailurePercentage|Percentagem de falha de execução|Percentagem|Total|A percentagem de fluxos de trabalho falhou.|Nenhum|
+|AçõesStarted|Ações Iniciadas |Contagem|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhum|
+|Ações Computação|Ações Concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Nenhum|
+|AçõesDuzidas|Ações Bem Sucedidas |Contagem|Total|Número de ações de fluxo de trabalho conseguiu.|Nenhum|
+|Ações Destruídas|Ações falhadas |Contagem|Total|O número de ações de fluxo de trabalho falhou.|Nenhum|
+|AçõesSkipped|Ações ignoradas |Contagem|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhum|
+|Ação|Latência de Ação |Segundos|Média|Latência de ações de fluxo de trabalho concluídas.|Nenhum|
+|ActionSuccessLatency|Latência do sucesso da ação |Segundos|Média|Latência de ações de fluxo de trabalho bem sucedidas.|Nenhum|
+|ActionThrottledEvents|Eventos throttled de ação|Contagem|Total|Número de eventos de fluxo de trabalho acelerado.|Nenhum|
+|GatilhosStarted|Gatilhos Iniciados |Contagem|Total|O número de gatilhos de fluxo de trabalho começou.|Nenhum|
+|GatilhosCompleted|Gatilhos Concluídos |Contagem|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhum|
+|GatilhosSsueded|Gatilhos Bem Sucedidos |Contagem|Total|Número de gatilhos de fluxo de trabalho conseguiu.|Nenhum|
+|GatilhosFailed|Gatilhos falhados |Contagem|Total|O número de gatilhos de fluxo de trabalho falhou.|Nenhum|
+|GatilhosSkipped|Gatilhos ignorados|Contagem|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhum|
+|Gatilhos Disparados|Gatilhos disparados |Contagem|Total|Número de gatilhos de fluxo de trabalho disparados.|Nenhum|
+|TriggerLatency|Desencadear a latência |Segundos|Média|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhum|
+|TriggerFireLatency|Desencadear a latência do fogo |Segundos|Média|Latência de gatilhos de fluxo de trabalho disparados.|Nenhum|
+|TriggerSuccessLatency|Desencadear a latência do sucesso |Segundos|Média|Latência de desencadeamentos de fluxo de trabalho bem sucedidos.|Nenhum|
+|TriggerThrottledEvents|Eventos aceleradores do gatilho|Contagem|Total|Número de eventos aceleradores de fluxo de trabalho.|Nenhum|
+|BillableActionExecutions|Execuções de ação executáveis|Contagem|Total|Número de execuções de fluxo de trabalho a ser cobrado.|Nenhum|
+|BillableTriggerExecutions|Execuções de gatilhos faturantes|Contagem|Total|Número de execuções de fluxo de trabalho a serem cobradas.|Nenhum|
+|TotalBillableExecutions|Execuções totais faturantes|Contagem|Total|Número de execuções de fluxos de trabalho a ser cobrado.|Nenhum|
+|Faturação UsageNativeOperação|Utilização de faturação para execuções de operações nativas|Contagem|Total|Número de execuções de operações nativas a ser cobrado.|Nenhum|
+|BillingUsageStandardConnector|Utilização de faturação para execuções padrão do conector|Contagem|Total|Número de execuções padrão de conector a ser faturado.|Nenhum|
+|BillingUsageStorageConsumption|Faturação de utilização para execuções de consumo de armazenamento|Contagem|Total|Número de execuções de consumo de armazenamento a ser cobrado.|Nenhum|
 
-## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Lógica/integraçãoServiceEnvironments
+## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|RunsStarted|Corridas Iniciadas|Contagem|Total|O número de corridas de fluxo de trabalho começou.|Nenhum|
-|Execuções Concluídas|Execuções Concluídas|Contagem|Total|Número de fluxos de trabalho concluídos.|Nenhum|
-|RunsSucceed|Runs Succeeded|Contagem|Total|O número de corridas de fluxo de trabalho foi bem sucedido.|Nenhum|
-|RunsFailed|Execuções falhadas|Contagem|Total|O número de corridas de fluxo de trabalho falhou.|Nenhum|
-|RunsCancelado|Execuções canceladas|Contagem|Total|Número de fluxos de trabalho cancelados.|Nenhum|
-|RunLatency|Executar Latência|Segundos|Média|Latência de corridas completas de fluxo de trabalho.|Nenhum|
-|RunSuccessLatency|Latência de Sucesso de Execução|Segundos|Média|Latência de corridas de fluxo de trabalho bem sucedidas.|Nenhum|
-|Eventos RunThrottled|Eventos Throttled Run|Contagem|Total|Número de ação de fluxo de trabalho ou de provocar eventos acelerados.|Nenhum|
-|Eventos RunStartThrottled|Executar eventos throttled|Contagem|Total|O número de fluxos de trabalho iniciam eventos acelerados.|Nenhum|
-|RunFailurePercentage|Percentagem de falhas de execução|Percentagem|Total|A percentagem de corridas de fluxo de trabalho falhou.|Nenhum|
-|Ações Iniciadas|Ações Iniciadas |Contagem|Total|O número de ações de fluxo de trabalho começou.|Nenhum|
-|AçõesConcluídas|Ações Concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Nenhum|
-|Ações Bem sucedidas|Ações bem sucedidas |Contagem|Total|O número de ações de fluxo de trabalho foi bem sucedido.|Nenhum|
-|Ações Falhadas|Ações falhadas |Contagem|Total|O número de ações de fluxo de trabalho falhou.|Nenhum|
-|Ações Ignoradas|Ações ignoradas |Contagem|Total|O número de ações de fluxo de trabalho ignoradas.|Nenhum|
-|AçãoLatency|Latência de Ação |Segundos|Média|Latência de ações completas de fluxo de trabalho.|Nenhum|
-|ActionSuccessLatency|Latência de Sucesso de Ação |Segundos|Média|Latência de ações de fluxo de trabalho bem sucedidas.|Nenhum|
-|Eventos ActionThrottled|Eventos throttled de ação|Contagem|Total|Número de ação de fluxo de trabalho acelerou eventos.|Nenhum|
-|GatilhosIniciado|Gatilhos Iniciados |Contagem|Total|O número de gatilhos de fluxo de trabalho começou.|Nenhum|
-|Gatilhos Concluídos|Gatilhos Concluídos |Contagem|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhum|
-|Gatilhos Bem sucedidos|Gatilhos bem sucedidos |Contagem|Total|O número de gatilhos de fluxo de trabalho foi bem sucedido.|Nenhum|
-|Gatilhos Falhados|Gatilhos falhados |Contagem|Total|O número de gatilhos de fluxo de trabalho falhou.|Nenhum|
-|Gatilhos Skipped|Gatilhos ignorados|Contagem|Total|O número de gatilhos de fluxo de trabalho saltou.|Nenhum|
-|TriggersFired|Gatilhos disparados |Contagem|Total|Número de acionadores de fluxo de trabalho disparados.|Nenhum|
-|GatilhoLatency|Latência do gatilho |Segundos|Média|Latência dos gatilhos de fluxo de trabalho completos.|Nenhum|
-|TriggerFireLatency|Latência de disparo |Segundos|Média|Latência de disparados acionadores de fluxo de trabalho.|Nenhum|
-|TriggerSuccessLatency|Latência de Sucesso do Gatilho |Segundos|Média|Latência dos desencadeadores de fluxo de trabalho bem sucedidos.|Nenhum|
-|Eventos TriggerThrottled|Eventos throttled de gatilho|Contagem|Total|Número de eventos de fluxo de trabalho acelerados.|Nenhum|
-|IntegraçãoServiçoServiçoAmbienteUso deprocessadorde fluxos de trabalho|Utilização do processador workflow para o ambiente de serviço de integração|Percentagem|Média|Utilização do processador workflow para ambiente de serviço de integração.|Nenhum|
-|IntegraçãoServiçoServiçoAmbienteUso defluxodefluxo|Utilização da memória do fluxo de trabalho para o ambiente do serviço de integração|Percentagem|Média|Utilização da memória do fluxo de trabalho para o ambiente de serviço de integração.|Nenhum|
-|IntegraçãoServiçoServiçoAmbienteUso do Processador|Utilização do processador de conector para o ambiente do serviço de integração|Percentagem|Média|Utilização do processador de conector para ambiente de serviço de integração.|Nenhum|
-|IntegraçãoServiçoServiçoAmbienteConnectorMemoryUsage|Uso da memória do conector para o ambiente do serviço de integração|Percentagem|Média|Utilização da memória do conector para o ambiente de serviço de integração.|Nenhum|
+|RunsStarted|Execuções iniciadas|Contagem|Total|O número de fluxos de trabalho iniciados.|Nenhum|
+|RunsCompleted|Execuções Concluídas|Contagem|Total|Número de fluxos de trabalho concluídos.|Nenhum|
+|RunsSucceed|Runs Succeeded|Contagem|Total|Número de fluxos de trabalho conseguiu.|Nenhum|
+|RunsFailed|Runs Falhado|Contagem|Total|O número de fluxos de trabalho falhou.|Nenhum|
+|RunsCancelled|Execuções canceladas|Contagem|Total|Número de fluxos de trabalho cancelados.|Nenhum|
+|Estação Runlatency|Executar Latência|Segundos|Média|A latência do fluxo de trabalho concluído funciona.|Nenhum|
+|RunSuccessLatency|Executar Latência de sucesso|Segundos|Média|A latência do fluxo de trabalho bem sucedido corre.|Nenhum|
+|RunThrottledEvents|Executar Eventos Throttled|Contagem|Total|Número de ação de fluxo de trabalho ou eventos acelerados.|Nenhum|
+|RunStartThrottledEvents|Executar eventos throttled do início|Contagem|Total|Número de fluxos de trabalho iniciam eventos acelerados.|Nenhum|
+|RunFailurePercentage|Percentagem de falha de execução|Percentagem|Total|A percentagem de fluxos de trabalho falhou.|Nenhum|
+|AçõesStarted|Ações Iniciadas |Contagem|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhum|
+|Ações Computação|Ações Concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Nenhum|
+|AçõesDuzidas|Ações Bem Sucedidas |Contagem|Total|Número de ações de fluxo de trabalho conseguiu.|Nenhum|
+|Ações Destruídas|Ações falhadas |Contagem|Total|O número de ações de fluxo de trabalho falhou.|Nenhum|
+|AçõesSkipped|Ações ignoradas |Contagem|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhum|
+|Ação|Latência de Ação |Segundos|Média|Latência de ações de fluxo de trabalho concluídas.|Nenhum|
+|ActionSuccessLatency|Latência do sucesso da ação |Segundos|Média|Latência de ações de fluxo de trabalho bem sucedidas.|Nenhum|
+|ActionThrottledEvents|Eventos throttled de ação|Contagem|Total|Número de eventos de fluxo de trabalho acelerado.|Nenhum|
+|GatilhosStarted|Gatilhos Iniciados |Contagem|Total|O número de gatilhos de fluxo de trabalho começou.|Nenhum|
+|GatilhosCompleted|Gatilhos Concluídos |Contagem|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhum|
+|GatilhosSsueded|Gatilhos Bem Sucedidos |Contagem|Total|Número de gatilhos de fluxo de trabalho conseguiu.|Nenhum|
+|GatilhosFailed|Gatilhos falhados |Contagem|Total|O número de gatilhos de fluxo de trabalho falhou.|Nenhum|
+|GatilhosSkipped|Gatilhos ignorados|Contagem|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhum|
+|Gatilhos Disparados|Gatilhos disparados |Contagem|Total|Número de gatilhos de fluxo de trabalho disparados.|Nenhum|
+|TriggerLatency|Desencadear a latência |Segundos|Média|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhum|
+|TriggerFireLatency|Desencadear a latência do fogo |Segundos|Média|Latência de gatilhos de fluxo de trabalho disparados.|Nenhum|
+|TriggerSuccessLatency|Desencadear a latência do sucesso |Segundos|Média|Latência de desencadeamentos de fluxo de trabalho bem sucedidos.|Nenhum|
+|TriggerThrottledEvents|Eventos aceleradores do gatilho|Contagem|Total|Número de eventos aceleradores de fluxo de trabalho.|Nenhum|
+|Integração ServiçoEnvironmentWorkflowProcessorUsage|Utilização do processador de fluxo de trabalho para ambiente de serviço de integração|Percentagem|Média|Utilização do processador de fluxo de trabalho para ambiente de serviço de integração.|Nenhum|
+|Integração ServiçoEnvironmentOdestrabalhomor|Utilização da memória do fluxo de trabalho para ambiente de serviço de integração|Percentagem|Média|Utilização da memória do fluxo de trabalho para ambiente de serviço de integração.|Nenhum|
+|Integração ServiçoEnvironmentConnectorProcessorUsage|Utilização do processador do conector para ambiente de serviço de integração|Percentagem|Média|Utilização do processador de conector para ambiente de serviço de integração.|Nenhum|
+|Integração ServiçoEnvironmentConnectorMemoryUsage|Utilização da memória do conector para ambiente de serviço de integração|Percentagem|Média|Utilização da memória do conector para ambiente de serviço de integração.|Nenhum|
 
-## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/espaços de trabalho
+## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Corridas Canceladas|Corridas Canceladas|Contagem|Total|Número de corridas canceladas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Cancelar Corridas Solicitadas|Cancelar Corridas Solicitadas|Contagem|Total|Número de corridas onde o cancelamento foi solicitado para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Corridas Concluídas|Corridas Concluídas|Contagem|Total|Número de execuções concluídas com sucesso para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Cancelar execuções solicitadas|Cancelar execuções solicitadas|Contagem|Total|Número de corridas onde foi pedido cancelamento para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Execuções Concluídas|Execuções Concluídas|Contagem|Total|Número de corridas concluídas com sucesso para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Corridas falhadas|Corridas falhadas|Contagem|Total|Número de corridas falhou para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Finalizando Corridas|Finalizando Corridas|Contagem|Total|Número de corridas inseridas em estado finalizador para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Não responder corre|Não responder corre|Contagem|Total|Número de corridas que não respondem para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Não começou corridas|Não começou corridas|Contagem|Total|Número de corridas em estado não iniciado para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Finalização de Corridas|Finalização de Corridas|Contagem|Total|Número de corridas inscritas no estado finalizado para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Não respondendo corre|Não respondendo corre|Contagem|Total|Número de corridas que não respondem a este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Não começou corre|Não começou corre|Contagem|Total|Número de corridas em estado não iniciado para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Preparação de Corridas|Preparação de Corridas|Contagem|Total|Número de corridas que se preparam para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Corridas de Provisionamento|Corridas de Provisionamento|Contagem|Total|Número de execuções que estão a provisionar para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Corridas em fila|Corridas em fila|Contagem|Total|Número de corridas que estão na fila para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Corridas Iniciadas|Corridas Iniciadas|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Iniciar corridas|Iniciar corridas|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Corridas de Provisionamento|Corridas de Provisionamento|Contagem|Total|Número de corridas que estão a provisão para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Corridas em Fila|Corridas em Fila|Contagem|Total|Número de corridas que são filas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Corridas iniciadas|Corridas iniciadas|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Execuções ini 'Starting'|Execuções ini 'Starting'|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Erros|Erros|Contagem|Total|Número de erros de execução neste espaço de trabalho|Cenário|
-|Avisos|Avisos|Contagem|Total|Número de avisos de execução neste espaço de trabalho|Cenário|
-|Registo de Modelos Bem Sucedido|Registo de Modelos Bem Sucedido|Contagem|Total|Número de registos de modelos que conseguiram neste espaço de trabalho|Cenário|
-|Registo de Modelos Falhado|Registo de Modelos Falhado|Contagem|Total|Número de registos de modelos que falharam neste espaço de trabalho|Cenário,Código de Estado|
-|Modelo Implantação Iniciada|Modelo Implantação Iniciada|Contagem|Total|Número de implementações de modelos iniciadas neste espaço de trabalho|Cenário|
-|Model Deploy Succeeded|Model Deploy Succeeded|Contagem|Total|Número de implementações de modelos que conseguiram neste espaço de trabalho|Cenário|
-|Implementação do modelo falhou|Implementação do modelo falhou|Contagem|Total|Número de implementações de modelos que falharam neste espaço de trabalho|Cenário,Código de Estado|
-|Nósodes totais|Nósodes totais|Contagem|Média|Número de nós totais. Este total inclui alguns de Nós Ativos, Nós ociosos, nós inutilizáveis, nós pré-mepted, deixando nós|Cenário,ClusterName|
-|Nódosativos Ativos|Nódosativos Ativos|Contagem|Média|Número de nós de Aitve. Estes são os nódosos que estão ativamente a gerir um trabalho.|Cenário,ClusterName|
-|Nódoas ociosas|Nódoas ociosas|Contagem|Média|Número de nós ociosos. Os nódoas ociosas são os nódosos que não estão a gerir nenhum emprego, mas podem aceitar novos empregos se disponíveis.|Cenário,ClusterName|
-|Nós Inutilizáveis|Nós Inutilizáveis|Contagem|Média|Número de nós inutilizáveis. Nós inutilizáveis não são funcionais devido a algum problema irresolúvel. O Azure vai reciclar estes nódosos.|Cenário,ClusterName|
-|Nódosos pré-empreitados|Nódosos pré-empreitados|Contagem|Média|Número de nós pré-empreitados. Estes nódosos são os nódosos de baixa prioridade que são retirados da piscina disponível.|Cenário,ClusterName|
-|Deixando nódosos|Deixando nódosos|Contagem|Média|Número de nós deixando. Deixando os nódosos são os nódosos que acabaram de processar um trabalho e irão para o estado de Idle.|Cenário,ClusterName|
+|Avisos|Avisos|Contagem|Total|Número de advertências de execução neste espaço de trabalho|Cenário|
+|Registo modelo Bem sucedido|Registo modelo Bem sucedido|Contagem|Total|Número de registos de modelos que sucederam neste espaço de trabalho|Cenário|
+|Registo modelo falhado|Registo modelo falhado|Contagem|Total|Número de registos de modelos que falharam neste espaço de trabalho|Cenário,Código de Estado|
+|Implementação de modelos iniciado|Implementação de modelos iniciado|Contagem|Total|Número de implementações de modelos iniciadas neste espaço de trabalho|Cenário|
+|Implementação de modelos conseguiu|Implementação de modelos conseguiu|Contagem|Total|Número de implementações de modelos que foram bem sucedidas neste espaço de trabalho|Cenário|
+|Implementação de modelo falhou|Implementação de modelo falhou|Contagem|Total|Número de implementações de modelos que falharam neste espaço de trabalho|Cenário,Código de Estado|
+|Nómada Total|Nómada Total|Contagem|Média|Número de nós totais. Este total inclui alguns dos nóns ativos, nóns ociosos, nóns inutilizáveis, nóns pré-identificados, deixando os nóns|Cenário,ClusterName|
+|Nóns ativos|Nóns ativos|Contagem|Média|Número de nós Acitve. Estes são os nós que estão ativamente a gerir um trabalho.|Cenário,ClusterName|
+|Nódoas Ociosas|Nódoas Ociosas|Contagem|Média|Número de nós ociosos. Os nós inativos são os nós que não estão a gerir nenhum emprego, mas que podem aceitar novos empregos se disponíveis.|Cenário,ClusterName|
+|Nódes Inutilizáveis|Nódes Inutilizáveis|Contagem|Média|Número de nós inutilizáveis. Os nós inutilizáveis não estão funcionais devido a algum problema irresolúvel. Azure vai reciclar estes nós.|Cenário,ClusterName|
+|Nómadas Preempted|Nómadas Preempted|Contagem|Média|Número de nós preempted. Estes nós são os nós de baixa prioridade que são retirados da piscina de nós disponíveis.|Cenário,ClusterName|
+|Deixando os nóns|Deixando os nóns|Contagem|Média|Número de nós de saída. Deixando nós são os nós que acabaram de processar um trabalho e irão para o estado de Idle.|Cenário,ClusterName|
 |Núcleos Totais|Núcleos Totais|Contagem|Média|Número de núcleos totais|Cenário,ClusterName|
 |Núcleos Ativos|Núcleos Ativos|Contagem|Média|Número de núcleos ativos|Cenário,ClusterName|
-|Núcleos ociosos|Núcleos ociosos|Contagem|Média|Número de núcleos ociosos|Cenário,ClusterName|
-|Núcleos Inutilizáveis|Núcleos Inutilizáveis|Contagem|Média|Número de núcleos inutilizáveis|Cenário,ClusterName|
-|Núcleos Preempted|Núcleos Preempted|Contagem|Média|Número de núcleos pré-optados|Cenário,ClusterName|
-|Deixando núcleos|Deixando núcleos|Contagem|Média|Número de núcleos de saída|Cenário,ClusterName|
-|Percentagem de Utilização de Quotas|Percentagem de Utilização de Quotas|Contagem|Média|Por cento da quota utilizada|Cenário,ClusterName,VmFamilyName,VmPriority|
+|Núcleos Ociosos|Núcleos Ociosos|Contagem|Média|Número de núcleos ociosos|Cenário,ClusterName|
+|Núcleos inutilizáveis|Núcleos inutilizáveis|Contagem|Média|Número de núcleos inutilizáveis|Cenário,ClusterName|
+|Núcleos Preempted|Núcleos Preempted|Contagem|Média|Número de núcleos pré-apropriados|Cenário,ClusterName|
+|Deixando os Núcleos|Deixando os Núcleos|Contagem|Média|Número de núcleos de saída|Cenário,ClusterName|
+|Percentagem de Utilização de Cots|Percentagem de Utilização de Cots|Contagem|Média|Por cento das quotas utilizadas|Cenário,ClusterName,VmFamilyName,VmPriority|
 |CpuUtilização|CpuUtilização|Contagem|Média|CPU (Pré-visualização)|Cenário,runId,NodeId,CreatedTime|
 |GpuUtilização|GpuUtilização|Contagem|Média|GPU (Pré-visualização)|Cenário,runId,NodeId,CreatedTime,DeviceId|
 
@@ -1448,16 +1448,16 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Utilização|Utilização|Contagem|Contagem|Contagem de chamadas da API|Categoria Api,ApiName,Tipo de Resultados,Código de Resposta|
-|Disponibilidade|Disponibilidade|Percentagem|Média|Disponibilidade das APIs|Categoria Api,ApiName|
+|Utilização|Utilização|Contagem|Contagem|Contagem de chamadas da API|ApiCategory,ApiName,ResultadoType,ResponseCode|
+|Disponibilidade|Disponibilidade|Percentagem|Média|Disponibilidade das APIs|ApiCategory,ApiName|
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft.Media/mediaservices/streamingEndpoints
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Saída|Saída|Bytes|Total|A quantidade de dados da Egress, em bytes.|Formato de saída|
-|SuccessE2ELatency|Fim do sucesso para acabar com a Latência|Milissegundos|Média|A latência média para pedidos bem sucedidos em milissegundos.|Formato de saída|
-|Pedidos|Pedidos|Contagem|Total|Pedidos para um Ponto Final de Streaming.|Formato de saída,HttpStatusCode,ErrorCode|
+|Saída|Saída|Bytes|Total|A quantidade de dados da Egress, em bytes.|OutputFormat|
+|SucessoE2ELatency|Fim do sucesso para acabar com a latência|Milissegundos|Média|A latência média para pedidos bem sucedidos em milissegundos.|OutputFormat|
+|Pedidos|Pedidos|Contagem|Total|Pedidos para um Ponto Final de Streaming.|OutputFormat,HttpStatusCode,ErrorCode|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -1465,102 +1465,102 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |AssetQuota|Quota de ativos|Contagem|Média|Quantos ativos são permitidos para a conta de serviço de mídia atual|Nenhum|
-|Contaque de ativos|Contagem de ativos|Contagem|Média|Quantos ativos já estão criados na conta de serviço de mídia atual|Nenhum|
-|Percentagem de Quotas de Ativos|Percentagem de quota de ativos utilizada|Percentagem|Média|Percentagem de ativos utilizada na conta de serviço de mídia corrente|Nenhum|
-|ContentKeyPolicyQuota|Quota de Política chave de conteúdo|Contagem|Média|Quantos agentes chave de conteúdo são permitidos para a conta de serviço de mídia atual|Nenhum|
-|Contagem de políticas de conteúdo|Contagem de políticas de chave de conteúdo|Contagem|Média|Quantas políticas chave de conteúdo já estão criadas na conta de serviço de mídia atual|Nenhum|
-|ContentKeyPolicyQuotaUsedPercentage|Percentagem de política-chave de conteúdo utilizada|Percentagem|Média|Política chave de conteúdo utilizada percentagem na conta de serviço de mídia corrente|Nenhum|
-|StreamingPolicyQuota|Quota política de streaming|Contagem|Média|Quantas políticas de streaming são permitidas para a conta de serviço de mídia atual|Nenhum|
-|Contagem de Políticas de Streaming|Contagem de políticas de streaming|Contagem|Média|Quantas políticas de streaming já estão criadas na conta de serviço sinuoso atual|Nenhum|
-|StreamingPolicyQuotaUsedPercentage|Quota de política de streaming utilizada percentagem|Percentagem|Média|Política de Streaming utilizada percentagem na conta de serviço de mídia atual|Nenhum|
+|Conta de Ativos|Contagem de ativos|Contagem|Média|Quantos ativos já são criados na conta de serviço de mídia corrente|Nenhum|
+|AssetQuotaUsedPercentage|Percentagem de quota de ativos utilizada|Percentagem|Média|Percentagem de ativos usados na conta de serviço de mídia corrente|Nenhum|
+|ContentKeyPolicyQuota|Quota de política chave de conteúdo|Contagem|Média|Quantos polícias chave de conteúdo são permitidos para a conta de serviço de mídia atual|Nenhum|
+|ContentKeyPolicyCount|Contagem de políticas de chave de conteúdo|Contagem|Média|Quantas políticas-chave de conteúdo já estão criadas na conta de serviço de mídia atual|Nenhum|
+|ContentKeyPolicyQuotaUsedPercentage|Quota de política de conteúdo utilizada|Percentagem|Média|Política chave de conteúdo usada percentagem na conta de serviço de mídia atual|Nenhum|
+|StreamingPolicyQuota|Quota de política de streaming|Contagem|Média|Quantas políticas de streaming são permitidas para a conta atual do serviço de mídia|Nenhum|
+|StreamingPolicyCount|Contagem de políticas de streaming|Contagem|Média|Quantas políticas de streaming já estão criadas na conta de serviço de mídia atual|Nenhum|
+|StreamingPolicyQuotaUsedPercentage|Percentagem utilizada pela quota de política de streaming|Percentagem|Média|Política de Streaming usada percentualmente na conta de serviço de mídia corrente|Nenhum|
 
 
-## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
+## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderIngS
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ActivosConvertidos|Ativos Convertidos|Contagem|Total|Número total de ativos convertidos|Appid,Resourceid,SDKversion|
-|ActiveRenderingSessions|Sessões ativas de renderização|Contagem|Total|Número total de sessões de renderização ativa|Appid,Resourceid,SessionType,SDKversion|
+|ActivosConvertidos|Ativos Convertidos|Contagem|Total|Número total de ativos convertidos|AppId,ResourceId,SDKVersion|
+|Ativaressessões de Esessão|Sessões de renderização ativa|Contagem|Total|Número total de sessões de renderização ativas|AppId,ResourceId,SessionType,SDKVersion|
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/volumes
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|MédiaDeLeitura|Latência média de leitura|MilliSeconds|Média|Latência média de leitura em milissegundos por operação|Nenhum|
-|MédiaWriteLatency|Latência média de escrita|MilliSeconds|Média|Latência média de escrita em milissegundos por operação|Nenhum|
-|Volumelógico|Volume Consumido Tamanho|Bytes|Média|Tamanho lógico do volume (bytes usados)|Nenhum|
+|Média DeOncência|Latência média de leitura|MilliSeconds|Média|Latência média de leitura em milissegundos por operação|Nenhum|
+|Média Desaquimia|Latência média de escrita|MilliSeconds|Média|Latência escrita média em milissegundos por operação|Nenhum|
+|VolumeLogicalsize|Tamanho consumido do volume|Bytes|Média|Tamanho lógico do volume (bytes usados)|Nenhum|
 |VolumeSnapshotSize|Tamanho do instantâneo de volume|Bytes|Média|Tamanho de todos os instantâneos em volume|Nenhum|
-|Leituras|Ler iops|CondeEmSegundo|Média|Ler operações de in/fora por segundo|Nenhum|
-|WriteIops|Escrever iops|CondeEmSegundo|Média|Escreva operações in/out por segundo|Nenhum|
+|ReadIops|Ler iops|CondePerSecond|Média|Ler operações de in/out por segundo|Nenhum|
+|WriteIops|Escrever iops|CondePerSecond|Média|Escrever operações de in/out por segundo|Nenhum|
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|VolumePoolAllocatedUsed|Piscina atribuída ao tamanho do volume|Bytes|Média|Tamanho usado atribuído da piscina|Nenhum|
-|VolumePoolTotalLogicalSize|Piscina Consumida Tamanho|Bytes|Média|Soma do tamanho lógico de todos os volumes pertencentes à piscina|Nenhum|
+|VolumePoolAllocatedUsed|Piscina atribuída ao tamanho do volume|Bytes|Média|Tamanho utilizado atribuído da piscina|Nenhum|
+|VolumePoolTotalLogicalsize|Tamanho consumido da piscina|Bytes|Média|Soma do tamanho lógico de todos os volumes pertencentes à piscina|Nenhum|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BytesSentRate|Bytes Enviados|Bytes|Total|Número de bytes a Interface de Rede enviada|Nenhum|
+|BytesSentRate|Bytes Enviados|Bytes|Total|Número de bytes enviados pela Interface de Rede|Nenhum|
 |BytesReceivedRate|Bytes Recebidos|Bytes|Total|Número de bytes que a Interface de Rede recebeu|Nenhum|
-|PacotesSentRate|Pacotes Enviados|Contagem|Total|Número de pacotes que a Interface de Rede enviou|Nenhum|
-|PacotesReceivedRate|Pacotes Recebidos|Contagem|Total|Número de pacotes que a Interface de Rede recebeu|Nenhum|
+|PacotesSEntRate|Pacotes Enviados|Contagem|Total|Número de pacotes enviados pela Interface de Rede|Nenhum|
+|PacketsReceivedRate|Pacotes Recebidos|Contagem|Total|Número de pacotes que a Interface de Rede recebeu|Nenhum|
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Disponibilidade Vip|Disponibilidade do Caminho de Dados|Contagem|Média|Disponibilidade de dados de balanceadores de carga média por duração do tempo|FrontendIPAddress,FrontendPort|
-|Disponibilidade de Mergulho|Estado da sonda de saúde|Contagem|Média|Estado médio da sonda de saúde balanceadores de carga por duração do tempo|ProtocolType,BackendPort,FrontendIPAddress,FrontendPort,BackendIPAddress|
-|ByteCount|Conde byte|Contagem|Total|Número total de Bytes transmitidos dentro do período de tempo|FrontendIPAddress,FrontendPort,Direção|
-|Contagem de pacotes|Contagem de pacotes|Contagem|Total|Número total de pacotes transmitidos dentro do período de tempo|FrontendIPAddress,FrontendPort,Direção|
-|SYNCount|Contagem de SYN|Contagem|Total|Número total de pacotes syn transmitidos dentro do período de tempo|FrontendIPAddress,FrontendPort,Direção|
-|SnatConnectionCount|Contagem de ligação sNAT|Contagem|Total|Número total de novas ligações SNAT criadas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ConnectionState|
-|AlocadoSnatPorts|Portas SNAT atribuídas (Pré-visualização)|Contagem|Total|Número total de portas SNAT atribuídas dentro do prazo|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
-|SnatPorts Usados|Portas SNAT usadas (Pré-visualização)|Contagem|Total|Número total de portas SNAT utilizadas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
+|VipSAdability|Disponibilidade do caminho dos dados|Contagem|Média|Disponibilidade média de trajetória do balanceador de carga por duração do tempo|FrontendIPAddress,FrontendPort|
+|DipDUilability|Estado da sonda de saúde|Contagem|Média|Estado médio da sonda de saúde do balanceador de carga por duração do tempo|ProtocolType,BackendPort,FrontendIPAddress,FrontendPort,BackendIPAddress|
+|ByteCount|Byte Count|Contagem|Total|Número total de Bytes transmitidos dentro do período de tempo|FrontendIPAddress,FrontendPort,Direction|
+|PacoteCount|Contagem de pacotes|Contagem|Total|Número total de Pacotes transmitidos dentro do período de tempo|FrontendIPAddress,FrontendPort,Direction|
+|SYNCount|Contagem de SINA|Contagem|Total|Número total de pacotes SYN transmitidos dentro do período de tempo|FrontendIPAddress,FrontendPort,Direction|
+|SnatConnectionCount|Contagem de ligação SNAT|Contagem|Total|Número total de novas ligações SNAT criadas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ConnectionState|
+|AlocadosSnatPorts|Portas SNAT atribuídas (Pré-visualização)|Contagem|Total|Número total de portas SNAT atribuídas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
+|UssnatPorts|Portas SNAT usadas (pré-visualização)|Contagem|Total|Número total de portas SNAT utilizadas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Volume de Consultas|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona de DNS|Nenhum|
-|RecordSetCount|Contagem de conjuntos de discos|Contagem|Máximo|Número de conjuntos de recordes numa zona de DNS|Nenhum|
-|Utilização de RecordSetCapacity|Utilização da capacidade do conjunto de registos|Percentagem|Máximo|Por cento da capacidade do Record set utilizada por uma zona DNS|Nenhum|
+|QueryVolume|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona de DNS|Nenhum|
+|RecordSetCount|Contagem de recordes|Contagem|Máximo|Número de conjuntos de recordes numa zona de DNS|Nenhum|
+|RecordSetCapacityUtilização|Record Fixo Utilização da Capacidade|Percentagem|Máximo|Por cento da capacidade do Conjunto recorde utilizada por uma zona de DNS|Nenhum|
 
 
-## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresss
+## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PacotesInDDoS|Pacotes de entrada DDoS|CondeEmSegundo|Máximo|Pacotes de entrada DDoS|Nenhum|
-|Pacotes DropDDoS|Pacotes de entrada caíram DDoS|CondeEmSegundo|Máximo|Pacotes de entrada caíram DDoS|Nenhum|
-|Pacotes ForwardedDDoS|Pacotes de entrada encaminhadas DDoS|CondeEmSegundo|Máximo|Pacotes de entrada encaminhadas DDoS|Nenhum|
-|TCPPacketsInDDoS|Pacotes TCP de entrada DDoS|CondeEmSegundo|Máximo|Pacotes TCP de entrada DDoS|Nenhum|
-|TCPPacketsDropDDoS|Pacotes tCP de entrada caíram DDoS|CondeEmSegundo|Máximo|Pacotes tCP de entrada caíram DDoS|Nenhum|
-|TCPPacketsForwardedDDoS|Pacotes TCP de entrada encaminharam DDoS|CondeEmSegundo|Máximo|Pacotes TCP de entrada encaminharam DDoS|Nenhum|
-|UDPPacketsInDDoS|Pacotes UDP de entrada DDoS|CondeEmSegundo|Máximo|Pacotes UDP de entrada DDoS|Nenhum|
-|UDPPacketsDropDDoS|Pacotes uDP de entrada caíram DDoS|CondeEmSegundo|Máximo|Pacotes uDP de entrada caíram DDoS|Nenhum|
-|UDPPacketsForwardedDDoS|Pacotes UDP de entrada encaminharam DDoS|CondeEmSegundo|Máximo|Pacotes UDP de entrada encaminharam DDoS|Nenhum|
-|BytesInDDoS|Bytes de entrada|BytesPerSecond|Máximo|Bytes de entrada|Nenhum|
-|BytesDropDDoS|Bytes de entrada caíram DDoS|BytesPerSecond|Máximo|Bytes de entrada caíram DDoS|Nenhum|
-|BytesForwardedDDoS|Bytes de entrada encaminhadas DDoS|BytesPerSecond|Máximo|Bytes de entrada encaminhadas DDoS|Nenhum|
-|TCPBytesInDDoS|TCP de entrada bytes DDoS|BytesPerSecond|Máximo|TCP de entrada bytes DDoS|Nenhum|
-|TCPBytesDropDDoS|Bytes de TCP de entrada caíram DDoS|BytesPerSecond|Máximo|Bytes de TCP de entrada caíram DDoS|Nenhum|
-|TCPBytesForwardedDDoS|Bytes de TCP de entrada encaminhadas DDoS|BytesPerSecond|Máximo|Bytes de TCP de entrada encaminhadas DDoS|Nenhum|
-|UDPBytesInDDoS|UDP de entrada bytes DDoS|BytesPerSecond|Máximo|UDP de entrada bytes DDoS|Nenhum|
-|UDPBytesDropDDoS|Bytes uDP de entrada caíram DDoS|BytesPerSecond|Máximo|Bytes uDP de entrada caíram DDoS|Nenhum|
-|UDPBytesForwardedDDoS|Bytes UDP de entrada|BytesPerSecond|Máximo|Bytes UDP de entrada|Nenhum|
-|Ataque ifunderddos|Sob ataque DDoS ou não|Contagem|Máximo|Sob ataque DDoS ou não|Nenhum|
-|DDoSTriggerTCPPackets|Pacotes TCP de entrada para desencadear mitigação do DDoS|CondeEmSegundo|Máximo|Pacotes TCP de entrada para desencadear mitigação do DDoS|Nenhum|
-|DDoSTriggerUDPPackets|Pacotes UDP de entrada para desencadear mitigação do DDoS|CondeEmSegundo|Máximo|Pacotes UDP de entrada para desencadear mitigação do DDoS|Nenhum|
-|DDoSTriggerSYNPackets|Pacotes SYN de entrada para desencadear mitigação do DDoS|CondeEmSegundo|Máximo|Pacotes SYN de entrada para desencadear mitigação do DDoS|Nenhum|
-|Disponibilidade Vip|Disponibilidade do Caminho de Dados|Contagem|Média|Disponibilidade média de endereço IP por duração do tempo|Porta|
-|ByteCount|Conde byte|Contagem|Total|Número total de Bytes transmitidos dentro do período de tempo|Porto,Direção|
-|Contagem de pacotes|Contagem de pacotes|Contagem|Total|Número total de pacotes transmitidos dentro do período de tempo|Porto,Direção|
-|SynCount|Contagem de SYN|Contagem|Total|Número total de pacotes syn transmitidos dentro do período de tempo|Porto,Direção|
+|PacotesInDDoS|Pacotes de entrada DDoS|CondePerSecond|Máximo|Pacotes de entrada DDoS|Nenhum|
+|PacotesDroppedDDoS|Pacotes de entrada deixaram cair DDoS|CondePerSecond|Máximo|Pacotes de entrada deixaram cair DDoS|Nenhum|
+|PacotesForwardedDDoS|Pacotes de entrada reencaminhados DDoS|CondePerSecond|Máximo|Pacotes de entrada reencaminhados DDoS|Nenhum|
+|TCPPacketsInDDoS|Pacotes TCP de entrada DDoS|CondePerSecond|Máximo|Pacotes TCP de entrada DDoS|Nenhum|
+|TCPPacketsDroppedDDoS|Pacotes TCP de entrada deixaram cair DDoS|CondePerSecond|Máximo|Pacotes TCP de entrada deixaram cair DDoS|Nenhum|
+|TCPPacketsForwardedDDoS|Pacotes TCP de entrada reencaminhados DDoS|CondePerSecond|Máximo|Pacotes TCP de entrada reencaminhados DDoS|Nenhum|
+|UDPPacketsInDDoS|Pacotes de UDP de entrada DDoS|CondePerSecond|Máximo|Pacotes de UDP de entrada DDoS|Nenhum|
+|UDPPacketsDroppedDDoS|Pacotes UDP de entrada deixaram cair DDoS|CondePerSecond|Máximo|Pacotes UDP de entrada deixaram cair DDoS|Nenhum|
+|UDPPacketsForwardedDDoS|Pacotes UDP de entrada reencaminhados DDoS|CondePerSecond|Máximo|Pacotes UDP de entrada reencaminhados DDoS|Nenhum|
+|BytesInDDoS|Bytes de entrada DDoS|BytesPerSecond|Máximo|Bytes de entrada DDoS|Nenhum|
+|BytesDroppedDDoS|Bytes de entrada deixaram cair DDoS|BytesPerSecond|Máximo|Bytes de entrada deixaram cair DDoS|Nenhum|
+|BytesForwardedDDoS|Bytes de entrada reencaminhado DDoS|BytesPerSecond|Máximo|Bytes de entrada reencaminhado DDoS|Nenhum|
+|TCPBytesInDDoS|Entrada TCP bytes DDoS|BytesPerSecond|Máximo|Entrada TCP bytes DDoS|Nenhum|
+|TCPBytesDroppedDDoS|Bytes TCP de entrada deixaram cair DDoS|BytesPerSecond|Máximo|Bytes TCP de entrada deixaram cair DDoS|Nenhum|
+|TCPBytesForwardedDDoS|Inbound TCP bytes reencaminhado DDoS|BytesPerSecond|Máximo|Inbound TCP bytes reencaminhado DDoS|Nenhum|
+|UDPBytesInDDoS|UDP bytes DDoS de entrada|BytesPerSecond|Máximo|UDP bytes DDoS de entrada|Nenhum|
+|UDPBytesDroppedDDoS|Bytes udp de entrada deixaram cair DDoS|BytesPerSecond|Máximo|Bytes udp de entrada deixaram cair DDoS|Nenhum|
+|UDPBytesForwardedDDoS|Bytes de UDP de entrada reencaminhados DDoS|BytesPerSecond|Máximo|Bytes de UDP de entrada reencaminhados DDoS|Nenhum|
+|IfUnderDDosAttack|Sob o ataque do DDoS ou não|Contagem|Máximo|Sob o ataque do DDoS ou não|Nenhum|
+|Pacotes DDoSTriggerTCP|Pacotes TCP de entrada para desencadear mitigação do DDoS|CondePerSecond|Máximo|Pacotes TCP de entrada para desencadear mitigação do DDoS|Nenhum|
+|DDoSTriggerUDPPackets|Pacotes UDP de entrada para desencadear mitigação do DDoS|CondePerSecond|Máximo|Pacotes UDP de entrada para desencadear mitigação do DDoS|Nenhum|
+|DDoSTriggerSYNPackets|Pacotes SYN de entrada para desencadear a mitigação do DDoS|CondePerSecond|Máximo|Pacotes SYN de entrada para desencadear a mitigação do DDoS|Nenhum|
+|VipSAdability|Disponibilidade do caminho dos dados|Contagem|Média|Disponibilidade média de endereço IP por duração de tempo|Porta|
+|ByteCount|Byte Count|Contagem|Total|Número total de Bytes transmitidos dentro do período de tempo|Porto,Direção|
+|PacoteCount|Contagem de pacotes|Contagem|Total|Número total de Pacotes transmitidos dentro do período de tempo|Porto,Direção|
+|SynCount|Contagem de SINA|Contagem|Total|Número total de pacotes SYN transmitidos dentro do período de tempo|Porto,Direção|
 
 
 
@@ -1568,79 +1568,79 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PingMeshAverageRoundtripMs|Tempo de ida e volta para Pings a um VM|MilliSeconds|Média|Tempo de ida e volta para Pings enviado para um destino VM|Endereço sourceCustomer,DestinationCustomerAddress|
-|PingMeshProbesFailedPercent|Pings falhados a um VM|Percentagem|Média|Por cento do número de Pings falhados no total enviado pings de um destino VM|Endereço sourceCustomer,DestinationCustomerAddress|
+|PingMeshAverageRoundtripMs|Hora de ida e volta para Pings a um VM|MilliSeconds|Média|Tempo de ida e volta para Pings enviado para um VM de destino|SourceCustomerAddress,DestinationCustomerAddress|
+|PingMeshProbesFailedPercent|Pings falhados para um VM|Percentagem|Média|Por cento do número de pings falhados para o total enviado Pings de um VM destino|SourceCustomerAddress,DestinationCustomerAddress|
 
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ApplicationRuleHit|Regras de aplicação atingem a contagem|Contagem|Total|Número de vezes que as regras de aplicação foram atingidas|Estado,Razão,Protocolo|
-|NetworkRuleHit|Regras da rede atingir a contagem|Contagem|Total|Número de vezes que as regras da rede foram atingidas|Estado,Razão,Protocolo|
-|FirewallHealth|Estado de saúde firewall|Percentagem|Média|Estado de saúde firewall|Estado,Razão|
-|DataProcessado|Dados tratados|Bytes|Total|Quantidade total de dados processados pela Firewall|Nenhum|
-|SNATPortUtilização|Utilização da porta SNAT|Percentagem|Média|Utilização da porta SNAT|Nenhum|
+|AplicaçãoRuleHit|As regras de aplicação atingem a contagem|Contagem|Total|Número de vezes que as regras de aplicação foram atingidas|Estado,Razão,Protocolo|
+|NetworkRuleHit|Regras de rede atingem a contagem|Contagem|Total|Número de vezes que as regras da rede foram atingidas|Estado,Razão,Protocolo|
+|FirewallHealth|Estado de saúde de firewall|Percentagem|Média|Estado de saúde de firewall|Estado,Razão|
+|Dados Processados|Dados processados|Bytes|Total|Quantidade total de dados processados por Firewall|Nenhum|
+|SNATPortutilization|Utilização do porto de SNAT|Percentagem|Média|Utilização do porto de SNAT|Nenhum|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Débito|Débito|BytesPerSecond|Média|Número de bytes por segundo o Gateway de Aplicação serviu|Nenhum|
-|Contagem de anfitriões pouco saudável|Contagem de hospedeiros pouco saudável|Contagem|Média|Número de anfitriões insalubres|BackendSettingsPool|
-|Contagem de anfitriões saudáveis|Contagem de hospedeiros saudáveis|Contagem|Média|Número de anfitriões saudáveis de backend|BackendSettingsPool|
-|TotalRequests|Total de Pedidos|Contagem|Total|Contagem de pedidos bem sucedidos que o Application Gateway serviu|BackendSettingsPool|
-|AvgRequestCountPerHealthyHostHost|Pedidos por minuto por Anfitrião Saudável|Contagem|Média|Contagem média de pedidos por minuto por hospedeiro saudável em uma piscina|BackendSettingsPool|
-|Pedidos Falhados|Pedidos com Falhas|Contagem|Total|Contagem de pedidos falhados que o Application Gateway serviu|BackendSettingsPool|
-|Estatuto de Resposta|Estado de Resposta|Contagem|Total|Estado de resposta http devolvido por Application Gateway|HttpStatusGroup|
-|CurrentConnections|Conexões Atuais|Contagem|Total|Contagem das ligações atuais estabelecidas com gateway de aplicação|Nenhum|
-|NewConnectionsPerSecond|Novas ligações por segundo|CondeEmSegundo|Média|Novas ligações por segundo estabelecidas com Application Gateway|Nenhum|
-|CpuUtilização|Utilização da CPU|Percentagem|Média|Utilização atual do CPU do Gateway de Aplicação|Nenhum|
-|Unidades de Capacidade|Unidades de Capacidade Atuais|Contagem|Média|Unidades de Capacidade consumidas|Nenhum|
-|FixedBillableCapacityUnits|Unidades de Capacidade Faturadas Fixas|Contagem|Média|Unidades de capacidade mínima que serão carregadas|Nenhum|
-|Unidades estimadas de Capacidade faturada|Unidades de Capacidade Faturadas Estimadas|Contagem|Média|Unidades de capacidade estimadas que serão carregadas|Nenhum|
-|ComputeUnits|Unidades Computadas Atuais|Contagem|Média|Unidades Computadas consumidas|Nenhum|
-|BackendResponseStatus|Estado de resposta de backend|Contagem|Total|O número de códigos de resposta HTTP gerados pelos membros do backend. Isto não inclui quaisquer códigos de resposta gerados pelo Gateway da Aplicação.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
-|Protocolo TLS|Protocolo TLS cliente|Contagem|Total|O número de pedidos tLS e não-TLS iniciados pelo cliente que estabeleceu a ligação com o Gateway de Aplicação. Para ver a distribuição do protocolo TLS, filtre pela dimensão do Protocolo TLS.|Ouvinte,TlsProtocol|
-|BytesSent|Bytes Enviados|Bytes|Total|O número total de bytes enviados pela Porta de Entrada de Aplicação aos clientes|Serviço de Escuta|
-|BytesReceived|Bytes Recebidos|Bytes|Total|O número total de bytes recebidos pelo Gateway de Aplicação dos clientes|Serviço de Escuta|
-|ClientRtt|Cliente RTT|MilliSeconds|Média|Tempo médio de ida e volta entre clientes e Gateway de aplicação. Esta métrica indica quanto tempo leva para estabelecer ligações e reconhecer|Serviço de Escuta|
-|AplicaçãoGatewayTotalTime|Tempo total do Gateway de Aplicação|MilliSeconds|Média|O tempo médio que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado em média do intervalo a partir do momento em que o Application Gateway recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que isto geralmente inclui o tempo de processamento do Gateway de aplicação, o tempo que os pacotes de pedido e resposta estão viajando sobre a rede e o tempo que o servidor backend levou para responder.|Serviço de Escuta|
-|BackendConnectTime|Tempo de ligação backend|MilliSeconds|Média|Tempo gasto estabelecendo uma ligação com um servidor de backend|Ouvinte,BackendServer,BackendPool,BackendHttpSetting|
-|BackendFirstByteResponseTime|Apoiar o primeiro tempo de resposta do byte|MilliSeconds|Média|Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o primeiro byte do cabeçalho de resposta, aproximando o tempo de processamento do servidor backend|Ouvinte,BackendServer,BackendPool,BackendHttpSetting|
-|BackendLastByteResponseTime|Backend Last Byte Response Time|MilliSeconds|Média|Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor de backend e receber o último byte do corpo de resposta|Ouvinte,BackendServer,BackendPool,BackendHttpSetting|
-|Contagem compatível|Distribuição total de regras de firewall v1|Contagem|Total|Web Application Firewall v1 Distribuição total de regras para o tráfego de entrada|RuleGroup,RuleId|
-|Contagem bloqueada|Web Application Firewall v1 Blocked Requests Rule Distribution|Contagem|Total|Web Application Firewall v1 bloqueado solicita a distribuição de regras|RuleGroup,RuleId|
-|BlockedReqCount|Contagem de pedidos bloqueados firewall v1 bloqueados|Contagem|Total|Contagem de pedidos bloqueados firewall v1|Nenhum|
+|Débito|Débito|BytesPerSecond|Média|Número de bytes por segundo que o Gateway de Aplicação serviu|Nenhum|
+|Não-saudávelHostCount|Contagem de anfitriões pouco saudável|Contagem|Média|Número de anfitriões insalubres|BackendSettingsPool|
+|HealthyHostCount|Contagem saudável do anfitrião|Contagem|Média|Número de hospedeiros saudáveis|BackendSettingsPool|
+|TotalRequests|Total de Pedidos|Contagem|Total|Contagem de pedidos bem sucedidos que a Application Gateway serviu|BackendSettingsPool|
+|AvgRequestCountPerHealthyHost|Pedidos por minuto por Anfitrião Saudável|Contagem|Média|Contagem média de pedidos por minuto por hospedeiro saudável de backend em uma piscina|BackendSettingsPool|
+|Requessos Falhados|Pedidos com Falhas|Contagem|Total|Contagem de pedidos falhados que a Application Gateway serviu|BackendSettingsPool|
+|Estatísticas de Resposta|Estado de resposta|Contagem|Total|Estado de resposta http devolvido pelo Application Gateway|Grupo HttpStatus|
+|Correntes Deconhecões|Conexões atuais|Contagem|Total|Contagem de ligações atuais estabelecidas com Gateway de Aplicação|Nenhum|
+|NewConnectionsPerSecond|Novas ligações por segundo|CondePerSecond|Média|Novas ligações por segundo estabelecidas com Application Gateway|Nenhum|
+|CpuUtilização|Utilização da CPU|Percentagem|Média|Utilização atual do CPU do Gateway de Aplicações|Nenhum|
+|Unidades de capacidade|Unidades de Capacidade Corrente|Contagem|Média|Unidades de capacidade consumidas|Nenhum|
+|Unidades de Capacidade DeBilizáveis Fixas|Unidades de Capacidade Faturadas Fixas|Contagem|Média|Unidades de capacidade mínima que serão carregadas|Nenhum|
+|Vulnerabilidades estimadas da capacidade de pagamento|Unidades de Capacidade Faturadas Estimadas|Contagem|Média|Unidades de capacidade estimadas que serão carregadas|Nenhum|
+|Unidades computeuções|Unidades de Computação Atuais|Contagem|Média|Unidades de computação consumidas|Nenhum|
+|BackendResponseStatus|Estado de resposta de backend|Contagem|Total|O número de códigos de resposta HTTP gerados pelos membros backend. Isto não inclui quaisquer códigos de resposta gerados pelo Gateway de Aplicação.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
+|TlsProtocol|Protocolo TLS do Cliente|Contagem|Total|O número de pedidos TLS e não-TLS iniciados pelo cliente que estabeleceu a ligação com o Gateway de Aplicação. Para visualizar a distribuição do protocolo TLS, filtre pela dimensão do Protocolo TLS.|Ouvinte,TlsProtocol|
+|BytesSent|Bytes Enviados|Bytes|Total|O número total de bytes enviados pela Porta de Aplicação aos clientes|Serviço de Escuta|
+|BytesReceived|Bytes Recebidos|Bytes|Total|O número total de bytes recebidos pela Gateway de Aplicação dos clientes|Serviço de Escuta|
+|ClientRtt|RTT cliente|MilliSeconds|Média|Tempo médio de ida e volta entre clientes e Application Gateway. Esta métrica indica quanto tempo demora a estabelecer ligações e reconhecimentos de retorno|Serviço de Escuta|
+|ApplicationGatewayTotalTime|Tempo total do Gateway de Aplicação|MilliSeconds|Média|O tempo médio que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como média do intervalo a partir do momento em que o Application Gateway recebe o primeiro byte de um pedido HTTP ao momento em que a operação de envio de resposta termina. É importante notar que isto geralmente inclui o tempo de processamento do Gateway de Aplicação, tempo que os pacotes de pedido e resposta estão viajando através da rede e o tempo que o servidor backend demorou a responder.|Serviço de Escuta|
+|BackendConnectTime|Tempo de ligação de backend|MilliSeconds|Média|Tempo gasto a estabelecer uma ligação com um servidor de backend|Ouvinte,BackendServer,BackendPool,BackendHttpSetting|
+|BackendFirstByteResponseTime|Tempo de resposta de backend First Byte|MilliSeconds|Média|Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor backend e a receção do primeiro byte do cabeçalho de resposta, aproximando o tempo de processamento do servidor backend|Ouvinte,BackendServer,BackendPool,BackendHttpSetting|
+|BackendLastByteResponseTime|Tempo de resposta de Backend Last Byte|MilliSeconds|Média|Intervalo de tempo entre o início do estabelecimento de uma ligação ao servidor backend e a receção do último byte do corpo de resposta|Ouvinte,BackendServer,BackendPool,BackendHttpSetting|
+|MatchedCount|Firewall de aplicação web v1 Distribuição total de regras|Contagem|Total|Firewall de aplicação web v1 Distribuição total de regras para o tráfego de entrada|RuleGroup,RuleId|
+|Contagem bloqueada|Firewall de aplicação web v1 bloqueado pedidos de distribuição de regras|Contagem|Total|Web Application Firewall v1 bloqueado pedidos de distribuição de regras|RuleGroup,RuleId|
+|BlockedReqCount|Firewall de aplicação web v1 Contagem de pedidos bloqueados|Contagem|Total|Web Application Firewall v1 contagem de pedidos bloqueados|Nenhum|
 
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Largura média de banda|Gateway S2S Largura de banda|BytesPerSecond|Média|Largura de banda de site-a-local média de um gateway em bytes por segundo|Nenhum|
-|Largura de banda p2S|Largura de banda Gateway P2S|BytesPerSecond|Média|Largura de banda ponto-a-local média de um gateway em bytes por segundo|Nenhum|
-|Contagem de Conexões P2S|Contagem de ligação P2S|Contagem|Máximo|Contagem de ligação ponto-a-local de um portal|Protocolo|
-|TunnelAverageBandwidth|Largura de banda do túnel|BytesPerSecond|Média|Largura de banda média de um túnel em bytes por segundo|Nome de ligação,RemoteIP|
-|TunnelEgressBytes|Túnel Egress Bytes|Bytes|Total|Bytes de saída de um túnel|Nome de ligação,RemoteIP|
-|TunnelIngressBytes|Bytes de Ingresso do Túnel|Bytes|Total|Bytes de entrada de um túnel|Nome de ligação,RemoteIP|
-|TunnelEgressPackets|Pacotes de Egress do Túnel|Contagem|Total|Contagem de pacotes de saída de um túnel|Nome de ligação,RemoteIP|
-|TunnelIngressPackets|Pacotes de ingressos de túnel|Contagem|Total|Contagem de pacotes de entrada de um túnel|Nome de ligação,RemoteIP|
-|TunnelEgressPacketDropTSMismatch|Túnel Egress TS Mismatch Packet Drop|Contagem|Total|Contagem de gotas de pacote de saída de um desvio de seletor de tráfego de um túnel|Nome de ligação,RemoteIP|
-|Tunnelingresspacketdroptsmismatch|Túnel Ingress TS Mismatch Packet Drop|Contagem|Total|Contagem de gotas de pacote de entrada de um túnel de seletor de tráfego|Nome de ligação,RemoteIP|
+|Largura média da largura|Largura de banda Gateway S2S|BytesPerSecond|Média|Largura de banda média local-local de um gateway in bytes por segundo|Nenhum|
+|P2SBandwidth|Largura de banda Gateway P2S|BytesPerSecond|Média|Largura de banda média ponto-a-local de uma porta de entrada em bytes por segundo|Nenhum|
+|P2SConnectionCount|Contagem de ligação P2S|Contagem|Máximo|Contagem de ligação ponto-a-local de um gateway|Protocolo|
+|TunnelAverageBandwidth|Largura de banda do túnel|BytesPerSecond|Média|Largura de banda média de um túnel em bytes por segundo|Nome de conexão,RemoteIP|
+|TunnelEgressBytes|Túnel Egress Bytes|Bytes|Total|Bytes de saída de um túnel|Nome de conexão,RemoteIP|
+|TúnelIngsBytes|Túnel Ingress Bytes|Bytes|Total|Bytes de entrada de um túnel|Nome de conexão,RemoteIP|
+|TunnelEgressPackets|Pacotes de Egress do Túnel|Contagem|Total|Contagem de pacotes de saída de um túnel|Nome de conexão,RemoteIP|
+|Pacotes de escavação|Pacotes de Entrada de Túnel|Contagem|Total|Contagem de pacotes de entrada de um túnel|Nome de conexão,RemoteIP|
+|TunnelEgressPacketDropTSMismatch|Queda de pacote de desajustada do túnel Egress TS|Contagem|Total|Contagem de entrega de pacote de saída do desfasamento do seletor de tráfego de um túnel|Nome de conexão,RemoteIP|
+|TunnelIngressPacketDropTSMismatch|Túnel Ingress TS Desajuste Gota de Pacote|Contagem|Total|Contagem de gotas de pacote de entrada do seletor de tráfego desfasamento de um túnel|Nome de conexão,RemoteIP|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Nível RxLight|Nível RxLight|Contagem|Média|Nível de luz Rx em dBm|Link,Pista|
-|TxLightLevel|TxLightLevel|Contagem|Média|Nível de luz Tx em dBm|Link,Pista|
-|Estado-de-administração|Estado-de-administração|Contagem|Média|Estado administrativo do porto|Ligação|
-|Protocolo de Linha|Protocolo de Linha|Contagem|Média|Estatuto do protocolo de linha da porta|Ligação|
-|PortBitsInPerSecond|BitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|Ligação|
-|PortBitsOutPerSecond|BitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|Ligação|
+|RxLightLevel|RxLightLevel|Contagem|Média|Nível de luz Rx em dBm|Link,Lane|
+|TxLightLevel|TxLightLevel|Contagem|Média|Nível de luz Tx em dBm|Link,Lane|
+|Estado Administrativo|Estado Administrativo|Contagem|Média|Estado administrativo do porto|Ligação|
+|LineProtocol|LineProtocol|Contagem|Média|Estado do protocolo de linha da porta|Ligação|
+|PortBitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Ligação|
+|PortBitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Ligação|
 
 
 
@@ -1648,42 +1648,42 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|PeeringType|
-|BitsOutPerSecond|BitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|PeeringType|
-|GlobalReachBitsInPerSecond|GlobalReachBitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|PeeredCircuitsKey|
-|GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|PeeredCircuitsKey|
-|BGPDisponibilidade|Disponibilidade de BGP|Percentagem|Média|BGP Disponibilidade do MSEE para todos os pares.|PeeringType,Peer|
-|Disponibilidade de Arp|Disponibilidade arp|Percentagem|Média|Disponibilidade arp do MSEE para todos os pares.|PeeringType,Peer|
-|QosDropBitsInPerSecond|DropInBitsPerSecond|CondeEmSegundo|Média|Ingressos de dados caíram por segundo|Nenhum|
-|QosDropBitsOutPerSecond|DropOutBitsPerSecond|CondeEmSegundo|Média|Egress bits de dados caiu por segundo|Nenhum|
+|BitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Type de peering|
+|BitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Type de peering|
+|GlobalReachBitsInPerSecond|GlobalReachBitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|PeeredCircuitsKey|
+|GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|PeeredCircuitsKey|
+|BgpAilability|Disponibilidade BGP|Percentagem|Média|Disponibilidade de BGP da MSEE para todos os pares.|PeeringType,Peer|
+|ArpAilability|Disponibilidade ARP|Percentagem|Média|Disponibilidade de ARP da MSEE para todos os pares.|PeeringType,Peer|
+|QosDropBitsInPerSecond|DropInBitsPerSecond|CondePerSecond|Média|Ingress bits de dados caiu por segundo|Nenhum|
+|QosDropBitsOutPerSecond|DropOutBitsPerSecond|CondePerSecond|Média|Pedaços de dados de Egress caíram por segundo|Nenhum|
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|Nenhum|
-|BitsOutPerSecond|BitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|Nenhum|
+|BitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Nenhum|
+|BitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Nenhum|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Rede/ligações
+## <a name="microsoftnetworkconnections"></a>Microsoft.Network/conexões
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|Nenhum|
-|BitsOutPerSecond|BitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|Nenhum|
+|BitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|Nenhum|
+|BitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|Nenhum|
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft.Network/expressRouteGateways
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|ConnectionName|
-|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|ConnectionName|
+|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CondePerSecond|Média|Bits ingressando Azure por segundo|ConnectionName|
+|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CondePerSecond|Média|Bits eja Azure por segundo|ConnectionName|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|QpsByEndpoint|Consultas por Endpoint Devolvidos|Contagem|Total|Número de vezes que um ponto final do Gestor de Tráfego foi devolvido no prazo dado|Nome final|
-|ProbeAgentCurrentCurrentEndpointStateByProfileResourceId|Estado do ponto final por ponto final|Contagem|Máximo|1 se o estado da sonda de um ponto final for "Ativado", 0 caso contrário.|Nome final|
+|QpsByEndpoint|Consultas por Endpoint Devolvido|Contagem|Total|Número de vezes que um ponto final do Gestor de Tráfego foi devolvido no prazo dado|Nome de ponto final|
+|ProbeAgentCurrentEndpointStateByProfileResourceId|Estado do ponto final por Endpoint|Contagem|Máximo|1 se o estado da sonda de um ponto final for "Ativado", 0 caso contrário.|Nome de ponto final|
 
 
 
@@ -1691,213 +1691,213 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SondasFailedPercent|% sondas falhadas|Percentagem|Média|% das sondas de monitorização da conectividade falharam|Nenhum|
-|AverageRoundtripMs|Avg. Tempo de ida e volta (ms)|MilliSeconds|Média|Tempo médio de ida e volta da rede (MS) para sondas de monitorização de conectividade enviadas entre fonte e destino|Nenhum|
-|ChequesFailedPercent|Cheques Por cento falhado (Pré-visualização)|Percentagem|Média|% dos controlos de controlo da conectividade falharam|Endereço fonte,Nome de origem,SourceResourceID,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceid,DestinationType,Destinationport,TestGroupName,TestConfigurationName|
-|RoundTripTimeMs|Tempo de ida e volta (ms) (Pré-visualização)|MilliSeconds|Média|Tempo de ida e volta em milissegundos para os controlos de monitorização da conectividade|Endereço fonte,Nome de origem,SourceResourceID,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceid,DestinationType,Destinationport,TestGroupName,TestConfigurationName|
+|ProbesFailedPercent|% Sondas Falhadas|Percentagem|Média|% das sondas de monitorização da conectividade falharam|Nenhum|
+|Médias Desvelundos|Avg. Tempo de ida e volta (ms)|MilliSeconds|Média|Tempo médio de ida e volta (ms) para sondas de monitorização da conectividade enviadas entre a fonte e o destino|Nenhum|
+|ChequesFailedPercent|Cheques Falhados Por cento (Pré-visualização)|Percentagem|Média|% dos controlos de monitorização da conectividade falharam|SourceAddress,SourceName,SourceResourceId,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceId,DestinationType,DestinationPort,TestGroupName,TestConfigurationName|
+|RoundTripTimeMs|Tempo de viagem redonda (ms) (pré-visualização)|MilliSeconds|Média|Tempo de ida e volta em milissegundos para os controlos de conectividade|SourceAddress,SourceName,SourceResourceId,SourceType,Protocol,DestinationAddress,DestinationName,DestinationResourceId,DestinationType,DestinationPort,TestGroupName,TestConfigurationName|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de Pedidos|Número de Pedidos|Contagem|Total|O número de pedidos de clientes servidos pelo representante http/S|httpstatus,httpstatusGroup,ClientRegion,ClientCountry|
-|Tamanho de pedido|Tamanho do pedido|Bytes|Total|O número de bytes enviados como pedidos de clientes para o proxy HTTP/S|httpstatus,httpstatusGroup,ClientRegion,ClientCountry|
-|Tamanho de resposta|Tamanho da resposta|Bytes|Total|O número de bytes enviados como respostas de http/S proxy para clientes|httpstatus,httpstatusGroup,ClientRegion,ClientCountry|
-|BillableResponseSize|Tamanho da resposta facturavel|Bytes|Total|O número de bytes faturados (mínimo 2KB por pedido) enviados como respostas de procuração HTTP/S aos clientes.|httpstatus,httpstatusGroup,ClientRegion,ClientCountry|
-|Contagem de pedidos de backend|Contagem de pedidos de backend|Contagem|Total|O número de pedidos enviados do representante http/S para backends|HttpStatus,HttpStatusGroup,Backend|
-|AtrasodePedido|Latência de Pedido de Backend|MilliSeconds|Média|O tempo calculado a partir do momento em que o pedido foi enviado pelo representante http/S para o backend até que o representante http/s recebeu o último byte de resposta do backend|Back-end|
-|TotalLatency|Latência Total|MilliSeconds|Média|O tempo calculado a partir do momento em que o pedido do cliente foi recebido pelo representante http/S até que o cliente reconheceu o último byte de resposta do representante HTTP/S|httpstatus,httpstatusGroup,ClientRegion,ClientCountry|
-|BackendHealthPercentage|Percentagem de Saúde Endend|Percentagem|Média|A percentagem de sondas de saúde bem sucedidas do proxy HTTP/S para backends|Backend,BackendPool|
-|Contagem de pedidos de firewall da web|Contagem de pedidos de firewall de aplicação web|Contagem|Total|O número de pedidos de clientes processados pela Firewall de Aplicação Web|Nome de política,Nome de Regras,Ação|
+|PedidoCount|Número de Pedidos|Contagem|Total|O número de pedidos de clientes servidos pelo representante http/s|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
+|Solicitação|Tamanho do pedido|Bytes|Total|O número de bytes enviados como pedidos de clientes para o proxy HTTP/S|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
+|Tamanho das respostas|Tamanho da resposta|Bytes|Total|O número de bytes enviados como respostas de http/S proxy aos clientes|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
+|BillableResponseSize|Tamanho da resposta faturada|Bytes|Total|O número de bytes faturantes (mínimo 2KB por pedido) enviados como respostas do proxy HTTP/S aos clientes.|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
+|BackendRequestCount|Contagem de pedidos de backend|Contagem|Total|O número de pedidos enviados do representante http/S para backends|HttpStatus,HttpStatusGroup,Backend|
+|BackendRequestatency|Pedido de backend Latência|MilliSeconds|Média|O tempo calculado a partir do momento em que o pedido foi enviado pelo representante HTTP/S para o backend até que o representante HTTP/S recebeu o último byte de resposta a partir do backend|Back-end|
+|TotalLatency|Latência total|MilliSeconds|Média|O tempo calculado a partir do momento em que o pedido do cliente foi recebido pelo representante HTTP/S até que o cliente reconhecesse o último byte de resposta do representante HTTP/S|HttpStatus,HttpStatusGroup,ClientRegion,ClientCountry|
+|BackendHealthPercentage|Percentagem de Saúde backend|Percentagem|Média|A percentagem de sondas de saúde bem sucedidas do representante http/s para backends|Backend,BackendPool|
+|WebApplicationFirewallRequestCount|Contagem de pedidos de firewall de aplicação web|Contagem|Total|O número de pedidos de cliente processados pela Firewall de Aplicação Web|Nome de Política,Nome de Regras,Ação|
 
 
 ## <a name="microsoftnetworkprivatednszones"></a>Microsoft.Network/privateDnsZones
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Volume de Consultas|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona privada de DNS|Nenhum|
-|RecordSetCount|Contagem de conjuntos de discos|Contagem|Máximo|Número de conjuntos de recordes numa zona privada de DNS|Nenhum|
-|Utilização de RecordSetCapacity|Utilização da capacidade do conjunto de registos|Percentagem|Máximo|Por cento da capacidade do Record set utilizada por uma zona Privada de DNS|Nenhum|
-|Contagem de ligações virtual|Contagem de ligações de rede virtual|Contagem|Máximo|Número de Redes Virtuais ligadas a uma zona Privada de DNS|Nenhum|
-|VirtualNetworkLinkCapacityUtilização|Utilização da capacidade de ligação de rede virtual|Percentagem|Máximo|Por cento da capacidade de Ligação de Rede Virtual utilizada por uma zona Privada de DNS|Nenhum|
-|VirtualNetworkWithRegistrationLinkCount|Contagem de ligações de registo de rede virtual|Contagem|Máximo|Número de Redes Virtuais ligadas a uma zona Privada de DNS com registo automático ativado|Nenhum|
-|VirtualNetworkWithRegistrationCapacityUtilização|Utilização da capacidade de ligação de registo de rede virtual|Percentagem|Máximo|Por cento da Ligação de Rede Virtual com capacidade de registo automático utilizada por uma zona Privada de DNS|Nenhum|
+|QueryVolume|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona privada de DNS|Nenhum|
+|RecordSetCount|Contagem de recordes|Contagem|Máximo|Número de conjuntos de recordes numa zona privada de DNS|Nenhum|
+|RecordSetCapacityUtilização|Record Fixo Utilização da Capacidade|Percentagem|Máximo|Por cento da capacidade do Conjunto recorde utilizada por uma zona privada de DNS|Nenhum|
+|VirtualNetworkLinkCount|Contagem de link de rede virtual|Contagem|Máximo|Número de Redes Virtuais ligadas a uma zona privada de DNS|Nenhum|
+|VirtualNetworkLinkLinkCapacityUtilization|Utilização da capacidade de ligação da rede virtual|Percentagem|Máximo|Por cento da capacidade de Ligação de Rede Virtual utilizada por uma zona privada de DNS|Nenhum|
+|VirtualNetworkWithRegistrationLinkCount|Contagem de link de registo de rede virtual|Contagem|Máximo|Número de Redes Virtuais ligadas a uma zona privada de DNS com registo automático|Nenhum|
+|VirtualNetworkWithRegistrationCapacityUtilization|Utilização da capacidade de utilização da capacidade de registo de rede virtual|Percentagem|Máximo|Por cento da Ligação de Rede Virtual com capacidade de registo automático utilizada por uma zona privada de DNS|Nenhum|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|registo.todos|Operações de Registo|Contagem|Total|A contagem de todas as operações de registo bem sucedidas (criações atualiza consultas e supressões). |Nenhum|
-|registo.criar|Inscrições Criar Operações|Contagem|Total|A contagem de todas as criações de registo bem sucedidas.|Nenhum|
+|registro.todos|Operações de Registo|Contagem|Total|A contagem de todas as operações de registo bem sucedidas (criações atualiza consultas e supressões). |Nenhum|
+|registration.create|Criar Operações de Criação de Registos|Contagem|Total|A contagem de todas as criações de registo bem sucedidas.|Nenhum|
 |registration.update|Operações de Atualização de Registo|Contagem|Total|A contagem de todas as atualizações de registo bem sucedidas.|Nenhum|
-|registro.get|Operações de Leitura de Registo|Contagem|Total|A contagem de todas as consultas de registo bem sucedidas.|Nenhum|
-|registo.excluir|Inscrições Supressão de Operações|Contagem|Total|A contagem de todas as supressões de registo bem sucedidas.|Nenhum|
-|entrada|Mensagens de entrada|Contagem|Total|A contagem de todos os bem sucedidos enviar chamadas da API. |Nenhum|
-|entrada.agendado|Notificações push agendadas enviadas|Contagem|Total|Notificações de Push agendadas canceladas|Nenhum|
-|entrada.agendado.cancelar|Notificações de Push agendadas canceladas|Contagem|Total|Notificações de Push agendadas canceladas|Nenhum|
-|agendado.pendente|Notificações agendadas pendentes|Contagem|Total|Notificações agendadas pendentes|Nenhum|
+|registration.get|Operações de Leitura de Registo|Contagem|Total|A contagem de todas as consultas de registo bem sucedidas.|Nenhum|
+|registration.delete|Operações de Eliminação de Registos|Contagem|Total|A contagem de todas as supressões de registo bem sucedidas.|Nenhum|
+|entrada|Mensagens recebidas|Contagem|Total|A contagem de todos os bem sucedidos enviar chamadas da API. |Nenhum|
+|entrada.programado|Notificações de push agendadas enviadas|Contagem|Total|Notificações de push programadas canceladas|Nenhum|
+|incoming.scheduled.cancel|Notificações de push programadas canceladas|Contagem|Total|Notificações de push programadas canceladas|Nenhum|
+|agendado.pendente|Notificações Agendadas Pendentes|Contagem|Total|Notificações Agendadas Pendentes|Nenhum|
 |instalação.todos|Operações de Gestão de Instalações|Contagem|Total|Operações de Gestão de Instalações|Nenhum|
 |instalação.get|Obter Operações de Instalação|Contagem|Total|Obter Operações de Instalação|Nenhum|
 |instalação.upsert|Criar ou atualizar operações de instalação|Contagem|Total|Criar ou atualizar operações de instalação|Nenhum|
-|instalação.patch|Operações de instalação de patch|Contagem|Total|Operações de instalação de patch|Nenhum|
+|instalação.patch|Operações de instalação de remendos|Contagem|Total|Operações de instalação de remendos|Nenhum|
 |instalação.excluir|Excluir operações de instalação|Contagem|Total|Excluir operações de instalação|Nenhum|
-|outgoing.allpns.success|Notificações bem sucedidas|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
-|outgoing.allpns.invalidpayload|Erros de carga útil|Contagem|Total|A contagem de empurrões que falhou porque o PNS devolveu um erro de carga útil.|Nenhum|
-|outgoing.allpns.pnserror|Erros do sistema de notificação externa|Contagem|Total|A contagem de empurrões que falharam porque havia um problema de comunicação com o PNS (exclui problemas de autenticação).|Nenhum|
-|outgoing.allpns.channelerror|Erros do Canal|Contagem|Total|A contagem de empurrões que falharam porque o canal não estava inválido não estava associado à aplicação correta acelerada ou expirada.|Nenhum|
-|outgoing.allpns.badorexpiredchannel|Erros no canal mau ou expirado|Contagem|Total|A contagem de empurrões que falharam porque o canal/token/registrationId no registo foi expirado ou inválido.|Nenhum|
-|outgoing.wns.success|Notificações bem sucedidas da WNS|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
-|outgoing.wns.invalidcredentials|Erros de autorização wns (credenciais inválidas)|Contagem|Total|A contagem de empurrões que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas. (O Windows Live não reconhece as credenciais).|Nenhum|
-|outgoing.wns.badchannel|Erro do canal errado wns|Contagem|Total|A contagem de empurrões que falharam porque o ChannelURI no registo não foi reconhecido (estatuto WNS: 404 não encontrados).|Nenhum|
-|outgoing.wns.expiredchannel|Erro do canal expirado wns|Contagem|Total|A contagem de empurrões que falharam porque o ChannelURI expirou (estatuto WNS: 410 Gone).|Nenhum|
-|outgoing.wns.throttled|Notificações wns throttled|Contagem|Total|A contagem de empurrões que falharam porque a WNS está a estrangular esta aplicação (estatuto WNS: 406 Not Acceptable).|Nenhum|
-|outgoing.wns.tokenproviderunreachable|Erros de autorização wns (incontactáveis)|Contagem|Total|O Windows Live não é acessível.|Nenhum|
-|outgoing.wns.invalidtoken|Erros de autorização wns (ficha inválida)|Contagem|Total|O símbolo fornecido à WNS não é válido (estatuto WNS: 401 Não autorizado).|Nenhum|
-|outgoing.wns.wrongtoken|Erros de autorização wns (ficha errada)|Contagem|Total|O símbolo fornecido à WNS é válido, mas para outro pedido (estatuto WNS: 403 Proibido). Isto pode acontecer se o ChannelURI no registo estiver associado a outra aplicação. Verifique se a aplicação do cliente está associada à mesma aplicação cujas credenciais estão no centro de notificação.|Nenhum|
-|outgoing.wns.invalidnotificationforma|Formato de notificação inválido wns|Contagem|Total|O formato da notificação é inválido (estatuto WNS: 400). Note que a WNS não rejeita todas as cargas inválidas.|Nenhum|
-|outgoing.wns.invalidnotificationsize|Erro de tamanho de notificação inválido wns|Contagem|Total|A carga útil da notificação é demasiado grande (estado WNS: 413).|Nenhum|
-|outgoing.wns.channelthrottled|Canal WNS Throttled|Contagem|Total|A notificação foi retirada porque o ChannelURI no registo é estrangulado (cabeçalho de resposta WNS: X-WNS-NotificationStatus:channelThrottled).|Nenhum|
-|outgoing.wns.channeldesligado|Canal WNS desligado|Contagem|Total|A notificação foi retirada porque o ChannelURI no registo está estrangulado (cabeçalho de resposta WNS: X-WNS-DeviceConnectionStatus: desligado).|Nenhum|
-|outgoing.wns.drop|WNS Deixou notificações|Contagem|Total|A notificação foi retirada porque o ChannelURI no registo está estrangulado (X-WNS-NotificationStatus: retirado, mas não X-WNS-DeviceConnectionStatus: desligado).|Nenhum|
-|outgoing.wns.pnserror|Erros wns|Contagem|Total|Notificação não entregue devido a erros de comunicação com a WNS.|Nenhum|
-|outgoing.wns.authenticationerror|Erros de autenticação wns|Contagem|Total|Notificação não entregue devido a erros de comunicação com credenciais inválidas do Windows Live ou ficha errada.|Nenhum|
-|outgoing.apns.success|Notificações bem sucedidas da APNS|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
-|outgoing.apns.invalidcredentials|Erros de autorização da APNS|Contagem|Total|A contagem de empurrões que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
-|outgoing.apns.badchannel|Erro do canal bad da APNS|Contagem|Total|A contagem de empurrões que falharam porque o token é inválido (código de estado APNS: 8).|Nenhum|
-|outgoing.apns.expiredchannel|Erro do canal expirado APNS|Contagem|Total|A contagem de fichas que foram invalidadas pelo canal de feedback da APNS.|Nenhum|
-|outgoing.apns.invalidnotificationsize|Erro de tamanho de notificação inválido da APNS|Contagem|Total|A contagem de empurrões que falharam porque a carga útil era demasiado grande (código de estado APNS: 7).|Nenhum|
-|outgoing.apns.pnserror|Erros APNS|Contagem|Total|A contagem de empurrões que falharam devido a erros de comunicação com APNS.|Nenhum|
-|outgoing.gcm.success|Notificações bem sucedidas da GCM|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
-|outgoing.gcm.invalidcredentials|Erros de autorização GCM (Credenciais inválidas)|Contagem|Total|A contagem de empurrões que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
-|outgoing.gcm.badchannel|Erro do canal errado da GCM|Contagem|Total|A contagem de empurrões que falharam porque o registoId no registo não foi reconhecido (resultado GCM: Registo Inválido).|Nenhum|
-|outgoing.gcm.expiredchannel|Erro do canal expirado GCM|Contagem|Total|A contagem de empurrões que falharam porque o registoId no registo expirou (resultado GCM: NotRegistered).|Nenhum|
-|outgoing.gcm.throttled|Notificações de aceleração GCM|Contagem|Total|A contagem de empurrões que falharam porque o GCM estrangulou esta aplicação (código de estado GCM: 501-599 ou resultado:Indisponível).|Nenhum|
-|formato outgoing.gcm.invalidnotification|Formato de notificação inválida GCM|Contagem|Total|A contagem de empurrões que falharam porque a carga não foi formatada corretamente (resultado GCM: InvalidDataKey ou InvalidTTl).|Nenhum|
-|outgoing.gcm.invalidnotificationsize|Erro de tamanho de notificação inválido gcm|Contagem|Total|A contagem de empurrões que falharam porque a carga útil era demasiado grande (resultado gcm: MessageTooBig).|Nenhum|
-|outgoing.gcm.wrongchannel|Erro do canal errado GCM|Contagem|Total|A contagem de empurrões que falharam porque o registoId no registo não está associado à aplicação atual (resultado GCM: InvalidPackageName).|Nenhum|
-|outgoing.gcm.pnserror|Erros GCM|Contagem|Total|A contagem de empurrões que falharam devido a erros de comunicação com a GCM.|Nenhum|
-|outgoing.gcm.authenticationerror|Erros de autenticação GCM|Contagem|Total|A contagem de empurrões que falharam porque o PNS não aceitou as credenciais fornecidas as credenciais são bloqueadas ou o SenderId não está corretamente configurado na aplicação (resultado GCM: MismatchedSenderId).|Nenhum|
-|outgoing.mpns.success|Notificações bem sucedidas do MPNS|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
-|outgoing.mpns.invalidcredenciais|Credenciais de mpns inválidas|Contagem|Total|A contagem de empurrões que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
-|outgoing.mpns.badchannel|Erro do Canal Mau mpns|Contagem|Total|A contagem de empurrões que falharam porque o ChannelURI no registo não foi reconhecido (estatuto DE MPNS: 404 não encontrados).|Nenhum|
-|outgoing.mpns.throttled|Notificações de aceleração do MPNS|Contagem|Total|A contagem de empurrões que falharam porque o MPNS está a estrangular esta aplicação (WNS MPNS: 406 Not Acceptable).|Nenhum|
-|outgoing.mpns.invalidnotificationforma|Formato de notificação inválido do MPNS|Contagem|Total|A contagem de empurrões que falhou porque a carga útil da notificação era demasiado grande.|Nenhum|
-|outgoing.mpns.channeldesligado|Canal MPNS desligado|Contagem|Total|A contagem de empurrões que falharam porque o ChannelURI no registo foi desligado (estatuto DE MPNS: 412 não encontrados).|Nenhum|
-|outgoing.mpns.drop|MpNS Notificações retiradas|Contagem|Total|A contagem de empurrões que foram retiradas por MPNS (cabeçalho de resposta MPNS: X-NotificationStatus: QueueFull ou Suprimido).|Nenhum|
-|outgoing.mpns.pnserror|Erros mpns|Contagem|Total|A contagem de empurrões que falharam devido a erros de comunicação com mpNS.|Nenhum|
-|outgoing.mpns.authenticationerror|Erros de autenticação do MPNS|Contagem|Total|A contagem de empurrões que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
-|notificationhub.pushes|Todas as Notificações De Saída|Contagem|Total|Todas as notificações de saída do centro de notificação|Nenhum|
-|entrada.todos.pedidos|Todos os pedidos de entrada|Contagem|Total|Total de pedidos de entrada para um centro de notificação|Nenhum|
-|incoming.all.failedrequests|Todos os pedidos falhados de entrada|Contagem|Total|Total de pedidos falhados para um centro de notificação|Nenhum|
+|outgoing.allpns.sucesso|Notificações bem sucedidas|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
+|outgoing.allpns.invalidpayload|Erros de carga útil|Contagem|Total|A contagem de impulsos que falharam porque o PNS devolveu um erro de carga útil.|Nenhum|
+|outgoing.allpns.pnserror|Erros do sistema de notificação externa|Contagem|Total|A contagem de impulsos que falharam porque havia um problema de comunicação com o PNS (exclui problemas de autenticação).|Nenhum|
+|outgoing.allpns.channelerror|Erros do Canal|Contagem|Total|A contagem de impulsos que falharam porque o canal era inválido não estava associado à aplicação correta estrangulada ou expirada.|Nenhum|
+|outgoing.allpns.badorexpiredchannel|Erros do Canal Mau ou Expirados|Contagem|Total|A contagem de impulsos que falharam porque o canal/token/registrationId no registo expirou ou inválido.|Nenhum|
+|outgoing.wns.sucesso|Notificações bem sucedidas da WNS|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
+|outgoing.wns.invalidcredentis|Erros de autorização WNS (Credenciais Inválidas)|Contagem|Total|A contagem de impulsos que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas. (O Windows Live não reconhece as credenciais).|Nenhum|
+|outgoing.wns.badchannel|Erro do canal WNS|Contagem|Total|A contagem de impulsos que falharam porque o ChannelURI no registo não foi reconhecido (estatuto WNS: 404 não encontrado).|Nenhum|
+|outgoing.wns.expiredchannel|Erro do canal expirado da WNS|Contagem|Total|A contagem de impulsos que falharam porque o ChannelURI expirou (estado WNS: 410 Gone).|Nenhum|
+|outgoing.wns.throttled|Notificações throttled WNS|Contagem|Total|A contagem de impulsos que falharam porque a WNS está a estrangular esta aplicação (estado WNS: 406 Não Aceitável).|Nenhum|
+|outgoing.wns.tokenproviderunreachable|Erros de autorização WNS (inacessíveis)|Contagem|Total|O Windows Live não é acessível.|Nenhum|
+|outgoing.wns.invalidtoken|Erros de autorização da WNS (token inválido)|Contagem|Total|O token fornecido à WNS não é válido (estado WNS: 401 Não Autorizado).|Nenhum|
+|outgoing.wns.wrongtoken|Erros de autorização da WNS (Ficha Errada)|Contagem|Total|O token fornecido à WNS é válido, mas para outra aplicação (estatuto WNS: 403 Proibido). Isto pode acontecer se o ChannelURI no registo estiver associado a outra aplicação. Verifique se a aplicação do cliente está associada à mesma app cujas credenciais estão no centro de notificação.|Nenhum|
+|outgoing.wns.invalidnotificationformat|Formato de notificação inválida da WNS|Contagem|Total|O formato da notificação é inválido (estado WNS: 400). Note que a WNS não rejeita todas as cargas inválidas.|Nenhum|
+|outgoing.wns.invalidnotificationsize|Erro de tamanho de notificação inválido da WNS|Contagem|Total|A carga útil da notificação é demasiado grande (estado WNS: 413).|Nenhum|
+|outgoing.wns.channelthrottled|Canal WNS Acelerado|Contagem|Total|A notificação foi retirada porque o ChannelURI no registo é acelerado (cabeçalho de resposta WNS: X-WNS-NotificationStatus:channelThrottled).|Nenhum|
+|outgoing.wns.channeldisconnected|Canal WNS desligado|Contagem|Total|A notificação foi retirada porque o ChannelURI no registo é acelerado (cabeçalho de resposta WNS: X-WNS-DeviceConnectionStatus: desligado).|Nenhum|
+|outgoing.wns.drop|Notificações retiradas da WNS|Contagem|Total|A notificação foi retirada porque o ChannelURI no registo é acelerado (X-WNS-NotificationStatus: caiu, mas não X-WNS-DeviceConnectionStatus: desligado).|Nenhum|
+|outgoing.wns.pnserror|Erros do WNS|Contagem|Total|Notificação não entregue devido a erros de comunicação com a WNS.|Nenhum|
+|outgoing.wns.authenticationerror|Erros de autenticação WNS|Contagem|Total|Notificação não entregue devido a erros de comunicação com credenciais inválidas do Windows Live ou token errado.|Nenhum|
+|outgoing.apns.sucesso|Notificações bem sucedidas da APNS|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
+|outgoing.apns.invalidcredentis|Erros de Autorização da APNS|Contagem|Total|A contagem de impulsos que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
+|outgoing.apns.badchannel|Erro do Canal Mau da APNS|Contagem|Total|A contagem de impulsos que falharam porque o token é inválido (código de estado DA APNS: 8).|Nenhum|
+|outgoing.apns.expiredchannel|Erro do Canal caducado da APNS|Contagem|Total|A contagem de fichas que foram invalidadas pelo canal de feedback da APNS.|Nenhum|
+|outgoing.apns.invalidnotificationsize|Erro de tamanho de notificação inválido da APNS|Contagem|Total|A contagem de impulsos que falharam porque a carga era demasiado grande (código de estado DA APNS: 7).|Nenhum|
+|outgoing.apns.pnserror|Erros da APNS|Contagem|Total|A contagem de impulsos que falhou devido a erros de comunicação com a APNS.|Nenhum|
+|outgoing.gcm.sucesso|Notificações bem sucedidas da GCM|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
+|outgoing.gcm.invalidcredentis|Erros de autorização GCM (Credenciais Inválidas)|Contagem|Total|A contagem de impulsos que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
+|outgoing.gcm.badchannel|Erro do Canal Mau gCM|Contagem|Total|A contagem de impulsos que falhou porque o registoId no registo não foi reconhecido (resultado GCM: Registo Inválido).|Nenhum|
+|outgoing.gcm.expiredchannel|Erro do canal expirado GCM|Contagem|Total|A contagem de impulsos que falharam porque o registoId no registo expirou (resultado GCM: Não Registado).|Nenhum|
+|outgoing.gcm.throttled|Notificações throttled GCM|Contagem|Total|A contagem de impulsos que falharam porque a GCM estrangulou esta aplicação (código de estado GCM: 501-599 ou resultado:Indisponível).|Nenhum|
+|outgoing.gcm.invalidnotificationformat|Formato de notificação inválida GCM|Contagem|Total|A contagem de impulsos que falharam porque a carga não foi formatada corretamente (resultado GCM: InvalidDataKey ou InvalidTtl).|Nenhum|
+|outgoing.gcm.invalidnotificationsize|Erro de tamanho de notificação inválido GCM|Contagem|Total|A contagem de impulsos que falharam porque a carga era demasiado grande (resultado GCM: MessageTooBig).|Nenhum|
+|outgoing.gcm.canalil errado|Erro do canal errado gCM|Contagem|Total|A contagem de impulsos que falharam porque o registroId no registo não está associado à aplicação atual (resultado GCM: InvalidPackageName).|Nenhum|
+|outgoing.gcm.pnserror|Erros do GCM|Contagem|Total|A contagem de impulsos que falhou devido a erros de comunicação com gCM.|Nenhum|
+|outgoing.gcm.authenticationeror|Erros de autenticação GCM|Contagem|Total|A contagem de impulsos que falharam porque o PNS não aceitou as credenciais fornecidas as credenciais estão bloqueadas ou o SenderId não está corretamente configurado na app (resultado GCM: MismatchedSenderId).|Nenhum|
+|outgoing.mpns.sucesso|Notificações bem sucedidas da MPNS|Contagem|Total|A contagem de todas as notificações bem sucedidas.|Nenhum|
+|outgoing.mpns.invalidcredentis|Credenciais inválidas da MPNS|Contagem|Total|A contagem de impulsos que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
+|outgoing.mpns.badchannel|Erro do Canal Mau da MPNS|Contagem|Total|A contagem de impulsos que falhou porque o ChannelURI no registo não foi reconhecido (estatuto MPNS: 404 não encontrado).|Nenhum|
+|outgoing.mpns.throttled|Notificações throttled MPNS|Contagem|Total|A contagem de impulsos que falhou porque a MPNS está a estrangular esta aplicação (WNS MPNS: 406 Não Aceitável).|Nenhum|
+|outgoing.mpns.invalidnotificationformat|Formato de Notificação Inválida mpns|Contagem|Total|A contagem de impulsos que falharam porque a carga útil da notificação era demasiado grande.|Nenhum|
+|outgoing.mpns.channeldisconnected|Canal MPNS desligado|Contagem|Total|A contagem de impulsos que falhou porque o ChannelURI no registo foi desligado (estado MPNS: 412 não encontrado).|Nenhum|
+|outgoing.mpns.drop|Notificações retiradas do MPNS|Contagem|Total|A contagem de impulsos que foram deixados por MPNS (cabeçalho de resposta MPNS: X-NotificationStatus: QueueFull ou Suprimido).|Nenhum|
+|outgoing.mpns.pnserror|Erros do MPNS|Contagem|Total|A contagem de impulsos que falhou devido a erros de comunicação com MPNS.|Nenhum|
+|outgoing.mpns.authenticationerror|Erros de Autenticação MPNS|Contagem|Total|A contagem de impulsos que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhum|
+|notificationhub.pushes|Todas as notificações de saída|Contagem|Total|Todas as notificações de saída do centro de notificação|Nenhum|
+|incoming.all.requests|Todos os Pedidos de Entrada|Contagem|Total|Total de pedidos de entrada para um centro de notificação|Nenhum|
+|incoming.all.failedrequests|Todos os pedidos falhados de entrada|Contagem|Total|Total de pedidos falhados de entrada falhada para um centro de notificação|Nenhum|
 
-## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/espaços de trabalho
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Average_% Inodes Grátis|% Inodes livres|Contagem|Média|Average_% Inodes Grátis|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% espaço livre|% Espaço Livre|Contagem|Média|Average_% espaço livre|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% Inodes usados|% Inodos Usados|Contagem|Média|Average_% Inodes usados|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% Espaço Usado|% Espaço Usado|Contagem|Média|Average_% Espaço Usado|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Disk Ler Bytes/seg|Discos Ler Bytes/seg|Contagem|Média|Average_Disk Ler Bytes/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|leituras Average_Disk/seg|Leituras/seg de disco|Contagem|Média|leituras Average_Disk/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|transferências Average_Disk/seg|Transferências de disco/seg|Contagem|Média|transferências Average_Disk/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Disk Escrever Bytes/seg|Discos Write Bytes/seg|Contagem|Média|Average_Disk Escrever Bytes/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Disk Escreve/seg|Escritas de Disco/seg|Contagem|Média|Average_Disk Escreve/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Free Megabytes|Megabytes grátis|Contagem|Média|Average_Free Megabytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Logical Bytes/seg de disco|Bytes/sede de disco lógico|Contagem|Média|Average_Logical Bytes/seg de disco|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|memória disponível Average_%|% Memória Disponível|Contagem|Média|memória disponível Average_%|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% espaço disponível de swap|% Espaço de Troca Disponível %|Contagem|Média|Average_% espaço disponível de swap|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% memória usada|% Memória Usada|Contagem|Média|Average_% memória usada|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% espaço de troca usado|% Espaço de troca usado %|Contagem|Média|Average_% espaço de troca usado|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|memória Average_Available MBytes|Memória MBytes disponível|Contagem|Média|memória Average_Available MBytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Available Troca de MBytes|Troca de MBytes disponíveis|Contagem|Média|Average_Available Troca de MBytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Page Leituras/seg|Leituras da página/seg|Contagem|Média|Average_Page Leituras/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Page Escreve/seg|Página Escritas/seg|Contagem|Média|Average_Page Escreve/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Pages/seg|Páginas/seg|Contagem|Média|Average_Pages/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Used MBytes Swap Space|Espaço de troca de MBytes usado|Contagem|Média|Average_Used MBytes Swap Space|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Used Memória MBytes|MBytes de memória usada|Contagem|Média|Average_Used Memória MBytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Total Bytes Transmitidos|Total bytes transmitidos|Contagem|Média|Average_Total Bytes Transmitidos|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Total Bytes Recebidos|Total de Bytes Recebidos|Contagem|Média|Average_Total Bytes Recebidos|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Total Bytes|Bytes Totais|Contagem|Média|Average_Total Bytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|pacotes de Average_Total transmitidos|Pacotes totais transmitidos|Contagem|Média|pacotes de Average_Total transmitidos|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|pacotes Average_Total recebidos|Total de pacotes recebidos|Contagem|Média|pacotes Average_Total recebidos|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Total Erros Rx|Total de Erros Rx|Contagem|Média|Average_Total Erros Rx|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|erros Average_Total Tx|Total de erros Tx|Contagem|Média|erros Average_Total Tx|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|colisões Average_Total|Colisões totais|Contagem|Média|colisões Average_Total|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Avg. de Disco seg/Leitura|Avg. Disk sec/Read|Contagem|Média|Average_Avg. de Disco seg/Leitura|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Avg. Sec/Transferência de disco|Avg. Disco sec/Transferência|Contagem|Média|Average_Avg. Sec/Transferência de disco|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Avg. de Disco seg/Escrita|Avg. Disk sec/Write|Contagem|Média|Average_Avg. de Disco seg/Escrita|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Physical Bytes/seg de disco|Bytes/sede de disco físico|Contagem|Média|Average_Physical Bytes/seg de disco|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Pct Tempo Privilegiado|Tempo Privilegiado do Pct|Contagem|Média|Average_Pct Tempo Privilegiado|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|tempo de utilizador Average_Pct|Tempo de utilizador do Pct|Contagem|Média|tempo de utilizador Average_Pct|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Used Memory kBytes|KBytes de memória usada|Contagem|Média|Average_Used Memory kBytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|memória partilhada Average_Virtual|Memória Partilhada Virtual|Contagem|Média|memória partilhada Average_Virtual|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% de tempo dPC|% Tempo dPC|Contagem|Média|Average_% de tempo dPC|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% tempo de inatividade|% de Tempo Inativo|Contagem|Média|Average_% tempo de inatividade|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% de tempo de interrupção|% tempo de interrupção|Contagem|Média|Average_% de tempo de interrupção|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% IO Tempo de espera|% Io Tempo de Espera|Contagem|Média|Average_% IO Tempo de espera|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% bom tempo|% Bom Tempo|Contagem|Média|Average_% bom tempo|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% tempo privilegiado|% Tempo Privilegiado|Contagem|Média|Average_% tempo privilegiado|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% tempo do processador|% de Tempo do Processador|Contagem|Média|Average_% tempo do processador|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% tempo de utilizador|% Tempo de utilizador|Contagem|Média|Average_% tempo de utilizador|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|memória física Average_Free|Memória Física Gratuita|Contagem|Média|memória física Average_Free|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|espaço Average_Free em arquivos de paging|Espaço gratuito em arquivos de paging|Contagem|Média|espaço Average_Free em arquivos de paging|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Free Memória Virtual|Memória Virtual Gratuita|Contagem|Média|Average_Free Memória Virtual|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Processes|Processos|Contagem|Média|Average_Processes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Size armazenado em arquivos de paging|Tamanho armazenado em arquivos de paging|Contagem|Média|Average_Size armazenado em arquivos de paging|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Uptime|Tempo de subida|Contagem|Média|Average_Uptime|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Users|Utilizadores|Contagem|Média|Average_Users|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|comprimento da fila do disco de Average_Current|Comprimento da fila do disco atual|Contagem|Média|comprimento da fila do disco de Average_Current|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Available MBytes|MBytes disponíveis|Contagem|Média|Average_Available MBytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% bytes comprometidos em uso|% Bytes Comprometidos em Uso|Contagem|Média|Average_% bytes comprometidos em uso|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Bytes recebido/seg|Bytes Recebidos/seg|Contagem|Média|Average_Bytes recebido/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Bytes Enviado/seg|Bytes Enviado/seg|Contagem|Média|Average_Bytes Enviado/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Bytes Total/seg|Bytes Total/seg|Contagem|Média|Average_Bytes Total/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|comprimento da fila Average_Processor|Comprimento da fila do processador|Contagem|Média|comprimento da fila Average_Processor|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
+|Inodes Average_% Grátis|% Inodes grátis|Contagem|Média|Inodes Average_% Grátis|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% Espaço Livre|% Espaço Livre|Contagem|Média|Average_% Espaço Livre|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|inodes Average_% usados|% Inodes usados|Contagem|Média|inodes Average_% usados|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% espaço usado|% Espaço Usado|Contagem|Média|Average_% espaço usado|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Disk Ler Bytes/seg|Discos ler Bytes/seg|Contagem|Média|Average_Disk Ler Bytes/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Disk Leituras/seg|Leituras/seg de disco|Contagem|Média|Average_Disk Leituras/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Transferências Average_Disk/seg|Transferências de discos/seg|Contagem|Média|Transferências Average_Disk/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Disk Escrever Bytes/seg|Discos De Escrita Bytes/seg|Contagem|Média|Average_Disk Escrever Bytes/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Disk Escreve/Seg|Escritas/seg de disco|Contagem|Média|Average_Disk Escreve/Seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Free Megabytes|Megabytes grátis|Contagem|Média|Average_Free Megabytes|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Logical Discos Bytes/seg|Bytes/seg de disco lógico|Contagem|Média|Average_Logical Discos Bytes/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|memória Average_% disponível|% Memória Disponível|Contagem|Média|memória Average_% disponível|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|espaço de troca disponível Average_%|% Espaço de troca disponível|Contagem|Média|espaço de troca disponível Average_%|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% Memória Usada|% Memória Usada|Contagem|Média|Average_% Memória Usada|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% espaço de troca usado|% Espaço de troca usado|Contagem|Média|Average_% espaço de troca usado|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|memória Average_Available MBytes|Memória MBytes disponível|Contagem|Média|memória Average_Available MBytes|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|troca de MBytes Average_Available|Troca de MBytes disponível|Contagem|Média|troca de MBytes Average_Available|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Page Leituras/seg|Leituras de página/seg|Contagem|Média|Average_Page Leituras/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Page Escreve/Seg|Escritas/seg de página|Contagem|Média|Average_Page Escreve/Seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Pages/seg|Páginas/seg|Contagem|Média|Average_Pages/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Used MBytes Swap Space|Espaço de troca de MBytes usado|Contagem|Média|Average_Used MBytes Swap Space|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|MBytes de Memória Average_Used|MBytes de memória usados|Contagem|Média|MBytes de Memória Average_Used|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|bytes de Average_Total transmitidos|Total de bytes transmitidos|Contagem|Média|bytes de Average_Total transmitidos|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Total Bytes Recebidos|Total de bytes recebidos|Contagem|Média|Average_Total Bytes Recebidos|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Total Bytes|Total Bytes|Contagem|Média|Average_Total Bytes|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|pacotes de Average_Total transmitidos|Total de pacotes transmitidos|Contagem|Média|pacotes de Average_Total transmitidos|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|pacotes de Average_Total recebidos|Total de pacotes recebidos|Contagem|Média|pacotes de Average_Total recebidos|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Total Erros Rx|Erros Rx totais|Contagem|Média|Average_Total Erros Rx|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Total Tx Erros|Erros Tx totais|Contagem|Média|Average_Total Tx Erros|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Colisões Average_Total|Colisões totais|Contagem|Média|Colisões Average_Total|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Avg. de Disco seg/Leitura|Avg. Disco seg/Ler|Contagem|Média|Average_Avg. de Disco seg/Leitura|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Avg. Disco seg/Transferência|Avg. Disco seg/Transferência|Contagem|Média|Average_Avg. Disco seg/Transferência|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Avg. de Disco seg/Escrita|Avg. Disco seg/Write|Contagem|Média|Average_Avg. de Disco seg/Escrita|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Physical Discos Bytes/seg|Bytes/seg de disco físico|Contagem|Média|Average_Physical Discos Bytes/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Pct Tempo Privilegiado|Pct Tempo Privilegiado|Contagem|Média|Average_Pct Tempo Privilegiado|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Pct tempo de utilizador|Tempo de utilizador do Pct|Contagem|Média|Average_Pct tempo de utilizador|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|KBytes de Memória Average_Used|KBytes de Memória Usados|Contagem|Média|KBytes de Memória Average_Used|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Virtual Memória Partilhada|Memória partilhada virtual|Contagem|Média|Average_Virtual Memória Partilhada|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% tempo do DPC|% tempo DPC|Contagem|Média|Average_% tempo do DPC|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% tempo inativo|% de Tempo Inativo|Contagem|Média|Average_% tempo inativo|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% Tempo de interrupção|% Tempo de interrupção|Contagem|Média|Average_% Tempo de interrupção|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% IO Tempo de espera|% IO Tempo de Espera|Contagem|Média|Average_% IO Tempo de espera|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% tempo agradável|% Tempo agradável|Contagem|Média|Average_% tempo agradável|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% Tempo Privilegiado|% Tempo Privilegiado|Contagem|Média|Average_% Tempo Privilegiado|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|tempo de processador Average_%|% de Tempo do Processador|Contagem|Média|tempo de processador Average_%|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% tempo de utilização|% Tempo de Utilização|Contagem|Média|Average_% tempo de utilização|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|memória física Average_Free|Memória Física Gratuita|Contagem|Média|memória física Average_Free|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|espaço Average_Free em arquivos de paging|Espaço gratuito em ficheiros de paging|Contagem|Média|espaço Average_Free em arquivos de paging|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|memória virtual Average_Free|Memória Virtual Gratuita|Contagem|Média|memória virtual Average_Free|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Processes|Processos|Contagem|Média|Average_Processes|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Size armazenado em ficheiros de paging|Tamanho armazenado em ficheiros de paging|Contagem|Média|Average_Size armazenado em ficheiros de paging|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Uptime|Uptime|Contagem|Média|Average_Uptime|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Users|Utilizadores|Contagem|Média|Average_Users|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|comprimento da fila do disco Average_Current|Comprimento atual da fila do disco|Contagem|Média|comprimento da fila do disco Average_Current|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Available MBytes|MBytes disponíveis|Contagem|Média|Average_Available MBytes|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_% bytes comprometidos em uso|% Bytes comprometidos em uso|Contagem|Média|Average_% bytes comprometidos em uso|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Bytes Recebido/seg|Bytes Recebidos/seg|Contagem|Média|Average_Bytes Recebido/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Bytes Enviado/seg|Bytes Enviados/seg|Contagem|Média|Average_Bytes Enviado/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|Average_Bytes Total/seg|Bytes Total/seg|Contagem|Média|Average_Bytes Total/seg|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
+|comprimento da fila Average_Processor|Comprimento da fila do processador|Contagem|Média|comprimento da fila Average_Processor|Computador,Nome de Objeto,Nome de Instância,CounterPath,SourceSystem|
 |Heartbeat|Heartbeat|Contagem|Total|Heartbeat|Computador,OSType,Versão,SourceComputerId|
-|Atualizar|Atualizar|Contagem|Média|Atualizar|Computador,Produto,Classificação,Estado de Atualização,Opcional,Aprovado|
-|Evento|Evento|Contagem|Média|Evento|Fonte,EventLog,Computador,Categoria de Eventos,EventLevel,EventLevelName,EventID|
+|Atualizar|Atualizar|Contagem|Média|Atualizar|Computador,Produto,Classificação,UpdateState,Opcional,Aprovado|
+|Evento|Evento|Contagem|Média|Evento|Fonte,EventLog,Computer,EventCategoria,EventLevel,EventLevelName,EventLEVELName,EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft.Peering/peeringServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PrefixoLatency|Prefixo Latência|Milissegundos|Média|Latência prefixo mediana|PrefixoNome|
+|Prefixlatency|Latência prefixo|Milissegundos|Média|Latência prefixo mediano|PrefixName|
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft.Peering/peerings
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SessõesDisponibilidadeV4|Disponibilidade da Sessão V4|Percentagem|Média|Disponibilidade da sessão V4|Ligação|
-|SessõesDisponibilidadeV6|Disponibilidade da Sessão V6|Percentagem|Média|Disponibilidade da sessão V6|Ligação|
-|Taxa de tráfego ingresso|Taxa de tráfego de ingresso|BitsPerSecond|Média|Taxa de tráfego ingresso em bits por segundo|Ligação|
-|EgressTrafficRate|Taxa de tráfego de egress|BitsPerSecond|Média|Taxa de tráfego de egress em bits por segundo|Ligação|
+|SessãoSAlabilidadeV4|Disponibilidade de sessão V4|Percentagem|Média|Disponibilidade da sessão V4|ConnectionId|
+|SessãoSSAlabilidadeV6|Disponibilidade de Sessão V6|Percentagem|Média|Disponibilidade da sessão V6|ConnectionId|
+|IngressTrafficRate|Taxa de tráfego de entrada|BitsPerSecond|Média|Taxa de tráfego ingress em bits por segundo|ConnectionId|
+|EgressTrafficRate|Taxa de tráfego de Egress|BitsPerSecond|Média|Taxa de tráfego de egress em bits por segundo|ConnectionId|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ConsultaDuração|Duração da Consulta|Milissegundos|Média|Dax Consulta duração no último intervalo|Sem Dimensões|
-|ConsultaPoolJobQueueLength|Threads: Consulta de trabalho na piscina comprimento da fila|Contagem|Média|Número de empregos na fila da piscina de fios de consulta.|Sem Dimensões|
-|qpu_high_utilization_metric|Maior Utilização de QPU|Contagem|Total|Utilização alta qpu em última hora, 1 para alta utilização de QPU, caso contrário 0|Sem Dimensões|
+|Queriaduração|Duração da Consulta|Milissegundos|Média|Duração da consulta DAX no último intervalo|Sem Dimensões|
+|QueryPoolJobQueueLength|Threads: Comprimento da fila do trabalho da piscina de consulta|Contagem|Média|Número de empregos na fila da piscina de fios de consulta.|Sem Dimensões|
+|qpu_high_utilization_metric|Maior Utilização de QPU|Contagem|Total|QPU Alta Utilização em Último Minuto, 1 para alta utilização QPU, caso contrário 0|Sem Dimensões|
 |memory_metric|Memória|Bytes|Média|Memória. Intervalo 0-3 GB para A1, 0-5 GB para A2, 0-10 GB para A3, 0-25 GB para A4, 0-50 GB para A5 e 0-100 GB para A6|Sem Dimensões|
-|memory_thrashing_metric|Degradação de Memória|Percentagem|Média|A memória média a bater.|Sem Dimensões|
+|memory_thrashing_metric|Degradação de Memória|Percentagem|Média|Memória média a bater.|Sem Dimensões|
 
 
 ## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/contas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Distribuição de ActivosByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte,ResourceId|
-|Tipo de armazenamento de bens|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|Tipo de armazenamento,ResourceId|
-|Utilizadores Catalogativos|Utilizadores Ativos Diários|Contagem|Total|Número de utilizadores ativos diariamente|ResourceId|
-|Utilização de catálogos|Distribuição de Utilização por Operação|Contagem|Total|Indique o número de operação que o utilizador faz para o catálogo, ou é, Acesso, Pesquisa, Glossário.|Operação,Resourceid|
-|NumberOfAssetsWithClassifications|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de etiqueta.|ResourceId|
-|ScanCancelado|Scan Cancelado|Contagem|Total|Indica o número de exames cancelados.|ResourceId|
+|AssetDistributionByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte,Recursos|
+|AssetDistributionByStorageType|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|StorageType,ResourceId|
+|CatalogActiveUsers|Utilizadores Ativos Diários|Contagem|Total|Número de utilizadores ativos diariamente|ResourceId|
+|CatalogUsage|Distribuição de utilização por Operação|Contagem|Total|Indicar o número de operação que o utilizador faz ao catálogo, ou seja, Acesso, Pesquisa, Glossário.|Operação,ResourceId|
+|NúmeroOfAssetsWithClassificações|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de etiqueta.|ResourceId|
+|ScanCancelled|Scan cancelado|Contagem|Total|Indica o número de exames cancelados.|ResourceId|
 |ScanCompleted|Digitalização Concluída|Contagem|Total|Indica o número de exames concluídos com sucesso.|ResourceId|
-|ScanFailed|Scan Failed|Contagem|Total|Indica que o número de exames falhou.|ResourceId|
+|ScanFailed|Scan falhou|Contagem|Total|Indica que o número de exames falhou.|ResourceId|
 |ScanTimeTaken|Tempo de digitalização tomado|Segundos|Total|Indica o tempo total de digitalização em segundos.|ResourceId|
 
 
@@ -1907,81 +1907,81 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ListenerConnections-Success|ListenerConnections-Success|Contagem|Total|Sucesso ListenerConnections para Microsoft.Relay.|Nome de entidade,OperationResult|
-|ListenerConnections-ClientError|ListenerConnections-ClientError|Contagem|Total|Error do cliente em ListenerConnections para Microsoft.Relay.|Nome de entidade,OperationResult|
-|ListenerConnections-ServerError|ListenerConnections-ServerError|Contagem|Total|Error do servidor em ListenerConnections para Microsoft.Relay.|Nome de entidade,OperationResult|
-|SenderConnections-Success|SenderConnections-Success|Contagem|Total|SenderConnections bem sucedido para Microsoft.Relay.|Nome de entidade,OperationResult|
-|SenderConnections-ClientError|SenderConnections-ClientError|Contagem|Total|Error do cliente em SenderConnections para Microsoft.Relay.|Nome de entidade,OperationResult|
-|SenderConnections-ServerError|SenderConnections-ServerError|Contagem|Total|Error do servidor em SenderConnections para Microsoft.Relay.|Nome de entidade,OperationResult|
-|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Contagem|Total|Total ListenerConnections para Microsoft.Relay.|Nome da entidade|
-|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Contagem|Total|Total de pedidos de SenderConnections para Microsoft.Relay.|Nome da entidade|
-|ActiveConnections|ActiveConnections|Contagem|Total|Total ActiveConnections para Microsoft.Relay.|Nome da entidade|
-|Ouvintes Ativos|Ouvintes Ativos|Contagem|Total|Total ActiveListeners para Microsoft.Relay.|Nome da entidade|
-|BytesTransferido|BytesTransferido|Contagem|Total|Total bytesTransferido para Microsoft.Relay.|Nome da entidade|
-|ListenerDisconnects|ListenerDisconnects|Contagem|Total|Total ListenerDisconnects para Microsoft.Relay.|Nome da entidade|
-|SenderDisconnects|SenderDisconnects|Contagem|Total|Total de SenderDisconnects para Microsoft.Relay.|Nome da entidade|
+|OuvinteConnections-Sucesso|OuvinteConnections-Sucesso|Contagem|Total|Falhas de escuta bem sucedidas para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
+|OuvinteConnections-ClientError|OuvinteConnections-ClientError|Contagem|Total|ClientError em ListenerConnections para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
+|OuvinteConnections-ServerError|OuvinteConnections-ServerError|Contagem|Total|ServerError em ListenerConnections para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
+|SenderConnections-Sucesso|SenderConnections-Sucesso|Contagem|Total|SenderConnections de sucesso para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
+|SenderConnections-ClientError|SenderConnections-ClientError|Contagem|Total|ClientError em SenderConnections para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
+|SenderConnections-ServerError|SenderConnections-ServerError|Contagem|Total|ServerError em SenderConnections para Microsoft.Relay.|Nome da Entidade,OperaçãoResult|
+|OuvinteConnections-TotalRequests|OuvinteConnections-TotalRequests|Contagem|Total|Total de EscutasConnections para Microsoft.Relay.|Nome de Entidade|
+|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Contagem|Total|Total de pedidos de SenderConnections para Microsoft.Relay.|Nome de Entidade|
+|ActiveConnections|ActiveConnections|Contagem|Total|Total de ActiveConnections para Microsoft.Relay.|Nome de Entidade|
+|ActiveListeners|ActiveListeners|Contagem|Total|Total de ActiveListeners para Microsoft.Relay.|Nome de Entidade|
+|BytesTransferido|BytesTransferido|Contagem|Total|Total bytesTransferred para Microsoft.Relay.|Nome de Entidade|
+|OuvinteSEsa ligações|OuvinteSEsa ligações|Contagem|Total|Total ListenerDis ligações para Microsoft.Relay.|Nome de Entidade|
+|SenderDis ligações|SenderDis ligações|Contagem|Total|Total de SenderDis ligações para Microsoft.Relay.|Nome de Entidade|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SearchLatency|Latência de pesquisa|Segundos|Média|Latência média de pesquisa para o serviço de pesquisa|Nenhum|
-|PesquisaqueriesPerSecond|Pesquisar consultas por segundo|CondeEmSegundo|Média|Pesquisar consultas por segundo para o serviço de pesquisa|Nenhum|
-|ThrottledSearchQueriesPercentage|Percentagem de consultas de pesquisa acelerada|Percentagem|Média|Percentagem de consultas de pesquisa que foram estranguladas para o serviço de pesquisa|Nenhum|
+|PesquisaLatency|Procurar Latência|Segundos|Média|Latência média de pesquisa para o serviço de pesquisa|Nenhum|
+|SearchQueriesPerSecond|Consultas de pesquisa por segundo|CondePerSecond|Média|Consultas de pesquisa por segundo para o serviço de pesquisa|Nenhum|
+|ThrottledSearchQueriesPercentage|Percentagem de consultas de pesquisa aceleradas|Percentagem|Média|Percentagem de consultas de pesquisa que foram estrangulados para o serviço de pesquisa|Nenhum|
 
 
-## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/espaços de nome
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Pedidos bem sucedidos|Pedidos bem sucedidos|Contagem|Total|Total de pedidos bem sucedidos para um espaço de nome|Nome de entidade,OperationResult|
-|Erros de servidor|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.ServiceBus.|Nome de entidade,OperationResult|
-|Erros de utilizador|Erros do utilizador.|Contagem|Total|Erros de utilizador para Microsoft.ServiceBus.|Nome de entidade,OperationResult|
-|ThrottledRequests|Pedidos estrangulados.|Contagem|Total|Pedidos throttled para Microsoft.ServiceBus.|Nome de entidade,OperationResult|
-|Pedidos de entrada|Pedidos de Entrada|Contagem|Total|Pedidos de entrada para Microsoft.ServiceBus.|Nome da entidade|
-|Mensagens de entrada|Mensagens de entrada|Contagem|Total|Mensagens de entrada para Microsoft.ServiceBus.|Nome da entidade|
-|Mensagens de saída|Mensagens de saída|Contagem|Total|Mensagens de saída para Microsoft.ServiceBus.|Nome da entidade|
+|Requess de sucesso|Pedidos de Sucesso|Contagem|Total|Total de pedidos bem sucedidos para um espaço de nome|Nome da Entidade,OperaçãoResult|
+|ServerErrors|Erros do servidor.|Contagem|Total|Erros de servidor para Microsoft.ServiceBus.|Nome da Entidade,OperaçãoResult|
+|UserErrors|Erros do utilizador.|Contagem|Total|Erros do utilizador para Microsoft.ServiceBus.|Nome da Entidade,OperaçãoResult|
+|ThrottledRequests|Pedidos de aceleração.|Contagem|Total|Pedidos de aceleração para Microsoft.ServiceBus.|Nome da Entidade,OperaçãoResult|
+|IncomingRequests|Pedidos de Entrada|Contagem|Total|Pedidos de entrada para Microsoft.ServiceBus.|Nome de Entidade|
+|Entradas|Mensagens recebidas|Contagem|Total|Mensagens de entrada para Microsoft.ServiceBus.|Nome de Entidade|
+|Despesas de Saída|Mensagens de saída|Contagem|Total|Mensagens de saída para Microsoft.ServiceBus.|Nome de Entidade|
 |ActiveConnections|ActiveConnections|Contagem|Total|Total de conexões ativas para Microsoft.ServiceBus.|Nenhum|
-|Conexões Abertas|Ligações abertas.|Contagem|Média|Ligações abertas para Microsoft.ServiceBus.|Nome da entidade|
-|Conexões Fechadas|Ligações fechadas.|Contagem|Média|Ligações fechadas para Microsoft.ServiceBus.|Nome da entidade|
-|Tamanho|Tamanho|Bytes|Média|Tamanho de uma fila/tópico em Bytes.|Nome da entidade|
-|Mensagens|Contagem de mensagens numa fila/tópico.|Contagem|Média|Contagem de mensagens numa fila/tópico.|Nome da entidade|
-|Mensagens Ativas|Contagem de mensagens ativas numa fila/tópico.|Contagem|Média|Contagem de mensagens ativas numa fila/tópico.|Nome da entidade|
-|Mensagens mortas|Conde de mensagens com letras mortas numa fila/tópico.|Contagem|Média|Conde de mensagens com letras mortas numa fila/tópico.|Nome da entidade|
-|Mensagens Agendadas|Contagem de mensagens programadas numa fila/tópico.|Contagem|Média|Contagem de mensagens programadas numa fila/tópico.|Nome da entidade|
-|NomespaceCpuUsage|CPU|Percentagem|Máximo|Métrica de utilização de CPU premium de ônibus de serviço.|Réplica|
-|Uso do espaço de nomeMemory|Utilização de Memória|Percentagem|Máximo|Métrica de utilização de memória de espaço premium de ônibus de serviço.|Réplica|
-|CPUXNS|CPU (Depreciado)|Percentagem|Máximo|Métrica de utilização de CPU premium de ônibus de serviço. Esta métrica está deserdada. Utilize a métrica CPU (NamespaceCpuUsage) em vez disso.|Réplica|
-|WSXNS|Utilização da memória (Depreciada)|Percentagem|Máximo|Métrica de utilização de memória de espaço premium de ônibus de serviço. Esta métrica está depreciada. Em vez disso, utilize a métrica de utilização da memória (NamespaceMemoryUsage).|Réplica|
+|LigaçõesAsa|Ligações Abertas.|Contagem|Média|Ligações abertas para Microsoft.ServiceBus.|Nome de Entidade|
+|LigaçõesClosed|Ligações fechadas.|Contagem|Média|Ligações fechadas para Microsoft.ServiceBus.|Nome de Entidade|
+|Tamanho|Tamanho|Bytes|Média|Tamanho de uma fila/tópico em Bytes.|Nome de Entidade|
+|Mensagens|Contagem de mensagens numa fila/tópico.|Contagem|Média|Contagem de mensagens numa fila/tópico.|Nome de Entidade|
+|ActiveMessages|Contagem de mensagens ativas numa fila/tópico.|Contagem|Média|Contagem de mensagens ativas numa fila/tópico.|Nome de Entidade|
+|DeadletteredMesages|Contagem de mensagens com letras mortas numa fila/tópico.|Contagem|Média|Contagem de mensagens com letras mortas numa fila/tópico.|Nome de Entidade|
+|Horários|Contagem de mensagens programadas numa fila/tópico.|Contagem|Média|Contagem de mensagens programadas numa fila/tópico.|Nome de Entidade|
+|NamespaceCpuUsage|CPU|Percentagem|Máximo|Métrica de utilização do espaço de identificação do espaço de serviço do serviço de serviço.|Réplica|
+|NomespaceMemoryUsage|Utilização de Memória|Percentagem|Máximo|Métrica de utilização de memória de espaço de nome premium de serviço de serviço de serviço.|Réplica|
+|CPUXNS|CPU (precedido)|Percentagem|Máximo|Métrica de utilização do espaço de identificação do espaço de serviço do serviço de serviço. Esta métrica está despricada. Utilize a métrica cpu (NamespaceCpuUsage) em vez disso.|Réplica|
+|WSXNS|Utilização da memória (Preprecada)|Percentagem|Máximo|Métrica de utilização de memória de espaço de nome premium de serviço de serviço de serviço. Esta métrica está prevadida. Utilize a métrica de Utilização da Memória (NamespaceMemoryUsage).|Réplica|
 
 
-## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
+## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/aplicações
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Cpu atribuído|Cpu atribuído|Contagem|Média|Cpu alocado a este contentor em núcleos milli|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replica-Serviço|
-|Memória Atribuída|Memória Atribuída|Bytes|Média|Memória atribuída a este recipiente em MB|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replica-Serviço|
-|ActualCpu|ActualCpu|Contagem|Média|Utilização real do CPU em núcleos de milimil|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replica-Serviço|
-|Memória Real|Memória Real|Bytes|Média|Uso real da memória em MB|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replica-Serviço|
-|CpuUtilização|CpuUtilização|Percentagem|Média|Utilização do CPU para este contentor em percentagem do AllocatedCpu|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replica-Serviço|
-|Utilização da Memória|Utilização da Memória|Percentagem|Média|Utilização do CPU para este contentor em percentagem do AllocatedCpu|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replica-Serviço|
-|Estatuto de Aplicação|Estatuto de Aplicação|Contagem|Média|Aplicação de malha de tecido de serviço|Nome de aplicação,Estado|
-|Estatuto de Serviço|Estatuto de Serviço|Contagem|Média|Estado de Saúde de um serviço na aplicação de malha de tecido de serviço|Nome de aplicação,Status,Nome de serviço|
-|Estatuto de Replicação de Serviço|Estatuto de Replicação de Serviço|Contagem|Média|Estado de Saúde de uma réplica de serviço na aplicação de malha de tecido de serviço|Nome de aplicação,Status,ServiceName,ServiceReplicaName|
-|Estatuto de Contentores|Estatuto de Contentores|Contagem|Média|Estado do recipiente na aplicação de malha de tecido de serviço|Nome de aplicação,Nome de serviço,CódigoPacoteNome,Nome de Replicação de Serviço,Status|
-|Reiniciar Contagem|Reiniciar Contagem|Contagem|Média|Reinício da contagem de um recipiente na aplicação de malha de tecido de serviço|Nome de aplicação,Status,ServiceName,ServiceReplicaName,CodePackageName|
+|Cpu atribuído|Cpu atribuído|Contagem|Média|CPU alocado a este contentor em núcleos milli|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
+|Roteiro Atribuído|Roteiro Atribuído|Bytes|Média|Memória alocada a este recipiente em MB|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
+|ActualCpu|ActualCpu|Contagem|Média|Uso real do CPU em núcleos milli|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
+|ActualMemory|ActualMemory|Bytes|Média|Utilização real da memória em MB|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
+|CpuUtilização|CpuUtilização|Percentagem|Média|Utilização da CPU para este contentor em percentagem doCpu atribuído|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
+|Utilização da memória|Utilização da memória|Percentagem|Média|Utilização da CPU para este contentor em percentagem doCpu atribuído|Nome de aplicação,Nome de serviço,CodePackageName,ServiceReplicaName|
+|AplicaçãoStatus|AplicaçãoStatus|Contagem|Média|Estado da aplicação de malha de tecido de serviço|Nome de aplicação,Estado|
+|ServiceStatus|ServiceStatus|Contagem|Média|Estado de Saúde de um serviço na aplicação de malha de tecido de serviço|Nome de aplicação,Estado,Nome de Serviço|
+|ServiceReplicaStatus|ServiceReplicaStatus|Contagem|Média|Estado de Saúde de uma réplica de serviço na aplicação de malha de tecido de serviço|AplicaçãoName,Status,ServiceName,ServiceReplicaName|
+|Estatística do Contentor|Estatística do Contentor|Contagem|Média|Estado do contentor na aplicação de malha de tecido de serviço|AplicativoName,ServiceName,CodePackageName,ServiceReplicaName,Status|
+|RestartCount|RestartCount|Contagem|Média|Reiniciar a contagem de um recipiente na aplicação de malha de tecido de serviço|AplicativoName,Status,ServiceName,ServiceReplicaName,CodePackageName|
 
-## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/Signalr
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalrService/Signalr
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Contagem de Ligações|Contagem de Ligação|Contagem|Máximo|A quantidade de ligação do utilizador.|Ponto Final|
-|Contagem de mensagens|Contagem de Mensagens|Contagem|Total|A quantidade total de mensagens.|Nenhum|
-|Tráfego de entrada|Tráfego de Entrada|Bytes|Total|O tráfego de entrada de serviço|Nenhum|
-|Tráfego de saída|Tráfego de Saída|Bytes|Total|O tráfego de saída do serviço|Nenhum|
-|Erros de utilizador|Erros do utilizador|Percentagem|Máximo|A percentagem de erros do utilizador|Nenhum|
-|Erros de sistema|Erros do sistema|Percentagem|Máximo|A percentagem de erros do sistema|Nenhum|
+|Contagem de mensagens|Contagem de mensagens|Contagem|Total|A quantidade total de mensagens.|Nenhum|
+|InboundTraffic|Tráfego de Entrada|Bytes|Total|O tráfego de entrada de serviço|Nenhum|
+|OutboundTraffic|Tráfego de Saída|Bytes|Total|O tráfego de serviço de saída|Nenhum|
+|UserErrors|Erros do Utilizador|Percentagem|Máximo|A percentagem de erros do utilizador|Nenhum|
+|SystemErrors|Erros do Sistema|Percentagem|Máximo|A percentagem de erros do sistema|Nenhum|
 
 
 
@@ -1991,110 +1991,110 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhum|
 |physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Nenhum|
-|log_write_percent|Taxa de Log IO|Percentagem|Média|Taxa de iO de log. Não aplicável aos armazéns de dados.|Nenhum|
-|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem DTU. Aplica-se às bases de dados baseadas em DTU.|Nenhum|
+|log_write_percent|Percentagem de IO de registo|Percentagem|Média|Registar percentagem de IO. Não aplicável aos armazéns de dados.|Nenhum|
+|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU. Aplica-se a bases de dados baseadas em DTU.|Nenhum|
 |storage|Espaço de dados utilizado|Bytes|Máximo|Espaço de dados usado. Não aplicável aos armazéns de dados.|Nenhum|
 |connection_successful|Conexões bem sucedidas|Contagem|Total|Conexões bem sucedidas|Nenhum|
 |connection_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhum|
 |blocked_by_firewall|Bloqueado por Firewall|Contagem|Total|Bloqueado por Firewall|Nenhum|
 |impasse|Impasses|Contagem|Total|Impasses. Não aplicável aos armazéns de dados.|Nenhum|
 |storage_percent|Espaço de dados usado por cento|Percentagem|Máximo|Espaço de dados usado por cento. Não aplicável a armazéns de dados ou bases de dados de hiperescala.|Nenhum|
-|xtp_storage_percent|Por cento de armazenamento OLTP em Memória|Percentagem|Média|In-Memory OLTP storage por cento. Não aplicável aos armazéns de dados.|Nenhum|
+|xtp_storage_percent|Por cento de armazenamento em memória OLTP|Percentagem|Média|Por cento de armazenamento em memória OLTP. Não aplicável aos armazéns de dados.|Nenhum|
 |workers_percent|Percentagem de trabalhadores|Percentagem|Média|Percentagem de trabalhadores. Não aplicável aos armazéns de dados.|Nenhum|
 |sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões. Não aplicável aos armazéns de dados.|Nenhum|
-|dtu_limit|Limite dTU|Contagem|Média|Limite DTU. Aplica-se às bases de dados baseadas em DTU.|Nenhum|
-|dtu_used|DTU usado|Contagem|Média|DTU usado. Aplica-se às bases de dados baseadas em DTU.|Nenhum|
-|cpu_limit|Limite de CPU|Contagem|Média|Limite de CPU. Aplica-se às bases de dados baseadas em vCore.|Nenhum|
-|cpu_used|CPU utilizado|Contagem|Média|CPU usado. Aplica-se às bases de dados baseadas em vCore.|Nenhum|
-|dwu_limit|Limite de DWU|Contagem|Máximo|Limite de DWU. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|dwu_consumption_percent|Percentagem de DWU|Percentagem|Máximo|Percentagem de DWU. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|cache_hit_percent|Percentagem de impacto cache|Percentagem|Máximo|Cache atingiu a percentagem. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|cache_used_percent|Cache usado percentagem|Percentagem|Máximo|Cache usado percentagem. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|sqlserver_process_core_percent<sup>1</sup> |SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhum|
-|<sup>sqlserver_process_memory_percent 1</sup> |SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhum|
-|tempdb_data_size<sup>2</sup> |Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb.|Nenhum|
-|tempdb_log_size<sup>2</sup> |Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb.|Nenhum|
-|<sup>tempdb_log_used_percent 2</sup> |Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado.|Nenhum|
-|local_tempdb_usage_percent|Percentagem de temperatura local|Percentagem|Média|Percentagem de temperatura local. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|app_cpu_billed|App CPU faturada|Contagem|Total|App CPU faturado. Aplica-se a bases de dados sem servidores.|Nenhum|
-|app_cpu_percent|Percentagem de CPU da aplicação|Percentagem|Média|Percentagem de CPU da aplicação. Aplica-se a bases de dados sem servidores.|Nenhum|
-|app_memory_percent|Percentagem de memória de aplicativos|Percentagem|Média|Percentagem de memória de aplicativos. Aplica-se a bases de dados sem servidores.|Nenhum|
-|allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Armazenamento de dados atribuídos. Não aplicável aos armazéns de dados.|Nenhum|
-|memory_usage_percent|Percentagem de memória|Percentagem|Máximo|Percentagem de memória. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|dw_backup_size_gb|Tamanho do armazenamento de dados|Contagem|Total|O tamanho do armazenamento de dados é composto pelo tamanho dos seus dados e pelo registo de transações. A métrica é contada para a parte de 'Armazenamento' da sua conta. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|dw_snapshot_size_gb|Tamanho do armazenamento instantâneo|Contagem|Total|Tamanho de armazenamento instantâneo é o tamanho das alterações incrementais capturadas por instantâneos para criar pontos de restauro definidos pelo utilizador e automáticos. A métrica é contada para a parte de 'Armazenamento' da sua conta. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|dw_geosnapshot_size_gb|Tamanho do armazenamento de recuperação de desastres|Contagem|Total|O tamanho do armazenamento de recuperação de desastres reflete-se como "Armazenamento de Recuperação de Desastres" na sua conta. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|wlg_allocation_relative_to_system_percent|Atribuição de grupo de carga de trabalho por cento do sistema|Percentagem|Máximo|Percentagem atribuída de recursos relativamente a todo o sistema por grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|wlg_allocation_relative_to_wlg_effective_cap_percent|Atribuição do grupo de carga de trabalho por cento de recursos da tampa|Percentagem|Máximo|Percentagem atribuída de recursos relativamente aos recursos limite siespecificados por grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|wlg_active_queries|Consultas ativas do grupo de trabalho|Contagem|Total|Consultas ativas dentro do grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|wlg_queued_queries|Consultas de grupo de trabalho em fila|Contagem|Total|Consultas na fila dentro do grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|active_queries|Consultas ativas|Contagem|Total|Consultas ativas em todos os grupos de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|queued_queries|Consultas em fila|Contagem|Total|Consultas em fila em todos os grupos de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nenhum|
-|wlg_active_queries_timeouts|Intervalos de consulta de grupo de trabalho|Contagem|Total|Consultas que têm cronometrado para o grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|wlg_effective_min_resource_percent|Por cento de recursos min eficazes|Percentagem|Máximo|Percentagem mínima de recursos reservados e isolados para o grupo de carga de trabalho, tendo em conta o nível mínimo de serviço. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|wlg_effective_cap_resource_percent|Por cento de recursos de tampa eficazes|Percentagem|Máximo|Um limite rígido à percentagem de recursos permitidos para o grupo de carga de trabalho, tendo em conta a Percentagem efetiva de Recursos Min atribuída a outros grupos de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
-|full_backup_size_bytes|Tamanho total do armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de reserva completa. Aplica-se às bases de dados baseadas em vCore. Não aplicável às bases de dados de Hiperescala.|Nenhum|
-|diff_backup_size_bytes|Tamanho diferencial de armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de backup diferencial. Aplica-se às bases de dados baseadas em vCore. Não aplicável às bases de dados de Hiperescala.|Nenhum|
-|log_backup_size_bytes|Registar tamanho de armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de backup de registo. Aplica-se às bases de dados baseadas em vCore e em hiperescala.|Nenhum|
-|snapshot_backup_size_bytes|Tamanho de armazenamento de backup instantâneo|Bytes|Máximo|Tamanho cumulativo de armazenamento de backup instantâneo. Aplica-se às bases de dados de Hiperescala.|Nenhum|
-|base_blob_size_bytes|Tamanho de armazenamento de bolha de base|Bytes|Máximo|Tamanho de armazenamento de bolhas base. Aplica-se às bases de dados de Hiperescala.|Nenhum|
+|dtu_limit|Limite DTU|Contagem|Média|Limite dTU. Aplica-se a bases de dados baseadas em DTU.|Nenhum|
+|dtu_used|DTU usado|Contagem|Média|DTU usado. Aplica-se a bases de dados baseadas em DTU.|Nenhum|
+|cpu_limit|Limite do CPU|Contagem|Média|Limite da CPU. Aplica-se a bases de dados baseadas em vCore.|Nenhum|
+|cpu_used|CPU usado|Contagem|Média|CPU usado. Aplica-se a bases de dados baseadas em vCore.|Nenhum|
+|dwu_limit|Limite dwu|Contagem|Máximo|Limite da DWU. Aplica-se apenas a armazéns de dados.|Nenhum|
+|dwu_consumption_percent|Percentagem de DWU|Percentagem|Máximo|Percentagem de DWU. Aplica-se apenas a armazéns de dados.|Nenhum|
+|dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se apenas a armazéns de dados.|Nenhum|
+|cache_hit_percent|Percentagem de impacto de cache|Percentagem|Máximo|Cache atinge percentagem. Aplica-se apenas a armazéns de dados.|Nenhum|
+|cache_used_percent|Percentagem utilizada em cache|Percentagem|Máximo|Percentagem usada em cache. Aplica-se apenas a armazéns de dados.|Nenhum|
+|sqlserver_process_core_percent<sup>1</sup> |Núcleo de núcleo de processo do SQL Server|Percentagem|Máximo|Percentagem de utilização do CPU para o processo SQL Server, medido pelo sistema operativo.|Nenhum|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL Servidor processa memória por cento|Percentagem|Máximo|Percentagem de utilização da memória para o processo SQL Server, medido pelo sistema operativo.|Nenhum|
+|tempdb_data_size<sup>2</sup> |Kilobytes do tamanho do ficheiro de dados temporários|Contagem|Máximo|Kilobytes tamanho de ficheiro de dados temporários.|Nenhum|
+|tempdb_log_size<sup>2</sup> |Kilobytes do tamanho do ficheiro de registo temporário|Contagem|Máximo|Kilobytes tamanho do ficheiro de registo temporário.|Nenhum|
+|tempdb_log_used_percent<sup>2</sup> |Registo de percentagem de temperatura usado|Percentagem|Máximo|Tempdb% % registo usado.|Nenhum|
+|local_tempdb_usage_percent|Percentagem de temporários locais|Percentagem|Média|Percentagem de temperatura local. Aplica-se apenas a armazéns de dados.|Nenhum|
+|app_cpu_billed|App CPU faturada|Contagem|Total|App CPU faturado. Aplica-se a bases de dados sem servidor.|Nenhum|
+|app_cpu_percent|Percentagem de CPU de aplicações|Percentagem|Média|Percentagem de CPU de aplicação. Aplica-se a bases de dados sem servidor.|Nenhum|
+|app_memory_percent|Percentagem de memória de aplicativo|Percentagem|Média|Percentagem de memória de aplicativo. Aplica-se a bases de dados sem servidor.|Nenhum|
+|allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Armazenamento de dados alocado. Não aplicável aos armazéns de dados.|Nenhum|
+|memory_usage_percent|Percentagem de memória|Percentagem|Máximo|Percentagem de memória. Aplica-se apenas a armazéns de dados.|Nenhum|
+|dw_backup_size_gb|Tamanho do armazenamento de dados|Contagem|Total|O tamanho do armazenamento de dados é composto pelo tamanho dos seus dados e pelo registo de transações. A métrica é contada para a parte 'Armazenamento' da sua conta. Aplica-se apenas a armazéns de dados.|Nenhum|
+|dw_snapshot_size_gb|Tamanho do armazenamento instantâneo|Contagem|Total|O tamanho do armazenamento instantâneo é o tamanho das alterações incrementais capturadas por instantâneos para criar pontos de restauro definidos pelo utilizador e automáticos. A métrica é contada para a parte 'Armazenamento' da sua conta. Aplica-se apenas a armazéns de dados.|Nenhum|
+|dw_geosnapshot_size_gb|Tamanho do armazenamento de recuperação de desastres|Contagem|Total|O tamanho do armazenamento de recuperação de desastres é refletido como "Armazenamento de Recuperação de Desastres" na sua conta. Aplica-se apenas a armazéns de dados.|Nenhum|
+|wlg_allocation_relative_to_system_percent|Alocação de grupo de carga de trabalho por parte do sistema|Percentagem|Máximo|Percentagem de recursos atribuídos em relação a todo o sistema por grupo de carga de trabalho. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|wlg_allocation_relative_to_wlg_effective_cap_percent|Alocação de grupo de carga de trabalho por percentagem de recursos da TAMPA|Percentagem|Máximo|Percentagem de recursos atribuídos em relação aos recursos de bonificação especificados por grupo de carga de trabalho. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|wlg_active_queries|Consultas ativas do grupo de carga de trabalho|Contagem|Total|Consultas ativas dentro do grupo de carga de trabalho. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|wlg_queued_queries|Consultas em fila de grupos de carga|Contagem|Total|Consultas em fila dentro do grupo de carga de trabalho. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|active_queries|Consultas ativas|Contagem|Total|Consultas ativas em todos os grupos de carga de trabalho. Aplica-se apenas a armazéns de dados.|Nenhum|
+|queued_queries|Consultas em fila|Contagem|Total|Consultas em fila em todos os grupos de carga de trabalho. Aplica-se apenas a armazéns de dados.|Nenhum|
+|wlg_active_queries_timeouts|Tempo limites de consulta do grupo de carga de trabalho|Contagem|Total|Consultas que têm cronometrado para o grupo de carga de trabalho. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|wlg_effective_min_resource_percent|Por cento de recursos min eficazes|Percentagem|Máximo|Percentagem mínima de recursos reservados e isolados para o grupo de trabalho, tendo em conta o nível mínimo de serviço. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|wlg_effective_cap_resource_percent|Por cento efetivo do recurso cap|Percentagem|Máximo|Um limite rígido para a percentagem de recursos permitidos para o grupo de carga de trabalho, tendo em conta a percentagem efetiva de recursos min atribuídos a outros grupos de carga de trabalho. Aplica-se apenas a armazéns de dados.|WorkloadGroupName,IsUserDefined|
+|full_backup_size_bytes|Tamanho de armazenamento de backup completo|Bytes|Máximo|Tamanho acumulado de armazenamento de backup completo. Aplica-se a bases de dados baseadas em vCore. Não aplicável às bases de dados de hiperescala.|Nenhum|
+|diff_backup_size_bytes|Tamanho de armazenamento de backup diferencial|Bytes|Máximo|Tamanho de armazenamento de backup diferencial cumulativo. Aplica-se a bases de dados baseadas em vCore. Não aplicável às bases de dados de hiperescala.|Nenhum|
+|log_backup_size_bytes|Registar tamanho de armazenamento de backup|Bytes|Máximo|Tamanho de armazenamento de backup de registo cumulativo. Aplica-se às bases de dados baseadas em vCore e hyperscale.|Nenhum|
+|snapshot_backup_size_bytes|Tamanho de armazenamento de backup snapshot|Bytes|Máximo|Tamanho de armazenamento de backup de instantâneo cumulativo. Aplica-se a bases de dados de hiperescala.|Nenhum|
+|base_blob_size_bytes|Tamanho de armazenamento de bolha de base|Bytes|Máximo|Tamanho de armazenamento de bolha de base. Aplica-se a bases de dados de hiperescala.|Nenhum|
 
-<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. 
+<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. 
 
-<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala ou armazéns de dados.
+<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala ou armazéns de dados.
 
-## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servidores/elasticPools
+## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servidores/elásticos
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhum|
-|database_cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Base de Dados Resourceid|
+|database_cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Base de dadosResourceId|
 |physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Nenhum|
-|database_physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Base de Dados Resourceid|
-|log_write_percent|Taxa de Log IO|Percentagem|Média|Taxa de Log IO|Nenhum|
-|database_log_write_percent|Taxa de Log IO|Percentagem|Média|Taxa de Log IO|Base de Dados Resourceid|
-|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem DTU. Aplica-se a piscinas elásticas baseadas em DTU.|Nenhum|
-|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Base de Dados Resourceid|
+|database_physical_data_read_percent|Percentagem de ES de Dados|Percentagem|Média|Percentagem de ES de Dados|Base de dadosResourceId|
+|log_write_percent|Percentagem de IO de registo|Percentagem|Média|Percentagem de IO de registo|Nenhum|
+|database_log_write_percent|Percentagem de IO de registo|Percentagem|Média|Percentagem de IO de registo|Base de dadosResourceId|
+|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU. Aplica-se a piscinas elásticas à base de DTU.|Nenhum|
+|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Base de dadosResourceId|
 |storage_percent|Espaço de dados usado por cento|Percentagem|Média|Espaço de dados usado por cento|Nenhum|
 |workers_percent|Percentagem de trabalhadores|Percentagem|Média|Percentagem de trabalhadores|Nenhum|
-|database_workers_percent|Percentagem de trabalhadores|Percentagem|Média|Percentagem de trabalhadores|Base de Dados Resourceid|
+|database_workers_percent|Percentagem de trabalhadores|Percentagem|Média|Percentagem de trabalhadores|Base de dadosResourceId|
 |sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|Nenhum|
-|database_sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|Base de Dados Resourceid|
-|eDTU_limit|limite eDTU|Contagem|Média|limite eDTU. Aplica-se a piscinas elásticas baseadas em DTU.|Nenhum|
+|database_sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|Base de dadosResourceId|
+|eDTU_limit|limite eDTU|Contagem|Média|limite eDTU. Aplica-se a piscinas elásticas à base de DTU.|Nenhum|
 |storage_limit|Tamanho máximo de dados|Bytes|Média|Tamanho máximo de dados|Nenhum|
-|eDTU_used|eDTU utilizado|Contagem|Média|eDTU usado. Aplica-se a piscinas elásticas baseadas em DTU.|Nenhum|
-|database_eDTU_used|eDTU utilizado|Contagem|Média|eDTU utilizado|Base de Dados Resourceid|
+|eDTU_used|eDTU usado|Contagem|Média|eDTU usado. Aplica-se a piscinas elásticas à base de DTU.|Nenhum|
+|database_eDTU_used|eDTU usado|Contagem|Média|eDTU usado|Base de dadosResourceId|
 |storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|Nenhum|
-|database_storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|Base de Dados Resourceid|
-|xtp_storage_percent|Por cento de armazenamento OLTP em Memória|Percentagem|Média|Por cento de armazenamento OLTP em Memória|Nenhum|
-|cpu_limit|Limite de CPU|Contagem|Média|Limite de CPU. Aplica-se a piscinas elásticas baseadas em vCore.|Nenhum|
-|database_cpu_limit|Limite de CPU|Contagem|Média|Limite de CPU|Base de Dados Resourceid|
-|cpu_used|CPU utilizado|Contagem|Média|CPU usado. Aplica-se a piscinas elásticas baseadas em vCore.|Nenhum|
-|database_cpu_used|CPU utilizado|Contagem|Média|CPU utilizado|Base de Dados Resourceid|
-|sqlserver_process_core_percent<sup>1</sup>|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas. |Nenhum|
-|<sup>sqlserver_process_memory_percent 1</sup>|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas. |Nenhum|
-|tempdb_data_size<sup>2</sup>|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb.|Nenhum|
-|tempdb_log_size<sup>2</sup>|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb. |Nenhum|
-|<sup>tempdb_log_used_percent 2</sup>|Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado.|Nenhum|
+|database_storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|Base de dadosResourceId|
+|xtp_storage_percent|Por cento de armazenamento em memória OLTP|Percentagem|Média|Por cento de armazenamento em memória OLTP|Nenhum|
+|cpu_limit|Limite do CPU|Contagem|Média|Limite da CPU. Aplica-se a piscinas elásticas à base de vCore.|Nenhum|
+|database_cpu_limit|Limite do CPU|Contagem|Média|Limite do CPU|Base de dadosResourceId|
+|cpu_used|CPU usado|Contagem|Média|CPU usado. Aplica-se a piscinas elásticas à base de vCore.|Nenhum|
+|database_cpu_used|CPU usado|Contagem|Média|CPU usado|Base de dadosResourceId|
+|sqlserver_process_core_percent<sup>1</sup>|Núcleo de núcleo de processo do SQL Server|Percentagem|Máximo|Percentagem de utilização do CPU para o processo SQL Server, medido pelo sistema operativo. Aplica-se a piscinas elásticas. |Nenhum|
+|sqlserver_process_memory_percent<sup>1</sup>|SQL Servidor processa memória por cento|Percentagem|Máximo|Percentagem de utilização da memória para o processo SQL Server, medido pelo sistema operativo. Aplica-se a piscinas elásticas. |Nenhum|
+|tempdb_data_size<sup>2</sup>|Kilobytes do tamanho do ficheiro de dados temporários|Contagem|Máximo|Kilobytes tamanho de ficheiro de dados temporários.|Nenhum|
+|tempdb_log_size<sup>2</sup>|Kilobytes do tamanho do ficheiro de registo temporário|Contagem|Máximo|Kilobytes tamanho do ficheiro de registo temporário. |Nenhum|
+|tempdb_log_used_percent<sup>2</sup>|Registo de percentagem de temperatura usado|Percentagem|Máximo|Tempdb% % registo usado.|Nenhum|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Nenhum|
-|database_allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Base de Dados Resourceid|
-|allocated_data_storage_percent|Espaço de dados atribuído por cento|Percentagem|Máximo|Espaço de dados atribuído por cento|Nenhum|
+|database_allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Base de dadosResourceId|
+|allocated_data_storage_percent|Espaço de dados alocado por cento|Percentagem|Máximo|Espaço de dados alocado por cento|Nenhum|
 
-<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. 
+<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. 
 
-<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.
+<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de Hiperescala.
 
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servidores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|ElasticPoolResourceid|
-|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Base de DadosResourceid,ElasticPoolResourceid|
-|storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|ElasticPoolResourceid|
-|database_storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|Base de DadosResourceid,ElasticPoolResourceid|
-|dtu_used|DTU usado|Contagem|Média|DTU usado|Base de Dados Resourceid|
+|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|ElasticPoolResourceId|
+|database_dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Base de dadosResourceId,ElasticPoolResourceId|
+|storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|ElasticPoolResourceId|
+|database_storage_used|Espaço de dados utilizado|Bytes|Média|Espaço de dados utilizado|Base de dadosResourceId,ElasticPoolResourceId|
+|dtu_used|DTU usado|Contagem|Média|DTU usado|Base de dadosResourceId|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
@@ -2103,83 +2103,83 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |virtual_core_count|Contagem de núcleos virtuais|Contagem|Média|Contagem de núcleos virtuais|Nenhum|
 |avg_cpu_percent|Percentagem média de CPU|Percentagem|Média|Percentagem média de CPU|Nenhum|
 |reserved_storage_mb|Espaço de armazenamento reservado|Contagem|Média|Espaço de armazenamento reservado|Nenhum|
-|storage_space_used_mb|Espaço de armazenamento usado|Contagem|Média|Espaço de armazenamento usado|Nenhum|
-|io_requests|IO pedidos contam|Contagem|Média|IO pedidos contam|Nenhum|
-|io_bytes_read|IO bytes lidos|Bytes|Média|IO bytes lidos|Nenhum|
+|storage_space_used_mb|Espaço de armazenamento utilizado|Contagem|Média|Espaço de armazenamento utilizado|Nenhum|
+|io_requests|Contagem de pedidos de IO|Contagem|Média|Contagem de pedidos de IO|Nenhum|
+|io_bytes_read|IO bytes ler|Bytes|Média|IO bytes ler|Nenhum|
 |io_bytes_written|IO bytes escritos|Bytes|Média|IO bytes escritos|Nenhum|
 
 
 
-## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAcontas
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade Utilizada|Capacidade usada|Bytes|Média|Capacidade da conta utilizada|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|Capacidade Usada|Capacidade utilizada|Bytes|Média|Capacidade da conta utilizada|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de fim a ponta dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de ponta a ponta de pedidos bem sucedidos feita a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
-## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Armazenamento/armazenamentoContas/blobServices
+## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAcontas/blobServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|BlobCapacity|Capacidade blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType,Tier|
-|BlobCount|Contagem de Bolhas|Contagem|Média|O número de Blob no serviço Blob da conta de armazenamento.|BlobType,Tier|
+|Capacidade blob|Capacidade blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType,Tier|
+|BlobCount|Contagem de blobs|Contagem|Média|O número de Blob no serviço Blob da conta de armazenamento.|BlobType,Tier|
 |Contagem de contentores|Contagem de contentores blob|Contagem|Média|O número de contentores no serviço Blob da conta de armazenamento.|Nenhum|
-|IndexCapacity|Capacidade indexada|Bytes|Média|A quantidade de armazenamento utilizada pelo Índice ADLS Gen2 (Hierárquico) em bytes.|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|Capacidade de Indexação|Capacidade de Índice|Bytes|Média|A quantidade de armazenamento utilizada pelo Índice ADLS Gen2 (Hierárquica) em bytes.|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de fim a ponta dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de ponta a ponta de pedidos bem sucedidos feita a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
-## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Armazenamento/armazenamentoContas/tableServices
+## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAcontas/tableServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de Mesa|Capacidade de Mesa|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de mesa da conta de armazenamento em bytes.|Nenhum|
-|Contagem de tabelas|Contagem de mesas|Contagem|Média|O número de mesa no serviço de mesa da conta de armazenamento.|Nenhum|
-|Contagem de tabelas|Contagem de entidades de mesa|Contagem|Média|O número de entidades de mesa no serviço mesa da conta de armazenamento.|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|Capacidade de Mesa|Capacidade de mesa|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de mesa da conta de armazenamento em bytes.|Nenhum|
+|MesaCount|Contagem de tabelas|Contagem|Média|O número de mesa no serviço de mesa da conta de armazenamento.|Nenhum|
+|TabelaseconagemCount|Contagem de Entidades de Tabela|Contagem|Média|O número de entidades de mesa no serviço mesa da conta de armazenamento.|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de fim a ponta dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de ponta a ponta de pedidos bem sucedidos feita a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
-## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Armazenamento/armazenamentoContas/ficheirosServiços
+## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAcontas/fileServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de Arquivo|Capacidade de arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de arquivos da conta de armazenamento em bytes.|FileShare|
-|Contagem de Ficheiros|Contagem de Ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiros da conta de armazenamento.|FileShare|
+|Capacidade de Ficheiros|Capacidade de Arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de ficheiros da conta de armazenamento em bytes.|Partilha de Ficheiros|
+|Contagem de ficheiros|Contagem de ficheiros|Contagem|Média|O número de ficheiros no serviço de ficheiros da conta de armazenamento.|Partilha de Ficheiros|
 |FileShareCount|Contagem de partilha de ficheiros|Contagem|Média|O número de ações de ficheiros no serviço de ficheiros da conta de armazenamento.|Nenhum|
-|FileShareSnapshotCount|Contagem de instantâneos de partilha de ficheiros|Contagem|Média|O número de instantâneos presentes na parte no Serviço de Ficheiros da conta de armazenamento.|FileShare|
-|FileShareSnapshotSize|Tamanho instantâneo de partilha de ficheiros|Bytes|Média|A quantidade de armazenamento utilizada pelos instantâneos no serviço de ficheiros da conta de armazenamento em bytes.|FileShare|
-|FileShareQuota|Tamanho da quota de partilha de ficheiros|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usado pelo Serviço de Ficheiros Azure em bytes.|FileShare|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,ApiName,Autenticação,FileShare|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação,FileShare|
+|FileShareSnapshotCount|Contagem de snapshot de partilha de ficheiros|Contagem|Média|O número de instantâneos presentes na parte do Serviço de Ficheiros da conta de armazenamento.|Partilha de Ficheiros|
+|FileShareSnapshotSize|Tamanho do instantâneo de partilha de arquivo|Bytes|Média|A quantidade de armazenamento utilizada pelas fotos no serviço de ficheiros da conta de armazenamento em bytes.|Partilha de Ficheiros|
+|FileShareQuota|Tamanho da quota de ações de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usado pelo Azure Files Service em bytes.|Partilha de Ficheiros|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Authentication,FileShare|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação,FileShare|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação,FileShare|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação,FileShare|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de fim a ponta dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação,FileShare|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação,FileShare|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de ponta a ponta de pedidos bem sucedidos feita a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação,FileShare|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação,FileShare|
 
-## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Armazenamento/armazenamentoContas/filaServiços
+## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAcontas/filas Serviços
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de fila|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhum|
+|Capacidade de Fila|Capacidade de fila|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço de fila da conta de armazenamento em bytes.|Nenhum|
 |Contagem de filas|Contagem de filas|Contagem|Média|O número de filas no serviço de fila da conta de armazenamento.|Nenhum|
-|Contagem de mensagens de fila|Contagem de mensagens de fila|Contagem|Média|O número aproximado de mensagens de fila no serviço de fila da conta de armazenamento.|Nenhum|
-|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Utilize a dimensão Do Tipo resposta para o número de diferentes tipos de resposta.|Tipo de resposta,GeoType,Nome ApiName,Autenticação|
-|Entrada|Entrada|Bytes|Total|A quantidade de dados de ingresso, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
+|QueueMessageCount|Contagem de mensagens de fila|Contagem|Média|O número aproximado de mensagens de fila no serviço de fila da conta de armazenamento.|Nenhum|
+|Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. Use a dimensão do Tipo de Resposta para o número de diferentes tipos de resposta.|ResponseType,GeoType,ApiName,Autenticação|
+|Entrada|Entrada|Bytes|Total|A quantidade de dados ingresss, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|GeoType,ApiName,Autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|GeoType,ApiName,Autenticação|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pelo Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
-|SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de fim a ponta dos pedidos bem sucedidos feitos a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
+|SucessoServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média usada pela Azure Storage para processar um pedido bem sucedido, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|GeoType,ApiName,Autenticação|
+|SucessoE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência média de ponta a ponta de pedidos bem sucedidos feita a um serviço de armazenamento ou à operação API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|GeoType,ApiName,Autenticação|
 |Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação API especificada. A disponibilidade é calculada ao ter em conta o valor TotalBillableRequests e dividi-lo pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|GeoType,ApiName,Autenticação|
 
 
@@ -2190,66 +2190,66 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ClientiOPS|IOPS total do cliente|Contagem|Média|A taxa de operações de ficheiros de clientes processadas pelo Cache.|Nenhum|
-|ClienteLatency|Latência média do cliente|Milissegundos|Média|Latência média das operações de ficheiros do cliente para o Cache de Armazenamento.|Nenhum|
-|ClientReadIOPS|Cliente ler IOPS|CondeEmSegundo|Média|O cliente lê operações por segundo.|Nenhum|
-|ClientReadThroughput|Média de leitura de cache|BytesPerSecond|Média|O cliente leu a taxa de transferência de dados.|Nenhum|
-|ClientWriteIOPS|IOPS de escrita de cliente|CondeEmSegundo|Média|Cliente escreve operações por segundo.|Nenhum|
-|ClientWriteThroughput|Média cache write por ção|BytesPerSecond|Média|Cliente escrever taxa de transferência de dados.|Nenhum|
-|Metadados do ClienteReadIOPS|Metadados do Cliente Ler IOPS|CondeEmSegundo|Média|A taxa de operações de ficheiros de clientes enviadas para o Cache, excluindo as leituras de dados, que não modificam o estado persistente.|Nenhum|
-|ClientesMetadosWriteIOPS|Metadados de clientes Escrevem IOPS|CondeEmSegundo|Média|A taxa de operações de ficheiros de clientes enviadas para o Cache, excluindo os dados escritos, que modificam o estado persistente.|Nenhum|
-|ClientLockiOPS|IOPS de bloqueio de cliente|CondeEmSegundo|Média|Operações de bloqueio de ficheiros de cliente por segundo.|Nenhum|
-|StorageTargetHealth|Saúde alvo de armazenamento|Contagem|Média|Resultados booleanos do teste de conectividade entre os Alvos de Cache e Armazenamento.|Nenhum|
-|Tempo de subida|Tempo de subida|Contagem|Média|Resultados booleanos do teste de conectividade entre o Cache e o sistema de monitorização.|Nenhum|
-|Alvos de armazenamento|IOPS total de armazenamento|Contagem|Média|A taxa de todas as operações de ficheiroque o Cache envia para um determinado StorageTarget.|ArmazenamentoTarget|
-|StorageTargetWriteIOPS|ArmazenamentoTarget Escrever IOPS|Contagem|Média|A taxa das operações de escrita de ficheiros que o Cache envia para um determinado StorageTarget.|ArmazenamentoTarget|
-|StorageTargetAsyncWriteThroughput|StorageTarget Asynchronous Write Throughput|BytesPerSecond|Média|A taxa que o Cache asincronizamente escreve dados para um determinado StorageTarget. São escritos oportunistas que não fazem com que os clientes bloqueiem.|ArmazenamentoTarget|
-|StorageTargetSyncWriteThroughput|StorageTarget Synchronous Write Throughput|BytesPerSecond|Média|A taxa que o Cache escreve sincronizadamente os dados para um determinado StorageTarget. Estes são escritos que fazem com que os clientes bloqueiem.|ArmazenamentoTarget|
-|StorageTargetTotalWriteThroughput|StorageTarget Total Write Throughput|BytesPerSecond|Média|A taxa total que o Cache escreve dados para um determinado StorageTarget.|ArmazenamentoTarget|
-|ArmazenamentoTargetLatency|Latência StorageTarget|Milissegundos|Média|A latência média de ida e volta de todas as operações de arquivo que o Cache envia para um Armazenamento particularTarget.|ArmazenamentoTarget|
-|ArmazenamentoTargetMetasLeiaIOPS|ArmazenamentoTarget Metadados Ler IOPS|CondeEmSegundo|Média|A taxa de operações de ficheiros que não modificam o estado persistente, excluindo a operação de leitura, que o Cache envia para um determinado StorageTarget.|ArmazenamentoTarget|
-|ArmazenamentoTargetMetadataWriteIOPS|ArmazenamentoTarget Metadados Escrevam IOPS|CondeEmSegundo|Média|A taxa de operações de ficheiros que modificam o estado persistente e excluindo a operação de escrita, que o Cache envia para um determinado StorageTarget.|ArmazenamentoTarget|
-|ArmazenamentoTargetReadIOPS|ArmazenamentoTarget Ler IOPS|CondeEmSegundo|Média|A taxa de operações de leitura de ficheiros que o Cache envia para um determinado StorageTarget.|ArmazenamentoTarget|
-|StorageTargetReadAheadThroughput|ArmazenamentoTarget Ler à frente|BytesPerSecond|Média|A taxa que o Cache lê oportunisticamente os dados do StorageTarget.|ArmazenamentoTarget|
-|StorageTargetFillThroughput|ArmazenamentoTarget Fill Ingput|BytesPerSecond|Média|A taxa que o Cache lê os dados do StorageTarget para lidar com uma falha de cache.|ArmazenamentoTarget|
-|StorageTargetTotalReadThroughput|ArmazenamentoTarget Total Read Throughput|BytesPerSecond|Média|A taxa total que o Cache lê dados de um determinado StorageTarget.|ArmazenamentoTarget|
+|ClientIOPS|IOPS totais do cliente|Contagem|Média|A taxa de operações de ficheiros de clientes processadas pela Cache.|Nenhum|
+|ClientLatency|Latência média do cliente|Milissegundos|Média|Latência média das operações de ficheiro de clientes para a Cache de Armazenamento.|Nenhum|
+|ClientReadIOPS|Cliente ler IOPS|CondePerSecond|Média|Cliente lê operações por segundo.|Nenhum|
+|ClientReadThroughput|Produção média de leitura de cache|BytesPerSecond|Média|Cliente leia taxa de transferência de dados.|Nenhum|
+|ClientWriteIOPS|Cliente escrever iOPS|CondePerSecond|Média|Cliente escreve operações por segundo.|Nenhum|
+|ClientWriteThroughput|Produção média de escrita de cache|BytesPerSecond|Média|Cliente escreve taxa de transferência de dados.|Nenhum|
+|ClientMetadataReadIOPS|Metadados de Clientes lêem IOPS|CondePerSecond|Média|A taxa de operações de ficheiros de clientes enviadas para a Cache, excluindo as leituras de dados, que não modificam o estado persistente.|Nenhum|
+|ClientMetadataWriteIOPS|Metadados de clientes escrevem IOPS|CondePerSecond|Média|A taxa de operações de ficheiros de clientes enviadas para a Cache, excluindo os dados, que modificam o estado persistente.|Nenhum|
+|ClientLockIOPS|IOPS de bloqueio de cliente|CondePerSecond|Média|Operações de bloqueio de ficheiros de clientes por segundo.|Nenhum|
+|StorageTargetHealth|Saúde alvo de armazenamento|Contagem|Média|Boolean resultados do teste de conectividade entre os Alvos de Cache e Armazenamento.|Nenhum|
+|Uptime|Uptime|Contagem|Média|Boolean resultados do teste de conectividade entre a Cache e o sistema de monitorização.|Nenhum|
+|StorageTargetIOPS|Total de armazenamentoTarget IOPS|Contagem|Média|A taxa de todas as operações de ficheiro que o Cache envia para um determinado StorageTarget.|StorageTarget|
+|StorageTargetWriteIOPS|ArmazenamentoTarget Escrever IOPS|Contagem|Média|A taxa das operações de escrita de ficheiros que o Cache envia para um determinado StorageTarget.|StorageTarget|
+|StorageTargetAsyncWriteThroughput|Produção de escrita assíncronea de armazenamento|BytesPerSecond|Média|A taxa que o Cache assíncronea escreve dados para um determinado StorageTarget. São escritos oportunistas que não fazem com que os clientes bloqueiem.|StorageTarget|
+|StorageTargetSyncWriteThroughput|Produção de escrita sincronizada StorageTarget|BytesPerSecond|Média|A taxa que o Cache escreve sincronizadamente os dados para um determinado StorageTarget. Estas são escritas que fazem com que os clientes bloqueiem.|StorageTarget|
+|StorageTargetTotalWriteThroughput|Produção total de escrita do StorageTarget|BytesPerSecond|Média|A taxa total que o Cache escreve dados para um determinado StorageTarget.|StorageTarget|
+|ArmazenamentoTargetLatency|Latência do StorageTarget|Milissegundos|Média|A latência média de ida e volta de todas as operações de arquivo que o Cache envia para um StorageTarget partricular.|StorageTarget|
+|ArmazenamentoTargetMetadataReadIOPS|ArmazenamentoTarget Metadados Ler IOPS|CondePerSecond|Média|A taxa de operações de ficheiro que não modificam o estado persistente, e excluindo a operação de leitura, que a Cache envia para um determinado StorageTarget.|StorageTarget|
+|StorageTargetMetadataWriteIOPS|ArmazenamentoTarget Metadados Escrever IOPS|CondePerSecond|Média|A taxa de operações de ficheiro que modificam o estado persistente e excluindo a operação de escrita, que a Cache envia para um determinado StorageTarget.|StorageTarget|
+|ArmazenamentoTargetReadIOPS|ArmazenamentoTarget Ler IOPS|CondePerSecond|Média|A taxa de operações de leitura de ficheiros que a Cache envia para um determinado StorageTarget.|StorageTarget|
+|StorageTargetReadAheadThroughput|ArmazenamentoTarget Ler Antes Produção|BytesPerSecond|Média|A taxa que o Cache oportunisticamente lê dados do StorageTarget.|StorageTarget|
+|StorageTargetFillThroughput|Produção de preenchimento de armazenamentor|BytesPerSecond|Média|A taxa que o Cache lê os dados do StorageTarget para lidar com uma falha de cache.|StorageTarget|
+|StorageTargetTotalReadThroughput|Produção total de leitura do StorageTarget|BytesPerSecond|Média|A taxa total que a Cache lê dados de um determinado StorageTarget.|StorageTarget|
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Resultado da sessão do servidor|Resultado da sessão de sincronização|Contagem|Média|Métrica que regista um valor de 1 cada vez que o Ponto final do servidor completa com sucesso uma Sessão de Sincronização com o Cloud Endpoint|Nome do SyncGroup,ServerEndpointName,SyncDirection|
-|Contagem de ficheiros aplicados de sincronização de armazenamento|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizados|Nome do SyncGroup,ServerEndpointName,SyncDirection|
-|ArmazenamentoSyncSyncSessionPerItemErrorsCount|Ficheiros que não sincronizam|Contagem|Total|Contagem de ficheiros não conseguiu sincronizar|Nome do SyncGroup,ServerEndpointName,SyncDirection|
-|Ficheiros Transferidos de Ficheiros transferidos de armazenamento|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sessões de Sincronização|Nome do SyncGroup,ServerEndpointName,SyncDirection|
-|Heartbeat Do StorageSyncServer|Estado On-Line do Servidor|Contagem|Máximo|Métrica que regista um valor de 1 cada vez que o servidor ressitered registra com sucesso um batimento cardíaco com o Cloud Endpoint|ServerName|
-|ArmazenamentoSyncRecallIOTotalSizeBytes|Recolha de tiering de nuvem|Bytes|Total|Tamanho total dos dados recordados pelo servidor|ServerName|
-|StorageSyncRecalledTotalNetworkBytes|Tamanho da recuperação do tiering de nuvem|Bytes|Total|Tamanho dos dados recordados|Nome do SyncGroup,Nome do Servidor|
-|StorageSyncRecallThroughputBytesPerSecond|Entrada de recolha de tiering de cloud|BytesPerSecond|Média|Tamanho da recolha de dados|Nome do SyncGroup,Nome do Servidor|
-|StorageSyncRecalledNetworkBytesByApplication|Tamanho de recolha de nível de nuvem por aplicação|Bytes|Total|Tamanho dos dados recordados por aplicação|Nome do SyncGroup,Nome do servidor,Nome de aplicação|
+|ServidorSyncSessionResult|Resultado da sessão de sincronização|Contagem|Média|Métrica que regista um valor de 1 cada vez que o Ponto Final do Servidor completa com sucesso uma Sessão de Sincronização com o Ponto final da Cloud|SyncGroupName,ServerEndpointName,SyncDirection|
+|ArmazenamentoSyncSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
+|ArmazenamentoSyncSyncSessionPerItemErrorsCount|Ficheiros não sincronizados|Contagem|Total|Contagem de ficheiros não sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
+|ArmazenamentoSybatchTransferredFileBytes|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sincronização|SyncGroupName,ServerEndpointName,SyncDirection|
+|StorageSyncServerHeartbeat|Estado online do servidor|Contagem|Máximo|Métrica que regista um valor de 1 cada vez que o servidor resigtered regista com sucesso um batimento cardíaco com o Cloud Endpoint|ServerName|
+|ArmazenamentoSyncRecallIOTotalSizeBytes|Recuperação de camadas de nuvem|Bytes|Total|Tamanho total dos dados recolhidos pelo servidor|ServerName|
+|ArmazenamentoSyncRecalledTotalNetworkBytes|Tamanho de recuperação de nível de nuvem|Bytes|Total|Tamanho dos dados recordados|SyncGroupName,ServerName|
+|ArmazenamentoSyncRecallThroughputBytesPerSecond|Produção de recolha de camadas de nuvem|BytesPerSecond|Média|Tamanho do rendimento da recolha de dados|SyncGroupName,ServerName|
+|ArmazenamentoSyncRecalledNetworkBytesByApplication|Tamanho de recolha de camadas de nuvem por aplicação|Bytes|Total|Tamanho dos dados recolhidos pela aplicação|SyncGroupName,ServerName,ApplicationName|
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroups"></a>microsoft.storagesync/storageSyncServices/syncGroups
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Contagem de ficheiros aplicados syncgroupsession|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizados|Nome do SyncGroup,ServerEndpointName,SyncDirection|
-|SyncGroupSyncSessionPerItemErrorsCount|Ficheiros que não sincronizam|Contagem|Total|Contagem de ficheiros não conseguiu sincronizar|Nome do SyncGroup,ServerEndpointName,SyncDirection|
-|SyncGroupBatchTransferFileBytes|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sessões de Sincronização|Nome do SyncGroup,ServerEndpointName,SyncDirection|
+|SyncGroupSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
+|SyncGroupSyncSessionPerItemErrorsCount|Ficheiros não sincronizados|Contagem|Total|Contagem de ficheiros não sincronizado|SyncGroupName,ServerEndpointName,SyncDirection|
+|SyncGroupBatchTransferredFileBytes|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sincronização|SyncGroupName,ServerEndpointName,SyncDirection|
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroupsserverendpoints"></a>microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ServerEndpointSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizados|ServerEndpointName,SyncDirection|
-|ServerEndpointSyncSessionPerItemErrorsCount|Ficheiros que não sincronizam|Contagem|Total|Contagem de ficheiros não conseguiu sincronizar|ServerEndpointName,SyncDirection|
-|ServerEndpointBatchTransferFileBytes|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sessões de Sincronização|ServerEndpointName,SyncDirection|
+|ServerEndpointSyncSessionAppliedFilesCount|Ficheiros Sincronizados|Contagem|Total|Contagem de Ficheiros sincronizado|Nome de ServerEndpoint,SyncDirection|
+|ServerEndpointSyncSessionPerItemErrorsCount|Ficheiros não sincronizados|Contagem|Total|Contagem de ficheiros não sincronizado|Nome de ServerEndpoint,SyncDirection|
+|ServerEndpointBatchTransferredFileBytes|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sincronização|Nome de ServerEndpoint,SyncDirection|
 
-## <a name="microsoftstoragesyncstoragesyncservicesregisteredservers"></a>microsoft.storagesync/storageSyncServices/registeredServers
+## <a name="microsoftstoragesyncstoragesyncservicesregisteredservers"></a>microsoft.storagesync/storageSyncServices/registradosServers
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Batimentocardíaco de servidor|Estado On-Line do Servidor|Contagem|Máximo|Métrica que regista um valor de 1 cada vez que o servidor ressitered registra com sucesso um batimento cardíaco com o Cloud Endpoint|ServerResourceid,Nome do servidor|
-|ServerRecallIOTotalSizeBytes|Recolha de tiering de nuvem|Bytes|Total|Tamanho total dos dados recordados pelo servidor|ServerResourceid,Nome do servidor|
+|ServerHeartbeat|Estado online do servidor|Contagem|Máximo|Métrica que regista um valor de 1 cada vez que o servidor resigtered regista com sucesso um batimento cardíaco com o Cloud Endpoint|ServerResourceId,ServerName|
+|ServerRecallIOTotalSizeBytes|Recuperação de camadas de nuvem|Bytes|Total|Tamanho total dos dados recolhidos pelo servidor|ServerResourceId,ServerName|
 
 
 
@@ -2257,151 +2257,151 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Utilização de Recursos|SU % Utilização|Percentagem|Máximo|SU % Utilização|Nome lógico,Partitionid|
-|InputEvents|Eventos de entrada|Contagem|Total|Eventos de entrada|Nome lógico,Partitionid|
-|InputEventBytes|Bytes de Evento de Entrada|Bytes|Total|Bytes de Evento de Entrada|Nome lógico,Partitionid|
-|Eventos LateInput|Eventos de entrada tardia|Contagem|Total|Eventos de entrada tardia|Nome lógico,Partitionid|
-|Eventos de saída|Eventos de Saída|Contagem|Total|Eventos de Saída|Nome lógico,Partitionid|
-|Erros de Conversão|Erros de Conversão de Dados|Contagem|Total|Erros de Conversão de Dados|Nome lógico,Partitionid|
-|Erros|Erros de tempo de execução|Contagem|Total|Erros de tempo de execução|Nome lógico,Partitionid|
-|DropOrAdjustedEvents|Fora de ordem Eventos|Contagem|Total|Fora de ordem Eventos|Nome lógico,Partitionid|
-|AMLCalloutRequests|Pedidos de Função|Contagem|Total|Pedidos de Função|Nome lógico,Partitionid|
-|AMLCalloutPedidos Falhados|Pedidos de função falhados|Contagem|Total|Pedidos de função falhados|Nome lógico,Partitionid|
-|AMLCalloutInputevents|Eventos de Função|Contagem|Total|Eventos de Função|Nome lógico,Partitionid|
-|Erro de desserialização|Erros de desserialização de entrada|Contagem|Total|Erros de desserialização de entrada|Nome lógico,Partitionid|
-|Eventos EarlyInput|Eventos de entrada precoce|Contagem|Total|Eventos de entrada precoce|Nome lógico,Partitionid|
-|OutputWatermarkDelaySeconds|Atraso na marca de água|Segundos|Máximo|Atraso na marca de água|Nome lógico,Partitionid|
-|InputEventsSourcesBacklogged|Eventos de entrada atrasados|Contagem|Máximo|Eventos de entrada atrasados|Nome lógico,Partitionid|
-|InputEventsSourcesPerSecond|Fontes de entrada recebidas|Contagem|Total|Fontes de entrada recebidas|Nome lógico,Partitionid|
+|Utilização de Recursos|SU % Utilização|Percentagem|Máximo|SU % Utilização|Nome Lógico,PartitionId|
+|InputEvents|Eventos de Entrada|Contagem|Total|Eventos de Entrada|Nome Lógico,PartitionId|
+|InputEventBytes|Insutos de Eventos|Bytes|Total|Insutos de Eventos|Nome Lógico,PartitionId|
+|LateInputEvents|Eventos de entrada tardia|Contagem|Total|Eventos de entrada tardia|Nome Lógico,PartitionId|
+|OutputEvents|Eventos de saída|Contagem|Total|Eventos de saída|Nome Lógico,PartitionId|
+|ConversoresErrors|Erros de Conversão de Dados|Contagem|Total|Erros de Conversão de Dados|Nome Lógico,PartitionId|
+|Erros|Erros de tempo de execução|Contagem|Total|Erros de tempo de execução|Nome Lógico,PartitionId|
+|DropOrAdjustedEvents|Eventos fora de ordem|Contagem|Total|Eventos fora de ordem|Nome Lógico,PartitionId|
+|AMLCalloutRequests|Pedidos de Função|Contagem|Total|Pedidos de Função|Nome Lógico,PartitionId|
+|AMLCalloutFailedRequests|Pedidos de função falhadas|Contagem|Total|Pedidos de função falhadas|Nome Lógico,PartitionId|
+|AMLCalloutInputEvents|Eventos de Função|Contagem|Total|Eventos de Função|Nome Lógico,PartitionId|
+|DeserializaçãoError|Erros de deserialização de entrada|Contagem|Total|Erros de deserialização de entrada|Nome Lógico,PartitionId|
+|Início dos Eventos|Eventos de entrada antecipada|Contagem|Total|Eventos de entrada antecipada|Nome Lógico,PartitionId|
+|OutputWatermarkDelaySeconds|Atraso da marca de água|Segundos|Máximo|Atraso da marca de água|Nome Lógico,PartitionId|
+|InputEventsSourcesBacklogged|Eventos de entrada recuados|Contagem|Máximo|Eventos de entrada recuados|Nome Lógico,PartitionId|
+|InputEventsSourcesPerSecond|Fontes de entrada recebidas|Contagem|Total|Fontes de entrada recebidas|Nome Lógico,PartitionId|
 
-## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/espaços de trabalho
+## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|OrquestraçãoPipelineRunsEnded|Gasodutos terminados|Contagem|Total|Contagem de corridas de gasoduto sinuoso que conseguiu, falhou ou foram cancelados|Resultado,FalhaType,Pipeline|
-|OrquestraçãoActivityRunsEnded|As corridas de atividades terminaram|Contagem|Total|Contagem de atividades de orquestração que conseguiu, falhou ou foram cancelados|Resultado,FalhaType,Atividade,ActivityType,Pipeline|
-|OrquestraçõesTriggersEnded|Os gatilhos terminaram|Contagem|Total|Contagem de gatilhos de orquestração que conseguiu, falhou ou foram cancelados|Resultado,FalhaType,Gatilho|
-|Tentativas de Login SQLOnDemandLogin|Tentativas de login|Contagem|Total|Contagem de tentativas de login que succed ou falhou|Resultado|
-|SQLOnDemandQueriesEnded|As consultas terminaram|Contagem|Total|Contagem de consultas que sucederam, falharam ou foram cancelados|Resultado|
-|SQLOnDemandQueryProcessadobytes|Dados tratados|Bytes|Total|Quantidade de dados tratados por consultas|Nenhum|
+|OrquestrationPipelineRunsEnded|As corridas de gasodutos terminaram|Contagem|Total|Contagem de corridas de oleoduto de orquestração que conseguiu, falhou, ou foram cancelados|Resultado,FalhaType,Pipeline|
+|OrquestraçãoActivityRunsEnded|A atividade corre terminada|Contagem|Total|Contagem de atividades de orquestração que sucederam, falharam ou foram canceladas|Resultado,FalhaType,Atividade,ActivityType,Pipeline|
+|OrquestraçãoStroggersDessemotado|Os gatilhos terminaram|Contagem|Total|Contagem de gatilhos de orquestração que conseguiu, falhou, ou foram cancelados|Resultado,FalhaType,Gatilho|
+|SQLOnDemandLoginAttempts|Tentativas de login|Contagem|Total|Contagem de tentativas de login que succedou ou falhou|Resultado|
+|SQLOnDemandQueriesEnded|Consultas terminadas|Contagem|Total|Contagem de consultas que sucederam, falharam, ou foram cancelados|Resultado|
+|SQLOnDemandQueryProcessedBytes|Dados processados|Bytes|Total|Quantidade de dados processados por consultas|Nenhum|
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft.Synapse/workspaces/bigDataPools
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SparkJobsEnded|Aplicações terminadas|Contagem|Total|Contagem de candidaturas terminadas|JobType,JobResult|
-|Capacidade de Núcleos|Capacidade de núcleos|Contagem|Máximo|Capacidade de núcleos|Nenhum|
-|Capacidade de memóriaGB|Capacidade de memória (GB)|Contagem|Máximo|Capacidade de memória (GB)|Nenhum|
+|SparkJobsEnded|Candidaturas terminadas|Contagem|Total|Contagem de candidaturas terminadas|JobType,JobResult|
+|Capacidade de Cores|Capacidade de núcleos|Contagem|Máximo|Capacidade de núcleos|Nenhum|
+|Capacidade de MemóriaGB|Capacidade de memória (GB)|Contagem|Máximo|Capacidade de memória (GB)|Nenhum|
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|DWULimit|Limite de DWU|Contagem|Máximo|Objetivo de nível de serviço da piscina SQL|Nenhum|
-|DWUUsed|DWU usado|Contagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido pelo limite de DWU * Percentagem de DWU|Nenhum|
-|DWUUsedPercent|DWU percentagem utilizada|Percentagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido tomando o máximo entre a percentagem de CPU e a percentagem de Dados IO|Nenhum|
-|ConexõesBlockedByFirewall|Ligações bloqueadas por firewall|Contagem|Total|Contagem de ligações bloqueadas por regras de firewall. Reveja as políticas de controlo de acesso para o seu pool SQL e monitorize estas ligações se a contagem for elevada|Nenhum|
-|CacheHitPercent adaptativo|Percentagem de impacto de cache adaptativa|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a métrica da percentagem de impacto da cache para determinar se deve escalar para capacidade adicional ou reexecutar cargas de trabalho para hidratar a cache|Nenhum|
-|CacheUsedPercent adaptativo|Cache adaptável utilizada percentagem|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a métrica de percentagem utilizada para determinar se deve escalar para capacidade adicional ou reexecutar cargas de trabalho para hidratar a cache|Nenhum|
-|LocalTempDBUsedPercent|A temperatura local usou a percentagem|Percentagem|Máximo|Utilização temporária local em todos os nós de computação - valores são emitidos a cada cinco minutos|Nenhum|
-|MemoryUsedPercent|Percentagem usada na memória|Percentagem|Máximo|Utilização da memória em todos os nós da piscina SQL|Nenhum|
-|Ligações|Ligações|Contagem|Total|Contagem de logins totais para a piscina SQL|Resultado|
-|WLGActiveQueries|Consultas ativas do grupo de trabalho|Contagem|Total|As consultas ativas dentro do grupo de carga de trabalho. A utilização desta métrica não filtrada e não dividida apresenta todas as consultas ativas em execução no sistema|IsuserDefined,WorkloadGroup|
-|WLGActiveQueriesTimeouts|Intervalos de consulta de grupo de trabalho|Contagem|Total|Consultas para o grupo de trabalho que tem cronometrado. Os intervalos de consulta reportados por esta métrica são apenas uma vez que a consulta tenha começado a ser executada (não inclui tempo de espera devido a bloqueio ou esperas de recursos)|IsuserDefined,WorkloadGroup|
-|WLGAllocationBySystemPercent|Atribuição de grupo de carga de trabalho por cento do sistema|Percentagem|Máximo|A repartição percentual dos recursos em relação a todo o sistema|IsuserDefined,WorkloadGroup|
-|WLGAllocationByMaxResourcePercent|Atribuição do grupo de carga de trabalho por cento de recursos máximos|Percentagem|Máximo|Apresenta a repartição percentual de recursos em relação ao recurso efetiva da tampa por grupo de carga de trabalho. Esta métrica proporciona a utilização eficaz do grupo de carga de trabalho|IsuserDefined,WorkloadGroup|
-|WLGEffectiveCapResourcePercent|Por cento de recursos de tampa eficazes|Percentagem|Máximo|O custo efetivo do recurso da tampa para o grupo de carga de trabalho. Se houver outros grupos de carga de trabalho com min_percentage_resource > 0, o effective_cap_percentage_resource é reduzido proporcionalmente|IsuserDefined,WorkloadGroup|
-|wlg_effective_min_resource_percent|Por cento de recursos min eficazes|Percentagem|Mínimo|A definição efetiva da percentagem de recursos min permitiu considerar o nível de serviço e as definições do grupo de carga de trabalho. O min_percentage_resource eficaz pode ser ajustado mais alto em níveis de serviço mais baixos|IsuserDefined,WorkloadGroup|
-|WLGQueuedQueries|Consultas de grupo de trabalho em fila|Contagem|Total|Contagem acumulada de pedidos em fila após o limite máximo de conmoedação foi atingido|IsuserDefined,WorkloadGroup|
+|DWULimit|Limite dwu|Contagem|Máximo|Objetivo de nível de serviço da piscina SQL|Nenhum|
+|DWUUSED|DWU usado|Contagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido por limite DE DWU * percentagem de DWU|Nenhum|
+|DWUUsedPercent|Percentagem utilizada pela DWU|Percentagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido pela tomada do máximo entre a percentagem de CPU e a percentagem de IO de dados|Nenhum|
+|ConexõesBlockedByFirewall|Ligações bloqueadas por firewall|Contagem|Total|Contagem de ligações bloqueadas pelas regras de firewall. Reveja as políticas de controlo de acesso para a sua piscina SQL e monitorize estas ligações se a contagem for elevada|Nenhum|
+|AdaptiveCacheHitPercent|Percentagem de impacto de cache adaptativo|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a métrica percentual de impacto da cache para determinar se deve escalar para capacidade adicional ou refazer cargas de trabalho para hidratar a cache|Nenhum|
+|AdaptiveCacheUsedPercent|Percentagem de cache adaptativa utilizada|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a cache utilizada métrica percentual para determinar se deve escalar para capacidade adicional ou refazer cargas de trabalho para hidratar a cache|Nenhum|
+|LocalTempDBUsedPercent|Percentagem de temporários locais utilizada|Percentagem|Máximo|Utilização temporária local em todos os nós de computação - valores são emitidos a cada cinco minutos|Nenhum|
+|MemoryUsedPercent|Percentagem de memória usada|Percentagem|Máximo|Utilização da memória em todos os nós na piscina SQL|Nenhum|
+|Ligações|Ligações|Contagem|Total|Contagem de entradas totais para a piscina SQL|Resultado|
+|WLGActiveQueries|Consultas ativas do grupo de carga de trabalho|Contagem|Total|As consultas ativas dentro do grupo de carga de trabalho. Utilizando esta métrica não filtrada e não filtrada exibe todas as consultas ativas em execução no sistema|IsUserDefined,WorkloadGroup|
+|WLGActiveQueriesTimeouts|Tempo limites de consulta do grupo de carga de trabalho|Contagem|Total|Consultas para o grupo de trabalho que tem cronometrado. Os intervalos de consulta reportados por esta métrica são apenas uma vez que a consulta tenha começado a executar (não inclui o tempo de espera devido ao bloqueio ou espera de recursos)|IsUserDefined,WorkloadGroup|
+|WLGAllocationBySystemPercent|Alocação de grupo de carga de trabalho por parte do sistema|Percentagem|Máximo|A percentagem de alocação de recursos relativos a todo o sistema|IsUserDefined,WorkloadGroup|
+|WLGAllocationByMaxResourcePercent|Alocação de grupo de carga de trabalho por percentagem máxima de recursos|Percentagem|Máximo|Apresenta a percentagem de alocação de recursos em relação à percentagem de recursos de limite efetivo por grupo de carga de trabalho. Esta métrica fornece a utilização eficaz do grupo de carga de trabalho|IsUserDefined,WorkloadGroup|
+|WLGEffectiveCapResourcePercent|Por cento efetivo do recurso cap|Percentagem|Máximo|A percentagem efetiva de recursos de capital para o grupo de trabalho. Se houver outros grupos de carga de trabalho com min_percentage_resource > 0, o effective_cap_percentage_resource é reduzido proporcionalmente|IsUserDefined,WorkloadGroup|
+|wlg_effective_min_resource_percent|Por cento de recursos min eficazes|Percentagem|Mínimo|A definição eficaz da percentagem de recursos min permitiu considerar o nível de serviço e as definições do grupo de carga de trabalho. O min_percentage_resource eficaz pode ser ajustado mais alto em níveis de serviço mais baixos|IsUserDefined,WorkloadGroup|
+|WLGQueuedQueries|Consultas em fila de grupos de carga|Contagem|Total|Contagem cumulativa de pedidos em fila após o limite máximo de concuência ter sido atingido|IsUserDefined,WorkloadGroup|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/ambientes
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Mensagens Recebidas|Mensagens Recebidas de Ingress|Contagem|Total|Contagem de mensagens lidas de todas as fontes do evento hub ou ioT hub|Nenhum|
-|Mensagens Inválidas|Ingress recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas lidas de todas as fontes do evento hub ou ioT hub|Nenhum|
-|IngressReceivedBytes|Ingress recebido bytes|Bytes|Total|Contagem de bytes lidos de todas as fontes do evento|Nenhum|
+|IngressReceivedMessages|Mensagens Recebidas Ingress|Contagem|Total|Contagem de mensagens lidas de todas as fontes de eventos do centro de eventos do Evento ou IoT|Nenhum|
+|IngressReceivedInvalidMesages|Ingress recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas lidas de todas as fontes de eventos do centro de eventos do Evento ou IoT|Nenhum|
+|IngressReceivedBytes|Ingress Recebido Bytes|Bytes|Total|Contagem de bytes lidos de todas as fontes do evento|Nenhum|
 |IngressStoredBytes|Ingress Stored Bytes|Bytes|Total|Tamanho total dos eventos processados com sucesso e disponíveis para consulta|Nenhum|
-|Eventos IngressStored|Eventos Armazenados de Ingress|Contagem|Total|Contagem de eventos achatados processados com sucesso e disponíveis para consulta|Nenhum|
-|Mensagens RecebidasTimelag|Ingress Recebeu O Tempo de Atraso|Segundos|Máximo|Diferença entre o tempo em que a mensagem é enquecida na fonte do evento e o tempo que é processado em Ingress|Nenhum|
-|IngressReceivedMessagesCountlag|Ingress Recebeu Mensagens Count Lag|Contagem|Média|Diferença entre o número de sequência da última mensagem enqueuada na partição da fonte do evento e o número de sequência de mensagens que estão a ser processadas em Ingress|Nenhum|
-|WarmStorageMaxProperties|Propriedades Max de Armazenamento Quente|Contagem|Máximo|Número máximo de propriedades permitidas pelo ambiente para S1/S2 SKU e número máximo de propriedades permitidas pela Warm Store para PAYG SKU|Nenhum|
-|Propriedades De Armazenamento Quente|Propriedades usadas de armazenamento quente |Contagem|Máximo|Número de propriedades utilizadas pelo ambiente para S1/S2 SKU e número de propriedades utilizadas pela Warm Store para PAYG SKU|Nenhum|
+|IngresssStoredEvents|Eventos Armazenados ingress|Contagem|Total|Contagem de eventos achatados processados com sucesso e disponíveis para consulta|Nenhum|
+|IngressReceivedMesstimeLag|Ingress recebeu recado de tempo de mensagens|Segundos|Máximo|Diferença entre o tempo em que a mensagem é encosa na fonte do evento e o tempo que é processado em Ingress|Nenhum|
+|IngressReceivedMessagesCountLag|Ingress recebeu recado de mensagens|Contagem|Média|Diferença entre o número de sequência da última mensagem encosa na partição de origem do evento e o número de sequência de mensagens que estão a ser processadas em Ingress|Nenhum|
+|WarmStorageMaxProperties|Propriedades Max de Armazenamento Quente|Contagem|Máximo|Número máximo de propriedades utilizadas pelo ambiente para S1/S2 SKU e número máximo de propriedades permitidas pela Warm Store para PAYG SKU|Nenhum|
+|WarmStorageUsedProperties|Propriedades usadas de armazenamento quente |Contagem|Máximo|Número de propriedades utilizadas pelo ambiente para S1/S2 SKU e número de propriedades utilizadas pela Warm Store para PAYG SKU|Nenhum|
 
 
 
-## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/ambientes/fontes de eventos
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/ambientes/eventsources
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Mensagens Recebidas|Mensagens Recebidas de Ingress|Contagem|Total|Contagem de mensagens lidas a partir da fonte do evento|Nenhum|
-|Mensagens Inválidas|Ingress recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas lidas a partir da fonte do evento|Nenhum|
-|IngressReceivedBytes|Ingress recebido bytes|Bytes|Total|Contagem de bytes lidos a partir da fonte do evento|Nenhum|
+|IngressReceivedMessages|Mensagens Recebidas Ingress|Contagem|Total|Contagem de mensagens lidas a partir da fonte do evento|Nenhum|
+|IngressReceivedInvalidMesages|Ingress recebeu mensagens inválidas|Contagem|Total|Contagem de mensagens inválidas lidas a partir da fonte do evento|Nenhum|
+|IngressReceivedBytes|Ingress Recebido Bytes|Bytes|Total|Contagem de bytes lidos a partir da fonte do evento|Nenhum|
 |IngressStoredBytes|Ingress Stored Bytes|Bytes|Total|Tamanho total dos eventos processados com sucesso e disponíveis para consulta|Nenhum|
-|Eventos IngressStored|Eventos Armazenados de Ingress|Contagem|Total|Contagem de eventos achatados processados com sucesso e disponíveis para consulta|Nenhum|
-|Mensagens RecebidasTimelag|Ingress Recebeu O Tempo de Atraso|Segundos|Máximo|Diferença entre o tempo em que a mensagem é enquecida na fonte do evento e o tempo que é processado em Ingress|Nenhum|
-|IngressReceivedMessagesCountlag|Ingress Recebeu Mensagens Count Lag|Contagem|Média|Diferença entre o número de sequência da última mensagem enqueuada na partição da fonte do evento e o número de sequência de mensagens que estão a ser processadas em Ingress|Nenhum|
-|WarmStorageMaxProperties|Propriedades Max de Armazenamento Quente|Contagem|Máximo|Número máximo de propriedades permitidas pelo ambiente para S1/S2 SKU e número máximo de propriedades permitidas pela Warm Store para PAYG SKU|Nenhum|
-|Propriedades De Armazenamento Quente|Propriedades usadas de armazenamento quente |Contagem|Máximo|Número de propriedades utilizadas pelo ambiente para S1/S2 SKU e número de propriedades utilizadas pela Warm Store para PAYG SKU|Nenhum|
+|IngresssStoredEvents|Eventos Armazenados ingress|Contagem|Total|Contagem de eventos achatados processados com sucesso e disponíveis para consulta|Nenhum|
+|IngressReceivedMesstimeLag|Ingress recebeu recado de tempo de mensagens|Segundos|Máximo|Diferença entre o tempo em que a mensagem é encosa na fonte do evento e o tempo que é processado em Ingress|Nenhum|
+|IngressReceivedMessagesCountLag|Ingress recebeu recado de mensagens|Contagem|Média|Diferença entre o número de sequência da última mensagem encosa na partição de origem do evento e o número de sequência de mensagens que estão a ser processadas em Ingress|Nenhum|
+|WarmStorageMaxProperties|Propriedades Max de Armazenamento Quente|Contagem|Máximo|Número máximo de propriedades utilizadas pelo ambiente para S1/S2 SKU e número máximo de propriedades permitidas pela Warm Store para PAYG SKU|Nenhum|
+|WarmStorageUsedProperties|Propriedades usadas de armazenamento quente |Contagem|Máximo|Número de propriedades utilizadas pelo ambiente para S1/S2 SKU e número de propriedades utilizadas pela Warm Store para PAYG SKU|Nenhum|
 
 ## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft.VMwareCloudSimple/virtualMachines
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|DiskReadBytesPerSecond|Discos Ler Bytes/Sec|BytesPerSecond|Média|Produção média de disco devido a operações de leitura durante o período da amostra.|Nenhum|
-|DiskWriteBytesPerSecond|Discos Write Bytes/Sec|BytesPerSecond|Média|Produção média de disco devido a operações de escrita durante o período da amostra.|Nenhum|
-|Discos Ler Bytes|Discos Ler Bytes|Bytes|Total|Produção total de disco devido a operações de leitura durante o período da amostra.|Nenhum|
-|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Produção total de disco devido a operações de escrita durante o período da amostra.|Nenhum|
-|Operações de Leitura de Discos|Operações de leitura do disco|Contagem|Total|O número de operações de leitura da OI no período de amostras anteriores. Note que estas operações podem ser de tamanho variável.|Nenhum|
-|DiskWriteOperations|Operações de escrita de disco|Contagem|Total|O número de operações de escrita da OI no período de amostras anteriores. Note que estas operações podem ser de tamanho variável.|Nenhum|
-|Operações de leitura do disco/sec|Operações de leitura do disco/sec|CondeEmSegundo|Média|O número médio de operações de leitura de IO no período de amostras anteriores. Note que estas operações podem ser de tamanho variável.|Nenhum|
-|Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|O número médio de operações de escrita de IO no período de amostragem anterior. Note que estas operações podem ser de tamanho variável.|Nenhum|
-|DiskReadLatency|Latência de leitura do disco|Milissegundos|Média|Latência total de leitura. A soma do dispositivo e do núcleo lêem lálências.|Nenhum|
-|DiskWriteLatency|Latência de escrita de disco|Milissegundos|Média|Total latência de escrever. A soma do dispositivo e do núcleo escrevem látexções.|Nenhum|
-|NetworkInBytesPerSecond|Rede Em Bytes/Sec|BytesPerSecond|Média|Produção média de rede para tráfego recebido.|Nenhum|
-|NetworkOutBytesPerSecond|Rede out Bytes/Sec|BytesPerSecond|Média|Produção média de rede para tráfego transmitido.|Nenhum|
-|Entrada na Rede|Entrada na Rede|Bytes|Total|Total de entrada de rede para tráfego recebido.|Nenhum|
+|DiskReadBytesPerSecond|Discos de leitura bytes/sec|BytesPerSecond|Média|Produção média de disco devido a operações de leitura durante o período de amostragem.|Nenhum|
+|DiskWriteBytesPerSecond|Discos De Escrita Bytes/Sec|BytesPerSecond|Média|Produção média de disco devido a operações de escrita durante o período de amostragem.|Nenhum|
+|Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Produção total de disco devido a operações de leitura durante o período de amostragem.|Nenhum|
+|Bytes de escrita de disco|Bytes de escrita de disco|Bytes|Total|Produção total de disco devido a operações de escrita durante o período de amostragem.|Nenhum|
+|Operações de Leitura de Discos|Operações de leitura de discos|Contagem|Total|O número de operações de leitura de IO no período de amostragem anterior. Note que estas operações podem ser de tamanho variável.|Nenhum|
+|DiskWriteOperations|Operações de escrita de discos|Contagem|Total|O número de operações de escrita de IO no período de amostragem anterior. Note que estas operações podem ser de tamanho variável.|Nenhum|
+|Operações de leitura de disco/sec|Operações de leitura de disco/sec|CondePerSecond|Média|O número médio de operações de leitura de IO no período de amostragem anterior. Note que estas operações podem ser de tamanho variável.|Nenhum|
+|Operações de escrita de discos/seg|Operações de escrita de discos/seg|CondePerSecond|Média|O número médio de operações de escrita de IO no período de amostragem anterior. Note que estas operações podem ser de tamanho variável.|Nenhum|
+|DiskReadLatency|Leitura de disco Latência|Milissegundos|Média|Latência de leitura total. A soma do dispositivo e o núcleo lêem latências.|Nenhum|
+|DiskWriteLatency|Latência de escrita de disco|Milissegundos|Média|Latência total de escrita. A soma do dispositivo e o núcleo escrevem latências.|Nenhum|
+|NetworkInBytesPerSecond|Rede em Bytes/Sec|BytesPerSecond|Média|Produção média de rede para tráfego recebido.|Nenhum|
+|NetworkOutBytesPerSecond|Network out Bytes/Sec|BytesPerSecond|Média|Produção média de rede para tráfego transmitido.|Nenhum|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|Produção total de rede para tráfego recebido.|Nenhum|
 |Saída da Rede|Saída da Rede|Bytes|Total|Produção total de rede para tráfego transmitido.|Nenhum|
-|MemóriaUsada|Memória Usada|Bytes|Média|A quantidade de memória da máquina que está a ser utilizada pelo VM.|Nenhum|
-|MemóriaConcedida|Memória Concedida|Bytes|Média|A quantidade de memória que foi concedida ao VM pelo anfitrião. A memória não é concedida ao hospedeiro até que seja tocada uma vez e a memória concedida pode ser trocada ou reembalizada se o VMkernel precisar da memória.|Nenhum|
-|MemoryActive|Memória Ativa|Bytes|Média|A quantidade de memória usada pelo VM no passado pequena janela de tempo. Este é o número "verdadeiro" de quanta memória o VM precisa atualmente. A memória adicional e não utilizada pode ser trocada ou balonizada sem impacto no desempenho do hóspede.|Nenhum|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A utilização da CPU. Este valor é reportado com 100% representando todos os núcleos de processador escarnecidos do sistema. Como exemplo, um VM de 2 vias usando 50% de um sistema de quatro núcleos está completamente usando dois núcleos.|Nenhum|
-|PercentageCpuReady|CpU percentual pronto|Milissegundos|Total|O tempo de preparação é o tempo que espera que a CPU(s) fique disponível no intervalo de atualização anterior.|Nenhum|
+|MemóriaSUsed|Memória utilizada|Bytes|Média|A quantidade de memória da máquina que está a ser utilizada pelo VM.|Nenhum|
+|Memorygranted|Memória Concedida|Bytes|Média|A quantidade de memória que foi concedida ao VM pelo hospedeiro. A memória não é concedida ao hospedeiro até que seja tocada uma vez e a memória concedida pode ser trocada ou balonizada se o VMkernel precisar da memória.|Nenhum|
+|MemoryActive|Memória Ativa|Bytes|Média|A quantidade de memória usada pelo VM no passado pequena janela de tempo. Este é o número "verdadeiro" de quanta memória o VM atualmente precisa. Memória adicional e não uusada pode ser trocada ou balonizada sem impacto no desempenho do hóspede.|Nenhum|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A utilização do CPU. Este valor é reportado com 100% representando todos os núcleos de processadores no sistema. Como exemplo, um VM de duas vias que usa 50% de um sistema de quatro núcleos está a usar completamente dois núcleos.|Nenhum|
+|PercentagemCpuReady|Percentagem CPU Pronta|Milissegundos|Total|Tempo pronto é o tempo gasto à espera que os CPU(s) fiquem disponíveis no intervalo de atualização anterior.|Nenhum|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|Percentagem de Memória|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
-|Comprimento da fila do disco|Comprimento da fila do disco|Contagem|Média|Comprimento da fila do disco|Instância|
-|HttpqueueLength|Comprimento da fila http|Contagem|Média|Comprimento da fila http|Instância|
+|MemóriaPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
+|DiskQueueLength|Comprimento da fila do disco|Contagem|Média|Comprimento da fila do disco|Instância|
+|HttpQueueLength|Comprimento da fila http|Contagem|Média|Comprimento da fila http|Instância|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
-|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
-|TcpSynSent|TCP Syn Enviado|Contagem|Média|TCP Syn Enviado|Instância|
-|TcpSynReceived|TCP Syn recebido|Contagem|Média|TCP Syn recebido|Instância|
+|BytesSent|Data out|Bytes|Total|Data out|Instância|
+|TcpSynsent|TCP Syn enviado|Contagem|Média|TCP Syn enviado|Instância|
+|TcpSynReceived|Sina TCP recebida|Contagem|Média|Sina TCP recebida|Instância|
 |TcpEstablished|TCP Estabelecido|Contagem|Média|TCP Estabelecido|Instância|
-|TcpFinWait1|TCP Fin Esperar 1|Contagem|Média|TCP Fin Esperar 1|Instância|
+|TcpFinWait1|TCP Fin Wait 1|Contagem|Média|TCP Fin Wait 1|Instância|
 |TcpFinWait2|TCP Fin Wait 2|Contagem|Média|TCP Fin Wait 2|Instância|
-|TcpClosing|Fecho do TCP|Contagem|Média|Fecho do TCP|Instância|
-|TcpCloseWait|TCP Close Wait|Contagem|Média|TCP Close Wait|Instância|
+|TcpClosing|Fecho da TCP|Contagem|Média|Fecho da TCP|Instância|
+|TcpCloseWait|Espera de fecho de TCP|Contagem|Média|Espera de fecho de TCP|Instância|
 |TcpLastAck|TCP Last Ack|Contagem|Média|TCP Last Ack|Instância|
-|TcpTimeWait|Tempo de Espera do TCP|Contagem|Média|Tempo de Espera do TCP|Instância|
+|TcpTimeWait|Espera de tempo da TCP|Contagem|Média|Espera de tempo da TCP|Instância|
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (excluindo funções) 
 
 > [!NOTE]
-> O Uso do Sistema de **Ficheiros** é uma nova métrica a ser lançada globalmente, não são esperados dados a não ser que tenha sido listado em branco para pré-visualização privada.
+> **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que tenha sido whitelisted para pré-visualização privada.
 
 > [!IMPORTANT]
-> **O tempo médio** de resposta será premeditado para evitar confusões com agregações métricas. Utilize o Tempo de **Resposta** como substituto.
+> **O tempo médio de resposta** será depreciado para evitar confusões com agregações métricas. Utilize o **Tempo de Resposta** como substituto.
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CpuTime|Tempo cpu|Segundos|Total|Tempo cpu|Instância|
+|Horário do Cpu|Hora do CPU|Segundos|Total|Hora do CPU|Instância|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
-|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
+|BytesSent|Data out|Bytes|Total|Data out|Instância|
 |Http101|Http 101|Contagem|Total|Http 101|Instância|
 |Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
@@ -2410,70 +2410,70 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |Http404|Http 404|Contagem|Total|Http 404|Instância|
 |Http406|Http 406|Contagem|Total|Http 406|Instância|
 |Http4xx|Http 4xx|Contagem|Total|Http 4xx|Instância|
-|Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
-|Conjunto de Funções de Memória|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
-|Conjunto de trabalho de memória média|Conjunto de trabalho médio da memória|Bytes|Média|Conjunto de trabalho médio da memória|Instância|
-|HttpResponseTime|Tempo de Resposta|Segundos|Total|Tempo de Resposta|Instância|
-|Tempo médio de resposta|Tempo médio de resposta (depreciado)|Segundos|Média|Tempo médio de resposta|Instância|
+|Http5xx|http Erros do servidor|Contagem|Total|http Erros do servidor|Instância|
+|MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
+|Média MemoryWorkingSet|Conjunto de trabalho de memória média|Bytes|Média|Conjunto de trabalho de memória média|Instância|
+|HttpResponseTime|Tempo de resposta|Segundos|Total|Tempo de resposta|Instância|
+|Média De Respostas|Tempo médio de resposta (precotado)|Segundos|Média|Tempo médio de resposta|Instância|
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
-|Alças|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
+|Pegas|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Fios|Contagem de fios|Contagem|Média|Contagem de fios|Instância|
-|PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
-|IoReadBytesPerSecond|IO Ler Bytes por Segundo|BytesPerSecond|Total|IO Ler Bytes por Segundo|Instância|
-|IoWriteBytesPerSecond|IO Escrever Bytes por Segundo|BytesPerSecond|Total|IO Escrever Bytes por Segundo|Instância|
+|PrivateBytes|Bytes privados|Bytes|Média|Bytes privados|Instância|
+|IoReadBytesPerSecond|IO Ler Bytes por segundo|BytesPerSecond|Total|IO Ler Bytes por segundo|Instância|
+|IoWriteBytesPerSecond|IO Escrever Bytes por segundo|BytesPerSecond|Total|IO Escrever Bytes por segundo|Instância|
 |IoOtherBytesPerSecond|IO Outros Bytes por Segundo|BytesPerSecond|Total|IO Outros Bytes por Segundo|Instância|
 |IoReadOperationsPerSecond|IO Ler Operações por segundo|BytesPerSecond|Total|IO Ler Operações por segundo|Instância|
-|IoWriteOperationsPerSecond|IO Write Operations por segundo|BytesPerSecond|Total|IO Write Operations por segundo|Instância|
-|IoOtherOperationsPerSecond|IO outras operações por segundo|BytesPerSecond|Total|IO outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de candidaturas|Contagem|Média|Pedidos na fila de candidaturas|Instância|
-|CurrentAssemblies|Assembleias atuais|Contagem|Média|Assembleias atuais|Instância|
-|TotalAppDomains|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
-|TotalAppDomínios Descarregados|Total de domínios de aplicativos descarregados|Contagem|Média|Total de domínios de aplicativos descarregados|Instância|
+|IoWriteOperationsPerSecond|IO Escrever Operações por segundo|BytesPerSecond|Total|IO Escrever Operações por segundo|Instância|
+|IoOtherOperationsPerSecond|IO Outras Operações por Segundo|BytesPerSecond|Total|IO Outras Operações por Segundo|Instância|
+|PedidosInApplicationQueue|Pedidos na fila de aplicações|Contagem|Média|Pedidos na fila de aplicações|Instância|
+|Antiguidades Atuais|Atuais Assembleias|Contagem|Média|Atuais Assembleias|Instância|
+|Total DeDomínios|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
+|TotalAppDomainsUnloaded|Total de domínios de aplicações descarregados|Contagem|Média|Total de domínios de aplicações descarregados|Instância|
 |Gen0Collections|Coleções de lixo gen 0|Contagem|Total|Coleções de lixo gen 0|Instância|
 |Gen1Collections|Coleções de lixo da Gen 1|Contagem|Total|Coleções de lixo da Gen 1|Instância|
 |Gen2Collections|Coleções de lixo gen 2|Contagem|Total|Coleções de lixo gen 2|Instância|
 |HealthCheckStatus|Estado do controlo de saúde|Contagem|Média|Estado do controlo de saúde|Instância|
-|Utilização do Sistema de Ficheiros|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhum|
+|FileSystemUsage|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhum|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
 
 > [!NOTE]
-> O Uso do Sistema de **Ficheiros** é uma nova métrica a ser lançada globalmente, não são esperados dados a não ser que tenha sido listado em branco para pré-visualização privada.
+> **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que tenha sido whitelisted para pré-visualização privada.
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
-|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
-|Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
-|Conjunto de Funções de Memória|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
-|Conjunto de trabalho de memória média|Conjunto de trabalho médio da memória|Bytes|Média|Conjunto de trabalho médio da memória|Instância|
-|Unidades de Execução de Funções|Unidades de Execução de Funções|MB / Milliseconds|Total|[Unidades de Execução de Funções](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instância|
-|Contagem de execuções de funções|Contagem de execução de funções|Contagem|Total|Contagem de execução de funções|Instância|
-|PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
-|IoReadBytesPerSecond|IO Ler Bytes por Segundo|BytesPerSecond|Total|IO Ler Bytes por Segundo|Instância|
-|IoWriteBytesPerSecond|IO Escrever Bytes por Segundo|BytesPerSecond|Total|IO Escrever Bytes por Segundo|Instância|
+|BytesSent|Data out|Bytes|Total|Data out|Instância|
+|Http5xx|http Erros do servidor|Contagem|Total|http Erros do servidor|Instância|
+|MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
+|Média MemoryWorkingSet|Conjunto de trabalho de memória média|Bytes|Média|Conjunto de trabalho de memória média|Instância|
+|FunExecutionUnnits|Unidades de execução de funções|MB / Milissegundos|Total|[Unidades de execução de funções](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instância|
+|FunExecutionCount|Contagem de execução de funções|Contagem|Total|Contagem de execução de funções|Instância|
+|PrivateBytes|Bytes privados|Bytes|Média|Bytes privados|Instância|
+|IoReadBytesPerSecond|IO Ler Bytes por segundo|BytesPerSecond|Total|IO Ler Bytes por segundo|Instância|
+|IoWriteBytesPerSecond|IO Escrever Bytes por segundo|BytesPerSecond|Total|IO Escrever Bytes por segundo|Instância|
 |IoOtherBytesPerSecond|IO Outros Bytes por Segundo|BytesPerSecond|Total|IO Outros Bytes por Segundo|Instância|
 |IoReadOperationsPerSecond|IO Ler Operações por segundo|BytesPerSecond|Total|IO Ler Operações por segundo|Instância|
-|IoWriteOperationsPerSecond|IO Write Operations por segundo|BytesPerSecond|Total|IO Write Operations por segundo|Instância|
-|IoOtherOperationsPerSecond|IO outras operações por segundo|BytesPerSecond|Total|IO outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de candidaturas|Contagem|Média|Pedidos na fila de candidaturas|Instância|
-|CurrentAssemblies|Assembleias atuais|Contagem|Média|Assembleias atuais|Instância|
-|TotalAppDomains|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
-|TotalAppDomínios Descarregados|Total de domínios de aplicativos descarregados|Contagem|Média|Total de domínios de aplicativos descarregados|Instância|
+|IoWriteOperationsPerSecond|IO Escrever Operações por segundo|BytesPerSecond|Total|IO Escrever Operações por segundo|Instância|
+|IoOtherOperationsPerSecond|IO Outras Operações por Segundo|BytesPerSecond|Total|IO Outras Operações por Segundo|Instância|
+|PedidosInApplicationQueue|Pedidos na fila de aplicações|Contagem|Média|Pedidos na fila de aplicações|Instância|
+|Antiguidades Atuais|Atuais Assembleias|Contagem|Média|Atuais Assembleias|Instância|
+|Total DeDomínios|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
+|TotalAppDomainsUnloaded|Total de domínios de aplicações descarregados|Contagem|Média|Total de domínios de aplicações descarregados|Instância|
 |Gen0Collections|Coleções de lixo gen 0|Contagem|Total|Coleções de lixo gen 0|Instância|
 |Gen1Collections|Coleções de lixo da Gen 1|Contagem|Total|Coleções de lixo da Gen 1|Instância|
 |Gen2Collections|Coleções de lixo gen 2|Contagem|Total|Coleções de lixo gen 2|Instância|
 |HealthCheckStatus|Estado do controlo de saúde|Contagem|Média|Estado do controlo de saúde|Instância|
-|Utilização do Sistema de Ficheiros|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhum|
+|FileSystemUsage|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhum|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CpuTime|Tempo cpu|Segundos|Total|Tempo cpu|Instância|
+|Horário do Cpu|Hora do CPU|Segundos|Total|Hora do CPU|Instância|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
-|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
+|BytesSent|Data out|Bytes|Total|Data out|Instância|
 |Http101|Http 101|Contagem|Total|Http 101|Instância|
 |Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
@@ -2482,32 +2482,32 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |Http404|Http 404|Contagem|Total|Http 404|Instância|
 |Http406|Http 406|Contagem|Total|Http 406|Instância|
 |Http4xx|Http 4xx|Contagem|Total|Http 4xx|Instância|
-|Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
-|Conjunto de Funções de Memória|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
-|Conjunto de trabalho de memória média|Conjunto de trabalho médio da memória|Bytes|Média|Conjunto de trabalho médio da memória|Instância|
-|Tempo médio de resposta|Tempo médio de resposta|Segundos|Média|Tempo médio de resposta|Instância|
-|HttpResponseTime|Tempo de Resposta|Segundos|Média|Tempo de Resposta|Instância|
-|Unidades de Execução de Funções|Unidades de Execução de Funções|Contagem|Total|Unidades de Execução de Funções|Instância|
-|Contagem de execuções de funções|Contagem de execução de funções|Contagem|Total|Contagem de execução de funções|Instância|
+|Http5xx|http Erros do servidor|Contagem|Total|http Erros do servidor|Instância|
+|MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
+|Média MemoryWorkingSet|Conjunto de trabalho de memória média|Bytes|Média|Conjunto de trabalho de memória média|Instância|
+|Média De Respostas|Tempo médio de resposta|Segundos|Média|Tempo médio de resposta|Instância|
+|HttpResponseTime|Tempo de resposta|Segundos|Média|Tempo de resposta|Instância|
+|FunExecutionUnnits|Unidades de execução de funções|Contagem|Total|Unidades de execução de funções|Instância|
+|FunExecutionCount|Contagem de execução de funções|Contagem|Total|Contagem de execução de funções|Instância|
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
-|Alças|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
+|Pegas|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Fios|Contagem de fios|Contagem|Média|Contagem de fios|Instância|
-|PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
-|IoReadBytesPerSecond|IO Ler Bytes por Segundo|BytesPerSecond|Total|IO Ler Bytes por Segundo|Instância|
-|IoWriteBytesPerSecond|IO Escrever Bytes por Segundo|BytesPerSecond|Total|IO Escrever Bytes por Segundo|Instância|
+|PrivateBytes|Bytes privados|Bytes|Média|Bytes privados|Instância|
+|IoReadBytesPerSecond|IO Ler Bytes por segundo|BytesPerSecond|Total|IO Ler Bytes por segundo|Instância|
+|IoWriteBytesPerSecond|IO Escrever Bytes por segundo|BytesPerSecond|Total|IO Escrever Bytes por segundo|Instância|
 |IoOtherBytesPerSecond|IO Outros Bytes por Segundo|BytesPerSecond|Total|IO Outros Bytes por Segundo|Instância|
 |IoReadOperationsPerSecond|IO Ler Operações por segundo|BytesPerSecond|Total|IO Ler Operações por segundo|Instância|
-|IoWriteOperationsPerSecond|IO Write Operations por segundo|BytesPerSecond|Total|IO Write Operations por segundo|Instância|
-|IoOtherOperationsPerSecond|IO outras operações por segundo|BytesPerSecond|Total|IO outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de candidaturas|Contagem|Média|Pedidos na fila de candidaturas|Instância|
-|CurrentAssemblies|Assembleias atuais|Contagem|Média|Assembleias atuais|Instância|
-|TotalAppDomains|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
-|TotalAppDomínios Descarregados|Total de domínios de aplicativos descarregados|Contagem|Média|Total de domínios de aplicativos descarregados|Instância|
+|IoWriteOperationsPerSecond|IO Escrever Operações por segundo|BytesPerSecond|Total|IO Escrever Operações por segundo|Instância|
+|IoOtherOperationsPerSecond|IO Outras Operações por Segundo|BytesPerSecond|Total|IO Outras Operações por Segundo|Instância|
+|PedidosInApplicationQueue|Pedidos na fila de aplicações|Contagem|Média|Pedidos na fila de aplicações|Instância|
+|Antiguidades Atuais|Atuais Assembleias|Contagem|Média|Atuais Assembleias|Instância|
+|Total DeDomínios|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
+|TotalAppDomainsUnloaded|Total de domínios de aplicações descarregados|Contagem|Média|Total de domínios de aplicações descarregados|Instância|
 |Gen0Collections|Coleções de lixo gen 0|Contagem|Total|Coleções de lixo gen 0|Instância|
 |Gen1Collections|Coleções de lixo da Gen 1|Contagem|Total|Coleções de lixo da Gen 1|Instância|
 |Gen2Collections|Coleções de lixo gen 2|Contagem|Total|Coleções de lixo gen 2|Instância|
 |HealthCheckStatus|Estado do controlo de saúde|Contagem|Média|Estado do controlo de saúde|Instância|
-|Utilização do Sistema de Ficheiros|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhum|
+|FileSystemUsage|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhum|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -2515,7 +2515,7 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |---|---|---|---|---|---|
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
-|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
+|BytesSent|Data out|Bytes|Total|Data out|Instância|
 |Http101|Http 101|Contagem|Total|Http 101|Instância|
 |Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
@@ -2524,29 +2524,29 @@ Existem algumas limitações no que pode ser encaminhado e na forma em que são 
 |Http404|Http 404|Contagem|Total|Http 404|Instância|
 |Http406|Http 406|Contagem|Total|Http 406|Instância|
 |Http4xx|Http 4xx|Contagem|Total|Http 4xx|Instância|
-|Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
-|Tempo médio de resposta|Tempo médio de resposta|Segundos|Média|Tempo médio de resposta|Instância|
+|Http5xx|http Erros do servidor|Contagem|Total|http Erros do servidor|Instância|
+|Média De Respostas|Tempo médio de resposta|Segundos|Média|Tempo médio de resposta|Instância|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|Percentagem de Memória|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
-|Comprimento da fila do disco|Comprimento da fila do disco|Contagem|Média|Comprimento da fila do disco|Instância|
-|HttpqueueLength|Comprimento da fila http|Contagem|Média|Comprimento da fila http|Instância|
-|Pedidos Ativos|Pedidos Ativos|Contagem|Total|Pedidos Ativos|Instância|
-|TotalFrontEnds|Extremidades frontais totais|Contagem|Média|Extremidades frontais totais|Nenhum|
-|Pequenas Instâncias planplana do SmallAppService|Trabalhadores do plano de serviço de aplicativos de pequena saúde|Contagem|Média|Trabalhadores do plano de serviço de aplicativos de pequena saúde|Nenhum|
-|MédiaAppServicePlanInstances|Trabalhadores do plano de serviço de aplicações médias|Contagem|Média|Trabalhadores do plano de serviço de aplicações médias|Nenhum|
-|GrandesAparições do Serviço de Serviços|Trabalhadores do grande plano de serviço de aplicações|Contagem|Média|Trabalhadores do grande plano de serviço de aplicações|Nenhum|
+|MemóriaPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
+|DiskQueueLength|Comprimento da fila do disco|Contagem|Média|Comprimento da fila do disco|Instância|
+|HttpQueueLength|Comprimento da fila http|Contagem|Média|Comprimento da fila http|Instância|
+|Ativarequests|Pedidos Ativos|Contagem|Total|Pedidos Ativos|Instância|
+|TotalFrontEnds|Total de extremidades frontais|Contagem|Média|Total de extremidades frontais|Nenhum|
+|Pequenas Aplicações de Planos doAppService|Trabalhadores do plano de aplicação de pequenas aplicações|Contagem|Média|Trabalhadores do plano de aplicação de pequenas aplicações|Nenhum|
+|MediumAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações Médias|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações Médias|Nenhum|
+|Grandes Aplicações de Planos de Serviço|Trabalhadores do plano de aplicação grande|Contagem|Média|Trabalhadores do plano de aplicação grande|Nenhum|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |TrabalhadoresTotal|Total de Trabalhadores|Contagem|Média|Total de Trabalhadores|Nenhum|
-|TrabalhadoresDisponíveis|Trabalhadores disponíveis|Contagem|Média|Trabalhadores disponíveis|Nenhum|
-|Trabalhadores utilizados|Trabalhadores usados|Contagem|Média|Trabalhadores usados|Nenhum|
+|Trabalhadores disponíveis|Trabalhadores disponíveis|Contagem|Média|Trabalhadores disponíveis|Nenhum|
+|TrabalhadoresUsed|Trabalhadores Usados|Contagem|Média|Trabalhadores Usados|Nenhum|
 |CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|Percentagem de Memória|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
-## <a name="next-steps"></a>Passos seguintes
-* [Ler sobre métricas no Monitor Azure](data-platform.md)
+|MemóriaPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
+## <a name="next-steps"></a>Próximos passos
+* [Leia sobre métricas no Azure Monitor](data-platform.md)
 * [Criar alertas para as métricas](alerts-overview.md)
-* [Métricas de exportação para armazenamento, Hub de Eventos ou Log Analytics](platform-logs-overview.md)
+* [Métricas de exportação para armazenamento, Centro de Eventos ou Log Analytics](platform-logs-overview.md)
 

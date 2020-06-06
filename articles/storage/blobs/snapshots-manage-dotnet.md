@@ -1,37 +1,37 @@
 ---
-title: Crie e gerencie um instantâneo blob em .NET
+title: Criar e gerir um instantâneo blob em .NET
 titleSuffix: Azure Storage
-description: Aprenda a criar uma foto apenas de uma bolha para fazer o back-up dos dados blob num dado momento no tempo.
+description: Aprenda a criar uma imagem apenas de leitura de uma bolha para fazer o back-up dados blob num dado momento.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 438692d5c142c3f617ee9d0c3f55b9b3740f9b7a
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884699"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463540"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Crie e gerencie um instantâneo blob em .NET
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerir um instantâneo blob em .NET
 
-Um instantâneo é uma versão só de leitura de uma bolha que é tirada em um momento de tempo. Este artigo mostra como criar e gerir imagens blob usando a [biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Uma foto é uma versão só de leitura de uma bolha que é tirada num ponto do tempo. Este artigo mostra como criar e gerir instantâneos blob utilizando a biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Para obter mais informações sobre imagens blob no Armazenamento Azure, consulte [Criar e gerir uma imagem de blob em .NET](snapshots-overview.md).
+Para obter mais informações sobre as fotos blob no Azure Storage, consulte [Criar e gerir uma imagem de bolha em .NET](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
 # <a name="net-version-12x"></a>[.NET versão 12.x](#tab/v12)
 
-Para criar uma imagem instantânea de uma bolha de bloco utilizando a versão 12.x da biblioteca de clientes do Azure Storage para .NET, utilize um dos seguintes métodos:
+Para criar uma imagem instantânea de uma bolha de bloco utilizando a versão 12.x da biblioteca do cliente Azure Storage para .NET, utilize um dos seguintes métodos:
 
 - [Criar Snapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
-- [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
+- [Criar SnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
 
-O exemplo de código que se segue mostra como criar um instantâneo com a versão 12.x. Inclua uma referência à biblioteca [Azure.Identity](https://www.nuget.org/packages/azure.identity) para usar as suas credenciais Azure AD para autorizar pedidos ao serviço.
+O exemplo de código que se segue mostra como criar uma imagem instantânea com a versão 12.x. Inclua uma referência à biblioteca [Azure.Identity](https://www.nuget.org/packages/azure.identity) para utilizar as suas credenciais AZure AD para autorizar pedidos ao serviço.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(string accountName, string containerName, string blobName, Stream data)
@@ -79,12 +79,12 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 
 # <a name="net-version-11x"></a>[.NET versão 11.x](#tab/v11)
 
-Para criar uma imagem instantânea de uma bolha de bloco utilizando a versão 11.x da biblioteca de clientes do Azure Storage para .NET, utilize um dos seguintes métodos:
+Para criar uma imagem instantânea de uma bolha de bloco utilizando a versão 11.x da biblioteca do cliente Azure Storage para .NET, utilize um dos seguintes métodos:
 
 - [Criar Snapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
-- [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
+- [Criar SnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
-O exemplo de código que se segue mostra como criar um instantâneo com a versão 11.x. Este exemplo especifica metadados adicionais para o instantâneo quando é criado.
+O exemplo de código que se segue mostra como criar uma imagem instantânea com a versão 11.x. Este exemplo especifica metadados adicionais para o instantâneo quando é criado.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -124,18 +124,18 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## <a name="delete-snapshots"></a>Eliminar instantâneos
 
-Para eliminar uma bolha, primeiro deve eliminar quaisquer imagens dessa bolha. Pode eliminar um instantâneo individualmente ou especificar que todas as imagens sejam eliminadas quando a bolha de origem for eliminada. Se tentar apagar uma bolha que ainda tem instantâneos, resulta um erro.
+Para eliminar uma bolha, deve primeiro eliminar quaisquer instantâneos dessa bolha. Pode eliminar uma imagem individualmente ou especificar que todas as imagens são eliminadas quando a bolha de origem é eliminada. Se tentar apagar uma bolha que ainda tenha instantâneos, resulta um erro.
 
 # <a name="net-version-12x"></a>[.NET versão 12.x](#tab/v12)
 
-Para eliminar uma bolha e as suas imagens utilizando a versão 12.x da biblioteca de clientes Do Armazenamento Azure para .NET, utilize um dos seguintes métodos e inclua o [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) enum:
+Para eliminar uma bolha e as suas imagens utilizando a versão 12.x da biblioteca do cliente do Azure Storage para .NET, utilize um dos seguintes métodos e inclua o [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) enum:
 
 - [Eliminar](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
-- [Eliminarifexista](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
-- [Eliminar IfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
+- [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
 
-O exemplo de código que se segue mostra como eliminar `blobClient` uma bolha e as suas imagens em .NET, onde está um objeto do tipo [BlobClient):](/dotnet/api/azure.storage.blobs.blobclient)
+O exemplo de código que se segue mostra como apagar uma bolha e as suas imagens em .NET, onde `blobClient` está um objeto do tipo [BlobClient):](/dotnet/api/azure.storage.blobs.blobclient)
 
 ```csharp
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
@@ -143,14 +143,14 @@ await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, nul
 
 # <a name="net-version-11x"></a>[.NET versão 11.x](#tab/v11)
 
-Para eliminar uma bolha e as suas imagens utilizando a versão 11.x da biblioteca de clientes do Azure Storage para .NET, utilize um dos seguintes métodos de eliminação blob e inclua o [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) enum:
+Para eliminar uma bolha e as suas imagens utilizando a versão 11.x da biblioteca do cliente do Azure Storage para .NET, utilize um dos seguintes métodos de eliminação de bolhas e inclua o [enum DeleteSnapshotsOption:](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption)
 
 - [Eliminar](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
-- [Eliminarifexista](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
-- [Eliminar IfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
+- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-O exemplo de código que se segue mostra como eliminar `blockBlob` uma bolha e as suas imagens em .NET, onde está um objeto de tipo [CloudBlockBlob][dotnet_CloudBlockBlob]:
+O exemplo de código que se segue mostra como eliminar uma bolha e as suas imagens em .NET, onde `blockBlob` está um objeto do tipo [CloudBlockBlob][dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
@@ -158,8 +158,8 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Fotos blob](snapshots-overview.md)
+- [Snapshots blob](snapshots-overview.md)
 - [Versões blob (pré-visualização)](versioning-overview.md)
-- [Eliminação suave para bolhas](storage-blob-soft-delete.md)
+- [Excluir suave para bolhas](storage-blob-soft-delete.md)

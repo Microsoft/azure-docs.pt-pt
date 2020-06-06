@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 5a0b9b2752a2ad8b7d2e03a40af11407b97391bc
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322040"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457070"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Envie notificações de email sobre eventos Azure IoT Hub usando a Grade de Eventos e Aplicações Lógicas
 
@@ -181,7 +181,7 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
    2. Na secção **DETALHES TÓPICOS,** faça as seguintes tarefas:
        1. Confirme se o **tipo tópico** está definido para **IoT Hub**. 
        2. Confirme que o nome do hub IoT é definido como o valor para o campo **De Recursos Fonte.** 
-       3. Insira um nome para o tópico do **sistema** que será criado para si. 
+       3. Insira um nome para o tópico do **sistema** que será criado para si. Para conhecer os tópicos do sistema, consulte [a visão geral dos tópicos do sistema.](system-topics.md)
    3. Na secção **TIPOS DE EVENTOS,** faça as seguintes tarefas: 
         1. Para **filtrar para tipos de eventos,** desmarque todas as escolhas exceto **o dispositivo criado**.
 

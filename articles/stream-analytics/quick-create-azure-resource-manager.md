@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 0d7dc6e09ba3d045fe48b0e91faf59b50d828253
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172543"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449367"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o modelo de Gestor de Recursos Azure
 
@@ -31,15 +31,15 @@ Para completar este artigo, precisa:
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Criar uma tarefa do Azure Stream Analytics
 
-### <a name="review-the-template"></a>Reveja o modelo
+### <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-streamanalytics-create).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
-:::code language="json" source="~/quickstart-templates/101-streamanalytics-create/azuredeploy.json" range="1-66":::
+:::code language="json" source="~/quickstart-templates/101-streamanalytics-create/azuredeploy.json" range="1-66" highlight="41-60":::
 
-O recurso Azure definido no modelo é [Microsoft.StreamAnalytics/StreamingJobs:](https://docs.microsoft.com/azure/templates/microsoft.streamanalytics/2016-03-01/streamingjobs)criar um trabalho Azure Stream Analytics. 
+O recurso Azure definido no modelo é [Microsoft.StreamAnalytics/StreamingJobs:](/azure/templates/microsoft.streamanalytics/streamingjobs)criar um trabalho Azure Stream Analytics.
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+### <a name="deploy-the-template"></a>Implementar o modelo
 
 Nesta secção, cria-se um trabalho Azure Stream Analytics utilizando o modelo Azure Resource Manager.
 
@@ -56,7 +56,7 @@ Nesta secção, cria-se um trabalho Azure Stream Analytics utilizando o modelo A
    |Propriedade  |Descrição  |
    |---------|---------|
    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
-   |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
+   |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
    |**Região**     | Selecione **East US**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
    |**Nome de trabalho de streaming analytics**     | Forneça um nome para o seu trabalho stream Analytics.      |
    |**Número de unidades de streaming**     |  Escolha o número de unidades de streaming de que necessita. Para obter mais informações, consulte [Compreender e ajustar Unidades de Streaming.](stream-analytics-streaming-unit-consumption.md)       |

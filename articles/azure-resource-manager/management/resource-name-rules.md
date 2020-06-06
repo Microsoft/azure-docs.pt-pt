@@ -3,16 +3,18 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 1ed8db4c7f780af8ac06074c514a602cc1654554
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170584"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456881"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
 Este artigo resume as regras de nomeação e as restrições para os recursos da Azure. Para recomendações sobre como nomear recursos, consulte [convenções recomendadas de nomeação e marcação.](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
+
+Este artigo lista os recursos pelo espaço de nome do fornecedor de recursos. Para obter uma lista de como os fornecedores de recursos correspondem aos serviços da Azure, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
 
 Os nomes dos recursos são insensíveis a caso, a menos que sejam especificamente indicados na coluna de caracteres válidos.
 

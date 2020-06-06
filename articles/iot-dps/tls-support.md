@@ -7,16 +7,19 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: wesmc
-ms.openlocfilehash: 0daddd2fb1368819c8f7b4cf0183c90a8c6c065e
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: fefae4ad1f4e10598fcc67d65155c3b13efc9ff4
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417978"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449622"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Suporte TLS no Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS)
 
-O DPS utiliza a Segurança da Camada de Transporte (TLS) para proteger as ligações a partir de dispositivos IoT. As versões de protocolo TLS suportadas por DPS incluem TLS 1.2.
+O DPS utiliza [a Segurança da Camada de Transporte (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) para proteger as ligações a partir de dispositivos IoT. 
+
+As versões atuais do protocolo TLS suportadas por DPS são: 
+* TLS 1.2
 
 Os TLS 1.0 e 1.1 são considerados legados e estão previstos para a depreciação. Para obter mais informações, consulte [deprecisando TLS 1.0 e 1.1 para IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
@@ -24,7 +27,7 @@ Os TLS 1.0 e 1.1 são considerados legados e estão previstos para a depreciaç�
 
 Para uma maior segurança, é aconselhável configurar as suas instâncias DPS *apenas* para permitir ligações do cliente do dispositivo que utilizem a versão 1.2 do TLS e para impor a utilização de [cifras recomendadas](#recommended-ciphers).
 
-Para isso, forja um novo recurso DPS em qualquer uma das [regiões suportadas](#supported-regions) e define a `minTlsVersion` propriedade na `1.2` especificação de recursos DPS do seu modelo de DPS do Azure Resource Manager. O modelo de exemplo a seguir JSON especifica a `minTlsVersion` propriedade para uma nova instância DPS.
+Para isso, forja um novo recurso DPS que define a `minTlsVersion` propriedade `1.2` para a especificação de recursos DPS do seu modelo de DPS do seu modelo de recurso Azure. O modelo de exemplo a seguir JSON especifica a `minTlsVersion` propriedade para uma nova instância DPS.
 
 ```json
 {
@@ -35,7 +38,7 @@ Para isso, forja um novo recurso DPS em qualquer uma das [regiões suportadas](#
             "type": "Microsoft.Devices/ProvisioningServices",
             "apiVersion": "2020-01-01",
             "name": "<provide-a-valid-DPS-resource-name>",
-            "location": "<any-of-supported-regions-below>",
+            "location": "<any-region>",
             "properties": {
                 "minTlsVersion": "1.2"
             },
@@ -61,12 +64,6 @@ O recurso DPS criado com esta configuração recusará dispositivos que tentem l
 > [!NOTE]
 > A `minTlsVersion` propriedade é apenas de leitura e não pode ser alterada uma vez que o seu recurso DPS é criado. Por isso, é essencial que teste e valide corretamente que *todos os* seus dispositivos IoT sejam compatíveis com tls 1.2 e as [cifras recomendadas](#recommended-ciphers) com antecedência.
 
-## <a name="supported-regions"></a>Regiões suportadas
-
-Podem ser criados nas seguintes regiões casos de DPS IoT que exijam a utilização do TLS 1.2:
-
-* US Gov - Arizona
-* US Gov - Virginia
 
 > [!NOTE]
 > Após os failovers, a `minTlsVersion` propriedade do seu DPS permanecerá eficaz na região geo-emparelhada após o failover.
@@ -84,7 +81,7 @@ As instâncias DPS configuradas para aceitar apenas TLS 1.2 também aplicam a ut
 
 Utilize os links abaixo para configurar tls 1.2 e tenha sido permitida a cifras nos SDKs clienteS Azure IoT.
 
-| Linguagem | Versões que suportam TLS 1.2 | Documentação |
+| Idioma | Versões que suportam TLS 1.2 | Documentação |
 |----------|------------------------------------|---------------|
 | C        | Tag 2019-12-11 ou mais recente            | [Ligação](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Versão 2.0.0 ou mais recente             | [Ligação](https://aka.ms/Tls_Python_SDK_IoT) |

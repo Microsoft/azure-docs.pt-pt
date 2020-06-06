@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: af56adef37c65da87a6de6b6a477ee3996a4e272
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 2341fa45446078f669314561db13e640e78776b8
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259597"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463205"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS de Endpoint Privado Azure
 
@@ -55,18 +55,24 @@ Para os serviços Azure, utilize os nomes de zona recomendados como descritos no
 | Base de Dados Azure para MySQL (Microsoft.DBforMySQL/servidores) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Base de Dados Azure para MariaDB (Microsoft.DBforMariaDB/servidores) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
 | Cofre de chaves Azure (Microsoft.KeyVault/vaults) / cofre | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
-| Serviço Azure Kubernetes - Kubernetes API (Microsoft.ContainerService/managedClusters) / managedClusters | privatelink. {região}.azmk8s.io | {região}.azmk8s.io |
+| Serviço Azure Kubernetes - Kubernetes API (Microsoft.ContainerService/managedClusters) / gestão | privatelink. {região}.azmk8s.io | {região}.azmk8s.io |
 | Pesquisa de Azure (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Registo de Contentores Azure (Microsoft.ContainerRegistry/registries) / registo | privatelink.azurecr.io | azurecr.io |
 | Configuração de aplicativos Azure (Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft.RecoveryServices/vaults) / cofre | privatelink. {region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Hub Azure IoT (Microsoft.Devices/IotHubs) / iotHubs | privatelink.azure-devices.net | azure-devices.net |
 | Relé Azure (Microsoft.Relay/namespaces) / espaço de nome | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Event Grid (Microsoft.EventGrid/topics) / tópico | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Grelha de eventos Azure (Microsoft.EventGrid/domínios) / domínio | privatelink.eventgrid.azure.net | eventgrid.azure.net |
-| Azure Web Apps (Microsoft.Web/sites) / site | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
+| IoT Hub (Microsoft.Devices/IotHubs) / IotHub | privatelink.azure-devices.net | azure-devices.net |
+| SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
+| Monitor Azure (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
+| Serviços Cognitivos (Microsoft.CognitiveServices/contas) / conta | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
+
  
 ## <a name="dns-configuration-scenarios"></a>Cenários de configuração do DNS
 
@@ -181,5 +187,5 @@ O diagrama que se segue ilustra a sequência de resolução de DNS a partir de u
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Cenário híbrido":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Conheça os pontos finais privados](private-endpoint-overview.md)

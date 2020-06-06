@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: 32dc7e86d5cd737533a4a6c8b3d9ce7d00795c65
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140515"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462804"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -97,7 +97,7 @@ Os tipos de entidades adicionais estão agora disponíveis no serviço de pré-v
     * Organização
     * Idade como subtipo em Quantidade
     * Data como subtipo em DateTime
-    * E-mail 
+    * Email 
     * Número de telefone (apenas NOS)
     * URL
     * Endereço IP

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: d46b9f9386e8b16d4806e054820cbd82d83ef56b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266993"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464577"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -21,7 +21,7 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
 ## <a name="adding-the-javascript-sdk"></a>Adicionar o JavaScript SDK
 
 1. Primeiro precisa de um recurso Application Insights. Se ainda não tiver uma chave de recursos e instrumentação, siga a [criação de novas instruções de recurso](create-new-resource.md).
-2. Copie a chave de instrumentação do recurso onde pretende que a sua telemetria JavaScript seja enviada.
+2. Copie a _chave de instrumentação_ (também conhecida como "iKey") para o recurso onde pretende que a sua telemetria JavaScript seja enviada (a partir do passo 1.) Irá adicioná-lo à `instrumentationKey` definição do JavaScript SDK de Insights de Aplicação.
 3. Adicione a Aplicação Insights JavaScript SDK à sua página web ou app através de uma das duas opções seguintes:
     * [npm Configuração](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
@@ -34,6 +34,14 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
 
 ### <a name="npm-based-setup"></a>configuração baseada em npm
 
+Instalar via NPM.
+
+```sh
+npm i --save @microsoft/applicationinsights-web
+```
+
+> *Nota:* **As dactilografias estão incluídas neste pacote,** pelo que **não** é necessário instalar um pacote de dactilografias separados.
+    
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
@@ -47,17 +55,63 @@ appInsights.trackPageView(); // Manually call trackPageView to establish the cur
 
 ### <a name="snippet-based-setup"></a>Configuração baseada em snippet
 
-Se a sua aplicação não utilizar o npm, pode instrumentar diretamente as suas páginas web com Insights de Aplicação, colando este corte no topo de cada uma das suas páginas. De preferência, deve ser o primeiro script na sua `<head>` secção para que possa monitorizar quaisquer problemas potenciais com todas as suas dependências. Se estiver a utilizar a Aplicação do Servidor Blazor, adicione o corte na parte superior do ficheiro `_Host.cshtml` na `<head>` secção.
+Se a sua aplicação não utilizar o npm, pode instrumentar diretamente as suas páginas web com Insights de Aplicação, colando este corte no topo de cada uma das suas páginas. De preferência, deve ser o primeiro script na sua `<head>` secção para que possa monitorizar quaisquer problemas potenciais com todas as suas dependências e opcionalmente quaisquer erros javaScript. Se estiver a utilizar a Aplicação do Servidor Blazor, adicione o corte na parte superior do ficheiro `_Host.cshtml` na `<head>` secção.
+
+Para ajudar no rastreio de qual versão do snippet a sua aplicação está a usar, a partir da versão 2.5.5 o evento de visualização da página incluirá uma nova tag "ai.internal.snippet" que conterá a versão de snippet identificada.
+
+O snippet atual (listado abaixo) será identificado como a versão "3".
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(n){var o={config:n,initialize:!0},t=document,e=window,i="script";setTimeout(function(){var e=t.createElement(i);e.src=n.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",t.getElementsByTagName(i)[0].parentNode.appendChild(e)});try{o.cookie=t.cookie}catch(e){}function a(n){o[n]=function(){var e=arguments;o.queue.push(function(){o[n].apply(o,e)})}}o.queue=[],o.version=2;for(var s=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];s.length;)a("track"+s.pop());var r="Track",c=r+"Page";a("start"+c),a("stop"+c);var u=r+"Event";if(a("start"+u),a("stop"+u),a("addTelemetryInitializer"),a("setAuthenticatedUserContext"),a("clearAuthenticatedUserContext"),a("flush"),o.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===n.disableExceptionTracking||n.extensionConfig&&n.extensionConfig.ApplicationInsightsAnalytics&&!0===n.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){a("_"+(s="onerror"));var p=e[s];e[s]=function(e,n,t,i,a){var r=p&&p(e,n,t,i,a);return!0!==r&&o["_"+s]({message:e,url:n,lineNumber:t,columnNumber:i,error:a}),r},n.autoExceptionInstrumented=!0}return o}(
-{
-  instrumentationKey:"INSTRUMENTATION_KEY"
-}
-);(window[aiName]=aisdk).queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+!function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", // The SDK URL Source
+//name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
+//ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+//useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+//crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag 
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    /* ...Other Configuration Options... */
+}});
 </script>
 ```
+
+> [!NOTE]
+> Para a legibilidade e para reduzir possíveis erros javaScript, todas as opções de configuração possíveis estão listadas numa nova linha no código de snippet acima, se não quiser alterar o valor de uma linha comentada, pode ser removida.
+
+
+#### <a name="reporting-script-load-failures"></a>Relatório de falhas de carga do script
+
+Esta versão do snippet deteta e reporta falhas ao carregar o SDK do CDN como uma exceção ao portal Azure Monitor (sob o &gt; navegador de exceções de &gt; falhas), esta exceção proporciona visibilidade a falhas deste tipo para que esteja ciente de que a sua aplicação não está a reportar telemetria (ou outras exceções) como esperado. Este sinal é uma medida importante na compreensão de que perdeu a telemetria porque o SDK não carregou ou iniiva que pode levar a:
+- Subnotificação de como os utilizadores estão a usar (ou a tentar utilizar) o seu site;
+- Falta de telemetria sobre a forma como os seus utilizadores finais estão a utilizar o seu site;
+- Erros javaScript em falta que podem estar a bloquear os seus utilizadores finais de utilizarem com sucesso o seu site.
+
+Para obter detalhes sobre esta exceção consulte a página de resolução de problemas de falha de [carga SDK.](javascript-sdk-load-failure.md)
+
+A comunicação desta falha como uma exceção ao portal não utiliza a opção de configuração ```disableExceptionTracking``` a partir da configuração de insights de aplicação e, portanto, se esta falha ocorrer, será sempre reportada pelo corte, mesmo quando o suporte de janela.onerror está desativado.
+
+A comunicação de falhas de carga SDK não é suportada especificamente no IE 8 (ou menos). Isto ajuda na redução do tamanho minizado do corte, assumindo que a maioria dos ambientes não são exclusivamente IE 8 ou menos. Se tiver este requisito e desejar receber estas exceções, terá de incluir um preenchimento de poli ou criar a sua própria versão de snippet que utiliza ```XDomainRequest``` em vez de , ```XMLHttpRequest``` recomenda-se que utilize o [código fonte de corte fornecido](https://github.com/microsoft/ApplicationInsights-JS/blob/master/AISKU/snippet/snippet.js) como ponto de partida.
+
+> [!NOTE]
+> Se estiver a utilizar uma versão anterior do snippet, é altamente recomendável que atualize a versão mais recente para que receba estes problemas anteriormente não reportados.
+
+#### <a name="snippet-configuration-options"></a>Opções de configuração de snippet
+
+Todas as opções de configuração foram agora movendo-se para o final do script para ajudar a evitar a introdução acidental de erros JavaScript que não só fariam com que o SDK não fosse carregado, mas também desativaria o relato da falha.
+
+Cada opção de configuração é mostrada acima numa nova linha, se não pretender anular o valor predefinido de um item listado como [opcional] pode remover essa linha para minimizar o tamanho resultante da sua página devolvida.
+
+As opções de configuração disponíveis são 
+
+| Nome | Tipo | Descrição
+|------|------|----------------
+| src | corda **[necessária]** | O URL completo para onde carregar o SDK. Este valor é usado para o atributo "src" de um script/tag dinamicamente &lt; &gt; adicionado. Você pode usar a localização pública da CDN ou a sua própria hospedada privada.
+| name | corda *[opcional]* | O nome global para o SDK inicializado, predefine para appInsights. Assim ```window.appInsights``` será uma referência à instância inicializada. Nota: se fornecer um valor de nome ou uma instância anterior parece ser atribuído (através da app de nome globalInsightsSDK) então este valor de nome também será definido no espaço de nome global, pois ```window.appInsightsSDK=<name value>``` , isto é exigido pelo código de inicialização SDK para garantir que está a inicializar e atualizar os métodos corretos de esqueleto e procuração.
+| ld | número em ms *[opcional]* | Define o atraso de carga para esperar antes de tentar carregar o SDK. O valor predefinido é de 0ms e qualquer valor negativo adicionará imediatamente uma etiqueta de script à &lt; &gt; região principal da página, que bloqueará o evento de carga de página até que o script seja carregado (ou falhe).
+| useXhr | boolean *[opcional]* | Esta definição é utilizada apenas para reportar falhas de carga SDK. A reportagem tentará primeiro utilizar o fetch() se disponível e, em seguida, recue para XHR, definindo este valor para verdadeiro apenas ignora a verificação de procura. A utilização deste valor só é necessária se a sua aplicação estiver a ser utilizada num ambiente onde a procura não enviaria os eventos de falha.
+| crossOrigin | corda *[opcional]* | Ao incluir esta definição, a etiqueta de script adicionada para descarregar o SDK incluirá o atributo crossOrigin com este valor de cadeia. Quando não definido (o padrão) não é adicionado nenhum atributo crossOrigin. Os valores recomendados não são definidos (o padrão); ""; ou "anónimo" (Para todos os valores válidos ver atributo HTML: documentação [de cruzamento)](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin)
+| cfg | objeto **[necessário]** | A configuração de THe passou para o SDK application insights durante a inicialização.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envio de telemetria para o portal Azure
 
@@ -99,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Name | Predefinição | Description |
+| Nome | Predefinição | Descrição |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Necessário**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
@@ -140,6 +194,11 @@ A maioria dos campos de configuração são nomeados de modo a que possam ser in
 | permitir RequestHeaderTracking | false | Se for verdade, os cabeçalhos de pedido do AJAX & Fetch são rastreados, o padrão é falso.
 | ativarResponseHeaderTracking | false | Se for verdade, os cabeçalhos de resposta do pedido do AJAX & Fetch são rastreados, o padrão é falso.
 | DistributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreio distribuído. Se AI_AND_W3C modo ou modo W3C estiver definido, os cabeçalhos de contexto de vestígios W3C (traceparent/tracestate) serão gerados e incluídos em todos os pedidos de saída. AI_AND_W3C está prevista para retrocompatibilidade com quaisquer serviços instrumentados da Aplicação Insights. Veja o exemplo [aqui.](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps)
+| enableAjaxErrorStatusText | false | Falso padrão. Se for verdade, inclua texto de dados de erro de resposta em evento de dependência em pedidos de AJAX falhados.
+| enableAjaxPerfTracking | false | Falso padrão. Bandeira para permitir olhar para cima e incluir tempos adicionais de janela de navegador.performance nas métricas reportadas do Ajax (XHR e fetch).
+| maxAjaxPerfLookupAttempts | 3 | Incumprimentos para 3. O número máximo de vezes para procurar os timings de desempenho da janela (se disponível), isto é necessário, uma vez que nem todos os navegadores povoam a janela.desempenho antes de reportar o fim do pedido de XHR e para pedidos de busca este é adicionado após a sua conclusão.
+| ajaxPerfLookupDelay | 25 | Incumprimentos a 25 ms. A quantidade de tempo para esperar antes de voltar a tentar encontrar os timings de desempenho do windows.performance para um pedido do Ajax, o tempo está em milissegundos e é passado diretamente para definirTimeout().
+| enableUnledPromiseRejectionTracking | false | Se forem verdadeiras e não manipuladas, as rejeições de promessas serão automaticamente recolhidas e reportadas como um erro javaScript. Quando desativarExceptionTracking é verdadeiro (não rastreia exceções), o valor config será ignorado e as rejeições de promessas não manipuladas não serão reportadas.
 
 ## <a name="single-page-applications"></a>Aplicações de página única
 
@@ -256,12 +315,13 @@ Teste em ambiente interno para verificar se a telemetria de monitorização est�
 
 ## <a name="sdk-performanceoverhead"></a>Desempenho/sobrecarga da SDK
 
-Com apenas 25 KB gzipped, e levando apenas ~15 ms para inicializar, Application Insights adiciona uma quantidade insignificante de tempo de carga ao seu website. Ao utilizar o corte, os componentes mínimos da biblioteca são rapidamente carregados. Entretanto, o script completo é descarregado em segundo plano.
+Com apenas 36 KB gzipped, e levando apenas ~15 ms para inicializar, Application Insights adiciona uma quantidade insignificante de tempo de carga ao seu website. Ao utilizar o corte, os componentes mínimos da biblioteca são rapidamente carregados. Entretanto, o script completo é descarregado em segundo plano.
 
 Enquanto o script está a ser descarregado a partir do CDN, todo o rastreio da sua página está na fila. Uma vez que o script descarregado termina assiná-lo assíncronos, todos os eventos que foram em fila são rastreados. Como resultado, não perderá nenhuma telemetria durante todo o ciclo de vida da sua página. Este processo de configuração fornece à sua página um sistema de análise sem emenda, invisível para os seus utilizadores.
 
 > Resumo:
-> - **25 KB** gzipped
+> - ![versão npm](https://badge.fury.io/js/%40microsoft%2Fapplicationinsights-web.svg)
+> - ![tamanho comprimido gzip](https://img.badgesize.io/https://js.monitor.azure.com/scripts/b/ai.2.min.js.svg?compression=gzip)
 > - **15 ms** tempo de inicialização geral
 > - **Rastreio zero** perdido durante o ciclo de vida da página
 
@@ -269,7 +329,15 @@ Enquanto o script está a ser descarregado a partir do CDN, todo o rastreio da s
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Ópera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-Últimas ✔ do Chrome |  ✔ mais recentes do Firefox | IE 9+ & Edge ✔ | Última ✔ de Ópera | Últimas ✔ do Safari |
+Últimas ✔ do Chrome |  ✔ mais recentes do Firefox | IE 9+ & Edge ✔<br>IE 8- Compatível | Última ✔ de Ópera | Últimas ✔ do Safari |
+
+## <a name="es3ie8-compatibility"></a>Compatibilidade ES3/iE8
+
+Como SDK existem inúmeros utilizadores que não conseguem controlar os navegadores que os seus clientes utilizam. Como tal, precisamos de garantir que este SDK continua a "trabalhar" e não quebra a execução do JS quando carregado por um navegador mais antigo. Embora seja ideal não suportar navegadores IE8 e de geração mais velha (ES3), existem inúmeros grandes clientes/utilizadores que continuam a exigir que as páginas "funcionem" e, como notado, podem ou não controlar que navegador que os seus utilizadores finais escolhem utilizar.
+
+Isto NÃO significa que apenas suportaremos o conjunto comum mais baixo de funcionalidades, apenas que precisamos de manter a compatibilidade do código ES3 e ao adicionar novas funcionalidades, elas terão de ser adicionadas de uma forma que não quebraria a análise do ES3 JavaScript e adicionada como uma funcionalidade opcional.
+
+[Consulte o GitHub para obter todos os detalhes sobre o suporte do IE8](https://github.com/Microsoft/ApplicationInsights-JS#es3ie8-compatibility)
 
 ## <a name="open-source-sdk"></a>SDK de código aberto
 
@@ -279,3 +347,4 @@ O App Insights JavaScript SDK é de código aberto para visualizar o código fon
 * [Controlar a utilização](usage-overview.md)
 * [Métricas e eventos personalizados](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
+* [Falha de carga SDK de resolução de problemas](javascript-sdk-load-failure.md)

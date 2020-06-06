@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 31db8aa750a0691940f9f55c2743764c38fd8b0b
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: cd696b6aba96b06a7b84722d61eb40bbfa15c0ff
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331462"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447939"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
 
@@ -59,7 +59,8 @@ Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a no
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Selecione **registos de Aplicações**, selecione o **separador aplicações Próprias** e, em seguida, selecione a aplicação *webapp1.*
-1. Na **Web**, selecione a ligação **Add URI,** introduza `http://localhost:6420` e, em seguida, selecione **Save**.
+1. Na **Web**, selecione a ligação **Add URI,** insira `http://localhost:6420` .
+1. Em **Implicit Grant**, selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** e, em seguida, selecione **Save**.
 1. Selecione **Descrição geral**.
 1. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de uma página única.
 
