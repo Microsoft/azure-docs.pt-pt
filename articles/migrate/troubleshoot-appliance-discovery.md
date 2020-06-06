@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3d9e4e54d2b1186278afc72c72cdd6bcf33dd41b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a4cbe49efd605e2104dbbc9f389a85e8fc4c468e
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235449"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449605"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -145,10 +145,10 @@ Se os VM descobertos não aparecerem no portal ou se os dados de VM estiverem de
 Se apagar VMs e ainda aparecerem no portal, aguarde 30 minutos. Se ainda aparecerem, refresque-se como descrito acima.
 
 ## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Erro: O ficheiro carregado não está no formato esperado
-Algumas ferramentas têm configurações regionais que criam o ficheiro CSV com o ponto mais alto como um delimiter. Por favor, altere as definições para garantir que o delimiter é uma vírgula.
+Algumas ferramentas têm definições regionais que criam o ficheiro CSV com o ponto e vírgula como delimitador. Altere as definições para garantir que o delimitador é uma vírgula.
 
-## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Importei um CSV, mas vejo que "A Descoberta está em andamento"
-Este estado aparece se o seu upload CSV falhou devido a uma falha de validação. Tente importar o CSV de novo. Pode descarregar o relatório de erro do upload anterior e seguir a orientação de remediação no ficheiro para corrigir os erros. O relatório de erro pode ser descarregado a partir da secção 'Detalhes de importação' na página 'Descubra máquinas'.
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Importei um CSV, mas vejo “Deteção em curso”
+Este estado aparece se o seu upload CSV falhou devido a uma falha de validação. Experimente importar o CSV novamente. Pode transferir o relatório de erros do carregamento anterior e seguir a orientação de remediação no ficheiro para corrigir os erros. Pode transferir o relatório de erros a partir da secção “Detalhes da Importação” na página “Detetar computadores”.
 
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Não ver detalhes da aplicação mesmo depois de atualizar credenciais de hóspedes
 A descoberta da aplicação é uma vez a cada 24 horas. Se quiser ver os detalhes imediatamente, refresque-se da seguinte forma. Isto pode levar alguns minutos dependendo do não. de VMs descobertos.
@@ -168,41 +168,56 @@ A Azure Migrate suporta a descoberta de aplicações, funções e funcionalidade
 Erros típicos de descoberta de aplicações são resumidos na tabela. 
 
 **Erro** | **Motivo** | **Ação**
---- | --- | --- | ---
-1000: "Não é possível descobrir as aplicações instaladas no servidor" | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
-10001: "Incapaz de recuperar as aplicações instaladas no servidor" | Erro interno - alguns ficheiros em falta no aparelho. | Contacte o Suporte da Microsoft.
-10002: "Incapaz de recuperar as aplicações instaladas no servidor" | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
-10003 "Incapaz de recuperar as aplicações instaladas no servidor" | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
-10004: "Não é possível descobrir aplicações instaladas para <máquinas de> Windows/Linux" |  As credenciais de acesso <máquinas de> Windows/Linux não foram fornecidas no aparelho.| Adicione uma credencial ao aparelho que tenha acesso às máquinas de> Windows/Linux <.
-10005: "Incapaz de aceder ao servidor no local" | As credenciais de acesso podem estar erradas. | Atualize as credenciais do aparelho certifique-se de que pode aceder à máquina relevante com eles. 
-10006: "Incapaz de aceder ao servidor no local" | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux.|  Utilize apenas a descoberta de aplicativos para Windows/Linux.
-10007: "Incapaz de processar os metadados recuperados" | Este erro interno ocorreu ao tentar deserizar o JSON | Contacte o Microsoft Support para obter uma resolução
-9000/9001/9002: "Incapaz de descobrir as aplicações instaladas no servidor" | As ferramentas VMware podem não ser instaladas ou corrompidas. | Instale/reinstale as ferramentas VMware na máquina relevante e verifique se está a funcionar.
-9003: Não é possível descobrir as aplicações instaladas no servidor" | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
-9004: "Não é possível descobrir as aplicações instaladas no servidor" | Isto pode acontecer se o VM for desligado. | Para ser descoberto, certifique-se de que o VM está ligado.
-9005: "Incapaz de descobrir as aplicações instaladas no VM | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
-9006/9007: "Incapaz de recuperar as aplicações instaladas no servidor" | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte
-9008: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ser um erro interno.  | Tf o problema não se resolve dentro de 24 horas, suporte de contato.
-9009: "Incapaz de recuperar as aplicações instaladas no servidor" | Pode ocorrer se as definições de Controlo de Conta de Utilizador do Windows (UAC) no servidor forem restritivas e impedir a descoberta de aplicações instaladas. | Procure as definições de 'Controlo de Conta de Utilizador' no servidor e configufique a definição de UAC no servidor para um dos dois níveis inferiores.
-9010: "VM é desligado" | O VM está desligado.  | Certifique-se de que o VM está ligado.
-9011: "O ficheiro para descarregar do hóspede não é encontrado no VM do hóspede" | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, contacte o Microsoft Support.
-9012: "O conteúdo do ficheiro de resultados está vazio" | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, contacte o Microsoft Support.
-9013: "É criado um novo perfil temporário para cada login no VMware VM" | Um novo perfil temporário é criado para cada login no VM | Certifique-se de que o nome de utilizador fornecido nas credenciais VM do hóspede está no formato UPN.
-9014: "Incapaz de recuperar metadados do sistema de ficheiros VM do hóspede" | Houve um problema de ligação com o anfitrião ESXi | Certifique-se de que o aparelho pode ligar-se à porta 443 no hospedeiro ESXi que executa o VM
-9015: "Incapaz de ligar aos VMware VMs devido a privilégios insuficientes no vCenter" | A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter | Certifique-se de que a função de Operações de Hóspedes está ativada na conta de utilizador do vCenter.
-9016: "Incapaz de ligar aos VMware VMs como o agente de operações de hóspedes está fora dos dados" | As ferramentas VMware não estão corretamente instaladas ou não estão atualizadas. | Certifique-se de que as ferramentas VMware estão corretamente instaladas e atualizadas.
-9017: "Ficheiro com metadados descobertos não é encontrado no VM" | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução.
-9018: "O PowerShell não está instalado nos VMs dos Hóspedes" | O PowerShell não está disponível no VM convidado. | Instale o PowerShell no VM convidado.
-9019: "Incapaz de descobrir devido a falhas de operação VM de hóspedes" | A operação de hóspedes VMware falhou no VM. | Certifique-se de que as credenciais VM são válidas e o nome de utilizador fornecido nas credenciais VM do hóspede está em formato UPN.
-9020: "A permissão de criação de ficheiros é negada" | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a criar o ficheiro na pasta | Verifique se o utilizador convidado fornecido criou permissão para o ficheiro na pasta. Consulte **notificações** na Avaliação do Servidor para o nome da pasta.
-9021: "A permissão de criação de ficheiros é negada na pasta Temp Path" | A versão da ferramenta VMware no VM não é suportada | Atualize a versão da ferramenta VMware acima de 10.2.0.
-9022: "Obter acesso a objetos WMI é negado" | A função associada ao utilizador ou à política de grupo está a restringir o utilizador a aceder ao objeto WMI. | Entre em contato com o Microsoft Support.
-9023: "O valor variável do ambiente SystemRoot está vazio" | Não conhecido | Entre em contato com o Microsoft Support.
-9024: "O valor variável do ambiente TEMP está vazio" | Não conhecido | Entre em contato com o Microsoft Support.
-9025: "PowerShell é corrupto nos VMs convidados" | Não conhecido | Volte a instalar o PowerShell no VM do hóspede e verifique se o PowerShell pode ser executado no VM convidado.
-8084: "Incapaz de descobrir aplicações devido a erro da VMware:  <Exception from VMware> " | O aparelho Azure Migrate utiliza APIs VMware para descobrir aplicações. Este problema pode acontecer se uma exceção for lançada pelo vCenter Server enquanto tenta descobrir aplicações. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no portal. | Procure a mensagem na [documentação VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se não conseguir corrigir, contacte o suporte da Microsoft.
+--- | --- | ---
+9000: O estado da ferramenta VMware não pode ser detetado.     |   As ferramentas VMWare podem não ser instaladas ou corrompidas.    |   Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM.
+9001: As ferramentas VMware não estão instaladas.     |   As ferramentas VMWare podem não ser instaladas ou corrompidas.    |   Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM.
+9002: As ferramentas VMware não estão a funcionar.   |   As ferramentas VMWare podem não ser instaladas ou corrompidas.    |   Certifique-se de que as ferramentas VMware são instaladas e em funcionamento no VM.
+9003: Tipo de sistema operativo não suportado para a descoberta de VM convidado.    |   O sistema operativo que funciona no servidor não é nem Windows nem Linux.    |   Os tipos de sistema operativo suportado são apenas Windows e Linux. Se o servidor for, de facto, Windows ou Linux, verifique o tipo de sistema operativo especificado no vCenter Server.
+9004: A VM não está a funcionar.     |   O VM está desligado.  |   Certifique-se de que o VM está ligado.
+9005: Tipo de sistema operativo não suportado para a descoberta de VM convidado.    |   Tipo de sistema operativo não suportado para a descoberta de VM do hóspede.     |   Os tipos de sistema operativo suportado são apenas Windows e Linux.
+9006: O URL para descarregar o ficheiro de metadados do hóspede está vazio.     |   Isto pode acontecer se o agente de descoberta não estiver a funcionar como esperado.    |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9007: O processo de execução da tarefa de descoberta no VM convidado não é encontrado.   |   Isto pode acontecer se o agente de descoberta não estiver a funcionar corretamente.   |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9008: O estado do processo VM do hóspede não pode ser recuperado.   |   O problema pode ocorrer devido a um erro interno.   |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9009: O Windows UAC impediu a execução de tarefas de descoberta no servidor.  |   As definições de Controlo de Conta de Utilizador do Windows (UAC) no servidor são restritivas e impedem a descoberta de aplicações instaladas.  |   Nas definições de 'Controlo de Conta de Utilizador' no servidor, configurar a definição UAC para estar num dos dois níveis mais baixos.
+9010: O VM está desligado.     |   O VM está desligado.  |   Certifique-se de que o VM está ligado.
+9011: Ficheiro de metadados descoberto não encontrado no sistema de ficheiros VM do hóspede.    |   O problema pode ocorrer devido a um erro interno.   |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9012: O ficheiro de metadados descoberto está vazio.     |   O problema pode ocorrer devido a um erro interno.   |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9013: É criado um novo perfil temporário para cada login.    |   É criado um novo perfil temporário para cada login no VMware VM.    |   Contacte o Microsoft Support para obter uma resolução.
+9014: Não é possível recuperar metadados do sistema de ficheiros VM do hóspede.     |   Sem conectividade com o anfitrião ESXi    |   Certifique-se de que o aparelho pode ligar-se à porta 443 no hospedeiro ESXi que executa o VM
+9015: A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter   |   A função de Operações de Hóspedes não está ativada na conta de utilizador do vCenter.   |   Certifique-se de que a função de Operações de Hóspedes está ativada na conta de utilizador do vCenter.
+9016: Incapaz de descobrir como agente de operações de hóspedes está desatualizado.   |   As ferramentas Vmware não estão corretamente instaladas ou não estão atualizadas.    |   Certifique-se de que as ferramentas VMware estão corretamente instaladas e atualizadas.
+9017: O ficheiro com metadados descobertos não é encontrado no VM.  |   O problema pode ocorrer devido a um erro interno.   |   Contacte o Microsoft Support para obter uma resolução.
+9018: O PowerShell não está instalado nos VMs do Hóspede.  |   O PowerShell não está disponível no VM convidado.    |   Instale o PowerShell no VM convidado.
+9019: Incapaz de descobrir devido a falhas de operação VM convidadas.     |   A operação VMware Guest falhou no VM.    |   Certifique-se de que as credenciais VM são válidas e o nome de utilizador fornecido nas credenciais VM do hóspede está em formato UPN.
+9020: A permissão de criação de ficheiros é negada.    |   A função associada ao utilizador ou à política de grupo está a restringir o utilizador de criar o ficheiro em pasta    |   Verifique se o utilizador convidado fornecido criou permissão para o ficheiro na pasta. Consulte **notificações** na Avaliação do Servidor para o nome da pasta.
+9021: Incapaz de criar ficheiro no caminho temp do sistema.     |   A ferramenta VMware reporta o caminho temp do sistema em vez do Caminho Temporário dos Utilizadores.    |   Atualize a versão da ferramenta vmware acima de 10287 (formato NGC/VI Cliente).
+9022: O acesso ao objeto WMI é negado.    |   A função associada ao utilizador ou à política de grupo está a restringir o utilizador a aceder ao objeto WMI.  |   Entre em contato com o Microsoft Support.
+9023: Incapaz de executar PowerShell como o valor variável ambiente SystemRoot está vazio.    |   O valor da variável ambiente SystemRoot está vazio para o VM convidado.     |   Contacte o Microsoft Support para obter uma resolução.
+9024: O valor variável do ambiente TEMP está vazio.    |   O valor da variável ambiente TEMP está vazio para o VM convidado.   |   Entre em contato com o Microsoft Support.
+9025: PowerShell é corrompido nos VMs de hóspedes.  |   PowerShell está corrompido no VM convidado.    |   Volte a instalar o PowerShell no VM do hóspede e verifique se o PowerShell pode ser executado no VM convidado.
+9026: Incapaz de executar operações de hóspedes na VM.  |   O estado VM não permite que as operações dos hóspedes sejam executadas no VM.   |   Contacte o Microsoft Support para obter uma resolução.
+9027: O agente de operações de hóspedes não está a funcionar na VM.   |   Não contactou o agente de operações do hóspede que funciona dentro da máquina virtual.    |   Contacte o Microsoft Support para obter uma resolução.
+9028: O ficheiro não pode ser criado devido a um armazenamento insuficiente de discos em VM.     |   Não há espaço suficiente no disco.   |   Certifique-se de que existe espaço suficiente no armazenamento do disco do VM.
+9029: Sem acesso a powershell na credencial VM fornecida.   |   O acesso a Powershell não está disponível para o utilizador.     |   Certifique-se de que o utilizador adicionado no aparelho pode aceder ao PowerShell no VM do hóspede.
+9030: Não é possível recolher metadados descobertos à medida que o hospedeiro ESXi está desligado.     |   O hospedeiro ESXi está num estado desligado.   |   Certifique-se de que o anfitrião ESXi que executa o VM está ligado.
+9031: Não é possível recolher metadados descobertos, uma vez que o hospedeiro ESXi não está a responder.   |   O hospedeiro remoto está em estado inválido.    |   Certifique-se de que o anfitrião ESXi que executa o VM está a funcionar e ligado.
+9032: Incapaz de descobrir devido a um erro interno.   |   O problema pode ocorrer devido a um erro interno.   |   Contacte o Microsoft Support para obter uma resolução.
+9033: Não é possível descobrir como o nome de utilizador VM contém caracteres inválidos.     |   Os caracteres inválidos foram detetados no nome de utilizador.   |   Forneça novamente a credencial VM, garantindo que não existem caracteres inválidos.
+9034: O nome de utilizador fornecido não está no formato UPN.    |   O nome de utilizador não está no formato UPN.  |   Certifique-se de que o nome de utilizador está no formato Nome Principal do Utilizador (UPN).
+9035: Não é possível descobrir como o modo linguagem Powershell não está definido como "Linguagem Completa".  |   O modo linguístico para Powershell no VM convidado não está definido para linguagem completa.   |   Certifique-se de que o modo de linguagem PowerShell está definido para "Linguagem Completa".
+1000: O tipo de sistema operativo não é suportado.   |   O sistema operativo que funciona no servidor não é nem Windows nem Linux.    |   Os tipos de sistema operativo suportado são apenas Windows e Linux.
+10001: O script para a descoberta do servidor não é encontrado no aparelho.    |   A descoberta não está a funcionar como esperado.   |   Contacte o Microsoft Support para obter uma resolução.
+10002: A tarefa da Discovery não foi concluída a tempo.     |   O agente discovery não está a funcionar como esperado.     |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+10003: Processo de execução da tarefa de descoberta saiu com um erro.    |   Processo de execução da tarefa de descoberta saiu com um erro.  |   O problema deve resolver-se automaticamente em 24 horas. Se o problema ainda persistir, contacte o Microsoft Support.
+10004: Credencial não prevista para o tipo de sistema operativo convidado.  |   As credenciais de acesso a máquinas deste tipo de SO não foram fornecidas no aparelho Azure Migrate.    |   Adicione credenciais para máquinas no aparelho
+10005: As credenciais fornecidas não são válidas.   |   As credenciais fornecidas para o aparelho aceder ao servidor estão incorretas.  |   Atualize as credenciais fornecidas no aparelho e certifique-se de que o servidor está acessível utilizando as credenciais.
+10006: Tipo de SO de hóspede não suportado por loja de credenciais.  |   O sistema operativo que funciona no servidor não é nem Windows nem Linux.    |   Os tipos de sistema operativo suportado são apenas Windows e Linux.
+10007: Incapaz de processar os metadados descobertos.    |   Erro ocorreu ao tentar deserizar o JSON.    |   Contacte o Microsoft Support para obter uma resolução.
+10008: Não é possível criar um ficheiro no servidor.    |  O problema pode ocorrer devido a um erro interno.    |   Contacte o Microsoft Support para obter uma resolução.
+10009: Não é possível escrever metadados descobertos num ficheiro no servidor.  |   O problema pode ocorrer devido a um erro interno.   |   Contacte o Microsoft Support para obter uma resolução.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="next-steps"></a>Próximos passos
 Configurar um aparelho para [VMware,](how-to-set-up-appliance-vmware.md) [Hiper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

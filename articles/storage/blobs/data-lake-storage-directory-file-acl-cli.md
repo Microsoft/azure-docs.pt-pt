@@ -1,44 +1,44 @@
 ---
-title: Utilize o Azure CLI para ficheiros & ACLs em Azure Data Lake Storage Gen2
-description: Utilize o Azure CLI para gerir diretórios e listas de controlo de acesso de ficheiros e diretórios (ACL) em contas de armazenamento que tenham um espaço de nome hierárquico.
+title: Use O CLI do Azure para ficheiros & ACLs em Azure Data Lake Storage Gen2
+description: Utilize o CLI Azure para gerir diretórios e listas de controlo de acesso a ficheiros e diretórios (ACL) em contas de armazenamento que tenham um espaço hierárquico de nomes.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: bbae67a4861d67526eb1cf4eb2bfb5d131f8e57b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8fdcad18ccec2748761cf35f2cd0b8efe9749958
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649758"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466141"
 ---
-# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utilize o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
-Este artigo mostra-lhe como usar a Interface de [Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que tenham um espaço de nome hierárquico. 
+Este artigo mostra-lhe como usar a [Interface Azure Command-Line (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm um espaço hierárquico de nomes. 
 
-[Gen1 para mapeamento](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)  |  Gen2 [Dar feedback](https://github.com/Azure/azure-cli-extensions/issues)
+Mapeamento da [Gen1 para a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)  |  [Dar feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem espaço de nome hierárquico (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
+> * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
 > * Versão Azure CLI `2.6.0` ou superior.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Certifique-se de que tem a versão correta do Azure CLI instalada
 
-1. Abra a [Shell Azure Cloud](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
+1. Abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
 2. Verifique se a versão do Azure CLI que foi instalada é `2.6.0` ou superior utilizando o seguinte comando.
 
    ```azurecli
     az --version
    ```
-   Se a sua versão do Azure CLI for inferior `2.6.0` à , então instale uma versão posterior. Ver [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Se a sua versão do Azure CLI for inferior `2.6.0` a , então instale uma versão posterior. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-account"></a>Ligar à conta
 
@@ -48,22 +48,22 @@ Este artigo mostra-lhe como usar a Interface de [Linha de Comando Azure (CLI)](h
    az login
    ```
 
-   Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de entrada azure.
+   Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de inscrição do Azure.
 
-   Caso contrário, abra uma página do navegador e introduza o código de [https://aka.ms/devicelogin](https://aka.ms/devicelogin) autorização apresentado no seu terminal. Em seguida, inscreva-se com as credenciais da sua conta no navegador.
+   Caso contrário, abra uma página do navegador [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduza o código de autorização exibido no seu terminal. Em seguida, inscreva-se com as credenciais da sua conta no navegador.
 
-   Para saber mais sobre diferentes métodos de autenticação, consulte [Autorizar o acesso a dados blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
+   Para saber mais sobre diferentes métodos de autenticação, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
 
-2. Se a sua identidade estiver associada a mais de uma subscrição, então detete a sua subscrição ativa para a subscrição da conta de armazenamento que irá acolher o seu website estático.
+2. Se a sua identidade estiver associada a mais de uma subscrição, então desa estalem a sua subscrição ativa para a subscrição da conta de armazenamento que irá hospedar o seu website estático.
 
    ```azurecli
    az account set --subscription <subscription-id>
    ```
 
-   Substitua o valor do `<subscription-id>` espaço reservado pela identificação da sua subscrição.
+   Substitua o `<subscription-id>` valor do espaço reservado pelo ID da sua subscrição.
 
 > [!NOTE]
-> O exemplo apresentado neste artigo mostra a autorização do Azure Ative Directory (AD). Para saber mais sobre os métodos de autorização, consulte [Autorizar o acesso a dados blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
+> O exemplo apresentado neste artigo mostra a autorização do Azure Ative Directory (AD). Para saber mais sobre os métodos de autorização, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
 
 ## <a name="create-a-file-system"></a>Criar um sistema de ficheiros
 
@@ -83,11 +83,11 @@ Pode imprimir as propriedades de um sistema de ficheiros para a consola utilizan
 az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="list-file-system-contents"></a>Conteúdo do sistema de ficheiros de listas
+## <a name="list-file-system-contents"></a>Listar conteúdos do sistema de ficheiros
 
-Enumera rumite o conteúdo de um diretório utilizando o `az storage fs file list` comando.
+Listar o conteúdo de um diretório utilizando o `az storage fs file list` comando.
 
-Este exemplo lista o conteúdo de um sistema de ficheiros chamado `my-file-system` .
+Este exemplo lista o conteúdo de um sistema de ficheiros denominado `my-file-system` .
 
 ```azurecli
 az storage fs file list -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -97,7 +97,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 Elimine um sistema de ficheiros utilizando o `az storage fs delete` comando.
 
-Este exemplo elimina um sistema de ficheiros chamado `my-file-system` . 
+Este exemplo elimina um sistema de ficheiros denominado `my-file-system` . 
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -107,7 +107,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 Crie uma referência de diretório utilizando o `az storage fs directory create` comando. 
 
-Este exemplo adiciona um diretório nomeado para um sistema de `my-directory` ficheiros chamado `my-file-system` que está localizado numa conta chamada `mystorageaccount` .
+Este exemplo adiciona um diretório nomeado `my-directory` a um sistema de ficheiros chamado que está localizado numa conta chamada `my-file-system` `mystorageaccount` .
 
 ```azurecli
 az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -115,17 +115,17 @@ az storage fs directory create -n my-directory -f my-file-system --account-name 
 
 ## <a name="show-directory-properties"></a>Mostrar propriedades de diretório
 
-Pode imprimir as propriedades de um diretório para a consola utilizando o `az storage fs directory show` comando.
+Pode imprimir as propriedades de um diretório na consola utilizando o `az storage fs directory show` comando.
 
 ```azurecli
 az storage fs directory show -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="rename-or-move-a-directory"></a>Mudar o nome ou mover um diretório
+## <a name="rename-or-move-a-directory"></a>Mudar de nome ou mover um diretório
 
 Mude o nome ou mova um diretório utilizando o `az storage fs directory move` comando.
 
-Este exemplo renomeia um diretório do nome para o nome no mesmo sistema de `my-directory` `my-new-directory` ficheiros.
+Este exemplo renomea um diretório do nome `my-directory` para o nome no mesmo sistema de `my-new-directory` ficheiros.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
@@ -149,19 +149,19 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 ## <a name="check-if-a-directory-exists"></a>Verifique se existe um diretório
 
-Determine se existe um diretório específico no sistema de ficheiros utilizando o `az storage fs directory exists` comando.
+Determinar se existe um diretório específico no sistema de ficheiros utilizando o `az storage fs directory exists` comando.
 
-Este exemplo revela se existe um diretório nomeado `my-directory` no sistema de `my-file-system` ficheiros. 
+Este exemplo revela se existe um diretório nomeado `my-directory` no `my-file-system` sistema de ficheiros. 
 
 ```azurecli
 az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="download-from-a-directory"></a>Baixar de um diretório
+## <a name="download-from-a-directory"></a>Descarregue a partir de um diretório
 
-Faça o download de um ficheiro de um diretório utilizando o `az storage fs file download` comando.
+Descarregue um ficheiro de um diretório usando o `az storage fs file download` comando.
 
-Este exemplo descarrega um ficheiro chamado `upload.txt` `my-directory` . 
+Este exemplo descarrega um ficheiro chamado `upload.txt` de um diretório chamado `my-directory` . 
 
 ```azurecli
 az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
@@ -169,17 +169,17 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 ## <a name="list-directory-contents"></a>Listar conteúdo do diretório
 
-Enumera rumite o conteúdo de um diretório utilizando o `az storage fs file list` comando.
+Listar o conteúdo de um diretório utilizando o `az storage fs file list` comando.
 
-Este exemplo lista o conteúdo de um diretório nomeado `my-directory` que está localizado no sistema de `my-file-system` ficheiros de uma conta de armazenamento chamada `mystorageaccount` . 
+Este exemplo lista o conteúdo de um diretório nomeado `my-directory` que está localizado no sistema de `my-file-system` ficheiros de uma conta de armazenamento denominada `mystorageaccount` . 
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Faça upload de um ficheiro para um diretório
+## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 
-Faça o upload de um ficheiro para um diretório usando o `az storage fs directory upload` comando.
+Faça o upload de um ficheiro para um diretório utilizando o `az storage fs directory upload` comando.
 
 Este exemplo envia um ficheiro nomeado `upload.txt` para um diretório chamado `my-directory` . 
 
@@ -187,15 +187,15 @@ Este exemplo envia um ficheiro nomeado `upload.txt` para um diretório chamado `
 az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="show-file-properties"></a>Mostrar propriedades de ficheiros
+## <a name="show-file-properties"></a>Mostrar propriedades de arquivo
 
-Pode imprimir as propriedades de um ficheiro para a consola utilizando o `az storage fs file show` comando.
+Pode imprimir as propriedades de um ficheiro na consola utilizando o `az storage fs file show` comando.
 
 ```azurecli
 az storage fs file show -p my-file.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="rename-or-move-a-file"></a>Mudar o nome ou mover um ficheiro
+## <a name="rename-or-move-a-file"></a>Mudar de nome ou mover um ficheiro
 
 Mude o nome ou mova um ficheiro utilizando o `az storage fs file move` comando.
 
@@ -220,13 +220,13 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros.
 
 > [!NOTE]
-> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído ao papel de [Proprietário de Dados de Armazenamento Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de [acesso em Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de [acesso na Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-### <a name="get-an-acl"></a>Obter um ACL
+### <a name="get-an-acl"></a>Obtenha um ACL
 
 Obtenha o ACL de um **diretório** usando o `az storage fs access show` comando.
 
-Este exemplo obtém o ACL de um diretório, e depois imprime o ACL para a consola.
+Este exemplo obtém o ACL de um diretório e, em seguida, imprime o ACL na consola.
 
 ```azurecli
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -234,55 +234,55 @@ az storage fs access show -p my-directory -f my-file-system --account-name mysto
 
 Obtenha as permissões de acesso de um **ficheiro** usando o `az storage fs access show` comando. 
 
-Este exemplo obtém o ACL de um ficheiro e depois imprime o ACL para a consola.
+Este exemplo obtém o ACL de um ficheiro e, em seguida, imprime o ACL à consola.
 
 ```azurecli
 az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-A imagem seguinte mostra a saída depois de obter o ACL de um diretório.
+A imagem a seguir mostra a saída depois de obter o ACL de um diretório.
 
-![Obtenha saída ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
+![Obtenha a saída ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-Neste exemplo, o utilizador próprio leu, escreve e executa permissões. O grupo próprio só leu e executou permissões. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Neste exemplo, o próprio utilizador leu, escreveu e executou permissões. O grupo de donos só leu e executou permissões. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### <a name="set-an-acl"></a>Definir um ACL
 
 Utilize o `az storage fs access set` comando para definir o ACL de um **diretório**. 
 
-Este exemplo define o ACL num diretório para o utilizador próprio, grupo de possuir ou outros utilizadores, e depois imprime o ACL para a consola.
+Este exemplo define o ACL num diretório para o utilizador próprio, grupo próprio ou outros utilizadores, e depois imprime o ACL à consola.
 
 ```azurecli
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Este exemplo define o ACL *padrão* num diretório para o utilizador próprio, grupo próprio ou outros utilizadores, e depois imprime o ACL para a consola.
+Este exemplo define o ACL *predefinido* num diretório para o utilizador próprio, grupo de propriedade ou outros utilizadores, e depois imprime o ACL na consola.
 
 ```azurecli
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Utilize o `az storage fs access set` comando para definir a acl de um **ficheiro**. 
+Utilize o `az storage fs access set` comando para definir o acl de um **ficheiro**. 
 
-Este exemplo define o ACL num ficheiro para o utilizador próprio, grupo próprio ou outros utilizadores, e depois imprime o ACL para a consola.
+Este exemplo define o ACL num ficheiro para o utilizador próprio, grupo próprio ou outros utilizadores, e depois imprime o ACL à consola.
 
 ```azurecli
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-A imagem seguinte mostra a saída após a definição do ACL de um ficheiro.
+A imagem a seguir mostra a saída após a definição do ACL de um ficheiro.
 
-![Obtenha saída ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Obtenha a saída ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-Neste exemplo, o utilizador próprio e o grupo de possuir apenas leram e escreveram permissões. Todos os outros utilizadores têm permissões de escrita e execução. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Neste exemplo, o próprio utilizador e o grupo de proprietária apenas leram e escreveram permissões. Todos os outros utilizadores têm permissões de escrita e execução. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### <a name="update-an-acl"></a>Atualizar um ACL
 
 Outra forma de definir esta permissão é usar o `az storage fs access set` comando. 
 
-Atualize o ACL de um diretório ou ficheiro, definindo o `-permissions` parâmetro na forma curta de um ACL.
+Atualize o ACL de um diretório ou ficheiro definindo o `-permissions` parâmetro para a forma curta de um ACL.
 
-Este exemplo atualiza o ACL de um **diretório.**
+Este exemplo atualiza o ACL de um **diretório**.
 
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -294,9 +294,9 @@ Este exemplo atualiza o ACL de um **ficheiro**.
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Também pode atualizar o utilizador e o grupo próprio de um diretório ou ficheiro, definindo os `--owner` `group` ou parâmetros para o ID da entidade ou nome principal do utilizador (UPN) de um utilizador. 
+Também pode atualizar o utilizador e o grupo próprio de um diretório ou ficheiro, definindo os `--owner` parâmetros ou `group` parâmetros para o ID da entidade ou nome principal do utilizador (UPN) de um utilizador. 
 
-Este exemplo muda o proprietário de um diretório. 
+Este exemplo altera o proprietário de um diretório. 
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -308,9 +308,9 @@ Este exemplo altera o proprietário de um ficheiro.
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-* [Gen1 para mapeamento Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Mapeamento da Gen1 para a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Enviar comentários](https://github.com/Azure/azure-cli-extensions/issues)
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 

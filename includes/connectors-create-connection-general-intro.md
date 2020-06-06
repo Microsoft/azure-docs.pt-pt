@@ -3,12 +3,18 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
-ms.openlocfilehash: 0e2d63db1afd4bb169e5aeb1c202674808f081ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/06/2020
+ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786895"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449108"
 ---
-Quando utiliza um gatilho ou ação que acede a um serviço pela primeira vez, o Logic Apps Designer pede-lhe para criar uma *ligação* a esse serviço. Em seguida, pode fornecer as informações de ligação necessárias diretamente da sua aplicação lógica dentro do designer.
+Quando adiciona um gatilho ou ação que se conecta a um serviço ou sistema pela primeira vez, o Logic App Designer pede-lhe que crie uma *ligação* fornecendo as informações necessárias, que varia em função da ligação, por exemplo:
+
+* Um nome a usar para a nova ligação
+* O nome do servidor ou do sistema
+* As credenciais do seu utilizador ou conta
+* O tipo de autenticação a utilizar
+* A subscrição e o nome do gateway de dados que cria anteriormente ao ligar-se a fontes de dados no local

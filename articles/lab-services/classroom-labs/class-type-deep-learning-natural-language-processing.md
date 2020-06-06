@@ -1,6 +1,6 @@
 ---
-title: Criar um laboratório focado na aprendizagem profunda utilizando os Serviços de Laboratório Azure [ Microsoft Docs
-description: Aprenda a montar um laboratório para ensinar scripts de concha sintetmente no Linux.
+title: Criar um laboratório focado em deep learning usando os Serviços Azure Lab Microsoft Docs
+description: Aprende a criar um laboratório para ensinar a escrever em Linux.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 269ad20d99f21c05d527d60af61692eb49048f08
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699661"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448078"
 ---
-# <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando serviços de laboratório azure
-Este artigo mostra-lhe como criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços de Laboratório Azure. O processamento de linguagem natural (NLP) é uma forma de inteligência artificial (IA) que permite computadores com capacidades de tradução, reconhecimento de fala e outras capacidades de compreensão linguística.  
+# <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando os Serviços Azure Lab
+Este artigo mostra-lhe como criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços Azure Lab. O processamento de linguagem natural (NLP) é uma forma de inteligência artificial (IA) que permite aos computadores com capacidades de tradução, reconhecimento de voz e outras capacidades de compreensão da linguagem.  
 
-Os alunos que têm uma aula de NLP recebem uma máquina virtual Linux (VM) para aprender a aplicar algoritmos de rede neural para desenvolver modelos de aprendizagem profunda que são usados para analisar a linguagem humana escrita. 
+Os alunos que fazem uma aula de NLP obtêm uma máquina virtual Linux (VM) para aprender a aplicar algoritmos de rede neural para desenvolver modelos de aprendizagem profunda que são usados para analisar linguagem humana escrita. 
 
-## <a name="lab-configuration"></a>Configuração do laboratório
-Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
+## <a name="lab-configuration"></a>Configuração de laboratório
+Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços Azure Lab ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para a criação de uma nova conta de laboratório: [Tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).
  
-Depois de criar a conta de laboratório, ative as seguintes definições na conta de laboratório: 
+Depois de criar a conta de laboratório, ative as seguintes definições na conta do laboratório: 
 
 | Definição de conta de laboratório | Instruções |
 | ----------- | ------------ |  
-| Imagens do mercado | Ative a imagem da Máquina Virtual de Ciência de Dados para linux (Ubuntu) para utilização na sua conta de laboratório.  Consulte o seguinte artigo para obter instruções: [Especifique as imagens](specify-marketplace-images.md)do mercado disponíveis para os criadores de laboratório . | 
+| Imagens do mercado | Ative a máquina virtual da Ciência de Dados para a imagem Linux (Ubuntu) para utilização na sua conta de laboratório.  Consulte o seguinte artigo para obter instruções: [Especifique as imagens do mercado disponíveis para os criadores de laboratório](specify-marketplace-images.md). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e aplique as seguintes definições:
 
 | Configurações de laboratório | Valor/instruções | 
 | ------------ | ------------------ |
-| Tamanho da máquina virtual (VM) | Pequena GPU (Computa). Este tamanho é mais adequado para aplicações intensivas de computação e de rede intensiva, como Inteligência Artificial e Deep Learning. |
-| Imagem VM | [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Esta imagem fornece quadros e ferramentas de aprendizagem profunda para a aprendizagem automática e a ciência dos dados. Para ver a lista completa de ferramentas instaladas nesta imagem, consulte o seguinte artigo: [O que está incluído no DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
-| Ativar a ligação remota de ambiente de trabalho | <p>A imagem da Ciência dos Dados já está configurada para usar o X2Go para que professores e alunos possam ligar-se através de um ambiente de trabalho remoto GUI.  O X2Go *não* necessita de ativar a definição de **ligação remota** de ambiente de trabalho ativada.  Esta definição só precisa de ser ativada se optar por utilizar rdp.
+| Tamanho da máquina virtual (VM) | **Pequena GPU (Computação)**. Este tamanho é mais adequado para aplicações computacionalmente intensivas e intensivas em rede, como Inteligência Artificial e Deep Learning. |
+| Imagem VM | [Máquina virtual de ciência de dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Esta imagem fornece quadros de aprendizagem profunda e ferramentas para machine learning e ciência de dados. Para ver a lista completa de ferramentas instaladas nesta imagem, consulte o seguinte artigo: [O que está incluído no DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
+| Ativar a ligação remota do ambiente de trabalho | <p>A imagem da Data Science já está configurada para usar o X2Go para que professores e alunos possam ligar-se através de um ambiente de trabalho remoto GUI.  O X2Go *não* requer a **definição de ligação ao ambiente de trabalho remoto** ativada.  Esta definição só tem de ser ativada se optar por utilizar o PDR.
 
->**Importante**: Embora recomendemos a utilização de X2Go com a imagem data Science, se optar por utilizar RDP, terá de se ligar ao VM Linux utilizando o SSH pela primeira vez e instalar os pacotes RDP e GUI.  Em seguida, você/estudantes podem ligar-se ao Linux VM usando RDP mais tarde.  Para mais informações, consulte [Enable graphical remote desktop para VMs Linux](how-to-enable-remote-desktop-linux.md).
+>**Importante**: Embora recomendemos a utilização do X2Go com a imagem de Data Science, se optar por utilizar RDP, terá de ligar-se ao LDM Linux utilizando o SSH pela primeira vez e instalar os pacotes RDP e GUI.  Em seguida, você/estudantes podem ligar-se ao Linux VM usando RDP mais tarde.  Para obter mais informações, consulte [Ativar o ambiente de trabalho remoto gráfico para os VMs Linux](how-to-enable-remote-desktop-linux.md).
 
-A Máquina Virtual de Ciência de Dados para a imagem de Linux fornece os quadros e ferramentas de aprendizagem profunda necessários para este tipo de classe. Como resultado, após a criação da máquina de modelo, não precisa personalizá-la ainda mais. Pode ser publicado para os alunos usarem. Selecione o botão **Publicar** na página do modelo para publicar o modelo no laboratório.  
+A Máquina Virtual de Ciência de Dados para a imagem Linux fornece os quadros e ferramentas de aprendizagem profunda necessários para este tipo de aula. Como resultado, após a criação da máquina de modelo, você não precisa personalizá-lo ainda mais. Pode ser publicado para os alunos usarem. Selecione o botão **Publicar** na página do modelo para publicar o modelo para o laboratório.  
 
 ## <a name="cost"></a>Custo
 Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo: 
 
-Para uma turma de 25 alunos com 20 horas de horário de aulas programada e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria - 25 alunos * (20 + 10) horas * 139 Unidades de Laboratório * 0,01 USD por hora = 1042,5 USD
+Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria - 25 alunos * (20 + 10) horas * 139 Unidades de Laboratório * 0,01 USD por hora = 1042,5 USD
 
-Mais detalhes sobre os preços, consulte o [Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
+Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusão
-Este artigo acompanhou-o pelas escadas para criar um laboratório para a aula de processamento de linguagem natural. Você pode usar uma configuração semelhante para outras aulas de aprendizagem profunda.
+Este artigo acompanhou-o através dos degraus para criar um laboratório para a aula de processamento de linguagem natural. Você pode usar uma configuração semelhante para outras aulas de aprendizagem profunda.
 
-## <a name="next-steps"></a>Passos seguintes
-Os próximos passos são comuns à criação de qualquer laboratório:
+## <a name="next-steps"></a>Próximos passos
+Os próximos passos são comuns para a criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Definir quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Quota definida](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Definir um horário](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Links de inscrição por e-mail para estudantes.](how-to-configure-student-usage.md#send-invitations-to-users) 
+- [Links de inscrição de e-mail para estudantes.](how-to-configure-student-usage.md#send-invitations-to-users) 
 

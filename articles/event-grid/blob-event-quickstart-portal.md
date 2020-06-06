@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 877dab3376e1a4397d9f1c6971baea957b4eea68
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424198"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457053"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
@@ -92,12 +92,9 @@ Subscreva um tópico para comunicar ao Event Grid os eventos que pretende contro
    ![Selecionar webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Na página **'Criar Subscrição de** Eventos', faça os seguintes passos: 
     1. Insira um **nome** para a subscrição do evento.
-    2. Insira um **nome** para o tópico do **sistema**. Anteriormente, quando criou uma subscrição para um evento criado por fontes do Azure Blob Ou Azure Event Hubs, o serviço Desempreitado criou automaticamente um tópico de sistema com um **nome gerado aleatoriamente.** Agora, pode especificar um nome para o tópico do sistema enquanto cria o tópico no portal Azure, como mostra a imagem a seguir. Pode utilizar este recurso tópico do sistema para descobrir métricas e registos de diagnóstico.
+    2. Insira um **nome** para o tópico do **sistema**. Para conhecer os tópicos do sistema, consulte [a visão geral dos tópicos do sistema.](system-topics.md)
 
        ![Introduza nomes para subscrição de eventos e tópico do sistema](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Anteriormente, quando criou uma subscrição para um evento criado por fontes Azure, o serviço Desecrático criou automaticamente um tópico do sistema com um nome gerado aleatoriamente. Agora, pode especificar um nome para o tópico do sistema usando esta caixa de texto. Pode utilizar este recurso tópico do sistema para descobrir métricas e registos de diagnóstico.
     2. Selecione **Web Hook** para **o tipo Endpoint**. 
 
        ![Selecione o tipo de ponto final do gancho web](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
@@ -146,7 +143,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
 Selecione o grupo de recursos e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos personalizados e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

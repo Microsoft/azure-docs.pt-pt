@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 7fe29bfa7d6140f3abce8feb9e372a5c066b9692
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 2625e1f55c0b7e7df44da6c1f36e024911577d63
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343885"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457274"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -171,7 +171,7 @@ Se precisar de restaurar uma base de dados de Hiperescala na Base de Dados Azure
 O nível de hiperescala de base de dados Azure SQL está disponível em todas as regiões, mas ativado por padrão nas seguintes regiões listadas abaixo.
 Se quiser criar uma base de dados hyperscale numa região que não esteja listada como suportada, pode enviar um pedido de embarque através do portal Azure. Para obter instruções, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](quota-increase-request.md) para obter instruções. Ao submeter o seu pedido, utilize as seguintes orientações:
 
-- Utilize o [Outro tipo de quota de pedido](quota-increase-request.md#other) SQL tipo de quota de base de dados.
+- Utilize o tipo de quota de quota de base de dados SQL de [acesso à Região.](quota-increase-request.md#region)
 - Nos detalhes de texto, adicione os núcleos SKU/total do cálculo, incluindo réplicas legíveis.
 - Especificar também a tuberculose estimada.
 
@@ -216,7 +216,7 @@ Regiões Habilitados:
 
 Estas são as limitações atuais para o nível de serviço de Hiperescala a partir de GA.  Estamos a trabalhar ativamente para remover o maior número possível destas limitações.
 
-| Problema | Description |
+| Problema | Descrição |
 | :---- | :--------- |
 | O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala, estas serão filtradas a partir da vista  | A hiperescala tem um método separado para gerir backups, e como tal as definições de retenção de retenção de longo prazo e ponto no tempo não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.|
 | Restauro para um ponto anterior no tempo | Uma base de dados não-Hyperscale não pode ser restaurada como uma base de dados de hiperescala, e uma base de dados de hiperescala não pode ser restaurada como uma base de dados não-Hyperscale. Para uma base de dados não-Hyperscale que tenha sido migrada para Hyperscale alterando o seu nível de serviço, restaure a um ponto no tempo antes da migração e dentro do período de retenção de backup da base de dados é possível [programáticamente](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). A base de dados restaurada não será de Hiperescala. |

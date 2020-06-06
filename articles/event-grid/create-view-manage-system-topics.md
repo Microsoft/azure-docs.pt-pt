@@ -1,5 +1,5 @@
 ---
-title: Criar, ver e gerir tópicos do sistema na Grelha de Eventos Azure
+title: Criar, visualizar e gerir tópicos do sistema na Grelha de Eventos Azure (portal)
 description: Este artigo mostra como visualizar o tópico do sistema existente, criar tópicos do sistema Azure Event Grid utilizando o portal Azure.
 services: event-grid
 author: spelluru
@@ -7,29 +7,21 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: ac22afb351973397960e66c2a8fe86031e0b213a
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316657"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457240"
 ---
-# <a name="create-view-and-manage-system-topics-in-azure-event-grid"></a>Criar, ver e gerir tópicos do sistema na Grelha de Eventos Azure
-Este artigo mostra-lhe como fazer as seguintes tarefas:
-
-- Criar um tópico de sistema
-- Ver todos os tópicos do sistema existentes 
-- Eliminar um tópico de sistema
-- Criar uma subscrição de eventos para um tópico do sistema
-
+# <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Criar, ver e gerir tópicos do sistema de Grade de Eventos no portal Azure
+Este artigo mostra-lhe como criar e gerir tópicos do sistema usando o portal Azure. Para uma visão geral dos tópicos do sistema, consulte [os tópicos do Sistema](system-topics.md).
 
 ## <a name="create-a-system-topic"></a>Criar um tópico de sistema
-Pode criar um tópico de sistema para um recurso Azure de duas formas:
+Pode criar um tópico de sistema para um recurso Azure (conta de armazenamento, espaço de nomes de Event Hubs, etc.) de duas formas:
 
-- Utilizando a página de recursos, por exemplo, página de Conta de Armazenamento ou página de Espaço nome de Centros de Eventos. 
-- Utilizando a página **tópicos do sistema de grelha de evento.** 
-
-Consulte [este quickstart](blob-event-quickstart-portal.md) para um exemplo de criação de um tópico do sistema utilizando uma página de recursos (Separador**eventos** de uma página de recursos no portal Azure). Os seguintes passos são para criar um tópico de sistema utilizando a página **Tópicos do Sistema de Grelha de Eventos.** 
+- Utilizando a página **Eventos** de um recurso, por exemplo, Conta de Armazenamento ou Espaço de Nomes de Centros de Eventos. Quando utiliza a página **Eventos** no portal Azure para criar uma subscrição de eventos para um evento levantado por uma fonte Azure (por exemplo: conta de Armazenamento Azure), o portal cria um tópico de sistema para o recurso Azure e, em seguida, cria uma subscrição para o tópico do sistema. Especifica o nome do tópico do sistema se estiver a criar uma subscrição de eventos no recurso Azure pela primeira vez. A partir da segunda vez, o nome tópico do sistema é apresentado para si no modo apenas de leitura. Consulte [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) for detailed steps.
+- Utilizando a página **tópicos do sistema de grelha de evento.** Os seguintes passos são para criar um tópico de sistema utilizando a página **Tópicos do Sistema de Grelha de Eventos.** 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, prima **ENTER**. 
@@ -57,11 +49,9 @@ Consulte [este quickstart](blob-event-quickstart-portal.md) para um exemplo de c
 
         ![Página de tópico do sistema](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## <a name="view-all-system-topics"></a>Ver todos os tópicos do sistema
 Siga estes passos para ver todos os tópicos do sistema de Grelha de Eventos existentes. 
-
-> [!NOTE]
-> Anteriormente, quando criou uma subscrição para um evento criado por fontes Azure, o serviço Desecrático criou automaticamente um tópico do sistema com um nome gerado aleatoriamente. Agora, pode especificar um nome para o tópico do sistema enquanto cria o tópico. Pode utilizar este recurso tópico do sistema para descobrir métricas e registos de diagnóstico.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa de pesquisa no topo, escreva **Tópicos do Sistema de Grelha de Eventos**e, em seguida, prima **ENTER**. 
@@ -101,6 +91,5 @@ Siga estes passos para ver todos os tópicos do sistema de Grelha de Eventos exi
 
     ![Tópico do sistema - crie subscrição de eventos](./media/create-view-manage-system-topics/create-event-subscription.png)
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os tópicos do Sistema na secção [Azure Event Grid](system-topics.md) para saber mais sobre tópicos do sistema e tipos de tópicos suportados pela Azure Event Grid. 

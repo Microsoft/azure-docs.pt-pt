@@ -1,19 +1,19 @@
 ---
 title: Visão geral de resolução de problemas do Windows Virtual Desktop - Azure
-description: Uma visão geral para problemas de resolução de problemas ao configurar um ambiente de inquilino virtual do Windows Desktop.
+description: Uma visão geral para problemas de resolução de problemas enquanto configura um ambiente de ambiente de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c5be26509eccdaebf1b504c1b0b8c7edb35e101c
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: f177c0961c1ab408916d046b36a0a1b54e816751
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203867"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84455812"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Descrição geral da resolução de problemas, comentários e suporte
 
@@ -23,7 +23,7 @@ ms.locfileid: "84203867"
 > A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
 > Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo fornece uma visão geral dos problemas que pode encontrar ao configurar um ambiente de inquilino virtual do Windows Desktop e fornece formas de resolver os problemas.
+Este artigo fornece uma visão geral dos problemas que pode encontrar ao configurar um ambiente de desktop virtual do Windows e fornece formas de resolver os problemas.
 
 ## <a name="report-issues-during-public-preview"></a>Problemas de relatório durante a visualização pública
 
@@ -35,14 +35,13 @@ Quando fizer uma publicação a pedir ajuda ou propor uma nova funcionalidade, c
 
 Antes de fazer qualquer outra coisa, certifique-se de verificar a página de [estado do Azure](https://status.azure.com/status) e [a Azure Service Health](https://azure.microsoft.com/features/service-health/) para se certificar de que o seu serviço Azure está a funcionar corretamente.
 
-Utilize a seguinte tabela para identificar e resolver problemas que poderá encontrar ao configurar um ambiente de inquilino utilizando o cliente Remote Desktop. Uma vez configurado o seu inquilino, você pode usar o nosso novo [serviço de Diagnóstico](diagnostics-role-service.md) para identificar problemas para cenários comuns.
+Utilize a seguinte tabela para identificar e resolver problemas que poderá encontrar ao configurar um ambiente utilizando o cliente remote desktop. Uma vez configurado o seu ambiente, você pode usar o nosso novo [serviço de Diagnóstico](diagnostics-role-service.md) para identificar problemas para cenários comuns.
 
 | **Emissão**                                                            | **Solução sugerida**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Aceder a modelos de Marketplace no portal Azure       | Os modelos de ambiente de trabalho virtual Azure Marketplace Windows estão disponíveis gratuitamente.|
 | Sessão anfitrião piscina Azure Virtual Network (VNET) e definições de Rota Expresso               | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione o serviço apropriado (na categoria Networking). |
-| Sessão anfitrião pool Virtual Machine (VM) criação quando modelos de Gestor de Recursos Azure fornecidos com Windows Virtual Desktop não estão sendo usados | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione **Máquina Virtual executando o Windows** para o serviço. <br> <br> Para problemas com os modelos do Gestor de Recursos Azure que são fornecidos com o Windows Virtual Desktop, consulte a secção de inquilinos virtual do Ambiente do Windows Desktop e a criação de [piscinas de anfitriões.](troubleshoot-set-up-issues.md) |
-| Gestão do ambiente de acolhimento de mesa virtual do Windows a partir do portal Azure    | [Abra um pedido de apoio Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Para problemas de gestão ao utilizar serviços de ambiente de trabalho remoto/Windows Virtual Desktop PowerShell, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **Configuração e gestão** para o tipo de problema, selecione **Problemas configurar o inquilino usando PowerShell** para o subtipo de problema. |
+| Sessão anfitrião pool Virtual Machine (VM) criação quando modelos de Gestor de Recursos Azure fornecidos com Windows Virtual Desktop não estão sendo usados | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione **Máquina Virtual executando o Windows** para o serviço. <br> <br> Para problemas com os modelos do Gestor de Recursos Azure que são fornecidos com o Windows Virtual Desktop, consulte a secção de erros do modelo do Gestor de Recursos Azure da [criação](troubleshoot-set-up-issues.md)da piscina host . |
+| Gestão do ambiente de acolhimento de mesa virtual do Windows a partir do portal Azure    | [Abra um pedido de apoio Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Para problemas de gestão quando utilizar serviços de ambiente de trabalho remoto/Windows Virtual Desktop PowerShell, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **Configuração e gestão** para o tipo de problema, selecione **Issues configurar ambiente utilizando PowerShell** para o subtipo de problema. |
 | Gestão da configuração virtual do Windows desktop ligada a piscinas de anfitriões e grupos de aplicações (grupos de aplicações)      | Consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), ou abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço e, em seguida, selecione o tipo de problema apropriado.|
 | Implantação e gestão de contentores de perfil FSLogix | Consulte [o guia de resolução de problemas para produtos FSLogix](/fslogix/fslogix-trouble-shooting-ht/) e, se isso não resolver o problema, abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **FSLogix** para o tipo de problema e, em seguida, selecione o subtipo de problema apropriado. |
 | Avaria de clientes de desktop remoto no início                                                 | Consulte [a resolução de problemas do cliente Remote Desktop](troubleshoot-client.md) e se isso não resolver o problema, abra um pedido de suporte [Azure](https://azure.microsoft.com/support/create-ticket/), selecione Windows Virtual **Desktop** para o serviço e, em seguida, selecione **clientes remote desktop** para o tipo de problema.  <br> <br> Se for um problema de rede, os seus utilizadores precisam de contactar o administrador da rede. |
@@ -55,9 +54,9 @@ Utilize a seguinte tabela para identificar e resolver problemas que poderá enco
 | Problemas utilizando o Log Analytics para o Windows Virtual Desktop | Para problemas com o esquema de diagnóstico, abra um pedido de [apoio ao Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Para consultas, visualização ou outros problemas no Log Analytics, selecione o tipo de problema apropriado em Log Analytics. |
 | Problemas com aplicações M365 | Contacte o centro de administração M365 com uma das opções de ajuda do [centro de administração M365](/microsoft-365/admin/contact-support-for-business-products/). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para resolver problemas enquanto cria uma piscina de anfitriões num ambiente de ambiente de trabalho virtual do Windows, consulte [ambiente e a criação de piscinas de anfitriões.](troubleshoot-set-up-issues.md)
+- Para resolver problemas enquanto cria uma piscina de anfitriões num ambiente de ambiente de trabalho virtual do Windows, consulte [a criação de piscinas hospedeiras.](troubleshoot-set-up-issues.md)
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).
 - Para resolver problemas com as ligações do cliente virtual do Windows Desktop, consulte [as ligações do serviço de desktop virtual do Windows](troubleshoot-service-connection.md).
 - Para resolver problemas com clientes de ambiente de trabalho remoto, consulte [Troubleshoot o cliente Remote Desktop](troubleshoot-client.md)

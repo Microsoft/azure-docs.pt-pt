@@ -1,68 +1,68 @@
 ---
-title: Ativar e gerir a eliminação suave para bolhas
+title: Ative e gere a eliminação suave para bolhas
 titleSuffix: Azure Storage
-description: Ative a eliminação suave de objetos blob para recuperar mais facilmente os seus dados quando estes forem erroneamente modificados ou eliminados.
+description: Ativar a eliminação suave de objetos blob para recuperar mais facilmente os seus dados quando estes são erroneamente modificados ou eliminados.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634123"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463727"
 ---
-# <a name="enable-and-manage-soft-delete-for-blobs"></a>Ativar e gerir a eliminação suave para bolhas
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Ative e gere a eliminação suave para bolhas
 
-A eliminação suave protege os dados blob de serem acidentalmente ou erroneamente modificados ou eliminados. Quando o soft delete está ativado para uma conta de armazenamento, bolhas, versões blob (pré-visualização) e instantâneos nessa conta de armazenamento podem ser recuperados após a sua eliminação, num período de retenção que especifica.
+A eliminação suave protege os dados blob de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave é ativada para uma conta de armazenamento, bolhas, versões blob (pré-visualização) e instantâneos nessa conta de armazenamento podem ser recuperados após a sua eliminação, dentro de um período de retenção que especifique.
 
-Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se vire a eliminar suavemente.
+Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se apague suavemente.
 
-Este artigo mostra como começar com soft delete.
+Este artigo mostra como começar com a eliminação suave.
 
 ## <a name="enable-soft-delete"></a>Ativar a eliminação recuperável
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Ativar a eliminação suave de bolhas na sua conta de armazenamento utilizando o portal Azure:
+Ativar a eliminação suave para bolhas na sua conta de armazenamento utilizando o portal Azure:
 
 1. No [portal Azure,](https://portal.azure.com/)selecione a sua conta de armazenamento. 
 
-2. Navegue para a opção **de Proteção** de Dados no **âmbito do Serviço Blob**.
+2. Navegue para a opção **de Proteção de Dados** no **âmbito do Serviço Blob**.
 
-3. Clique **ativado** sob **a eliminação suave** de Blob
+3. Clique **em Ativado** sob **blob soft delete**
 
-4. Insira o número de dias que pretende *manter ao* abrigo das políticas de **retenção**
+4. Insira o número de dias que pretende *reter* ao abrigo **das políticas de retenção**
 
 5. Escolha o botão **Guardar** para confirmar as definições de Proteção de Dados
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
-Para ver bolhas apagadas suaves, selecione a caixa de verificação de **blobs eliminada supérre.**
+Para visualizar bolhas apagadas suaves, selecione a caixa de verificação **de blobs apagadas do Show.**
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
-Para ver imagens apagadas suaves para uma dada bolha, selecione a bolha e, em seguida, clique em **Ver snapshots**.
+Para visualizar instantâneos apagados suaves para uma determinada bolha, selecione a bolha e, em seguida, clique em **Ver instantâneos**.
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
-Certifique-se de que a caixa de verificação de **instantâneos eliminado seleções** do Show foi selecionada.
+Certifique-se de que a caixa de verificação **de instantâneos apagadas do Show** está selecionada.
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
-Quando clicar numa bolha ou instantâneo suavemente apagado, repare nas novas propriedades blob. Indicam quando o objeto foi apagado e quantos dias faltam até que a bolha ou a imagem blob estejam permanentemente expiradas. Se o objeto apagado macio não for instantâneo, também terá a opção de o desapagar.
+Quando clicar numa bolha ou instantâneo apagado suave, note as novas propriedades blob. Indicam quando o objeto foi apagado e quantos dias faltam até que a bolha ou o instantâneo blob expirem permanentemente. Se o objeto apagado suave não for um instantâneo, também terá a opção de desafiá-lo.
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
-Lembre-se que não desabater uma bolha também irá desapagar todos os instantâneos associados. Para desapagar as imagens apagadas macias para uma bolha ativa, clique na bolha e **selecione Undelete todos os instantâneos**.
+Lembre-se que desaderar uma bolha também irá desemarrá todos os instantâneos associados. Para desembolsar instantâneos suaves apagados para uma bolha ativa, clique na bolha e selecione **Undelete todos os instantâneos**.
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
-Uma vez que não apague as imagens de uma bolha, pode clicar em **Promover** para copiar uma imagem sobre a bolha da raiz, restaurando assim a bolha para o instantâneo.
+Assim que desempacoar as fotos de uma bolha, pode clicar em **Promover** para copiar uma imagem sobre a bolha de raiz, restaurando assim a bolha para o instantâneo.
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
@@ -70,7 +70,7 @@ Uma vez que não apague as imagens de uma bolha, pode clicar em **Promover** par
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para permitir a eliminação suave, atualize as propriedades de serviço de um cliente blob. O exemplo que se segue permite eliminar suavemente para um subconjunto de contas numa subscrição:
+Para ativar a eliminação suave, atualize as propriedades de serviço de um cliente blob. O exemplo a seguir permite a eliminação suave de um subconjunto de contas numa subscrição:
 
 ```powershell
 Set-AzContext -Subscription "<subscription-name>"
@@ -78,14 +78,14 @@ $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -m
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 
-Pode verificar se a eliminação suave foi ativada utilizando o seguinte comando:
+Pode verificar se a eliminação suave foi ligada utilizando o seguinte comando:
 
 ```powershell
 $MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
-Para recuperar bolhas que foram acidentalmente apagadas, ligue para undelete nessas bolhas. Lembre-se que chamar **Undelete Blob**, tanto em bolhas apagadas ativas como suaves, irá restaurar todos os instantâneos apagados associados como ativos. O exemplo seguinte chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
+Para recuperar as bolhas que foram acidentalmente apagadas, ligue para Undelete naquelas bolhas. Lembre-se que chamar **Undelete Blob**, tanto em bolhas apagadas ativas como suaves, irá restaurar todos os instantâneos suaves apagados associados como ativos. O exemplo a seguir chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
 
 ```powershell
 # Create a context by specifying storage account name and key
@@ -98,7 +98,7 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
-Para encontrar a atual política de retenção soft delete, utilize o seguinte comando:
+Para encontrar a atual política de retenção de eliminação suave, utilize o seguinte comando:
 
 ```azurepowershell-interactive
    $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
@@ -119,7 +119,7 @@ Para verificar se a eliminação suave está ligada, utilize o seguinte comando:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Para permitir a eliminação suave, atualize as propriedades de serviço de um cliente blob:
 
@@ -143,11 +143,11 @@ Para permitir a eliminação suave, atualize as propriedades de serviço de um c
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
 
-Para recuperar bolhas que foram acidentalmente apagadas, ligue para undelete nessas bolhas. Lembre-se que chamar **Undelete**, tanto em bolhas apagadas ativas como suaves, irá restaurar todas as imagens suaves associadas como ativas. O exemplo seguinte chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
+Para recuperar as bolhas que foram acidentalmente apagadas, ligue para Undelete naquelas bolhas. Lembre-se que chamar **Undelete**, tanto em bolhas apagadas ativas como suaves, irá restaurar todos os instantâneos suaves e suaves associados como ativos. O exemplo a seguir chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
-Para recuperar para uma versão blob específica, primeiro ligue para Undelete em uma bolha e, em seguida, copie o instantâneo desejado sobre a bolha. O exemplo seguinte recupera uma bolha de bloco para o seu instantâneo mais recentemente gerado:
+Para recuperar para uma versão blob específica, primeiro ligue para Undelete numa bolha e, em seguida, copie o instantâneo desejado sobre a bolha. O exemplo a seguir recupera uma bolha de bloco para o seu instantâneo mais recentemente gerado:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
 
@@ -167,7 +167,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-Para recuperar bolhas que foram acidentalmente apagadas, ligue para undelete nessas bolhas. Lembre-se que chamar **Undelete**, tanto em bolhas apagadas ativas como suaves, irá restaurar todas as imagens suaves associadas como ativas. O exemplo seguinte chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
+Para recuperar as bolhas que foram acidentalmente apagadas, ligue para Undelete naquelas bolhas. Lembre-se que chamar **Undelete**, tanto em bolhas apagadas ativas como suaves, irá restaurar todos os instantâneos suaves e suaves associados como ativos. O exemplo a seguir chama Undelete em todas as bolhas macias apagadas e ativas num recipiente:
 
 ```csharp
 // Recover all blobs in a container
@@ -177,7 +177,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-Para recuperar para uma versão blob específica, primeiro ligue para Undelete em uma bolha e, em seguida, copie o instantâneo desejado sobre a bolha. O exemplo seguinte recupera uma bolha de bloco para o seu instantâneo mais recentemente gerado:
+Para recuperar para uma versão blob específica, primeiro ligue para Undelete numa bolha e, em seguida, copie o instantâneo desejado sobre a bolha. O exemplo a seguir recupera uma bolha de bloco para o seu instantâneo mais recentemente gerado:
 
 ```csharp
 // Undelete
@@ -195,7 +195,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Eliminação suave para armazenamento Blob](soft-delete-overview.md)
-- [Versão blob (pré-visualização)](versioning-overview.md)
+- [Excluir suave para armazenamento Blob](soft-delete-overview.md)
+- [Veragem blob (pré-visualização)](versioning-overview.md)

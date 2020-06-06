@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 04566bae2a9010dde5f9d6d4a0a63c237505597b
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 2f871312b7e36288d1b78e05aa4058dab6c1942f
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429639"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449571"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Trabalhos de Streaming de Autoscale Analytics utilizando a Azure Automation
 
@@ -29,7 +29,7 @@ Antes de começar a configurar autoscaling para o seu trabalho, complete os segu
 ### <a name="configure-variables"></a>Configure variáveis
 Adicione as seguintes variáveis dentro da conta Azure Automation. Estas variáveis serão usadas nos livros que são descritos nos próximos passos.
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | --- | --- | --- |
 | **trabalhoName** | String | Nome do seu trabalho stream Analytics que pretende fazer uma escala automática. |
 | **resourceGroupName** | String | Nome do grupo de recursos em que o seu trabalho está presente. |
@@ -67,7 +67,7 @@ A Azure Automation permite-lhe configurar um horário para ativar os seus runboo
 ## <a name="autoscale-based-on-load"></a>Autoescala com base na carga
 Pode haver casos em que não se pode prever a carga de entrada. Nestes casos, é mais ideal escalar para cima/para baixo em degraus dentro de um limite mínimo e máximo. Pode configurar regras de alerta nos seus trabalhos stream Analytics para desencadear livros de execução quando as métricas de trabalho vão acima ou abaixo de um limiar.
 1. Na sua conta Azure Automation, crie mais duas variáveis Inteiros chamadas **minSU** e **maxSU.** Isto define os limites dentro dos quais o seu trabalho vai escalar em passos.
-2. Crie dois novos livros. Pode utilizar o [script StepScaleUp PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/Autoscaleup.ps1) que aumenta as SUs do seu trabalho em incrementos até ao valor **máximo.** Também pode utilizar o [script StepScaleDown PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/autoscaledown.ps1) que diminui as SUs do seu trabalho em etapas até que o valor **minSU** seja atingido. Em alternativa, pode utilizar os livros de execução da secção anterior se tiver valores de SU específicos a que pretende escalar.
+2. Crie dois novos livros. Pode utilizar o [script StepScaleUp PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) que aumenta as SUs do seu trabalho em incrementos até ao valor **máximo.** Também pode utilizar o [script StepScaleDown PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) que diminui as SUs do seu trabalho em etapas até que o valor **minSU** seja atingido. Em alternativa, pode utilizar os livros de execução da secção anterior se tiver valores de SU específicos a que pretende escalar.
 3. No seu trabalho stream Analytics, selecione **as regras de alerta** em **Monitorização**. 
 4. Criar dois grupos de ação. Um para ser usado para aumentar a escala e outro para a operação de escala para baixo. Selecione **Gerir Ações** e, em seguida, clique no **Grupo de Ação Adicionar**. 
 5. Preencha os campos necessários. Escolha **o Livro de Execução de Automação** quando selecionar o Tipo de **Ação**. Selecione o livro de bordo que pretende acionar quando o alerta disparar. Então, crie o grupo de ação.
@@ -79,6 +79,6 @@ Pode haver casos em que não se pode prever a carga de entrada. Nestes casos, é
 
 É uma boa prática fazer testes à escala antes de executar o seu trabalho na produção. Ao testar o seu trabalho contra cargas de entrada variadas, você tem uma noção de quantas SUs o seu trabalho precisa para diferentes entradas. Isto pode informar as condições que define nas suas regras de alerta que desencadeiam a escala e reduzem as operações. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar consultas paralizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Escala Azure Stream Analytics empregos para aumentar a produção](stream-analytics-scale-jobs.md)

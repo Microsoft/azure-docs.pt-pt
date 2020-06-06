@@ -7,37 +7,44 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: 67746ebd8a16eb02b8f02d238b0e3c0125989189
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c34ada2c7437d8415b52c68fb66103ec3aa81d95
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308273"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456934"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
-O serviço Azure Event Grid cria tópicos de sistema quando cria uma primeira subscrição de eventos para uma fonte de eventos Azure. Atualmente, a Event Grid não cria tópicos de sistema para fontes de tópicos que foram criados antes do Mar, 15 de 2020. Para todas as fontes de tópicos que criou nesta data ou depois desta data, o Event Grid cria automaticamente tópicos do sistema. Este artigo descreve **tópicos do sistema** na Azure Event Grid.
+Os tópicos do sistema são os tópicos criados para os serviços Azure, como o Azure Storage e o Azure Event Hubs. Pode criar tópicos de sistema utilizando o modelo Azure portal, PowerShell, CLI ou Azure Resource Manager.  
 
 > [!NOTE]
 > Esta funcionalidade não está atualmente ativada para a nuvem do Governo Azure. 
 
-## <a name="overview"></a>Descrição geral
-Quando cria a subscrição do primeiro evento para uma fonte de eventoS Azure, como a conta Azure Storage, o processo de provisionamento para a subscrição cria um recurso adicional do tipo **Microsoft.EventGrid/systemTopics**. Quando a última subscrição do evento à fonte do evento Azure for eliminada, o tópico do sistema é automaticamente eliminado.
+## <a name="create-system-topics"></a>Criar tópicos de sistema
+Pode criar um tópico de sistema de duas formas: 
 
-O tópico do sistema não é aplicável a cenários de tópicos personalizados, ou seja, tópicos de Grade de Eventos e domínios de Grade de Eventos. 
+- Crie um tópico de sistema para um recurso Azure e, em seguida, crie uma subscrição de eventos para esse tópico do sistema.
+- Crie uma subscrição de eventos num recurso Azure, que cria internamente um tópico de sistema para si.
 
-## <a name="name"></a>Name 
-Anteriormente, quando criou uma subscrição para um evento criado por fontes Azure, o serviço Desematado criou automaticamente um tópico de sistema com um **nome gerado aleatoriamente.** Agora, pode especificar um nome para o tópico do sistema enquanto cria o tópico no portal Azure. Pode utilizar este recurso tópico do sistema para descobrir métricas e registos de diagnóstico.
+Quando utiliza a primeira abordagem, o tópico do sistema não é automaticamente eliminado quando a última subscrição do evento para esse tópico do sistema é eliminada. Quando utiliza a segunda abordagem, o tópico do sistema é automaticamente eliminado quando a última subscrição do evento é eliminada. 
 
-## <a name="location"></a>Localização
+Para obter instruções detalhadas sobre a criação de tópicos do sistema utilizando o portal Azure, PowerShell ou CLI, consulte os seguintes artigos:
+
+- [Criar, visualizar e gerir tópicos do sistema utilizando o portal Azure](create-view-manage-system-topics.md).
+- [Criar, ver e gerir tópicos do sistema de grade de eventos utilizando o Azure CLI](create-view-manage-system-topics-cli.md)
+- [Crie tópicos de sistema de grelha de eventos utilizando modelos de Gestor de Recursos Azure](create-view-manage-system-topics-arm.md)
+
+## <a name="system-topic-name"></a>Nome tópico do sistema
+O Event Grid não criou tópicos de sistema para fontes Azure (Azure Storage, Azure Event Hubs, etc.) que foram criados antes de Mar, 15, 2020. Se criou uma subscrição para um evento criado por fontes Azure entre 3/15/2020 e 6/2/2020, o serviço Desemiste criou automaticamente um tópico de sistema com um **nome gerado aleatoriamente.** Depois de 6/2/2020, pode especificar um nome para o tópico do sistema enquanto cria uma subscrição de eventos para uma fonte Azure. 
+
+## <a name="location-and-resource-group"></a>Localização e grupo de recursos
 Para fontes de eventos Azure que se encontram numa região/localização específica, o tópico do sistema é criado no mesmo local que a fonte do evento Azure. Por exemplo, se criar uma subscrição de eventos para um armazenamento de blob Azure no Leste dos EUA, o tópico do sistema é criado no Leste dos EUA. Para fontes globais de eventos Azure, como subscrições Azure, grupos de recursos ou Azure Maps, a Grade de Eventos cria o tópico do sistema na localização **global.** 
 
-## <a name="resource-group"></a>Grupo de recursos 
 Em geral, o tópico do sistema é criado no mesmo grupo de recursos em que a fonte de eventos Azure está. Para subscrições de eventos criadas no âmbito de subscrição do Azure, o tópico do sistema é criado sob o grupo de recursos **Default-EventGrid**. Se o grupo de recursos não existir, a Azure Event Grid cria-o antes de criar o tópico do sistema. 
 
-Quando tentar eliminar o grupo de recursos com a conta de armazenamento, verá o tópico do sistema na lista de recursos afetados.  
+## <a name="next-steps"></a>Próximos passos
+Consulte os seguintes artigos: 
 
-![Eliminar grupo de recursos](./media/system-topics/delete-resource-group.png)
-
-
-## <a name="next-steps"></a>Passos seguintes
-Consulte o seguinte artigo: [Criar, ver e gerir tópicos do sistema](create-view-manage-system-topics.md).
+- [Criar, visualizar e gerir tópicos do sistema utilizando o portal Azure](create-view-manage-system-topics.md).
+- [Criar, ver e gerir tópicos do sistema de grade de eventos utilizando o Azure CLI](create-view-manage-system-topics-cli.md)
+- [Crie tópicos de sistema de grelha de eventos utilizando modelos de Gestor de Recursos Azure](create-view-manage-system-topics-arm.md)

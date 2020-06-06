@@ -3,16 +3,14 @@ title: Utilize um equilibrador de carga SKU standard
 titleSuffix: Azure Kubernetes Service
 description: Saiba como utilizar um equilibrador de carga com um SKU Standard para expor os seus serviços com o Serviço Azure Kubernetes (AKS).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
-ms.author: zarhoads
-ms.openlocfilehash: d550425cc5ab1bdf539464ad120f1ac4f14d4c6e
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9f75153868633079f24992955c7585f5954befc4
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267193"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465784"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga Standard SKU no Serviço Azure Kubernetes (AKS)
 
@@ -252,7 +250,7 @@ spec:
 
 O exemplo acima atualiza a regra para permitir apenas o tráfego externo de entrada a partir da gama *MY_EXTERNAL_IP_RANGE.* Mais informações sobre a utilização deste método para restringir o acesso ao serviço de balançadores de carga estão disponíveis na [documentação de Kubernetes.][kubernetes-cloud-provider-firewall]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os serviços da Kubernetes na documentação dos [serviços kubernetes.][kubernetes-services]
 

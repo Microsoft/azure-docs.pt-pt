@@ -3,14 +3,14 @@ title: Implantação do modelo e se (Pré-visualização)
 description: Determine quais as alterações que irão acontecer aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 62f46d158bea9507246fda7f24750c3743a5e1f1
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: abe834670c5df461b523bd48717f20093bdef0a3
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424249"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457291"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM e se operação (Pré-visualização)
 
@@ -136,6 +136,8 @@ Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualme
 
 * `az deployment group what-if --no-pretty-print`para implementações de grupos de recursos
 * `az deployment sub what-if --no-pretty-print`para implementações de nível de subscrição
+
+Se pretender devolver os resultados sem cores, abra o seu ficheiro [de configuração Azure CLI.](/cli/azure/azure-cli-configuration) Desateia **no_color** para **sim.**
 
 ### <a name="azure-rest-api"></a>API REST do Azure
 
@@ -411,7 +413,7 @@ Pode utilizar a operação "e se" através dos Azure SDKs.
 
 * Para .NET, utilize [a classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se notar resultados incorretos a partir da pré-visualização do "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para implementar modelos com Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
