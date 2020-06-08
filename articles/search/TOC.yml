@@ -324,24 +324,28 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: Atualizar a API REST
           href: search-api-migration.md
-    - name: Proteger
+    - name: Segurança
       items:
-        - name: Descrição geral da segurança
+        - name: Descrição geral
           href: search-security-overview.md
-        - name: Criar um ponto final privado
-          href: service-create-private-endpoint.md
-        - name: Configurar uma firewall do IP
-          href: service-configure-firewall.md
-        - name: Gestão da chave do serviço
-          href: search-security-api-keys.md
-        - name: Acesso administrativo baseado em funções
-          href: search-security-rbac.md
-        - name: Filtros de segurança
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrar identidades do AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Gerir chaves de encriptação
-          href: search-security-manage-encryption-keys.md
+        - name: Encriptação de dados
+          items:
+            - name: Chaves geridas pelo cliente
+              href: search-security-manage-encryption-keys.md
+        - name: Segurança de entrada
+          items:
+            - name: Chaves de acesso de API
+              href: search-security-api-keys.md
+            - name: Configurar uma firewall do IP
+              href: service-configure-firewall.md
+            - name: Criar um ponto final privado
+              href: service-create-private-endpoint.md
+        - name: Acesso baseado em identidade
+          items:
+            - name: Filtros de segurança
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrar identidades do AAD
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Gerir
       items:
         - name: Portal
@@ -350,6 +354,8 @@
           href: search-manage-powershell.md
         - name: Mover o serviço entre regiões
           href: search-howto-move-across-regions.md
+        - name: Acesso administrativo baseado em funções
+          href: search-security-rbac.md
     - name: Monitorizar
       items:
         - name: Noções Básicas
@@ -473,6 +479,8 @@
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Fórum de Comentários (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
+    - name: Conformidade e certificações
+      href: 'https://aka.ms/azurecompliance'
     - name: Sites de demonstração
       items:
         - name: Demonstração com ficheiros financeiros

@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9c54a338e58d2c454c3686fd32de798fd556186d
-  ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+  ms.openlocfilehash: 2bd4075f405e034d15eaec3ac31065e4138c41fb
+  ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/04/2020
-  ms.locfileid: "84433394"
+  ms.lasthandoff: 06/05/2020
+  ms.locfileid: "84447990"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -216,6 +216,12 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/personalizer/index.yml
+  - title: Projeto Bonsai (Pré-visualização)
+    summary: Um serviço de machine teaching para criar sistemas de controlo industrial inteligentes através de simulações
+    imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+    azureCategories:
+    - ai-machine-learning
+    url: https://docs.microsoft.com/bonsai/
   - title: QnA Maker
     summary: Converta informações em respostas de conversação fáceis de navegar
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg

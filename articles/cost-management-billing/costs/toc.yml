@@ -31,6 +31,8 @@
           href: understand-cost-mgt-data.md
         - name: Compreender e trabalhar com âmbitos
           href: understand-work-scopes.md
+        - name: Gerir os custos com a automatização
+          href: manage-automation.md
         - name: Migrar do EA para APIs do MCA
           href: migrate-cost-management-api.md
     - name: Guias de procedimentos

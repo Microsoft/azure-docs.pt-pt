@@ -106,6 +106,8 @@
       href: train-clustering-model.md
     - name: Preparar Modelo
       href: train-model.md
+    - name: Preparar um Modelo do PyTorch
+      href: train-pytorch-model.md
     - name: Ajustar hiperparâmetros do modelo
       href: tune-model-hyperparameters.md
 - name: Classificação e avaliação do modelo
@@ -118,6 +120,8 @@
       href: cross-validate-model.md
     - name: Avaliar Modelo
       href: evaluate-model.md
+    - name: Classificar o Modelo de Imagem
+      href: score-image-model.md
     - name: Modelo de Pontuação
       href: score-model.md
 - name: Linguagem Python
@@ -142,6 +146,20 @@
       href: preprocess-text.md
     - name: Alocação Latente de Dirichlet
       href: latent-dirichlet-allocation.md
+- name: Imagem digitalizada
+  items:
+    - name: Aplicar a Transformação da Imagem
+      href: apply-image-transformation.md
+    - name: Converter para o Diretório da Imagem
+      href: convert-to-image-directory.md
+    - name: Inicializar a Transformação da Imagem
+      href: init-image-transformation.md
+    - name: Dividir o Diretório da Imagem
+      href: split-to-image-directory.md
+    - name: DenseNet
+      href: densenet.md
+    - name: ResNet
+      href: resnet.md
 - name: Recomendação
   items:
     - name: Avaliar Recomendador
