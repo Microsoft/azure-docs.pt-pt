@@ -1,23 +1,23 @@
 ---
-title: Recomendações de desempenho - Base de Dados Azure para MySQL
-description: Este artigo descreve a funcionalidade de Recomendação de Desempenho na Base de Dados Azure para mySQL
+title: Recomendações de desempenho - Azure Database for MySQL
+description: Este artigo descreve a funcionalidade de Recomendação de Desempenho na Base de Dados Azure para o MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/12/2020
-ms.openlocfilehash: cba07b84a1ddc2b9362c818ae2d3747b98379f2e
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.date: 6/3/2020
+ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402651"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485214"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Performance Recommendations in Azure Database for MySQL (Recomendações de desempenho na Base de Dados do Azure para MySQL)
 
 **Aplica-se a:** Base de Dados Azure para MySQL 5.7, 8.0
 
-A funcionalidade De Recomendações de Desempenho analisa as suas bases de dados para criar sugestões personalizadas para um melhor desempenho. Para produzir as recomendações, a análise analisa várias características da base de dados, incluindo o esquema. Ative a [Consulta Store](concepts-query-store.md) no seu servidor para utilizar totalmente a funcionalidade Desativação de Desempenho. Se o esquema de desempenho estiver DESLIGADO, ligar a Consulta Store permite performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para a funcionalidade. Após a implementação de qualquer recomendação de desempenho, deve testar o desempenho para avaliar o impacto dessas alterações.
+A funcionalidade De Recomendações de Desempenho analisa as suas bases de dados para criar sugestões personalizadas para um melhor desempenho. Para produzir as recomendações, a análise analisa várias características da base de dados, incluindo o esquema. Ativar [a Loja de Consultas](concepts-query-store.md) no seu servidor para utilizar plenamente a função de Recomendações de Desempenho. Se o esquema de desempenho estiver desligado, ligar a Query Store permite performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para a funcionalidade. Depois de implementar qualquer recomendação de desempenho, deve testar o desempenho para avaliar o impacto dessas alterações.
 
 ## <a name="permissions"></a>Permissões
 
@@ -27,25 +27,27 @@ As permissões **Proprietário** ou **Contribuidor** necessárias para executar 
 
 A funcionalidade [Recomendações de Desempenho](concepts-performance-recommendations.md) analisa as cargas de trabalho no servidor para identificar índices com o potencial de melhorar o desempenho.
 
-Open **Performance Recomendações** da secção **de Desempenho Inteligente** da barra de menuna página do portal Azure para o seu servidor MySQL.
+**Recomendações** de desempenho **abertas** a partir da secção de Desempenho Inteligente da barra de menu na página do portal Azure para o seu servidor MySQL.
 
-![Página de destino das Recomendações de Desempenho](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Página de destino das Recomendações de Desempenho":::
 
-Selecione **Analisar** e escolher uma base de dados, que começará a análise. Dependendo da sua carga de trabalho, a análise pode demorar vários minutos a ser concluída. Quando a análise estiver concluída, será apresentada uma notificação no portal. A análise é feita na sua base de dados. Recomendamos que efetue análises durante períodos fora do pico.
+Selecione **Analisar** e escolher uma base de dados, que começará a análise. Dependendo da sua carga de trabalho, a análise pode demorar vários minutos a ser concluída. Quando a análise estiver concluída, será apresentada uma notificação no portal. A análise faz um exame profundo da sua base de dados. Recomendamos que efetue análises durante períodos fora do pico.
 
-A janela **de recomendações** mostrará uma lista de recomendações se alguma foi encontrada e a identificação de consulta relacionada que gerou esta recomendação. Com a identificação da consulta, você pode usar a visão [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
+A janela **de recomendações** apresentará uma lista de recomendações se alguma for encontrada e o ID de consulta relacionado que gerou esta recomendação. Com o ID de consulta, você pode usar a visão [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
 
-![Recomendações de Desempenho nova página](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nova página de recomendações de desempenho":::
 
 As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto de consulta e execute-o a partir do seu cliente de eleição. Lembre-se de testar e monitorizar para avaliar a recomendação.
 
 ## <a name="recommendation-types"></a>Tipos de recomendação
 
-Atualmente, apenas são apoiadas recomendações do *Create Index.*
+### <a name="index-recommendations"></a>Recomendações de índice
 
-### <a name="create-index-recommendations"></a>Criar recomendações do Índice
+*Criar* recomendações de Índice sugerem novos índices para acelerar as consultas mais frequentemente executadas ou demoradas na carga de trabalho. Este tipo de recomendação requer que a [Loja de Consultas](concepts-query-store.md) seja ativada. A Consulta Store recolhe informações de consulta e fornece as estatísticas detalhadas de tempo de consulta e frequência que a análise utiliza para fazer a recomendação.
 
-*As* recomendações do Create Index sugerem novos índices para acelerar as consultas mais frequentes ou demoradas na carga de trabalho. Este tipo de recomendação requer que a [Consulta Store](concepts-query-store.md) seja ativada. A Consulta Store recolhe informações de consulta e fornece as estatísticas detalhadas de tempo de execução e frequência que a análise utiliza para fazer a recomendação.
+### <a name="query-recommendations"></a>Recomendações de consulta
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [monitorização e sintonização](concepts-monitoring.md) na Base de Dados Azure para mySQL.
+Recomendações de consulta sugerem otimizações e reescritas para consultas na carga de trabalho. Ao identificar os anti-padrões de consulta mySQL e fixá-los sintactamente, o desempenho de consultas demoradas pode ser melhorado. Este tipo de recomendação requer que a Loja de Consultas seja ativada. A Consulta Store recolhe informações de consulta e fornece as estatísticas detalhadas de tempo de consulta e frequência que a análise utiliza para fazer a recomendação.
+
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais sobre [monitorização e afinação](concepts-monitoring.md) na Base de Dados Azure para o MySQL.

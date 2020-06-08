@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 54103ad999d3e310d53e84f29d41aad733abfe93
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 86f75e393f54827a58627e3c41b19563c3983ac9
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450879"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482847"
 ---
 # <a name="automate-the-lifecycle-of-your-apps-with-continuous-build-and-integration"></a>Automatizar o ciclo de vida das suas apps com construção e integração contínuas
 

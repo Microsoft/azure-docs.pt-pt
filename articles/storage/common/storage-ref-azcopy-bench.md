@@ -8,22 +8,22 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 331d0cd4a20cb4351a1bc9a204c500386c499ada
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220150"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485180"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>referência azcopia
 
 Executa um benchmark de desempenho carregando dados de teste para um destino especificado. Os dados do teste são gerados automaticamente.
 
 O comando de referência executa o mesmo processo de upload que 'copy', exceto que:
 
-  - Não há nenhum parâmetro de origem.  O comando requer apenas uma URL de destino. Na versão atual, este URL de destino deve consultar-se a um recipiente de bolhas.
+  - Não há nenhum parâmetro de origem.  O comando requer apenas uma URL de destino. 
   
-  - A carga útil é descrita por parâmetros da linha de comando, que controlam quantos ficheiros são gerados automaticamente e quão grandes são. O processo de geração ocorre inteiramente na memória. O disco não é usado.
+  - A carga útil é descrita por parâmetros da linha de comando, que controlam quantos ficheiros são gerados automaticamente e o seu tamanho. O processo de geração ocorre inteiramente na memória. O disco não é usado.
   
   - Apenas alguns dos parâmetros opcionais que estão disponíveis para o comando de cópia são suportados.
   
@@ -31,14 +31,14 @@ O comando de referência executa o mesmo processo de upload que 'copy', exceto q
   
   - Por predefinição, os dados transferidos são eliminados no final do teste.
 
-O modo benchmark irá sintonizar-se automaticamente com o número de ligações TCP paralelas que dá a máxima potência. Mostrará este número no final. Para evitar a afinação automática, coloque a variável ambiente AZCOPY_CONCURRENCY_VALUE num número específico de ligações.
+O modo benchmark irá sintonizar-se automaticamente com o número de ligações TCP paralelas que dá a máxima potência. Mostrará este número no final. Para evitar a autofinar, coloque a variável ambiente AZCOPY_CONCURRENCY_VALUE num número específico de ligações.
 
 Todos os tipos de autenticação habitual são suportados. No entanto, a abordagem mais conveniente para o benchmarking é normalmente criar um recipiente vazio com um token SAS e usar a autenticação SAS.
 
 ## <a name="examples"></a>Exemplos
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Executar um teste de referência com parâmetros predefinidos (adequado para redes de benchmarking até 1 Gbps):».
@@ -49,7 +49,7 @@ Executar um teste de referência que carrega 100 ficheiros, cada um de 2 GiB em 
 
 - banco de azcopia "https://[account].blob.core.windows.net/[contentor]? <SAS> " --contagem de ficheiros 100 --tamanho por ficheiro 2G
 
-O mesmo que acima, mas use 50.000 ficheiros, cada 8 MiB em tamanho e calcule os seus hashes MD5 (da mesma forma que a bandeira --put-md5 faz isso no comando de cópia). O objetivo de --put-md5 quando o benchmarking é testar se a computação MD5 afeta a produção para a contagem e tamanho de ficheiros selecionados:
+Faça um teste de referência mas use 50.000 ficheiros, cada 8 MiB em tamanho e calcule os seus hashes MD5 (da mesma forma que a `--put-md5` bandeira faz isso no comando de cópia). O objetivo do `--put-md5` benchmarking é testar se a computação MD5 afeta a produção para a contagem e o tamanho dos ficheiros selecionados:
 
 - banco de azcopia "https://[account].blob.core.windows.net/[contentor]? <SAS> " ---contagem de ficheiros 50000 --tamanho-por-ficheiro 8M --put-md5
 
@@ -79,6 +79,6 @@ O mesmo que acima, mas use 50.000 ficheiros, cada 8 MiB em tamanho e calcule os 
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [azcopia](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

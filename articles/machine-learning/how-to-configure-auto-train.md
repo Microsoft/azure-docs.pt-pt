@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5751a7c5eac9386ecd52e172b40aacbef5247dd1
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 2db6134d49ccd73c32339fe51814d915ae88604a
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434621"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484492"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -200,7 +200,7 @@ Em todas as experiências automatizadas de machine learning, os seus dados são 
 
 Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a participação na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-|Configuração de exibição | Description |
+|Configuração de exibição | Descrição |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição predefinida**|
 |`"featurization": 'off'`| Indica que o passo de exibição não deve ser feito automaticamente.|
@@ -344,6 +344,8 @@ Há algumas opções que pode definir para terminar a sua experiência.
 ### <a name="explore-model-metrics"></a>Explore as métricas do modelo
 
 Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Consulte [Track e avalie os modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
+
+Para mais detalhes sobre como descarregar ou registar um modelo de implementação para um serviço web, consulte [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 
 ## <a name="understand-automated-ml-models"></a>Compreender modelos ML automatizados
 
@@ -510,7 +512,7 @@ Consulte o [como fazer amostras de](how-to-machine-learning-interpretability-aut
 
 Para obter informações gerais sobre como as explicações dos modelos e a importância do recurso podem ser ativadas noutras áreas do SDK fora da aprendizagem automática de máquinas, consulte o artigo [de conceito](how-to-machine-learning-interpretability.md) sobre interpretação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

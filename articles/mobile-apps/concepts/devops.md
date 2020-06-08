@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2323-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 4699610223e824dfaa147b880e73b0e04852f386
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fa18f50a1e2c9a83cf5aa234e5d9e1b1574eeb4c
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450858"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482705"
 ---
 # <a name="what-is-devops"></a>O que é o DevOps?
 A palavra "DevOps" vem de uma combinação de "Desenvolvimento" e "Operações". A DevOps sublinha a importância da comunicação e colaboração entre desenvolvedores de software e profissionais de TI de produção, ao mesmo tempo que automatiza a implementação de mudanças de software e infraestruturas. DevOps foca-se na adoção de metodologias ágeis e magras e automatizando tarefas repetitivas. O objetivo do DevOps é lançamentos de aplicações oportunas e bem-sucedidas.

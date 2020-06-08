@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 724ad41bdafdba976939cbf9b7f88df2de6c6c18
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: dc92b187d1bef52339466cf46dbabde7662e95f9
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450669"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482550"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Armazenar, sincronizar e consultar dados de aplicações móveis da nuvem
 Não importa que tipo de aplicação construa, provavelmente gerará e processará dados. Os utilizadores da sua aplicação têm altas expectativas. Querem que a candidatura funcione de forma rápida e perfeita, em todas as circunstâncias. A maioria das aplicações também funciona em vários dispositivos. Pode aceder à sua aplicação a partir de um ambiente de trabalho ou de um dispositivo móvel. Vários utilizadores poderão utilizar a aplicação ao mesmo tempo e partilhar dados com a expectativa de obter acesso instantâneo e em tempo real aos dados.

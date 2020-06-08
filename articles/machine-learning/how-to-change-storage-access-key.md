@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: f4ae4890d28236db493909243d66e28d308e2002
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 0444ffd27b3a261268f04f0077cca3116521e6f7
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434642"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484522"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,28 +105,36 @@ Para atualizar a Azure Machine Learning para utilizar a nova chave, utilize os s
 
         Este comando sincroniza automaticamente as novas teclas da conta de armazenamento Azure utilizadas pelo espaço de trabalho.
 
-1. Para re-registar os dados que utilizam a conta de armazenamento, utilize os valores da secção [What need to updateed](#whattoupdate) e a chave do passo 1 com o seguinte código:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Pode re-registar datastore(s) que utilizam a conta de armazenamento através do SDK ou [do estúdio Azure Machine Learning](https://ml.azure.com).
+    1. **Para re-registar as lojas de dados através do Python SDK,** utilize os valores da secção [What need to updateed](#whattoupdate) e a chave do passo 1 com o seguinte código. 
+    
+        Uma vez `overwrite=True` especificado, este código substitui o registo existente e atualiza-o para utilizar a nova chave.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
+    1. **Para re-registar as datas do estúdio,** selecione **Datastores** a partir do painel esquerdo do estúdio. 
+        1. Selecione a loja de dados que pretende atualizar.
+        1. Selecione o botão **de credenciais 'Actualização'** no topo esquerdo. 
+        1. Utilize a sua nova chave de acesso a partir do passo 1 para preencher o formulário e clique em **Guardar**.
+        
+            Se estiver a atualizar credenciais para a sua **datastore predefinido,** complete este passo e repita o passo 2b para ressíncar a sua nova tecla com a datastore predefinido do espaço de trabalho. 
 
-    Uma vez `overwrite=True` especificado, este código substitui o registo existente e atualiza-o para utilizar a nova chave.
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o registo de datastores, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) referência de classe.

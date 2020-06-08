@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-0000-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 61f489cdd2c0493a88a2292eec8394a0dab31bd6
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 3349a7148ab4f5d381666c19cf19e8f44dccd728
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450928"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485260"
 ---
 # <a name="perform-automated-testing-on-thousands-of-mobile-devices-simultaneously"></a>Realizar testes automatizados em milhares de dispositivos móveis simultaneamente
 Os testes podem ser desafiantes e cada vez mais complexos devido à fragmentação do dispositivo, complexidade da aplicação, ciclos de lançamento rápido, sessões curtas e altas expectativas dos utilizadores. Tem de se certificar regularmente de que fornece aplicações completamente testadas que proporcionam uma excelente experiência ao cliente. Testar não é uma tarefa fácil, e não é um bom uso do tempo do desenvolvedor para testar manualmente cada lançamento.

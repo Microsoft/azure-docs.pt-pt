@@ -1,27 +1,27 @@
 ---
-title: Azure Spring Cloud CI/CD com ações gitHub
-description: Como acumular fluxo de trabalho CI/CD para Azure Spring Cloud com ações GitHub
+title: Azure Spring Cloud CI/CD com ações do GitHub
+description: Como construir fluxo de trabalho CI/CD para Azure Spring Cloud com ações do GitHub
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a0624c01a3bb75c1a7b07b130345776417cf482
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77538469"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484306"
 ---
-# <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações gitHub
+# <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
 
-GitHub Actions suportam um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. Com as ações gitHub para azure Spring Cloud você pode criar fluxos de trabalho no seu repositório para construir, testar, embalar, lançar e implementar para Azure. 
+GitHub Actions suporta um fluxo de trabalho automatizado de ciclo de vida de desenvolvimento de software. Com o GitHub Actions for Azure Spring Cloud pode criar fluxos de trabalho no seu repositório para construir, testar, embalar, lançar e implementar para a Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este exemplo requer o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurar o repositório GitHub e autenticar
-Precisa de uma credencial de princípio de serviço Azure para autorizar a ação de login azure. Para obter uma credencial Azure, execute os seguintes comandos na sua máquina local:
+Precisa de uma credencial de princípio de serviço Azure para autorizar a ação de login do Azure. Para obter uma credencial Azure, execute os seguintes comandos na sua máquina local:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
@@ -30,7 +30,7 @@ Para aceder a um grupo de recursos específicos, pode reduzir o âmbito:
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
-O comando deve ser de saída de um objeto JSON:
+O comando deve descoduar um objeto JSON:
 ```JSON
 {
     "clientId": "<GUID>",
@@ -41,18 +41,18 @@ O comando deve ser de saída de um objeto JSON:
 }
 ```
 
-Este exemplo utiliza a amostra [de Métricas piggy](https://github.com/Azure-Samples/piggymetrics) no GitHub.  Bifurque a amostra, abra a página de repositório GitHub e clique no separador **Definições.** Menu **Segredos** Abertos e clique em **Adicionar um novo segredo:**
+Este exemplo utiliza a amostra [piggy Metrics](https://github.com/Azure-Samples/piggymetrics) no GitHub.  Forque a amostra, abra a página de repositório do GitHub e clique no **separador Definições.** Menu **De Segredos Abertos** e clique em **Adicionar um novo segredo**:
 
- ![Adicione novo segredo](./media/github-actions/actions1.png)
+ ![Adicionar novo segredo](./media/github-actions/actions1.png)
 
-Detete o `AZURE_CREDENTIALS` nome secreto e o seu valor para a cadeia JSON que encontrou sob o título Instale o *seu repositório GitHub e autenticar*.
+Desista o nome secreto `AZURE_CREDENTIALS` e o seu valor para a cadeia JSON que encontrou no título *Configurar o seu repositório GitHub e autenticar*.
 
  ![Definir dados secretos](./media/github-actions/actions2.png)
 
 Você também pode obter a credencial de login Azure a partir de Key Vault em ações GitHub, como explicado em [Authenticate Azure Spring com Key Vault em GitHub Actions](./spring-cloud-github-actions-key-vault.md).
 
 ## <a name="provision-service-instance"></a>Instância de serviço de prestação
-Para fornecer a sua instância de serviço Azure Spring Cloud, execute os seguintes comandos utilizando o Azure CLI.
+Para providenciar a sua instância de serviço Azure Spring Cloud, execute os seguintes comandos utilizando o CLI Azure.
 ```
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
@@ -62,8 +62,8 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ## <a name="build-the-workflow"></a>Construir o fluxo de trabalho
 O fluxo de trabalho é definido utilizando as seguintes opções.
 
-### <a name="prepare-for-deployment-with-azure-cli"></a>Prepare-se para a implantação com o Azure CLI
-O `az spring-cloud app create` comando não é atualmente idempotente.  Recomendamos este fluxo de trabalho em aplicações e instâncias existentes da Azure Spring Cloud.
+### <a name="prepare-for-deployment-with-azure-cli"></a>Preparar para implantação com o Azure CLI
+O comando `az spring-cloud app create` não é atualmente idempotente.  Recomendamos este fluxo de trabalho sobre aplicações e instâncias existentes da Azure Spring Cloud.
 
 Utilize os seguintes comandos Azure CLI para preparação:
 ```
@@ -75,7 +75,7 @@ az spring-cloud app create --name account-service
 ```
 
 ### <a name="deploy-with-azure-cli-directly"></a>Implementar diretamente com o Azure CLI
-Crie `.github/workflow/main.yml` o ficheiro no repositório:
+Criar o `.github/workflow/main.yml` ficheiro no repositório:
 
 ```
 name: AzureSpringCloud
@@ -99,7 +99,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
     
     - name: Azure Login
       uses: azure/login@v1
@@ -117,11 +117,11 @@ jobs:
         az spring-cloud app deploy -n account-service --jar-path ${{ github.workspace }}/account-service/target/account-service.jar
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
-### <a name="deploy-with-azure-cli-action"></a>Implementar com a ação Azure CLI
-O comando `run` az usará a versão mais recente do Azure CLI. Se houver alterações de rutura, também pode utilizar uma versão específica `action`do Azure CLI com azure/CLI . 
+### <a name="deploy-with-azure-cli-action"></a>Implementar com ação Azure CLI
+O comando az `run` usará a versão mais recente do Azure CLI. Se houver alterações de rutura, também pode utilizar uma versão específica do Azure CLI com azure/CLI `action` . 
 
 > [!Note] 
-> Este comando será executado num novo `env` contentor, pelo que não funcionará, e o acesso a ficheiros de ação cruzada pode ter restrições adicionais.
+> Este comando funcionará num novo recipiente, pelo `env` que não funcionará, e o acesso a ficheiros de ação cruzada pode ter restrições extra.
 
 Crie o ficheiro .github/workflow/main.yml no repositório:
 ```
@@ -142,7 +142,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     - name: Azure Login
       uses: azure/login@v1
@@ -162,8 +162,8 @@ jobs:
           az spring-cloud app deploy -n auth-service --jar-path $GITHUB_WORKSPACE/auth-service/target/auth-service.jar
 ```
 
-## <a name="deploy-with-maven-plugin"></a>Implementar com Maven Plugin
-Outra opção é utilizar o [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) para implementar o Jar e atualizar as definições da App. O `mvn azure-spring-cloud:deploy` comando é idempotente e criará automaticamente apps se necessário. Não precisa de criar aplicações correspondentes com antecedência.
+## <a name="deploy-with-maven-plugin"></a>Implementar com o Maven Plugin
+Outra opção é utilizar o [Plugin Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) para implementar o Jar e atualizar as definições da App. O comando `mvn azure-spring-cloud:deploy` é idempotente e criará automaticamente Apps se necessário. Não precisa de criar aplicações correspondentes com antecedência.
 
 ```
 name: AzureSpringCloud
@@ -183,7 +183,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     # Maven plugin can cosume this authentication method automatically
     - name: Azure Login
@@ -198,17 +198,17 @@ jobs:
 ```
 
 ## <a name="run-the-workflow"></a>Executar o fluxo de trabalho
-**As ações** GitHub devem ser ativadas automaticamente depois de empurrar `.github/workflow/main.yml` para o GitHub. A ação será desencadeada quando forçares um novo compromisso. Se criar este ficheiro no navegador, a sua ação já deveria ter sido executada.
+As **ações** do GitHub devem ser ativadas automaticamente depois de empurrar `.github/workflow/main.yml` para o GitHub. A ação será desencadeada quando empurrares um novo compromisso. Se criar este ficheiro no browser, a sua ação já deveria ter sido executada.
 
-Para verificar se a ação foi ativada, clique no separador **Ações** na página de repositório GitHub:
+Para verificar se a ação foi ativada, clique no **separador Ações** na página do repositório GitHub:
 
  ![Verificar a ação ativada](./media/github-actions/actions3.png)
 
-Se a sua ação correr por engano, por exemplo, se não tiver definido a credencial Azure, pode reproduzir as verificações após a correção do erro. Na página de repescagem GitHub, clique **em Ações,** selecione a tarefa específica de fluxo de trabalho e, em seguida, clique no botão **de verificação rerun** para reproduzir verificações:
+Se a sua ação correr por engano, por exemplo, se não tiver definido a credencial Azure, pode repetir as verificações após a correção do erro. On the GitHub repository page, click **Actions**, select the specific workflow task, and then click the **Rerun checks** button to rerun checks:
 
- ![Reexecutar cheques](./media/github-actions/actions4.png)
+ ![Verificações de repetição](./media/github-actions/actions4.png)
 
-## <a name="next-steps"></a>Passos seguintes
-* [Cofre chave para ações gitHub de nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
-* [Diretores de Diretório Sonérório Sonérbio Azure](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
-* [Ações gitHub para Azure](https://github.com/Azure/actions/)
+## <a name="next-steps"></a>Próximos passos
+* [Cofre chave para ações do GitHub da nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
+* [Diretores de serviço azure ative](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+* [GitHub Actions para o Azure](https://github.com/Azure/actions/)

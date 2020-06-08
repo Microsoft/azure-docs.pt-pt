@@ -5,14 +5,14 @@ author: codemillmatt
 ms.service: mobile-services
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 06eb757955f403b91ae38602f4dc8ccc3fa52f26
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: f27ef3868cb53c76ecd3ba5d3b24cd075f8a5531
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450977"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485306"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Construa componentes móveis de back-end com serviços de computação
 Todas as aplicações móveis precisam de uma parte traseira responsável pelo armazenamento de dados, lógica de negócios e segurança. Gerir a infraestrutura para hospedar e executar código back-end requer que você dimensione, provisões e escala vários servidores. Também tem de gerir as atualizações de SO e o hardware envolvido e aplicar patches de segurança. Em seguida, você precisa monitorizar todos estes componentes de infraestrutura para desempenho, disponibilidade e tolerância a falhas. 

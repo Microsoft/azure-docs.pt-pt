@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: fdac28d50b9e03445c128a87a850294ba69fcaf9
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: db939dfee5e87312c380d57cbd5bb95f116408a0
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450900"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483250"
 ---
 # <a name="cloud-hosted-source-code-management-services"></a>Serviços de gestão de código fonte hospedados na nuvem
 Se tiver equipas de desenvolvimento com vários membros da equipa que trabalham na mesma base de código, precisa de encontrar um local adequado para hospedar o seu código. Armazenar os dados na nuvem e ter um repositório centralizado permite que todos carreguem, editem e gerem os ficheiros de código. Também podem interagir com outros desenvolvedores em projetos. O código pode ser facilmente acessível, independentemente de onde esteja, desde que tenha uma ligação à Internet.

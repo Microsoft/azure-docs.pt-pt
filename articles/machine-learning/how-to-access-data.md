@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: d0f37d32b7d2306865d435bc68ea12c9bb95651c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ffb0cd65ed8c904098a1099540a5c3a55f605d36
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434706"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485086"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -101,7 +101,10 @@ Pode encontrar a informação necessária para preencher o `register_azure_*()` 
       1. Para fichas SAS, aceda a **assinaturas de acesso compartilhadas** no painel **de Definições.**
 
 * Se pretender utilizar um princípio de serviço para a autenticação, vá às **inscrições da** sua App e selecione qual a aplicação que pretende utilizar. 
-    * A sua página **geral** correspondente conterá informações necessárias, como iD do inquilino e iD do cliente.
+    * A sua página **geral** correspondente conterá informações necessárias, como iD do inquilino e identificação do cliente.
+
+> [!IMPORTANT]
+> Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como sincronizar as suas credenciais atualizadas com [estes passos.](how-to-change-storage-access-key.md) 
 
 Os exemplos a seguir mostram como registar um recipiente de blob Azure, uma partilha de ficheiros Azure, e Azure Data Lake Storage Generation 2 como uma datastore. Os parâmetros fornecidos nestes exemplos são os **parâmetros necessários** para criar e registar uma datastore. 
 
@@ -193,6 +196,9 @@ Pode encontrar a informação de que necessita para preencher o formulário no [
 
 * Para itens principais de serviço como, ID do inquilino e ID do cliente, vá às suas **inscrições da App** e selecione qual a aplicação que pretende utilizar. A sua página **geral** correspondente conterá estes itens. 
 
+> [!IMPORTANT]
+> Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como sincronizar as suas credenciais atualizadas com [estes passos.](how-to-change-storage-access-key.md) 
+
 O exemplo a seguir demonstra como é a forma quando cria uma loja de dados azure blob: 
     
 ![Formulário para uma nova datastore](media/how-to-access-data/new-datastore-form.png)
@@ -283,7 +289,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 A Azure Machine Learning fornece várias formas de usar os seus modelos para pontuar. Alguns destes métodos não fornecem acesso a datastores. Utilize a seguinte tabela para entender quais os métodos que lhe permitem aceder às datastores durante a pontuação:
 
-| Método | Acesso à loja de dados | Description |
+| Método | Acesso à loja de dados | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](how-to-use-parallel-run-step.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
 | [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
@@ -299,7 +305,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-train-ml-models.md)

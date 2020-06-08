@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 7986d740eb8e963fbede19637e8e691459b742c5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: cff95c38500a32b9b8ddc3f303ae218926bd59bd
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84451012"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483361"
 ---
 # <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Rede de entrega de conteúdos no Azure com a Rede de Entrega de Conteúdos Azure
 [A Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) oferece aos desenvolvedores uma solução global para fornecer rapidamente conteúdo de alta largura de banda como vídeos, imagens ou ficheiros estáticos aos utilizadores, cachendo os seus conteúdos para centenas de pontos de presença em todo o mundo. A Rede de Entrega de Conteúdos também pode acelerar o conteúdo dinâmico, que não pode ser em cache, para reduzir os tempos de carga, poupar largura de banda e aumentar a capacidade de resposta. Você ganha estas vantagens quer desenvolva ou gere websites ou aplicações móveis ou codificar e distribuir meios de streaming, software de jogos, atualizações de firmware ou pontos finais IoT.

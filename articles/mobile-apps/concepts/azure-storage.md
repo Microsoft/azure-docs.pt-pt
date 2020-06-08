@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 6f8ed02659f1720435df3ff98817233a5a46dbcb
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e45726cfc54963c546274e0777dd0a10d89da72d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450991"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483311"
 ---
 # <a name="cloud-storage-for-highly-secure-durable-scalable-apps-with-azure-storage"></a>Armazenamento em nuvem para aplicações altamente seguras, duráveis e escaláveis com armazenamento Azure
 [O Azure Storage](https://azure.microsoft.com/services/storage/) é a solução de armazenamento em nuvem da Microsoft para aplicações modernas que oferece uma loja de objetos massivamente escalável para objetos de dados, um serviço de sistema de ficheiros para a nuvem, uma loja de mensagens para mensagens confiáveis e uma loja NoSQL. O Armazenamento do Azure é:
@@ -53,21 +53,6 @@ Você pode usar o armazenamento de mesa para armazenar e consultar enormes conju
 - [Documentação de armazenamento da mesa Azure](/azure/storage/tables/table-storage-overview)
 - [Amostras](/azure/cosmos-db/tutorial-develop-table-dotnet?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Guias de Início Rápido](/azure/storage/tables/table-storage-quickstart-portal)
-
-## <a name="azure-files"></a>Ficheiros do Azure
-Com [os Ficheiros Azure,](https://azure.microsoft.com/services/storage/files/)pode configurar ações de ficheiros de rede altamente disponíveis que podem ser acedidas utilizando o protocolo padrão do Bloco de Mensagens do Servidor (SMB). Vários VMs podem partilhar os mesmos ficheiros com acesso lido e escrito. Também pode ler os ficheiros utilizando a interface REST ou as bibliotecas do cliente de armazenamento. Pode aceder aos ficheiros a partir de qualquer parte do mundo, utilizando um URL que aponta para o ficheiro e inclui um token de Assinatura de Acesso Partilhado (SAS). Pode gerar fichas SAS. Permitem o acesso específico a um ativo privado por um período específico de tempo.
-
-As partilhas de ficheiros do Azure podem ser utilizadas para:
-- **Substitua ou complemente os servidores de ficheiros no local:** Sistemas operativos populares como Windows, macOS e Linux podem montar diretamente ações de ficheiros Azure onde quer que estejam no mundo. As partilhas de ficheiros do Azure também podem ser replicadas com o Azure File Sync em Servidores Windows, no local ou na cloud, para desempenho e colocação em cache distribuída dos dados no local onde estão a ser utilizados.
-- **Aplicações de elevação e mudança:** Migrar aplicações para a nuvem que esperam uma partilha de ficheiros para armazenar aplicações de ficheiros ou dados do utilizador.
-- **Simplificar o desenvolvimento da nuvem:** Os Ficheiros Azure também podem ser usados de várias formas para simplificar novos projetos de desenvolvimento em nuvem. Por exemplo:
-    - **Definições de aplicações partilhadas:** Um padrão comum para aplicações distribuídas é ter ficheiros de configuração num local centralizado onde podem ser acedidos a partir de muitas instâncias de aplicação. As instâncias de aplicação podem carregar a sua configuração através da API de Rest do Ficheiro. Os utilizadores podem aceder-lhes conforme necessário, montando a partilha SMB localmente.
-    - **Partilha de diagnóstico:** Uma partilha de ficheiros Azure é um local conveniente para aplicações em nuvem para escrever seus registos, métricas e despejos de colisão. Os registos podem ser escritos pelas instâncias de aplicação através da API de Rest do Ficheiro. Os desenvolvedores podem aceder-lhes através da montagem da partilha de ficheiros na sua máquina local. Esta capacidade permite uma grande flexibilidade. Os desenvolvedores podem abraçar o desenvolvimento da nuvem sem terem de abandonar as ferramentas existentes que conhecem.
-
-**Referências**
-- [Portal do Azure](https://portal.azure.com)
-- [Documentação dos Ficheiros do Azure](/azure/storage/files/storage-files-introduction)
-- [Guias de Início Rápido](/azure/storage/files/storage-files-quick-create-use-windows)
 
 ## <a name="azure-queue-storage"></a>Armazenamento de Filas do Azure
 [O armazenamento da fila Azure](https://azure.microsoft.com/services/storage/queues/) é um serviço para armazenar um grande número de mensagens. Acede a mensagens de qualquer parte do mundo através de chamadas autenticadas através de HTTP ou HTTPS. Uma mensagem de fila pode ter até 64 KB de tamanho. Uma fila pode conter milhões de mensagens, até ao limite total de capacidade de uma conta de armazenamento. As filas são comumente usadas para criar um atraso de trabalho para processar assíncronos.

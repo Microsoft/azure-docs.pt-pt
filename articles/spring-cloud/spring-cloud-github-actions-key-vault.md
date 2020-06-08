@@ -1,27 +1,27 @@
 ---
-title: Authenticate Azure Spring Cloud com cofre chave em ações GitHub
-description: Como usar o cofre chave com fluxo de trabalho CI/CD para Azure Spring Cloud com Ações GitHub
+title: Autenticar nuvem de primavera azure com cofre chave em ações do GitHub
+description: Como usar o cofre-chave com fluxo de trabalho CI/CD para Azure Spring Cloud com ações do GitHub
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945473"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484354"
 ---
-# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authenticate Azure Spring Cloud com cofre chave em ações GitHub
-O cofre da chave é um lugar seguro para guardar as chaves. Os utilizadores empresariais precisam de armazenar credenciais para ambientes CI/CD no âmbito que controlam. A chave para obter credenciais no cofre principal deve ser limitada ao âmbito de recursos.  Tem acesso apenas ao âmbito do cofre chave, não a toda a mira Azure. É como uma chave que só pode abrir uma caixa forte, não uma chave mestre que pode abrir todas as portas de um edifício. É uma forma de obter uma chave com outra chave, o que é útil num fluxo de trabalho cicd. 
+# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar nuvem de primavera azure com cofre chave em ações do GitHub
+O cofre é um lugar seguro para guardar as chaves. Os utilizadores empresariais precisam de armazenar credenciais para ambientes CI/CD no âmbito que controlam. A chave para obter credenciais no cofre-chave deve limitar-se ao âmbito de recursos.  Tem acesso apenas ao alcance do cofre, não a toda a mira do Azure. É como uma chave que só pode abrir uma caixa forte e não uma chave mestra que pode abrir todas as portas de um edifício. É uma forma de obter uma chave com outra chave, que é útil num fluxo de trabalho CICD. 
 
 ## <a name="generate-credential"></a>Gerar Credencial
-Para gerar uma chave para aceder ao cofre chave, execute o comando abaixo na sua máquina local:
+Para gerar uma chave para aceder ao cofre de chaves, execute o comando abaixo na sua máquina local:
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
-O âmbito especificado `--scopes` pelo parâmetro limita o acesso chave ao recurso.  Só pode aceder à caixa forte.
+O âmbito especificado pelo `--scopes` parâmetro limita o acesso da chave ao recurso.  Só pode aceder à caixa forte.
 
 Com resultados:
 ```
@@ -37,20 +37,20 @@ Com resultados:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Em seguida, guarde os resultados para os **segredos** do GitHub, conforme descrito no [seu repositório GitHub e autenticar com Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
+Em seguida, guarde os resultados para **os segredos** do GitHub, conforme descrito no [set up your GitHub repository and authenticate with Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
 
 ## <a name="add-access-policies-for-the-credential"></a>Adicionar Políticas de Acesso para a Credencial
-A credencial que criou acima só pode obter informações gerais sobre o Cofre chave, não sobre o conteúdo que armazena.  Para obter segredos guardados no Cofre chave, precisa de definir políticas de acesso para a credencial.
+A credencial que criou acima só pode obter informações gerais sobre o Cofre de Chaves, e não sobre o conteúdo que armazena.  Para guardar segredos no Cofre de Chaves, precisa de definir políticas de acesso para a credencial.
 
-Vá ao painel de instrumentos **key vault** no portal Azure, clique no menu de `This resource` controlo de **acesso** e abra o separador de **atribuições de funções.** Selecione **Apps** para **Tipo** e para **âmbito**.  Deve ver a credencial que criou em passo anterior:
+Vá ao painel **de instrumentos key Vault** no portal Azure, clique no menu de controlo **access** e, em seguida, abra o separador **atribuições de Função.** Selecione **Apps** for **Type** e para `This resource` o **âmbito**.  Deve ver a credencial que criou no passo anterior:
 
  ![Definir política de acesso](./media/github-actions/key-vault1.png)
 
-Copie o nome credencial, `azure-cli-2020-01-19-04-39-02`por exemplo, . Abra o menu de políticas de **acesso,** clique em **+Adicionar link política de acesso.**  Selecione `Secret Management` para **Modelo,** em seguida, selecione **Principal**. Colar o nome credencial na caixa de entrada **Principal**/**Select:**
+Copiar o nome credencial, por exemplo, `azure-cli-2020-01-19-04-39-02` . Abra o menu **de políticas de acesso,** clique em +Adicionar link **Política de Acesso.**  Selecione `Secret Management` para **Modelo**e, em seguida, selecione **Principal**. Cole o nome credencial na caixa de entrada **Principal** / **Select:**
 
  ![Selecione](./media/github-actions/key-vault2.png)
 
- Clique no botão **Adicionar** no diálogo da **política de acesso adicionar** e, em seguida, clique em **Guardar**.
+ Clique no botão **Adicionar** o diálogo da política de **acesso ao adicionar** e, em seguida, clique em **Guardar**.
 
 ## <a name="generate-full-scope-azure-credential"></a>Gerar credencial Azure de âmbito completo
 Esta é a chave principal para abrir todas as portas do edifício. O procedimento é semelhante ao passo anterior, mas aqui mudamos o âmbito para gerar a chave principal:
@@ -73,12 +73,12 @@ Mais uma vez, resultados:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Copie toda a corda JSON.  Bo de volta ao painel **key vault.** Abra o menu **Segredos** e, em seguida, clique no botão **Geração/Importação.** Insera o nome `AZURE-CRENDENTIALS-FOR-SPRING`secreto, como. Colar a corda credencial JSON à caixa de entrada **Value.** Pode notar que a caixa de entrada de valor é um campo de texto de uma linha, em vez de uma área de texto de várias linhas.  Pode colar a corda JSON completa.
+Copie toda a cadeia JSON.  Bo de volta ao painel **key vault.** Abra o menu **Segredos** e, em seguida, clique no botão **Gerar/Importar.** Insira o nome secreto, tal como `AZURE-CREDENTIALS-FOR-SPRING` . Cole a cadeia credencial JSON na caixa de entrada **Value.** Pode notar que a caixa de entrada de valor é um campo de texto de uma linha, em vez de uma área de texto de várias linhas.  Pode colar a corda JSON completa.
 
- ![Credencial de âmbito completo](./media/github-actions/key-vault3.png)
+ ![Credencial de âmbito total](./media/github-actions/key-vault3.png)
 
-## <a name="combine-credentials-in-github-actions"></a>Combine credenciais em Ações GitHub
-Delineie as credenciais utilizadas quando o gasoduto CICD executa:
+## <a name="combine-credentials-in-github-actions"></a>Combine credenciais em ações do GitHub
+Definir as credenciais utilizadas quando o gasoduto CICD executa:
 
 ```
 on: [push]
@@ -92,7 +92,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strong box key you generated in the first step
     - uses: Azure/get-keyvault-secrets@v1.0
       with:
-        keyvault: "zlhe-test"
+        keyvault: "<Your Key Vault Name>"
         secrets: "AZURE-CREDENTIALS-FOR-SPRING"           # Master key to open all doors in the building
       id: keyvaultaction
     - uses: azure/login@v1
@@ -108,5 +108,5 @@ jobs:
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-* [Ações gitHub da nuvem de primavera](./spring-cloud-howto-github-actions.md)
+## <a name="next-steps"></a>Próximos passos
+* [Ações do GitHub da Nuvem de primavera](./spring-cloud-howto-github-actions.md)

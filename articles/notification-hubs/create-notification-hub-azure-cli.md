@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d6502985c0267fe6636c606e493533daf17f6b56
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300017"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485155"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -112,7 +112,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
 
 2. Arranja uma lista de espaços para nomes.
 
-   Para ver os detalhes sobre o seu novo espaço de nome, utilize o comando [da lista de nomes az notification-hub.](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list)  O `--resource-group` parâmetro é opcional se quiser ver todos os espaços de nome para uma subscrição.
+   Para ver os detalhes sobre o seu novo espaço de nome, utilize o comando [da lista de nomes az notification-hub.](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list)  O `--resource-group` parâmetro é opcional se quiser ver todos os espaços de nome para uma subscrição.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
 
 3. Obtenha uma lista de centros de notificação.
 
-   O Azure CLI devolve uma mensagem de sucesso ou erro a cada comando executado; no entanto, poder consultar uma lista de centros de notificação é reconfortante.  O comando [da lista az-hub](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) foi projetado para este fim.
+   O Azure CLI devolve uma mensagem de sucesso ou erro a cada comando executado; no entanto, poder consultar uma lista de centros de notificação é reconfortante.  O comando [da lista az-hub](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) foi projetado para este fim.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
@@ -190,7 +190,7 @@ Quando já não for necessário, utilize o [comando de eliminação](/cli/azure/
 az group delete --name spnhubrg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Neste arranque rápido, criou um centro de notificação. Para saber como configurar o hub com as definições do sistema de notificação da plataforma (PNS), consulte [Configurar notificações push num centro de notificação](configure-notification-hub-portal-pns-settings.md)
 

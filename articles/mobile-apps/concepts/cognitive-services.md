@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 0837d709559c8970271e8a2c2e9f69222ddedbdf
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: c4426b7d1abd7e8f5cc1fe8e0896510ac007496f
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450907"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483140"
 ---
 # <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Serviços Cognitivos ajudam a resolver problemas de negócio usando IA
 [A Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) fornece serviços poderosos para infundir as suas apps com algoritmos inteligentes para ver, ouvir, falar, compreender e interpretar as necessidades do seu utilizador para transformar o seu negócio com inteligência artificial (IA). Pode tornar as suas aplicações móveis inteligentes, envolventes e contexôsticamente relevantes para os seus utilizadores. Os desenvolvedores podem usar as APIs, SDKs e serviços para adicionar IA às suas ofertas e ajudar a construir aplicações inteligentes sem ter inteligência de IA ou de ciência de dados.

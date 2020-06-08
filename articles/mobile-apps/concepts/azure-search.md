@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 33ef251f60a833721e17d36d8df01a6095434af5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 424284799e5a823601473853aece3a598c50513b
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450998"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483299"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Serviço de nuvem alimentado por IA com Pesquisa Cognitiva Azure
 [A Azure Cognitive Search](https://azure.microsoft.com/services/search/) é uma solução de nuvem de pesquisa como um serviço que dá aos desenvolvedores APIs e ferramentas para adicionar uma rica experiência de pesquisa sobre conteúdo privado, heterogéneo em aplicações web, móveis e empresariais. O seu código personalizado invoca a ingestão de dados (indexação) para criar e carregar um índice. Por outro lado, o seu código de aplicação emite pedidos de consulta e trata de respostas. A experiência de pesquisa é definida no seu cliente utilizando a funcionalidade a partir da Azure Cognitive Search, com execução de consulta sobre um índice persistido que cria, possui e armazena no seu serviço.

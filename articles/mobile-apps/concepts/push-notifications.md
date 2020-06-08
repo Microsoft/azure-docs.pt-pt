@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: c9ae5e268066e498b3a341a9c54391ee5d15d592
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 515583a19c576d25bd9573cbf80974d72c6df1ec
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450655"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482654"
 ---
 # <a name="engage-with-your-application-users-by-sending-push-notifications"></a>Envolva-se com os utilizadores da sua aplicação enviando notificações push
 
@@ -36,24 +36,6 @@ Para os utilizadores de aplicações, notificações push:
 - Lembre os utilizadores de usarem a aplicação.
 
 Utilize os seguintes serviços para permitir notificações push nas suas aplicações móveis.
-
-## <a name="visual-studio-app-center"></a>Visual Studio App Center
-Com [o App Center Push,](/appcenter/push/)pode enviar mensagens direcionadas para utilizadores de iOS, Android e Windows sem ter de gerir o processo de envio de notificações para dispositivos utilizando serviços de notificação push (PNS). Construído em cima dos Hubs de Notificação Azure, este serviço elimina as complexidades associadas ao empurrar as notificações manualmente, fornecendo um poderoso dashboard.
-
-**Principais funcionalidades**
-- Envie notificações push para dispositivos móveis em várias plataformas.
-- Utilize notificações para enviar dados para uma aplicação, apresentar uma mensagem ao utilizador ou desencadear uma ação da aplicação.
-- Utilize alvos de notificação para: 
-    - Mensagens de transmissão para todos os dispositivos registados.
-    - Envie notificações para o público com base em informações do dispositivo e propriedades personalizadas.
-    - Envie notificações a utilizadores específicos.
-    - Envie notificações para dispositivos específicos.
-- Faça uso da rica telemetria em pushes, dispositivos e erros que estão disponíveis no portal do Centro de Aplicações.
-- Ganhe suporte de plataforma para iOS, Android, macOS, Xamarin, React Native, Unity e Cordova.
-
-**Referências**
-- [Inscreva-se no Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Começar com o App Center Push](/appcenter/push/)
 
 ## <a name="azure-notification-hubs"></a>Azure Notification Hubs
 Os Centros de [Notificação](/azure/notification-hubs/notification-hubs-push-notification-overview) fornecem um motor de pressão fácil de utilizar e dimensionado. Pode usá-lo para enviar notificações para qualquer plataforma e a partir de qualquer extremidade traseira na nuvem ou no local.

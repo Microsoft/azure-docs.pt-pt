@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e7776317b80dbe6d927cf33792d1a180a546fa05
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193800"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484223"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Ative Directory B2C: Disponibilidade da região & residência de dados
 
@@ -41,7 +41,7 @@ O Azure AD B2C armazena dados de utilizadores nos Estados Unidos, na Europa ou n
 
 A residência de dados é determinada pelo país/região que seleciona quando [cria um inquilino Azure AD B2C:](tutorial-create-tenant.md)
 
-![Screenshot de um inquilino de pré-visualização](./media/data-residency/data-residency-b2c-tenant.png)
+![Screenshot de um formulário Create Tenant, escolhendo país ou região.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Os dados residem nos **Estados Unidos** para os seguintes países/regiões:
 
@@ -69,4 +69,4 @@ Se for esse o caso, deve utilizar o seu inquilino apenas para fins de desenvolvi
 
 Existem problemas conhecidos quando elimina um inquilino B2C de pré-visualização e cria um inquilino B2C em escala de produção com o mesmo nome de domínio. *Você deve criar um inquilino B2C em escala de produção com um nome de domínio diferente*.
 
-![Screenshot de um inquilino de pré-visualização](./media/data-residency/preview-b2c-tenant.png)
+![Screenshot de um tipo de inquilino, como pré-visualização inquilino.](./media/data-residency/preview-b2c-tenant.png)

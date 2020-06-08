@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6066cd4f347ef05e6fcdb67bb1223ffbc0cae46b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 30244a426b6f934ef66261c6dccbb46e72f28488
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341017"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485199"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
@@ -34,7 +34,7 @@ Para configurar as definições de procuração para AzCopy, defina a `https_pro
 |--------|-----------|
 | **Windows** | Numa utilização rápida de comando:`set https_proxy=<proxy IP>:<proxy port>`<br> Na utilização do PowerShell:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
 Atualmente, a AzCopy não suporta proxies que requerem autenticação com NTLM ou Kerberos.
 
@@ -63,23 +63,23 @@ Esta secção ajuda-o a executar estas tarefas de otimização:
 
 ### <a name="run-benchmark-tests"></a>Executar testes de referência
 
-Pode executar um teste de referência de desempenho em recipientes específicos para visualizar estatísticas gerais de desempenho e para estrangulamentos de desempenho de identidade. 
+Pode executar um teste de referência de desempenho em recipientes de bolhas específicas ou ações de ficheiros para visualizar estatísticas gerais de desempenho e para estrangulamentos de desempenho de identidade. 
 
 Utilize o seguinte comando para executar um teste de referência de desempenho.
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Exemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
+| **Sintaxe** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Exemplo** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
 > Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell do Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando do Windows (cmd.exe), encobre os argumentos do caminho com citações duplas ("") em vez de cotações individuais (').
 
 Este comando executa uma referência de desempenho enviando dados de teste para um destino especificado. Os dados do teste são gerados na memória, enviados para o destino e depois eliminados do destino após a conclusão do teste. Pode especificar quantos ficheiros gerar e qual o tamanho que pretende que sejam utilizando parâmetros de comando opcionais.
 
-Para obter documentos de referência detalhados, consulte [o banco de azcopia](storage-ref-azcopy-bench.md).
+Para obter documentos de referência detalhados, consulte [a referência de azcopia](storage-ref-azcopy-bench.md).
 
-Para visualizar orientações detalhadas de ajuda para este comando, `azcopy bench -h` escreva e, em seguida, prima a tecla ENTER.
+Para visualizar orientações detalhadas de ajuda para este comando, `azcopy benchmark -h` escreva e, em seguida, prima a tecla ENTER.
 
 ### <a name="optimize-throughput"></a>Otimizar a produção
 
@@ -97,7 +97,7 @@ Se o seu computador tiver menos de 5 CPUs, então o valor desta variável está 
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
 Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor estiver em branco, então pode ler qual o valor que está a ser utilizado olhando para o início de qualquer ficheiro de registo AzCopy. O valor selecionado, e a razão pela qual foi selecionado, são comunicados lá.
 
@@ -112,7 +112,7 @@ Expresse este valor em gigabytes (GB).
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ### <a name="optimize-file-synchronization"></a>Otimizar a sincronização de ficheiros
 
@@ -193,9 +193,9 @@ Use qualquer um destes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> Numa utilização imediata de comando::`set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
 Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor estiver em branco, os ficheiros do plano são escritos para a localização predefinida.
 
@@ -205,9 +205,9 @@ Use qualquer um destes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> Numa utilização imediata de comando::`set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
 Utilize o `azcopy env` para verificar o valor atual desta variável. Se o valor estiver em branco, os registos são escritos para a localização predefinido.
 

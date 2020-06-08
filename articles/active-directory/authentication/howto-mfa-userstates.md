@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c51863cd95deff5e460707b004206f6fde54cac4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a8ea97d7a2aa5fdc18d11e952eafe65b167b3397
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337755"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483929"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar o Multi-Factor Authentication do Azure por utilizador para garantir eventos de início de sessão seguros
 
@@ -84,7 +84,7 @@ Para alterar o estado do utilizador utilizando [o Azure AD PowerShell,](/powersh
 * *Imposto*
 * *Desativado*  
 
-Não mova os utilizadores diretamente para o estado *forçado.* Se o fizer, as aplicações não baseadas no navegador deixam de funcionar porque o utilizador não passou pelo registo de autenticação multi-factor Azure e obteve uma [senha de aplicação.](howto-mfa-mfasettings.md#app-passwords)
+Não mova os utilizadores diretamente para o estado *forçado.* Se o fizer, as aplicações não baseadas no navegador deixam de funcionar porque o utilizador não passou pelo registo de autenticação multi-factor Azure e obteve uma [senha de aplicação.](howto-mfa-app-passwords.md)
 
 Para começar, instale o módulo *MSOnline* utilizando [o Módulo de Instalação](/powershell/module/powershellget/install-module) da seguinte forma:
 

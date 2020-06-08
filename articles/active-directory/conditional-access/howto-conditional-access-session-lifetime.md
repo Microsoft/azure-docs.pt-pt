@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b7b551fcace5289b9ffd9fb131b5ba1120b3fdd2
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220707"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483710"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -54,6 +54,8 @@ A definição de frequência de início funciona com aplicações que implementa
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frequência de inscrição do utilizador e autenticação de vários fatores
 
 Frequência de entrada anteriormente aplicada apenas à autenticação do primeiro fator em dispositivos que estavam ligados a Azure AD, AD Híbrido Azure aderiu e Azure AD registrado. Não havia uma forma fácil de os nossos clientes reefiarem a autenticação de vários fatores (MFA) nesses dispositivos. Com base no feedback do cliente, a frequência de inscrição também se aplicará a MFA.
+
+[![Assine na frequência e MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de inscrição do utilizador e identidades do dispositivo
 
@@ -132,7 +134,7 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](app-based-mfa.md).
 * Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)

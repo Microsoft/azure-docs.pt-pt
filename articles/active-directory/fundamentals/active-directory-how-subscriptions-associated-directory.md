@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2737da028d8fea1c31b728c8e9864ad421d08ec
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 23823a3e358706e6455410f073d87a07f9f61650
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309620"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483468"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -91,7 +91,7 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 
 - Se registou uma Stack Azure usando esta subscrição, deve voltar a registar-se. Para mais informações, consulte [o Register Azure Stack com Azure](/azure-stack/operator/azure-stack-registration).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para criar um novo inquilino AZure AD, consulte [Quickstart: Criar um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 

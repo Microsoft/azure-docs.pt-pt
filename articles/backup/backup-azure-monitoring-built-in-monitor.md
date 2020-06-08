@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247058"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485095"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -77,7 +77,7 @@ As exceções acima referidas são concebidas a partir do entendimento de que o 
 Com base na gravidade do alerta, os alertas podem ser definidos em três tipos:
 
 - **Crítico**: Em princípio, qualquer falha de backup ou recuperação (programada ou despoletou o utilizador) levaria à geração de um alerta e seria mostrada como um alerta crítico e também operações destrutivas, como eliminar a cópia de segurança.
-- **Aviso:** Se a operação de backup for bem sucedida, mas com poucos avisos, estão listados como alertas de aviso.
+- **Aviso:** Se a operação de backup for bem sucedida, mas com poucos avisos, estão listados como alertas de aviso. Os alertas de aviso estão disponíveis apenas para cópias de segurança do Agente de Backup da Azure.
 - **Informação :** Atualmente, nenhum alerta informativo é gerado pelo serviço de backup Azure.
 
 ## <a name="notification-for-backup-alerts"></a>Notificação para alertas de backup
@@ -104,6 +104,6 @@ Para inativar/resolver um alerta ativo, pode clicar no item da lista corresponde
 
 ![Inativação de alerta RS Vault](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Monitorar cargas de trabalho de backup do Azure usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

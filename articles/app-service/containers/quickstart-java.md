@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1bff1e22df1583491bf8d249cdb8752e9a1e4f57
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300098"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485389"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service em Linux
 
@@ -44,7 +44,7 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven
 
-O processo de implementação para o Azure App Service pode recolher automaticamente as suas credenciais Azure do CLI Azure. Se não tiver o Azure CLI instalado, o plugin Maven iniciará sessão com Oauth ou início de sessão do dispositivo. Verifique os detalhes da [autenticação com plugins Maven,](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) se necessário.
+O processo de implementação para o Azure App Service pode recolher automaticamente as suas credenciais Azure do CLI Azure. Se não tiver o Azure CLI instalado, o plugin Maven iniciará sessão com Oauth ou início de sessão do dispositivo. Verifique os detalhes da [autenticação com plugins Maven,](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) se necessário.
 
 Para configurar a implementação, executar o comando maven no Pedido de Comando e utilizar as configurações predefinidas premindo **ENTER** até obter o pedido **de Confirmação (Y/N)** e, em seguida, prima **'y'** e a configuração é feita. 
 ```cmd
@@ -137,7 +137,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ligue à base de dados Azure SQL com a Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)

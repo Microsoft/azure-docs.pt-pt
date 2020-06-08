@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 3b8ff8b38a3fa9125570967d0e698a9b19c40ebd
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 5a6b9ddf1822ba72585ce05425f304895d0a3295
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450641"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482570"
 ---
 # <a name="build-real-time-applications-with-azure-signalr-service"></a>Construir aplicações em tempo real com o Serviço Azure SignalR
 

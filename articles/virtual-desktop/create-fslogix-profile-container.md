@@ -5,17 +5,17 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9210787c674e825c8728e3b79e261b184fbc42fa
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296362"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484640"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Crie um recipiente de perfil FSLogix para uma piscina hospedeira utilizando ficheiros Azure NetApp
+# <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
 
 Recomendamos a utilização de recipientes de perfil FSLogix como solução de perfil de utilizador para o [serviço Windows Virtual Desktop](overview.md). Os recipientes de perfil FSLogix armazenam um perfil de utilizador completo num único recipiente e são projetados para percorrer perfis em ambientes de computação remota não persistentes como o Windows Virtual Desktop. Ao iniciar sposição, o contentor liga-se dinamicamente ao ambiente de computação utilizando um disco rígido virtual (VHD) e um disco rígido virtual Hyper-V (VHDX). Estas tecnologias avançadas de filtragem permitem que o perfil do utilizador esteja imediatamente disponível e apareçam no sistema exatamente como um perfil de utilizador local. Para saber mais sobre os recipientes de perfil FSLogix, consulte [os recipientes de perfil FSLogix e os ficheiros Azure](fslogix-containers-azure-files.md).
 
@@ -228,7 +228,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
    ![Uma imagem do conteúdo da pasta no caminho de montagem. Dentro está um único ficheiro VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode utilizar os recipientes de perfil FSLogix para configurar uma partilha de perfil de utilizador. Para aprender a criar partilhas de perfil de utilizador com os seus novos recipientes, consulte [Criar um recipiente de perfil para uma piscina hospedeira utilizando uma partilha de ficheiros](create-host-pools-user-profile.md).
 
