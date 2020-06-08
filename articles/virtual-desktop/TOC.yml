@@ -50,8 +50,8 @@
           href: create-fslogix-profile-container.md
         - name: Utilizar os Ficheiros do Azure e o Azure AD DS
           href: create-profile-container-adds.md
-    - name: Criar partilhas de ficheiros de contentor de perfil
-      href: create-file-share.md
+        - name: Utilizar os Ficheiros do Azure e o AD DS
+          href: create-file-share.md
     - name: Configurar as definições do conjunto de anfitriões
       items:
         - name: Propriedades de RDP
@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: Identificar e diagnosticar problemas
       href: diagnostics-role-service.md
-    - name: Criação de inquilinos e conjuntos de anfitriões
+    - name: Criação de conjuntos de anfitriões
       href: troubleshoot-set-up-issues.md
     - name: Configuração da máquina virtual do anfitrião da sessão
       href: troubleshoot-vm-configuration.md

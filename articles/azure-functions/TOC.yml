@@ -341,6 +341,12 @@
   items:
     - name: Referências de API
       items:
+        - name: Modelo ARM
+          href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+        - name: CLI do Azure
+          href: /cli/azure/functionapp
+        - name: Azure PowerShell
+          href: /powershell/module/az.functions
         - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
         - name: Python
@@ -461,6 +467,9 @@
           items:
             - name: Descrição geral
               href: functions-bindings-signalr-service.md
+              displayName: SignalR Service
+            - name: Acionador
+              href: functions-bindings-signalr-service-trigger.md
               displayName: SignalR Service
             - name: Input
               href: functions-bindings-signalr-service-input.md

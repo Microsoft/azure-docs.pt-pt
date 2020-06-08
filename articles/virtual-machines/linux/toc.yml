@@ -13,6 +13,9 @@
       href: quick-create-portal.md
     - name: Criar VM - Azure PowerShell
       href: quick-create-powershell.md
+    - name: Criar VM - Modelo ARM
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Tutoriais
   items:
     - name: 1 - Criar/gerir VMs

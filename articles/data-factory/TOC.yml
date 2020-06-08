@@ -162,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime de integração
       href: concepts-integration-runtime.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Fluxos de dados
       items:
         - name: Transformar dados com fluxos de dados de mapeamento

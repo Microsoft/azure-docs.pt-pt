@@ -35,6 +35,8 @@
       href: security-baselines-overview.md
     - name: Linha de base de segurança da Gestão de API
       href: ../../api-management/security-baseline.md
+    - name: Linha de base de segurança do Gateway de Aplicação
+      href: ../../application-gateway/security-baseline.md
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Linha de base de segurança do Backup
@@ -47,8 +49,12 @@
       href: ../../container-registry/security-baseline.md
     - name: Linha de base de segurança do Cosmos DB
       href: ../../cosmos-db/security-baseline.md
+    - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
+      href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Linha de base de segurança do Data Explorer
       href: /azure/data-explorer/security-baseline
+    - name: Linha de base de segurança do Data Factory
+      href: /azure/data-factory/security-baseline
     - name: Linha de base de segurança do Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
@@ -67,5 +73,7 @@
       href: ../../postgresql/security-baseline.md
     - name: Linha de base de segurança da Base de Dados SQL
       href: ../../sql-database/security-baseline.md
+    - name: Linha de base de segurança do Stream Analytics
+      href: ../../stream-analytics/security-baseline.md
     - name: Linha de base de segurança do Armazenamento
       href: ../../storage/common/security-baseline.md
