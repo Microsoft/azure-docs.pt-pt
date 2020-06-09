@@ -9,19 +9,20 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 93e120a0519e1fc61a716e606e088801fdf508dd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75360723"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556368"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
 
 Este artigo fornece uma descrição geral da utilização de funções da Web e de trabalho do Python através das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Aprenda a utilizar o Visual Studio para criar e implementar um Serviço Cloud básico que utiliza o Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Estúdio Visual 2013, 2015 ou 2017](https://www.visualstudio.com/)
+* [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Ferramentas do Azure SDK para VS 2013][Azure SDK Tools for VS 2013] ou  
 [Ferramentas do Azure SDK para VS 2015][Azure SDK Tools for VS 2015] ou  
@@ -335,7 +336,7 @@ Para obter mais detalhes sobre a utilização de serviços do Azure a partir das
 * [Serviço Blob][Blob Service]
 * [Serviço Tabela][Table Service]
 * [Serviço Fila][Queue Service]
-* [Filas de ônibus de serviço][Service Bus Queues]
+* [Filas de autocarros de serviço][Service Bus Queues]
 * [Tópicos de Service Bus][Service Bus Topics]
 
 <!--Link references-->

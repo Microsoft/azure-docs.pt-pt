@@ -1,95 +1,97 @@
 ---
 title: Criar uma app de pesquisa no portal Azure
 titleSuffix: Azure Cognitive Search
-description: Executar o assistente da aplicação Create (pré-visualização) para gerar páginas HTML e script para uma aplicação web operacional. A página inclui uma barra de pesquisa, área de resultados, barra lateral e suporte à máquina de escrever.
+description: Execute o assistente de aplicação Create (pré-visualização) para gerar páginas HTML e script para uma aplicação web operacional. A página inclui uma barra de pesquisa, área de resultados, barra lateral e suporte de cabeça de tipo.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
-ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369717"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488176"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de pesquisa no portal (Pesquisa Cognitiva Azure)
+# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de pesquisa no portal (Azure Cognitive Search)
 
-Utilize o assistente de **aplicações** de pesquisa Create do portal para gerar uma aplicação web de estilo "localhost" descarregada e "local" que funciona num navegador. Dependendo da sua configuração, a aplicação gerada está operacional na primeira utilização, com uma ligação ao vivo a um índice remoto. Uma aplicação padrão pode incluir uma barra de pesquisa, área de resultados, filtros de barra lateral e suporte à máquina de escrever.
-
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Utilize o assistente de **aplicação de pesquisa** do portal Azure para gerar uma aplicação web de estilo "localhost" que funciona num navegador. Dependendo da sua configuração, a aplicação gerada está operacional na primeira utilização, com uma ligação ao vivo a um índice remoto. Uma aplicação predefinitiva pode incluir uma barra de pesquisa, área de resultados, filtros de barra lateral e suporte de tipa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Atualize para a [versão mais recente do Microsoft Edge](https://www.microsoft.com/edge) ou use o navegador Chrome da Google para este arranque rápido.
+Antes de começar, deve ter o seguinte:
 
-[Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
++ Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/)
 
-[Crie um índice](search-create-index-portal.md) para usar como base da sua aplicação. 
++ Um serviço de Pesquisa Cognitiva Azure. [Crie um serviço](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
 
-Este quickstart utiliza os dados e índice da amostra imobiliária incorporada porque tem imagens de miniaturas (o assistente suporta adicionar imagens à página de resultados). Para criar o índice utilizado neste exercício, execute o assistente de **dados da Importação,** escolhendo a fonte de dados da *amostra realestate-us.*
++ [Microsoft Edge (versão mais recente)](https://www.microsoft.com/edge) ou Google Chrome.
 
-![página de fonte de dados para dados de amostra](media/search-create-app-portal/import-data-realestate.png)
++ Um [índice de pesquisa](search-create-index-portal.md) para usar como base da sua aplicação gerada. 
+
+  Este quickstart utiliza os dados e índices de amostras de imóveis incorporados porque tem imagens de miniatura (o assistente suporta adicionar imagens à página de resultados). Para criar o índice utilizado neste exercício, executar o assistente **de dados de Importação,** escolhendo a fonte de dados *da amostra real-nos-us.*
+
+  ![página de origem de dados para dados de amostra](media/search-create-app-portal/import-data-realestate.png)
 
 Quando o índice estiver pronto a ser utilizado, passe para o próximo passo.
 
 ## <a name="start-the-wizard"></a>Inicie o assistente
 
-1. Assine no [portal Azure](https://portal.azure.com) e encontre o [seu serviço de pesquisa.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
 
-1. Na página 'Visão Geral', a partir dos links no meio da página, selecione **Indexes**. 
+1. [Encontre o seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e na página 'Vista Geral', a partir dos links no meio da página, selecione **Índices**. 
 
-1. Escolha o *índice de amostras imobiliária-us* da lista de índices existentes.
+1. Escolha *o índice de amostra realestate-us da* lista de índices existentes.
 
-1. Na página de índice, no topo, selecione Criar app de **pesquisa (pré-visualização)** para iniciar o assistente.
+1. Na página de índice, no topo, selecione **Criar app de pesquisa (pré-visualização)** para iniciar o assistente.
 
-1. Na primeira página do assistente, selecione **Enable Cross Origin Resource Sharing (CORS)** para adicionar suporte CORS à sua definição de índice. Este passo é opcional, mas a sua aplicação web local não se liga ao índice remoto sem ele.
+1. Na primeira página de assistente, selecione **Ativar a partilha de recursos de origem cruzada (CORS)** para adicionar suporte CORS à definição de índice. Este passo é opcional, mas a sua aplicação web local não se ligará ao índice remoto sem ele.
 
-## <a name="configure-search-results"></a>Configurar resultados de pesquisa
+## <a name="configure-search-results"></a>Configure os resultados da pesquisa
 
 O assistente fornece um layout básico para resultados de pesquisa renderizados que inclui espaço para uma imagem de miniatura, um título e descrição. Apoiar cada um destes elementos é um campo no seu índice que fornece os dados. 
 
-1. Em Miniatura, escolha o campo de *miniaturas* no índice de *amostras imobiliária-nos.* Esta amostra inclui miniaturas de imagem sob a forma de imagens endereçadas a URL armazenadas num campo chamado *miniatura*. Se o seu índice não tiver imagens, deixe este campo em branco.
+1. Em Miniatura, escolha o campo *de miniaturas* no índice *de amostra realestate-us.* Esta amostra inclui miniaturas de imagem sob a forma de imagens endereçadas por URL armazenadas num campo chamado *miniatura*. Se o seu índice não tiver imagens, deixe este campo em branco.
 
 1. Em Título, escolha um campo que transmita a singularidade de cada documento. Nesta amostra, o ID de listagem é uma seleção razoável.
 
 1. Em Descrição, escolha um campo que forneça detalhes que possam ajudar alguém a decidir se deve clicar nesse documento em particular.
 
-![página de fonte de dados para dados de amostra](media/search-create-app-portal/configure-results.png)
+   ![página de origem de dados para dados de amostra](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Adicione uma barra lateral
 
-O serviço de pesquisa suporta a navegação faceada, que é muitas vezes renderizada como uma barra lateral. As facetas baseiam-se em campos filtrantes e facetas, tal como expresso no esquema de índice.
+O serviço de pesquisa suporta a navegação virada para o lado, que é muitas vezes renderizada como uma barra lateral. As facetas baseiam-se em campos filtrados e facetable, conforme expresso no esquema de índice.
 
-Na Pesquisa Cognitiva Azure, a navegação facetada é uma experiência de filtragem cumulativa. Dentro de uma categoria, a seleção de vários filtros expande os resultados (por exemplo, selecionando Seattle e Bellevue dentro da Cidade). Entre categorias, selecionar vários filtros estreita os resultados.
+Na Pesquisa Cognitiva Azure, a navegação facial é uma experiência de filtragem cumulativa. Dentro de uma categoria, selecionar vários filtros expande os resultados (por exemplo, selecionando Seattle e Bellevue dentro do City). Em categorias, selecionar vários filtros reduz os resultados.
 
 > [!TIP]
-> Pode ver o esquema de índice completo no portal. Procure o link de **definição de Índice (JSON)** na página geral de cada índice. Os campos que se qualificam para a navegação facetada têm atributos "filtrados: verdadeiros" e "facetable: verdadeiros".
+> Pode ver o esquema de índice completo no portal. Procure o link **de definição de índice (JSON)** na página geral de cada índice. Os campos que se qualificam para a navegação facetada têm atributos "filtrados: verdadeiros" e "facetable: verdadeiros".
 
-Aceite a seleção atual de facetas e continue para a página seguinte.
+Aceite a atual seleção de facetas e continue para a página seguinte.
 
 
-## <a name="add-typeahead"></a>Adicionar tipo de letra
+## <a name="add-typeahead"></a>Adicionar cabeça de tipo
 
-A funcionalidade Typeahead está disponível sob a forma de sugestões de auto-completas e consultas. O assistente suporta sugestões de consulta. Com base nas inputs de teclas fornecidas pelo utilizador, o serviço de pesquisa devolve uma lista de cordas de consulta "completas" que podem ser selecionadas como entrada.
+A funcionalidade Typeahead está disponível sob a forma de sugestões de consulta automática e consulta. O assistente suporta sugestões de consulta. Com base nas entradas de teclas fornecidas pelo utilizador, o serviço de pesquisa devolve uma lista de cadeias de consulta "completas" que podem ser selecionadas como entrada.
 
 As sugestões são ativadas em definições de campo específicas. O assistente dá-lhe opções para configurar a quantidade de informação incluída numa sugestão. 
 
-A imagem seguinte mostra opções no assistente, justtaposamente com uma página renderizada na aplicação. Pode ver como são utilizadas as seleções de campo e como o "Show Field Name" é usado para incluir ou excluir a rotulagem dentro da sugestão.
+A imagem que se segue mostra opções no assistente, justtaposa com uma página renderizada na aplicação. Pode ver como as seleções de campo são usadas e como "Show Field Name" é usado para incluir ou excluir a rotulagem dentro da sugestão.
 
 ![Configuração de sugestão de consulta](media/search-create-app-portal/suggestions.png)
 
 ## <a name="create-download-and-execute"></a>Criar, transferir e executar
 
-1. Selecione **Criar aplicativo** de pesquisa para gerar o ficheiro HTML.
+1. Selecione **Criar um aplicativo de pesquisa** para gerar o ficheiro HTML.
 
-1. Quando solicitado, selecione **Descarregue** a sua aplicação para descarregar o ficheiro.
+1. Quando solicitado, selecione **Descarregue a sua aplicação** para descarregar o ficheiro.
 
-1. Abra o ficheiro. Deve ver uma página semelhante à seguinte imagem. Introduza um termo e utilize filtros para reduzir os resultados. 
+1. Abra o ficheiro. Deve ver uma página semelhante à seguinte. Introduza um termo e utilize filtros para reduzir os resultados. 
 
-O índice subjacente é composto por dados fictícios e gerados que foram duplicados entre documentos, e as descrições às vezes não correspondem à imagem. Pode esperar uma experiência mais coesa quando criar uma app com base nos seus próprios índices.
+O índice subjacente é composto por dados fictícios gerados que foram duplicados entre documentos, e as descrições às vezes não correspondem à imagem. Pode esperar uma experiência mais coesa quando criar uma app baseada nos seus próprios índices.
 
 ![Executar a aplicação](media/search-create-app-portal/run-app.png)
 
@@ -98,13 +100,13 @@ O índice subjacente é composto por dados fictícios e gerados que foram duplic
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
+Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 
-Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para se manter abaixo do limite. 
+Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Embora a aplicação padrão seja útil para a exploração inicial e pequenas tarefas, rever as APIs desde o início irá ajudá-lo a entender os conceitos e fluxo de trabalho a um nível mais profundo:
+Embora a aplicação predefinitiva seja útil para a exploração inicial e pequenas tarefas, a revisão das APIs no início irá ajudá-lo a compreender os conceitos e o fluxo de trabalho a um nível mais profundo:
 
 > [!div class="nextstepaction"]
 > [Criar um índice usando .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

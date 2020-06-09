@@ -6,12 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.custom: tracking-python
+ms.openlocfilehash: 3be41014c315a5820add3407ca0e4cbdb5a5e23e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258467"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559701"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -311,7 +312,7 @@ Uma aplicação com uma identidade gerida tem duas variáveis ambientais definid
 
 O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solicitar tokens. Para obter um token para um recurso, faça um pedido HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
-> | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
+> | Nome do parâmetro    | Em     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso AZURE AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação AD AZure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Por favor, use "2019-08-01" ou mais tarde.                                                                                                                                                                                                                                                                 |
@@ -325,7 +326,7 @@ O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode 
 
 Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
-> | Nome da propriedade | Descrição                                                                                                                                                                                                                                        |
+> | Nome da propriedade | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | O sinal de acesso solicitado. O serviço web de chamada pode usar este token para autenticar o serviço web recetor.                                                                                                                               |
 > | client_id     | A identificação do cliente da identidade que foi usada.                                                                                                                                                                                                       |

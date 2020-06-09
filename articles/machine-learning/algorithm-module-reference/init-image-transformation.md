@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: aa8d7bf4b9c709c5fb7ff32e89f0af6c4e82b3e7
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450760"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84487955"
 ---
-# <a name="init-image-transformation"></a>Init Transformação de Imagem
+# <a name="init-image-transformation"></a>Inicializar a Transformação da Imagem
 
 Este artigo descreve como usar o módulo **init Image Transformation** em Azure Machine Learning designer (pré-visualização), para inicializar a transformação da imagem para especificar como quer que a imagem seja transformada.
 
@@ -51,7 +51,6 @@ Este artigo descreve como usar o módulo **init Image Transformation** em Azure 
 
 14.  Para **a perspetiva aleatória**, especifique se deve realizar a transformação de Perspetiva da imagem PIL dada aleatoriamente com probabilidade 0.5.
 
-15.  Para apagar aleatoriamente , **especifique**se seleciona aleatoriamente uma região de retângulo numa imagem e apaga os seus pixels com probabilidade 0.5.
 
 16.  Ligue-se ao módulo [de Transformação de Imagem,](apply-image-transformation.md) para aplicar a transformação especificada acima no conjunto de dados de imagem de entrada.
 
@@ -68,7 +67,7 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome                    | Intervalo   | Tipo    | Predefinição | Descrição                              |
+| Name                    | Intervalo   | Tipo    | Predefinição | Description                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Redimensionar                  | Qualquer     | Booleano | Verdadeiro    | Redimensione a imagem PIL de entrada para o tamanho dado |
 | Tamanho                    | >=1     | Número inteiro | 256     | Especificar o tamanho de saída pretendido          |
@@ -94,10 +93,10 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="output"></a>Saída  
 
-| Nome                        | Tipo                    | Descrição                              |
+| Name                        | Tipo                    | Description                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Transformação de imagem de saída | Diretório de Transformação | Transformação de imagem de saída que pode ser ligada ao módulo **de Transformação de Imagem Aplicada.** |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

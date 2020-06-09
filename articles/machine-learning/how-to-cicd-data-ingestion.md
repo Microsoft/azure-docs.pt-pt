@@ -11,12 +11,13 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
-ms.openlocfilehash: c5ffd45eadfd2d1b0e455ea3de91bf91c11c2517
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 864c7f2fd16a935d1df740b7d64d068bf7214d18
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434617"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552277"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um oleoduto de ingestão de dados
 

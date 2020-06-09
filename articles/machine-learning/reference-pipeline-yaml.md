@@ -10,12 +10,13 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 3d5f73eedba64d0d8475826c61b84aab09372716
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: a519519d5728307847b5d92f9ae5ce3e739e3ba6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430948"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560954"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir oleodutos de aprendizagem automática em YAML
 
@@ -25,17 +26,17 @@ A tabela que se segue lista o que é e não é atualmente suportado na definiç�
 
 | Tipo de passo | Suportada? |
 | ----- | :-----: |
-| PythonScriptStep | Yes |
-| ParallelRunStep | Yes |
-| AdlaStep | Yes |
-| AzureBatchStep | Yes |
-| DatabricksStep | Yes |
-| DataTransferStep | Yes |
-| AutoMLStep | No |
-| HiperDriveStep | No |
-| MóduloStep | Yes |
-| MPIStep | No |
-| EstimativaStep | No |
+| PythonScriptStep | Sim |
+| ParallelRunStep | Sim |
+| AdlaStep | Sim |
+| AzureBatchStep | Sim |
+| DatabricksStep | Sim |
+| DataTransferStep | Sim |
+| AutoMLStep | Não |
+| HiperDriveStep | Não |
+| MóduloStep | Sim |
+| MPIStep | Não |
+| EstimativaStep | Não |
 
 ## <a name="pipeline-definition"></a>Definição de gasoduto
 

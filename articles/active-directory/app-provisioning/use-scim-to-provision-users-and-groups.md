@@ -1,6 +1,6 @@
 ---
-title: Desenvolver um ponto final do SCIM para o fornecimento de utilizadores a apps da Azure AD
-description: O sistema de gestão de identidade de domínio transversal (SCIM) normaliza o fornecimento automático de utilizadores. Aprenda a desenvolver um ponto final do SCIM, integre o seu SCIM API com o Diretório Ativo Azure e comece a automatizar utilizadores e grupos de aprovisionamento nas suas aplicações na nuvem.
+title: Desenvolver um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
+description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -11,56 +11,56 @@ ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 926c3315035534f393eba72cd1d3910bf6135347
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 712d098ee5a10d0d99319796f24811e5805b7854
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994464"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508884"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final sCIM e configure o fornecimento de utilizadores com a AD Azure
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
-Como desenvolvedor de aplicações, pode utilizar o Sistema de Gestão de Identidade de Domínio Transversal (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final do SCIM e integrar-se com o serviço de provisionamento de AD Azure. A especificação SCIM fornece um esquema comum de utilização para o fornecimento. Quando utilizado em conjunto com padrões da federação como o SAML ou o OpenID Connect, o SCIM oferece aos administradores uma solução de ponta a ponta, baseada em padrões para a gestão de acesso.
+Como desenvolvedor de aplicações, pode utilizar a API de gestão de identidade de controlo de identidade de domínio cruzado (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final SCIM e integrar-se com o serviço de fornecimento AZURE AD. A especificação SCIM fornece um esquema comum de utilização para o provisionamento. Quando usado em conjunto com padrões da federação como SAML ou OpenID Connect, o SCIM dá aos administradores uma solução baseada em padrões para a gestão de acessos.
 
-O SCIM é uma definição padronizada de dois pontos finais: um ponto final /Utilizadores e um ponto final /Grupos. Utiliza verbos REST comuns para criar, atualizar e eliminar objetos, e um esquema pré-definido para atributos comuns como nome de grupo, nome de utilizador, primeiro nome, apelido e e-mail. As aplicações que oferecem um SCIM 2.0 REST API podem reduzir ou eliminar a dor de trabalhar com uma API de gestão de utilizadores proprietária. Por exemplo, qualquer cliente SCIM conforme sabe como fazer uma PUBLICAÇÃO HTTP de um objeto JSON ao ponto final /Utilizadores para criar uma nova entrada de utilizador. Em vez de necessitar de uma API ligeiramente diferente para as mesmas ações básicas, as aplicações que se conformam com a norma SCIM podem instantaneamente tirar partido de clientes, ferramentas e código pré-existentes. 
+SCIM é uma definição padronizada de dois pontos finais: a /Utilizadores ponto final e um ponto final /Grupos. Utiliza verbos rest comuns para criar, atualizar e apagar objetos, e um esquema pré-definido para atributos comuns como nome de grupo, nome de utilizador, nome de primeiro nome, apelido e e-mail. As aplicações que oferecem uma API SCIM 2.0 REST podem reduzir ou eliminar a dor de trabalhar com uma API de gestão de utilizadores proprietário. Por exemplo, qualquer cliente SCIM em conformidade sabe como fazer um POST HTTP de um objeto JSON ao ponto final /Utilizadores para criar uma nova entrada no utilizador. Em vez de precisar de uma API ligeiramente diferente para as mesmas ações básicas, as aplicações que estão em conformidade com a norma SCIM podem instantaneamente tirar partido dos clientes, ferramentas e código pré-existentes. 
 
-![Provisionamento da Azure AD para uma app com SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+![Provisionamento de Azure AD para uma app com SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
-O esquema de objeto de utilizador padrão e as APIs de repouso para gestão definidas no SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permitem que os fornecedores de identidade e apps se integrem mais facilmente entre si. Os desenvolvedores de aplicações que constroem um ponto final do SCIM podem integrar-se com qualquer cliente compatível com o SCIM sem ter de fazer trabalho personalizado.
+O esquema padrão de objetos de utilizador e apis de repouso para gestão definido em SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permitem que os fornecedores de identidade e apps se integrem mais facilmente uns com os outros. Os desenvolvedores de aplicações que construam um ponto final SCIM podem integrar-se com qualquer cliente compatível com SCIM sem ter que fazer trabalho personalizado.
 
-Automatizar o provisionamento a uma aplicação requer a construção e integração de um ponto final sCIM com o cliente Azure AD SCIM. Execute as seguintes etapas para começar a fornecer utilizadores e grupos na sua aplicação. 
+Automatizar o fornecimento a uma aplicação requer a construção e integração de um ponto final SCIM com o cliente Azure AD SCIM. Execute os seguintes passos para começar a agru estar a a provisionar utilizadores e grupos na sua aplicação. 
     
-  * **[Passo 1: Desenhe o seu esquema de utilizador e grupo.](#step-1-design-your-user-and-group-schema)** Identifique os objetos e atributos que a sua aplicação necessita, e determine como mapeiam para o utilizador e grupo esquema suportado pela implementação do Azure AD SCIM.
+  * **[Passo 1: Desenhe o seu esquema de utilizador e grupo.](#step-1-design-your-user-and-group-schema)** Identifique os objetos e atribui as necessidades da sua aplicação e determine como mapeiam para o utilizador e esquema de grupo suportado pela implementação do Azure AD SCIM.
 
-  * **[Passo 2: Compreender a implementação do Azure AD SCIM.](#step-2-understand-the-azure-ad-scim-implementation)** Compreenda como o cliente Azure AD SCIM é implementado e modele o seu tratamento e respostas de pedidos de protocolo SCIM.
+  * **[Passo 2: Compreender a implementação do Azure AD SCIM.](#step-2-understand-the-azure-ad-scim-implementation)** Compreenda como o cliente Azure AD SCIM é implementado e modele o seu protocolo SCIM de tratamento e respostas.
 
-  * **[Passo 3: Construir um ponto final sCIM.](#step-3-build-a-scim-endpoint)** Um ponto final deve ser compatível com o SCIM 2.0 para integrar com o serviço de provisionamento AD Azure. Como opção, pode utilizar bibliotecas e amostras de código da Microsoft Common Language Infrastructure (CLI) para construir o seu ponto final. Estas amostras destinam-se apenas a referência e a testes; recomendamos que não codificar a sua aplicação de produção para tomar uma dependência deles.
+  * **[Passo 3: Construir um ponto final SCIM.](#step-3-build-a-scim-endpoint)** Um ponto final deve ser compatível com o SCIM 2.0 para integrar-se no serviço de fornecimento de Ad Azure. Como opção, pode utilizar bibliotecas e amostras de código da Microsoft Common Language Infrastructure (CLI) para construir o seu ponto final. Estas amostras destinam-se apenas a referência e a ensaios; recomendamos contra a codificação da sua app de produção para ter uma dependência deles.
 
-  * **[Passo 4: Integre o seu ponto final sCIM com o cliente Azure AD SCIM.](#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client)** Se a sua organização estiver a utilizar uma aplicação de terceiros que implemente o perfil do SCIM 2.0 que o Azure AD suporta, pode começar a automatizar o fornecimento e o desprovisionamento de utilizadores e grupos imediatamente.
+  * **[Passo 4: Integre o seu ponto final SCIM com o cliente Azure AD SCIM.](#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client)** Se a sua organização estiver a utilizar uma aplicação de terceiros que implemente o perfil do SCIM 2.0 que o Azure AD suporta, pode começar a automatizar o fornecimento e a desprovisionamento de utilizadores e grupos imediatamente.
 
-  * **[Passo 5: Publique a sua candidatura na galeria de aplicações da AD Azure.](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** Facilite aos clientes a descoberta da sua aplicação e configurar facilmente o fornecimento. 
+  * **[Passo 5: Publique a sua candidatura na galeria de aplicações AZure AD.](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** Facilite aos clientes a descoberta da sua aplicação e a configuração fácil do provisionamento. 
 
-![Passos para integrar um ponto final do SCIM com a AD Azure](media/use-scim-to-provision-users-and-groups/process.png)
+![Passos para a integração de um ponto final scim com Azure AD](media/use-scim-to-provision-users-and-groups/process.png)
 
-## <a name="step-1-design-your-user-and-group-schema"></a>Passo 1: Desenhe o seu utilizador e o seu esquema de grupo
+## <a name="step-1-design-your-user-and-group-schema"></a>Passo 1: Desenhe o seu utilizador e esquema de grupo
 
-Cada aplicação requer diferentes atributos para criar um utilizador ou grupo. Inicie a sua integração identificando os objetos (utilizadores, grupos) e atributos (nome, gestor, título de trabalho, etc.) que a sua aplicação necessita. A norma SCIM define um esquema para gerir utilizadores e grupos. O esquema principal do utilizador requer apenas três atributos: **id** (identificador definido pelo prestador de serviços), **id externo** (identificador definido pelo cliente) e **meta** (metaapenas de leitura mantido pelo prestador de serviços). Todos os outros atributos são opcionais. Além do esquema principal do utilizador, a norma SCIM define uma extensão de utilizador empresarial e um modelo para alargar o esquema do utilizador para satisfazer as necessidades da sua aplicação. Se, por exemplo, a sua aplicação necessitar do gestor de um utilizador, pode utilizar o esquema do utilizador da empresa para recolher o gestor do utilizador e o esquema principal para recolher o e-mail do utilizador. Para desenhar o seu esquema, siga os passos abaixo:
-  1. Enumera rindo os atributos que a sua aplicação requer. Pode ser útil decompor os seus requisitos nos atributos necessários para a autenticação (por exemplo, loginName e e-mail), atributos necessários para gerir o ciclo de vida do utilizador (por exemplo, estado/ativo), e outros atributos necessários para que a sua aplicação específica funcione (por exemplo, gestor, etiqueta).
-  2. Verifique se esses atributos já estão definidos no esquema principal do utilizador ou no esquema do utilizador da empresa. Se precisar de quaisquer atributos de que necessita e não estiver coberto no núcleo ou no utilizador da empresa, terá de definir uma extensão ao esquema do utilizador que cubra os atributos de que necessita. No exemplo abaixo, adicionámos uma extensão ao utilizador para permitir o fornecimento de uma "etiqueta" num utilizador. É melhor começar com apenas o núcleo e os schemas de utilizador da empresa e expandir-se para schemas personalizados adicionais mais tarde.  
-  3. Mapeie os atributos SCIM aos atributos do utilizador em Azure AD. Se um dos atributos que definiu no seu ponto final do SCIM não tiver uma contrapartida clara no esquema de utilizador da AD Azure, há uma boa hipótese de os dados não serem armazenados no objeto do utilizador na maioria dos inquilinos. Considere se este atributo pode ser opcional para a criação de um utilizador. Se o atributo for fundamental para a sua candidatura funcionar, guie o administrador do inquilino para estender o seu esquema ou utilize um atributo de extensão, como mostrado abaixo para a propriedade "tags".
+Cada aplicação requer diferentes atributos para criar um utilizador ou grupo. Inicie a sua integração identificando os objetos (utilizadores, grupos) e atributos (nome, gestor, título de emprego, etc.) que a sua aplicação requer. A norma SCIM define um esquema para gerir utilizadores e grupos. O esquema principal do utilizador requer apenas três atributos: **id** (identificador definido pelo prestador de serviços), **externalId** (identificador definido pelo cliente) e **metadados** (metadados apenas de leitura mantidos pelo prestador de serviços). Todos os outros atributos são opcionais. Além do esquema principal do utilizador, a norma SCIM define uma extensão do utilizador da empresa e um modelo para alargar o esquema do utilizador para atender às necessidades da sua aplicação. Se, por exemplo, a sua aplicação necessitar de um gestor de utilizador, pode utilizar o esquema do utilizador da empresa para recolher o gestor do utilizador e o esquema principal para recolher o e-mail do utilizador. Para desenhar o seu esquema, siga os passos abaixo:
+  1. Enuse os atributos que a sua aplicação requer. Pode ser útil decompor os seus requisitos nos atributos necessários para a autenticação (por exemplo, loginName e e-mail), atributos necessários para gerir o ciclo de vida do utilizador (por exemplo, estado/ativo), e outros atributos necessários para a sua aplicação particular para trabalhar (por exemplo, gestor, tag).
+  2. Verifique se esses atributos já estão definidos no esquema principal do utilizador ou no esquema do utilizador da empresa. Se algum atributo que precise e não estiver coberto nos esquemas do núcleo ou do utilizador da empresa, terá de definir uma extensão ao esquema do utilizador que cubra os atributos de que necessita. No exemplo abaixo, adicionámos uma extensão ao utilizador para permitir o fornecimento de uma "tag" a um utilizador. É melhor começar apenas com os esquemas de utilizador core e empresa e expandir para esquemas personalizados adicionais mais tarde.  
+  3. Mapear os atributos SCIM aos atributos do utilizador em Azure AD. Se um dos atributos que definiu no seu ponto final SCIM não tiver uma contrapartida clara no esquema do utilizador Azure AD, existe uma boa hipótese de os dados não serem armazenados no objeto do utilizador na maioria dos inquilinos. Considere se este atributo pode ser opcional para a criação de um utilizador. Se o atributo for fundamental para que a sua aplicação funcione, guie o administrador do arrendatário para estender o seu esquema ou use um atributo de extensão como mostrado abaixo para a propriedade "tags".
 
-### <a name="table-1-outline-the-attributes-that-you-need"></a>Quadro 1: Delineie os atributos de que precisa 
-| Passo 1: Determinar atribui a sua aplicação| Passo 2: Requisitos de aplicações de mapas para padrão SCIM| Passo 3: Mapa SCIM atribui aos atributos Da AD Azure|
+### <a name="table-1-outline-the-attributes-that-you-need"></a>Quadro 1: Delinear os atributos de que precisa 
+| Passo 1: Determinar atributos que a sua aplicação necessita| Passo 2: Requisitos de aplicação de mapa para o padrão SCIM| Passo 3: Mapa SCIM atribui aos atributos AD Azure|
 |--|--|--|
-|loginName|userName|userPrincipalName|
-|nomePróprio|nome.dadoNome|nomeDado|
+|nome de login|userName|userPrincipalName|
+|nomePróprio|nome.dado Nome|nomeDado|
 |apelido|nome.lastName|apelido|
 |workMail|E-mails[tipo eq "work"].value|Correio|
 |gestor|gestor|gestor|
-|etiqueta|urn:ietf:params:scim:schemas:extensão:2.0:CustomExtension:tag|extensãoAtribuir1|
-|status|ativo|isSoftDeleted (valor computorizado não armazenado no utilizador)|
+|etiqueta|urn:ietf:params:scim:schemas:extensão:2.0:CustomExtension:tag|extensãoAttribute1|
+|status|ativo|isSoftDeleted (valor calculado não armazenado no utilizador)|
 
-O esquema acima definido seria representado utilizando a carga útil Json abaixo. Note que além dos atributos necessários para a aplicação, a representação jSON inclui os atributos "id", "externalId" e "meta" necessários.
+O esquema acima definido seria representado utilizando a carga útil Json abaixo. Note que além dos atributos necessários para a aplicação, a representação JSON inclui os atributos "id", "externalId" e "meta".
 
 ```json
 {
@@ -89,138 +89,138 @@ O esquema acima definido seria representado utilizando a carga útil Json abaixo
    }
  ```
 
-### <a name="table-2-default-user-attribute-mapping"></a>Quadro 2: Mapeamento predefinido do utilizador
-Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a sua aplicação requer podem mapear para um atributo em Azure AD e no SCIM RFC. Pode [personalizar](customize-application-attributes.md) como os atributos são mapeados entre o Azure AD e o seu ponto final sCIM. Note que não precisa de suportar tanto utilizadores como grupos ou todos os atributos abaixo mostrados. São uma referência para a forma como os atributos em Azure AD são frequentemente mapeados para propriedades no protocolo SCIM. 
+### <a name="table-2-default-user-attribute-mapping"></a>Quadro 2: Mapeamento de atributos de utilizador predefinido
+Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a sua aplicação requer podem mapear para um atributo em AD AD e no SCIM RFC. Pode [personalizar](customize-application-attributes.md) como os atributos são mapeados entre a Azure AD e o seu ponto final SCIM. Note que não precisa de suportar tanto os utilizadores como os grupos ou todos os atributos apresentados abaixo. São uma referência para a forma como os atributos em AD Azure são frequentemente mapeados para propriedades no protocolo SCIM. 
 
-| Utilizador de Diretório Ativo Azure | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
+| Utilizador do Azure Ative Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |ativo |
-|departamento|urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|
+|departamento|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|
 | displayName |displayName |
-|funcionárioId|urn:ietf:params:scim:schemas:extens:enterprise:2.0:Utilizador:empregadoNúmero|
-| Facsimile-Número de Telefone |telefoneNumbers[tipo eq "fax"].valor |
-| nomeDado |nome.dadoNome |
-| empregoTítulo |título |
-| correio |e-mails[tipo eq "work"].valor |
-| mailApelido |id externo |
-| gestor |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager |
-| dispositivo móvel |telefoneNumbers[tipo eq "mobile"].valor |
-| Código postal |endereços[tipo eq "trabalho"].código postal |
-| endereços de procuração |e-mails[tipo eq "outro"]. Valor |
-| nome físico-entrega-escritório |endereços[tipo eq "outro"]. Formato |
-| streetAddress |endereços[tipo eq "trabalho"].streetAddress |
-| surname |nome.familyName |
-| número de telefone |telefoneNumbers[tipo eq "trabalho"].valor |
-| user-PrincipalName |userName |
+|employeeId|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|
+| Facsímia-TelefoneNumber |números de telefone[tipo eq "fax"].valor |
+| nomeDado |nome.dado Nome |
+| jobTitle |título |
+| correio |e-mails[tipo eq "work"].value |
+| mailSemame |externoId |
+| gestor |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager |
+| dispositivo móvel |números de telefone[tipo eq "mobile"].valor |
+| código postal |endereços[tipo eq "work"].postalCode |
+| proxy-Addresss |e-mails[tipo eq "outros"]. Valor |
+| nome físico-entrega-escritório |endereços[tipo eq "outros"]. Formatado |
+| streetAddress |endereços[tipo eq "work"].streetAddress |
+| surname |nome.famíliaName |
+| número de telefone |phoneNumbers[tipo eq "work"].value |
+| nome principal do utilizador |userName |
 
 
-### <a name="table-3-default-group-attribute-mapping"></a>Quadro 3: Mapeamento de atributo de grupo padrão
+### <a name="table-3-default-group-attribute-mapping"></a>Quadro 3: Mapeamento de atributos de grupo predefinido
 
-| Grupo de Diretório Ativo Azure | urn:ietf:params:scim:schemas:core:2.0:Grupo |
+| Grupo Azure Ative Directory | urn:ietf:params:scim:schemas:core:2.0:Grupo |
 | --- | --- |
 | displayName |displayName |
-| correio |e-mails[tipo eq "work"].valor |
-| mailApelido |displayName |
+| correio |e-mails[tipo eq "work"].value |
+| mailSemame |displayName |
 | membros |membros |
-| objectId |id externo |
-| proxyAddresses |e-mails[tipo eq "outro"]. Valor |
+| objectId |externoId |
+| proxyAddresses |e-mails[tipo eq "outros"]. Valor |
 
-Existem vários pontos finais definidos no RFC SCIM. Pode começar com o ponto final /Utilizador e depois expandir a partir daí. O ponto final /Schemas é útil quando se utilizam atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando se apoiam grupos. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. O ponto final /Schemas é útil quando se utilizam atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando se apoiam grupos. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. 
+Existem vários pontos finais definidos no SCIM RFC. Pode começar com o ponto final /Utilizador e depois expandir a partir daí. O ponto final /Schemas é útil quando se utiliza atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando grupos de apoio. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. O ponto final /Schemas é útil quando se utiliza atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando grupos de apoio. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. 
  
-### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Quadro 4: Determine os pontos finais que gostaria de desenvolver
+### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Quadro 4: Determinar os pontos finais que gostaria de desenvolver
 |PONTO FINAL|DESCRIÇÃO|
 |--|--|
-|/Utilizador|Execute operações CRUD num objeto de utilizador.|
-|/Grupo|Execute operações crud num objeto de grupo.|
-|/ServiceProviderConfig|Fornece detalhes sobre as características da norma SCIM que são suportadas, por exemplo, os recursos que são suportados e o método de autenticação.|
-|/Tipos de Recursos|Especifica metadados sobre cada recurso|
-|/Schemas|O conjunto de atributos suportados por cada cliente e prestador de serviços pode variar. Enquanto um prestador de serviços pode incluir "nome", "título" e "e-mails", enquanto outro prestador de serviços usa "nome", "título" e "números de telefone". O ponto final dos schemas permite a descoberta dos atributos suportados.|
-|/Granel|As operações a granel permitem-lhe efetuar operações numa grande recolha de objetos de recursos numa única operação (por exemplo, atualizar as adesões para um grande grupo).|
+|/Utilizador|Executar operações CRUD num objeto do utilizador.|
+|/Grupo|Execute operações CRUD num objeto de grupo.|
+|/ServiceProviderConfig|Fornece detalhes sobre as características da norma SCIM que são suportadas, por exemplo os recursos que são suportados e o método de autenticação.|
+|/RecursosTypes|Especifica metadados sobre cada recurso|
+|/Schemas|O conjunto de atributos suportados por cada cliente e prestador de serviços pode variar. Enquanto um prestador de serviços pode incluir "nome", "título" e "e-mails", enquanto outro prestador de serviços usa "nome", "título" e "telefoneNumbers". O ponto final dos esquemas permite a descoberta dos atributos suportados.|
+|/Granel|As operações a granel permitem realizar operações numa grande coleção de objetos de recursos numa única operação (por exemplo, atualizações para um grande grupo).|
 
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Passo 2: Compreender a implementação do Azure AD SCIM
 > [!IMPORTANT]
-> O comportamento da implementação do Azure AD SCIM foi atualizado pela última vez em 18 de dezembro de 2018. Para obter informações sobre o que mudou, consulte o [protocolo SCIM 2.0 de conformidade do serviço de fornecimento de utilizadores DaAzure AD](application-provisioning-config-problem-scim-compatibility.md).
+> O comportamento da implementação do Azure AD SCIM foi atualizado pela última vez em 18 de dezembro de 2018. Para obter informações sobre o que mudou, consulte [o protocolo SCIM 2.0 da conformidade do serviço de Fornecimento de Utilizadores Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
-Se está a construir uma aplicação que suporta uma API de gestão de utilizadores SCIM 2.0, esta secção descreve em detalhe como o cliente Azure AD SCIM é implementado. Também mostra como modelar o seu tratamento de pedidos de protocolo SCIM e respostas. Uma vez implementado o seu ponto final SCIM, pode testá-lo seguindo o procedimento descrito na secção anterior.
+Se estiver a construir uma aplicação que suporte uma API de gestão de utilizadores SCIM 2.0, esta secção descreve em detalhe como o cliente Azure AD SCIM é implementado. Também mostra como modelar o seu protocolo SCIM solicita tratamento e respostas. Uma vez implementado o seu ponto final SCIM, pode testá-lo seguindo o procedimento descrito na secção anterior.
 
-No âmbito da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#Specification)a sua aplicação deve satisfazer estes requisitos:
+Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#Specification)a sua aplicação deve satisfazer estes requisitos:
 
-* Suporta a criação de utilizadores e, opcionalmente, também grupos, de acordo com a secção [3.3 do protocolo SCIM.](https://tools.ietf.org/html/rfc7644#section-3.3)  
-* Suporta modificar utilizadores ou grupos com pedidos patch, de acordo com a [secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
-* Suporta a recuperação de um recurso conhecido para um utilizador ou grupo criado anteriormente, de acordo com a [secção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` e questionados pelos seus `username` e , e os `externalid` grupos são questionados por `displayName` .  
+* Suporta a criação de utilizadores, e opcionalmente também grupos, de acordo com a secção [3.3 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
+* Suporta modificar utilizadores ou grupos com pedidos PATCH, de acordo com [a secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Suporta a recuperação de um recurso conhecido para um utilizador ou grupo criado anteriormente, de acordo com [a secção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
+* Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` `username` `externalid` e, e os grupos são questionados por `displayName` .  
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
-* Apoia os grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
-* Aceita um único símbolo do portador para autenticação e autorização da Azure AD para o seu pedido.
+* Suporta grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
+* Aceita um único sinal de portador para autenticação e autorização da Azure AD para a sua aplicação.
 
-Siga estas orientações gerais ao implementar um ponto final do SCIM para garantir a compatibilidade com a AD Azure:
+Siga estas orientações gerais ao implementar um ponto final SCIM para garantir a compatibilidade com a Azure AD:
 
-* `id`é uma propriedade necessária para todos os recursos. Cada resposta que derreta um recurso deve garantir que cada recurso tem esta propriedade, exceto `ListResponse` com zero membros.
-* A resposta a um pedido de consulta/filtro deve ser sempre a `ListResponse` .
-* Os grupos são opcionais, mas apenas apoiados se a implementação do SCIM apoiar os pedidos do PATCH.
-* Não é necessário incluir todo o recurso na resposta patch.
+* `id`é uma propriedade necessária para todos os recursos. Cada resposta que devolva um recurso deve garantir que cada recurso tem esta propriedade, exceto `ListResponse` com zero membros.
+* A resposta a um pedido de consulta/filtro deve ser sempre um `ListResponse` .
+* Os grupos são opcionais, mas só são apoiados se a implementação do SCIM apoiar os pedidos do PATCH.
+* Não é necessário incluir todo o recurso na resposta PATCH.
 * O Microsoft Azure AD utiliza apenas os seguintes operadores:  
     - `eq`
     - `and`
-* Não exija uma correspondência sensível a casos em elementos estruturais no SCIM, em particular os valores de funcionamento do `op` PATCH, tal como definidos em https://tools.ietf.org/html/rfc7644#section-3.5.2 . A AD Azure emite os valores de 'op' como `Add` `Replace` , e `Remove` .
-* O Microsoft Azure AD solicita que um utilizador e um grupo aleatórios garantam que o ponto final e as credenciais são válidos. Também é feito como parte do fluxo de **Conexão de Teste** no [portal Azure.](https://portal.azure.com) 
-* O atributo em que os recursos podem ser consultados deve ser definido como um atributo correspondente na aplicação no [portal Azure](https://portal.azure.com). Para mais informações, consulte [Personalizar os mapeamentos de atributos](customize-application-attributes.md) de fornecimento de utilizadores
+* Não exija uma correspondência sensível a elementos estruturais no SCIM, em particular `op` os valores de operação PATCH, tal como definidos em https://tools.ietf.org/html/rfc7644#section-3.5.2 . A AZure AD emite os valores de 'op' como `Add` `Replace` , e `Remove` .
+* O Microsoft Azure AD faz pedidos para obter um utilizador e grupo aleatórios para garantir que o ponto final e as credenciais são válidos. Também é feito como parte do fluxo de **ligação** de teste no [portal Azure](https://portal.azure.com). 
+* O atributo em que os recursos podem ser consultados deve ser definido como um atributo correspondente à aplicação no [portal Azure](https://portal.azure.com). Para mais informações, consulte [Personalizar a provisionamento do utilizador atribuindo mapeamentos de atributos](customize-application-attributes.md)
 
-### <a name="user-provisioning-and-deprovisioning"></a>Fornecimento e desprovisionamento de utilizadores
+### <a name="user-provisioning-and-deprovisioning"></a>Fornecimento e desprovisionamento dos utilizadores
 
 A seguinte ilustração mostra as mensagens que o Azure Ative Directory envia para um serviço SCIM para gerir o ciclo de vida de um utilizador na loja de identidade da sua aplicação.  
 
-![Mostra a sequência de provisionamento e dedeprovisionamento do utilizador](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
-*Sequência de fornecimento e deprovisionamento de utilizadores*
+![Mostra a sequência de provisionamento e de desprovisionamento do utilizador](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
+*Sequência de provisão e desprovisionamento do utilizador*
 
-### <a name="group-provisioning-and-deprovisioning"></a>Prestação e desprovisionamento de grupos
+### <a name="group-provisioning-and-deprovisioning"></a>Provisão e desprovisionamento em grupo
 
-O fornecimento e a desprovisionamento do grupo são facultativos. Quando implementada e ativada, a seguinte ilustração mostra as mensagens que a Azure AD envia para um serviço SCIM para gerir o ciclo de vida de um grupo na loja de identidade da sua aplicação.  Estas mensagens diferem das mensagens sobre os utilizadores de duas formas:
+O provisionamento e a desprovisionamento em grupo são opcionais. Quando implementada e ativada, a seguinte ilustração mostra as mensagens que a Azure AD envia a um serviço SCIM para gerir o ciclo de vida de um grupo na loja de identidade da sua aplicação.  Estas mensagens diferem das mensagens sobre os utilizadores de duas formas:
 
-* Os pedidos de recuperação de grupos especificam que os membros atributos devem ser excluídos de qualquer recurso fornecido em resposta ao pedido.  
-* Pedidos para determinar se um atributo de referência tem um determinado valor são pedidos sobre o atributo dos membros.  
+* Os pedidos de recuperação de grupos especificam que os membros atribuídos devem ser excluídos de qualquer recurso fornecido em resposta ao pedido.  
+* Os pedidos para determinar se um atributo de referência tem um determinado valor são pedidos sobre os membros atribuídos.  
 
-![Mostra a sequência de provisionamento e dedeprovisionamento do grupo](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
-*Sequência de provisionamento e deprovisionamento de grupos*
+![Mostra a sequência de provisão e desprovisionamento em grupo](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
+*Sequência de provisionamento e desprovisionamento em grupo*
 
-### <a name="scim-protocol-requests-and-responses"></a>Pedidos e respostas protocolares do Protocolo SCIM
-Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e respostas esperadas exemplo. Para obter os melhores resultados, deve codificar a sua aplicação para lidar com estes pedidos neste formato e emitir as respostas esperadas.
+### <a name="scim-protocol-requests-and-responses"></a>Pedidos e respostas do protocolo SCIM
+Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure AD SCIM e exemplo de respostas esperadas. Para obter os melhores resultados, deverá codificar a sua app para lidar com estes pedidos neste formato e emitir as respostas esperadas.
 
 > [!IMPORTANT]
-> Para compreender como e quando o serviço de fornecimento de utilizadores da AD Azure emite as operações descritas abaixo, consulte os ciclos de [provisionamento da secção: Inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) em Como funciona o [provisionamento](how-provisioning-works.md).
+> Para compreender como e quando o serviço de fornecimento de utilizadores Azure AD emite as operações descritas abaixo, consulte a secção [Ciclos de Provisionamento: Inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) em [Como funciona o provisionamento](how-provisioning-works.md).
 
 [Operações de Utilizador](#user-operations)
-  - [Criar utilizador](#create-user) (Resposta[de Pedido)](#request)  /  [Response](#response)
+  - [Criar Utilizador](#create-user) (Resposta[de Pedido)](#request)  /  [Response](#response)
   - [Obter Utilizador](#get-user) (Resposta[de Pedido)](#request-1)  /  [Response](#response-1)
-  - [Obtenha o Utilizador por consulta](#get-user-by-query) (Resposta de[Pedido)](#request-2)  /  [Response](#response-2)
+  - [Obter Utilizador por consulta](#get-user-by-query) (Resposta[de Pedido)](#request-2)  /  [Response](#response-2)
   - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) (Resposta[de Pedido)](#request-3) 
 /  [Response](#response-3)
-  - [Utilizador atualizado [propriedades de vários valores]](#update-user-multi-valued-properties) ( Resposta de[Request](#request-4)  /   [Response](#response-4)Pedido)
-  - [Utilizador atualizado [propriedades de valor único]](#update-user-single-valued-properties) ( Resposta de[Request](#request-5) 
-/  [Response](#response-5)Pedido) 
-  - [Desativar o utilizador](#disable-user) (Resposta[de Pedido)](#request-14)  / 
- [Response](#response-14)
-  - [Eliminar o utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  / 
+  - [Atualizar o Utilizador [propriedades multi-valorizadas]](#update-user-multi-valued-properties) [Request](#request-4)  /   [(Resposta de Pedido)](#response-4)
+  - [Atualizar o Utilizador [propriedades de valor único]](#update-user-single-valued-properties) (Resposta[de](#request-5) 
+/  [Pedido)](#response-5) 
+  - [Utilizador desativação](#disable-user) (Resposta[de](#request-14)  / 
+ [Response](#response-14)Pedido)
+  - [Excluir utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  / 
  [Response](#response-6)
 
 
 [Operações de Grupo](#group-operations)
-  - [Criar grupo](#create-group) [(Resposta](#request-7)  /  [de](#response-7)Pedido)
-  - [Obter Grupo](#get-group) [(Resposta de Pedido)](#request-8)  /  [Response](#response-8)
-  - [Obtenha grupo por displayName](#get-group-by-displayname) [Request](#request-9)  /  [(Resposta de](#response-9)Pedido)
-  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) ( Resposta de[Pedido)](#request-10) /
-  [Response](#response-10)
-  - [Grupo de Atualização [Adicionar Membros]](#update-group-add-members) ( [Resposta de Pedido)](#request-11)  /
- [Response](#response-11)
-  - [Grupo de Atualização [Remover Membros]](#update-group-remove-members) ( [Resposta de Pedido)](#request-12)  /
- [Response](#response-12)
-  - [Eliminar grupo](#delete-group) [(Resposta](#request-13)  /
- [de](#response-13)Pedido)
+  - [Criar Grupo](#create-group) (Resposta [de Pedido)](#request-7)  /  [Response](#response-7)
+  - [Obter Grupo](#get-group) (Resposta [de Pedido)](#request-8)  /  [Response](#response-8)
+  - [Obter Grupo por displayName](#get-group-by-displayname) [Request](#request-9)  /  [(Resposta de Pedido)](#response-9)
+  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) [Request](#request-10) /
+  [(Resposta de](#response-10)Pedido)
+  - [Grupo de Atualização [Add Members]](#update-group-add-members) [Request](#request-11)  /
+ [(Resposta do](#response-11)Pedido)
+  - [Grupo de atualização [Remover Membros]](#update-group-remove-members) [Request](#request-12)  /
+ [(Resposta do](#response-12)Pedido)
+  - [Excluir Grupo](#delete-group) (Resposta[de Pedido)](#request-13)  /
+ [Response](#response-13)
 
 ### <a name="user-operations"></a>Operações de Utilizador
 
-* Os utilizadores podem ser consultados `userName` ou `email[type eq "work"]` atributos.  
+* Os utilizadores podem ser questionados por `userName` ou `email[type eq "work"]` atributos.  
 
 #### <a name="create-user"></a>Criar Utilizador
 
@@ -315,7 +315,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 ###### <a name="request"></a>Pedir
 *GET /Utilizadores/5171a35d82074e068ce2* 
 
-###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Resposta (Utilizador não encontrado. Note que o detalhe não é necessário, apenas estado.)
+###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Resposta (Utilizador não encontrado. Note que o detalhe não é necessário, apenas o estado.)
 
 ```json
 {
@@ -327,11 +327,11 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 }
 ```
 
-#### <a name="get-user-by-query"></a>Obtenha o Utilizador por consulta
+#### <a name="get-user-by-query"></a>Obtenha o utilizador por consulta
 
 ##### <a name="request"></a><a name="request-2"></a>Pedir
 
-*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
+*GET /Utilizadores?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response"></a><a name="response-2"></a>Resposta
 
@@ -372,7 +372,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ##### <a name="request"></a><a name="request-3"></a>Pedir
 
-*GET /Users?filter=userName eq "utilizador inexistente"*
+*GET /Utilizadores?filter=userName eq "utilizador inexistente"*
 
 ##### <a name="response"></a><a name="response-3"></a>Resposta
 
@@ -388,7 +388,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ```
 
-#### <a name="update-user-multi-valued-properties"></a>Utilizador atualizado [Propriedades multi-valorizadas]
+#### <a name="update-user-multi-valued-properties"></a>Atualizar o Utilizador [propriedades multi-valorizadas]
 
 ##### <a name="request"></a><a name="request-4"></a>Pedir
 
@@ -439,7 +439,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 }
 ```
 
-#### <a name="update-user-single-valued-properties"></a>Utilizador atualizado [Propriedades de valor único]
+#### <a name="update-user-single-valued-properties"></a>Atualizar o Utilizador [propriedades de valor único]
 
 ##### <a name="request"></a><a name="request-5"></a>Pedir
 
@@ -550,9 +550,9 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ### <a name="group-operations"></a>Operações de Grupo
 
-* Os grupos serão sempre criados com uma lista de membros vazios.
-* Os grupos podem ser consultados pelo `displayName` atributo.
-* A atualização ao pedido do patch do grupo deve produzir um *HTTP 204 No Content* na resposta. Devolver um corpo com uma lista de todos os membros não é aconselhável.
+* Os grupos devem ser sempre criados com uma lista de membros vazios.
+* Os grupos podem ser questionados pelo `displayName` atributo.
+* A atualização do pedido patch do grupo deve produzir um *HTTP 204 No Content* na resposta. Devolver um corpo com uma lista de todos os membros não é aconselhável.
 * Não é necessário apoiar a devolução de todos os membros do grupo.
 
 #### <a name="create-group"></a>Criar Grupo
@@ -594,7 +594,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ##### <a name="request"></a><a name="request-8"></a>Pedir
 
-*GET /Grupos/40734ae655284ad3abcc?excluídoS=membros HTTP/1.1*
+*GET /Groups/40734ae655284ad3abcc?excluídosAttributes=membros HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-8"></a>Resposta
 *HTTP/1.1 200 OK*
@@ -612,10 +612,10 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 }
 ```
 
-#### <a name="get-group-by-displayname"></a>Obter Grupo por displayName
+#### <a name="get-group-by-displayname"></a>Obtenha grupo por displayName
 
 ##### <a name="request"></a><a name="request-9"></a>Pedir
-*GET /Groups?excluiuOsAtributos=membros&filter=displayName eq "displayName" HTTP/1.1*
+*GET /Groups?excluiuAttributes=membros&filtro=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Resposta
 
@@ -645,7 +645,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ##### <a name="request"></a><a name="request-10"></a>Pedir
 
-*PATCH /Grupos/fa2ce26709934589afc5 HTTP/1.1*
+*PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -665,7 +665,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ##### <a name="request"></a><a name="request-11"></a>Pedir
 
-*PATCH /Grupos/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -684,11 +684,11 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 *HTTP/1.1 204 Sem Conteúdo*
 
-#### <a name="update-group-remove-members"></a>Grupo de Atualização [Remover Membros]
+#### <a name="update-group-remove-members"></a>Grupo de atualização [Remover Membros]
 
 ##### <a name="request"></a><a name="request-12"></a>Pedir
 
-*PATCH /Grupos/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -711,18 +711,18 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 ##### <a name="request"></a><a name="request-13"></a>Pedir
 
-*DELETE /Grupos/cdb1ce18f6594079d37 HTTP/1.1*
+*DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-13"></a>Resposta
 
 *HTTP/1.1 204 Sem Conteúdo*
 
 ### <a name="security-requirements"></a>Requisitos de segurança
-**Versões de Protocolo TLS**
+**Versões de protocolo TLS**
 
-As únicas versões aceitáveis do protocolo TLS são TLS 1.2 e TLS 1.3. Não são permitidas outras versões de TLS. Nenhuma versão do SSL é permitida. 
-- As teclas RSA devem ter pelo menos 2.048 bits.
-- As teclas ECC devem ser pelo menos 256 bits, geradas com uma curva elíptica aprovada
+As únicas versões aceitáveis do protocolo TLS são tls 1.2 e TLS 1.3. Não são permitidas outras versões de TLS. Não é permitida nenhuma versão do SSL. 
+- As chaves RSA devem ser de pelo menos 2.048 bits.
+- As chaves ECC devem ser de pelo menos 256 bits, geradas com uma curva elíptica aprovada
 
 
 **Comprimentos-chave**
@@ -731,9 +731,9 @@ Todos os serviços devem utilizar certificados X.509 gerados com teclas criptogr
 
 **Suítes Cipher**
 
-Todos os serviços devem ser configurados para utilizar as seguintes suítes cifra, na ordem exata especificada abaixo. Note que se tiver apenas um certificado RSA, as suites de cifra ECDSA não têm qualquer efeito. </br>
+Todos os serviços devem ser configurados para utilizar as seguintes suítes cifra, na ordem exata especificada abaixo. Note que se tiver apenas um certificado RSA, as suítes de cifra ECDSA não têm qualquer efeito. </br>
 
-TLS 1.2 Cifra Suites barra mínima:
+Barra mínima TLS 1.2 Cipher Suites:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -744,29 +744,25 @@ TLS 1.2 Cifra Suites barra mínima:
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
-### <a name="ip-ranges"></a>Gamaip
-O serviço Azure AD Provisionong opera atualmente sob as seguintes gamas IP. 
+### <a name="ip-ranges"></a>Gamas IP
+O serviço de fornecimento Azure AD pode atualmente opperate sob qualquer gama Azure IP. Estão em curso trabalhos para consolidar o conjunto de gamas IP em que o serviço opera. Este documento será atualizado assim que a lista de intervalos IP estiver consolidada. 
 
-13.86.239.205; 52.188.178.195; 13.86.61.156; 40.67.254.206; 51.105.237.71; 20.44.38.166; 40.81.88.68; 52.184.94.250; 20.43.180.59; 20.193.16.105; 20.40.167.232; 13.86.3.57; 52.188.72.113; 13.88.140.233; 52.142.121.156; 51.124.0.213; 40.81.92.36; 20.44.39.175; 20.189.114.130; 20.44.193.163; 20.193.23.17; 20.40.173.237; 13.86.138.128; 52.142.29.23; 13.86.2.238; 40.127.246.167; 51.136.72.4; 20.44.39.244; 40.81.92.186; 20.189.114.131; 20.44.193.210; 20.193.2.21; 20.40.174.46; 13.86.219.18; 40.71.13.10; 20.44.16.38; 13.89.174.16; 13.69.66.182; 13.69.229.118; 104.211.147.176; 40.78.195.176; 13.67.9.240; 13.75.38.48; 13.70.73.48; 13.77.52.176;
+## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final SCIM
 
+Agora que concebeu o seu esquema e compreendeu a implementação do Azure AD SCIM, pode começar a desenvolver o seu ponto final SCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, você pode confiar em uma série de bibliotecas SCIM de código aberto publicadas pela comunidade SCIM.
 
-
-## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final do SCIM
-
-Agora que desenhou o seu esquema e compreendeu a implementação do Azure AD SCIM, pode começar a desenvolver o seu ponto final sCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, pode contar com uma série de bibliotecas SCIM de código aberto publicadas pela comunidade SCIM.
-
-O código de [referência](https://aka.ms/SCIMReferenceCode) de código de referência .NET Core de código de referência publicado pela equipa de provisionamento da AD Azure é um desses recursos que podem iniciar o seu desenvolvimento. Assim que tiver construído o seu ponto final do SCIM, vai querer testá-lo. Pode utilizar a recolha de [testes carteiros](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou executar através dos pedidos/respostas da amostra [fornecidos acima .](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)  
+O código de [referência](https://aka.ms/SCIMReferenceCode) open source .NET Core publicado pela equipa de provisionamento Azure AD é um desses recursos que podem saltar para iniciar o seu desenvolvimento. Depois de ter construído o seu ponto final SCIM, vai querer testá-lo. Pode utilizar a recolha de testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou passar pelos pedidos/respostas da amostra fornecidos [acima.](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)  
 
    > [!Note]
    > O código de referência destina-se a ajudá-lo a começar a construir o seu ponto final SCIM e é fornecido "AS IS". As contribuições da comunidade são bem-vindas para ajudar a construir e manter o código.
 
 A solução é composta por dois projetos, _Microsoft.SCIM_ e _Microsoft.SCIM.WebHostSample_.
 
-O projeto _Microsoft.SCIM_ é a biblioteca que define os componentes do serviço web que se conformam com a especificação SCIM. Declara a interface _Microsoft.SCIM.IProvider,_ os pedidos são traduzidos em chamadas para os métodos do fornecedor, que seriam programados para operar numa loja de identidade.
+O projeto _Microsoft.SCIM_ é a biblioteca que define os componentes do serviço web que está em conformidade com a especificação SCIM. Declara a interface _Microsoft.SCIM.IProvider,_ os pedidos são traduzidos em chamadas para os métodos do fornecedor, que seriam programados para operar numa loja de identidade.
 
-![Desagregação: Um pedido traduzido em chamadas aos métodos do prestador](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
+![Repartição: Um pedido traduzido em chamadas para os métodos do fornecedor](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-O projeto _Microsoft.SCIM.WebHostSample_ é um Estúdio Visual ASP.NET Core Web Application, baseado no modelo _Empty._ Isto permite que o código da amostra seja implantado como autónomo, alojado em contentores ou dentro dos Serviços de Informação da Internet. Também implementa a interface _Microsoft.SCIM.IProvider_ mantendo as aulas na memória como uma loja de identidade de amostra.
+O projeto _Microsoft.SCIM.WebHostSample_ é um ASP.NET Core Web Application, baseado no modelo _Empty._ Isto permite que o código de amostra seja implantado como autónomo, alojado em contentores ou dentro dos Serviços de Informação da Internet. Também implementa a interface _Microsoft.SCIM.IProvider_ mantendo as aulas na memória como uma loja de identidade de amostra.
 
 ```csharp
     public class Startup
@@ -786,34 +782,34 @@ O projeto _Microsoft.SCIM.WebHostSample_ é um Estúdio Visual ASP.NET Core Web 
 
 ### <a name="building-a-custom-scim-endpoint"></a>Construção de um ponto final personalizado do SCIM
 
-O serviço SCIM deve ter um endereço HTTP e certificado de autenticação do servidor do qual a autoridade de certificação root é um dos seguintes nomes:
+O serviço SCIM deve ter um certificado de autenticação de endereço HTTP e servidor, do qual a autoridade de certificação raiz é um dos seguintes nomes:
 
 * CNNIC
 * Comodo
-* CiberTrust
+* CyberTrust
 * DigiCert
 * GeoTrust
 * GlobalSign
-* Vai Papá
+* Vai papai
 * VeriSign
-* WoSign
+* Rio WoSign
 
-O .NET Core SDK inclui um certificado de desenvolvimento HTTPS que pode ser usado durante o desenvolvimento, o certificado é instalado como parte da experiência de primeira execução. Dependendo da forma como executa a aplicação web ASP.NET, ouvirá uma porta diferente:
+O .NET Core SDK inclui um certificado de desenvolvimento HTTPS que pode ser utilizado durante o desenvolvimento, o certificado é instalado como parte da experiência de primeira execução. Dependendo da forma como executar a aplicação core web ASP.NET, ouvirá uma porta diferente:
 
-* Microsoft.SCIM.webHostSample:https://localhost:5001
+* Microsoft.SCIM.WebHostSample:https://localhost:5001
 * IIS Express:https://localhost:44359/
 
-Para mais informações sobre HTTPS em ASP.NET Core use o seguinte link: [Impor HTTPS em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Para mais informações sobre HTTPS em ASP.NET Utilização do núcleo o seguinte link: [Impor HTTPS em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
 
-### <a name="handling-endpoint-authentication"></a>Autenticação de ponto final de manuseamento
+### <a name="handling-endpoint-authentication"></a>Tratamento da autenticação do ponto final
 
-Os pedidos do Azure Ative Directory incluem um token oAuth 2.0 bearer. Qualquer serviço que receba o pedido deve autenticar o emitente como sendo o Azure Ative Directory para o esperado inquilino do Diretório Ativo Azure.
+Os pedidos do Azure Ative Directory incluem um token portador de OAuth 2.0. Qualquer serviço que receba o pedido deve autenticar o emitente como sendo a Azure Ative Directory para o inquilino esperado do Azure Ative Directory.
 
-No símbolo, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, identifica o `https://sts.windows.net` Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422,_ é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido.
+No token, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, `https://sts.windows.net` identifica o Azure Ative Directory como o emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, é um identificador único do inquilino do Diretório Ativo Azure para o qual o token foi emitido.
 
-O público do símbolo será o ID do modelo de aplicação para a aplicação na galeria, cada uma das candidaturas registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O símbolo gerado pelo serviço de provisionamento Da Azure Só deve ser utilizado para testes. Não deve ser utilizado em ambientes de produção.
+O público para o token será o ID do modelo de candidatura para a aplicação na galeria, cada uma das aplicações registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O símbolo gerado pelo serviço de fornecimento Azure AD só deve ser utilizado para testes. Não deve ser utilizado em ambientes de produção.
 
-No código da amostra, os pedidos são autenticados utilizando o pacote Microsoft.AspNetCore.Authentication.JwtBearer. O seguinte código aplica que os pedidos a qualquer um dos pontos finais do serviço são autenticados utilizando o token do portador emitido pelo Azure Ative Directory para um inquilino especificado:
+No código de amostra, os pedidos são autenticados utilizando o pacote Microsoft.AspNetCore.Authentication.JwtBearer. O seguinte código aplica que os pedidos a qualquer um dos pontos finais do serviço são autenticados usando o token ao portador emitido pela Azure Ative Directory para um inquilino especificado:
 
 ```csharp
         public void ConfigureServices(IServiceCollection services)
@@ -849,9 +845,9 @@ No código da amostra, os pedidos são autenticados utilizando o pacote Microsof
        }
 ```
 
-É também necessário um símbolo do portador para utilizar os testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos e realizar depuração local utilizando o hospedeiro local. O código da amostra utiliza ASP.NET ambientes Core para alterar as opções de autenticação durante a fase de desenvolvimento e permitir a utilização de um símbolo auto-assinado.
+Um sinal de portador também é necessário para usar os testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos e realizar depuragem local usando o local. O código de amostra utiliza ambientes ASP.NET Core para alterar as opções de autenticação durante a fase de desenvolvimento e permitir a utilização de um token auto-assinado.
 
-Para obter mais informações sobre vários ambientes em ASP.NET Core use o seguinte link: [Use múltiplos ambientes em ASP.NET Core](
+Para obter mais informações sobre vários ambientes em ASP.NET Utilização do núcleo o seguinte link: [Use vários ambientes em ASP.NET Core](
 https://docs.microsoft.com/aspnet/core/fundamentals/environments)
 
 O seguinte código aplica que os pedidos a qualquer um dos pontos finais do serviço são autenticados usando um token ao portador assinado com uma chave personalizada:
@@ -885,7 +881,7 @@ O seguinte código aplica que os pedidos a qualquer um dos pontos finais do serv
         ...
 ```
 
-Envie um pedido GET ao controlador Token para obter um token portador válido, o método _GenerateJSONWebToken_ é responsável por criar um símbolo que corresponda aos parâmetros configurados para o desenvolvimento:
+Envie um pedido GET ao controlador Token para obter um token ao portador válido, o método _GenerateJSONWebToken_ é responsável por criar um símbolo correspondente aos parâmetros configurados para o desenvolvimento:
 
 ```csharp
         private string GenerateJSONWebToken()
@@ -915,21 +911,21 @@ Envie um pedido GET ao controlador Token para obter um token portador válido, o
         }
 ```
 
-### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Manuseamento do provisionamento e desprovisionamento dos utilizadores
+### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Tratamento do fornecimento e desprovisionamento dos utilizadores
 
-***Exemplo 1. Consultar o serviço para um utilizador correspondente***
+***Exemplo 1. Consultar o serviço para um utilizador que corresponde***
 
-O Azure Ative Directory consulta o serviço para um utilizador com um valor de atributo externo Que corresponde ao valor de atributo de um utilizador em Azure AD. A consulta é expressa como um pedido de Protocolo de Transferência de Hipertextos (HTTP), como este exemplo, em que jyoung é uma amostra de um mailNickname de um utilizador no Diretório Ativo Azure.
+O Azure Ative Directory consulta o serviço para um utilizador com um valor de atributo ExternoId correspondente ao valor de atributo mailNickname de um utilizador em Azure AD. A consulta é expressa como um pedido de Hipertext Transfer Protocol (HTTP) como este exemplo, em que jyoung é uma amostra de um nome de correioNickname de um utilizador em Azure Ative Directory.
 
 >[!NOTE]
-> Este é apenas um exemplo. Nem todos os utilizadores terão um atributo de mailNickname, e o valor que um utilizador tem pode não ser único no diretório. Além disso, o atributo utilizado para a correspondência (que neste caso é externoId) é configurável nos [mapeamentos de atributos Azure AD](customize-application-attributes.md).
+> Este é apenas um exemplo. Nem todos os utilizadores terão um atributo de mailNickname, e o valor que um utilizador tem pode não ser único no diretório. Além disso, o atributo utilizado para a correspondência (que neste caso é externoId) é configurável nos [mapeamentos de atributos AD Azure](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
  Authorization: Bearer ...
 ```
 
-No código da amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. Aqui está a assinatura deste método: 
+No código de amostra, o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. Aqui está a assinatura deste método: 
 
 ```csharp
  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -943,16 +939,16 @@ No código da amostra o pedido é traduzido numa chamada para o método QueryAsy
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-Na consulta da amostra, para um utilizador com um determinado valor para o atributo externo, os valores dos argumentos transmitidos ao método QueryAsync são:
+Na consulta da amostra, para um utilizador com um determinado valor para o atributo externoid, os valores dos argumentos transmitidos ao método QueryAsync são:
 
-* parâmetros. Filtros Alternativos.Conde: 1
-* parâmetros. Filtros Alternativos.ElementAt(0). AtributoPath: "externalId"
-* parâmetros. Filtros Alternativos.ElementAt(0). ComparaçãoOperador: ComparaçãoOperador.Equals
-* parâmetros. Filtro alternativo.Elementat(0). ComparaçãoValue: "jyoung"
+* parâmetros. Filtros Alternativos.Contagem: 1
+* parâmetros. AlternateFiltros.ElementAt(0). AtributoPath: "externalId"
+* parâmetros. AlternateFiltros.ElementAt(0). ComparaçãoOperador: CompareOperador.Equals
+* parâmetros. AlternateFilter.ElementAt(0). ComparaçãoValue: "jyoung"
 
-***Exemplo 2. Provisiona um utilizador***
+***Exemplo 2. Provisionamento de um utilizador***
 
-Se a resposta a uma consulta ao serviço web para um utilizador com um valor de atributo externo Que corresponda ao valor de atributo do utilizador não devolve nenhum utilizador, então o Azure Ative Directory solicita que o serviço aprovisione um utilizador correspondente ao do Diretório Ativo Azure.  Aqui está um exemplo de tal pedido: 
+Se a resposta a uma consulta ao serviço web para um utilizador com um valor de atributo ExternoId que corresponda ao valor de atributo mailSname de um utilizador não devolve nenhum utilizador, então o Azure Ative Directory solicita que a prestação de serviço seja um utilizador correspondente ao do Azure Ative Directory.  Aqui está um exemplo de tal pedido: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -985,7 +981,7 @@ Se a resposta a uma consulta ao serviço web para um utilizador com um valor de 
    "manager":null}
 ```
 
-No código da amostra o pedido é traduzido numa chamada para o método CreateAsync do prestador do serviço. Aqui está a assinatura deste método: 
+No código de amostra, o pedido é traduzido numa chamada para o método CreateAsync do prestador do serviço. Aqui está a assinatura deste método: 
 
 ```csharp
  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -997,18 +993,18 @@ No código da amostra o pedido é traduzido numa chamada para o método CreateAs
  Task<Resource> CreateAsync(IRequest<Resource> request);
 ```
 
-Num pedido de fornecimento de um utilizador, o valor do argumento do recurso é uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, definida na biblioteca Microsoft.SCIM.Schemas.  Se o pedido de fornecimento do utilizador for bem sucedido, espera-se que a implementação do método devolva uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, com o valor da propriedade Identifier definida para o identificador único do utilizador recém-provisionado.  
+Num pedido de fornecimento de um utilizador, o valor do argumento de recurso é uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, definida na biblioteca Microsoft.SCIM.Schemas.  Se o pedido de provisionamento do utilizador for bem sucedido, espera-se que a implementação do método devolva uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, com o valor da propriedade Identifier definida para o identificador único do utilizador recém-atado.  
 
 ***Exemplo 3. Consulta do estado atual de um utilizador*** 
 
-Para atualizar um utilizador conhecido por existir numa loja de identidade diante de um SCIM, o Azure Ative Directory procede solicitando o estado atual desse utilizador do serviço com um pedido como: 
+Para atualizar um utilizador conhecido por existir numa loja de identidade frontalizada por um SCIM, o Azure Ative Directory procede solicitando ao serviço o estado atual desse utilizador com um pedido como: 
 
 ```
  GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
  Authorization: Bearer ...
 ```
 
-No código da amostra o pedido é traduzido numa chamada para o método RetrieveAsync do prestador do serviço. Aqui está a assinatura deste método: 
+No código de amostra, o pedido é traduzido numa chamada para o método RetrieveAsync do prestador do serviço. Aqui está a assinatura deste método: 
 
 ```csharp
  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1026,18 +1022,18 @@ No exemplo de um pedido de recuperação do estado atual de um utilizador, os va
 * Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-***Exemplo 4. Consulta do valor de um atributo de referência a ser atualizado*** 
+***Exemplo 4. Consulta do valor de um atributo de referência a atualizar*** 
 
-Se um atributo de referência for atualizado, então o Azure Ative Directory questiona o serviço para determinar se o valor atual do atributo de referência na loja de identidade encabeçada pelo serviço já corresponde ao valor desse atributo no Diretório Ativo do Azure. Para os utilizadores, o único atributo de que o valor atual é consultado desta forma é o atributo do gestor. Aqui está um exemplo de um pedido para determinar se o atributo do gestor de um objeto de utilizador tem atualmente um determinado valor: No código de amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. O valor das propriedades do objeto fornecidos como o valor do argumento dos parâmetros é o seguinte: 
+Se um atributo de referência for atualizado, então o Azure Ative Directory consulta o serviço para determinar se o valor atual do atributo de referência na loja de identidade frontalmente pelo serviço já corresponde ao valor desse atributo no Azure Ative Directory. Para os utilizadores, o único atributo do qual o valor atual é consultado desta forma é o atributo do gestor. Aqui está um exemplo de um pedido para determinar se o atributo do gestor de um objeto de utilizador tem atualmente um determinado valor: No código de amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. O valor das propriedades do objeto fornecido como o valor do argumento dos parâmetros são os seguintes: 
   
-* parâmetros. Filtros Alternativos.Count: 2
-* parâmetros. Filtros Alternativos.ElementAt(x). AtributoPath: "ID"
-* parâmetros. Filtros Alternativos.ElementAt(x). ComparaçãoOperador: ComparaçãoOperador.Equals
-* parâmetros. Filtro Alternativo.ElementAt(x). Valor de comparação: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* parâmetros. Filtros Alternativos.ElementAt(y). AttributePath: "manager"
-* parâmetros. Filtros Alternativos.ElementAt(y). ComparaçãoOperador: ComparaçãoOperador.Equals
-* parâmetros. Filtro Alternativo.ElementAt(y). ComparaçãoValor: "2819c223-7f76-453a-919d-413861904646"
-* parâmetros. Pedidos DeAtributos.ElementAt(0): "ID"
+* parâmetros. Filtros Alternativos.Contagem: 2
+* parâmetros. AlternateFiltros.ElementAt(x). AtributoPata: "ID"
+* parâmetros. AlternateFiltros.ElementAt(x). ComparaçãoOperador: CompareOperador.Equals
+* parâmetros. AlternateFilter.ElementAt(x). ComparaçãoValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* parâmetros. AlternateFilters.ElementAt(y). AtributoPata: "manager"
+* parâmetros. AlternateFilters.ElementAt(y). ComparaçãoOperador: CompareOperador.Equals
+* parâmetros. AlternateFilter.ElementAt(y). ComparaçãoValue: "2819c223-7f76-453a-919d-413861904646"
+* parâmetros. SolicitadoAttributePaths.ElementAt(0): "ID"
 * parâmetros. SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 Aqui, o valor do índice x pode ser 0 e o valor do índice y pode ser 1, ou o valor de x pode ser 1 e o valor de y pode ser 0, dependendo da ordem das expressões do parâmetro de consulta do filtro.   
@@ -1066,7 +1062,7 @@ Aqui está um exemplo de um pedido do Azure Ative Directory a um serviço SCIM p
               "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
 ```
 
-No código da amostra o pedido é traduzido numa chamada para o método UpdateAsync do prestador do serviço. Aqui está a assinatura deste método: 
+No código de amostra, o pedido é traduzido numa chamada para o método UpdateAsync do prestador do serviço. Aqui está a assinatura deste método: 
 
 ```csharp
  // System.Threading.Tasks.Tasks and 
@@ -1079,27 +1075,27 @@ No código da amostra o pedido é traduzido numa chamada para o método UpdateAs
  Task UpdateAsync(IRequest<IPatch> request);
 ```
 
-No exemplo de um pedido de atualização de um utilizador, o objeto fornecido como o valor do argumento de patch tem estes valores de propriedade: 
+No exemplo de um pedido de atualização de um utilizador, o objeto fornecido como o valor do argumento do patch tem estes valores de propriedade: 
   
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-* (PatchRequest as PatchRequest2). Operações.Contagem: 1
-* (PatchRequest as PatchRequest2). Operações.Elementat(0). Nome da operação: OperationName.Add
-* (PatchRequest as PatchRequest2). Operações.Elementat(0). Path.AttributePath: "manager"
-* (PatchRequest as PatchRequest2). Operações.Elementat(0). Valor.Contagem: 1
-* (PatchRequest as PatchRequest2). Operações.Elementat(0). Valor.ElementAt(0). Referência: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-* (PatchRequest as PatchRequest2). Operações.Elementat(0). Valor.ElementAt(0). Valor: 2819c223-7f76-453a-919d-413861904646
+* (PatchRequest como PatchRequest2). Operações.Contagem: 1
+* (PatchRequest como PatchRequest2). Operações.ElementAt(0). OperaçãoName: OperaçãoName.Add
+* (PatchRequest como PatchRequest2). Operações.ElementAt(0). Path.AttributePath: "manager"
+* (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.Contagem: 1
+* (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.ElementAt(0). Referência: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
+* (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.ElementAt(0). Valor: 2819c223-7f76-453a-919d-413861904646
 
 ***Exemplo 6. Desprovisionamento de um utilizador***
 
-Para desfornecer um utilizador de uma loja de identidade sitia por um serviço SCIM, a Azure AD envia um pedido como:
+Para desprovisionar um utilizador de uma loja de identidade frontalizada por um serviço SCIM, a Azure AD envia um pedido como:
 
 ```
   DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
   Authorization: Bearer ...
 ```
 
-No código da amostra o pedido é traduzido numa chamada para o método DeleteAsync do prestador do serviço. Aqui está a assinatura deste método: 
+No código de amostra, o pedido é traduzido numa chamada para o método DeleteAsync do prestador do serviço. Aqui está a assinatura deste método: 
 
 ```csharp
  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1111,127 +1107,127 @@ No código da amostra o pedido é traduzido numa chamada para o método DeleteAs
  Task DeleteAsync(IRequest<IResourceIdentifier> request);
 ```
 
-O objeto fornecido como valor do argumento do dispositivoIdentificador tem estes valores de propriedade no exemplo de um pedido de desprovisionamento de um utilizador: 
+O objeto fornecido como o valor do argumento do gestor de recursos tem estes valores de propriedade no exemplo de um pedido de desprovisionamento de um utilizador: 
 
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Passo 4: Integre o seu ponto final do SCIM com o cliente Azure AD SCIM
+## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Passo 4: Integre o seu ponto final SCIM com o cliente Azure AD SCIM
 
-A Azure AD pode ser configurada para fornecer automaticamente utilizadores e grupos atribuídos a aplicações que implementem um perfil específico do [protocolo SCIM 2.0.](https://tools.ietf.org/html/rfc7644) As especificidades do perfil estão documentadas no [passo 2: Compreender a implementação do Azure AD SCIM](#step-2-understand-the-azure-ad-scim-implementation).
+O Azure AD pode ser configurado para fornecer automaticamente utilizadores e grupos atribuídos a aplicações que implementem um perfil específico do [protocolo SCIM 2.0](https://tools.ietf.org/html/rfc7644). As especificidades do perfil estão documentadas no [Passo 2: Compreender a implementação do Azure AD SCIM](#step-2-understand-the-azure-ad-scim-implementation).
 
-Consulte o seu fornecedor de candidaturas ou a documentação do seu fornecedor de aplicações para obter declarações de compatibilidade com estes requisitos.
+Consulte o seu fornecedor de aplicações ou a documentação do seu fornecedor de aplicações para obter declarações de compatibilidade com estes requisitos.
 
 > [!IMPORTANT]
-> A implementação do Azure AD SCIM baseia-se em cima do serviço de fornecimento de utilizadores Da Azure AD, que é projetado para manter constantemente os utilizadores sincronizados entre a AD Azure e a aplicação-alvo, e implementa um conjunto muito específico de operações padrão. É importante compreender estes comportamentos para entender o comportamento do cliente Azure AD SCIM. Para mais informações, consulte a secção [Ciclos de provisionamento: Inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) em Como funciona o [provisionamento](how-provisioning-works.md).
+> A implementação do Azure AD SCIM é construída em cima do serviço de fornecimento de utilizadores Azure AD, que é projetado para manter os utilizadores constantemente sincronizados entre a Azure AD e a aplicação-alvo, e implementa um conjunto muito específico de operações padrão. É importante entender estes comportamentos para entender o comportamento do cliente Azure AD SCIM. Para obter mais informações, consulte a secção [Ciclos de Provisionamento: Inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) em [Como funciona o provisionamento](how-provisioning-works.md).
 
 ### <a name="getting-started"></a>Introdução
 
-As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas ao Azure Ative Directory utilizando a funcionalidade "aplicação não-galeria" na galeria de aplicações da AD Azure. Uma vez ligado, a Azure AD executa um processo de sincronização a cada 40 minutos onde consulta o ponto final do SCIM da aplicação para utilizadores e grupos atribuídos, e cria ou modifica de acordo com os detalhes da atribuição.
+As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas ao Azure Ative Directory utilizando a funcionalidade "non-gallery application" na galeria de aplicações AZure AD. Uma vez conectado, o Azure AD executa um processo de sincronização a cada 40 minutos onde consulta o ponto final SCIM da aplicação para utilizadores e grupos designados, e cria ou modifica de acordo com os detalhes da atribuição.
 
 **Para ligar uma aplicação que suporta o SCIM:**
 
-1. Inscreva-se no [portal de Diretório Ativo Azure.](https://aad.portal.azure.com) Note que pode ter acesso a um teste gratuito para O Diretório Ativo Azure com licenças P2, inscrevendo-se no programa de [desenvolvimento](https://developer.microsoft.com/office/dev-program)
-2. Selecione **aplicações Enterprise** a partir do painel esquerdo. É apresentada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas a partir da galeria.
-3. Selecione **+ Nova aplicação**  >  **Todas as**  >  **aplicações não-galeria**.
-4. Introduza um nome para a sua aplicação e selecione **Adicionar** para criar um objeto de aplicação. A nova aplicação é adicionada à lista de aplicações empresariais e abre-se para o seu ecrã de gestão de aplicações.
+1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com). Note que pode ter acesso gratuito a um teste gratuito para O Diretório Ativo Azure com licenças P2 ao inscrever-se no [programa de desenvolvedores](https://developer.microsoft.com/office/dev-program)
+2. Selecione **aplicações** Enterprise a partir do painel esquerdo. É mostrada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas da galeria.
+3. Selecione **+ Nova aplicação**  >  **Todas as**  >  **aplicações non-gallery.**
+4. Introduza um nome para a sua aplicação e **selecione Adicionar** para criar um objeto de aplicação. A nova aplicação é adicionada à lista de aplicações empresariais e abre-se ao seu ecrã de gestão de aplicações.
 
-   ![Screenshot mostra a galeria de aplicações da AD Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
-   *Galeria de aplicações da Azure AD*
+   ![Screenshot mostra a galeria de aplicações AZure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   *Galeria de aplicações AZure AD*
 
 5. No ecrã de gestão de aplicações, selecione **Provisioning** no painel esquerdo.
-6. No menu modo de **provisionamento,** **selecione Automático**.
+6. No menu **Modo de Provisionamento,** selecione **Automatic**.
 
    ![Exemplo: Página de Provisionamento de uma aplicação no portal Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configuração do provisionamento no portal Azure*
 
-7. No campo URL do **Arrendatário,** introduza o URL do ponto final do SCIM da aplicação. Exemplo: `https://api.contoso.com/scim/`
-8. Se o ponto final do SCIM necessitar de um símbolo do portador da OAuth de um emitente que não seja o Azure AD, então copie o símbolo necessário do portador oAuth no campo **opcional secret Token.** Se este campo ficar em branco, a Azure AD inclui um token oauth bearer emitido a partir de Azure AD a cada pedido. As aplicações que utilizam o Azure AD como fornecedor de identidade podem validar este token emitido pelo Azure AD. 
+7. No campo URL do **inquilino,** insira o URL do ponto final SCIM da aplicação. Exemplo: `https://api.contoso.com/scim/`
+8. Se o ponto final do SCIM necessitar de um token portador de OAuth de um emitente diferente do Azure AD, em seguida, copie o símbolo do portador de OAuth necessário no campo **token secreto** opcional. Se este campo ficar em branco, o Azure AD inclui um token portador de OAuth emitido a partir de Azure AD a cada pedido. As aplicações que usam o Azure AD como fornecedor de identidade podem validar este token emitido pela AZure AD. 
    > [!NOTE]
-   > Não ***é*** aconselhável deixar este campo em branco e contar com um símbolo gerado pela Azure AD. Esta opção está disponível principalmente para fins de teste.
-9. Selecione **Ligação** de Teste para que o Diretório Ativo Azure tente ligar-se ao ponto final do SCIM. Se a tentativa falhar, a informação de erro é apresentada.  
+   > Não é ***recomendado*** deixar este campo em branco e confiar num símbolo gerado pela Azure AD. Esta opção está disponível principalmente para efeitos de teste.
+9. Selecione **a Ligação de Teste** para que o Azure Ative Directory tente ligar-se ao ponto final do SCIM. Se a tentativa falhar, é apresentada informação de erro.  
 
     > [!NOTE]
-    > **Teste De Ligação** consulta o ponto final do SCIM para um utilizador que não existe, utilizando um GUID aleatório como a propriedade correspondente selecionada na configuração da AD Azure. A resposta correta esperada é HTTP 200 OK com uma mensagem SCIM ListResponse vazia.
+    > **A Ligação** de Teste consulta o ponto final DO SCIM para um utilizador que não existe, utilizando um GUID aleatório como a propriedade correspondente selecionada na configuração AD Azure. A resposta correta esperada é HTTP 200 OK com uma mensagem scim ListResponse vazia.
 
-10. Se as tentativas de ligação à aplicação forem bem sucedidas, então selecione **Save** para salvar as credenciais de administração.
-11. Na secção **Mapeamentos,** existem dois conjuntos selecionáveis de [mapeamentos de atributos:](customize-application-attributes.md)um para objetos de utilizador e outro para objetos de grupo. Selecione cada um para rever os atributos sincronizados do Azure Ative Directory para a sua aplicação. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar os utilizadores e grupos na sua aplicação para operações de atualização. Selecione **Guardar** para cometer quaisquer alterações.
+10. Se as tentativas de ligação à aplicação forem bem sucedidas, então **selecione Guardar** para guardar as credenciais de administração.
+11. Na secção **mapeamentos,** existem dois conjuntos selecionáveis de [mapeamentos de atributos:](customize-application-attributes.md)um para objetos do utilizador e outro para objetos de grupo. Selecione cada um para rever os atributos que são sincronizados do Azure Ative Directory para a sua aplicação. Os atributos selecionados como propriedades **de matching** são usados para combinar com os utilizadores e grupos na sua aplicação para operações de atualização. **Selecione Guardar** para escoar quaisquer alterações.
 
     > [!NOTE]
-    > Pode desativar opcionalmente a sincronização de objetos de grupo, desativando o mapeamento de "grupos".
+    > Pode desativar opcionalmente a sincronização de objetos de grupo desativando o mapeamento de "grupos".
 
-12. Em **Definições,** o campo **Scope** define quais os utilizadores e grupos sincronizados. Selecione **Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no separador **Utilizadores e grupos.**
-13. Uma vez concluída a sua configuração, detete o Estado de **Provisionamento** para **On**.
-14. Selecione **Guardar** para iniciar o serviço de provisionamento Azure AD.
-15. Se sincronizar apenas os utilizadores e grupos atribuídos (recomendado), certifique-se de selecionar o separador **Utilizadores e grupos** e atribuir os utilizadores ou grupos que pretende sincronizar.
+12. Em **Definições**, o campo **Scope** define quais os utilizadores e grupos que estão sincronizados. Selecione **Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no **separador Utilizadores e grupos.**
+13. Uma vez concluída a sua configuração, desa um conjunto do **Estado de Provisionamento** para **On**.
+14. **Selecione Guardar** para iniciar o serviço de fornecimento de Ad Azure.
+15. Se sincronizar apenas utilizadores e grupos designados (recomendado), certifique-se de selecionar o **separador Utilizadores e grupos** e atribuir os utilizadores ou grupos que pretende sincronizar.
 
-Uma vez iniciado o ciclo inicial, pode selecionar registos de **provisionamento** no painel esquerdo para monitorizar o progresso, o que mostra todas as ações feitas pelo serviço de provisionamento na sua aplicação. Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](check-status-user-account-provisioning.md)de conta de utilizador .
+Uma vez iniciado o ciclo inicial, pode **selecionar registos de provisionamento** no painel esquerdo para monitorizar o progresso, o que mostra todas as ações feitas pelo serviço de fornecimento na sua aplicação. Para obter mais informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](check-status-user-account-provisioning.md).
 
 > [!NOTE]
-> O ciclo inicial demora mais tempo a realizar do que as sincronizações posteriores, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução.
+> O ciclo inicial demora mais tempo a ser efetua do que as sincronizações posteriores, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento.
 
-## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Passo 5: Publique a sua candidatura na galeria de aplicações da AD Azure
+## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Passo 5: Publique a sua candidatura na galeria de aplicações AZure AD
 
-Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de aplicações da AD Azure. Isto facilitará às organizações a descoberta da aplicação e o fornecimento configurado. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os degraus [aqui.](../develop/howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes usarem. 
+Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de candidaturas Azure AD. Isto facilitará às organizações a descoberta da aplicação e a configuração do provisionamento. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os passos [aqui.](../develop/howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes utilizarem. 
 
-### <a name="gallery-onboarding-checklist"></a>Lista de verificação onboarding de galeria
-Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e que os clientes têm uma experiência de implementação suave. A informação será recolhida quando embarcar na galeria. 
+### <a name="gallery-onboarding-checklist"></a>Galeria de verificação de bordo
+Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e os clientes têm uma experiência de implementação suave. A informação será recolhida de si quando embarcar na galeria. 
 > [!div class="checklist"]
-> * Suporte um utilizador [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto final do grupo (apenas um é necessário, mas ambos são recomendados)
-> * Apoio de pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
-> * Estabelecer contactos de engenharia e suporte para orientar clientes post gallery onboarding (Obrigatório)
-> * 3 Credenciais de teste sem validade para a sua aplicação (Necessária)
-> * Apoiar a concessão do código de autorização da OAuth ou um token de longa duração, como descrito abaixo (Exigido)
-> * Estabeleça um ponto de contacto de engenharia e suporte para apoiar clientes post gallery onboarding (Obrigatório)
-> * Suporte a atualizar vários membros do grupo com um único PATCH (Recomendado) 
-> * Documente publicamente o seu ponto final do SCIM (Recomendado) 
-> * [Apoiar a descoberta do esquema](https://tools.ietf.org/html/rfc7643#section-6) (Recomendado)
+> * Suporte um utilizador [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto final de grupo (Apenas um é necessário, mas ambos são recomendados)
+> * Apoio pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
+> * Estabelecer contactos de engenharia e apoio para orientar os clientes post gallery onboarding (Obrigatório)
+> * 3 Credenciais de teste não expiradas para a sua aplicação (Requerida)
+> * Apoiar a concessão do código de autorização OAuth ou um símbolo de longa duração, conforme descrito abaixo (Obrigatório)
+> * Estabeleça um ponto de contacto de engenharia e apoio para apoiar os clientes post gallery onboarding (Obrigatório)
+> * Apoiar a atualização de várias associações de grupo com um único PATCH (Recomendado) 
+> * Documente publicamente o seu ponto final SCIM (Recomendado) 
+> * [Deteção de esquemas de](https://tools.ietf.org/html/rfc7643#section-6) suporte (Recomendado)
 
 
-### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para provisionamento de conectores na galeria de aplicações
-A especificação SCIM não define um regime específico de autenticação e autorização do SCIM. Baseia-se na utilização das normas industriais existentes. O cliente de fornecimento de adsad Azure suporta dois métodos de autorização para pedidos na galeria. 
+### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização de provisionamento de conectores na galeria de aplicações
+A especificação SCIM não define um regime específico scim para a autenticação e autorização. Baseia-se na utilização das normas industriais existentes. O cliente azure AD que fornece apoio dois métodos de autorização para pedidos na galeria. 
 
 |Método de autorização|Vantagens|Contras|Suporte|
 |--|--|--|--|
-|Nome de utilizador e palavra-passe (não recomendado ou suportado pela AD Azure)|Fácil de implementar|Inseguro - [O seu pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Suportado caso a caso para apps de galeria. Não suportado para aplicações não-galeria.|
-|Símbolo de porta-portadores de longa duração|Fichas de longa duração não requerem que um utilizador esteja presente. São fáceis de utilizar os administradores na criação do provisionamento.|Fichas de longa duração podem ser difíceis de partilhar com um administrador sem usar métodos inseguros como e-mail. |Suportado para apps de galeria e não-galeria. |
-|Concessão de código de autorização DaOUth|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo de atualização automatizado que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador deixar a organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para apps de galeria. O suporte para aplicações não-galeria está em andamento.|
-|Bolsa de credenciais de cliente OAuth|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo de atualização automatizado que os tokens portadores de longa duração não têm. Tanto a concessão do código de autorização como as credenciais de cliente criam o mesmo tipo de ficha de acesso, pelo que a mudança entre estes métodos é transparente para a API.  O provisionamento pode ser completamente automatizado, e novos tokens podem ser solicitados silenciosamente sem a interação do utilizador. ||Não suportado para apps de galeria e não-galeria. O apoio está no nosso atraso.|
+|Nome de utilizador e palavra-passe (não recomendado ou suportado pelo Azure AD)|Fácil de implementar|Inseguro - [O seu pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Suportado caso a caso para aplicações de galeria. Não suportado para aplicações não-galeria.|
+|Ficha de portador de longa data|Fichas de longa duração não requerem a presença de um utilizador. São fáceis de utilizar para os administradores na configuração do provisionamento.|Fichas de longa duração podem ser difíceis de partilhar com um administrador sem usar métodos inseguros como e-mail. |Suportado para apps de galeria e não galeria. |
+|Concessão de código de autorização OAu|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador sair da organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para aplicativos de galeria. O suporte para aplicações não-galeria está em andamento.|
+|Concessão de credenciais de cliente oauth|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm. Tanto a concessão do código de autorização como as credenciais do cliente concedem criam o mesmo tipo de sinal de acesso, pelo que a deslocação entre estes métodos é transparente para a API.  O provisionamento pode ser completamente automatizado, e novos tokens podem ser solicitados silenciosamente sem a interação do utilizador. ||Não suportado para apps de galeria e não-galeria. O apoio está nos nossos atrasos.|
 
-[!NOTE] Não é aconselhável deixar o campo simbólico em branco na aplicação personalizada de configuração de configuração de adi. O símbolo gerado está principalmente disponível para fins de teste.
+[!NOTE] Não é aconselhável deixar o campo simbólico em branco na aplicação personalizada de configuração AD AD Azure. O token gerado está principalmente disponível para fins de teste.
 
-Fluxo de concessão de código de **autorização OAuth:** O serviço de provisionamento apoia a concessão do código de [autorização.](https://tools.ietf.org/html/rfc6749#page-24) Depois de submeter o seu pedido de publicação da sua app na galeria, a nossa equipa trabalhará consigo para recolher as seguintes informações:
-*  URL de autorização: Um URL do cliente para obter autorização do proprietário do recurso através de redirecionamento do utilizador-agente. O utilizador é redirecionado para este URL para autorizar o acesso. Note que este URL não é atualmente configurável por inquilino.
-*  URL de troca de token: Um URL do cliente para trocar uma bolsa de autorização para um token de acesso, tipicamente com autenticação do cliente. Note que este URL não é atualmente configurável por inquilino.
-*  ID do cliente: O servidor de autorização emite ao cliente registado um identificador de cliente, que é uma cadeia única que representa as informações de registo fornecidas pelo cliente.  O identificador de cliente não é um segredo; é exposto ao proprietário do recurso e **não deve** ser utilizado sozinho para autenticação do cliente.  
+**Fluxo de concessão de código de autorização OAuth:** O serviço de prestação suporta a concessão do [código de autorização.](https://tools.ietf.org/html/rfc6749#page-24) Depois de submeter o seu pedido de publicação da sua app na galeria, a nossa equipa trabalhará consigo para recolher as seguintes informações:
+*  URL de autorização: UM URL do cliente para obter autorização do proprietário do recurso através da reorientação do agente de utilizador. O utilizador é redirecionado para este URL para autorizar o acesso. Note que este URL não é atualmente configurável por inquilino.
+*  URL de troca de token: UM URL do cliente para trocar um subsídio de autorização para um token de acesso, tipicamente com autenticação do cliente. Note que este URL não é atualmente configurável por inquilino.
+*  Identificação do cliente: O servidor de autorização emite ao cliente registado um identificador de cliente, que é uma cadeia única que representa as informações de registo fornecidas pelo cliente.  O identificador de clientes não é um segredo; está exposto ao titular do recurso e **não deve** ser utilizado sozinho para a autenticação do cliente.  
 *  Segredo do cliente: O segredo do cliente é um segredo gerado pelo servidor de autorização. Deve ser um valor único conhecido apenas pelo servidor de autorização. 
 
-Note que o OAuth v1 não é suportado devido à exposição do segredo do cliente. OAuth v2 é apoiado.  
+Note que o OAuth v1 não é suportado devido à exposição do segredo do cliente. OAu v2 é suportado.  
 
-Boas práticas (recomendadas mas não necessárias):
-* Suporte vários URLs redirecionais. Os administradores podem configurar o provisionamento tanto de "portal.azure.com" como de "aad.portal.azure.com". O suporte a vários URLs redirecionados garantirá que os utilizadores podem autorizar o acesso a partir de qualquer um dos portais.
-* Apoie vários segredos para garantir uma renovação secreta suave, sem tempo de descanso. 
+Boas práticas (recomendadas, mas não necessárias):
+* Suporte urls de redirecionamento múltiplos. Os administradores podem configurar o fornecimento de "portal.azure.com" e "aad.portal.azure.com". O suporte a múltiplos URLs de redirecionamento garantirá que os utilizadores podem autorizar o acesso a partir de qualquer portal.
+* Apoie vários segredos para garantir uma renovação secreta suave, sem tempo de inatividade. 
 
-Há muito vivido o portador de **oAuth tokens:** Se o seu pedido não apoiar o fluxo de concessão de código de autorização OAuth, também pode gerar um token de porta-outh de longa duração do que o que um administrador pode usar para configurar a integração de provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar. Esta ficha deve estar abaixo de 1KB em tamanho.  
+**Fichas de portador de OAuth há muito tempo:** Se a sua aplicação não suportar o fluxo de concessão de código de autorização OAuth, também pode gerar um token portador de OAuth de longa duração do que aquele que um administrador pode usar para configurar a integração do provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar. Este token deve ser inferior a 1KB de tamanho.  
 
-Para obter métodos adicionais de autenticação e autorização, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
+Para métodos adicionais de autenticação e autorização, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
-### <a name="gallery-go-to-market-launch-check-list"></a>Lista de verificação de lançamento de galeria go-to-market
-Para ajudar a impulsionar a consciencialização e a procura da nossa integração conjunta, recomendamos que atualize a sua documentação existente e amplifique a integração nos seus canais de marketing.  Abaixo é um conjunto de atividades de lista de verificação que recomendamos que complete para apoiar o lançamento
+### <a name="gallery-go-to-market-launch-check-list"></a>Lista de verificação de lançamento de galeria ir ao mercado
+Para ajudar a impulsionar a consciencialização e a procura da nossa integração conjunta, recomendamos que atualize a documentação existente e amplifique a integração nos seus canais de marketing.  Abaixo está um conjunto de atividades de lista de verificação que recomendamos que complete para apoiar o lançamento
 
-* **Disponibilidade de vendas e apoio ao cliente.** Certifique-se de que as suas equipas de vendas e suporte estão conscientes e podem falar com as capacidades de integração. Informe a sua equipa de vendas e suporte, forneça-lhes PERGUNTAS DE INFORMAÇÃO e inclua a integração nos seus materiais de vendas. 
-* **Post de blog e/ou comunicado de imprensa.** Crie uma publicação de blogue ou um comunicado de imprensa que descreva a integração conjunta, os benefícios e como começar. [Exemplo: Imprivata e Azure Ative Directory Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Prontidão de vendas e apoio ao cliente.** Certifique-se de que as suas equipas de vendas e suporte estão conscientes e podem falar com as capacidades de integração. Informe a sua equipa de vendas e suporte, forneça-lhes perguntas frequentes e inclua a integração nos seus materiais de venda. 
+* **Blog post e/ou comunicado de imprensa.** Faça um post de blog ou um comunicado de imprensa que descreva a integração conjunta, os benefícios e como começar. [Exemplo: Imprivata e Azure Ative Directory Press](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
 * **Redes sociais.** Aproveite as suas redes sociais como o Twitter, Facebook ou LinkedIn para promover a integração aos seus clientes. Certifique-se de incluir para @AzureAD que possamos retweetar o seu post. [Exemplo: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
-* **Site de marketing.** Crie ou atualize as suas páginas de marketing (por exemplo, página de integração, página de parceiros, página de preços, etc.) para incluir a disponibilidade da integração conjunta. [Exemplo: Página de integração de pingboard](https://pingboard.com/org-chart-for), [página de integração smartsheet,](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad) [página de preços Monday.com](https://monday.com/pricing/) 
-* **Documentação técnica.** Crie um artigo do centro de ajuda ou documentação técnica sobre como os clientes podem começar. [Exemplo: Envoy + Microsoft Azure Ative Directory integração.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+* **Site de marketing.** Crie ou atualize as suas páginas de marketing (por exemplo, página de integração, página de parceiros, página de preços, etc.) para incluir a disponibilidade da integração conjunta. [Exemplo: Página de integração de pingboard](https://pingboard.com/org-chart-for), [página de integração smartsheet,](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad) [Monday.com página de preços](https://monday.com/pricing/) 
+* **Documentação técnica.** Crie um artigo do centro de ajuda ou documentação técnica sobre como os clientes podem começar. [Exemplo: Integração do Diretório Ativo Do Enviado + Microsoft Azure.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
-* **Comunicação com o cliente.** Alerte os clientes da nova integração através da comunicação do seu cliente (newsletters mensais, campanhas de email, notas de lançamento de produtos). 
+* **Comunicação do cliente.** Alerte os clientes para a nova integração através da comunicação do seu cliente (newsletters mensais, campanhas de email, notas de lançamento do produto). 
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-* [Automatizar o fornecimento e o desprovisionamento de utilizadores para aplicações SaaS](user-provisioning.md)
-* [Personalize mapeamentos de atributos para o fornecimento de utilizadores](customize-application-attributes.md)
-* [Expressões de escrita para mapeamento de atributos](functions-for-customizing-application-data.md)
+* [Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS](user-provisioning.md)
+* [Personalize os mapeamentos de atributos para o fornecimento do utilizador](customize-application-attributes.md)
+* [Expressãos de escrita para mapeamentos de atributos](functions-for-customizing-application-data.md)
 * [Filtros de deteção para o fornecimento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Notificações de provisionamento de contas](user-provisioning.md)
-* [Lista de tutoriais sobre como integrar aplicações do SaaS](../saas-apps/tutorial-list.md)
+* [Notificações de provisão de conta](user-provisioning.md)
+* [Lista de tutoriais sobre como integrar apps saaS](../saas-apps/tutorial-list.md)

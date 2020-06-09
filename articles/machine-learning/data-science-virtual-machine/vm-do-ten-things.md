@@ -5,16 +5,17 @@ description: Execute tarefas de exploração e modelação de dados na Máquina 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: acada42cd50d607925d7c4583820c2590ff76639
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f59ee4a21581310a0729079cd25afa1c683071cd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266564"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552700"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina virtual da Ciência de Dados do Windows
 

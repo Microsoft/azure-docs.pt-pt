@@ -1,26 +1,27 @@
 ---
-title: Use imagens VM partilhadas para criar um conjunto de escala em Azure
-description: Aprenda a usar o Azure CLI para criar imagens VM partilhadas para usar para implementar conjuntos de escala de máquinas virtuais em Azure.
+title: Use imagens VM partilhadas para criar uma escala definida em Azure
+description: Aprenda a usar o CLI Azure para criar imagens VM partilhadas para usar para implantar conjuntos de escala de máquina virtual em Azure.
 author: axayjo
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 30a376755bf0041d5d6f5cb289f5aecd1a734dc5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8d129ae2c6048e592bfc43f07ee609ce930aa3fd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792807"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558776"
 ---
-# <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Criar e utilizar imagens partilhadas para conjuntos de escala de máquinas virtuais com o Azure CLI 2.0
+# <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Crie e utilize imagens partilhadas para conjuntos de escala de máquina virtual com o Azure CLI 2.0
 
-Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. Uma [Galeria de Imagem Partilhada](shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
+Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. Uma [Galeria de Imagens Partilhadas](shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
 
-A Galeria de Imagem Partilhada permite-lhe partilhar as suas imagens com outros. Escolha quais as imagens que pretende partilhar, quais as regiões em que as quer disponibilizar e com quem as quer partilhar. 
+A Galeria de Imagens Partilhada permite-lhe partilhar as suas imagens com outras pessoas. Escolha quais as imagens que pretende partilhar, em que regiões quer disponibilizá-las e com quem quer partilhá-las. 
 
 
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
@@ -28,6 +29,6 @@ A Galeria de Imagem Partilhada permite-lhe partilhar as suas imagens com outros.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criar uma versão de imagem a partir de um [VM,](../virtual-machines/image-version-vm-cli.md)ou uma [imagem gerida.](../virtual-machines/image-version-managed-image-cli.md)
+Crie uma versão de imagem a partir de um [VM,](../virtual-machines/image-version-vm-cli.md)ou de uma [imagem gerida](../virtual-machines/image-version-managed-image-cli.md).
 
-Para mais informações sobre galerias de imagem partilhadas, consulte a [visão geral.](shared-image-galleries.md) Se tiver problemas, veja as galerias de [imagens partilhadas de Troubleshooting.](troubleshooting-shared-images.md)
+Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](troubleshooting-shared-images.md)

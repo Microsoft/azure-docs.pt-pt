@@ -3,15 +3,15 @@ title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de recursos Azure que suportam tags. Fornece detalhes para todos os serviços da Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 8acf2f9087646a76617368a6b61eb5097796c72c
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 39e3f73741750f9245ec762f26d24e65eb107263
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331921"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560601"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiqueta para recursos Azure
-Este artigo descreve se um tipo de recurso suporta [tags](tag-resources.md). As **etiquetas de suporte** da coluna rotuladas indicam se o tipo de recurso tem uma propriedade para a etiqueta. A coluna rotulada **Tag no relatório de custos** indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode ver os custos por etiquetas na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na faturação da [Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
+Este artigo descreve se um tipo de recurso suporta [tags](tag-resources.md). As **etiquetas de suporte** da coluna rotuladas indicam se o tipo de recurso tem uma propriedade para a etiqueta. A coluna rotulada **Tag no relatório de custos** indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode ver os custos por etiquetas na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/group-filter.md) e na faturação da [Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
 
 Para obter os mesmos dados que um ficheiro de valores separados por vírgula, baixe [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -324,7 +324,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectes | Yes | No |
+> | b2cDirectes | Sim | Não |
 > | b2ctenants | Não | Não |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
@@ -685,24 +685,24 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | AgregadoCost | Não | Não |
 > | Saldos | Não | Não |
-> | Orçamentos | No | No |
-> | Cobranças | No | No |
-> | CostTags | No | No |
-> | créditos | No | No |
-> | eventos | No | No |
-> | Previsões | No | No |
-> | lotes | No | No |
-> | Mercados | No | No |
-> | Folhas de preços | No | No |
-> | produtos | No | No |
-> | ReservasDetails | No | No |
-> | Recommendações de Reservas | No | No |
-> | ReservasSumários | No | No |
-> | Transferências de Reservas | No | Não |
-> | Etiquetas | Não | No |
-> | inquilinos | No | No |
-> | Termos | No | No |
-> | UsageDetails | No | No |
+> | Orçamentos | Não | Não |
+> | Cobranças | Não | Não |
+> | CostTags | Não | Não |
+> | créditos | Não | Não |
+> | eventos | Não | Não |
+> | Previsões | Não | Não |
+> | lotes | Não | Não |
+> | Mercados | Não | Não |
+> | Folhas de preços | Não | Não |
+> | produtos | Não | Não |
+> | ReservasDetails | Não | Não |
+> | Recommendações de Reservas | Não | Não |
+> | ReservasSumários | Não | Não |
+> | Transferências de Reservas | Não | Não |
+> | Etiquetas | Não | Não |
+> | inquilinos | Não | Não |
+> | Termos | Não | Não |
+> | UsageDetails | Não | Não |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -710,7 +710,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | grupos de contentores | Sim | Sim |
-> | serviceAssociationLinks | No | No |
+> | serviceAssociationLinks | Não | Não |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -719,15 +719,15 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | registos | Sim | Sim |
 > | registos / agentesPools | Sim | Sim |
-> | registos / construções | No | No |
-> | registos / construções / cancelar | No | No |
-> | registos / construções / getLogLink | No | No |
+> | registos / construções | Não | Não |
+> | registos / construções / cancelar | Não | Não |
+> | registos / construções / getLogLink | Não | Não |
 > | registos / buildTasks | Sim | Sim |
-> | registos / buildTasks / passos | No | No |
-> | registos / eventGridFilters | No | No |
-> | registos / gerarCredentis | No | No |
-> | registos / getBuildSourceUploadUrl | No | No |
-> | registos / GetCredentials | No | Não |
+> | registos / buildTasks / passos | Não | Não |
+> | registos / eventGridFilters | Não | Não |
+> | registos / gerarCredentis | Não | Não |
+> | registos / getBuildSourceUploadUrl | Não | Não |
+> | registos / GetCredentials | Não | Não |
 > | registos / importImage | Não | Não |
 > | registos / privateEndpointConnectionProxies | Não | Não |
 > | registos / privateEndpointConnectionProxies / validar | Não | Não |
@@ -825,7 +825,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | áreas de trabalho | Yes | No |
+> | áreas de trabalho | Sim | Não |
 > | espaços de trabalho / dbWorkspaces | Não | Não |
 > | espaços de trabalho / armazenamentoEncryption | Não | Não |
 > | espaços de trabalho / virtualNetworkPeerings | Não | Não |
@@ -847,11 +847,11 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | dataFactories | Yes | No |
+> | dataFactories | Sim | Não |
 > | dataFactories / diagnosticSettings | Não | Não |
 > | dataFactories / métricasDefinitions | Não | Não |
 > | dataFactorySchema | Não | Não |
-> | fábricas | Yes | No |
+> | fábricas | Sim | Não |
 > | fábricas / integraçãoRuntimes | Não | Não |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
@@ -1466,10 +1466,10 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Yes | No |
+> | netAppAccounts | Sim | Não |
 > | netAppAccounts / accountBackups | Não | Não |
-> | netAppAccounts / capacityPools | Yes | No |
-> | netAppAccounts / capacityPools / volumes | Yes | No |
+> | netAppAccounts / capacityPools | Sim | Não |
+> | netAppAccounts / capacityPools / volumes | Sim | Não |
 > | netAppAccounts / capacityPools / volumes / snapshots | Não | Não |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -1481,8 +1481,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | aplicaçãoGatewayWebApplicationFirewallPolicies | Sim | Sim |
 > | applicationSecurityGroups | Sim | Sim |
 > | azureFirewallFqdnTags | Não | Não |
-> | azureFirewalls | Yes | No |
-> | bastionHosts | Yes | No |
+> | azureFirewalls | Sim | Não |
+> | bastionHosts | Sim | Não |
 > | bgpServiceCommunidades | Não | Não |
 > | conexões | Sim | Sim |
 > | ddosCustomPolicies | Sim | Sim |
@@ -1507,9 +1507,9 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | expressRoutePorts | Sim | Sim |
 > | expressRouteServiceProviders | Não | Não |
 > | firewallPolicies | Sim | Sim |
-> | frontdoors | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Yes |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | No |
-> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Yes |
+> | frontdoors | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Sim |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Não |
+> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (ver [nota abaixo)](#frontdoor) | Sim |
 > | obter Retecnretecencia | Não | Não |
 > | internaNotificar | Não | Não |
 > | loadBalancers | Sim | Sim |
@@ -1520,10 +1520,10 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | redesProfiles | Sim | Sim |
 > | networkSecurityGroups | Sim | Sim |
 > | networkWatchers | Sim | Sim |
-> | networkWatchers / connectionMonitors | Yes | No |
+> | networkWatchers / connectionMonitors | Sim | Não |
 > | networkWatchers / flowLogs | Não | Não |
-> | networkWatchers / lentes | Yes | No |
-> | networkWatchers / pingMeshes | Yes | No |
+> | networkWatchers / lentes | Sim | Não |
+> | networkWatchers / pingMeshes | Sim | Não |
 > | p2sVpnGateways | Sim | Sim |
 > | privateDnsOperationStatuses | Não | Não |
 > | privateDnsZones | Sim | Sim |
@@ -1553,7 +1553,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | virtualNetworks | Sim | Sim |
 > | virtualNetworks / sub-redes | Não | Não |
 > | virtualNetworkTaps | Sim | Sim |
-> | virtualWans | Yes | No |
+> | virtualWans | Sim | Não |
 > | VPNGateways | Sim | Sim |
 > | VPNSites | Sim | Sim |
 > | webApplicationFirewallPolicies | Sim | Sim |
@@ -1576,8 +1576,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | espaços de nome | Yes | No |
-> | espaços de nomes / notificaçõesHubs | Yes | No |
+> | espaços de nome | Sim | Não |
+> | espaços de nomes / notificaçõesHubs | Sim | Não |
 
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
 
@@ -1744,15 +1744,15 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | implementações | Yes | No |
+> | implementações | Sim | Não |
 > | implantações / operações | Não | Não |
 > | implementaçõesScripts | Sim | Sim |
 > | implementaçõesScripts / registos | Não | Não |
 > | ligações | Não | Não |
 > | notificarResourceJobs | Não | Não |
 > | fornecedores | Não | Não |
-> | grupos de recursos | Yes | No |
-> | assinaturas | Yes | No |
+> | grupos de recursos | Sim | Não |
+> | assinaturas | Sim | Não |
 > | inquilinos | Não | Não |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1950,7 +1950,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sim | Sim |
-> | managedInstances / bases de dados | Sim (ver [nota abaixo)](#sqlnote) | Yes |
+> | managedInstances / bases de dados | Sim (ver [nota abaixo)](#sqlnote) | Sim |
 > | managedInstances / bases de dados / backupShortTermRetentionPolicies | Não | Não |
 > | managedInstances / bases de dados / esquemas / tabelas / colunas / sensibilidadeLabels | Não | Não |
 > | managedInstances / bases de dados / vulnerabilidadesAssessments | Não | Não |
@@ -1962,7 +1962,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | servidores | Sim | Sim |
 > | servidores / administradores | Não | Não |
 > | servidores / comunicaçõesLinks | Não | Não |
-> | servidores / bases de dados | Sim (ver [nota abaixo)](#sqlnote) | Yes |
+> | servidores / bases de dados | Sim (ver [nota abaixo)](#sqlnote) | Sim |
 > | servidores / encriptaçãoProtector | Não | Não |
 > | servidores / firewallRules | Não | Não |
 > | servidores / chaves | Não | Não |
@@ -2063,7 +2063,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | streamingjobs | Sim (ver nota abaixo) | Yes |
+> | streamingjobs | Sim (ver nota abaixo) | Sim |
 
 > [!NOTE]
 > Não se pode adicionar uma etiqueta quando os trabalhos de streaming estão a funcionar. Pare o recurso para adicionar uma etiqueta.
@@ -2086,10 +2086,10 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | ambientes | Yes | No |
+> | ambientes | Sim | Não |
 > | ambientes / acessosPolícias | Não | Não |
-> | ambientes / fontes de eventos | Yes | No |
-> | ambientes / referênciaSSets | Yes | No |
+> | ambientes / fontes de eventos | Sim | Não |
+> | ambientes / referênciaSSets | Sim | Não |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
@@ -2140,33 +2140,33 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | hospedamentoEnvironments / workerPools | Não | Não |
 > | kubeEnvironments | Sim | Sim |
 > | editoresUsers | Não | Não |
-> | recomendações | No | Não |
-> | recursoHealthMetadata | No | Não |
-> | tempos de execução | No | Não |
+> | recomendações | Não | Não |
+> | recursoHealthMetadata | Não | Não |
+> | tempos de execução | Não | Não |
 > | serverFarms | Sim | Sim |
-> | serverFarms / eventGridFilters | No | Não |
+> | serverFarms / eventGridFilters | Não | Não |
 > | sites | Sim | Sim |
-> | sites / config  | No | Não |
-> | sites / eventGridFilters | No | Não |
-> | sites / hostNameBindings | No | Não |
-> | sites / redeConfig | No | Não |
+> | sites / config  | Não | Não |
+> | sites / eventGridFilters | Não | Não |
+> | sites / hostNameBindings | Não | Não |
+> | sites / redeConfig | Não | Não |
 > | sites / premieraddons | Sim | Sim |
 > | sites / slots | Sim | Sim |
-> | sites / slots / eventGridFilters | No | Não |
-> | sites / slots / hostNameBindings | No | Não |
-> | sites / slots / redeConfig | No | Não |
-> | fonteControls | No | Não |
+> | sites / slots / eventGridFilters | Não | Não |
+> | sites / slots / hostNameBindings | Não | Não |
+> | sites / slots / redeConfig | Não | Não |
+> | fonteControls | Não | Não |
 > | staticSites | Sim | Sim |
-> | validar | No | Não |
-> | verificarHostingEnvironmentVnet | No | Não |
+> | validar | Não | Não |
+> | verificarHostingEnvironmentVnet | Não | Não |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | diagnósticoS | No | Não |
-> | diagnósticoSettingsCategories | No | Não |
+> | diagnósticoS | Não | Não |
+> | diagnósticoSettingsCategories | Não | Não |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
@@ -2180,12 +2180,12 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | componentes | No | Não |
-> | componentesSummary | No | Não |
-> | monitorInstâncias | No | Não |
-> | monitorInstancesSummary | No | Não |
-> | monitores | No | Não |
-> | notificaçõesS | No | Não |
+> | componentes | Não | Não |
+> | componentesSummary | Não | Não |
+> | monitorInstâncias | Não | Não |
+> | monitorInstancesSummary | Não | Não |
+> | monitores | Não | Não |
+> | notificaçõesS | Não | Não |
 
 ## <a name="next-steps"></a>Próximos passos
 

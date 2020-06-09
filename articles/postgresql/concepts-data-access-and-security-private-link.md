@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a2ed81972cd89856d0bcde689c3d1f61c5534c96
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 90e0f74f3a17a2c98abfcd886d59344b18619f8c
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485053"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509002"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para base de dados de Azure para servidor pós-SQL-Single
 
@@ -57,7 +57,7 @@ Com o Private Link, pode permitir o acesso transversal ao ponto final privado ut
 
 Os pontos finais privados são necessários para ativar o Link Privado. Isto pode ser feito usando os seguintes guias de como fazer.
 
-* [Portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
+* [Portal Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo de aprovação
@@ -115,7 +115,7 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 
 Se pretender confiar apenas em pontos finais privados para aceder à sua Base de Dados Azure para servidor Single PostgreSQL, pode desativar todos os pontos finais públicos[(regras](concepts-firewall-rules.md) de firewall e [pontos finais do serviço VNet),](concepts-data-access-and-security-vnet.md)definindo a configuração **de Acesso à Rede Pública de Negação** no servidor de base de dados. 
 
-Quando esta definição é definida apenas ligações *SIM* através de pontos finais privados são permitidas na sua Base de Dados Azure para PostgreSQL. Quando esta definição estiver definida para *NENHUM* os clientes podem ligar-se à sua Base de Dados Azure para PostgreSQL com base na definição de ponto final de firewall ou de serviço VNet. Além disso, uma vez definido o valor do acesso à rede privada para os clientes não podem adicionar e/ou atualizar as regras existentes de 'Firewall' e 'VNet service endpoint
+Quando esta definição é definida apenas ligações *SIM* através de pontos finais privados são permitidas na sua Base de Dados Azure para PostgreSQL. Quando esta definição estiver definida para *NENHUM* os clientes podem ligar-se à sua Base de Dados Azure para PostgreSQL com base na definição de ponto final de firewall ou de serviço VNet. Além disso, uma vez definido o valor do acesso à rede privada, os clientes não podem adicionar e/ou atualizar as "regras de firewall" e 'regras de ponto final de serviço VNet'.
 
 > [!Note]
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para PostgreSQL - Servidor único suporta os níveis de preços otimizados para fins gerais e memória.
@@ -124,7 +124,7 @@ Quando esta definição é definida apenas ligações *SIM* através de pontos f
 
 Para saber como configurar o Acesso à **Rede Pública de Negação** para o seu servidor Single PostgreSQL do portal Azure, consulte como configurar o [Acesso à Rede Pública de Negação](howto-deny-public-network-access.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança de servidores postgresQL, consulte os seguintes artigos:
 

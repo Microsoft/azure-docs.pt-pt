@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 4b10660302eb831a982d261cdfdaf91f4dbdfb38
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.custom: tracking-python
+ms.openlocfilehash: dd98d27f5a14d284174dd779ae20b29f534920b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248775"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559943"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa Azure para funções Azure
 
@@ -554,7 +555,7 @@ Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)ut
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Table` atributo.
 
-|function.json propriedade | Propriedade de atributo |Descrição|
+|function.json propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
@@ -941,7 +942,7 @@ Veja o [exemplo para mais detalhes.](#output)
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `Table` atributo.
 
-|function.json propriedade | Propriedade de atributo |Descrição|
+|function.json propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |

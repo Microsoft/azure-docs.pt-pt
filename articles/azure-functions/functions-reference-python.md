@@ -1,30 +1,31 @@
 ---
-title: Referência de desenvolvedor python para funções Azure
+title: Referência do desenvolvedor python para funções Azure
 description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 49577f5ac274b4e34fa07415e5495329ff650aa5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: tracking-python
+ms.openlocfilehash: a8201b1c8443bd99ec9045fdc4b074a4f3eec4f2
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676189"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553086"
 ---
-# <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvimento de funções azure Python
+# <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
-Este artigo é uma introdução ao desenvolvimento de Funções Azure usando Python. O conteúdo abaixo assume que já leu o guia de desenvolvedores de [Funções Azure](functions-reference.md).
+Este artigo é uma introdução ao desenvolvimento de Funções Azure usando Python. O conteúdo abaixo pressupõe que já leu o guia de desenvolvedores de [Funções Azure.](functions-reference.md)
 
-Para projetos de amostra de função autónoma em Python, consulte as amostras de [Funções Python](/samples/browse/?products=azure-functions&languages=python).
+Para projetos de amostra de função autónoma em Python, consulte as [amostras de Funções Python.](/samples/browse/?products=azure-functions&languages=python)
 
 ## <a name="programming-model"></a>Modelo de programação
 
-A Azure Functions espera que uma função seja um método apátrida no seu script Python que processa a entrada e produz a saída. Por padrão, o prazo de execução espera que o método seja implementado como um método global chamado `main()` no `__init__.py` ficheiro. Também pode [especificar um ponto](#alternate-entry-point)de entrada alternativo .
+A Azure Functions espera que uma função seja um método apátrida na sua escrita Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no `__init__.py` ficheiro. Também pode [especificar um ponto de entrada alternativo.](#alternate-entry-point)
 
-Os dados dos gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida no ficheiro *função.json.* Por exemplo, a _função.json_ abaixo descreve uma função simples desencadeada por um pedido HTTP `req` chamado:
+Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida no ficheiro *function.json.* Por exemplo, a _função.json_ abaixo descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-Com base nesta definição, o ficheiro que contém o código de `__init__.py` função pode parecer o seguinte exemplo:
+Com base nesta definição, o `__init__.py` ficheiro que contém o código de função pode parecer o seguinte exemplo:
 
 ```python
 def main(req):
@@ -32,7 +33,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Também pode declarar explicitamente os tipos de atributos e o tipo de devolução na função utilizando anotações do tipo Python. Isto ajuda-o a usar as funcionalidades intellisense e autocomplete fornecidas por muitos editores de código Python.
+Também pode declarar explicitamente os tipos de atributos e o tipo de retorno na função utilizando anotações do tipo Python. Isto ajuda-o a utilizar as funcionalidades intellisense e autocompleta fornecidas por muitos editores de código Python.
 
 ```python
 import azure.functions
@@ -43,11 +44,11 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Utilize as anotações Python incluídas no pacote [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) para ligar a entrada e as saídas aos seus métodos.
+Utilize as anotações Python incluídas no pacote [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) para ligar as entradas e saídas aos seus métodos.
 
 ## <a name="alternate-entry-point"></a>Ponto de entrada alternativo
 
-Pode alterar o comportamento padrão de uma função especificando opcionalmente as `scriptFile` propriedades e propriedades no ficheiro `entryPoint` *função.json.* Por exemplo, a _função.json_ abaixo indica o tempo de funcionamento para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
+Pode alterar o comportamento predefinido de uma função especificando opcionalmente o `scriptFile` e as propriedades no ficheiro `entryPoint` *function.json.* Por exemplo, a _função.json_ abaixo indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
 
 ```json
 {
@@ -61,7 +62,7 @@ Pode alterar o comportamento padrão de uma função especificando opcionalmente
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 
-A estrutura de pasta recomendada para um projeto funções Python parece ser o seguinte exemplo:
+A estrutura de pasta recomendada para um projeto Python Functions parece o seguinte exemplo:
 
 ```
  __app__
@@ -82,20 +83,20 @@ A estrutura de pasta recomendada para um projeto funções Python parece ser o s
 ```
 A pasta principal do projeto \_ \_ \_ \_ (app) pode conter os seguintes ficheiros:
 
-* *local.settings.json*: Usado para armazenar definições de aplicativos e cordas de ligação quando funciona localmente. Este ficheiro não é publicado para o Azure. Para saber mais, consulte [local.settings.file](functions-run-local.md#local-settings-file).
-* *requisitos.txt*: Contém a lista de pacotes que o sistema instala na publicação para o Azure.
-* *host.json*: Contém opções de configuração global que afetam todas as funções numa aplicação de função. Este ficheiro é publicado no Azure. Nem todas as opções são suportadas quando se corre localmente. Para saber mais, consulte [host.json](functions-host-json.md).
+* *local.settings.json*: Usado para armazenar configurações de aplicações e cordas de conexão quando funciona localmente. Este ficheiro não é publicado no Azure. Para saber mais, consulte [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt*: Contém a lista de pacotes que o sistema instala ao publicar no Azure.
+* *host.json*: Contém opções de configuração global que afetam todas as funções numa aplicação de função. Este ficheiro é publicado no Azure. Nem todas as opções são suportadas quando se executa localmente. Para saber mais, consulte [host.json.](functions-host-json.md)
 * *.funcignore*: (Opcional) declara ficheiros que não devem ser publicados no Azure.
-* *.gitignore*: (Opcional) declara ficheiros excluídos de um repo git, tais como local.settings.json.
+* *.gitignore*: (Opcional) declara ficheiros que são excluídos de um repo git, como local.settings.json.
 * *Dockerfile*: (Opcional) utilizado ao publicar o seu projeto num [recipiente personalizado](functions-create-function-linux-custom-image.md).
 
 Cada função tem o seu próprio ficheiro de código e ficheiro de configuração de ligação (função.json).
 
-Ao implementar o seu projeto numa aplicação de função no Azure, todo o conteúdo da pasta principal* \_ \_ (app) \_ \_ *deve ser incluído no pacote, mas não na própria pasta. Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto, neste exemplo `tests` . Isto impede-o de implementar código de teste com a sua aplicação. Para mais informações, consulte [O Teste da Unidade](#unit-testing).
+Ao implementar o seu projeto numa aplicação de função em Azure, todo o conteúdo da pasta principal* \_ \_ (app) \_ \_ *deve ser incluído no pacote, mas não na própria pasta. Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto, neste exemplo `tests` . Isto impede-o de implementar código de teste com a sua aplicação. Para obter mais informações, consulte [o Teste de Unidade.](#unit-testing)
 
 ## <a name="import-behavior"></a>Comportamento de importação
 
-Pode importar módulos no seu código de função utilizando referências relativas e absolutas explícitas. Com base na estrutura da pasta acima apresentada, as seguintes importações funcionam a partir da aplicação de ficheiros de funções * \_ \_ \_ \_ \my \_ first \_ function _ \\ \_ init \_ \_ .py*:
+Pode importar módulos no seu código de função utilizando referências relativas e absolutas explícitas. Com base na estrutura da pasta acima mostrada, as seguintes importações funcionam a partir da aplicação de ficheiro de função * \_ \_ \_ \_ \a minha \_ primeira \_ função \\ _ \_ init \_ \_ .py*:
 
 ```python
 from . import example #(explicit relative)
@@ -127,15 +128,15 @@ from example import some_helper_code
 import shared_code
 ```
 
-O código partilhado deve ser mantido numa pasta separada na * \_ \_ aplicação \_ \_ *. Para os módulos de referência na pasta de * \_ código partilhado,* pode utilizar a seguinte sintaxe:
+O código partilhado deve ser guardado numa pasta separada na * \_ \_ aplicação \_ \_ *. Para os módulos de referência na pasta de * \_ código partilhada,* pode utilizar a seguinte sintaxe:
 
 ```python
 from __app__.shared_code import my_first_helper_function
 ```
 
-## <a name="triggers-and-inputs"></a>Gatilhos e Inputs
+## <a name="triggers-and-inputs"></a>Gatilhos e Entradas
 
-As inputs dividem-se em duas categorias em Funções Azure: entrada do gatilho e entrada adicional. Embora sejam diferentes no ficheiro, o `function.json` uso é idêntico no código Python.  As cordas de ligação ou segredos para o gatilho e as fontes de entrada mapeiam os valores do `local.settings.json` ficheiro quando estão a ser geridos localmente e as definições de aplicação quando estão a ser recorridas em Azure.
+As entradas dividem-se em duas categorias em Funções Azure: entrada de gatilho e entrada adicional. Embora sejam diferentes no ficheiro, o `function.json` uso é idêntico no código Python.  Cadeias de ligação ou segredos para gatilho e fontes de entrada mapeiam valores no `local.settings.json` ficheiro quando executam localmente, e as definições de aplicação ao executar em Azure.
 
 Por exemplo, o seguinte código demonstra a diferença entre os dois:
 
@@ -185,16 +186,16 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando a função é invocada, o pedido HTTP é passado para a função como `req` . Uma entrada será recuperada do Armazenamento de Blob Azure com base no _ID_ no URL da rota e disponibilizada como `obj` no corpo de função.  Aqui, a conta de armazenamento especificada é a cadeia de ligação encontrada na definição de aplicações AzureWebJobsStorage, que é a mesma conta de armazenamento usada pela aplicação de função.
+Quando a função é invocada, o pedido HTTP é transmitido para a função como `req` . Uma entrada será recuperada a partir do Azure Blob Storage com base no _ID_ na rota URL e disponibilizada como `obj` no corpo da função.  Aqui, a conta de armazenamento especificada é a cadeia de ligação encontrada na definição da aplicação AzureWebJobsStorage, que é a mesma conta de armazenamento utilizada pela aplicação de função.
 
 
 ## <a name="outputs"></a>Saídas
 
-A saída pode ser expressa tanto no valor de retorno como nos parâmetros de saída. Se houver apenas uma saída, recomendamos a utilização do valor de devolução. Para várias saídas, terá de utilizar parâmetros de saída.
+A saída pode ser expressa tanto em parâmetros de valor de retorno como de saída. Se houver apenas uma saída, recomendamos a utilização do valor de devolução. Para várias saídas, terá de utilizar parâmetros de saída.
 
-Para utilizar o valor de devolução de uma função como valor de uma ligação de saída, a `name` propriedade da encadernação deve ser fixada `$return` em `function.json` .
+Para utilizar o valor de retorno de uma função como valor de uma ligação de saída, a `name` propriedade da encadernação deve ser definida `$return` em `function.json` .
 
-Para produzir várias saídas, utilize o `set()` método fornecido pela interface para atribuir um valor à [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) ligação. Por exemplo, a função seguinte pode empurrar uma mensagem para uma fila e também devolver uma resposta HTTP.
+Para produzir várias saídas, utilize o `set()` método fornecido pela interface para atribuir um valor à [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) encadernação. Por exemplo, a seguinte função pode empurrar uma mensagem para uma fila e também devolver uma resposta HTTP.
 
 ```json
 {
@@ -236,9 +237,9 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>Registo
 
-O acesso ao logger de tempo de funcionamento das Funções Azure está disponível através de um manipulador de raiz [`logging`](https://docs.python.org/3/library/logging.html#module-logging) na sua aplicação de função. Este madeireiro está ligado a Insights de Aplicação e permite-lhe sinalizar avisos e erros encontrados durante a execução da função.
+O acesso ao runa de tempo de funcionamento do Azure Functions está disponível através de um manipulador de raiz [`logging`](https://docs.python.org/3/library/logging.html#module-logging) na sua aplicação de função. Este madeireiro está ligado a Insights de Aplicação e permite-lhe sinalizar avisos e erros encontrados durante a execução da função.
 
-O exemplo seguinte regista uma mensagem de informação quando a função é invocada através de um gatilho HTTP.
+O exemplo a seguir regista uma mensagem de informação quando a função é invocada através de um gatilho HTTP.
 
 ```python
 import logging
@@ -248,26 +249,26 @@ def main(req):
     logging.info('Python HTTP trigger function processed a request.')
 ```
 
-Existem métodos adicionais de registo que permitem escrever para a consola em diferentes níveis de vestígios:
+Estão disponíveis métodos adicionais de registo que permitem escrever para a consola em diferentes níveis de vestígios:
 
-| Método                 | Descrição                                |
+| Método                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| **`critical(_message_)`**   | Escreve uma mensagem com nível CRITICAL no tronco de raiz.  |
-| **`error(_message_)`**   | Escreve uma mensagem com erro de nível no tronco de raiz.    |
-| **`warning(_message_)`**    | Escreve uma mensagem com nível AVISO no tronco de raiz.  |
-| **`info(_message_)`**    | Escreve uma mensagem com informação de nível no tronco de raiz.  |
-| **`debug(_message_)`** | Escreve uma mensagem com DEBUG nivelado no tronco de raiz.  |
+| **`critical(_message_)`**   | Escreve uma mensagem com nível CRITICAL no madeir de raiz.  |
+| **`error(_message_)`**   | Escreve uma mensagem com ERRO de nível no madeir de raiz.    |
+| **`warning(_message_)`**    | Escreve uma mensagem com nível DE AVISO no madeir de raiz.  |
+| **`info(_message_)`**    | Escreve uma mensagem com info nível no madeirão raiz.  |
+| **`debug(_message_)`** | Escreve uma mensagem com depurrão de nível de DEBUG no madeirão de raiz.  |
 
-Para saber mais sobre a exploração madeireira, consulte as [Funções Monitor Azure](functions-monitoring.md).
+Para saber mais sobre o registo, consulte [as Funções Monitor Azure](functions-monitoring.md).
 
 ## <a name="http-trigger-and-bindings"></a>HTTP Gatilho e encadernações
 
-O gatilho HTTP é definido no ficheiro função.jon. A `name` ligação deve coincidir com o parâmetro nomeado na função.
-Nos exemplos anteriores, é utilizado um nome `req` vinculativo. Este parâmetro é um objeto [HttpRequest,] e um objeto [HttpResponse] é devolvido.
+O gatilho HTTP é definido no ficheiro fun.jon. O `name` encadernação deve coincidir com o parâmetro indicado na função.
+Nos exemplos anteriores, é utilizado um nome de encadernação. `req` Este parâmetro é um objeto [HttpRequest] e um objeto [HttpResponse] é devolvido.
 
-A partir do objeto [HttpRequest,] você pode obter cabeçalhos de pedido, parâmetros de consulta, parâmetros de rota e o corpo de mensagem.
+A partir do objeto [HttpRequest,] pode obter cabeçalhos de pedido, parâmetros de consulta, parâmetros de rota e o corpo da mensagem.
 
-O exemplo que se segue é do modelo de [gatilho HTTP para Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python).
+O exemplo a seguir é do modelo de [gatilho HTTP para Python.](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python)
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -291,34 +292,34 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-Nesta função, o valor do parâmetro de `name` consulta é obtido a partir do parâmetro do objeto `params` [HttpRequest.] O corpo de mensagem codificado pela JSON é lido utilizando o `get_json` método.
+Nesta função, o valor do `name` parâmetro de consulta é obtido a partir do parâmetro do objeto `params` [HttpRequest.] O corpo de mensagem codificado json é lido usando o `get_json` método.
 
-Da mesma forma, pode definir a mensagem de resposta e para a mensagem de `status_code` `headers` resposta no objeto [httpResponse] devolvido.
+Da mesma forma, pode definir a `status_code` mensagem e `headers` para a mensagem de resposta no objeto [HttpResponse] devolvido.
 
-## <a name="scaling-and-concurrency"></a>Escala e conmoeda
+## <a name="scaling-and-concurrency"></a>Escala e concuência
 
-Por predefinição, as Funções Azure monitorizam automaticamente a carga na sua aplicação e criam instâncias adicionais para python, se necessário. Funções utilizam limiares incorporados (não configuráveis pelo utilizador) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, tais como a idade das mensagens e o tamanho da fila para o QueueTrigger. Para mais informações, consulte [como funcionam os planos de Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
+Por predefinição, o Azure Functions monitoriza automaticamente a carga da sua aplicação e cria casos adicionais de anfitrião para Python, conforme necessário. As funções utilizam limiares incorporados (não configuráveis pelo utilizador) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para o QueueTrigger. Para mais informações, consulte [como funcionam os planos De Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
 
-Este comportamento de escala é suficiente para muitas aplicações. No entanto, as aplicações com qualquer uma das seguintes características não podem ser dimensionadas de forma tão eficaz:
+Este comportamento de escala é suficiente para muitas aplicações. No entanto, as aplicações com uma das seguintes características não podem ser dimensionais tão eficazmente:
 
 - A aplicação precisa de lidar com muitas invocações simultâneas.
-- A aplicação processa um grande número de eventos de E/O.
-- A aplicação está ligada a I/O.
+- A aplicação processa um grande número de eventos de E/S.
+- A aplicação está ligada à I/O.
 
-Nesses casos, pode melhorar ainda mais o desempenho utilizando padrões de asincronização e utilizando múltiplos processos de trabalhadores linguísticos.
+Nesses casos, pode melhorar ainda mais o desempenho utilizando padrões de async e utilizando vários processos de trabalho linguístico.
 
 ### <a name="async"></a>Async
 
-Como python é um tempo de execução de um fio único, um exemplo de anfitrião para Python pode processar apenas uma invocação de função de cada vez. Para aplicações que processam um grande número de eventos de I/O e/ou está ligado a I/O, você pode melhorar o desempenho executando as funções assincronicamente.
+Como Python é um tempo de execução de um único fio, um exemplo de hospedeiro para Python pode processar apenas uma invocação de função de cada vez. Para aplicações que processam um grande número de eventos de E/S e/ou está ligado a I/O, você pode melhorar o desempenho executando assíncroneamente.
 
-Para executar uma função assíncrona, utilize a `async def` declaração, que executa a função com [asincronio](https://docs.python.org/3/library/asyncio.html) diretamente:
+Para executar uma função assíncronea, utilize a `async def` declaração, que executa a função com [assício](https://docs.python.org/3/library/asyncio.html) diretamente:
 
 ```python
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Uma função sem a `async` palavra-chave é executada automaticamente numa piscina de fios asíncrona:
+Uma função sem a `async` palavra-chave é executada automaticamente numa piscina de roscas assincio:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -327,9 +328,9 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>Utilize vários processos de trabalhador estoireiro linguístico
+### <a name="use-multiple-language-worker-processes"></a>Use vários processos de trabalho de língua
 
-Por padrão, cada instância de anfitrião de Funções tem um único processo de trabalhador linguístico. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) As Funções Azure tentam então distribuir uniformemente invocações de funções simultâneas por estes trabalhadores.
+Por padrão, cada instância de anfitrião de Funções tem um único processo de trabalho de língua. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) As Funções Azure tentam então distribuir uniformemente invocações de funções simultâneas por estes trabalhadores.
 
 O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções criam ao escalonar a sua aplicação para satisfazer a procura.
 
@@ -348,9 +349,9 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-A classe [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes atributos de cadeia:
+A classe [**Contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes atributos de corda:
 
-`function_directory`O diretório em que a função está a decorrer.
+`function_directory`O diretório em que a função está a funcionar.
 
 `function_name`Nome da função.
 
@@ -358,7 +359,7 @@ A classe [**Context**](/python/api/azure-functions/azure.functions.context?view=
 
 ## <a name="global-variables"></a>Variáveis globais
 
-Não é garantido que o estado da sua aplicação seja preservado para futuras execuções. No entanto, o tempo de funcionamento das Funções Azure reutiliza frequentemente o mesmo processo para múltiplas execuções da mesma app. Para cache os resultados de um cálculo caro, declará-lo como uma variável global.
+Não é garantido que o estado da sua app será preservado para futuras execuções. No entanto, o tempo de execução das Funções Azure reutiliza frequentemente o mesmo processo para execuções múltiplas da mesma app. Para cache os resultados de um cálculo caro, declare-o como uma variável global.
 
 ```python
 CACHED_DATA = None
@@ -374,9 +375,9 @@ def main(req):
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em Funções, [as definições](functions-app-settings.md)de aplicação , tais como cordas de ligação de serviço, são expostas como variáveis ambientais durante a execução. Pode aceder a estas definições declarando `import os` e, em seguida, usando. `setting = os.environ["setting-name"]`
+Em Funções, [as definições de aplicação](functions-app-settings.md), tais como cadeias de ligação de serviço, são expostas como variáveis ambientais durante a execução. Pode aceder a estas definições declarando `import os` e, em seguida, utilizando, `setting = os.environ["setting-name"]` .
 
-O exemplo seguinte obtém a definição de [aplicação,](functions-how-to-use-azure-function-app-settings.md#settings)com a chave denominada: `myAppSetting`
+O exemplo a seguir obtém a [definição de aplicação,](functions-how-to-use-azure-function-app-settings.md#settings)com a chave denominada `myAppSetting` :
 
 ```python
 import logging
@@ -396,22 +397,22 @@ Para o desenvolvimento local, as definições de aplicação são [mantidas no f
 
 A Azure Functions suporta as seguintes versões Python:
 
-| Versão funções | <sup>*</sup>Versões Python |
+| Versão de funções | <sup>*</sup>Versões python |
 | ----- | ----- |
 | 3.x | 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Distribuição oficial do CPython
 
-Para solicitar uma versão Python específica quando criar a sua aplicação de funções no Azure, utilize a `--runtime-version` opção do [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) comando. A versão functions de tempo de execução é definida pela `--functions-version` opção. A versão Python é definida quando a aplicação de funções é criada e não pode ser alterada.
+Para solicitar uma versão Python específica quando criar a sua aplicação de função em Azure, utilize a `--runtime-version` opção do [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) comando. A versão de tempo de execução de Funções é definida pela `--functions-version` opção. A versão Python é definida quando a aplicação de função é criada e não pode ser alterada.
 
 Ao correr localmente, o tempo de execução utiliza a versão Python disponível.
 
 ## <a name="package-management"></a>Gestão de pacotes
 
-Ao desenvolver localmente as Funções Azure Core Tools ou Visual Studio Code, adicione os nomes e versões dos pacotes necessários ao `requirements.txt` ficheiro e instale-os utilizando `pip` .
+Ao desenvolver localmente utilizando as Ferramentas Centrais do Azure Functions ou código de estúdio visual, adicione os nomes e versões das embalagens necessárias ao `requirements.txt` ficheiro e instale-os utilizando- os `pip` .
 
-Por exemplo, os seguintes requisitos de ficheiro e comando pip podem ser utilizados para instalar a `requests` embalagem a partir do PyPI.
+Por exemplo, o seguinte ficheiro de requisitos e o comando pip podem ser usados para instalar a `requests` embalagem a partir de PyPI.
 
 ```txt
 requests==2.19.1
@@ -425,61 +426,61 @@ pip install -r requirements.txt
 
 Quando estiver pronto para publicar, certifique-se de que todas as suas dependências publicamente disponíveis estão listadas no ficheiro requirements.txt, que está localizado na raiz do seu diretório de projeto.
 
-Os ficheiros e pastas do projeto que estão excluídos da publicação, incluindo a pasta do ambiente virtual, estão listados no ficheiro .funcignore.
+Os ficheiros e pastas do projeto que estão excluídos da publicação, incluindo a pasta de ambiente virtual, estão listados no ficheiro .funcignore.
 
-Existem três ações de construção apoiadas para a publicação do seu projeto Python para o Azure:
+Existem três ações de construção apoiadas para a publicação do seu projeto Python ao Azure:
 
 + Construção remota: As dependências são obtidas remotamente com base no conteúdo do ficheiro requirements.txt. [A construção remota](functions-deployment-technologies.md#remote-build) é o método de construção recomendado. O controlo remoto é também a opção de construção padrão da ferramenta Azure.
 + Construção local: As dependências são obtidas localmente com base no conteúdo do ficheiro requirements.txt.
 + Dependências personalizadas: O seu projeto utiliza pacotes não disponíveis publicamente para as nossas ferramentas. (Requer Docker.)
 
-Para construir as suas dependências e publicar utilizando um sistema de entrega contínua (CD), [utilize pipelines Azure](functions-how-to-azure-devops.md).
+Para construir as suas dependências e publicar utilizando um sistema de entrega contínua (CD), [utilize a Azure Pipelines](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Construção remota
 
-Por padrão, o Azure Functions Core Tools solicita uma construção remota quando utilizar o seguinte [func azure functionapp publicar](functions-run-local.md#publish) comando para publicar o seu projeto Python para o Azure.
+Por predefinição, as Ferramentas Principais Azure Functions solicitam uma construção remota quando utiliza o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar o seu projeto Python para a Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
 ```
 
-Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de funções em Azure.
+Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de função em Azure.
 
-A extensão de [funções Azure para código](functions-create-first-function-vs-code.md#publish-the-project-to-azure) de estúdio visual também solicita uma construção remota por padrão.
+A [extensão de funções Azure para Código do Estúdio Visual](functions-create-first-function-vs-code.md#publish-the-project-to-azure) também solicita uma construção remota por padrão.
 
 ### <a name="local-build"></a>Construção local
 
-Pode evitar fazer uma construção remota utilizando o seguinte [func azure functionapp publicar](functions-run-local.md#publish) comando para publicar com uma construção local.
+Pode evitar fazer uma construção remota utilizando o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar com uma construção local.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
 ```
 
-Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de funções em Azure.
+Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de função em Azure.
 
-Utilizando a `--build local` opção, as dependências do projeto são lidas a partir dos requisitos.txt ficheiro e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do seu computador local para o Azure. Isto resulta no envio de um pacote de implantação maior para o Azure. Se, por alguma razão, as dependências dos seus requisitos.ficheiro.txt não puderem ser adquiridos pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação.
+Utilizando a `--build local` opção, as dependências do projeto são lidas a partir dos requisitos.txt file e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências dos seus requisitos.txt file não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação.
 
 ### <a name="custom-dependencies"></a>Dependências personalizadas
 
-Se o seu projeto utilizar pacotes não disponíveis publicamente para as nossas ferramentas, pode disponibilizá-los à sua app colocando-os na \_ \_ app \_ \_ /.python_packages diretório. Antes de publicar, execute o seguinte comando para instalar as dependências localmente:
+Se o seu projeto utilizar pacotes não disponíveis publicamente para as nossas ferramentas, pode disponibilizá-los para a sua aplicação colocando-os na \_ \_ app \_ \_ /.python_packages diretório. Antes de publicar, executar o seguinte comando para instalar as dependências localmente:
 
 ```command
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-Ao utilizar dependências personalizadas, deve utilizar a opção de publicação, uma `--no-build` vez que já instalou as dependências.
+Ao utilizar dependências personalizadas, deve utilizar `--no-build` a opção de publicação, uma vez que já instalou as dependências.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
 ```
 
-Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de funções em Azure.
+Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de função em Azure.
 
-## <a name="unit-testing"></a>Teste de Unidade
+## <a name="unit-testing"></a>Teste de unidade
 
-As funções escritas em Python podem ser testadas como outro código Python usando quadros de teste padrão. Para a maioria das encadernações, é possível criar um objeto de entrada simulado criando uma instância de uma classe apropriada a partir do `azure.functions` pacote. Uma vez que o [`azure.functions`](https://pypi.org/project/azure-functions/) pacote não está imediatamente disponível, certifique-se de que o instala através do seu ficheiro, conforme descrito na secção de `requirements.txt` gestão de [pacotes](#package-management) acima.
+As funções escritas em Python podem ser testadas como outros códigos Python utilizando quadros de teste padrão. Para a maioria das encadernações, é possível criar um objeto de entrada simulado criando uma instância de uma classe apropriada a partir do `azure.functions` pacote. Uma vez que a [`azure.functions`](https://pypi.org/project/azure-functions/) embalagem não está imediatamente disponível, certifique-se de instalá-lo através do seu `requirements.txt` ficheiro, conforme descrito na secção de [gestão](#package-management) de pacotes acima.
 
-Por exemplo, segue-se um teste simulado de uma função ativada em HTTP:
+Por exemplo, segue-se um teste simulado de uma função desencadeada HTTP:
 
 ```json
 {
@@ -557,7 +558,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Aqui está outro exemplo, com uma função desencadeada pela fila:
+Aqui está outro exemplo, com uma função despoletamento de fila:
 
 ```json
 {
@@ -610,9 +611,9 @@ class TestFunction(unittest.TestCase):
 O `tempfile.gettempdir()` método devolve uma pasta temporária, que no Linux é `/tmp` . A sua aplicação pode utilizar este diretório para armazenar ficheiros temporários gerados e utilizados pelas suas funções durante a execução.
 
 > [!IMPORTANT]
-> Os ficheiros escritos ao diretório temporário não são garantidos para persistir em invocações. Durante a escala, os ficheiros temporários não são partilhados entre casos.
+> Os ficheiros escritos para o diretório temporário não são garantidos que persistam em todas as invocações. Durante a escala, os ficheiros temporários não são partilhados entre casos.
 
-O exemplo seguinte cria um ficheiro temporário nomeado no diretório temporário `/tmp` ( ):
+O exemplo a seguir cria um ficheiro temporário nomeado no diretório temporário `/tmp` (
 
 ```python
 import logging
@@ -641,17 +642,17 @@ Graças ao seu valioso feedback, somos capazes de manter uma lista de guias de r
 
 * [MóduloNotFoundError e ImportError](recover-module-not-found.md)
 
-Todos os problemas conhecidos e pedidos de funcionalidades são rastreados usando a lista de [problemas gitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se tiver um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
+Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Documentação api do pacote funções Azure](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Documentação API do pacote de funções AZure Functions](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
-* [Funções Azure desencadeiam e encadernam](functions-triggers-bindings.md)
-* [Encadernações de armazenamento blob](functions-bindings-storage-blob.md)
-* [Ligações HTTP e Webhook](functions-bindings-http-webhook.md)
+* [Funções Azure dispara e encaderna](functions-triggers-bindings.md)
+* [Encadernações de armazenamento de bolhas](functions-bindings-storage-blob.md)
+* [Encadernações HTTP e Webhook](functions-bindings-http-webhook.md)
 * [Encadernações de armazenamento de fila](functions-bindings-storage-queue.md)
 * [Acionador de temporizador](functions-bindings-timer.md)
 

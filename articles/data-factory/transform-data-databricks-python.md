@@ -1,6 +1,6 @@
 ---
-title: Transforme dados com Databricks Python
-description: Aprenda a processar ou transformar dados executando um Databricks Python.
+title: Transformar dados com Databricks Python
+description: Aprenda a processar ou transformar dados executando uma Databricks Python.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,26 +11,27 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
-ms.openlocfilehash: e102b14d8471a19564f66edc27cc328c2a789c98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 6ae42c9cb68b28e5d2f0b5a2ba3cf7eab74a74b4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414606"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561115"
 ---
-# <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme dados executando uma atividade python em Tijolos de Dados Azure
+# <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme os dados executando uma atividade Python em Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-O Azure Databricks Python Activity num [pipeline data factory](concepts-pipelines-activities.md) executa um ficheiro Python no seu cluster Azure Databricks. Este artigo baseia-se no artigo sobre [atividades](transform-data.md) de transformação de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.A Azure Databricks é uma plataforma gerida para executar a Apache Spark.
+A atividade python da Azure Databricks num [oleoduto da Data Factory](concepts-pipelines-activities.md) executa um ficheiro Python no seu cluster Azure Databricks. Este artigo baseia-se no artigo de atividades de [transformação](transform-data.md)de   dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.Azure Databricks é uma plataforma gerida para executar Apache Spark.
 
 Para uma introdução e demonstração de onze minutos desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
-## <a name="databricks-python-activity-definition"></a>Definição de atividade de Databricks Python
+## <a name="databricks-python-activity-definition"></a>Databricks Python definição de atividade
 
-Aqui está a definição JSON da amostra de uma Atividade Python databricks:
+Aqui está a definição JSON de uma atividade python de dados:
 
 ```json
 {
@@ -59,23 +60,23 @@ Aqui está a definição JSON da amostra de uma Atividade Python databricks:
 }
 ```
 
-## <a name="databricks-python-activity-properties"></a>Propriedades de atividade de Databricks Python
+## <a name="databricks-python-activity-properties"></a>Databricks Python propriedades de atividade
 
-O quadro seguinte descreve as propriedades JSON utilizadas na definição JSON:
+A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|nome|Nome da atividade no oleoduto.|Sim|
+|name|O nome da atividade no oleoduto.|Sim|
 |descrição|Texto descrevendo o que a atividade faz.|Não|
 |tipo|Para databricks Python Activity, o tipo de atividade é DatabricksSparkPython.|Sim|
-|linkedServiceName|Nome do Serviço Ligado de Databricks em que funciona a atividade python. Para conhecer este serviço ligado, consulte o artigo de  [serviços ligados à Compute.](compute-linked-services.md)|Sim|
-|PythonFile|O URI do ficheiro Python a ser executado. Apenas os caminhos do DBFS são apoiados.|Sim|
+|linkedServiceName|Nome do Serviço Ligado databricks no qual funciona a atividade Python. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Sim|
+|pythonFile|O URI do ficheiro Python a ser executado. Apenas os caminhos DBFS são suportados.|Sim|
 |parâmetros|Parâmetros da linha de comando que serão passados para o ficheiro Python. Esta é uma variedade de cordas.|Não|
-|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade de cordas <, objeto>|Não|
+|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade de <cordas, objeto>|Não|
 
-## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas suportadas para atividades de tijolos de dados
+## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas apoiadas para atividades de databricks
 
-Na definição de atividade dos Databricks acima especifica-se estes tipos de biblioteca: *frasco,* *ovo,* *maven,* *pipi,* *cran*.
+Na definição de atividade de Databricks acima, especifica estes tipos de biblioteca: *frasco,* *ovo,* *maven,* *pypi,* *cran*.
 
 ```json
 {
@@ -109,18 +110,18 @@ Na definição de atividade dos Databricks acima especifica-se estes tipos de bi
 
 ```
 
-Para mais detalhes consulte [a documentação dos Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) para tipos de biblioteca.
+Para mais detalhes, consulte [a documentação databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) para tipos de biblioteca.
 
-## <a name="how-to-upload-a-library-in-databricks"></a>Como fazer upload de uma biblioteca em Databricks
+## <a name="how-to-upload-a-library-in-databricks"></a>Como carregar uma biblioteca em Databricks
 
 #### <a name="using-databricks-workspace-ui"></a>[Utilização do espaço de trabalho Databricks UI](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Para obter o caminho dbfs da biblioteca adicionado usando UI, pode utilizar [databricks CLI (instalação)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Para obter o caminho dbfs da biblioteca adicionado usando UI, pode utilizar [Databricks CLI (instalação)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Normalmente, as bibliotecas Jar são armazenadas sob dbfs:/FileStore/frascos durante a utilização do UI. Pode listar tudo através do CLI: *databricks fs ls dbfs:/FileStore/jars* 
+Normalmente, as bibliotecas jar são armazenadas em dbfs:/FileStore/jars durante a utilização da UI. Pode listar todos através do CLI: *databricks fs ls dbfs:/FileStore/jars* 
 
 
 
 #### <a name="copy-library-using-databricks-cli"></a>[Biblioteca de cópias usando Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
-Exemplo: *databricks fs cp SparkPi-assembl-0.1.jar dbfs:/FileStore/jars*
+Exemplo: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

@@ -9,12 +9,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.reviewer: trbye
 ms.date: 03/05/2020
-ms.openlocfilehash: 92120d7eabcd4f9fe8d30c1124555588fcadd19a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 25c0f906cdf8a351d868dcae0b794d4ea833466e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432918"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560244"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Ativar o registo em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

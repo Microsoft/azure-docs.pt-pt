@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: a4ecc7f0e11712fa3d664d1227eacb39409bd184
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 2552012678300e944a513f9d7167fa582424bf8f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418216"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558861"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -40,15 +40,14 @@ Além destas funções, há duas funções específicas do Centro de Segurança:
 
 A tabela que se segue exibe funções e permitiu ações no Centro de Segurança.
 
-| Função | Editar a política de segurança | Aplicar recomendações de segurança para um recurso</br> (incluindo com 'Quick Fix!') | Alertas de dispensa | Ver alertas e recomendações |
-|:--- |:---:|:---:|:---:|:---:|
-| Proprietário de Assinatura | ✔ | ✔ | ✔ | ✔ |
-| Colaborador de Assinatura | -- | ✔ | ✔ | ✔ |
-| Proprietário do Grupo de Recursos | -- | ✔ | -- | ✔ |
-| Contribuinte do Grupo de Recursos | -- | ✔ | -- | ✔ |
-| Leitor | -- | -- | -- | ✔ |
-| Administrador de Segurança | ✔ | -- | ✔ | ✔ |
-| Leitor de Segurança | -- | -- | -- | ✔ |
+|Ação|Leitor de Segurança / <br> Leitor |Administrador de Segurança  |Contribuinte do Grupo de Recursos / <br> Proprietário do Grupo de Recursos  |Colaborador de Assinatura  |Proprietário de Assinatura  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Editar a política de segurança|-|✔|-|-|✔|
+|Alterar o nível de preços de subscrição|-|✔|-|-|-|
+|Ativar /desativar o fornecimento automático|-|✔|-|-|-|
+|Aplicar recomendações de segurança para um recurso</br> (e use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Alertas de dispensa|-|✔|-|✔|✔|
+|Ver alertas e recomendações|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua o papel de Leitor a utilizadores que apenas precisam de visualizar informações sobre a saúde de segurança de um recurso, mas não tomem medidas, tais como a aplicação de recomendações ou políticas de edição.

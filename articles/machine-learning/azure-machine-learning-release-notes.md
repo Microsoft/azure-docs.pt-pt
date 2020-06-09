@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 6bf26a739169c561e95c7376a75166daf9aa9fb0
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 81832e3ccfb3529f94b41b903a8b73fbbe7bbd40
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309990"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553058"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -22,6 +22,69 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
 
+## <a name="2020-06-08"></a>2020-06-08
+
+### <a name="azure-machine-learning-sdk-for-python-v170"></a>Azure Machine Learning SDK para Python v1.7.0
+
++ **Correções e melhorias de bugs**
+  + **azure-cli-ml**
+    + Concluída a remoção do perfil do modelo do mir contrib através da limpeza dos comandos cli e das dependências dos pacotes, o perfil do modelo está disponível no núcleo.
+    + Atualiza a versão min Azure Cli para 2.3.0
+  + **azureml-automl-core**
+    + Melhor mensagem de exceção no passo de aposição fit_transform() devido aos parâmetros do transformador personalizado.
+    + Adicione suporte para várias línguas para modelos de transformadores de aprendizagem profunda, como BERT em ML automatizado.
+    + Remova o parâmetro de lag_length prevadido da documentação.
+    + A documentação dos parâmetros de previsão foi melhorada. O parâmetro lag_length foi depreciado.
+  + **azureml-automl-runtime**
+    + Corrigiu o erro levantado quando uma das colunas categóricas está vazia no tempo de previsão/teste.
+    + Corrija as falhas de execução que ocorrem quando as funcionalidades de recuo estão ativadas e os dados contêm grãos curtos.
+    + Corrigiu o problema com uma mensagem de erro duplicada do índice de tempo quando os lags ou janelas rolantes foram definidos como 'auto'.
+    + Corrigiu o problema com os modelos Profeta e Arima em conjuntos de dados, contendo as funcionalidades de recuo.
+    + Apoio adicional de datas antes de 1677-09-21 ou depois de 2262-04-11 em colunas outras datas então data nas tarefas de previsão. Mensagens de erro melhoradas.
+    + A documentação dos parâmetros de previsão foi melhorada. O parâmetro lag_length foi depreciado.
+    + Melhor mensagem de exceção no passo de aposição fit_transform() devido aos parâmetros do transformador personalizado.
+    + Adicione suporte para várias línguas para modelos de transformadores de aprendizagem profunda, como BERT em ML automatizado.
+    + As operações de cache que resultam em alguns OSErrors levantarão o erro do utilizador.
+    + Verificações adicionais para garantir que os dados de formação e validação têm o mesmo número e conjunto de colunas
+    + Problema fixo com o script de pontuação autogerado autoML quando os dados contêm aspas
+    + Habilitando explicações para o Profeta AutoML e modelos conjuntos que contêm modelo Profeta.
+    + Um recente problema com o cliente revelou um bug ao vivo em que registamos mensagens ao longo da classificação-balanceamento-sweeping mesmo quando a lógica de Equilíbrio de Classes não está devidamente ativada. Removendo os registos/mensagens com este PR.
+  + **azureml-cli-comum**
+    + Concluída a remoção do perfil do modelo do mir contrib através da limpeza dos comandos cli e das dependências dos pacotes, o perfil do modelo está disponível no núcleo.
+  + **azureml-contrib-reinforcementlearning**
+    + Ferramenta de teste de carga
+  + **azureml-core**
+    + Alterações de documentação em Script_run_config.py
+    + Corrige um bug com a impressão da saída do pipeline de submissão de corrida CLI
+    + Melhorias de documentação para azureml-core/azureml.data
+    + Correções problemas recuperando conta de armazenamento usando o comando hdfs getconf
+    + Melhor register_azure_blob_container e documentação register_azure_file_share
+  + **azureml-datadrift**
+    + Melhor implementação para desativar e permitir monitores de deriva do conjunto de dados
+  + **azureml-interpret**
+    + Em explicação cliente, remova NaNs ou Infs antes da serialização json no upload de artefactos
+    + Atualização para a versão mais recente da interpret-community para melhorar os erros de memória para explicações globais com muitas funcionalidades e classes
+    + Adicione true_ys parâmetro opcional ao upload de explicação para permitir funcionalidades adicionais no estúdio UI
+    + Melhorar download_model_explanations e list_model_explanations() desempenho
+    + Pequenos ajustes aos cadernos, para ajudar na depuragem
+  + **azureml-opendatasets**
+    + os conjuntos de dados azureml-open precisam da versão 1.4.0 ou superior a dados azureml.0. Aviso adicionado se a versão inferior for detetada
+  + **azureml-pipeline-core**
+    + Esta alteração permite ao utilizador fornecer um runconfig opcional ao móduloVersion ao chamar módulo. Publish_python_script.
+    + Ativar a conta de nó pode ser um parâmetro de pipeline em ParallelRunStep em azureml.pipeline.steps
+  + **azureml-pipeline-steps**
+    + Esta alteração permite ao utilizador fornecer um runconfig opcional ao móduloVersion ao chamar módulo. Publish_python_script.
+  + **azureml-train-automl-client**
+    + Adicione suporte para várias línguas para modelos de transformadores de aprendizagem profunda, como BERT em ML automatizado.
+    + Remova o parâmetro de lag_length prevadido da documentação.
+    + A documentação dos parâmetros de previsão foi melhorada. O parâmetro lag_length foi depreciado.
+  + **azureml-train-automl-runtime**
+    + Habilitando explicações para o Profeta AutoML e modelos conjuntos que contêm modelo Profeta.
+    + Atualizações de documentação para pacotes azureml-train-automl-* .
+  + **azureml-train-core**
+    + Suporte à versão 2.1 do TensorFlow no Estimador PyTorch
+    + Melhorias no pacote azureml-train-core.
+  
 ## <a name="2020-05-26"></a>2020-05-26
 
 ### <a name="azure-machine-learning-sdk-for-python-v160"></a>Azure Machine Learning SDK para Python v1.6.0

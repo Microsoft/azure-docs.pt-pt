@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 6bfbbacd0b30e206a9c1873c4df204117155e044
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 55ca9232252895dd46ad3da3912f808ebd9b9533
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465240"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559681"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor do GPU da NVIDIA para o Linux
 
@@ -72,7 +72,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
@@ -83,7 +83,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 Todas as configurações são opcionais. O comportamento predefinido é não atualizar o núcleo se não for necessário para a instalação do condutor, instalar o mais recente controlador suportado e o conjunto de ferramentas CUDA (conforme aplicável).
 
-| Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
+| Name | Description | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o núcleo mesmo que não for necessário para a instalação do condutor | false | TRUE, false | boolean |
 | motoristaVersão | NV: Versão do controlador GRID<br> Versão NC/ND: Kit de ferramentas CUDA. Os controladores mais recentes da CUDA escolhida são instalados automaticamente. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
@@ -138,7 +138,7 @@ Set-AzVMExtension
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir espelha os exemplos acima do Azure Resource Manager e PowerShell e também adiciona configurações personalizadas como exemplo para a instalação do controlador não padrão. Especificamente, atualiza o kernel OS e instala um controlador específico de conjunto de ferramentas CUDA.
+O exemplo a seguir espelha os exemplos acima do Azure Resource Manager e PowerShell.
 
 ```azurecli
 az vm extension set \
@@ -146,10 +146,22 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 \
+  }'
+```
+
+O exemplo a seguir também adiciona duas configurações personalizadas opcionais como exemplo para a instalação não padrão do controlador. Especificamente, atualiza o núcleo de OS para o mais recente e instala um controlador específico de ferramentas CUDA. Mais uma vez, note que as "definições" são opcionais e predefinidos. Note que a atualização do núcleo pode aumentar os tempos de instalação da extensão. Também escolher uma versão específica (mais antiga) do tolkit CUDA pode nem sempre ser compatível com os núcleos mais recentes.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -167,7 +179,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-A saída de execução de extensão é registada no seguinte ficheiro:
+A saída de execução de extensão é registada no seguinte ficheiro. Consulte este ficheiro para acompanhar o estado da instalação (em qualquer longo prazo), bem como para resolver eventuais falhas.
 
 ```bash
 /var/log/azure/nvidia-vmext-status
@@ -190,7 +202,7 @@ A saída de execução de extensão é registada no seguinte ficheiro:
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades de máquina virtual para Linux.](features-linux.md)
 
 Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../linux/sizes-gpu.md)

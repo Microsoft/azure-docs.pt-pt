@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 29400a374c421b0d1835c94ed302c57ba45744d7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7dbce3f2645a1ae4e01dc52d516962297ea07df6
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485396"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488856"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o Portal
 
@@ -144,7 +144,7 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes de instância** |  |
-    | Nome | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
+    | Name | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
     |Região|Selecione **Europa Ocidental**.|
     |||
 
@@ -173,7 +173,7 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     |||
 
     > [!Note] 
-    > Consulte a configuração da [zona DE DNS dos serviços Azure](../private-link/private-endpoint-dns.md).
+    > Utilize a zona de DNS privada predefinida para o seu serviço ou crie uma nova. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
 
 1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
 2. Quando vir a mensagem **de validação passada,** selecione **Criar**. 
@@ -252,7 +252,7 @@ Quando terminar de usar o ponto final privado, o servidor MySQL e o VM, elimine 
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste como fazer, criou um VM numa rede virtual, uma Base de Dados Azure para o MySQL e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor MySQL utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
 

@@ -3,14 +3,14 @@ title: Rastreio de alteração de alteração de automação Azure e visão gera
 description: Este artigo descreve a funcionalidade De Rastreio e Inventário de Alterações, que o ajuda a identificar o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/03/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef323fd5b73b1befec5261e56357751ac72adae
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342923"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555038"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -33,22 +33,23 @@ O Change Tracking and Inventory obtém os seus dados do Azure Monitor. Máquinas
 
 Alterar rastreio e inventário atualmente não suporta os seguintes itens:
 
-* Recursão para rastreio do registo do Windows
-* Sistemas de ficheiros de rede
-* Diferentes métodos de instalação
-* ***.exe** ficheiros para Windows
+- Recursão para rastreio do registo do Windows
+- Sistemas de ficheiros de rede
+- Diferentes métodos de instalação
+- ***.exe** ficheiros para Windows
 
 Outras limitações:
 
-* A coluna e os valores **do Tamanho do Ficheiro Max** não são bem-utados na implementação atual.
-* Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho do Change Tracking e do Inventário poderá ser degradado.
-* Quando o tráfego da rede é elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
-* Se modificar uma configuração enquanto um computador é desligado, o computador pode registar alterações pertencentes à configuração anterior.
+- A coluna e os valores **do Tamanho do Ficheiro Max** não são bem-utados na implementação atual.
+- Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho do Change Tracking e do Inventário poderá ser degradado.
+- Quando o tráfego da rede é elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
+- Se modificar uma configuração enquanto um computador é desligado, o computador pode registar alterações pertencentes à configuração anterior.
 
 O Change Tracking and Inventory está atualmente a experimentar as seguintes questões:
 
-* As atualizações do Hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
-* Os daemons de Linux podem mostrar um estado alterado, mesmo que não tenha ocorrido qualquer alteração. Este problema surge devido à forma como os `SvcRunLevels` dados no registo Azure Monitor [ConfigurationChange são capturados.](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange)
+- As atualizações do Hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
+
+- Os daemons de Linux podem mostrar um estado alterado, mesmo que não tenha ocorrido qualquer alteração. Este problema surge devido à forma como os `SvcRunLevels` dados no registo Azure Monitor [ConfigurationChange são capturados.](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -77,12 +78,12 @@ As dropdowns estão disponíveis no topo do painel de instrumentos para limitar 
 
 Pode clicar numa alteração ou evento para apresentar os seus detalhes. Os tipos de alteração disponíveis são:
 
-* Eventos
-* Daemons
-* Ficheiros
-* Registo
-* Software
-* Serviços da Microsoft
+- Eventos
+- Daemons
+- Ficheiros
+- Registo
+- Software
+- Serviços da Microsoft
 
 Pode adicionar, modificar ou remover cada alteração. O exemplo abaixo mostra uma alteração no tipo de arranque de um serviço de Manual para Automóvel.
 
@@ -137,10 +138,13 @@ O Change Tracking and Inventory permite monitorizar as alterações nas chaves d
 
 O Change Tracking and Inventory suporta a recursão, que permite especificar wildcards para simplificar o rastreio em todos os diretórios. A recursão também fornece variáveis ambientais que permitem rastrear ficheiros em ambientes com nomes de unidades múltiplos ou dinâmicos. A lista que se segue inclui informações comuns que deve saber ao configurar a recursão:
 
-* Wildcards são necessários para rastrear vários ficheiros.
-* Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, ** \\ c:\ficheiro de pasta*** ou **/etc//**.conf**.
-* Se uma variável ambiental tem um caminho inválido, a validação tem sucesso, mas o caminho falha durante a execução.
-* Deve evitar nomes gerais do caminho ao definir o caminho, uma vez que este tipo de regulação pode fazer com que demasiadas pastas sejam atravessadas.
+- Wildcards são necessários para rastrear vários ficheiros.
+
+- Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, ** \\ c:\ficheiro de pasta*** ou **/etc//**.conf**.
+
+- Se uma variável ambiental tem um caminho inválido, a validação tem sucesso, mas o caminho falha durante a execução.
+
+- Deve evitar nomes gerais do caminho ao definir o caminho, uma vez que este tipo de regulação pode fazer com que demasiadas pastas sejam atravessadas.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Alterar recolha de dados de rastreio e inventário
 
@@ -167,7 +171,7 @@ A tabela a seguir mostra os limites de produto rastreado por máquina para Chang
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
+O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 
@@ -182,22 +186,25 @@ Para otimizar o desempenho, o agente Log Analytics apenas rastreia as alteraçõ
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Suporte para alertas no estado de configuração
 
-Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas, por exemplo, ações em funções Azure, runbooks de automação, webhooks, e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte. 
+Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas, por exemplo, ações em funções Azure, runbooks de automação, webhooks, e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte.
 
 |Consulta  |Description  |
 |---------|---------|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Ficheiros" e FileSystemPath contém " c: \\ sistema de \\ janelas32 \\ controladores \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ \\ windows system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração de chaves.|
-|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Serviços Microsoft" e SvcName contém "w3svc" e SvcState == "Parado"|Útil para rastrear alterações em serviços críticos do sistema.|
+|ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "WindowsServices" e SvcName contém "w3svc" e SvcState == "Parado"|Útil para rastrear alterações em serviços críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Daemons" e SvcName contém "ssh" e SvcState!= "Running"|Útil para rastrear alterações em serviços críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Software" e ChangeCategory == "Adicionado"|Útil para ambientes que precisam de configurações de software bloqueadas.|
 |Data de Configuração <br>&#124; onde o SoftwareName contém "Monitoring Agent" e CurrentVersion!= "8.0.11081.0"|Útil para ver quais máquinas têm versão de software desatualizada ou não conforme instalada. Esta consulta reporta o último estado de configuração relatado, mas não reporta alterações.|
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE Microsoft Windows \\ \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em chaves antivírus cruciais.|
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey contém @"HKEY_LOCAL_MACHINE \\ SYSTEM \\ CurrentControlSet \\ Services \\ SharedAccess \\ Parameters \\ FirewallPolicy"| Útil para rastrear alterações nas definições de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para ativar a funcionalidade a partir de uma conta de Automação, consulte [Ativar o Tracking e o Inventário de Mudança a partir de uma conta de Automação.](automation-enable-changes-from-auto-acct.md)
-* Para ativar a funcionalidade navegando no portal Azure, consulte [Ativar o Tracking e o Inventário de Alterações a partir do portal Azure](automation-onboard-solutions-from-browse.md).
-* Para ativar a funcionalidade a partir de um livro de recortes, consulte [Ativar o Tracking e o Inventário de Alterações a partir de um livro de recortes.](automation-enable-changes-from-runbook.md)
-* Para ativar a funcionalidade a partir de um VM Azure, consulte [Ativar o Tracking e o Inventário de Alterações a partir de um VM Azure](automation-enable-changes-from-vm.md).
+- Para ativar a funcionalidade a partir de uma conta de Automação, consulte [Ativar o Tracking e o Inventário de Mudança a partir de uma conta de Automação.](automation-enable-changes-from-auto-acct.md)
+
+- Para ativar a funcionalidade navegando no portal Azure, consulte [Ativar o Tracking e o Inventário de Alterações a partir do portal Azure](automation-onboard-solutions-from-browse.md).
+
+- Para ativar a funcionalidade a partir de um livro de recortes, consulte [Ativar o Tracking e o Inventário de Alterações a partir de um livro de recortes.](automation-enable-changes-from-runbook.md)
+
+- Para ativar a funcionalidade a partir de um VM Azure, consulte [Ativar o Tracking e o Inventário de Alterações a partir de um VM Azure](automation-enable-changes-from-vm.md).

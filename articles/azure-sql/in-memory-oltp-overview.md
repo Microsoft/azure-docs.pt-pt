@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 10f4a0012076deef0757743f206f937ab43dc8b8
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5208edc6038db0f9d45bb8fe10f3a96b5051b4c
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345296"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560560"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimizar o desempenho utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ Devido à consulta mais eficiente e ao processamento de transações, as tecnolo
 
 Aqui estão dois exemplos de como o OLTP in-memory ajudou a melhorar significativamente o desempenho:
 
-- Ao utilizar o OLTP in-memory, [a Quorum Business Solutions conseguiu duplicar a sua carga de trabalho, melhorando os DTUs em 70%.](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- Ao utilizar o OLTP in-memory, [a Quorum Business Solutions conseguiu duplicar a sua carga de trabalho, melhorando os DTUs em 70%.](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu)
 - O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de amostra: [In-Memory OLTP Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Para mais informações, consulte o post do blog: [In-Memory OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
@@ -174,7 +174,7 @@ Quando utiliza índices de loja de colunas agrupados, é utilizada compressão c
 
 Por exemplo, se tiver uma base de dados com um tamanho máximo de 1 terabyte (TB) e conseguir 10 vezes a compressão utilizando índices de loja de colunas, pode encaixar um total de 10 TB de dados do utilizador na base de dados.
 
-Quando utiliza índices de lojas de colunas não agrupados, a tabela base continua armazenada no formato tradicional da loja de linhas. Portanto, as poupanças de armazenamento não são tão grandes como com índices de lojas de colunas agrupadas. No entanto, se estiver a substituir uma série de índices tradicionais não agrupados por um único índice de loja de colunas, ainda pode ver uma poupança global na pegada de armazenamento da tabela.
+Quando utiliza índices de lojas de colunas não agrupados, a tabela base continua armazenada no formato tradicional da loja de linhas. Portanto, as poupanças de armazenamento não são tão significativas como com índices de lojas de colunas agrupadas. No entanto, se estiver a substituir uma série de índices tradicionais não agrupados por um único índice de loja de colunas, ainda pode ver uma poupança global na pegada de armazenamento da tabela.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Alteração dos níveis de serviço das bases de dados que contêm índices de lojas de colunas
 
@@ -183,7 +183,7 @@ Quando utiliza índices de lojas de colunas não agrupados, a tabela base contin
 Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indisponível após a desvalorização. Por isso, recomendamos que deixe cair todos os índices de loja de colunas *agrupados* antes de reduzir a sua base de dados para um nível ou nível não suportado.
 
 > [!Note]
-> SQL Managed Instance suporta índices ColumnStore em todos os níveis.
+> SQL Managed Instance suporta índices de loja de colunas em todos os níveis.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -212,6 +212,6 @@ Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indispon
 
 ### <a name="tools"></a>Ferramentas
 
-- [Portal do Azure](https://portal.azure.com/)
+- [Portal Azure](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

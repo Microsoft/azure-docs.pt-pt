@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9a42148bb9610b27f2c0874ffa74d9e517c2063a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84482603"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509326"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Link privado para base de dados Azure para MySQL
 
@@ -57,7 +57,7 @@ Com o Private Link, pode permitir o acesso transversal ao ponto final privado ut
 
 Os pontos finais privados são necessários para ativar o Link Privado. Isto pode ser feito usando os seguintes guias de como fazer.
 
-* [Portal do Azure](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
+* [Portal Azure](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo de aprovação
@@ -115,7 +115,7 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 
 Se pretender confiar apenas em pontos finais privados para aceder à sua Base de Dados Azure para o MySQL, pode desativar a definição de todos os pontos finais públicos (isto é, [regras de firewall](concepts-firewall-rules.md) e [pontos finais do serviço VNet)](concepts-data-access-and-security-vnet.md)definindo a configuração **de Acesso à Rede Pública de Negação** no servidor de base de dados. 
 
-Quando esta definição é definida como *SIM,* apenas as ligações através de pontos finais privados são permitidas na sua Base de Dados Azure para o MySQL. Quando esta definição estiver definida para *NO,* os clientes podem ligar-se à sua Base de Dados Azure para o MySQL com base nas definições do seu ponto final de firewall ou de serviço VNet. Além disso, uma vez definido o valor do acesso à rede privada, não é possível adicionar e/ou atualizar as regras existentes de firewall e ponto final de serviço VNet.
+Quando esta definição é definida como *SIM,* apenas as ligações através de pontos finais privados são permitidas na sua Base de Dados Azure para o MySQL. Quando esta definição estiver definida para *NO,* os clientes podem ligar-se à sua Base de Dados Azure para o MySQL com base nas definições do seu ponto final de firewall ou de serviço VNet. Além disso, uma vez definido o valor do acesso à rede privada, os clientes não podem adicionar e/ou atualizar as "regras de firewall" e 'regras de ponto final de serviço VNet'.
 
 > [!Note]
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para PostgreSQL - Servidor único suporta os níveis de preços otimizados para fins gerais e memória.
@@ -124,7 +124,7 @@ Quando esta definição é definida como *SIM,* apenas as ligações através de
 
 Para saber como configurar o Acesso à **Rede Pública de Negação** para a sua Base de Dados Azure para o MySQL a partir do portal Azure, consulte como configurar o [Acesso à Rede Pública de Negação](howto-deny-public-network-access.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança MySQL, consulte os seguintes artigos:
 

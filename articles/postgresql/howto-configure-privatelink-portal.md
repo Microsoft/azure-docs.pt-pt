@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 244fe0d7be92cc2d8ce4c892d8f90b6b58b32408
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 188b8949d6cda12617433783a9d81eec6d8fce97
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484811"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488380"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
 
@@ -143,7 +143,7 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes de instância** |  |
-    | Nome | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
+    | Name | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
     |Região|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Seguinte: Recurso**.
@@ -171,7 +171,7 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     |||
 
     > [!Note] 
-    > Consulte a configuração da [zona DE DNS dos serviços Azure](../private-link/private-endpoint-dns.md).
+    > Utilize a zona de DNS privada predefinida para o seu serviço ou crie uma nova. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
 
 1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
 2. Quando vir a mensagem **de validação passada,** selecione **Criar**. 
@@ -250,7 +250,7 @@ Quando terminar de usar o ponto final privado, o servidor PostgreSQL e o VM, eli
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste como fazê-lo, criou um VM numa rede virtual, uma Base de Dados Azure para PostgreSQL - Servidor Único e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor PostgreSQL utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
 

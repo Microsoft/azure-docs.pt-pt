@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 7ae8c21ef12a1233268fda772525e91be9d62bb6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 6ef929a2934d8480ce6d1eca8bb7ba3b70580110
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84435479"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84551986"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-a-resource-manager-template"></a>Quickstart: Criar uma máquina virtual do Windows utilizando um modelo de Gestor de Recursos
 
@@ -23,9 +23,13 @@ Este quickstart mostra-lhe como usar um modelo de Gestor de Recursos para implem
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
 
+Nenhum.
 
-## <a name="review-the-template"></a>Rever o modelo
+## <a name="create-a-windows-virtual-machine"></a>Criar uma máquina virtual do Windows
+
+### <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
@@ -44,11 +48,11 @@ Vários recursos são definidos no modelo:
 
 
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+### <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um cofre chave e um segredo.
 
-    [![Implementar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+    [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
 1. Selecione ou introduza os seguintes valores. Utilize os valores predefinidos, quando disponível.
 

@@ -9,13 +9,13 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer
-ms.openlocfilehash: f37fca21b4553d7ce6892e21d8ae0470873e111f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: designer, tracking-python
+ms.openlocfilehash: af26dce03c0dcf5226c52dcdd8af4408186aa343
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433365"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557040"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Execute o código Python no designer de aprendizagem de máquinas Azure
 

@@ -3,14 +3,14 @@ title: Criar funções Azure no Linux utilizando uma imagem personalizada
 description: Saiba como criar Funções do Azure em execução numa imagem personalizada do Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 65fa62e0e21eea44ebd1d0948e71ad1d552d4d68
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345160"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560923"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um recipiente personalizado
 
@@ -18,7 +18,7 @@ Neste tutorial, cria e implementa o seu código para Azure Functions como um rec
 
 Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](functions-create-first-azure-function-azure-cli-linux.md). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma aplicação de função e dockerfile utilizando as Ferramentas Principais de Funções Azure.
@@ -515,7 +515,7 @@ Para evitar custos contínuos, elimine o `AzureFunctionsContainer-rg` grupo de r
 az group delete --name AzureFunctionsContainer-rg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Funções de monitorização](functions-monitoring.md)
 + [Opções de escala e hospedagem](functions-scale.md)

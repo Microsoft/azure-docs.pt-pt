@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 8605fb3c43e625d86fd4d4008ddc49b0e29c8d44
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169207"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509479"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -39,7 +39,7 @@ Tens de o fazer:
 
 Execute os seguintes passos para criar uma função de exportação no portal Azure.
 
-1. Faça login em https://portal.azure.com/ .
+1. Faça login em <https://portal.azure.com/> .
 2. Aceda a **todos os serviços > armazenamento > empregos de importação/exportação.**
 
     ![Ir para os postos de trabalho de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -129,7 +129,11 @@ A exportação está completa.
 
 Se utilizar a versão 1.4.0.300 da ferramenta WAImportExport, utilize o seguinte comando para desbloquear a unidade:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Aqui está um exemplo da entrada da amostra.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Se utilizar versões anteriores da ferramenta, utilize o diálogo BitLocker para desbloquear a unidade.
 
@@ -143,15 +147,15 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 2. Desaperte a pasta predefinido `waimportexportv1` . Por exemplo, `C:\WaImportExportV1`.
 3. Abra uma janela de linha PowerShell ou de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta desapertado, execute o seguinte comando:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Para verificar o número de discos necessários para as bolhas selecionadas, verifique o seguinte comando:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Os parâmetros são descritos no quadro seguinte:
 
-    |Parâmetro de linha de comando|Descrição|  
+    |Parâmetro de linha de comando|Description|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|  
     |**/sn:**|Necessário. O nome do armazém é responsável pelo trabalho de exportação.|  
@@ -205,7 +209,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Descrição |
+   | Seletor | Caminho da Bolha | Description |
    | --- | --- | --- |
    | Começa com |/ |Exporta todas as bolhas na conta de armazenamento |
    | Começa com |/$root/ |Exporta todas as bolhas no recipiente raiz |
@@ -215,7 +219,7 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Igual a |$root/logo.bmp |Exportações **blob logo.bmp** no recipiente raiz |
    | Igual a |videos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 - [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

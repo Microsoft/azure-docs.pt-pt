@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 05/11/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 50897b09f35a90c13809805a81fddb1e82d72994
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: be78681ba01cf98f087331a5a9a6c7974f3b1122
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434315"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560259"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteja a sua máquina de aprendizagem de ciclos de vida com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Também pode [ativar o Azure Private Link](how-to-configure-private-link.md) par
 > [!TIP]
 > Pode combinar rede virtual e Private Link em conjunto para proteger a comunicação entre o seu espaço de trabalho e outros recursos Azure. No entanto, algumas combinações requerem um espaço de trabalho de edição da Enterprise. Use a seguinte tabela para entender que cenários requerem edição enterprise:
 >
-> | Cenário | Enterprise</br>edição | Básico</br>edição |
+> | Cenário | Enterprise</br>edição | Básica</br>edição |
 > | ----- |:-----:|:-----:| 
 > | Sem rede virtual ou Link Privado | ✔ | ✔ |
 > | Espaço de trabalho sem Ligação Privada. Outros recursos (exceto registo de contentores Azure) numa rede virtual | ✔ | ✔ |
@@ -463,7 +463,7 @@ Para obter informações sobre a utilização de Azure Machine Learning com Azur
 
 1. Para encontrar o nome do Registo do Contentor Azure para o seu espaço de trabalho, utilize um dos seguintes métodos:
 
-    __Portal do Azure__
+    __Portal Azure__
 
     A partir da secção de visão geral do seu espaço de trabalho, o valor do __registo__ liga-se ao Registo do Contentor de Azure.
 

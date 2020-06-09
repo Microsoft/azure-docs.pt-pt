@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: ebcdb37652e8bdf23e8403e7f152ce1f41607c61
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 10f0079f47e5d2fd99b358fcc5cfb4c80aa9bd91
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263453"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508901"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um oleoduto em resposta a um evento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,7 +50,7 @@ Esta secção mostra-lhe como criar um gatilho de evento dentro da Interface de 
 1. Selecione a sua conta de armazenamento a partir do dropdown de subscrição Azure ou utilizando manualmente o seu ID de recurso de conta de armazenamento. Escolha em que recipiente deseja que os eventos ocorram. A seleção do contentor é opcional, mas tenha em atenção que selecionar todos os recipientes pode levar a um grande número de eventos.
 
    > [!NOTE]
-   > O Event Trigger suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Deve ter pelo menos acesso *ao proprietário* no acoutn de armazenamento.  Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos por conta de armazenamento.
+   > O Event Trigger suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Deve ter pelo menos acesso *ao proprietário* na conta de armazenamento.  Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos por conta de armazenamento.
 
 1. O **caminho blob começa** e o caminho **blob termina com** propriedades que lhe permitem especificar os recipientes, pastas e nomes blob para os quais deseja receber eventos. O gatilho do evento requer que pelo menos uma destas propriedades seja definida. Você pode usar variedade de padrões para ambos os **caminhos Blob começa com** e o caminho **blob termina com** propriedades, como mostrado nos exemplos mais tarde neste artigo.
 
@@ -81,11 +81,11 @@ A tabela seguinte fornece uma visão geral dos elementos de esquema que estão r
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores Permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | Cadeia | ID do gestor de recursos Azure | Yes |
+| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | String | ID do gestor de recursos Azure | Sim |
 | **eventos** | O tipo de eventos que causam este gatilho a disparar. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
-| **blobPathBeginsWith** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho para as bolhas na `december` pasta debaixo do `records` recipiente. | Cadeia   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
-| **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o gatilho para bolhas nomeadas `boxes` numa `december` pasta. | Cadeia   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
-| **ignorarEmptyBlobs** | Se as bolhas de byte zero desencadearão ou não uma corrida ao gasoduto. Por defeito, isto é definido como verdadeiro. | Booleano | true ou false | No |
+| **blobPathBeginsWith** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho para as bolhas na `december` pasta debaixo do `records` recipiente. | String   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
+| **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o gatilho para bolhas nomeadas `boxes` numa `december` pasta. | String   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
+| **ignorarEmptyBlobs** | Se as bolhas de byte zero desencadearão ou não uma corrida ao gasoduto. Por defeito, isto é definido como verdadeiro. | Booleano | true ou false | Não |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de gatilhos baseados em eventos
 
@@ -94,7 +94,7 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 > [!IMPORTANT]
 > Tem de incluir o `/blobs/` segmento do percurso, como mostra os seguintes exemplos, sempre que especificar o recipiente e a pasta, o recipiente e o ficheiro, ou o contentor, a pasta e o ficheiro. Para **blobPathBeginsWith,** a UI da Fábrica de Dados adicionará automaticamente `/blobs/` entre a pasta e o nome do recipiente no gatilho JSON.
 
-| Propriedade | Exemplo | Descrição |
+| Propriedade | Exemplo | Description |
 |---|---|---|
 | **O caminho da bolha começa com** | `/containername/` | Recebe eventos para qualquer bolha no recipiente. |
 | **O caminho da bolha começa com** | `/containername/blobs/foldername/` | Recebe eventos para quaisquer bolhas no `containername` recipiente e `foldername` pasta. |

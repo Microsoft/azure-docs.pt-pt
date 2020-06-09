@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ad9c0f29ee10197c4dafe6ca24ee4df7b7afdb88
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: fec11b930be0487a7fbc0968c3c8a8003a2fb911
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485367"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559273"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
 Este tutorial fornece instruções sobre a utilização da biblioteca Java, executora a granel da Azure Cosmos DB, para importar e atualizar documentos DB do Azure Cosmos. Para saber mais sobre a biblioteca de executores a granel e como o ajuda a alavancar a produção e armazenamento maciços, consulte o artigo [de visão geral da Biblioteca do executor a granel.](bulk-executor-overview.md) Neste tutorial, você constrói uma aplicação Java que gera documentos aleatórios e são importados a granel para um recipiente Azure Cosmos. Após a importação, irá atualizar em massa algumas propriedades de um documento. 
 
-Atualmente, a biblioteca de executor a granel é suportada apenas por contas AZure Cosmos DB SQL API e Gremlin API. Este artigo descreve como usar a biblioteca Java do executor a granel com contas API SQL. Para saber mais sobre a utilização de uma biblioteca a granel .NET com a Gremlin API, consulte [realizar operações a granel na API API API da Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md). A biblioteca de executor a granel descrita está disponível para aplicações utilizando a versão Java SDK 2.x. Atualmente não está disponível para as versões 3.x, 4.x ou outras versões SDK mais altas.
+Atualmente, a biblioteca de executor a granel é suportada apenas por contas AZure Cosmos DB SQL API e Gremlin API. Este artigo descreve como usar a biblioteca Java do executor a granel com contas API SQL. Para saber mais sobre a utilização de uma biblioteca a granel .NET com a Gremlin API, consulte [realizar operações a granel na API API API da Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md). A biblioteca de executor a granel descrita está disponível apenas para o [Azure Cosmos DB Java sync SDK v2](sql-api-sdk-java.md) e é a solução recomendada atual para suporte a granel Java. Atualmente não está disponível para as versões 3.x, 4.x ou outras versões SDK mais altas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -211,7 +211,7 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 * Uma vez que uma única operação a granel a execução API consome uma grande parte do CPU da máquina cliente e iO de rede. Isto acontece desovando várias tarefas internamente, evite desovar várias tarefas simultâneas dentro do seu processo de aplicação cada uma das chamadas de operação a granel API. Se uma única chamada de API de operação a granel em funcionamento numa única máquina virtual não for capaz de consumir toda a produção do seu contentor (se a produção do seu contentor > de 1 milhão de RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente chamadas API de operação a granel.
 
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para conhecer os detalhes do pacote maven e lançar notas da biblioteca Java do executor a granel, consulte[detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-java.md).
 
 

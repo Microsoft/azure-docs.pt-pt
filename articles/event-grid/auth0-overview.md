@@ -2,17 +2,17 @@
 title: Tópicos parceiros Auth0 com Azure Event Grid
 description: Envie eventos de Auth0 para Azure com a Azure Event Grid.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: 6025c4c694da1e036201aef35ab73500429f7e2c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: femila
+ms.openlocfilehash: 80226822e89344705c24094b073868d8ac0e1e42
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170567"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560736"
 ---
 # <a name="auth0-partner-topics"></a>Tópicos parceiros Auth0
 ![Logotipo Auth0](./media/auth0-overview/auth0-logo.png)
@@ -45,7 +45,7 @@ Manter e auditar as suas ações de utilizador é crucial para manter a seguran�
 ### <a name="secure-your-application"></a>Proteja a sua aplicação
 Combinar procedimentos de monitorização de segurança e resposta a incidentes é importante quando protege um sistema distribuído. Por esta razão, é importante manter todos os dados no mesmo lugar e monitorizar toda a pilha. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral dos tópicos do parceiro](partner-topics-overview.md)
 - [Como usar o tópico parceiro Auth0](auth0-how-to.md)

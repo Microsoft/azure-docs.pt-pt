@@ -11,12 +11,13 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
-ms.openlocfilehash: 62ab85092ccbf0cbb817554e3285b908c9faa869
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 3e8d93c1f04dda9afbcfa0cab4e8fc9036ae7580
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433978"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555669"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
 

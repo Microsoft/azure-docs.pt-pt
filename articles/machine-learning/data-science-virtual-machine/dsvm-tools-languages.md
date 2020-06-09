@@ -1,44 +1,45 @@
 ---
 title: Linguagens suportadas
 titleSuffix: Azure Data Science Virtual Machine
-description: Os idiomas do programa suportados e ferramentas relacionadas pré-instaladas na Máquina Virtual da Ciência dos Dados.
+description: As linguagens de programa suportadas e ferramentas relacionadas pré-instaladas na Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283657"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557474"
 ---
-# <a name="languages-supported-on-the-data-science-virtual-machine"></a>Idiomas suportados na Máquina Virtual da Ciência dos Dados 
+# <a name="languages-supported-on-the-data-science-virtual-machine"></a>Línguas suportadas na Máquina Virtual da Ciência de Dados 
 
-A Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens pré-construídas e ferramentas de desenvolvimento para a construção das suas aplicações de inteligência artificial (IA). Aqui estão alguns dos notáveis.
+A Máquina Virtual de Ciência de Dados (DSVM) vem com várias línguas pré-construídas e ferramentas de desenvolvimento para a construção das suas aplicações de inteligência artificial (IA). Aqui estão alguns dos notáveis.
 
-## <a name="python-windows-server-2016-edition"></a>Python (edição do Windows Server 2016)
+## <a name="python-windows-server-2016-edition"></a>Python (edição windows Server 2016)
 
 |    |           |
 | ------------- | ------------- |
 | Versões linguísticas suportadas | Python 2.7 e 3.7 |
 | Edições DSVM suportadas      | Windows Server 2016     |
-| Como é configurado /instalado no DSVM?  | São `conda` criados dois ambientes globais: <br /> * `root` O ambiente `/anaconda/` localizado é Python 3.7. <br/> * `python2` O ambiente `/anaconda/envs/python2` localizado é Python 2.7.       |
-| Ligações a amostras      | Estão incluídos os cadernos Jupyter para Python.     |
+| Como é configurado / instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * O `root` ambiente localizado é Python `/anaconda/` 3.7. <br/> * O `python2` ambiente localizado é Python `/anaconda/envs/python2` 2.7.       |
+| Ligações a amostras      | Os cadernos da Amostra Jupyter para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia.      |
 
 > [!NOTE]
-> As construções do Windows Server 2016 que foram criadas antes de março de 2018 contêm Python 3.5 e Python 2.7. Python 2.7 é o ambiente **de raiz** de conda, e **py37** é o ambiente Python 3.7.
+> As construções do Windows Server 2016 que foram criadas antes de março de 2018 contêm Python 3.5 e Python 2.7. Python 2.7 é o ambiente **de raiz** conda, e **py37** é o ambiente Python 3.7.
 
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
-* Corra a um pedido de comando:
+* Corra com um pedido de comando:
 
-  Abra um pedido de comando e use um dos seguintes métodos, dependendo da versão de Python que pretende executar:
+  Abra uma pronta de comando e use um dos seguintes métodos, dependendo da versão de Python que pretende executar:
 
     ```
     # To run Python 2.7
@@ -52,18 +53,18 @@ A Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens pré-c
     
 * Utilização num IDE:
 
-  Utilize ferramentas Python para estúdio visual (PTVS), instaladas na edição visual do Estúdio Comunitário. Por padrão, o único ambiente que é configurado automaticamente no PTVS é python 3.6. 
+  Utilize ferramentas Python para Estúdio Visual (PTVS), instalado na edição da Comunidade visual Studio. Por padrão, o único ambiente que é configurado automaticamente em PTVS é Python 3.6. 
 
     > [!NOTE]
-    > Para apontar PTVS em Python 2.7, você deve criar um ambiente personalizado em PTVS. Para definir este caminho ambiental na Edição Comunitária do Estúdio Visual, vá a **Tools** -> **Python Tools** -> **Python Environments** e selecione **+ Custom**. Em seguida, defina a localização para **c:\anaconda\envs\python2** e selecione **Deteção automática**.
+    > Para apontar PTVS no Python 2.7, você deve criar um ambiente personalizado em PTVS. Para definir este caminho ambiental na Edição Comunitária do Estúdio Visual, vá às **Ferramentas**  ->  **Python Python**  ->  **Ambientes** e selecione + **Personalizado.** Em seguida, desacione a localização para **c:\anaconda\envs\python2** e selecione **Auto Detect**.
 
-* Utilização em Jupyter:
+* Uso em Jupyter:
 
-  Abra o Jupyter e selecione **New** para criar um novo caderno. Você pode definir o tipo de kernel como _Python [Raiz de Conda]_ para Python 3.7 e _Python [Conda env:python2]_ para Python 2.7.
+  Abra o Jupyter e selecione **New** para criar um novo caderno. Você pode definir o tipo de núcleo como _Python [Conda Root]_ para Python 3.7 e _Python [Conda env:python2]_ para Python 2.7.
 
-* Instale pacotes Python:
+* Instalar pacotes Python:
 
-  Os ambientes padrão da Python no DSVM são ambientes globais que são legíveis por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, ative-se no `activate` ambiente raiz ou python2 utilizando o comando como administrador. Em seguida, pode utilizar `conda` um `pip` gestor de pacotes como ou para instalar ou atualizar pacotes.
+  Os ambientes python predefinidos no DSVM são ambientes globais que são legíveis por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou python2 utilizando o `activate` comando como administrador. Em seguida, pode utilizar um gestor de pacotes como `conda` ou para instalar ou atualizar `pip` pacotes.
 
 ## <a name="python-linux-edition"></a>Python (edição Linux)
 
@@ -71,14 +72,14 @@ A Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens pré-c
 | ------------- | ------------- |
 | Versões linguísticas suportadas | Python 2.7 e 3.5 |
 | Edições DSVM suportadas      | Linux   |
-| Como é configurado /instalado no DSVM?  | São `conda` criados dois ambientes globais: <br /> * `root`ambiente localizado `/anaconda/` em é Python 2.7. <br/> * `py35`ambiente localizado `/anaconda/envs/py35`em é Python 3.5.       |
-| Ligações a amostras      | Estão incluídos os cadernos Jupyter para Python.     |
+| Como é configurado / instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * `root`ambiente localizado em `/anaconda/` é Python 2.7. <br/> * `py35`ambiente localizado em `/anaconda/envs/py35` é Python 3.5.       |
+| Ligações a amostras      | Os cadernos da Amostra Jupyter para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
 * Correr num terminal:
 
-  Abra o terminal e faça um dos seguintes, dependendo da versão da Python que pretende executar:
+  Abra o terminal e faça um dos seguintes, dependendo da versão de Python que pretende executar:
 
     ```
     # To run Python 2.7
@@ -92,63 +93,63 @@ A Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens pré-c
     ```
 * Utilização num IDE:
 
-  Use pyCharm, instalado na edição visual studio community. 
+  Use o PyCharm, instalado na edição da Comunidade visual studio. 
 
-* Utilização em Jupyter:
+* Uso em Jupyter:
 
-  Abra o Jupyter e selecione **New** para criar um novo caderno. Você pode definir o tipo de kernel como **Python [Raiz de Conda]** para Python 2.7 e **Python [Conda env:py35]** para o ambiente Python 3.5. 
+  Abra o Jupyter e selecione **New** para criar um novo caderno. Você pode definir o tipo de núcleo como **Python [Conda Root]** para Python 2.7 e **Python [Conda env:py35]** para o ambiente Python 3.5. 
 
-* Instale pacotes Python:
+* Instalar pacotes Python:
 
-  Os ambientes padrão da Python no DSVM são ambientes globais legíveis por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, ative-se no ambiente `source activate` raiz ou py35 utilizando o comando como administrador ou como utilizador com permissões sudo. Em seguida, pode utilizar `conda` um `pip` gestor de pacotes como ou para instalar ou atualizar pacotes.
+  Os ambientes python predefinidos no DSVM são ambientes globais legíveis por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou py35 utilizando o `source activate` comando como administrador ou como utilizador com permissões de sudo. Em seguida, pode utilizar um gestor de pacotes como `conda` ou para instalar ou atualizar `pip` pacotes.
 
 
 ## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
-| Versões linguísticas suportadas | Microsoft R Open 3.x (100% compatível com CRAN-R)<br /> Edição do Microsoft R Server 9.x Developer (uma plataforma R pronta para a empresa)|
-| Edições DSVM suportadas      | Linux     |
-| Como é configurado /instalado no DSVM?  | Janelas:`C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux:`/usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Ligações a amostras      | Estão incluídos os cadernos Jupyter para R.     |
+| Versões linguísticas suportadas | Microsoft R Open 3.x (100% compatível com CRAN-R)<br /> Microsoft R Server 9.x Developer edition (uma plataforma R pronta para empresas escaláveis)|
+| Edições DSVM suportadas      | Linux, Windows     |
+| Como é configurado / instalado no DSVM?  | Janelas:`C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux:`/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Ligações a amostras      | Os cadernos da Amostra Jupyter para R estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | SparkR, Python, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
 **Janelas:**
 
-* Corra a um pedido de comando:
+* Corra com um pedido de comando:
 
   Abra uma janela da linha de comandos e escreva `R`.
 
 * Utilização num IDE:
 
-  Utilize RTools para Estúdio Visual (RTVS) instalados na edição visual do Estúdio Comunitário ou RStudio. Estes estão disponíveis no menu Iniciar ou como um ícone de ambiente de trabalho. 
+  Utilize RTools para Visual Studio (RTVS) instalados na edição da Comunidade visual studio ou RStudio. Estes estão disponíveis no menu Iniciar ou como um ícone de ambiente de trabalho. 
 
 * Uso em Jupyter
 
   Abra o Jupyter e selecione **New** para criar um novo caderno. Pode definir o tipo de núcleo como **R** para utilizar o núcleo Jupyter R (IRKernel).
 
-* Instale pacotes R:
+* Instalar pacotes R:
 
-  R é instalado no DSVM em um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, executar R utilizando um dos métodos anteriores. Em seguida, pode executar `install.packages()` o gestor de pacotes R para instalar ou atualizar pacotes.
+  R é instalado no DSVM num ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes para o ambiente global, executar R utilizando um dos métodos anteriores. Em seguida, pode executar o gestor de pacotes R `install.packages()` para instalar ou atualizar pacotes.
 
 **Linux:**
 
-* Correr em terminal:
+* Correr no terminal:
 
-  Abra um terminal `R`e corra.  
+  Abra um terminal e `R` corra.  
 
 * Utilização num IDE:
 
-  Utilize o RStudio, instalado no Linux DSVM.  
+  Utilizar RStudio, instalado no Linux DSVM.  
 
-* Utilização em Jupyter:
+* Uso em Jupyter:
 
   Abra o Jupyter e selecione **New** para criar um novo caderno. Pode definir o tipo de núcleo como **R** para utilizar o núcleo Jupyter R (IRKernel). 
 
-* Instale pacotes R:
+* Instalar pacotes R:
 
-  R é instalado no DSVM em um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, executar R utilizando um dos métodos anteriores. Em seguida, pode executar `install.packages()` o gestor de pacotes R para instalar ou atualizar pacotes.
+  R é instalado no DSVM num ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes para o ambiente global, executar R utilizando um dos métodos anteriores. Em seguida, pode executar o gestor de pacotes R `install.packages()` para instalar ou atualizar pacotes.
 
 
 ## <a name="julia"></a>Julia
@@ -156,52 +157,52 @@ A Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens pré-c
 |    |           |
 | ------------- | ------------- |
 | Versões linguísticas suportadas | 0.6 |
-| Edições DSVM suportadas      | Linux     |
-| Como é configurado /instalado no DSVM?  | Windows: Instalado em`C:\JuliaPro-VERSION`<br /> Linux: Instalado em`/opt/JuliaPro-VERSION`    |
-| Ligações a amostras      | Amostra de cadernos Jupyter para Julia estão incluídos.     |
-| Ferramentas relacionadas no DSVM      | Python, R      |
+| Edições DSVM suportadas      | Linux, Windows     |
+| Como é configurado / instalado no DSVM?  | Janelas: Instalado em`C:\JuliaPro-VERSION`<br /> Linux: Instalado em`/opt/JuliaPro-VERSION`    |
+| Ligações a amostras      | Os cadernos do Jupyter para a Julia estão incluídos.     |
+| Ferramentas relacionadas no DSVM      | Python      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
 **Janelas:**
 
-* Correr a uma solicitação de comando
+* Corra em um pedido de comando
 
-  Abra um pedido `julia`de comando e corra.
+  Abra um pedido de comando e corra `julia` .
 * Utilização num IDE:
 
-  Utilize `Juno` com a Julia IDE instalada no DSVM e disponível como atalho para desktop.
+  Utilize `Juno` com o Julia IDE instalado no DSVM e disponível como atalho para desktop.
 
-* Utilização em Jupyter:
+* Uso em Jupyter:
 
-  Abra o Jupyter e selecione **New** para criar um novo caderno. Pode definir o tipo de kernel como **versão julia**.
+  Abra o Jupyter e selecione **New** para criar um novo caderno. Pode definir o tipo de núcleo como **Versão Julia**.
 
-* Instale pacotes Julia:
+* Instalar pacotes Julia:
 
-  A localização padrão da Julia é um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, gerea Julia utilizando um dos métodos anteriores. Depois, pode executar comandos do `Pkg.add()` gestor de pacotes julia como instalar ou atualizar pacotes.
+  A localização padrão da Julia é um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes para o ambiente global, gere a Julia utilizando um dos métodos anteriores. Em seguida, pode executar comandos de gestor de pacotes Julia como `Pkg.add()` instalar ou atualizar pacotes.
 
 
 **Linux:**
 * Correr num terminal:
 
-  Abra um terminal `julia`e corra.
+  Abra um terminal e `julia` corra.
 * Utilização num IDE:
 
-  Utilizar, `Juno`com a Julia IDE instalada no DSVM e disponível como atalho do menu **aplicação.**
+  Utilização `Juno` , com o IDE Julia instalado no DSVM e disponível como atalho do menu **Aplicação.**
 
-* Utilização em Jupyter:
+* Uso em Jupyter:
 
-  Abra o Jupyter e selecione **New** para criar um novo caderno. Pode definir o tipo de kernel como **versão julia**.
+  Abra o Jupyter e selecione **New** para criar um novo caderno. Pode definir o tipo de núcleo como **Versão Julia**.
 
-* Instale pacotes Julia:
+* Instalar pacotes Julia:
 
-  A localização padrão da Julia é um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, gerea Julia utilizando um dos métodos anteriores. Depois, pode executar comandos do `Pkg.add()` gestor de pacotes julia como instalar ou atualizar pacotes.
+  A localização padrão da Julia é um ambiente global que é legível por todos os utilizadores. Mas só os administradores podem escrever e instalar pacotes globais. Para instalar pacotes para o ambiente global, gere a Julia utilizando um dos métodos anteriores. Em seguida, pode executar comandos de gestor de pacotes Julia como `Pkg.add()` instalar ou atualizar pacotes.
 
 ## <a name="other-languages"></a>Outras línguas
 
-**C#**: Disponível no Windows e acessível `Developer Command Prompt for Visual Studio`através da edição `csc` visual do Estúdio Comunitário ou na , onde pode executar o comando.
+**C:** Disponível no Windows e acessível através da edição da Comunidade Visual Studio ou no `Developer Command Prompt for Visual Studio` , onde pode executar o `csc` comando.
 
-**Java**: OpenJDK está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para utilizar Java, `javac` `java` escreva o ou comando num pedido de comando no Windows ou na concha de festa em Linux.
+**Java**: OpenJDK está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para utilizar Java, digite o `javac` ou `java` comande num pedido de comando no Windows ou na casca de bata em Linux.
 
-**Node.js**: Node.js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para aceder ao Node.js, escreva o `node` ou `npm` comando num pedido de comando no Windows ou na concha de festa em Linux. No Windows, a extensão do Estúdio Visual para as ferramentas Node.js está instalada para fornecer um IDE gráfico para desenvolver a sua aplicação Node.js.
+**Node.js**: Node.js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para aceder a Node.js, digite o `node` ou o comando num pedido de comando no Windows ou na casca de choque em `npm` Linux. No Windows, a extensão do Estúdio Visual para as ferramentas Node.js é instalada para fornecer um IDE gráfico para desenvolver a sua aplicação Node.js.
 
-**F#**: Disponível no Windows e acessível `Developer Command Prompt for Visual Studio`através da edição `fsc` visual do Estúdio Comunitário ou numa , onde pode executar o comando.
+**F:** Disponível no Windows e acessível através da edição da Comunidade Visual Studio ou num `Developer Command Prompt for Visual Studio` , onde pode executar o `fsc` comando.

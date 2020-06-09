@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 72492ea77534b636d90820c96e36163e6c6efebe
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193857"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488465"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
@@ -23,7 +23,7 @@ A azure file shares backup está disponível em todas as **regiões, exceto:** A
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Regiões apoiadas para proteção acidental de eliminação
 
-E.U.A. Centro-Oeste
+West Central EUA, Austrália Sudeste , Canadá Central
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
@@ -53,7 +53,7 @@ E.U.A. Centro-Oeste
 
 | Definição                                      | Limite |
 | -------------------------------------------- | ----- |
-| Número máximo de backups a pedido por dia | 4     |
+| Número máximo de backups a pedido por dia | 10   |
 | Número máximo de backups programados por dia | 1     |
 
 ## <a name="restore-limits"></a>Restaurar limites

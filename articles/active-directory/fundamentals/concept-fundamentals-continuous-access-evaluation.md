@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: a9e34b63017eae61a886bcff8faffa2910783f3e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148128"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559139"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -76,7 +76,7 @@ Aumentaremos o acesso ao token life para 24 horas nas sessões cae. A revogaçã
 1. Um sinal de acesso é apresentado ao fornecedor de recursos. O fornecedor de recursos avalia a validade do token e verifica se existe algum evento de revogação para o utilizador. O fornecedor de recursos utiliza esta informação para decidir conceder ou não acesso ao recurso.
 1. Neste caso, o fornecedor de recursos nega o acesso, e envia um desafio de reclamação de 401+ de volta ao cliente
 1. O cliente capaz de CAE compreende o desafio de reclamação de 401+. Contorna os caches e volta ao passo 1, enviando o seu token de atualização juntamente com o desafio de reivindicação de volta para Azure AD. O Azure AD reavaliará todas as condições e solicitará ao utilizador que reautore neste caso.
- 
+
 ## <a name="faqs"></a>FAQs
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Qual é a vida do meu Token de Acesso?
@@ -93,6 +93,6 @@ Embora o nosso objetivo seja que a aplicação seja instantânea, em alguns caso
 
 A frequência de inscrição será honrada com ou sem CAE.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Anunciando a avaliação contínua do acesso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

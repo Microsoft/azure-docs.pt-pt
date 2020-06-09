@@ -1,28 +1,29 @@
 ---
 title: Gatilho DB Azure Cosmos para funções 2.x
-description: Aprenda a utilizar o gatilho Azure Cosmos DB em Funções Azure.
+description: Aprenda a usar o gatilho Azure Cosmos DB em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e7a422e0637c6343e1b2757fdf9aee7375ee2c3f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277573"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561636"
 ---
-# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Gatilho DB Azure Cosmos para funções Azure 2.x
+# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Azure Cosmos DB gatilho para funções Azure 2.x
 
-O Gatilho DB Azure Cosmos utiliza o [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) para ouvir inserções e atualizações em divisórias. O feed de alteração publica inserções e atualizações, não eliminações.
+O Azure Cosmos DB Trigger utiliza o [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) para ouvir inserções e atualizações através de divisórias. O feed de alteração publica inserções e atualizações, não eliminações.
 
-Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo que se segue mostra uma [função C#](functions-dotnet-class-library.md) que é invocada quando há inserções ou atualizações na base de dados e recolha especificadas.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que é invocada quando há inserções ou atualizações na base de dados e recolha especificadas.
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -56,9 +57,9 @@ namespace CosmosDBSamplesV2
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de Cosmos DB são adicionados ou modificados.
+O exemplo a seguir mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são adicionados ou modificados.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados de ligação no ficheiro *function.json:*
 
 ```json
 {
@@ -73,7 +74,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script C#:
+Aqui está o código do guião C:
 
 ```cs
     #r "Microsoft.Azure.DocumentDB.Core"
@@ -92,9 +93,9 @@ Aqui está o código de script C#:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de Cosmos DB são adicionados ou modificados.
+O exemplo a seguir mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são adicionados ou modificados.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados de ligação no ficheiro *function.json:*
 
 ```json
 {
@@ -121,9 +122,9 @@ Aqui está o código JavaScript:
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo seguinte mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que usa a ligação. A função escreve mensagens de registo quando os registos do Cosmos DB são modificados.
+O exemplo a seguir mostra uma ligação do gatilho Cosmos DB num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação. A função escreve mensagens de registo quando os registos de DB do Cosmos são modificados.
 
-Aqui estão os dados vinculativos no ficheiro *função.json:*
+Aqui estão os dados de ligação no ficheiro *function.json:*
 
 ```json
 {
@@ -169,17 +170,17 @@ Esta função é invocada quando há inserções ou atualizações na base de da
 ```
 
 
-Na biblioteca de [tempo de funcionamento](/java/api/overview/azure/functions/runtime)de Java, use a `@CosmosDBTrigger` anotação em parâmetros cujo valor viria de Cosmos DB.  Esta anotação pode ser usada com tipos nativos de `Optional<T>`Java, POJOs ou valores nuníveis usando .
+Na biblioteca de [funções java,](/java/api/overview/azure/functions/runtime)use a `@CosmosDBTrigger` anotação em parâmetros cujo valor viria do Cosmos DB.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)use o atributo [CosmosDBTrigger.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs)
+Nas [bibliotecas de classe C,](functions-dotnet-class-library.md)utilize o atributo [CosmosDBTrigger.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs)
 
-O construtor do atributo tem o nome da base de dados e o nome da coleção. Para obter informações sobre essas definições e outras propriedades que possa configurar, consulte [O Gatilho - configuração](#configuration). Aqui está `CosmosDBTrigger` um exemplo de atributo numa assinatura de método:
+O construtor do atributo tem o nome da base de dados e o nome da recolha. Para obter informações sobre as configurações e outras propriedades que possa configurar, consulte [a configuração Trigger -](#configuration). Aqui está um `CosmosDBTrigger` exemplo de atributo numa assinatura de método:
 
 ```csharp
     [FunctionName("DocumentUpdates")]
@@ -192,11 +193,11 @@ O construtor do atributo tem o nome da base de dados e o nome da coleção. Para
     }
 ```
 
-Para um exemplo completo, consulte [O Gatilho](#example).
+Para um exemplo completo, consulte [Trigger](#example).
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos não são suportados por C# Script.
+Os atributos não são suportados pelo Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -208,49 +209,49 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A partir da biblioteca de tempo `@CosmosDBInput` de funcionamento das [funções java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)use a anotação em parâmetros que lêem dados da Cosmos DB.
+A partir da [biblioteca de funções java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)use a `@CosmosDBInput` anotação em parâmetros que lêem dados da Cosmos DB.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `CosmosDBTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `CosmosDBTrigger` atributo.
 
-|propriedade fun.json | Propriedade de atributo |Descrição|
+|function.json propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de `cosmosDBTrigger`ser definido para. |
-|**direção** | n/d | Tem de `in`ser definido para. Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |
-|**nome** | n/d | O nome variável utilizado no código de função que representa a lista de documentos com alterações. |
-|**conexãoStringSetting**|**Definição de cordas de ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta Azure Cosmos DB está a ser monitorizada. |
-|**nome da base de dados**|**DatabaseName**  | O nome da base de dados Azure Cosmos DB com a coleção a ser monitorizada. |
-|**coleçãoNome** |**CollectionName** | O nome da coleção está a ser monitorizado. |
-|**arrendamentoConnectionStringSetting** | **ArrendamentoConexStringSetting** | (Opcional) O nome de uma configuração de aplicação que contém a cadeia de ligação à conta Azure Cosmos DB que detém a coleção de arrendamento. Quando não definido, o `connectionStringSetting` valor é utilizado. Este parâmetro é automaticamente definido quando a ligação é criada no portal. A corda de ligação para a coleção de arrendamentos deve ter permissões de escrita.|
-|**arrendamentoNome basede-dados** |**Nome de leasing Database** | (Opcional) O nome da base de dados que detém a coleção utilizada para armazenar arrendamentos. Quando não está definido, `databaseName` o valor da definição é utilizado. Este parâmetro é automaticamente definido quando a ligação é criada no portal. |
-|**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção costumava armazenar arrendamentos. Quando não definido, `leases` o valor é utilizado. |
-|**criarLeaseCollectionIfNotExists** | **CreateLeaseCollectionifNotexists** | (Opcional) Quando definida, `true`a coleção de arrendamentos é automaticamente criada quando já não existe. O valor predefinido é `false`. |
-|**arrendamentosCollectionThroughputput**| **LeasesCollectionThroughput**| (Opcional) Define o número de Unidades de Pedido para atribuir quando a coleção de arrendamentos é criada. Esta definição só `createLeaseCollectionIfNotExists` é `true`utilizada quando está definida para . Este parâmetro é automaticamente definido quando a ligação é criada utilizando o portal.
-|**arrendamentoCollectionPrefix**| **LeaseCollectionPrefix**| (Opcional) Quando definido, o valor é adicionado como prefixo para os arrendamentos criados na coleção lease para esta Função. A utilização de um prefixo permite que duas funções Azure separadas partilhem a mesma coleção de Arrendamento utilizando prefixos diferentes.
-|**feedPollDelay**| **FeedPollDelay**| (Opcional) O tempo (em milissegundos) para o atraso entre a sondagem de uma partição para novas alterações no feed, depois de todas as alterações atuais serem drenadas. O padrão é de 5.000 milissegundos, ou 5 segundos.
-|**arrendamentoAdquirirInterval**| **Intervalo de Arrendamento**| (Opcional) Quando definido, define, em milissegundos, o intervalo para iniciar uma tarefa de calcular se as divisórias são distribuídas uniformemente entre as instâncias conhecidas do anfitrião. O padrão é de 13000 (13 segundos).
-|**intervalo de validade**| **Intervalo de locação prazo**| (Opcional) Quando definido, define, em milissegundos, o intervalo para o qual o arrendamento é assumido num contrato de arrendamento que representa uma partição. Se o contrato de arrendamento não for renovado dentro deste intervalo, irá fazê-lo expirar e a propriedade da partição passará para outra instância. O padrão é de 60000 (60 segundos).
-|**arrendamentoRenewInterval**| **Intervalo de Arrendamento Renovado**| (Opcional) Quando definido, define, em milissegundos, o intervalo de renovação para todos os arrendamentos para divisórias atualmente detidos por exemplo. O padrão é de 17000 (17 segundos).
-|**checkpointFrequência**| **CheckpointFrequência**| (Opcional) Quando definido, define, em milissegundos, o intervalo entre os pontos de verificação de locação. O predefinido é sempre posterior a cada chamada de função.
-|**maxItemsPerInvocação**| **MaxItemsPerInvocação**| (Opcional) Quando definido, esta propriedade define o número máximo de itens recebidos por chamada de Função. Se as operações na recolha monitorizada forem realizadas através de procedimentos armazenados, o âmbito de [transação](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) é preservado ao ler itens do Change Feed. Como resultado, o número de itens recebidos pode ser superior ao valor especificado, de modo a que os itens alterados pela mesma transação sejam devolvidos como parte de um lote atómico.
-|**inícioFromBeginning**| **Início do início**| (Opcional) Esta opção diz ao Trigger para ler alterações desde o início do histórico de mudança da coleção em vez de começar no momento atual. A leitura desde o início só funciona na primeira vez que o Gatilho começa, uma vez que nas corridas subsequentes, os postos de controlo já estão armazenados. Definir esta `true` opção para quando há arrendamentos já criados não tem efeito. |
-|**preferredLocalizações**| **Localizações Preferenciais**| (Opcional) Define localizações preferenciais (regiões) para contas de base de dados geo-replicadas no serviço Azure Cosmos DB. Os valores devem ser separados pela vírposta. Por exemplo, "Leste dos EUA, Centro-Sul dos EUA, Norte da Europa". |
+|**tipo** | n/a | Deve ser definido para `cosmosDBTrigger` . |
+|**direção** | n/a | Deve ser definido para `in` . Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |
+|**nome** | n/a | O nome variável usado no código de função que representa a lista de documentos com alterações. |
+|**conexãoStringSetting**|**ConexãoStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação usada para ligar à conta DB Azure Cosmos que está a ser monitorizada. |
+|**base de dados Nome**|**DatabaseName**  | O nome da base de dados DB Azure Cosmos com a recolha a ser monitorizada. |
+|**coleçãoName** |**CollectionName** | O nome da coleção está a ser monitorizado. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Opcional) O nome de uma definição de aplicação que contém a cadeia de ligação à conta DB Azure Cosmos que detém a coleção de arrendamento. Quando não definido, o `connectionStringSetting` valor é utilizado. Este parâmetro é automaticamente definido quando a ligação é criada no portal. A cadeia de ligação para a coleção de arrendamentos deve ter permissões de escrita.|
+|**leaseDatabaseName** |**LeaseDatabaseName** | (Opcional) O nome da base de dados que detém a coleção usada para armazenar arrendamentos. Quando não estiver definido, o valor da `databaseName` definição é utilizado. Este parâmetro é automaticamente definido quando a ligação é criada no portal. |
+|**leaseCollectionName** | **Contrato de ArrendamentoCollectionName** | (Opcional) O nome da coleção usada para armazenar arrendamentos. Quando não definido, o valor `leases` é utilizado. |
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcional) Quando definido `true` para, a coleção de arrendamentos é criada automaticamente quando já não existe. O valor predefinido é `false`. |
+|**locaçõesCollectionThroughput**| **LocaçõesCollectionThroughput**| (Opcional) Define o número de Unidades de Pedido a atribuir quando a coleção de arrendamentos é criada. Esta definição só é utilizada quando `createLeaseCollectionIfNotExists` está definida para `true` . Este parâmetro é automaticamente definido quando a ligação é criada utilizando o portal.
+|**leaseCollectionPrefix**| **Contrato de Arrendamento**| (Opcional) Quando definido, o valor é adicionado como um prefixo aos arrendamentos criados na coleção Arrendamento para esta Função. A utilização de um prefixo permite que duas Funções Azure separadas partilhem a mesma coleção De Arrendamento utilizando prefixos diferentes.
+|**feedPollDelay**| **FeedPollDelay**| (Opcional) O tempo (em milissegundos) para o atraso entre a votação de uma divisão para novas alterações no feed, depois de todas as alterações atuais serem drenadas. O padrão é de 5.000 milissegundos, ou 5 segundos.
+|**leaseAcquireInterval**| **LeaseAcquireInterval**| (Opcional) Quando definido, define, em milissegundos, o intervalo para iniciar uma tarefa de cálculo se as divisórias forem distribuídas uniformemente entre instâncias de anfitrião conhecidas. O padrão é de 13000 (13 segundos).
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| (Opcional) Quando definido, define, em milissegundos, o intervalo para o qual o arrendamento é tomado em um arrendamento que representa uma partição. Se o arrendamento não for renovado dentro deste intervalo, fará com que expire e a propriedade da partição passará para outro caso. O padrão é de 60000 (60 segundos).
+|**leaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Quando definido, define, em milissegundos, o intervalo de renovação de todos os arrendamentos para divisórias atualmente detidos por exemplo. O padrão é de 17000 (17 segundos).
+|**checkpointFrequência**| **CheckpointFrequência**| (Opcional) Quando definido, define, em milissegundos, o intervalo entre os pontos de verificação do arrendamento. O padrão é sempre após cada chamada de Função.
+|**maxitemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Quando definido, esta propriedade define o número máximo de itens recebidos por chamada de Função. Se as operações na recolha monitorizada forem efetuadas através de procedimentos armazenados, o âmbito de [transação](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) é preservado ao ler artigos do Feed de Alteração. Como resultado, o número de itens recebidos pode ser superior ao valor especificado de modo a que os itens alterados pela mesma transação sejam devolvidos como parte de um lote atómico.
+|**inícioFromBeginning**| **Início DoBeginning**| (Opcional) Esta opção diz ao Gatilho para ler alterações desde o início do histórico de mudanças da coleção em vez de começar no momento atual. A leitura do início só funciona da primeira vez que o Gatilho começa, pois nas execuções subsequentes, os pontos de verificação já estão armazenados. Definir esta opção `true` para quando há arrendamentos já criados não tem efeito. |
+|**preferênciasLoções**| **PreferênciasLocações**| (Opcional) Define localizações preferenciais (regiões) para contas de base de dados geo-replicadas no serviço DB Azure Cosmos. Os valores devem ser separados por vírgula. Por exemplo, "Leste dos EUA, Centro Sul dos EUA, Norte da Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
-O gatilho requer uma segunda coleção que utiliza para armazenar _arrendamentos_ sobre as divisórias. Tanto a recolha que está a ser monitorizada como a recolha que contém os contratos de arrendamento devem estar disponíveis para o gatilho funcionar.
+O gatilho requer uma segunda coleção que usa para armazenar _arrendamentos_ sobre as divisórias. Tanto a recolha que está a ser monitorizada como a coleção que contém os contratos de arrendamento devem estar disponíveis para o gatilho funcionar.
 
 >[!IMPORTANT]
-> Se várias funções estiverem configuradas para utilizar um gatilho Cosmos DB para a mesma recolha, `LeaseCollectionPrefix` cada uma das funções deve utilizar uma coleção de locação dedicada ou especificar um diferente para cada função. Caso contrário, apenas uma das funções será desencadeada. Para obter informações sobre o prefixo, consulte a [secção Configuração](#configuration).
+> Se várias funções forem configuradas para usar um gatilho Cosmos DB para a mesma coleção, cada uma das funções deve usar uma coleção de locação dedicada ou especificar uma diferente `LeaseCollectionPrefix` para cada função. Caso contrário, apenas uma das funções será ativada. Para obter informações sobre o prefixo, consulte a [secção Configuração](#configuration).
 
-O gatilho não indica se um documento foi atualizado ou inserido, apenas fornece o documento em si. Se precisar de lidar com atualizações e inserções de forma diferente, poderá fazê-lo implementando campos de carimbos de tempo para inserção ou atualização.
+O gatilho não indica se um documento foi atualizado ou inserido, apenas fornece o documento em si. Se precisar de lidar com atualizações e inserções de forma diferente, poderá fazê-lo implementando campos de tempotamp para inserção ou atualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Leia um documento Azure Cosmos DB (encadernação de entrada)](./functions-bindings-cosmosdb-v2-input.md)
-- [Guardar alterações num documento Azure Cosmos DB (Encadernação de saída)](./functions-bindings-cosmosdb-v2-output.md)
+- [Leia um documento DB da Azure Cosmos (ligação à entrada)](./functions-bindings-cosmosdb-v2-input.md)
+- [Guardar alterações num documento DB do Azure Cosmos (ligação à saída)](./functions-bindings-cosmosdb-v2-output.md)

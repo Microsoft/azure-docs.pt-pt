@@ -1,44 +1,44 @@
 ---
-title: Segurança e autenticação da Rede de Eventos Azure
+title: Segurança e autenticação da Grelha de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: babanisa
-ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.author: femila
+ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629512"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559017"
 ---
-# <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Rede de Eventos
-A Azure Event Grid permite controlar o nível de acesso dado aos diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de listas, criar novas e gerar chaves. A Event Grid utiliza o controlo de acesso baseado em papéis da Azure (RBAC).
+# <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
+O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções da Azure (RBAC).
 
 
 ## <a name="operation-types"></a>Tipos de operação
 
-A Rede de Eventos apoia as seguintes ações:
+A Grade de Eventos suporta as seguintes ações:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
 * Microsoft.EventGrid/*/delete
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
-* Microsoft.EventGrid/topics/regeneraçãoChave/ação
+* Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações devolvem informações potencialmente secretas, que são filtradas das operações normais de leitura. Recomenda-se que restrinja o acesso a estas operações. 
+As últimas três operações devolvem informações potencialmente secretas, que são filtradas fora das operações normais de leitura. Recomenda-se que restrinja o acesso a estas operações. 
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
-O Event Grid fornece duas funções incorporadas para a gestão de subscrições de eventos. São importantes na implementação de domínios de [eventos](event-domains.md) porque dão aos utilizadores as permissões necessárias para subscrever em tópicos no domínio do seu evento. Estas funções estão focadas nas subscrições de eventos e não concedem acesso a ações como a criação de tópicos.
+O Event Grid oferece duas funções incorporadas para gerir subscrições de eventos. São importantes na implementação [de domínios de eventos](event-domains.md) porque dão aos utilizadores as permissões necessárias para subscreverem tópicos no domínio do evento. Estas funções estão focadas em subscrições de eventos e não dão acesso a ações como a criação de tópicos.
 
-Pode [atribuir estas funções a um utilizador ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+Pode [atribuir estas funções a um utilizador ou grupo.](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-**EventGrid EventSubscription Contributor**: gerencie as operações de subscrição da Rede de Eventos
+**Colaborador de eventosSSubscription**: gerir operações de subscrição de Event Grid
 
 ```json
 [
@@ -74,7 +74,7 @@ Pode [atribuir estas funções a um utilizador ou grupo](../role-based-access-co
 ]
 ```
 
-Leitor de **Subscrição de EventosGrid**: leia as subscrições da Grelha de Eventos
+**EventGrid EventSubscription Reader**: leia subscrições da Grade de Eventos
 
 ```json
 [
@@ -108,11 +108,11 @@ Leitor de **Subscrição de EventosGrid**: leia as subscrições da Grelha de Ev
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Se precisar especificar permissões diferentes das funções incorporadas, pode criar papéis personalizados.
+Se precisar de especificar permissões diferentes das funções incorporadas, pode criar funções personalizadas.
 
-Seguem-se as definições de funções da Rede de Eventos de Amostra que permitem aos utilizadores tomar diferentes ações. Estas funções personalizadas são diferentes das funções incorporadas porque concedem um acesso mais amplo do que apenas subscrições de eventos.
+Seguem-se definições de funções de sample Event Grid que permitem aos utilizadores tomar diferentes ações. Estas funções personalizadas são diferentes das funções incorporadas porque concedem um acesso mais amplo do que apenas subscrições de eventos.
 
-**EventGridReadOnlyRole.json**: Só permita operações apenas de leitura.
+**EventGridReadOnlyRole.json**: Apenas permitir operações de leitura.
 
 ```json
 {
@@ -131,7 +131,7 @@ Seguem-se as definições de funções da Rede de Eventos de Amostra que permite
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Permitir ações de posta restritas, mas não permitir ações de exclusão.
+**EventGridNoDeleteListKeysRole.json**: Permitir ações postadas restritas, mas não permitir eliminar ações.
 
 ```json
 {
@@ -182,25 +182,25 @@ Pode criar funções personalizadas com [PowerShell,](../role-based-access-contr
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 
-Todos os eventos ou dados escritos em disco pelo serviço Event Grid são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptado em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados retidos é de 24 horas de adesão à política de [retry da Rede](delivery-and-retry.md)de Eventos . A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o evento tem tempo de vida, o que for menor.
+Todos os eventos ou dados escritos em disco pelo serviço Desempenhado pelo Serviço de Grelha de Eventos são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptada em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados retidos são de 24 horas de adesão à [política de relíndi da Grelha de Eventos.](delivery-and-retry.md) A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o tempo de vida do evento, o que for menor.
 
 ## <a name="permissions-for-event-subscriptions"></a>Permissões para subscrições de eventos
-Se estiver a usar um manipulador de eventos que não seja um WebHook (como um hub de eventos ou armazenamento de fila), precisa de ter acesso a esse recurso. Esta verificação de permissões impede um utilizador não autorizado de enviar eventos para o seu recurso.
+Se estiver a usar um manipulador de eventos que não seja um WebHook (como um centro de eventos ou armazenamento de fila), precisa de escrever acesso a esse recurso. Esta verificação de permissões impede um utilizador não autorizado de enviar eventos para o seu recurso.
 
-Tem de ter a **microsoft.EventGrid/EventSubscriptions/Write** no recurso que é a fonte do evento. Precisa desta permissão porque está a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere com base no facto de estar a subscrever um tópico do sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
+Tem de ter a permissão **Microsoft.EventGrid/EventSubscriptions/Write** no recurso que é a fonte do evento. Precisa desta permissão porque está a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere com base no facto de estar a subscrever um tópico do sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos do sistema (editores de serviços Azure)
-Para tópicos do sistema, precisa de permissão para escrever uma nova subscrição de evento sintetizador no âmbito do recurso que publica o evento. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Para tópicos do sistema, precisa de permissão para escrever uma nova subscrição de eventos no âmbito da publicação de recursos do evento. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Por exemplo, para subscrever um evento numa conta de armazenamento chamada **myacct,** precisa da Microsoft.EventGrid/EventSubscriptions/Write permission em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Por exemplo, para subscrever um evento numa conta de armazenamento chamada **myacct,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write on:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Tópicos personalizados
 Para tópicos personalizados, você precisa de permissão para escrever uma nova subscrição de evento no âmbito do tópico da grelha de eventos. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Por exemplo, para subscrever um tópico personalizado chamado **mytopic,** você precisa da Microsoft.EventGrid/EventSubscriptions/Write permission em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Por exemplo, para subscrever um tópico personalizado chamado **mytopic,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos, consulte sobre a grelha de [eventos](overview.md)
+* Para uma introdução à Grade de Eventos, consulte [Sobre a Grelha de Eventos](overview.md)

@@ -3,13 +3,14 @@ title: Criar uma função no Azure que responda a pedidos HTTP
 description: Aprenda a criar uma função a partir da linha de comando e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8098b675e7d0ab4267137521e29b9ca87dacf92c
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84448921"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559886"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -100,7 +101,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 A Maven pede-lhe valores necessários para terminar a geração do projeto na implantação.   
 Fornecer os seguintes valores quando solicitado:
 
-| Mensagem | Valor | Descrição |
+| Mensagem | Valor | Description |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Um valor que identifica exclusivamente o seu projeto em todos os projetos, seguindo as [regras de nomeação](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de pacotes para a Java. |
 | **artefactoId** | `fabrikam-functions` | Um valor que é o nome do jarro, sem um número de versão. |
@@ -413,7 +414,7 @@ az group delete --name java-functions-group
 Para sair do ambiente virtual, `deactivate` corra.
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-cli.md)
