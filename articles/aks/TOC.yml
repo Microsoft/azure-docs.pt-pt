@@ -133,6 +133,8 @@
           href: upgrade-cluster.md
         - name: Utilizar SLA de Tempo de Atividade
           href: uptime-sla.md
+        - name: Atualizar a imagem do nó (pré-visualização)
+          href: node-image-upgrade.md
         - name: Atualizações do sistema operacional do nó de processos
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS
