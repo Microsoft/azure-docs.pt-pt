@@ -447,7 +447,7 @@
             - name: Utilizar o Resource Health para problemas de conectividade
               href: database/resource-health-to-troubleshoot-connectivity.md
             - name: Migrar DTU para vCore
-              href: database/resource-health-to-troubleshoot-connectivity.md
+              href: database/migrate-dtu-to-vcore.md
             - name: Dimensionar recursos da base de dados
               href: database/single-database-scale.md
             - name: Dimensionar recursos dos conjuntos

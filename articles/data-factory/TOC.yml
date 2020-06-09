@@ -194,6 +194,30 @@
               href: wrangling-data-flow-overview.md
             - name: Funções suportadas
               href: wrangling-data-flow-functions.md
+    - name: Migração de dados do data lake e EDW
+      items:
+        - name: Porquê o Azure Data Factory
+          href: data-migration-guidance-overview.md
+        - name: Migrar dados do AWS S3 para o Azure
+          href: data-migration-guidance-s3-azure-storage.md
+        - name: Migrar dados do cluster de Hadoop local para o Azure
+          href: data-migration-guidance-hdfs-azure-storage.md
+        - name: Migrar dados do servidor Netezza no local para o Azure
+          href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Transformação com o fluxo de dados de mapeamento
+      items:
+        - name: Processar ficheiros de texto de largura fixa
+          href: how-to-fixed-width.md
+        - name: Processamento da linha de erro
+          href: how-to-data-flow-error-rows.md
+        - name: BD SQL do Azure para o Cosmos DB
+          href: how-to-sqldb-to-cosmosdb.md
+    - name: Migração SSIS a partir do local
+      items:
+        - name: Descrição geral da migração SSIS
+          href: scenario-ssis-migration-overview.md
+        - name: Migração SSISDB para a Instância Gerida do SQL no Azure
+          href: scenario-ssis-migration-ssisdb-mi.md
     - name: Funções e permissões
       href: concepts-roles-permissions.md
     - name: Regras de nomenclatura
@@ -697,32 +721,6 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Execução de Pacotes no Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
-- name: Cenários
-  items:
-    - name: Migração de dados do data lake e EDW
-      items:
-        - name: Porquê o Azure Data Factory
-          href: data-migration-guidance-overview.md
-        - name: Migrar dados do AWS S3 para o Azure
-          href: data-migration-guidance-s3-azure-storage.md
-        - name: Migrar dados do cluster de Hadoop local para o Azure
-          href: data-migration-guidance-hdfs-azure-storage.md
-        - name: Migrar dados do servidor Netezza no local para o Azure
-          href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: Transformação com o fluxo de dados de mapeamento
-      items:
-        - name: Processar ficheiros de texto de largura fixa
-          href: how-to-fixed-width.md
-        - name: Processamento da linha de erro
-          href: how-to-data-flow-error-rows.md
-        - name: BD SQL do Azure para o Cosmos DB
-          href: how-to-sqldb-to-cosmosdb.md
-    - name: Migração SSIS a partir do local
-      items:
-        - name: Descrição geral da migração SSIS
-          href: scenario-ssis-migration-overview.md
-        - name: Migração SSISDB para a Instância Gerida do SQL no Azure
-          href: scenario-ssis-migration-ssisdb-mi.md
 - name: Referência
   items:
     - name: Script de fluxo de dados
