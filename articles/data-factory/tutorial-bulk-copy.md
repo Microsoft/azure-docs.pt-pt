@@ -1,5 +1,5 @@
 ---
-title: Copiar dados em massa
+title: Copiar dados a granel com PowerShell
 description: Saiba como utilizar o Azure Data Factory e a Atividade de Cópia para copiar dados de um arquivo de dados de origem para um arquivo de dados de destino em massa.
 services: data-factory
 author: linda33wj
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: a6a6aaedc1bb4abc5cf02ea1cd081ad48ec78d19
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: c150972c2804b12ac436a0dd10cdf13f92f43478
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118190"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560998"
 ---
-# <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
+# <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copie várias tabelas a granel utilizando a Azure Data Factory utilizando a PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -44,16 +44,16 @@ Neste cenário, temos várias tabelas na Base de Dados SQL do Azure que queremos
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
 * O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela na lista, copie a tabela específica na Base de Dados SQL do Azure para a tabela correspondente no SQL Data Warehouse, utilizando [cópia faseada através do Armazenamento de blobs e do PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para um melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure PowerShell.** Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
-* **Conta de Armazenamento Azure.** A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
+* **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
+* **Conta de Armazenamento Azure**. A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
 * **Base de Dados Azure SQL**. Esta base de dados contém os dados de origem. 
-* Armazém de **Dados Azure SQL**. Este armazém de dados contém os dados copiados da Base de Dados SQL. 
+* **Azure SQL Data Warehouse**. Este armazém de dados contém os dados copiados da Base de Dados SQL. 
 
 ### <a name="prepare-sql-database-and-sql-data-warehouse"></a>Preparar a Base de Dados SQL e o SQL Data Warehouse
 
@@ -69,7 +69,7 @@ Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works 
 
 ## <a name="azure-services-to-access-sql-server"></a>Serviços do Azure para aceder ao SQL Server
 
-Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os serviços do Azure acedam ao SQL Server. Certifique-se de que o acesso à definição de **serviços Azure** está **ligado** para o seu servidor. Esta definição permite ao serviço Data Factory ler dados da Base de Dados SQL do Azure e escrever dados no Azure SQL Data Warehouse. Para verificar e ativar desta definição, execute os passos seguintes:
+Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os serviços do Azure acedam ao SQL Server. Certifique-se de que o acesso à definição **de serviços Azure** está **ligado** para o seu servidor. Esta definição permite ao serviço Data Factory ler dados da Base de Dados SQL do Azure e escrever dados no Azure SQL Data Warehouse. Para verificar e ativar desta definição, execute os passos seguintes:
 
 1. Clique em **Todos os serviços** à esquerda e clique em **Servidores SQL**.
 2. Selecione o seu servidor e clique em **Firewall** em **DEFINIÇÕES**.
@@ -77,7 +77,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Lançamento **PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
+1. **Launch PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
 
     Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
         
@@ -89,12 +89,12 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
     ```powershell
     Get-AzSubscription
     ```
-    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
+    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **a SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Executar o **Set-AzDataFactoryV2** cmdlet para criar uma fábrica de dados. Substitua os marcadores de posição pelos seus próprios valores antes de executar o comando. 
+2. Executar o **set-AzDataFactoryV2** cmdlet para criar uma fábrica de dados. Substitua os marcadores de posição pelos seus próprios valores antes de executar o comando. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -138,7 +138,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
 
 2. No **Azure PowerShell**, mude para a pasta **ADFv2TutorialBulkCopy**.
 
-3. Executar o **set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
+3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -172,7 +172,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
     }
     ```
 
-2. Para criar o serviço ligado: **AzureSqlDWLinkedService,** executar o **Set-AzDataFactoryV2LinkedService** cmdlet.
+2. Para criar o serviço ligado: **AzureSqlDWLinkedService**, executar o **cmdlet Set-AzDataFactoryV2LinkedService.**
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -208,7 +208,7 @@ Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de tes
     }
     ```
 
-2. Para criar o serviço ligado: **AzureStorageLinkedService,** executar o **set-AzDataFactoryV2LinkedService** cmdlet.
+2. Para criar o serviço ligado: **AzureStorageLinkedService**, executar o **cmdlet Set-AzDataFactoryV2LinkedService.**
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -247,7 +247,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de dados: **AzureSqlDatabaseDataset,** executar o **set-AzDataFactoryV2Dataset** cmdlet.
+2. Para criar o conjunto de dados: **AzureSqlDatabaseDataset**, executar o **cmdlet Set-AzDataFactoryV2Dataset.**
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -291,7 +291,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de dados: **AzureSqlDWDataset,** executar o **set-AzDataFactoryV2Dataset** cmdlet.
+2. Para criar o conjunto de dados: **AzureSqlDWDataset**, executar o **cmdlet Set-AzDataFactoryV2Dataset.**
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -383,7 +383,7 @@ Este pipeline aceita uma lista de tabelas como parâmetro. Para cada tabela na l
     }
     ```
 
-2. Para criar o pipeline: **IterateAndCopySQLTables**, Executar o **set-AzDataFactoryV2Pipeline** cmdlet.
+2. Para criar o oleoduto: **IterateAndCopySQLTables**, executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -459,7 +459,7 @@ Este pipeline executa dois passos:
     }
     ```
 
-2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, Executar o **set-AzDataFactoryV2Pipeline** cmdlet.
+2. Para criar o oleoduto: **GetTableListAndTriggerCopyData**, executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
@@ -575,7 +575,7 @@ Este pipeline executa dois passos:
 
 3. Ligue ao Azure SQL Data Warehouse de sink e confirme se os dados foram copiados corretamente da Base de Dados SQL do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

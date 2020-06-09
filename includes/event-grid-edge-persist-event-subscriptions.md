@@ -1,19 +1,19 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: include
 ms.date: 01/16/2020
-ms.author: babanisa
+ms.author: femila
 ms.custom: include file
-ms.openlocfilehash: 42d1ebb23cf582c3dfbc375e4886ed449c21f493
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d4f4f1563c16e276eb20ce4d4599b7fd5fca683
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844561"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84562098"
 ---
 >[!NOTE]
-> Se precisar de garantir que os eventos pendentes são persistidos em caso de reinício do dispositivo, terá de permitir a persistência para a subscrição do evento. Para obter mais informações sobre como configurar a persistência, consulte os seguintes artigos: [Persistir no estado de Linux](../articles/event-grid/edge/persist-state-linux.md) ou Persistir no [Windows](../articles/event-grid/edge/persist-state-windows.md).
+> Se precisar de garantir que os eventos pendentes são persistidos em caso de reinício do dispositivo, terá de permitir a persistência na subscrição do evento. Para obter mais informações sobre como configurar a persistência, consulte os seguintes artigos: [Persist state in Linux](../articles/event-grid/edge/persist-state-linux.md) ou [Persist state in Windows](../articles/event-grid/edge/persist-state-windows.md).

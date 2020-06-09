@@ -1,5 +1,5 @@
 ---
-title: Atividades de ramificação e corrente num oleoduto utilizando o portal Azure
+title: Atividades de ramificação e acorrentação num oleoduto utilizando o portal Azure
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
 author: djpmsft
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 0694d6f093864231206ec2282b6d358c57ed1dc4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022134"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560493"
 ---
-# <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
+# <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -42,8 +42,8 @@ Este tutorial utiliza o portal do Azure. Pode utilizar outros mecanismos para in
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura Azure.** Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento Azure.** Utilize o armazenamento de blobs como arquivo de dados de **origem**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
+* **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
 * **Base de Dados Azure SQL**. Pode utilizar a base de dados como arquivo de dados **sink**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) para obter os passos para criar uma.
 
 ### <a name="create-blob-table"></a>Criar a tabela de blobs
@@ -129,7 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu esquerdo, selecione **Criar um recurso**Data +  >  **Analytics**  >  **Data Factory**:
+1. No menu esquerdo, **selecione Criar um recurso**Data +  >  **Analytics**  >  **Data Factory**:
 
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -150,8 +150,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique em **Criar**.      
-8. No painel de instrumentos, vê o seguinte azulejo com estatuto: **Implantação da fábrica**de dados .
+7. Clique **em Criar**.      
+8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -175,7 +175,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     - **sourceBlobContainer** – parâmetro no pipeline consumido pelo conjunto de dados do blob de origem.
     - **sinkBlobContainer** – parâmetro no pipeline consumido pelo conjunto de dados do blob de sink.
-    - **recetor** – este parâmetro é utilizado pelas duas atividades web no pipeline que enviam e-mails de sucesso ou falha ao recetor cujo endereço de e-mail é especificado por este parâmetro.
+    - **recetor** – este parâmetro é utilizado pelas duas atividades Web no pipeline que enviam e-mails de sucesso ou falha para o recetor cujo endereço de e-mail é especificado por este parâmetro.
 
    ![Menu Novo pipeline](./media/tutorial-control-flow-portal/pipeline-parameters.png)
 4. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline.
@@ -290,7 +290,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
     1. Introduza **adfv2branch/adftutorial/entrada** no parâmetro **sourceBlobContainer**.
     2. Introduza **adftutorial/adfv2branch/output** no parâmetro **sinkBlobContainer**.
     3. Introduza um **endereço de e-mail** do **recetor**.
-    4. Clique em **Terminar**
+    4. Clique **em Terminar**
 
         ![Parâmetros de execução de pipeline](./media/tutorial-control-flow-portal/pipeline-run-parameters.png)
 
@@ -328,7 +328,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     ![Erro da execução da atividade](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes:
 
 > [!div class="checklist"]

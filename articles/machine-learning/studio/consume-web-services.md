@@ -8,14 +8,14 @@ ms.subservice: studio
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
-ms.openlocfilehash: 7db89c8bce9849a736f9e407f8e12d08693777be
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c34e0a82858ad588e93bd2aae42943fa2900d7b7
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220998"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556703"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um Azure Machine Learning Studio (clássico) serviço web
 

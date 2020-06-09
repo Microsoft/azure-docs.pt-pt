@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Construa uma aplicação altamente disponível com armazenamento Blob
 titleSuffix: Azure Storage
-description: Utilize o armazenamento de geozona-zona redundante (RA-GZRS) de acesso de leitura para tornar os dados da sua aplicação altamente disponíveis.
+description: Utilize o armazenamento de geo-zonas de acesso de leitura redundante (RA-GZRS) para tornar os dados da sua aplicação altamente disponíveis.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ms.subservice: blobs
-ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856128"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553208"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construir uma aplicação altamente disponível com armazenamento Blob
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
 
-Este tutorial é a primeira parte de uma série. Nele, aprende-se a disponibilizar os dados da sua aplicação em Azure.
+Este tutorial é a primeira parte de uma série. Nele, aprende-se a disponibilizar os seus dados de aplicação em Azure.
 
-Quando tiver concluído este tutorial, terá uma aplicação de consola que carrega e recupera uma bolha de uma conta de armazenamento [de geozona-redundante](../common/storage-redundancy.md) (RA-GZRS) de acesso a leitura.
+Quando tiver concluído este tutorial, terá uma aplicação de consola que carrega e recupera uma bolha a partir de uma conta de armazenamento [de geo-zona de acesso de leitura](../common/storage-redundancy.md) (RA-GZRS).
 
-A georedundância no Armazenamento Azure replica as transações assincronicamente de uma região primária para uma região secundária que fica a centenas de quilómetros de distância. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação da consola utiliza o padrão de [disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar, alternando automaticamente entre pontos finais à medida que são simuladas falhas e recuperações.
+A geo-redundância no Azure Storage replica assíncronas transações de uma região primária para uma região secundária que fica a centenas de milhas de distância. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação da consola utiliza o padrão [de disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar, alternando automaticamente entre pontos finais à medida que as falhas e recuperações são simuladas.
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Na primeira parte da série, saiba como:
 
@@ -41,7 +41,7 @@ Para concluir este tutorial:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento do Azure.**
+* Instale [o Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho **de desenvolvimento do Azure.**
 
   ![Desenvolvimento do Azure (na Web e na Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -52,7 +52,7 @@ Para concluir este tutorial:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* Instale [o Nó.js](https://nodejs.org).
+* Instalar [Node.js](https://nodejs.org).
 
 ---
 
@@ -62,24 +62,24 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Uma conta de armazenamento fornece um espaço de nome único para armazenar e aceder aos objetos de dados do Seu Armazenamento Azure.
+Uma conta de armazenamento fornece um espaço de nome único para armazenar e aceder aos seus objetos de dados de Armazenamento Azure.
 
-Siga estes passos para criar uma conta de armazenamento geozona-redundante (RA-GZRS) de acesso de leitura:
+Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso de leitura redundante (RA-GZRS):
 
-1. Selecione o botão **Criar um botão de recurso** no portal Azure.
-2. Selecione **conta de Armazenamento - blob, file, table, fila** a partir da página **Nova.**
+1. Selecione o botão Criar um botão **de recurso** no portal Azure.
+2. Selecione **a conta de armazenamento - blob, arquivo, mesa, fila** da página **Nova.**
 4. Preencha o formulário da conta de armazenamento com as seguintes informações, conforme mostrado na imagem abaixo e selecione **Criar**:
 
-   | Definição       | Valor da amostra | Descrição |
+   | Definição       | Valor da amostra | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Subscrição** | *A minha assinatura* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
    | **Grupo de Recursos** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-   | **Nome** | *conta de armazenamento* | Um nome único para a sua conta de armazenamento. |
+   | **Nome** | *conta de mystorage* | Um nome único para a sua conta de armazenamento. |
    | **Localização** | *E.U.A. Leste* | Escolher uma localização. |
    | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |
-   | **Tipo de conta** | *StorageV2* | Recomenda-se a utilização de uma conta de armazenamento v2 de uso geral. Para obter mais informações sobre tipos de contas de armazenamento Do Azure, consulte a [visão geral da conta de armazenamento](../common/storage-account-overview.md). |
-   | **Replicação**| *Armazenamento geozona-redundante de acesso de leitura (RA-GZRS)* | A região primária é redundante em zona e é replicada para uma região secundária, com acesso lido à região secundária habilitada. |
-   | **Escalão de acesso**| *Frequente* | Utilize o nível quente para obter dados frequentemente acedidos. |
+   | **Tipo de conta** | *StorageV2* | Recomenda-se a utilização de uma conta de armazenamento v2 para fins gerais. Para obter mais informações sobre tipos de contas de armazenamento Azure, consulte [a visão geral da conta de Armazenamento](../common/storage-account-overview.md). |
+   | **Replicação**| *Armazenamento de geo-zonas de acesso à leitura (RA-GZRS)* | A região primária é zona redundante e é replicada para uma região secundária, com acesso lido à região secundária habilitada. |
+   | **Escalão de acesso**| *Frequente* | Utilize o nível quente para obter dados de acesso frequente. |
 
     ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -103,7 +103,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-[Descarregue o projeto da amostra](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e desaperte o ficheiro. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto da amostra contém uma aplicação básica no nó.js.
+[Descarregue o projeto da amostra](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e desaperte o ficheiro. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de amostra contém uma aplicação básica do Node.js.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
@@ -117,7 +117,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Pode armazenar esta cadeia de ligação numa variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Execute um dos seguintes comandos com \<base no\> seu sistema operativo, substituindo a sua cadeia de ligação com a sua cadeia de ligação real. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável ambiente não está disponível até recarregar o Pedido de **Comando** ou a concha que está a utilizar.
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Executar um dos seguintes comandos com base no seu sistema operativo, \<yourconnectionstring\> substituindo-o pela sua cadeia de ligação real. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável ambiente não está disponível até que recarregue o **Pedido de Comando** ou a concha que está a utilizar.
 
 ### <a name="linux"></a>Linux
 
@@ -133,9 +133,9 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 # <a name="python"></a>[Python](#tab/python)
 
-No pedido, deve fornecer as credenciais da sua conta de armazenamento. Pode armazenar esta informação em variáveis ambientais na máquina local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do seu Sistema Operativo para criar as variáveis ambientais.
+Na aplicação, deve fornecer as suas credenciais de conta de armazenamento. Pode armazenar esta informação em variáveis ambientais na máquina local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do seu Sistema Operativo para criar as variáveis ambientais.
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Colar o nome da **conta de armazenamento** e os valores-chave nos seguintes comandos, substituindo o seu nome **Key** \<\> de conta e \<os seus\> espaços reservados. Este comando salva as variáveis ambientais para a máquina local. No Windows, a variável ambiente não está disponível até recarregar o Pedido de **Comando** ou a concha que está a utilizar.
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Cole o nome da **conta de Armazenamento** e os valores **chave** nos seguintes comandos, substituindo os \<youraccountname\> espaços reservados e os espaços \<youraccountkey\> reservados. Este comando guarda as variáveis ambientais para a máquina local. No Windows, a variável ambiente não está disponível até que recarregue o **Pedido de Comando** ou a concha que está a utilizar.
 
 ### <a name="linux"></a>Linux
 
@@ -153,16 +153,16 @@ setx accountkey "<youraccountkey>"
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Para executar esta amostra, deve adicionar as `.env.example` credenciais da sua `.env`conta de armazenamento ao ficheiro e, em seguida, rebatizar para .
+Para executar esta amostra, deve adicionar as suas credenciais de conta de armazenamento ao `.env.example` ficheiro e, em seguida, renomeá-la para `.env` .
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
 AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 ```
 
-Pode encontrar esta informação no portal Azure navegando na sua conta de armazenamento e selecionando **as teclas de Acesso** na secção **Definições.**
+Pode encontrar estas informações no portal Azure navegando na sua conta de armazenamento e selecionando **as teclas de acesso** na secção **Definições.**
 
-Instale as dependências necessárias. Para isso, abra um pedido de comando, navegue para a pasta da amostra e, em seguida, introduza `npm install`.
+Instale as dependências necessárias. Para isso, abra um pedido de comando, navegue na pasta da amostra e, em seguida, insira `npm install` .
 
 ---
 
@@ -170,17 +170,17 @@ Instale as dependências necessárias. Para isso, abra um pedido de comando, nav
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-No Estúdio Visual, prima **F5** ou selecione **Começar** a depurar a aplicação. O estúdio visual restaura automaticamente os pacotes NuGet em falta se configurado, visite [Instalar e reinstalar pacotes com restauro](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) de pacotes para saber mais.
+No Visual Studio, prima **F5** ou selecione **Comece** a depurar a aplicação. O estúdio visual restaura automaticamente os pacotes NuGet em falta se configurado, visite [instalar e reinstalar pacotes com o restauro do pacote](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para saber mais.
 
-É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem se replicou ao ponto final secundário ra-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
+É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada no ponto final secundário raR-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
-No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs` é utilizada para transferir uma imagem da conta de armazenamento através do método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Antes do download, é definido um [OperationContext.](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) O contexto da operação define os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
+No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs` é utilizada para transferir uma imagem da conta de armazenamento através do método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Antes do download, é definido um [Texto OperaçãoContexto.](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) O contexto da operação define os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem se replicou ao ponto final secundário ra-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
+Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada no ponto final secundário raR-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -192,9 +192,9 @@ Antes do download, o objeto de serviço [retry_callback](https://docs.microsoft.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Para executar a amostra, abra um pedido de comando, navegue para a pasta da amostra e, em seguida, introduza `node index.js`.
+Para executar a amostra, abra um pedido de comando, navegue na pasta da amostra e, em seguida, introduza `node index.js` .
 
-A amostra cria um recipiente na sua conta de armazenamento Blob, envia **HelloWorld.png** para o recipiente e verifica repetidamente se o recipiente e a imagem se replicaram para a região secundária. Após a replicação, pede-lhe que entre em **D** ou **Q** (seguido de ENTER) para descarregar ou desistir. A sua saída deve ser semelhante ao seguinte exemplo:
+A amostra cria um recipiente na sua conta de armazenamento Blob, envia **HelloWorld.png** para o recipiente e, em seguida, verifica repetidamente se o recipiente e a imagem se replicaram para a região secundária. Após a replicação, pede-lhe que introduza **D** ou **Q** (seguido por ENTER) para descarregar ou desistir. A sua saída deve ser semelhante ao seguinte exemplo:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -317,7 +317,7 @@ def response_callback(response):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Com o Node.js V10 SDK, os manipuladores de chamadas são desnecessários. Em vez disso, a amostra cria um pipeline configurado com opções de retry e um ponto final secundário. Isto permite que a aplicação mude automaticamente para o gasoduto secundário se não conseguir atingir os seus dados através do pipeline primário.
+Com o Node.js V10 SDK, os manipuladores de chamadas são desnecessários. Em vez disso, a amostra cria um gasoduto configurado com opções de repetição e um ponto final secundário. Isto permite que a aplicação mude automaticamente para o gasoduto secundário se não conseguir alcançar os seus dados através do pipeline primário.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;

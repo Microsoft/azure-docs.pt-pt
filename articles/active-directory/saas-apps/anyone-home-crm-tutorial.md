@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2320f8a005531039a386af9192157c3091f3ac
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4146e6de2ef23f7e12ee6b59c40045f8a678dc13
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221892"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509190"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-anyone-home-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com qualquer CRM doméstico
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://app.anyonehome.com/webroot/files/simplesamlphp/www/module.php/saml/sp/saml2-acs.php/<Anyone_Home_Provided_Unique_Value>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do cliente da HOME CRM](mailto:lightson@anyonehome.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do cliente da HOME CRM](mailto:support@anyonehome.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -126,11 +126,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-anyone-home-crm-sso"></a>Configurar qualquer pessoa em casa CRM SSO
 
-Para configurar um único sinal de inscrição em qualquer lado **de CRM doméstico,** você precisa enviar o **url de metadados da Federação de Aplicações** para [qualquer equipa de suporte CRM doméstico](mailto:lightson@anyonehome.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal de inscrição em qualquer lado **de CRM doméstico,** você precisa enviar o **url de metadados da Federação de Aplicações** para [qualquer equipa de suporte CRM doméstico](mailto:support@anyonehome.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-anyone-home-crm-test-user"></a>Criar qualquer utilizador de teste de CRM doméstico
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Qualquer CRM Home. Trabalhe com [a equipa de suporte do HOME CRM](mailto:lightson@anyonehome.com) para adicionar os utilizadores na plataforma De CRM home. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Qualquer CRM Home. Trabalhe com [a equipa de suporte do HOME CRM](mailto:support@anyonehome.com) para adicionar os utilizadores na plataforma De CRM home. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 

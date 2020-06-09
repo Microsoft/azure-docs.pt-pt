@@ -1,31 +1,31 @@
 ---
-title: Manipuladores e destinos de eventos - Azure Event Grid IoT Edge [ Microsoft Docs
-description: Manipuladores de eventos e destinos em Event Grid on Edge
-author: banisadr
-ms.author: babanisa
+title: Manipuladores e destinos de eventos - Azure Event Grid IoT Edge / Microsoft Docs
+description: Manipuladores de eventos e destinos em Grade de Eventos na Borda
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849750"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557645"
 ---
-# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Manipuladores de eventos e destinos em Event Grid on Edge
+# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Manipuladores de eventos e destinos em Grade de Eventos na Borda
 
-Um manipulador de eventos é o local onde o evento para mais ações ou para processar o evento. Com o módulo Event Grid on Edge, o manipulador de eventos pode estar no mesmo dispositivo de borda, outro dispositivo ou na nuvem. Pode utilizar qualquer WebHook para lidar com eventos ou enviar eventos para um dos manipuladores nativos como o Azure Event Grid.
+Um manipulador de eventos é o local onde o evento para mais ações ou para processar o evento. Com o módulo 'Grade de Eventos on Edge', o manipulador de eventos pode estar no mesmo dispositivo de borda, outro dispositivo ou na nuvem. Você pode usar qualquer WebHook para lidar com eventos, ou enviar eventos para um dos manipuladores nativos como Azure Event Grid.
 
 Este artigo fornece informações sobre como configurar cada um.
 
 ## <a name="webhook"></a>WebHook
 
-Para publicar num ponto final do `endpointType` `WebHook` WebHook, detete o para e fornecer:
+Para publicar num ponto final webHook, desloque o `endpointType` ponto de acesso e `WebHook` forneça:
 
-* endpointUrl: O URL final do webhook
+* endpointUrl: O URL de ponta webHook
 
     ```json
         {
@@ -42,11 +42,11 @@ Para publicar num ponto final do `endpointType` `WebHook` WebHook, detete o para
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Para publicar num ponto final de nuvem `endpointType` azure Event Grid, detete o para `eventGrid` e fornecer:
+Para publicar num ponto final de nuvem de Azure Event Grid, desconfiem `endpointType` `eventGrid` e forneçam:
 
-* endpointUrl: URL tópico da grelha de eventos na nuvem
-* sasKey: Chave SAS do Tópico da Grelha de Eventos
-* nome tópico: Nome para carimbar todos os eventos de saída para A Grelha de Eventos. O nome tópico é útil ao publicar um tópico de domínio de grelha de eventos.
+* endpointUrl: URL tópico de grelha de evento na nuvem
+* sasKey: Chave SAS do Tópico de Grelha de Eventos
+* nome tópico: Nome para carimbar todos os eventos de saída para a Grade de Eventos. O nome tópico é útil ao publicar um tópico de Domínio de Grelha de Evento.
 
    ```json
         {
@@ -65,9 +65,9 @@ Para publicar num ponto final de nuvem `endpointType` azure Event Grid, detete o
 
 ## <a name="iot-edge-hub"></a>IoT Edge Hub
 
-Para publicar num módulo Edge `endpointType` Hub, detete o para `edgeHub` e fornecer:
+Para publicar num módulo Edge Hub, desemote o `endpointType` to `edgeHub` e forneça:
 
-* nome de saída: A saída em que o módulo Event Grid irá encaminhar eventos que correspondam a esta subscrição ao EdgeHub. Por exemplo, os eventos que correspondam à subscrição abaixo serão escritos para /mensagens/módulos/eventgridmodule/outputs/sampleSub4.
+* nome de saída: A saída na qual o módulo De Grelha de Eventos irá encaminhar eventos que correspondam a esta subscrição ao EdgeHub. Por exemplo, os eventos que correspondam à subscrição abaixo serão escritos para /mensagens/módulos/eventgridmodule/outputs/sampleSub4.
 
     ```json
         {
@@ -84,12 +84,12 @@ Para publicar num módulo Edge `endpointType` Hub, detete o para `edgeHub` e for
 
 ## <a name="event-hubs"></a>Hubs de Eventos
 
-Para publicar num Event Hub, detete o `endpointType` para `eventHub` e fornecer:
+Para publicar num Centro de Eventos, desemote o `endpointType` e `eventHub` forneça:
 
-* conexãoString: Linha de ligação para o Hub de Evento específico que você está a visar gerado através de uma Política de Acesso Partilhado.
+* ligaçãoStragem: Cadeia de ligação para o centro de eventos específico que está a direcionar gerado através de uma Política de Acesso Partilhado.
 
     >[!NOTE]
-    > A cadeia de ligação deve ser específica da entidade. A utilização de uma cadeia de ligação espaço-nome não funcionará. Você pode gerar uma cadeia de conexão específica de entidade navegando para o Hub de Evento específico que você gostaria de publicar no Portal Azure e clicando em políticas de **acesso partilhado** para gerar uma nova cadeia de conneceção específica da entidade.
+    > O fio de ligação deve ser específico da entidade. A utilização de uma cadeia de ligação namespace não funcionará. Pode gerar uma cadeia de conexão específica da entidade navegando para o Centro de Eventos específico que gostaria de publicar no Portal Azure e clicando em **políticas de acesso compartilhado** para gerar uma nova cadeia de connecção específica de entidade.
 
     ```json
         {
@@ -106,12 +106,12 @@ Para publicar num Event Hub, detete o `endpointType` para `eventHub` e fornecer:
 
 ## <a name="service-bus-queues"></a>Filas de Service Bus
 
-Para publicar numa fila de `endpointType` ônibus de serviço, detete o para `serviceBusQueue` e fornecer:
+Para publicar numa fila de autocarros de serviço, desemote `endpointType` o `serviceBusQueue` toe e forneça:
 
-* ligaçãoString: Linha de ligação para a fila específica do ônibus de serviço que você está a visar gerada através de uma Política de Acesso Partilhado.
+* ligaçãoStragem: Cadeia de ligação para a fila específica do autocarro de serviço que está a direcionar gerada através de uma Política de Acesso Partilhado.
 
     >[!NOTE]
-    > A cadeia de ligação deve ser específica da entidade. A utilização de uma cadeia de ligação espaço-nome não funcionará. Gere uma cadeia de ligação específica para a entidade navegando para a fila específica de ônibus de serviço que gostaria de publicar no Portal Azure e clicando em políticas de **acesso partilhado** para gerar uma nova cadeia de conneceção específica da entidade.
+    > O fio de ligação deve ser específico da entidade. A utilização de uma cadeia de ligação namespace não funcionará. Gere uma cadeia de conexão específica da entidade navegando para a fila específica do Service Bus que gostaria de publicar no Portal Azure e clicando em **políticas de acesso compartilhado** para gerar uma nova cadeia de connecção específica de entidade.
 
     ```json
         {
@@ -128,12 +128,12 @@ Para publicar numa fila de `endpointType` ônibus de serviço, detete o para `se
 
 ## <a name="service-bus-topics"></a>Tópicos de Service Bus
 
-Para publicar num Tópico de `endpointType` Autocarro `serviceBusTopic` de Serviço, detete o para e fornecer:
+Para publicar num Tópico de Autocarro de Serviço, desemote o `endpointType` tema `serviceBusTopic` e forneça:
 
-* conexãoString: Linha de ligação para o tópico específico do ônibus de serviço que você está a visar gerado através de uma Política de Acesso Partilhado.
+* conexãoStragem: Cadeia de ligação para o tópico específico do ônibus de serviço que está a direcionar gerado através de uma Política de Acesso Partilhado.
 
     >[!NOTE]
-    > A cadeia de ligação deve ser específica da entidade. A utilização de uma cadeia de ligação espaço-nome não funcionará. Gere uma cadeia de ligação específica para uma entidade navegando para o tópico específico do bus de serviço que gostaria de publicar no Portal Azure e clicando em políticas de **acesso partilhado** para gerar uma nova cadeia de conneceção específica da entidade.
+    > O fio de ligação deve ser específico da entidade. A utilização de uma cadeia de ligação namespace não funcionará. Gere uma cadeia de conexão específica da entidade navegando para o tópico específico do Service Bus que gostaria de publicar no Portal Azure e clicando em **políticas de acesso compartilhado** para gerar uma nova cadeia de connecção específica de entidade.
 
     ```json
         {
@@ -150,13 +150,13 @@ Para publicar num Tópico de `endpointType` Autocarro `serviceBusTopic` de Servi
 
 ## <a name="storage-queues"></a>Filas de Armazenamento
 
-Para publicar numa fila de `endpointType` `storageQueue` armazenamento, delineie o para e fornecer:
+Para publicar numa fila de armazenamento, desemote o `endpointType` e `storageQueue` forneça:
 
-* nome da fila de armazenamento para a qual está a publicar.
-* ligaçãoString: Fio de ligação para a conta de armazenamento em que a fila de armazenamento está dentro.
+* nome da fila de armazenamento a que vai publicar.
+* ligaçãoStragem: Cadeia de ligação para a conta de armazenamento em que a fila de armazenamento está dentro.
 
     >[!NOTE]
-    > Unline Event Hubs, Service Bus Queues e Service Bus Topics, a cadeia de ligação utilizada para filas de armazenamento não é específica da entidade. Em vez disso, deve apenas a cadeia de ligação para a Conta de Armazenamento.
+    > Unline Event Hubs, Service Bus Queues e Service Bus Topics, a cadeia de ligação utilizada para as filas de armazenamento não é específica da entidade. Em vez disso, deve ser apenas o fio de ligação para a Conta de Armazenamento.
 
     ```json
         {

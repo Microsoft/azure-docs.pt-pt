@@ -3,19 +3,19 @@ title: 'Quickstart: Criar uma aplicação de pré-visualização de comandos per
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, irá adicionar parâmetros a uma aplicação de Comandos Personalizados para que possa ligar e desligar vários dispositivos.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 5461ef9680ab89c8cc9cc2e1166366abb04a6eab
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 940b3604487fbef7736c0d8f4f9299563b0b86d5
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142287"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509309"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados com parâmetros
 
@@ -134,6 +134,6 @@ Modifique a regra de conclusão que criou no [arranque rápido anterior](./quick
         - Input: the tv
         - Output: Ok, turning off the tv
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Quickstart: Use comandos personalizados com voz personalizada (pré-visualização)](./quickstart-custom-speech-commands-select-custom-voice.md)

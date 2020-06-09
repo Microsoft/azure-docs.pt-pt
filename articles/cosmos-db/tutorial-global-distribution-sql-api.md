@@ -1,28 +1,29 @@
 ---
 title: 'Tutorial: Tutorial de distribuição global Azure Cosmos DB para a API SQL'
-description: 'Tutorial: Aprenda a configurar a distribuição global da Azure Cosmos DB utilizando o SQL API com .NET, Java, Python e vários outros SDKs'
+description: 'Tutorial: Saiba como configurar a distribuição global do Azure Cosmos DB utilizando a API SQL com .NET, Java, Python e vários outros SDKs'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ee648efde22e6bbef045b9d89b8d016e2e489f20
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: tracking-python
+ms.openlocfilehash: 1b4c9aff6889d7c95d82470a2db57ddc14103edc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872978"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561574"
 ---
-# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Criar distribuição global da Azure Cosmos DB utilizando a API SQL
+# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configurar a distribuição global da Azure Cosmos DB utilizando a API SQL
 
-Neste artigo, mostramos como usar o portal Azure para criar a distribuição global do Azure Cosmos DB e, em seguida, conectar-se usando a API SQL.
+Neste artigo, mostramos como usar o portal Azure para configurar a distribuição global Azure Cosmos DB e, em seguida, conectar usando o SQL API.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configure a distribuição global utilizando as [APIs SQL](sql-api-introduction.md)
+> * Configure a distribuição global usando as [APIs SQL](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -100,7 +101,7 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 
 ## <a name="python-sdk"></a>SDK Python
 
-O seguinte código mostra como definir locais preferidos utilizando o Python SDK:
+O seguinte código mostra como definir locais preferenciais utilizando o Python SDK:
 
 ```python
 
@@ -112,7 +113,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ## <a name="java-v4-sdk"></a>Java V4 SDK
 
-O seguinte código mostra como definir locais preferidos utilizando o Java SDK:
+O seguinte código mostra como definir locais preferenciais utilizando o Java SDK:
 
 ### <a id="java4-preferred-locations"></a>
 #### <a name="async"></a>[Async](#tab/api-async)
@@ -170,7 +171,7 @@ Resposta de exemplo
 
 
 * Todos os pedidos PUT, POST e DELETE têm de ir para o URI de escrita indicado
-* Todos os GETs e outros pedidos de leitura (por exemplo consultas) podem ir para qualquer ponto final da escolha do cliente
+* Todos os GETs e outros pedidos apenas de leitura (por exemplo, consultas) podem ir para qualquer ponto final da escolha do cliente
 
 Os pedidos de escrita para regiões só de leitura falharão com o código de erro HTTP 403 ("Proibido").
 

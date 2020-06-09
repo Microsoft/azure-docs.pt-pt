@@ -1,6 +1,6 @@
 ---
-title: Solicitar aumentos de quotas e obter apoio
-description: Como criar um pedido de apoio no portal Azure para a Azure Synapse Analytics. Solicitar aumentos de quotas ou obter apoio de resolução de problemas.
+title: Pedido de quota aumenta e obtém apoio
+description: Como criar um pedido de apoio no portal Azure para a Azure Synapse Analytics. Solicite aumentos de quota ou obter apoio à resolução de problemas.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -10,102 +10,132 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 717db5ee9d14074b6bd2fdae78847e0ad0fa2255
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835466"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561433"
 ---
-# <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Pedidos de quota aumenta e obter apoio para Azure Synapse Analytics
+# <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Quota de pedido aumenta e obtém apoio para Azure Synapse Analytics
 
-Este artigo descreve como enviar um bilhete de apoio no portal Azure para a Azure Synapse Analytics. Este processo permite-lhe solicitar um aumento de quota ou apresentar um pedido de apoio técnico à equipa de apoio à engenharia.
+Este artigo descreve como enviar um bilhete de apoio no portal Azure para Azure Synapse Analytics. Este processo permite-lhe solicitar um aumento de quota ou apresentar um pedido de apoio técnico para a equipa de apoio à engenharia.
 
 ## <a name="create-a-support-ticket"></a>Criar um pedido de suporte
 
-Utilize os seguintes passos para criar um novo pedido de apoio do portal Azure para a Azure Synapse Analytics.
+Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure para a Azure Synapse Analytics.
 
-1. No menu [do portal Azure,](https://portal.azure.com) selecione **Ajuda + suporte**.
+1. No menu [do portal Azure,](https://portal.azure.com) selecione **Help + support**.
 
-   ![O link de ajuda + suporte](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
+   ![O link de suporte Help +](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
 
 
-1. Em **Ajuda + suporte,** selecione **Novo pedido de suporte**.
+1. No **Suporte Help +**, selecione Novo pedido de **suporte**.
 
     ![Criar um novo pedido de apoio](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
-1. Reveja o seu plano de [apoio Azure.](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/)
+1. Reveja o seu [plano de apoio Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
 
    * O suporte relativo à **faturação, quota e gestão de subscrições** está disponível em todos os níveis de suporte.
-   * O suporte **break-fix** é fornecido através do [Suporte de Desenvolvimento](https://azure.microsoft.com/support/plans/developer/), [Standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)ou [Premier.](https://azure.microsoft.com/support/plans/premier/) Os problemas de Break-fix são problemas encontrados pelos clientes ao utilizarem o Azure, onde existe uma expetativa razoável de que a Microsoft causou o problema.
+   * O suporte **de break-fix** é fornecido através do [suporte de Developer,](https://azure.microsoft.com/support/plans/developer/) [Standard,](https://azure.microsoft.com/support/plans/standard/) [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)ou [Premier.](https://azure.microsoft.com/support/plans/premier/) Os problemas de Break-fix são problemas encontrados pelos clientes ao utilizarem o Azure, onde existe uma expetativa razoável de que a Microsoft causou o problema.
    * A **orientação para programadores** e os **serviços de aconselhamento** estão disponíveis nos níveis de [Suporte Direto Profissional](https://azure.microsoft.com/support/plans/prodirect/) e [Premier](https://azure.microsoft.com/support/plans/premier/).
 
-   Se tiver um plano de suporte Premier, também pode reportar problemas da Azure Synapse Analytics no [portal online Microsoft Premier](https://premier.microsoft.com/). Consulte [os planos](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) de apoio do Azure para saber mais sobre os vários planos de apoio, incluindo âmbito, tempos de resposta, preços, etc.  Para perguntas frequentes sobre o suporte do Azure, consulte [as FAQs de suporte do Azure.](https://azure.microsoft.com/support/faq/)
+   Se tiver um plano de suporte Premier, também pode reportar problemas do Azure Synapse Analytics no portal online da [Microsoft Premier](https://premier.microsoft.com/). Consulte os planos de apoio do [Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) para saber mais sobre os vários planos de apoio, incluindo âmbito, tempos de resposta, preços, etc.  Para perguntas frequentes sobre o suporte do Azure, consulte [as FAQs de suporte do Azure.](https://azure.microsoft.com/support/faq/)
 
-1. Para **o tipo de problema,** selecione o tipo de problema apropriado. Para problemas de correção de rutura, selecione **Técnico**. Para pedidos de aumento de quotas, selecione limites de **serviço e subscrição (quotas)**.
+1. Para **o tipo de emissão**, selecione o tipo de emissão apropriado. Para problemas de correção de rutura, selecione **Técnico**. Para pedidos de aumento de quota, selecione **Limites de Serviço e subscrição (quotas)**.
 
    ![Selecione um tipo de problema](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
 
    > [!NOTE]
-   > Este resto deste artigo centra-se nos pedidos de aumento de quotas. Mas também pode selecionar **Técnico** aqui para pedidos de apoio à resolução de problemas. Se selecionar **Técnico,** é-lhe pedido que forneça um resumo e, em seguida, identifique um tipo de problema selecionando o tipo de **problema Select**. Pode ver soluções para ajudar a resolver o seu problema. Se as soluções apresentadas não resolverem o seu problema, selecione **Next:Details** e preencha o formulário para submeter o bilhete de apoio.
+   > Este remanescente deste artigo centra-se nos pedidos de aumento de quotas. Mas também pode selecionar **Técnico** aqui para pedidos de apoio à resolução de problemas. Se selecionar **Técnico,** é-lhe pedido que forneça um resumo e, em seguida, identifique um tipo de problema selecionando **o tipo de problema Select**. Pode ver soluções para ajudar a resolver o seu problema. Se as soluções apresentadas não resolverem o seu problema, selecione **Next:Details** e preencha o formulário para submeter o bilhete de apoio.
 
-1. Para pedidos de aumento de quota, **selecione Azure Synapse Analytics** para o **tipo quota**. Em seguida, selecione **Seguinte: Soluções >>**.
+1. Para pedidos de aumento de quota, selecione **Azure Synapse Analytics** para o **tipo quota**. Em seguida, selecione **Seguinte: Soluções >>**.
 
    ![Selecione um tipo de quota](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
 
-1. Na janela **Detalhes,** selecione **Fornecer detalhes** para introduzir informações adicionais.
+1. Na janela **Detalhes,** selecione **Introduzir detalhes** para introduzir informações adicionais.
 
    ![O link "Fornecer detalhes"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
 
 ## <a name="quota-request-types"></a>Tipos de pedidos de quotas
 
-Clique **em Fornecer detalhes** mostra a janela de **detalhes da Quota** que lhe permite adicionar informações adicionais. As seguintes secções descrevem os diferentes pedidos de quota disponíveis para a Azure Synapse Analytics.
+Selecionar **detalhes do Enter** exibe a janela de detalhes da **Quota** que lhe permite adicionar informações adicionais. As secções seguintes descrevem os diferentes pedidos de quota disponíveis para a Azure Synapse Analytics.
 
-### <a name="data-warehouse-units-dwus-per-server"></a>Unidades de Armazém de Dados (DWUs) por servidor
+### <a name="synapse-sql-pool-data-warehouse-units-dwus-per-server"></a>Synapse SQL pool Data Warehouse Units (DWUs) por servidor
 
-Utilize os seguintes passos para solicitar um aumento das DWUs por servidor.
+Utilize os seguintes passos para solicitar um aumento do DWUs por servidor.
 
-1. Selecione as Unidades de Depósito de **Dados (DTUs) por** tipo de quota do servidor.
+1. Selecione o **POOL DWUs synapse por** tipo de quota de servidor.
 
-1. Na lista **de Recursos,** selecione o recurso para o alvo.
+1. Selecione o **recurso** a que pretende aplicar o aumento da quota utilizando a lista de abandono.
 
-1. No campo de **quotas de Pedido,** insira o novo limite de DWU que está a solicitar.
+1. Introduza a sua nova quota na secção **de quotas request.**
+
+1. Selecione **Guardar e continuar**.
 
    ![Detalhes da quota da DWU](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
+
 ### <a name="servers-per-subscription"></a>Servidores por subscrição
 
-Utilize os seguintes passos para solicitar um aumento do número de servidores por subscrição.
+Para solicitar um aumento do número de servidores por subscrição, terá de completar os seguintes passos:
 
-1. Selecione os Servidores por tipo de quota **de subscrição.**
+1. Selecione os **Servidores SQL por subscrição** como o tipo de quota.
 
-1. Na lista **de localização,** selecione a região azure para utilizar. A quota é por subscrição em cada região.
+1. Na lista **de Localização,** selecione a região Azure para utilizar. A quota é por subscrição em cada região.
 
-1. No **campo de cotações New,** insira o seu pedido para o número máximo de servidores naquela região.
+1. No campo **de quotas Request,** insira o seu pedido para o número máximo de servidores naquela região.
 
    ![Detalhes da quota dos servidores](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
+
+
+1. Selecione **Guardar e continuar**.
+
+Alguns tipos de oferta não estão disponíveis em todas as regiões. Pode ver o seguinte erro:
+
+![Erro de acesso à região](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
+
 ### <a name="enable-subscription-access-to-a-region"></a>Permitir o acesso por subscrição a uma região
 
-Alguns tipos de ofertas não estão disponíveis em todas as regiões. Pode ver um erro como o seguinte:
+Para permitir o acesso da região a uma subscrição, terá de completar os seguintes passos:  
 
-`This location is not available for subscription`
+1. Selecione o **conjunto Synapse SQL (data warehouse) tipo** de quota de acesso à região.
 
-Se a sua subscrição necessitar de acesso numa determinada região, utilize a opção de pedido de **outra quota** para solicitar acesso. No seu pedido, especifique a oferta e os detalhes sKU que pretende ativar para a região. Para explorar a oferta e as opções SKU, consulte o preço da [Azure Synapse Analytics.](https://azure.microsoft.com/pricing/details/synapse-analytics/)
+1. Selecione a região escolhendo uma **localização** da lista de dropdown.
+
+1. Indique o seu requisito de desempenho DWU na secção necessária da **DWU.**
+
+1. Insira a sua **Descrição dos requisitos do negócio**. 
+
+1. Selecione **Guardar e continuar**.
+
+![Acesso à região](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
+
+
+### <a name="for-other-quota-requests"></a>Para outros pedidos de quotas
+
+Selecione **Outro pedido** de quota do menu de entrega do tipo de quota para outros tipos de pedido de quota:
 
 ![Outros detalhes da quota](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
 ## <a name="submit-your-request"></a>Submeter o pedido
 
-O passo final é preencher os detalhes restantes do seu pedido de suporte da Base de Dados SQL. Em seguida, selecione **Seguinte: Rever + criar>>** e, depois de rever os detalhes do pedido, clique em **Criar** para submeter o pedido.
+O passo final é preencher os restantes detalhes do seu pedido de suporte sql Database. Em seguida, selecione **Seguinte: Revisão + criar>>**.
+
+![Rever criar detalhes](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
+
+Depois de rever os dados do pedido, selecione **Criar** para submeter o pedido.
+
+![Criar bilhete](./media/sql-data-warehouse-get-started-create-support-ticket/create-ticket.png)
 
 ## <a name="monitor-a-support-ticket"></a>Monitorizar um pedido de suporte
 
-Depois de ter apresentado o pedido de apoio, a equipa de apoio do Azure entrará em contacto consigo. Para verificar o estado e os detalhes do pedido, clique em **Todos os pedidos de suporte** no dashboard.
+Depois de ter apresentado o pedido de apoio, a equipa de apoio do Azure entrará em contacto consigo. Para verificar o estado do seu pedido e detalhes, selecione Todos os pedidos de suporte no painel de **instrumentos.**
 
 ![Verificar o estado](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Outros recursos
 
-Também pode conectar-se com a comunidade Azure Synapse Analytics no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou através do Microsoft Q&Uma página de perguntas para o Armazém de [Dados Azure SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
+Também pode ligar-se à comunidade Azure Synapse Analytics no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou através da página de perguntas do Microsoft Q&Uma página de perguntas para [a Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

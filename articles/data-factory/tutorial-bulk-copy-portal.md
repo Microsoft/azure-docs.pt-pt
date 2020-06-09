@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249183"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561159"
 ---
-# <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
+# <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -125,7 +125,7 @@ Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do 
 
     f. Para testar a ligação à base de dados SQL do Azure com as informações especificadas, clique em **Testar ligação**.
   
-    g. Clique em **Criar** para salvar o serviço ligado.
+    exemplo, Clique em **Criar** para salvar o serviço ligado.
 
 
 ### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Crie o serviço ligado ao Azure Synapse Analytics (anteriormente SQL DW)
@@ -146,7 +146,7 @@ Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do 
      
     f. Para testar a ligação à base de dados SQL do Azure com as informações especificadas, clique em **Testar ligação**.
      
-    g. Clique **em Criar**.
+    exemplo, Clique **em Criar**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Criar o serviço ligado de Armazenamento do Azure de teste
 Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de teste provisória para ativar o PolyBase para um melhor desempenho de cópia.

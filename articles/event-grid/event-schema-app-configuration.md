@@ -1,36 +1,36 @@
 ---
-title: Configuração da aplicação Azure como fonte da grelha de eventos
-description: Este artigo descreve como usar a Configuração da App Azure como fonte de evento sinuoso. Fornece o esquema e ligações ao tutorial e aos artigos de como fazer.
+title: Configuração de aplicativos Azure como fonte de grelha de evento
+description: Este artigo descreve como usar a Configuração de Aplicações Azure como fonte de eventos da Grade de Eventos. Fornece o esquema e links para artigos tutoriais e como-a-para-
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393436"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553158"
 ---
-# <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de aplicativo sinuoso como fonte da Grelha de Eventos
-Este artigo fornece as propriedades e esquemas para eventos de configuração de aplicações do Azure. Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md). Também lhe dá uma lista de arranques rápidos e tutoriais para usar a Configuração de Aplicações Azure como fonte de evento.
+# <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de aplicativos Azure como fonte de grade de eventos
+Este artigo fornece as propriedades e esquema para eventos de Configuração de Aplicações Azure. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar a Configuração de Aplicações Azure como fonte de evento.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-A Configuração da Aplicação Azure emite os seguintes tipos de eventos:
+A Azure App Configuration emite os seguintes tipos de eventos:
 
-| Tipo de evento | Descrição |
+| Tipo de evento | Description |
 | ---------- | ----------- |
-| Microsoft.AppConfiguration.KeyValueModificado | Criado quando um valor-chave é criado ou substituído. |
+| Microsoft.AppConfiguration.KeyValueModified | Levantado quando um valor-chave é criado ou substituído. |
 | Microsoft.AppConfiguration.KeyValueDeleted | Levantado quando um valor-chave é eliminado. |
 
-### <a name="example-event"></a>Evento de exemplo
+### <a name="example-event"></a>Exemplo evento
 
-O exemplo que se segue mostra o esquema de um evento modificado de valor-chave: 
+O exemplo a seguir mostra o esquema de um evento modificado de valor chave: 
 
 ```json
 [{
@@ -72,9 +72,9 @@ O esquema para um evento eliminado de valor-chave é semelhante:
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
 | Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
@@ -85,21 +85,21 @@ Um evento tem os seguintes dados de alto nível:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| key | string | A chave do valor-chave que foi modificado ou eliminado. |
-| label | string | A etiqueta, se houver, do valor-chave que foi modificado ou eliminado. |
+| chave | string | A chave do valor-chave que foi modificada ou eliminada. |
+| etiqueta | string | A etiqueta, se houver, do valor-chave que foi modificada ou eliminada. |
 | etag | string | Para `KeyValueModified` o etag do novo valor-chave. Para `KeyValueDeleted` o etag do valor-chave que foi eliminado. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
 
 |Título | Descrição |
 |---------|---------|
-| [Reaja aos eventos de configuração de aplicações do Azure utilizando a Grelha de Eventos](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração da configuração da app Azure com grelha de eventos. |
-| [Quickstart: encaminha eventos de configuração de aplicações azure para um ponto final personalizado com O ClI Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de configuração de aplicações Azure para um WebHook. |
+| [Reagir a eventos de configuração de aplicativos Azure utilizando a Grade de Eventos](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração da Configuração de Aplicações Azure com grelha de eventos. |
+| [Quickstart: encaminhe os eventos de Configuração de Aplicações Azure para um ponto final personalizado da Web com Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de Configuração de Aplicações Azure para um WebHook. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
-* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
-* Para uma introdução ao trabalho com eventos de configuração de aplicações do Azure, consulte eventos de configuração de [aplicações Route Azure - Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).
+* Para uma introdução ao trabalho com eventos de configuração de aplicações Azure, consulte [eventos de Configuração de Aplicações Route Azure - Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

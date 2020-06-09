@@ -3,19 +3,19 @@ title: 'Quickstart: Criar uma aplicação de pré-visualização de comandos per
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, irá criar e testar uma aplicação de pré-visualização de comandos personalizados hospedado. A aplicação processará as expressões.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 80111ff370f3a5412b45adc04c82c9dee103c01d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 5b54923bb667053ffc886b335ab9d1b0cf4cb754
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142355"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509360"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-app"></a>Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados
 
@@ -98,7 +98,7 @@ Vamos criar um comando simples que leve uma única `turn on the tv` expressão, 
 O painel do meio lista as propriedades do comando:
 
 
-| Configuração            | Descrição                                                                                                                 |
+| Configuração            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **Frases de exemplo** | Exemplos de expressões que o utilizador pode dizer para ativar o comando.                                                                 |
 | **Parâmetros**       | Informação necessária para completar o comando.                                                                                |
@@ -166,7 +166,7 @@ Teste o comportamento utilizando o painel de chat de teste.
 > [!div class="mx-imgBorder"]
 > ![Teste o comportamento](media/custom-speech-commands/create-basic-test-chat.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Quickstart: Criar uma aplicação de pré-visualização de comandos personalizados com parâmetros](./quickstart-custom-speech-commands-create-parameters.md)
