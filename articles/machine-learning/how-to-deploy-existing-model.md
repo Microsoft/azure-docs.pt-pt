@@ -10,12 +10,13 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/17/2020
-ms.openlocfilehash: 2cf80a509b1a8100aaa00bf6a2fdeedbbdf143af
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: df569ee4a392bae27431f526e0fbe010feab5a5d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433907"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557387"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Use um modelo existente com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

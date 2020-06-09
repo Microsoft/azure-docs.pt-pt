@@ -1,62 +1,63 @@
 ---
-title: Conecte funções azure ao armazenamento azure usando código de estúdio visual
-description: Aprenda a ligar as Funções Azure a uma fila de Armazenamento Azure adicionando uma ligação de saída ao seu projeto Visual Studio Code.
+title: Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
+description: Saiba como ligar as Funções Azure a uma fila de armazenamento Azure adicionando uma ligação de saída ao seu projeto Visual Studio Code.
 ms.date: 02/07/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 68d1e4e7fdf50ef3ec228b7e7ca4e620a47afb05
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125856"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555906"
 ---
-# <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conecte funções azure ao armazenamento azure usando código de estúdio visual
+# <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Este artigo mostra-lhe como usar o Código do Estúdio Visual para ligar a função que criou no [artigo quickstart anterior](functions-create-first-function-vs-code.md) ao Azure Storage. O encadernação de saída que adiciona a esta função escreve dados do pedido HTTP para uma mensagem numa fila de armazenamento de fila Azure. 
+Este artigo mostra-lhe como usar o Código do Estúdio Visual para ligar a função que criou no [artigo de arranque rápido anterior](functions-create-first-function-vs-code.md) ao Azure Storage. A vinculação de saída que adiciona a esta função escreve dados do pedido HTTP para uma mensagem numa fila de armazenamento da Fila Azure. 
 
-A maioria das ligações requer uma cadeia de ligação armazenada que as Funções usam para aceder ao serviço de encadernação. Para facilitar, utiliza a conta de Armazenamento que criou com a sua aplicação de funções. A ligação a esta conta já está armazenada numa definição de aplicação chamada `AzureWebJobsStorage` .  
+A maioria das ligações requer uma cadeia de ligação armazenada que as funções usam para aceder ao serviço vinculado. Para facilitar, utiliza a conta de Armazenamento que criou com a sua aplicação de função. A ligação a esta conta já está armazenada numa definição de aplicação chamada `AzureWebJobsStorage` .  
 
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local
 
 Antes de iniciar este artigo, deve cumprir os seguintes requisitos:
 
-* Instale a extensão de [armazenamento Azure para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
+* Instale a [extensão de armazenamento Azure para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
 
-* Instale o Explorador de [Armazenamento Azure.](https://storageexplorer.com/) O Storage Explorer é uma ferramenta que utilizará para examinar as mensagens de fila geradas pela sua encadernação de saída. O Storage Explorer é suportado em sistemas operativos baseados em macOS, Windows e Linux.
+* Instale [o Explorador de Armazenamento Azure](https://storageexplorer.com/). O Storage Explorer é uma ferramenta que utilizará para examinar as mensagens de fila geradas pela sua ligação de saída. O Storage Explorer é suportado em sistemas operativos baseados em macOS, Windows e Linux.
 
 ::: zone pivot="programming-language-csharp"
-* Instale [as ferramentas CLI do Núcleo .NET](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Instale [as ferramentas .NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Complete os passos na [parte 1 do Código do Estúdio Visual.](functions-create-first-function-vs-code.md) 
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](functions-create-first-function-vs-code.md). 
 
-Este artigo assume que já assinou a subscrição do Azure a partir do Visual Studio Code. Pode iniciar sessão correndo `Azure: Sign In` da paleta de comando. 
+Este artigo pressupõe que já assinou a subscrição do Azure do Visual Studio Code. Pode iniciar sôs-se correndo `Azure: Sign In` a partir da paleta de comando. 
 
 ## <a name="download-the-function-app-settings"></a>Descarregue as definições da aplicação de funções
 
-No artigo anterior do [Quickstart,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. A cadeia de ligação para esta conta é armazenada de forma segura nas definições da aplicação em Azure. Neste artigo, escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de descarregar as definições da aplicação para o ficheiro local.settings.json. 
+No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o ficheiro local.settings.json. 
 
-1. Pressione a tecla F1 para abrir a paleta de comando, depois procure e execute o comando `Azure Functions: Download Remote Settings....` . 
+1. Pressione a tecla F1 para abrir a paleta de comando, em seguida, procure e execute o comando `Azure Functions: Download Remote Settings....` . 
 
-1. Escolha a aplicação de funções que criou no artigo anterior. Selecione **Sim a todos** para substituir as definições locais existentes. 
+1. Escolha a aplicação de função criada no artigo anterior. Selecione **Sim a todos** para substituir as definições locais existentes. 
 
     > [!IMPORTANT]  
-    > Como contém segredos, o ficheiro local.settings.json nunca é publicado, e está excluído do controlo de fontes.
+    > Como contém segredos, o ficheiro local.settings.json nunca é publicado e é excluído do controlo de origem.
 
-1. Copiar o valor , que é a chave para o valor de cadeia de `AzureWebJobsStorage` ligação da conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.
+1. Copie o valor `AzureWebJobsStorage` , que é a chave para o valor da cadeia de ligação de conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.
 
 ## <a name="register-binding-extensions"></a>Registar as extensões de enlace
 
-Como está a utilizar uma encadernação de saída de armazenamento de fila, tem de ter a extensão de encadernação de armazenamento instalada antes de executar o projeto. 
+Como está a utilizar uma ligação de saída de armazenamento de fila, tem de ter a extensão de encadernações de armazenamento instalada antes de executar o projeto. 
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
-O seu projeto foi configurado para utilizar pacotes de [extensão,](functions-bindings-register.md#extension-bundles)que instalam automaticamente um conjunto predefinido de pacotes de extensão. 
+O seu projeto foi configurado para utilizar [pacotes de extensão,](functions-bindings-register.md#extension-bundles)que instala automaticamente um conjunto de pacotes de extensão predefinidos. 
 
-A utilização de pacotes de extensão está ativada no ficheiro host.json na raiz do projeto, que aparece da seguinte forma:
+A utilização de pacotes de extensão é ativada no ficheiro host.json na raiz do projeto, que aparece da seguinte forma:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -64,7 +65,7 @@ A utilização de pacotes de extensão está ativada no ficheiro host.json na ra
 
 ::: zone pivot="programming-language-csharp"
 
-Com exceção dos gatilhos HTTP e temporizador, as encadernações são implementadas como pacotes de extensão. Execute o seguinte comando de pacote de [dotnet](/dotnet/core/tools/dotnet-add-package) na janela terminal para adicionar o pacote de extensão de armazenamento ao seu projeto.
+Com exceção dos gatilhos HTTP e timer, as ligações são implementadas como pacotes de extensão. Executar o seguinte [comando de pacote de dotnet](/dotnet/core/tools/dotnet-add-package) na janela Terminal para adicionar o pacote de extensão de Armazenamento ao seu projeto.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
@@ -76,7 +77,7 @@ Agora, pode adicionar a ligação de saída de armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-Em Funções, cada tipo de encadernação requer `direction` `type` a, e um único `name` a ser definido no ficheiro função.json. A forma como define estes atributos depende do idioma da sua aplicação de funções.
+Em Funções, cada tipo de encadernação requer `direction` `type` um, e um único `name` a ser definido no ficheiro function.json. A forma como define estes atributos depende do idioma da sua aplicação de função.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
@@ -98,7 +99,7 @@ Em Funções, cada tipo de encadernação requer `direction` `type` a, e um úni
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Após a definição da ligação, pode utilizar o `name` encadernação para aceder ao mesmo como atributo na assinatura da função. Ao utilizar uma ligação de saída, não é necessário utilizar o código SDK de Armazenamento Azure para autenticação, obtendo uma referência de fila ou escrevendo dados. O tempo de funcionamento das Funções e a ligação de saída da fila fazem essas tarefas para si.
+Depois de definido o encadernação, pode utilizar `name` a ligação para aceder a ela como um atributo na assinatura da função. Ao utilizar uma ligação de saída, não é preciso utilizar o código Azure Storage SDK para autenticação, obter uma referência de fila ou escrever dados. O tempo de funcionamento e a ligação de saída de fila das funções fazem essas tarefas para si.
 
 ::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
@@ -148,7 +149,7 @@ Após a definição da ligação, pode utilizar o `name` encadernação para ace
 
 ::: zone-end
 
-Uma nova fila chamada **outqueue** é criada na sua conta de armazenamento pelo tempo de funcionamento das Funções quando a ligação de saída é usada pela primeira vez. Utilizará o Storage Explorer para verificar se a fila foi criada juntamente com a nova mensagem.
+Uma nova fila chamada **outqueue** é criada na sua conta de armazenamento pelo tempo de execução de Funções quando a ligação de saída é usada pela primeira vez. Utilizará o Storage Explorer para verificar se a fila foi criada juntamente com a nova mensagem.
 
 ::: zone pivot="programming-language-java"  
 
@@ -158,39 +159,39 @@ Uma nova fila chamada **outqueue** é criada na sua conta de armazenamento pelo 
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Ligar o Explorador de Armazenamento à sua conta
 
-Ignore esta secção se já instalou o Azure Storage Explorer e ligou-o à sua conta Azure.
+Salte esta secção se já tiver instalado o Azure Storage Explorer e ligá-lo à sua conta Azure.
 
-1. Executar a ferramenta [Azure Storage Explorer], selecione o ícone de ligação à esquerda e selecione **Adicionar uma conta**.
+1. Executar a ferramenta [Azure Storage Explorer], selecione o ícone de ligação à esquerda e **selecione Adicionar uma conta**.
 
     ![Adicione uma conta Azure ao Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
-1. No diálogo **Connect,** escolha **Adicionar uma conta Azure,** escolha o seu **ambiente Azure,** e selecione **Iniciar sessão...**. 
+1. No diálogo **Connect,** escolha **Adicionar uma conta Azure,** escolha o seu **ambiente Azure**e selecione **Iniciar sê-lo...**. 
 
     ![Inicie sessão na sua conta do Azure](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png)
 
-Depois de iniciar sessão com sucesso na sua conta, vê todas as subscrições do Azure associadas à sua conta.
+Depois de iniciar seduca na sua conta com sucesso, vê todas as subscrições do Azure associadas à sua conta.
 
 ### <a name="examine-the-output-queue"></a>Examinar a fila de saída
 
-1. No Código do Estúdio Visual, prima a tecla F1 para abrir a paleta de comando, depois procure e execute o comando e escolha o nome da `Azure Storage: Open in Storage Explorer` sua conta de Armazenamento. A sua conta de armazenamento abre no Azure Storage Explorer.  
+1. No Código do Estúdio Visual, prima a tecla F1 para abrir a paleta de comando, depois procure e execute o comando e escolha o `Azure Storage: Open in Storage Explorer` nome da sua conta de Armazenamento. A sua conta de armazenamento abre no Azure Storage Explorer.  
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
    A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com o valor predefinido `name` do *Azure*, a mensagem de fila é *Nome transmitido para a função: Azure*.
 
-    ![Mensagem de fila mostrada no Explorador de Armazenamento Azure](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
+    ![Mensagem de fila mostrada no Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
-1. Faça a função novamente, envie outro pedido, e verá uma nova mensagem aparecer na fila.  
+1. Executar a função novamente, enviar outro pedido, e verá uma nova mensagem aparecer na fila.  
 
-Agora, é hora de reeditar a aplicação de funções atualizada para o Azure.
+Agora, é hora de reeditar a aplicação de função atualizada para a Azure.
 
-## <a name="redeploy-and-verify-the-updated-app"></a>Recolocar e verificar a aplicação atualizada
+## <a name="redeploy-and-verify-the-updated-app"></a>Reimplantar e verificar a aplicação atualizada
 
-1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Deploy to function app...` .
+1. No Código do Estúdio Visual, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Deploy to function app...` .
 
-1. Escolha a aplicação de funções que criou no primeiro artigo. Como está a recolocar o seu projeto na mesma aplicação, selecione **Implementar** para descartar o aviso sobre ficheiros de sobreposição.
+1. Escolha a aplicação de função que criou no primeiro artigo. Como está a recolocar o seu projeto na mesma aplicação, selecione **Implementar** para rejeitar o aviso sobre a sobreposição de ficheiros.
 
-1. Após a implementação concluída, pode voltar a utilizar cURL ou um browser para testar a função reimplantada. Como antes, anexar a corda de consulta `&name=<yourname>` ao URL, como no seguinte exemplo:
+1. Após a implementação concluída, pode voltar a utilizar o cURL ou um browser para testar a função reafectada. Como antes, anexar a cadeia de consulta `&name=<yourname>` ao URL, como no exemplo seguinte:
 
     ```bash
     curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
@@ -200,37 +201,37 @@ Agora, é hora de reeditar a aplicação de funções atualizada para o Azure.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-No Azure, *os recursos* referem-se a aplicações de funções, funções, contas de armazenamento, etc. Estão agrupados em *grupos*de recursos , e pode eliminar tudo num grupo eliminando o grupo.
+No Azure, *os recursos* referem-se a apps de função, funções, contas de armazenamento, etc. Estão agrupados em *grupos de recursos,* e podes apagar tudo num grupo, eliminando o grupo.
 
 Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrado estes recursos, dependendo do seu [estado da conta](https://azure.microsoft.com/account/) e dos [preços dos serviços](https://azure.microsoft.com/pricing/). Se já não precisar dos recursos, pode eliminá-los da seguinte forma:
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Atualizou a sua função de http para escrever dados para uma fila de Armazenamento. Agora pode aprender mais sobre o desenvolvimento de Funções usando o Código de Estúdio Visual:
+Atualizou a sua função HTTP para escrever dados numa fila de armazenamento. Agora pode aprender mais sobre o desenvolvimento de funções utilizando o Código do Estúdio Visual:
 
-+ [Desenvolver funções azure usando código de estúdio visual](functions-develop-vs-code.md)
++ [Desenvolver funções Azure usando código de estúdio visual](functions-develop-vs-code.md)
 ::: zone pivot="programming-language-csharp"  
-+ [Exemplos de projetos de função completa em C#](/samples/browse/?products=azure-functions&languages=csharp).
-+ [Referência do desenvolvedor funções Azure C#](functions-dotnet-class-library.md)  
++ [Exemplos de projetos completos de funções em C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Referência do programador Azure Functions C#](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
-+ [Exemplos de projetos de função completa sintetmente em JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
-+ [Guia de desenvolvedores de funções azure JavaScript](functions-reference-node.md)  
++ [Exemplos de projetos de função completa no JavaScript.](/samples/browse/?products=azure-functions&languages=javascript)
++ [Azure Functions JavaScript guia de desenvolvedores](functions-reference-node.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-+ [Exemplos de projetos de função completa supor script](/samples/browse/?products=azure-functions&languages=typescript).
-+ [Guia de desenvolvedor de funções azure TypeScript](functions-reference-node.md#typescript)  
++ [Exemplos de projetos de função completos no TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Guia de desenvolvedores tipo de funções Azure](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-+ [Exemplos de projetos de função completa em Python.](/samples/browse/?products=azure-functions&languages=python)
-+ [Guia de desenvolvimento de funções azure Python](functions-reference-python.md)  
++ [Exemplos de projetos completos de funções em Python.](/samples/browse/?products=azure-functions&languages=python)
++ [Guia de desenvolvedores de Azure Functions Python](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [Exemplos de projetos de função completos no PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
-+ [Guia de desenvolvimento de funções Azure PowerShell](functions-reference-powershell.md) 
++ [Exemplos de projetos de função completos em PowerShell.](/samples/browse/?products=azure-functions&languages=azurepowershell)
++ [Guia de desenvolvedores powershell de funções Azure Functions](functions-reference-powershell.md) 
 ::: zone-end
-+ [Funções Azure aciona matoe e encadernações.](functions-triggers-bindings.md)
++ [Funções Azure aciona e encaderna](functions-triggers-bindings.md).
 + [Página de preços de funções](https://azure.microsoft.com/pricing/details/functions/)
 + [Estimativa do plano de consumo custa](functions-consumption-costs.md) artigo.

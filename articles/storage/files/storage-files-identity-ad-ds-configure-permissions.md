@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/07/2020
 ms.author: rogarana
-ms.openlocfilehash: 6e49201b0574e0a1235cc9e2cb313b40b0563f93
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 436f0ae3e19b2a0591a2727bde48bae66b91a94e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268493"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509258"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 
 
@@ -31,12 +31,22 @@ Para configurar ACLs com permissões de super-er, tem de montar a parte utilizan
 As seguintes permissões estão incluídas no diretório de raiz de uma partilha de ficheiros:
 
 - BUILTIN\Administradores:(OI)(CI)(F)
-- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - BUILTIN\Utilizadores:(RX)
 - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
 - NT AUTHORITY\Utilizadores autenticados:(OI)(CI)(M)
+- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - NT AUTHORITY\SYSTEM:(F)
 - PROPRIETÁRIO DO CRIADOR:(OI)(CI)(IO)(F)
+
+|Utilizadores|Definição|
+|---|---|
+|BUILTIN\Administrators|Todos os utilizadores que sejam administradores de domínio do ambiente DS AD on-prem.
+|BUILTIN\Utilizadores|Grupo de segurança incorporado em AD. Inclui NT AUTHORITY\Utilizadores autenticados por padrão. Para um servidor de ficheiros tradicional, pode configurar a definição de membro por servidor. Para os Ficheiros Azure, não existe um servidor de hospedagem, daí o BUILTIN\Utilizadores inclui o mesmo conjunto de utilizadores que os Utilizadores NT AUTHORITY\Autenticados.|
+|NT AUTHORITY\SYSTEM|A conta de serviço do sistema operativo do servidor de ficheiros. Esta conta de serviço não se aplica no contexto Azure Files. Está incluído no diretório de raiz para ser consistente com a experiência do Windows Files Server para cenários híbridos.|
+|NT AUTHORITY\Utilizadores autenticados|Todos os utilizadores em AD que podem obter um token Kerberos válido.|
+|PROPRIETÁRIO DO CRIADOR|Cada objeto, ou diretório ou ficheiro, tem um proprietário para esse objeto. Se existirem ACLs atribuídos a "CREATOR OWNER" nesse objeto, então o utilizador que é o proprietário deste objeto tem as permissões para o objeto definido pela ACL.|
+
+
 
 ## <a name="mount-a-file-share-from-the-command-prompt"></a>Monte uma partilha de ficheiro a partir do pedido de comando
 

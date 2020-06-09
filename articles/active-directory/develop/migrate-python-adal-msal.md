@@ -1,6 +1,6 @@
 ---
-title: Python ADAL para guia de migração MSAL Azure
-description: Aprenda a migrar a sua app Deautenticação de Diretório Sonáutica Azure Ative (ADAL) python para a Microsoft Authentication Library (MSAL) para Python.
+title: Python ADAL para guia de migração MSAL / Rio Azure
+description: Saiba como migrar a sua app Azure Ative Directory Authentication Library (ADAL) Python para a Microsoft Authentication Library (MSAL) para Python.
 services: active-directory
 titleSuffix: Microsoft identity platform
 author: rayluo
@@ -13,52 +13,52 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
-ms.custom: aaddev
-ms.openlocfilehash: 8c587a9fc0b3c59e5a9a3c9c04f51bca71667dd8
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140553"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558693"
 ---
-# <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração DaAL para MSAL para Python
+# <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração ADAL para MSAL para Python
 
-Este artigo destaca as alterações que precisa de fazer para migrar uma aplicação que utiliza a Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL) para utilizar a Biblioteca de Autenticação da Microsoft (MSAL).
+Este artigo destaca as alterações que precisa de fazer para migrar uma aplicação que utiliza a Biblioteca de Autenticação ativa do Azure Ative (ADAL) para utilizar a Biblioteca de Autenticação do Microsoft (MSAL).
 
 ## <a name="difference-highlights"></a>Destaques da diferença
 
-A ADAL trabalha com o Azure Ative Directory (Azure AD) v1.0 endpoint. A Microsoft Authentication Library (MSAL) trabalha com a plataforma de identidade Microsoft, anteriormente conhecida como O Ponto Final do Diretório Ativo Azure v2.0. A plataforma de identidade da Microsoft difere do Azure AD v1.0 na medida em que:
+A ADAL trabalha com o Azure Ative Directory (Azure AD) v1.0 endpoint. A Microsoft Authentication Library (MSAL) trabalha com a plataforma de identidade da Microsoft, anteriormente conhecida como o ponto final do Azure Ative Directory v2.0. A plataforma de identidade da Microsoft difere do Azure AD v1.0 na medida em que:
 
 Suportes:
-  - Contas de trabalho e escola (contas ads do Azure)
-  - Contas pessoais (tais como Outlook.com ou Hotmail.com)
+  - Contas de trabalho e escolas (contas azure ad)
+  - Contas pessoais (como Outlook.com ou Hotmail.com)
   - Os seus clientes que trazem o seu próprio e-mail ou identidade social (como LinkedIn, Facebook, Google) através da oferta Azure AD B2C
 
 - As normas são compatíveis com:
   - OAuth v2.0
-  - OpenID Connect (OIDC)
+  - Ligação OpenID (OIDC)
 
-Veja [o que há de diferente no ponto final da plataforma de identidade da Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) para mais detalhes.
+Veja [o que há de diferente na plataforma de identidade da Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) para mais detalhes.
 
 ### <a name="scopes-not-resources"></a>Âmbitos não recursos
 
-A ADAL Python adquire fichas para recursos, mas a MSAL Python adquire fichas para âmbitos. A superfície DaPI em MSAL Python já não tem parâmetro de recurso. Você precisaria fornecer âmbitos como uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Para ver alguns exemplos de âmbitos, consulte [os âmbitos do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+ADAL Python adquire fichas para recursos, mas a MSAL Python adquire fichas para miras. A superfície da API em MSAL Python já não tem parâmetro de recurso. Você precisaria fornecer âmbitos como uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Para ver alguns exemplos de âmbitos, consulte os [âmbitos do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
-Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor de recursos de , o valor de `https://graph.microsoft.com` âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim numa identificação de recurso do formulário, ainda pode utilizar o valor de `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor de recursos `https://graph.microsoft.com` de, o valor de âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim num ID de recurso do `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` formulário, ainda pode utilizar o valor de âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-Para mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e nos [Âmbitos para uma Web API aceitando artigos de tokens v1.0.](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes)
+Para obter mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e nos [Âmbitos para uma API Web aceitando artigos de fichas v1.0.](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes)
 
 ### <a name="error-handling"></a>Processamento de erros
 
-A Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL) para python usa a exceção `AdalError` para indicar que houve um problema. MSAL para Python normalmente usa códigos de erro, em vez disso. Para mais informações, consulte [o MSAL para o tratamento de erros python](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
+AZure Ative Directory Authentication Library (ADAL) para Python usa a exceção `AdalError` para indicar que houve um problema. MSAL para Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte [o MSAL para o tratamento de erros python](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
 
-### <a name="api-changes"></a>Alterações da API
+### <a name="api-changes"></a>Alterações na API
 
-A tabela seguinte lista uma API em ADAL para Python, e a que deve ser utilizada no seu lugar em MSAL para Python:
+A tabela a seguir lista uma API em ADAL para Python, e a que deve ser utilizada no seu lugar no MSAL para Python:
 
 | ADAL para Python API  | MSAL para Python API |
 | ------------------- | ---------------------------------- |
-| [AutenticaçãoContexto](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication ou ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
+| [AutenticaçãoContexto](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplicação ou ConfidencialClientApplicação](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
 | N/D  | [get_authorization_request_url()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
 | [acquire_token_with_authorization_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
 | [acquire_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
@@ -69,17 +69,17 @@ A tabela seguinte lista uma API em ADAL para Python, e a que deve ser utilizada 
 | [acquire_token_with_client_credentials()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_credentials) e [acquire_token_with_client_certificate()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_certificate) | [acquire_token_for_client()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client) |
 | N/D | [acquire_token_on_behalf_of()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) |
 | [TokenCache()](https://adal-python.readthedocs.io/en/latest/#adal.TokenCache) | [SerializableTokenCache()](https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache) |
-| N/D | Cache com persistência, disponível a partir de [Extensões MSAL](https://github.com/marstr/original-microsoft-authentication-extensions-for-python) |
+| N/D | Cache com persistência, disponível a partir de [extensões MSAL](https://github.com/marstr/original-microsoft-authentication-extensions-for-python) |
 
-## <a name="migrate-existing-refresh-tokens-for-msal-python"></a>Migrar tokens de atualização existentes para MSAL Python
+## <a name="migrate-existing-refresh-tokens-for-msal-python"></a>Migrar fichas de atualização existentes para MSAL Python
 
-A biblioteca de autenticação da Microsoft (MSAL) abstrai o conceito de tokens de atualização. A MSAL Python fornece uma cache de ficha sinuosa por padrão para que não seja necessário armazenar, procurar ou atualizar tokens de atualização. Os utilizadores também verão menos indicações de sessão, porque as fichas de atualização podem geralmente ser atualizadas sem a intervenção do utilizador. Para obter mais informações sobre a cache token, consulte a serialização de [cache token personalizada em MSAL para Python](msal-python-token-cache-serialization.md).
+A biblioteca de autenticação microsoft (MSAL) abstrata o conceito de tokens de atualização. O MSAL Python fornece uma cache simbólica na memória por padrão para que não precise de armazenar, procurar ou atualizar fichas de atualização. Os utilizadores também verão menos pedidos de inscrição porque os tokens de atualização podem normalmente ser atualizados sem a intervenção do utilizador. Para obter mais informações sobre a cache simbólica, consulte [a serialização de cache de ficha personalizada em MSAL para Python](msal-python-token-cache-serialization.md).
 
-O seguinte código irá ajudá-lo a migrar as suas fichas de atualização geridas por outra biblioteca OAuth2 (incluindo, mas não se limitando a ADAL Python) a ser gerida pela MSAL para Python. Uma das razões para migrar esses tokens de atualização é evitar que os utilizadores existentes precisem de voltar a inscrever-se quando migrarem a sua app para o MSAL para python.
+O seguinte código irá ajudá-lo a migrar os seus tokens de atualização geridos por outra biblioteca OAuth2 (incluindo, mas não se limitando a ADAL Python) para ser gerido pela MSAL para Python. Uma das razões para migrar esses tokens de atualização é evitar que os utilizadores existentes precisem de se inscrever novamente quando migrar a sua app para a MSAL para Python.
 
-O método para migrar um token refrescante é usar mSAL para Python para adquirir um novo sinal de acesso usando o token de atualização anterior. Quando o novo token de atualização for devolvido, a MSAL para python irá armazená-lo na cache.
-Desde mSAL Python 1.3.0, fornecemos uma API dentro da MSAL para este fim.
-Consulte o seguinte código snippet, citado a partir de [uma amostra completa de tokens de atualização migratório com MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.3.0/sample/migrate_rt.py#L28-L67)
+O método para migrar um token de atualização é usar o MSAL para python para adquirir um novo token de acesso usando o token de atualização anterior. Quando o novo token de renovação for devolvido, a MSAL para Python irá armazená-la na cache.
+Desde o MSAL Python 1.3.0, fornecemos uma API dentro da MSAL para este fim.
+Por favor, consulte o seguinte corte de código, citado a partir de [uma amostra completa de tokens de atualização migratória com MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.3.0/sample/migrate_rt.py#L28-L67)
 
 ```python
 import msal
@@ -120,6 +120,6 @@ print("Migration completed")
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte a [comparação v1.0 e v2.0](active-directory-v2-compare.md).
+Para obter mais informações, consulte a [comparação v1.0 e v2.0](active-directory-v2-compare.md).
