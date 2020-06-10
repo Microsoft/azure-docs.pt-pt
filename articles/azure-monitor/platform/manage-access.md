@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b0106be09ac4c45ada712b333311aedf0402f785
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: b6b5e43ed0baed8cd84078809c5eb0fe146b0ecb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432810"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636296"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e espaços de trabalho no Azure Monitor
 
@@ -46,7 +46,7 @@ Pode alterar esta definição a partir da página **Propriedades** do espaço de
 
 ![Alterar o modo de acesso ao espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 Utilize o seguinte comando para examinar o modo de controlo de acesso para todos os espaços de trabalho na subscrição:
 
@@ -132,7 +132,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 O papel do Leitor de Log Analytics inclui as seguintes ações do Azure:
 
-| Tipo    | Permissão | Description |
+| Tipo    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de visualizar todos os recursos Azure e configuração de recursos. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, permite que todas as permissões ilimitadas leiam as definições do espaço de trabalho e realizem consultas nos dados. Veja mais opções granulares acima. |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preprecados, não há necessidade de atribuí-los aos utilizadores. |
@@ -160,7 +160,7 @@ Os membros da função *Contribuidor do Log Analytics* podem:
 
 A função de Contribuinte Log Analytics inclui as seguintes ações do Azure:
 
-| Permissão | Description |
+| Permissão | Descrição |
 | ---------- | ----------- |
 | `*/read`     | Capacidade para ver todos os recursos e configuração dos mesmos. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, permite que permissões completas e ilimitadas leiam a definição do espaço de trabalho e realizem consultas nos dados. Veja mais opções granulares acima. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidade para criar, e configurar contas de Automatização do Azure, incluindo adicionar e editar runbooks |
@@ -187,7 +187,7 @@ Recomendamos a realização de atribuições ao nível dos recursos (espaço de 
 
 Quando os utilizadores consultam os registos de um espaço de trabalho utilizando o acesso ao contexto de recursos, terão as seguintes permissões no recurso:
 
-| Permissão | Description |
+| Permissão | Descrição |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de visualizar todos os dados de registo para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de configurar a definição de diagnósticos para permitir a configuração de registos para este recurso. |
@@ -268,6 +268,18 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+Os exemplos acima definem uma lista branca de tabelas que são permitidas. Este exemplo mostra a definição da lista negra quando um utilizador pode aceder a todas as tabelas, menos a tabela _SecurityAlert:_
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### <a name="custom-logs"></a>Registos personalizados
 
@@ -294,7 +306,7 @@ Por vezes, os registos personalizados provêm de fontes que não estão diretame
 * Os proprietários do espaço de trabalho são tratados como qualquer outro utilizador para o controlo de acesso por mesa.
 * Recomendamos atribuir funções a grupos de segurança em vez de utilizadores individuais para reduzir o número de atribuições. Isto também o ajudará a usar as ferramentas de gestão do grupo existentes para configurar e verificar o acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [a visão geral](../../azure-monitor/platform/log-analytics-agent.md) do agente Do Log Analytics para recolher dados de computadores no seu datacenter ou noutro ambiente em nuvem.
 

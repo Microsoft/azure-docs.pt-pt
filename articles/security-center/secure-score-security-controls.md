@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0d0e3220d38f9824b9504a0077d6742a62aeb9e8
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 81c14da762e0ff92305456aa89f06949c7039868
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204995"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629281"
 ---
 # <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Pontuação segura melhorada (pré-visualização) no Azure Security Center
 
@@ -71,7 +71,7 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
-|Métrica|Fórmula e exemplo|
+|Metric|Fórmula e exemplo|
 |-|-|
 |**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação atual de um controlo de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -106,7 +106,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Portas de gestão seguras (pontuação máxima 8)</p></strong>Força bruta ataca portas de gestão de alvos para ter acesso a um VM. Uma vez que as portas nem sempre precisam de estar abertas, uma estratégia de mitigação é reduzir a exposição aos portos utilizando controlos de acesso à rede just-in-time, grupos de segurança de rede e gestão de portas de máquinas virtuais.<br>Uma vez que muitas organizações de TI não bloqueiam a saída de comunicações SSH da sua rede, os atacantes podem criar túneis encriptados que permitem que as portas RDP em sistemas infetados comuniquem de volta ao comando do intruso para controlar os servidores. Os atacantes podem usar o subsistema de Gestão Remota do Windows para se deslocarem lateralmente pelo seu ambiente e utilizarem credenciais roubadas para aceder a outros recursos numa rede.</td>
-    <td class="tg-lboi"; width=55%>-O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais<br>-As máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>-As portas de gestão devem ser fechadas nas suas máquinas virtuais</td>
+    <td class="tg-lboi"; width=55%>-As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time<br>-As máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>-As portas de gestão devem ser fechadas nas suas máquinas virtuais</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar atualizações do sistema (pontuação máxima 6)</p></strong>As atualizações do sistema proporcionam às organizações a capacidade de manter a eficiência operacional, reduzir as vulnerabilidades de segurança e proporcionar um ambiente mais estável para os utilizadores finais. Não aplicar atualizações deixa vulnerabilidades não remadas e resulta em ambientes que são suscetíveis a ataques. Estas vulnerabilidades podem ser exploradas e levar à perda de dados, exfiltração de dados, ransomware e abuso de recursos. Para implementar atualizações do sistema, pode utilizar a <a href="https://docs.microsoft.com/azure/automation/automation-update-management">solução 'Gestão de Atualização' para gerir patches e atualizações</a> para as suas máquinas virtuais. A gestão de atualização é o processo de controlo da implementação e manutenção de lançamentos de software.</td>
@@ -186,7 +186,7 @@ Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu amb
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

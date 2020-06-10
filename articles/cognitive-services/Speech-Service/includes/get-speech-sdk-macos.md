@@ -4,31 +4,31 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d9c6062e7106f764058d6c96c6f730d235b2ef0c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cea48f2d30687e85c39f0969874489aa1d70a4a5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673038"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637410"
 ---
-Ao desenvolver-se para macOS, existem três SDKs de Discurso disponíveis.
+Ao desenvolver-se para o macOS, existem três SDKs de discurso disponíveis.
 
-- O Objective-C Speech SDK está disponível de forma nativa como um pacote CocoaPod
-- O .NET Speech SDK poderia ser usado com **Xamarin.Mac** à medida que implementa .NET Standard 2.0
+- O Discurso Objective-C SDK está disponível nativamente como um pacote De Cacau
+- O .NET Speech SDK pode ser usado com **Xamarin.Mac,** uma vez que implementa .NET Standard 2.0
 - O Python Speech SDK está disponível como módulo PyPI
 
 > [!TIP]
-> Para obter mais detalhes utilizando o Objective-C Speech SDK com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">a importação do Objectivo-C em <span class="docon docon-navigate-external x-hidden-focus"></span> Swift </a>.
+> Para obter mais informações sobre o Discurso Objective-C SDK com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">a importação do Objectivo-C em <span class="docon docon-navigate-external x-hidden-focus"></span> Swift </a>.
 
 ### <a name="system-requirements"></a>Requisitos de sistema
 
-- Uma versão macOS 10.13 ou posterior
+- Uma versão macOS 10.13 ou mais tarde
 
 # <a name="xcode"></a>[Xcode](#tab/mac-xcode)
 
 :::row:::
     :::column span="3":::
-        O pacote macOS CocoaPod está disponível para download e utilização com o ambiente de desenvolvimento integrado <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (ou mais tarde) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (IDE). Primeiro, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">descarregue o <span class="docon docon-navigate-external x-hidden-focus"></span> CocoaPod binário. </a> Extrair a cápsula no mesmo diretório para a sua utilização pretendida, criar um *Podfile* e enumerar `pod` o como a `target` .
+        O pacote macOS CocoaPod está disponível para download e utilização com o ambiente de desenvolvimento integrado <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (ou posterior) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (IDE). Primeiro, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">descarregue o <span class="docon docon-navigate-external x-hidden-focus"></span> CocoaPod binário. </a> Extrair a cápsula no mesmo diretório para a sua utilização pretendida, criar um *Podfile* e enumerar o `pod` como a `target` .
     :::column-end:::
     :::column:::
         <br>
@@ -43,7 +43,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.1'
 end
 ```
 
@@ -51,7 +51,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac expõe o macOS SDK completo para os desenvolvedores .NET para construir aplicações mac nativas usando C#. Para mais informações, consulte <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+        Xamarin.Mac expõe o macOS completo SDK para desenvolvedores .NET para construir aplicações mac nativas usando C#. Para mais informações, consulte <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac. <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
     :::column-end:::
     :::column:::
         <br>
@@ -63,7 +63,7 @@ end
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
-# <a name="python"></a>[Pitão](#tab/mac-python)
+# <a name="python"></a>[Python](#tab/mac-python)
 
 [!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
 
@@ -71,5 +71,5 @@ end
 
 #### <a name="additional-resources"></a>Recursos adicionais
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">macOS Speech SDK quickstart Código fonte Objectivo-C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">macOS Speech SDK quickstart Swift código fonte<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">macOS Speech SDK quickstart Objective-C source code<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">macOS Speech SDK quickstart Swift source code<span class="docon docon-navigate-external x-hidden-focus"></span></a>

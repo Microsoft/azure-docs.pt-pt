@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c23528fbb60b471a7613f372fe5316a4883ae733
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c6544a0536a99261d1ebc13748a5365b9893e789
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310619"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605199"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -23,7 +23,7 @@ ms.locfileid: "84310619"
 
 Este tópico irá acompanhá-lo como configurar a aplicação MSIX anexar num ambiente de desktop virtual do Windows.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Antes de começar, eis o que precisa para configurar o anexo da app MSIX:
 
@@ -90,7 +90,7 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-Depois de desativar as atualizações automáticas, tem de ativar o Hyper-V porque vai utilizar o comando Mound-VHD para encenar e desmontar vHD para desarmagem. 
+Depois de desativar as atualizações automáticas, tem de ativar o Hyper-V porque vai utilizar o comando Mount-VHD para encenar e desmontar vHD para desarmagem. 
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -472,7 +472,7 @@ catch [Exception]
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Esta funcionalidade não é suportada atualmente, mas pode fazer perguntas à comunidade no [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 6/8/2020
+ms.openlocfilehash: 3f0df02b58835ce4b43d6ba172e79f872a9fae1e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300840"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608388"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade na Base de Dados Azure para MariaDB
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MariaDB, bem como como o tráfego é direcionado para a sua Base de Dados Azure para exemplos MariaDB de clientes dentro e fora de Azure.
@@ -72,7 +72,18 @@ A tabela que se segue lista os IPs primários e secundários da Base de Dados Az
 | E.U.A.Oeste 2 | 13.66.226.202  |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="connection-redirection"></a>Redirecionamento de conexão
+
+A Azure Database for MariaDB suporta uma política adicional de ligação, **reorientação,** que ajuda a reduzir a latência da rede entre aplicações de clientes e servidores MariaDB. Com esta funcionalidade, após a sessão inicial de TCP ser estabelecida na Base de Dados Azure para o servidor MariaDB, o servidor devolve o endereço de backend do nó que hospeda o servidor MariaDB ao cliente. Posteriormente, todos os pacotes subsequentes fluem diretamente para o servidor, contornando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a produção melhoraram o desempenho.
+
+Esta funcionalidade é suportada na Base de Dados Azure para servidores MariaDB com as versões 10.2 e 10.3.
+
+O suporte para a reorientação está disponível na extensão php [mysqlnd_azure,](https://github.com/microsoft/mysqlnd_azure) desenvolvida pela Microsoft, e está disponível no [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte o artigo [de reorientação configurante](./howto-redirection.md) para obter mais informações sobre como utilizar a reorientação nas suas aplicações.
+
+> [!IMPORTANT]
+> O suporte para a reorientação na extensão [php mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) está atualmente em pré-visualização.
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e gerir a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure](./howto-manage-firewall-portal.md)
 * [Criar e gerir a Base de Dados de Azure para regras de firewall MariaDB usando O Azure CLI](./howto-manage-firewall-cli.md)

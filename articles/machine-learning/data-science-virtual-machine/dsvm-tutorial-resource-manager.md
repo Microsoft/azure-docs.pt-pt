@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Criar um VM de Ciência de Dados - Modelo de Gestor de Recursos
+title: 'Quickstart: Criar um VM de Ciência de Dados - Modelo de Gestor de Recursos'
 titleSuffix: Azure Data Science Virtual Machine
-description: Neste tutorial, você usa um modelo de Gestor de Recursos Azure para implementar rapidamente uma Máquina Virtual de Ciência de Dados
+description: Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para implementar rapidamente uma Máquina Virtual de Ciência de Dados
 services: machine-learning
 author: lobrien
 ms.author: laobri
@@ -9,18 +9,18 @@ ms.custom: subject-armqs
 ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.topic: tutorial
-ms.openlocfilehash: a0bce8a3de7832b589646668b877ce8396d16bc8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.topic: quickstart
+ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84562051"
+ms.locfileid: "84636755"
 ---
 # <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Tutorial: Criar uma máquina virtual de ciência de dados Ubuntu usando um modelo de gestor de recursos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este tutorial irá mostrar-lhe como criar uma Máquina Virtual Ubuntu 18.04 de Ciência de Dados utilizando um modelo de Gestor de Recursos Azure. Data Science Virtual Machines são máquinas virtuais baseadas em nuvem pré-carregadas com um conjunto de quadros e ferramentas de aprendizagem automática de dados e de aprendizagem automática. Quando implantados em recursos computacionais movidos a GPU, todas as ferramentas e bibliotecas são configuradas para utilizar a GPU. 
+Este quickstart irá mostrar-lhe como criar uma Máquina Virtual Ubuntu 18.04 data science usando um modelo de Gestor de Recursos Azure. Data Science Virtual Machines são máquinas virtuais baseadas em nuvem pré-carregadas com um conjunto de quadros e ferramentas de aprendizagem automática de dados e de aprendizagem automática. Quando implantados em recursos computacionais movidos a GPU, todas as ferramentas e bibliotecas são configuradas para utilizar a GPU. 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -92,9 +92,9 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, criou uma Máquina Virtual de Ciência de Dados a partir de um modelo de Gestor de Recursos Azure. 
+Neste arranque rápido, criou uma Máquina Virtual de Ciência de Dados a partir de um modelo de Gestor de Recursos Azure. 
 
 > [!div class="nextstepaction"]
 > [Programas de amostra & adiscrição de ML](dsvm-samples-and-walkthroughs.md)

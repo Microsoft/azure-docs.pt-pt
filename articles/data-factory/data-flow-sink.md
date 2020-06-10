@@ -9,20 +9,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/03/2020
-ms.openlocfilehash: 2c57ddd88046044cccd13b0ade23144cd5649455
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 143c94527b947495709d2e94f107dc578e7f2866
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433312"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610207"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Depois de transformar os seus dados, pode afundar os dados num conjunto de dados de destino. Cada fluxo de dados requer pelo menos uma transformação de sumidouro, mas você pode escrever para o número de pias necessárias para completar o seu fluxo de transformação. Para escrever para lavatórios adicionais, crie novos fluxos através de novos ramos e divisões condicionais.
+Depois de terminar de transformar os seus dados, escreva-os numa loja de destino utilizando a transformação da pia. Cada fluxo de dados requer pelo menos uma transformação de sumidouro, mas você pode escrever para o número de pias necessárias para completar o seu fluxo de transformação. Para escrever para lavatórios adicionais, crie novos fluxos através de novos ramos e divisões condicionais.
 
-Cada transformação do lavatório está associada a exatamente um conjunto de dados da Data Factory. O conjunto de dados define a forma e a localização dos dados a que pretende escrever.
+Cada transformação do lavatório está associada a exatamente um objeto de conjunto de dados Azure Data Factory ou serviço ligado. A transformação do lavatório determina a forma e a localização dos dados a que pretende escrever.
 
 ## <a name="inline-datasets"></a>Conjuntos de dados inline
 
@@ -36,30 +36,28 @@ Para utilizar um conjunto de dados inline, selecione o formato pretendido no sel
 
 ![Conjunto de dados inline](media/data-flow/inline-selector.png "Conjunto de dados inline")
 
-### <a name="supported-inline-dataset-formats"></a>Formatos de conjunto de dados inline suportados
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Tipos de pias suportados
 
-Atualmente, o único formato de conjunto de dados inline disponível é o [Modelo de Dados Comuns](format-common-data-model.md#sink-properties) lido a partir da [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
+Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformação (ELT) e trabalha com conjuntos de dados de *encenação* que estão todos em Azure. Atualmente, os seguintes conjuntos de dados podem ser utilizados numa transformação de fonte:
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Conectores de pia suportados no fluxo de dados de mapeamento
+| Conector | Formato | Conjunto de dados/inline |
+| --------- | ------ | -------------- |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (Armazenamento do Azure Data Lake Gen2) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Modelo de dados comum (pré-visualização)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 
-Atualmente, os seguintes conjuntos de dados podem ser utilizados numa transformação de sumidouro:
-    
-* [Armazenamento Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+As definições específicas destes conectores estão localizadas no separador **Definições.** 
 
-As definições específicas destes conectores estão localizadas no **separador Definições.** 
-
-O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para escrever dados para os outros conectores do seu fluxo de dados, utilize a Atividade de Cópia para carregar esses dados de uma das áreas de paragem suportadas após a conclusão do fluxo de dados.
+O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para escrever dados para as outras fontes do seu fluxo de dados, utilize a Atividade de Cópia para carregar esses dados a partir de um lavatório suportado.
 
 ## <a name="sink-settings"></a>Configurações do lavatório
 
 Depois de ter adicionado uma pia, configuure-se através da **lingueta De Sumidouro.** Aqui pode escolher ou criar o conjunto de dados para o qual a pia escreve. Abaixo está um vídeo que explica uma série de diferentes opções de Sink para tipos de ficheiros delimitados por texto:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
 ![Configurações do lavatório](media/data-flow/sink-settings.png "Definições de pia")
 
@@ -83,5 +81,5 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 
 Ao obter uma pré-visualização de dados num cluster de depuração, nenhum dado será escrito na sua pia. Uma imagem do aspeto dos dados será devolvida, mas nada será escrito para o seu destino. Para testar os dados de escrita na pia, coloque um depuração de gasoduto a partir da tela do gasoduto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que criou o seu fluxo de dados, adicione uma [atividade de Fluxo de Dados ao seu pipeline](concepts-data-flow-overview.md).

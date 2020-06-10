@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194901"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609935"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
 
@@ -153,13 +153,10 @@ Estas instruções mostram-lhe como fazer o upload de ficheiros utilizando a ver
 
 Faça o upload de objetos para o contentor *$web* de um diretório de origem.
 
-> [!NOTE]
-> Se estiver a utilizar a Azure Cloud Shell, certifique-se de adicionar um `\` carácter de fuga ao referir-se ao recipiente `$web` (por exemplo: `\$web` ). Se estiver a usar uma instalação local do Azure CLI, então não terá de usar o personagem de fuga.
-
 Este exemplo pressupõe que está a executar comandos a partir da sessão Azure Cloud Shell.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 
@@ -275,7 +272,7 @@ Uma vez ativadas as métricas, as estatísticas de tráfego sobre ficheiros no *
    >[!NOTE]
    > A caixa de verificação **GetWebContent** só aparece se o membro da API for utilizado dentro de um determinado prazo. O portal apenas apresenta membros da API utilizados dentro de um determinado prazo para se concentrar apenas nos membros que devolvem dados. Se não encontrar um membro específico da API nesta lista, expanda o prazo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a configurar um domínio personalizado com o seu website estático. Consulte [um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md).
 

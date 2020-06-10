@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seoapr2020
+ms.custom: seoapr2020, tracking-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 317b3cd508ee1ab821838cae56cc5b5c9943ace0
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f1ed0ae33d1f83fd77adb337aded95605c17f38b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309888"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607317"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
 
@@ -33,7 +33,7 @@ O serviço Microsoft Azure HDInsight utiliza um ambiente de tecnologias de códi
 
 Existem dois tipos de componentes de código aberto que estão disponíveis no serviço HDInsight:
 
-|Componente |Description |
+|Componente |Descrição |
 |---|---|
 |Incorporado|Estes componentes são pré-instalados em clusters HDInsight e fornecem a funcionalidade central do cluster. Por exemplo, Apache Hadoop YARN Resource Manager, a língua de consulta da Colmeia Apache (HiveQL), e a biblioteca Mahout pertencem a esta categoria. Uma lista completa de componentes de cluster está disponível nas [novidades das versões do cluster Apache Hadoop fornecidas pela HDInsight.](../hdinsight-component-versioning.md)|
 |Personalizar|Você, como utilizador do cluster, pode instalar ou utilizar na sua carga de trabalho qualquer componente disponível na comunidade ou criado por si.|
@@ -150,7 +150,7 @@ Há um bug conhecido para a versão Anaconda, `4.7.11` `4.7.12` e `4.8.0` . Se v
 
 Para verificar a sua versão Anaconda, pode SSH para o nó do cabeçalho do cluster e correr `/usr/bin/anaconda/bin/conda --v` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Pacotes externos com cadernos Jupyter em Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

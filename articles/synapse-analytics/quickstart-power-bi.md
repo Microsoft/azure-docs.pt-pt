@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Ligar um espaço de trabalho power BI a um espaço de trabalho sinapse
-description: Ligue um espaço de trabalho power BI a um espaço de trabalho Azure Synapse Analytics seguindo os passos deste guia.
+title: Quickstart - Ligação de um espaço de trabalho Power BI a um espaço de trabalho synapse
+description: Ligue um espaço de trabalho Power BI a um espaço de trabalho Azure Synapse Analytics seguindo os passos deste guia.
 services: synapse-analytics
 author: jocaplan
 ms.service: synapse-analytics
@@ -9,65 +9,65 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655975"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609493"
 ---
-# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Quickstart: Ligar um espaço de trabalho power BI a um espaço de trabalho Synapse Analytics (pré-visualização)
+# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Quickstart: Ligando um espaço de trabalho power BI a um espaço de trabalho synapse
 
-Neste arranque rápido, aprenderá a ligar um espaço de trabalho power BI a um espaço de trabalho Synapse Analytics para criar novos relatórios e conjuntos de dados power BI do Estúdio Synapse (pré-visualização).
+Neste quickstart, você aprenderá a ligar um espaço de trabalho Power BI a um espaço de trabalho Synapse Analytics para criar novos relatórios e conjuntos de dados power BI a partir do Synapse Studio (pré-visualização).
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https://azure.microsoft.com/free/)de começar .
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar um espaço de trabalho Azure Synapse e uma conta de armazenamento associada](quickstart-create-workspace.md)
-- [Um espaço de trabalho power BI Profissional ou Premium](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)
+- [Criar um espaço de trabalho Azure Synapse e conta de armazenamento associada](quickstart-create-workspace.md)
+- [Um espaço de trabalho Power BI Professional ou Premium](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces)
 
-## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Link Power BI espaço de trabalho para o seu espaço de trabalho Synapse
+## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Ligue o espaço de trabalho power BI ao seu espaço de trabalho synapse
 
-1. A partir do Estúdio Synapse, clique em **Gerir**.
+1. A partir do Synapse Studio, clique em **Manage**.
 
-    ![Synapse Studio clique em gerir.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
+    ![Synapse Studio clique para gerir.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. Em **Conexões Externas,** clique em **serviços Linked**.
+2. Em **Ligações Externas,** clique **nos serviços Linked**.
 
     ![Serviços ligados em destaque.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
 3. Clique em **+ Novo**.
 
-    ![+ Novos serviços ligados estão em destaque.](media/quickstart-link-powerbi/new-highlighted.png)
+    ![+ Destaque-se nos novos serviços ligados.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. Clique em **Power BI** e clique **em Continuar**.
+4. Clique **em Power BI** e clique em **Continuar.**
 
-    ![Exibindo o serviço ligado ao Power BI.](media/quickstart-link-powerbi/powerbi-linked-service.png)
+    ![Serviço ligado à Power BI.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
 5. Introduza um nome para o serviço ligado e selecione um espaço de trabalho da lista de dropdown.
 
-    ![Exibindo a configuração do serviço ligado ao Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
+    ![Apresentando a configuração do serviço ligado ao Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
 6. Clique em **Criar**.
 
-## <a name="view-power-bi-workspace-in-synapse-studio"></a>Ver espaço de trabalho power BI no Estúdio Synapse
+## <a name="view-power-bi-workspace-in-synapse-studio"></a>Ver espaço de trabalho power bi no Estúdio Synapse
 
-Uma vez que os seus espaços de trabalho estejam ligados, pode navegar nos seus conjuntos de dados Power BI, editar/criar novos Relatórios power BI do Estúdio Synapse.
+Uma vez ligados os seus espaços de trabalho, pode navegar nos conjuntos de dados power BI, editar/criar novos Relatórios Power BI do Synapse Studio.
 
-1. Clique em **Desenvolver**.
+1. Clique **em Desenvolver.**
 
-    ![Synapse Studio clique em desenvolver.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
+    ![Sinaapse Studio clique desenvolver.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 
-2. Expanda o Power BI e o espaço de trabalho que deseja utilizar.
+2. Expanda o Power BI e o espaço de trabalho que pretende utilizar.
 
-    ![Expanda o Power BI e o espaço de trabalho.](media/quickstart-link-powerbi/develop-expand-powerbi.png)
+    ![Expandir o Power BI e o espaço de trabalho.](media/quickstart-link-powerbi/develop-expand-powerbi.png)
 
-Novos relatórios podem ser criados clicando **+** na parte superior do separador **Desenvolver.** Os relatórios existentes podem ser editados clicando no nome do relatório. Quaisquer alterações guardadas serão redigidas para o espaço de trabalho power BI.
+Podem ser criados novos relatórios clicando **+** no topo do separador **Desenvolvimento.** Os relatórios existentes podem ser editados clicando no nome do relatório. Quaisquer alterações guardadas serão escritas de volta para o espaço de trabalho Power BI.
 
 ![Ver e editar relatório Power BI.](media/quickstart-link-powerbi/powerbi-report.png)
 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre a criação de [relatório power BI sobre ficheiros armazenados no Armazenamento Azure](sql/tutorial-connect-power-bi-desktop.md).
+Saiba mais sobre [a criação do relatório Power BI sobre ficheiros armazenados no Azure Storage](sql/tutorial-connect-power-bi-desktop.md).

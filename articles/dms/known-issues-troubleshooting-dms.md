@@ -11,16 +11,22 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 0f108c8b9d86a527764d2c7b8dddc6fb239b00d2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 40c7b1b0ae2065ed00cf21f99ab2046e25970237
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196253"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609442"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Resolução de problemas problemas comuns problemas do Serviço de Migração de Bases de Dados de Azure
 
 Este artigo descreve algumas questões e erros comuns que os utilizadores do Azure Database Migration Service podem encontrar. O artigo também inclui informações sobre como resolver estas questões e erros.
+
+> [!NOTE]
+> Comunicação sem preconceitos
+>
+> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+>
 
 ## <a name="migration-activity-in-queued-state"></a>Atividade migratória em estado de fila
 
@@ -124,7 +130,7 @@ Quando tenta ligar o Serviço de Migração da Base de Dados Azure à fonte do S
 * [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
 * [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ver o artigo [Serviço de Migração de Bases de Dados Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
 * Ver o artigo [Como configurar os parâmetros do servidor na Base de Dados Azure para o MySQL utilizando o portal Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 12/17/2019
 ms.custom: has-adal-ref
-ms.openlocfilehash: 57160088c283b1f2c686429168cc858fee58324a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e6fd2ba9210aa8f133ed08e850e4ded978682988
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433116"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629246"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,9 +71,14 @@ Embora útil para testar e aprender, a autenticação interativa não o ajudará
 
 Este processo é necessário para permitir a autenticação dissociada a partir de um login específico do utilizador, que lhe permite autenticar para o Azure Machine Learning Python SDK em fluxos de trabalho automatizados. A autenticação principal do serviço também lhe permitirá [autenticar para a API REST.](#azure-machine-learning-rest-api-auth)
 
-Para configurar a autenticação principal do serviço, primeiro cria um registo de aplicações no Azure Ative Directory e, em seguida, concede à sua aplicação acesso baseado em funções ao seu espaço de trabalho ML. A forma mais fácil de completar esta configuração é através da [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) no portal Azure. Depois de iniciar sessão no portal, clique `>_` no ícone no topo direito da página perto do seu nome para abrir a concha.
+> [!TIP]
+> Os principais dos serviços devem ter acesso ao seu espaço de trabalho através do [controlo de acesso baseado em funções Azure (RBAC)](../role-based-access-control/overview.md).
+>
+> A utilização das funções incorporadas do **proprietário** ou **colaborador do** seu espaço de trabalho permite ao diretor de serviço realizar todas as atividades, tais como formar um modelo, implementar um modelo, etc. Para obter mais informações sobre a utilização de funções, consulte Gerir o acesso a um espaço de trabalho de [Aprendizagem automática Azure.](how-to-assign-roles.md)
 
-Se ainda não ter usado a casca de nuvem na sua conta Azure, terá de criar um recurso de conta de armazenamento para armazenar quaisquer ficheiros que estejam escritos. Em geral, esta conta de armazenamento incorrerá num custo mensal insignificante. Além disso, instale a extensão de aprendizagem automática se não a tiver utilizado previamente com o seguinte comando.
+Para configurar a autenticação principal do serviço, primeiro cria um registo de aplicações no Azure Ative Directory e, em seguida, atribui uma função à sua app. A forma mais fácil de completar esta configuração é através da [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) no portal Azure. Depois de iniciar sessão no portal, clique `>_` no ícone no topo direito da página perto do seu nome para abrir a concha.
+
+Se ainda não tenha utilizado o Cloud Shell na sua conta Azure, terá de criar um recurso de conta de armazenamento para armazenar quaisquer ficheiros que estejam escritos. Em geral, esta conta de armazenamento incorrerá num custo mensal insignificante. Além disso, instale a extensão de aprendizagem automática se não a tiver utilizado previamente com o seguinte comando.
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -307,6 +312,9 @@ Para controlar a autenticação simbólica, utilize o `token_auth_enabled` parâ
 
 Se a autenticação simbólica estiver ativada, pode utilizar o `get_token` método para recuperar um Token Web JSON (JWT) e o tempo de validade do token:
 
+> [!TIP]
+> Se utilizar um principal de serviço para obter o token, e quiser que tenha o acesso mínimo necessário para recuperar um token, atribua-o ao papel de **leitor** para o espaço de trabalho.
+
 ```python
 token, refresh_by = service.get_token()
 print(token)
@@ -321,7 +329,8 @@ print(token)
 >
 > Além disso, quanto maior for a distância entre a região do seu aglomerado e a região do seu espaço de trabalho, mais tempo demorará a obter um símbolo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
+* [Como usar segredos no treino.](how-to-use-secrets-in-runs.md)
 * [Treine e implemente um modelo de classificação de imagem.](tutorial-train-models-with-aml.md)
 * [Consumir um modelo de Aprendizagem automática Azure implementado como serviço web](how-to-consume-web-service.md).

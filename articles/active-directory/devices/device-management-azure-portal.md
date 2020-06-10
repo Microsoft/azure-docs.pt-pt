@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 241e5baf7f00bc9897e84fb0c10ac7db605fb712
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169753"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628319"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades do dispositivo utilizando o portal Azure
 
@@ -143,7 +143,7 @@ Para eliminar um dispositivo, tem duas opções:
    - Remove todos os detalhes que estão ligados ao dispositivo, por exemplo, as teclas BitLocker para dispositivos Windows.  
    - Representa uma atividade não recuperável e não é recomendada a menos que seja necessária.
 
-Se um dispositivo for gerido por outra autoridade de gestão (por exemplo, Microsoft Intune), certifique-se de que o dispositivo foi limpo/retirado antes de eliminar o dispositivo em Azure AD. Reveja como [gerir dispositivos antigos](device-management-azure-portal.md) antes de eliminar quaisquer dispositivos.
+Se um dispositivo for gerido por outra autoridade de gestão (por exemplo, Microsoft Intune), certifique-se de que o dispositivo foi limpo/retirado antes de eliminar o dispositivo em Azure AD. Reveja como [gerir dispositivos antigos](manage-stale-devices.md) antes de eliminar quaisquer dispositivos.
 
 ### <a name="view-or-copy-device-id"></a>Ver ou copiar iD do dispositivo
 

@@ -1,44 +1,44 @@
 ---
 title: Integrar um cliente na gestão de recursos delegados do Azure
-description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
+description: Saiba como embarcar um cliente para a Azure delegada gestão de recursos, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 05/26/2020
-ms.topic: conceptual
-ms.openlocfilehash: a6cdfea7e0520aa704e70a12784f7a7ba5d6aa6d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.topic: how-to
+ms.openlocfilehash: dc8156307a91a0d9fd598f330b4fbc28223e4483
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871111"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636551"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
-Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para a gestão de recursos delegados da Azure, permitindo que os seus recursos delegados (subscrições e/ou grupos de recursos) sejam acedidos e geridos através do seu próprio inquilino azure Ative Directory (Azure AD). Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que [gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
+Este artigo explica como você, como prestador de serviços, pode embarcar um cliente para a Azure delegada gestão de recursos, permitindo que os seus recursos delegados (subscrições e/ou grupos de recursos) sejam acedidos e geridos através do seu próprio inquilino Azure Ative Directory (Azure AD). Enquanto nos referimos a prestadores de serviços e clientes aqui, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
 
-Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado se inscreve no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão sem ter que iniciar sessão em cada inquilino de cliente individual.
+Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado assina no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão sem ter que assinar em cada cliente inquilino individual.
 
-Para acompanhar o seu impacto através dos compromissos dos clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Note que terá de realizar esta associação no seu prestador de serviços inquilino. Para a simplicidade, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e que lhe conceda acesso ao Leitor a todos os clientes a bordo. Para mais informações, consulte [Link um parceiro ID para as suas contas Azure](../../billing/billing-partner-admin-link-started.md). 
-
-> [!NOTE]
-> Os clientes também podem ser a bordo quando compram uma oferta de serviços geridos (público ou privado) que publicou no Azure Marketplace. Para mais informações, consulte [a Publicação de Ofertas de Serviços Geridos para o Mercado Azure.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque aqui descrito juntamente com uma oferta publicada no Azure Marketplace.
-
-O processo de embarque requer que sejam tomadas medidas dentro do inquilino do prestador de serviços e do inquilino do cliente. Todos estes passos são descritos neste artigo.
-
-## <a name="gather-tenant-and-subscription-details"></a>Reúna detalhes de inquilino e subscrição
-
-Para embarcar no inquilino de um cliente, deve ter uma subscrição azure ativa. Precisa saber o seguinte:
-
-- A identificação do inquilino do inquilino do prestador de serviços (onde você estará gerindo os recursos do cliente)
-- A identificação do inquilino do inquilino do cliente (que terá recursos geridos pelo prestador de serviços)
-- As IDs de subscrição para cada subscrição específica no inquilino do cliente que serão geridas pelo prestador de serviços (ou que contém o(s) grupo de recursos que será gerido pelo prestador de serviços).
+Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Note que você precisará realizar esta associação no seu inquilino prestador de serviços. Para simplificar, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e concedendo-lhe acesso reader a todos os clientes a bordo. Para obter mais informações, consulte [Link um ID do parceiro nas suas contas Azure.](../../billing/billing-partner-admin-link-started.md) 
 
 > [!NOTE]
-> Mesmo que apenas deseje embarcar num ou mais grupos de recursos dentro de uma subscrição, a implementação deve ser feita ao nível da subscrição, pelo que necessitará do ID de subscrição.
+> Os clientes também podem estar a bordo quando adquirem uma oferta de serviços geridos (públicos ou privados) que publicou no Azure Marketplace. Para mais informações, consulte [as ofertas de Serviços Geridos da Publicação ao Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui juntamente com uma oferta publicada no Azure Marketplace.
+
+O processo de embarque requer a ações a tomar tanto dentro do arrendatário do prestador de serviços como do arrendatário do cliente. Todos estes passos são descritos neste artigo.
+
+## <a name="gather-tenant-and-subscription-details"></a>Recolha detalhes do inquilino e da subscrição
+
+Para embarcar no inquilino de um cliente, deve ter uma subscrição ativa do Azure. Precisa saber o seguinte:
+
+- A ID do inquilino do inquilino do prestador de serviços (onde estará a gerir os recursos do cliente)
+- O ID do inquilino do inquilino do cliente (que terá recursos geridos pelo prestador de serviços)
+- Os IDs de subscrição de cada subscrição específica no arrendatário do cliente que serão geridos pelo prestador de serviços (ou que contém o(s) grupo de recursos que será gerido pelo prestador de serviços).
+
+> [!NOTE]
+> Mesmo que deseje apenas embarcar um ou mais grupos de recursos dentro de uma subscrição, a implementação deve ser feita ao nível da subscrição, pelo que necessitará do ID de subscrição.
 
 Se ainda não tiver estes valores de identificação, pode recuperá-los de uma das seguintes formas. Certifique-se de que utiliza estes valores exatos na sua implantação.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O seu ID de inquilino pode ser visto pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando **o diretório Switch**. Para selecionar e copiar o ID do seu inquilino, procure "Azure Ative Diretório" a partir do portal, em seguida, selecione **Propriedades** e copie o valor mostrado no campo de ID do **Diretório.** Para encontrar a identificação de uma subscrição no inquilino do cliente, procure "Subscrições" e, em seguida, selecione o ID de subscrição apropriado.
+A identificação do seu inquilino pode ser vista pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch**. Para selecionar e copiar o ID do seu inquilino, procure "Azure Ative Directory" dentro do portal, em seguida, selecione **Propriedades** e copie o valor indicado no campo ID do **Diretório.** Para encontrar o ID de uma subscrição no inquilino do cliente, procure por "Subscrições" e, em seguida, selecione o ID de subscrição apropriado.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -62,14 +62,14 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir papéis e permissões
 
-Como prestador de serviços, poderá querer realizar múltiplas tarefas para um único cliente, exigindo um acesso diferente para diferentes âmbitos. Pode definir as autorizações necessárias para atribuir funções de controlo de [acesso (RBAC) baseadas](../../role-based-access-control/built-in-roles.md) em papéis aos utilizadores do seu inquilino.
+Como prestador de serviços, poderá querer executar múltiplas tarefas para um único cliente, requerendo acesso diferente para diferentes âmbitos. Pode definir as autorizações necessárias para atribuir [funções de controlo de acesso (RBAC) baseadas em funções](../../role-based-access-control/built-in-roles.md) para utilizadores do seu inquilino.
 
-Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores Da Azure AD para cada função, permitindo-lhe adicionar ou remover utilizadores individuais ao grupo em vez de atribuir permissões diretamente a esse utilizador. Também pode querer atribuir funções a um diretor de serviço. Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para recomendações e informações sobre papéis suportados, consulte [Inquilinos, utilizadores e papéis em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
+Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores AZure AD para cada função, permitindo-lhe adicionar ou remover utilizadores individuais ao grupo em vez de atribuir permissões diretamente a esse utilizador. Também pode querer atribuir funções a um diretor de serviço. Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para recomendações e informações sobre funções [apoiadas, consulte Inquilinos, utilizadores e papéis em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
 
 > [!IMPORTANT]
-> Para adicionar permissões a um grupo Azure AD, o **tipo de grupo** deve ser **segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para mais informações, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser a **Segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Para definir as autorizações, terá de conhecer os valores de ID para cada utilizador, grupo de utilizadores ou diretor de serviço no inquilino do prestador de serviços a que pretende conceder acesso. Você também vai precisar da definição de papel ID para cada papel incorporado que você quer atribuir. Se ainda não os tiver, pode recuperá-los executando os comandos abaixo do inquilino do prestador de serviços.
+Para definir as autorizações, você precisará saber os valores de ID para cada utilizador, grupo de utilizadores ou principal de serviço no inquilino do prestador de serviços a que deseja conceder acesso. Também vai precisar da definição de papel ID para cada papel incorporado que pretende atribuir. Se ainda não os tiver, pode recuperá-los executando os comandos abaixo a partir do inquilino do prestador de serviços.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -107,36 +107,36 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> Recomendamos a atribuição da Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente, para que os utilizadores do seu inquilino possam [remover o acesso à delegação](remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
+> Recomendamos a atribuição da [Função de Registo de Registo de Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente, para que os utilizadores do seu inquilino possam [remover o acesso à delegação](remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no arrendatário do cliente.
 
-## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Gestor de Recursos Azure
+## <a name="create-an-azure-resource-manager-template"></a>Crie um modelo de gestor de recursos Azure
 
-Para embarcar no seu cliente, terá de criar um modelo de Gestor de [Recursos Azure](../../azure-resource-manager/index.yml) para a sua oferta com as seguintes informações. Os valores **mspOfferName** e **mspOfferDescription** serão visíveis para o cliente ao visualizar em detalhes da oferta na página de fornecedores de [serviços](view-manage-service-providers.md) do portal Azure.
+Para embarcar no seu cliente, terá de criar um modelo [de Gestor de Recursos Azure](../../azure-resource-manager/index.yml) para a sua oferta com as seguintes informações. Os valores **mspOfferName** e **mspOfferDescription** serão visíveis para o cliente ao visualizar detalhes da oferta na página de [prestadores](view-manage-service-providers.md) de serviços do portal Azure.
 
 |Campo  |Definição  |
 |---------|---------|
-|**nome mspOffer**     |Um nome que descreve esta definição. Este valor é apresentado ao cliente como título da oferta.         |
-|**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "Oferta de gestão de VM Contoso").      |
-|**managedByTenantId**     |Sua identificação do inquilino.          |
-|**autorizações**     |Os valores **principais para** os utilizadores/grupos/SPNs do seu inquilino, cada um com um **nome principal IdDisplayName** para ajudar o seu cliente a compreender o propósito da autorização, e mapeados para um valor de **roleDefinitionId** incorporado para especificar o nível de acesso.      |
+|**mspOfferName**     |Um nome descrevendo esta definição. Este valor é apresentado ao cliente como título da oferta.         |
+|**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "Oferta de gestão de Contoso VM").      |
+|**geridoByTenantId**     |Sua identificação de inquilino.          |
+|**autorizações**     |Os valores **principais** para os utilizadores/grupos/SPNs do seu inquilino, cada um com um **nome principalIdDisplayName** para ajudar o seu cliente a compreender o propósito da autorização, e mapeado para uma **função incorporadaDefinitionId** valor para especificar o nível de acesso.      |
 
-O processo de embarque requer um modelo de Gestor de Recursos Azure (fornecido no nosso repo de [amostras)](https://github.com/Azure/Azure-Lighthouse-samples/)e um ficheiro de parâmetros correspondente que modifica para corresponder à sua configuração e definir as suas autorizações.
+O processo de embarque requer um modelo de Gestor de Recursos Azure (fornecido nas [nossas amostras repo)](https://github.com/Azure/Azure-Lighthouse-samples/)e um ficheiro de parâmetros correspondente que modifica para corresponder à sua configuração e definir as suas autorizações.
 
-O modelo que escolher dependerá se está a embarcar numa subscrição inteira, num grupo de recursos ou em vários grupos de recursos dentro de uma subscrição. Também fornecemos um modelo que pode ser usado para clientes que compraram uma oferta de serviço gerida que publicou no Azure Marketplace, se preferir embarcar na sua subscrição desta forma.
+O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira, num grupo de recursos ou em vários grupos de recursos dentro de uma subscrição. Também fornecemos um modelo que pode ser usado para clientes que compraram uma oferta de serviço gerida que publicou no Azure Marketplace, se preferir embarcar nas suas subscrições desta forma.
 
-|Para embarcar esta  |Use este modelo de Gestor de Recursos Azure  |E modificar este ficheiro de parâmetro |
+|Para embarcar isto  |Use este modelo de Gestor de Recursos Azure  |E modificar este arquivo de parâmetros |
 |---------|---------|---------|
 |Subscrição   |[delegadoResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegadoResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Grupo de recursos   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Múltiplos grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Subscrição (quando utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Grupo de recursos   |[rg DelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rg DelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Vários grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> O processo aqui descrito requer uma implementação separada do nível de subscrição para cada subscrição a bordo, mesmo que esteja a embarcar subscrições no mesmo inquilino do cliente. Também são necessárias implementações separadas se estiver a embarcar em vários grupos de recursos dentro de diferentes subscrições no mesmo inquilino do cliente. No entanto, o embarque de vários grupos de recursos dentro de uma única subscrição pode ser feito numa única implementação de nível de subscrição.
+> O processo aqui descrito requer uma implementação separada do nível de subscrição para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa implementação de nível de subscrição.
 >
-> São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome diferente**de oferta .
+> São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente**.
 
-O exemplo seguinte mostra um ficheiro **dedelegado modificadoResourceManagement.parameters.json** que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta de [gestão de recursos delegados)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar os grupos de recursos específicos a bordo.
+O exemplo a seguir mostra um ficheiro **delegado modificadoResourceManagement.parameters.json** que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
 
 ```json
 {
@@ -189,18 +189,18 @@ O exemplo seguinte mostra um ficheiro **dedelegado modificadoResourceManagement.
 }
 ```
 
-A última autorização no exemplo acima adiciona um **principado** com a função de Administrador de Acesso ao Utilizador (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir esta função, deve incluir a propriedade **deRoleDefinitionIds delegada** e uma ou mais funções incorporadas. O utilizador criado nesta autorização poderá atribuir estas funções incorporadas a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) no inquilino do cliente, o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md) Nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
+A última autorização no exemplo acima adiciona um **principalid** com a função de Administrador de Acesso ao Utilizador (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir esta função, deve incluir a propriedade **delegadoRoleDefinitionIds** e uma ou mais funções incorporadas. O utilizador criado nesta autorização poderá atribuir estas funções incorporadas a [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) no arrendatário do cliente, o que é necessário para [implementar políticas que possam ser remediadas.](deploy-policy-remediation.md) Nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementar os modelos do Gestor de Recursos Azure
 
-Uma vez atualizado o seu ficheiro de parâmetro, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar na gestão de recursos delegados do Azure (ou para cada subscrição que contenha grupos de recursos que pretende embarcar).
+Uma vez atualizado o seu ficheiro de parâmetros, um utilizador no inquilino do cliente deve implementar o modelo do Gestor de Recursos Azure dentro do seu inquilino como uma implementação de nível de subscrição. É necessária uma implementação separada para cada subscrição que pretende embarcar na gestão de recursos delegados do Azure (ou para cada subscrição que contenha grupos de recursos que deseja embarcar).
 
-Como se trata de uma implantação ao nível da subscrição, não pode ser iniciada no portal Azure. A implementação pode ser efetuada utilizando powerShell ou Azure CLI, como mostrado abaixo.
+Por se trata de uma implementação de nível de subscrição, não pode ser iniciada no portal Azure. A colocação pode ser feita utilizando PowerShell ou Azure CLI, como mostrado abaixo.
 
 > [!IMPORTANT]
-> Esta implantação ao nível da subscrição deve ser feita por uma conta não hóspede no inquilino do cliente que tenha o [papel integrado do Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a subscrição a bordo (ou que contém os grupos de recursos que estão a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no inquilino do cliente pode selecionar a subscrição no portal Azure, abrir o controlo de **acesso (IAM),** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
+> Esta implementação ao nível de subscrição deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha a [função de Proprietário incorporada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a subscrição a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para ver todos os utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário.](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)
 >
-> Se a subscrição foi criada através do [programa Cloud Solution Provider (CSP),](../concepts/cloud-solution-provider.md)qualquer utilizador que tenha a função de Agente [Administrador](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu fornecedor de serviços pode realizar a implementação.
+> Se a subscrição foi criada através do [programa Cloud Solution Provider (CSP),](../concepts/cloud-solution-provider.md)qualquer utilizador que tenha o papel de Agente [Administrativo](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu inquilino fornecedor de serviços pode realizar a implementação.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -244,27 +244,27 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Confirme o sucesso do embarque
 
-Quando uma subscrição de um cliente tiver sido a bordo com sucesso para a gestão de recursos delegados do Azure, os utilizadores do inquilino do prestador de serviços poderão ver a subscrição e os seus recursos (se lhes foi concedido acesso através do processo acima, individualmente ou como membro de um grupo de AD Azure com as permissões adequadas). Para confirmar isto, verifique se a subscrição aparece de uma das seguintes formas.  
+Quando uma subscrição de clientes tiver sido acedida com sucesso à Azure delegada gestão de recursos, os utilizadores do arrendatário do prestador de serviços poderão ver a subscrição e os seus recursos (se lhes for concedido acesso através do processo acima, individualmente ou como membro de um grupo AD Azure com as permissões adequadas). Para confirmar isto, verifique se a subscrição aparece de uma das seguintes formas.  
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No inquilino do prestador de serviços:
+No arrendatário do prestador de serviços:
 
 1. Navegue para a [página dos meus clientes.](view-manage-customers.md)
 2. Selecione **Clientes**.
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!IMPORTANT]
-> Para ver a subscrição delegada nos [meus clientes,](view-manage-customers.md)os utilizadores do inquilino do prestador de serviços devem ter recebido a função [de Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Leitor) quando a subscrição estava a bordo para a gestão de recursos delegados do Azure.
+> Para ver a subscrição delegada nos [meus clientes, os](view-manage-customers.md)utilizadores do arrendatário do prestador de serviços devem ter recebido a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Leitor) quando a subscrição foi a bordo para a gestão de recursos delegados da Azure.
 
 No inquilino do cliente:
 
-1. Navegue para a página de fornecedores de [serviços.](view-manage-service-providers.md)
-2. Selecione ofertas de **prestador de serviços**.
+1. Navegue para a [página de fornecedores de serviços.](view-manage-service-providers.md)
+2. Selecione **ofertas de prestador de serviços.**
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!NOTE]
-> Pode demorar alguns minutos após a sua implementação estar concluída antes de as atualizações serem refletidas no portal Azure.
+> Pode demorar alguns minutos após a sua implementação estar concluída antes que as atualizações sejam refletidas no portal Azure.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -282,8 +282,8 @@ Get-AzContext
 az account list
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Conheça [as experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
-- [Ver e gerir os clientes](view-manage-customers.md) indo para os meus **clientes** no portal Azure.
-- Saiba como remover o [acesso a uma delegação](remove-delegation.md) que já estava a bordo.
+- Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
+- [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.
+- Saiba como [remover o acesso a uma delegação](remove-delegation.md) que estava previamente a bordo.

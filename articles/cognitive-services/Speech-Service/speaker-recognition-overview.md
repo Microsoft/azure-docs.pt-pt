@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261788"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635174"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>O que é o serviço de reconhecimento de altifalantes Azure?
 
@@ -27,7 +27,7 @@ A Verificação do Altifalante simplifica o processo de verificação da identid
 
 ### <a name="how-does-speaker-verification-work"></a>Como funciona a Verificação do Orador?
 
-![Como funciona a verificação do orador](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Fluxograma de verificação do altifalante.":::
 
 A verificação do altifalante pode ser dependente de texto ou independente de texto. **A** verificação dependente de texto significa que os altifalantes têm de escolher a mesma palavra-passe para utilizar durante as fases de inscrição e verificação. A verificação **independente de textos** significa que os falantes podem falar em linguagem quotidiana nas frases de inscrição e verificação.
 
@@ -56,7 +56,8 @@ Controla-se quanto tempo os dados devem ser retidos. Pode criar, atualizar e apa
 
 Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolvedores que utilizam o serviço de Reconhecimento de Altifalantes devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Deve certificar-se de que recebeu as permissões adequadas dos utilizadores para reconhecimento de altifalantes. Para mais informações, consulte a [página de Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)   no Microsoft Trust Center. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
+> * Preencha o artigo básico de reconhecimento de [altifalantes](speaker-recognition-basics.md) para um ensaio de padrões de design comuns que pode usar nas suas aplicações.
 > * Consulte o tutorial de [vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para verificar o orador independente de texto.

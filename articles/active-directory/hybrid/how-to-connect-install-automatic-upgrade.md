@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 232a1b714802ce9531a9932bc2af4c6b6f35dffd
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: db7c0595d109efddb092f5e96babda17038e5e9e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324220"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635820"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md#115610) e agora suporta cenários adicionais que anteriormente não eram suportados.
@@ -57,6 +57,10 @@ Em primeiro lugar, não deverá esperar que a atualização automática seja ten
 
 Se acha que algo não está bem, então primeiro corra `Get-ADSyncAutoUpgrade` para garantir que a atualização automática está ativada.
 
+Se o estado for suspenso, pode usar `Get-ADSyncAutoUpgrade -Detail` para ver a razão.  A razão da suspensão pode conter qualquer valor de corda, mas normalmente conterá o valor de cadeia do UpgradeResult, `UpgradeNotSupportedNonLocalDbInstall` `UpgradeAbortedAdSyncExeInUse` ou.  Um valor composto também pode ser devolvido, tal como `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed` .
+
+Também é possível obter um resultado que não seja um UpgradeResult, ou seja, 'AADHealthEndpointNotDefined' ou 'DirSyncInPlaceUpgradeNonLocalDb'.
+
 Em seguida, certifique-se de que abriu os URLs necessários no seu representante ou firewall. A atualização automática está a utilizar o Azure AD Connect Health, conforme descrito na [visão geral](#overview). Se utilizar um representante, certifique-se de que a Saúde foi configurada para utilizar um [servidor proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de Saúde](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) ao Azure AD.
 
 Com a conectividade com a Azure AD verificada, é hora de olhar para os eventlogs. Inicie o espectador do evento e olhe no eventlog **da Aplicação.** Adicione um filtro de eventlog para a fonte **Azure AD Connect Upgrade** e a gama de id do evento **300-399**.  
@@ -67,7 +71,7 @@ Agora pode ver os registos associados ao estado de atualização automática.
 
 O código de resultados tem um prefixo com uma visão geral do estado.
 
-| Prefixo do código de resultados | Description |
+| Prefixo do código de resultados | Descrição |
 | --- | --- |
 | Êxito |A instalação foi atualizada com sucesso. |
 | UpgradeAborted |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
@@ -75,7 +79,7 @@ O código de resultados tem um prefixo com uma visão geral do estado.
 
 Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos, mas a mensagem de resultados deve ser clara com o problema.
 
-| Mensagem de Resultados | Description |
+| Mensagem de Resultados | Descrição |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Não podia escrever ao registo. |

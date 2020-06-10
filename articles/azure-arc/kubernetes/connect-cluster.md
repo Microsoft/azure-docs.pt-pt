@@ -9,25 +9,48 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 868964361e6089eb3417b0f2e2681d82d4aa0b75
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 85ef8bb9868784df66199a4aea261e6b752ae7f8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299648"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636262"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
 Ligue um cluster Kubernetes ao Arco de Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Verifique se tem os seguintes requisitos prontos:
 
-* Um cluster Kubernetes que está a funcionar
-* Você precisará de acesso com kubeconfig, e acesso de administração de cluster.
+* Um aglomerado de Kubernetes que está a funcionar. Se não tiver um cluster Kubernetes existente, pode utilizar um dos seguintes guias para criar um cluster de teste:
+  * Criar um cluster Kubernetes usando [Kubernetes em Docker (tipo)](https://kind.sigs.k8s.io/)
+  * Crie um cluster Kubernetes usando Docker para [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) ou [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+* Você precisará de um ficheiro kubeconfig para aceder ao cluster e papel de administração de cluster no cluster para implantação de agentes Kubernetes habilitados pela Arc.
 * O utilizador ou o principal de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões de 'Ler' e 'Escrever' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Azure Arc for Kubernetes Onboarding" com estas permissões pode ser usada para atribuições de funções no utilizador ou principal de serviço utilizado com Azure CLI para o embarque.
-* Versão mais recente das *extensões connectedk8s* e *k8sconfiguration*
+* O leme 3 é necessário para o embarque do cluster utilizando a extensão connectedk8s. [Instale a mais recente versão do Helm 3](https://helm.sh/docs/intro/install) para satisfazer este requisito.
+* A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
+* Instale as extensões CLI ativadas pelo Arco:
+  
+  Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  Instalar a `k8sconfiguration` extensão:
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  Se pretender atualizar estas extensões mais tarde, execute os seguintes comandos:
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
@@ -41,7 +64,7 @@ Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída
 * TCP no porto 443 -- >`https://:443`
 * TCP no porto 9418 -- >`git://:9418`
 
-| Ponto final (DNS)                                                                                               | Description                                                                                                                 |
+| Ponto final (DNS)                                                                                               | Descrição                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Necessário para que o agente se conecte ao Azure e registe o cluster                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Ponto final do plano de dados para o agente empurrar o estado e obter informações de configuração                                      |
@@ -69,31 +92,6 @@ az provider show -n Microsoft.Kubernetes -o table
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
-
-## <a name="install-azure-cli-and-arc-enabled-kubernetes-extensions"></a>Instale extensões de Azure CLI e Arc habilitados
-A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
-
-Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:
-
-```console
-az extension add --name connectedk8s
-```
-
-Instalar a `k8sconfiguration` extensão:
-
-```console
-az extension add --name k8sconfiguration
-```
-
-Execute os seguintes comandos para atualizar as extensões para as versões mais recentes.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
-```
-
-## <a name="install-helm"></a>Instalar Leme
-O leme 3 é necessário para o embarque do cluster utilizando a extensão connectedk8s. [Instale a mais recente versão do Helm 3](https://helm.sh/docs/intro/install) para satisfazer este requisito.
 
 ## <a name="create-a-resource-group"></a>Criar um Grupo de Recursos
 
@@ -171,7 +169,7 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-Também pode ver este recurso no [portal de pré-visualização do Azure](https://preview.portal.azure.com/). Assim que tiver o portal aberto no seu navegador, navegue para o grupo de recursos e o Arco Azure ativou o recurso Kubernetes com base no nome de recursos e entradas de nome de grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.
+Também pode ver este recurso no [portal Azure.](https://portal.azure.com/) Assim que tiver o portal aberto no seu navegador, navegue para o grupo de recursos e o Arco Azure ativou o recurso Kubernetes com base no nome de recursos e entradas de nome de grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.
 
 Azure Arc habilitado a Kubernetes implanta alguns operadores no `azure-arc` espaço de nomes. Pode ver estas implementações e cápsulas aqui:
 
@@ -230,7 +228,7 @@ Pode eliminar um `Microsoft.Kubernetes/connectedcluster` recurso utilizando o po
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilizar o GitOps num cluster ligado](./use-gitops-connected-cluster.md)
 * [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

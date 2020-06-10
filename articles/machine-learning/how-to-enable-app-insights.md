@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 03/12/2020
+ms.date: 06/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 2473d864e0ad0fca4a886a6135a9caac0742e3d7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 021d548c56810021af7257b25c40d7d4cc68ec12
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557078"
+ms.locfileid: "84629470"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,9 @@ Além de recolher os dados de saída e resposta de um ponto final, pode monitori
 >[!Important]
 > A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, apenas as saídas mais recentes do modelo são registadas. 
 
-Os metadados e a resposta ao serviço - correspondente aos metadados do serviço web e às previsões do modelo - são registados nos vestígios de Azure Application Insights sob a mensagem `"model_data_collection"` . Pode consultar o Azure Application Insights diretamente para aceder a estes dados, ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para uma retenção mais longa ou processamento posterior. Os dados do modelo podem então ser utilizados na Aprendizagem automática Azure para configurar a rotulagem, a reconversão, a explicabilidade, a análise de dados ou outra utilização. 
+Para registar informações para um pedido ao serviço web, adicione `print` declarações ao seu ficheiro score.py. Cada `print` declaração resulta numa única entrada na tabela de rastreios em Insights de Aplicação, sob a mensagem `STDOUT` . O conteúdo da `print` declaração será contido na tabela de `customDimensions` `Contents` rastreios. Se imprimir uma corda JSON, produz uma estrutura de dados hierárquica na saída de vestígios sob `Contents` .
+
+Pode consultar o Azure Application Insights diretamente para aceder a estes dados, ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para uma retenção mais longa ou processamento posterior. Os dados do modelo podem então ser utilizados na Aprendizagem automática Azure para configurar a rotulagem, a reconversão, a explicabilidade, a análise de dados ou outra utilização. 
 
 <a name="python"></a>
 
@@ -71,10 +73,48 @@ Os metadados e a resposta ao serviço - correspondente aos metadados do serviço
 
 Se pretender registar vestígios personalizados, siga o processo de implementação padrão para AKS ou ACI no [Como implementar e onde](how-to-deploy-and-where.md) documentar. Em seguida, utilize os seguintes passos:
 
-1. Atualizar o ficheiro de pontuação adicionando declarações de impressão
+1. Para enviar dados para o Application Insights durante a inferência, atualize o ficheiro de pontuação adicionando declarações de impressão. Para registar informações mais complexas, como os dados do pedido e a resposta, nós uma estrutura JSON. O exemplo seguinte score.py registos de ficheiros no momento em que o modelo é inicializado, a entrada e saída durante a inferência, e o tempo em que ocorrerem erros:
     
     ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
+    import pickle
+    import json
+    import numpy 
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    from azureml.core.model import Model
+    import time
+
+    def init():
+        global model
+        #Print statement for appinsights custom traces:
+        print ("model initialized" + time.strftime("%H:%M:%S"))
+        
+        # note here "sklearn_regression_model.pkl" is the name of the model registered under the workspace
+        # this call should return the path to the model.pkl file on the local disk.
+        model_path = Model.get_model_path(model_name = 'sklearn_regression_model.pkl')
+        
+        # deserialize the model file back into a sklearn model
+        model = joblib.load(model_path)
+    
+
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+            # Log the input and output data to appinsights:
+            info = {
+                "input": raw_data,
+                "output": result.tolist()
+                }
+            print(json.dumps(info))
+            # you can return any datatype as long as it is JSON-serializable
+            return result.tolist()
+        except Exception as e:
+            error = str(e)
+            print (error + time.strftime("%H:%M:%S"))
+            return error
     ```
 
 2. Atualizar a configuração do serviço
@@ -118,19 +158,19 @@ Para vê-lo:
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. Selecione o **separador Visão Geral** para ver um conjunto básico de métricas para o seu serviço
+1. A partir do **separador Visão Geral** ou da secção __de Monitorização__ da lista à esquerda, selecione __Registos__.
 
-   [![Descrição geral](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+    [![Separador geral da monitorização](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Para ver o seu serviço web solicitar metadados e resposta, selecione a tabela de **pedidos** na secção **Registos (Analytics)** e selecione **Executar** para visualizar pedidos
+1. Para ver as informações registadas no ficheiro score.py, consulte a tabela __de vestígios.__ As seguintes pesquisas de consulta para registos onde o valor de __entrada__ foi registado:
 
-   [![Modelar dados](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+    ```kusto
+    traces
+    | where customDimensions contains "input"
+    | limit 10
+    ```
 
-
-3. Para ver os seus vestígios personalizados, selecione **Analytics**
-4. Na secção de esquemas, selecione **Traces**. Em seguida, **selecione Executar** para executar a sua consulta. Os dados devem aparecer num formato de tabela e devem mapear as suas chamadas personalizadas no seu ficheiro de pontuação
-
-   [![Vestígios personalizados](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![vestígios de dados](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 Para saber mais sobre como usar o Azure Application Insights, veja [o que é Insights de Aplicação?](../azure-monitor/app/app-insights-overview.md)
 
@@ -139,7 +179,7 @@ Para saber mais sobre como usar o Azure Application Insights, veja [o que é Ins
 >[!Important]
 > A Azure Application Insights só suporta exportações para armazenamento de bolhas. Os limites adicionais desta capacidade de exportação estão listados na [telemetria exporto da App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Pode utilizar a [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) da Azure Application Insights para enviar mensagens para uma conta de armazenamento suportada, onde pode ser definida uma retenção mais longa. As `"model_data_collection"` mensagens são armazenadas em formato JSON e podem ser facilmente analisadas para extrair dados do modelo. 
+Pode utilizar a [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) da Azure Application Insights para enviar mensagens para uma conta de armazenamento suportada, onde pode ser definida uma retenção mais longa. Os dados são armazenados em formato JSON e podem ser facilmente analisados para extrair dados do modelo. 
 
 Azure Data Factory, Azure ML Pipelines ou outras ferramentas de processamento de dados podem ser usadas para transformar os dados conforme necessário. Quando tiver transformado os dados, pode registá-lo com o espaço de trabalho Azure Machine Learning como conjunto de dados. Para tal, consulte [Como criar e registar conjuntos de dados](how-to-create-register-datasets.md).
 
@@ -152,7 +192,7 @@ O notebook [enable-app-insights-in-production-service.ipynb](https://github.com/
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja [como implementar um modelo num cluster de serviços Azure Kubernetes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) ou como implementar um modelo para [Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) para implementar os seus modelos em pontos finais de serviço web, e permitir que o Azure Application Insights aproveite a recolha de dados e a monitorização do ponto final
 * Consulte [MLOps: Gerir, implementar e monitorizar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para saber mais sobre a alavancagem de dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática

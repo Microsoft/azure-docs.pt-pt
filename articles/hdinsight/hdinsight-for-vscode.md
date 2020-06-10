@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: d99b9103a597442a5a98fa842eef3e98b2aad086
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: tracking-python
+ms.openlocfilehash: 5c429da761c39ae6828eb5d79809b687e8a76bd3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417393"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609102"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -453,6 +454,6 @@ A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois ins
 
 ![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).
