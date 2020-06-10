@@ -9,18 +9,21 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019, tracking-python
-ms.openlocfilehash: 5c45cb765fec9f34e5db0e9bd66ef020499eadf1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 00eb7c1488c90add48e3b6755ca1835d2ce1ff2d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559170"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657704"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como usar o armazenamento da fila Azure v2.1 da Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Este artigo demonstra cenários comuns utilizando o serviço de armazenamento Azure Queue. Os cenários abordados incluem inserir, espreitar, receber e apagar mensagens de fila, e criar e apagar filas.
+
+> [!IMPORTANT]
+> Este artigo refere-se à versão antiga da biblioteca de clientes Azure Storage para Python. Para começar com a versão mais recente, consulte [a biblioteca de clientes de armazenamento Quickstart: Azure Queue para Python](storage-quickstart-queues-python.md)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
@@ -146,7 +149,7 @@ Para eliminar uma fila e todas as mensagens contidas na sua parte, ligue para o 
 queue_service.delete_queue('taskqueue')
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para saber mais.
 

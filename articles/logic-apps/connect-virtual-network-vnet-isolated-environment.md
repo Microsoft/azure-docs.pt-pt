@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: a621ba9ebab1ffca0f9e1b8fb315714e3cf2af2f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: a55aebf13b341d1a722ddcb9525c4539b2f000e6
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416176"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656766"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conecte-se às redes virtuais Azure a partir de Azure Logic Apps utilizando um ambiente de serviço de integração (ISE)
 
-Para cenários em que as suas aplicações lógicas e contas de integração precisam de acesso a uma [rede virtual Azure,](../virtual-network/virtual-networks-overview.md)crie um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é um ambiente isolado que utiliza armazenamento dedicado e outros recursos que são mantidos separados do serviço "global" multi-inquilino Logic Apps. Esta separação também reduz qualquer impacto que outros inquilinos do Azure possam ter no desempenho das suas apps. Um ISE também lhe fornece os seus próprios endereços IP estáticos. Estes endereços IP são separados dos endereços IP estáticos que são partilhados pelas aplicações lógicas no serviço público, multi-inquilino.
+Para cenários em que as suas aplicações lógicas e contas de integração precisam de acesso a uma [rede virtual Azure,](../virtual-network/virtual-networks-overview.md)crie um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é um ambiente dedicado que utiliza armazenamento dedicado e outros recursos que são mantidos separados do serviço "global" multi-inquilino Logic Apps. Esta separação também reduz qualquer impacto que outros inquilinos do Azure possam ter no desempenho das suas apps. Um ISE também lhe fornece os seus próprios endereços IP estáticos. Estes endereços IP são separados dos endereços IP estáticos que são partilhados pelas aplicações lógicas no serviço público, multi-inquilino.
 
 Quando cria um ISE, o Azure *injeta* o ISE na sua rede virtual Azure, que depois implanta o serviço De aplicações lógicas na sua rede virtual. Quando criar uma aplicação lógica ou conta de integração, selecione o ISE como sua localização. A sua aplicação lógica ou conta de integração pode então aceder diretamente a recursos, como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua rede virtual.
 
@@ -146,17 +146,17 @@ Esta tabela descreve as portas que o seu ISE necessita para serem acessíveis e 
 
    ![Fornecer detalhes ambientais](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propriedade | Necessário | Valor | Description |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Subscrição** | Yes | <*Nome de subscrição Azure*> | A subscrição Azure para usar para o seu ambiente |
-   | **Grupo de recursos** | Yes | <*Nome de grupo Azure-recursos*> | Um novo ou existente grupo de recursos Azure onde pretende criar o seu ambiente |
-   | **Nome do ambiente do serviço de integração** | Yes | <*nome do ambiente*> | O seu nome ISE, que pode conter apenas letras, números, hífens `-` ( ), sublinha `_` (, e períodos ( `.` ). |
-   | **Localização** | Yes | <*Azure-datacenter-região*> | A região do centro de dados Azure onde implementar o seu ambiente |
-   | **SKU** | Yes | **Premium** ou **Developer (Sem SLA)** | O ISE SKU para criar e utilizar. Para obter diferenças entre estes SKUs, consulte [os SKUs ise.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) <p><p>**Importante:** Esta opção está disponível apenas na criação do ISE e não pode ser alterada mais tarde. |
-   | **Capacidade adicional** | Premium: <br>Yes <p><p>Desenvolvedor: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Desenvolvedor: <br>Não aplicável | O número de unidades de processamento adicionais a utilizar para este recurso ISE. Para aumentar a capacidade após a criação, consulte [a capacidade do Add ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
-   | **Ponto final de acesso** | Yes | **Interno** ou **Externo** | O tipo de pontos finais de acesso a utilizar para o seu ISE. Estes pontos finais determinam se o pedido ou o webhook desencadeiam aplicações lógicas no seu ISE podem receber chamadas de fora da sua rede virtual. <p><p>A sua seleção também afeta a forma como pode ver e aceder a entradas e saídas na sua aplicação lógica. Para mais informações, consulte [o acesso ao ponto final do ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access) <p><p>**Importante**: Pode selecionar o ponto final de acesso apenas durante a criação do ISE e não pode alterar esta opção mais tarde. |
-   | **Rede virtual** | Yes | <*Nome de rede virtual Azure*> | A rede virtual Azure onde pretende injetar o seu ambiente para que as aplicações lógicas nesse ambiente possam aceder à sua rede virtual. Se não tiver uma rede, [crie primeiro uma rede virtual Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: *Só* pode efetuar esta injeção quando criar o ise. |
-   | **Sub-redes** | Yes | <*lista de sub-recursos*> | Um ISE requer quatro sub-redes *vazias* para criar e implantar recursos no seu ambiente. Para criar cada sub-rede, [siga os passos por baixo desta tabela](#create-subnet). |
+   | **Subscrição** | Sim | <*Nome de subscrição Azure*> | A subscrição Azure para usar para o seu ambiente |
+   | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | Um novo ou existente grupo de recursos Azure onde pretende criar o seu ambiente |
+   | **Nome do ambiente do serviço de integração** | Sim | <*nome do ambiente*> | O seu nome ISE, que pode conter apenas letras, números, hífens `-` ( ), sublinha `_` (, e períodos ( `.` ). |
+   | **Localização** | Sim | <*Azure-datacenter-região*> | A região do centro de dados Azure onde implementar o seu ambiente |
+   | **SKU** | Sim | **Premium** ou **Developer (Sem SLA)** | O ISE SKU para criar e utilizar. Para obter diferenças entre estes SKUs, consulte [os SKUs ise.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) <p><p>**Importante:** Esta opção está disponível apenas na criação do ISE e não pode ser alterada mais tarde. |
+   | **Capacidade adicional** | Premium: <br>Sim <p><p>Desenvolvedor: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Desenvolvedor: <br>Não aplicável | O número de unidades de processamento adicionais a utilizar para este recurso ISE. Para aumentar a capacidade após a criação, consulte [a capacidade do Add ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
+   | **Ponto final de acesso** | Sim | **Interno** ou **Externo** | O tipo de pontos finais de acesso a utilizar para o seu ISE. Estes pontos finais determinam se o pedido ou o webhook desencadeiam aplicações lógicas no seu ISE podem receber chamadas de fora da sua rede virtual. <p><p>A sua seleção também afeta a forma como pode ver e aceder a entradas e saídas na sua aplicação lógica. Para mais informações, consulte [o acesso ao ponto final do ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access) <p><p>**Importante**: Pode selecionar o ponto final de acesso apenas durante a criação do ISE e não pode alterar esta opção mais tarde. |
+   | **Rede virtual** | Sim | <*Nome de rede virtual Azure*> | A rede virtual Azure onde pretende injetar o seu ambiente para que as aplicações lógicas nesse ambiente possam aceder à sua rede virtual. Se não tiver uma rede, [crie primeiro uma rede virtual Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: *Só* pode efetuar esta injeção quando criar o ise. |
+   | **Sub-redes** | Sim | <*lista de sub-recursos*> | Um ISE requer quatro sub-redes *vazias* para criar e implantar recursos no seu ambiente. Para criar cada sub-rede, [siga os passos por baixo desta tabela](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -231,7 +231,7 @@ Esta tabela descreve as portas que o seu ISE necessita para serem acessíveis e 
    > [!IMPORTANT]
    > Os conectores ISE geridos que ficam disponíveis depois de criar o seu ISE não aparecem automaticamente no conector no Logic App Designer. Antes de poder utilizar estes conectores ISE, tem de adicionar manualmente [esses conectores ao ISE para](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) que estes apareçam no Logic App Designer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar recursos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Gerir ambientes do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)

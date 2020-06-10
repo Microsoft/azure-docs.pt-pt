@@ -1,7 +1,7 @@
 ---
-title: Descubra o endereço IP do ponto final da gestão
+title: Descubra o endereço IP do ponto final de gestão
 titleSuffix: Azure SQL Managed Instance
-description: Saiba como obter o endereço IP público de ponto final de gestão de instâncias geridas azure SQL e verifique a sua proteção de firewall incorporada
+description: Saiba como obter o endereço IP público de gestão de instância gerida Azure SQL e verificar a sua proteção incorporada de firewall
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,25 +12,25 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 88965c25702917f17a226cfa51de662703136aae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f63167824a06a877456db4a18622710922e026ff
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045082"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659256"
 ---
-# <a name="determine-the-management-endpoint-ip-address---azure-sql-managed-instance"></a>Determine o endereço IP final point de gestão - Instância Gerida Azure SQL 
+# <a name="determine-the-management-endpoint-ip-address---azure-sql-managed-instance"></a>Determinar o endereço IP do ponto final de gestão - Azure SQL Gestd Instance 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-O cluster virtual Azure SQL Managed Instance contém um ponto final de gestão que o Azure utiliza para operações de gestão. O ponto final de gestão está protegido com uma firewall incorporada ao nível da rede e verificação de certificado mútuo no nível de aplicação. Pode determinar o endereço IP do ponto final da gestão, mas não pode aceder a este ponto final.
+O cluster virtual Azure SQL Managed Instance contém um ponto final de gestão que a Azure utiliza para operações de gestão. O ponto final de gestão está protegido com uma firewall incorporada a nível de rede e verificação de certificado mútuo no nível de aplicação. Pode determinar o endereço IP do ponto final de gestão, mas não pode aceder a este ponto final.
 
-Para determinar o endereço IP de gestão, faça uma [procura dNS](/windows-server/administration/windows-commands/nslookup) no seu SQL Managed Instance FQDN: `mi-name.zone_id.database.windows.net` . Isto devolverá uma entrada DNS que é `trx.region-a.worker.vnet.database.windows.net` como. Em seguida, pode fazer uma procura dNS neste FQDN com ".vnet" removido. Isto devolverá o endereço IP de gestão. 
+Para determinar o endereço IP de gestão, faça uma [pesquisas DNS](/windows-server/administration/windows-commands/nslookup) no seu SQL Managed Instance FQDN: `mi-name.zone_id.database.windows.net` . Isto devolverá uma entrada de DNS que é `trx.region-a.worker.vnet.database.windows.net` como. Em seguida, pode fazer uma procura de DNS neste FQDN com ".vnet" removido. Isto devolverá o endereço IP de gestão. 
 
-Esta PowerShell fará tudo por si se substituir \<MI FQDN\> pela entrada DNS da sua Instância Gerida SQL: `mi-name.zone_id.database.windows.net`
+Este código PowerShell fará tudo por si se substituir \<MI FQDN\> pela entrada DNS da SQL Managed Instance: `mi-name.zone_id.database.windows.net`
   
 ``` powershell
   $MIFQDN = "<MI FQDN>"
   resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
 ```
 
-Para obter mais informações sobre instâncias geridas pela SQL e conectividade, consulte a arquitetura de [conectividade Azure SQL Managed Instance](connectivity-architecture-overview.md).
+Para obter mais informações sobre a SQL Managed Instance e conectividade, consulte [a arquitetura de conectividade Azure SQL Managed Instance](connectivity-architecture-overview.md).

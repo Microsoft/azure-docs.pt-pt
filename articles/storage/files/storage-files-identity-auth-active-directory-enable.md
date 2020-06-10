@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 67c25d7065136f4748b6c0f57a8627db445c1a4e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d3026bb5f12bf1b03536bb79ab67f3ce810fc95b
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610972"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660783"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral - autenticação de serviços de domínio de diretório ativo no local sobre SMB para ações de ficheiros Azure
 
@@ -57,7 +57,7 @@ Antes de ativar a autenticação AD DS para ações de ficheiros Azure, certifiq
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação de Ficheiros Azure com DS AD está disponível em [todas as regiões públicas, Azure Gov e China.](https://azure.microsoft.com/global-infrastructure/locations/)
+A autenticação de Ficheiros Azure com DS AD está disponível em [todas as regiões públicas do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="overview"></a>Descrição geral
 

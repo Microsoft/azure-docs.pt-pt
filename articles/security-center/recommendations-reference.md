@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 90a058b7702dd51d3f93a83ae3e3d85f534808f3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6bf218f14b0fc783bead5183b22e4abcefe87b5a
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552212"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660002"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -92,6 +92,9 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Service Bus**|Os clientes do Service Bus não devem utilizar uma política de acesso ao nível do namespace que proporcione acesso a todas as filas e tópicos num espaço de nome. Para alinhar com o modelo de segurança de menor privilégio, deve criar políticas de acesso ao nível da entidade para filas e tópicos para fornecer acesso apenas à entidade específica.<br>(Política relacionada: Todas as regras de autorização, exceto rootManageSharedAccessKey, devem ser removidas do espaço de nomes do Service Bus)|Baixa|N|Recursos de cálculo (autocarro de serviço)|
 |**Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub**|Os clientes do Event Hub não devem utilizar uma política de acesso ao nível do namespace que proporcione acesso a todas as filas e tópicos num espaço de nome. Para alinhar com o modelo de segurança de menor privilégio, deve criar políticas de acesso ao nível da entidade para filas e tópicos para fornecer acesso apenas à entidade específica.<br>(Política relacionada: Todas as regras de autorização, exceto rootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub)|Baixa|N|Recursos computacional (centro de eventos)|
 |**As regras de autorização da entidade Do Centro de Eventos devem ser definidas**|Regras de autorização de auditoria sobre a entidade Event Hub para conceder acesso menos privilegiado.<br>(Política relacionada: Devem ser definidas as regras de autorização da entidade Do Hub de Eventos)|Baixa|N|Recursos computacional (centro de eventos)|
+|**Instale o agente de monitorização nas suas máquinas virtuais**|Instale o agente de monitorização para permitir a recolha de dados, atualizações de digitalização, digitalização de linha de base e proteção de pontos finais em cada máquina.<br>(Sem política relacionada)|Alta|**S**|Máquina|
+|**A extensão de configuração do hóspede deve ser instalada em máquinas virtuais do Windows (Pré-visualização)**|Instale o agente de configuração do hóspede para permitir a auditoria de configurações dentro de uma máquina como: a configuração do sistema operativo, a configuração ou a presença da aplicação, as definições do ambiente. Uma vez instaladas, as políticas in-guest estarão disponíveis, tais como "Windows Exploit guard deve ser ativada".<br>(Política relacionada: Pré-requisitos de auditoria para permitir políticas de configuração de hóspedes em VMs windows)|Alta|**S**|Máquina|
+|**A Guarda de Exploração do Windows Defender deve ser ativada nas suas máquinas (Pré-visualização)**|O Windows Defender Exploit Guard aproveita o agente de configuração de convidados Azure Policy. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio geralmente usados em ataques de malware, ao mesmo tempo que permite às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas Windows).<br>(Política relacionada: Auditoria VMs do Windows em que o Windows Defender Exploit Guard não está ativado)|Médio|N|Máquina|
 |**Instale o agente de monitorização nas suas máquinas virtuais**|Instale o agente de monitorização para permitir a recolha de dados, atualizações de digitalização, digitalização de linha de base e proteção de pontos finais em cada máquina.<br>(Sem política relacionada)|Alta|**S**|Máquina|
 |**Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas**|Para a proteção total do Centro de Segurança, resolva os problemas do agente de monitorização nas suas máquinas seguindo as instruções do guia de resolução de problemas<br>(Nenhuma política relacionada - dependente de "Instalar o agente de monitorização nas suas máquinas virtuais")|Médio|N|Máquina|
 |**Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais**|Ativar o controlo da aplicação para controlar quais as aplicações que podem ser executadas nos seus VMs localizados em Azure. Isto ajudará a endurecer os seus VMs contra malware. O Security Center utiliza machine learning para analisar as aplicações em execução em cada VM e ajuda-o a aplicar regras usando esta inteligência. Esta capacidade simplifica o processo de configuração e manutenção da aplicação permite regras.<br>(Política relacionada: Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais)|Alta|N|Máquina|
@@ -178,7 +181,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre recomendações, consulte o seguinte:
 
 * [O módulo Microsoft Learn sobre como analisar as recomendações feitas pelo Security Center](https://docs.microsoft.com/learn/modules/identify-threats-with-azure-security-center/)

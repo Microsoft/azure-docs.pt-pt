@@ -9,71 +9,71 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ed1a952cb640fcd64808ba49e1a0937d71d769f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417849"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655638"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como monitorizar a execução da atividade de cópia na Azure Data Factory. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como monitorizar a execução da atividade de cópia na Azure Data Factory. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="monitor-visually"></a>Monitorizar visualmente
 
-Depois de ter criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a um gatilho ou iniciar manualmente uma corrida ad hoc. Pode monitorizar todas as suas operações de pipeline de forma nativa na experiência do utilizador da Azure Data Factory. Conheça a monitorização da Azure Data Factory em geral a partir do [monitor Visualde Ie Data Factory](monitor-visually.md).
+Uma vez criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a um gatilho ou iniciar manualmente uma corrida ad hoc. Pode monitorizar todo o seu oleoduto funciona de forma nativa na experiência do utilizador da Azure Data Factory. Saiba mais sobre a monitorização da Azure Data Factory em geral a partir do [Monitor Visual Azure Data Factory](monitor-visually.md).
 
-Para monitorizar a execução da atividade do Copy, dirija-se à sua fábrica de dados **Autor & Monitor** UI. No separador **Monitor,** vê uma lista de execução de pipeline, clique no link de nome do **pipeline** para aceder à lista de funcionações de atividade na execução do gasoduto.
+Para monitorizar a atividade copy, vá à sua fábrica de dados **Autor & Monitor** UI. No **separador Monitor,** vê uma lista de correções de gasodutos, clique no link de nome do **gasoduto** para aceder à lista de atividades executadas no curso do gasoduto.
 
-![Executar a atividade de cópia de monitor](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitorizar a atividade da cópia](./media/copy-activity-overview/monitor-pipeline-run.png)
 
-A este nível, pode ver links para copiar entrada de atividade, saída e erros (se a execução da atividade do Copy falhar), bem como estatísticas como duração/estado. Clicar no botão **Detalhes** (óculos) ao lado do nome da atividade da cópia irá dar-lhe detalhes profundos sobre a execução da sua atividade de cópia. 
+A este nível, pode ver links para copiar entrada, saída e erros da atividade (se a atividade copy funcionar falhar), bem como estatísticas como duração/estado. Clicar no botão **Detalhes** (óculos) ao lado do nome da atividade da cópia irá dar-lhe detalhes profundos sobre a execução da sua atividade de cópia. 
 
-![Executar a atividade de cópia de monitor](./media/copy-activity-overview/monitor-copy-activity-run.png)
+![Monitorizar a atividade da cópia](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-Nesta vista de monitorização gráfica, a Azure Data Factory apresenta-lhe as informações de execução da atividade de cópia, incluindo o volume de leitura/escrita de dados, o número de ficheiros/linhas de dados copiados de origem a afundar, a produção, as configurações aplicadas para o seu cenário de cópia, passos que a atividade da cópia passa com as durações e detalhes correspondentes, e muito mais. Consulte [esta tabela](#monitor-programmatically) sobre cada métrica possível e a sua descrição detalhada. 
+Nesta visão de monitorização gráfica, a Azure Data Factory apresenta-lhe as informações de execução da atividade de cópia, incluindo o volume de leitura/escrita de dados, o número de ficheiros/linhas de dados copiados de fonte para afundar, o rendimento, as configurações aplicadas para o seu cenário de cópia, passos que a atividade da cópia passa com as respetivas durações e detalhes, e muito mais. Consulte [esta tabela](#monitor-programmatically) sobre cada métrica possível e a sua descrição detalhada. 
 
-Em alguns cenários, quando executa uma atividade de Cópia na Fábrica de Dados, verá "Dicas de **afinação** de desempenho" no topo da visão de monitorização da atividade de cópia, como mostra o exemplo. As dicas dizem-lhe o estrangulamento identificado pela ADF para a execução de cópia específica, juntamente com a sugestão sobre o que mudar para aumentar a entrada de cópia. Saiba mais sobre as dicas de [afinação](copy-activity-performance-troubleshooting.md#performance-tuning-tips)do desempenho automático.
+Em alguns cenários, quando executar uma atividade copy na Data Factory, verá "Dicas de **afinação** de desempenho" no topo da vista de monitorização da atividade da cópia, como mostra o exemplo. As dicas dizem-lhe o estrangulamento identificado pela ADF para a execução de cópias específicas, juntamente com uma sugestão sobre o que mudar para aumentar o rendimento da cópia. Saiba mais sobre [as dicas de afinação de desempenho automático](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
-Os **detalhes e durações de execução inferiores** descrevem os passos-chave que a sua atividade de cópia passa, o que é especialmente útil para resolver o desempenho da cópia. O estrangulamento da sua execução de cópia é aquele com maior duração. Consulte o desempenho da atividade da [cópia troubleshoot](copy-activity-performance-troubleshooting.md) sobre o que cada etapa representa e a orientação detalhada para resolução de problemas.
+Os **detalhes e durações** da execução inferior descrevem os passos-chave que a sua atividade de cópia passa, o que é especialmente útil para resolver problemas no desempenho da cópia. O estrangulamento da sua cópia é o que tem a maior duração. Consulte o [desempenho da atividade da cópia de resolução de problemas](copy-activity-performance-troubleshooting.md) sobre o que cada fase representa e a orientação detalhada de resolução de problemas.
 
 **Exemplo: Cópia da Amazon S3 para Azure Data Lake Storage Gen2**
 
-![Monitorizar detalhes de execução da atividade de cópia](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+![Monitorize detalhes da atividade da cópia](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
-## <a name="monitor-programmatically"></a>Monitorize programáticamente
+## <a name="monitor-programmatically"></a>Monitorar programáticamente
 
-Os detalhes de execução da atividade de cópia e as características de desempenho também são devolvidos na secção de saída do resultado > da**execução** **da Atividade de Cópia,** que é usada para renderizar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [Programáticamente monitorizar uma fábrica](monitor-programmatically.md)de dados Azure .
+Os detalhes da execução da atividade de cópia e as características de desempenho também são devolvidos na secção **de resultado de execução**da Copy  >  **Output** Activity, que é usada para tornar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [programáticamente monitorizar uma fábrica de dados Azure](monitor-programmatically.md).
 
-| Nome da propriedade  | Descrição | Unidade na saída |
+| Nome da propriedade  | Descrição | Unidade de saída |
 |:--- |:--- |:--- |
-| dadosLer | A quantidade real de dados lidos pela fonte. | Valor Int64, em bytes |
-| dadosEscrito | O monte real de dados escritos/comprometidos com a pia. O tamanho pode `dataRead` ser diferente do tamanho, uma vez que diz respeito à forma como cada loja de dados armazena os dados. | Valor Int64, em bytes |
-| arquivosLer | O número de ficheiros lidos pela fonte baseada em ficheiros. | Valor Int64 (sem unidade) |
-| ficheirosEscrito | O número de ficheiros escritos/comprometidos com a pia baseada em ficheiros. | Valor Int64 (sem unidade) |
-| sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a execução da atividade do Copy. | Valor Int64 (sem unidade) |
-| sinkPeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade copy. | Valor Int64 (sem unidade) |
-| linhasLer | Número de linhas lidas a partir da fonte (não aplicável para cópia binária). | Valor Int64 (sem unidade) |
-| linhasCosCos | Número de linhas copiadas para afundar (não aplicável para cópia binária). | Valor Int64 (sem unidade) |
-| linhas Skipped | Número de filas incompatíveis que foram ignoradas. Pode permitir que linhas incompatíveis sejam `enableSkipIncompatibleRow` ignoradas, fixando-se como verdadeiras. | Valor Int64 (sem unidade) |
-| cópiaDura | Duração da execução da cópia. | Valor int32, em segundos |
-| de transferência de dados | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
-| sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a execução da atividade do Copy. | Valor Int32 (sem unidade) |
-| sinkPeakConnections| Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade copy.| Valor Int32 (sem unidade) |
-| sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para o Armazém de Dados SQL. | Booleano |
-| redshiftDescarregar | Se o UNLOAD é utilizado quando os dados são copiados da Redshift. | Booleano |
+| dadosRead | A quantidade real de dados lidos a partir da fonte. | Valor int64, em bytes |
+| dadosCritos | O monte real de dados escritos/comprometidos com a pia. O tamanho pode ser diferente do `dataRead` tamanho, uma vez que relaciona a forma como cada data armazena os dados. | Valor int64, em bytes |
+| ficheirosRead | O número de ficheiros lidos a partir da fonte baseada em ficheiros. | Valor int64 (sem unidade) |
+| ficheirosCrito | O número de ficheiros escritos/comprometidos com a pia baseada em ficheiros. | Valor int64 (sem unidade) |
+| sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a atividade Copy. | Valor int64 (sem unidade) |
+| sinkPeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade Copy. | Valor int64 (sem unidade) |
+| linhasLei | Número de linhas lidas a partir da fonte (não aplicável para cópia binária). | Valor int64 (sem unidade) |
+| linhasCopiado | Número de linhas copiadas para afundar (não aplicável à cópia binária). | Valor int64 (sem unidade) |
+| rowsSkipped | Número de filas incompatíveis que foram ignoradas. Pode permitir que linhas incompatíveis sejam ignoradas definindo `enableSkipIncompatibleRow` para ser verdadeira. | Valor int64 (sem unidade) |
+| copyDuration | Duração da cópia executada. | Valor int32, em segundos |
+| de transferência de dados | Taxa de transferência de dados. | Número do ponto flutuante, em KBps |
+| sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a atividade Copy. | Valor int32 (sem unidade) |
+| sinkPeakConnections| Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade Copy.| Valor int32 (sem unidade) |
+| sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para o SQL Data Warehouse. | Booleano |
+| redshiftUnload | Se o UNLOAD é utilizado quando os dados são copiados do Redshift. | Booleano |
 | hdfsDistcp | Se o DistCp é utilizado quando os dados são copiados do HDFS. | Booleano |
-| eficazIntegraçãoTempo | O tempo de execução de integração (IR) ou `<IR name> (<region if it's Azure IR>)`os tempos de execução utilizados para alimentar o execução da atividade, no formato . | Texto (corda) |
-| unidades de integração de datas usados | As unidades eficazes de integração de dados durante a cópia. | Valor Int32 |
-| cópias paralelas usadas | O paralelo eficazCópias durante a cópia. | Valor Int32 |
-| redirecionamentoRowPath | Caminho para o registo de linhas incompatíveis ignoradas no armazenamento `redirectIncompatibleRowSettings` blob que configura na propriedade. Ver [Tolerância à falha](copy-activity-overview.md#fault-tolerance). | Texto (corda) |
-| execuçãoDetalhes | Mais detalhes sobre os estágios que a atividade da Cópia passa e os passos correspondentes, durações, configurações, e assim por diante. Não recomendamos que analise esta secção porque pode mudar. Para entender melhor como o ajuda a compreender e a resolver o desempenho da cópia, consulte a secção [Monitor visualmente.](#monitor-visually) | Matriz |
-| perfRecomendação | Copiar dicas de afinação de desempenho. Consulte as dicas de [afinação](copy-activity-performance-troubleshooting.md#performance-tuning-tips) do desempenho para obter mais detalhes. | Matriz |
+| efetivamenteIntegrationRuntime | O tempo de integração (IR) ou os tempos de funcionação utilizados para alimentar a atividade funcionam, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia) |
+| utilizadasDataIntegrationUnnits | As unidades eficazes de integração de dados durante a cópia. | Valor int32 |
+| usadoParallelCopies | Os paralelos eficazesCopias durante a cópia. | Valor int32 |
+| redirectRowPath | Caminho para o log de linhas incompatíveis saltadas no armazenamento de bolhas que configura na `redirectIncompatibleRowSettings` propriedade. Ver [tolerância à falha](copy-activity-overview.md#fault-tolerance). | Texto (cadeia) |
+| execuçãoDetails | Mais detalhes sobre as fases que a atividade copy passa e os passos correspondentes, durações, configurações, e assim por diante. Não recomendamos que analise esta secção porque pode mudar. Para melhor entender como o ajuda a compreender e a resolver problemas de desempenho da cópia, consulte a secção [Monitor visualmente.](#monitor-visually) | Matriz |
+| perfRecommendation | Copiar dicas de afinação de desempenho. Consulte [as dicas de afinação de desempenho](copy-activity-performance-troubleshooting.md#performance-tuning-tips) para obter detalhes. | Matriz |
 
 **Exemplo:**
 
@@ -150,9 +150,9 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte os outros artigos da Atividade cópia:
+## <a name="next-steps"></a>Próximos passos
+Consulte os outros artigos de Atividade de Cópia:
 
-\- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+\-[Visão geral da atividade da cópia](copy-activity-overview.md)
 
 \- [Desempenho da atividade de cópia](copy-activity-performance.md)

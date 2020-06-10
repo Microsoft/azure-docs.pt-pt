@@ -1,6 +1,6 @@
 ---
-title: Crie um tempo de execução de integração auto-hospedada com a PowerShell
-description: Aprenda a criar um tempo de funcionação de integração auto-hospedado partilhado na Azure Data Factory, para que várias fábricas de dados possam aceder ao tempo de funcionação da integração.
+title: Crie um tempo de integração independente partilhado com o PowerShell
+description: Aprenda a criar um tempo de integração auto-hospedado partilhado na Azure Data Factory, para que várias fábricas de dados possam aceder ao tempo de integração.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,65 +10,63 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106632"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655707"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração auto-hospedado partilhado na Azure Data Factory
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Crie um tempo de integração independente partilhado na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este guia mostra-lhe como criar um tempo de funcionação de integração auto-hospedado partilhado na Azure Data Factory. Depois, pode utilizar o tempo de execução de integração auto-hospedado partilhado noutra fábrica de dados.
+Este guia mostra-lhe como criar um tempo de integração independente partilhado na Azure Data Factory. Em seguida, você pode usar o tempo de integração auto-hospedado compartilhado em outra fábrica de dados.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Criar um IR auto-hospedado partilhado utilizando a Azure Data Factory UI
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Criar um IR partilhado auto-hospedado usando Azure Data Factory UI
 
-Para criar um IR auto-hospedado partilhado utilizando a Azure Data Factory UI, pode tomar as seguintes etapas:
+Para criar um IR partilhado auto-hospedado utilizando a UI da Azure Data Factory, pode tomar os seguintes passos:
 
-1. No IR auto-hospedado para ser partilhado, conceda permissão à fábrica de dados em que pretende criar o IR ligado.
+1. No IR auto-hospedado a ser partilhado, selecione **a permissão de Concessão para outra fábrica de Dados** e na página "Integração runtime setup", selecione a fábrica de Dados na qual pretende criar o IR ligado.
       
-    ![Botão para concessão de permissão no separador Partilha](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Seleções para atribuição de permissões](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Botão para conceder permissão no separador Partilhar](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Note a identificação do recurso do IR auto-hospedado para ser partilhado.
+2. Note e copie o "ID de recurso" acima referido do IR auto-hospedado a ser partilhado.
+         
+3. Na fábrica de dados a que foram concedidas as permissões, crie um novo IR auto-hospedado (ligado) e introduza o ID de recursos.
       
-   ![Localização do ID do recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
-3. Na fábrica de dados a que foram concedidas as permissões, crie um novo IR auto-hospedado (ligado) e introduza o ID de recurso.
-      
-   ![Botão para criar um tempo de execução de integração auto-hospedado ligado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Caixas para identificação de nome e recursos](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Botão para criar um tempo de integração auto-hospedado](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Botão para criar um tempo de integração auto-hospedado ligado](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Crie um IR auto-hospedado partilhado usando o Azure PowerShell
+    ![Caixas para identificação de nome e recursos](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
-Para criar um IR auto-hospedado partilhado utilizando o Azure PowerShell, pode tomar as seguintes etapas: 
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Crie um IR partilhado auto-hospedado usando a Azure PowerShell
+
+Para criar um IR partilhado e auto-hospedado utilizando a Azure PowerShell, pode tomar os seguintes passos: 
 1. Criar uma fábrica de dados. 
 1. Criar um integration runtime autoalojado.
-1. Partilhe o tempo de execução da integração auto-hospedada com outras fábricas de dados.
-1. Criar um tempo de execução de integração ligado.
-1. Revogar a partilha.
+1. Partilhe o tempo de integração auto-hospedado com outras fábricas de dados.
+1. Crie um tempo de integração ligado.
+1. Revogue a partilha.
 
 ### <a name="prerequisites"></a>Pré-requisitos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Assinatura Azure.** Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+- **Assinatura Azure**. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell.** Siga as instruções em [Instalação Azure PowerShell no Windows com PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Usa o PowerShell para executar um script para criar um tempo de integração auto-hospedado que pode ser partilhado com outras fábricas de dados. 
+- **Azure PowerShell**. Siga as instruções no [Install Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um tempo de integração auto-hospedado que pode ser partilhado com outras fábricas de dados. 
 
 > [!NOTE]  
-> Para uma lista das regiões do Azure em que a Data Factory está atualmente disponível, selecione as regiões que lhe interessam em [Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
+> Para obter uma lista das regiões do Azure em que a Data Factory está atualmente disponível, selecione as regiões que lhe interessam [os produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Inicie o Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Criar variáveis. Copiar e colar o seguinte script. Substitua as variáveis, tais como Nome de **Subscrição** e **Nome do Grupo de Recursos,** por valores reais: 
+1. Criar variáveis. Copiar e colar o seguinte script. Substitua as variáveis, tais como **Nome de Subscrição** e **Nome de Grupo de Recursos,** por valores reais: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -89,7 +87,7 @@ Para criar um IR auto-hospedado partilhado utilizando o Azure PowerShell, pode t
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Iniciar sessão e selecionar uma subscrição. Adicione o seguinte código ao script para iniciar sessão e selecione a sua subscrição Azure:
+1. Iniciar s.000 e selecionar uma subscrição. Adicione o seguinte código ao script para iniciar sôm e selecione a subscrição do Azure:
 
     ```powershell
     Connect-AzAccount
@@ -101,7 +99,7 @@ Para criar um IR auto-hospedado partilhado utilizando o Azure PowerShell, pode t
     > [!NOTE]  
     > Este passo é opcional. Se já tem uma fábrica de dados, ignore este passo. 
 
-    Crie um grupo de [recursos Azure](../azure-resource-manager/management/overview.md) utilizando o comando [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo seguinte cria `myResourceGroup` um grupo de recursos nomeado na localização da Europa Ocidental: 
+    Crie um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) utilizando o comando [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo a seguir cria um grupo de recursos nomeado `myResourceGroup` na localização WestEurope: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -118,9 +116,9 @@ Para criar um IR auto-hospedado partilhado utilizando o Azure PowerShell, pode t
 ### <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
 > [!NOTE]  
-> Este passo é opcional. Se já tem o tempo de execução de integração auto-hospedado que pretende partilhar com outras fábricas de dados, ignore este passo.
+> Este passo é opcional. Se já tem o tempo de integração auto-hospedado que pretende partilhar com outras fábricas de dados, ignore este passo.
 
-Executar o seguinte comando para criar um tempo de execução de integração auto-hospedado:
+Executar o seguinte comando para criar um tempo de integração auto-hospedado:
 
 ```powershell
 $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
@@ -131,9 +129,9 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obtenha a chave de autenticação de tempo de execução de integração e registe um nó
+#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obtenha a chave de autenticação de tempo de integração e registe um nó
 
-Executar o seguinte comando para obter a chave de autenticação para o tempo de execução de integração auto-hospedado:
+Executar o seguinte comando para obter a chave de autenticação para o tempo de integração auto-hospedado:
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeKey `
@@ -142,17 +140,17 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
     -Name $SharedIntegrationRuntimeName
 ```
 
-A resposta contém a chave de autenticação para este tempo de execução de integração auto-hospedado. Usa esta tecla quando regista o nó de tempo de integração.
+A resposta contém a chave de autenticação para este tempo de integração auto-hospedado. Utilize esta chave quando registar o nó de tempo de execução de integração.
 
-#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Instale e registe o tempo de execução da integração auto-hospedado
+#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Instale e registe o tempo de funcionação da integração auto-hospedada
 
-1. Descarregue o instalador de tempo de integração auto-hospedado a partir do Tempo de [Integração da Fábrica](https://aka.ms/dmg)de Dados azure .
+1. Descarregue o instalador de tempo de execução de integração auto-hospedado a partir do Tempo de Execução da Integração da [Fábrica de Dados Azure](https://aka.ms/dmg).
 
 2. Executar o instalador para instalar a integração auto-hospedada num computador local.
 
 3. Registe a nova integração auto-hospedada com a chave de autenticação que recuperou num passo anterior.
 
-### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Partilhe o tempo de execução da integração auto-hospedada com outra fábrica de dados
+### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Partilhe o tempo de integração auto-hospedado com outra fábrica de dados
 
 #### <a name="create-another-data-factory"></a>Criar outra fábrica de dados
 
@@ -164,7 +162,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-#### <a name="grant-permission"></a>Concessão de autorização
+#### <a name="grant-permission"></a>Conceder permissão
 
 Conceda permissão à fábrica de dados que precisa de aceder ao tempo de integração auto-hospedado que criou e registou.
 
@@ -178,9 +176,9 @@ New-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-### <a name="create-a-linked-self-hosted-integration-runtime"></a>Criar um tempo de execução de integração auto-hospedado ligado
+### <a name="create-a-linked-self-hosted-integration-runtime"></a>Criar um tempo de integração auto-hospedado ligado
 
-Executar o seguinte comando para criar um tempo de execução de integração auto-hospedado ligado:
+Executar o seguinte comando para criar um tempo de integração auto-hospedado ligado:
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime `
@@ -192,11 +190,11 @@ Set-AzDataFactoryV2IntegrationRuntime `
     -Description $LinkedIntegrationRuntimeDescription
 ```
 
-Agora pode utilizar este tempo de execução de integração ligado em qualquer serviço ligado. O tempo de execução de integração ligado utiliza o tempo de execução da integração partilhada para executar atividades.
+Agora pode utilizar este tempo de integração ligado em qualquer serviço ligado. O tempo de execução da integração ligada utiliza o tempo de execução da integração partilhada para executar atividades.
 
-### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revogar a partilha de tempo de integração a partir de uma fábrica de dados
+### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revogar a partilha de tempo de execução de integração de uma fábrica de dados
 
-Para revogar o acesso de uma fábrica de dados do tempo de execução de integração partilhada, executar o seguinte comando:
+Para revogar o acesso de uma fábrica de dados a partir do tempo de execução da integração partilhada, executar o seguinte comando:
 
 ```powershell
 Remove-AzRoleAssignment `
@@ -205,7 +203,7 @@ Remove-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-Para remover o tempo de execução de integração ligado existente, executar o seguinte comando contra o tempo de execução da integração partilhada:
+Para remover o tempo de execução da integração ligada existente, executar o seguinte comando contra o tempo de execução da integração partilhada:
 
 ```powershell
 Remove-AzDataFactoryV2IntegrationRuntime `
@@ -216,8 +214,8 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
-- Rever conceitos de tempo de [execução de integração na Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)
+- Rever [conceitos de tempo de execução de integração na Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)
 
-- Aprenda a [criar um tempo de funcionação de integração auto-hospedado no portal Azure.](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- Saiba como [criar um tempo de integração auto-hospedado no portal Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).

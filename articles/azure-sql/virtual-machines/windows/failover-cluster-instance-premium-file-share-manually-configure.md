@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 01787fbf3339a7e079b705fb4be27ba1e30aee1b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 6929f6a8ca79c63d6d6d6fc2f3eee1b22ec49d39
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342883"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656895"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server com partilha de ficheiros premium em Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo explica como criar uma instância de cluster de failover (FCI) do SQL Server em Azure Virtual Machines utilizando uma [partilha de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
@@ -29,7 +30,7 @@ Este artigo explica como criar uma instância de cluster de failover (FCI) do SQ
 As ações de ficheiros premium são ações de ficheiros apoiadas por SSD, consistentemente de baixa latência, que são totalmente suportadas para utilização com Instâncias de Cluster Failover para SQL Server 2012 ou mais tarde no Windows Server 2012 ou posteriormente. As ações de ficheiros premium conferem-lhe maior flexibilidade, permitindo-lhe redimensionar e escalar uma partilha de ficheiros sem qualquer tempo de inatividade.
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Há algumas coisas que precisa saber e ter no lugar antes de começar.
 
@@ -47,6 +48,8 @@ Deve também ter uma compreensão geral destas tecnologias:
 
 > [!IMPORTANT]
 > Neste momento, as instâncias de cluster failover do SQL Server nas Máquinas Virtuais Azure só são suportadas com o modo de [gestão leve](sql-vm-resource-provider-register.md#management-modes) da Extensão do [Agente IAAS](sql-server-iaas-agent-extension-automate-management.md)do SqL Server . Para mudar do modo de extensão total para leve, elimine o recurso **SQL Virtual Machine** para os VMs correspondentes e registe-os com o fornecedor de recursos SQL VM em modo leve. Ao eliminar o recurso **SQL Virtual Machine** utilizando o portal Azure, **limpe a caixa de verificação ao lado da Máquina Virtual correta**. A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMS SQL após a reinstalação do agente em modo de gestão leve.
+> 
+
 
 As ações de ficheiros premium fornecem IOPS e capacidades de produção que irão atender às necessidades de muitas cargas de trabalho. Para cargas de trabalho intensivas em IO, considere [sql Server Failover Cluster Instances with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md), com base em discos premium geridos ou discos ultra.  
 
@@ -64,7 +67,7 @@ Com o licenciamento pay-as-you-go, uma instância de cluster failover (FCI) do S
 
 Se tiver o Acordo Empresarial com a Garantia de Software, pode utilizar um nó FCI passivo gratuito para cada nó ativo. Para tirar partido deste benefício em Azure, utilize imagens BYOL VM e use a mesma licença nos nós ativos e passivos da FCI. Para mais informações, consulte [o Acordo de Empresa.](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)
 
-Para comparar o licenciamento pay-as-you-go e BYOL para o SQL Server em Azure Virtual Machines, consulte [Começar com VMs SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
+Para comparar o licenciamento pay-as-you-go e BYOL para o SQL Server em Azure VM, consulte [Começar com VMs do SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 Para obter informações completas sobre o licenciamento do SQL Server, consulte [o Preço](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -79,11 +82,11 @@ Antes de completar os passos deste artigo, já deve ter:
 - Uma subscrição do Microsoft Azure.
 - Um domínio Windows em Azure Virtual Machines.
 - Uma conta de utilizador de domínio que tem permissões para criar objetos tanto em Azure Virtual Machines como no Ative Directory.
-- Uma conta de utilizador de domínio para executar o serviço SQL Server e que pode iniciar sessão na máquina virtual com a montagem da partilha de ficheiros.  
+- Uma conta de utilizador de domínio para executar o serviço SQL Server e que pode utilizar para iniciar sessão na máquina virtual ao montar a partilha de ficheiros. 
 - Uma rede virtual Azure e uma sub-rede com espaço de endereço IP suficiente para estes componentes:
-   - Duas máquinas virtuais.
-   - O endereço IP do cluster de falhas.
-   - Um endereço IP para cada FCI.
+   - Duas máquinas virtuais
+   - O endereço IP do cluster de failover
+   - Um endereço IP para cada FCI
 - DNS configurado na rede Azure, apontando para os controladores de domínio.
 - Uma [partilha de ficheiro premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) para ser usada como unidade agrupada, com base na quota de armazenamento da sua base de dados para os seus ficheiros de dados.
 - Se estiver no Windows Server 2012 R2 ou mais antigo, precisará de outra partilha de ficheiros para usar como testemunha de partilha de ficheiros, uma vez que as testemunhas na nuvem são suportadas pelo Windows 2016 e mais recentes. Pode utilizar outra partilha de ficheiros Azure, ou pode utilizar uma partilha de ficheiros numa máquina virtual separada. Se vai utilizar outra partilha de ficheiros Azure, pode montá-la com o mesmo processo que a partilha de ficheiros premium utilizada para a sua unidade agrupada. 
@@ -125,19 +128,21 @@ Com estes pré-requisitos no lugar, pode começar a construir o seu aglomerado d
 
       >[!IMPORTANT]
       >Não é possível definir ou alterar o conjunto de disponibilidade depois de ter criado uma máquina virtual.
+      >
 
    Escolha uma imagem do Azure Marketplace. Pode utilizar uma imagem do Azure Marketplace que inclua o Windows Server e o SQL Server, ou utilizar uma que apenas inclui o Windows Server. Para mais detalhes, consulte [a visão geral do SQL Server em Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    As imagens oficiais do SQL Server na Galeria Azure incluem uma instância de servidor SQL instalada, o software de instalação do SQL Server e a chave necessária.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > Depois de criar a máquina virtual, remova a instância sql server pré-instalada. Utilizará o meio de servidor SQL pré-instalado para criar o SQL Server FCI depois de configurar o cluster de failover e a partilha de ficheiros premium como armazenamento.
+   > 
 
    Em alternativa, pode utilizar imagens do Azure Marketplace que contenham apenas o sistema operativo. Escolha uma imagem **do Datacenter 2016** do Windows Server e instale o SQL Server FCI depois de configurar o cluster de failover e a partilha de ficheiros premium como armazenamento. Esta imagem não contém meios de instalação SQL Server. Coloque o meio de instalação do SQL Server num local onde possa executá-lo para cada servidor.
 
-1. Depois de o Azure criar as suas máquinas virtuais, ligue-se a cada uma utilizando RDP.
+1. Depois de o Azure criar as suas máquinas virtuais, ligue-se a cada uma delas utilizando o Protocolo de Ambiente de Trabalho Remoto (RDP).
 
-   Quando se liga a uma máquina virtual utilizando RDP, um pedido pergunta-lhe se pretende permitir que o PC seja detetável na rede. Selecione **Sim**.
+   Quando se liga a uma máquina virtual com RDP, um pedido pergunta-lhe se pretende permitir que o PC seja detetável na rede. Selecione **Sim**.
 
 1. Se estiver a utilizar uma das imagens de máquinas virtuais baseadas no SQL Server, remova a instância do SQL Server.
 
@@ -185,10 +190,11 @@ Depois de criar e configurar as máquinas virtuais, pode configurar a parte de f
   > [!IMPORTANT]
   > - Considere utilizar uma partilha de ficheiros separada para ficheiros de cópia de segurança para guardar o IOPS e a capacidade de espaço desta partilha para ficheiros Data e Log. Pode utilizar uma partilha de ficheiros premium ou padrão para ficheiros de backup.
   > - Se estiver no Windows 2012 R2 ou mais velho, siga estes mesmos passos para montar a sua partilha de ficheiros que vai usar como testemunha de partilha de ficheiros. 
+  > 
 
 ## <a name="step-3-configure-the-failover-cluster"></a>Passo 3: Configurar o cluster de failover
 
-O próximo passo é configurar o aglomerado de falhanços. Neste passo, você completará os seguintes passos:
+Agora configura o aglomerado de falhanços. Nesta secção, completa os seguintes passos:
 
 1. Adicione a função de clustering de falha do servidor do Windows.
 1. Valide o cluster.
@@ -246,8 +252,9 @@ Depois de validar o cluster, crie o cluster de failover.
 ### <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
 Para criar o cluster de failover, você precisa:
+
 - Os nomes das máquinas virtuais que se tornarão os nós do cluster.
-- Um nome para o cluster failover
+- Um nome para o aglomerado de falhanços.
 - Um endereço IP para o cluster de failover. Pode utilizar um endereço IP que não seja utilizado na mesma rede virtual Azure e sub-rede que os nós de cluster.
 
 #### <a name="windows-server-2012-through-windows-server-2016"></a>Windows Server 2012 através do Windows Server 2016
@@ -267,9 +274,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness-win-2016-"></a>Criar uma testemunha em nuvem (Ganhar 2016 +)
+### <a name="create-a-cloud-witness-win-2016-and-later"></a>Criar uma testemunha em nuvem (Ganhar 2016 e mais tarde)
 
-Se estiver no Windows Server 2016 e for maior, terá de criar uma Cloud Witness. Cloud Witness é um novo tipo de testemunha de quórum que está guardada numa bolha de armazenamento Azure. Isto elimina a necessidade de um VM separado que acolhe uma partilha de testemunhas, ou usando uma partilha de ficheiros separada.
+Se estiver no Windows Server 2016 e mais tarde, terá de criar uma testemunha na nuvem. Uma testemunha em nuvem é um novo tipo de testemunha de quórum que está guardada numa bolha de armazenamento Azure. Isto elimina a necessidade de um VM separado que acolhe uma partilha de testemunhas, ou usando uma partilha de ficheiros separada.
 
 1. [Crie uma testemunha em nuvem para o aglomerado de falhas.](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)
 
@@ -279,7 +286,7 @@ Se estiver no Windows Server 2016 e for maior, terá de criar uma Cloud Witness.
 
 ### <a name="configure-quorum"></a>Configure quórum 
 
-Para o Windows Server 2016 e maior, configura o cluster para utilizar a testemunha em nuvem que acabou de criar. Siga todos os passos [Configurar a testemunha do quórum na interface do utilizador.](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)
+Para o Windows Server 2016 e mais tarde, configurar o cluster para utilizar a testemunha em nuvem que acabou de criar. Siga todos os passos [Configurar a testemunha do quórum na interface do utilizador.](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)
 
 Para o Windows Server 2012 R2 ou mais antigo, siga os mesmos passos em [Configurar a testemunha quórum na interface do utilizador](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) mas na página Select **Quorum Witness,** selecione a opção Configurar uma testemunha **de partilha de ficheiros.** Especifique a partilha de ficheiros que alocou para ser a testemunha de partilha de ficheiros, quer seja aquela que configuraste numa máquina virtual separada, ou montada a partir do Azure. 
 
@@ -296,7 +303,7 @@ Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
 1. Ligue-se à primeira máquina virtual utilizando RDP.
 
-1. No **Failover Cluster Manager,** certifique-se de que todos os Recursos de Cluster Core estão na primeira máquina virtual. Se precisar, mova todos os recursos para esta máquina virtual.
+1. No **Failover Cluster Manager,** certifique-se de que todos os Recursos de Cluster Core estão na primeira máquina virtual. Se necessário, mova todos os recursos para esta máquina virtual.
 
 1. Localize os meios de instalação. Se a máquina virtual utilizar uma das imagens do Azure Marketplace, os meios de comunicação estão localizados em `C:\SQLServer_<version number>_Full` . Selecione **Configuração**.
 
@@ -304,7 +311,7 @@ Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
 1. Selecione **a instalação de cluster de falha do novo sql server**. Siga as instruções do assistente para instalar o SQL Server FCI.
 
-   Os diretórios de dados da FCI têm de estar na parte de ficheiros premium. Insira o caminho completo da partilha, desta forma: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Aparecerá um aviso, informando-o de que especificou um servidor de ficheiros como diretório de dados. Este aviso é esperado. Certifique-se de que a conta de utilizador que tem RDP'd para o VM com quando persiste a partilha de ficheiros é a mesma que o serviço SQL Server utiliza para evitar possíveis falhas.
+   Os diretórios de dados da FCI têm de estar na parte de ficheiros premium. Insira o caminho completo da partilha, desta forma: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Aparecerá um aviso, informando-o de que especificou um servidor de ficheiros como diretório de dados. Este aviso é esperado. Certifique-se de que a conta de utilizador utilizada para aceder ao VM via RDP quando persistisse a partilha de ficheiros é a mesma que o serviço SQL Server utiliza para evitar possíveis falhas.
 
    :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/use-file-share-as-data-directories.png" alt-text="Use a partilha de ficheiros como diretórios de dados SQL":::
 
@@ -318,6 +325,7 @@ Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
    >[!NOTE]
    >Se usou uma imagem de galeria do Azure Marketplace com o SQL Server, as ferramentas sql Server foram incluídas com a imagem. Se não usou uma dessas imagens, instale as ferramentas SQL Server separadamente. Consulte [o Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 ## <a name="step-6-create-the-azure-load-balancer"></a>Passo 6: Criar o equilibrador de carga Azure
 
@@ -429,6 +437,7 @@ A lista que se segue descreve os valores que precisa de atualizar:
 
 >[!IMPORTANT]
 >A máscara de sub-rede para o parâmetro de cluster deve ser o endereço de transmissão IP TCP: `255.255.255.255` .
+>
 
 Depois de definir a sonda de cluster, pode ver todos os parâmetros de cluster no PowerShell. Executar este script:
 
@@ -456,17 +465,19 @@ Para testar a conectividade, inscreva-se noutra máquina virtual na mesma rede v
 
 >[!NOTE]
 >Se precisar, pode [baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>
 
 ## <a name="limitations"></a>Limitações
 
-A Azure Virtual Machines suporta o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
+As Máquinas Virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
+
 
 Nas Máquinas Virtuais Azure, o MSDTC não é suportado no Windows Server 2016 ou mais cedo porque:
 
 - O recurso MSDTC agrupado não pode ser configurado para usar armazenamento partilhado. No Windows Server 2016, se criar um recurso MSDTC, não apresentará nenhum armazenamento partilhado disponível para utilização, mesmo que o armazenamento esteja disponível. Este problema foi corrigido no Windows Server 2019.
 - O equilibrador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

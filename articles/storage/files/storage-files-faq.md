@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ac9d9fddc45abbcbe4890d1060dcc2c931c72182
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3724392cc50e910c5caf4a3f6cba85070a6d107f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265170"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661094"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria. Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -109,7 +109,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    Por exemplo, o primeiro conflito de CompanyReport.docx tornar-se-ia CompanyReport-CentralServer.docx se centralServer fosse onde ocorreu a escrita mais antiga. O segundo conflito seria denominado CompanyReport-CentralServer-1.docx. O Azure File Sync suporta 100 ficheiros de conflito por ficheiro. Uma vez atingido o número máximo de ficheiros de conflito, o ficheiro deixará de sincronizar até que o número de ficheiros de conflito seja inferior a 100.
+    Por exemplo, o primeiro conflito de CompanyReport.docx tornar-se-ia CompanyReport-CentralServer.docx se a CentralServer fosse onde ocorreu a escrita mais antiga. O segundo conflito seria nomeado CompanyReport-CentralServer-1.docx. O Azure File Sync suporta 100 ficheiros de conflito por ficheiro. Uma vez atingido o número máximo de ficheiros de conflito, o ficheiro deixará de sincronizar até que o número de ficheiros de conflito seja inferior a 100.
 
 * <a id="afs-storage-redundancy"></a>
   **O armazenamento geo-redundante é suportado para o Azure File Sync?**  
@@ -160,7 +160,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="afs-ntfs-acls"></a>
   **O Azure File Sync preserva o diretório/nível de ficheiro NTFS ACLs juntamente com os dados armazenados em Ficheiros Azure?**
 
-    A partir de 24 de fevereiro de 2020, novos ACLs existentes e existentes tiered by Azure file sync serão persistidos no formato NTFS, e as modificações ACL feitas diretamente para a partilha de ficheiros Azure irão sincronizar com todos os servidores do grupo de sincronização. Quaisquer alterações nos ACLs efetuadas aos Ficheiros Azure sincronizar-se-ão através da sincronização de ficheiros Azure. Ao copiar dados para ficheiros Azure, certifique-se de que utiliza o SMB para aceder à partilha e preservar os seus ACLs. As ferramentas existentes baseadas em REST, tais como AzCopy ou Storage Explorer não persistem ACLs.
+    A partir de 24 de fevereiro de 2020, novos ACLs existentes e existentes tiered by Azure file sync serão persistidos no formato NTFS, e as modificações ACL feitas diretamente para a partilha de ficheiros Azure irão sincronizar com todos os servidores do grupo de sincronização. Quaisquer alterações nos ACLs efetuadas aos Ficheiros Azure sincronizar-se-ão através da sincronização de ficheiros Azure. Ao copiar dados para ficheiros Azure, certifique-se de que utiliza uma ferramenta de cópia que suporta a "fidelidade" necessária para copiar atributos, timetamps e ACLs numa partilha de ficheiros Azure - seja através de SMB ou REST. Ao utilizar ferramentas de cópia Azure, como a AzCopy, é importante utilizar a versão mais recente. Consulte a tabela de [ferramentas de cópia](storage-files-migration-overview.md#file-copy-tools) de ficheiros para obter uma visão geral das ferramentas de cópia do Azure para garantir que pode copiar todos os metadados importantes de um ficheiro.
 
     Se tiver ativado o Azure Backup nas partilhas de ficheiros geridos por ficheiros, os ACLs de ficheiros podem continuar a ser restaurados como parte do fluxo de trabalho de restauração de backup. Isto funciona para a totalidade das ações ou ficheiros/diretórios individuais.
 
@@ -421,7 +421,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 **Como uso ficheiros Azure com MQ IBM?**  
     A IBM divulgou um documento que ajuda os clientes da IBM MQ a configurar ficheiros Azure com o serviço IBM. Para obter mais informações, consulte [Como configurar um gestor de fila de vários instâncias IBM MQ com o serviço Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)

@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 13bff6006d38489d576a0cbefbf3e7bab8afab37
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 65bcedd534bffca3f69d8162a6d2a429d8d73863
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488907"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660859"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -20,7 +20,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 
 **Implementação** |  **Suporte**
 --- | ---
-**Portal Azure** | Suportado.
+**Portal do Azure** | Suportado.
 **PowerShell** | Suportado. [Saiba mais](azure-to-azure-powershell.md)
 **API REST** | Suportado.
 **CLI** | Atualmente, não é suportado
@@ -150,7 +150,7 @@ Debian 8 | 9.28 | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32, [9.33](https://support.microsoft.com/help/4564347/) | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.33 patch de correção quente | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure </br> 4.12.14-16.10-azure para 4.12.14-16.7-azure:5  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | 9.33 patch de correção quente | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure </br> 4.12.14-16.10-azure para 4.12.14-16.7-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.30 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | Todas as ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.23-azure  |
@@ -285,6 +285,6 @@ IPv6  | Não suportado | As configurações mistas que incluem o IPv4 e o IPv6 t
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Leia [orientação de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs Azure.
 - Implementar a recuperação de [desastres replicando VMs Azure](site-recovery-azure-to-azure.md).

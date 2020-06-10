@@ -3,16 +3,16 @@ title: Encontre e elimine discos geridos e não geridos do Azure desanexados
 description: Como encontrar e eliminar discos Azure não ligados geridos e não geridos (VHDs/blobs de página) utilizando O Azure CLI.
 author: roygara
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b4a46e79b3bb2feabe7af739086b8e0166c4ac55
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 87fe277bbd2fa618d43ce3274c1d2c05a5d7b396
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296294"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660164"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Localizar e apagar discos geridos e não geridos pelo Azure utilizando o Azure CLI
 Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos que estejam ligados ao VM não são eliminados. Esta funcionalidade ajuda a prevenir a perda de dados devido à eliminação não intencional de VMs. Depois de eliminado um VM, continuará a pagar por discos não ligados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos não ligados e reduzir custos desnecessários. 
@@ -103,7 +103,7 @@ do
 done 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [Eliminar uma conta de armazenamento.](../../storage/common/storage-account-create.md#delete-a-storage-account)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2b49598d51fb785872fccec966ac11a95ef3cede
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267822"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657725"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
 
@@ -330,7 +330,7 @@ Atualmente, pode considerar a recolocação do seu AAD DS utilizando um novo nom
 ### <a name="self-diagnostics-steps"></a>Passos de autodiagnósto
 Em primeiro lugar, certifique-se de que seguiu os quatro passos para ativar a [autenticação AD dos Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Em segundo lugar, tente [montar a partilha de ficheiros Azure com a chave da conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se não montou, descarregue [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para ajudá-lo a validar o ambiente de funcionamento do cliente, detetar a configuração incompatível do cliente que causaria falha de acesso para Ficheiros Azure, dá orientação prescritiva sobre auto-correcção e, recolher os vestígios de diagnóstico.
+Em segundo lugar, tente [montar a partilha de ficheiros Azure com a chave da conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se não tiver montado, faça o download [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para o ajudar a validar o ambiente de funcionamento do cliente, detetar a configuração incompatível do cliente que causaria falhas de acesso aos Ficheiros Azure, dá orientações prescritivas sobre a auto-correcção e, recolhendo os vestígios de diagnóstico.
 
 Em terceiro lugar, pode executar o cmdlet Debug-AzStorageAccountAuth para realizar um conjunto de verificações básicas na sua configuração de AD com o registado no utilizador AD. Este cmdlet é suportado na [versão v0.1.2 e superior do AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases). Deve executar este cmdlet com um utilizador do AD que possua permissão de proprietário na conta de armazenamento de destino.  
 ```PowerShell
@@ -345,9 +345,9 @@ O cmdlet executa estas verificações abaixo em sequência e fornece orientaçã
 3. CheckADObject: confirme que o utilizador registado tem uma representação válida no domínio AD a que a conta de armazenamento está associada
 4. CheckGetKerberosTicket: tente obter um bilhete Kerberos para ligar à conta de armazenamento 
 5. CheckADObjectPasswordIsCorrect: certifique-se de que a palavra-passe configurada na identidade AD que representa a conta de armazenamento corresponde à da chave kerb da conta de armazenamento
-6. CheckSidHasAadUser: verifique se o utilizador de AD está sincronizado com a Azure AD
-
-Estamos a trabalhar ativamente no alargamento deste cmdlet de diagnóstico para fornecer uma melhor orientação para a resolução de problemas.
+6. CheckSidHasAadUser: verifique se o utilizador com sessão registada no utilizador AD está sincronizado com a Azure AD. Se quiser analisar se um utilizador específico de AD está sincronizado com AZure AD, pode especificar o -UserName e -Domain nos parâmetros de entrada.
+7. CheckAadUserHasSid: verifique se um utilizador Azuer AD tem um SID em AD, exija que o utilizador introduza o ID do Objeto do utilizador Azure AD com -ObjectId. 
+8. CheckStorageAccountDomainJoined: verifique se registou uma identidade em AD para representar a conta de armazenamento. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Não é possível configurar permissões de diretório/nível de ficheiro (ACLs windows) com o Windows File Explorer
 
