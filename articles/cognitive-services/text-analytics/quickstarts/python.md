@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: Utilizar o Python para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como obter amostras de informação e código para ajudá-lo rapidamente a começar a usar a API de Análise de Texto em Serviços Cognitivos Azure.
+description: Este quickstart mostra como obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,18 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 1071f3dabf7148381edecedce495f645c52e748d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378556"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610258"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Usar a API python REST para ligar para o Serviço Cognitivo de Análise de Texto 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Utilização da API Python REST para chamar o Serviço Cognitivo text Analytics 
 <a name="HOLTop"></a>
 
-Use este quickstart para começar a analisar a linguagem com o Text Analytics REST API e Python. Este artigo mostra-lhe como [detetar a linguagem,](#Detect) [analisar o sentimento,](#SentimentAnalysis) [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades ligadas.](#Entities)
+Utilize este quickstart para começar a analisar a linguagem com a API E Python do Text Analytics REST. Este artigo mostra-lhe como detetar a [linguagem,](#Detect) [analisar sentimentos,](#SentimentAnalysis) [extrair frases-chave,](#KeyPhraseExtraction)e [identificar entidades ligadas.](#Entities)
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -28,7 +29,7 @@ Use este quickstart para começar a analisar a linguagem com o Text Analytics RE
 
 * [Python 3.x](https://python.org)
 
-* A Python solicita biblioteca
+* O Python pede biblioteca
     
     Pode instalar a biblioteca com este comando:
 
@@ -41,7 +42,7 @@ Use este quickstart para começar a analisar a linguagem com o Text Analytics RE
 
 ## <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
 
-Crie uma nova aplicação Python no seu editor favorito ou IDE. Adicione as seguintes importações ao seu ficheiro.
+Crie uma nova aplicação Python no seu editor favorito ou IDE. Adicione as seguintes importações ao seu arquivo.
 
 ```python
 import requests
@@ -49,7 +50,7 @@ import requests
 from pprint import pprint
 ```
 
-Crie variáveis para o ponto final do seu recurso Azure e chave de subscrição.
+Crie variáveis para a chave de base e subscrição Azure do seu recurso.
     
 ```python
 import os
@@ -58,19 +59,19 @@ subscription_key = "<paste-your-text-analytics-key-here>"
 endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
-As seguintes secções descrevem como chamar cada uma das funcionalidades da API.
+As secções seguintes descrevem como chamar cada uma das funcionalidades da API.
 
 <a name="Detect"></a>
 
 ## <a name="detect-languages"></a>Detetar idiomas
 
-Anexar `/text/analytics/v2.1/languages` ao ponto final da base de Análise de Texto para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
+Anexar `/text/analytics/v2.1/languages` ao ponto final da base text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
-A carga útil para a API `documents`consiste numa lista de, `id` que `text` são tuples contendo um atributo e um atributo. O `text` atributo armazena o texto `id` a ser analisado, e o pode ser qualquer valor. 
+A carga útil para a API consiste numa lista de `documents` tuples que contêm `id` um atributo e um `text` atributo. O `text` atributo armazena o texto a ser analisado, e o pode ser qualquer `id` valor. 
 
 ```python
 documents = {"documents": [
@@ -80,7 +81,7 @@ documents = {"documents": [
 ]}
 ```
 
-Utilize a biblioteca De Pedidos para enviar os documentos para a API. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição `requests.post()`ao cabeçalho e envie o pedido com . 
+Utilize a biblioteca pedidos para enviar os documentos para a API. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho e envie o pedido com `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -133,13 +134,13 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-Para detetar o sentimento (que varia entre positivo ou negativo) `/text/analytics/v2.1/sentiment` de um conjunto de documentos, anexar-se ao ponto final da base do Text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+Para detetar o sentimento (que varia entre positivo ou negativo) de um conjunto de documentos, `/text/analytics/v2.1/sentiment` apencha-se ao ponto final base text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
-Tal como acontece com o exemplo de `documents` deteção de linguagem, crie um dicionário com uma chave que consiste numa lista de documentos. Cada documento é uma cadeia de identificação que consiste no `id`, no `text` a ser analisado e no `language` do texto. 
+Tal como acontece com o exemplo de deteção de idiomas, crie um dicionário com uma `documents` chave que consiste numa lista de documentos. Cada documento é uma cadeia de identificação que consiste no `id`, no `text` a ser analisado e no `language` do texto. 
 
 ```python
 documents = {"documents": [
@@ -154,7 +155,7 @@ documents = {"documents": [
 ]}
 ```
 
-Utilize a biblioteca De Pedidos para enviar os documentos para a API. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição `requests.post()`ao cabeçalho e envie o pedido com . 
+Utilize a biblioteca pedidos para enviar os documentos para a API. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho e envie o pedido com `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -195,13 +196,13 @@ A pontuação de sentimento para um documento é entre 0.0 e 1.0, com uma pontua
 
 ## <a name="extract-key-phrases"></a>Extrair expressões-chave
  
-Para extrair as frases-chave de um `/text/analytics/v2.1/keyPhrases` conjunto de documentos, anexar-se ao ponto final da base de Análise de Texto para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
+Para extrair as frases-chave de um conjunto de documentos, `/text/analytics/v2.1/keyPhrases` apencha-se ao ponto final base text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
 ```
 
-Esta recolha de documentos é a mesma utilizada para o exemplo de análise de sentimentos.
+Esta recolha de documentos é a mesma utilizada para o exemplo de análise de sentimento.
 
 ```python
 documents = {"documents": [
@@ -216,7 +217,7 @@ documents = {"documents": [
 ]}
 ```
 
-Utilize a biblioteca De Pedidos para enviar os documentos para a API. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição `requests.post()`ao cabeçalho e envie o pedido com . 
+Utilize a biblioteca pedidos para enviar os documentos para a API. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho e envie o pedido com `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -271,7 +272,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>Identificar Entidades
 
-Para identificar entidades conhecidas (pessoas, lugares e coisas) em documentos de texto, anexar-se `/text/analytics/v2.1/entities` ao ponto final da base do Text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+Para identificar entidades conhecidas (pessoas, lugares e coisas) em documentos de texto, `/text/analytics/v2.1/entities` anexa-se ao ponto final base text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"
@@ -285,7 +286,7 @@ documents = {"documents": [
 ]}
 ```
 
-Utilize a biblioteca De Pedidos para enviar os documentos para a API. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição `requests.post()`ao cabeçalho e envie o pedido com .
+Utilize a biblioteca pedidos para enviar os documentos para a API. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho e envie o pedido com `requests.post()` .
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -449,7 +450,7 @@ pprint(entities)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Configurar plataforma de dev'
+title: 'Quickstart: Configurar plataforma dev'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, aprenderá a instalar o Speech SDK para a sua plataforma preferida e combinação de linguagem de programação.
+description: Neste arranque rápido, aprenderás a instalar o SDK do Discurso para a tua plataforma preferida e a combinação de linguagem de programação.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: dapine
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: f5ab2202dde1bfa830f5952dd5c6e77e2fb7fd41
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: ef498f0660613afdc5a2842898b4538454444759
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980179"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609323"
 ---
 # <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 
 ::: zone pivot="programming-language-csharp"
 
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -49,7 +50,7 @@ ms.locfileid: "82980179"
 
 ::: zone pivot="programming-language-cpp"
 
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -68,9 +69,9 @@ ms.locfileid: "82980179"
 
 ::: zone pivot="programming-language-java"
 
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
-# <a name="java-runtime"></a>[Tempo de execução de Java](#tab/jre)
+# <a name="java-runtime"></a>[Java Runtime](#tab/jre)
 
 [!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
 
@@ -96,13 +97,13 @@ ms.locfileid: "82980179"
 
 ::: zone pivot="programming-language-javascript"
 
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
 #### <a name="browser-based"></a>[Baseado no navegador](#tab/browser)
 
 [!INCLUDE [browser](../includes/quickstarts/platform/javascript-browser.md)]
 
-#### <a name="nodejs"></a>[NodeJS](#tab/nodejs)
+#### <a name="nodejs"></a>[Nodejs](#tab/nodejs)
 
 [!INCLUDE [node](../includes/quickstarts/platform/javascript-node.md)]
 

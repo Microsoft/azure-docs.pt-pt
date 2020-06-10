@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use uma biblioteca de clientes Bing Web Search'
 titleSuffix: Azure Cognitive Services
-description: O Bing Web Search API oferece bibliotecas de clientes que facilitam a integração de capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter resultados de volta.
+description: A API de Pesquisa Web Bing oferece bibliotecas de clientes que facilitam a integração das capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter os resultados de volta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 5bbf3dcd6fff7bc93fb76b3e79ec7d4e4fa690ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 738e3a4d77fe98e6616dc6ef3e7ac54581d4a76c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402557"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604189"
 ---
 # <a name="quickstart-use-a-bing-web-search-client-library"></a>Quickstart: Use uma biblioteca de clientes Bing Web Search
 

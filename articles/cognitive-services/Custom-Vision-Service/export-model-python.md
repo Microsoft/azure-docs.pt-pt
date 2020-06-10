@@ -10,12 +10,13 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6fcbd84b3cda4adace9c1229f5ed03c3dce68fc0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 46ed55e5d6a9156d9ea7909925e92d6c39c8e89d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404124"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609578"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: executar um modelo TensorFlow em Python
 
@@ -68,7 +69,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Preparar uma imagem para predição
 
-Há alguns passos que precisa de tomar para preparar a imagem para a previsão. Estes passos imitam a manipulação de imagem efetuada durante a preparação:
+Há alguns passos que precisa de dar para preparar a imagem para a previsão. Estes passos imitam a manipulação de imagem efetuada durante a preparação:
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Abrir o ficheiro e criar uma imagem na colorimetria BGR
 
@@ -88,7 +89,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="handle-images-with-a-dimension-1600"></a>Manuseie imagens com uma dimensão >1600
+### <a name="handle-images-with-a-dimension-1600"></a>Lidar com imagens com uma dimensão >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -208,9 +209,9 @@ Os resultados da execução do tensor de imagens através do modelo terão de se
         label_index += 1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Em seguida, aprenda a embrulhar o seu modelo numa aplicação móvel:
+Em seguida, aprenda a envolver o seu modelo numa aplicação móvel:
 * [Utilizar o modelo exportado do Tensorflow numa aplicação Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Utilizar o modelo exportado do CoreML numa aplicação Swift iOS](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Utilizar o modelo exportado do CoreML numa aplicação iOS com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

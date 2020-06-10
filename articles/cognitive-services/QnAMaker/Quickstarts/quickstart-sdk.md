@@ -1,17 +1,18 @@
 ---
-title: 'Quickstart: Use SDK para criar e gerir base de conhecimento - QnA Maker'
-description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimento usando o SDK do cliente.
+title: 'Quickstart: Use SDK para criar e gerir a base de conhecimento - QnA Maker'
+description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimentos utilizando o cliente SDK.
 ms.topic: quickstart
 ms.date: 04/27/2020
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 350020069edc2ae01f1716b1e6166da43054b24b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 97d0ddd571f089cea2c656f6277e45d0d5eddb3d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204041"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608626"
 ---
-# <a name="quickstart-create-and-manage-knowledge-base"></a>Quickstart: Criar e gerir base de conhecimento
+# <a name="quickstart-create-and-manage-knowledge-base"></a>Quickstart: Criar e gerir a base de conhecimentos
 
 Começa com a biblioteca de clientes da QnA Maker. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 
@@ -27,11 +28,11 @@ Começa com a biblioteca de clientes da QnA Maker. Siga estes passos para instal
 [!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
->[Tutorial: Teste a sua base de conhecimentos com um ficheiro de lote](./batch-testing.md)
+>[Tutorial: Teste a sua base de conhecimento com um ficheiro de lote](./batch-testing.md)
 
-* [O que é a API do Fabricante de QnA?](../Overview/overview.md)
+* [O que é a API do Fabricante QNA?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)
-* [Obtenha análises de uso](../how-to/get-analytics-knowledge-base.md)
+* [Obtenha análises de utilização](../how-to/get-analytics-knowledge-base.md)
