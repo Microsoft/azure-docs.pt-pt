@@ -13,12 +13,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 781d8b89dd1b7fa6b2ed9707f6d4c485b4abdf20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f9f80cf0c42bdc6e45d62cac930c0bce4b20ee60
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220636"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605464"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização numa política de acesso condicional 
 
@@ -34,7 +34,7 @@ As organizações podem usar esta localização da rede para tarefas comuns como
 A localização da rede é determinada pelo endereço IP público que um cliente fornece ao Azure Ative Directory. As políticas de acesso condicional por padrão aplicam-se a todos os endereços IPv4 e IPv6. 
 
 > [!TIP]
-> As gamas IPV6 só são suportadas na interface **[de localização nomeada (pré-visualização).](#preview-features)** 
+> As gamas IPv6 só são suportadas na interface **[de localização nomeada (pré-visualização).](#preview-features)** 
 
 ## <a name="named-locations"></a>Localizações com nome
 
@@ -50,7 +50,7 @@ O número de locais nomeados que pode configurar está limitado pelo tamanho do 
 - Um máximo de 90 locais nomeados com uma gama de IP atribuída a cada um deles.
 
 > [!TIP]
-> As gamas IPV6 só são suportadas na interface **[de localização nomeada (pré-visualização).](#preview-features)** 
+> As gamas IPv6 só são suportadas na interface **[de localização nomeada (pré-visualização).](#preview-features)** 
 
 ### <a name="trusted-locations"></a>Locais fidedignos
 
@@ -65,7 +65,7 @@ Esta opção pode ter em conta as políticas de Acesso Condicional onde pode, po
 Algumas organizações podem optar por definir limites IP de países inteiros ou regiões como locais nomeados para políticas de acesso condicional. Podem utilizar estes locais quando bloqueiam o tráfego desnecessário quando sabem que utilizadores válidos nunca virão de um local como a Coreia do Norte. Estes mapeamentos do endereço IP para o país são atualizados periodicamente. 
 
 > [!NOTE]
-> Os países não incluem intervalos de endereços IPv6, apenas gamas de endereços IPv4 conhecidas.
+> Os países não incluem intervalos de endereços IPv6, apenas gamas de endereços IPv4 conhecidas, e não podem ser marcados como confiáveis.
 
 ![Criar um novo país ou localização baseada na região no portal Azure](./media/location-condition/new-named-location-country-region.png)
 
@@ -102,7 +102,7 @@ Com a pré-visualização de localização nomeada, você é capaz de
 
 - Configurar até 195 locais nomeados
 - Configurar até 2000 gamas IP por localização nomeada
-- Configurar até endereços IPv6
+- Configurar endereços IPv6 ao lado de endereços IPv4
 
 Também adicionámos alguns controlos adicionais para ajudar a reduzir a mudança de configuração errada.
 
@@ -115,7 +115,7 @@ Com a pré-visualização, existem agora duas opções de criação:
 - **Localização das gamas IP**
 
 > [!NOTE]
-> Os países não incluem intervalos de endereços IPv6, apenas gamas de endereços IPv4 conhecidas.
+> Os países não incluem intervalos de endereços IPv6, apenas gamas de endereços IPv4 conhecidas, e não podem ser marcados como confiáveis.
 
 ![Interface de pré-visualização de localizações nomeadas](./media/location-condition/named-location-preview.png)
 
@@ -173,7 +173,7 @@ Quando um proxy de nuvem está no lugar, uma política que é usada para exigir 
 
 A API e a PowerShell ainda não estão suportadas para locais nomeados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Construir uma política de acesso condicional](concept-conditional-access-policies.md).
 - Procura uma política de exemplo usando a condição de localização? Ver o artigo, [Acesso Condicional: Bloquear acesso por local](howto-conditional-access-policy-location.md)

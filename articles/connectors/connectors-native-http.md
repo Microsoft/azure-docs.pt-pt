@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 33075173385a6e36829199c5bda854c78a4424fc
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325121"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609534"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Call service endpoints over HTTP ou HTTPS from Azure Logic Apps
 
@@ -33,41 +33,6 @@ Este artigo mostra como adicionar um gatilho HTTP ou ação ao fluxo de trabalho
 * Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 * A aplicação lógica de onde pretende chamar o ponto final do alvo. Para começar com o gatilho HTTP, [crie uma aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para utilizar a ação HTTP, inicie a sua aplicação lógica com o gatilho que pretende. Este exemplo utiliza o gatilho HTTP como primeiro passo.
-
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
-
-Com base na capacidade do ponto final do ponto final, as chamadas de saída suportam a Segurança da Camada de Transporte (TLS), que anteriormente era Secure Sockets Layer (SSL), versões 1.0, 1.1 e 1.2. A Logic Apps negoceia com o ponto final utilizando a versão mais suportada possível.
-
-Por exemplo, se o ponto final suportar 1.2, o conector HTTP utiliza primeiro o 1.2. Caso contrário, o conector utiliza a próxima versão suportada mais alta.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certificados auto-assinados
-
-* Para aplicações lógicas no ambiente global e multi-inquilino Azure, o conector HTTP não permite certificados TLS/SSL auto-assinados. Se a sua aplicação lógica fizer uma chamada HTTP para um servidor e apresentar um certificado auto-assinado TLS/SSL, a chamada HTTP falha com um `TrustFailure` erro.
-
-* Para aplicações lógicas num [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)o conector HTTP permite certificados auto-assinados para apertos de mão TLS/SSL. No entanto, primeiro deve [ativar o suporte de certificado auto-assinado](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para um ISE existente ou novo ISE, utilizando a API de Aplicações Lógicas e instalar o certificado público no `TrustedRoot` local.
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-### <a name="omitted-http-headers"></a>Cabeçalhos HTTP omitidos
-
-Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de pedido gerada sem mostrar qualquer aviso ou erro:
-
-* `Accept-*`
-* `Allow`
-* `Content-*`com estas exceções: `Content-Disposition` `Content-Encoding` , e`Content-Type`
-* `Cookie`
-* `Expires`
-* `Host`
-* `Last-Modified`
-* `Origin`
-* `Set-Cookie`
-* `Transfer-Encoding`
-
-Embora as Aplicações Lógicas não o impeçam de guardar aplicações lógicas que usam um gatilho HTTP ou ação com estes cabeçalhos, as Aplicações Lógicas ignoram estes cabeçalhos.
 
 <a name="http-trigger"></a>
 
@@ -131,6 +96,22 @@ Esta ação incorporada faz uma chamada HTTP para o URL especificado para um pon
 
 1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+Com base na capacidade do ponto final do ponto final, as chamadas de saída suportam a Segurança da Camada de Transporte (TLS), que anteriormente era Secure Sockets Layer (SSL), versões 1.0, 1.1 e 1.2. A Logic Apps negoceia com o ponto final utilizando a versão mais suportada possível.
+
+Por exemplo, se o ponto final suportar 1.2, o conector HTTP utiliza primeiro o 1.2. Caso contrário, o conector utiliza a próxima versão suportada mais alta.
+
+<a name="self-signed"></a>
+
+## <a name="self-signed-certificates"></a>Certificados auto-assinados
+
+* Para aplicações lógicas no ambiente global e multi-inquilino Azure, o conector HTTP não permite certificados TLS/SSL auto-assinados. Se a sua aplicação lógica fizer uma chamada HTTP para um servidor e apresentar um certificado auto-assinado TLS/SSL, a chamada HTTP falha com um `TrustFailure` erro.
+
+* Para aplicações lógicas num [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)o conector HTTP permite certificados auto-assinados para apertos de mão TLS/SSL. No entanto, primeiro deve [ativar o suporte de certificado auto-assinado](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para um ISE existente ou novo ISE, utilizando a API de Aplicações Lógicas e instalar o certificado público no `TrustedRoot` local.
+
 ## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo multiparte/dados de formulário
 
 Para lidar com conteúdo que tenha `multipart/form-data` tipo em pedidos HTTP, pode adicionar um objeto JSON que inclua o `$content-type` e atribui ao corpo do pedido HTTP utilizando este `$multipart` formato.
@@ -177,6 +158,90 @@ Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na defin
 }
 ```
 
+<a name="asynchronous-pattern"></a>
+
+## <a name="asynchronous-request-response-behavior"></a>Comportamento assíncronos de pedido-resposta
+
+Por padrão, todas as ações baseadas em HTTP em Azure Logic Apps seguem o [padrão de funcionamento assíncrona.](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) Este padrão especifica que após uma chamada de ação HTTP ou enviar um pedido para um ponto final, serviço, sistema ou API, o recetor devolve imediatamente uma resposta ["202 ACCEPTED".](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) Este código confirma que o recetor aceitou o pedido mas ainda não terminou o processamento. A resposta pode incluir um `location` cabeçalho que especifica o URL e um ID de atualização que o chamador pode usar para pesquisar ou verificar o estado do pedido assíncronos até que o recetor pare de processar e devolva uma resposta de sucesso ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta não-202. No entanto, o chamador não tem que esperar pelo pedido para terminar o processamento e pode continuar a executar a próxima ação. Para mais informações, consulte [a integração de microserviços Asynchronous que impõe autonomia de microserviços.](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)
+
+* No Logic App Designer, a ação HTTP, mas não desencadeada, tem uma definição **de Padrão Assíncronos,** que é ativada por padrão por padrão. Esta definição especifica que o chamador não espera que o processamento termine e pode passar para a próxima ação, mas continua a verificar o estado até que o processamento pare. Se desativado, esta definição especifica que o chamador aguarda que o processamento termine antes de passar para a ação seguinte.
+
+  Para encontrar esta definição, siga estes passos:
+
+  1. Na barra de títulos http action, selecione o botão elipses **(...**) que abre as definições da ação.
+
+  1. Encontre a **definição de padrão assíncronos.**
+
+     ![Definição de "Padrão Assíncronos"](./media/connectors-native-http/asynchronous-pattern-setting.png)
+
+* A definição de Notação de Objetos JavaScript (JSON) subjacente da ação HTTP segue implicitamente o padrão de funcionamento assíncrona.
+
+<a name="disable-asynchronous-operations"></a>
+
+## <a name="disable-asynchronous-operations"></a>Desativar operações assíncronos
+
+Por vezes, pode querer o comportamento assíncrodo da ação HTTP em cenários específicos, por exemplo, quando pretende:
+
+* [Evite intervalos de tempo HTTP para tarefas de longa duração](#avoid-http-timeouts)
+* [Desativar cabeçalhos de localização de verificação](#disable-location-header-check)
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+### <a name="turn-off-asynchronous-pattern-setting"></a>Desligue **a definição de padrão assíncronos**
+
+1. No Logic App Designer, na barra de títulos http action, selecione o botão elipses **(...**) que abre as definições da ação.
+
+1. Encontre a **definição de padrão assíncronos,** ligue a definição para **desligar** se ativada e selecione **Feito**.
+
+   ![Desative a definição "Padrão Assíncronos"](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+### <a name="disable-asynchronous-pattern-in-actions-json-definition"></a>Desativar o padrão assíncronos na definição JSON da ação
+
+Na definição JSON subjacente da ação HTTP, adicione a opção de [ `"DisableAsyncPattern"` operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) à definição da ação de modo a que a ação siga o padrão de funcionamento sincronizado. Para obter mais informações, consulte também [executar ações num padrão de funcionamento sincronizado.](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern)
+
+<a name="avoid-http-timeouts"></a>
+
+## <a name="avoid-http-timeouts-for-long-running-tasks"></a>Evite intervalos de tempo HTTP para tarefas de longa duração
+
+Os pedidos HTTP têm um [limite de tempo.](../logic-apps/logic-apps-limits-and-config.md#http-limits) Se tiver uma ação HTTP de longa duração que se esgota devido a este limite, tem estas opções:
+
+* [Desative o padrão de funcionamento assíncronos da ação HTTP](#disable-asynchronous-operations) para que a ação não faça uma sondagem contínua ou verifique o estado do pedido. Em vez disso, a ação aguarda que o recetor responda com o estado e os resultados após o pedido terminar o processamento.
+
+* Substitua a ação HTTP pela ação [HTTP Webhook,](../connectors/connectors-native-webhook.md)que aguarda que o recetor responda com o estado e os resultados após o processamento do pedido.
+
+<a name="disable-location-header-check"></a>
+
+## <a name="disable-checking-location-headers"></a>Desativar cabeçalhos de localização de verificação
+
+Alguns pontos finais, serviços, sistemas ou APIs devolvem uma resposta "202 ACCEPTED" que não tem `location` cabeçalho. Para evitar que uma ação HTTP verifique continuamente o estado do pedido quando o `location` cabeçalho não existe, pode ter estas opções:
+
+* [Desative o padrão de funcionamento assíncronos da ação HTTP](#disable-asynchronous-operations) para que a ação não faça uma sondagem contínua ou verifique o estado do pedido. Em vez disso, a ação aguarda que o recetor responda com o estado e os resultados após o pedido terminar o processamento.
+
+* Substitua a ação HTTP pela ação [HTTP Webhook,](../connectors/connectors-native-webhook.md)que aguarda que o recetor responda com o estado e os resultados após o processamento do pedido.
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+<a name="omitted-headers"></a>
+
+### <a name="omitted-http-headers"></a>Cabeçalhos HTTP omitidos
+
+Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de pedido gerada sem mostrar qualquer aviso ou erro:
+
+* `Accept-*`
+* `Allow`
+* `Content-*`com estas exceções: `Content-Disposition` `Content-Encoding` , e`Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Embora as Aplicações Lógicas não o impeçam de guardar aplicações lógicas que usam um gatilho HTTP ou ação com estes cabeçalhos, as Aplicações Lógicas ignoram estes cabeçalhos.
+
 ## <a name="connector-reference"></a>Referência do conector
 
 Para obter mais informações sobre os parâmetros de desencadeamento e ação, consulte estas secções:
@@ -188,14 +253,14 @@ Para obter mais informações sobre os parâmetros de desencadeamento e ação, 
 
 Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
 
-| Nome da propriedade | Tipo | Description |
-|---------------|------|-------------|
-| cabeçalhos | objeto | Os cabeçalhos do pedido |
-| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
-| código de estado | int | O código de estado do pedido |
+| Propriedade | Tipo | Descrição |
+|----------|------|-------------|
+| `headers` | Objeto JSON | Os cabeçalhos do pedido |
+| `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
+| `status code` | Número inteiro | O código de estado do pedido |
 |||
 
-| Código de estado | Description |
+| Código de estado | Descrição |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceite |

@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 1ed8db4c7f780af8ac06074c514a602cc1654554
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 5baf9ce63442ee60d212362df92a44d0fa2723fa
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456881"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610309"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -174,8 +174,8 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | galerias / imagens / versões | image | Inteiro de 32 bits | Números e períodos. |
 > | imagens | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | instantâneos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
-> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
 
 > [!NOTE]
 > As máquinas virtuais Azure têm dois nomes distintos: nome de recurso e nome de hospedeiro. Quando se cria uma máquina virtual no portal, o mesmo valor é utilizado para ambos os nomes. As restrições na tabela anterior são para o nome de anfitrião. O nome do recurso real pode ter até 64 carateres.

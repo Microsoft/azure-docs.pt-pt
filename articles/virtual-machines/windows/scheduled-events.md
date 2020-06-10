@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 0d1aa15c572f8ddec38cef913b170ed795ba1505
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dda71869411cbb37a24c2d39ef1d78563cfe6cab
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297926"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604104"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs windows
 
@@ -56,7 +56,7 @@ Se a Máquina Virtual não for criada dentro de uma Rede Virtual, os casos padr�
 ### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
 O Serviço de Eventos Agendados é versão. As versões são obrigatórias e a versão atual é `2019-01-01` .
 
-| Versão | Tipo de libertação | Regiões | Release Notes (Notas de Lançamento) | 
+| Versão | Tipo de libertação | Regiões | Notas de Versão | 
 | - | - | - | - |
 | 2019-08-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para EventSource |
 | 2019-04-01 | Disponibilidade Geral | Todos | <li> Apoio adicional para descrição do evento |
@@ -78,7 +78,7 @@ O utilizador iniciou a manutenção de máquinas virtuais através do portal Azu
 
 Reiniciar uma máquina virtual programa um evento com tipo `Reboot` . A recolocação de uma máquina virtual programa um evento com tipo `Redeploy` .
 
-## <a name="using-the-api"></a>Utilização da API
+## <a name="using-the-api"></a>Utilizar a API
 
 ### <a name="headers"></a>Cabeçalhos
 Ao consultar o Serviço de Metadados, deve fornecer o cabeçalho `Metadata:true` para garantir que o pedido não foi redirecionado involuntariamente. O `Metadata:true` cabeçalho é necessário para todos os pedidos de eventos agendados. A não inclusão do cabeçalho no pedido resultará numa resposta de Mau Pedido do Serviço de Metadados.
@@ -121,7 +121,7 @@ O DocumentIncarnation é um ETag e fornece uma maneira fácil de inspecionar se 
 | Recursos| Lista de recursos que este evento impacta. Isto é garantido para conter máquinas de no máximo um [Domínio de Atualização](manage-availability.md), mas pode não conter todas as máquinas na UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Estado do evento | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para começar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento já começou.</ul> Nenhum `Completed` estatuto ou estatuto semelhante é fornecido; o evento deixará de ser devolvido quando o evento estiver concluído.
 | NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Seg, 19 set 2016 18:29:47 GMT  |
-| Description | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
+| Descrição | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
 | Fonte de Eventos | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: Este evento é iniciado por platfrom. <li>`User`: Este evento é iniciado pelo utilizador. |
 
 ### <a name="event-scheduling"></a>Agendamento de eventos
@@ -142,10 +142,18 @@ Cada evento está programado um período mínimo de tempo no futuro com base no 
 Os eventos agendados são entregues para:
  - Máquinas virtuais autónomas.
  - Todas as máquinas virtuais num serviço de cloud.     
- - Todas as máquinas virtuais num conjunto de disponibilidade.     
+ - Todas as máquinas virtuais num conjunto de disponibilidade. 
+ - Todas as máquinas virtuais numa Zona de Disponibilidade.
  - Todas as máquinas virtuais num grupo de colocação de conjunto de escala (incluindo lote).       
 
-Como resultado, você deve verificar o `Resources` campo no caso para identificar quais VMs vão ser impactados. 
+> [!NOTE]
+> Numa zona de disponibilidade, os eventos programados vão apenas para VMs únicos e afetados na zona de disponibilidade.
+> 
+> Por exemplo, num conjunto de disponibilidade, se tiver 100 VMs no conjunto e houver uma atualização para um dos VMs, o evento agendado vai para todos os 100 VMs no conjunto de disponibilidade.
+>
+> Numa zona de disponibilidade, se tiver 100 VMs na zona de disponibilidade, o evento vai apenas para o VM que é afetado.
+>
+> Como resultado, deverá verificar o `Resources` campo no caso de identificar quais VMs serão afetados. 
 
 ### <a name="starting-an-event"></a>Iniciar um evento 
 
@@ -230,7 +238,7 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - Assista a uma [demonstração de eventos agendados](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) na sexta-feira de Azure. 
 - Reveja as amostras de código de eventos programados no [Azure Instance Metadatas Eventos Agendados GitHub Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)

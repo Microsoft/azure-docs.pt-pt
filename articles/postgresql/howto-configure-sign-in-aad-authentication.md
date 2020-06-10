@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: cbec7843b16298abfb9da683fc4dcec1e0a63a9d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236324"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636007"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilize o Diretório Ativo Azure para autenticar com PostgreSQL
 
@@ -131,6 +131,15 @@ Agora pode iniciar uma ligação com a Base de Dados Azure para PostgreSQL como 
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
 
+Considerações importantes na ligação:
+
+* `user@tenant.onmicrosoft.com`é o nome do utilizador ou grupo AZure AD que está a tentar ligar como
+* Apecimos sempre o nome do servidor após o nome de utilizador/grupo AZure AD (por `@mydb` exemplo)
+* Certifique-se de que utiliza a forma exata como o utilizador AD AD ou o nome de grupo do Azure está escrito
+* O utilizador azure AD e os nomes de grupo são sensíveis a casos
+* Ao ligar em grupo, utilize apenas o nome de grupo (por `GroupName@mydb` exemplo)
+* Se o nome contiver espaços, use `\` antes de cada espaço para escapar
+
 Está agora autenticado no seu servidor PostgreSQL utilizando a autenticação AZure AD.
 
 ## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Criação de utilizadores de AD Azure na Base de Dados Azure para PostgreSQL
@@ -196,7 +205,7 @@ GRANT azure_ad_user TO "DBReadUser";
 
 Isto pressupõe que criou um grupo "DBReadUser" no seu AD Azure. Os utilizadores pertencentes a esse grupo poderão agora iniciar susso na base de dados como utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja os conceitos globais de [autenticação do Azure Ative Directory com Azure Database for PostgreSQL - Single Server](concepts-aad-authentication.md)
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: e3615286150723308f861456bfe2bbb0cff81707
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 9e168387afce4fb623c89bffddb72eeda5a3d80b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321670"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606178"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -20,6 +20,12 @@ A funcionalidade de réplica de leitura permite replicar dados de um servidor do
 As réplicas são novos servidores que geres similares ao Azure Database regular para servidores MariaDB. Para cada réplica de leitura, você é cobrado para o cálculo provisionado em vCores e armazenamento em GB/mês.
 
 Para saber mais sobre a replicação do GTID, consulte a documentação de [replicação mariaDB](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Comunicação sem preconceitos
+>
+> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
@@ -152,7 +158,7 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 
 Para atualizar um dos parâmetros acima no servidor principal, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 
 - A criação de uma réplica de uma réplica não é suportada.
 - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MariaDB.

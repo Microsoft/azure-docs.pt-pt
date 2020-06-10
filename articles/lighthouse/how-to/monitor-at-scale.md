@@ -1,43 +1,43 @@
 ---
-title: Monitorizar os recursos delegados em escala
-description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos de clientes que está a gerir.
+title: Monitorar recursos delegados à escala
+description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos do cliente que está a gerir.
 ms.date: 02/03/2020
-ms.topic: conceptual
-ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: bdd91cec650d6810d1d62230219f840a172141d9
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985206"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634120"
 ---
-# <a name="monitor-delegated-resources-at-scale"></a>Monitorizar os recursos delegados em escala
+# <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados à escala
 
-Como prestador de serviços, pode ter embarcado em vários inquilinos de clientes para a gestão de recursos delegados da Azure. [O Azure Lighthouse](../overview.md) permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
+Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para a Azure delegada gestão de recursos. [O Azure Lighthouse](../overview.md) permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
 
-Este tópico mostra-lhe como usar o [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) de uma forma escalável através dos inquilinos de clientes que você está a gerir.
+Este tópico mostra-lhe como usar [os Registos do Monitor Azure](../../azure-monitor/platform/data-platform-logs.md) de uma forma escalável através dos inquilinos do cliente que você está gerindo.
 
-## <a name="create-log-analytics-workspaces"></a>Criar espaços de trabalho log Analytics
+## <a name="create-log-analytics-workspaces"></a>Criar espaços de trabalho log analytics
 
-Para recolher dados, terá de criar espaços de trabalho de Log Analytics. Estes espaços de trabalho log Analytics são ambientes únicos para dados recolhidos pelo Azure Monitor. Cada espaço de trabalho tem o seu próprio repositório e configuração de dados, e fontes de dados e soluções são configuradas para armazenar os seus dados num determinado espaço de trabalho.
+Para recolher dados, terá de criar espaços de trabalho do Log Analytics. Estes espaços de trabalho Log Analytics são ambientes únicos para dados recolhidos pelo Azure Monitor. Cada espaço de trabalho tem o seu próprio repositório de dados e configuração, e as fontes de dados e soluções são configuradas para armazenar os seus dados num determinado espaço de trabalho.
 
-Recomendamos a criação destes espaços de trabalho diretamente nos inquilinos do cliente. Desta forma, os seus dados permanecem nos seus inquilinos em vez de serem exportados para os seus. Isto também permite a monitorização centralizada de quaisquer recursos ou serviços suportados pelo Log Analytics, dando-lhe mais flexibilidade sobre os tipos de dados que monitoriza.
+Recomendamos a criação destes espaços de trabalho diretamente nos inquilinos do cliente. Desta forma, os seus dados permanecem nos seus inquilinos em vez de serem exportados para os seus. Isto também permite uma monitorização centralizada de quaisquer recursos ou serviços suportados pelo Log Analytics, proporcionando-lhe mais flexibilidade sobre os tipos de dados que monitoriza.
 
-Pode criar um espaço de trabalho log Analytics utilizando o [portal Azure,](../../azure-monitor/learn/quick-create-workspace.md)utilizando [o Azure CLI,](../../azure-monitor/learn/quick-create-workspace-cli.md)ou utilizando o [Azure PowerShell.](../../azure-monitor/learn/quick-create-workspace-posh.md)
+Pode criar um espaço de trabalho Log Analytics utilizando o [portal Azure,](../../azure-monitor/learn/quick-create-workspace.md)utilizando [o Azure CLI,](../../azure-monitor/learn/quick-create-workspace-cli.md)ou utilizando [o Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
 
 ## <a name="deploy-policies-that-log-data"></a>Implementar políticas que registam dados
 
-Uma vez criados os seus espaços de trabalho Log Analytics, pode implementar a [Política Azure](../../governance/policy/index.yml) através das hierarquias dos seus clientes para que os dados de diagnóstico sejam enviados para o espaço de trabalho apropriado em cada inquilino. As políticas exatas que implementa podem variar consoante os tipos de recursos que pretende monitorizar.
+Uma vez criado os seus espaços de trabalho Log Analytics, pode implementar [a Política Azure](../../governance/policy/index.yml) através das suas hierarquias de clientes para que os dados de diagnóstico são enviados para o espaço de trabalho apropriado em cada inquilino. As políticas exatas que implementa podem variar consoante os tipos de recursos que pretende monitorizar.
 
-Para saber mais sobre a criação de políticas, consulte [Tutorial: Criar e gerir políticas para impor o cumprimento.](../../governance/policy/tutorials/create-and-manage.md) Esta [ferramenta comunitária](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) fornece um script para ajudá-lo a criar políticas para monitorizar os tipos de recursos específicos que escolhe.
+Para saber mais sobre a criação de políticas, consulte [Tutorial: Criar e gerir políticas para impor o cumprimento.](../../governance/policy/tutorials/create-and-manage.md) Esta [ferramenta comunitária](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) fornece um script para ajudá-lo a criar políticas para monitorizar os tipos específicos de recursos que você escolhe.
 
-Quando tiver determinado quais as políticas a implementar, pode [implantá-las para as suas subscrições delegadas em escala](policy-at-scale.md).
+Quando tiver determinado quais as políticas a implementar, pode [implantá-las nas suas subscrições delegadas à escala](policy-at-scale.md).
 
 ## <a name="analyze-the-gathered-data"></a>Analisar os dados recolhidos
 
-Depois de ter implementado as suas políticas, os dados serão registados nos espaços de trabalho do Log Analytics que criou em cada inquilino de clientes. Para obter informações sobre todos os clientes geridos, pode utilizar ferramentas como o [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) para recolher e analisar informações de várias fontes de dados.
+Depois de implementar as suas políticas, os dados serão registados nos espaços de trabalho do Log Analytics que criou em cada cliente inquilino. Para obter informações em todos os clientes geridos, pode utilizar ferramentas como [os Livros de Trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) para recolher e analisar informações de várias fontes de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre [o Monitor Azure.](../../azure-monitor/index.yml)
-- Saiba mais sobre [os registos do Monitor Azure](../../azure-monitor/platform/data-platform-logs.md).
-- Conheça [as experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
+- Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml).
+- Saiba mais [sobre os Registos do Monitor Azure](../../azure-monitor/platform/data-platform-logs.md).
+- Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)

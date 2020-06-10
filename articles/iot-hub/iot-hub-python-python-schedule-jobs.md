@@ -1,6 +1,6 @@
 ---
-title: Agendar trabalhos com o Azure IoT Hub (Python) [ Microsoft Docs
-description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Usa os SDKs Azure IoT para python para implementar as aplicações simuladas do dispositivo e uma aplicação de serviço para executar o trabalho.
+title: Agendar empregos com Azure IoT Hub (Python) Microsoft Docs
+description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Você usa os SDKs Azure IoT para Python para implementar as aplicações de dispositivos simulados e uma aplicação de serviço para executar o trabalho.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,14 +8,15 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
-ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527406"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606467"
 ---
-# <a name="schedule-and-broadcast-jobs-python"></a>Agendae trabalhos de transmissão (Python)
+# <a name="schedule-and-broadcast-jobs-python"></a>Horários e trabalhos de transmissão (Python)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -25,30 +26,30 @@ O Azure IoT Hub é um serviço totalmente gerido que permite a uma aplicação b
 * Etiquetas de atualização
 * Invocar métodos diretos
 
-Conceptualmente, um trabalho envolve uma destas ações e acompanha o progresso da execução contra um conjunto de dispositivos, que é definido por uma consulta gémea do dispositivo.  Por exemplo, uma aplicação back-end pode usar um trabalho para invocar um método de reinicialização em 10.000 dispositivos, especificado por uma consulta de gémeos dispositivos e agendado em um futuro.  Esta aplicação pode então acompanhar o progresso à medida que cada um desses dispositivos recebe e executar o método de reinicialização.
+Conceptualmente, um trabalho envolve uma destas ações e acompanha o progresso da execução contra um conjunto de dispositivos, que é definido por uma consulta dupla do dispositivo.  Por exemplo, uma aplicação back-end pode usar um trabalho para invocar um método de reboot em 10.000 dispositivos, especificado por uma consulta de twin do dispositivo e agendado para um futuro.  Esta aplicação pode então acompanhar o progresso à medida que cada um desses dispositivos recebe e executa o método de reinicialização.
 
 Saiba mais sobre cada uma destas capacidades nestes artigos:
 
-* Dispositivo twin e propriedades: [Começar com gémeos dispositivo](iot-hub-python-twin-getstarted.md) e [Tutorial: Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
+* Dispositivo twin e propriedades: [Começar com os gémeos do dispositivo](iot-hub-python-twin-getstarted.md) e [tutorial: Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
 
-* Métodos diretos: Guia de [desenvolvimento do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: métodos diretos](quickstart-control-device-python.md)
+* Métodos diretos: [Guia de desenvolvimento do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [tutorial: métodos diretos](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Crie uma aplicação de dispositivo simulada Python que tenha um método direto, que permite o **lockDoor**, que pode ser chamado pela extremidade traseira da solução.
+* Crie uma aplicação de dispositivo simulado Python que tenha um método direto, que permite **o lockDoor**, que pode ser chamado pela solução traseira.
 
-* Crie uma aplicação de consola Python que chame o método direct **lockDoor** na aplicação simulada do dispositivo utilizando um trabalho e atualiza as propriedades desejadas usando um trabalho de dispositivo.
+* Crie uma aplicação de consola Python que chame o método direto **lockDoor** na aplicação do dispositivo simulado usando um trabalho e atualize as propriedades desejadas usando uma tarefa de dispositivo.
 
 No final deste tutorial, você tem duas aplicações Python:
 
 **simDevice.py**, que se conecta ao seu hub IoT com a identidade do dispositivo e recebe um método direto **lockDoor.**
 
-**scheduleJobService.py**, que chama um método direto na aplicação simulada do dispositivo e atualiza as propriedades desejadas pelo dispositivo twin usando um trabalho.
+**scheduleJobService.py**, que chama um método direto na aplicação do dispositivo simulado e atualiza as propriedades desejadas pelo dispositivo twin usando um trabalho.
 
 > [!NOTE]
-> O **Azure IoT SDK para Python** não suporta diretamente a funcionalidade **Jobs.** Em vez disso, este tutorial oferece uma solução alternativa utilizando fios e temporizadores assíncronos. Para mais atualizações, consulte a lista de funcionalidades **SDK** do Cliente de Serviço na página [Azure IoT SDK para Python.](https://github.com/Azure/azure-iot-sdk-python)
+> O **Azure IoT SDK para Python** não suporta diretamente a funcionalidade **Jobs.** Em vez disso, este tutorial oferece uma solução alternativa utilizando fios assíncronos e temporizadores. Para mais atualizações, consulte a lista de funcionalidades **SDK** do cliente de serviço na página [Azure IoT SDK para python.](https://github.com/Azure/azure-iot-sdk-python)
 >
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
@@ -61,15 +62,15 @@ No final deste tutorial, você tem duas aplicações Python:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registe um novo dispositivo no hub IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Criar uma aplicação de dispositivo simulada
 
-Nesta secção, cria-se uma aplicação de consola Python que responde a um método direto chamado pela nuvem, que desencadeia um método de **lockDoor** simulado.
+Nesta secção, você cria uma aplicação de consola Python que responde a um método direto chamado pela nuvem, que desencadeia um método **de lockDoor** simulado.
 
-1. Ao seu pedido de comando, execute o seguinte comando para instalar o pacote de **dispositivos azure-iot:**
+1. No seu comando, executar o seguinte comando para instalar o pacote de **dispositivo azure-iot:**
 
     ```cmd/sh
     pip install azure-iot-device
@@ -77,7 +78,7 @@ Nesta secção, cria-se uma aplicação de consola Python que responde a um mét
 
 2. Utilizando um editor de texto, crie um novo ficheiro **simDevice.py** no seu diretório de trabalho.
 
-3. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **simDevice.py.** Substitua-a `deviceConnectionString` pela cadeia de ligação do dispositivo acima criado:
+3. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **simDevice.py.** `deviceConnectionString`Substitua-a pela cadeia de ligação do dispositivo acima criado:
 
     ```python
     import threading
@@ -87,7 +88,7 @@ Nesta secção, cria-se uma aplicação de consola Python que responde a um mét
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Adicione a seguinte chamada de função para lidar com o método **lockDoor:**
+4. Adicione a seguinte chamada de função para manusear o método **lockDoor:**
 
     ```python
     def lockdoor_listener(client):
@@ -102,7 +103,7 @@ Nesta secção, cria-se uma aplicação de consola Python que responde a um mét
             client.send_method_response(method_response)
     ```
 
-5. Adicione outra função de chamada para lidar com atualizações de gémeos dispositivo:
+5. Adicione outra chamada de função para lidar com as atualizações dos gémeos do dispositivo:
 
     ```python
     def twin_update_listener(client):
@@ -113,7 +114,7 @@ Nesta secção, cria-se uma aplicação de consola Python que responde a um mét
             print (patch)
     ```
 
-6. Adicione o seguinte código para registar o manipulador para o método **lockDoor.** Inclua `main` também a rotina:
+6. Adicione o seguinte código para registar o manipulador para o método **lockDoor.** Também inclua a `main` rotina:
 
     ```python
     def iothub_jobs_sample_run():
@@ -147,38 +148,38 @@ Nesta secção, cria-se uma aplicação de consola Python que responde a um mét
 7. Guarde e feche o ficheiro **simDevice.py.**
 
 > [!NOTE]
-> Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar políticas de retry (como um backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar políticas de reequipante (como um backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de conexão do hub IoT
 
-Neste artigo, cria-se um serviço de backend que invoca um método direto num dispositivo e atualiza o dispositivo twin. O serviço precisa da permissão de **ligação** do serviço para chamar um método direto num dispositivo. O serviço também precisa do **registo lido** e **registo de** permissões para ler e escrever o registo de identidade. Não existe uma política de acesso partilhado por defeito que contenha apenas estas permissões, pelo que precisa de criar uma.
+Neste artigo, cria-se um serviço de backend que invoca um método direto num dispositivo e atualiza o dispositivo twin. O serviço necessita da permissão **de ligação** de serviço para ligar um método direto num dispositivo. O serviço também precisa da leitura do **registo** e **do registo de** permissões para ler e escrever o registo de identidade. Não existe uma política de acesso partilhado por defeito que contenha apenas estas permissões, pelo que é necessário criar uma.
 
-Para criar uma política de acesso partilhado que conceda **o serviço de ligação,** **leitura de registos**e permissões **de escrita** de registo e para obter uma cadeia de ligação para esta política, siga estes passos:
+Para criar uma política de acesso partilhado que conceda **serviço de ligação,** leitura de **registo,** e permissões **de gravação** e para obter uma cadeia de ligação para esta política, siga estes passos:
 
-1. Abra o seu hub IoT no [portal Azure.](https://portal.azure.com) A maneira mais fácil de chegar ao seu hub IoT é selecionar **grupos de Recursos,** selecionar o grupo de recursos onde o seu hub IoT está localizado, e, em seguida, selecionar o seu hub IoT da lista de recursos.
+1. Abra o seu hub IoT no [portal Azure](https://portal.azure.com). A maneira mais fácil de chegar ao seu hub IoT é selecionar **grupos de Recursos,** selecionar o grupo de recursos onde o seu hub IoT está localizado e, em seguida, selecionar o seu hub IoT a partir da lista de recursos.
 
-2. No painel do lado esquerdo do seu hub IoT, selecione políticas de **acesso partilhado**.
+2. No painel do lado esquerdo do seu hub IoT, selecione **Políticas de acesso compartilhados**.
 
-3. A partir do menu superior acima da lista de políticas, selecione **Adicionar**.
+3. A partir do menu superior acima da lista de políticas, **selecione Adicionar**.
 
-4. No painel de política de **acesso partilhado,** insira um nome descritivo para a sua política; por exemplo: *serviçoAndRegistryReadWrite*. Em **Permissões**, selecione **ligação de serviço** e escrita de **registo** (a leitura**do registo** é automaticamente selecionada quando selecionar o **registo escrever).** Em seguida, selecione **Criar**.
+4. No painel de política de **acesso partilhado,** insira um nome descritivo para a sua política; por exemplo: *serviçoAndRegistryReadWrite*. Em **Permissões**, selecione **Serviço de ligação** e escrita de **registo** **(A leitura do registo** é automaticamente selecionada quando seleciona a escrita do **Registo).** Em seguida, selecione **Criar**.
 
-    ![Mostre como adicionar uma nova política de acesso partilhado](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+    ![Mostrar como adicionar uma nova política de acesso partilhado](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
-5. De volta ao painel de políticas de **acesso partilhado,** selecione a sua nova política a partir da lista de políticas.
+5. De volta ao painel **de políticas de acesso partilhado,** selecione a sua nova política na lista de políticas.
 
-6. Em **teclas de acesso partilhadas,** selecione o ícone de cópia para a **cadeia de ligação -- chave primária** e guarde o valor.
+6. Nas **teclas de acesso partilhadas,** selecione o ícone de cópia para a **cadeia De ligação -- tecla primária** e guarde o valor.
 
-    ![Mostre como recuperar a corda de ligação](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+    ![Mostrar como recuperar a cadeia de ligação](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-Para obter mais informações sobre as políticas e permissões de acesso partilhadas do IoT Hub, consulte [o controlo de acesso e as permissões.](./iot-hub-devguide-security.md#access-control-and-permissions)
+Para obter mais informações sobre as políticas e permissões de acesso partilhados do IoT Hub, consulte [o controlo de acesso e permissões.](./iot-hub-devguide-security.md#access-control-and-permissions)
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar trabalhos para chamar um método direto e atualizar as propriedades de um dispositivo twin
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agende postos de trabalho para chamar um método direto e atualizar as propriedades de um dispositivo twin
 
-Nesta secção, cria-se uma aplicação de consola Python que inicia um **bloqueio remotoDoor** num dispositivo utilizando um método direto e também atualiza as propriedades desejadas pelo dispositivo twin.
+Nesta secção, cria-se uma aplicação de consola Python que inicia um **lockDoor** remoto num dispositivo utilizando um método direto e também atualiza as propriedades desejadas pelo dispositivo Twin.
 
-1. Ao seu pedido de comando, execute o seguinte comando para instalar o pacote **azure-iot-hub:**
+1. No seu comando, executar o seguinte comando para instalar o pacote **azure-iot-hub:**
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -186,7 +187,7 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um **bloque
 
 2. Utilizando um editor de texto, crie um novo ficheiro **scheduleJobService.py** no seu diretório de trabalho.
 
-3. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **scheduleJobService.py.** Substitua `{IoTHubConnectionString}` o espaço reservado pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string). Substitua `{deviceId}` o espaço reservado pelo ID do dispositivo registado no [Registo de um novo dispositivo no hub IoT:](#register-a-new-device-in-the-iot-hub)
+3. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **scheduleJobService.py.** Substitua o `{IoTHubConnectionString}` espaço reservado pela cadeia de ligação do hub IoT copiada anteriormente na cadeia de [ligação do hub IoT](#get-the-iot-hub-connection-string). Substitua o `{deviceId}` espaço reservado pelo ID do dispositivo que registou no [Registo de um novo dispositivo no hub IoT:](#register-a-new-device-in-the-iot-hub)
 
     ```python
     import sys
@@ -218,7 +219,7 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um **bloque
         return len(query_result.items)
     ```
 
-5. Adicione os seguintes métodos para executar os trabalhos que chamam o método direto e o dispositivo twin:
+5. Adicione os seguintes métodos para executar os trabalhos que chamam o método direto e o dispositivo gémeo:
 
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
@@ -254,7 +255,7 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um **bloque
             print ( "Device twin updated." )
     ```
 
-6. Adicione o seguinte código para agendar os trabalhos e atualizar o estado do trabalho. Inclua `main` também a rotina:
+6. Adicione o seguinte código para agendar os postos de trabalho e atualizar o estado do trabalho. Também inclua a `main` rotina:
 
     ```python
     def iothub_jobs_sample_run():
@@ -315,26 +316,26 @@ Nesta secção, cria-se uma aplicação de consola Python que inicia um **bloque
 
 Pode agora executar as aplicações.
 
-1. No pedido de comando no seu diretório de trabalho, execute o seguinte comando para começar a ouvir o método direto de reinicialização:
+1. No comando do seu diretório de trabalho, executar o seguinte comando para começar a ouvir o método direto de reinicialização:
 
     ```cmd/sh
     python simDevice.py
     ```
 
-2. Em outra solicitação de comando no seu diretório de trabalho, execute o seguinte comando para desencadear os trabalhos para trancar a porta e atualizar o gémeo:
+2. Em outra solicitação de comando no seu diretório de trabalho, executar o seguinte comando para ativar os trabalhos para trancar a porta e atualizar o gémeo:
   
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-3. Vê as respostas do dispositivo ao método direto e atualização de gémeos dispositivos na consola.
+3. Veja as respostas do dispositivo ao método direto e à atualização dos gémeos do dispositivo na consola.
 
     ![IoT Hub Job amostra 1 - saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![IoT Hub Job amostra 2-- saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![IoT Hub Job amostra 2- saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo twin.
+Neste tutorial, utilizou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo Twin.
 
-Para continuar a começar com o IoT Hub e padrões de gestão de dispositivos, como remotamente sobre a atualização do firmware de ar, consulte [como fazer uma atualização](tutorial-firmware-update.md)de firmware .
+Para continuar a trabalhar com o IoT Hub e padrões de gestão de dispositivos como o controlo remoto sobre a atualização do firmware aéreo, consulte [Como fazer uma atualização de firmware](tutorial-firmware-update.md).

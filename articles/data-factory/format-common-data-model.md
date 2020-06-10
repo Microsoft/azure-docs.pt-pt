@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: daperlov
-ms.openlocfilehash: 0dce717461754ac1259bc666adf4eb9f7ef9d6c2
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 1764036413d6e4f634ed156f7cfb441b4a2bb1e6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465274"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604967"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,9 +30,9 @@ O Modelo Comum de Dados está disponível como um [conjunto de dados inline no](
 
 ### <a name="source-properties"></a>Propriedades de origem
 
-A tabela abaixo lista as propriedades suportadas por uma fonte de MDL.
+A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode editar estas propriedades no separador **Opções Fonte.**
 
-| Nome | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser`cdm` | sim | `cdm` | formato |
 | Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.json. | Sim | `'manifest'` ou `'model'` | manifestoType |
@@ -49,7 +49,13 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL.
 | Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
-#### <a name="cdm-source-example"></a>Exemplo de origem cdm
+#### <a name="import-schema"></a>Esquema de importação
+
+O CDM só está disponível como conjunto de dados inline e, por padrão, não tem um esquema associado. Para obter metadados de coluna, clique no botão **de esquema de importação** no **separador Projeção.** Isto permitir-lhe-á fazer referência aos nomes das colunas e tipos de dados especificados pelo corpus. Para importar o esquema, uma [sessão de depurar fluxo de dados](concepts-data-flow-debug-mode.md) deve estar ativa.
+
+![Esquema de importação](media/format-common-data-model/import-schema-source.png)
+
+### <a name="cdm-source-example"></a>Exemplo de origem cdm
 
 A imagem abaixo é um exemplo de uma configuração de origem CDM nos fluxos de dados de mapeamento.
 
@@ -79,12 +85,11 @@ source(output(
     fileSystem: 'data') ~> CDMSource
 ```
 
-
 ### <a name="sink-properties"></a>Propriedades de pia
 
-A tabela abaixo lista as propriedades suportadas por um lavatório CDM.
+A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode editar estas propriedades no **separador Definições.**
 
-| Nome | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser`cdm` | sim | `cdm` | formato |
 | Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
@@ -103,7 +108,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório CDM.
 | Delimitador de colunas | Se escrever ao DelimitedText, como delimitar colunas | Sim, se escrever ao DelimitedText | String | columnDelimiter |
 | Primeira linha como cabeçalho | Se utilizar o DelimitedText, se os nomes das colunas são adicionados como cabeçalho | não | `true` ou `false` | columnNamesAsHeader |
 
-#### <a name="cdm-sink-example"></a>Exemplo de pia cdm
+### <a name="cdm-sink-example"></a>Exemplo de pia cdm
 
 A imagem abaixo é um exemplo de uma configuração de sumidouro de CDM em fluxos de dados de mapeamento.
 

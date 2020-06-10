@@ -1,0 +1,255 @@
+---
+title: Gerir um modelo gémeo
+titleSuffix: Azure Digital Twins
+description: Veja como criar, editar e eliminar um modelo dentro da Azure Digital Twins.
+author: baanders
+ms.author: baanders
+ms.date: 3/12/2020
+ms.topic: how-to
+ms.service: digital-twins
+ms.openlocfilehash: 195f5f8d820ff43aed73fc0a46dcccccef43ae66
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84612929"
+---
+# <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
+
+Pode gerir os [modelos](concepts-models.md) que a sua instância Azure Digital Twins conhece sobre a utilização das [**APIs digitalTwinsModels,**](how-to-use-apis-sdks.md)da [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou do [Azure Digital Twins CLI](how-to-use-cli.md). 
+
+As operações de gestão incluem upload, validação, recuperação e eliminação de modelos. 
+
+## <a name="create-models"></a>Criar modelos
+
+Os modelos para Azure Digital Twins são escritos em DTDL e guardados como ficheiros *.json.* Existe também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [o Código do Estúdio Visual,](https://code.visualstudio.com/)que fornece validação de sintaxe e outras funcionalidades para facilitar a escrita de documentos DTDL.
+
+Considere um exemplo em que um hospital quer representar digitalmente os seus quartos. Cada quarto contém um dispensador de sabão inteligente para monitorizar a lavagem manual e sensores para monitorizar o tráfego através da sala.
+
+O primeiro passo para a solução é criar modelos que representem aspetos do hospital. Um quarto de paciente neste cenário pode ser descrito assim:
+
+```json
+{
+  "@id": "dtmi:com:contoso:PatientRoom;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Patient Room",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "visitorCount",
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "name": "handWashCount",
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "name": "handWashPercentage",
+      "schema": "double"
+    },
+    {
+      "@type": "Relationship",
+      "name": "hasDevices"
+    }
+  ]
+}
+```
+
+> [!NOTE]
+> Este é um corpo de amostra para um ficheiro .json no qual um modelo é definido e guardado, para ser carregado como parte de um projeto de cliente. A chamada REST API, por outro lado, leva uma série de definições de modelo como a acima (que é mapeada para um `IEnumerable<string>` no .NET SDK). Assim, para utilizar este modelo na API REST diretamente, rodei-lo com suportes.
+
+Este modelo define um nome e um ID único para a sala do paciente, e propriedades para representar a contagem de visitantes e o estado de lavagem à mão (estes contadores serão atualizados a partir de sensores de movimento e distribuidores de sabão inteligentes, e serão usados em conjunto para calcular uma *percentagem de lavagem à mão).* O modelo também define uma relação *com Devices*, que será usada para ligar quaisquer [gémeos digitais](concepts-twins-graph.md) com base neste modelo *da Sala* aos dispositivos reais.
+
+Seguindo este método, pode continuar a definir modelos para as enfermarias, zonas ou o próprio hospital.
+
+> [!TIP]
+> Existe uma biblioteca do lado do cliente disponível para análise e validação de DTDL. Gera um modelo de objeto C# do conteúdo DTDL, que pode ser usado em cenários de desenvolvimento orientados por modelos, como gerar elementos de UI. Também pode utilizar esta biblioteca para se certificar de que os seus modelos não têm erros de sintaxe antes de os carregar. Para obter mais informações sobre esta biblioteca e aceder a uma amostra construída sobre ela para um Validador DTDL, consulte [Como-a-fazer: Parse e valide modelos.](how-to-use-parser.md)
+
+## <a name="manage-models-with-apis"></a>Gerir modelos com APIs.
+
+As secções seguintes mostram como completar diferentes operações de gestão de modelos utilizando as [APIs e SDKs das Gémeas Digitais Azure.](how-to-use-apis-sdks.md)
+
+> [!NOTE]
+> Os exemplos abaixo não incluem o manuseamento de erros para a brevidade. No entanto, é fortemente recomendado dentro dos seus projetos para embrulhar chamadas de serviço em blocos de tentativa/captura.
+
+> [!TIP] 
+> Lembre-se que todos os métodos SDK vêm em versões sincronizadas e assíncronos. Para chamadas de paging, os métodos async regressam `AsyncPageable<T>` enquanto as versões sincronizadas regressam `Pageable<T>` .
+
+### <a name="upload-models"></a>Modelos de upload
+
+Uma vez criados os modelos, pode enviá-los para a instância Azure Digital Twins.
+
+Aqui está um código que mostra como fazer isto:
+
+```csharp
+// 'client' is an instance of DigitalTwinsClient
+// Read model file into string (not part of SDK)
+StreamReader r = new StreamReader("MyModelFile.json");
+string dtdl = r.ReadToEnd(); r.Close();
+string[] dtdls = new string[] { dtdl };
+client.CreateModels(dtdls);
+```
+
+Observe que o `CreateModels` método aceita vários ficheiros numa única transação. Aqui está uma amostra para ilustrar:
+
+```csharp
+var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
+
+List<string> dtdlStrings = new List<string>();
+foreach (string fileName in dtdlFiles)
+{
+    // Read model file into string (not part of SDK)
+    StreamReader r = new StreamReader(fileName);
+    string dtdl = r.ReadToEnd(); r.Close();
+    dtdlStrings.Add(dtdl);
+}
+client.CreateModels(dtdlStrings);
+```
+
+Os ficheiros de modelo podem conter mais do que um único modelo. Neste caso, os modelos devem ser colocados numa matriz JSON. Por exemplo:
+
+```json
+[
+  {
+    "@id": "dtmi:com:contoso:Planet",
+    "@type": "Interface",
+    //...
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon",
+    "@type": "Interface",
+    //...
+  }
+]
+```
+ 
+No upload, os ficheiros de modelos são validados.
+
+> [!TIP] 
+> Note que também pode utilizar a [biblioteca de parser do lado do cliente DTDL](how-to-use-parser.md) para validar modelos do lado do cliente.
+
+### <a name="retrieve-models"></a>Recuperar modelos
+
+Pode listar e recuperar modelos armazenados na sua instância Azure Digital Twins. 
+
+Aqui estão as suas opções para isto:
+* Recuperar todos os modelos
+* Recuperar um único modelo
+* Recuperar um único modelo com dependências
+* Recuperar metadados para modelos
+
+Aqui estão algumas chamadas de exemplo:
+
+```csharp
+// 'client' is a valid DigitalTwinsClient object
+
+// Get a single model, metadata and data
+ModelData md1 = client.GetModel(id);
+
+// Get a list of the metadata of all available models
+Pageable<ModelData> pmd2 = client.GetModels();
+
+// Get a list of metadata and full model definitions
+Pageable<ModelData> pmd3 = client.GetModels(null, true);
+
+// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
+Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+```
+
+A API chama para recuperar os modelos todos os objetos de `ModelData` retorno. `ModelData`contém metadados sobre o modelo armazenado no exemplo Azure Digital Twins, como nome, DTMI, e data de criação do modelo. O `ModelData` objeto também inclui opcionalmente o próprio modelo. Dependendo dos parâmetros, pode assim utilizar as chamadas de recuperação para recuperar apenas metadados (o que é útil em cenários em que pretende apresentar uma lista de UI de ferramentas disponíveis, por exemplo), ou todo o modelo.
+
+A `RetrieveModelWithDependencies` chamada devolve não só o modelo solicitado, mas também todos os modelos de que o modelo solicitado depende.
+
+Os modelos não são necessariamente devolvidos no formulário de documento em que foram carregados. A Azure Digital Twins apenas garante que o formulário de devolução será semântica equivalente. 
+
+### <a name="remove-models"></a>Remover modelos
+
+Os modelos também podem ser removidos do serviço, de uma de duas formas:
+* **Desmantelamento** : Uma vez que um modelo é desativado, já não pode usá-lo para criar novos gémeos digitais. Os gémeos digitais existentes que já utilizam este modelo não são afetados, pelo que ainda pode atualizá-los com mudanças de propriedade e adicionar ou eliminar relacionamentos.
+* **Eliminação** : Isto removerá completamente o modelo da solução. Os gémeos que estavam a usar este modelo já não estão associados a nenhum modelo válido, por isso são tratados como se não tivessem um modelo. Ainda pode ler estes gémeos, mas não poderá fazer nenhuma atualização sobre eles até que sejam transferidos para um modelo diferente.
+
+Estas são características separadas e não se impactam entre si, embora possam ser usadas em conjunto para remover um modelo gradualmente. 
+
+### <a name="decommissioning"></a>Desmantelamento
+
+Aqui está o código para desativar um modelo:
+
+```csharp
+// 'client' is a valid DigitalTwinsClient  
+client.DecommissionModel(dtmiOfPlanetInterface);
+// Write some code that deletes or transitions digital twins
+//...
+```
+
+O estado de desmantelamento de um modelo está incluído nos `ModelData` registos devolvidos pelas APIs de recuperação do modelo.
+
+#### <a name="deletion"></a>Eliminação
+
+Pode eliminar todos os modelos no seu caso de uma vez, ou pode fazê-lo individualmente.
+
+Para um exemplo de como eliminar todos os modelos, descarregue a aplicação de amostra utilizada no [Tutorial: Explore o básico com uma aplicação de cliente de amostra.](tutorial-command-line-app.md) O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllModels` função.
+
+O resto desta secção decompõe a eliminação do modelo em detalhes mais próximos, e mostra como fazê-lo para um modelo individual.
+
+##### <a name="before-deletion-deletion-requirements"></a>Antes da eliminação: Requisitos de eliminação
+
+Geralmente, os modelos podem ser apagados a qualquer momento.
+
+A exceção são os modelos de que outros modelos dependem, seja com uma `extends` relação ou como componente. Por exemplo, se um modelo *ConferenceRoom* alargar um modelo *de Sala* e tiver um modelo *ACUnit* como componente, não é possível apagar *a Sala* ou *a ACUnit* até que o *ConferenceRoom* remova as respetivas referências. 
+
+Pode fazê-lo atualizando o modelo dependente para remover as dependências, ou eliminando completamente o modelo dependente.
+
+##### <a name="during-deletion-deletion-process"></a>Durante a eliminação: Processo de eliminação
+
+Mesmo que um modelo cumpra os requisitos para o eliminar imediatamente, é possível que queira passar por alguns passos primeiro para evitar consequências não intencionais para os gémeos deixados para trás. Aqui estão alguns passos que podem ajudá-lo a gerir o processo:
+1. Primeiro, desativar o modelo
+2. Aguarde alguns minutos, para ter certeza de que o serviço processou quaisquer pedidos de criação de gémeos de última hora enviados antes do desmantelamento
+3. Consulta gémeas por modelo para ver todos os gémeos que estão a usar o modelo agora desativado
+4. Elimine os gémeos se já não precisar deles, ou remenda-os para um novo modelo, se necessário. Também pode optar por deixá-los em paz, caso em que se tornarão gémeos sem modelos uma vez que o modelo é apagado. Veja a próxima secção para as implicações deste estado.
+5. Aguarde mais alguns minutos para se certificar de que as mudanças percolaram através
+6. Eliminar o modelo 
+
+Para eliminar um modelo, utilize esta chamada:
+```csharp
+// 'client' is a valid DigitalTwinsClient
+await client.DeleteModelAsync(IDToDelete);
+```
+
+##### <a name="after-deletion-twins-without-models"></a>Após a eliminação: Gémeos sem modelos
+
+Uma vez que um modelo é eliminado, quaisquer gémeos digitais que estavam a usar o modelo são agora considerados sem um modelo. Note que não há nenhuma consulta que possa dar-lhe uma lista de todos os gémeos neste estado - embora ainda *possa* consultar os gémeos pelo modelo apagado para saber quais os gémeos afetados.
+
+Aqui está uma visão geral do que pode ou não fazer com gémeos que não têm um modelo.
+
+Coisas que **pode** fazer:
+* Consulta o gémeo
+* Ler propriedades
+* Ler relacionamentos de saída
+* Adicione e elimine as relações recebidas (como em, outros gémeos ainda podem formar relações *com* este gémeo)
+  - A `target` definição de relacionamento ainda pode refletir o DTMI do modelo eliminado. Uma relação sem alvo definido também pode funcionar aqui.
+* Eliminar relações
+* Apague o gémeo
+
+Coisas que **não se pode** fazer.
+* Editar relações de saída (como em, *relacionamentos* deste gémeo para outros gémeos)
+* Editar propriedades
+
+##### <a name="after-deletion-re-uploading-a-model"></a>Após a eliminação: Recarregamento de um modelo
+
+Depois de um modelo ter sido eliminado, poderá decidir mais tarde carregar um novo modelo com o mesmo ID que o que apagou. Eis o que acontece nesse caso.
+* Do ponto de vista da loja de soluções, isto é o mesmo que carregar um modelo completamente novo. O serviço não se lembra que o antigo já foi carregado.   
+* Se houver gémeos restantes no gráfico que referem o modelo eliminado, deixaram de estar órfãos; este ID do modelo é válido novamente com a nova definição. No entanto, se a nova definição para o modelo for diferente da definição do modelo que foi eliminada, estes gémeos podem ter propriedades e relações que correspondam à definição eliminada e não são válidas com a nova.
+
+A Azure Digital Twins não impede este estado, por isso tenha cuidado para remendar os gémeos adequadamente, de modo a garantir que se mantêm válidos através do interruptor de definição de modelo.
+
+## <a name="manage-models-with-cli"></a>Gerir modelos com CLI
+
+Os modelos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+
+## <a name="next-steps"></a>Próximos passos
+
+Veja como criar e gerir gémeos digitais com base nos seus modelos:
+* [Como fazer: Gerir um gémeo digital](how-to-manage-twin.md)

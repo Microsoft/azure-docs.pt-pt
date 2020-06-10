@@ -1,20 +1,20 @@
 ---
-title: Folha de batota - Azure Synapse Analytics
+title: Folha de batota - Azure Synapse Analytics (pré-visualização dos tempos de trabalho)
 description: Guia de referência que percorre o utilizador através do Azure Synapse Analytics
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 660e77e130d5546d29730680c5863e25c052e5d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 95fa4a0b5761b9d5a17e03c0edf9a727777d3a7f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234837"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609357"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota Azure Synapse Analytics
 
@@ -30,12 +30,12 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 ## <a name="terminology"></a>Terminologia
 | Termo                         | Definição      |
 |:---                                 |:---                 |
-| **Espaço de trabalho sinapse (pré-visualização)** | Um limite de colaboração securável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
+| **Espaço de trabalho sinapse** | Um limite de colaboração securável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
 | **SQL do Synapse**   | Executar análises com piscinas ou com capacidades a pedido.  |
 | **Conjunto de SQL**   | Os recursos a provisionados de 0 a N SQL com as respetivas bases de dados podem ser implantados num espaço de trabalho. Cada piscina SQL tem uma base de dados associada. Uma piscina SQL pode ser dimensionada, pausada e retomada manualmente ou automaticamente. Uma piscina SQL pode escalar de 100 DWU até 30.000 DWU.       |
-| **SQL on demand (pré-visualização)**   | Sistema de processamento de dados distribuído construído para dados em larga escala que permite executar consultas T-SQL sobre dados em data lake. É sem servidor, por isso não precisa de gerir a infraestrutura.       |
+| **SQL a pedido**   | Sistema de processamento de dados distribuído construído para dados em larga escala que permite executar consultas T-SQL sobre dados em data lake. É sem servidor, por isso não precisa de gerir a infraestrutura.       |
 |**Faísca apache para sinapse** | Tempo de corrida de faísca usado numa piscina de faíscas. A versão atual suportada é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
-| **Piscina Apache Spark (pré-visualização)**  | Os recursos ateados 0-a-N Spark com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser auto-pausada, retomada e escalada.  |
+| **Piscina de faíscas Apache**  | Os recursos ateados 0-a-N Spark com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser auto-pausada, retomada e escalada.  |
 | **Aplicação de faísca**  |   Consiste num processo de condutor e num conjunto de processos de executor. Uma aplicação Spark funciona numa piscina de faíscas.            |
 | **Sessão de faísca**  |   Ponto de entrada unificado de uma aplicação de faísca. Fornece uma forma de interagir com as várias funcionalidades de Spark e com um menor número de construções. Para executar um caderno, é preciso criar uma sessão. Uma sessão pode ser configurada para executar um número específico de executores de tamanho específico. A configuração predefinida para uma sessão de portátil é para ser executada em 2 executores de tamanho médio. |
 | **Pedido SQL**  |   Funcionamento como uma consulta que passa pela piscina SQL ou SQL a pedido. |
@@ -56,6 +56,6 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 - [Criar uma área de trabalho](quickstart-create-workspace.md)
 - [Use o Estúdio Synapse](quickstart-synapse-studio.md)
 - [Criar uma piscina SQL](quickstart-create-sql-pool-portal.md)
-- [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
 - [Criar uma piscina Apache Spark](quickstart-create-apache-spark-pool-portal.md)
+- [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
 

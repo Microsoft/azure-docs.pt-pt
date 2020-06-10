@@ -1,37 +1,37 @@
 ---
-title: Administrar caixa de dados Azure/Caixa de Dados Azure Pesada usando uI web local
-description: Descreve como usar a UI web local para administrar a sua Caixa de Dados e dispositivos pesados de caixa de dados
+title: Administrar caixa de dados Azure/Caixa de dados Azure Pesada usando uI web local
+description: Descreve como usar o UI web local para administrar os seus dispositivos Data Box e Data Box Heavy
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560189"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608252"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
-Este artigo descreve algumas das tarefas de configuração e gestão que podem ser executadas nos dispositivos Data Box e Data Box Heavy. Pode gerir os dispositivos Data Box e Data Box Heavy através do portal Azure UI e da UI web local para o dispositivo. Este artigo aborda em especial as tarefas que pode efetuar com a IU de Web local.
+Este artigo descreve algumas das tarefas de configuração e gestão que podem ser realizadas nos dispositivos Data Box e Data Box Heavy. Pode gerir os dispositivos Data Box e Data Box Heavy através do portal Azure UI e da UI web local para o dispositivo. Este artigo aborda em especial as tarefas que pode efetuar com a IU de Web local.
 
-A UI web local para a Caixa de Dados e Caixa de Dados Heavy é utilizada para a configuração inicial do dispositivo. Também pode utilizar o UI web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, ver registos de cópias e gerar um pacote de registo sonorizador para o Microsoft Support. Num dispositivo Data Box Heavy com dois nós independentes, pode aceder a dois UIs web locais separados correspondentes a cada nó do dispositivo.
+A UI web local para a Caixa de Dados e Caixa de Dados Pesada é utilizada para a configuração inicial do dispositivo. Também pode utilizar o UI web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, ver registos de cópias e gerar um pacote de registo para o Microsoft Support. Num dispositivo Data Box Heavy com dois nós independentes, pode aceder a duas UI locais separadas correspondentes a cada nó do dispositivo.
 
 Este artigo inclui os seguintes tutoriais:
 
 - Gerar um pacote de Suporte
 - Encerrar ou reiniciar o dispositivo
-- Baixar ficheiros BOM ou manifestos
+- Descarregue ficheiros BOM ou manifesto
 - Ver a capacidade disponível do dispositivo
 - Ignorar a validação da soma de verificação
 
 ## <a name="generate-support-package"></a>Gerar Pacote de suporte
 
-Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema. Para gerar um pacote de Suporte, tome os seguintes passos:
+Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema. Para gerar um pacote de suporte, tome os seguintes passos:
 
 1. Na IU de Web local, aceda a **Contactar o Suporte** e clique em **Criar Pacote de suporte**.
 
@@ -54,7 +54,7 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
 Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Isto minimiza qualquer possibilidade de danos em dados. Certifique-se de que a cópia de dados não está em curso quando encerra o dispositivo.
 
-Para desligar o dispositivo, tome os seguintes passos.
+Para desligar o seu dispositivo, tome os seguintes passos.
 
 1. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
 2. Clique em **Encerrar**.
@@ -78,27 +78,27 @@ Para reiniciar o Data Box, execute os passos seguintes.
 
    O dispositivo é desligado e, em seguida, reinicia-se.
 
-## <a name="download-bom-or-manifest-files"></a>Baixar ficheiros BOM ou manifestos
+## <a name="download-bom-or-manifest-files"></a>Descarregue ficheiros BOM ou manifesto
 
-A Nota de Material (BOM) ou os ficheiros manifestos contêm a lista dos ficheiros que são copiados para a Caixa de Dados ou Caixa de Dados Pesada. Estes ficheiros são gerados quando prepara o dispositivo para enviar.
+A Fatura de Material (BOM) ou os ficheiros manifestos contêm a lista dos ficheiros que são copiados para a Caixa de Dados ou Caixa de Dados Pesada. Estes ficheiros são gerados quando se prepara o dispositivo para o envio.
 
-Antes de começar, certifique-se de que o seu dispositivo completou **Prepare-se para o** passo do navio. Siga estes passos para descarregar BOM ou manifestos arquivos:
+Antes de começar, certifique-se de que o seu dispositivo está concluído **Prepare-se para o envio.** Siga estes passos para descarregar ficheiros BOM ou manifestos:
 
-1. Vá à UI da web local para o seu dispositivo. Verá que o dispositivo completou a preparação para o navio. Quando a preparação do dispositivo estiver completa, o estado do dispositivo é apresentado como **Pronto para enviar**.
+1. Vá à uI local para o seu dispositivo. Verá que o dispositivo completou a preparação para o navio. Quando a preparação do dispositivo estiver concluída, o estado do dispositivo é apresentado como **Pronto para enviar**.
 
     ![Dispositivo pronto para enviar](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Clique na **lista de ficheiros de Download** para descarregar a lista de ficheiros que foram copiados na sua Caixa de Dados.
+2. Clique **na lista de ficheiros** para descarregar a lista de ficheiros que foram copiados na sua Caixa de Dados.
 
-    ![Clique na lista de ficheiros de download](media/data-box-portal-admin/download-list-of-files.png)
+    ![Clique na lista de ficheiros de descarregamento](media/data-box-portal-admin/download-list-of-files.png)
 
 3. No File Explorer, verá que a lista separada de ficheiros é gerada dependendo do protocolo utilizado para ligar ao dispositivo e ao tipo de Armazenamento Azure utilizado.
 
     ![Ficheiros para tipo de armazenamento e protocolo de ligação](media/data-box-portal-admin/files-storage-connection-type.png)
 
-   A tabela seguinte mapeia os nomes dos ficheiros para o tipo de Armazenamento Azure e o protocolo de ligação utilizado.
+   A tabela que se segue mapeia os nomes dos ficheiros para o tipo de Armazenamento Azure e para o protocolo de ligação utilizado.
 
-    |Nome de ficheiro  |Tipo de armazenamento azure  |Protocolo de ligação utilizado |
+    |Nome de ficheiro  |Tipo de armazenamento Azure  |Protocolo de ligação utilizado |
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |Blobs de blocos         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |Blobs de páginas         |SMB/NFS         |
@@ -108,7 +108,7 @@ Antes de começar, certifique-se de que o seu dispositivo completou **Prepare-se
     |mydbmdrg1_MDisk-BOM.txt    |Disco Gerido         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |Disco Gerido         |SMB/NFS         |
 
-Utiliza esta lista para verificar os ficheiros enviados na conta De armazenamento do Azure depois de a Caixa de Dados regressar ao centro de dados do Azure. Um ficheiro manifesto de amostra é mostrado abaixo.
+Utilize esta lista para verificar os ficheiros enviados para a conta de Armazenamento Azure após a retorna da Caixa de Dados ao centro de dados Azure. Um ficheiro manifesto de amostra é mostrado abaixo.
 
 > [!NOTE]
 > Numa Caixa de Dados Pesada, estão presentes dois conjuntos de listas de ficheiros (ficheiros BOM) correspondentes aos dois nós do dispositivo.
@@ -153,7 +153,7 @@ Utiliza esta lista para verificar os ficheiros enviados na conta De armazenament
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Este ficheiro contém a lista de todos os ficheiros que foram copiados na Caixa de Dados ou na Caixa de Dados Heavy. Neste ficheiro, o valor *crc64* diz respeito ao cheque gerado para o ficheiro correspondente.
+Este ficheiro contém a lista de todos os ficheiros que foram copiados na Caixa de Dados ou Caixa de Dados Pesada. Neste ficheiro, o valor *crc64* diz respeito à caixa de verificação gerada para o ficheiro correspondente.
 
 ## <a name="view-available-capacity-of-the-device"></a>Ver a capacidade disponível do dispositivo
 
@@ -166,7 +166,7 @@ Pode utilizar o dashboard do dispositivo para ver a capacidade disponível e a u
 
 ## <a name="skip-checksum-validation"></a>Ignorar a validação da soma de verificação
 
-Os cheques são gerados para os seus dados por padrão quando se prepara para enviar. Em certos casos raros, dependendo do tipo de dados (tamanhos de ficheiros pequenos), o desempenho pode ser lento. Nesses casos, pode ignorar a soma de verificação.
+As datas de verificação são geradas para os seus dados por padrão quando se prepara para enviar. Em certos casos raros, dependendo do tipo de dados (tamanhos de ficheiros pequenos), o desempenho pode ser lento. Nesses casos, pode ignorar a soma de verificação.
 
 Recomendamos vivamente que não desative a soma de verificação, a não ser que o desempenho tenha sido bastante afetado.
 
@@ -177,7 +177,7 @@ Recomendamos vivamente que não desative a soma de verificação, a não ser que
 2. **Desativar** validação da soma de verificação
 3. Clique em **Aplicar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba como gerir a Caixa de Dados e caixa de [dados pesada através do portal Azure](data-box-portal-admin.md).
+- Saiba como gerir a Caixa de [Dados e a Caixa de Dados Pesada através do portal Azure](data-box-portal-admin.md).
 

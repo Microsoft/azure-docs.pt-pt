@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: db7bfbef7435c47aa011c5f19e8c52d013c88dc3
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229865"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636687"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Azure Ative Directy para autenticar com o MySQL
 
@@ -124,6 +124,15 @@ mysql -h mydb.mysql.database.azure.com \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
 
+Considerações importantes na ligação:
+
+* `user@tenant.onmicrosoft.com`é o nome do utilizador ou grupo AZure AD que está a tentar ligar como
+* Apecimos sempre o nome do servidor após o nome de utilizador/grupo AZure AD (por `@mydb` exemplo)
+* Certifique-se de que utiliza a forma exata como o utilizador AD AD ou o nome de grupo do Azure está escrito
+* O utilizador azure AD e os nomes de grupo são sensíveis a casos
+* Ao ligar em grupo, utilize apenas o nome de grupo (por `GroupName@mydb` exemplo)
+* Se o nome contiver espaços, use `\` antes de cada espaço para escapar
+
 Note a definição "enable-cleartext-plugin" – é necessário utilizar uma configuração semelhante com outros clientes para garantir que o token é enviado para o servidor sem ser hashed.
 
 Está agora autenticado no seu servidor MySQL utilizando a autenticação AZure AD.
@@ -199,7 +208,7 @@ A maioria dos controladores são suportados, no entanto certifique-se de usar as
 * Ir
   * go-sql-driver: Suportado, adicionar `?tls=true&allowCleartextPasswords=true` à cadeia de conexão
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja os conceitos globais de [autenticação do Azure Ative Directory com Azure Database for MySQL](concepts-azure-ad-authentication.md)
 

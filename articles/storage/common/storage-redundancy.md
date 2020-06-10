@@ -10,12 +10,12 @@ ms.date: 06/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 143820eb3c58d2aaac4d4176c4456fca676a0e45
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5bc433615b19b36681796056ff4baf95d080d457
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554104"
+ms.locfileid: "84629408"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -62,8 +62,8 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 |    Tipo de conta de armazenamento    |    Regiões suportadas    |    Serviços suportados    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Finalidade geral v2<sup>1</sup>    | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> África do Sul Norte<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2    |    Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tabelas<br /> Filas<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa Ocidental<br /> E.U.A Leste    |    Bloco apenas bolhas    |
-|    Arquitorage de arquivos    | Europa Ocidental<br /> E.U.A Leste    |    Apenas ficheiros Azure    |
+|    BlockBlobStorage<sup>1</sup>    | Sudeste Asiático<br /> Europa Ocidental<br /> E.U.A Leste    |    Bloco apenas bolhas    |
+|    Arquitorage de arquivos    | Sudeste Asiático<br /> Europa Ocidental<br /> E.U.A Leste    |    Apenas ficheiros Azure    |
 
 <sup>1</sup> O nível de arquivo não é suportado atualmente para contas ZRS.<br />
 <sup>2</sup> As contas de armazenamento que contêm discos geridos Azure para máquinas virtuais usam sempre LRS. Os discos não geridos Azure também devem utilizar LRS. É possível criar uma conta de armazenamento para discos não geridos Azure que usam GRS, mas não é recomendado devido a potenciais problemas com consistência sobre a geo-replicação assíncrona. Nem discos geridos nem não geridos suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [preços para discos geridos Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -184,7 +184,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

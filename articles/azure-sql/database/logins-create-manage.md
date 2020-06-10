@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 296bf84c22313723c328e1775f697ee19dcb8f04
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e56b526dff9e18f19275cb248fd6955dd680324f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220543"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605103"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à base de dados SQL, à SqL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ Neste momento, o seu servidor ou instância gerida só está configurado para ac
 
   - Crie um login SQL adicional na base de dados principal.
   - Adicione o login à [função de servidor fixo sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) utilizando a declaração [ALTER SERVER ROLE.](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) Este login terá permissões administrativas completas.
-  - Em alternativa, crie um [login AD AZure](authentication-aad-configure.md)#provision-ad-ad-admin-sql-instância gerida) utilizando a sintaxe [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)
+  - Em alternativa, crie um [login AD Azure](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) utilizando a sintaxe [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)
 
 - **Na Base de Dados SQL, crie logins SQL com permissões administrativas limitadas**
 
@@ -169,6 +169,6 @@ Deverá familiarizar-se com as seguintes funcionalidades que podem ser utilizada
 - A [Máscara de Dados](dynamic-data-masking-overview.md) pode ser utilizada para limitar a exposição de dados confidenciais.
 - Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral de todas as funcionalidades de segurança da Azure SQL Database e sql Managed Instance, consulte [a visão geral de Segurança](security-overview.md).

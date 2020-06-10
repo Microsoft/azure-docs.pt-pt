@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: 1536773840693e943b1e32f0ae7358b8b2ee7ce9
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 15b146a9299a089a3bf9601c432eb179187a9473
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324645"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610105"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -20,6 +20,12 @@ A funcionalidade de réplica de leitura permite replicar dados de um servidor de
 As réplicas são novos servidores que geres similares ao Azure Database regular para servidores MySQL. Para cada réplica de leitura, você é cobrado para o cálculo provisionado em vCores e armazenamento em GB/mês.
 
 Para saber mais sobre funcionalidades e problemas de replicação do MySQL, consulte a [documentação de replicação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+
+> [!NOTE]
+> Comunicação sem preconceitos
+>
+> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
@@ -151,7 +157,7 @@ O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-vari
 
 Para atualizar um dos parâmetros acima no servidor principal, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 
 - Os identificadores globais de transações (GTID) não são suportados.
 - A criação de uma réplica de uma réplica não é suportada.

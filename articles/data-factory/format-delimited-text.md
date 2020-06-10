@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b32685aa060363d00f1566e009beee36bbf9680
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 21f074be2cefcf5df261b354f169e8c210c9256f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298555"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604878"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de textolimtado na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,17 +29,17 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **DelimitedText**. | Yes      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` .  | Yes      |
-| columnDelimiter  | O(s) caracterisse usado para separar colunas num ficheiro. <br>O valor predefinido é **vírgula. `,` ** Quando o delimitador da coluna é definido como corda vazia, o que significa que não hálimiter, toda a linha é tomada como uma única coluna.<br>Atualmente, o delimiter de coluna como string vazio ou multi-char é suportado apenas para mapeamento de fluxo de dados, mas não atividade de Cópia.  | No       |
-| rowDelimiter     | O único carácter ou "\r\n" usado para separar linhas num ficheiro. <br>O valor predefinido é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na escrita** por mapeamento do fluxo de dados e da atividade copy, respectivamente. <br>Quando o delimiter de linha não estiver definido para nenhum delimiter (corda vazia), olimiter da coluna deve ser definido como nenhum delimiter (cadeia vazia) também, o que significa tratar todo o conteúdo como um único valor.<br>Atualmente, o delimiter de linha como string vazio é suportado apenas para mapeamento de fluxo de dados, mas não atividade de Cópia. | No       |
-| quoteChar        | O único carácter para citar valores de coluna se contiver delimiter de coluna. <br>O valor predefinido são **cotações duplas.** `"` <br>Para mapear o fluxo de dados, `quoteChar` não pode ser uma corda vazia. <br>Para a atividade copy, quando `quoteChar` é definido como corda vazia, significa que não há cotação char e valor da coluna não é citado, e é usado para escapar do `escapeChar` delimiter da coluna e de si mesmo. | No       |
-| escapeChar       | O único personagem a escapar citações dentro de um valor citado.<br>O valor **predefinido `\` **é retrocesso. <br>Para mapear o fluxo de dados, `escapeChar` não pode ser uma corda vazia. <br/>Para a atividade copy, quando `escapeChar` é definido como corda vazia, o deve ser definido como corda vazia `quoteChar` também, e nesse caso certifique-se de que todos os valores da coluna não contêm delimiters. | No       |
-| firstRowAsHeader | Especifica se deve tratar/fazer a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | No       |
-| nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | No       |
-| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.<br>O fluxo de dados de mapeamento de notas não suporta codificação UTF-7. | No       |
-| compressãoCodec | O códice de compressão usado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate,** **snappy,** ou **lz4**. O padrão não é comprimido. <br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#delimited-text-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta. | No       |
-| compressãoLevel | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | No       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **DelimitedText**. | Sim      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` .  | Sim      |
+| columnDelimiter  | O(s) caracterisse usado para separar colunas num ficheiro. <br>O valor predefinido é **vírgula. `,` ** Quando o delimitador da coluna é definido como corda vazia, o que significa que não hálimiter, toda a linha é tomada como uma única coluna.<br>Atualmente, o delimiter de coluna como string vazio ou multi-char é suportado apenas para mapeamento de fluxo de dados, mas não atividade de Cópia.  | Não       |
+| rowDelimiter     | O único carácter ou "\r\n" usado para separar linhas num ficheiro. <br>O valor predefinido é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na escrita** por mapeamento do fluxo de dados e da atividade copy, respectivamente. <br>Quando o delimiter de linha não estiver definido para nenhum delimiter (corda vazia), olimiter da coluna deve ser definido como nenhum delimiter (cadeia vazia) também, o que significa tratar todo o conteúdo como um único valor.<br>Atualmente, o delimiter de linha como string vazio é suportado apenas para mapeamento de fluxo de dados, mas não atividade de Cópia. | Não       |
+| quoteChar        | O único carácter para citar valores de coluna se contiver delimiter de coluna. <br>O valor predefinido são **cotações duplas.** `"` <br>Para mapear o fluxo de dados, `quoteChar` não pode ser uma corda vazia. <br>Para a atividade copy, quando `quoteChar` é definido como corda vazia, significa que não há cotação char e valor da coluna não é citado, e é usado para escapar do `escapeChar` delimiter da coluna e de si mesmo. | Não       |
+| escapeChar       | O único personagem a escapar citações dentro de um valor citado.<br>O valor **predefinido `\` **é retrocesso. <br>Para mapear o fluxo de dados, `escapeChar` não pode ser uma corda vazia. <br/>Para a atividade copy, quando `escapeChar` é definido como corda vazia, o deve ser definido como corda vazia `quoteChar` também, e nesse caso certifique-se de que todos os valores da coluna não contêm delimiters. | Não       |
+| firstRowAsHeader | Especifica se deve tratar/fazer a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não       |
+| nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | Não       |
+| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.<br>O fluxo de dados de mapeamento de notas não suporta codificação UTF-7. | Não       |
+| compressãoCodec | O códice de compressão usado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate,** **snappy,** ou **lz4**. O padrão não é comprimido. <br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#delimited-text-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta. | Não       |
+| compressãoLevel | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo de conjunto de dados de texto delimitado no armazenamento Azure Blob:
 
@@ -79,18 +79,18 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade       | Descrição                                                  | Necessário |
 | -------------- | ------------------------------------------------------------ | -------- |
-| tipo           | A propriedade tipo da fonte de atividade de cópia deve ser definida como **DelimitedTextSource**. | Yes      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. | No       |
-| lojaSs  | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . | No       |
+| tipo           | A propriedade tipo da fonte de atividade de cópia deve ser definida como **DelimitedTextSource**. | Sim      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. | Não       |
+| lojaSs  | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . | Não       |
 
 Definições **de leitura de texto delimited suportadas** em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | O tipo de formatoStas devem ser definidas para **DelimitedTextReadSettings**. | Yes      |
-| skipLineCount | Indica o número de linhas **não vazias** a saltar ao ler dados a partir de ficheiros de entrada. <br>Se as propriedades skipLineCount e firstRowAsHeader forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada. | No       |
-| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | No       |
-| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia. Quando definido para verdadeiro (predefinido), a Data Factory escreve ficheiros desapertados `<path specified in dataset>/<folder named as source zip file>/` para; quando definidos para falsos, a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` .  | No |
+| tipo          | O tipo de formatoStas devem ser definidas para **DelimitedTextReadSettings**. | Sim      |
+| skipLineCount | Indica o número de linhas **não vazias** a saltar ao ler dados a partir de ficheiros de entrada. <br>Se as propriedades skipLineCount e firstRowAsHeader forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada. | Não       |
+| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
+| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia. Quando definido para verdadeiro (predefinido), a Data Factory escreve ficheiros desapertados `<path specified in dataset>/<folder named as source zip file>/` para; quando definidos para falsos, a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` .  | Não |
 
 ```json
 "activities": [
@@ -126,22 +126,78 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 | Propriedade       | Descrição                                                  | Necessário |
 | -------------- | ------------------------------------------------------------ | -------- |
-| tipo           | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **DelimitedTextSink**. | Yes      |
+| tipo           | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **DelimitedTextSink**. | Sim      |
 | formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. |          |
-| lojaSs  | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` .  | No       |
+| lojaSs  | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` .  | Não       |
 
 Definições **de escrita de texto delimitadas suportadas** em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Necessário                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas com **DelimitedTextWriteSettings**. | Yes                                                   |
+| tipo          | O tipo de formatoStas devem ser definidas com **DelimitedTextWriteSettings**. | Sim                                                   |
 | arquivoExtensão | A extensão do ficheiro usado para nomear os ficheiros de saída, por `.csv` exemplo, `.txt` . . Deve ser especificado quando o `fileName` não é especificado no conjunto de dados DelimitedText de saída. Quando o nome do ficheiro estiver configurado no conjunto de dados de saída, será utilizado como nome do ficheiro da pia e a definição de extensão do ficheiro será ignorada.  | Sim, quando o nome do ficheiro não é especificado no conjunto de dados de saída |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
-Aprenda detalhes da [transformação](data-flow-source.md) da fonte e [da transformação do sumidouro](data-flow-sink.md) no fluxo de dados de mapeamento.
+No mapeamento dos fluxos de dados, pode ler e escrever para o formato de texto delimitado nas seguintes lojas de dados: [Azure Blob Storage,](connector-azure-blob-storage.md#mapping-data-flow-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="source-properties"></a>Propriedades de origem
+
+A tabela abaixo lista as propriedades suportadas por uma fonte de texto delimitada. Pode editar estas propriedades no separador **Opções Fonte.**
+
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
+| Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
+| Linhas multiline | O ficheiro de origem contém linhas que abrangem várias linhas. Os valores multiline devem estar em aspas. | não `true` ou`false` | multiLineRow |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
+| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Carimbo de data/hora | modificado Depois <br> modificadoSForo antes |
+
+### <a name="source-example"></a>Exemplo de origem
+
+A imagem abaixo é um exemplo de uma configuração de origem de texto delimitada nos fluxos de dados de mapeamento.
+
+![Fonte detexto delimited](media/data-flow/delimited-text-source.png)
+
+O script de fluxo de dados associado é:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    multiLineRow: true,
+    wildcardPaths:['*.csv']) ~> CSVSource
+```
+
+### <a name="sink-properties"></a>Propriedades de pia
+
+A tabela abaixo lista as propriedades suportadas por um lavatório de texto delimitado. Pode editar estas propriedades no **separador Definições.**
+
+| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
+| Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato`part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Citar tudo | Incluir todos os valores em cotações | não | `true` ou `false` | citaçãoTo |
+
+### <a name="sink-example"></a>Exemplo de pia
+
+A imagem abaixo é um exemplo de uma configuração de sumidouro de texto delimitada nos fluxos de dados de mapeamento.
+
+![Pia detextado delimited](media/data-flow/delimited-text-sink.png)
+
+O script de fluxo de dados associado é:
+
+```
+CSVSource sink(allowSchemaDrift: true,
+    validateSchema: false,
+    truncate: true,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> CSVSink
+```
+
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)

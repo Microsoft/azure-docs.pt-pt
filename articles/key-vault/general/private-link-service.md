@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266836"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610156"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integre o Cofre de Chaves com Ligação Privada Azure
 
@@ -146,9 +146,9 @@ Existem quatro estados de provisionamento:
 
 | Prestação de serviços | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
+| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
-| Rejeitar | Rejected | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
+| Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
  
 ###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Como gerir uma ligação privada ao Key Vault utilizando o portal Azure 
@@ -225,13 +225,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e Considerações de Design
 
+> [!NOTE]
+> O número de cofres-chave com pontos finais privados ativados por subscrição é um limite ajustável. O limite abaixo indicado é o limite de predefinição. Se pretender solicitar um aumento limite para o seu serviço, por favor envie um e-mail para akv-privatelink@microsoft.com . Aprovaremos estes pedidos caso a caso.
+
 **Preços**: Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitações**: O Ponto Final Privado para a Azure Key Vault só está disponível nas regiões públicas de Azure.
 
 **Número máximo de pontos finais privados por porta-chaves:** 64.
 
-**Número máximo de cofres-chave com pontos finais privados por subscrição:** 64.
+**Número predefinido de cofres-chave com pontos de final privados por subscrição:** 400.
 
 Para mais informações, consulte [o serviço Azure Private Link: Limitações](../../private-link/private-link-service-overview.md#limitations)
 

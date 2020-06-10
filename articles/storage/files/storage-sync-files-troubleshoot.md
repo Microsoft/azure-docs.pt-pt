@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c273feb8cf8f2e94a62dcf01b205df604e775e6
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a7d1fac4ff76b39cb2107a8839e8f8e63ff90fd5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449469"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635106"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -315,6 +315,7 @@ Para ver estes erros, execute o script **FileSyncErrorsReport.ps1** PowerShell (
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | O ficheiro hierárquico do servidor não está acessível. Este problema ocorrerá se o ficheiro em camadas não tiver sido recuperado antes de eliminar um ponto final do servidor. | Para resolver este problema, ver [ficheiros Tiered não estão acessíveis no servidor depois de eliminar um ponto final do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | O ficheiro ou a alteração do diretório ainda não podem ser sincronizados porque uma pasta dependente ainda não está sincronizada. Este item sincroniza-se depois de as alterações dependentes serem sincronizadas. | Nenhuma ação necessária. Se o erro persistir durante vários dias, utilize o script FileSyncErrorsReport.ps1 PowerShell para determinar por que razão a pasta dependente ainda não está sincronizada. |
+| 0x80C8028A | -2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | O ficheiro ou a alteração do diretório ainda não podem ser sincronizados porque uma pasta dependente ainda não está sincronizada. Este item sincroniza-se depois de as alterações dependentes serem sincronizadas. | Nenhuma ação necessária. Se o erro persistir durante vários dias, utilize o script FileSyncErrorsReport.ps1 PowerShell para determinar por que razão a pasta dependente ainda não está sincronizada. |
 | 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | O ficheiro ou a alteração do diretório ainda não podem ser sincronizados porque uma pasta dependente ainda não está sincronizada e a sessão de sincronização falhou. Este item sincroniza-se depois de as alterações dependentes serem sincronizadas. | Nenhuma ação necessária. Se o erro persistir, investigue a falha da sessão de sincronização. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | O ficheiro ou o nome do diretório são inválidos. | Mude o nome do ficheiro ou diretório em questão. Consulte [o Manuseamento de caracteres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | O ficheiro ou o nome do diretório são inválidos. | Mude o nome do ficheiro ou diretório em questão. Consulte [o Manuseamento de caracteres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |

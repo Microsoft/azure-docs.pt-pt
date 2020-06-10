@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: f505f8222bd5959a9bb0213dc5c8c48092723bba
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 67c25d7065136f4748b6c0f57a8627db445c1a4e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266632"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610972"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral - autenticação de serviços de domínio de diretório ativo no local sobre SMB para ações de ficheiros Azure
 
@@ -57,7 +57,7 @@ Antes de ativar a autenticação AD DS para ações de ficheiros Azure, certifiq
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação Azure Files com DS AD está disponível em [todas as regiões Públicas e Azure Gov.](https://azure.microsoft.com/global-infrastructure/locations/)
+A autenticação de Ficheiros Azure com DS AD está disponível em [todas as regiões públicas, Azure Gov e China.](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -83,7 +83,7 @@ O diagrama seguinte ilustra o fluxo de trabalho de ponta a ponta para permitir a
 
 As identidades utilizadas para aceder às ações de ficheiros Azure devem ser sincronizadas com a Azure AD para impor permissões de ficheiros de nível de ação através do modelo [de controlo de acesso baseado em funções (RBAC).](../../role-based-access-control/overview.md) [Os DACLs de estilo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em ficheiros/diretórios transportados a partir de servidores de ficheiros existentes serão preservados e aplicados. Isto oferece uma integração perfeita com o ambiente AD DS da sua empresa. À medida que substitui os servidores de ficheiros on-prem por ações de ficheiros Azure, os utilizadores existentes podem aceder às ações de ficheiros Azure dos seus clientes atuais por uma única experiência de login, sem qualquer alteração às credenciais em uso.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ativar no local a autenticação AD DS para a sua partilha de ficheiros Azure, continue até ao artigo seguinte:
 

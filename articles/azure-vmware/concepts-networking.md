@@ -3,18 +3,18 @@ title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Solução VMware Azure (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 1d869601110266f7ad16e23b66453c44793cdf31
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457087"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629214"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware Solution (AVS) Pré-visualização de conceitos de rede e interconectividade
 
 A interconectividade da rede entre as suas nuvens privadas Azure VMware Solution (AVS) e ambientes no local ou redes virtuais em Azure permite-lhe aceder e utilizar a sua nuvem privada. Neste artigo são descritos alguns conceitos-chave de ligação em rede e interconectividade que estabelecem a base da interconectividade.
 
-Uma perspetiva útil sobre a interconectividade é considerar os dois tipos de implementações em nuvem privada AVS. As implementações com interconectividade básica apenas azure e as implementações com todas as instalações para a interconectividade de nuvem privada.
+Uma perspetiva útil sobre a interconectividade é considerar os dois tipos de implementações em nuvem privada AVS: implementações com interconectividade básica apenas azure e implementações com completa inconectividade na nuvem privada.
 
 Os casos de utilização de nuvens privadas AVS incluem:
 - novas cargas de trabalho VMware VMware na nuvem
@@ -25,7 +25,7 @@ Os casos de utilização de nuvens privadas AVS incluem:
 
  Todos os casos de utilização do serviço AVS estão habilitados com conectividade em nuvem privada. O modelo básico de interconectividade é mais adequado para avaliações ou implementações avs que não requerem acesso a partir de ambientes no local.
 
-Os dois tipos de interconectividade de nuvem privada AVS são descritos nas secções abaixo.  A interconectividade mais básica é a "conectividade da rede virtual Azure", e permite-lhe gerir e utilizar a sua nuvem privada com apenas uma rede virtual em Azure. A interconectividade descrita na "conectividade no local" alarga a conectividade da rede virtual para incluir também a interconectividade entre ambientes no local e nuvens privadas AVS.
+Os dois tipos de interconectividade de nuvem privada AVS são descritos nas secções abaixo.  A interconectividade mais básica é a "conectividade da rede virtual Azure"; permite-lhe gerir e utilizar a sua nuvem privada com apenas uma rede virtual em Azure. A interconectividade descrita na "conectividade no local" alarga a conectividade da rede virtual para incluir também a interconectividade entre ambientes no local e nuvens privadas AVS.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Interconectividade da rede virtual Azure
 

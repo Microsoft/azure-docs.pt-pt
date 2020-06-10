@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196521"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628400"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem (pré-visualização) para classificação de imagem multi-classes 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -110,6 +110,12 @@ Agora que tem acesso aos dados que pretende ter rotulado, crie o seu projeto de 
 
 1. Selecione **Next** para continuar a criar o projeto.
 
+### <a name="incremental-refresh"></a>Atualização incremental
+
+Se pretender adicionar novas imagens ao seu conjunto de dados, a atualização incremental encontrará estas novas imagens e adicioná-las-á ao seu projeto.  Quando ativar esta funcionalidade, o projeto verificará periodicamente novas imagens.  Não vai adicionar novas imagens à datastore para este tutorial, por isso deixe esta funcionalidade desmarcada.
+
+Selecione **Seguinte** para continuar.
+
 ### <a name="label-classes"></a>Aulas de etiquetas
 
 1. No formulário **de classe Label,** digite um nome de etiqueta e, em seguida, selecione **+Adicione a etiqueta** para escrever a etiqueta seguinte.  Para este projeto, os rótulos são **Cat,** **Dog,** e **Uncertain.**
@@ -201,7 +207,7 @@ As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, rotulaste imagens.  Agora use os seus dados rotulados:
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: a345b5a8a4d6a99b1b3928d61b22dfba0ba2735b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 319e6a4bff4d4d5675a03359176ac765cae80116
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248843"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608083"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 
@@ -32,7 +32,9 @@ A definição de produção prevista num recipiente é a opção mais utilizada.
 
 A produção prevista para um recipiente é distribuída uniformemente entre as suas divisórias físicas, e assumindo uma boa chave de partição que distribui uniformemente as divisórias lógicas entre as divisórias físicas, a produção também é distribuída uniformemente por todas as divisórias lógicas do recipiente. Não é possível especificar seletivamente a produção de divisórias lógicas. Uma ou mais divisórias lógicas de um recipiente são acolhidas por uma partição física, as divisórias físicas pertencem exclusivamente ao recipiente e suportam a produção prevista no recipiente. 
 
-Se a carga de trabalho em execução numa partição lógica consumir mais do que a produção que foi atribuída a essa partição lógica, as suas operações ficam limitadas. Quando ocorre uma limitação da taxa, pode aumentar a produção prevista para todo o contentor ou voltar a tentar as operações. Para obter mais informações sobre partição, consulte [as divisórias lógicas.](partition-data.md)
+Se a carga de trabalho em execução numa partição lógica consumir mais do que a produção que foi atribuída à partição física subjacente, é possível que as suas operações sejam limitadas. O que é conhecido como uma _partição quente_ ocorre quando uma partição lógica tem desproporcionalmente mais pedidos do que outros valores-chave de partição.
+
+Quando ocorre uma limitação da taxa, pode aumentar a produção prevista para todo o contentor ou voltar a tentar as operações. Também deve certificar-se de que escolhe uma chave de partição que distribui uniformemente o armazenamento e o volume de pedidos. Para obter mais informações sobre a partição, consulte [a partição e a escala horizontal em Azure Cosmos DB](partition-data.md).
 
 Recomendamos que configuure a produção na granularidade do recipiente quando desejar um desempenho garantido para o recipiente.
 
@@ -114,7 +116,7 @@ Este quadro mostra uma comparação entre a produção padrão de provisionament
 |Produção máxima por partição lógica de um recipiente|10K RU/s|10K RU/s|10K RU/s|10K RU/s|
 |Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|20 GB|20 GB|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [divisórias lógicas.](partition-data.md)
 * Saiba como providenciar o [padrão (manual) num recipiente Azure Cosmos](how-to-provision-container-throughput.md).

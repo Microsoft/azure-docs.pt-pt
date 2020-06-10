@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e60e8452b5cd3750a7b3478c860de95d8992528d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b6294abe986115d86826fee8aad09f468b3d651
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300149"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84627995"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
 
-A nova experiência **[de registos de aplicações](https://aka.ms/b2cappregistrations)** para o Azure Ative Directory Azure AD B2C (Azure AD B2C) está agora disponível em geral. Se está mais familiarizado com a experiência **applications** para registar candidaturas para Azure AD B2C, aqui referida como a "experiência do legado", este guia vai começar a usar a nova experiência.
+A nova experiência **[de registos de aplicações](https://aka.ms/b2cappregistrations)** para o Azure Ative Directory B2C (Azure AD B2C) está agora disponível em geral. Se está mais familiarizado com a experiência **applications** para registar candidaturas para Azure AD B2C, aqui referida como a "experiência do legado", este guia vai começar a usar a nova experiência.
 
 ## <a name="overview"></a>Descrição geral
 Anteriormente, teve de gerir as suas aplicações viradas para o consumidor Azure AD B2C separadamente das restantes aplicações utilizando a experiência do legado. Isso significou diferentes experiências de criação de aplicações em diferentes lugares em Azure.
@@ -109,7 +109,7 @@ A nova experiência tem as seguintes limitações:
 <!-- - Azure AD B2C doesn't currently support the single-page application "SPA" app type.  -->
 - Alterar o valor das contas suportadas não é suportado na UI. Você precisará usar o manifesto da aplicação, a menos que você esteja trocando entre Azure AD single-tenant e multi-inquilino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a nova experiência de registo de aplicações:
 * Saiba [como registar uma aplicação web](tutorial-register-applications.md)

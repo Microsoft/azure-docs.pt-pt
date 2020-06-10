@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: e0b25b07e3517bbbf17dce95660f209bd74bcccb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bedc0f6a457fe27d7358aea1219126427c924e1d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561740"
+ms.locfileid: "84627909"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança da rede
 
@@ -59,6 +59,9 @@ Análise de segurança da rede **forense &:** Analise os fluxos de rede de IPs c
 - Um grupo de segurança de rede (NSG) contém uma lista de _regras_ de segurança que permitem ou negam o tráfego de rede em recursos a que está ligado. Os NSGs podem ser associados com sub-redes, VMs individuais ou interfaces de rede individuais (NIC) anexadas a VMs (Gestor de Recursos). Para obter mais informações, consulte [a visão geral do grupo de segurança da rede.](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json)
 - Todos os fluxos de tráfego da sua rede são avaliados usando as regras do NSG aplicável.
 - O resultado destas avaliações são os Registos de Fluxo NSG. Os registos de fluxo são recolhidos através da plataforma Azure e não requerem qualquer alteração aos recursos do cliente.
+- Nota: As regras são de dois tipos - terminando & não terminantes, cada uma com diferentes comportamentos de registo.
+- - As regras da NSG Deny estão a terminar. A NSG negando que o tráfego irá registrá-lo em registos flow e o processamento neste caso iria parar depois de qualquer NSG negar o tráfego. 
+- - NSG Permitir que as regras não sejam terminantes, o que significa que mesmo que um NSG o permita, o processamento continuará para o próximo NSG. O último NSG que permite o tráfego registará o tráfego nos registos do Flow.
 - Os Registos de Fluxo NSG são escritos para contas de armazenamento a partir de onde podem ser acedidos.
 - Você pode exportar, processar, analisar e visualizar Flow Logs usando ferramentas como TA, Splunk, Grafana, Stealthwatch, etc.
 
@@ -303,7 +306,7 @@ Para a continuação dos estados de fluxo _C_ e _end E,_ as contagens de byte e 
 
 Utilize o link relevante a partir de baixo para obter guias sobre a ativação dos registos de fluxo.
 
-- [Portal Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Portal do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 - [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
@@ -311,7 +314,7 @@ Utilize o link relevante a partir de baixo para obter guias sobre a ativação d
 
 ## <a name="updating-parameters"></a>Atualização de parâmetros
 
-**Portal Azure**
+**Portal do Azure**
 
 No portal Azure, navegue para a secção de Registos de Fluxo NSG no Observador de Rede. Em seguida, clique no nome do NSG. Isto irá trazer o painel de definições para o registo flow. Altere os parâmetros que deseja e bata **Para** implementar as alterações.
 
@@ -351,9 +354,9 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Custos de registo do fluxo**: A exploração de fluxo NSG é faturada no volume de registos produzidos. O elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. O preço do registo do NSG Flow não inclui os custos subjacentes de armazenamento. A utilização da função de política de retenção com a NSG Flow Logging significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se não necessitar da função de política de retenção, recomendamos que desemote este valor para 0. Para mais informações, consulte [o Preço do Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os Preços de Armazenamento [Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
 
-**Fluxos de entrada registados de IPs de internet para VMs sem IPs públicos**: VMs que não têm um endereço IP público atribuído através de um endereço IP público associado ao NIC como um IP público de nível de instância, ou que fazem parte de um pool de back-end do balancer de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pela Azure para facilitar a conectividade de saída. Como resultado, pode ver entradas de registo de fluxo para fluxos a partir de endereços IP da Internet, se o fluxo estiver destinado a uma porta na gama de portas atribuídas ao SNAT. Embora o Azure não permita estes fluxos para o VM, a tentativa é registada e aparece no registo de fluxo NSG do Observador de Rede por design. Recomendamos que o tráfego de internet de entrada indesejada seja explicitamente bloqueado com o NSG.
+**Byte incorreto e contagens de pacotes para fluxos de entrada**: [Grupos de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como uma [firewall stateful](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, devido às limitações da plataforma, as regras que controlam os fluxos de entrada são implementadas de forma apátrida. Devido a este bytes e contagem de pacotes não são registados para estes fluxos. Consequentemente, o número de bytes e pacotes relatados em Registos de Fluxo NSG (e Traffic Analytics) poderia ser diferente dos números reais. Além disso, os fluxos de entrada não terminam agora. Esta limitação deverá ser corrigida até dezembro de 2020.
 
-**Byte incorreto e contagens de pacotes para fluxos apátridas**: [Grupos de Segurança de Rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como uma [firewall stateful](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, muitas regras padrão/internas que controlam o fluxo de tráfego são implementadas de forma apátrida. Devido às limitações da plataforma, as contagens de bytes e pacotes não são registadas para fluxos apátridas (isto é, fluxos de tráfego que passam por regras apátridas), são registados apenas para fluxos estatais. Consequentemente, o número de bytes e pacotes relatados nos Registos de Fluxo NSG (e no Traffic Analytics) poderia ser diferente dos fluxos reais. Esta limitação deverá ser corrigida até junho de 2020.
+**Fluxos de entrada registados de IPs de internet para VMs sem IPs públicos**: VMs que não têm um endereço IP público atribuído através de um endereço IP público associado ao NIC como um IP público de nível de instância, ou que fazem parte de um pool de back-end do balancer de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pela Azure para facilitar a conectividade de saída. Como resultado, pode ver entradas de registo de fluxo para fluxos a partir de endereços IP da Internet, se o fluxo estiver destinado a uma porta na gama de portas atribuídas ao SNAT. Embora o Azure não permita estes fluxos para o VM, a tentativa é registada e aparece no registo de fluxo NSG do Observador de Rede por design. Recomendamos que o tráfego de internet de entrada indesejada seja explicitamente bloqueado com o NSG.
 
 ## <a name="best-practices"></a>Melhores práticas
 

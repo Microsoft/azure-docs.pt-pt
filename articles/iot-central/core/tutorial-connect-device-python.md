@@ -7,12 +7,13 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ba619cc4e86b997f4e11536e6ea7b9ed906f41e4
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: tracking-python
+ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417689"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607215"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central (Python)
 
@@ -303,7 +304,7 @@ Pode ver como o dispositivo responde a comandos e atualizações de propriedade:
 
 ![Observar a aplicação do cliente](media/tutorial-connect-device-python/run-application-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como desenvolvedor de dispositivos, agora que aprendeu o básico de como criar um dispositivo usando Node.js, alguns passos sugeridos são:
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 00f93086fec62c08c5241d868fc5104a1197cff3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248333"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605413"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Começando com Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Este documento guia-o através de todos os passos básicos necessários para con
     |Noções básicas|**Nome da conta de armazenamento**| Pode dar-lhe qualquer nome.|Neste documento, vamos chamar-lhe como `contosolake` .|
     |Noções básicas|**Tipo de conta**|Deve ser definido para`StorageV2`||
     |Noções básicas|**Localização**|Pode escolher qualquer local| Recomendamos que o seu espaço de trabalho Synapse e a conta Azure Data Lake Storage (ADLS) Gen2 estejam na mesma região.|
-    |Avançado|**Armazenamento do Data Lake Ger2**|`Enabled`| A Azure Synapse só funciona com contas de armazenamento onde esta definição está ativada.|
+    |Avançado|**Data Lake Storage Gen2**|`Enabled`| A Azure Synapse só funciona com contas de armazenamento onde esta definição está ativada.|
 
 1. Assim que a conta de armazenamento for criada, selecione **Access control (IAM)** a partir da navegação à esquerda. Em seguida, atribua as seguintes funções ou certifique-se de que já estão atribuídas. 
 
@@ -164,7 +164,7 @@ Temos dados disponíveis numa tabela em `SQLDB1` . Agora colocamos numa base de 
 
 1. Navegue no centro **de dados,** clique com o botão direito nas **bases de dados** e selecione **Refresh**.
 1. Agora deve ver estas bases de dados:
-    - SQLDB (piscina SQL)
+    - SQLDB1 (piscina SQL)
     - nyctaxi (Faísca)
       
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analise os dados do Táxi de NYC usando Spark e cadernos
@@ -190,10 +190,10 @@ Temos dados disponíveis numa tabela em `SQLDB1` . Agora colocamos numa base de 
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. Nos resultados da célula, selecione **Gráfico** para ver os dados visualizados
  
@@ -262,7 +262,7 @@ Até agora, cobrimos cenários que residiam em bases de dados no espaço de trab
 * O nome da conta de armazenamento:`contosolake`
 * O nome do recipiente na conta de armazenamento:`users`
 
-### <a name="creating-csv-and-parquet-files-in-your-storage-account"></a>Criar ficheiros CSV e Parquet na sua conta de Armazenamento
+### <a name="creating-csv-and-parquet-files-in-your-storage-account"></a>Criar ficheiros CSV e Parquet na sua conta de armazenamento
 
 Execute o seguinte código num caderno. Cria um ficheiro CSV e um ficheiro parquet na conta de armazenamento
 
@@ -282,7 +282,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Selecione **utilizadores (Primário)"**
 1. Devia ver uma pasta chamada `NYCTaxi` . No interior deverá ver duas pastas `PassengerCountStats.csv` e `PassengerCountStats.parquet` .
 1. Navegue na `PassengerCountStats.parquet` pasta.
-1. Clique com o botão direito no ficheiro parquet no interior e selecione **um novo caderno,** criará um caderno com uma célula como esta:
+1. Clique com o botão direito no `.parquet` ficheiro no interior e selecione um novo **caderno,** criará um caderno com uma célula como esta:
 
     ```py
     %%pyspark
@@ -374,7 +374,7 @@ Pode ligar um espaço de trabalho Power BI ao seu espaço de trabalho Synapse. I
 1. Neste local, você pode ver uma história de todas as atividades que estão acontecendo no espaço de trabalho e quais estão ativas agora.
 1. Explore as **correções**do Pipeline, **aplicações Apache Spark**e **SQL** e poderá ver o que já fez no espaço de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a Azure Synapse Analytics (pré-visualização)](overview-what-is.md)
 
