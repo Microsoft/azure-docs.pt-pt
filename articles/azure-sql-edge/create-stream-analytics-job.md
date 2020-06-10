@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 323ec00667350917e6b16827f908ac1abeee77d6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4b09df3110907d58badda2c389b9ee39a9b02532
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233314"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636194"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar trabalho stream analytics em Azure SQL Edge (Pré-visualização) 
 
@@ -24,7 +24,7 @@ Este artigo explica como criar um trabalho de streaming T-SQL em Azure SQL Edge 
 2. Defina a consulta de trabalho em streaming como parte da criação de emprego em streaming.
 
 > [!NOTE]
-> Para ativar a funcionalidade de streaming T-SQL em Azure SQL Edge, ative o TF 11515 como opção de arranque ou utilize o comando [DBCC TRACEON.]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) Para obter mais informações sobre como permitir a utilização de bandeiras de traços utilizando o ficheiro mssql.conf, consulte [o ficheiro Configure utilizando o ficheiro mssql.conf](configure.md#configure-using-mssqlconf-file). Este requisito será removido em futuras atualizações do Azure SQL Edge (Preview).
+> Para ativar a funcionalidade de streaming T-SQL em Azure SQL Edge, ative o TF 11515 como opção de arranque ou utilize o comando [DBCC TRACEON.]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) Para obter mais informações sobre como permitir a utilização de bandeiras de traços utilizando o ficheiro mssql.conf, consulte [o Configure utilizando um ficheiro mssql.conf](configure.md#configure-by-using-an-mssqlconf-file). Este requisito será removido em futuras atualizações do Azure SQL Edge (Preview).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Configure um objeto de entrada e saída de fluxo externo
 
@@ -44,10 +44,10 @@ A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como ent
 
 | Tipo de Origem de Dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | Y | Y | Fonte de dados para ler/escrever dados de streaming para um Azure IoT Edge Hub. Para mais informações sobre o Azure IoT Edge Hub, consulte [o IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A Base de Dados SQL pode ser uma base de dados sql edge local ou um servidor SQL remoto ou base de dados Azure SQL|
-| Armazenamento de Blobs do Azure | N | Y | Fonte de dados para escrever dados para uma bolha numa conta de armazenamento Azure. |
-| Kafka | Y | N | Fonte de dados para ler dados de streaming de um tópico kafka. Este adaptador está atualmente disponível apenas para a versão Intel/AMD do Azure SQL Edge e não está disponível para a versão ARM64 do SQL Edge.|
+| Azure IoT Edge Hub | S | S | Fonte de dados para ler/escrever dados de streaming para um Azure IoT Edge Hub. Para mais informações sobre o Azure IoT Edge Hub, consulte [o IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| SQL Database | N | S | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A Base de Dados SQL pode ser uma base de dados sql edge local ou um servidor SQL remoto ou base de dados Azure SQL|
+| Armazenamento de Blobs do Azure | N | S | Fonte de dados para escrever dados para uma bolha numa conta de armazenamento Azure. |
+| Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. Este adaptador está atualmente disponível apenas para a versão Intel/AMD do Azure SQL Edge e não está disponível para a versão ARM64 do SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemplo: Criar um objeto de entrada/saída de fluxo externo para o Azure IoT Edge Hub
 
