@@ -16,7 +16,7 @@
       href: service-health-overview.md
     - name: Estado de Funcionamento de Recursos
       href: resource-health-overview.md
-- name: Como
+- name: Procedimento
   items:
     - name: Configurar alertas para eventos de estado de funcionamento do serviço
       href: alerts-activity-log-service-notifications.md
@@ -30,8 +30,6 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Enviar alertas para o OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Obter eventos de estado de funcionamento com REST
-      href: service-health-rest.md
     - name: Configurar alertas para eventos de estado de funcionamento de recursos
       href: resource-health-alert-arm-template-guide.md
 - name: Referência

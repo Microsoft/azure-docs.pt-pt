@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 05/22/2020
-  ms.openlocfilehash: 2559676a867478b486c70fbb43f176451b91672f
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.openlocfilehash: 0b9a78c6632d93a9aabaffeca400250c1adfb6d3
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83836027"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84609187"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -169,6 +169,8 @@ additionalContent:
       links:
       - text: Funções de esquema
         url: ./blueprints/reference/blueprint-functions.md
+      - text: CLI do Azure
+        url: /cli/azure/ext/blueprint/blueprint
       - text: Azure PowerShell
         url: /powershell/module/az.blueprint/#blueprint
       - text: Azure PowerShell

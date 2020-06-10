@@ -155,6 +155,8 @@
           displayname: VM
     - name: Gerir e configurar
       items:
+        - name: Implementar à escala
+          href: platform/deploy-scale.md
         - name: Permissões e segurança de funções
           href: platform/roles-permissions-security.md
         - name: Endereços IP
