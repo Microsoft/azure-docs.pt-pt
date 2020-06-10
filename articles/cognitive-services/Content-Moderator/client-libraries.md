@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use a biblioteca de clientes moderador de conteúdo'
+title: 'Quickstart: Utilize a biblioteca de clientes do Moderador de Conteúdo'
 titleSuffix: Azure Cognitive Services
-description: A API moderadora de conteúdo oferece bibliotecas de clientes que facilitam a integração do Moderador de Conteúdo nas suas aplicações.
+description: A API moderadora de conteúdos oferece bibliotecas de clientes que facilitam a integração do Moderador de Conteúdo nas suas aplicações.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,14 +11,15 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
-ms.openlocfilehash: 36160c4fb2ee49b5b516c23d4debd8ab5a9c98d3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: f7de66a2abde812fc5916277288d5176fa5bfbf7
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187358"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611006"
 ---
-# <a name="quickstart-use-the-content-moderator-client-library"></a>Quickstart: Use a biblioteca de clientes moderador de conteúdo
+# <a name="quickstart-use-the-content-moderator-client-library"></a>Quickstart: Utilize a biblioteca de clientes do Moderador de Conteúdo
 
 ::: zone pivot="programming-language-csharp"
 

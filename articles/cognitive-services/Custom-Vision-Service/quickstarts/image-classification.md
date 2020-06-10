@@ -1,21 +1,22 @@
 ---
-title: 'Quickstart: Criar classificação de imagem com SDK visão personalizada'
-description: 'Quickstart: Crie um projeto, adicione tags, carregue imagens, treine o seu projeto e faça uma previsão usando o Custom Vision SDK'
+title: 'Quickstart: Criar classificação de imagem com Vision SDK personalizado'
+description: 'Quickstart: Criar um projeto, adicionar tags, carregar imagens, treinar o seu projeto e fazer uma previsão usando o SDK de Visão Personalizada'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 04/27/2020
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3cc678a214f10450ee382d3ad3dba7e3f98b3d38
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 71eab722cbf00714954a16840f5ecbeb4ff29c22
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134132"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609374"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk"></a>Quickstart: Criar um projeto de classificação de imagem com o Custom Vision SDK
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk"></a>Quickstart: Criar um projeto de classificação de imagem com o SDK de visão personalizada
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-tutorial.md)]

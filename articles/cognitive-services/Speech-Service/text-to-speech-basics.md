@@ -1,7 +1,7 @@
 ---
 title: Básicos de síntese de fala - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar o SDK do discurso para converter texto-a-fala. Neste artigo, você aprenderá sobre a construção de objetos, formatos de saída de áudio suportados e opções de configuração personalizadapara síntese de fala.
+description: Saiba como usar o SDK do discurso para converter texto-a-discurso. Neste artigo, você vai aprender sobre a construção de objetos, formatos de saída de áudio suportados e opções de configuração personalizada para síntese de fala.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,25 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: b44c1d722e6acbcf3fbe8f1ac6e05b15c2a0676b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2bba1536c9d0990eb771f62d27b852ae1eb3b45c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125524"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604620"
 ---
-# <a name="learn-the-basics-of-speech-synthesis"></a>Aprenda o básico da síntese da fala
+# <a name="learn-the-basics-of-speech-synthesis"></a>Aprenda os fundamentos da síntese da fala
 
-Neste artigo, aprende-se padrões comuns de design para fazer síntese de texto-a-fala usando o Speech SDK. Começa-se por fazer a configuração e síntese básicas e passa-se para exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
+Neste artigo, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
 * Obtenção de respostas como fluxos de memória
-* Personalizando a taxa de amostra de saída e a taxa de bit
-* Submeter pedidos de síntese utilizando sSML (linguagem de marcação de síntese da fala)
+* Personalização da taxa de amostra de saída e da taxa de bits
+* Submeter pedidos de síntese utilizando SSML (linguagem de marcação da síntese da fala)
 * Usando vozes neurais
 
 > [!TIP]
-> Se ainda não tiveste oportunidade de completar uma das nossas partidas rápidas, encorajamo-lo a chutar os pneus e a tentar reconhecer a fala por ti mesmo.
+> Se ainda não tiveste oportunidade de completar um dos nossos quickstarts, encorajamo-lo a dar um pontapé nos pneus e a tentar o reconhecimento da fala por ti mesmo.
 > * [Reconhecer voz a partir de um microfone](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
@@ -55,7 +56,7 @@ Neste artigo, aprende-se padrões comuns de design para fazer síntese de texto-
 [!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução à Voz Personalizada](how-to-custom-voice.md)
 * [Melhorar a sintetização com SSML](speech-synthesis-markup.md)

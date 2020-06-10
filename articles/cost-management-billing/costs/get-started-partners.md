@@ -3,17 +3,17 @@ title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997133"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554564"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -152,7 +152,7 @@ As vistas amortizadas e os custos reais das instâncias reservadas nos âmbitos 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analisar os custos na análise de custos
 
-Os parceiros com acesso aos âmbitos de faturação no inquilino do parceiro podem explorar e analisar os custos faturados na análise de custos para um cliente específico ou para uma fatura. Na vista [análise de custos](quick-acm-cost-analysis.md), também pode [guardar vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [ficheiros CSV e PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Os parceiros com acesso aos âmbitos de faturação no inquilino do parceiro podem explorar e analisar os custos faturados na análise de custos para um cliente específico ou para uma fatura. Na vista [análise de custos](quick-acm-cost-analysis.md), também pode [guardar vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [ficheiros CSV e PNG](quick-acm-cost-analysis.md#download-usage-data).
 
 Os utilizadores RBAC com acesso à subscrição no inquilino do cliente também podem analisar os custos de retalho das subscrições no inquilino do cliente, guardar vistas e exportar dados para ficheiros CSV e PNG.
 

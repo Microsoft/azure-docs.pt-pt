@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use a biblioteca de clientes Face'
+title: 'Quickstart: Use a biblioteca do cliente Face'
 titleSuffix: Azure Cognitive Services
-description: A API Face oferece bibliotecas de clientes que facilitam a deteção, encontrar similares, identificar, verificar e muito mais.
+description: A Face API oferece bibliotecas de clientes que facilitam a deteção, a descoberta de semelhantes, a identificação, a verificação e muito mais.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,14 +11,15 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
-ms.openlocfilehash: f9e37439cd32fea3a12e06a108ae6929782afbc8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 84d998226bad8a015f3cc319e6e0fddaab9c37c5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149376"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610931"
 ---
-# <a name="quickstart-use-the-face-client-library"></a>Quickstart: Use a biblioteca de clientes Face
+# <a name="quickstart-use-the-face-client-library"></a>Quickstart: Use a biblioteca do cliente Face
 
 ::: zone pivot="programming-language-csharp"
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 384be4599abadaada31cfc5b4993fff6705ec71d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142440"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559314"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
@@ -133,7 +133,7 @@ Se quiser filtrar os novos custos de forma a que os orçamentos sejam avaliados 
 - Tipo de editor: Azure
 - Tipo de custo: Utilização
 
-As avaliações dos custos do orçamento baseiam-se no custo real, não incluem amortizações. Para obter mais informações sobre as opções de filtragem disponíveis para os orçamentos, veja [Compreender as opções de agrupamento e filtragem](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
+As avaliações dos custos do orçamento baseiam-se no custo real, não incluem amortizações. Para obter mais informações sobre as opções de filtragem disponíveis para os orçamentos, veja [Compreender as opções de agrupamento e filtragem](group-filter.md).
 
 ## <a name="trigger-an-action-group"></a>Acionar um grupo de ações
 

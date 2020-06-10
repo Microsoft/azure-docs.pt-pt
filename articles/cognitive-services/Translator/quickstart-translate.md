@@ -10,19 +10,20 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4fc4f1bc32f520bd0300a6532b6c09268088d92a
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: e4ee37c00778d239c8481392ce9231b2dda7c6e3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993235"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606533"
 ---
 # <a name="quickstart-use-the-translator-to-translate-text"></a>Quickstart: Use o Tradutor para traduzir texto
 
-Neste arranque rápido, você vai aprender a traduzir uma cadeia de texto do inglês para alemão, italiano, japonês e tailandês usando a API de REPOUSO tradutor.
+Neste arranque rápido, você aprenderá a traduzir uma cadeia de texto do inglês para alemão, italiano, japonês e tailandês usando a API tradutor REST.
 
-Este quickstart requer uma [conta de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com recurso tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este quickstart requer uma [conta Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]
