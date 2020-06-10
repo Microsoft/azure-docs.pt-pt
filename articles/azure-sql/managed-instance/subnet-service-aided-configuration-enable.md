@@ -1,6 +1,6 @@
 ---
-title: Habilitar a configuração da sub-rede ajudada pelo serviço para a instância gerida pelo Azure SQL
-description: Habilitar a configuração da sub-rede ajudada pelo serviço para a instância gerida pelo Azure SQL
+title: Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
+description: Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -10,38 +10,38 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: c8531af9e8d43dfe1279306cea57a93cf89ded90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 88fffc083b918157857c5c170cddda2016944c89
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045796"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660339"
 ---
-# <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitar a configuração da sub-rede ajudada pelo serviço para a instância gerida pelo Azure SQL
+# <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-A configuração da sub-rede ajudada pelo serviço fornece uma gestão automatizada de configuração da rede para subredes que acolhem instâncias geridas. Com a configuração da subnet ajudada pelo serviço, o utilizador permanece em pleno controlo do acesso aos dados (fluxos de tráfego TDS), enquanto a instância gerida assume a responsabilidade de garantir um fluxo ininterrupto de tráfego de gestão para cumprir o SLA.
+A configuração da sub-rede ajudada pelo serviço fornece uma gestão automatizada da configuração da rede para sub-redes que hospedam instâncias geridas. Com a configuração da sub-rede ajudada pelo serviço, o utilizador permanece em pleno controlo do acesso aos dados (fluxos de tráfego TDS), enquanto a instância gerida assume a responsabilidade de garantir um fluxo ininterrupto de tráfego de gestão para cumprir o SLA.
 
-Os grupos de segurança de rede configurados automaticamente e as regras da tabela de rotas são visíveis para o cliente e anotados com prefixo _Microsoft.Sql-managedInstances_UseOnly__.
+Os grupos de segurança de rede configurados automaticamente e as regras de tabela de rotas são visíveis para o cliente e anotadas com prefixo _Microsoft.Sql-managedInstances_UseOnly__.
 
-A configuração ajudada pelo serviço é ativada automaticamente assim que ligar a [subnet-delegação](../../virtual-network/subnet-delegation-overview.md) para o fornecedor de `Microsoft.Sql/managedInstances` recursos.
+A configuração ajudada pelo serviço é ativada automaticamente assim que ligar [a sub-delegação](../../virtual-network/subnet-delegation-overview.md) para o fornecedor de `Microsoft.Sql/managedInstances` recursos.
 
 > [!IMPORTANT] 
-> Uma vez ligada a delegação de sub-rede, não poderá desligá-la até remover o último aglomerado virtual da sub-rede. Para obter mais detalhes sobre como eliminar o cluster virtual consulte o [seguinte artigo](virtual-cluster-delete.md#delete-virtual-cluster-from-the-azure-portal).
+> Uma vez ligada a sub-delegação, não poderá desligá-la até remover o último cluster virtual da sub-rede. Para obter mais detalhes sobre como eliminar o cluster virtual consulte o seguinte [artigo](virtual-cluster-delete.md#delete-a-virtual-cluster-from-the-azure-portal).
 
 > [!NOTE] 
-> Uma vez que a configuração da sub-rede ajudada pelo serviço é uma característica essencial para a manutenção do SLA, a partir de 1 de maio de 2020, não será possível implementar instâncias geridas em subredes que não sejam delegadas para gerir o fornecedor de recursos de instância. No dia 1 de julho de 2020, todas as subredes que contenham instâncias geridas serão automaticamente delegadas para o fornecedor de recursos de instância gerido. 
+> Uma vez que a configuração da sub-rede ajudada pelo serviço é uma característica essencial para manter o SLA, a partir de 1 de maio de 2020, não será possível implementar instâncias geridas em sub-redes que não são delegadas para o fornecedor de recursos de instância gerido. No dia 1 de julho de 2020, todas as sub-redes que contenham instâncias geridas serão automaticamente delegadas para o fornecedor de recursos de instância gerido. 
 
-## <a name="enabling-subnet-delegation-for-new-deployments"></a>Permitir a sub-delegação de novos destacamentos
-Para implementar instâncias geridas na subnet vazia, é necessário delegá-la ao fornecedor de `Microsoft.Sql/managedInstances` recursos, conforme descrito no [seguinte artigo](../../virtual-network/manage-subnet-delegation.md). _Por favor, note que o artigo referenciado utiliza o fornecedor de `Microsoft.DBforPostgreSQL/serversv2` recursos, por exemplo. Em vez disso, terá supor que o fornecedor de `Microsoft.Sql/managedInstances` recursos._
+## <a name="enabling-subnet-delegation-for-new-deployments"></a>Habilitação da sub-delegação para novas implantações
+Para implementar a instância gerida na sub-rede vazia, é necessário deledetá-la ao `Microsoft.Sql/managedInstances` fornecedor de recursos, conforme descrito no artigo seguinte. [article](../../virtual-network/manage-subnet-delegation.md) _Por favor, note que o artigo referenciado utiliza `Microsoft.DBforPostgreSQL/serversv2` o fornecedor de recursos, por exemplo. Em vez disso, terá de utilizar o `Microsoft.Sql/managedInstances` fornecedor de recursos._
 
-## <a name="enabling-subnet-delegation-for-existing-deployments"></a>Permitir a sub-delegação de sub-redes para as implantações existentes
+## <a name="enabling-subnet-delegation-for-existing-deployments"></a>Habilitação da sub-delegação para as implantações existentes
 
-Para permitir a sub-delegação da sua implementação de instânciagerida existente, você precisa descobrir a subnet de rede virtual onde está colocada. 
+Para permitir a sub-delegação para a sua implementação de instância gerida existente, é necessário descobrir a sub-rede de rede virtual onde está colocada. 
 
 Para aprender isto, pode verificar `Virtual network/subnet` na lâmina do portal da sua instância `Overview` gerida.
 
-Como alternativa, pode executar os seguintes comandos PowerShell para aprender isto. Substitua **o id de subscrição** pelo seu ID de subscrição. Substitua também o **nome rg** pelo grupo de recursos para a sua instância gerida e substitua o **nome mi** pelo nome da sua instância gerida.
+Como alternativa, podes executar os seguintes comandos powerShell para aprender isto. Substitua o **id de subscrição** pelo seu ID de subscrição. Substitua também o **nome rg** pelo grupo de recursos para a sua instância gerida e substitua o **nome mi-name** pelo nome da sua instância gerida.
 
 ```powershell
 Install-Module -Name Az
@@ -62,8 +62,8 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-Assim que encontrar uma subnet de instância gerida, é necessário delegá-la ao fornecedor de `Microsoft.Sql/managedInstances` recursos, conforme descrito no [seguinte artigo](../../virtual-network/manage-subnet-delegation.md). _Por favor, note que o artigo referenciado utiliza o fornecedor de `Microsoft.DBforPostgreSQL/serversv2` recursos, por exemplo. Em vez disso, terá supor que o fornecedor de `Microsoft.Sql/managedInstances` recursos._
+Uma vez que encontre a sub-rede de instância gerida, precisa delerá-la ao `Microsoft.Sql/managedInstances` fornecedor de recursos, conforme descrito no artigo seguinte. [article](../../virtual-network/manage-subnet-delegation.md) _Por favor, note que o artigo referenciado utiliza `Microsoft.DBforPostgreSQL/serversv2` o fornecedor de recursos, por exemplo. Em vez disso, terá de utilizar o `Microsoft.Sql/managedInstances` fornecedor de recursos._
 
 
 > [!IMPORTANT]
-> Permitir a configuração ajudada pelo serviço não causa falhas ou interrupções na conectividade para casos geridos que já estão na sub-rede.
+> Permitir a configuração ajudada pelo serviço não causa falhas ou interrupção na conectividade para casos geridos que já se encontram na sub-rede.

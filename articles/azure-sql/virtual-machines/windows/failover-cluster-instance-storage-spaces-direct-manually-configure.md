@@ -1,6 +1,6 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines Microsoft Docs
-description: Este artigo explica como criar uma instância de cluster de falha do SQL Server em máquinas virtuais Azure.
+title: SQL Server FCI em Azure Virtual Machines
+description: Este artigo explica como criar uma instância de cluster de failover do SQL Server (FCI) em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: f3f4d49b42fa4b978db93fd3fee08e3f9017667e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 55ad535c965ae910b26900c2c555e21378ba49d9
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342860"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656752"
 ---
-# <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server em máquinas virtuais Azure
+# <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server em Máquinas virtuais Azure
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo explica como criar uma instância de cluster de failover do SQL Server (FCI) em máquinas virtuais Azure no modelo Azure Resource Manager. Esta solução utiliza [o Windows Server 2016 Datacenter edição De armazenamento Espaços de Armazenamento Direto](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como um SAN virtual baseado em software que sincroniza o armazenamento (discos de dados) entre os nós (VMs Azure) num cluster Windows. O Storage Spaces Direct foi novo no Windows Server 2016.
+Este artigo explica como criar uma instância de cluster failover (FCI) do SQL Server em Azure Virtual Machines no modelo Azure Resource Manager. Esta solução utiliza [o Windows Server 2016 Datacenter edição De armazenamento Espaços de Armazenamento Direto](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como um SAN virtual baseado em software que sincroniza o armazenamento (discos de dados) entre os nós (VMs Azure) num cluster Windows. O Storage Spaces Direct foi novo no Windows Server 2016.
 
-O seguinte diagrama mostra a solução completa nas máquinas virtuais Azure:
+O seguinte diagrama mostra a solução completa em Azure Virtual Machines:
 
 ![A solução completa](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
 
 Este diagrama mostra:
 
-- Duas máquinas virtuais Azure num Cluster de Falha do Servidor do Windows. Quando uma máquina virtual está num aglomerado de falhas, também é chamada de nó de *cluster* ou *nó.*
+- Duas máquinas virtuais num Cluster de Falha do Servidor do Windows. Quando uma máquina virtual está num aglomerado de falhas, também é chamada de nó de *cluster* ou *nó.*
 - Cada máquina virtual tem dois ou mais discos de dados.
 - Espaços de Armazenamento O Direct sincroniza os dados dos discos de dados e apresenta o armazenamento sincronizado como um conjunto de armazenamento.
 - A piscina de armazenamento apresenta um Cluster Shared Volume (CSV) para o cluster failover.
@@ -50,13 +51,13 @@ Espaços de Armazenamento Direct suporta dois tipos de arquiteturas: convergente
 
 ## <a name="licensing-and-pricing"></a>Licenciamento e preços
 
-Em máquinas virtuais Azure, pode licenciar o SQL Server utilizando imagens VM pay-as-you-go (PAYG) ou bring-your-own-license (BYOL). O tipo de imagem que escolhes afeta a forma como és cobrado.
+Nas Máquinas Virtuais Azure, pode licenciar o SQL Server utilizando imagens VM pay-as-you-go (PAYG) ou "bring-your-your-own-license" (BYOL). O tipo de imagem que escolhes afeta a forma como és cobrado.
 
-Com o licenciamento pay-as-you-go, uma instância de cluster failover (FCI) do SQL Server em máquinas virtuais Azure incorre em taxas para todos os nós da FCI, incluindo os nós passivos. Para obter mais informações, consulte o [preço das máquinas virtuais da empresa SQL.](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)
+Com o licenciamento pay-as-you-go, uma instância de cluster failover (FCI) do SQL Server em Azure Virtual Machines incorre em taxas para todos os nós da FCI, incluindo os nós passivos. Para obter mais informações, consulte o [preço das máquinas virtuais da empresa SQL.](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)
 
 Se tiver o Acordo Empresarial com a Garantia de Software, pode utilizar um nó FCI passivo gratuito para cada nó ativo. Para tirar partido deste benefício em Azure, utilize imagens BYOL VM e use a mesma licença nos nós ativos e passivos da FCI. Para mais informações, consulte [o Acordo de Empresa.](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)
 
-Para comparar o licenciamento pay-as-you-go e BYOL para o SQL Server em máquinas virtuais Azure, consulte [Começar com VMs SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
+Para comparar o licenciamento pay-as-you-go e BYOL para O Servidor SQL em Máquinas Virtuais Azure, consulte [Começar com VMs do SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 Para obter informações completas sobre o licenciamento do SQL Server, consulte [o Preço](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -64,11 +65,12 @@ Para obter informações completas sobre o licenciamento do SQL Server, consulte
 
 Você pode criar toda esta solução em Azure a partir de um modelo. Um exemplo de um modelo está disponível nos modelos GitHub [Azure Quickstart.](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) Este exemplo não é projetado ou testado para qualquer carga de trabalho específica. Pode executar o modelo para criar um SQL Server FCI com espaços de armazenamento Armazenamento Armazenamento Direto ligado ao seu domínio. Pode avaliar o modelo e modificá-lo para os seus propósitos.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Há algumas coisas que precisa saber e ter no lugar antes de começar.
 
 ### <a name="what-to-know"></a>O que saber
+
 Deve ter uma compreensão operacional destas tecnologias:
 
 - [Tecnologias de cluster windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
@@ -82,20 +84,21 @@ Deve também ter uma compreensão geral destas tecnologias:
 - [Grupos de recursos do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Neste momento, as instâncias de cluster de failover do SQL Server em máquinas virtuais Azure só são suportadas com o modo de [gestão leve](sql-vm-resource-provider-register.md#management-modes) da Extensão do [Agente IAAS](sql-server-iaas-agent-extension-automate-management.md)do SQL Server . Para mudar do modo de extensão total para leve, elimine o recurso **SQL Virtual Machine** para os VMs correspondentes e registe-os com o fornecedor de recursos SQL VM em modo leve. Ao eliminar o recurso **SQL Virtual Machine** utilizando o portal Azure, **limpe a caixa de verificação ao lado da Máquina Virtual correta**. A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMS SQL após a reinstalação do agente em modo de gestão leve.
+> Neste momento, as instâncias de cluster failover do SQL Server nas Máquinas Virtuais Azure só são suportadas com o modo de [gestão leve](sql-vm-resource-provider-register.md#management-modes) da Extensão do [Agente IAAS](sql-server-iaas-agent-extension-automate-management.md)do SqL Server . Para mudar do modo de extensão total para leve, elimine o recurso **SQL Virtual Machine** para os VMs correspondentes e registe-os com o fornecedor de recursos SQL VM em modo leve. Ao eliminar o recurso **SQL Virtual Machine** utilizando o portal Azure, **limpe a caixa de verificação ao lado da Máquina Virtual correta**. A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMS SQL após a reinstalação do agente em modo de gestão leve.
+> 
 
 ### <a name="what-to-have"></a>O que ter
 
 Antes de completar os passos deste artigo, já deve ter:
 
-- Uma subscrição do Microsoft Azure.
-- Um domínio Windows em máquinas virtuais Azure.
-- Uma conta que tem permissões para criar objetos tanto em máquinas virtuais Azure como no Ative Directory.
+- Uma subscrição do Microsoft Azure
+- Um domínio Windows em Azure Virtual Machines
+- Uma conta que tem permissões para criar objetos tanto em máquinas virtuais como no Ative Directory
 - Uma rede virtual Azure e uma sub-rede com espaço de endereço IP suficiente para estes componentes:
-   - Ambas máquinas virtuais.
-   - O endereço IP do cluster de falhas.
-   - Um endereço IP para cada FCI.
-- DNS configurado na rede Azure, apontando para os controladores de domínio.
+   - Ambas as máquinas virtuais
+   - O endereço IP do cluster de failover
+   - Um endereço IP para cada FCI
+- DNS configurado na rede Azure, apontando para os controladores de domínio
 
 Com estes pré-requisitos no lugar, pode começar a construir o seu aglomerado de falhanços. O primeiro passo é criar as máquinas virtuais.
 
@@ -127,15 +130,16 @@ Com estes pré-requisitos no lugar, pode começar a construir o seu aglomerado d
 
    Coloque ambas as máquinas virtuais:
 
-   - No mesmo grupo de recursos Azure que o seu conjunto de disponibilidade.
-   - Na mesma rede que o seu controlador de domínio.
-   - Numa sub-rede que tem espaço suficiente para endereços IP tanto para máquinas virtuais como para todas as FCIs que poderá eventualmente utilizar no cluster.
-   - No conjunto de disponibilidade do Azure.
+   - No mesmo grupo de recursos Azure que o seu conjunto de disponibilidade
+   - Na mesma rede que o seu controlador de domínio
+   - Numa sub-rede que tem espaço suficiente para endereços IP tanto para máquinas virtuais como para todas as FCIs que poderá eventualmente utilizar no cluster
+   - No conjunto de disponibilidade do Azure
 
       >[!IMPORTANT]
       >Não é possível definir ou alterar o conjunto de disponibilidade depois de ter criado uma máquina virtual.
+      >
 
-   Escolha uma imagem do Azure Marketplace. Pode utilizar uma imagem do Azure Marketplace que inclua o Windows Server e o SQL Server, ou utilizar uma que apenas inclui o Windows Server. Para mais detalhes, consulte [a visão geral do SQL Server em máquinas virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
+   Escolha uma imagem do Azure Marketplace. Pode utilizar uma imagem do Azure Marketplace que inclua o Windows Server e o SQL Server, ou utilizar uma que apenas inclui o Windows Server. Para mais detalhes, consulte [a visão geral do SQL Server em Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    As imagens oficiais do SQL Server na Galeria Azure incluem uma instância de servidor SQL instalada, o software de instalação do SQL Server e a chave necessária.
 
@@ -153,10 +157,11 @@ Com estes pré-requisitos no lugar, pode começar a construir o seu aglomerado d
 
    >[!IMPORTANT]
    >Depois de criar a máquina virtual, remova a instância sql server pré-instalada. Utilizará o meio de servidor SQL pré-instalado para criar o SQL Server FCI depois de configurar o cluster de failover e os espaços de armazenamento diretos.
+   >
 
    Em alternativa, pode utilizar imagens do Azure Marketplace que contenham apenas o sistema operativo. Escolha uma imagem **do Datacenter 2016** do Windows Server e instale o SQL Server FCI depois de configurar o cluster de failover e os espaços de armazenamento diretos. Esta imagem não contém meios de instalação SQL Server. Coloque o meio de instalação do SQL Server num local onde possa executá-lo para cada servidor.
 
-1. Depois de o Azure criar as suas máquinas virtuais, ligue-se a cada uma utilizando RDP.
+1. Depois de o Azure criar as suas máquinas virtuais, ligue-se a cada uma delas utilizando o protocolo de ambiente de trabalho remoto (RDP).
 
    Quando se liga a uma máquina virtual utilizando RDP, um pedido pergunta-lhe se pretende permitir que o PC seja detetável na rede. Selecione **Sim**.
 
@@ -185,8 +190,10 @@ Com estes pré-requisitos no lugar, pode começar a construir o seu aglomerado d
    Ambas as máquinas virtuais precisam de pelo menos dois discos de dados.
 
    Prenda discos crus, não discos formatados com NTFS.
+
       >[!NOTE]
-      >Se ligar discos formatados em NTFS, pode ativar os espaços de armazenamento direto apenas sem uma verificação de elegibilidade do disco.  
+      >Se ligar discos formatados em NTFS, pode ativar os espaços de armazenamento direto apenas sem uma verificação de elegibilidade do disco. 
+      > 
 
    Anexar um mínimo de dois SSDs premium a cada VM. Recomendamos pelo menos discos P30 (1-TB).
 
@@ -200,7 +207,7 @@ Depois de criar e configurar as máquinas virtuais, pode configurar o cluster de
 
 ## <a name="step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct"></a>Passo 2: Configurar o cluster de failover do servidor do Windows com espaços de armazenamento direto
 
-O próximo passo é configurar o cluster de failover com os Espaços de Armazenamento Direto. Neste passo, você completará estes subpasss:
+Agora configura o cluster de failover com espaços de armazenamento direto. Nesta secção, completa estes passos:
 
 1. Adicione a função de clustering de falha do servidor do Windows.
 1. Valide o cluster.
@@ -215,6 +222,7 @@ O próximo passo é configurar o cluster de failover com os Espaços de Armazena
 1. [Adicione o Cluster de Failover a cada máquina virtual.](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms)
 
    Para instalar o Failover Clustering a partir da UI, tome estes passos em ambas as máquinas virtuais:
+
    1. No **Gestor do Servidor**, selecione **Gerir**e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
    1. No **'Add Roles and Features Wizard',** selecione **Next** até obter **funcionalidades selecionadas**.
    1. Em **Funcionalidades Selecionadas**, selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. Selecione **adicionar funcionalidades**.
@@ -260,9 +268,11 @@ Depois de validar o cluster, crie o cluster de failover.
 ### <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
 Para criar o cluster de failover, você precisa:
-- Os nomes das máquinas virtuais que se tornarão os nós do cluster.
+
+- Os nomes das máquinas virtuais que se tornarão os nóns de cluster
 - Um nome para o cluster failover
-- Um endereço IP para o cluster de failover. Pode utilizar um endereço IP que não seja utilizado na mesma rede virtual Azure e sub-rede que os nós de cluster.
+- Um endereço IP para o cluster de failover <br/>
+  Pode utilizar um endereço IP que não seja utilizado na mesma rede virtual Azure e sub-rede que os nós de cluster.
 
 #### <a name="windows-server-2008-through-windows-server-2016"></a>Windows Server 2008 através do Windows Server 2016
 
@@ -353,10 +363,11 @@ Depois de configurar o cluster failover e todos os componentes do cluster, inclu
 
    >[!NOTE]
    >Se usou uma imagem de galeria do Azure Marketplace que contém SQL Server, as ferramentas sql Server foram incluídas com a imagem. Se não usou uma dessas imagens, instale as ferramentas SQL Server separadamente. Consulte [o Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 ## <a name="step-5-create-the-azure-load-balancer"></a>Passo 5: Criar o equilibrador de carga Azure
 
-Nas máquinas virtuais Azure, os clusters usam um equilibrador de carga para conter um endereço IP que precisa estar num nó de cluster de cada vez. Nesta solução, o equilibrador de carga detém o endereço IP para o SQL Server FCI.
+Nas Máquinas Virtuais Azure, os clusters usam um equilibrador de carga para conter um endereço IP que precisa de estar num nó de cluster de cada vez. Nesta solução, o equilibrador de carga detém o endereço IP para o SQL Server FCI.
 
 Para obter mais informações, consulte [Criar e configurar um equilibrador de carga Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
 
@@ -406,11 +417,11 @@ Para criar o equilibrador de carga:
 
 1. Na lâmina da **sonda de saúde Add,** <a name="probe"></a> desa estale os parâmetros da sonda de saúde.
 
-   - **Nome**: Um nome para a sonda de saúde.
-   - **Protocolo**: TCP.
-   - **Porto**: Desa fixação à porta que criou na firewall para a sonda de saúde [neste passo](#ports). Neste artigo, o exemplo utiliza a porta `59999` TCP.
+   - **Nome**: Um nome para a sonda de saúde
+   - **Protocolo**: TCP
+   - **Porto**: Definir para o porto que criou na firewall para a sonda de saúde [neste passo](#ports) <br/>Neste artigo, o exemplo utiliza a porta `59999` TCP.
    - **Intervalo:** 5 Segundos.
-   - **Limiar pouco saudável:** 2 falhas consecutivas.
+   - **Limiar pouco saudável**: 2 falhas consecutivas
 
 1. Selecione **OK**.
 
@@ -463,6 +474,7 @@ A lista que se segue descreve os valores que precisa de atualizar:
 
 >[!IMPORTANT]
 >A máscara de sub-rede para o parâmetro de cluster deve ser o endereço de transmissão IP TCP: `255.255.255.255` .
+>
 
 Depois de definir a sonda de cluster, pode ver todos os parâmetros de cluster no PowerShell. Executar este script:
 
@@ -482,7 +494,7 @@ Teste de falha da FCI para validar a funcionalidade do cluster. Siga estes passo
 
 1. Selecione **Mover**e, em seguida, selecione **O Melhor Nó Possível**.
 
-**O Failover Cluster Manager** mostra o papel e os seus recursos ficam offline. Os recursos movem-se e entram online no outro nó.
+**O Failover Cluster Manager** mostra o papel e os seus recursos offline. Os recursos movem-se e entram online no outro nó.
 
 ### <a name="test-connectivity"></a>Testar conectividade
 
@@ -490,17 +502,18 @@ Para testar a conectividade, inscreva-se noutra máquina virtual na mesma rede v
 
 >[!NOTE]
 >Se precisar, pode [baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>
 
 ## <a name="limitations"></a>Limitações
 
-As máquinas virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
+As Máquinas Virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
 
-Nas máquinas virtuais Azure, o MSDTC não é suportado no Windows Server 2016 ou mais cedo porque:
+Nas Máquinas Virtuais Azure, o MSDTC não é suportado no Windows Server 2016 ou mais cedo porque:
 
-- O recurso MSDTC agrupado não pode ser configurado para usar armazenamento partilhado. No Windows Server 2016, se criar um recurso MSDTC, não apresentará nenhum armazenamento partilhado disponível para utilização, mesmo que o armazenamento esteja disponível. Este problema foi corrigido no Windows Server 2019.
+- O recurso MSDTC agrupado não pode ser configurado para usar armazenamento partilhado. No Windows Server 2016, se criar um recurso MSDTC, não apresentará qualquer armazenamento partilhado disponível para utilização, mesmo que o armazenamento esteja disponível. Este problema foi corrigido no Windows Server 2019.
 - O equilibrador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Configurar espaços de armazenamento direto com ambiente de trabalho remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

@@ -1,7 +1,7 @@
 ---
 title: Criar uma rede virtual
 titleSuffix: Azure SQL Managed Instance
-description: Este artigo descreve como criar uma rede virtual configurada para suportar a implementação de uma Instância Gerida Azure SQL.
+description: Este artigo descreve como criar uma rede virtual configurada para suportar a implementação de Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,58 +12,58 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 923f8b447b1103284b2c999a981826ef19a1c7d8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4cbcad991da6a7517ca2914cfd99b8517853c0e4
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050752"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657919"
 ---
-# <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Criar uma rede virtual para o Azure SQL Managed Instance
+# <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Criar uma rede virtual para Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Este artigo explica como criar uma rede virtual válida e uma sub-rede onde pode implementar o Azure SQL Managed Instance.
+Este artigo explica como criar uma rede virtual válida e uma sub-rede onde pode implementar Azure SQL Managed Instance.
 
-A Instância Gerida azure SQL deve ser implantada dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md)Azure . Esta implementação permite os seguintes cenários:
+Azure SQL Managed Instance deve ser implantado dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md)Azure . Esta implementação permite os seguintes cenários:
 
 - Endereço IP privado seguro
-- Ligação a uma Instância Gerida SQL diretamente de uma rede no local
-- Ligar uma Instância Gerida SQL a um servidor ligado ou a outra loja de dados no local
-- Ligação de uma Instância Gerida SQL aos recursos do Azure  
+- Ligação à SQL Gestão de Instâncias diretamente de uma rede no local
+- Ligação da SQL Gestd Instance a um servidor ligado ou a outra loja de dados no local
+- Ligação da SQL Gestão de Instâncias a Recursos Azure  
 
 > [!NOTE]
-> Deve [determinar o tamanho da sub-rede para a Instância Gerida SQL](vnet-subnet-determine-size.md) antes de implementar a primeira instância. Não podes redimensionar a sub-rede depois de colocares os recursos lá dentro.
+> Deve [determinar o tamanho da sub-rede para SQL Managed Instance](vnet-subnet-determine-size.md) antes de implementar a primeira instância. Não podes redimensionar a sub-rede depois de colocares os recursos lá dentro.
 >
-> Se planeia utilizar uma rede virtual existente, precisa de modificar essa configuração de rede para acomodar a sua Instância Gerida pelo SQL. Para obter mais informações, consulte [Modificar uma rede virtual existente para a Instância Gerida SQL](vnet-existing-add-subnet.md).
+> Se planeia utilizar uma rede virtual existente, tem de modificar essa configuração de rede para acomodar a SQL Managed Instance. Para obter mais informações, consulte [Modificar uma rede virtual existente para sql Managed Instance](vnet-existing-add-subnet.md).
 >
-> Após a criação de uma Instância Gerida SQL, não é suportada a mudança da Instância Ou VNet gerida sQL para outro grupo de recursos ou subscrição.  A mudança da Instância Gerida SQL para outra sub-rede também não é suportada.
+> Após a criação de um caso gerido, a deslocação da instância gerida ou da rede virtual para outro grupo de recursos ou subscrição não é suportada.  A deslocação da instância gerida para outra sub-rede também não é suportada.
 >
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-A maneira mais fácil de criar e configurar uma rede virtual é usar um modelo de implementação do Gestor de Recursos Azure.
+A forma mais fácil de criar e configurar uma rede virtual é utilizar um modelo de implementação do Gestor de Recursos Azure.
 
 1. Inicie sessão no Portal do Azure.
 
-2. Selecione o botão **'Enviar para Azure':**
+2. Selecione o botão **'Implementar para Azure':**
 
    <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
-   Este botão abre um formulário que pode utilizar para configurar o ambiente de rede onde pode implementar a Instância Gerida SQL.
+   Este botão abre um formulário que pode utilizar para configurar o ambiente de rede onde pode implantar a SQL Managed Instance.
 
    > [!Note]
-   > Este modelo de Gestor de Recursos Azure irá implantar uma rede virtual com duas subredes. Uma subnet, chamada **ManagedInstances,** está reservada para a SQL Managed Instance e tem uma tabela de rotas pré-configurada. A outra subrede, denominada **Padrão,** é utilizada para outros recursos que devem aceder à Instância Gerida pela SQL (por exemplo, Máquinas Virtuais Azure).
+   > Este modelo de Gestor de Recursos Azure irá implantar uma rede virtual com duas sub-redes. Uma sub-rede, **denominada ManagedInstances,** é reservada para SQL Managed Instance e tem uma tabela de rotas pré-configurada. A outra sub-rede, chamada **Padrão,** é utilizada para outros recursos que devem aceder à SQL Managed Instance (por exemplo, Azure Virtual Machines).
 
-3. Configure o ambiente de rede. No seguinte formulário, pode configurar parâmetros do ambiente da sua rede:
+3. Configure o ambiente de rede. No seguinte formulário, pode configurar parâmetros do seu ambiente de rede:
 
-   ![Modelo de Gestor de Recursos para configurar a rede Azure](./media/virtual-network-subnet-create-arm-template/create-mi-network-arm.png)
+   ![Modelo de gestor de recursos para configurar a rede Azure](./media/virtual-network-subnet-create-arm-template/create-mi-network-arm.png)
 
-   Poderá alterar os nomes da rede virtual e das subredes e ajustar as gamas IP associadas aos seus recursos de rede. Depois de selecionar o botão **Comprar,** este formulário criará e configurará o seu ambiente. Se não precisar de duas subredes, pode eliminar a depresio.
+   Pode alterar os nomes da rede virtual e sub-redes e ajustar as gamas IP associadas aos seus recursos de rede. Depois de selecionar o botão **Comprar,** este formulário criará e configurará o seu ambiente. Se não precisar de duas sub-redes, pode eliminar a padrão.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para uma visão geral, veja [O que é um Caso Gerido SQL?](sql-managed-instance-paas-overview.md)
+- Para uma visão geral, veja [o que é a SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Conheça a [arquitetura de conectividade em SQL Managed Instance](connectivity-architecture-overview.md).
-- Saiba como [modificar uma rede virtual existente para a Instância Gerida SQL](vnet-existing-add-subnet.md).
-- Para um tutorial que mostre como criar uma rede virtual, crie uma Instância Gerida SQL e restaure uma base de dados a partir de uma cópia de segurança da base de dados, consulte [Create a Azure SQL Managed Instance](instance-create-quickstart.md).
-- Para problemas dNS, consulte [Configurar um DNS personalizado](custom-dns-configure.md).
+- Saiba como [modificar uma rede virtual existente para o SQL Managed Instance](vnet-existing-add-subnet.md).
+- Para um tutorial que mostre como criar uma rede virtual, criar uma instância gerida e restaurar uma base de dados a partir de uma cópia de segurança da base de [dados,](instance-create-quickstart.md)consulte Criar um caso gerido .
+- Para questões dns, consulte [Configurar um DNS personalizado](custom-dns-configure.md).

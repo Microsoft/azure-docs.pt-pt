@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: d551f05dd0700a93a94c6b836b896a99d7f5d96c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 31681397961045da02add7ccb37f29f6c835c08d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267091"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659892"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves geridas pelo cliente para a sua conta do Azure Cosmos com o Azure Key Vault
 
@@ -32,7 +32,7 @@ Tem de armazenar chaves geridas pelo cliente no [Azure Key Vault](../key-vault/g
 
 1. Procure o fornecedor de recursos **Microsoft.DocumentDB.** Verifique se o fornecedor de recursos já está marcado como registado. Caso contrário, escolha o fornecedor de recursos e **selecione Registar-se:**
 
-   ![Registar o fornecedor de recursos Microsoft.DocumentDB](./media/how-to-setup-cmk/portal-rp-register.png)
+   ![Registo do Microsoft.Docfornecedor de recursos umentDB](./media/how-to-setup-cmk/portal-rp-register.png)
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configure o seu exemplo de Cofre de Chave Azure
 
@@ -59,7 +59,7 @@ Se estiver a utilizar uma instância Azure Key Vault existente, pode verificar s
 
    ![Selecionando as permissões certas](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Em **Select principal**, selecione Nenhum **selecionado**. Em seguida, procure o diretor da **Azure Cosmos DB** e selecione-o (para facilitar a sua posição, também pode pesquisar por ID principal: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região de Azure, exceto regiões do Governo Azure onde o ID principal `57506a73-e302-42a9-b869-6f12d9ec29e9` é). Por fim, escolha **Selecione** na parte inferior. Se o diretor da **Azure Cosmos** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** conforme descrito no [Registo, a](#register-resource-provider) secção de fornecedores de recursos deste artigo.
+1. Em **Select principal**, selecione Nenhum **selecionado**. Em seguida, procure o diretor da **Azure Cosmos DB** e selecione-o (para facilitar a sua posição, também pode pesquisar por ID principal: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região de Azure, exceto regiões do Governo Azure onde o ID principal `57506a73-e302-42a9-b869-6f12d9ec29e9` é). Por fim, escolha **Selecione** na parte inferior. Se o diretor da **Azure Cosmos** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** conforme descrito no [Registo da](#register-resource-provider) secção fornecedora de recursos deste artigo.
 
    ![Selecione o principal da Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -220,6 +220,31 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="key-rotation"></a>Rotação de chaves
+
+A rotação da chave gerida pelo cliente utilizada pela sua conta Azure Cosmos pode ser feita de duas formas.
+
+- Criar uma nova versão da chave atualmente utilizada a partir do Cofre da Chave Azure:
+
+  ![Criar uma nova versão chave](./media/how-to-setup-cmk/portal-akv-rot.png)
+
+- Troque a chave atualmente utilizada por uma totalmente diferente, atualizando a `keyVaultKeyUri` propriedade da sua conta. Eis como fazê-lo no PowerShell:
+
+    ```powershell
+    $resourceGroupName = "myResourceGroup"
+    $accountName = "mycosmosaccount"
+    $newKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-new-key>"
+    
+    $account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+        -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    
+    $account.Properties.keyVaultKeyUri = $newKeyUri
+    
+    $account | Set-AzResource -Force
+    ```
+
+A versão chave ou chave anterior pode ser desativada após 24 horas, ou depois dos registos de auditoria do [Azure Key Vault](../key-vault/general/logging.md) já não mostrarem atividade a partir de Azure Cosmos DB nessa chave ou versão chave.
+    
 ## <a name="error-handling"></a>Processamento de erros
 
 Ao utilizar chaves geridas pelo cliente (CMK) em Azure Cosmos DB, se houver algum erro, a Azure Cosmos DB devolve os detalhes de erro juntamente com um código de sub-estado HTTP na resposta. Pode utilizar este código de sub-estado para depurar a causa principal do problema. Consulte os códigos de estado HTTP para o artigo [DB da Azure Cosmos](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) para obter a lista de códigos de sub-estado HTTP suportados.
@@ -268,14 +293,6 @@ Você pode programáticamente buscar os detalhes da sua conta Azure Cosmos e pro
 
 A Azure Cosmos DB faz [cópias de segurança regulares e automáticas dos dados armazenados](./online-backup-and-restore.md) na sua conta. Esta operação confirma os dados encriptados. Para utilizar a cópia de segurança restaurada, é necessária a chave de encriptação que utilizou no momento da cópia de segurança. Isto significa que não foi feita nenhuma revogação e a versão da chave que foi utilizada no momento da cópia de segurança continuará ativada.
 
-### <a name="how-do-i-rotate-an-encryption-key"></a>Como posso rodar uma chave de encriptação?
-
-A rotação da chave é realizada criando uma nova versão da chave no Cofre da Chave Azure:
-
-![Criar uma nova versão chave](./media/how-to-setup-cmk/portal-akv-rot.png)
-
-A versão anterior pode ser desativada após 24 horas, ou depois dos registos de auditoria do [Azure Key Vault](../key-vault/general/logging.md) já não mostrarem atividade da Azure Cosmos DB nessa versão.
-
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Como revogo uma chave de encriptação?
 
 A revogação da chave é feita desativando a versão mais recente da chave:
@@ -290,7 +307,7 @@ Em alternativa, para revogar todas as chaves de uma instância do Cofre da Chave
 
 A única operação possível quando a chave de encriptação foi revogada é a eliminação da conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [encriptação de dados em Azure Cosmos DB](./database-encryption-at-rest.md).
 - Obtenha uma visão geral do [acesso seguro aos dados em Cosmos DB](secure-access-to-data.md).

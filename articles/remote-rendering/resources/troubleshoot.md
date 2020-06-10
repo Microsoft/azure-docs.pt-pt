@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4fccf7b786de91c8bcce0b2073e0519ef6c1f2ab
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 0aa09ffe5b5dd9dd0f49204495ecdd7179a0f36f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424409"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660025"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -146,6 +146,12 @@ Azure Remote Rendering ganchos no pipeline De unidade para fazer a composição 
 
 ![Depurador de quadro de unidade](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada na Unidade está de cabeça para baixo
+
+Certifique-se de seguir o [guia de configuração](../tutorials/unity/project-setup.md) do projeto exatamente. Uma imagem de cabeça para baixo indica que a Unidade é necessária para criar um alvo de renderização fora do ecrã. Este comportamento não é atualmente suportado e cria um enorme impacto de desempenho no HoloLens 2.
+
+As razões para esta edição podem ser MSAA, HDR ou habilitar o processamento pós-processamento. Certifique-se de que o perfil de baixa qualidade é selecionado e definido como padrão na Unidade. Para isso vá a *Editar > Definições de Projeto... > Qualidade*.
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Código de unidade usando a API de renderização remota não compila
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Use o Debug ao compilar para o Editor de Unidade
@@ -222,7 +228,7 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Requisitos de sistema](../overview/system-requirements.md)
 * [Requisitos de rede](../reference/network-requirements.md)

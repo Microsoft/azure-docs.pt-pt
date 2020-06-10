@@ -1,29 +1,29 @@
 ---
-title: Fixe um disco de dados a um VM do Windows em Azure utilizando o PowerShell
-description: Como anexar um disco de dados novo ou existente a um VM do Windows utilizando o PowerShell com o modelo de implementação do Gestor de Recursos.
+title: Anexar um disco de dados a um Windows VM em Azure utilizando o PowerShell
+description: Como anexar um disco de dados novo ou existente a um Windows VM utilizando o PowerShell com o modelo de implementação do Gestor de Recursos.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ce995a84d2290845e83416caf9c8b0004242eed4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f16784d89d1f3edec491d5c7ae312dbd46212f1
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267758"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658147"
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Fixe um disco de dados a um VM windows com PowerShell
+# <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anexar um disco de dados a um Windows VM com PowerShell
 
-Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtual do Windows utilizando o PowerShell. 
+Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtual Windows utilizando o PowerShell. 
 
 Primeiro, reveja estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para mais informações, consulte [Tamanhos para máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para utilizar SSDs premium, você precisará de um [tipo VM premium ativado](sizes-memory.md)por armazenamento , como a série DS ou a máquina virtual da série GS.
+* O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para obter mais informações, consulte [tamanhos para máquinas virtuais.](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Para utilizar SSDs premium, você precisará de um [tipo VM habilitado para armazenamento premium](sizes-memory.md), como a série DS ou máquina virtual série GS.
 
-Este artigo utiliza o PowerShell dentro do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
+Este artigo utiliza o PowerShell dentro da [Azure Cloud Shell,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Adicione um disco de dados vazio a uma máquina virtual
 
@@ -49,7 +49,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Utilização de discos geridos numa Zona de Disponibilidade
 
-Para criar um disco numa Zona de Disponibilidade, utilize o `-Zone` [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) com o parâmetro. O exemplo seguinte cria um disco na zona *1*.
+Para criar um disco numa Zona de Disponibilidade, utilize [o New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) com o `-Zone` parâmetro. O exemplo a seguir cria um disco na zona *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -69,7 +69,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Inicializar o disco
 
-Depois de adicionar um disco vazio, terá de o inicializar. Para inicializar o disco, pode iniciar sessão num VM e utilizar a gestão do disco. Se ativar o [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) e um certificado no VM quando o criou, pode utilizar o PowerShell remoto para inicializar o disco. Também pode utilizar uma extensão de script personalizada:
+Depois de adicionar um disco vazio, terá de o rubricar. Para inicializar o disco, pode iniciar sação num VM e utilizar a gestão do disco. Se ativou o [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) e um certificado no VM quando o criou, pode utilizar o PowerShell remoto para inicializar o disco. Também pode utilizar uma extensão de script personalizada:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -78,7 +78,7 @@ Depois de adicionar um disco vazio, terá de o inicializar. Para inicializar o d
     Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-O ficheiro script pode conter código para inicializar os discos, por exemplo:
+O ficheiro de script pode conter código para inicializar os discos, por exemplo:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
@@ -115,6 +115,6 @@ $vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Também pode implantar discos geridos utilizando modelos. Para mais informações, consulte [a utilização de discos geridos nos modelos](using-managed-disks-template-deployments.md) do Gestor de Recursos Azure ou o [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para a implementação de vários discos de dados.
+Também pode implementar discos geridos utilizando modelos. Para obter mais informações, consulte [a utilização de discos geridos nos modelos do Gestor de Recursos Azure](using-managed-disks-template-deployments.md) ou o [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para a implementação de vários discos de dados.

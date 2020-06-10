@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e432f599196a6948633d7150e1a747fbe626e1f4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: f22b7eca6db55f886dbd4fea563d993bbee11ecb
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464662"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661109"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -356,7 +356,7 @@ Se tiver um servidor de ficheiros Windows existente, o Azure File Sync pode ser 
 
 Também é possível utilizar a Caixa de Dados para migrar dados para uma implementação de Azure File Sync. Na maior parte das vezes, quando os clientes querem usar a Data Box para ingerir dados, fazem-no porque acham que vai aumentar a velocidade da sua implantação ou porque vai ajudar com cenários de largura de banda restritas. Embora seja verdade que usar uma Caixa de Dados para ingerir dados na sua implementação de Azure File Sync diminuirá a utilização da largura de banda, provavelmente será mais rápido para a maioria dos cenários perseguir um upload de dados online através de um dos métodos acima descritos. Para saber mais sobre como utilizar a Caixa de Dados para ingerir dados na sua implementação de Azure File Sync, consulte [os dados da Migração no Azure File Sync com a Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Um erro comum que os clientes cometem ao migrar dados para a sua nova implementação do Azure File Sync é copiar dados diretamente para a partilha de ficheiros Azure, em vez de nos seus servidores de ficheiros Windows. Embora o Azure File Sync identifique todos os novos ficheiros da partilha de ficheiros Azure e os sincronize de volta às partilhas de ficheiros do Windows, este é geralmente consideravelmente mais lento do que carregar dados através do servidor de ficheiros Windows. Muitas ferramentas de cópia Azure, como a AzCopy, têm a desvantagem adicional de não copiar todos os metadados importantes de um ficheiro como os timetamps e ACLs.
+Um erro comum que os clientes cometem ao migrar dados para a sua nova implementação do Azure File Sync é copiar dados diretamente para a partilha de ficheiros Azure, em vez de nos seus servidores de ficheiros Windows. Embora o Azure File Sync identifique todos os novos ficheiros da partilha de ficheiros Azure e os sincronize de volta às partilhas de ficheiros do Windows, este é geralmente consideravelmente mais lento do que carregar dados através do servidor de ficheiros Windows. Ao utilizar ferramentas de cópia Azure, como a AzCopy, é importante utilizar a versão mais recente. Consulte a tabela de ferramentas de cópia de [ficheiros](storage-files-migration-overview.md#file-copy-tools) para obter uma visão geral das ferramentas de cópia do Azure para garantir que pode copiar todos os metadados importantes de um ficheiro, tais como timetamps e ACLs.
 
 ## <a name="antivirus"></a>Antivírus
 Como o antivírus funciona através da verificação de ficheiros para código malicioso conhecido, um produto antivírus pode causar a recolha de ficheiros hierárquicos. Nas versões 4.0 e acima do agente Azure File Sync, os ficheiros hierárquicos têm o atributo Windows seguro FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto. Recomendamos consultar o seu fornecedor de software para aprender a configurar a sua solução para saltar ficheiros de leitura com este conjunto de atributos (muitos o fazem automaticamente). 

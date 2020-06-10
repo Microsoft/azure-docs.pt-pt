@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 9b59f6e091143e5c10be393620e4cc042faac36a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 569b1fd964665e3efec87adebd5f9a76de01f381
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216364"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659646"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementar Azure SQL Gestd Instance para uma piscina de instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,11 +30,11 @@ A tabela a seguir mostra as operações disponíveis relacionadas com os pools d
 
 |Comando|Portal do Azure|PowerShell|
 |:---|:---|:---|
-|Criar uma piscina de exemplos|Não|Yes|
-|Atualizar uma piscina de instância (número limitado de propriedades)|Não |Yes |
-|Verifique uma instância de utilização da piscina e propriedades|Não|Yes |
-|Excluir uma piscina de instância|Não|Yes|
-|Criar um caso gerido dentro de uma piscina de exemplo|Não|Yes|
+|Criar uma piscina de exemplos|Não|Sim|
+|Atualizar uma piscina de instância (número limitado de propriedades)|Não |Sim |
+|Verifique uma instância de utilização da piscina e propriedades|Não|Sim |
+|Excluir uma piscina de instância|Não|Sim|
+|Criar um caso gerido dentro de uma piscina de exemplo|Não|Sim|
 |Atualizar o uso do recurso para uma instância gerida|Sim |Sim|
 |Verifique a utilização e as propriedades para uma instância gerida|Sim|Sim|
 |Apagar uma instância gerida da piscina|Sim|Sim|
@@ -54,7 +54,7 @@ Comandos [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)dispo
 
 Para utilizar o PowerShell, [instale a versão mais recente do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)e siga as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Para operações relacionadas com casos tanto dentro de piscinas como instâncias individuais, utilize os comandos de [instância geridos](api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances)padrão, mas a propriedade de nome de *piscina deve* ser povoada quando se utilizam estes comandos, por exemplo, numa piscina.
+Para operações relacionadas com casos tanto dentro de piscinas como instâncias individuais, utilize os comandos de [instância geridos](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances)padrão, mas a propriedade de nome de *piscina deve* ser povoada quando se utilizam estes comandos, por exemplo, numa piscina.
 
 ## <a name="deployment-process"></a>Processo de implementação
 
@@ -253,7 +253,7 @@ Para mover as bases de dados existentes:
 Se existirem várias bases de dados, repita o processo para cada base de dados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).
 - Para obter mais informações sobre a configuração VNet, consulte [a configuração VNet de instância gerida SQL](connectivity-architecture-overview.md).

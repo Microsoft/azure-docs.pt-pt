@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Azure Advisor
 description: Utilize o Advisor para otimizar o desempenho das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 230466c7c0e8de2681737bbf9d74341dea7f7b8f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d0b309fd35fa0a78685017e25eea0caf3f97da03
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196406"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658408"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure com o Azure Advisor
 
@@ -58,6 +58,11 @@ A distorção de dados pode causar movimentos de dados desnecessários ou estran
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Crie ou atualize estatísticas de tabelas desatualizadas na sua tabela de armazéns de dados SQL para aumentar o desempenho da consulta
 
 O advisor identifica tabelas que não têm estatísticas atualizadas de [quadros](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) e recomenda a criação ou atualização de estatísticas de tabelas. O otimizador de armazém de dados SQL utiliza estáticas atualizadas para estimar a cardinalidade ou o número de linhas no resultado da consulta que permite ao otimizador de consulta criar um plano de consulta de alta qualidade para o desempenho mais rápido.
+
+## <a name="improve-mysql-connection-management"></a>Melhorar a gestão das ligações MySQL
+
+A análise do conselheiro ajuda a indicar que a sua aplicação conectada ao servidor MySQL pode não estar a gerir as ligações de forma eficiente. Este problema pode resultar num consumo de recursos desnecessário e numa latência global da aplicação mais elevada. Para melhorar a gestão das ligações, recomendamos que reduza o número de ligações de curta duração e elimine as ligações inativas desnecessárias. Pode fazê-lo ao configurar um conjunto de ligações do lado do servidor, como o ProxySQL.
+
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Dimensione para otimizar a utilização de cache nas suas tabelas sql Data Warehouse para aumentar o desempenho da consulta
 
@@ -135,13 +140,13 @@ O Azure Advisor identificará os recipientes DB do Azure Cosmos que estão a usa
 
 2.  No painel 'Advisor', clique no **separador Desempenho.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 
 * [Introdução ao Conselheiro](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
-* [Recomendações de Custos Do Consultor](advisor-cost-recommendations.md)
-* [Recomendações de Alta Disponibilidade do Conselheiro](advisor-high-availability-recommendations.md)
-* [Recomendações de Segurança do Conselheiro](advisor-security-recommendations.md)
-* [Recomendações de Excelência Operacional Do Consultor](advisor-operational-excellence-recommendations.md)
+* [Recomendações de custos do Assistente](advisor-cost-recommendations.md)
+* [Recomendações de alta disponibilidade do conselheiro](advisor-high-availability-recommendations.md)
+* [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)
+* [Recomendações de excelência operacional do consultor](advisor-operational-excellence-recommendations.md)

@@ -2,13 +2,13 @@
 title: Matriz de suporte para vMware/recuperação de desastres físicos na recuperação do local de Azure
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: b9f7deb16269aac94f5363a1588b2e1ed4ee9206
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/10/2020
+ms.openlocfilehash: a5348379979b14f321cbe4f32d6107fdfe7a4639
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488603"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661075"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -28,8 +28,8 @@ Recuperação de desastres de servidores físicos | Replicação dos servidores 
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-vCenter Server | Versão 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter na sua implementação de recuperação de desastres.
-vSphere anfitriões | Versão 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que os anfitriões vSphere e servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por predefinição, o servidor de processo funciona no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
+vCenter Server | Versão 7.0, 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter na sua implementação de recuperação de desastres.
+vSphere anfitriões | Versão 7.0, 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que os anfitriões vSphere e servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por predefinição, o servidor de processo funciona no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
 
 
 ## <a name="site-recovery-configuration-server"></a>Servidor de configuração de recuperação de site
@@ -322,7 +322,7 @@ Serviço de Mobilidade | Instalado em VMware VM ou servidores físicos que prete
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Saiba como](tutorial-prepare-azure.md) preparar o Azure para a recuperação de desastres de VMware VMs.
 
 [9.32 UR]: https://support.microsoft.com/en-in/help/4538187/update-rollup-44-for-azure-site-recovery

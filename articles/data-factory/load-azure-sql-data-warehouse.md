@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: a023599cb026a62aee034846dd390cda730d5df4
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194757"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660275"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregue os dados no Azure Synapse Analytics utilizando a Azure Data Factory
 
@@ -136,11 +136,13 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 1. Na página **Resumo,** reveja as definições e selecione **Seguinte**.
 
     ![Página de resumo](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. Na **página 'Implantação',** selecione **Monitor** para monitorizar o pipeline (tarefa).
 
-1. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. Quando o curso do gasoduto estiver concluído com sucesso, selecione a ligação **CopyFromSQLToSQLDW** sob a coluna **PIPELINE NAME** para ver os detalhes da atividade e para refazer o pipeline.
+1. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa). 
+ 
+1. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. Quando o curso do gasoduto estiver concluído com sucesso, selecione a ligação **CopyFromSQLToSQLDW** sob a coluna **PIPELINE NAME** para ver os detalhes da atividade ou para refazer o pipeline.
 
     [![O gasoduto de monitorização corre](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. Para voltar à vista do gasoduto, selecione a ligação **de todas as tubagem** na parte superior. Selecione **Atualizar** para atualizar a lista.
 
     ![Monitorização de execuções de atividade](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
@@ -150,7 +152,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
     ![Monitorize detalhes da atividade](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o seguinte artigo para saber sobre o suporte Azure Synapse Analytics:
 

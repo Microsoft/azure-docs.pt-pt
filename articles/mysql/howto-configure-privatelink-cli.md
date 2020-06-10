@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a9c9afc6e1730e2b370cf3b1ae32393250d83178
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: ec705a247dceeb06c1fc0a802a8a61d582fa43dc
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634800"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656773"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o CLI
 
@@ -68,7 +68,7 @@ Note o endereço IP público do VM. Utilizará este endereço para ligar ao VM a
 Crie uma Base de Dados Azure para o MySQL com o servidor az mysql criar comando. Lembre-se que o nome do seu Servidor MySQL deve ser único em todo o Azure, por isso substitua o valor do espaço reservado nos suportes pelo seu próprio valor único: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mysql server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -84,13 +84,20 @@ az mysql server create \
 
 ## <a name="create-the-private-endpoint"></a>Criar o Ponto Final Privado 
 Crie um ponto final privado para o servidor MySQL na sua Rede Virtual: 
+
+Obtenha o id de recursos do servidor
 ```azurecli-interactive
+$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id")
+```
+
+```azurecli-interactive
+#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMySQL/servers/$Servername" \    
+    --private-connection-resource-id $resourceid \    
     --group-id mysqlServer \  
     --connection-name myConnection  
  ```

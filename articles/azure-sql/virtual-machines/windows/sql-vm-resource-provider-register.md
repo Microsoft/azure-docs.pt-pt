@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 768b71aae66a73cea4ef50a00db5a35f1f6588d4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c6e40842235f0070d283974eaded25390e3555e7
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342341"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661138"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider"></a>Registe um SQL Server VM em Azure com o fornecedor de recursos SQL VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -380,7 +380,7 @@ Sim. Os clientes devem registar os seus VMs sql server com o fornecedor de recur
 
 **Devo registar-me com o fornecedor de recursos SQL VM se o meu SQL Server VM já tiver a extensão IAAS do SQL Server?**
 
-Se o seu SQL Server VM for auto-instalado e não for forvia a partir das imagens do SQL Server no Azure Marketplace, deverá registar-se com o fornecedor de recursos SQL VM mesmo que tenha instalado a extensão SQL Server IaaS. Registar-se com o fornecedor de recursos SQL VM cria um novo recurso do tipo Microsoft.SqlVirtualMachines. A instalação da extensão IAAS do Servidor SQL não cria esse recurso.
+Se o seu SQL Server VM for auto-instalado e não for forvia a partir das imagens do SQL Server no Azure Marketplace, deverá registar-se com o fornecedor de recursos SQL VM mesmo que tenha instalado a extensão SQL Server IaaS. Registar-se com o fornecedor de recursos SQL VM cria um novo recurso do tipo Microsoft.SqlVirtualMachine. A instalação da extensão IAAS do Servidor SQL não cria esse recurso.
 
 **Qual é o modo de gestão predefinido ao registar-se com o fornecedor de recursos SQL VM?**
 
@@ -422,7 +422,7 @@ Não. A atualização do modo de gestão para o modo de gestão para o modo comp
 
 **Posso atualizar a extensão IAAS do SQL Server do modo leve para o modo completo?**
 
-Yes. A atualização do modo de gestão de peso para cheio é suportada através do PowerShell ou do portal Azure. Requer reiniciar o serviço SQL Server.
+Sim. A atualização do modo de gestão de peso para cheio é suportada através do PowerShell ou do portal Azure. Requer reiniciar o serviço SQL Server.
 
 **Posso reduzir a extensão IAAS do SQL Server de modo completo para modo de gestão sem agente ou leve?**
 
@@ -440,15 +440,15 @@ Não. Um VM deve ter pelo menos uma instância SQL Server (Database Engine) para
 
 **Posso registar um VM com o fornecedor de recursos SQL VM se existirem várias instâncias do SQL Server?**
 
-Yes. O fornecedor de recursos SQL VM registará apenas uma instância sql Server (Database Engine). O fornecedor de recursos SQL VM registará a instância padrão do SQL Server no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão completa, ou a instância padrão do SQL Server deve existir ou o VM deve ter apenas uma instância chamada SQL Server.
+Sim. O fornecedor de recursos SQL VM registará apenas uma instância sql Server (Database Engine). O fornecedor de recursos SQL VM registará a instância padrão do SQL Server no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão completa, ou a instância padrão do SQL Server deve existir ou o VM deve ter apenas uma instância chamada SQL Server.
 
 **Posso registar um cluster de falha do SQL Server com o fornecedor de recursos SQL VM?**
 
-Yes. Sql Server falha casos de cluster num Azure VM pode ser registado com o fornecedor de recursos SQL VM em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão completa.
+Sim. Sql Server falha casos de cluster num Azure VM pode ser registado com o fornecedor de recursos SQL VM em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão completa.
 
 **Posso registar o meu VM com o fornecedor de recursos SQL VM se um grupo de disponibilidade Always On estiver configurado?**
 
-Yes. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com o fornecedor de recursos SQL VM se estiver a participar numa configuração do grupo de disponibilidade Always On.
+Sim. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com o fornecedor de recursos SQL VM se estiver a participar numa configuração do grupo de disponibilidade Always On.
 
 **Qual o custo para o registo com o fornecedor de recursos SQL VM, ou com a atualização para o modo de gestão completa?**
 Nenhum. Não existe qualquer taxa associada ao registo com o fornecedor de recursos SQL VM, ou à utilização de qualquer um dos três modos de gestão. Gerir o seu SQL Server VM com o fornecedor de recursos é completamente gratuito. 

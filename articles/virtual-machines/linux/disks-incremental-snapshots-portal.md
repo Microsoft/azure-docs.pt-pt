@@ -1,18 +1,18 @@
 ---
 title: Criar um instantâneo incremental - Portal Azure
-description: Aprenda sobre instantâneos incrementais para discos geridos, incluindo como criá-los usando o portal Azure.
+description: Saiba mais sobre instantâneos incrementais para discos geridos, incluindo como criá-los usando o portal Azure.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9baf600cd1f0185c80c1ad2d9e860959596cdf98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5b00676210b372cc4d9c1f8138684c255436513
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631985"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658907"
 ---
 # <a name="creating-an-incremental-snapshot-for-managed-disks-in-the-azure-portal"></a>Criação de um instantâneo incremental para discos geridos no portal Azure
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-portal](../../../includes/virtual-machines-disks-incremental-snapshots-portal.md)]

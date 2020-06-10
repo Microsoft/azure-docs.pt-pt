@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 7552cb3889b73604563758a97ae8a59960f6a906
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258577"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658015"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,9 +229,9 @@ Se a sua aplicação utilizar a SQL Managed Instance como o nível de dados, sig
 Para garantir a conectividade não interrompida à primeira sql Gestd Instance após o fracasso, tanto as instâncias primárias como secundárias devem estar na mesma zona de DNS. Garantirá que o mesmo certificado de vários domínios (SAN) possa ser utilizado para autenticar as ligações do cliente a qualquer uma das duas instâncias do grupo de failover. Quando a sua aplicação estiver pronta para implantação de produção, crie uma instância gerida de SQL secundária numa região diferente e certifique-se de que partilha a zona de DNS com a primeira SQL Managed Instance. Pode fazê-lo especificando o parâmetro opcional `DNS Zone Partner` utilizando o portal Azure, PowerShell ou a API REST.
 
 > [!IMPORTANT]
-> A primeira SqL Managed Instance criada na sub-rede determina a zona DE DNS para todas as instâncias subsequentes na mesma sub-rede. Isto significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas dns.
+> A primeira instância gerida criada na sub-rede determina a zona de DNS para todas as instâncias subsequentes na mesma sub-rede. Isto significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas dns.
 
-Para obter mais informações sobre a criação da instância gerida secundária do SQL na mesma zona de DNS que a instância primária, consulte [Criar um caso secundário gerido](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+Para obter mais informações sobre a criação da instância gerida secundária do SQL na mesma zona de DNS que a instância primária, consulte [Criar um caso secundário gerido](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Permitir o tráfego de replicação entre duas instâncias
 
@@ -474,7 +474,7 @@ Tal como discutido anteriormente, os grupos de auto-failover e a geo-replicaçã
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para tutoriais detalhados, consulte
   - [Adicione a Base de Dados SQL a um grupo de failover](failover-group-add-single-database-tutorial.md)

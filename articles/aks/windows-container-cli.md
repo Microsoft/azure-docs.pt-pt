@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: c481561f649e546170bf24c6401006734581e53d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 70dbe927c3d106e6a853f215f93c51bd7e547150
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433077"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658511"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 
@@ -86,7 +86,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.16.7 \
+    --kubernetes-version 1.16.9 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -113,7 +113,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.16.7
+    --kubernetes-version 1.16.9
 ```
 
 O comando acima cria uma nova piscina de nó chamado *npwin* e adiciona-o ao *myAKSCluster*. Ao criar uma piscina de nó para executar os recipientes do Windows Server, o valor padrão para *o tamanho do nó vm* é *Standard_D2s_v3*. Se optar por definir o parâmetro *de tamanho nó-vm,* verifique a lista de [tamanhos VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também utiliza a sub-rede predefinida na vnet predefinida criada ao executar `az aks create` .
@@ -142,8 +142,8 @@ A saída de exemplo a seguir mostra todos os nós do cluster. Certifique-se de q
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
-aksnpwin987654                      Ready    agent   108s   v1.16.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.9
+aksnpwin987654                      Ready    agent   108s   v1.16.9
 ```
 
 ## <a name="run-the-application"></a>Executar a aplicação
@@ -254,7 +254,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma aplicação de amostra ASP.NET num recipiente do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que acabou de criar.
 

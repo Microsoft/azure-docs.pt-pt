@@ -1,23 +1,23 @@
 ---
-title: Discos geridos - Modelos de Gestor de Recursos Azure - VMs Linux
+title: Discos geridos - Modelos de Gestor de Recursos Azure - Linux VMs
 description: Detalhes sobre como usar discos geridos em modelos de Gestor de Recursos Azure para VMs Linux
 services: virtual-machines-linux
 documentationcenter: ''
 author: jboeshart
 manager: ''
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 9b6cb890c972b8fa86b823571511250cead08898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17ce6eda79ed1c612a45fa2af7e6d083ccabc78b
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458552"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660713"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilização de discos geridos em modelos de gestor de recursos azure
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilização de discos geridos em modelos de gestor de recursos Azure
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

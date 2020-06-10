@@ -4,12 +4,12 @@ description: As imagens personalizadas são uma forma eficiente de configurar os
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: tracking-python
-ms.openlocfilehash: bd71983a5c932b515a7d41a680a55772567694ca
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8e81d0954d391210563641531b4c572325ae946f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561258"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656603"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina personalizada
 
@@ -44,6 +44,8 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode pro
 
 > [!NOTE]
 > A sua Imagem Partilhada deve estar na mesma subscrição que a conta Batch. A imagem pode ser em diferentes regiões desde que tenha réplicas na mesma região que a sua conta Batch.
+
+Se utilizar uma aplicação AD Azure para criar um pool de imagens personalizado com uma imagem da Galeria de Imagens Partilhada, essa aplicação deve ter recebido um [papel incorporado Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que lhe dá acesso à Imagem Partilhada. Pode conceder este acesso no portal Azure navegando na Imagem Partilhada, selecionando o **controlo de acesso (IAM)** e adicionando uma atribuição de funções para a aplicação.
 
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
 
@@ -218,7 +220,7 @@ Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma 
 
 - **Redimensionar o tempo limite.** Se a sua piscina contiver um número fixo de nós (se não for auto-escalado), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo limite recomendado de redimensionar é de pelo menos 15 minutos. Por exemplo, o tempo limite recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral aprofundada do Lote, consulte o fluxo de trabalho e os recursos do [serviço Batch.](batch-service-workflow-features.md)
 - Conheça a [Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md)

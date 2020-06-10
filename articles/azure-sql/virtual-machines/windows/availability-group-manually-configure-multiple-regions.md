@@ -1,6 +1,6 @@
 ---
-title: Configure grupo de disponibilidade em diferentes regiões
-description: Este artigo explica como configurar um grupo de disponibilidade do SQL Server em máquinas virtuais Azure com uma réplica numa região diferente.
+title: Configure um servidor SQL sempre em grupo de disponibilidade em diferentes regiões
+description: Este artigo explica como configurar um sql servidor sempre em grupo de disponibilidade em máquinas virtuais Azure com uma réplica em uma região diferente.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -15,48 +15,49 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 996b5a59c5c79a045cd396a24778fe0928682c5a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 00f016dd4a2a713124ef3db2ef6c595f68e9318d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044291"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657041"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configure um grupo de disponibilidade em máquinas virtuais Do Servidor Azure SQL em diferentes regiões
+# <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configure um SQL Server Always On availability group em diferentes regiões do Azure
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo explica como configurar uma réplica do grupo SQL Server Always On em máquinas virtuais Azure numa localização remota do Azure. Utilize esta configuração para apoiar a recuperação de desastres.
+Este artigo explica como configurar um SQL Server Always On availability group replica em máquinas virtuais Azure numa localização remota do Azure. Utilize esta configuração para apoiar a recuperação de desastres.
 
 Este artigo aplica-se às Máquinas Virtuais Azure no modo Gestor de Recursos.
 
-A imagem seguinte mostra uma implantação comum de um grupo de disponibilidade em máquinas virtuais Azure:
+A imagem a seguir mostra uma implantação comum de um grupo de disponibilidade em máquinas virtuais Azure:
 
    ![Grupo de Disponibilidade](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
-Nesta implantação, todas as máquinas virtuais estão numa região do Azure. As réplicas do grupo de disponibilidade podem ter compromisso sincronizado com falha automática em SQL-1 e SQL-2. Para construir esta arquitetura, consulte [o modelo de Grupo de Disponibilidade ou tutorial.](availability-group-overview.md)
+Nesta implantação, todas as máquinas virtuais estão numa região de Azure. As réplicas do grupo de disponibilidade podem ter compromisso sincronizado com falha automática em SQL-1 e SQL-2. Para construir esta arquitetura, consulte [o modelo do Grupo Availability ou tutorial.](availability-group-overview.md)
 
-Esta arquitetura é vulnerável ao tempo de inatividade se a região de Azure se tornar inacessível. Para ultrapassar esta vulnerabilidade, adicione uma réplica numa região azure diferente. O diagrama que se segue mostra como a nova arquitetura ficaria:
+Esta arquitetura é vulnerável ao tempo de inatividade se a região de Azure se tornar inacessível. Para ultrapassar esta vulnerabilidade, adicione uma réplica numa região de Azure diferente. O seguinte diagrama mostra como a nova arquitetura ficaria:
 
    ![Grupo de Disponibilidade DR](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic-dr.png)
 
-O diagrama anterior mostra uma nova máquina virtual chamada SQL-3. O SQL-3 está numa região de Azure diferente. O SQL-3 é adicionado ao Cluster de Falha do Servidor do Windows. O SQL-3 pode acolher uma réplica do grupo de disponibilidade. Por fim, note que a região de Azure para o SQL-3 tem um novo equilibrador de carga Azure.
+O diagrama anterior mostra uma nova máquina virtual chamada SQL-3. SQL-3 está numa região de Azure diferente. SQL-3 é adicionado ao Cluster de Falha do Servidor do Windows. O SQL-3 pode acolher uma réplica do grupo de disponibilidade. Por último, note que a região de Azure para o SQL-3 tem um novo equilibrador de carga Azure.
 
 >[!NOTE]
-> É necessário um conjunto de disponibilidade azure quando mais de uma máquina virtual está na mesma região. Se apenas uma máquina virtual estiver na região, então o conjunto de disponibilidade não é necessário. Só é possível colocar uma máquina virtual num conjunto de disponibilidade no momento da criação. Se a máquina virtual já estiver num conjunto de disponibilidade, pode adicionar uma máquina virtual para uma réplica adicional mais tarde.
+> É necessário um conjunto de disponibilidade azure quando mais de uma máquina virtual está na mesma região. Se apenas uma máquina virtual estiver na região, então o conjunto de disponibilidade não é necessário. Só é possível colocar uma máquina virtual num conjunto de disponibilidade na hora da criação. Se a máquina virtual já estiver num conjunto de disponibilidade, pode adicionar uma máquina virtual para uma réplica adicional mais tarde.
 
-Nesta arquitetura, a réplica na região remota é normalmente configurada com o modo de disponibilidade de compromisso assíncrono e o modo de failover manual.
+Nesta arquitetura, a réplica na região remota é normalmente configurada com modo de disponibilidade assíncrona e modo de failover manual.
 
 Quando as réplicas do grupo de disponibilidade estão em máquinas virtuais Azure em diferentes regiões do Azure, cada região requer:
 
 * Um portal de rede virtual
-* Uma ligação de gateway de rede virtual
+* Uma ligação virtual de gateway de rede
 
 O diagrama seguinte mostra como as redes comunicam entre centros de dados.
 
    ![Grupo de Disponibilidade](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->Esta arquitetura incorre em encargos de dados de saída para dados replicados entre regiões de Azure. Ver [Preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
+>Esta arquitetura incorre em taxas de dados de saída para dados replicados entre regiões de Azure. Consulte [o preço da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## <a name="create-remote-replica"></a>Criar réplica remota
 
@@ -64,56 +65,56 @@ Para criar uma réplica num centro de dados remoto, faça os seguintes passos:
 
 1. [Criar uma rede virtual na nova região.](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)
 
-1. [Configure uma ligação VNet-to-VNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Configure uma ligação VNet-vNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
-   >Em alguns casos, poderá ter de utilizar o PowerShell para criar a ligação VNet-to-VNet. Por exemplo, se utilizar diferentes contas Azure, não pode configurar a ligação no portal. Neste caso, [consulte, configure uma ligação VNet-to-VNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+   >Em alguns casos, poderá ter de utilizar o PowerShell para criar a ligação VNet-to-VNet. Por exemplo, se utilizar diferentes contas Azure não poderá configurar a ligação no portal. Neste caso, [consulte, Configure uma ligação VNet-vNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Crie um controlador de domínio na nova região.](../../../active-directory/active-directory-new-forest-virtual-machine.md)
+1. [Criar um controlador de domínio na nova região.](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 
-   Este controlador de domínio fornece a autenticação se o controlador de domínio no local principal não estiver disponível.
+   Este controlador de domínio fornece autenticação se o controlador de domínio no local principal não estiver disponível.
 
 1. [Crie uma máquina virtual SQL Server na nova região.](create-sql-vm-portal.md)
 
-1. [Crie um equilibrador de carga Azure na rede da nova região.](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
+1. [Criar um equilibrador de carga Azure na rede da nova região.](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
 
    Este equilibrador de carga deve:
 
-   - Esteja na mesma rede e subnet que a nova máquina virtual.
+   - Esteja na mesma rede e sub-rede que a nova máquina virtual.
    - Tenha um endereço IP estático para o ouvinte do grupo de disponibilidade.
-   - Inclua uma piscina de backend composta apenas por máquinas virtuais na mesma região que o equilibrador de carga.
-   - Utilize uma sonda de porta TCP específica do endereço IP.
-   - Tenha uma regra de equilíbrio de carga específica para o Servidor SQL na mesma região.  
-   - Seja um Balancer de carga padrão se as máquinas virtuais na piscina de backend não fizerem parte de um único conjunto de disponibilidade ou de um conjunto de escala de máquina virtual. Para uma análise adicional de informações, a visão geral da Norma De equilíbrio de [carga azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Inclua uma piscina de backend composta apenas pelas máquinas virtuais na mesma região que o equilibrador de carga.
+   - Utilize uma sonda de porta TCP específica para o endereço IP.
+   - Tenha uma regra de equilíbrio de carga específica para o SQL Server na mesma região.  
+   - Seja um Balanceador de Carga Padrão se as máquinas virtuais no pool de backend não fizerem parte de um conjunto de disponibilidade único ou de um conjunto de balança de máquina virtual. Para obter informações adicionais, revê [o padrão do balanço de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-1. [Adicione a função de Clustering Failover ao novo Servidor SQL](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Adicione a função de Clustering Failover ao novo SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [Junte-se ao novo Servidor SQL para o domínio](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
+1. [Junte o novo SQL Server ao domínio](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
 
-1. [Detete a nova conta de serviço SQL Server para utilizar uma conta de domínio](availability-group-manually-configure-prerequisites-tutorial.md#setServiceAccount).
+1. [Desa estale a nova conta de serviço DO SQL Server para utilizar uma conta de domínio](availability-group-manually-configure-prerequisites-tutorial.md#setServiceAccount).
 
 1. [Adicione o novo Servidor SQL ao Cluster de Falha do Servidor do Windows](availability-group-manually-configure-tutorial.md#addNode).
 
 1. Adicione um recurso de endereço IP ao cluster.
 
-   Pode criar o recurso de endereço IP no Failover Cluster Manager. Selecione o nome do cluster e, em seguida, clique no nome do cluster em **Recursos Core cluster** e selecione **Propriedades:** 
+   Pode criar o recurso de endereço IP no Failover Cluster Manager. Selecione o nome do cluster e, em seguida, clique com o nome do cluster em **Recursos Core cluster** e selecione **Propriedades**: 
 
    ![Propriedades de cluster](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   Na caixa de diálogo **Properties,** **selecione Adicionar** em **endereço IP**e, em seguida, adicionar o endereço IP do nome do cluster da região da rede remota. Selecione **OK** na caixa de diálogo **IP Address** e, em seguida, selecione **OK** novamente na caixa de diálogo **Cluster Properties** para guardar o novo endereço IP.. 
+   Na caixa de diálogo **Propriedades,** **selecione Adicionar** em **Endereço IP**e, em seguida, adicionar o endereço IP do nome do cluster da região da rede remota. Selecione **OK** na caixa de diálogo **do endereço IP** e, em seguida, selecione **OK** novamente na caixa de diálogo **Cluster Properties** para guardar o novo endereço IP. 
 
-   ![Adicionar cluster IP](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
+   ![Adicionar IP de cluster](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
 
 1. Adicione o endereço IP como uma dependência para o nome do cluster principal.
 
-   Abra as propriedades do cluster mais uma vez e selecione o separador **Dependencies.** Configure uma dependência de OR para os dois endereços IP: 
+   Abra mais uma vez as propriedades do cluster e selecione o separador **Dependências.** 
 
    ![Propriedades de cluster](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
 1. Adicione um recurso de endereço IP à função de grupo de disponibilidade no cluster. 
 
-   Clique direito na função do grupo de disponibilidade no Failover Cluster Manager, selecione **Adicionar Recursos,** **Mais Recursos,** e selecione **IP Address**.
+   Clique com o botão direito no papel de grupo de disponibilidade no Failover Cluster Manager, escolha **Adicionar Recurso**, **Mais Recursos**e selecione Endereço **IP**.
 
    ![Criar endereço IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -122,18 +123,18 @@ Para criar uma réplica num centro de dados remoto, faça os seguintes passos:
    - Utilize a rede a partir do centro de dados remoto.
    - Atribua o endereço IP do novo equilibrador de carga Azure. 
 
-1. Adicione o recurso de endereço IP como uma dependência para o cluster do ponto de acesso ao cliente ouvinte (nome da rede).
+1. Adicione o recurso de endereço IP como uma dependência para o cluster do ponto de acesso do cliente ouvinte (nome de rede).
 
-   A imagem que se segue mostra um recurso de cluster de endereçoip devidamente configurado:
+   A imagem que se segue mostra um recurso de cluster de endereço IP devidamente configurado:
 
    ![Grupo de Disponibilidade](./media/availability-group-manually-configure-multiple-regions/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
-   >O grupo de recursos de cluster inclui ambos os endereços IP. Ambos os endereços IP são dependências para o ponto de acesso ao cliente ouvinte. Utilize o operador **DE** na configuração da dependência do cluster.
+   >O grupo de recursos de cluster inclui ambos os endereços IP. Ambos os endereços IP são dependências para o ponto de acesso do cliente ouvinte. Utilize o operador **OR** na configuração de dependência do cluster.
 
-1. [Defina os parâmetros do cluster em PowerShell](availability-group-manually-configure-tutorial.md#setparam).
+1. [Desa estale os parâmetros do cluster no PowerShell](availability-group-manually-configure-tutorial.md#setparam).
 
-Execute o script PowerShell com o nome da rede de cluster, endereço IP e porta de sonda que configurano equilibrador de carga na nova região.
+   Execute o script PowerShell com o nome da rede de cluster, endereço IP e porta de sonda que configuraste no equilibrador de carga da nova região.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -146,60 +147,60 @@ Execute o script PowerShell com o nome da rede de cluster, endereço IP e porta 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-1. No novo Servidor SQL no Gestor de Configuração do Servidor SQL, [ative sempre em grupos de disponibilidade](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
+1. No novo Servidor SQL no Gestor de Configuração do Servidor SQL, [ative sempre os grupos de disponibilidade](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
-1. [Abra portas de firewall no novo Servidor SQL](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
+1. [Abra as portas de firewall no novo SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
-   Os números de porta que precisa de abrir dependem do seu ambiente. Abrir portas para o ponto final espelhado e sonda de saúde azure load balancer.
+   Os números de porta que precisa de abrir dependem do seu ambiente. Abra as portas para o ponto final espelhante e sonda de saúde do balanceador de carga Azure.
 
 
-1. [Adicione uma réplica ao grupo de disponibilidade no novo Servidor SQL](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
+1. [Adicione uma réplica ao grupo de disponibilidade no novo SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
-   Para uma réplica numa região remota de Azure, detetete-a para uma replicação assíncrona com falha manual.  
+   Para uma réplica numa região remota de Azure, desaperte-a para a replicação assíncrona com falha manual.  
 
-## <a name="set-connection-for-multiple-subnets"></a>Definir a ligação para várias subredes
+## <a name="set-connection-for-multiple-subnets"></a>Definir ligação para várias sub-redes
 
-A réplica no centro de dados remoto faz parte do grupo de disponibilidade, mas está numa sub-rede diferente. Se esta réplica se tornar a réplica primária, podem ocorrer intervalos de ligação de aplicação. Este comportamento é o mesmo que um grupo de disponibilidade no local numa implantação multi-sub-rede. Para permitir ligações a partir de aplicações de clientes, ou atualizar a ligação do cliente ou configurar a resolução de nomes no recurso de nome da rede cluster.
+A réplica no centro de dados remoto faz parte do grupo de disponibilidade, mas está numa sub-rede diferente. Se esta réplica se tornar a réplica primária, podem ocorrer intervalos de ligação da aplicação. Este comportamento é o mesmo que um grupo de disponibilidade no local numa implementação multi-sub-rede. Para permitir ligações a partir de aplicações do cliente, atualizar a ligação do cliente ou configurar a resolução de nomes no recurso de nome de rede de cluster.
 
-De preferência, atualize as cordas de ligação ao cliente para definir `MultiSubnetFailover=Yes` . Ver [Ligação com MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+De preferência, atualize as cordas de ligação do cliente para definir `MultiSubnetFailover=Yes` . Ver [Ligação com MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Se não conseguir modificar as cordas de ligação, pode configurar o cache de resolução de nomes. Consulte o [erro de time-out e não pode ligar-se a um ouvinte de grupo SQL Server 2012 AlwaysOn num ambiente multi-sub-rede](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
+Se não conseguir modificar as cordas de ligação, pode configurar o caching de resolução de nome. Consulte [o erro de tempo e não pode ligar-se a um ouvinte do grupo de disponibilidade SQL Server 2012 AlwaysOn num ambiente multi-sub-rede](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
-## <a name="fail-over-to-remote-region"></a>Falhar na região remota
+## <a name="fail-over-to-remote-region"></a>Falha na região remota
 
-Para testar a conectividade do ouvinte com a região remota, pode falhar a réplica para a região remota. Embora a réplica seja assíncrona, a falha é vulnerável a potenciais perdas de dados. Para falhar sem perda de dados, altere o modo de disponibilidade para sincronizar e desloque o modo de failover para automático. Utilize os passos seguintes:
+Para testar a conectividade do ouvinte com a região remota, pode falhar sobre a réplica da região remota. Embora a réplica seja assíncronea, o failover é vulnerável à perda de dados potenciais. Para falhar sem perda de dados, altere o modo de disponibilidade para sincronizado e desloque o modo de failover para automático. Utilize os passos seguintes:
 
-1. No **Object Explorer,** ligue-se à instância do Servidor SQL que acolhe a réplica primária.
-1. Em **Grupos de Disponibilidade AlwaysOn**, Grupos de **Disponibilidade,** clique à direita no seu grupo de disponibilidade e clique em **Propriedades**.
-1. Na página **Geral,** em **Replicas de Disponibilidade,** delineie a réplica secundária no site DR para utilizar o modo de disponibilidade **de compromisso sincronizado** e o modo de falha **automática.**
-1. Se tiver uma réplica secundária no mesmo local que a sua réplica primária para alta disponibilidade, detete esta réplica para Commit e **Manual** **Assíncronos** .
-1. Clique em OK.
-1. No **Object Explorer,** clique no grupo de disponibilidade e clique no **Show Dashboard**.
-1. No painel de instrumentos, verifique se a réplica no local da DR está sincronizada.
-1. No **Object Explorer,** clique no grupo de disponibilidade e clique em **Failover...**. A SQL Server Management Studios abre um assistente para falhar sobre o Servidor SQL.  
-1. Clique em **Seguinte**, e selecione a instância do Servidor SQL no site DR. Clique **em Next** novamente.
-1. Ligue-se à instância do Servidor SQL no site DR e clique em **Next**.
-1. Na página **Resumo,** verifique as definições e clique em **Terminar**.
+1. No **Object Explorer,** ligue-se à instância do SQL Server que acolhe a réplica primária.
+1. Em **Grupos de Disponibilidade AlwaysOn**, **Grupos de Disponibilidade,** clique à direita no seu grupo de disponibilidade e selecione **Propriedades.**
+1. Na página **Geral,** em **Replicas Disponibilidade,** desloque a réplica secundária no site DR para utilizar o modo de disponibilidade **Synchronous Commit** e o modo de failover **automático.**
+1. Se tiver uma réplica secundária no mesmo local que a sua réplica primária para alta disponibilidade, desista desta réplica para **Assíncronose e** **Manual**.
+1. Selecione OK.
+1. No **Object Explorer,** clique com o botão direito do grupo de disponibilidade e selecione **Mostrar Painel**.
+1. No painel de instrumentos, verifique se a réplica no site DR está sincronizada.
+1. No **Object Explorer,** clique com o botão direito no grupo de disponibilidade e selecione **Failover...**. SQL Server Management Studios abre um assistente para falhar sobre o SQL Server.  
+1. Selecione **Seguinte**, e selecione a instância sql Server no site DR. Selecione **Next** novamente.
+1. Ligue-se à instância do SQL Server no site DR e selecione **Seguinte**.
+1. Na página **Resumo,** verifique as definições e **selecione Terminar**.
 
-Depois de testar a conectividade, desloque a réplica primária de volta para o seu centro de dados primário e recoloque o modo de disponibilidade para as suas definições normais de funcionamento. A tabela que se segue mostra as configurações operacionais normais para a arquitetura descrita neste documento:
+Depois de testar a conectividade, mova a réplica primária de volta para o seu centro de dados primário e volte a definir o modo de disponibilidade para as suas definições normais de funcionamento. O quadro a seguir mostra as configurações operacionais normais para a arquitetura descritas neste documento:
 
-| Localização | Instância do servidor | Função | Modo de Disponibilidade | Modo Failover
+| Localização | Instância do servidor | Função | Modo disponibilidade | Modo de failover
 | ----- | ----- | ----- | ----- | -----
-| Centro de dados primário | SQL-1 | Primária | Síncrono | Automático
-| Centro de dados primário | SQL-2 | Secundária | Síncrono | Automático
+| Centro de dados primários | SQL-1 | Primário | Síncrono | Automático
+| Centro de dados primários | SQL-2 | Secundária | Síncrono | Automático
 | Centro de dados secundário ou remoto | SQL-3 | Secundária | Assíncrono | Manual
 
 
-### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mais informações sobre falhas manuais planeadas e forçadas
+### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mais informações sobre o failover manual planeado e forçado
 
 Para obter mais informações, consulte os seguintes tópicos:
 
-- [Execute uma falha manual planeada de um grupo de disponibilidade (Servidor SQL)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Execute uma falha manual forçada de um grupo de disponibilidade (Servidor SQL)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Executar uma falha manual planeada de um Grupo de Disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
+- [Executar uma falha manual forçada de um Grupo de Disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Links Adicionais
+## <a name="next-steps"></a>Próximos passos
 
 * [Sempre em Grupos de Disponibilidade](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Máquinas Virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Equilibradores de carga Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Conjuntos de disponibilidade azure](../../../virtual-machines/linux/manage-availability.md)
+* [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Balançadores de carga Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
+* [Conjuntos de disponibilidade de Azure](../../../virtual-machines/linux/manage-availability.md)

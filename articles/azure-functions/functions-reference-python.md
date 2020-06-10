@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: a8201b1c8443bd99ec9045fdc4b074a4f3eec4f2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d9289b6304a9c9e93afeddd98b3a229dae91797
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553086"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660595"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -21,7 +21,7 @@ Para projetos de amostra de função autónoma em Python, consulte as [amostras 
 
 A Azure Functions espera que uma função seja um método apátrida na sua escrita Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no `__init__.py` ficheiro. Também pode [especificar um ponto de entrada alternativo.](#alternate-entry-point)
 
-Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida no ficheiro *function.json.* Por exemplo, a _função.json_ abaixo descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
+Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida nofunction.js*no* ficheiro. Por exemplo, o _function.jsabaixo_ descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -48,7 +48,7 @@ Utilize as anotações Python incluídas no pacote [azure.functions.*](/python/a
 
 ## <a name="alternate-entry-point"></a>Ponto de entrada alternativo
 
-Pode alterar o comportamento predefinido de uma função especificando opcionalmente o `scriptFile` e as propriedades no ficheiro `entryPoint` *function.json.* Por exemplo, a _função.json_ abaixo indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
+Pode alterar o comportamento predefinido de uma função especificando opcionalmente as `scriptFile` propriedades e propriedades nofunction.js`entryPoint` *no* ficheiro. Por exemplo, o _function.jsabaixo_ indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
 
 ```json
 {
@@ -83,14 +83,14 @@ A estrutura de pasta recomendada para um projeto Python Functions parece o segui
 ```
 A pasta principal do projeto \_ \_ \_ \_ (app) pode conter os seguintes ficheiros:
 
-* *local.settings.json*: Usado para armazenar configurações de aplicações e cordas de conexão quando funciona localmente. Este ficheiro não é publicado no Azure. Para saber mais, consulte [local.settings.file](functions-run-local.md#local-settings-file).
+* *local.settings.jsem*: Usado para armazenar configurações de aplicações e cordas de conexão quando funciona localmente. Este ficheiro não é publicado no Azure. Para saber mais, consulte [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt*: Contém a lista de pacotes que o sistema instala ao publicar no Azure.
-* *host.json*: Contém opções de configuração global que afetam todas as funções numa aplicação de função. Este ficheiro é publicado no Azure. Nem todas as opções são suportadas quando se executa localmente. Para saber mais, consulte [host.json.](functions-host-json.md)
+* *host.jsem:* Contém opções de configuração global que afetam todas as funções numa aplicação de função. Este ficheiro é publicado no Azure. Nem todas as opções são suportadas quando se executa localmente. Para saber mais, veja [host.js.](functions-host-json.md)
 * *.funcignore*: (Opcional) declara ficheiros que não devem ser publicados no Azure.
-* *.gitignore*: (Opcional) declara ficheiros que são excluídos de um repo git, como local.settings.json.
+* *.gitignore*: (Opcional) declara ficheiros que são excluídos de um repo git, como local.settings.js.
 * *Dockerfile*: (Opcional) utilizado ao publicar o seu projeto num [recipiente personalizado](functions-create-function-linux-custom-image.md).
 
-Cada função tem o seu próprio ficheiro de código e ficheiro de configuração de ligação (função.json).
+Cada função tem o seu próprio ficheiro de código e ficheiro de configuração de ligação (function.js).
 
 Ao implementar o seu projeto numa aplicação de função em Azure, todo o conteúdo da pasta principal* \_ \_ (app) \_ \_ *deve ser incluído no pacote, mas não na própria pasta. Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto, neste exemplo `tests` . Isto impede-o de implementar código de teste com a sua aplicação. Para obter mais informações, consulte [o Teste de Unidade.](#unit-testing)
 
@@ -251,7 +251,7 @@ def main(req):
 
 Estão disponíveis métodos adicionais de registo que permitem escrever para a consola em diferentes níveis de vestígios:
 
-| Método                 | Description                                |
+| Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Escreve uma mensagem com nível CRITICAL no madeir de raiz.  |
 | **`error(_message_)`**   | Escreve uma mensagem com ERRO de nível no madeir de raiz.    |
@@ -391,7 +391,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-Para o desenvolvimento local, as definições de aplicação são [mantidas no ficheiro local.settings.json](functions-run-local.md#local-settings-file).
+Para o desenvolvimento local, as definições de aplicação são [mantidas no local.settings.jsarquivado](functions-run-local.md#local-settings-file).
 
 ## <a name="python-version"></a>Versão de Python
 
@@ -458,7 +458,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de função em Azure.
 
-Utilizando a `--build local` opção, as dependências do projeto são lidas a partir dos requisitos.txt file e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências dos seus requisitos.txt file não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação.
+Utilizando a `--build local` opção, as dependências do projeto são lidas a partir do ficheiro requirements.txt e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências do seu ficheiro requirements.txt não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação.
 
 ### <a name="custom-dependencies"></a>Dependências personalizadas
 
@@ -630,6 +630,44 @@ from os import listdir
 
 Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto. Isto impede-o de implementar código de teste com a sua aplicação.
 
+## <a name="preinstalled-libraries"></a>Bibliotecas pré-instaladas
+
+Há algumas bibliotecas com o tempo de funcionamento das Funções Python.
+
+### <a name="python-standard-library"></a>Biblioteca Padrão python
+
+A Biblioteca Padrão python contém uma lista de módulos Python incorporados que são enviados com cada distribuição python. A maioria destas bibliotecas ajuda-o a aceder à funcionalidade do sistema, como o Ficheiro I/O. Nos sistemas Windows, estas bibliotecas são instaladas com Python. Nos sistemas baseados no Unix, são fornecidos por coleções de pacotes.
+
+Para ver todos os detalhes da lista destas bibliotecas, visite os links abaixo:
+
+* [Biblioteca Padrão Python 3.6](https://docs.python.org/3.6/library/)
+* [Biblioteca Padrão Python 3.7](https://docs.python.org/3.7/library/)
+* [Biblioteca Padrão Python 3.8](https://docs.python.org/3.8/library/)
+
+### <a name="azure-functions-python-worker-dependencies"></a>Funções Azure Python dependências operárias
+
+O trabalhador de Funções Python requer um conjunto específico de bibliotecas. Você também pode usar estas bibliotecas nas suas funções, mas elas não fazem parte do padrão Python. Se as suas funções dependerem de alguma destas bibliotecas, estas podem não estar disponíveis para o seu código quando estiverem fora das Funções Azure. Pode encontrar uma lista detalhada de dependências na **instalação \_ requer** a secção no [ficheiro setup.py.](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282)
+
+### <a name="azure-functions-python-library"></a>Biblioteca Azure Functions Python
+
+Cada atualização de trabalhadores python inclui uma nova versão da [biblioteca Azure Functions Python (azure.funções)](https://github.com/Azure/azure-functions-python-library). A versão da biblioteca de tempo de execução é fixada pelo Azure, e não pode ser ultrapassada por requirements.txt. A `azure-functions` entrada em requirements.txt é apenas para a linhar e a sensibilização do cliente.
+
+A razão de tomar esta decisão é para facilitar a atualização contínua nas aplicações Azure Functions Python. A atualização da Biblioteca Python não deve estar ciente do cliente, uma vez que cada atualização é compatível com retroativos. Uma lista de lançamentos da biblioteca pode ser encontrada em [PyPi de funções azure.](https://pypi.org/project/azure-functions/#history)
+
+Pode rastrear a versão real da biblioteca Python Functions no seu tempo de funcionamento com a seguinte linha:
+
+```python
+getattr(azure.functions, '__version__', '< 1.2.1')
+```
+
+### <a name="runtime-system-libraries"></a>Bibliotecas do sistema de tempo de execução
+
+Para obter uma lista de bibliotecas de sistema pré-instaladas em imagens do trabalhador python Docker, siga os links abaixo:
+|  Tempo de execução das funções  | Versão debian | Versões python |
+|------------|------------|------------|
+| Versão 2.x | Esticar  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+
 ## <a name="cross-origin-resource-sharing"></a>Partilha de recursos de várias origens
 
 [!INCLUDE [functions-cors](../../includes/functions-cors.md)]
@@ -638,13 +676,13 @@ O CORS é totalmente suportado para aplicações de função Python.
 
 ## <a name="known-issues-and-faq"></a>Questões conhecidas e FAQ
 
-Graças ao seu valioso feedback, somos capazes de manter uma lista de guias de resolução de problemas para questões comuns:
+Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 * [MóduloNotFoundError e ImportError](recover-module-not-found.md)
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte os seguintes recursos:
 

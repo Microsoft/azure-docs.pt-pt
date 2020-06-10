@@ -3,12 +3,12 @@ title: Configurar uma análise de dependência sem agente na avaliação do serv
 description: Configure a análise de dependência sem agente na Avaliação do Servidor Azure Migrate.
 ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: 3259c861b0e64b560eb2a17a832a02b87855bebf
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 68c95c74768f9d9628f92b061754c942b080565c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449197"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659973"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Configurar a visualização da dependência sem agente 
 
@@ -103,8 +103,7 @@ Pode visualizar dependências cerca de seis horas após iniciar a descoberta da 
 
 Os dados de dependência são exportados e descarregados num formato CSV. O ficheiro descarregado contém os dados de dependência em todas as máquinas ativadas para análise de dependência. 
 
-    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
-
+![Dependências das exportações](./media/how-to-create-group-machine-dependencies-agentless/export.png)
 
 ## <a name="stop-dependency-discovery"></a>Parar a descoberta da dependência
 

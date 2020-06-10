@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: c7b5e679fa47437e7019884317d0ab14792055f3
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 878c4a5028b114ad10d19c03c0239c9d7a8bc6ce
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465427"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659576"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Utilize o Serviço de Fila Azure para criar e eliminar filas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,14 +22,17 @@ ms.locfileid: "84465427"
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia mostra-lhe como executar cenários comuns usando o serviço Microsoft Azure Queue. As amostras são escritas utilizando a API nó.js. Os cenários abordados incluem **inserir,** **espreitar,** **receber**e **apagar** mensagens de fila, bem como **criar e apagar filas.**
+Este guia mostra-lhe como executar cenários comuns usando o serviço Microsoft Azure Queue. As amostras são escritas com a API Node.js. Os cenários abordados incluem **inserir,** **espreitar,** **receber**e **apagar** mensagens de fila, bem como **criar e apagar filas.**
+
+> [!IMPORTANT]
+> Este artigo refere-se à versão antiga da biblioteca de clientes Azure Storage para JavaScript. Para começar com a versão mais recente, consulte [a biblioteca de clientes de armazenamento Quickstart: Azure Queue para JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-nodejs-application"></a>Criar uma aplicação node.js
-Crie uma aplicação node.js em branco. Para obter instruções que criem uma aplicação Node.js, consulte [Criar uma aplicação web Node.js no Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Construa e implemente uma aplicação Node.js para um Serviço de Nuvem Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) utilizando o Windows PowerShell ou [Código de Estúdio Visual](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
+Crie uma aplicação de Node.js em branco. Para obter instruções que criem uma aplicação Node.js, consulte [Criar uma aplicação web Node.js no Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Construa e implemente uma aplicação Node.js para um Serviço de Nuvem Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) utilizando o Windows PowerShell ou [Código de Estúdio Visual](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configure a sua aplicação para aceder ao armazenamento
 Para utilizar o armazenamento Azure, você precisa do Azure Storage SDK para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços DE ARMAZENAMENTO REST.
@@ -54,7 +57,7 @@ Para utilizar o armazenamento Azure, você precisa do Azure Storage SDK para Nod
 3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **de módulos de \_ nó.** Nessa pasta, encontrará o pacote **azure-storage**, que contém as bibliotecas de que precisa para aceder ao armazenamento.
 
 ### <a name="import-the-package"></a>Importar o pacote
-Utilizando o Notepad ou outro editor de texto, adicione o seguinte ao topo do ficheiro **server.js** da aplicação onde pretende utilizar o armazenamento:
+Utilizando o Notepad ou outro editor de texto, adicione o seguinte ao topo o ficheiro **server.js** da aplicação onde pretende utilizar o armazenamento:
 
 ```javascript
 var azure = require('azure-storage');
