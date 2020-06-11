@@ -4,7 +4,6 @@ description: Utilize o CLI Azure para criar o cluster de failover do Windows, o 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: article
@@ -14,12 +13,12 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23667e8a50d2ef3a7a31aeb165c0b5d43bcf3eca
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3366438012ecc3395e7f4ae3774316ef1ddcd3b9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219615"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669346"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-azure-vm"></a>Utilize o Azure CLI para configurar um grupo de disponibilidade Always On para O Servidor SQL em Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -214,7 +213,7 @@ O melhor método é eliminá-lo através do fornecedor de recursos SQL VM utiliz
 az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes artigos: 
 

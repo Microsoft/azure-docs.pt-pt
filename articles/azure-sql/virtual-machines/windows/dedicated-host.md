@@ -4,7 +4,6 @@ description: Aprenda a executar um SQL Server VM num Anfitrião Dedicado Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c16c2cdae671a9b18a34b88b9490b5b61c24c8e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220228"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669108"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Executar SQL Server VM em um anfitrião dedicado Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +33,7 @@ Este artigo detalha as especificidades da utilização de uma máquina virtual S
 - Os conjuntos de escala de máquinas virtuais não são suportados atualmente em anfitriões dedicados.
 - As seguintes séries VM são suportadas: DSv3 e ESv3. 
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licensing
 
 Pode escolher entre duas opções de licenciamento diferentes quando colocar o seu SQL Server VM num Anfitrião Dedicado Azure. 
 
@@ -72,7 +71,7 @@ Porque como é o seu anfitrião, você é elegível para definir a virtualizaç�
 
 R: Os clientes podem utilizar o valor das licenças existentes do Windows Server e SQL Server com garantia de software, ou licenças de subscrição elegíveis, para pagar uma taxa reduzida no Azure Dedicated Host usando o Azure Hybrid Benefit. Os clientes do Windows Server Datacenter e SQL Server Enterprise Edition obtêm uma virtualização ilimitada (implemente o maior número possível de máquinas virtuais do Windows Server no hospedeiro sujeito à capacidade física do servidor subjacente) quando licenciam todo o anfitrião e utilizam o Azure Hybrid Benefit.  Todas as cargas de trabalho do Windows Server e do SQL Server no Azure Dedicated Host também são elegíveis para atualizações de segurança estendidas para Windows Server e SQL Server 2008/R2 sem custo adicional. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes artigos: 
 

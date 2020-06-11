@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/10/2020
+ms.openlocfilehash: 6a7c04bec8a794a234f2f0c6fad75dc94c12d291
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299796"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668360"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -53,11 +53,11 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 
 Os detalhes e durações de execução na parte inferior da visualização de monitorização da atividade da cópia descrevem as fases-chave pela qual a sua atividade de cópia passa (ver exemplo no início deste artigo), o que é especialmente útil para resolver problemas no desempenho da cópia. O estrangulamento da sua cópia é o que tem a maior duração. Consulte a tabela seguinte na definição de cada etapa e aprenda a lidar com a atividade de [cópia de resolução de problemas na](#troubleshoot-copy-activity-on-azure-ir) atividade de cópia Azure IR e [Troubleshoot copy em IR auto-hospedado](#troubleshoot-copy-activity-on-self-hosted-ir) com tais informações.
 
-| Fase           | Description                                                  |
+| Fase           | Descrição                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Filas           | O tempo decorrido até que a atividade da cópia realmente comece no tempo de integração. |
 | Script pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para lavatórios de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
-| Transferir        | O tempo decorrido entre o final do escalão anterior e o IR transferindo todos os dados de fonte para afundar. Subpasss em "Transferência" corre em paralelo.<br><br>- **Hora de primeiro byte:** O tempo decorrido entre o final do escalão anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto em enumerar ficheiros de origem ou divisórias de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura da fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrevendo para afundar:** A quantidade de tempo gasto em escrever dados para afundar a loja de dados. |
+| Transferir        | O tempo decorrido entre o final do escalão anterior e o IR transferindo todos os dados de fonte para afundar. <br/>Note que os sub-passos em transferência são executados em paralelo, e algumas operações não são mostradas agora, por exemplo, o formato de ficheiro de parsing/geração.<br><br/>- **Hora de primeiro byte:** O tempo decorrido entre o final do escalão anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto em enumerar ficheiros de origem ou divisórias de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura da fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrevendo para afundar:** A quantidade de tempo gasto em escrever dados para afundar a loja de dados. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Atividade de cópia de resolução de problemas no Azure IR
 
@@ -70,7 +70,6 @@ Quando o desempenho da atividade da cópia não corresponder às suas expectativ
 - **"Transfer - Tempo para primeiro byte" experimentou longa duração de trabalho**: significa que a sua consulta de origem demora muito tempo a devolver quaisquer dados. Verifique e otimize a consulta ou o servidor. Se precisar de mais ajuda, contacte a sua equipa de loja de dados.
 
 - **"Transfer - Listing source" experimentou uma longa duração de trabalho:** significa que enumerar ficheiros de origem ou partições de dados de base de dados de origem é lento.
-
   - Ao copiar dados de origem baseada em ficheiros, se utilizar **o filtro wildcard** na trajetória da pasta ou no nome do ficheiro `wildcardFolderPath` (ou ) ou utilizar o `wildcardFileName` último filtro de tempo modificado do **ficheiro** ( ou ), note que tal filtro resultaria na cópia da atividade que lista todos `modifiedDatetimeStart` os `modifiedDatetimeEnd` ficheiros sob a pasta especificada para o lado do cliente e, em seguida, aplique o filtro. Tal enumeração de ficheiros pode tornar-se o estrangulamento, especialmente quando apenas um pequeno conjunto de ficheiros cumpriu a regra do filtro.
 
     - Verifique se pode [copiar ficheiros com base no caminho ou nome](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)do ficheiro dividido em data . Tal forma não traz encargos para a listagem do lado da fonte.
@@ -185,7 +184,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 * SQL Server: [Monitor e sintonizar para o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 * Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)

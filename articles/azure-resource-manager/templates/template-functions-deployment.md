@@ -1,25 +1,25 @@
 ---
 title: Funções do modelo - implantação
-description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar informações de implementação.
+description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203799"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677819"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para obter valores relacionados com a implementação atual do seu modelo Degestor de Recursos Azure (ARM):
+O Gestor de Recursos fornece as seguintes funções para obter valores relacionados com a implementação atual do seu modelo Azure Resource Manager (ARM):
 
 * [implantação](#deployment)
 * [ambiente](#environment)
 * [parâmetros](#parameters)
 * [variáveis](#variables)
 
-Para obter valores de recursos, grupos de recursos ou subscrições, consulte funções de [Recursos.](template-functions-resource.md)
+Para obter valores de recursos, grupos de recursos ou subscrições, consulte [as funções de Recursos](template-functions-resource.md).
 
 ## <a name="deployment"></a>implementação
 
@@ -29,12 +29,12 @@ Devolve informações sobre a operação de implantação atual.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Esta função devolve o objeto que é passado durante a implantação. As propriedades do objeto devolvido diferem com base no facto de ser:
+Esta função devolve o objeto que é passado durante a implantação. As propriedades no objeto devolvido diferem com base no facto de ser:
 
-* implementando um modelo que é um arquivo local ou implementando um modelo que é um ficheiro remoto acedido através de um URI.
-* implantação para um grupo de recursos ou implantação para um dos outros âmbitos[(subscrição Azure,](deploy-to-subscription.md)grupo de [gestão,](deploy-to-management-group.md)ou [inquilino).](deploy-to-tenant.md)
+* implantando um modelo que é um arquivo local ou implantando um modelo que é um ficheiro remoto acedido através de um URI.
+* implantação num grupo de recursos ou implantação para um dos outros âmbitos[(assinatura Azure,](deploy-to-subscription.md) [grupo de gestão,](deploy-to-management-group.md)ou [inquilino).](deploy-to-tenant.md)
 
-Ao implantar um modelo local para um grupo de recursos: a função devolve o seguinte formato:
+Ao implementar um modelo local para um grupo de recursos: a função devolve o seguinte formato:
 
 ```json
 {
@@ -57,7 +57,7 @@ Ao implantar um modelo local para um grupo de recursos: a função devolve o seg
 }
 ```
 
-Ao implantar um modelo remoto para um grupo de recursos: a função devolve o seguinte formato:
+Ao implementar um modelo remoto para um grupo de recursos: a função devolve o seguinte formato:
 
 ```json
 {
@@ -82,7 +82,7 @@ Ao implantar um modelo remoto para um grupo de recursos: a função devolve o se
 }
 ```
 
-Quando se desdobra para uma subscrição Azure, grupo `location` de gestão ou inquilino, o objeto de retorno inclui uma propriedade. A propriedade de localização está incluída ao implementar um modelo local ou um modelo externo. O formato é:
+Quando você implementa para uma subscrição Azure, grupo de gestão ou inquilino, o objeto de retorno inclui um `location` imóvel. A propriedade de localização está incluída ao implementar um modelo local ou um modelo externo. O formato é:
 
 ```json
 {
@@ -105,23 +105,23 @@ Quando se desdobra para uma subscrição Azure, grupo `location` de gestão ou i
 
 ### <a name="remarks"></a>Observações
 
-Pode utilizar a implementação() para ligar a outro modelo com base no URI do modelo de progenitor.
+Pode utilizar a implementação para ligar a outro modelo baseado no URI do modelo principal.
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
 
-Se reimplantar um modelo do histórico de implementação no portal, o modelo é implantado como um ficheiro local. A `templateLink` propriedade não é devolvida na função de implantação. Se o seu `templateLink` modelo depender de construir uma ligação a outro modelo, não utilize o portal para reimplantar. Em vez disso, use os comandos que usou para implantar originalmente o modelo.
+Se recolocar um modelo a partir do histórico de implementação no portal, o modelo é implementado como um ficheiro local. A `templateLink` propriedade não é devolvida na função de implantação. Se o seu modelo depender `templateLink` de construir uma ligação a outro modelo, não use o portal para recolocar. Em vez disso, utilize os comandos utilizados para implantar originalmente o modelo.
 
 ### <a name="example"></a>Exemplo
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) de exemplo devolve o objeto de implantação:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) a seguir devolve o objeto de implantação:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -140,7 +140,7 @@ O exemplo anterior devolve o seguinte objeto:
   "name": "deployment",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
@@ -162,11 +162,11 @@ O exemplo anterior devolve o seguinte objeto:
 
 `environment()`
 
-Devolve informações sobre o ambiente Azure utilizado para a implantação.
+Devolve informações sobre o ambiente Azure utilizado para implantação.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Esta função devolve propriedades para o ambiente atual do Azure. O exemplo que se segue mostra as propriedades para o Azure global. Nuvens soberanas podem devolver propriedades ligeiramente diferentes.
+Esta função devolve propriedades para o ambiente Azure atual. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem devolver propriedades ligeiramente diferentes.
 
 ```json
 {
@@ -204,7 +204,7 @@ Esta função devolve propriedades para o ambiente atual do Azure. O exemplo que
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo seguinte devolve o objeto ambiental.
+O modelo de exemplo a seguir devolve o objeto ambiente.
 
 ```json
 {
@@ -220,7 +220,7 @@ O modelo de exemplo seguinte devolve o objeto ambiental.
 }
 ```
 
-O exemplo anterior devolve o seguinte objeto quando implantado no Global Azure:
+O exemplo anterior devolve o seguinte objeto quando implantado no Azure global:
 
 ```json
 {
@@ -266,7 +266,7 @@ Devolve um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parâmetronome |Sim |string |O nome do parâmetro para voltar. |
+| nome de parâmetroName |Sim |string |O nome do parâmetro para voltar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -274,10 +274,10 @@ O valor do parâmetro especificado.
 
 ### <a name="remarks"></a>Observações
 
-Normalmente, utiliza-se parâmetros para definir valores de recursos. O exemplo seguinte define o nome do web site para o valor do parâmetro passado durante a implementação.
+Normalmente, utiliza-se parâmetros para definir valores de recursos. O exemplo a seguir define o nome do web site para o valor do parâmetro transmitido durante a implantação.
 
 ```json
-"parameters": { 
+"parameters": {
   "siteName": {
       "type": "string"
   }
@@ -294,11 +294,11 @@ Normalmente, utiliza-se parâmetros para definir valores de recursos. O exemplo 
 
 ### <a name="example"></a>Exemplo
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) de exemplo seguinte mostra uma utilização simplificada da função de parâmetros.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) a seguir mostra uma utilização simplificada da função dos parâmetros.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringParameter": {
@@ -351,27 +351,27 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| cadeiaOutput | String | opção 1 |
+| stringOutput | String | opção 1 |
 | intOutput | int | 1 |
-| objetoSaída | Objeto | {"um": "a", "dois": "b"} |
-| arrayOutput | Matriz | [1, 2, 3] |
+| objetoOutput | Objeto | {"one": "a", "two": "b"} |
+| intervalo de matriz | Matriz | [1, 2, 3] |
 | crossOutput | String | opção 1 |
 
-Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros no modelo do Gestor](template-parameters.md)de Recursos Azure .
+Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros no modelo do Gestor de Recursos Azure](template-parameters.md).
 
 ## <a name="variables"></a>variáveis
 
 `variables(variableName)`
 
-Devolve o valor da variável. O nome variável especificado deve ser definido na secção variável do modelo.
+Devolve o valor da variável. O nome variável especificado deve ser definido na secção de variáveis do modelo.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome variável |Sim |String |O nome da variável para voltar. |
+| nome variável |Sim |String |O nome da variável para devolver. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -379,7 +379,7 @@ O valor da variável especificada.
 
 ### <a name="remarks"></a>Observações
 
-Normalmente, você usa variáveis para simplificar o seu modelo construindo valores complexos apenas uma vez. O exemplo seguinte constrói um nome único para uma conta de armazenamento.
+Normalmente, você usa variáveis para simplificar o seu modelo construindo valores complexos apenas uma vez. O exemplo a seguir constrói um nome único para uma conta de armazenamento.
 
 ```json
 "variables": {
@@ -403,11 +403,11 @@ Normalmente, você usa variáveis para simplificar o seu modelo construindo valo
 
 ### <a name="example"></a>Exemplo
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) de exemplo seguinte devolve diferentes valores variáveis.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) a seguir devolve diferentes valores variáveis.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
@@ -443,15 +443,15 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| exemploSOutput1 | String | myVariável |
-| exemploSOutput2 | Matriz | [1, 2, 3, 4] |
-| exemploSOutput3 | String | myVariável |
-| exemploSOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
+| exemploOutput1 | String | myVariable |
+| exemploOutput2 | Matriz | [1, 2, 3, 4] |
+| exemploOutput3 | String | myVariable |
+| exemploOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
-Para obter mais informações sobre a utilização de variáveis, consulte [variáveis no modelo de Gestor](template-variables.md)de Recursos Azure .
+Para obter mais informações sobre a utilização de variáveis, consulte [Variáveis no modelo do Gestor de Recursos Azure](template-variables.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

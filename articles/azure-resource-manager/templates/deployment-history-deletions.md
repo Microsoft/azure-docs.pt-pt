@@ -2,13 +2,13 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 2d87cc1dcc0d3a41cb32bf7750ccdd832019f8bf
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 06/10/2020
+ms.openlocfilehash: c16b71646e20b71c0d0ca8c9f8e028773983022f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462741"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673994"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
@@ -18,10 +18,12 @@ A partir de junho de 2020, o Azure Resource Manager elimina automaticamente as i
 
 > [!NOTE]
 > Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.
+>
+> Se tiver um [bloqueio CanNotDelete](../management/lock-resources.md) num grupo de recursos, as implementações desse grupo de recursos não podem ser eliminadas. Tem de remover o cadeado para tirar partido das supressões automáticas no histórico de implantação.
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implementações são eliminadas
 
-As implementações são eliminadas do seu histórico de implantação apenas quando se aproxima do limite de 800. O Azure Resource Manager elimina um pequeno conjunto das implementações mais antigas para abrir espaço para futuras implementações. A maior parte da sua história permanece inalterada. As implementações mais antigas são sempre eliminadas primeiro.
+As implementações são eliminadas do seu histórico de implantação quando atinge 790 implementações. O Azure Resource Manager elimina um pequeno conjunto das implementações mais antigas para abrir espaço para futuras implementações. A maior parte da sua história permanece inalterada. As implementações mais antigas são sempre eliminadas primeiro.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Supressões da história da implantação":::
 

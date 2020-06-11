@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248537"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655785"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Quickstart: Criar uma fábrica de dados utilizando a UI da Azure Data Factory
 
@@ -42,8 +42,6 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Vá ao [portal Azure.](https://portal.azure.com) 
 1. A partir do menu do portal Azure, **selecione Criar um recurso**.
-   
-   ![Selecione Criar um recurso a partir do menu do portal Azure](./media/doc-common-process/create-a-resource.png)
 1. Selecione **Analytics**e, em seguida, selecione **Data Factory**. 
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -80,8 +78,12 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 Neste procedimento, cria um serviço ligado para ligar a sua conta de Armazenamento Azure à fábrica de dados. O serviço ligado tem as informações de ligação utilizadas pelo serviço Data Factory em runtime para se ligar ao mesmo.
 
-1. Selecione **Ligações**e, em seguida, selecione **o** novo botão na barra de**ferramentas (O** botão Ligações está localizado na parte inferior da coluna esquerda sob **recursos de fábrica).** 
+1. Abra A guia de [gestão](https://docs.microsoft.com/azure/data-factory/author-management-hub) a partir do painel esquerdo.
 
+1. Na página de serviços Linked, selecione **+Novo** para criar um novo serviço ligado.
+
+   ![Novo serviço ligado](./media/doc-common-process/new-linked-service.png)
+   
 1. Na página **Novo Serviço Ligado**, selecione **Armazenamento de Blobs do Azure** e selecione **Continuar**. 
 
 1. Na página New Linked Service (Azure Blob Storage), complete os seguintes passos: 
@@ -123,7 +125,7 @@ Nas definições de serviço ligadas, especificou a conta de Armazenamento Azure
 
     c. Em **Caminho do ficheiro**, selecione o botão **Procurar**.
 
-    d. Na janela **de ficheiro ou pasta,** navegue na pasta de **entrada** no recipiente **adftutorial,** selecione o ficheiro **emp.txt** e, em seguida, selecione **OK**.
+    d. Na janela **de ficheiro ou pasta Escolha,** navegue na pasta de **entrada** no recipiente **adftutorial,** selecione o ficheiro **emp.txt** e, em seguida, selecione **OK**.
     
     e. Selecione **OK**.   
 
@@ -221,5 +223,5 @@ Este procedimento é opcional neste tutorial. Pode criar um *acionador de agenda
 
 1. Confirme que é criado um ficheiro de saída para todas as execuções de pipelines até à data e hora de fim especificada na pasta de **saída**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de Blobs do Azure. Para saber como utilizar o Data Factory em mais cenários, aceda aos [tutoriais](tutorial-copy-data-portal.md). 

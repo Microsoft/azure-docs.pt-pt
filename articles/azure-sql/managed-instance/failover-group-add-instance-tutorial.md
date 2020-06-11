@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
-manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: b822197bbc62ef6bb277d5c71b689a1a5312792f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 3b132fb5c718346462e43d161e4d85f07223df09
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659828"
+ms.locfileid: "84667748"
 ---
 # <a name="tutorial-add-a-managed-instance-of-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione uma instância gerida de SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

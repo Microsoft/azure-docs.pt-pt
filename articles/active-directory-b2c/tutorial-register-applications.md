@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e97df60739b04884e8a9cd68679c23d4407e4947
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c3be9136f260d73647e144d4d00bb58ce5e6774d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298807"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672617"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação web no Azure Ative Directory B2C
 
@@ -47,7 +47,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nos
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *webapp1*.
-1. Nos **tipos de contas suportadas**, selecione Contas em qualquer **diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**.
+1. Nos **tipos de conta suportados,** selecione Contas em qualquer **diretório organizacional ou qualquer fornecedor de identidade. Para autenticar utilizadores com Azure AD B2C**.
 1. Em **URI de redirecionamento,** selecione **Web**e, em seguida, `https://jwt.ms` introduza na caixa de texto URL.
 
     O redirect URI é o ponto final para o qual o utilizador é enviado pelo servidor de autorização (Azure AD B2C, neste caso) após completar a sua interação com o utilizador, e para o qual é enviado um token de acesso ou código de autorização mediante autorização bem sucedida. Numa aplicação de produção, é tipicamente um ponto final acessível ao público onde a sua aplicação está a funcionar, como `https://contoso.com/auth-response` . Para testes como este tutorial, pode `https://jwt.ms` defini-lo para , uma aplicação web de propriedade da Microsoft que exibe o conteúdo descodificado de um símbolo (o conteúdo do token nunca sai do seu navegador). Durante o desenvolvimento da aplicação, pode adicionar o ponto final onde a sua aplicação ouve localmente, como `https://localhost:5000` . Pode adicionar e modificar URIs redirecionando as suas aplicações registadas a qualquer momento.
@@ -109,7 +109,7 @@ Se a sua aplicação trocar um código de autorização para um token de acesso,
 
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a:
 

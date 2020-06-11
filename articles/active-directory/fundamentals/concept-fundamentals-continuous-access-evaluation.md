@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e34b63017eae61a886bcff8faffa2910783f3e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559139"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673025"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -40,6 +40,7 @@ A avaliação contínua do acesso é implementada através da capacitação dos 
 
 - A Conta de Utilizador é eliminada ou desativada
 - A palavra-passe para um utilizador é alterada ou reiniciada
+- MFA está ativado para o utilizador
 - Administração revoga explicitamente todos os tokens de atualização para um utilizador
 - Risco elevado de utilizador detetado pela Azure AD Identity Protection
 
@@ -93,6 +94,6 @@ Embora o nosso objetivo seja que a aplicação seja instantânea, em alguns caso
 
 A frequência de inscrição será honrada com ou sem CAE.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Anunciando a avaliação contínua do acesso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

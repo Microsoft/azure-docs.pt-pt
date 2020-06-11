@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: 316f5dcb3a5fe0cbf8fb6a2f65c0ab11fc45c146
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: abd357808cd0213e92eaba478fb861110bcf9f39
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607283"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666728"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Prepare an Ubuntu virtual machine for Azure (Preparar uma máquina virtual Ubuntu para o Azure)
 
@@ -50,8 +50,8 @@ Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num di
 
     Ubuntu 16.04 e Ubuntu 18.04:
    
-        # sudo sed -i 's/archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
-        # sed -i 's/[a-z][a-z]\.archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
+        # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+        # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
         # sudo apt-get update
 
 
@@ -67,7 +67,9 @@ Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num di
 
 5. Modifique a linha de arranque do núcleo para grub para incluir parâmetros adicionais de kernel para Azure. Para o fazer aberto `/etc/default/grub` num editor de texto, encontre a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a se necessário) e edite-a para incluir os seguintes parâmetros:
    
-        GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
+    ```
+    GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
+    ```
 
     Guarde e feche este ficheiro e, em seguida, `sudo update-grub` corra. Isto irá garantir que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte técnico do Azure com problemas de depuração.
 
@@ -76,46 +78,49 @@ Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num di
 7. Instale cloud-init (o agente de provisionamento) e o Agente Azure Linux (o manipulador de extensões de hóspedes). O Cloud-init utiliza o netplan para configurar a configuração da rede do sistema durante o fornecimento e cada arranque subsequente.
 
         # sudo apt update
-        # sudo apt install -y cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+        # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
 
    > [!Note]
    >  A `walinuxagent` embalagem pode remover as `NetworkManager` embalagens e as `NetworkManager-gnome` embalagens, se forem instaladas.
 
-8. Remova os padrão de padrão de nuvem e os artefactos que podem entrar em conflito com o fornecimento de inícono em Azure:
+8. Remova os configs padrão de nuvem e restos de artefactos de planos que podem entrar em conflito com o fornecimento de inícono em Azure:
 
         # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
         # rm -f /etc/cloud/ds-identify.cfg
+        # rm -f /etc/netplan/*.yaml
 
 9. Configure a inição de nuvem para o fornecimento do sistema utilizando o recurso de dados Azure:
 
-        # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
-        datasource_list: [ Azure ]
-        EOF
+    ```
+    # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
+    datasource_list: [ Azure ]
+    EOF
 
-        # cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
-        system_info:
-        package_mirrors:
-            - arches: [i386, amd64]
-            failsafe:
-                primary: http://archive.ubuntu.com/ubuntu
-                security: http://security.ubuntu.com/ubuntu
-            search:
-                primary:
-                - http://azure.archive.ubuntu.com/ubuntu/
-                security: []
-            - arches: [armhf, armel, default]
-            failsafe:
-                primary: http://ports.ubuntu.com/ubuntu-ports
-                security: http://ports.ubuntu.com/ubuntu-ports
-        EOF
+    # cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
+    system_info:
+       package_mirrors:
+         - arches: [i386, amd64]
+           failsafe:
+             primary: http://archive.ubuntu.com/ubuntu
+             security: http://security.ubuntu.com/ubuntu
+           search:
+             primary:
+               - http://azure.archive.ubuntu.com/ubuntu/
+             security: []
+         - arches: [armhf, armel, default]
+           failsafe:
+             primary: http://ports.ubuntu.com/ubuntu-ports
+             security: http://ports.ubuntu.com/ubuntu-ports
+    EOF
 
-        # cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
-        reporting:
-        logging:
-            type: log
-        telemetry:
-            type: hyperv
-        EOF
+    # cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
+    reporting:
+      logging:
+        type: log
+      telemetry:
+        type: hyperv
+    EOF
+    ```
 
 10. Configure o agente Azure Linux para confiar na nuvem para executar o fornecimento. Veja o [projeto WALinuxAgent](https://github.com/Azure/WALinuxAgent) para obter mais informações sobre estas opções.
 
@@ -142,6 +147,12 @@ Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num di
         # sudo rm -f /var/log/waagent.log
 
 12. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisão em Azure:
+
+    > [!NOTE]
+    > O `sudo waagent -force -deprovision+user` comando tentará limpar o sistema e torná-lo adequado para realojamento. A `+user` opção elimina a última conta de utilizador a provisionada e os dados associados.
+
+    > [!WARNING]
+    > A desprovisionamento utilizando o comando acima não garante que a imagem seja limpa de todas as informações sensíveis e seja adequada para redistribuição.
 
         # sudo waagent -force -deprovision+user
         # rm -f ~/.bash_history

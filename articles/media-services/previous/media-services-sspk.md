@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 423597da44a74afb60e69c4e32cbd6353f81e726
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344038"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677173"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting 
 ## <a name="overview"></a>Descrição geral
@@ -29,7 +29,7 @@ Incluído abaixo é uma arquitetura de alto nível e iIS Smooth Streaming Portin
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrição
 A SSPK é licenciada em termos que oferecem excelente valor de negócio. A licença SSPK fornece à indústria:
 
 * Fonte do Kit de Porting de Streaming Suave em C++ 
@@ -113,52 +113,41 @@ Os licenciados provisórios e finais da SSPK podem submeter perguntas técnicas 
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Microsoft Smooth Streaming Cliente Final Product Agreement Licensees
 * Difusão Digital Avançada SA
 * AirTies Kablosuz Iletismo Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Tecnologia Arion, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* British Sky Broadcasting Limited
-* CastPal Technology Inc., Shenzhen
+* Arcelik A.S.
 * Compal Electronics, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar Purchaseing Corporation
-* Enseo, Inc.
-* FilmesFlex Filmes Limitados
+* TECNOLOGIA EXPRESS LUCK LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation Limited
+* Hong Kong Konka Ltd
+* Corporação Innolux
+* Innopia Technologies, Inc
 * Kaonmedia Co., Ltd.
 * Corporação KDDI
+* Mega Fame Electronics Co. Limited
+* MIRC Electronics Limited
 * Nintendo Co., Ltd.
-* Laranja SA
-* Açafrão Digital Limited
-* Sagemcom Banda Larga SAS
+* ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
+* Corporação Panasonic
+* Qingdao Haier Optronics Co., Ltd.
+* Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co., Ltd.
-* Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen KTC Technology Co., Ltd. 
+* Shenzhen Maxmade Technology Co., Ltd
+* Shenzhen MTC Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Corpo Industrial de Skardin.
 * Sky Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV S.A.
+* SMARDTV GLOBAL SAS
 * SoftAtHome
 * Corporação Sony
 * Tecnologias de Entrega Technicolor, SAS
-* Tongfang Global Ltd.
 * Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products & Services Corporation
-* Universal Media Corporation /Eslováquia/ s.r.o.
-* VIZIO, Inc.
-* Corporação Wistron
+* UMC Polónia sp. z .o.o.
 * Corporação ZTE
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

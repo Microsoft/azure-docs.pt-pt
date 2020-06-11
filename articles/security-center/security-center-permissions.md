@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: 2552012678300e944a513f9d7167fa582424bf8f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 16c2669dbb0a483a00d093871dfeeed65c5f9f20
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558861"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669788"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -43,8 +43,8 @@ A tabela que se segue exibe funções e permitiu ações no Centro de Segurança
 |Ação|Leitor de Segurança / <br> Leitor |Administrador de Segurança  |Contribuinte do Grupo de Recursos / <br> Proprietário do Grupo de Recursos  |Colaborador de Assinatura  |Proprietário de Assinatura  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Editar a política de segurança|-|✔|-|-|✔|
-|Alterar o nível de preços de subscrição|-|✔|-|-|-|
-|Ativar /desativar o fornecimento automático|-|✔|-|-|-|
+|Alterar o nível de preços de subscrição|-|✔|-|-|✔|
+|Ativar /desativar o fornecimento automático|-|✔|-|-|✔|
 |Aplicar recomendações de segurança para um recurso</br> (e use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Alertas de dispensa|-|✔|-|✔|✔|
 |Ver alertas e recomendações|✔|✔|✔|✔|✔|
@@ -54,7 +54,7 @@ A tabela que se segue exibe funções e permitiu ações no Centro de Segurança
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo explicou como o Security Center usa o RBAC para atribuir permissões aos utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de papel necessárias para monitorizar o estado de segurança da sua subscrição, editar políticas de segurança e aplicar recomendações, aprender a:
 
 - [Definir políticas de segurança no Centro de Segurança](tutorial-security-policy.md)

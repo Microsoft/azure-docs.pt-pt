@@ -1,49 +1,49 @@
 ---
-title: Melhores práticas de desenvolvimento - Segurança de Pod nos Serviços Azure Kubernetes (AKS)
-description: Aprenda as melhores práticas do desenvolvedor para como proteger cápsulas no Serviço Azure Kubernetes (AKS)
+title: Melhores práticas do desenvolvedor - Pod security in Azure Kubernetes Services (AKS)
+description: Aprenda as melhores práticas do desenvolvedor para como proteger pods no Serviço Azure Kubernetes (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 9fd7d6c6d472400afea05ac0cd87321a46dddb37
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3a62dcbbec90ec73ded722a6efbbd5907fb21f9f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677922"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674045"
 ---
-# <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Boas práticas para a segurança do casulo no Serviço Azure Kubernetes (AKS)
+# <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para a segurança do pod no Serviço Azure Kubernetes (AKS)
 
-À medida que desenvolve e executa aplicações no Serviço Azure Kubernetes (AKS), a segurança das suas cápsulas é uma consideração fundamental. As suas candidaturas devem ser concebidas para o princípio do menor número de privilégios necessários. Manter dados privados seguros é o topo da mente para os clientes. Você não quer credenciais como cordas de ligação de base de dados, chaves ou segredos e certificados expostos ao mundo exterior onde um intruso poderia aproveitar esses segredos para fins maliciosos. Não as adicione ao seu código nem as insera nas imagens do seu recipiente. Esta abordagem criaria um risco de exposição e limitaria a capacidade de rotação dessas credenciais, uma vez que as imagens do contentor terão de ser reconstruídas.
+À medida que desenvolve e executa aplicações no Serviço Azure Kubernetes (AKS), a segurança das suas cápsulas é uma consideração fundamental. As suas aplicações devem ser concebidas para o princípio do menor número de privilégios necessários. Manter os dados privados seguros é o topo de mente para os clientes. Não quer credenciais como cadeias de ligação de base de dados, chaves ou segredos e certificados expostos ao mundo exterior onde um intruso possa tirar partido desses segredos para fins maliciosos. Não os adicione ao seu código nem os incorpore nas imagens do seu recipiente. Esta abordagem criaria um risco de exposição e limitaria a capacidade de rodar essas credenciais, uma vez que as imagens dos contentores terão de ser reconstruídas.
 
-Este artigo de boas práticas foca-se em como proteger cápsulas em AKS. Saiba como:
+Este artigo de boas práticas centra-se em como proteger cápsulas em AKS. Saiba como:
 
 > [!div class="checklist"]
-> * Utilize o contexto de segurança do casulo para limitar o acesso a processos e serviços ou escalada de privilégios
-> * Autenticar com outros recursos Azure usando identidades geridas pod
-> * Solicitar e recuperar credenciais de um cofre digital como o Cofre chave Azure
+> * Use o contexto de segurança do pod para limitar o acesso a processos e serviços ou escalada de privilégios
+> * Autenticar com outros recursos Azure utilizando identidades geridas por pod
+> * Solicitar e recuperar credenciais de um cofre digital como Azure Key Vault
 
-Pode também ler as melhores práticas para [a segurança][best-practices-cluster-security] do cluster e para gestão de imagem em [contentores.][best-practices-container-image-management]
+Também pode ler as melhores práticas para [a segurança][best-practices-cluster-security] do cluster e para [a gestão da imagem do contentor.][best-practices-container-image-management]
 
-## <a name="secure-pod-access-to-resources"></a>Acesso seguro a recursos
+## <a name="secure-pod-access-to-resources"></a>Acesso seguro dos recursos da cápsula
 
-**Orientação de boas práticas** - Para funcionar como um utilizador ou grupo diferente e limitar o acesso aos processos e serviços subjacentes ao nó, defina as definições de contexto de segurança do pod. Atribuir o menor número de privilégios necessários.
+**Orientação de boas práticas** - Para funcionar como um utilizador ou grupo diferente e limitar o acesso aos processos e serviços do nó subjacente, defina as definições de contexto de segurança do pod. Atribua o menor número de privilégios necessários.
 
-Para que as suas aplicações sejam executadas corretamente, as cápsulas devem funcionar como um utilizador ou grupo definido e não como *raiz*. O `securityContext` para um vagem ou recipiente permite definir definições como *runAsUser* ou *fsGroup* para assumir as permissões apropriadas. Apenas atribua as permissões de utilizador ou grupo necessárias e não utilize o contexto de segurança como forma de assumir permissões adicionais. As *configurações runAsUser*, privilege escalation e outras definições de capacidades linux estão disponíveis apenas em nós e casulos Linux.
+Para que as suas aplicações sejam executadas corretamente, as cápsulas devem funcionar como um utilizador ou grupo definido e não como *raiz*. O `securityContext` para uma cápsula ou recipiente permite definir configurações como *runAsUser* ou *fsGroup* para assumir as permissões apropriadas. Apenas atribua as permissões necessárias ao utilizador ou grupo, e não utilize o contexto de segurança como meio para assumir permissões adicionais. As *configurações de runAsUser,* privilege, e outras definições de capacidades Linux só estão disponíveis em nós e pods Linux.
 
-Quando se corre como utilizador não enraizado, os recipientes não podem ligar-se às portas privilegiadas com menos de 1024. Neste cenário, a Kubernetes Services pode ser usada para disfarçar o facto de que uma aplicação está a funcionar numa determinada porta.
+Quando funciona como utilizador não-raiz, os contentores não podem ligar-se às portas privilegiadas abaixo de 1024. Neste cenário, os Serviços Kubernetes podem ser utilizados para disfarçar o facto de uma aplicação estar a funcionar numa determinada porta.
 
-Um contexto de segurança do pod também pode definir capacidades ou permissões adicionais para aceder a processos e serviços. Podem ser definidas as seguintes definições de contexto de segurança comum:
+Um contexto de segurança do pod também pode definir capacidades ou permissões adicionais para aceder a processos e serviços. Podem ser definidas as seguintes definições de contexto de segurança comuns:
 
-* **permitirPrivilegeEscalation** define se o pod pode assumir privilégios *de raiz.* Desenhe as suas aplicações para que esta definição seja sempre definida como *falsa*.
-* **As capacidades** do Linux permitem ao pod aceder aos processos subjacentes ao nó. Cuidado com a atribuição destas capacidades. Atribuir o menor número de privilégios necessários. Para mais informações, consulte [as capacidades do Linux.][linux-capabilities]
-* **As etiquetas SELinux** são um módulo de segurança linux kernel que permite definir políticas de acesso para serviços, processos e acesso ao sistema de ficheiros. Mais uma vez, atribuir o menor número de privilégios necessários. Para mais informações, consulte [opções SELinux em Kubernetes][selinux-labels]
+* **permitir que a MelhorvilegeEscalation** defina se a cápsula pode assumir privilégios *de raiz.* Desenhe as suas aplicações de modo a que esta definição seja sempre definida como *falsa*.
+* **As capacidades do Linux** permitem ao pod aceder aos processos subjacentes ao nó. Cuide de atribuir estas capacidades. Atribua o menor número de privilégios necessários. Para mais informações, consulte [as capacidades do Linux.][linux-capabilities]
+* **As etiquetas SELinux** são um módulo de segurança do kernel Linux que permite definir políticas de acesso para serviços, processos e acesso ao sistema de ficheiros. Mais uma vez, atribua o menor número de privilégios necessários. Para mais informações, consulte [as opções SELinux em Kubernetes][selinux-labels]
 
-O manifesto YAML de exemplo seguinte define definições de contexto de segurança para definir:
+O manifesto do seguinte exemplo do pod YAML define as definições de contexto de segurança para definir:
 
-* Pod funciona como ID *1000* do utilizador e parte do grupo ID *2000*
-* Não se pode escalar privilégios para usar`root`
+* Pod funciona como iD *1000* do utilizador e parte do grupo ID *2000*
+* Não pode escalar privilégios para usar`root`
 * Permite que as capacidades do Linux acedam às interfaces de rede e ao relógio em tempo real (hardware) do anfitrião
 
 ```yaml
@@ -63,58 +63,58 @@ spec:
         add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
-Trabalhe com o seu operador de cluster para determinar que definições de contexto de segurança necessita. Tente desenhar as suas aplicações para minimizar permissões adicionais e aceder à cápsula necessária. Existem funcionalidades de segurança adicionais para limitar o acesso utilizando appArmor e seccomp (computação segura) que podem ser implementados pelos operadores de cluster. Para mais informações, consulte [o acesso seguro dos contentores aos recursos.][apparmor-seccomp]
+Trabalhe com o seu operador de cluster para determinar que definições de contexto de segurança necessita. Tente desenhar as suas aplicações para minimizar permissões adicionais e aceder ao pod requer. Existem funcionalidades de segurança adicionais para limitar o acesso usando o AppArmor e o seccomp (computação segura) que podem ser implementados pelos operadores de cluster. Para obter mais informações, consulte [o acesso seguro dos recipientes aos recursos.][apparmor-seccomp]
 
 ## <a name="limit-credential-exposure"></a>Limitar a exposição à credencial
 
-**Orientação de boas práticas** - Não defina credenciais no seu código de candidatura. Utilize identidades geridas para os recursos do Azure para permitir que o seu casulo solicite acesso a outros recursos. Um cofre digital, como o Azure Key Vault, também deve ser usado para armazenar e recuperar chaves e credenciais digitais. As identidades geridas pelo pod destinam-se a ser utilizadas apenas com cápsulas Linux e imagens de contentores.
+**Orientação de boas práticas** - Não defina credenciais no seu código de aplicação. Utilize identidades geridas para os recursos da Azure para permitir que o seu pod solicite acesso a outros recursos. Um cofre digital, como o Azure Key Vault, também deve ser usado para armazenar e recuperar chaves e credenciais digitais. As identidades geridas por pod destinam-se apenas a ser utilizadas apenas com cápsulas Linux e imagens de contentores.
 
-Para limitar o risco de as credenciais serem expostas no seu código de aplicação, evite a utilização de credenciais fixas ou partilhadas. Credenciais ou chaves não devem ser incluídas diretamente no seu código. Se estas credenciais forem expostas, a aplicação tem de ser atualizada e reimplantada. Uma melhor abordagem é dar aos pods a sua própria identidade e forma de se autenticarem, ou de recuperarautomaticamente credenciais de um cofre digital.
+Para limitar o risco de as credenciais serem expostas no seu código de aplicação, evite a utilização de credenciais fixas ou partilhadas. Credenciais ou chaves não devem ser incluídas diretamente no seu código. Se estas credenciais forem expostas, a aplicação tem de ser atualizada e redistribuída. Uma melhor abordagem é dar aos pods a sua própria identidade e forma de se autenticarem, ou recuperarem automaticamente credenciais de um cofre digital.
 
-### <a name="use-azure-container-compute-upstream-projects"></a>Utilizar projetos de computação de contentores Azure A montante
+### <a name="use-azure-container-compute-upstream-projects"></a>Use projetos Azure Container Compute Upstream
 
 > [!IMPORTANT]
-> Os projetos associados de código aberto AKS não são apoiados pelo apoio técnico do Azure. São fornecidos para que os utilizadores se auto-instalam em clusters e recolham feedback da nossa comunidade.
+> Os projetos de código aberto associados da AKS não são apoiados pelo suporte técnico da Azure. São fornecidos para que os utilizadores se auto-instalem em clusters e recolham feedback da nossa comunidade.
 
-Os [seguintes projetos de código aberto AKS associados][aks-associated-projects] permitem autenticar automaticamente cápsulas ou solicitar credenciais e chaves de um cofre digital. Estes projetos são mantidos pela equipa azure container Compute Upstream e fazem parte de uma [lista mais alargada de projetos disponíveis para utilização.](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support)
+Os [seguintes projetos de código aberto AKS associados][aks-associated-projects] permitem-lhe autenticar automaticamente cápsulas ou solicitar credenciais e chaves a partir de um cofre digital. Estes projetos são mantidos pela equipa Azure Container Compute Upstream e fazem parte de uma [lista mais alargada de projetos disponíveis para utilização.](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support)
 
- * [Identidade de Pod de Diretório Ativo Azure][aad-pod-identity]
- * [Fornecedor de cofre de chaves azure para segredos loja CSI motorista](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+ * [Identidade do Pod do Diretório Ativo Azure][aad-pod-identity]
+ * [Fornecedor de cofre chave Azure para o motorista csi loja de segredos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
 #### <a name="use-pod-managed-identities"></a>Use identidades geridas por pod
 
-Uma identidade gerida para os recursos Azure permite que um pod se autentique contra os serviços Azure que o suportam, como o Storage ou o SQL. A cápsula é atribuída uma Identidade Azure que lhes permite autenticar o Diretório Ativo Azure e receber um símbolo digital. Este token digital pode ser apresentado a outros serviços Azure que verificam se o casulo está autorizado a aceder ao serviço e executar as ações necessárias. Esta abordagem significa que não são necessários segredos para as cordas de ligação da base de dados, por exemplo. O fluxo de trabalho simplificado para a identidade gerida pela cápsula é mostrado no seguinte diagrama:
+Uma identidade gerida para os recursos Azure permite que uma cápsula se autente contra os serviços Azure que a suportam, como o Storage ou o SQL. O casulo é atribuído a uma Identidade Azure que permite autenticar para o Azure Ative Directory e receber um token digital. Este token digital pode ser apresentado a outros serviços Azure que verifiquem se a cápsula está autorizada a aceder ao serviço e executar as ações necessárias. Esta abordagem significa que não são necessários segredos para as cadeias de ligação de bases de dados, por exemplo. O fluxo de trabalho simplificado para a identidade gerida em pod é indicado no seguinte diagrama:
 
-![Fluxo de trabalho simplificado para a identidade gerida em Casulo em Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+![Fluxo de trabalho simplificado para identidade gerida em Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
-Com uma identidade gerida, o seu código de aplicação não precisa de incluir credenciais para aceder a um serviço, como o Azure Storage. Como cada pod autentica com a sua própria identidade, para que possa auditar e rever o acesso. Se a sua aplicação se ligar a outros serviços Azure, utilize identidades geridas para limitar a reutilização da credencial e o risco de exposição.
+Com uma identidade gerida, o seu código de aplicação não precisa de incluir credenciais para aceder a um serviço, como o Azure Storage. À medida que cada cápsula autentica com a sua própria identidade, pode auditar e rever o acesso. Se a sua aplicação se ligar a outros serviços Azure, utilize identidades geridas para limitar a reutilização credencial e o risco de exposição.
 
-Para obter mais informações sobre identidades de pod, consulte [Configure um cluster AKS para usar identidades geridas][aad-pod-identity] por pod e com as suas aplicações
+Para obter mais informações sobre identidades de pod, consulte [configurar um cluster AKS para utilizar identidades geridas por pod e com as suas aplicações][aad-pod-identity]
 
-#### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Use cofre de chave azure com motorista CSI loja de segredos
+#### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Use a adófita de chave Azure com o motorista CSI da Loja de Segredos
 
-A utilização do projeto de identidade do pod permite a autenticação contra o apoio aos serviços Azure. Para os seus próprios serviços ou aplicações sem identidades geridas para recursos Azure, ainda pode autenticar usando credenciais ou chaves. Um cofre digital pode ser usado para armazenar estes conteúdos secretos.
+A utilização do projeto de identidade pod permite a autenticação contra o apoio aos serviços Azure. Para os seus próprios serviços ou aplicações sem identidades geridas para recursos Azure, ainda pode autenticar usando credenciais ou chaves. Um cofre digital pode ser usado para armazenar estes conteúdos secretos.
 
-Quando as aplicações precisam de uma credencial, comunicam com o cofre digital, recuperam os conteúdos secretos mais recentes e, em seguida, ligam-se ao serviço necessário. O Cofre chave azure pode ser este cofre digital. O fluxo de trabalho simplificado para recuperar uma credencial do Cofre chave Azure utilizando identidades geridas por pod é mostrado no seguinte diagrama:
+Quando as aplicações precisam de uma credencial, comunicam com o cofre digital, recuperam os conteúdos secretos mais recentes e ligam-se ao serviço necessário. Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para a recuperação de uma credencial do Azure Key Vault utilizando identidades geridas por cápsulas é mostrado no seguinte diagrama:
 
-![Fluxo de trabalho simplificado para recuperar uma credencial do Key Vault usando uma identidade gerida por pod](media/developer-best-practices-pod-security/basic-key-vault.png)
+![Fluxo de trabalho simplificado para recuperar uma credencial do Key Vault usando uma identidade gerida por cápsulas](media/developer-best-practices-pod-security/basic-key-vault.png)
 
-Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves de conta de armazenamento ou certificados. Pode integrar o Cofre de Chaves Azure com um cluster AKS utilizando o [fornecedor azure key vault para o Controlador CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)da Secrets Store . O controlador CSI da Secrets Store permite ao cluster AKS recuperar conteúdo secreto de Key Vault e fornecer-lhes de forma segura apenas para a cápsula de solicitação. Trabalhe com o seu operador de cluster para colocar o Controlador CSI da Secrets Store nos nós de trabalhador da AKS. Você pode usar uma identidade gerida por pod para solicitar acesso ao Key Vault e recuperar os conteúdos secretos necessários através do Controlador CSI da Secrets Store.
+Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves de conta de armazenamento ou certificados. Pode integrar o Azure Key Vault com um cluster AKS utilizando o [fornecedor Azure Key Vault para o Controlador CSI Secrets Store](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O controlador CSI Secrets Store permite ao cluster AKS recuperar conteúdos secretos do Key Vault e fornecê-los de forma segura apenas à cápsula de pedido. Trabalhe com o seu operador de cluster para implantar o motorista CSI Secrets Store em nós de trabalhadores AKS. Pode utilizar uma identidade gerida por um pod para solicitar acesso ao Key Vault e recuperar os conteúdos secretos necessários através do Controlador CSI Secrets Store.
 
-O Cofre de Chaves Azure com Secrets Store CSI Driver pode ser usado para nódos e cápsulas Linux que requerem uma versão Kubernetes de 1.16 ou superior. Para os nódos e pods do Windows é necessária uma versão Kubernetes de 1.18 ou superior.
+Azure Key Vault com Secrets Store CSI Driver pode ser usado para nós e cápsulas Linux que requerem uma versão Kubernetes de 1.16 ou maior. Para os nós e cápsulas windows é necessária uma versão Kubernetes de 1.18 ou superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo focou-se em como proteger as suas cápsulas. Para implementar algumas destas áreas, consulte os seguintes artigos:
 
 * [Utilize identidades geridas para recursos Azure com AKS][aad-pod-identity]
-* [Integrar o cofre chave azure com AKS][aks-keyvault-csi-driver]
+* [Integre o cofre da chave Azure com AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
 [aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
-[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#selinuxoptions-v1-core
 [aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->

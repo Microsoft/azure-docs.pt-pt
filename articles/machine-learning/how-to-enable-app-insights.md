@@ -11,12 +11,12 @@ ms.author: larryfr
 author: blackmist
 ms.date: 06/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 021d548c56810021af7257b25c40d7d4cc68ec12
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 30b6412ed5a8462b1ce0d8351e9e86a16b2082da
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629470"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670043"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Além de recolher os dados de saída e resposta de um ponto final, pode monitori
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadados de serviço web e dados de resposta
 
->[!Important]
+> [!IMPORTANT]
 > A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, apenas as saídas mais recentes do modelo são registadas. 
 
 Para registar informações para um pedido ao serviço web, adicione `print` declarações ao seu ficheiro score.py. Cada `print` declaração resulta numa única entrada na tabela de rastreios em Insights de Aplicação, sob a mensagem `STDOUT` . O conteúdo da `print` declaração será contido na tabela de `customDimensions` `Contents` rastreios. Se imprimir uma corda JSON, produz uma estrutura de dados hierárquica na saída de vestígios sob `Contents` .
@@ -74,6 +74,9 @@ Pode consultar o Azure Application Insights diretamente para aceder a estes dado
 Se pretender registar vestígios personalizados, siga o processo de implementação padrão para AKS ou ACI no [Como implementar e onde](how-to-deploy-and-where.md) documentar. Em seguida, utilize os seguintes passos:
 
 1. Para enviar dados para o Application Insights durante a inferência, atualize o ficheiro de pontuação adicionando declarações de impressão. Para registar informações mais complexas, como os dados do pedido e a resposta, nós uma estrutura JSON. O exemplo seguinte score.py registos de ficheiros no momento em que o modelo é inicializado, a entrada e saída durante a inferência, e o tempo em que ocorrerem erros:
+
+    > [!IMPORTANT]
+    > A azure Application Insights apenas regista cargas de até 64kb. Se este limite for atingido, apenas as saídas mais recentes do modelo são registadas. Se os dados que pretende registar forem maiores de 64kb, deverá armazená-los para armazenar o armazenamento de bolhas utilizando as informações em [Recolha de Dados para modelos em produção](how-to-enable-data-collection.md).
     
     ```python
     import pickle

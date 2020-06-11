@@ -2,13 +2,13 @@
 title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualem ou apaguem recursos críticos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d6617b7e13ebf7a58cdbbf9356eac1d035a1f73
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 06/10/2020
+ms.openlocfilehash: cf5e2c7d19b9b90be3e9ca9e64e832794cd70c92
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483475"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678040"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -35,9 +35,11 @@ A aplicação de bloqueios pode levar a resultados inesperados porque algumas op
 
 * Um bloqueio apenas de leitura num grupo de **recursos** que contenha uma **máquina virtual** impede todos os utilizadores de iniciar ou reiniciar a máquina virtual. Estas operações requerem um pedido de CORREIO.
 
-* Um bloqueio de leitura numa **subscrição** impede o **Azure Advisor** de funcionar corretamente. O consultor não consegue armazenar os resultados das suas consultas.
+* Um bloqueio não pode eliminar um grupo de **recursos** impede o Gestor de Recursos Azure de [eliminar automaticamente as implementações](../templates/deployment-history-deletions.md) na história. Se atingir 800 destacamentos na história, as suas implementações falharão.
 
 * Um bloqueio não pode eliminar o **grupo de recursos** criado pelo **Azure Backup Service** faz com que as cópias de segurança falhem. O serviço suporta um máximo de 18 pontos de restauro. Quando bloqueado, o serviço de reserva não pode limpar pontos de restauro. Para obter mais informações, consulte [Perguntas Frequentes-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
+
+* Um bloqueio de leitura numa **subscrição** impede o **Azure Advisor** de funcionar corretamente. O consultor não consegue armazenar os resultados das suas consultas.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou apagar fechaduras
 

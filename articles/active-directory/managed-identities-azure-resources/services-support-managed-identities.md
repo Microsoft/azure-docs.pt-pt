@@ -4,19 +4,19 @@ description: Lista de serviços que suportam identidades geridas para recursos A
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 604e26a9af2377804135ef9cfac4c30b1335e3c9
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 66f3e8b07ecb3bceb2f147aa27b1fb1ad585be91
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635786"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673686"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -95,6 +95,12 @@ Consulte a seguinte lista para configurar a identidade gerida para as tarefas de
 
 - [CLI do Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### <a name="azure-data-explorer"></a>Azure Data Explorer
+
+Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Utilizador designado | Não disponível | Não disponível | Não disponível | Não disponível |
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -241,7 +247,14 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 - [REST](qs-configure-rest-vm.md)
 
 
+### <a name="azure-vm-image-builder"></a>Construtor de imagem Azure VM
 
+| Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | Não Disponível | Não Disponível | Não Disponível | Não Disponível | 
+| Utilizador designado | [Disponível em regiões apoiadas](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Não Disponível | Não Disponível | Não Disponível |
+
+Para aprender a configurar a identidade gerida para O Azure VM Image Builder (em regiões onde disponível), consulte a visão geral do [Construtor de Imagens](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Serviços Azure que suportam a autenticação AD Azure
 

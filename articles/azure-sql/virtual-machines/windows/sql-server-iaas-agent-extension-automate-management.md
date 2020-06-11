@@ -4,7 +4,6 @@ description: Este artigo descreve como gerir a extensão do agente iaaS do SQL S
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: jroth
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -17,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3b06252291f687e5304c36fb581c34c0b5eb50b7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 89210cda6390fd7c3cf4ca2877b8899559a41321
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342464"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668717"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizar tarefas de gestão em máquinas virtuais Azure utilizando a extensão do agente iaaS do servidor SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +29,7 @@ ms.locfileid: "84342464"
 
 > [!div class="op_single_selector"]
 > * [Resource Manager](sql-server-iaas-agent-extension-automate-management.md)
-> * [Clássica](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Clássico](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 A Extensão Agende IaaS do SQL Server (SqlIaasExtension) é executada nas máquinas virtuais do Azure para automatizar as tarefas de administração. Este artigo fornece uma visão geral dos serviços que a extensão suporta. Este artigo também fornece instruções para a instalação, estado e remoção da extensão.
 
@@ -42,7 +41,7 @@ Para ver a versão clássica deste artigo, consulte a extensão do [agente do SQ
 ## <a name="supported-services"></a>Serviços suportados
 A extensão do agente do servidor SQL IaaS suporta as seguintes tarefas de administração:
 
-| Recurso de administração | Description |
+| Recurso de administração | Descrição |
 | --- | --- |
 | **Backup automatizado do SQL Server** |Automatiza o agendamento de backups para todas as bases de dados para a instância predefinida ou para uma instância nomeada [corretamente instalada](frequently-asked-questions-faq.md#administration) do SQL Server no VM. Para obter mais informações, consulte [a cópia de segurança automatizada para o SQL Server em máquinas virtuais Azure (Gestor de Recursos)](automated-backup-sql-2014.md). |
 | **Patching automatizado do SQL Server** |Configura uma janela de manutenção durante a qual podem ocorrer atualizações importantes do Windows para o seu VM, para que possa evitar atualizações durante os tempos de pico da sua carga de trabalho. Para obter mais informações, consulte [patching automatizado para O Servidor SQL em máquinas virtuais Azure (Gestor de Recursos)](automated-patching.md). |

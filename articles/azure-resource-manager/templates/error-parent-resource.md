@@ -1,18 +1,18 @@
 ---
-title: Erros de recursos parentais
+title: Erros de recursos dos pais
 description: Descreve como resolver erros ao trabalhar com um recurso-mãe num modelo de Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154045"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673665"
 ---
-# <a name="resolve-errors-for-parent-resources"></a>Resolver erros para os recursos parentais
+# <a name="resolve-errors-for-parent-resources"></a>Resolver erros para os recursos dos pais
 
-Este artigo descreve os erros que pode obter ao implementar um recurso que está dependente de um recurso-mãe.
+Este artigo descreve os erros que pode obter ao implementar um recurso que depende de um recurso principal.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -25,7 +25,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Quando um recurso é uma criança para outro recurso, o recurso-mãe deve existir antes de criar o recurso para crianças. O nome do recurso infantil define a ligação com o recurso-mãe. O nome do recurso para `<parent-resource-name>/<child-resource-name>`crianças está no formato . Por exemplo, uma base de dados SQL pode ser definida como:
+Quando um recurso é uma criança para outro recurso, o recurso principal deve existir antes de criar o recurso da criança. O nome do recurso da criança define a ligação com o recurso principal. O nome do recurso para crianças está no formato `<parent-resource-name>/<child-resource-name>` . Por exemplo, uma base de dados SQL pode ser definida como:
 
 ```json
 {
@@ -34,13 +34,13 @@ Quando um recurso é uma criança para outro recurso, o recurso-mãe deve existi
   ...
 ```
 
-Se implementar o servidor e a base de dados no mesmo modelo, mas não especificar uma dependência do servidor, a implementação da base de dados poderá começar antes de o servidor ser implementado.
+Se implementar tanto o servidor como a base de dados no mesmo modelo, mas não especificar uma dependência do servidor, a implementação da base de dados pode começar antes de o servidor ter sido implantado.
 
-Se o recurso-mãe já existe e não está implantado no mesmo modelo, obtém-se este erro quando o Gestor de Recursos não pode associar o recurso à criança com o progenitor. Este erro pode acontecer quando o recurso da criança não está no formato correto, ou o recurso infantil é implantado para um grupo de recursos que é diferente do grupo de recursos para o recurso principal.
+Se o recurso principal já existe e não é implantado no mesmo modelo, obtém-se este erro quando o Gestor de Recursos não pode associar o recurso da criança ao progenitor. Este erro pode ocorrer quando o recurso da criança não está no formato correto, ou o recurso da criança é implantado num grupo de recursos diferente do grupo de recursos para o recurso dos pais.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este erro quando os recursos dos pais e das crianças são implantados no mesmo modelo, inclua uma dependência.
+Para resolver este erro quando os recursos dos pais e da criança são implantados no mesmo modelo, inclua uma dependência.
 
 ```json
 "dependsOn": [
@@ -48,11 +48,11 @@ Para resolver este erro quando os recursos dos pais e das crianças são implant
 ]
 ```
 
-Para resolver este erro quando o recurso-mãe foi previamente implantado num modelo diferente, não se define uma dependência. Em vez disso, desloque a criança para o mesmo grupo de recursos e forneça o nome do recurso-mãe.
+Para resolver este erro quando o recurso principal foi previamente implantado num modelo diferente, não se define uma dependência. Em vez disso, desloque a criança para o mesmo grupo de recursos e forneça o nome do recurso principal.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {
@@ -78,4 +78,4 @@ Para resolver este erro quando o recurso-mãe foi previamente implantado num mod
 }
 ```
 
-Para mais informações, consulte [Definir a ordem de implantação de recursos nos modelos do Gestor](define-resource-dependency.md)de Recursos Azure .
+Para obter mais informações, consulte [Definir a ordem para a implantação de recursos nos modelos do Gestor de Recursos Azure](define-resource-dependency.md).

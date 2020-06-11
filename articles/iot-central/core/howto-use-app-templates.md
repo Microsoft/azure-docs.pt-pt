@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e05256d26da2c061559bcc8e50e9ecce6d8425a0
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248214"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678176"
 ---
 # <a name="export-your-application"></a>Exportar a aplicação
 
@@ -59,7 +59,6 @@ Quando cria um modelo de aplicação, não inclui os seguintes itens:
 
 - Dispositivos
 - Utilizadores
-- Definições de emprego
 - Definições contínuas de exportação de dados
 
 Adicione estes itens manualmente a quaisquer aplicações criadas a partir de um modelo de aplicação.
@@ -89,6 +88,6 @@ Se eliminar um modelo de aplicação, já não pode utilizar o link partilhável
 
 Para atualizar o seu modelo de aplicação, altere o nome do modelo ou descrição na página **de Exportação do Modelo de Aplicação.** Em seguida, selecione novamente o botão **Exportação.** Esta ação gera um novo **link Shareable** e invalida qualquer URL de **ligação partilhada** anterior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a monitorizar a [saúde geral dos dispositivos ligados a uma aplicação IoT Central](howto-monitor-application-health.md)

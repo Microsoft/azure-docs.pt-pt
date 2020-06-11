@@ -4,7 +4,6 @@ description: Este artigo fornece respostas a perguntas frequentes sobre a execu�
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: troubleshooting
@@ -12,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3a9660de8cba2522bf66cabb91ee8b27ba810fdf
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343791"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669469"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Perguntas frequentes para SQL Server em máquinas virtuais Linux
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +45,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **As imagens da máquina virtual SQL Server podem ser removidas da galeria?**
 
-   Yes. O Azure mantém apenas uma imagem por grande versão e edição. Por exemplo, quando um novo pacote de serviços SQL Server é lançado, a Azure adiciona uma nova imagem à galeria para esse pacote de serviços. A imagem do SQL Server para o pacote de serviços anterior é imediatamente removida do portal Azure. No entanto, ainda está disponível para o fornecimento da PowerShell para os próximos três meses. Após três meses, a imagem do pacote de serviço anterior já não está disponível. Esta política de remoção também se aplicaria se uma versão SQL Server não for suportada quando chegar ao fim do seu ciclo de vida.
+   Sim. O Azure mantém apenas uma imagem por grande versão e edição. Por exemplo, quando um novo pacote de serviços SQL Server é lançado, a Azure adiciona uma nova imagem à galeria para esse pacote de serviços. A imagem do SQL Server para o pacote de serviços anterior é imediatamente removida do portal Azure. No entanto, ainda está disponível para o fornecimento da PowerShell para os próximos três meses. Após três meses, a imagem do pacote de serviço anterior já não está disponível. Esta política de remoção também se aplicaria se uma versão SQL Server não for suportada quando chegar ao fim do seu ciclo de vida.
 
 ## <a name="creation"></a>Criação
 

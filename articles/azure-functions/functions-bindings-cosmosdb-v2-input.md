@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 338fecfe914c1a3667c828355bd4071c317aaebf
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bce234b0d2fee38f0644ae0bd961cdcd815b0bd2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561591"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667901"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Ligação de entrada DB Azure Cosmos para funções Azure 2.x
 
@@ -382,9 +382,9 @@ namespace CosmosDBSamplesV2
 
 ### <a name="queue-trigger-look-up-id-from-string"></a>Gatilho da fila, procure o ID da corda
 
-O exemplo a seguir mostra uma ligação de entrada Cosmos DB num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma ligação de entrada Cosmos DB numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -416,11 +416,11 @@ Aqui está o código do guião C:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários docs, usando SqlQuery
 
-O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
 
 O gatilho da fila fornece um parâmetro `departmentId` . Uma mensagem de fila `{ "departmentId" : "Finance" }` devolveria todos os registos para o Departamento de Finanças.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -459,7 +459,7 @@ Aqui está o código do guião C:
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -522,7 +522,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -586,7 +586,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. A consulta é especificada na `SqlQuery` propriedade do atributo.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -644,7 +644,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 O exemplo a seguir mostra uma [função de script C#](functions-reference-csharp.md) que recupera uma lista de documentos. A função é desencadeada por um pedido HTTP. O código utiliza uma `DocumentClient` instância fornecida pela ligação Azure Cosmos DB para ler uma lista de documentos. O `DocumentClient` caso também pode ser utilizado para operações de escrita.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -730,9 +730,9 @@ Esta secção contém os seguintes exemplos que lêem um único documento especi
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho da fila, procure o ID de JSON
 
-O exemplo a seguir mostra uma ligação de entrada Cosmos DB num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma ligação de entrada de Cosmos DB numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -776,7 +776,7 @@ Aqui está o código JavaScript:
 
 O exemplo a seguir mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -835,7 +835,7 @@ module.exports = function (context, req, toDoItem) {
 
 O exemplo a seguir mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -893,11 +893,11 @@ module.exports = function (context, req, toDoItem) {
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários docs, usando SqlQuery
 
-O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
 
 O gatilho da fila fornece um parâmetro `departmentId` . Uma mensagem de fila `{ "departmentId" : "Finance" }` devolveria todos os registos para o Departamento de Finanças.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -939,9 +939,9 @@ Esta secção contém os seguintes exemplos que lêem um único documento especi
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho da fila, procure o ID de JSON
 
-O exemplo a seguir mostra uma ligação de entrada Cosmos DB num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma ligação de entrada cosmos DB numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que usa a ligação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -987,7 +987,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -1018,7 +1018,6 @@ Aqui está o ficheiro *function.json:*
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
-  "disabled": true,
   "scriptFile": "__init__.py"
 }
 ```
@@ -1046,7 +1045,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é desencadeada por um pedido HTTP que utiliza dados de rota para especificar o valor da chave de ID e partição para procurar. Esse valor de ID e chave de partição são usados para recuperar um `ToDoItem` documento da base de dados e recolha especificadas.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -1103,11 +1102,11 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários docs, usando SqlQuery
 
-O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma ligação de entrada DB Azure Cosmos numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação. A função recupera vários documentos especificados por uma consulta SQL, utilizando um gatilho de fila para personalizar os parâmetros de consulta.
 
 O gatilho da fila fornece um parâmetro `departmentId` . Uma mensagem de fila `{ "departmentId" : "Finance" }` devolveria todos os registos para o Departamento de Finanças.
 
-Aqui estão os dados de ligação no ficheiro *function.json:*
+Aqui estão os dados vinculativos do *function.jsarquivado:*
 
 ```json
 {
@@ -1427,9 +1426,9 @@ A partir da [biblioteca de funções java,](https://docs.microsoft.com/java/api/
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `CosmosDB` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDB` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `cosmosDB` .        |
 |**direção**     | n/a | Deve ser definido para `in` .         |
@@ -1468,7 +1467,7 @@ A partir da [biblioteca de funções Java,](https://docs.microsoft.com/java/api/
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar uma função quando um documento DB Azure Cosmos é criado ou modificado (Gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Guardar alterações num documento DB do Azure Cosmos (ligação à saída)](./functions-bindings-cosmosdb-v2-output.md)

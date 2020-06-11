@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.custom: tracking-python
-ms.openlocfilehash: 70b9f1aaeaedd7968aeaf09aebe4e53682a60019
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 792b0ef3f31bfb9dd26c153d5bb0eeab6ba8baf9
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629369"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677989"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configure multi-mestre nas suas aplicações que usam Azure Cosmos DB
 
@@ -56,18 +56,17 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a>Java V4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a>Java V4 SDK
 
 Para ativar o multi-mestre na sua aplicação, ligue `.multipleWriteRegionsEnabled(true)` e no construtor de `.preferredRegions(preferredRegions)` clientes, onde está um elemento contendo um elemento - esta é a `preferredRegions` `List` região em que a aplicação está a ser implementada e onde a Cosmos DB é replicada:
 
-### <a id="java4-multi-master"></a>
-#### <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ConfigureMultimasterAsync)]
 
-#### <a name="sync"></a>[Sincronização](#tab/api-sync)
+# <a name="sync"></a>[Sincronização](#tab/api-sync)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
@@ -75,9 +74,9 @@ Para ativar o multi-mestre na sua aplicação, ligue `.multipleWriteRegionsEnabl
 
 --- 
 
-## <a name="async-java-v2-sdk-maven-commicrosoftazureazure-cosmosdb"></a><a id="java"></a>[Async Java V2 SDK](sql-api-sdk-async-java.md) (Maven [com.microsoft.azure::azure-cosmosdb)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)
+## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a>Async Java V2 SDK
 
-Para ativar o multi-mestre na sua aplicação, desloque-se `policy.setUsingMultipleWriteLocations(true)` e desloque-se `policy.setPreferredLocations` para a região em que a aplicação está a ser implementada e onde a Cosmos DB é replicada:
+O Java V2 SDK usou o Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para ativar o multi-mestre na sua aplicação, desloque-se `policy.setUsingMultipleWriteLocations(true)` e desloque-se `policy.setPreferredLocations` para a região em que a aplicação está a ser implementada e onde a Cosmos DB é replicada:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -92,7 +91,7 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, JavaScript e TypeScript SDKs
+## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, JavaScript e SDKs TypeScript
 
 Para ativar o multi-mestre na sua aplicação, desatado `connectionPolicy.UseMultipleWriteLocations` para `true` . Além disso, definido `connectionPolicy.PreferredLocations` para a região em que a aplicação está a ser implementada e onde a Cosmos DB é replicada:
 

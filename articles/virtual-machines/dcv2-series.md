@@ -1,18 +1,18 @@
 ---
 title: Série DC - Azure Virtual Machines
 description: Especificações para os VMs da série DC.
-services: virtual-machines
 author: susaxen
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/20/2020
-ms.author: lahugh
-ms.openlocfilehash: 955b3d967d2e62e1158f329a58f040121ca8b416
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.author: jushiman
+ms.openlocfilehash: e5a4c9d1afcc4caa0f9ac0db8b59274006ab3097
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220974"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676561"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -56,6 +56,6 @@ Atualizações de preservação da memória: Não suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

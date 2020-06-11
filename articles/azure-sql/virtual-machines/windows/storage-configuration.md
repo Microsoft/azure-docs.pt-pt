@@ -4,7 +4,6 @@ description: Este tópico descreve como o Azure configura o armazenamento para V
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: e84c58ba1b3037f770f4809d48356d5ec3f9a138
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342404"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667374"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -141,7 +140,7 @@ O Azure utiliza as seguintes definições para criar a piscina de armazenamento 
 
 O quadro a seguir descreve as três opções de tipo de carga de trabalho disponíveis e as respetivas otimizações:
 
-| Tipo de carga de trabalho | Description | Otimizações |
+| Tipo de carga de trabalho | Descrição | Otimizações |
 | --- | --- | --- |
 | **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para as cargas de trabalho tradicionais da base de dados OLTP |Bandeira de traço 1117<br/>Bandeira de traço 1118 |

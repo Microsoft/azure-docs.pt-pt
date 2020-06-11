@@ -1,20 +1,20 @@
 ---
 title: Definir múltiplos casos de uma variável
-description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao criar uma variável.
+description: Utilize a operação de cópia num modelo do Gestor de Recursos Azure para iterar várias vezes ao criar uma variável.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583368"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678448"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
 
-Este artigo mostra-lhe como criar mais do que um valor para uma variável no seu modelo de Gestor de Recursos Azure (ARM). Ao adicionar o elemento **de cópia** à secção de variáveis do seu modelo, pode configurar dinamicamente o número de itens para uma variável durante a implantação. Também evita ter que repetir a sintaxe do modelo.
+Este artigo mostra-lhe como criar mais do que um valor para uma variável no seu modelo Azure Resource Manager (ARM). Ao adicionar o elemento **de cópia** à secção de variáveis do seu modelo, pode definir dinamicamente o número de itens para uma variável durante a implementação. Evite também ter de repetir a sintaxe do modelo.
 
-Também pode utilizar cópias com [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [saídas.](copy-outputs.md)
+Também pode utilizar cópia com [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [saídas.](copy-outputs.md)
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -30,26 +30,26 @@ O elemento de cópia tem o seguinte formato geral:
 ]
 ```
 
-A propriedade **do nome** é qualquer valor que identifique o loop. A propriedade **de contagem** especifica o número de iterações que você quer para a variável.
+A propriedade **do nome** é qualquer valor que identifique o loop. A **propriedade da contagem** especifica o número de iterações que deseja para a variável.
 
-A propriedade **de entrada** especifica as propriedades que pretende repetir. Você cria uma variedade de elementos construídos a partir do valor na propriedade de **entrada.** Pode ser uma única propriedade (como uma corda), ou um objeto com várias propriedades.
+A **propriedade de entrada** especifica as propriedades que pretende repetir. Cria-se uma série de elementos construídos a partir do valor na propriedade **de entrada.** Pode ser uma única propriedade (como uma corda), ou um objeto com várias propriedades.
 
 ## <a name="copy-limits"></a>Limites de cópia
 
-A contagem não pode exceder 800.
+A contagem não pode ultrapassar os 800.
 
-A contagem não pode ser um número negativo. Pode ser zero se implementar o modelo com uma versão recente do Azure CLI, PowerShell ou REST API. Especificamente, deve usar:
+A contagem não pode ser um número negativo. Pode ser zero se implementar o modelo com uma versão recente de Azure CLI, PowerShell ou REST API. Especificamente, deve usar:
 
 * Azure PowerShell **2.6** ou mais tarde
 * Azure CLI **2.0.74** ou mais tarde
-* VERSÃO REST API **2019-05-10** ou mais tarde
-* [As implementações ligadas](linked-templates.md) devem utilizar a versão API **2019-05-10** ou posteriormente para o tipo de recurso de implantação
+* REST Versão API **2019-05-10** ou posterior
+* [As implementações ligadas](linked-templates.md) devem utilizar a versão API **2019-05-10** ou posterior para o tipo de recurso de implantação
 
-Versões anteriores de PowerShell, CLI e rest API não suportam zero para contagem.
+Versões anteriores de PowerShell, CLI e REST API não suportam zero para contar.
 
 ## <a name="variable-iteration"></a>Iteração variável
 
-O exemplo que se segue mostra como criar uma série de valores de cordas:
+O exemplo a seguir mostra como criar uma matriz de valores de cordas:
 
 ```json
 {
@@ -92,7 +92,7 @@ O modelo anterior devolve uma matriz com os seguintes valores:
 ]
 ```
 
-O exemplo seguinte mostra como criar uma série de objetos com três propriedades - nome, diskSizeGB e diskIndex.
+O exemplo seguinte mostra como criar uma variedade de objetos com três propriedades - nome, diskSizeGB e diskIndex.
 
 ```json
 {
@@ -160,10 +160,10 @@ O exemplo anterior devolve uma matriz com os seguintes valores:
 ```
 
 > [!NOTE]
-> A iteração variável suporta um argumento compensado. A contrapartida deve ser seguida do nome da iteração, como o copyIndex ('diskNames', 1). Se não fornecer um valor de compensação, não se importa a 0 para a primeira instância.
+> A iteração variável suporta um argumento de compensação. A compensação deve vir atrás do nome da iteração, tal como copyIndex ('diskNames', 1). Se não fornecer um valor de compensação, ele falha em 0 para a primeira instância.
 >
 
-Também pode utilizar o elemento de cópia dentro de uma variável. O exemplo seguinte cria um objeto que tem uma matriz como um dos seus valores.
+Também pode utilizar o elemento de cópia dentro de uma variável. O exemplo a seguir cria um objeto que tem uma matriz como um dos seus valores.
 
 ```json
 {
@@ -236,11 +236,11 @@ O exemplo anterior devolve um objeto com os seguintes valores:
 }
 ```
 
-O próximo exemplo mostra as diferentes formas de usar a cópia com variáveis.
+O próximo exemplo mostra as diferentes formas de utilizar a cópia com variáveis.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -312,20 +312,20 @@ O próximo exemplo mostra as diferentes formas de usar a cópia com variáveis.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos seguintes mostram cenários comuns para criar mais do que um valor para uma variável.
+Os exemplos a seguir mostram cenários comuns para criar mais do que um valor para uma variável.
 
 |Modelo  |Descrição  |
 |---------|---------|
 |[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes formas de iterar sobre variáveis. |
-|[Múltiplas regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa várias regras de segurança para um grupo de segurança de rede. Constrói as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetros NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Múltiplas regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa várias regras de segurança num grupo de segurança de rede. Constrói as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetros NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos ARM .
-* Para outras utilizações do elemento cópia, consulte:
+* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias de recursos utilizando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para outras utilizações do elemento de cópia, consulte:
   * [Iteração de recursos em modelos ARM](copy-resources.md)
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
-* Se quiser saber sobre as secções de um modelo, consulte [os modelos ARM autores](template-syntax.md).
-* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com modelo ARM](deploy-powershell.md).
+* Se quiser aprender sobre as secções de um modelo, consulte os [modelos de autoria DO ARM](template-syntax.md).
+* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o modelo ARM](deploy-powershell.md).
 

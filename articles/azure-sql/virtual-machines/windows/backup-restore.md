@@ -4,7 +4,6 @@ description: Descreve considerações de backup e restauro para bases de dados d
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 390154e50f705e07370f5ad3ad32fe73068e2cd4
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220831"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669208"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauro para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -130,23 +129,23 @@ A tabela seguinte resume as capacidades de cada opção de backup e restauro par
 
 || **Cópia de Segurança Automatizada** | **Backup Azure para SQL** | **Backup manual** |
 |---|---|---|---|
-| Requer serviço Azure adicional |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Configure a política de backup no portal Azure | ![Yes](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |   |
-| Restaurar bases de dados no portal Azure |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Gerir vários servidores num só dashboard |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Restauro para um ponto anterior no tempo | ![Yes](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
-| Objetivo do ponto de recuperação de 15 minutos (RPO) | ![Yes](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
-| Política de retenção de backup de curto prazo (dias) | ![Yes](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |   |
-| Política de retenção de apoio a longo prazo (meses, anos) |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Suporte incorporado para SQL Server Always On |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Cópia de segurança para a conta de armazenamento Azure | ![Yes](./media/backup-restore/yes.png)(automático) | ![Yes](./media/backup-restore/yes.png)(automático) | ![Yes](./media/backup-restore/yes.png)(gerido pelo cliente) |
-| Gestão de ficheiros de armazenamento e backup | | ![Yes](./media/backup-restore/yes.png) |  |
-| Backup para discos anexados no VM |   |   | ![Yes](./media/backup-restore/yes.png) |
-| Relatórios centrais de backup personalizáveis |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Alertas de e-mail consolidados para falhas |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Personalizar a monitorização com base nos registos do Azure Monitor |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Monitorize trabalhos de backup com scripts SSMS ou Transact-SQL | ![Yes](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
-| Restaurar bases de dados com scripts SSMS ou Transact-SQL | ![Yes](./media/backup-restore/yes.png) |   | ![Sim](./media/backup-restore/yes.png) |
+| Requer serviço Azure adicional |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Configure a política de backup no portal Azure | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |   |
+| Restaurar bases de dados no portal Azure |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Gerir vários servidores num só dashboard |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Restauro para um ponto anterior no tempo | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
+| Objetivo do ponto de recuperação de 15 minutos (RPO) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
+| Política de retenção de backup de curto prazo (dias) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |   |
+| Política de retenção de apoio a longo prazo (meses, anos) |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Suporte incorporado para SQL Server Always On |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Cópia de segurança para a conta de armazenamento Azure | ![Sim](./media/backup-restore/yes.png)(automático) | ![Sim](./media/backup-restore/yes.png)(automático) | ![Sim](./media/backup-restore/yes.png)(gerido pelo cliente) |
+| Gestão de ficheiros de armazenamento e backup | | ![Sim](./media/backup-restore/yes.png) |  |
+| Backup para discos anexados no VM |   |   | ![Sim](./media/backup-restore/yes.png) |
+| Relatórios centrais de backup personalizáveis |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Alertas de e-mail consolidados para falhas |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Personalizar a monitorização com base nos registos do Azure Monitor |   | ![Sim](./media/backup-restore/yes.png) |   |
+| Monitorize trabalhos de backup com scripts SSMS ou Transact-SQL | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
+| Restaurar bases de dados com scripts SSMS ou Transact-SQL | ![Sim](./media/backup-restore/yes.png) |   | ![Sim](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Próximos passos
 

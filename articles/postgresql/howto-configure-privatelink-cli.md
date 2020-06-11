@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 27b8e27aa93cd163323cfd388e6e1d2e84a903d9
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: b0b253f8870d7d7c85f0973f0ea78341445597d5
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660812"
+ms.locfileid: "84676901"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerir o Link Privado para Azure Database para PostgreSQL - Servidor único usando CLI
 
@@ -85,20 +85,14 @@ az postgres server create \
 ## <a name="create-the-private-endpoint"></a>Criar o Ponto Final Privado 
 Crie um ponto final privado para o servidor PostgreSQL na sua Rede Virtual: 
 
-Obtenha o id de recursos do servidor
 ```azurecli-interactive
-$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id")
-```
-
-```azurecli-interactive
-#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $resourceid \  
-    --group-id postgresqlServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id") \    
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
 

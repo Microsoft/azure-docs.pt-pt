@@ -1,32 +1,28 @@
 ---
-title: Visão geral da Unidade de Computação Azure [ Microsoft Docs
-description: Visão geral do conceito das unidades de computação Azure. A ACU fornece uma forma de comparar o desempenho da CPU em todas as UsS DoT.
-services: virtual-machines
-documentationcenter: ''
+title: Visão geral da Unidade Azure Compute
+description: Visão geral do conceito das unidades computacional Azure. A ACU fornece uma forma de comparar o desempenho do CPU em todos os SKUs do Azure.
 author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.reviewer: davberg
+ms.openlocfilehash: 3fda339b234b83bae9cbf0b6614cb75c66031f71
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629104"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678533"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)
 
-O conceito da Unidade de Computação Azure (ACU) fornece uma forma de comparar o desempenho da computação (CPU) em todas as SKUs azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho. A ACU é atualmente padronizada num Pequeno (Standard_A1) VM sendo 100 e todos os outros SKUs então representam aproximadamente quão mais rápido que sKU pode executar um benchmark padrão
+O conceito da Unidade Azure Compute (ACU) fornece uma forma de comparar o desempenho do computação (CPU) em Azure SKUs. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho. ACU é atualmente padronizada em um VM Small (Standard_A1) sendo 100 e todos os outros SKUs então representam aproximadamente o quanto mais rápido que o SKU pode executar um benchmark padrão
 
-*A ACUs usa a tecnologia Intel® Turbo para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho do VM, carga de trabalho e outras cargas de trabalho em funcionamento no mesmo hospedeiro.
+*ACUs usam a tecnologia Intel® Turbo para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho de VM, carga de trabalho e outras cargas de trabalho que estão a funcionar no mesmo hospedeiro.
 
-**ACUs usam a tecnologia AMD® Boost para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho do VM, carga de trabalho e outras cargas de trabalho em funcionamento no mesmo hospedeiro.
+**ACUs usam a tecnologia AMD® Boost para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho de VM, carga de trabalho e outras cargas de trabalho que estão a funcionar no mesmo hospedeiro.
 
 Hiper-roscado e capaz de executar virtualização aninhada
 
@@ -52,7 +48,7 @@ Hiper-roscado e capaz de executar virtualização aninhada
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [F2s_v2 - F72s_v2](fsv2-series.md) |195 - 210* | 2:1\*\*\* |
 | [F1 - F16](sizes-previous-gen.md) |210 - 250* | 1:1 |
-| [F1 - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
+| [F1s - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [G1 - G5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [GS1 - GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [H](h-series.md) |290 - 300* | 1:1 |
@@ -62,7 +58,7 @@ Hiper-roscado e capaz de executar virtualização aninhada
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
 
-Aqui estão os links para mais informações sobre os diferentes tamanhos:
+Aqui estão links para mais informações sobre os diferentes tamanhos:
 
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 0fe167490cd466ca30857c2ed324846e80ab581d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635599"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674982"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -75,7 +75,6 @@ Para obter mais informações sobre como codificar e descodificar mensagens envi
 
 Os nomes das propriedades do sistema variam em função do ponto final para o qual as mensagens estão a ser encaminhadas. Por favor, consulte a tabela abaixo para mais detalhes sobre estes nomes.
 
-
 |Nome de propriedade do sistema|Hubs de Eventos|Storage do Azure|Service Bus|Event Grid|
 |--------------------|----------|-------------|-----------|----------|
 |ID de mensagem|mensagem id|messageId|MessageId|mensagem id|
@@ -86,7 +85,7 @@ Os nomes das propriedades do sistema variam em função do ponto final para o qu
 |Método do autómes de conexão|iothub-conexão-método auth|conexão Dezembromethod|iothub-conexão-método auth|iothub-conexão-método auth|
 |conteúdoType|tipo de conteúdo|conteúdoType|ConteúdoType|iothub-tipo de conteúdo|
 |contentEncoding|codificação de conteúdos|contentEncoding|ContentEncoding|codificação iothub-content|
-|iothub-enqueuedtime|iothub-enqueuedtime|tempo enqueso|     |iothub-enqueuedtime|
+|iothub-enqueuedtime|iothub-enqueuedtime|tempo enqueso| N/D |iothub-enqueuedtime|
 |nome iothub-interface|nome iothub-interface|nome de interface|Nome iothub-interface|nome iothub-interface|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 

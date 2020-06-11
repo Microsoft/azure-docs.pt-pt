@@ -1,28 +1,27 @@
 ---
-title: Cobertura de mobilidade (trânsito) Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre a cobertura de mobilidade no Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Cobertura de mobilidade (trânsito)
+description: Neste artigo, você vai aprender sobre a cobertura de trânsito público no serviço microsoft Azure Maps Mobility.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310245"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673647"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade Azure Maps
 
-A Azure Maps oferece um [serviço de Mobilidade.](https://aka.ms/AzureMapsMobilityService) O serviço mobility melhora o tempo de desenvolvimento das aplicações com recursos de transporte público, partilha de bicicletas e partilha de scooters. As funcionalidades de trânsito público incluem pesquisa de estações próximas, pesquisa de paragens, pesquisa de linhas de trânsito, obter informações de agendamento, recuperar chegadas de trânsito público em tempo real, paragens de lista e guias de rotas de lista. O serviço devolve informações de disponibilidade em tempo real e estático a veículos partilhados, tais como carros, bicicletas e trotinetes. Além disso, o serviço mobility oferece capacidades de encaminhamento com opções de planeamento de viagens multimodais. O planeamento de viagens multimodais incorpora opções de ciclismo, passeio e trânsito, tudo numa só viagem. Os utilizadores acedem a itinerários e alertas de serviço detalhados e multimodais.
+O serviço de [mobilidade](https://aka.ms/AzureMapsMobilityService) Azure Maps melhora o tempo de desenvolvimento de aplicações com características de trânsito público, como o encaminhamento de trânsito e a procura de paragens de trânsito público nas proximidades. Os utilizadores podem obter informações detalhadas sobre paragens, linhas e horários de trânsito. O serviço de Mobilidade permite ainda aos utilizadores recuperar geometrias de paragem e linha, alertas para paragens, linhas e áreas de serviço, bem como chegadas e alertas de serviço em tempo real de trânsito público. Além disso, o serviço mobility oferece capacidades de encaminhamento com opções de planeamento de viagens multimodais. O planeamento de viagens multimodais incorpora opções de caminhada, ciclismo e trânsito público, tudo numa viagem. Os utilizadores também podem aceder a itinerários multimodais detalhados passo a passo. 
 
-O Azure Maps não tem o mesmo nível de informação e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito depende da cidade. E, os dados podem não incluir todas as opções de trânsito público e agências que servem a cidade.
+O Azure Maps não fornece o mesmo nível de informação e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito público depende da área metropolitana. Além disso, os dados do mapa podem não incluir todas as opções de trânsito público e agências que servem a área metropolitana.
 
 A tabela seguinte fornece informações de cobertura para o serviço de mobilidade Azure Maps.
-
 
 | Símbolo | Significado |
 |--------|---------|
@@ -139,7 +138,7 @@ A tabela seguinte fornece informações de cobertura para o serviço de mobilida
 | Emirados Árabes Unidos  | Abu Dhabi |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como solicitar dados de trânsito utilizando o Serviço de Mobilidade:
 

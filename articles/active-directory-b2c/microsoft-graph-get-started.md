@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b62f30f428a0aaf5a564e2f2d2ad8d753dff7767
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: fd4ed98383d38be8528bafd6ec7d149381386fac
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298938"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672541"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
 
@@ -46,7 +46,15 @@ Embora o fluxo de concessão de credenciais de cliente OAuth 2.0 não seja supor
 
 Antes de os seus scripts e aplicações poderem interagir com a [Microsoft Graph API][ms-graph-api] para gerir os recursos Azure AD B2C, precisa de criar um registo de candidatura no seu inquilino AZure AD B2C que concede as permissões API necessárias.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
+1. No portal Azure, procure e selecione **Azure AD B2C**.
+1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Insira um **Nome** para a inscrição. Por exemplo, *o 'managementapp1' ( aplicação de gestão).*
+1. Selecione **Contas apenas neste diretório organizacional**.
+1. Ao abrigo **de permissões,** limpe o *consentimento da administração Grant para abrir e offline_access caixa de verificação de permissões.*
+1. Selecione **Registar**.
+1. Grave o **ID da Aplicação (cliente)** que aparece na página geral da aplicação. Usas este valor num passo posterior.
 
 ### <a name="grant-api-access"></a>Conceder acesso à API
 
@@ -74,7 +82,7 @@ Se a sua aplicação ou script precisar de eliminar utilizadores ou atualizar as
 1. Na caixa de texto **Select,** insira o nome da aplicação que registou anteriormente, por exemplo, *o 'managementapp1' ( aplicação).* Selecione a sua aplicação quando aparecer nos resultados da pesquisa.
 1. Selecione **Adicionar**. Pode levar alguns minutos para que as permissões se propaguem completamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que registou o seu pedido de gestão e lhe concedeu as permissões necessárias, as suas aplicações e serviços (por exemplo, Azure Pipelines) podem usar as suas credenciais e permissões para interagir com a API do Microsoft Graph. 
 
 * [Obter um token de acesso do Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)

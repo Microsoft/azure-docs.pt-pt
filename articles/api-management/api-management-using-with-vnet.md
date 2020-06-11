@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 970c20edd3a24594f22ff7e72cd4275118193845
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323795"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674283"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -118,8 +118,8 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso aos pontos finais do Azure SQL**                           | & Internos Externos  |
 | * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência da política e do monitor do [Log para o Event Hub](api-management-howto-log-event-hubs.md) | & Internos Externos  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência da Azure File Share para [GIT](api-management-configuration-repository-git.md)                      | & Internos Externos  |
-| * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Necessário para publicar o estado de saúde para a Saúde dos Recursos          | & Internos Externos  |
-| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registos e Métricas de Diagnóstico](api-management-howto-use-azure-monitor.md)                       | & Internos Externos  |
+| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensão de Saúde e Monitorização         | & Internos Externos  |
+| * / 1886, 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registos de Diagnósticos e Métricas](api-management-howto-use-azure-monitor.md) e [Saúde de Recursos](../service-health/resource-health-overview.md)                     | & Internos Externos  |
 | * / 25, 587, 25028                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue ao Relé SMTP para envio de e-mails                    | & Internos Externos  |
 | * / 6381 - 6383              | Entrada & Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acesso Ao Serviço Redis para políticas [cache](api-management-caching-policies.md) entre máquinas         | & Internos Externos  |
 | * / 4290              | Entrada & Saída | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters para políticas [de limite de](api-management-access-restriction-policies.md#LimitCallRateByKey) taxa entre máquinas         | & Internos Externos  |
@@ -166,7 +166,7 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
       - Portal de desenvolvedores CAPTCHA
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Resolução de problemas
-* **Configuração inicial**: Quando a implantação inicial do serviço de Gestão API numa sub-rede não for bem sucedida, é aconselhável colocar primeiro uma máquina virtual na mesma sub-rede. Próximo ambiente de trabalho remoto na máquina virtual e valide que há conectividade com um de cada recurso abaixo na sua subscrição azul
+* **Configuração inicial**: Quando a implantação inicial do serviço de Gestão API numa sub-rede não for bem sucedida, é aconselhável colocar primeiro uma máquina virtual na mesma sub-rede. Próximo ambiente de trabalho remoto na máquina virtual e valide que há conectividade com um de cada recurso abaixo na sua subscrição Azure
     * Bolha de armazenamento Azure
     * Base de Dados SQL do Azure
     * Mesa de armazenamento Azure

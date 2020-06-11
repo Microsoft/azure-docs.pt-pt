@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 05/29/2020
-ms.openlocfilehash: a916d6b181acfc8b32b243ee14ed35aa8565a76e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/10/2020
+ms.openlocfilehash: 9dfa45e463ecd53524e7516160324a80824e4d8d
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343346"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669533"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bases de dados individuais utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Este artigo fornece os limites de recursos detalhados para bases de dados indivi
 
 Para os limites do modelo de compra de DTU para bases de dados individuais num servidor, consulte [a visão geral dos limites de recursos num servidor](resource-limits-logical-server.md).
 
-Pode definir o nível de serviço, o tamanho do cálculo e o valor de armazenamento para uma única base de dados utilizando o [portal Azure](single-database-manage.md#the-azure-portal), [Transact-SQL,](single-database-manage.md#transact-sql-t-sql) [PowerShell,](single-database-manage.md#powershell) [O CLI Azure,](single-database-manage.md#the-azure-cli)ou o [REST API](single-database-manage.md#rest-api).
+Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) e o valor de armazenamento para uma única base de dados utilizando o [portal Azure](single-database-manage.md#the-azure-portal), [Transact-SQL,](single-database-manage.md#transact-sql-t-sql) [PowerShell,](single-database-manage.md#powershell) [O CLI Azure,](single-database-manage.md#the-azure-cli)ou a [API REST](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Para obter orientações e considerações de escalonamento, consulte [Escala uma única base de dados](single-database-scale.md).
@@ -36,12 +36,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
 
-|Tamanho do cálculo|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|Tamanho do cálculo (objetivo de serviço)|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
 |:--- | --: |--: |--: |--: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
 |Memória min-max (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
-|Min auto-pausa atraso (minutos)|60|60|60|60|60|
+|Atraso de pausa automática min-max (minutos)|60-10080|60-10080|60-10080|60-10080|60-10080|
 |Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|512|1024|1024|1024|1536|
@@ -62,12 +62,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
-|Tamanho do cálculo|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|Tamanho do cálculo (objetivo de serviço)|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
 |:--- | --: |--: |--: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|
 |Min-max vCores|1.25-10|1.50-12|1.75-14|2.00-16|
 |Memória min-max (GB)|3.75-30|4.50-36|5.25-42|6.00-48|
-|Min auto-pausa atraso (minutos)|60|60|60|60|
+|Atraso de pausa automática min-max (minutos)|60-10080|60-10080|60-10080|60-10080|
 |Suporte de loja de colunas|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1536|3072|3072|3072|
@@ -86,11 +86,38 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 \*O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
 
+### <a name="gen5-compute-generation-part-3"></a>Geração de computação Gen5 (parte 3)
+
+|Tamanho do cálculo (objetivo de serviço)|GP_S_Gen5_18|GP_S_Gen5_20|GP_S_Gen5_24|GP_S_Gen5_32|GP_S_Gen5_40|
+|:--- | --: |--: |--: |--: |--:|
+|Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Min-max vCores|2.25-18|2.5-20|3-24|4-32|5-40|
+|Memória min-max (GB)|6.75-54|7.5-60|9-72|12-96|15-120|
+|Atraso de pausa automática min-max (minutos)|60-10080|60-10080|60-10080|60-10080|60-10080|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
+|Tamanho máximo dos dados (GB)|3072|3072|4096|4096|4096|
+|Tamanho do tronco máximo (GB)|922|922|1229|1229|1229|
+|Tamanho máximo de dados tempDB (GB)|576|640|768|1024|1280|
+|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Dados max IOPS *|5760|6400|7680|10240|12800|
+|Taxa de registo máximo (MBps)|30|30|30|30|30|
+|Trabalhadores max simultâneos (pedidos)|1350|1500|1800|2400|3.000|
+|Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|
+|Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
+
+\*O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
+
+
 ## <a name="hyperscale---provisioned-compute---gen4"></a>Hiperescala - computação a provisionada - Gen4
 
 ### <a name="gen4-compute-generation-part-1"></a>Geração de computação Gen4 (parte 1)
 
-|Nível de desempenho|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
+|Tamanho do cálculo (objetivo de serviço)|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
 |:--- | --: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -115,7 +142,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de computação Gen4 (parte 2)
 
-|Nível de desempenho|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
+|Tamanho do cálculo (objetivo de serviço)|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
 |:--- | ---: |--: |--: | --: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -144,7 +171,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
 
-|Nível de desempenho|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Tamanho do cálculo (objetivo de serviço)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -171,7 +198,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
-|Nível de desempenho|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|Tamanho do cálculo (objetivo de serviço)|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: |--: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -211,7 +238,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen4-compute-generation-part-1"></a>Geração de computação Gen4 (parte 1)
 
-|Tamanho do cálculo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -236,7 +263,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de computação Gen4 (parte 2)
 
-|Tamanho do cálculo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -263,7 +290,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
 
-|Tamanho do cálculo|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -288,7 +315,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
-|Tamanho do cálculo|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -315,12 +342,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Geração de computação da série Fsv2 (pré-visualização)
 
-|Tamanho do cálculo|GP_Fsv2_72|
+|Tamanho do cálculo (objetivo de serviço)|GP_Fsv2_72|
 |:--- | --: |
 |Geração computacional|Série Fsv2|
 |vCores|72|
 |Memória (GB)|136.2|
-|Suporte de loja de colunas|Yes|
+|Suporte de loja de colunas|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|
 |Tamanho máximo dos dados (GB)|4096|
 |Tamanho do tronco máximo (GB)|1024|
@@ -346,7 +373,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen4-compute-generation-part-1"></a>Geração de computação Gen4 (parte 1)
 
-|Tamanho do cálculo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -372,7 +399,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de computação Gen4 (parte 2)
 
-|Tamanho do cálculo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -400,7 +427,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-1"></a>Geração de computação Gen5 (parte 1)
 
-|Tamanho do cálculo|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -426,7 +453,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
-|Tamanho do cálculo|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -454,12 +481,12 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 
 ### <a name="m-series-compute-generation-preview"></a>Geração de computação série M (pré-visualização)
 
-|Tamanho do cálculo|BC_M_128|
+|Tamanho do cálculo (objetivo de serviço)|BC_M_128|
 |:--- | --: |
 |Geração computacional|Série M|
 |vCores|128|
 |Memória (GB)|3767.1|
-|Suporte de loja de colunas|Yes|
+|Suporte de loja de colunas|Sim|
 |Armazenamento OLTP na memória (GB)|1768|
 |Tamanho máximo dos dados (GB)|4096|
 |Tamanho do tronco máximo (GB)|2048|
@@ -472,8 +499,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|12,800|
 |Sessões simultâneas máx.|30000|
 |Número de réplicas|4|
-|Multi-AZ|Yes|
-|Escalamento Horizontal de Leituras|Yes|
+|Multi-AZ|Sim|
+|Escalamento Horizontal de Leituras|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|
 
 \*O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)

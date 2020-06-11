@@ -1,35 +1,43 @@
 ---
-title: Dicas de desempenho do Azure Cosmos DB para .NET
-description: Aprenda opções de configuração do cliente para melhorar o desempenho do Azure Cosmos DB.
+title: Dicas de desempenho do Azure Cosmos DB para .NET SDK v2
+description: Aprenda opções de configuração do cliente para melhorar o desempenho do Azure Cosmos DB .NET v2 SDK.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: sngun
-ms.openlocfilehash: b8d55e5096f3af8d91027eec090cf1f9240a82cb
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 07ca4674c1b8dafc9c02ff8fdf82de330862de73
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432114"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674028"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
+# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB e .NET SDK v2
 
 > [!div class="op_single_selector"]
-> * [Java assíncrono](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
-> 
+> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [.NET SDK v2](performance-tips.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [SDK v2 Java assíncrono](performance-tips-async-java.md)
+> * [SDK v2 Java síncrono](performance-tips-java.md)
 
 Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala perfeitamente com latência e produção garantidas. Não é preciso fazer grandes alterações de arquitetura ou escrever códigos complexos para escalar a sua base de dados com a Azure Cosmos DB. Escalar para cima e para baixo é tão fácil como fazer uma única chamada API. Para saber mais, consulte [como providenciar a produção](how-to-provision-container-throughput.md) de contentores ou como providenciar a [produção de bases de dados](how-to-provision-database-throughput.md). Mas como o Azure Cosmos DB é acedido através de chamadas de rede, existem otimizações do lado do cliente que pode fazer para atingir o desempenho máximo quando utiliza o [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 Por isso, se está a tentar melhorar o desempenho da sua base de dados, considere estas opções:
 
+## <a name="upgrade-to-the-net-v3-sdk"></a>Upgrade para o .NET V3 SDK
+O [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) é lançado. Se utilizar o .NET v3 SDK, consulte o [guia de desempenho .NET v3](performance-tips-dotnet-sdk-v3-sql.md) para obter as seguintes informações:
+- Predefinições no modo TCP direto
+- Suporte a API de fluxo
+- Suporte serializador personalizado para permitir System.Text.JSutilização ON
+- Suporte integrado ao lote e a granel
+
 ## <a name="hosting-recommendations"></a>Recomendações de hospedagem
 
 **Para cargas de trabalho intensivas em consultas, utilize o Windows 64-bit em vez do processamento de anfitriões Linux ou Windows 32 bits**
 
-Recomendamos o processamento do anfitrião Windows 64 bits para um melhor desempenho. O SQL SDK inclui um ServiceInterop.dll nativo para analisar e otimizar consultas localmente. O ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para o Linux e outras plataformas não suportadas onde o ServiceInterop.dll não está disponível, é feita uma chamada de rede adicional para o gateway para obter a consulta otimizada. Os seguintes tipos de aplicações utilizam o processamento de hospedeiro de 32 bits por padrão. Para alterar o processamento do anfitrião para processamento de 64 bits, siga estes passos, com base no tipo da sua aplicação:
+Recomendamos o processamento do anfitrião Windows 64 bits para um melhor desempenho. O SQL SDK inclui uma ServiceInterop.dll nativa para analisar e otimizar consultas localmente. ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para o Linux e outras plataformas não suportadas onde ServiceInterop.dll não está disponível, é feita uma chamada adicional de rede para o gateway para obter a consulta otimizada. Os seguintes tipos de aplicações utilizam o processamento de hospedeiro de 32 bits por padrão. Para alterar o processamento do anfitrião para processamento de 64 bits, siga estes passos, com base no tipo da sua aplicação:
 
 - Para aplicações executáveis, pode alterar o processamento do anfitrião definindo o alvo da [plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) para **x64** na janela Propriedades do **Projeto,** no separador **Construir.**
 
@@ -41,7 +49,7 @@ Recomendamos o processamento do anfitrião Windows 64 bits para um melhor desemp
 
 > [!NOTE] 
 > Por predefinição, novos projetos do Visual Studio estão definidos para **Qualquer CPU**. Recomendamos que desemalte o seu projeto para **x64** para que não mude para **x86**. Um projeto definido para **Qualquer CPU** pode facilmente mudar para **x86** se for adicionada uma dependência apenas x86.<br/>
-> O ServiceInterop.dll precisa de estar na pasta da qual o DLL SDK está a ser executado. Isto só deve ser uma preocupação se copiar manualmente DLLs ou tiver sistemas de construção/implementação personalizados.
+> ServiceInterop.dll precisa estar na pasta da qual o SDK DLL está a ser executado. Isto só deve ser uma preocupação se copiar manualmente DLLs ou tiver sistemas de construção/implementação personalizados.
     
 **Ligue a recolha de lixo do lado do servidor (GC)**
 
@@ -54,14 +62,14 @@ Se estiver a testar em níveis de produção elevados (mais de 50.000 RU/s), a a
 > [!NOTE] 
 > O uso elevado do CPU pode causar um aumento da latência e solicitar exceções no tempo limite.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 <a id="direct-connection"></a>
 
 **Política de ligação: Utilize o modo de ligação direta**
 
 A forma como um cliente se conecta à Azure Cosmos DB tem implicações importantes no desempenho, especialmente para a latência observada do lado do cliente. Existem duas definições de configuração chave disponíveis para configurar a política de ligação do cliente: o *modo* de ligação e o *protocolo de*ligação .  Os dois modos disponíveis são:
 
-   * Modo de gateway
+   * Modo gateway (Padrão)
       
      O modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado para o [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). Se a sua aplicação for executado dentro de uma rede corporativa com restrições rígidas de firewall, o modo gateway é a melhor escolha porque utiliza a porta HTTPS padrão e um único ponto final. A troca de desempenho, no entanto, é que o modo gateway envolve um salto de rede adicional cada vez que os dados são lidos ou escritos para Azure Cosmos DB. Assim, o modo direto oferece um melhor desempenho porque há menos lúpulo de rede. Recomendamos também o modo de ligação de gateway quando executar aplicações em ambientes com um número limitado de ligações à tomada.
 
@@ -69,7 +77,7 @@ A forma como um cliente se conecta à Azure Cosmos DB tem implicações importan
 
    * Modo direto
 
-     O modo direto suporta a conectividade através do protocolo TCP e é o modo de conectividade predefinido se estiver a utilizar o [Microsoft.Azure.Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
+     O modo direto suporta a conectividade através do protocolo TCP.
 
 No modo gateway, a Azure Cosmos DB utiliza a porta 443 e as portas 10250, 10255 e 10256 quando está a usar o Azure Cosmos DB API para MongoDB. A porta 10250 mapeia para uma instância padrão do MongoDB sem geo-replicação. Os portões 10255 e 10256 mapeam para a instância mongoDB que tem geo-replicação.
      
@@ -81,18 +89,6 @@ Quando utilizar o TCP em modo direto, para além das portas gateway, é necessá
 |Direct    |     TCP    |  SDK .NET    | Quando utilizar pontos finais públicos/de serviço: portas na gama 10000-20000<br>Quando utilizar pontos finais privados: portas na gama 0 a 65535 |
 
 A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto sobre HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do cliente .NET SDK. O protocolo TCP utiliza O Sº TLS para autenticação inicial e encriptação do tráfego. Para obter um melhor desempenho, utilize o protocolo TCP sempre que possível.
-
-Para o SDK V3, configura o modo de ligação quando cria o `CosmosClient` caso, em `CosmosClientOptions` . Lembre-se que o modo direto é o padrão.
-
-```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
-new CosmosClientOptions
-{
-    ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
-});
-```
 
 Para o Microsoft.Azure.DocumentDB SDK, configura o modo de ligação durante a construção do `DocumentClient` caso utilizando o `ConnectionPolicy` parâmetro. Se utilizar o modo direto, também pode definir o `Protocol` através do `ConnectionPolicy` parâmetro.
 
@@ -140,15 +136,9 @@ Como as chamadas para Azure Cosmos DB são feitas pela rede, poderá ser necess�
 
 Os Azure Cosmos DB SDKs estão constantemente a ser melhorados para proporcionar o melhor desempenho. Consulte as páginas [DB SDK do Azure Cosmos](sql-api-sdk-dotnet-standard.md) para determinar as mais recentes melhorias da SDK e rever as melhorias.
 
-**Use APIs de fluxo**
-
-[.NET SDK V3](sql-api-sdk-dotnet-standard.md) contém APIs de fluxo que podem receber e devolver dados sem serializar. 
-
-Aplicações de nível médio que não consomem respostas diretamente do SDK, mas retransmiti-las para outros níveis de aplicação podem beneficiar das APIs de fluxo. Consulte as amostras [de gestão](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) de artigos para exemplos de manuseamento de fluxos.
-
 **Use um cliente singleton Azure Cosmos DB para a vida da sua aplicação**
 
-Cada `DocumentClient` `CosmosClient` instância é segura e executa uma gestão eficiente da ligação e o cache de endereços ao operar em modo direto. Para permitir uma gestão eficiente da ligação e um melhor desempenho do cliente SDK, recomendamos que utilize um único exemplo por `AppDomain` dia durante o tempo de vida da aplicação.
+Cada `DocumentClient` instância é segura e executa uma gestão eficiente da ligação e cache de endereços ao operar em modo direto. Para permitir uma gestão eficiente da ligação e um melhor desempenho do cliente SDK, recomendamos que utilize um único exemplo por `AppDomain` dia durante o tempo de vida da aplicação.
 
    <a id="max-connection"></a>
 
@@ -164,7 +154,7 @@ SQL .NET SDK 1.9.0 e posterior suporte consultas paralelas, que permitem consult
 
 ***Grau de sintonização do paralelismo***
 
-A consulta paralela funciona consultando várias divisórias em paralelo. Mas os dados de uma partição individual são recolhidos em série no que diz respeito à consulta. A definição `MaxDegreeOfParallelism` em [SDK V2](sql-api-sdk-dotnet.md) ou `MaxConcurrency` em [SDK V3](sql-api-sdk-dotnet-standard.md) para o número de divisórias tem a melhor hipótese de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode definir o grau de paralelismo para um número elevado. O sistema escolherá o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau de paralelismo.
+A consulta paralela funciona consultando várias divisórias em paralelo. Mas os dados de uma partição individual são recolhidos em série no que diz respeito à consulta. A fixação `MaxDegreeOfParallelism` em [SDK V2](sql-api-sdk-dotnet.md) para o número de divisórias tem a melhor hipótese de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode definir o grau de paralelismo para um número elevado. O sistema escolherá o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau de paralelismo.
 
 Note que as consultas paralelas produzem o maior benefício se os dados forem distribuídos uniformemente em todas as divisórias no que diz respeito à consulta. Se a recolha dividida for dividida de modo a que todos ou a maioria dos dados devolvidos por uma consulta se concentrem em algumas divisórias (uma partição é o pior caso), essas divisórias irão engarrafar o desempenho da consulta.
 
@@ -282,7 +272,7 @@ O comportamento de relembolso automatizado ajuda a melhorar a resiliência e a u
 
 A taxa de pedido (isto é, o custo de processamento de pedido) de uma determinada operação está diretamente relacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações em pequenos documentos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para uma aplicação de amostra que é usada para avaliar Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte testes de [desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

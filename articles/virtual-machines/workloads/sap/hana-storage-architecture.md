@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/01/2020
+ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d790bf20da8cc0d10c8fa47d750014de4f3d285
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: aff1c8f68e3950b49a0a1bd8e99020b77e0f2019
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331734"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677309"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Sap HANA (Grandes Instâncias) arquitetura de armazenamento
 
@@ -45,6 +45,7 @@ Consulte a tabela seguinte em termos de atribuição de armazenamento. A tabela 
 | S768m | 28.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
 | S768xm | 40.960 GB | 6,144 GB | 4.096 GB | 6,144 GB |
 | S960m | 36.000 GB | 4.100 GB | 2.050 GB | 4.100 GB |
+| S896m | 33.792 GB | 512 GB | 1.024 GB | 512 GB |
 
 SkUs mais recentes de HANA Large Instances são entregues com configurações de armazenamento como:
 
@@ -70,7 +71,6 @@ SkUs mais recentes de HANA Large Instances são entregues com configurações de
 | S672oom | 38.016 GB | 512 GB | 1.024 GB | 512 GB |
 | S896 | 16.896 GB | 512 GB | 1.024 GB | 512 GB |
 | S896oo | 25.344 GB | 512 GB | 1.024 GB | 512 GB |
-| S896m | 33.792 GB | 512 GB | 1.024 GB | 512 GB |
 | S896om | 33.792 GB | 512 GB | 1.024 GB | 512 GB |
 | S896ooo | 42,240 GB | 512 GB | 1.024 GB | 512 GB |
 | S896oom | 50.688 GB | 512 GB | 1.024 GB | 512 GB |

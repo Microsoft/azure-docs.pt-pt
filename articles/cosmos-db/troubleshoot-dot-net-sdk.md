@@ -8,12 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c0f40b3c79c16046ef61e89cad72c714346d2674
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170363"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672634"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 
@@ -32,10 +32,10 @@ Considere a seguinte lista de verificação antes de transferir a sua aplicaçã
 *    Utilize o [SDK](sql-api-sdk-dotnet-standard.md)mais recente. Os SDKs de pré-visualização não devem ser utilizados para a produção. Isto evitará que se acertem questões conhecidas que já estão corrigidas.
 *    Reveja as [dicas de desempenho](performance-tips.md)e siga as práticas sugeridas. Isto ajudará a prevenir a escala, a latência e outros problemas de desempenho.
 *    Ative o registo SDK para ajudá-lo a resolver um problema. Ativar a exploração pode afetar o desempenho, por isso o melhor é permitir apenas problemas de resolução de problemas. Pode ativar os seguintes registos:
-    *    [Registar métricas](monitor-accounts.md) utilizando o portal Azure. As métricas do portal mostram a telemetria DB Azure Cosmos, que é útil para determinar se o problema corresponde à DB Azure Cosmos ou se é do lado do cliente.
-    *    Faça o registo da [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no V2 SDK ou nos [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) em V3 SDK a partir das respostas de operação de ponto.
-    *    Registar as [Métricas de Consulta SQL](sql-api-query-metrics.md) de todas as respostas de consulta 
-    *    Siga a configuração para [a sessão SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*    [Registar métricas](monitor-accounts.md) utilizando o portal Azure. As métricas do portal mostram a telemetria DB Azure Cosmos, que é útil para determinar se o problema corresponde à DB Azure Cosmos ou se é do lado do cliente.
+*    Faça o registo da [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no V2 SDK ou nos [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) em V3 SDK a partir das respostas de operação de ponto.
+*    Registar as [Métricas de Consulta SQL](sql-api-query-metrics.md) de todas as respostas de consulta 
+*    Siga a configuração para [a sessão SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
 Veja a secção [questões comuns e soluções alternativas](#common-issues-workarounds) neste artigo.
 

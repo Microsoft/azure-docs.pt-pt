@@ -7,15 +7,29 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: c361e7303f73aee1d2e60bd4dd0b9ed0d0e4746f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 19a22a0a3b528a9a72fdd51c589e42bf2fba5ce7
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457464"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669941"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Criar, ver e gerir tópicos do sistema de grade de eventos usando O Azure CLI
 Este artigo mostra-lhe como criar e gerir tópicos do sistema usando o Azure CLI. Para uma visão geral dos tópicos do sistema, consulte [os tópicos do Sistema](system-topics.md).
+
+## <a name="install-extension-for-azure-cli"></a>Extensão de instalação para Azure CLI
+Para o Azure CLI, você precisa da [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list).
+
+Em CloudShell:
+
+- Se já instalou a extensão anteriormente, atualize-a:`az extension update -n eventgrid`
+- Se não tiver instalado a extensão anteriormente, instale-a:`az extension add -n eventgrid`
+
+Para uma instalação local:
+
+1. [Instale o Azure CLI](/cli/azure/install-azure-cli). Certifique-se de que tem a versão mais recente, verificando com a versão az.
+2. Desinstalar versões anteriores da extensão:`az extension remove -n eventgrid`
+3. Instale a extensão eventgrid com`az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Criar um tópico de sistema
 

@@ -4,17 +4,18 @@ description: Modelo ARM de serviço de ligação privada
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 93a66057ddb0034f7ac9ac62578292ca38f2d2fe
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 304ee8c1180c318dd6e99b6e81eb964e264951d1
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237130"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667034"
 ---
-# <a name="create-a-private-link-service---resource-manager-template"></a>Criar um serviço de ligação privada - Modelo de Gestor de Recursos
+# <a name="quickstart-create-a-private-link-service---resource-manager-template"></a>Quickstart: Criar um serviço de ligação privada - modelo de Gestor de Recursos
 
 Neste arranque rápido, você usa um modelo de Gestor de Recursos para criar um serviço de ligação privada.
 
@@ -32,20 +33,20 @@ este modelo cria um serviço de ligação privada.
 
 ### <a name="review-the-template"></a>Rever o modelo
 
-O modelo usado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-privatelink-service/azuredeploy.json)
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
 Os recursos Azure múltiplos são definidos no modelo:
 
-- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : serviço de ligação privada para expor o serviço de forma privada
-- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : ponto final privado para aceder privadamente ao serviço
+- [**Microsoft.Network/virtualNetworks:**](/azure/templates/microsoft.network/virtualnetworks) um para cada Máquina Virtual
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers) : Balanceador de carga que expõe as máquinas virtuais que acolhem o serviço
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 Interfaces de rede, uma para cada Máquina Virtual
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : 2 Máquinas virtuais, uma que acolhe o serviço e outra para testar a ligação ao ponto final privado
 - [**Microsoft.Compute/virtualMachines/extensões**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : Extensão que instala servidor web
-- [**Microsoft.Network/virtualNetworks:**](/azure/templates/microsoft.network/virtualnetworks) um para cada Máquina Virtual
+- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : serviço de ligação privada para expor o serviço de forma privada
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : 2 endereço IP público, um para cada Máquina Virtual
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 Interfaces de rede, uma para cada Máquina Virtual
+- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : ponto final privado para aceder privadamente ao serviço
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -107,6 +108,6 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Azure Private Link](private-link-overview.md)

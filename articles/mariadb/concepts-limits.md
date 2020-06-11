@@ -5,16 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/8/2020
-ms.openlocfilehash: 11b28acfbda8b2760f19aa130373ba0f24f94db2
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 6/10/2020
+ms.openlocfilehash: d217c579c5f2cb5c3b6b984c0f2e0c57f17df2c9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636602"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669771"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na Base de Dados Azure para MariaDB
 As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, suporte ao privilégio, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados.
+
+## <a name="server-parameters"></a>Parâmetros do servidor
+
+> [!NOTE]
+> Se estiver à procura de valores min/max para parâmetros do servidor como `max_connections` `innodb_buffer_pool_size` e, esta informação passou para o artigo **[de parâmetros](./concepts-server-parameters.md)** do servidor.
+
+A Azure Database for MySQL suporta afinar os valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` , é determinado pelo `query_cache_size` nível de preços e vCores do servidor. Consulte os [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre estes limites. 
 
 ## <a name="storage-engine-support"></a>Suporte ao motor de armazenamento
 
@@ -33,9 +40,6 @@ As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, 
 - Função DBA: Muitos parâmetros e configurações do servidor podem inadvertidamente degradar o desempenho do servidor ou anular as propriedades acid do DBMS. Como tal, para manter a integridade do serviço e sLA a nível de produto, este serviço não expõe o papel da DBA. A conta de utilizador predefinida, que é construída quando uma nova instância de base de dados é criada, permite que o utilizador execute a maioria das declarações de DDL e DML na instância da base de dados gerida.
 - Super privilégio: Igualmente [o privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
 - DEFINER: Requer super privilégios para criar e é restrito. Se importar dados utilizando uma cópia de segurança, remova os `CREATE DEFINER` comandos manualmente ou utilizando o `--skip-definer` comando quando efetuar uma mesqldump.
-
-## <a name="server-parameters"></a>Parâmetros do servidor
-A Base de Dados Azure para MariaDB suporta afinação dos valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros é determinado pelo nível de preços e vCores do servidor. Consulte os [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre estes limites. 
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à declaração de manipulação de dados
 

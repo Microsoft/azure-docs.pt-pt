@@ -4,7 +4,6 @@ description: Este artigo cobre padrões de aplicação para SQL Server em Azure 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 0c70e4aa29f987ab718a12bdba6b7d7631233c9b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b77756f81eb5085b9c1d386b7c59d5aae03d1fb8
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343732"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669499"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Padrões de aplicação e estratégias de desenvolvimento para O SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +45,7 @@ Pode desenvolver muitos tipos de aplicações n-tier separando os componentes da
 
 Uma aplicação típica *de n-tier* inclui o nível de apresentação, o nível de negócio e o nível de dados:
 
-| Escalão | Description |
+| Escalão | Descrição |
 | --- | --- |
 | **Apresentação** |O *nível de apresentação* (nível web, nível frontal) é a camada em que os utilizadores interagem com uma aplicação. |
 | **Empresa** |O *nível de negócio* (nível médio) é a camada que o nível de apresentação e o nível de dados usam para comunicar uns com os outros e inclui a funcionalidade central do sistema. |

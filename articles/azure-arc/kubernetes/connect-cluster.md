@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 85ef8bb9868784df66199a4aea261e6b752ae7f8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 232d5e5a5f6efd6ddbd6124f78de4f4b8c1cd639
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636262"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676425"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
@@ -208,7 +208,7 @@ Azure Arc habilitado Kubernetes é composto por alguns agentes (operadores) que 
 * `deployment.apps/metrics-agent`: recolhe métricas de outros agentes da Arc para garantir que estes agentes exibem um desempenho ótimo
 * `deployment.apps/cluster-metadata-operator`: recolhe metadados de cluster - versão de cluster, contagem de nós e versão do agente Arc
 * `deployment.apps/resource-sync-agent`: sincroniza os metadados de cluster acima mencionados para Azure
-* `deployment.apps/clusteridentityoperator`: mantém o certificado de identidade de serviço gerido (MSI) utilizado por outros agentes para comunicação com a Azure
+* `deployment.apps/clusteridentityoperator`: Azure Arc habilitado kubernetes atualmente suporta a identidade atribuída ao sistema. ClusteridentityOperator mantém o certificado de identidade de serviço gerido (MSI) usado por outros agentes para comunicação com a Azure.
 * `deployment.apps/flux-logs-agent`: recolhe registos dos operadores de fluxo implantados como parte da configuração do controlo de fontes
 
 ## <a name="delete-a-connected-cluster"></a>Eliminar um cluster conectado

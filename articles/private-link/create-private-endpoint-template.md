@@ -4,17 +4,18 @@ description: Saiba mais sobre a Azure Private Link
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a91415e7e3d91c2950cc4df2235c3d58df284cc0
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: af00119f1da3368b8592e020eee1ebb2a39a8501
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235975"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669958"
 ---
-# <a name="create-a-private-endpoint---resource-manager-template"></a>Criar um ponto final privado - Modelo de Gestor de Recursos
+# <a name="quickstart-create-a-private-endpoint---resource-manager-template"></a>Quickstart: Criar um ponto final privado - Modelo de Gestor de Recursos
 
 Neste arranque rápido, você usa um modelo de Gestor de Recursos para criar um ponto final privado.
 
@@ -32,22 +33,22 @@ este modelo cria um ponto final privado para um servidor Azure SQL.
 
 ### <a name="review-the-template"></a>Rever o modelo
 
-O modelo usado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-private-endpoint-sql/azuredeploy.json)
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
 Os recursos Azure múltiplos são definidos no modelo:
 
+- [**Microsoft.Sql/servidores**](/azure/templates/microsoft.sql/servers) : Servidor Azure Sql com a base de dados de amostras
+- [**Microsoft.Sql/servidores/bases de dados**](/azure/templates/microsoft.sql/servers/databases) : Base de dados de amostras
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Rede Virtual onde o Ponto Final Privado é implantado
 - [**Microsoft.Network/privateEndpoints**](/azure/templates/microsoft.network/privateendpoints) : ponto final privado para aceder privadamente ao servidor Azure Sql
 - [**Microsoft.Network/privateDnsZones**](/azure/templates/microsoft.network/privatednszones) : usado para resolver o endereço IP do ponto final privado
 - [**Microsoft.Network/privateDnsZones/virtualNetworkLinks**](/azure/templates/microsoft.network/privatednszones/virtualnetworklinks)
 - [**Microsoft.Network/privateEndpoints/privateDnsZoneGroups**](/azure/templates/microsoft.network/privateendpoints/privateDnsZoneGroups) : Para associar ponto final privado a uma zona private Dns
-- [**Microsoft.Sql/servidores**](/azure/templates/microsoft.sql/servers) : Servidor Azure Sql com a base de dados de amostras
-- [**Microsoft.Sql/servidores/bases de dados**](/azure/templates/microsoft.sql/servers/databases) : Base de dados de amostras
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Rede Virtual onde o Ponto Final Privado é implantado
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : Endereço IP público para aceder à máquina virtual
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : Máquina virtual para testar a ligação privada com o Ponto Final Privado ao servidor Azure Sql
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : Interface de rede para a máquina virtual
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : Máquina virtual para testar a ligação privada com o Ponto Final Privado ao servidor Azure Sql
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -129,6 +130,6 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Azure Private Link](private-link-overview.md)

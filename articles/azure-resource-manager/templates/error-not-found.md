@@ -1,29 +1,29 @@
 ---
 title: Recurso não encontrado erros
-description: Descreve como resolver erros quando um recurso não pode ser encontrado ao ser implantado com um modelo de Gestor de Recursos Azure.
+description: Descreve como resolver erros quando um recurso não pode ser encontrado. O erro pode ocorrer ao implementar um modelo de Gestor de Recursos Azure ou quando se toma ações de gestão.
 ms.topic: troubleshooting
-ms.date: 06/01/2020
-ms.openlocfilehash: 5d827f68ec97cfa77fb69a34284bd572286641a4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259359"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667952"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver não encontrar erros para os recursos do Azure
+# <a name="resolve-resource-not-found-errors"></a>Resolver recurso não encontrados erros
 
-Este artigo descreve os erros que pode ver quando um recurso não pode ser encontrado durante a implementação.
+Este artigo descreve o erro que vê quando um recurso não pode ser encontrado durante uma operação. Normalmente, vê-se este erro ao utilizar recursos. Você também vê este erro ao fazer tarefas de gestão e O Gestor de Recursos Azure não consegue encontrar o recurso necessário. Por exemplo, se tentar adicionar tags a um recurso que não existe, recebe este erro.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando o seu modelo inclui o nome de um recurso que não pode ser resolvido, recebe um erro semelhante a:
+Existem dois códigos de erro que indicam que o recurso não pode ser encontrado. O erro **notFound** devolve um resultado semelhante a:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Se utilizar as funções [de referência](template-functions-resource.md#reference) ou [listKeys](template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, receberá o seguinte erro:
+O erro **ResourceNotFound** devolve um resultado semelhante ao seguinte:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +33,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Causa
 
-O Gestor de Recursos precisa de recuperar as propriedades para um recurso, mas não consegue identificar o recurso na sua subscrição.
+O Gestor de Recursos precisa de recuperar as propriedades para um recurso, mas não consegue encontrar o recurso nas suas subscrições.
 
-## <a name="solution-1---set-dependencies"></a>Solução 1 - definir dependências
+## <a name="solution-1---check-resource-properties"></a>Solução 1 - verifique as propriedades dos recursos
 
-Se estiver a tentar implantar o recurso em falta no modelo, verifique se precisa de adicionar uma dependência. O Gestor de Recursos otimiza a implementação criando recursos em paralelo, quando possível. Se um recurso tiver de ser implantado após outro recurso, tem de utilizar o elemento **dependOn** no seu modelo. Por exemplo, ao implementar uma aplicação web, o plano de Serviço de Aplicações deve existir. Se não especificou que a aplicação web depende do plano de Serviço de Aplicações, o Gestor de Recursos cria ambos os recursos ao mesmo tempo. Obtém-se um erro afirmando que o recurso do plano de Serviço de Aplicações não pode ser encontrado, porque ainda não existe quando se tenta definir uma propriedade na aplicação web. Evita este erro definindo a dependência na aplicação web.
+Quando receber este erro durante uma tarefa de gestão, verifique os valores que fornece para o recurso. Os três valores a verificar são:
+
+* Nome do recurso
+* Nome do grupo de recursos
+* Subscrição
+
+Se estiver a utilizar o PowerShell ou o Azure CLI, verifique se está a executar o comando na subscrição que contém o recurso. Pode alterar a subscrição com [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [az set](/cli/azure/account#az-account-set). Muitos comandos também fornecem um parâmetro de subscrição que permite especificar uma subscrição diferente do contexto atual.
+
+Se tiver problemas em verificar as propriedades, inscreva-se no [portal](https://portal.azure.com). Encontre o recurso que está a tentar utilizar e examine o nome do recurso, o grupo de recursos e a subscrição.
+
+## <a name="solution-2---set-dependencies"></a>Solução 2 - definir dependências
+
+Se tiver este erro ao implementar um modelo, poderá ter de adicionar uma dependência. O Gestor de Recursos otimiza a implementação criando recursos em paralelo, quando possível. Se um recurso tiver de ser implantado após outro recurso, tem de utilizar o elemento **dependOn** no seu modelo. Por exemplo, ao implementar uma aplicação web, o plano de Serviço de Aplicações deve existir. Se não especificou que a aplicação web depende do plano de Serviço de Aplicações, o Gestor de Recursos cria ambos os recursos ao mesmo tempo. Obtém-se um erro afirmando que o recurso do plano de Serviço de Aplicações não pode ser encontrado, porque ainda não existe quando se tenta definir uma propriedade na aplicação web. Evita este erro definindo a dependência na aplicação web.
 
 ```json
 {
@@ -70,23 +82,19 @@ Quando vê problemas de dependência, precisa de obter informações sobre a ord
 
    ![implantação sequencial](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Solução 2 - obtenha recurso de diferentes grupos de recursos
+## <a name="solution-3---get-external-resource"></a>Solução 3 - obtenha recurso externo
 
-Quando o recurso existe num grupo de recursos diferente daquele que está a ser implantado, utilize a [função resourceId](template-functions-resource.md#resourceid) para obter o nome totalmente qualificado do recurso.
+Ao implementar um modelo e necessitar de obter um recurso que exista num grupo de subscrição ou de recursos diferentes, utilize a [função resourceId](template-functions-resource.md#resourceid). Esta função volta a obter o nome totalmente qualificado do recurso.
+
+Os parâmetros de grupo de subscrição e recursos na função resourceid são opcionais. Se não os fornecer, eles estão em incumprimento do grupo de subscrição e recursos atuais. Ao trabalhar com um recurso num grupo de recursos diferente ou subscrição, certifique-se de que fornece esses valores.
+
+O exemplo seguinte obtém o ID de recurso para um recurso que existe num grupo de recursos diferente.
 
 ```json
 "properties": {
   "name": "[parameters('siteName')]",
   "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
 }
-```
-
-## <a name="solution-3---check-reference-function"></a>Solução 3 - verifique a função de referência
-
-Procure uma expressão que inclua a função [de referência.](template-functions-resource.md#reference) Os valores que fornece variam em função do facto de o recurso estar no mesmo modelo, grupo de recursos e subscrição. Verifique duas vezes se está a fornecer os valores de parâmetros necessários para o seu cenário. Se o recurso estiver num grupo de recursos diferente, forneça o ID completo do recurso. Por exemplo, para fazer referência a uma conta de armazenamento noutro grupo de recursos, utilize:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Solução 4 - obtenha identidade gerida a partir de recursos
@@ -116,4 +124,12 @@ Ou, para obter a identificação do inquilino para uma identidade gerida que é 
 
 ```json
 "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Solução 5 - verificar funções
+
+Ao implementar um modelo, procure expressões que utilizem as funções [de referência](template-functions-resource.md#reference) ou [listKeys.](template-functions-resource.md#listkeys) Os valores que fornece variam em função do facto de o recurso estar no mesmo modelo, grupo de recursos e subscrição. Verifique se está a fornecer os valores de parâmetros necessários para o seu cenário. Se o recurso estiver num grupo de recursos diferente, forneça o ID completo do recurso. Por exemplo, para fazer referência a uma conta de armazenamento noutro grupo de recursos, utilize:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

@@ -1,22 +1,22 @@
 ---
 title: Localização do recurso do modelo
-description: Descreve como definir a localização dos recursos num modelo de Gestor de Recursos Azure.
+description: Descreve como definir a localização do recurso num modelo do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0bf0ac79c7e304a61561808dc2290ceb4a379e6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156434"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672685"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Definir localização de recursos no modelo ARM
 
-Ao implementar um modelo de Gestor de Recursos Azure (ARM), deve fornecer uma localização para cada recurso. A localização não precisa de ser a mesma localização que a localização do grupo de recursos.
+Ao implementar um modelo Azure Resource Manager (ARM), deve fornecer uma localização para cada recurso. A localização não precisa de ser a mesma localização da localização do grupo de recursos.
 
 ## <a name="get-available-locations"></a>Obtenha locais disponíveis
 
-Diferentes tipos de recursos são suportados em diferentes locais. Para obter os locais suportados para um tipo de recurso, utilize o Azure PowerShell ou o Azure CLI.
+Diferentes tipos de recursos são suportados em diferentes locais. Para obter os locais suportados para um tipo de recurso, utilize a Azure PowerShell ou a Azure CLI.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -36,15 +36,15 @@ az provider show \
 
 ---
 
-## <a name="use-location-parameter"></a>Utilizar parâmetro de localização
+## <a name="use-location-parameter"></a>Use o parâmetro de localização
 
-Para permitir flexibilidade ao implementar o seu modelo, utilize um parâmetro para especificar a localização dos recursos. Defina o valor padrão `resourceGroup().location`do parâmetro para .
+Para permitir a flexibilidade ao implementar o seu modelo, utilize um parâmetro para especificar a localização dos recursos. Desafine o valor predefinido do parâmetro para `resourceGroup().location` .
 
-O exemplo seguinte mostra uma conta de armazenamento que é implantada para um local especificado como parâmetro:
+O exemplo a seguir mostra uma conta de armazenamento que é implantada num local especificado como parâmetro:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {
@@ -93,7 +93,7 @@ O exemplo seguinte mostra uma conta de armazenamento que é implantada para um l
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter a lista completa das funções do modelo, consulte as funções do modelo do Gestor de [Recursos do Azure](template-functions.md).
-* Para obter mais informações sobre ficheiros de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter a lista completa das funções do modelo, consulte as [funções do modelo do Gestor de Recursos Azure](template-functions.md).
+* Para obter mais informações sobre ficheiros de modelos, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).

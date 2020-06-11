@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 8b065a79abe4a4f5c23e28be111b09e51e5e6484
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267142"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667051"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -32,7 +32,7 @@ Com a otimização dos meios de comunicação para as Equipas microsoft, o clien
 Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá de fazer estas coisas:
 
 - [Prepare a sua rede](/microsoftteams/prepare-network/) para as Equipas microsoft.
-- Instale o [cliente do Windows Desktop](connect-windows-7-and-10.md) num dispositivo Windows 10 que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)da Microsoft Teams para equipas num PC do Windows .
+- Instale o [cliente Windows Desktop](connect-windows-7-and-10.md) num dispositivo Do Windows 10 ou Windows 10 IoT Enterprise que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)das Equipas microsoft teams para equipas num PC Windows .
 - Ligue-se a uma máquina virtual do Windows 10 ou do Windows 10 Enterprise (VM).
 - Instale a aplicação de ambiente de trabalho Teams no anfitrião utilizando a instalação por máquina. A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
 
@@ -53,7 +53,7 @@ Para ativar a instalação de Equipas por máquina, desa estale a seguinte chave
 
 ### <a name="install-the-teams-websocket-service"></a>Instale o Serviço De Equipas WebSocket
 
-Instale o [Serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vkL6) na sua imagem VM. Se encontrar um erro de instalação, instale o [mais recente Microsoft Visual C++ Redistribuable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
+Instale o [Serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) na sua imagem VM. Se encontrar um erro de instalação, instale o [mais recente Microsoft Visual C++ Redistribuable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
 
 ### <a name="install-microsoft-teams"></a>Instalar equipas da Microsoft
 
@@ -131,9 +131,9 @@ Fornecer feedback para equipas da Microsoft no Ambiente de Trabalho Virtual do W
 
 ## <a name="collect-teams-logs"></a>Recolher registos de equipas
 
-Se encontrar problemas com a aplicação de ambiente de trabalho Teams no seu ambiente de ambiente de trabalho virtual do Windows, colete registos de clientes em **%appdata%\Microsoft\Teams\logs.txt** no VM anfitrião.
+Se encontrar problemas com a aplicação de ambiente de trabalho Teams no seu ambiente de ambiente de trabalho virtual do Windows, colete registos de clientes em **%appdata%\Microsoft\Teams\logs.txt** no VM do anfitrião.
 
-Se encontrar problemas com chamadas e reuniões, colete registos de clientes web de Equipas com a combinação chave **Ctrl**  +  **Alt**  +  **Shift**  +  **1**. Os registos serão escritos para **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** no VM anfitrião.
+Se encontrar problemas com chamadas e reuniões, colete registos de clientes web de Equipas com a combinação chave **Ctrl**  +  **Alt**  +  **Shift**  +  **1**. Os registos serão escritos para **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** no VM do anfitrião.
 
 ## <a name="contact-microsoft-teams-support"></a>Contacte o suporte da Microsoft Teams
 

@@ -4,7 +4,6 @@ description: Saiba como migrar uma base de dados de utilizador no local para o S
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -15,12 +14,12 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 50f9ef0f088fd48b9319f183494389d92278e0dd
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 7da9b83001d50c8e9a03188ed8dbf1245189bc30
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659938"
+ms.locfileid: "84668870"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrar uma base de dados do SQL Server para o SQL Server numa máquina virtual Azure
 

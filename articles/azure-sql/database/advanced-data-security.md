@@ -8,16 +8,16 @@ ms.devlang: ''
 ms.custom: sqldbrb=2
 ms.topic: conceptual
 ms.author: memildin
-author: memildin
 manager: rkarlin
+author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: d600d174aa37c5c4d5d1011b9cb61e4487256c13
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7efcc4a9ec7da2bdd4005c124d5d0e8dd03c4363
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195136"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669703"
 ---
 # <a name="advanced-data-security"></a>Segurança de dados avançada
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -74,7 +74,7 @@ As definições avançadas de segurança de dados para o seu servidor ou instân
 
 ![Definições de base de dados](./media/advanced-data-security/database_settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Classificação & data Discovery](data-discovery-and-classification-overview.md)
 - Saiba mais sobre [a avaliação da vulnerabilidade](sql-vulnerability-assessment.md)

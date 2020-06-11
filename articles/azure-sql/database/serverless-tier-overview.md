@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
-ms.openlocfilehash: 3d3eee7dc57a2438ccf726851025c700824a5e3a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 6/10/2020
+ms.openlocfilehash: 00c60a0ff20c67b63b2ca93f9e5997e78a283f26
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322075"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667595"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ O quadro que se segue resume as distinções entre o nível de computação sem 
 
 | | **Computação sem servidor** | **Cálculo provisionado** |
 |:---|:---|:---|
-|**Padrão de utilização da base de dados**| Uso intermitente e imprevisível com menor utilização de computação média ao longo do tempo. |  Padrões de utilização mais regulares com uma utilização média mais alta ao longo do tempo, ou várias bases de dados usando piscinas elásticas.|
+|**Padrão de utilização da base de dados**| Uso intermitente e imprevisível com menor utilização de computação média ao longo do tempo. | Padrões de utilização mais regulares com uma utilização média mais alta ao longo do tempo, ou várias bases de dados usando piscinas elásticas.|
 | **Esforço de gestão de desempenho** |Lower|Superior|
 |**Escalagem de cálculo**|Automático|Manual|
 |**Capacidade de resposta computacional**|Menor após períodos inativos|Imediato|
@@ -161,19 +161,8 @@ Se a utilização [da encriptação de dados transparente gerida pelo cliente](t
 
 Criar uma nova base de dados ou mover uma base de dados existente para um nível de computação sem servidor segue o mesmo padrão que a criação de uma nova base de dados no nível de computação a provisionado e envolve os dois passos seguintes.
 
-1. Especifique o objetivo de serviço. O objetivo do serviço prescreve o nível de serviço, geração de hardware e max vCores. A tabela a seguir mostra as opções objetivas de serviço:
+1. Especifique o objetivo de serviço. O objetivo do serviço prescreve o nível de serviço, geração de hardware e max vCores. Para opções objetivas de serviço, consulte [os limites de recursos sem servidor](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Nome objetivo do serviço|Camada de serviços|Geração de hardware|Max vCores|
-   |---|---|---|---|
-   |GP_S_Gen5_1|Fins Gerais|Gen5|1|
-   |GP_S_Gen5_2|Fins Gerais|Gen5|2|
-   |GP_S_Gen5_4|Fins Gerais|Gen5|4|
-   |GP_S_Gen5_6|Fins Gerais|Gen5|6|
-   |GP_S_Gen5_8|Fins Gerais|Gen5|8|
-   |GP_S_Gen5_10|Fins Gerais|Gen5|10|
-   |GP_S_Gen5_12|Fins Gerais|Gen5|12|
-   |GP_S_Gen5_14|Fins Gerais|Gen5|14|
-   |GP_S_Gen5_16|Fins Gerais|Gen5|16|
 
 2. Opcionalmente, especifique o min vCores e o atraso de automatização para alterar os seus valores predefinidos. A tabela a seguir mostra os valores disponíveis para estes parâmetros.
 

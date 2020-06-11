@@ -8,12 +8,12 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: tracking-python
-ms.openlocfilehash: b8d460f35f67d4e7f48611fdc2a770d4a0bed002
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d04b158761d501d4a79d91fe551670b57f9847f3
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552086"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678720"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Programar para os Ficheiros do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -48,7 +48,7 @@ pip install azure-storage-file
 Para obter métodos de instalação alternativos, visite o [Azure Storage SDK para Python no GitHub.](https://github.com/Azure/azure-storage-python/)
 
 ## <a name="view-the-sample-application"></a>Ver a aplicação da amostra
-f Para visualizar e executar uma aplicação de amostra que mostre como usar Python com ficheiros [Azure, consulte Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+Para visualizar e executar uma aplicação de amostra que mostre como usar Python com ficheiros Azure, consulte [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
 Para executar a aplicação da amostra, certifique-se de que instalou as `azure-storage-file` embalagens e `azure-storage-common` as embalagens.
 
@@ -177,7 +177,7 @@ Uma parte que contenha instantâneos não pode ser eliminada a menos que todas a
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que aprendeu a manipular ficheiros Azure com Python, siga estes links para saber mais.
 
 * [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)

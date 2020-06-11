@@ -1,80 +1,80 @@
 ---
 title: Crie uma oferta de módulo Azure IoT Edge com Partner Center no Azure Marketplace
-description: Saiba como criar, configurar e publicar uma oferta de móduloIT Edge no Azure Marketplace usando o Partner Center
+description: Aprenda a criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 5798e3c9c2a345c5cf9d8fd254130b4252a696d8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 14bbbb3cdbaa0074eaedaea81d273331fbd5abcd
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847978"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672600"
 ---
-# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de móduloIOT Edge no Azure Marketplace
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace
 
-Este artigo descreve como criar e publicar uma oferta de módulos De Borda Internet of Things (IoT) para o Azure Marketplace. Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Este artigo descreve como criar e publicar uma oferta de módulos Internet of Things (IoT) Edge para o Azure Marketplace. Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
-3. Na página 'Visão Geral', selecione **+ Novo módulo**  >  **IoT Edge**.
+3. Na página 'Vista Geral', selecione **+ novo**módulo  >  **IoT Edge de**oferta.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> Depois de publicada uma oferta, as edificações feitas no Partner Center só aparecem nas montras depois de reeditarem a oferta. Certifique-se de que republique sempre depois de fazer alterações.
+> Após a publicação de uma oferta, as edições feitas no Partner Center só aparecem nas montras depois de republicarem a oferta. Certifique-se de que é sempre republicante depois de escorção.
 
-### <a name="offer-id-and-alias"></a>Oferecer ID e pseudónimo
+### <a name="offer-id-and-alias"></a>ID de oferta e pseudónimo
 
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
-- Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
+- Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
-Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
+Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
 - Isto não pode ser alterado depois de selecionar **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
-## <a name="offer-overview"></a>Visão geral da oferta
+## <a name="offer-overview"></a>Oferta geral
 
-A página geral da **Oferta** mostra uma representação visual dos passos necessários para publicar esta oferta (completa e próxima) e quanto tempo cada passo deve demorar a ser concluído.
+A página **geral da Oferta** mostra uma representação visual dos passos necessários para publicar esta oferta (concluída e futura) e quanto tempo cada passo deve demorar a ser concluído.
 
-Esta página inclui links para realizar operações nesta oferta com base na seleção que fizer. Por exemplo:
+Esta página inclui links para executar operações nesta oferta com base na seleção que faz. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer) de rascunho
-- Se a oferta estiver ao vivo - [Pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
+- Se a oferta for um rascunho - [Eliminar oferta de rascunho](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
+- Se a oferta for ao vivo - [Pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
 - Se a oferta estiver em pré-visualização - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Se ainda não tiver concluído a inscrição na editora - [Cancele a publicação.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
-Siga estes passos para configurar a sua oferta.
+Siga estes passos para definir a sua oferta.
 
-### <a name="customer-leads"></a>Lideranças de clientes
+### <a name="customer-leads"></a>Ligações ao cliente
 
-Ao publicar a sua oferta no mercado com o Partner Center, pode ligá-la opcionalmente ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém expressa interesse ou utiliza o seu produto.
+Ao publicar a sua oferta no mercado com o Partner Center, pode conectá-la opcionalmente ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém manifestar interesse ou utilizar o seu produto.
 
-1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. Partner Center suporta os seguintes sistemas CRM:
+1. Selecione um destino de oportunidades potenciais para onde quer que enviemos as oportunidades potenciais de clientes. O Partner Center suporta os seguintes sistemas crm:
 
-    - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para envolvimento com o cliente
+    - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para Envolvimento com o Cliente
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
     - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Se o seu sistema CRM não estiver listado acima, utilize [o Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar os dados de chumbo do cliente e, em seguida, exporte os dados para o seu sistema CRM.
+    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Ponto Final https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar dados de chumbo do cliente e exporte os dados para o seu sistema CRM.
 
 2. Ligue a sua oferta ao destino principal ao publicar no Partner Center.
-3. Confirme se a ligação ao destino principal está corretamente configurada. Depois de publicá-lo no Partner Center, validamos a ligação e enviaremos-lhe um teste. Enquanto faz a pré-visualização da oferta antes de ser transmitida ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização.
-4. Certifique-se de que a ligação ao destino principal permanece atualizada para que não perca nenhuma pista.
+3. Confirme se a ligação ao destino de chumbo está configurada corretamente. Depois de publicá-lo no Partner Center, validaremos a ligação e enviaremos um teste. Enquanto pré-visualiza a oferta antes de entrar em direto, também pode testar a sua ligação de chumbo tentando comprar a oferta no ambiente de pré-visualização.
+4. Certifique-se de que a ligação ao destino principal permanece atualizada para não perder nenhuma pista.
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
@@ -83,7 +83,7 @@ Aqui estão alguns recursos adicionais de gestão de chumbo:
 - [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
-Selecione **guardar rascunho** antes de continuar.
+**Selecione Guardar o projeto** antes de continuar.
 
 ### <a name="properties"></a>Propriedades
 
@@ -91,64 +91,64 @@ Esta página permite definir as categorias utilizadas para agrupar a sua oferta 
 
 #### <a name="category"></a>Categoria
 
-Selecione um mínimo de uma e um máximo de cinco categorias. Estas categorias são usadas para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas e são mostradas na sua página de detalhes de oferta. Na descrição da oferta, explique como a sua oferta suporta estas categorias. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria de módulo sintetizador estonteantes **da Internet das Coisas > IoT Edge.**  
+Selecione um mínimo de uma e um máximo de cinco categorias. Estas categorias são usadas para colocar a sua oferta nas áreas de pesquisa de marketplace apropriadas e são mostradas na página de detalhes da sua oferta. Na descrição da oferta, explique como a sua oferta suporta estas categorias. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria **de módulo IoT Edge da Internet of Things**   >.
 
 #### <a name="legal"></a>Legal
 
 Deve fornecer termos e condições para a oferta. Tem duas opções:
 
-- Utilize o Contrato Padrão para o Mercado Comercial da Microsoft.
+- Utilize o Contrato Padrão para o Microsoft Commercial Marketplace.
 - Forneça os seus próprios termos e condições.
 
-##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato padrão para o Mercado Comercial da Microsoft
+##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato padrão para o Microsoft Commercial Marketplace
 
-Oferecemos um modelo de Contrato Padrão para ajudar a facilitar transações no mercado comercial. Pode optar por oferecer a sua solução ao abrigo do Contrato Padrão, que os clientes só precisam de verificar e aceitar uma vez. Esta é uma boa opção se não quiser criar termos e condições personalizados.
+Oferecemos um modelo de Contrato Padrão para ajudar a facilitar transações no mercado comercial. Pode optar por oferecer a sua solução ao abrigo do Contrato Padrão, que os clientes só precisam de verificar e aceitar uma vez. Esta é uma boa opção se você não quiser criar termos e condições personalizados.
 
-Para saber mais sobre o Contrato Padrão, consulte [o Standard Contract para o Mercado Comercial da Microsoft](https://docs.microsoft.com/azure/marketplace/standard-contract). Também pode baixar o [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (certifique-se de que o seu bloqueador pop-up está desligado).
+Para saber mais sobre o Contrato Padrão, consulte o [Contrato Padrão para o Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Também pode descarregar o PDF [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) (certifique-se de que o seu bloqueador pop-up está desligado).
 
-Para utilizar o Contrato Padrão, selecione o Contrato Padrão para a caixa de verificação de **mercado comercial da Microsoft** e, em seguida, clique em **Aceitar**.
+Para utilizar o Contrato Padrão, selecione **o Use the Standard Contract para a** caixa de verificação do mercado comercial da Microsoft e, em seguida, clique em **Aceitar**.
 
 > [!NOTE]
-> Depois de publicar uma oferta utilizando o contrato Standard para o mercado comercial da Microsoft, não pode utilizar os seus próprios termos e condições personalizados. Ou ofereça a sua solução ao abrigo do Contrato Padrão ou nos seus próprios termos e condições.
+> Depois de publicar uma oferta utilizando o contrato Standard para o mercado comercial da Microsoft, não pode usar os seus próprios termos e condições personalizados. Ou oferece a sua solução nos termos do Contrato Padrão ou nos seus próprios termos e condições.
 
-![Ilustra a utilização do Contrato Padrão para a caixa de verificação de mercado comercial da Microsoft.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
+![Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
 
 ##### <a name="your-own-terms-and-conditions"></a>Seus próprios termos e condições
 
-Para fornecer os seus próprios termos e condições personalizados, insira-os na caixa **De Condições e Condições.** Pode introduzir uma quantidade ilimitada de caracteres de texto nesta caixa. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
+Para fornecer os seus próprios termos e condições personalizados, insira-os na caixa **de Termos e Condições.** Pode introduzir uma quantidade ilimitada de caracteres de texto nesta caixa. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
-Selecione **Guardar rascunho** antes de continuar na secção seguinte, Oferta de listagem.
+**Selecione Guardar o rascunho** antes de continuar para a secção seguinte, Ofereça a listagem.
 
-## <a name="offer-listing"></a>Oferta listagem
+## <a name="offer-listing"></a>Listagem de ofertas
 
-Aqui irá definir os detalhes da oferta que são exibidos no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante. Certifique-se de seguir as políticas detalhadas na página de política da Microsoft enquanto configura esta oferta.
+Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante. Certifique-se de seguir as políticas detalhadas na página de política da Microsoft enquanto configura esta oferta.
 
 > [!NOTE]
-> Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado nos detalhes da listagem de oferta.
+> Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
 ### <a name="name"></a>Name
 
-O nome que insere aqui mostra como o título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Offer** quando criou a oferta. Pode alterar este nome posteriormente.
+O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
 O nome:
 
-- Pode ser marcado por marca (e pode incluir símbolos de marca ou direitos de autor).
+- Pode ser registada (e pode incluir símbolos de marca registada ou de direitos autorais).
 - Não deve ter mais de 50 caracteres.
-- Não posso incluir emojis.
+- Não pode incluir emojis.
 
 ### <a name="search-results-summary"></a>Resumo dos resultados da pesquisa
 
-Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa de mercado.
+Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
 ### <a name="long-summary"></a>Resumo longo
 
-Forneça uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa de mercado.
+Forneça uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
 ### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-As ofertas do módulo IoT Edge devem incluir um parágrafo mínimo de requisitos de hardware na parte inferior da descrição, tais como:
+As ofertas de módulos IoT Edge devem incluir um parágrafo mínimo de requisitos de hardware na parte inferior da descrição, tais como:
 
 - Requisitos mínimos de hardware: Linux x64 e arm32 OS, 1 GB de RAM, 500 Mb de armazenamento
 
@@ -158,48 +158,48 @@ As ofertas do módulo IoT Edge devem incluir um parágrafo mínimo de requisitos
 
 #### <a name="privacy-policy-url"></a>URL de política de privacidade
 
-Insira o endereço web da política de privacidade da sua organização. É responsável por garantir que a sua oferta está em conformidade com as leis e regulamentos de privacidade. Também é responsável por publicar uma política de privacidade válida no seu site.
+Insira o endereço web da política de privacidade da sua organização. Você é responsável por garantir que a sua oferta está em conformidade com as leis e regulamentos de privacidade. Você também é responsável por publicar uma política de privacidade válida no seu site.
 
 #### <a name="useful-links"></a>Ligações úteis
 
-Forneça documentos online suplementares sobre a sua oferta. Pode adicionar 25 links. Para adicionar um link, selecione **+ Adicione um link** e, em seguida, complete os seguintes campos:
+Forneça documentos online suplementares sobre a sua oferta. Pode adicionar até 25 links. Para adicionar um link, **selecione + Adicione um link** e, em seguida, complete os seguintes campos:
 
 - **Título** - Os clientes verão o título na página de detalhes da sua oferta.
-- **Link (URL)** - Introduza um link para os clientes verem o seu documento online. A ligação deve começar com http:// ou https://.
+- **Link (URL)** - Introduza um link para os clientes visualizarem o seu documento online. A ligação deve começar com http:// ou https://.
 
-Certifique-se de adicionar pelo menos um link à sua documentação e um link para os dispositivos IoT Edge compatíveis do catálogo do [dispositivo Azure IoT](https://catalog.azureiotsolutions.com/).
+Certifique-se de adicionar pelo menos um link à sua documentação e uma ligação aos dispositivos IoT Edge compatíveis do catálogo de [dispositivos Azure IoT](https://catalog.azureiotsolutions.com/).
 
 ### <a name="contact-information"></a>Informações de contacto
 
-Deve fornecer o nome, e-mail e número de telefone para um contacto de **suporte** e um **contacto de Engenharia.** Esta informação não é mostrada aos clientes. Está disponível para a Microsoft e pode ser fornecido aos parceiros do Cloud Solution Provider (CSP).
+Deve fornecer o nome, e-mail e número de telefone para um **contacto de Suporte** e um contacto com a **Engenharia.** Esta informação não é mostrada aos clientes. Está disponível para a Microsoft e pode ser fornecido aos parceiros cloud Solution Provider (CSP).
 
-- Contacto de suporte (obrigatório): Para questões de apoio geral.
+- Contacto de apoio (obrigatório): Para questões gerais de apoio.
 - Contacto de engenharia (obrigatório): Para questões técnicas e questões de certificação.
-- Contacto do Programa CSP (opcional): Para questões de revendedorrelacionados com o programa CSP.
+- Contacto do Programa CSP (opcional): Para revendedores questões relacionadas com o programa CSP.
 
-Na secção de contacto de **suporte,** forneça o endereço web do **site de Suporte** onde os parceiros possam encontrar apoio para a sua oferta com base no facto de a oferta estar disponível no Global Azure, Governo Azure, ou ambos.
+Na secção **de contacto de Apoio,** forneça o endereço web do **site de Apoio** onde os parceiros possam encontrar suporte para a sua oferta com base no facto de a oferta estar disponível no Global Azure, Azure Government, ou ambos.
 
-Na secção de contacto do **Programa CSP,** forneça o link (**CSP Program Marketing Materials)** onde os parceiros do CSP podem encontrar materiais de marketing para a sua oferta.
+Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials**) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
 
-#### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem de mercado
+#### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
-Para saber mais sobre a criação de anúncios de oferta, consulte [oferta de listas de boas práticas.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 ### <a name="marketplace-images"></a>Imagens do mercado
 
-Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
+Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
 
 >[!Note]
->Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
+>Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
-#### <a name="store-logos"></a>Logotipos de loja
+#### <a name="store-logos"></a>Logotipos da loja
 
 Forneça ficheiros .png do logótipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
 
 - **Pequeno (48 x 48)**
 - **Médio (90 x 90)**
 - **Grande (216 x 216)**
-- **Ampla (255 x 115)**
+- **Largo (255 x 115)**
 
 Todos os quatro logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
 
@@ -209,73 +209,73 @@ Adicione cinco imagens que mostram como a sua oferta funciona. Cada um deve ter 
 
 #### <a name="videos-optional"></a>Vídeos (opcional)
 
-Adicione cinco vídeos que demonstram a sua oferta. Introduza o nome do vídeo, o seu endereço web e uma imagem miniatura do vídeo a 1280 x 720 pixels de tamanho.
+Adicione até cinco vídeos que demonstram a sua oferta. Insira o nome do vídeo, o seu endereço web e uma imagem miniatura .png do vídeo a 1280 x 720 pixels de tamanho.
 
 #### <a name="offer-examples"></a>Exemplos de oferta
 
-Os seguintes exemplos mostram como os campos de listagem de oferta aparecem em diferentes lugares da oferta.
+Os exemplos a seguir mostram como os campos de listagem de oferta aparecem em diferentes lugares da oferta.
 
-Esta imagem mostra a página **de listagem de oferta** no Azure Marketplace.
+Esta imagem mostra a página **de listagem de Ofertas** no Azure Marketplace.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Ilustra a página de listagem de oferta seleções no Azure Marketplace.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Ilustra a página de listagem de oferta no Azure Marketplace.":::
 
 Esta imagem mostra os resultados da pesquisa no Azure Marketplace:
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-search-results.png" alt-text="Ilustra os resultados da pesquisa no Azure Marketplace.":::
 
-Esta imagem mostra a página **de listagem de oferta** no portal Azure.
+Esta imagem mostra a página **de listagem de Ofertas** no portal Azure.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Ilustra a página de listagem de oferta no portal Azure.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Ilustra a página de listagem de Ofertas no portal Azure.":::
 
 Esta imagem mostra os resultados da pesquisa no portal Azure.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Ilustra a página de listagem de oferta no portal Azure.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Ilustra a página de listagem de Ofertas no portal Azure.":::
 
-Selecione **Guardar rascunho** antes de seguir para a próxima secção, Pré-visualização.
+**Selecione Guardar o rascunho** antes de avançar para a secção seguinte, Pré-visualizar.
 
 ## <a name="preview"></a>Pré-visualizar
 
-No **separador Preview,** pode escolher um Público de **Pré-visualização** limitado para validar a sua oferta antes de publicá-la ao vivo para o público mais amplo do mercado.
+No **separador Pré-visualização,** pode escolher um **Audience de pré-visualização** limitado para validar a sua oferta antes de publicá-la ao vivo para o público mais amplo do mercado.
 
 > [!IMPORTANT]
-> Depois de ver a sua oferta na Preview, tem de selecionar **ir ao vivo** para publicar a sua oferta ao público.
+> Depois de ver a sua oferta em Preview, tem de selecionar **Go live** para publicar a sua oferta ao público.
 
-Especifique o seu público de pré-visualização utilizando GUIDs de assinatura Azure, juntamente com uma descrição opcional para cada um. Nenhum destes campos pode ser visto pelos clientes.
+Especifique o seu público de pré-visualização usando GUIDs de subscrição Azure, juntamente com uma descrição opcional para cada um. Nenhum destes campos pode ser visto pelos clientes.
 
 > [!NOTE]
 > Pode encontrar o seu ID de subscrição Azure na página de Subscrições no portal Azure.
 
-Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou carregando um ficheiro CSV (até 100). Ao adicionar estes IDs de subscrição, define quem pode pré-visualizar a sua oferta antes de ser publicado ao vivo. Se a sua oferta já estiver ao vivo, pode definir um público de pré-visualização para testar alterações ou atualizações da sua oferta.
+Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou carregando um ficheiro CSV (até 100). Ao adicionar estes IDs de subscrição, define quem pode pré-visualizar a sua oferta antes de ser publicada ao vivo. Se a sua oferta já estiver ao vivo, pode definir um público de pré-visualização para testar alterações ou atualizações à sua oferta.
 
 > [!NOTE]
-> O público de pré-visualização difere de um público privado. Um público **pré-visualizado** pode ver e confirmar todos os planos de oferta antes de serem ao vivo no mercado, incluindo aqueles que serão publicados apenas para um público **privado** (definido no separador Disponibilidade).
+> O público de pré-visualização difere de uma audiência privada. Um público **de pré-visualização** pode ver e confirmar todos os planos de oferta antes de serem ao vivo no mercado, incluindo aqueles que serão publicados apenas para um público **privado** (definido no separador Disponibilidade).
 
-Selecione **Guardar rascunho** antes de seguir para a próxima secção, Plana visão geral.
+**Selecione Guardar o rascunho** antes de avançar para a secção seguinte, Planview.
 
 ### <a name="plan-overview"></a>Visão geral do plano
 
-Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Estes planos eram anteriormente referidos como SKUs, ou unidades de armazenamento de stocks. Os planos podem diferir em termos do que as nuvens estão disponíveis, como nuvens globais, nuvens do Governo e a imagem referenciada pelo plano. Para listar a sua oferta no mercado, deve configurar pelo menos um plano.
+Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Estes planos eram anteriormente referidos como SKUs, ou unidades de armazenamento de stocks. Os planos podem diferir em termos de que nuvens estão disponíveis, como nuvens globais, nuvens do Governo e a imagem referenciada pelo plano. Para listar a sua oferta no mercado, tem de definir pelo menos um plano.
 
-Depois de criar os seus planos, o separador de **visão geral** do Plano mostra:
+Depois de criar os seus planos, o separador **De visão geral** do Plano mostra:
 
-- Nomes de planos
+- Nomes do plano
 - Modelo preços
 - Disponibilidade em nuvem (Global ou Governo)
-- Estado editorial atual
+- Estado atual da publicação
 - Quaisquer ações disponíveis
 
-As ações disponíveis na visão geral do Plano variam consoante o estado atual do seu plano. Os relatórios incluem:
+As ações disponíveis no Resumo do Plano variam consoante o estado atual do seu plano. Os relatórios incluem:
 
-- **Eliminar o projeto**: Se o estado do plano for um Projeto.
-- **Stop sell plan**: Se o estado do plano for publicado ao vivo.
+- **Eliminar rascunho**: Se o estado do plano for um Projeto.
+- **Plano de venda**: Se o estado do plano for publicado em direto.
 
 #### <a name="create-new-plan"></a>Criar novo plano
 
-Selecione **Criar um novo plano**. A caixa de diálogo **do novo plano** aparece.
+**Selecione Criar novo plano.** Aparece a caixa de diálogo do **novo plano.**
 
-Na caixa de ID do **Plano,** crie um plano único de ID para cada plano nesta oferta. Este ID será visível para os clientes no endereço web do produto. Utilize apenas letras minúsculas e números, traços ou sublinhados, e um máximo de 50 caracteres.
+Na caixa **de Identificação** do Plano, crie um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no endereço web do produto. Utilize apenas letras e números minúsculos, traços ou sublinhados, e um máximo de 50 caracteres.
 
-Na caixa de **nome** sinuosa, insira um nome para este plano. Os clientes vêem este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único para cada plano nesta oferta. Por exemplo, pode utilizar um nome de oferta do **Windows Server** com planos Windows **Server 2016** e **Windows Server 2019**.
+Na caixa de nomes do **Plano,** insira um nome para este plano. Os clientes vêem este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único para cada plano nesta oferta. Por exemplo, pode utilizar um nome de oferta do **Windows Server** com os planos Windows **Server 2016** e **Windows Server 2019**.
 
 > [!NOTE]
 > O ID do plano não pode ser alterado depois de selecionar **Criar**.
@@ -284,32 +284,30 @@ Selecione **Criar**.
 
 ### <a name="plan-setup"></a>Configuração do plano
 
-Este separador permite configurar em que nuvens o plano está disponível. As suas respostas neste separador afetam os campos apresentados noutros separadores.
+Este separador permite-lhe configurar quais as nuvens em que o plano está disponível. As suas respostas neste separador afetam quais os campos apresentados em outros separadores.
 
-#### <a name="cloud-availability"></a>Disponibilidade de nuvem
+#### <a name="cloud-availability"></a>Disponibilidade em nuvem
 
-O seu plano deve estar disponível em pelo menos uma nuvem usando o Hub Azure IoT.
+Todos os planos para ofertas de módulos IoT Edge são automaticamente disponibilizados no **Azure Global.**  O seu plano pode ser usado por clientes em todas as regiões globais do Azure que utilizam o mercado. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 
-Selecione a opção **Azure Global** para que o seu plano possa ser usado por clientes em todas as regiões globais do Azure que usam o mercado. Para mais detalhes, consulte disponibilidade [geográfica e suporte cambial.](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
-
-Selecione a opção [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) para fazer a sua solução aparecer aqui. Esta é uma nuvem da comunidade governamental com acesso controlado para clientes de agências governamentais federais, estaduais e locais ou tribais dos EUA, bem como parceiros elegíveis para servi-los. Como editora, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA). Antes de [publicar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) ao Governo Azure, teste e confirme a sua solução dentro dessa área, uma vez que os resultados podem ser diferentes. Para encenar e testar a sua solução, solicite uma conta de teste do [julgamento do Governo microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selecione a opção [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) para fazer a sua solução aparecer aqui. Esta é uma nuvem governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais, bem como parceiros elegíveis para servi-los. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA). Antes [de publicar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) no Governo Azure, teste e confirme a sua solução nessa área, uma vez que os resultados podem ser diferentes. Para encenar e testar a sua solução, solicite uma conta de teste do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Depois de o seu plano ser publicado e disponível numa nuvem específica, não pode remover essa nuvem.
 
 #### <a name="azure-government-cloud-certifications"></a>Certificações Azure Government Cloud
 
-Esta opção só é visível se **a Nuvem governamental Azure** for selecionada sob **disponibilidade**cloud .
+Esta opção só é visível se **a Nuvem do Governo Azure** for selecionada sob a disponibilidade da **Cloud.**
 
-Os serviços do Governo Azure tratam de dados que estão sujeitos a certos regulamentos e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para sensibilizar as suas certificações para estes programas, pode fornecer até 100 links que descrevem as suas certificações. Estes podem ser links para as suas listas no programa diretamente ou para o seu próprio site. Estas ligações são visíveis apenas para os clientes do Governo Azure.
+Os serviços do Governo Azure tratam dados que estão sujeitos a certos regulamentos e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para consciencializar as suas certificações para estes programas, pode fornecer até 100 links que descrevem as suas certificações. Estes podem ser links para as suas listas no programa diretamente ou para o seu próprio site. Estas ligações são visíveis apenas para clientes do Governo Azure.
 
 ## <a name="plan-listing"></a>Listagem de planos
 
-Este separador exibe informações específicas para cada plano diferente dentro da mesma oferta.
+Este separador apresenta informações específicas para cada plano diferente dentro da mesma oferta.
 
 ### <a name="plan-name"></a>Nome do plano
 
-Isto está preenchido com o nome que deu ao seu plano quando o criou. Pode mudar este nome, se necessário. Pode ter até 50 caracteres de comprimento. Este nome aparece como o título deste plano no portal Azure Marketplace e Azure. É usado como o nome padrão do módulo depois do plano estar pronto para ser usado.
+Isto está pré-preenchido com o nome que deu ao seu plano quando o criou. Pode mudar este nome, se necessário. Pode ter até 50 caracteres de comprimento. Este nome aparece como o título deste plano no Azure Marketplace e no portal Azure. É usado como o nome do módulo predefinido depois do plano estar pronto para ser usado.
 
 ### <a name="plan-summary"></a>Resumo do plano
 
@@ -317,17 +315,17 @@ Forneça um breve resumo do seu plano (não a oferta). Este resumo aparece nos r
 
 ### <a name="plan-description"></a>Descrição do plano
 
-Descreva o que torna este plano único, bem como diferenças entre planos dentro da sua oferta. Não descreva a oferta, só o plano. Esta descrição aparecerá no Azure Marketplace e no portal Azure na página de listagem de oferta. Pode ser o mesmo conteúdo que forneceu no resumo do plano e conter até 2.000 caracteres.
+Descreva o que torna este plano único, bem como diferenças entre planos dentro da sua oferta. Não descreva a oferta, só o plano. Esta descrição aparecerá no Azure Marketplace e no portal Azure na página de listagem da Oferta. Pode ser o mesmo conteúdo que forneceu no resumo do plano e conter até 2.000 caracteres.
 
-Selecione **guardar rascunho** depois de completar estes campos.
+**Selecione Guardar o projeto** depois de completar estes campos.
 
-#### <a name="plan-examples"></a>Exemplos de planos
+#### <a name="plan-examples"></a>Exemplos do plano
 
-Os exemplos seguintes mostram como os campos de listagem do plano aparecem em diferentes pontos de vista.
+Os exemplos a seguir mostram como os campos de listagem do plano aparecem em diferentes pontos de vista.
 
-Estes são os campos do Mercado Azure ao visualizar detalhes do plano:
+Estes são os campos no Azure Marketplace ao visualizar detalhes do plano:
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Ilustra os campos que vê ao ver os detalhes do plano no Azure Marketplace.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Ilustra os campos que vê ao ver detalhes do plano no Azure Marketplace.":::
 
 Estes são detalhes do plano no portal Azure:
 
@@ -335,104 +333,104 @@ Estes são detalhes do plano no portal Azure:
 
 ## <a name="availability"></a>Disponibilidade
 
-Se quiser esconder a sua oferta publicada para que os clientes não possam pesquisar, navegar ou comprá-la no mercado, selecione a caixa de verificação do **plano Ocultar** no separador Disponibilidade.
+Se quiser ocultar a sua oferta publicada para que os clientes não possam pesquisar, navegar ou comprar no mercado, selecione a caixa de verificação do **plano Oculta** no separador Disponibilidade.
 
 Este campo é comumente usado quando:
 
-- A oferta destina-se a ser utilizada apenas indiretamente quando referenciada por outro pedido.
+- A oferta destina-se a ser utilizada apenas indiretamente quando referenciada por outra aplicação.
 - A oferta não deve ser comprada individualmente.
 - O plano foi utilizado para os testes iniciais e já não é relevante.
-- O plano foi utilizado para ofertas temporárias ou sazonais e não deve mais ser oferecido.
+- O plano foi utilizado para ofertas temporárias ou sazonais e não deve ser mais oferecido.
 
 ## <a name="technical-configuration"></a>Configuração técnica
 
-O tipo de oferta do **módulo IoT Edge** é um tipo específico de recipiente que funciona num dispositivo IoT Edge. No separador **De Configuração Técnica,** irá fornecer informações de referência para o seu repositório de imagem de contentor estoirar dentro do Registo de [Contentores Azure,](https://azure.microsoft.com/services/container-registry/)juntamente com as definições de configuração que permitem aos clientes utilizar o módulo facilmente.
+O tipo de oferta **de módulo IoT Edge** é um tipo específico de recipiente que funciona num dispositivo IoT Edge. No separador **Configuração Técnica,** irá fornecer informações de referência para o repositório de imagem do seu recipiente no interior do [Registo do Contentor Azure](https://azure.microsoft.com/services/container-registry/), juntamente com as definições de configuração que permitem aos clientes utilizar o módulo facilmente.
 
-Após a publicação da oferta, a sua imagem de recipiente IoT Edge é copiada para o Azure Marketplace num registo específico de contentores públicos. Todos os pedidos dos utilizadores do Azure para utilizar o seu módulo são servidos a partir do registo de contentores públicos do Azure Marketplace, e não do seu registo de contentores privados.
+Após a publicação da oferta, a sua imagem de contentor IoT Edge é copiada para o Azure Marketplace num registo específico de contentores públicos. Todos os pedidos dos utilizadores da Azure para utilizar o seu módulo são servidos a partir do registo público de contentores Azure Marketplace, e não do seu registo privado de contentores.
 
-Pode direcionar várias plataformas e fornecer várias versões da imagem do seu módulo usando tags. Para saber mais sobre tags e versões, consulte Prepare os seus ativos técnicos do [módulo IoT Edge.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset)
+Pode direcionar várias plataformas e fornecer várias versões da imagem do seu módulo com etiquetas. Para saber mais sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
 
 ### <a name="image-repository-details"></a>Detalhes do repositório de imagem
 
-Fornecerá as seguintes informações sobre o separador de dados do **repositório image.**
+Irá fornecer as seguintes informações no separador detalhes do **repositório de imagem.**
 
-**Selecione a fonte de imagem**: Selecione a opção registo de **contentores Azure.**
+**Selecione a fonte de imagem**: Selecione a opção registo do contentor **Azure.**
 
-**ID de subscrição Azure**: Forneça o ID de subscrição onde o uso de recursos é reportado e os serviços são faturados para o Registo de Contentores Azure que inclui a sua imagem de contentor. Pode encontrar este ID na [página de Subscrições](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal Azure.
+**ID de assinatura Azure**: Forneça o ID de subscrição onde o uso do recurso é reportado e os serviços são faturados para o Registo do Contentor Azure que inclui a sua imagem de recipiente. Pode encontrar este ID na [página de Subscrições](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal Azure.
 
-Nome do grupo de **recursos Azure**: Forneça o nome do grupo de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) que contém o Registo de Contentores Azure com a sua imagem de contentor. O grupo de recursos deve estar acessível no ID de subscrição (acima). Pode encontrar o nome na página dos [grupos de Recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal Azure.
+**Nome do grupo de recursos Azure**: Forneça o nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) que contém o Registo do Contentor Azure com a sua imagem de recipiente. O grupo de recursos deve estar acessível no ID de assinatura (acima). Pode encontrar o nome na página [dos grupos de Recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal Azure.
 
-Nome do registo do **contentor azure**: Forneça o nome do Registo de [Contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro) que tenha a sua imagem de contentor. O registo de contentores deve estar presente no grupo de recursos Azure que forneceu anteriormente. Forneça apenas o nome do registo, não o nome completo do servidor de login. Certifique-se de omitir **azurecr.io** do nome. Pode encontrar o nome do registo na [página de Registos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) de Contentores no portal Azure.
+**Nome do registo do contentor Azure**: Forneça o nome do Registo do [Contentor Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro) que tem a sua imagem de recipiente. O registo do contentor deve estar presente no grupo de recursos Azure que forneceu anteriormente. Forneça apenas o nome do registo, não o nome completo do servidor de login. Certifique-se de omitir **azurecr.io** do nome. Pode encontrar o nome do registo na [página de Registos de Contentores](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal Azure.
 
-Nome de utilizador administrativo para o Registo de **Contentores Azure**: Forneça o nome de utilizador do [administrador](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associado ao Registo de Contentores Azure que tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a palavra-passe do administrador, delineie a propriedade **ativada pela administração** para **True** utilizando a Interface de Linha de Comando Azure (CLI). Pode configurar opcionalmente **o utilizador da Admin** para **ativar** no portal Azure.
+**Nome de utilizador Admin para o Registo do Contentor Azure**: Forneça o nome de utilizador de [administração](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Ilustra a caixa de diálogo de registo de recipientes Update.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
 
-**Palavra-passe para o Registo de Contentores Azure**: Forneça a palavra-passe para o nome de utilizador do administrador que está associado ao Registo de Contentores Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para As Teclas de Acesso ao Registo de **Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+**Palavra-passe para o Registo do Contentor Azure**: Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Ilustra o ecrã chave de acesso no portal Azure.":::
+:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Ilustra o ecrã da chave de acesso no portal Azure.":::
 
-**Nome do repositório no registo do contentor azure**. Forneça o nome do repositório do Registo de Contentores Azure que tem a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios**do Registo de Contentores . Para mais informações, consulte [os repositórios](https://docs.microsoft.com/azure/container-registry/container-registry-repositories)de registo de contentores no portal Azure . Note que depois do nome estar definido, não pode ser alterado. Use um nome único para cada oferta na sua conta.
+**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](https://docs.microsoft.com/azure/container-registry/container-registry-repositories) Note que depois do nome estar definido, não pode ser alterado. Use um nome único para cada oferta na sua conta.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Etiquetas de imagem para novas versões da sua oferta
 
-Os clientes devem poder receber automaticamente atualizações do Mercado Azure quando publicar uma atualização. Se não quiserem atualizar, devem poder ficar numa versão específica da sua imagem. Pode fazê-lo adicionando novas etiquetas de imagem cada vez que faz uma atualização à imagem.
+Os clientes devem poder obter automaticamente atualizações do Mercado Azure quando publicar uma atualização. Se não quiserem atualizar, devem poder manter-se numa versão específica da sua imagem. Pode fazê-lo adicionando novas etiquetas de imagem sempre que fizer uma atualização à imagem.
 
-**Etiqueta de imagem.** Este campo deve incluir uma etiqueta **mais recente** que aponte para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando pelo xx.xx.xx.xx, onde xx é um número). Os clientes devem usar [etiquetas de manifesto](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta de manifesto também devem ser adicionadas para que possamos carregá-las. Todas as etiquetas de manifesto (exceto a etiqueta mais recente) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta mais recente aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis tags precisam de ser adicionadas a este campo. Para mais detalhes sobre tags e versão, consulte Prepare os seus ativos técnicos do [módulo IoT Edge.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
+**Etiqueta de imagem**. Este campo deve incluir uma **etiqueta mais recente** que aponta para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando com xx.xx.xx, onde xx é um número). Os clientes devem usar [tags manifestas](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta manifesto também devem ser adicionadas para que possamos carregá-las. Todas as tags manifesto (exceto a última etiqueta) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta mais recente aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis etiquetas precisam de ser adicionadas a este campo. Para obter mais detalhes sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
 
-### <a name="default-deployment-settings-optional"></a>Definições de implementação predefinidas (opcional)
+### <a name="default-deployment-settings-optional"></a>Definições de implementação predefinidos (opcional)
 
-Defina as definições mais comuns para implementar o módulo IoT Edge. Otimize as implementações do cliente, permitindo-lhes lançar o módulo IoT Edge fora da caixa com estas definições predefinidas.
+Defina as definições mais comuns para implantar o seu módulo IoT Edge. Otimize as implementações do cliente, permitindo-lhes lançar o seu módulo IoT Edge fora da caixa com estas definições padrão.
 
-**Rotas predefinidas**. O IoT Edge Hub gere a comunicação entre módulos, o Hub IoT e dispositivos. Pode definir rotas para a entrada e saída de dados entre os módulos e o IoT Hub, o que lhe dá a flexibilidade para enviar mensagens para onde precisam de ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional. As rotas são construídas com recurso a pares de nome/valor. Pode definir até cinco nomes de rota padrão, cada um com até 512 caracteres de comprimento.
+**Rotas predefinidos**. O IoT Edge Hub gere a comunicação entre módulos, o Hub IoT e dispositivos. Pode definir rotas para a entrada e saída de dados entre os módulos e o IoT Hub, o que lhe dá a flexibilidade para enviar mensagens onde precisam de ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional. As rotas são construídas com par de nome/valor. Pode definir até cinco nomes de rota padrão, cada um com até 512 caracteres de comprimento.
 
-Certifique-se de que utiliza a [sintaxe](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) de rota correta no valor da rota (normalmente definida como FROM/message/* INTO $upstream). Isto significa que quaisquer mensagens enviadas por quaisquer módulos vão para o seu Hub IoT. Para se referir ao seu módulo, utilize o seu nome de módulo predefinido, que será o seu **Nome de Oferta,** sem espaços ou caracteres especiais. Para se referir a outros módulos que ainda não são conhecidos, utilize a convenção <FROM_MODULE_NAME> para informar os seus clientes de que precisam de atualizar esta informação. Para mais detalhes sobre as rotas IoT Edge, consulte [rotas de declaração.](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
+Certifique-se de que utiliza a [sintaxe](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) de rota correta no valor da sua rota (normalmente definida como FROM/message/* INTO $upstream). Isto significa que quaisquer mensagens enviadas por quaisquer módulos vão para o seu Hub IoT. Para se referir ao seu módulo, utilize o seu nome de módulo predefinido, que será o seu **Nome de Oferta,** sem espaços ou caracteres especiais. Para se referir a outros módulos que ainda não são conhecidos, utilize a convenção <FROM_MODULE_NAME> para informar os seus clientes de que precisam de atualizar esta informação. Para mais informações sobre as rotas IoT Edge, consulte [as rotas de Declarar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
 
-Por exemplo, se o módulo ContosoModule ouvir as inputs em ContosoInput e dados de saída na ContosoOutput, faz sentido definir as duas seguintes rotas predefinidas:
+Por exemplo, se o módulo ContosoModule ouve as entradas nos contosoInput e os dados de saída no ContosoOutput, faz sentido definir as seguintes duas rotas predefinidos:
 
-- Nome #1: ToContosoModule
-- Valor #1: FROM/messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint ("/módulos/ContosoModule/inputs/ContosoInputs")
-- Nome #2: FromContosoModuleToCloud
+- #1 nome: ToContosoModule
+- Valor #1: FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint ("/modules/ContosoModule/inputs/ContosoInput")
+- #2 nome: FromContosoModuleToCloud
 - Valor #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Propriedades desejadas**por módulo padrão. Um módulo twin é um documento JSON no IoT Hub que armazena a informação do estado para uma instância de módulo, incluindo propriedades desejadas. As propriedades desejadas são usadas juntamente com propriedades reportadas para sincronizar a configuração ou condições do módulo. O backend da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alteração nas propriedades desejadas. As propriedades desejadas são criadas usando até cinco pares de nome/valor e cada valor padrão deve ser inferior a 512 caracteres. Pode definir até cinco nomes/propriedades gémeas de valor. Os valores das propriedades gémeas desejadas devem ser válidos JSON, não escapados, sem matrizes com uma hierarquia aninhada máxima de quatro níveis. Num cenário em que um parâmetro necessário para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor predefinido. Para saber mais sobre as propriedades gémeas desejadas, consulte [Definir ou atualizar as propriedades desejadas](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+**Propriedades desejadas por módulos predefinidos**twin . Um módulo twin é um documento JSON no IoT Hub que armazena a informação do estado para uma instância de módulo, incluindo propriedades desejadas. As propriedades desejadas são utilizadas juntamente com propriedades reportadas para sincronizar a configuração ou condições do módulo. O backend da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alteração nas propriedades desejadas. As propriedades desejadas são criadas utilizando até cinco pares de nome/valor e cada valor predefinido deve ser inferior a 512 caracteres. Pode definir até cinco propriedades desejadas por gémeos de nome/valor. Os valores das propriedades duplas desejadas devem ser válidos JSON, não escapados, sem matrizes com uma hierarquia aninhada máxima de quatro níveis. Num cenário em que um parâmetro exigido para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão. Para saber mais sobre as propriedades duplas desejadas, consulte [Definir ou atualizar as propriedades desejadas.](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)
 
-Por exemplo, se um módulo suporta uma taxa de atualização dinamicamente configurável utilizando propriedades duplas desejadas, faz sentido definir a seguinte propriedade padrão twin desejada:
+Por exemplo, se um módulo suporta uma taxa de atualização dinâmicamente configurável usando propriedades duplas desejadas, faz sentido definir a seguinte propriedade padrão dupla desejada:
 
-- Nome #1: RefreshRate
+- #1 nome: RefreshRate
 - Valor #1: 60
 
-**Variáveis ambientais padrão**. As variáveis ambientais fornecem informações suplementares a um módulo que está a ajudar no processo de configuração. As variáveis ambientais são criadas usando pares de nome/valor. Cada nome e valor variáveis do ambiente padrão devem ser inferiores a 512 caracteres, e pode definir até cinco. Quando um parâmetro necessário para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor predefinido.
+**Variáveis ambientais padrão**. As variáveis ambientais fornecem informações suplementares a um módulo que está a ajudar no processo de configuração. As variáveis ambientais são criadas usando pares de nome/valor. Cada nome e valor variáveis de ambiente predefinidos deve ser inferior a 512 caracteres, e pode definir até cinco. Quando um parâmetro necessário para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão.
 
 Por exemplo, se um módulo necessitar de aceitar termos de utilização antes de ser iniciado, pode definir a seguinte variável ambiental:
 
-- Nome #1: ACCEPT_EULA
-- valor #1: Y
+- #1 nome: ACCEPT_EULA
+- Valor #1: Y
 
-**O recipiente predefinido cria opções.** As opções de criação de contentores direcionam a criação do recipiente Domódulo IoT Edge Docker. IoT Edge suporta opções de recipiente saqueta do motor API Create Container. Consulte todas as opções nos [contentores da Lista.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) O campo de opções de criação deve ser válido JSON, não escapado, e menos de 512 caracteres.
+**O recipiente predefinido cria opções**. As opções de criação de contentores direcionam a criação do módulo Estivador do módulo IoT Edge. IoT Edge suporta opções de conjunto de chaves do motor Docker API. Consulte todas as opções nos [recipientes list.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) O campo de opções de criação deve ser válido JSON, não escapado, e menos de 512 caracteres.
 
-Por exemplo, se um módulo necessitar de encadernação de portas, defina as seguintes opções de criação:
+Por exemplo, se um módulo necessitar de encadernação de porta, defina as seguintes opções de criação:
 
-"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}}}}}
+"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}}}
 
 ## <a name="review-and-publish"></a>Rever e publicar
 
-Depois de ter completado todas as secções necessárias da oferta, pode submetê-la para rever e publicar.
+Depois de ter concluído todas as secções necessárias da oferta, pode submetê-la para revisão e publicação.
 
-No canto superior direito do portal, selecione **Rever e publique**.
+No canto superior direito do portal, selecione **'Rever e publicar**.
 
-Na página de revisão pode ver o estado da publicação:
+Na página de comentários pode ver o estado da publicação:
 
 - Consulte o estado de conclusão de cada secção da oferta. Não pode publicar até que todas as secções da oferta estejam marcadas como completas.
     - **Não começou** - A secção ainda não foi iniciada e precisa de ser concluída.
-    - **Incompleto** - A secção tem erros que precisam de ser corrigidos ou exigem que forneça mais informações. Consulte as secções anteriores neste documento para obter orientação.
+    - **Incompleto** - A secção tem erros que precisam de ser corrigidos ou requer que forneça mais informações. Consulte as secções anteriormente neste documento para obter orientação.
     - **Completo** - A secção tem todos os dados necessários e não há erros. Todas as secções da oferta devem estar completas antes de poder submeter a oferta.
 - Forneça instruções de teste à equipa de certificação para garantir que a sua oferta é testada corretamente. Além disso, forneça quaisquer notas suplementares que sejam úteis para entender a sua oferta.
 
-Para submeter a oferta para publicação, selecione **Publicar**.
+Para submeter a oferta de publicação, **selecione Publicar**.
 
-Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta está disponível para rever e aprovar. Para publicar a sua oferta ao público (ou se uma oferta privada, para um público privado), vá ao Partner Center e selecione **Go-live**.
+Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público (ou se uma oferta privada, para um público privado), vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)

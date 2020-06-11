@@ -4,7 +4,6 @@ description: Este artigo explica como criar uma instância de cluster de failove
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 55ad535c965ae910b26900c2c555e21378ba49d9
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 0333088c1b373fcf41fdab3eb4b4a9ec2c2d8eb5
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656752"
+ms.locfileid: "84669057"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server em Máquinas virtuais Azure
 

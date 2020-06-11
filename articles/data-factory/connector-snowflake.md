@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: fd067a0a0e99291dd4cea924a15c1157bc3b9f9f
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 74e2c452d229373d271225dcbb28359b6af1524d
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84425503"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670502"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para Snowflake utilizando a Azure Data Factory
 
@@ -48,9 +48,9 @@ As seguintes propriedades são suportadas para um serviço ligado a Snowflake:
 
 | Propriedade         | Descrição                                                  | Necessário |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Yes      |
-| conexãoStragem | Configure o [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (incluindo segmentos adicionais que identificam a região e plataforma em nuvem), nome de utilizador, senha, base de dados e armazém. Especifique a cadeia de ligação JDBC para ligar à instância snowflake. Também pode colocar senha no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Yes      |
-| connectVia       | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No       |
+| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Sim      |
+| conexãoStragem | Configure o [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (incluindo segmentos adicionais que identificam a região e plataforma em nuvem), nome de utilizador, senha, base de dados e armazém. Especifique a cadeia de ligação JDBC para ligar à instância snowflake. Também pode colocar senha no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim      |
+| connectVia       | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não       |
 
 **Exemplo:**
 
@@ -104,7 +104,7 @@ As seguintes propriedades são suportadas para conjunto de dados de Floco de Nev
 
 | Propriedade  | Descrição                                                  | Necessário                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Yes                         |
+| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Sim                         |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
 | table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 
@@ -143,13 +143,13 @@ Para copiar dados de Snowflake, as seguintes propriedades são suportadas na sec
 
 | Propriedade                     | Descrição                                                  | Necessário |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| tipo                         | A propriedade tipo da fonte de Atividade de Cópia deve ser definida como **SnowflakeSource**. | Yes      |
-| consulta          | Especifica a consulta SQL para ler dados de Snowflake. | No       |
-| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a ADF passará quando invocar a declaração. | No       |
+| tipo                         | A propriedade tipo da fonte de Atividade de Cópia deve ser definida como **SnowflakeSource**. | Sim      |
+| consulta          | Especifica a consulta SQL para ler dados de Snowflake.<br>A execução do procedimento armazenado não é suportada. | Não       |
+| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a ADF passará quando invocar a declaração. | Não       |
 | ***Em `exportSettings` :*** |  |  |
-| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Yes |
-| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Saiba mais sobre as opções de [cópia snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions) | No |
-| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Saiba mais a partir de opções do [tipo de formato snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions) | No |
+| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Sim |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Saiba mais sobre as opções de [cópia snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions) | Não |
+| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Saiba mais a partir de opções do [tipo de formato snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions) | Não |
 
 #### <a name="direct-copy-from-snowflake"></a>Cópia direta de Snowflake
 
@@ -271,13 +271,13 @@ Para copiar dados para Snowflake, as seguintes propriedades são suportadas na s
 
 | Propriedade          | Descrição                                                  | Necessário                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| tipo              | A propriedade do tipo do lavatório Copy Activity deve ser definida como **SnowflakeSink**. | Yes                                           |
-| preCopyScript     | Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | No                                            |
+| tipo              | A propriedade do tipo do lavatório Copy Activity deve ser definida como **SnowflakeSink**. | Sim                                           |
+| preCopyScript     | Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
 | importaçõesS | *Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a ADF passará quando invocar a declaração.* | *Não* |
 | ***Em `importSettings` :*** |                                                              |  |
-| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Yes |
-| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Saiba mais sobre as opções de [cópia snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions) | No |
-| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Saiba mais a partir de opções do [tipo de formato snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions) | No |
+| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Sim |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Saiba mais sobre as opções de [cópia snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions) | Não |
+| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Saiba mais a partir de opções do [tipo de formato snowflake.](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions) | Não |
 
 #### <a name="direct-copy-to-snowflake"></a>Cópia direta para Snowflake
 
@@ -396,6 +396,6 @@ Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storag
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma lista de lojas de dados suportadas como fontes e sumidouros pela Copy Activity na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

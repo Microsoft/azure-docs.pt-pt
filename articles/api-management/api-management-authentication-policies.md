@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 70f124a498ff4aa45b5d90f6221fe3d0121e804a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c9cf77971038a3d7d160180b93594736d3ca6200
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221034"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674232"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
@@ -50,14 +50,14 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 |Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|autenticação-básico|Elemento de raiz.|Yes|
+|autenticação-básico|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|o nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Yes|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial Básica.|Yes|N/D|
+|o nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Sim|N/D|
+|palavra-passe|Especifica a palavra-passe da credencial Básica.|Sim|N/D|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
@@ -77,27 +77,38 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="examples"></a>Exemplos
 
-Neste exemplo, o certificado de cliente é identificado pela sua impressão digital.
+Neste exemplo, o certificado de cliente é identificado pela sua impressão digital:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-Neste exemplo, o certificado de cliente é identificado pelo nome de recurso.
+
+Neste exemplo, o certificado de cliente é identificado pelo nome de recurso:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+Neste exemplo, o certificado de cliente é definido na apólice em vez de ser recuperado da loja de certificados incorporado:
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>Elementos  
   
 |Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|certificado de autenticação|Elemento de raiz.|Yes|  
+|certificado de autenticação|Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|  
-|certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|  
+|impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
+|certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
+|body|Certificado de cliente como um byte array.|Não|N/D|
+|palavra-passe|Senha para o certificado do cliente.|Usado se o certificado especificado é `body` protegido por palavra-passe.|N/D|
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)  
@@ -163,15 +174,15 @@ Neste exemplo, o certificado de cliente é identificado pelo nome de recurso.
   
 |Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|identidade gerida por autenticação |Elemento de raiz.|Yes|  
+|identidade gerida por autenticação |Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Yes|N/D|  
-|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |No|N/D|  
-|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|No|false|  
+|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Sim|N/D|  
+|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |Não|N/D|  
+|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|Não|false|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)  
@@ -180,7 +191,7 @@ Neste exemplo, o certificado de cliente é identificado pelo nome de recurso.
   
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre as políticas, consulte:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)

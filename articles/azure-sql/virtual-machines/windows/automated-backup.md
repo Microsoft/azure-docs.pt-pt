@@ -4,7 +4,6 @@ description: Este artigo explica a funcionalidade de Backup Automatizada para SQ
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 13cafdcd7ac4b7f46bd5f7c3b007372228234ba6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 08ede149c24d8ba4921c0e0b75f5e6eff3f2250f
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267805"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669414"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -324,7 +323,7 @@ Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorpo
 1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verifique se a porta SMTP é permitida tanto através da firewall VM local como do grupo de segurança da rede para o VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Cópia de segurança automatizada v2 configuras Cópias de Segurança Geridas em VMs Azure. Por isso, é importante [rever a documentação para o Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e as implicações.
 
 Pode encontrar cópias de segurança adicionais e restaurar a orientação para o SQL Server em VMs Azure no seguinte artigo: [Cópia de segurança e restauro para o SQL Server em máquinas virtuais Azure](backup-restore.md).

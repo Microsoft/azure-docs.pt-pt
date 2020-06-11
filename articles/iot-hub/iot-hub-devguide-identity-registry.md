@@ -1,6 +1,6 @@
 ---
-title: Compreender o registo de identidade do Azure IoT Hub [ Registo de identidade Do Hub Azure IoT] Microsoft Docs
-description: Guia de desenvolvimento - descrição do registo de identidade IoT Hub e como usá-lo para gerir os seus dispositivos. Inclui informações sobre a importação e exportação de identidades de dispositivos a granel.
+title: Compreenda o registo de identidade do Azure IoT Hub ! Microsoft Docs
+description: Guia do desenvolvedor - descrição do registo de identidade do IoT Hub e como usá-lo para gerir os seus dispositivos. Inclui informações sobre a importação e exportação de identidades de dispositivos a granel.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,118 +11,118 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730182"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674959"
 ---
-# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu centro ioT
+# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
 
-Cada hub IoT tem um registo de identidade que armazena informações sobre os dispositivos e módulos autorizados a ligar-se ao hub IoT. Antes que um dispositivo ou módulo possa ligar-se a um hub IoT, deve haver uma entrada para esse dispositivo ou módulo no registo de identidade do centro IoT. Um dispositivo ou módulo também deve autenticar com o hub IoT com base em credenciais armazenadas no registo de identidade.
+Cada hub IoT tem um registo de identidade que armazena informações sobre os dispositivos e módulos autorizados a ligar ao hub IoT. Antes de um dispositivo ou módulo poder ligar-se a um hub IoT, deve haver uma entrada para esse dispositivo ou módulo no registo de identidade do hub IoT. Um dispositivo ou módulo também deve autenticar com o hub IoT com base em credenciais armazenadas no registo de identidade.
 
-O dispositivo ou o iD do módulo armazenado no registo de identidade é sensível a casos.
+O dispositivo ou iD do módulo armazenado no registo de identidade é sensível a casos.
 
-A um nível elevado, o registo de identidade é uma coleção capaz de REST de dispositivos ou recursos de identidade de módulos. Ao adicionar uma entrada no registo de identidade, o IoT Hub cria um conjunto de recursos por dispositivo, como a fila que contém mensagens cloud-to-device a bordo.
+A um nível elevado, o registo de identidade é uma coleção de recursos de identidade de dispositivo ou módulos capazes de REST. Quando adiciona uma entrada no registo de identidade, o IoT Hub cria um conjunto de recursos por dispositivo, tais como a fila que contém mensagens nuvem-a-dispositivo a bordo.
 
-Utilize o registo de identidade quando for necessário:
+Utilize o registo de identidade quando precisar:
 
-* Dispositivos de fornecimento ou módulos que se ligam ao seu hub IoT.
-* Controle o acesso por dispositivo/módulo ao dispositivo do seu hub ou aos pontos finais virados para o módulo.
+* Dispositivos ou módulos de fornecimento que se ligam ao seu hub IoT.
+* Controle o acesso por dispositivo/módulo ao dispositivo do seu hub ou pontos finais virados para o módulo.
 
 > [!NOTE]
-> * O registo de identidade não contém metadados específicos da aplicação.
-> * A identidade do módulo e o módulo twin estão em pré-visualização pública. Abaixo a funcionalidade será suportada na identidade do módulo quando estiver disponível em geral.
+> * O registo de identidade não contém nenhum metadados específicos da aplicação.
+> * A identidade do módulo e o módulo gémeo estão em pré-visualização pública. Abaixo a funcionalidade será suportada na identidade do módulo quando estiver disponível em geral.
 >
 
 ## <a name="identity-registry-operations"></a>Operações de registo de identidade
 
-O registo de identidade do IoT Hub expõe as seguintes operações:
+O registo de identidade IoT Hub expõe as seguintes operações:
 
 * Criar identidade de dispositivo ou módulo
-* Atualizar dispositivo ou identidade de módulo
-* Recuperar identidade de dispositivo ou módulo por ID
+* Atualizar identidade de dispositivo ou módulo
+* Recuperar identidade do dispositivo ou módulo por ID
 * Eliminar identidade de dispositivo ou módulo
-* Lista até 1000 identidades
-* Identidades de dispositivos de exportação para armazenamento de blob Azure
-* Identidades de dispositivos de importação do armazenamento de blob Azure
+* Listar até 1000 identidades
+* Identidades do dispositivo de exportação para o armazenamento de bolhas Azure
+* Identidades do dispositivo de importação do armazenamento de bolhas Azure
 
-Todas estas operações podem utilizar uma moeda otimista, conforme especificado no [RFC7232](https://tools.ietf.org/html/rfc7232).
+Todas estas operações podem utilizar a concordância otimista, conforme especificado no [RFC7232](https://tools.ietf.org/html/rfc7232).
 
 > [!IMPORTANT]
-> A única maneira de recuperar todas as identidades no registo de identidade de um centro ioT é usar a funcionalidade [Export.](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)
+> A única maneira de recuperar todas as identidades no registo de identidade de um hub IoT é usar a funcionalidade [Exportação.](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)
 
-Um registo de identidade do IoT Hub:
+Um registo de identidade IoT Hub:
 
-* Não contém metadados de aplicação.
+* Não contém nenhum metadados de aplicação.
 * Pode ser acedido como um dicionário, utilizando o **dispositivoId** ou **móduloId** como chave.
 * Não suporta consultas expressivas.
 
-Uma solução IoT normalmente tem uma loja separada específica de solução que contém metadados específicos da aplicação. Por exemplo, a loja específica da solução numa solução de construção inteligente registaria a sala em que é implantado um sensor de temperatura.
+Uma solução IoT normalmente tem uma loja específica de solução separada que contém metadados específicos da aplicação. Por exemplo, a loja específica para a solução numa solução de construção inteligente registaria a sala onde um sensor de temperatura é implantado.
 
 > [!IMPORTANT]
-> Utilize apenas o registo de identidade para operações de gestão e provisionamento de dispositivos. As operações de alta suficiência em tempo de execução não devem depender da realização de operações no registo de identidade. Por exemplo, verificar o estado de ligação de um dispositivo antes de enviar um comando não é um padrão suportado. Certifique-se de verificar as taxas de [estrangulamento](iot-hub-devguide-quotas-throttling.md) para o registo de identidade e o padrão de batimentocardíaco do [dispositivo.](iot-hub-devguide-identity-registry.md#device-heartbeat)
+> Utilize apenas o registo de identidade para operações de gestão e provisionamento de dispositivos. As operações de elevado rendimento no tempo de execução não devem depender da realização de operações no registo de identidade. Por exemplo, verificar o estado de ligação de um dispositivo antes de enviar um comando não é um padrão suportado. Certifique-se de verificar [as taxas de aceleração](iot-hub-devguide-quotas-throttling.md) do registo de identidade e o padrão [de batimentocardíaco](iot-hub-devguide-identity-registry.md#device-heartbeat) do dispositivo.
 
 ## <a name="disable-devices"></a>Desativar dispositivos
 
-Pode desativar os dispositivos atualizando a propriedade **de** um estado de uma identidade no registo de identidade. Normalmente, você usa esta propriedade em dois cenários:
+Pode desativar os dispositivos atualizando a propriedade de **estado** de uma identidade no registo de identidade. Normalmente, você usa esta propriedade em dois cenários:
 
-* Durante um processo de provisão de orquestração. Para mais informações, consulte o [Fornecimento de Dispositivos](iot-hub-devguide-identity-registry.md#device-provisioning).
+* Durante um processo de orquestração de provisionamento. Para obter mais informações, consulte [o Provisionamento de Dispositivos](iot-hub-devguide-identity-registry.md#device-provisioning).
 
-* Se, por alguma razão, achar que um dispositivo está comprometido ou se tornou não autorizado.
+* Se, por qualquer motivo, achar que um dispositivo está comprometido ou se não tiver sido autorizado.
 
 Esta funcionalidade não está disponível para módulos.
 
-## <a name="import-and-export-device-identities"></a>Identidades de dispositivos de importação e exportação
+## <a name="import-and-export-device-identities"></a>Identidades dos dispositivos de importação e exportação
 
-Utilize operações assíncronas no ponto final do fornecedor de [recursos IoT Hub](iot-hub-devguide-endpoints.md) para exportar identidades de dispositivos a granel a partir do registo de identidade de um hub IoT. As exportações são trabalhos de longa duração que utilizam um contentor de blob fornecido pelo cliente para guardar dados de identidade do dispositivo lidos a partir do registo de identidade.
+Utilize operações assíncronos no ponto final do [fornecedor de recursos IoT Hub](iot-hub-devguide-endpoints.md) para exportar identidades de dispositivos a granel a partir do registo de identidade de um hub IoT. As exportações são empregos de longa duração que utilizam um recipiente de bolhas fornecido pelo cliente para guardar os dados de identidade do dispositivo lidos a partir do registo de identidade.
 
-Utilize operações assíncronas no ponto final do fornecedor de [recursos IoT Hub](iot-hub-devguide-endpoints.md) para importar identidades de dispositivos a granel para o registo de identidade de um hub IoT. As importações são trabalhos de longa duração que utilizam dados num contentor de blob fornecido pelo cliente para escrever dados de identidade do dispositivo no registo de identidade.
+Utilize operações assíncronos no ponto final do [fornecedor de recursos IoT Hub](iot-hub-devguide-endpoints.md) para importar identidades de dispositivos a granel para o registo de identidade de um hub IoT. As importações são empregos de longa duração que utilizam dados num recipiente de bolhas fornecidos pelo cliente para escrever dados de identidade do dispositivo no registo de identidade.
 
-Para obter mais informações sobre as APIs de importação e exportação, consulte o fornecedor de [recursos do IoT Hub REST APIs](/rest/api/iothub/iothubresource). Para saber mais sobre a gestão de postos de trabalho na importação e exportação, consulte a [gestão a granel das identidades do dispositivo IoT Hub.](iot-hub-bulk-identity-mgmt.md)
+Para obter mais informações sobre as APIs de importação e exportação, consulte [o fornecedor de recursos IoT Hub REST APIs](/rest/api/iothub/iothubresource). Para saber mais sobre a gestão de postos de trabalho de importação e exportação, consulte [a gestão a granel das identidades dos dispositivos IoT Hub.](iot-hub-bulk-identity-mgmt.md)
 
-As identidades do dispositivo também podem ser exportadas e importadas a partir de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) ou de um dos [SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)de Serviço IoT Hub .
+As identidades do dispositivo também podem ser exportadas e importadas de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) ou de um dos [SDKs de serviço IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)Hub .
 
-## <a name="device-provisioning"></a>Fornecimento de dispositivos
+## <a name="device-provisioning"></a>Provisão de dispositivos
 
-Os dados do dispositivo que uma determinada solução IoT armazenam depende dos requisitos específicos dessa solução. Mas, no mínimo, uma solução deve armazenar identidades do dispositivo e chaves de autenticação. O Azure IoT Hub inclui um registo de identidade que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de estado. Uma solução pode utilizar outros serviços Azure, tais como armazenamento de mesa, armazenamento de blob ou Cosmos DB para armazenar quaisquer dados adicionais do dispositivo.
+Os dados do dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Mas, no mínimo, uma solução deve armazenar identidades do dispositivo e chaves de autenticação. O Azure IoT Hub inclui um registo de identidade que pode armazenar valores para cada dispositivo, tais como IDs, chaves de autenticação e códigos de estado. Uma solução pode usar outros serviços Azure, tais como armazenamento de mesa, armazenamento de bolhas ou Cosmos DB para armazenar quaisquer dados adicionais do dispositivo.
 
-*O fornecimento* do dispositivo é o processo de adição dos dados iniciais do dispositivo às lojas na sua solução. Para permitir que um novo dispositivo se ligue ao seu hub, deve adicionar um ID do dispositivo e chaves ao registo de identidade do IoT Hub. Como parte do processo de fornecimento, poderá ser necessário inicializar dados específicos do dispositivo noutras lojas de soluções. Também pode utilizar o Serviço de Provisionamento de Dispositivos Hub Azure IoT para permitir o fornecimento de zero toques, just-in-time a um ou mais hubs IoT sem necessitar de intervenção humana. Para saber mais, consulte a documentação do serviço de [fornecimento.](https://azure.microsoft.com/documentation/services/iot-dps)
+*O fornecimento de dispositivos* é o processo de adição dos dados iniciais do dispositivo às lojas na sua solução. Para permitir que um novo dispositivo se conecte ao seu hub, tem de adicionar um ID do dispositivo e chaves ao registo de identidade do IoT Hub. Como parte do processo de provisionamento, poderá ser necessário inicializar dados específicos do dispositivo noutras lojas de soluções. Também pode utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para permitir o fornecimento de zero toques, just-in-time, para um ou mais hubs IoT sem necessidade de intervenção humana. Para saber mais, consulte a documentação do [serviço de fornecimento.](https://azure.microsoft.com/documentation/services/iot-dps)
 
 ## <a name="device-heartbeat"></a>Batimento cardíaco do dispositivo
 
-O registo de identidade do IoT Hub contém um campo chamado **connection State**. Utilize apenas o campo **de ligação Estado** durante o desenvolvimento e a depuração. As soluções IoT não devem consultar o campo no tempo de execução. Por exemplo, não consulte o campo **de ligaçãoEstado** para verificar se um dispositivo está ligado antes de enviar uma mensagem cloud-to-device ou um SMS. Recomendamos que subscreva o evento desligado do [ **dispositivo** ](iot-hub-event-grid.md#event-types) na Rede de Eventos para obter alertas e monitorizar o estado de ligação do dispositivo. Utilize este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos conectados e desligados do dispositivo do IoT Hub na sua solução IoT.
+O registo de identidade IoT Hub contém um campo chamado **connectionState**. Utilize apenas o **campo de ligaçãoEse** durante o desenvolvimento e depuragem. As soluções IoT não devem consultar o campo no tempo de execução. Por exemplo, não consulte o campo **de ligaçãoEve** para verificar se um dispositivo está ligado antes de enviar uma mensagem nuvem-para-dispositivo ou um SMS. Recomendamos a subscrição do [ **evento desligado** ](iot-hub-event-grid.md#event-types) do dispositivo na Grelha de Eventos para obter alertas e monitorizar o estado de ligação do dispositivo. Utilize este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos ligados ao dispositivo conectados e desligados do dispositivo a partir do IoT Hub na sua solução IoT.
 
-Se a sua solução IoT precisar de saber se um dispositivo está ligado, pode implementar o padrão de *batimentocardíaco*.
-No padrão do batimento cardíaco, o dispositivo envia mensagens dispositivo-nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez por hora). Portanto, mesmo que um dispositivo não tenha nenhum dado para enviar, ainda envia uma mensagem de dispositivo-nuvem vazia (geralmente com uma propriedade que o identifica como um batimento cardíaco). Do lado do serviço, a solução mantém um mapa com o último batimento cardíaco recebido para cada dispositivo. Se a solução não receber uma mensagem de batimento cardíaco dentro do tempo esperado do dispositivo, assume que existe um problema com o dispositivo.
+Se a sua solução IoT precisar de saber se um dispositivo está ligado, pode implementar o *padrão de batimentocardíaco*.
+No padrão de batimentos cardíacos, o dispositivo envia mensagens dispositivo-a-nuvem pelo menos uma vez a cada quantidade fixa de tempo (por exemplo, pelo menos uma vez a cada hora). Portanto, mesmo que um dispositivo não tenha quaisquer dados para enviar, ainda envia uma mensagem vazia de dispositivo para nuvem (geralmente com uma propriedade que o identifica como um batimento cardíaco). Do lado do serviço, a solução mantém um mapa com o último batimento cardíaco recebido para cada dispositivo. Se a solução não receber uma mensagem de batimento cardíaco dentro do tempo esperado do dispositivo, assume que existe um problema com o dispositivo.
 
-Uma implementação mais complexa poderia incluir a informação do [Azure Monitor](../azure-monitor/index.yml) e [da Azure Resource Health](../service-health/resource-health-overview.md) para identificar dispositivos que estão a tentar ligar ou comunicar, mas falhando, verificar o Monitor com o guia de [diagnóstico.](iot-hub-monitor-resource-health.md) Quando implementar o padrão de batimentocardíaco, certifique-se de verificar as [quotas e os aceleradores do Hub IoT](iot-hub-devguide-quotas-throttling.md).
+Uma implementação mais complexa poderia incluir as informações do [Azure Monitor](../azure-monitor/index.yml) e [da Azure Resource Health](../service-health/resource-health-overview.md) para identificar dispositivos que estão a tentar ligar ou comunicar, mas falhando, consultar o Monitor com o guia de [diagnóstico.](iot-hub-monitor-resource-health.md) Quando implementar o padrão de batimentos cardíacos, certifique-se de verificar [IoT Hub Quotas e Throttles](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
-> Se uma solução IoT utilizar o estado de ligação apenas para determinar se deve enviar mensagens cloud-to-device, e as mensagens não são transmitidas para grandes conjuntos de dispositivos, considere usar o padrão de tempo de *validade curto* mais simples. Este padrão obtém o mesmo resultado que manter um registo estatal de ligação ao dispositivo usando o padrão do batimento cardíaco, enquanto é mais eficiente. Se solicitar avisos de mensagens, o IoT Hub pode notificá-lo sobre quais os dispositivos que podem receber mensagens e que não são.
+> Se uma solução IoT utilizar o estado de ligação apenas para determinar se envia mensagens nuvem-para-dispositivo e as mensagens não são transmitidas para grandes conjuntos de dispositivos, considere usar o padrão de tempo de *validade de curto prazo* mais simples. Este padrão obtém o mesmo resultado que manter um registo estatal de ligação do dispositivo usando o padrão de batimentocardíaco, ao mesmo tempo que é mais eficiente. Se solicitar avisos de mensagens, o IoT Hub pode notificá-lo sobre quais os dispositivos que podem receber mensagens e quais não são.
 
-## <a name="device-and-module-lifecycle-notifications"></a>Notificações de ciclo de vida de dispositivos e módulos
+## <a name="device-and-module-lifecycle-notifications"></a>Notificações do ciclo de vida do dispositivo e do módulo
 
-O IoT Hub pode notificar a sua solução IoT quando uma identidade é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT precisa de criar uma rota e de definir a Fonte de Dados igual a *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas antes. A mensagem de notificação inclui propriedades e corpo.
+O IoT Hub pode notificar a sua solução IoT quando uma identidade é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT necessita de criar uma rota e de definir a Fonte de Dados igual a *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas pré-existentes. A mensagem de notificação inclui propriedades e corpo.
 
-Propriedades: As propriedades do sistema `$` de mensagens são pré-fixadas com o símbolo.
+Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$` símbolo.
 
 Mensagem de notificação para o dispositivo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
-|$content | application/json |
-|$iothub enqueuedtime |  Hora da notificação ser enviada |
-|$iothub-fonte de mensagem | dispositivoLifecycleEvents |
-|$content-codificação | utf-8 |
-|opType | **criarIdentidade de Dispositivoou** **excluirIdentidade do Dispositivo** |
-|hubName | Nome do Hub IoT |
+|$content tipo | application/json |
+|$iothub-enquestime |  Hora em que a notificação foi enviada |
+|$iothub-mensagem-fonte | dispositivoLifecycleS |
+|$content codificação | utf-8 |
+|opType | **criarDeviceIdentity** ou **eliminarDeviceDentity** |
+|nome hub | Nome do Hub IoT |
 |deviceId | ID do dispositivo |
-|operaçãoTimestamp | Carimbo de tempo ISO8601 de operação |
-|iothub-mensagem-schema | dispositivoLifecycleNotification |
+|operaçãoTimestamp | ISO8601 timetamp de funcionamento |
+|iothub-mensagem-schema | dispositivoLifecycleNotificação |
 
-Corpo: Esta secção encontra-se em formato JSON e representa o gémeo da identidade do dispositivo criado. Por exemplo,
+Corpo: Esta secção está no formato JSON e representa o gémeo da identidade do dispositivo criado. Por exemplo,
 
 ```json
 {
@@ -146,19 +146,19 @@ Corpo: Esta secção encontra-se em formato JSON e representa o gémeo da identi
 ```
 Mensagem de notificação para módulo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
-$content | application/json |
-$iothub enqueuedtime |  Hora da notificação ser enviada |
-$iothub-fonte de mensagem | móduloLifecycleEvents |
-$content-codificação | utf-8 |
-opType | **criarMóduloIdentidade** ou **excluirIdentidade do Módulo** |
-hubName | Nome do Hub IoT |
-móduloId | ID do módulo |
-operaçãoTimestamp | Carimbo de tempo ISO8601 de operação |
-iothub-mensagem-schema | móduloLifecycleNotification |
+$content tipo | application/json |
+$iothub-enquestime |  Hora em que a notificação foi enviada |
+$iothub-mensagem-fonte | móduloLifecycleEvents |
+$content codificação | utf-8 |
+opType | **criarModuleIdentity** ou **excluirModuleIdentity** |
+nome hub | Nome do Hub IoT |
+moduleId | ID do módulo |
+operaçãoTimestamp | ISO8601 timetamp de funcionamento |
+iothub-mensagem-schema | móduloNotificação de Vida |
 
-Corpo: Esta secção encontra-se em formato JSON e representa o gémeo da identidade do módulo criado. Por exemplo,
+Corpo: Esta secção está em formato JSON e representa o gémeo da identidade do módulo criado. Por exemplo,
 
 ```json
 {
@@ -188,23 +188,23 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
-| deviceId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| geraçãoId |necessário, apenas leitura |Uma cadeia ioT gerada por hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando foram eliminados e recriados. |
-| etag |necessário, apenas leitura |Uma cadeia que representa um ETag fraco para a identidade do dispositivo, de acordo com [o RFC7232](https://tools.ietf.org/html/rfc7232). |
+| deviceId |necessário, ler apenas sobre atualizações |Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, além de certos caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
+| geraçãoId |necessário, apenas ler |Uma corda ioT gerada por um hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando estes foram eliminados e recriados. |
+| etag |necessário, apenas ler |Uma corda que representa um ETag fraco para a identidade do dispositivo, de acordo com [o RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Um objeto composto contendo informações de autenticação e materiais de segurança. |
 | auth.symkey |opcional |Um objeto composto contendo uma chave primária e secundária, armazenado no formato base64. |
-| status |necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado,** o dispositivo pode ligar-se. Se **desativado,** este dispositivo não pode aceder a qualquer ponto final virado para o dispositivo. |
-| estadoReason |opcional |Uma corda de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
-| statusUpdateTime |leitura-apenas |Um indicador temporal, mostrando a data e a hora da última atualização de estado. |
-| conexãoEstado |leitura-apenas |Um estado de ligação indicativo: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível protocole (pings MQTT, ou AMQP pings), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, tais como dispositivos relatados como conectados, mas que estão desligados. |
-| conexãoStateUpdatedTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
-| últimaAtividadeTempo |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
+| status |obrigatório |Um indicador de acesso. Pode ser **ativado** ou **desativado.** Se **ativado,** o dispositivo pode ligar-se. Se **estiver desativado,** este dispositivo não pode aceder a nenhum ponto final virado para o dispositivo. |
+| statusReason |opcional |Uma cadeia de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| statusUpdateTime |read-only |Um indicador temporal, mostrando a data e a hora da última atualização do estado. |
+| ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
+| conexãoStateUpdatedTime |read-only |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
+| última Hora de Atividade |read-only |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
 
 > [!NOTE]
-> O estado de ligação só pode representar a visão do Hub IoT do estado da ligação. As atualizações a este estado podem ser adiadas, dependendo das condições e configurações da rede.
+> O estado de ligação só pode representar a visão do Hub IoT do estado da ligação. As atualizações a este estado podem ser atrasadas, dependendo das condições e configurações da rede.
 
 > [!NOTE]
-> Atualmente, os SDKs do `+` dispositivo `#` não suportam a utilização dos e caracteres do **dispositivoId**.
+> Atualmente, os SDKs do dispositivo não suportam a utilização do `+` e dos caracteres no `#` **dispositivoId**.
 
 ## <a name="module-identity-properties"></a>Propriedades de identidade do módulo
 
@@ -212,45 +212,45 @@ As identidades dos módulos são representadas como documentos JSON com as segui
 
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
-| deviceId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| móduloId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| geraçãoId |necessário, apenas leitura |Uma cadeia ioT gerada por hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando foram eliminados e recriados. |
-| etag |necessário, apenas leitura |Uma cadeia que representa um ETag fraco para a identidade do dispositivo, de acordo com [o RFC7232](https://tools.ietf.org/html/rfc7232). |
+| deviceId |necessário, ler apenas sobre atualizações |Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, além de certos caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
+| moduleId |necessário, ler apenas sobre atualizações |Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, além de certos caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
+| geraçãoId |necessário, apenas ler |Uma corda ioT gerada por um hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando estes foram eliminados e recriados. |
+| etag |necessário, apenas ler |Uma corda que representa um ETag fraco para a identidade do dispositivo, de acordo com [o RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Um objeto composto contendo informações de autenticação e materiais de segurança. |
 | auth.symkey |opcional |Um objeto composto contendo uma chave primária e secundária, armazenado no formato base64. |
-| status |necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado,** o dispositivo pode ligar-se. Se **desativado,** este dispositivo não pode aceder a qualquer ponto final virado para o dispositivo. |
-| estadoReason |opcional |Uma corda de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
-| statusUpdateTime |leitura-apenas |Um indicador temporal, mostrando a data e a hora da última atualização de estado. |
-| conexãoEstado |leitura-apenas |Um estado de ligação indicativo: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível protocole (pings MQTT, ou AMQP pings), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, tais como dispositivos relatados como conectados, mas que estão desligados. |
-| conexãoStateUpdatedTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
-| últimaAtividadeTempo |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
+| status |obrigatório |Um indicador de acesso. Pode ser **ativado** ou **desativado.** Se **ativado,** o dispositivo pode ligar-se. Se **estiver desativado,** este dispositivo não pode aceder a nenhum ponto final virado para o dispositivo. |
+| statusReason |opcional |Uma cadeia de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| statusUpdateTime |read-only |Um indicador temporal, mostrando a data e a hora da última atualização do estado. |
+| ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
+| conexãoStateUpdatedTime |read-only |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
+| última Hora de Atividade |read-only |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
 
 > [!NOTE]
-> Atualmente, os SDKs do `+` dispositivo `#` não suportam a utilização do **dispositivoId** e **móduloId**.
+> Atualmente, os SDKs do dispositivo não suportam utilizando o `+` e os caracteres no `#` **dispositivoId** e **móduloId**.
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
 
 Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
-* [Os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descrevem os vários pontos finais que cada hub IoT expõe para operações de execução e gestão.
+* [Os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descrevem os vários pontos finais que cada hub IoT expõe para operações de tempo de execução e gestão.
 
-* [O estrangulamento e](iot-hub-devguide-quotas-throttling.md) as quotas descrevem as quotas e comportamentos de estrangulamento que se aplicam ao serviço IoT Hub.
+* [O estrangulamento e as quotas](iot-hub-devguide-quotas-throttling.md) descrevem as quotas e comportamentos de estrangulamento que se aplicam ao serviço IoT Hub.
 
-* O [dispositivo e o serviço Azure IoT](iot-hub-devguide-sdks.md) listam os vários SDKs linguísticos que pode utilizar quando desenvolve aplicações de dispositivos e serviços que interagem com o IoT Hub.
+* [O dispositivo e serviço Azure IoT lista](iot-hub-devguide-sdks.md) os vários SDKs de linguagem que pode utilizar quando desenvolve aplicações de dispositivos e serviços que interagem com o IoT Hub.
 
-* A linguagem de [consulta ioT Hub](iot-hub-devguide-query-language.md) descreve a linguagem de consulta que você pode usar para obter informações do IoT Hub sobre os seus gémeos e empregos do seu dispositivo.
+* [IoT Hub idioma de consulta](iot-hub-devguide-query-language.md) descreve a linguagem de consulta que você pode usar para obter informações do IoT Hub sobre os seus gémeos e empregos do seu dispositivo.
 
-* [O suporte IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
+* [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que aprendeu a usar o registo de identidade do IoT Hub, pode estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
+Agora que aprendeu a usar o registo de identidade do IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 
 * [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
 
-* [Use gémeos dispositivos para sincronizar estado e configurações](iot-hub-devguide-device-twins.md)
+* [Use gémeos do dispositivo para sincronizar estado e configurações](iot-hub-devguide-device-twins.md)
 
-* [Invoque um método direto num dispositivo](iot-hub-devguide-direct-methods.md)
+* [Invocar um método direto num dispositivo](iot-hub-devguide-direct-methods.md)
 
 * [Programar tarefas em vários dispositivos](iot-hub-devguide-jobs.md)
 
@@ -258,6 +258,6 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte o seguin
 
 * [Introdução ao Hub IoT do Azure](quickstart-send-telemetry-dotnet.md)
 
-Para explorar a utilização do Serviço de Provisionamento de Dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
+Para explorar utilizando o serviço de provisionamento de dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 
 * [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](https://azure.microsoft.com/documentation/services/iot-dps)

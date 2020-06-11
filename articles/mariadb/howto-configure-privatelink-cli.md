@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: ca889f30f8c89bae60ea5f0076c4e9bbc75311aa
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: aac3e8d4dcdf0edc8c66069227195e2974cbd3a6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660667"
+ms.locfileid: "84674555"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerir o Link Privado para Azure Database para MariaDB utilizando o CLI
 
@@ -89,22 +89,17 @@ az mariadb server create \
 ## <a name="create-the-private-endpoint"></a>Criar o Ponto Final Privado 
 Crie um ponto final privado para o servidor MariaDB na sua Rede Virtual: 
 
-Obtenha o id de recursos do servidor
 ```azurecli-interactive
-$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id")
-```
-
-```azurecli-interactive
-#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $resourceid \  
-    --group-id mariadbServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id") \    
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
+
 
 ## <a name="configure-the-private-dns-zone"></a>Configure a Zona Privada de DNS 
 Crie uma Zona PRIVADA de DNS para o domínio do servidor MariDB e crie uma ligação de associação com a Rede Virtual. 
