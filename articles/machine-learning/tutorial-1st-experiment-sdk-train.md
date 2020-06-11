@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558368"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667109"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
@@ -138,7 +138,7 @@ experiment
 
 ## <a name="view-training-results-in-studio"></a>Ver resultados de formação em estúdio
 
-Seguindo o **estúdio Link to Azure Machine Learning** leva-o à página principal da experiência. Aqui você vê todos os runs individuais na experiência. Quaisquer valores registados sob medida `alpha_value` `rmse` (e, neste caso) tornam-se campos para cada execução, e também ficam disponíveis para as tabelas e azulejos no topo da página de experiências. Para adicionar uma métrica registada a um gráfico ou azulejo, paire sobre ele, clique no botão de edição e encontre a sua métrica personalizada.
+Seguindo o **estúdio Link to Azure Machine Learning** leva-o à página principal da experiência. Aqui você vê todos os runs individuais na experiência. Quaisquer valores registados sob encomenda `alpha_value` `rmse` (e, neste caso, neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para as tabelas. Para traçar um novo gráfico com uma métrica registada, clique em 'Adicionar gráfico' e selecione a métrica que gostaria de traçar.
 
 Ao treinar modelos em escala ao longo de centenas e milhares de corridas separadas, esta página torna fácil ver todos os modelos que treinou, especificamente como foram treinados, e como as suas métricas únicas mudaram ao longo do tempo.
 
@@ -209,7 +209,7 @@ Não preencha esta secção se planeia executar outros tutoriais de Aprendizagem
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, fez as seguintes tarefas:
 

@@ -2,15 +2,15 @@
 title: Tutorial - Criar & modelo de implementação
 description: Crie o seu primeiro modelo de Gestor de Recursos Azure. No tutorial, você aprende sobre a sintaxe do ficheiro do modelo e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235220"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676153"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM
 
@@ -34,9 +34,10 @@ Os modelos são ficheiros JSON. Para criar modelos, precisa de um bom editor JSO
 
 Também precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Se utilizar o Azure CLI, deve ter a versão mais recente. Para as instruções de instalação, consulte:
 
-- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
+- [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
 
 Depois de instalar o Azure PowerShell ou o Azure CLI, certifique-se de que faz sê-lo pela primeira vez. Para obter ajuda, consulte [Iniciar s-se-in - PowerShell](/powershell/azure/install-az-ps#sign-in) ou [Iniciar sação - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
@@ -50,7 +51,7 @@ Está pronto para começar a aprender sobre modelos.
 1. Código de estúdio visual aberto com a extensão de Ferramentas do Gestor de Recursos instaladas.
 1. A partir do menu **Ficheiro,** selecione **Novo Ficheiro** para criar um novo ficheiro.
 1. A partir do menu **'Ficheiro',** **selecione Guardar como**.
-1. Nomeie o **ficheiro** e selecione a extensão do ficheiro **JSON.** O nome completo do ficheiro **azuredeploy.json**.
+1. Nomeie o **ficheiro** e selecione a extensão do ficheiro **JSON.** O nome completo do ficheiro **azuredeploy.jsem**.
 1. Guarde o ficheiro para a sua estação de trabalho. Selecione um caminho que seja fácil de lembrar porque irá fornecer esse caminho mais tarde ao implementar o modelo.
 1. Copiar e colar o seguinte JSON no ficheiro:
 
@@ -211,7 +212,7 @@ Se está a parar agora, é melhor apagar o grupo de recursos.
 3. Selecione o nome do grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criou um modelo simples para implementar para O Azure. No próximo tutorial, irá adicionar uma conta de armazenamento ao modelo e implantá-la-á para o seu grupo de recursos.
 

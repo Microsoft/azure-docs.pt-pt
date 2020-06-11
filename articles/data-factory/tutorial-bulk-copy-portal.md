@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561159"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661062"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
 
@@ -92,7 +92,7 @@ Para verificar e ligar esta definição, aceda ao seu servidor > Security > Fire
      Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 1. Selecione **V2** para a **versão**.
 1. Selecione a **localização** da fábrica de dados. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
-1. Clique **em Criar**.
+1. Clique em **Criar**.
 1. Depois de concluída a criação, selecione **Ir para o recurso** para navegar para a página data **Factory.** 
    
 1. Clique no mosaico **Criar e Monitorizar** para iniciar a aplicação IU do Data Factory num separador à parte.
@@ -108,13 +108,16 @@ Neste tutorial, você liga a sua Base de Dados Azure SQL, Azure Synapse Analytic
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure de origem
 Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do Azure à fábrica de dados. 
 
-1. Clique em **Conexões** na parte inferior da janela e clique **+ Novo** na barra de**ferramentas (O** botão Ligações está localizado na parte inferior da coluna esquerda sob **recursos de fábrica).** 
+1. Abra A guia de [gestão](https://docs.microsoft.com/azure/data-factory/author-management-hub) a partir do painel esquerdo.
 
+1. Na página de serviços Linked, selecione **+Novo** para criar um novo serviço ligado.
+
+   ![Novo serviço ligado](./media/doc-common-process/new-linked-service.png)
 1. Na janela **Novo Serviço Ligado**, selecione **Base de Dados SQL do Azure** e clique em **Continuar**. 
 1. Na janela **New Linked Service (Azure SQL Database),** faça os seguintes passos: 
 
     a. Introduza **AzureSqlDatabaseLinkedService** em **Nome**.
-    
+
     b. Selecione o seu servidor para **o nome do Servidor**
     
     c. Em **Nome da base de dados**, selecione a sua base de dados SQL do Azure. 
@@ -146,7 +149,7 @@ Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do 
      
     f. Para testar a ligação à base de dados SQL do Azure com as informações especificadas, clique em **Testar ligação**.
      
-    exemplo, Clique **em Criar**.
+    exemplo, Clique em **Criar**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Criar o serviço ligado de Armazenamento do Azure de teste
 Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de teste provisória para ativar o PolyBase para um melhor desempenho de cópia.
@@ -158,8 +161,7 @@ Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de tes
     a. Introduza **AzureStorageLinkedService** em **Nome**.                                                 
     b. Selecione a sua **conta de Armazenamento Azure** para **o nome da conta de armazenamento**.
     
-    c. Clique **em Criar**.
-
+    c. Clique em **Criar**.
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a localização onde os dados são armazenados. 
@@ -321,7 +323,7 @@ Este gasoduto faz duas ações:
 
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
 
-1. Vá ao pipeline **GetTableListAndTriggerCopyData**, clique em **Adicionar Gatilho** na barra de ferramentas de pipeline superior e, em seguida, clique em **Trigger agora**. 
+1. Vá ao pipeline **GetTableListAndTriggerCopyData**, clique em **Adicionar Gatilho** na barra de ferramentas do pipeline superior e, em seguida, clique em **Trigger agora**. 
 
 1. Confirme a execução na página **de execução do Pipeline** e, em seguida, selecione **Terminar**.
 
@@ -390,7 +392,7 @@ Este gasoduto faz duas ações:
 
 1. Confirme que os dados foram copiados para o target Azure Synapse Analytics (anteriormente SQL DW) que usou neste tutorial. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

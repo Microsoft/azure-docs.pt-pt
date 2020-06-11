@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 708236cbbd9bf10c6e9edf6b59a3d8e814a40e9f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194603"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661017"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server para o armazenamento do Azure Blob
 
@@ -182,7 +182,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
     f. Selecione **Testar ligação**. Este passo é confirmar que a Data Factory pode ligar-se à base de dados do SQL Server utilizando o tempo de integração auto-hospedado que criou.
 
-    g. Para guardar o serviço ligado, selecione **Criar**.
+    exemplo, Para guardar o serviço ligado, selecione **Criar**.
  
     ![Novo serviço ligado (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
@@ -219,7 +219,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
     c. Para a parte **'Ficheiro',** **selecione Adicionar conteúdo dinâmico**.
     ![expressão dinâmica para resolver o nome de ficheiro](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-    d. Adicione `@CONCAT(pipeline().RunId, '.txt')` , e, em seguida, selecione **Acabamento**. Esta ação mudará o nome do ficheiro com PipelineRunID.txt.
+    d. Adicione `@CONCAT(pipeline().RunId, '.txt')` , e, em seguida, selecione **Acabamento**. Esta ação mudará o nome do ficheiro para PipelineRunID.txt.
 
 1. Vá para o separador com o pipeline aberto ou selecione o pipeline na vista de árvore. Em **Conjunto de Dados de Sink**, confirme que **AzureBlobDataset** está selecionado.
 
@@ -248,7 +248,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 O pipeline cria automaticamente a pasta de saída com o nome *fromonprem* no contentor de blobs `adftutorial`. Confirme que consegue ver o ficheiro *[pipeline().RunId].txt* na pasta de saída.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O pipeline neste exemplo copia dados de uma localização para outra localização no amazenamento de Blobs. Aprendeu a:
 
 > [!div class="checklist"]

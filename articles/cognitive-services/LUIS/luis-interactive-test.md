@@ -1,14 +1,14 @@
 ---
 title: App de teste no portal LUIS
 description: Use a Compreensão linguística (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a sua compreensão linguística.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344157"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677746"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS
 
@@ -65,9 +65,25 @@ A partir do painel de inspeção, pode adicionar a expressão de teste a uma int
 
 ## <a name="disable-required-features"></a>Desativar as funcionalidades necessárias
 
-Selecione este alternador para ver o que seria a previsão se a funcionalidade da entidade não fosse necessária.
+Este alternar ajuda-o a determinar se a aplicação treinada está a prever corretamente as suas entidades com base nas funcionalidades necessárias. A definição predefinida é aplicar a função conforme necessário durante a previsão. Selecione este toggle para ver qual seria a previsão se a funcionalidade da sub-entidade não fosse necessária.
 
-Este alternar ajuda-o a determinar se a aplicação treinada está a prever corretamente as suas entidades com base nas funcionalidades necessárias. A aplicação treinada pode imprevisibilidade errada de uma entidade aprendida com base na rotulagem incorreta de palavras de exemplo ou a funcionalidade necessária não corresponde ao texto.
+### <a name="when-to-disable-required-features"></a>Quando desativar as funcionalidades necessárias
+
+A aplicação treinada pode prescrever mal uma entidade aprendida com base numa das seguintes:
+* Rotulagem incorreta de palavras de exemplo.
+* A função requerida não corresponde ao texto.
+
+Um exemplo é uma entidade aprendida com uma sub-entidade com o nome de uma pessoa.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Screenshot do esquema de entidade aprendida com máquina do portal LUIS com recurso necessário":::
+
+Um exemplo de expressão para esta entidade aprendida com máquinas é: `Assign Bob Jones to work on the new security feature` .
+
+A extração deve ser `security feature` como descrição do bilhete e `Bob Jones` como engenheiro, duas subentidades de `Assign ticket` entidade.
+
+Para ajudar a subagúnera a prever com sucesso, adicione à entidade pré-construída [PersonName](luis-reference-prebuilt-person.md) aa uma característica à `engineer` sub-entidade. Se fizer a funcionalidade necessária, isso significa que a sub-entidade só será extraída se a entidade pré-incorporada personName estiver prevista para o texto. Isto significa que qualquer nome no texto que não preveja com a sub-entidade PersonName, não será devolvido como uma sub-entidade rotulada, `engineer` .
+
+Quando utiliza o painel de teste interativo, e vê uma sub-entidade, com uma função necessária, não está a prever, alternar esta definição, para ver se a sub-entidade seria prevista sem que a funcionalidade fosse necessária. A sub-entidade pode ser capaz de ser corretamente prevista sem a funcionalidade necessária devido à correta rotulagem de palavras de exemplo.
 
 ## <a name="view-sentiment-results"></a>Ver resultados de sentimento
 

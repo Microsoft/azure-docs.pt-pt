@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 3971d49befd228c111b1a8da5fce44e25abfaa65
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608762"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657829"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Tutorial: Criar aplicações Apache Spark com IntelliJ utilizando Synapse Synapse Analytics (pré-visualização de espaços de trabalho)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar aplicações Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
 Este tutorial demonstra como usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark, que são escritas em [Scala,](https://www.scala-lang.org/)e depois submetê-las a uma piscina spark (pré-visualização) diretamente do ambiente de desenvolvimento integrado intelliJ (IDE). Pode utilizar o plug-in de várias formas:
 
@@ -38,7 +38,7 @@ Neste tutorial, vai aprender a:
 - Scala Plugin – Instalar no [repositório IntelliJ Plugin](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
 - Este pré-requisito é apenas para utilizadores do Windows.
 
-  Enquanto executa a aplicação local Spark Scala num computador Windows, poderá obter uma exceção, como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque winUtils.exe está faltando no Windows.
+  Enquanto executa a aplicação local Spark Scala num computador Windows, poderá obter uma exceção, como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe falta no Windows.
   Para resolver este erro, faça o download dos [WinUtils executáveis](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável ambiental **HADOOP_HOME**, e desave o valor da variável para **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Crie uma aplicação Spark Scala para uma piscina de faíscas
@@ -169,9 +169,9 @@ Pode seguir as instruções abaixo para configurar a sua corrida local e depurar
 
     ![Intellij Run depurar configurações locais run](./media/intellij-tool-synapse/local-run-synapse.png)
 
-    - Variáveis ambientais e WinUtils.exe Localização são apenas para utilizadores de janelas.
+    - As variáveis ambientais e a localização WinUtils.exe são apenas para utilizadores de janelas.
     - Variáveis ambientais: A variável ambiente do sistema pode ser detetada automaticamente se a tiver definido antes e não precisar de adicionar manualmente.
-    - [Localização WinUtils.exe](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): Pode especificar a localização WinUtils clicando no ícone da pasta à direita.
+    - [WinUtils.exe Localização](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): Pode especificar a localização WinUtils clicando no ícone da pasta à direita.
 
 2. Em seguida, clique no botão de reprodução local.
 
@@ -210,7 +210,7 @@ Pode executar a Consola Local Spark (Scala) ou executar a Consola De Sessão Int
 
 ### <a name="spark-local-console-scala"></a>Consola local de faísca (Scala)
 
-Certifique-se de que satisfez o WINUTILS. Exe pré-requisito.
+Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
 1. A partir da barra **Run**de menu, navegue para  >  **configurações de edição de execução...**.
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark na Synapse**  >  **[Faísca na Sinapse] myApp**.
@@ -220,7 +220,7 @@ Certifique-se de que satisfez o WINUTILS. Exe pré-requisito.
     |Propriedade |Valor |
     |----|----|
     |Variáveis de ambiente|Certifique-se de que o valor para HADOOP_HOME está correto.|
-    |Localização WINUTILS.exe|Certifique-se de que o caminho está correto.|
+    |WINUTILS.exe localização|Certifique-se de que o caminho está correto.|
 
     ![Configuração local do conjunto de consolas](./media/intellij-tool-synapse/local-console-synapse01.png)
 

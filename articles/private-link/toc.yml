@@ -13,6 +13,7 @@
     - name: Criar um Ponto Final Privado - CLI do Azure
       href: create-private-endpoint-cli.md
     - name: Criar um Ponto Final Privado - modelo ARM
+      displayName: Resource Manager
       href: create-private-endpoint-template.md
     - name: Criar um serviço Private Link - Portal
       href: create-private-link-service-portal.md
@@ -21,6 +22,7 @@
     - name: Criar um serviço Private Link - CLI do Azure
       href: create-private-link-service-cli.md
     - name: Criar um serviço Private Link - modelo ARM
+      displayName: Resource Manager
       href: create-private-link-service-template.md
 - name: Conceitos
   items:

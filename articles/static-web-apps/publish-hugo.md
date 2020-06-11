@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: b65213bd87f6b82391733a135e096077127765d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344021"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669907"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
 
@@ -133,9 +133,9 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Clique no **Seguinte: Construa >** botão para editar a configuração de construção
 
-1. Desaprote a _localização da aplicação_ ao **público.**
+1. Definir _a localização da aplicação_ para **/** .
 
-1. Deixe a _localização_ do artefacto da App em branco.
+1. Definir _a localização do artefacto da App_ ao **público.**
 
    Um valor para _a localização_ da API não é necessário, uma vez que não está a implementar uma API neste momento.
 

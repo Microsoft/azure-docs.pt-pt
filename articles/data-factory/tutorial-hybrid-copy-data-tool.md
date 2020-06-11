@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194597"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660938"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie os dados de uma base de dados do SQL Server para o armazenamento do Azure Blob utilizando a ferramenta Dados de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -146,18 +146,15 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na página **Arquivo de dados de origem**, clique em **Criar nova ligação**.
 
-
 1. Sob **o Novo Serviço Ligado**, procure o **SQL Server**e, em seguida, selecione **Continue**.
 
 1. Na caixa de diálogo **New Linked Service (SQL Server),** em **Nome**, insira **o SqlServerLinkedService**. Selecione **+Novo** em **Ligar através do runtime de integração**. Tem de criar um runtime de integração autoalojado, transferi-lo para o seu computador e registá-lo no Data Factory. O runtime de integração autoalojado copia dados entre o ambiente no local e a cloud.
 
+1. Na caixa de diálogo de **configuração de configuração de tempo de integração,** selecione **Self-Hosted**. Em seguida, selecione **Continuar**.
 
-1. Na caixa de diálogo de **configuração de configuração de tempo de integração,** selecione **Self-Hosted**. Em seguida, selecione **Seguinte**.
+   ![Criar runtime de integração](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Criar runtime de integração](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. Na caixa de diálogo de configuração de **configuração de tempo de integração,** em **Nome,** insira **TutorialIntegrationRuntime**. Em seguida, selecione **Seguinte**.
-
+1. Na caixa de diálogo de configuração de **configuração de tempo de integração,** em **Nome,** insira **TutorialIntegrationRuntime**. Em seguida, selecione **Criar**.
 
 1. Na caixa de diálogo **de configuração de configuração de tempo de integração,** selecione **Clique aqui para lançar a configuração expressa para este computador**. Esta ação instala o runtime de integração no seu computador e regista-o no Data Factory. Em alternativa, pode utilizar a opção de configuração manual para transferir o ficheiro de instalação, executá-lo e utilizar a chave para registar o runtime de integração.
 
@@ -179,7 +176,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
     f. Introduza a **palavra-passe** do utilizador.
 
-    g. Ligar o teste e selecionar **Acabamento**.
+    exemplo, Ligar o teste e selecionar **Acabamento**.
 
       ![Runtime de integração selecionado](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
 
@@ -216,23 +213,20 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na caixa de diálogo **Resumo**, reveja os valores para todas definições e selecione **Seguinte**.
 
-1. Na página **Implementação**, selecione **Monitorização** para monitorizar o pipeline ou a tarefa que criou.
+1. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa). 
 
-   ![Página de implementação](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. Quando o gasoduto estiver concluído, pode visualizar o estado do gasoduto que criou. 
 
-1. No separador **Monitorização**, pode ver o estado do pipeline que criou. Pode utilizar as ligações na coluna **Ações** para ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
+1. Na página de execução do Pipeline, selecione **Refresh** para refrescar a lista. Clique no link em **PIPELINE NAME** para ver detalhes de execução de atividade ou reexecur o pipeline. 
 
-1. Selecione a ligação **Ver Execuções de Atividade** na coluna **Ações** para ver as execuções de atividades associadas à execução do pipeline. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar à vista **Pipeline Runs,** selecione **Pipeline Runs** na parte superior.
+1. Na página 'Activity's runs, selecione o link **Detalhes** (ícone de óculos) sob a coluna **ACTIVITY NAME** para obter mais detalhes sobre o funcionamento da cópia. Para voltar à vista Pipeline Runs, selecione a ligação **de todas as condutas** de gasoduto no menu pão ramb. Para atualizar a vista, selecione **Atualizar**.
 
 1. Confirme que vê um ficheiro de saída na pasta **fromonprem** do contentor **adftutorial**.
 
-
 1. Selecione o separador **Editar** à esquerda para mudar para o modo de edição. Pode atualizar os serviços ligados, conjuntos de dados e pipelines criados pela ferramenta, utilizando o editor. Selecione **Código** para ver o código JSON associado à entidade aberta no editor. Para obter detalhes sobre como editar estas entidades na IU do Data Factory, veja [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 
-   ![Separador Editar](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O pipeline desta amostra copia dados de uma base de dados do SQL Server para o armazenamento blob. Aprendeu a:
 
 > [!div class="checklist"]

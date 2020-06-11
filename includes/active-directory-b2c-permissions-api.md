@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: e37419b5d568b0f60e4c6a0c8fed26eb418f501e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c1628894205754c1b8f1fc954796009afbdc8ed4
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297496"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680283"
 ---
-#### <a name="app-registrations-preview"></a>[Inscrições de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/) 
 
-1. Selecione **registos de Aplicações (Pré-visualização)** e, em seguida, selecione a aplicação web que deve ter acesso à API. Por exemplo, *webapp1*.
+1. Selecione **as inscrições da App**e, em seguida, selecione a aplicação web que deve ter acesso à API. Por exemplo, *webapp1*.
 1. Em **Gestão**, selecione **permissões API**.
 1. Sob **permissões configuradas,** **selecione Adicione uma permissão**.
 1. Selecione o **separador As Minhas APIs.**
@@ -26,9 +26,9 @@ ms.locfileid: "84297496"
 1. Selecione **Sim**.
 1. Selecione **Refresh**, e, em seguida, verifique que "Concedido para..." aparece em **Estado** para ambos os âmbitos.
 
-#### <a name="applications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
 
-1. Selecione **Aplicações**e, em seguida, selecione a aplicação web que deve ter acesso à API. Por exemplo, *webapp1*.
+1. Selecione **Aplicações (Legado)** e, em seguida, selecione a aplicação web que deve ter acesso à API. Por exemplo, *webapp1*.
 1. Selecione **o acesso a API**e, em seguida, selecione **Adicionar**.
 1. No **dropdown Select API,** selecione a API a que a aplicação web deve ter acesso. Por exemplo, *webapi1*.
 1. No **dropdown Select Scopes,** selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.

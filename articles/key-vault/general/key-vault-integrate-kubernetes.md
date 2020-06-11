@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: e945a30ca1fcd62fdfccd16d4e853540dbf73d8a
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 27d602f22aa3915f39f21ac924afa42b98e70720
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637169"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667161"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-secret-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para motorista CSI da Loja Secreta em Kubernetes
 
@@ -20,11 +20,12 @@ Neste tutorial, você vai aceder e obter segredos do Azure Key Vault usando o co
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Criar um principal de serviço
-> * Implementar um cluster de serviço Azure Kubernetes
+> * Criar um principal serviço ou usar identidades geridas
+> * Implementar um cluster de serviço Azure Kubernetes usando O Azure CLI
 > * Instalar controlador CSI da Loja de Leme e Segredos
 > * Crie um cofre de chaves Azure e estabeleça segredos
 > * Crie o seu próprio objeto SecretProviderClass
+> * Atribua o seu principal serviço ou utilize identidades geridas
 > * Desdobre a sua cápsula com segredos montados a partir do Cofre de Chaves
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -62,8 +63,8 @@ Siga este [guia](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) e 
 az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
 ```
 
-1. [Desfice a variável ambiente PATH](https://www.java.com/en/download/help/path.xml) para o ficheiro "kubectl.exe" que foi descarregado.
-1. Verifique a sua versão Kubernetes utilizando o comando abaixo. Este comando irá desativar a versão do cliente e do servidor. A versão do cliente é o "kubectl.exe" que instalou enquanto a versão do servidor é o Azure Kubernetes Services em que o seu cluster está a funcionar.
+1. [Desfie a variável ambiente PATH](https://www.java.com/en/download/help/path.xml) para o ficheiro "kubectl.exe" que foi descarregado.
+1. Verifique a sua versão Kubernetes utilizando o comando abaixo. Este comando irá desativar a versão do cliente e do servidor. A versão do cliente é a "kubectl.exe" que instalou enquanto a versão do servidor é o Azure Kubernetes Services em que o seu cluster está a funcionar.
     ```azurecli
     kubectl version
     ```
@@ -78,7 +79,7 @@ az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 
 
     Esta é a saída com ambos os parâmetros realçados.
     
-    ![](../media/kubernetes-key-vault-5.png) ![ Imagem de imagem](../media/kubernetes-key-vault-6.png)
+    ![](../media/kubernetes-key-vault-2.png) ![ Imagem de imagem](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-secrets-store-csi-driver"></a>Instalar controlador CSI da Loja de Leme e Segredos
 
@@ -157,7 +158,7 @@ spec:
 ```
 Abaixo está a saída da consola para "az keyvault show --name contosoKeyVault5" com os metadados destacados relevantes:
 
-![Imagem](../media/kubernetes-key-vault-2.png)
+![Imagem](../media/kubernetes-key-vault-4.png)
 
 ## <a name="assign-your-service-principal-or-use-managed-identities"></a>Atribua o seu principal serviço ou utilize identidades geridas
 
@@ -172,7 +173,7 @@ Se utilizar um diretor de serviço. Terá de dar permissão ao seu diretor de se
 
     Abaixo está a saída do comando: 
 
-    ![Imagem](../media/kubernetes-key-vault-3.png)
+    ![Imagem](../media/kubernetes-key-vault-5.png)
 
 1. Dê permissão principal de serviço para obter segredos:
     ```azurecli
@@ -206,19 +207,19 @@ Se utilizar identidades geridas, atribua funções específicas ao cluster AKS q
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
-1. Instale a identidade do Diretório Ativo Azure (Azure AD) em AKS.
+1. Instale a identidade do Diretório Ativo Azure (AAD) em AKS.
     ```azurecli
     helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
 
     helm install pod-identity aad-pod-identity/aad-pod-identity
     ```
 
-1. Criar uma identidade AD Azure. Copie o **clienteId** e **o directorid.**
+1. Criar uma identidade AAD. Copie o **clienteId** e **o directorid.**
     ```azurecli
     az identity create -g $resourceGroupName -n $identityName
     ```
 
-1. Atribua o papel de leitor à Identidade AD Azure que acabaste de criar para o teu Cofre de Chaves. Então dê permissão de identidade para obter segredos do seu Cofre de Chaves. Vais usar o **clienteid** e **o diretor** da Identidade Azure que acabaste de criar.
+1. Atribua o papel de leitor à Identidade AAD que acabaste de criar para o teu Cofre de Chaves. Então dê permissão de identidade para obter segredos do seu Cofre de Chaves. Vais usar o **clienteid** e **o diretor** da Identidade Azure que acabaste de criar.
     ```azurecli
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
@@ -309,7 +310,7 @@ Para verificar o estado da sua cápsula, utilize o seguinte comando:
 kubectl describe pod/nginx-secrets-store-inline
 ```
 
-![Imagem](../media/kubernetes-key-vault-4.png)
+![Imagem](../media/kubernetes-key-vault-6.png)
 
 A cápsula implantada deve estar no estado "Running". Na secção "Eventos" na parte inferior, todos os tipos de eventos à esquerda são classificados como "Normal".
 Assim que verificares que a cápsula está a funcionar, podes verificar se a tua cápsula tem os segredos do teu Cofre de Chaves.

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 548a51fef693aae6e9b9068f9731b82aaa85dfe3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5e25e6c9efd7cf06f9d8e20f6cbc8c4b413ca67c
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610498"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670430"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder aos eventos de autocarro do Azure Service recebidos através da Azure Event Grid utilizando funções Azure e Apps Azure Logic
 Neste tutorial, você aprende a responder aos eventos do Azure Service Bus que são recebidos através da Azure Event Grid utilizando Azure Functions e Azure Logic Apps. 
@@ -28,11 +28,11 @@ Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Criar um espaço de nomes do Service Bus
 > * Preparar uma aplicação de amostra para enviar mensagens
+> * Envie mensagens para o tema do Service Bus
+> * Receber mensagens através do Logic Apps
 > * Configurar uma função de teste no Azure
 > * Ligar a função e o espaço de nomes através do Event Grid
-> * Envie mensagens para o tema do Service Bus
 > * Receber mensagens através das Funções do Azure
-> * Receber mensagens através do Logic Apps
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +61,62 @@ Pode utilizar qualquer método para enviar uma mensagem para o tópico do Servic
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
+5. Atualizar o `numberOfMessages` valor para **5**. 
 5. Construa e execute o programa para enviar mensagens de teste para o tópico do Service Bus. 
+
+## <a name="receive-messages-by-using-logic-apps"></a>Receber mensagens através do Logic Apps
+Conecte uma aplicação lógica com a Azure Service Bus e a Azure Event Grid seguindo estes passos:
+
+1. Crie uma aplicação lógica no portal Azure.
+    1. Selecione **+ Crie um recurso,** selecione **Integração**e, em seguida, selecione **a Aplicação Lógica**. 
+    2. Na **Aplicação Lógica - Criar** página, insira um **nome** para a aplicação lógica.
+    3. Selecione a sua **subscrição** do Azure. 
+    4. Selecione **Utilizar o** **grupo de recursos**e selecione o grupo de recursos que utilizou para outros recursos (como a função Azure, Service Bus namespace) que criou anteriormente. 
+    5. Selecione a **Localização** para a aplicação lógica. 
+    6. Selecione **Criar** para criar a aplicação lógica. 
+2. Na página **de Design de Aplicações Lógicas,** selecione Blank Logic **App** em **modelos**. 
+3. No designer, faça os seguintes passos:
+    1. Procure por **Grelha de Eventos.** 
+    2. Selecione **Quando ocorrer um evento de recurso - Azure Event Grid**. 
+
+        ![Logic Apps Designer - selecione Event Grid trigger](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
+4. Selecione **Iniciar sôms,** insira as suas credenciais Azure e selecione **Permitir o Acesso**. 
+5. Na página **Quando ocorrer um evento de recurso,** faça os seguintes passos:
+    1. Selecione a sua subscrição do Azure. 
+    2. Para **o tipo de recurso**, selecione **Microsoft.ServiceBus.Namespaces**. 
+    3. Para **obter nome de recurso,** selecione o seu espaço de nomes de Service Bus. 
+    4. **Selecione Adicione novo parâmetro**e selecione Filtro de **Sufixo**. 
+    5. Para **o Filtro Sfixix,** insira o nome da sua segunda subscrição de tópico Service Bus. 
+        ![Logic Apps Designer - evento de configuração](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+6. Selecione **+ Novo Passo** no designer e faça os seguintes passos:
+    1. Pesquisa rumo **ao Service Bus**.
+    2. Selecione **Service Bus** na lista. 
+    3. Selecione para **Obter mensagens** na lista **de Ações.** 
+    4. **Selecione Obter mensagens de uma subscrição de tópico (peek-lock)**. 
+
+        ![Logic Apps Designer - obtenha ação de mensagens](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
+    5. Introduza um **nome para a ligação**. Por exemplo: **Obtenha mensagens da subscrição de tópicos**e selecione o espaço de nomes do Service Bus. 
+
+        ![Logic Apps Designer - selecione o espaço de nomes do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
+    6. Selecione **RootManageSharedAccessKey**e, em seguida, **selecione Create**.
+
+        ![Logic Apps Designer - selecione a chave de acesso partilhada](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
+    8. Selecione o seu **tópico** e **subscrição**. 
+    
+        ![Logic Apps Designer - selecione o tópico e subscrição do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+7. Selecione **+ Novo passo**, e faça os seguintes passos: 
+    1. Selecione **Service Bus**.
+    2. **Selecione Preencha a mensagem numa subscrição de tópico** da lista de ações. 
+    3. Selecione o seu tópico de ônibus **de serviço**.
+    4. Selecione a segunda **subscrição** do tópico.
+    5. Para **bloquear o sinal da mensagem,** selecione Lock **Token** a partir do **conteúdo Dynamic**. 
+
+        ![Logic Apps Designer - selecione o tópico e subscrição do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
+8. **Selecione Guardar** na barra de ferramentas no Logic Apps Designer para guardar a aplicação lógica. 
+9. Siga as instruções na secção Enviar mensagens para a secção [de tópicos do Service Bus](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tema. 
+10. Mude para a página **geral** da sua aplicação lógica. Você vê a aplicação lógica corre na história do **Runs** para as mensagens enviadas.
+
+    ![Logic Apps Designer - aplicação lógica corre](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="set-up-a-test-function-on-azure"></a>Configurar uma função de teste no Azure 
 Antes de trabalhar em todo o cenário, crie pelo menos uma pequena função de teste, que pode usar para depurar e observar os eventos que estão a fluir. Siga as instruções no Criar a sua primeira função no artigo [do portal Azure](../azure-functions/functions-create-first-azure-function.md) para fazer as seguintes tarefas: 
@@ -99,9 +154,10 @@ Em seguida, faça os seguintes passos:
             var validationHeaderValue = headerValues.FirstOrDefault();
             if(validationHeaderValue == "SubscriptionValidation")
             {
+                log.LogInformation("Validating the subscription");            
                 var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
                 var code = events[0].Data["validationCode"];
-                log.LogInformation("Validation code: {code}");
+                log.LogInformation($"Validation code: {code}");
                 return (ActionResult) new OkObjectResult(new { validationResponse = code });
             }
         }
@@ -119,18 +175,36 @@ Em seguida, faça os seguintes passos:
         public DateTime EventTime { get; set; }
         public Dictionary<string, string> Data { get; set; }
         public string Topic { get; set; }
-    }
-    
+    }    
     ```
 2. **Selecione Guarde** na barra de ferramentas para guardar o código para a função.
 
     ![Guardar código de função](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
-3. Selecione **Teste/Execução** na barra de ferramentas, introduza um nome no corpo e selecione **Executar**. 
+3. Selecione **Teste/Execução** na barra de ferramentas e faça os seguintes passos: 
+    1. Introduza o seguinte JSON no **corpo**.
 
-    ![Teste](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
-4. Confirme que vê a saída e os registos como mostrado na imagem seguinte. 
+        ```json
+        [{
+          "id": "64ba80ae-9f8e-425f-8bd7-d88d2c0ba3e3",
+          "topic": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/spegridsbusrg/providers/Microsoft.ServiceBus/namespaces/spegridsbusns",
+          "subject": "",
+          "data": {
+            "validationCode": "D7D825D4-BD04-4F73-BDE3-70666B149857",
+            "validationUrl": "https://rp-eastus.eventgrid.azure.net:553/eventsubscriptions/spsbusegridsubscription/validate?id=D7D825D4-BD04-4F73-BDE3-70666B149857&t=2020-06-09T18:28:51.5724615Z&apiVersion=2020-04-01-preview&[Hidden Credential]"
+          },
+          "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+          "eventTime": "2020-06-09T18:28:51.5724615Z",
+          "metadataVersion": "1",
+          "dataVersion": "2"
+        }]
+        ```    
+    2. Clique **em Adicionar cabeçalho**e adicione um cabeçalho com nome `aeg-event-type` e valor `SubscriptionValidation` . 
+    3. Selecione **Executar**. 
 
-    ![Ensaio - saída](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
+        ![Teste](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+    4. Confirme que vê o código de estado de devolução de **OK** e o código de validação no organismo de resposta. Consulte também as informações registadas pela função. 
+
+        ![Teste - resposta](./media/service-bus-to-event-grid-integration-example/test-function-response.png)        
 3. Selecione **Obter URL de função** e anotar o URL. 
 
     ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
@@ -230,9 +304,11 @@ Para criar uma subscrição da Azure Event Grid, siga estes passos:
 1. Execute a aplicação .NET C#, que envia mensagens para o tópico Service Bus. 
 
     ![Saída de aplicativo de consola](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. Na página para a sua aplicação de função Azure, expanda **funções,** expanda a sua **função**e selecione **Monitor**. 
+1. Na página para a sua aplicação de função Azure, mude para o **separador Monitor** a partir do separador **Código + Teste.** Deve ver uma entrada para cada mensagem publicada no tópico do Service Bus. Se não os vir, refresque a página depois de esperar alguns minutos. 
 
     ![Função monitor](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
+
+    Também pode utilizar o **separador Registos** da página **Monitor** para ver as informações de registo à medida que as mensagens são enviadas. Pode atrasar-se, por isso dá-lhe alguns minutos para ver as mensagens registadas. 
 
 ## <a name="receive-messages-by-using-azure-functions"></a>Receber mensagens através das Funções do Azure
 Na secção anterior, observou um cenário simples de teste e depuração e garantiu que os eventos estão a fluir. 
@@ -275,65 +351,15 @@ Nesta secção, saiba como receber e processar mensagens depois de receber um ev
 
 1. Eliminar a subscrição existente da Grade de Eventos:
     1. Na página **Service Bus Namespace,** selecione **Eventos** no menu esquerdo. 
+    2. Mude para o separador **Subscrições de Eventos.** 
     2. Selecione a subscrição do evento existente. 
-    3. Na página **de Subscrição** de Eventos, selecione **Delete**.
+
+        ![Selecione subscrição de eventos](./media/service-bus-to-event-grid-integration-example/select-event-subscription.png)
+    3. Na página **de Subscrição** de Eventos, selecione **Delete**. Selecione **Sim** para confirmar a eliminação. 
+        ![Eliminar botão de subscrição de eventos](./media/service-bus-to-event-grid-integration-example/delete-subscription-button.png)
 2. Siga as instruções na [secção Connect the function and namespace via Event Grid](#connect-the-function-and-namespace-via-event-grid) para criar uma subscrição de Grade de Eventos utilizando o novo URL de função.
 3. Siga as instruções na secção Enviar mensagens para a secção [de tópicos do Service Bus](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tema e monitorizar a função. 
 
-## <a name="receive-messages-by-using-logic-apps"></a>Receber mensagens através do Logic Apps
-Conecte uma aplicação lógica com a Azure Service Bus e a Azure Event Grid seguindo estes passos:
-
-1. Crie uma aplicação lógica no portal Azure.
-    1. Selecione **+ Crie um recurso,** selecione **Integração**e, em seguida, selecione **a Aplicação Lógica**. 
-    2. Na **Aplicação Lógica - Criar** página, insira um **nome** para a aplicação lógica.
-    3. Selecione a sua **subscrição** do Azure. 
-    4. Selecione **Utilizar o** **grupo de recursos**e selecione o grupo de recursos que utilizou para outros recursos (como a função Azure, Service Bus namespace) que criou anteriormente. 
-    5. Selecione a **Localização** para a aplicação lógica. 
-    6. Selecione **Criar** para criar a aplicação lógica. 
-2. Na página **de Design de Aplicações Lógicas,** selecione Blank Logic **App** em **modelos**. 
-3. No designer, faça os seguintes passos:
-    1. Procure por **Grelha de Eventos.** 
-    2. Selecione **Quando ocorrer um evento de recurso (pré-visualização) - Azure Event Grid**. 
-
-        ![Logic Apps Designer - selecione Event Grid trigger](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
-4. Selecione **Iniciar sôms,** insira as suas credenciais Azure e selecione **Permitir o Acesso**. 
-5. Na página **Quando ocorrer um evento de recurso,** faça os seguintes passos:
-    1. Selecione a sua subscrição do Azure. 
-    2. Para **o tipo de recurso**, selecione **Microsoft.ServiceBus.Namespaces**. 
-    3. Para **obter nome de recurso,** selecione o seu espaço de nomes de Service Bus. 
-    4. **Selecione Adicione novo parâmetro**e selecione Filtro de **Sufixo**. 
-    5. Para **o Filtro Sfixix,** insira o nome da sua segunda subscrição de tópico Service Bus. 
-        ![Logic Apps Designer - evento de configuração](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. Selecione **+ Novo Passo** no designer e faça os seguintes passos:
-    1. Pesquisa rumo **ao Service Bus**.
-    2. Selecione **Service Bus** na lista. 
-    3. Selecione para **Obter mensagens** na lista **de Ações.** 
-    4. **Selecione Obter mensagens de uma subscrição de tópico (peek-lock)**. 
-
-        ![Logic Apps Designer - obtenha ação de mensagens](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Introduza um **nome para a ligação**. Por exemplo: **Obtenha mensagens da subscrição de tópicos**e selecione o espaço de nomes do Service Bus. 
-
-        ![Logic Apps Designer - selecione o espaço de nomes do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
-    6. **Selecione RootManageSharedAccessKey**.
-
-        ![Logic Apps Designer - selecione a chave de acesso partilhada](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
-    7. Selecione **Criar**. 
-    8. Selecione o seu tópico e subscrição. 
-    
-        ![Logic Apps Designer - selecione o tópico e subscrição do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
-7. Selecione **+ Novo passo**, e faça os seguintes passos: 
-    1. Selecione **Service Bus**.
-    2. **Selecione Preencha a mensagem numa subscrição de tópico** da lista de ações. 
-    3. Selecione o seu tópico de ônibus **de serviço**.
-    4. Selecione a segunda **subscrição** do tópico.
-    5. Para **bloquear o sinal da mensagem,** selecione Lock **Token** a partir do **conteúdo Dynamic**. 
-
-        ![Logic Apps Designer - selecione o tópico e subscrição do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
-8. **Selecione Guardar** na barra de ferramentas no Logic Apps Designer para guardar a aplicação lógica. 
-9. Siga as instruções na secção Enviar mensagens para a secção [de tópicos do Service Bus](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tema. 
-10. Mude para a página **geral** da sua aplicação lógica. Você vê a aplicação lógica corre na história do **Runs** para as mensagens enviadas.
-
-    ![Logic Apps Designer - aplicação lógica corre](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="next-steps"></a>Próximos passos
 

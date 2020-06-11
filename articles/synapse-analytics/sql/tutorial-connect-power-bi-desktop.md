@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Ligue o SQL on-demand (pré-visualização) ao Power BI Desktop & criar relatório'
-description: Neste tutorial, aprenda a ligar SQL on-demand (pré-visualização) em Azure Synapse Analytics ao power bi desktop e crie um relatório de demonstração baseado numa vista.
+title: 'Tutorial: Ligue o SQL a pedido ao Power BI Desktop & criar relatório'
+description: Neste tutorial, aprenda a ligar o SQL on-demand em Azure Synapse Analytics ao power bi desktop e crie um relatório de demonstração baseado numa vista.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 3f32dc14163df6694c69258be365fcbb1390c926
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258288"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660228"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand (pré-visualização) com Power BI Desktop & criar um relatório
+# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand com Power BI Desktop & criar um relatório
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -173,6 +173,6 @@ Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passo
    DROP DATABASE Demo;
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para os [ficheiros de armazenamento de consulta](develop-storage-files-overview.md) para aprender a consultar ficheiros de armazenamento usando o Synapse SQL.

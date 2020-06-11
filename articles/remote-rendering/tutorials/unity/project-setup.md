@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c05daa998829c4ac0687f75ae5678695127a50b0
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300594"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659909"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutorial: Criação de um projeto de unidade do zero
 
@@ -105,6 +105,7 @@ Selecione o nó **da câmara principal.**
 
 1. Abra *as definições > projeto de edição de edição...*
 1. Na lista à esquerda selecione Qualidade.
+1. Altere o **nível de qualidade ativa** para *baixo* selecionando-o
 1. Alterar o **nível de qualidade predefinido** para *baixo*
 
     ![alterar definições de qualidade do projeto](media/settings-quality.png)
@@ -801,7 +802,7 @@ Agora, quando ligado à sessão remota, o texto deve mostrar as estatísticas de
 
 O código desativa a atualização estatística fora do editor, uma vez que uma caixa de texto fechada à cabeça seria uma distração. Uma implementação mais sofisticada encontra-se no projeto [Quickstart.](../../quickstarts/render-model.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu todos os passos necessários para tomar um projeto de Unidade em branco e fazê-lo trabalhar com a Azure Remote Rendering. No próximo tutorial, vamos analisar mais de perto como trabalhar com entidades remotas.
 
