@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d53c21af77204a5e83687d3ce893f3f6f45101f2
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 2c62fdb41cdd19e34062124564ace9645df1dde6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628994"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672702"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
@@ -55,13 +55,13 @@ Aqui está o que esta configuração de amostra XML não vai fazer:
 >[!NOTE]
 >A ativação partilhada do computador pode ser configurada através de objetos de política de grupo (GPOs) ou definições de registo. O GPO está localizado em **Configurações de Configuração de Computador \\ \\ Modelos Administrativos \\ Microsoft Office 2016 (Máquina) \\ Definições de licenciamento**
 
-A Ferramenta de Implementação do Office contém setup.exe. Para instalar o Office, executar o seguinte comando numa linha de comando:
+A Ferramenta de Implantação do Office contém setup.exe. Para instalar o Office, executar o seguinte comando numa linha de comando:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Configuração da amostra.xml
+#### <a name="sample-configurationxml"></a>configuration.xml de amostra
 
 A amostra XML seguinte instalará o lançamento mensal do Canal Empresarial.
 
@@ -118,7 +118,7 @@ Eis como instalar o OneDrive no modo por máquina:
 
 1. Em primeiro lugar, crie uma localização para encenar o instalador OneDrive. Uma pasta de disco local ou a \\ \\ localização [unc] (file://unc) está bem.
 
-2. Faça o download oneDriveSetup.exe para a sua localização encenada com este link:<https://aka.ms/OneDriveWVD-Installer>
+2. Faça o download OneDriveSetup.exe para a sua localização encenada com este link:<https://aka.ms/OneDriveWVD-Installer>
 
 3. Se instalou um escritório com o OneDrive omitindo, **\<ExcludeApp ID="OneDrive" /\>** desinstale quaisquer instalações OneDrive por utilizador existentes a partir de um pedido de comando elevado executando o seguinte comando:
     
@@ -156,9 +156,11 @@ Eis como instalar o OneDrive no modo por máquina:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Equipas e Skype
+## <a name="microsoft-teams-and-skype-for-business"></a>Microsoft Teams e Skype para Negócios
 
-O Windows Virtual Desktop não suporta o Skype para Negócios e Equipas.
+O Windows Virtual Desktop não suporta o Skype para o Negócios.
+
+Para obter ajuda na instalação do Microsoft Teams, consulte [utilizar as Equipas da Microsoft no ambiente de trabalho virtual do Windows](teams-on-wvd.md).
 
 ## <a name="next-steps"></a>Próximos passos
 

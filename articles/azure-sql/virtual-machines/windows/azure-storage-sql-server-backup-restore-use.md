@@ -4,7 +4,6 @@ description: Saiba como fazer o back up SQL Server para o Azure Storage. Explica
 services: virtual-machines-windows
 documentationcenter: ''
 author: MikeRayMSFT
-manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: e4235a2d0be141d8cb1af30f2c573e3bdfcdd817
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d697f9edf8d5e57f051c23eaa2807704b2f7771e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342906"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669203"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Use o armazenamento Azure para a cópia de segurança do SQL Server e restaure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +47,7 @@ As duas secções seguintes introduzem o armazenamento Azure Blob, incluindo os 
 ## <a name="azure-blob-storage-components"></a>Componentes de armazenamento Azure Blob
 Os seguintes componentes Azure são utilizados quando se baseia no armazenamento da Azure Blob.
 
-| Componente | Description |
+| Componente | Descrição |
 | --- | --- |
 | **Conta de armazenamento** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para aceder ao armazenamento do Azure Blob, primeiro crie uma conta de Armazenamento Azure. Para obter mais informações sobre o armazenamento da Azure Blob, consulte [como utilizar o armazenamento Azure Blob](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Contentor** |Um recipiente fornece um agrupamento de um conjunto de bolhas, e pode armazenar um número ilimitado de Blobs. Para escrever uma cópia de segurança do SQL Server para o armazenamento do Azure Blob, deve ter pelo menos o recipiente de raiz criado. |
@@ -57,7 +56,7 @@ Os seguintes componentes Azure são utilizados quando se baseia no armazenamento
 ## <a name="sql-server-components"></a>Componentes do Servidor SQL
 Os seguintes componentes do SQL Server são utilizados quando se baseia no armazenamento do Azure Blob.
 
-| Componente | Description |
+| Componente | Descrição |
 | --- | --- |
 | **URL** |Um URL especifica um identificador de recursos uniforme (URI) para um ficheiro de backup único. O URL é utilizado para fornecer a localização e o nome do ficheiro de backup do SQL Server. O URL deve apontar para uma bolha real, não apenas um recipiente. Se a bolha não existir, é criada. Se for especificada uma bolha existente, o BACKUP falha, a menos que a opção > COM FORMATO seja especificada. Segue-se um exemplo do URL que especificaria no comando BACKUP: **http[s][storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS é recomendado, mas não é necessário. |
 | **Credencial** |As informações necessárias para ligar e autenticar ao armazenamento da Azure Blob são armazenadas como credenciais. Para que o SQL Server escreva cópias de segurança para uma Mancha Azure ou seja restaurada a partir dele, deve ser criada uma credencial SQL Server. Para obter mais informações, consulte [a Credencial do Servidor SQL](https://msdn.microsoft.com/library/ms189522.aspx). |

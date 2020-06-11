@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 05/29/2020
-ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/10/2020
+ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235738"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668462"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Para os limites do modelo de compra de DTU, consulte [os limites de recursos DTU
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
 
-Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armazenamento utilizando o [portal Azure](elastic-pool-manage.md#azure-portal), [PowerShell,](elastic-pool-manage.md#powershell) [O CLI Azure,](elastic-pool-manage.md#azure-cli)ou a [API REST](elastic-pool-manage.md#rest-api).
+Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) e a quantidade de armazenamento utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](elastic-pool-manage.md#powershell)o [Azure CLI,](elastic-pool-manage.md#azure-cli)ou a [API REST](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Para obter orientação e considerações de escalonamento, consulte [Scale a elastic pool](elastic-pool-scale.md).
@@ -40,7 +40,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Nível de serviço para fins gerais: Plataforma computacional geração 4 (parte 1)
 
-|Tamanho do cálculo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -72,7 +72,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Nível de serviço para fins gerais: Plataforma computacional geração 4 (parte 2)
 
-|Tamanho do cálculo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -106,7 +106,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Nível de serviço para fins gerais: Plataforma computacional geração 5 (parte 1)
 
-|Tamanho do cálculo|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -138,7 +138,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Nível de serviço para fins gerais: Plataforma computacional geração 5 (parte 2)
 
-|Tamanho do cálculo|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Tamanho do cálculo (objetivo de serviço)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -172,13 +172,13 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Geração de computação da série Fsv2 (pré-visualização)
 
-|Tamanho do cálculo|GP_Fsv2_72|
+|Tamanho do cálculo (objetivo de serviço)|GP_Fsv2_72|
 |:--- | --: |
 |Geração computacional|Série Fsv2|
 |vCores|72|
 |Memória (GB)|136.2|
 |DBs max por piscina <sup>1</sup>|500|
-|Suporte de loja de colunas|Yes|
+|Suporte de loja de colunas|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|
 |Tamanho máximo dos dados (GB)|4096|
 |Tamanho do tronco máximo (GB)|1024|
@@ -209,7 +209,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Nível de serviço crítico de negócios: Plataforma computacional geração 4 (parte 1)
 
-|Tamanho do cálculo|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|2|3|4|5|6|
@@ -241,7 +241,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Nível de serviço crítico de negócios: Plataforma computacional geração 4 (parte 2)
 
-|Tamanho do cálculo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -275,7 +275,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Nível de serviço crítico de negócios: Plataforma computacional geração 5 (parte 1)
 
-|Tamanho do cálculo|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|4|6|8|10|12|14|
@@ -307,7 +307,7 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Nível de serviço crítico de negócios: Plataforma computacional geração 5 (parte 2)
 
-|Tamanho do cálculo|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Tamanho do cálculo (objetivo de serviço)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -341,13 +341,13 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 
 ### <a name="m-series-compute-generation-preview"></a>Geração de computação série M (pré-visualização)
 
-|Tamanho do cálculo|BC_M_128|
+|Tamanho do cálculo (objetivo de serviço)|BC_M_128|
 |:--- | --: |
 |Geração computacional|Série M|
 |vCores|128|
 |Memória (GB)|3767.1|
 |DBs max por piscina <sup>1</sup>|100|
-|Suporte de loja de colunas|Yes|
+|Suporte de loja de colunas|Sim|
 |Armazenamento OLTP na memória (GB)|1768|
 |Tamanho máximo dos dados (GB)|4096|
 |Tamanho do tronco máximo (GB)|2048|
@@ -361,8 +361,8 @@ Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armaz
 |Sessões simultâneas máx.|30,000|
 |Min/max elástico piscina vCore escolhas por base de dados|0-128|
 |Número de réplicas|4|
-|Multi-AZ|Yes|
-|Escalamento Horizontal de Leituras|Yes|
+|Multi-AZ|Sim|
+|Escalamento Horizontal de Leituras|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|
 
 <sup>1</sup> Consulte [a gestão de recursos em piscinas elásticas densas](elastic-pool-resource-management.md) para obter considerações adicionais.
@@ -378,7 +378,7 @@ Se todos os vCores de uma piscina elástica estiverem ocupados, então cada base
 A tabela seguinte descreve as propriedades para bases de dados aginhadas.
 
 > [!NOTE]
-> Os limites de recursos de bases de dados individuais em piscinas elásticas são geralmente os mesmos que para bases de dados individuais fora de piscinas que têm o mesmo tamanho de cálculo. Por exemplo, os trabalhadores máximos simultâneos para uma base de dados GP_Gen4_1 são 200 trabalhadores. Assim, os trabalhadores máximos simultâneos para uma base de dados numa piscina de GP_Gen4_1 também são 200 trabalhadores. Nota: o número total de trabalhadores simultâneos na GP_Gen4_1 piscina é de 210.
+> Os limites de recursos de bases de dados individuais em piscinas elásticas são geralmente os mesmos que para bases de dados individuais fora de piscinas que têm o mesmo tamanho de cálculo (objetivo de serviço). Por exemplo, os trabalhadores máximos simultâneos para uma base de dados GP_Gen4_1 são 200 trabalhadores. Assim, os trabalhadores máximos simultâneos para uma base de dados numa piscina de GP_Gen4_1 também são 200 trabalhadores. Nota: o número total de trabalhadores simultâneos na GP_Gen4_1 piscina é de 210.
 
 | Propriedade | Descrição |
 |:--- |:--- |
@@ -387,7 +387,7 @@ A tabela seguinte descreve as propriedades para bases de dados aginhadas.
 | Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados numa piscina. As bases de dados partilhadas partilham o armazenamento de piscinas atribuídos, pelo que o tamanho que uma base de dados pode alcançar é limitado ao menor do armazenamento de piscinas restante e do tamanho da base de dados. O tamanho máximo da base de dados refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado pelos ficheiros de registo. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para limites de recursos vCore para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra vCore](resource-limits-vcore-single-databases.md)
 - Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)

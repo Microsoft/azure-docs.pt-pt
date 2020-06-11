@@ -1,16 +1,16 @@
 ---
-title: Ver propriedades de recursos
+title: Descubra propriedades de recursos
 description: Descreve como procurar propriedades de recursos.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 5714a25cfdc2e2dd76bfe2953040ebb961b51932
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 06/10/2020
+ms.openlocfilehash: 6e00ee875d9b0f7fadf27a44c55920872c815045
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466567"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668564"
 ---
-# <a name="view-resource-properties"></a>Ver propriedades de recursos
+# <a name="discover-resource-properties"></a>Descubra propriedades de recursos
 
 Antes de criar modelos de Gestor de Recursos, precisa entender que tipos de recursos estão disponíveis e que valores usar no seu modelo. Este artigo mostra algumas formas de encontrar as propriedades para incluir no seu modelo.
 

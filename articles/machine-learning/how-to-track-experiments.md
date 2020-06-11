@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: bbe4cfe2cce70735e765601e46cb62cd3939c693
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433097"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675207"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitor Azure ML experimenta e métricas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,6 +127,8 @@ Utilize o módulo __de script Execute Python__ para adicionar lógica de registo
         run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
 
         # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
         run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
     
         return dataframe1,
@@ -207,9 +209,11 @@ Pode ver as métricas de um modelo treinado utilizando ```run.get_metrics()``` .
 
 Quando uma experiência terminar de correr, pode navegar para o registo de testes gravado. Você pode aceder à história a partir do [estúdio Azure Machine Learning](https://ml.azure.com).
 
-Navegue no separador Experimentos e selecione a sua experiência. Você é trazido para o painel de corrida de experimentação, onde você pode ver métricas rastreadas e gráficos que são registados para cada corrida. Neste caso, registamos o MSE e os valores alfa.
+Navegue no separador Experimentos e selecione a sua experiência. Você é trazido para o painel de corrida de experimentação, onde você pode ver métricas rastreadas e gráficos que são registados para cada corrida. 
 
-  ![Execute detalhes no estúdio Azure Machine Learning](./media/how-to-track-experiments/experiment-dashboard.png)
+Pode editar a tabela de listas de execução para mostrar o valor último, mínimo ou máximo registado para as suas execuções. Pode selecionar ou desmarcar várias corridas na lista de execuções e as execuções selecionadas irão preencher as tabelas com os seus dados. Também pode adicionar novos gráficos ou gráficos de edição para comparar as métricas registadas (valores mínimos, máximos, últimos ou todos) em vários períodos. Para explorar os seus dados de forma mais eficaz, também pode maximizar os seus gráficos.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Execute detalhes no estúdio Azure Machine Learning":::
 
 Pode perfurar para uma corrida específica para ver as suas saídas ou registos, ou transferir a imagem instantânea da experiência que submeteu para que possa partilhar a pasta da experiência com outras.
 
@@ -233,7 +237,7 @@ Os seguintes cadernos demonstram conceitos neste artigo:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente estes passos seguintes para aprender a utilizar o SDK do Azure Machine Learning para Python:
 

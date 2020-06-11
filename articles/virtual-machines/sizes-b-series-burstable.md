@@ -1,23 +1,23 @@
 ---
-title: Série B burstable - Máquinas Virtuais Azure
-description: Descreve a série B de tamanhos VM Azure burstable.
+title: Série B rebentada - Azure Virtual Machines
+description: Descreve a série B dos tamanhos Azure VM rebentado.
 services: virtual-machines
+ms.subservice: sizes
 author: ayshakeen
-manager: gwallace
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161085"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678550"
 ---
-# <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual de série B
+# <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
-Os VMs da série B são ideais para cargas de trabalho que não necessitam de todo o desempenho do CPU continuamente, como servidores web, prova de conceitos, pequenas bases de dados e ambientes de construção de desenvolvimento. Estas cargas de trabalho normalmente têm requisitos de desempenho insuportáveis. A série B proporciona-lhe a capacidade de adquirir um tamanho VM com desempenho de base e a instância VM acumula créditos quando está a usar menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base utilizando até 100% do vCPU quando a sua aplicação requer um desempenho cpu mais elevado.
+Os VMs da série B são ideais para cargas de trabalho que não necessitam de um desempenho completo do CPU continuamente, como servidores web, provas de conceitos, pequenas bases de dados e ambientes de construção de desenvolvimento. Estas cargas de trabalho normalmente têm requisitos de desempenho rebeníveis. A série B proporciona-lhe a capacidade de adquirir um tamanho VM com desempenho de base e a instância VM acumula créditos quando está a usar menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base usando até 100% do vCPU quando a sua aplicação requer um desempenho de CPU mais elevado.
 
 A série B vem nos seguintes tamanhos VM:
 
@@ -25,13 +25,13 @@ Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Não suportado
 
-Migração Ao Vivo: Apoiado
+Migração ao Vivo: Suportado
 
-Atualizações de preservação da memória: Suportado
+Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Base CPU Perf da VM | Max CPU Perf da VM | Créditos Iniciais | Créditos bancários/hora | Créditos Bancários Max | Discos de dados máximos | Entrada de armazenamento em cache e temperatura máxima: IOPS/MBps | Potência de disco max uncached: IOPS/MBps | NICs máximos |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | CpU Base Perf de VM | Max CPU Perf de VM | Créditos Iniciais | Créditos bancários/hora | Créditos Max Banked | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| <sup>Standard_B1ls 1</sup> | 1  | 0,5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
+| Standard_B1ls<sup>1</sup> | 1  | 0,5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
 | Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 2  |
 | Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 3  |
@@ -46,17 +46,17 @@ Atualizações de preservação da memória: Suportado
 
 ## <a name="workload-example"></a>Exemplo de carga de trabalho
 
-Considere um pedido de check-in/out do escritório. A aplicação precisa de explosões de CPU durante o horário de trabalho, mas não muito poder de computação durante o horário de folga. Neste exemplo, a carga de trabalho requer uma máquina virtual de 16vCPU com 64GiB de RAM para funcionar de forma eficiente.
+Considere um pedido de check-in/out do escritório. A aplicação precisa de explosões de CPU durante o horário comercial, mas não muita energia de computação durante as horas de folga. Neste exemplo, a carga de trabalho requer uma máquina virtual de 16vCPU com 64GiB de RAM para funcionar de forma eficiente.
 
-A tabela mostra os dados de tráfego de hora a hora e a tabela é uma representação visual desse tráfego.
+A tabela mostra os dados de tráfego de hora em hora e o gráfico é uma representação visual desse tráfego.
 
 Características B16:
 
 Max CPU perf: 16vCPU * 100% = 1600%
 
-Linha de base: 270%
+Linha de Base: 270%
 
-![Gráfico dos dados de tráfego de hora a hora](./media/b-series-burstable/office-workload.png)
+![Gráfico de dados de tráfego de hora em hora](./media/b-series-burstable/office-workload.png)
 
 | Cenário | Hora | Utilização do CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
 | --- | --- | --- | --- | --- |
@@ -68,8 +68,8 @@ Linha de base: 270%
 | Sem trânsito | 4:00 | 0 | 162 | 1290 |
 | Sem trânsito | 5:00 | 0 | 162 | 1452 |
 | Tráfego baixo | 6:00 | 270 | 0 | 1452 |
-| Os colaboradores vêm ao escritório (app precisa de 80% vCPU) | 7:00 | 1280 | -606 | 846 |
-| Os colaboradores continuam a vir ao escritório (app precisa de 80% vCPU) | 8:00 | 1280 | -606 | 240 |
+| Os colaboradores chegam ao escritório (a app precisa de 80% de vCPU) | 7:00 | 1280 | -606 | 846 |
+| Os colaboradores continuam a chegar ao escritório (a app precisa de 80% de vCPU) | 8:00 | 1280 | -606 | 240 |
 | Tráfego baixo | 9:00 | 270 | 0 | 240 |
 | Tráfego baixo | 10:00 | 100 | 102 | 342 |
 | Tráfego baixo | 11:00 | 50 | 132 | 474 |
@@ -78,7 +78,7 @@ Linha de base: 270%
 | Tráfego baixo | 14:00 | 50 | 132 | 810 |
 | Tráfego baixo | 15:00 | 100 | 102 | 912 |
 | Tráfego baixo | 16:00 | 100 | 102 | 1014 |
-| Funcionários que check-out (app precisa de 100% vCPU) | 17:00 | 1600 | -798 | 216 |
+| Funcionários a verificar (a app precisa de 100% de vCPU) | 17:00 | 1600 | -798 | 216 |
 | Tráfego baixo | 18:00 | 270 | 0 | 216 |
 | Tráfego baixo | 19:00 | 270 | 0 | 216 |
 | Tráfego baixo | 20:00 | 50 | 132 | 348 |
@@ -86,54 +86,54 @@ Linha de base: 270%
 | Sem trânsito | 22:00 | 0 | 162 | 642 |
 | Sem trânsito | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> Os créditos acumulados/créditos utilizados numa hora equivalem a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+<sup>1</sup> Os créditos acumulados/créditos utilizados numa hora equivalem a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
-Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de $0,936 por hora ($673,92 mensais) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é de $0,794 por hora ($547,86 mensal). <b>Isto resulta em poupanças de 15%!</b>
+Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de $0,936 por hora (mensalmente $673,92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é de $0,794 por hora (mensal $547,86). <b>Isto resulta em poupança de 15%!</b>
 
 ## <a name="q--a"></a>Perguntas e Respostas
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: Como obtém um desempenho de base de 135% de um VM?
 
-**R**: Os 135% são partilhados entre os 8 vCPU's que compõem o tamanho VM. Por exemplo, se a sua aplicação utilizar 4 dos 8 núcleos que trabalham no processamento de lotes e cada um desses 4 vCPU's estiver em execução a 30% a quantidade total de desempenho do VM CPU equivaleria a 120%.  O que significa que o seu VM estaria a construir tempo de crédito com base no delta de 15% do seu desempenho de base.  Mas também significa que quando se tem créditos disponíveis, o mesmo VM pode usar 100% de todos os 8 VCPU's dando a esse VM um desempenho de CPU Max de 800%.
+**R**: Os 135% são partilhados entre os 8 vCPU's que compõem o tamanho VM. Por exemplo, se a sua aplicação utilizar 4 dos 8 núcleos que trabalham no processamento de lotes e cada um desses 4 vCPU's estiver em execução a 30% de utilização, a quantidade total de desempenho do CPU VM equivaleria a 120%.  O que significa que o seu VM estaria a construir tempo de crédito baseado no delta de 15% do seu desempenho de base.  Mas também significa que quando tiver créditos disponíveis, esse mesmo VM pode usar 100% de todos os 8 vCPU's dando a esse VM um desempenho DE CPU Max de 800%.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Como posso monitorizar o meu saldo e consumo de crédito
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Como posso monitorizar o meu saldo de crédito e consumo
 
-**R:** Vamos introduzir 2 novas métricas nas próximas semanas, a métrica do **Crédito** permitir-lhe-á visualizar quantos créditos o seu VM depositou e a métrica **Consumircrédito** mostrará quantos créditos cpu o seu VM consumiu do banco.    Poderá visualizar estas métricas a partir do painel de métricas no portal ou programáticamente através das APIs do Monitor Azure.
+**R**: Vamos introduzir 2 novas métricas nas próximas semanas, a métrica de **Crédito** permitir-lhe-á ver quantos créditos o seu VM depositou e a métrica **ConsumirCredit** mostrará quantos créditos cpU o seu VM consumiu do banco.    Poderá ver estas métricas a partir do painel de métricas do portal ou programáticamente através das APIs do Monitor Azure.
 
-Para obter mais informações sobre como aceder aos dados das métricas para o Azure, consulte a [visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Para obter mais informações sobre como aceder aos dados das métricas para Azure, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated"></a>P: Como são acumulados os créditos?
 
-**R:** As taxas de acumulação e consumo de VM são definidas de tal forma que um VM que funciona exatamente ao seu nível de desempenho base não terá nem uma acumulação líquida nem o consumo de créditos rebentados.  Um VM terá um aumento líquido de créditos sempre que esteja abaixo do seu nível de desempenho base e terá uma diminuição líquida de créditos sempre que o VM estiver a utilizar o CPU mais do que o seu nível de desempenho base.
+**R**: As taxas de acumulação e de consumo em VM são fixadas de modo a que um VM que esteja a funcionar exatamente ao seu nível de desempenho base não terá nem uma acumulação líquida nem um consumo de créditos de rebentamento.  Um VM terá um aumento líquido de créditos sempre que estiver a correr abaixo do seu nível de desempenho base e terá uma redução líquida de créditos sempre que o VM estiver a utilizar o CPU mais do que o seu nível de desempenho base.
 
-**Exemplo:** Implemento um VM utilizando o tamanho B1ms para a minha aplicação de base de dados de pouco tempo e presença. Este tamanho permite que a minha aplicação use até 20% de um vCPU como base, que é 0,2 créditos por minuto que posso usar ou banco.
+**Exemplo:** Eu implanto um VM utilizando o tamanho B1ms para a minha aplicação de base de dados de tempo pequeno e de atendimento. Este tamanho permite que a minha aplicação use até 20% de um vCPU como base, que é 0,2 créditos por minuto que posso usar ou banco.
 
-A minha candidatura está ocupada no início e no fim do dia de trabalho dos meus empregados, entre as 7:00 e as 9:00 e as 16:00 às 18:00. Durante as outras 20 horas do dia, a minha candidatura está normalmente inativa, usando apenas 10% da vCPU. Para as horas não-álteras, ganho 0,2 créditos por minuto, mas só consumo 0,l créditos por minuto, por isso o meu VM irá depositar 0,1 x 60 = 6 créditos por hora.  Nas 20 horas que estou fora do pico, vou depositar 120 créditos.  
+A minha candidatura está ocupada no início e no fim do dia de trabalho dos meus empregados, entre as 7:00 e as 9:00 e as 16:00 às 18:00. Durante as outras 20 horas do dia, a minha aplicação está tipicamente inativa, apenas usando 10% do vCPU. Para as horas não-pico, ganho 0,2 créditos por minuto, mas só consumato 0,l créditos por minuto, por isso o meu VM irá depositar 0,1 x 60 = 6 créditos por hora.  Pelas 20 horas que estou fora do pico, vou depositar 120 créditos.  
 
-Durante as horas de ponta a minha aplicação media 60% de utilização vCPU, ainda ganho 0,2 créditos por minuto, mas consumo 0,6 créditos por minuto, por um custo líquido de 0,4 créditos por minuto ou 0,4 x 60 = 24 créditos por hora. Tenho 4 horas por dia de uso máximo, por isso custa 4 x 24 = 96 créditos para o meu uso máximo.
+Durante as horas de ponta a minha aplicação tem uma média de 60% de utilização vCPU, ainda ganho 0,2 créditos por minuto, mas consuma 0,6 créditos por minuto, por um custo líquido de 0,4 créditos por minuto ou 0,4 x 60 = 24 créditos por hora. Tenho 4 horas por dia de utilização máxima, por isso custa 4 x 24 = 96 créditos para o meu pico de utilização.
 
-Se eu pegar nos 120 créditos que ganhei fora do pico e subtrair os 96 créditos que usei para os meus tempos de pico, eu deposito mais 24 créditos por dia que posso usar para outras explosões de atividade.
+Se pegar nos 120 créditos que ganhei fora do pico e subtrair os 96 créditos que usei para os meus picos, deposito mais 24 créditos por dia que posso usar para outras explosões de atividade.
 
-### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P: Como posso calcular os créditos acumulados e utilizados?
+### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P: Como posso calcular créditos acumulados e utilizados?
 
-**R:** Pode utilizar a seguinte fórmula:
+**A**: Pode utilizar a seguinte fórmula:
 
-(Perf base CPU de VM - UTILIZAção CPU) / 100 = Banco de créditos ou utilização por minuto
+(CpU base perf de VM - Utilização cpu) / 100 = Banco de créditos ou utilização por minuto
 
-por exemplo, em caso sem conta, a sua linha de base é de 20% e se utilizar 10% do CPU está a acumular (20%-10%)/100 = 0,1 crédito por minuto.
+por exemplo, acima de exemplo, a sua linha de base é de 20% e se utilizar 10% do CPU está a acumular (20%-10%)/100 = 0,1 crédito por minuto.
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: A Série B suporta discos de dados premium de armazenamento?
 
-**R:** Sim, todos os tamanhos da Série B suportam discos de dados premium de armazenamento.
+**R:** Sim, todos os tamanhos da Série B suportam discos de dados de armazenamento premium.
 
-### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Porque é que o meu crédito remanescente está definido para 0 após uma reimplantação ou uma paragem/início?
+### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Por que o meu crédito restante está definido para 0 após uma recolocação ou uma paragem/arranque?
 
-**R:** Quando um VM é "REDPLOYED" e o VM muda para outro nó, o crédito acumulado perde-se. Se o VM for parado/iniciado, mas permanecer no mesmo nó, o VM mantém o crédito acumulado. Sempre que o VM começa fresco num nó, recebe um crédito inicial, por Standard_B8ms é de 240 minutos.
+**R** : Quando um VM é "REDPLOYED" e o VM passa para outro nó, perde-se o crédito acumulado. Se o VM for parado/iniciado, mas permanecer no mesmo nó, o VM mantém o crédito acumulado. Sempre que o VM começa fresco num nó, recebe um crédito inicial, para Standard_B8ms são 240 minutos.
 
-### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: O que acontece se eu colocar uma imagem de Os não suportada em B1ls?
+### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: O que acontece se eu colocar uma imagem de SO não suportada em B1ls?
 
-**A** : B1ls apenas suporta imagens Linux e se implementar outra imagem de OS poderá não ter a melhor experiência do cliente.
+**R:** B1ls suporta apenas imagens Linux e se implementar outra imagem de SO poderá não obter a melhor experiência do cliente.
 
 ## <a name="other-sizes"></a>Outros tamanhos
 
@@ -144,6 +144,6 @@ por exemplo, em caso sem conta, a sua linha de base é de 20% e se utilizar 10% 
 - [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
+Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

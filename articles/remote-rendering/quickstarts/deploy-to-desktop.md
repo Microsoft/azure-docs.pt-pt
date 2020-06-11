@@ -1,77 +1,77 @@
 ---
 title: Implementar exemplo do Unity no Ambiente de Trabalho
-description: Quickstart que mostra como colocar a amostra de Unidade em um PC de ambiente de trabalho
+description: Quickstart que mostra como obter a amostra de Unidade em um pc de ambiente de trabalho
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759001"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659922"
 ---
-# <a name="quickstart-deploy-unity-sample-to-desktop"></a>Quickstart: Implementar amostra de unidade para desktop
+# <a name="quickstart-deploy-unity-sample-to-desktop"></a>Quickstart: Implementar a amostra de Unidade para desktop
 
-Este quickstart cobre como implementar e executar a aplicação de amostra sinuosa para a Unidade para um PC de ambiente de trabalho.
+Este quickstart cobre como implementar e executar a aplicação de amostra de arranque rápido para Unidade para um PC de ambiente de trabalho.
 
-Neste arranque rápido, aprenderá a:
+Neste arranque rápido aprenderá a:
 
 > [!div class="checklist"]
 >
->* Construa o aplicativo de amostra sintetizador rápido para desktop
->* Desdobrar a amostra para um PC
->* Executar a amostra em um PC
+>* Construa o aplicativo de amostra de arranque rápido para desktop
+>* Implementar a amostra num PC
+>* Executar a amostra num PC
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Neste arranque rápido vamos implementar o projeto de amostra a partir de [Quickstart: Render um modelo com Unidade](render-model.md).
+Neste quickstart vamos implementar o projeto de amostra da [Quickstart: Render um modelo com Unidade.](render-model.md)
 
-Certifique-se de que as suas credenciais são guardadas corretamente com a cena e pode ligar-se a uma sessão dentro do editor da Unidade.
+Certifique-se de que as suas credenciais são guardadas corretamente com a cena e que pode ligar-se a uma sessão dentro do editor da Unidade.
 
 ## <a name="disable-virtual-reality-support"></a>Desativar o suporte à realidade virtual
 
-Apenas aplicações planas para desktop são suportadas no ambiente de trabalho, pelo que o suporte vr tem de ser desativado.
+Apenas aplicações de ambiente de trabalho planas são atualmente suportadas no ambiente de trabalho, pelo que o suporte vr tem de ser desativado.
 
-1. Open *Edit > Project Settings...*
-1. Selecione **Jogador** à esquerda.
-1. Selecione o separador de definições da **Plataforma Universal do Windows.**
+1. Abra *as definições > projeto de edição de edição...*
+1. Selecione **Player** à esquerda.
+1. Selecione o separador **de definições da Plataforma Universal do Windows.**
 1. Expandir as **Definições XR**.
-1. Desativar **a realidade virtual suportada**.
+1. Desative **a realidade virtual suportada.**
     ![definições de jogador](./media/unity-disable-xr.png)
-1. Acima *das definições de XR,* expanda **as Definições de Publicação.**
-1. Em **Famílias de Dispositivos Suportados,** **certifique-se** de que o Ambiente de Trabalho é verificado.
+1. Acima *de Definições XR*, expandir **configurações de publicação**.
+1. Nas **Famílias de Dispositivos Suportados,** **certifique-se de que o ambiente de trabalho** está verificado.
 
-## <a name="build-the-sample-project"></a>Construir o projeto da amostra
+## <a name="build-the-sample-project"></a>Construir o projeto de amostra
 
-1. Abrir *> construir definições.*
-1. Alterar *plataforma* para **plataforma Universal Windows** **(PC Autónomo** também é suportado, mas não utilizado aqui).
-1. Definir *dispositivo alvo* para **PC**.
-1. Definir *arquitetura* para **x86**.
-1. Definir *Tipo de construção* para **projeto D3D**.
-  ![Construir configurações](./media/unity-build-settings-pc.png)
-1. Selecione **Switch para Plataforma**.
-1. Ao premir **Build** (ou 'Build And Run'), será-lhe pedido que selecione alguma pasta onde a solução deve ser armazenada.
-1. Abra o **gerado Quickstart.sLN** com o Visual Studio.
-1. Altere a configuração para **Lançamento** e **x86**.
-1. Mude o modo de debugger para **Local Machine**.
-  ![Configuração da solução](./media/unity-deploy-config-pc.png)
-1. Construir a solução (F7).
+1. Abrir *definições de construção de > de ficheiros*.
+1. *Alterar plataforma* para plataforma **universal windows** **(PC Standalone** também é suportado mas não usado aqui, ver [limitações da plataforma](../reference/limits.md#platform-limitations)).
+1. Definir *o dispositivo-alvo* para **PC**.
+1. Definir *Arquitetura* para **x86**.
+1. Definir *Tipo de Construção* para **Projeto D3D**.
+  ![Configurações de construção](./media/unity-build-settings-pc.png)
+1. Selecione **Switch para plataforma**.
+1. Ao premir **Build** (ou 'Build And Run'), será solicitado que selecione alguma pasta onde a solução deve ser armazenada.
+1. Abra o **Quickstart.sln** gerado com o Visual Studio.
+1. Altere a configuração para **Release** e **x86**.
+1. Mude o modo de depuração para **Máquina Local**.
+  ![Configuração de solução](./media/unity-deploy-config-pc.png)
+1. Construa a solução (F7).
 
 > [!WARNING]
-> Certifique-se de selecionar **x86**. **x64** não é suportado atualmente, ver [limitações da plataforma](../reference/limits.md#platform-limitations).
+> Certifique-se de que seleciona **x86**. **A UWP/x64** não está atualmente suportada, ver [limitações da plataforma](../reference/limits.md#platform-limitations).
 
-## <a name="launch-the-sample-project"></a>Lançar o projeto da amostra
+## <a name="launch-the-sample-project"></a>Lançar o projeto de amostra
 
-Inicie o Debugger no Estúdio Visual (F5). Irá automaticamente implantar a aplicação para o PC.
+Inicie o Debugger no Visual Studio (F5). Irá implantar automaticamente a aplicação para o PC.
 
-A aplicação de amostras deve ser lançada e, em seguida, iniciar uma nova sessão. Passado algum tempo, a sessão está pronta e o modelo de forma remota aparecerá à sua frente.
-Se quiser lançar a amostra uma segunda vez mais tarde, também pode encontrá-la a partir do menu Iniciar agora.
+A aplicação da amostra deve ser lançada e, em seguida, iniciar uma nova sessão. Passado algum tempo, a sessão está pronta e o modelo renderizado remotamente aparecerá à sua frente.
+Se quiser lançar a amostra uma segunda vez mais tarde, também pode encontrá-la no menu Iniciar agora.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-No próximo arranque rápido, vamos dar uma olhada na conversão de um modelo personalizado.
+No próximo quickstart, vamos dar uma olhada na conversão de um modelo personalizado.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Converter um modelo para renderização](convert-model.md)

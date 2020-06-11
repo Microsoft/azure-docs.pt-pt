@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: bf53afc0168417bc223a55cd73f9a97b5bb3ac47
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b74940993033d52f993dc507fba38c35ea2b92bb
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299983"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673263"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vidas simbólicas configuráveis no Diretório Ativo Azure (Pré-visualização)
 
@@ -75,7 +75,7 @@ Quando um utilizador autentica com Azure AD, é estabelecida uma única sessão 
 
 A Azure AD usa dois tipos de fichas de sessão SSO: persistentes e não-persistentes. Tokens de sessão persistente são armazenados como cookies persistentes pelo navegador. As fichas de sessão não-escuta são armazenadas como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador está fechado.) Normalmente, um token de sessão não-reservado é armazenado. Mas, quando o utilizador seleciona o **Keep me assinado na** caixa de verificação durante a autenticação, é armazenado um token de sessão persistente.
 
-Fichas de sessão não-escutadas têm uma vida útil de 24 horas. Fichas persistentes têm uma vida útil de 180 dias. Sempre que um token de sessão SSO é utilizado dentro do seu período de validade, o período de validade é prorrogado por mais 24 horas ou 180 dias, dependendo do tipo de símbolo. Se um token de sessão SSO não for utilizado dentro do seu período de validade, é considerado caducado e já não é aceite.
+Fichas de sessão não-escutadas têm uma vida útil de 24 horas. Fichas persistentes têm uma vida de 90 dias. Sempre que um token de sessão SSO é utilizado dentro do seu período de validade, o período de validade é prorrogado por mais 24 horas ou 90 dias, dependendo do tipo de símbolo. Se um token de sessão SSO não for utilizado dentro do seu período de validade, é considerado caducado e já não é aceite.
 
 Você pode usar uma política para definir o tempo após a primeira sessão token foi emitido para além do qual o token da sessão não é mais aceite. (Para isso, utilize a propriedade Session Token Max Age.) Pode ajustar a vida útil de um token de sessão para controlar quando e com que frequência um utilizador é obrigado a reentrar em credenciais, em vez de ser autenticado silenciosamente, quando utilizar uma aplicação web.
 

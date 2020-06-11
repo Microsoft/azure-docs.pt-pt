@@ -4,12 +4,12 @@ description: Implementar as funcionalidades do Monitor Azure em escala utilizand
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5da174b374265126df2113f5ccf41397745d39d6
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632249"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678703"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementar monitor de Azure em escala usando a política Azure
 Enquanto algumas funcionalidades do Azure Monitor são configuradas uma ou um número limitado de vezes, outras devem ser repetidas para cada recurso que deseja monitorizar. Este artigo descreve métodos para usar a Política Azure para implementar o Azure Monitor em escala para garantir que a monitorização é configurada de forma consistente e precisa para todos os seus recursos Azure.
@@ -79,7 +79,7 @@ O script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. O script cria pastas separadas para cada definição de política, cada uma contendo três ficheiros chamados azurepolicy,json, azurepolicy.rules.json, azurepolicy.parameters.json. Se quiser criar a política manualmente no portal Azure, pode copiar e colar o conteúdo do azurepolicy.json uma vez que inclui toda a definição de política. Utilize os outros dois ficheiros com PowerShell ou CLI para criar a definição de política a partir de uma linha de comando.
+5. O script cria pastas separadas para cada definição de política, cada uma contendo três ficheiros chamados azurepolicy,json, azurepolicy.rules.json, azurepolicy.parameters.json. Se pretender criar a política manualmente no portal Azure, pode copiar e colar o conteúdo da azurepolicy.js, uma vez que inclui toda a definição de política. Utilize os outros dois ficheiros com PowerShell ou CLI para criar a definição de política a partir de uma linha de comando.
 
     Os exemplos a seguir mostram como instalar a definição de política tanto da PowerShell como da CLI. Cada um deles inclui metadados para especificar uma categoria de **Monitorização** para agrupar a nova definição de política com as definições de política incorporada.
 
@@ -135,4 +135,3 @@ Para obter mais informações sobre este processo, consulte [Enable Azure Monito
 
 - Leia mais sobre [a Política Azure.](../../governance/policy/overview.md)
 - Leia mais sobre [as definições de diagnóstico](diagnostic-settings.md).
-- Consulte o [repositório do Northstar Playbook](https://github.com/Azure/CET-NorthStar) que fornece diretrizes arquitetónicas e de implementação para a adoção da empresa de grande escala Azure.

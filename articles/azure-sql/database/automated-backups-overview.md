@@ -6,19 +6,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
 ms.custom: sqldbrb=2
-ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-manager: craigg
 ms.date: 06/04/2020
-ms.openlocfilehash: fc2c8ea232004488664bc7f15b1d1bb3b83f2e7b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 41df5190f2a7435ad91de94cb6f407037e1783a2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609612"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667833"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -76,18 +74,6 @@ Por outras palavras, durante o período de retenção, deve haver um backup comp
 > [!NOTE]
 > Para ativar o PITR, as cópias de segurança adicionais são armazenadas por mais uma semana do que o período de retenção configurado. O armazenamento de backup é cobrado ao mesmo ritmo para todos os backups. 
 
-Para bases de dados individuais, esta equação é usada para calcular o uso total de armazenamento de backup:
-
-`Total backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
-
-Para bases de dados em conjunto, o tamanho total de armazenamento de backup é agregado ao nível da piscina e é calculado da seguinte forma:
-
-`Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - maximum pool data storage`
-
-Para os casos geridos, o tamanho total do armazenamento de backup é agregado ao nível da instância e é calculado da seguinte forma:
-
-`Total backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
-
 As cópias de segurança que já não são necessárias para fornecer a funcionalidade PITR são automaticamente eliminadas. Como as cópias de segurança diferenciais e as cópias de segurança requerem uma cópia de segurança completa anterior para serem restauradoras, os três tipos de backup são purgados em conjuntos semanais.
 
 Para todas as bases de dados, incluindo bases de dados [encriptadas do TDE,](transparent-data-encryption-tde-overview.md) as cópias de segurança são comprimidas para reduzir a compressão e custos de armazenamento de backup. A relação média de compressão de backup é de 3-4 vezes, no entanto pode ser significativamente menor ou maior dependendo da natureza dos dados e se a compressão de dados é usada na base de dados.
@@ -144,9 +130,21 @@ No modelo DTU, não há custo adicional para armazenamento de backup para bases 
 
 Para bases de dados individuais na Base de Dados SQL, é fornecida uma quantidade de armazenamento de backup igual a 100% do tamanho máximo de armazenamento de dados para a base de dados, sem custos adicionais. Para piscinas elásticas e instâncias geridas, é fornecida uma quantia de armazenamento de backup igual a 100% do armazenamento máximo de dados para o pool ou o tamanho máximo de armazenamento de instância, respectivamente, é fornecido sem custos adicionais. 
 
-O consumo adicional de armazenamento de backup, se houver, será cobrado em GB/mês. Este consumo adicional dependerá da carga de trabalho e do tamanho de bases de dados individuais, piscinas elásticas e instâncias geridas. As bases de dados fortemente modificadas têm maior diferencial e cópias de segurança de registo, porque o tamanho destas cópias de segurança é proporcional à quantidade de alterações de dados. Portanto, estas bases de dados terão taxas de backup mais elevadas.
+Para bases de dados individuais, esta equação é usada para calcular o total de armazenamento de backup faturada:
 
-A SQL Database e a SQL Managed Instance calculam o seu armazenamento total de backup como um valor cumulativo em todos os ficheiros de backup. A cada hora, este valor é reportado ao oleoduto de faturação Azure, que agrega este uso de hora a hora para obter o seu consumo de armazenamento de reserva no final de cada mês. Se uma base de dados for eliminada, o consumo de armazenamento de cópias de segurança diminuirá gradualmente à medida que as cópias de segurança mais antigas envelhecem e são eliminadas. Como as cópias de segurança diferenciais e as cópias de segurança requerem uma cópia de segurança completa anterior para serem restauradoras, os três tipos de backup são purgados em conjuntos semanais. Uma vez que todos os backups são apagados, a faturação para. 
+`Total billable backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
+
+Para bases de dados agráveis, o tamanho total de armazenamento de backup faturado é agregado ao nível da piscina e é calculado da seguinte forma:
+
+`Total billable backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - maximum pool data storage`
+
+Para os casos geridos, o tamanho total de armazenamento de backup faturado é agregado ao nível da instância e é calculado da seguinte forma:
+
+`Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
+
+O armazenamento total de backup faturada, se houver, será cobrado em GB/mês. Este consumo de armazenamento de backup dependerá da carga de trabalho e do tamanho de bases de dados individuais, piscinas elásticas e instâncias geridas. As bases de dados fortemente modificadas têm maior diferencial e cópias de segurança de registo, porque o tamanho destas cópias de segurança é proporcional à quantidade de alterações de dados. Portanto, estas bases de dados terão taxas de backup mais elevadas.
+
+A BASE de Dados SQL e a SQL Managed Instance calculam o seu armazenamento total de backup faturado como um valor cumulativo em todos os ficheiros de backup. A cada hora, este valor é reportado ao oleoduto de faturação Azure, que agrega este uso de hora a hora para obter o seu consumo de armazenamento de reserva no final de cada mês. Se uma base de dados for eliminada, o consumo de armazenamento de cópias de segurança diminuirá gradualmente à medida que as cópias de segurança mais antigas envelhecem e são eliminadas. Como as cópias de segurança diferenciais e as cópias de segurança requerem uma cópia de segurança completa anterior para serem restauradoras, os três tipos de backup são purgados em conjuntos semanais. Uma vez que todos os backups são apagados, a faturação para. 
 
 Como exemplo simplificado, assuma que uma base de dados acumulou 744 GB de armazenamento de backup e que este valor permanece constante durante um mês inteiro porque a base de dados está completamente inativa. Para converter este consumo acumulado de armazenamento para uso horário, divida-o por 744,0 (31 dias por mês * 24 horas por dia). A SQL Database informará ao gasoduto de faturação da Azure que a base de dados consumia 1 GB de backup PITR a cada hora, a uma taxa constante. A faturação do Azure irá agregar este consumo e mostrar um uso de 744 GB durante todo o mês. O custo basear-se-á na taxa de valor/GB/mês na sua região.
 

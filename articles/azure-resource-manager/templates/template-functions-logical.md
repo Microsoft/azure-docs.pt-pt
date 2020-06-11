@@ -3,16 +3,16 @@ title: Funções do modelo - lógica
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192319"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677394"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos de Gestor de Recursos Azure (ARM).
+O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos Azure Resource Manager (ARM).
 
 * [e](#and)
 * [bool](#bool)
@@ -36,15 +36,15 @@ Verifica se todos os valores dos parâmetros são verdadeiros.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Devoluções **Verdadeiras** se todos os valores forem verdadeiros; caso contrário, **Falso.**
+Devoluções **Verdadeiras** se todos os valores forem verdadeiros; caso contrário, **Falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) de exemplo seguinte mostra como usar funções lógicas.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) a seguir mostra como usar funções lógicas.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -66,34 +66,34 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | Verdadeiro |
+| eExampleOutput | Booleano | Falso |
+| ouExampleOutput | Booleano | Verdadeiro |
 | notExampleOutput | Booleano | Falso |
 
 ## <a name="bool"></a>bool
 
 `bool(arg1)`
 
-Converte o parâmetro para um booleano.
+Converte o parâmetro num booleano.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |corda ou int |O valor para converter-se em boolean. |
+| arg1 |Sim |corda ou int |O valor para converter para um boolean. |
 
 ### <a name="return-value"></a>Valor devolvido
-Uma booleana do valor convertido.
+Um booleano do valor convertido.
 
 ### <a name="examples"></a>Exemplos
 
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) de exemplo mostra como usar bool com uma corda ou um inteiro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) a seguir mostra como usar bool com uma corda ou inteiro.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -119,42 +119,42 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | trueString | Booleano | Verdadeiro |
-| falsoString | Booleano | Falso |
+| falseString | Booleano | Falso |
 | trueInt | Booleano | Verdadeiro |
-| falsoInt | Booleano | Falso |
+| falseInt | Booleano | Falso |
 
 ## <a name="if"></a>if
 
 `if(condition, trueValue, falseValue)`
 
-Devolve um valor baseado em se uma condição é verdadeira ou falsa.
+Devolve um valor baseado no facto de uma condição ser verdadeira ou falsa.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | condição |Sim |boolean |O valor para verificar se é verdade ou falso. |
-| trueValue |Sim | corda, int, objeto ou matriz |O valor para devolver quando a condição é verdadeira. |
-| falsoValor |Sim | corda, int, objeto ou matriz |O valor a devolver quando a condição é falsa. |
+| verdadeiroValue |Sim | cadeia, int, objeto ou matriz |O valor para voltar quando a condição é verdadeira. |
+| falsoValue |Sim | cadeia, int, objeto ou matriz |O valor para devolver quando a condição é falsa. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Devolve o segundo parâmetro quando o primeiro parâmetro for **verdadeiro;** caso contrário, devolve o terceiro parâmetro.
+Devolve o segundo parâmetro quando o primeiro parâmetro é **verdadeiro;** caso contrário, devolve o terceiro parâmetro.
 
 ### <a name="remarks"></a>Observações
 
-Quando a condição é **Verdadeira,** apenas o verdadeiro valor é avaliado. Quando a condição é **Falsa,** apenas o valor falso é avaliado. Com a função **se,** pode incluir expressões que são apenas válidas condicionalmente. Por exemplo, pode fazer referência a um recurso que existe sob uma condição, mas não sob outra condição. Um exemplo de avaliação condicional das expressões é mostrado na secção seguinte.
+Quando a condição é **verdadeira,** apenas o verdadeiro valor é avaliado. Quando a condição é **falsa,** apenas o valor falso é avaliado. Com a função **se,** pode incluir expressões que são apenas válidas condicionalmente. Por exemplo, pode referenciar um recurso que existe sob uma condição, mas não sob outra condição. Na secção seguinte é apresentado um exemplo de avaliação condicional das expressões.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) de exemplo seguinte `if` mostra como usar a função.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) a seguir mostra como utilizar a `if` função.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -177,17 +177,17 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | simOutput | String | sim |
 | noOutput | String | não |
-| objetoSaída | Objeto | { "teste": "value1" } |
+| objetoOutput | Objeto | { "teste": "valor1" } |
 
-O [seguinte modelo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) de exemplo mostra como usar esta função com expressões que são apenas condicionalmente válidas.
+O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar esta função com expressões que são apenas válidas condicionalmente.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -235,7 +235,7 @@ O [seguinte modelo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deploy
 
 `not(arg1)`
 
-Converte o valor booleano para o seu valor oposto.
+Converte o valor booleano ao seu valor oposto.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -245,15 +245,15 @@ Converte o valor booleano para o seu valor oposto.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Devoluções **Verdadeiras** quando o parâmetro é **falso**. Devoluções **Falsas** quando o parâmetro é **verdadeiro**.
+**Retorna verdadeiro** quando o parâmetro é **falso**. Retorna **falso** quando o parâmetro é **verdadeiro.**
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) de exemplo seguinte mostra como usar funções lógicas.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) a seguir mostra como usar funções lógicas.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -275,17 +275,17 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | Verdadeiro |
+| eExampleOutput | Booleano | Falso |
+| ouExampleOutput | Booleano | Verdadeiro |
 | notExampleOutput | Booleano | Falso |
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) de exemplo seguinte **não** utiliza com [iguais](template-functions-comparison.md#equals).
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir **não** usa com [iguais](template-functions-comparison.md#equals).
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -300,7 +300,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | Verdadeiro |
 
@@ -320,15 +320,15 @@ Verifica se qualquer valor de parâmetro é verdadeiro.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Devoluções **Verdadeiras** se algum valor for verdadeiro; caso contrário, **Falso.**
+Devoluções **Verdadeiras** se algum valor for verdadeiro; caso contrário, **Falso**.
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) de exemplo seguinte mostra como usar funções lógicas.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) a seguir mostra como usar funções lógicas.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -350,13 +350,13 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | Verdadeiro |
+| eExampleOutput | Booleano | Falso |
+| ouExampleOutput | Booleano | Verdadeiro |
 | notExampleOutput | Booleano | Falso |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Use segredos em corridas de treino
+title: Segredos de autenticação em formação
 titleSuffix: Azure Machine Learning
 description: Passe segredos para treino corre de forma segura usando Workspace Key Vault
 services: machine-learning
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: dd3ebeb0f9c55fcc4dee090097459326cbe08eed
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 8fefeb162dd6f036c21485715dd680972823fbaa
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434437"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677481"
 ---
-# <a name="use-secrets-in-training-runs"></a>Use segredos em corridas de treino
+# <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Use segredos credenciais de autenticação em ações de formação de machine learning Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a usar segredos em treinos de forma segura. As informações de autenticação, como o nome de utilizador e a palavra-passe, são segredos. Por exemplo, se ligar a uma base de dados externa para consultar dados de formação, terá de passar o seu nome de utilizador e palavra-passe para o contexto de execução remota. Codificar tais valores em scripts de treino em texto claro é inseguro, pois exporia o segredo. 
@@ -68,7 +68,7 @@ Tenha cuidado para não expor o valor secreto escrevendo ou imprimindo.
 
 Há também uma versão de lote, [get_secrets()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) para aceder a múltiplos segredos ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  * [Ver caderno de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
  * [Conheça a segurança da empresa com a Azure Machine Learning](concept-enterprise-security.md)

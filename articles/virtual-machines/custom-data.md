@@ -7,18 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259121"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678363"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dados personalizados e Cloud-Init em Azure Virtual Machines
 
-## <a name="what-is-custom-data"></a>O que são dados personalizados?
-
-Os clientes perguntam frequentemente como podem injetar um script ou outros metadados numa máquina virtual microsoft Azure no tempo de fornecimento.  Noutras nuvens, este conceito é frequentemente referido como dados do utilizador.  No Microsoft Azure, temos uma funcionalidade similar chamada dados personalizados. 
+Poderá ter de injetar um script ou outros metadados numa máquina virtual do Microsoft Azure no tempo de provisionamento.  Noutras nuvens, este conceito é frequentemente referido como dados do utilizador.  No Microsoft Azure, temos uma funcionalidade similar chamada dados personalizados. 
 
 Os dados personalizados só são disponibilizados ao VM durante a primeira configuração inicial, chamamos a isto 'provisionamento'. O provisionamento é o processo em que os parâmetros VM Create (por exemplo, nome de hospedeiro, nome de utilizador, palavra-passe, certificados, dados personalizados, chaves, etc.) são disponibilizados ao VM e um agente de provisionamento processa-os, como o [Agente Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) e o [cloud-init.](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init) 
 
@@ -70,7 +68,7 @@ No Linux OS's, os dados personalizados são transmitidos para o VM através do f
 A Azure apoia atualmente dois agentes de provisionamento:
 * Agente Linux - Por padrão, o agente não irá processar dados personalizados, terá de construir uma imagem personalizada com ela ativada. As definições relevantes, de acordo com a [documentação,](https://github.com/Azure/WALinuxAgent#configuration) são:
     * Provisioning.DecodeCustomData
-    * Provisioning.ExecuteCustomData
+    * Provisioning.ExebonitoCustomData
 
 Quando ativar dados personalizados e executar um script, atrasará a reportagem VM que está pronta ou que o provisionamento foi bem sucedido até que o script esteja concluído. Se o script exceder o prazo total de 40 minutos de provisão de VM, o VM Create falhará. Note que se o script não executar, ou erros durante a execução, não é considerado uma falha fatal de provisão, você precisará criar um caminho de notificação para alertá-lo para o estado de conclusão do script.
 

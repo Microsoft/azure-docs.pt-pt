@@ -1,79 +1,76 @@
 ---
-title: Ativar a Gestão de Atualizações utilizando o modelo de Gestor de Recursos Azure [ Microsoft Docs
-description: Este artigo diz como usar um modelo de Gestor de Recursos Azure para ativar a Gestão de Atualizações.
+title: Ativar a gestão de atualização usando o modelo do Gestor de Recursos Azure ; Microsoft Docs
+description: Este artigo diz como usar um modelo de Gestor de Recursos Azure para ativar a Gestão de Atualização.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 06/10/2020
+ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830996"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668003"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações com o modelo do Azure Resource Manager
 
-Pode utilizar um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/template-syntax.md) para ativar a funcionalidade de Gestão de Atualização de Automação Azure no seu grupo de recursos. Este artigo fornece um modelo de amostra que automatiza o seguinte:
+Pode utilizar um [modelo de Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md) para ativar a funcionalidade de Gestão de Atualização da Automação Azure no seu grupo de recursos. Este artigo fornece um modelo de amostra que automatiza o seguinte:
 
 * Criação de um espaço de trabalho Azure Monitor Log Analytics.
 * Criação de uma conta Azure Automation.
-* Ligando a conta de Automação ao espaço de trabalho do Log Analytics, se não estiver já ligado.
-* Habilitando a Gestão de Atualizações.
+* Ligando a conta Automation ao espaço de trabalho Log Analytics, se não já estiver ligado.
+* Ativar a Gestão de Atualização.
 
-O modelo não automatiza a habilitação de um ou mais VMs Azure ou não-Azure.
+O modelo não automatiza a gestão de atualização em um ou mais VMs Azure ou não-Azure.
 
-Se já tem uma conta log Analytics e de Automação implantada numa região apoiada na sua subscrição, não estão ligadas. O espaço de trabalho ainda não tem A Gestão de Atualização ativada. A utilização deste modelo cria com sucesso o link e implementa a Gestão de Atualizações para os seus VMs. 
-
->[!NOTE]
->O utilizador **de nxautomation** ativado como parte da Atualização management no Linux executa apenas livros de execução assinados.
+Se já tem um espaço de trabalho do Log Analytics e uma conta de Automação implantada numa região suportada na sua subscrição, não estão ligados. A utilização deste modelo cria com sucesso a ligação e implementa a Gestão de Atualização.
 
 ## <a name="api-versions"></a>Versões da API
 
-A tabela seguinte lista as versões API para os recursos utilizados neste modelo.
+A tabela que se segue lista as versões API para os recursos utilizados neste modelo.
 
 | Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
-| Área de trabalho | áreas de trabalho | Antevisão 2017-03-15 |
-| Conta de automatização | automation | 2015-10-31 | 
+| Área de trabalho | áreas de trabalho | Antevisão 2020-03-01 |
+| Conta de automatização | automation | 2018-06-30 | 
 | Solução | soluções | Antevisão 2015-11-01 |
 
 ## <a name="before-using-the-template"></a>Antes de usar o modelo
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de executar [o Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para criar uma ligação com o Azure. Com o Azure PowerShell, a implementação utiliza a [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de executar [o Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para criar uma ligação com o Azure. Com a Azure PowerShell, a implementação utiliza [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza a criação de implementação do [grupo Az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza [a criação de implementação de grupo az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
-O modelo JSON está configurado para o solicitar:
+O modelo JSON está configurado para o solicitar para:
 
-* O nome do espaço de trabalho
-* A região em que criar o espaço de trabalho
-* O nome da conta Automation
-* A região em que criar a conta
+* O nome do espaço de trabalho.
+* A região onde se cria o espaço de trabalho.
+* Para ativar permissões de recursos ou espaço de trabalho.
+* O nome da conta Automation.
+* A região onde criar a conta.
 
-O modelo JSON especifica um valor predefinido para os outros parâmetros que são suscetíveis de serem utilizados para uma configuração padrão no seu ambiente. Pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com modelos, consulte Implementar recursos com modelos de Gestor de [Recursos e ClI Azure](../azure-resource-manager/templates/deploy-cli.md).
+O modelo JSON especifica um valor padrão para os outros parâmetros que são suscetíveis de ser usados para uma configuração padrão no seu ambiente. Pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para obter mais informações sobre o trabalho com os modelos, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-Os seguintes parâmetros no modelo são definidos com um valor predefinido para o espaço de trabalho log Analytics:
+Os seguintes parâmetros no modelo são definidos com um valor padrão para o espaço de trabalho Log Analytics:
 
 * sku - incumprimentos ao novo nível de preços Per-GB lançado no modelo de preços de abril de 2018
-* retenção de dados - incumprimentos a trinta dias
-* reserva de capacidade - incumprimentos a 100 GB
+* retenção de dados - incumprimentos de trinta dias
 
 >[!WARNING]
->Se criar ou configurar um espaço de trabalho log Analytics numa subscrição que tenha optado pelo novo modelo de preços de abril de 2018, o único nível de preços válido do Log Analytics é **o PerGB2018.**
+>Se criar ou configurar um espaço de trabalho Log Analytics numa subscrição que optou pelo novo modelo de preços de abril de 2018, o único nível de preços válido do Log Analytics é **o PerGB2018**.
 >
 
-O modelo JSON especifica um valor predefinido para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com modelos, consulte Implementar recursos com modelos de Gestor de [Recursos e ClI Azure](../azure-resource-manager/templates/deploy-cli.md).
+O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para obter mais informações sobre o trabalho com os modelos, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-É importante compreender os seguintes detalhes de configuração se for novo no Azure Automation e no Azure Monitor, de forma a evitar erros ao tentar criar, configurar e utilizar um espaço de trabalho log Analytics ligado à sua nova conta Automation.
+É importante compreender os seguintes detalhes de configuração se é novo no Azure Automation e no Azure Monitor, de forma a evitar erros ao tentar criar, configurar e utilizar um espaço de trabalho Log Analytics ligado à sua nova conta Automation.
 
 * Reveja [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender completamente as opções de configuração do espaço de trabalho, tais como o modo de controlo de acesso, o nível de preços, a retenção e o nível de reserva de capacidade.
 
-* Como apenas certas regiões são suportadas para ligar um espaço de trabalho log Analytics e uma conta de Automação na sua subscrição, reveja os [mapeamentos do Espaço de Trabalho](how-to/region-mappings.md) para especificar as regiões suportadas inline ou num ficheiro de parâmetros.
+* Como apenas certas regiões são suportadas para ligar um espaço de trabalho Log Analytics e uma conta Automation na sua subscrição, [reveja os mapeamentos do Workspace](how-to/region-mappings.md) para especificar as regiões suportadas em linha ou num ficheiro de parâmetros.
 
-* Se é novo em registos do Monitor Azure e ainda não implementou um espaço de trabalho, deve rever a orientação de design do espaço de [trabalho](../azure-monitor/platform/design-logs-deployment.md) para aprender sobre o controlo de acesso, e compreender as estratégias de implementação do design que recomendamos para a sua organização.
+* Se você é novo em registos do Azure Monitor e ainda não implementou um espaço de trabalho, você deve rever a orientação de design do [espaço de trabalho](../azure-monitor/platform/design-logs-deployment.md) para aprender sobre o controle de acesso, e entender as estratégias de implementação do design que recomendamos para a sua organização.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
@@ -114,18 +111,17 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -150,13 +146,11 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -168,7 +162,7 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -189,7 +183,7 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -201,10 +195,10 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -217,11 +211,11 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
     }
     ```
 
-2. Editar o modelo para satisfazer os seus requisitos. Considere criar um ficheiro de [parâmetros do Gestor](../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar os parâmetros como valores inline.
+2. Edite o modelo para satisfazer os seus requisitos. Considere criar um [ficheiro de parâmetros do Gestor](../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar parâmetros como valores inline.
 
-3. Guarde este ficheiro para uma pasta local como **deployUMSolutiontemplate.json**.
+3. Guarde este ficheiro numa pasta local à medida **quedeployUMSolutiontemplate.jsligado**.
 
-4. Está pronto para implementar este modelo. Pode utilizar o PowerShell ou o Azure CLI. Quando for solicitado um espaço de trabalho e nome de conta Automation, forneça um nome globalmente único em todas as subscrições do Azure.
+4. Está pronto para implementar este modelo. Pode utilizar o PowerShell ou o Azure CLI. Quando você é solicitado para um espaço de trabalho e nome de conta Automation, forneça um nome que é globalmente único em todas as subscrições do Azure.
 
     **PowerShell**
 
@@ -235,15 +229,14 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
-    A implementação pode demorar alguns minutos a concluir. Quando termina, vê-se uma mensagem semelhante à seguinte que inclui o resultado:
+    A implementação pode demorar alguns minutos a concluir. Quando termina, vê uma mensagem semelhante à seguinte que inclui o resultado:
 
-    ![Resultado do exemplo quando a implementação está completa](media/automation-update-management-deploy-template/template-output.png)
+    ![Exemplo resultado quando a implementação está completa](media/automation-update-management-deploy-template/template-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
-* Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
-* Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
-* Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .
-* Para resolver problemas com o agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
-* Para resolver problemas com o agente de atualização linux, consulte problemas de agente de[atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).
+* Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
+
+* Se já não necessitar do espaço de trabalho Do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Conta de Automação para Gestão de Atualização.](automation-unlink-workspace-update-management.md)
+
+* Para eliminar VMs da Gestão de Atualização, consulte [remover VMs da Gestão de Atualização](automation-remove-vms-from-update-management.md).

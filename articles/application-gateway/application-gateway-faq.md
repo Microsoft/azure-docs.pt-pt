@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7b90748ae29a98038d96e5e3a827413637a98d47
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196490"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668241"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -338,11 +338,31 @@ Não, utilize apenas caracteres alfanuméricos na sua senha de ficheiro .pfx.
 Kubernetes permite a criação `deployment` e recursos para expor um grupo de `service` cápsulas internamente no cluster. Para expor o mesmo serviço externamente, é definido um [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) recurso que proporciona equilíbrio de carga, rescisão TLS e hospedagem virtual baseada em nomes.
 Para satisfazer este `Ingress` recurso, é necessário um Controlador de Entrada que ouça quaisquer alterações de `Ingress` recursos e configura as políticas do equilibrador de carga.
 
-O Controlador de Entrada de Gateway de Aplicação permite que o [Gateway de Aplicação Azure](https://azure.microsoft.com/services/application-gateway/) seja usado como entrada para um [Serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como um cluster AKS.
+O Controlador de Entrada de Gateway de Aplicação (AGIC) permite que o [Gateway de Aplicação Azure](https://azure.microsoft.com/services/application-gateway/) seja usado como entrada para um [serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como um cluster AKS.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Pode um único controlador de entrada gerir vários Gateways de aplicação?
 
 Atualmente, um caso de Controlador de Entrada só pode ser associado a um Gateway de Aplicação.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Porque é que o meu cluster AKS com a Kubenet não está a trabalhar com a AGIC?
+
+A AGIC tenta associar automaticamente o recurso da tabela de rotas à sub-rede Do Gateway de Aplicação, mas pode não o fazer devido à falta de permissões da AGIC. Se a AGIC não conseguir associar a tabela de rotas à sub-rede Do Gateway de Aplicação, haverá um erro nos registos AGIC dizendo que sim, caso em que terá de associar manualmente a tabela de rotas criada pelo cluster AKS à sub-rede do Gateway de Aplicação. Para mais informações, consulte [aqui](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)as instruções.
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Posso ligar o meu cluster AKS e o Application Gateway em redes virtuais separadas? 
+
+Sim, desde que as redes virtuais sejam espreitadas e não tenham espaços de endereço sobrepostos. Se estiver a executar AKS com kubenet, então não se esqueça de associar a tabela de rotas gerada pela AKS à sub-rede Do Gateway de Aplicação. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Quais as funcionalidades que não são suportadas no addon AGIC? 
+
+Por favor, veja as diferenças entre a AGIC implantada através do Helm versus implantado como um add-on AKS [aqui](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>Quando devo usar o addon contra a implantação do Helm? 
+
+Por favor, veja as diferenças entre a AGIC implantada através do Helm versus implementadas como um add-on AKS [aqui](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), especialmente as tabelas que documentam que cenário(s) são suportados pela AGIC implantada através do Helm em oposição a um addon AKS. Em geral, a implementação através do Helm permitir-lhe-á testar funcionalidades beta e lançar candidatos antes de um lançamento oficial. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>Posso controlar qual a versão da AGIC que será implantada com o addon?
+
+Não, o add-on AGIC é um serviço gerido, o que significa que a Microsoft irá atualizar automaticamente o add-on para a versão mais recente estáveis. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 
@@ -413,6 +433,6 @@ Mas se quiser utilizar o Gateway V2 de aplicação apenas com IP privado, pode s
 Configuração NSG de amostra apenas para acesso ip privado: ![ Configuração NSG do Gateway de aplicações apenas para acesso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Application Gateway, veja [o que é O Gateway de Aplicação Azure?](overview.md)

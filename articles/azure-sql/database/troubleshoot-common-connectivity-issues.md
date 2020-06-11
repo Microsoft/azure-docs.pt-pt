@@ -9,16 +9,15 @@ ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266972"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668411"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -150,7 +149,7 @@ Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, 
 Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que o seu objeto **SqlConnection** volte a tentar a operação de ligação sem avisar ou incomodar o seu programa, tal como devolver o controlo ao seu programa. As retrações podem ocorrer nas seguintes situações:
 
 - mySqlConnection.Chamada de método aberto
-- mySqlConnection.Execute a chamada de método
+- mySqlConnection.Exechamada de método bonito
 
 Há uma subtileza. Se ocorrer um erro transitório durante *a execução da sua consulta,* o seu objeto **SqlConnection** não se requalificação da operação de ligação. Certamente não relemca a sua pergunta. No entanto, **a SqlConnection** verifica rapidamente a ligação antes de enviar a sua consulta para execução. Se a verificação rápida detetar um problema de ligação, **a SqlConnection** retira a operação de ligação. Se a repetição for bem sucedida, a sua consulta será enviada para execução.
 
@@ -243,7 +242,7 @@ No Linux, os seguintes utilitários podem ser úteis:
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: Altere o valor de exemplo para ser o seu endereço IP.
 
-No Windows, o utilitário [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está uma execução de exemplo que questionou a situação do porto numa base de dados na Base de Dados SQL e que foi executada num computador portátil:
+No Windows, o [utilitárioPortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está uma execução de exemplo que questionou a situação do porto numa base de dados na Base de Dados SQL e que foi executada num computador portátil:
 
 ```cmd
 [C:\Users\johndoe\]
@@ -444,7 +443,7 @@ public bool IsTransient(Exception ex)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Bibliotecas de conexão para Base de Dados SQL e Servidor SQL](connect-query-content-reference-guide.md#libraries)
 - [Agrupamento de conexão (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
