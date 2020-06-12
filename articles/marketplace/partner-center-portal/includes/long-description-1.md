@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: file
 author: anbene
 ms.author: mingshen
@@ -19,6 +19,6 @@ Forneça uma descrição mais longa da sua oferta, até 3.000 caracteres. Os cli
 Inclua um ou mais dos seguintes na sua descrição:
 
 - O valor e os principais benefícios da sua oferta
-- Associações de categoria seleções e/ou do sector
+- Categoria e/ou associações industriais
 - Oportunidades de compra na aplicação
 - Quaisquer divulgações necessárias
