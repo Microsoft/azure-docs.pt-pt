@@ -5,19 +5,19 @@ metadata:
   title: Documentação da Instância Gerida do SQL no Azure
   description: Encontre documentação sobre a Instância Gerida do SQL no Azure, uma instância gerida no Azure baseada na versão estável mais recente do Microsoft SQL Server.
   services: sql-database
-  ms.service: sql-database
-  ms.subservice: single-database
+  ms.service: sql-managed-instance
+  ms.subservice: operations
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 05/27/2020
-  ms.openlocfilehash: 967bf5461a1f4e6cf8869bcea6a0e7c74204d1a1
-  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.openlocfilehash: 358c6e85b7a2d6e54b72bb94c00e86f330decd19
+  ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84023624"
+  ms.lasthandoff: 06/11/2020
+  ms.locfileid: "84708778"
 landingContent:
 - title: Instância Gerida do Azure SQL
   linkLists:
