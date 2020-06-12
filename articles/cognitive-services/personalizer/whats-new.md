@@ -8,20 +8,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 04/23/2020
+ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 973a8b7eb8dad66568a5beb45adea9740dd0402a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342119"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700639"
 ---
 # <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizer
 
 Saiba o que há de novo no serviço. Estes itens podem incluir notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="june-2020"></a>junho de 2020
+
+* Novo tutorial - [usando Personalizer em uma aplicação web](tutorial-use-personalizer-web-app.md)
 
 ### <a name="may-2020---build-conference"></a>Maio 2020 - //Build conference
 
@@ -54,7 +58,7 @@ As seguintes funcionalidades de pré-visualização foram lançadas na Conferên
 
 [Anúncios de atualização da Azure para Serviços Cognitivos](https://azure.microsoft.com/updates/?product=cognitive-services)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Criar um ciclo de feedback em C #](csharp-quickstart-commandline-feedback-loop.md)
 * [Use a demonstração interativa](https://personalizationdemo.azurewebsites.net/)
