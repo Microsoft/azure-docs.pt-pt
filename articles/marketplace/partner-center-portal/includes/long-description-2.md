@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: file
 author: anbene
 ms.author: mingshen
@@ -19,7 +19,7 @@ Aqui ficam algumas dicas para escrever a sua descrição:
 - Descreva claramente o valor da sua oferta nas primeiras frases, incluindo:
   - Descrição da oferta.
   - O tipo de utilizador que beneficia da oferta.
-  - Necessidades ou problemas do cliente que a oferta endereça.
+  - Necessidades ou problemas do cliente que a oferta aborda.
 - Lembre-se que as primeiras frases podem ser exibidas nos resultados da pesquisa.
-- Não confie em funcionalidades e funcionalidades para vender o seu produto. Concentre-se no valor que a sua oferta proporciona.
+- Não confie nas funcionalidades e funcionalidades para vender o seu produto. Concentre-se no valor que a sua oferta proporciona.
 - Utilize vocabulário específico da indústria ou formulação baseada em benefícios.

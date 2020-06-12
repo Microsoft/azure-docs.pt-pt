@@ -6,7 +6,7 @@ ms.date: 02/26/2020
 ms.author: jgao
 ms.openlocfilehash: fba85b8f0e0062be664b076d6c17147a221107fb
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "78267740"

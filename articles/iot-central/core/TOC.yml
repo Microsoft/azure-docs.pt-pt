@@ -111,6 +111,8 @@
           href: howto-create-custom-rules.md
         - name: Criar análises personalizadas com o Databricks
           href: howto-create-custom-analytics.md
+        - name: Ver os seus dados no Power BI
+          href: howto-connect-powerbi.md
     - name: Administração
       items:
         - name: Gerir a aplicação
