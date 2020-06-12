@@ -378,8 +378,6 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Criar uma oferta SaaS
               href: ./partner-center-portal/create-new-saas-offer.md
-            - name: Faturação limitada SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
             - name: SaaS Fulfillment APIs
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -391,6 +389,8 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: FAQ - SaaS fulfillment APIs
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+            - name: Faturação limitada SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
         - name: Descrição geral da gestão de oportunidades potenciais
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
