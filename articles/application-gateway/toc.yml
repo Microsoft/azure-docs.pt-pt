@@ -30,6 +30,10 @@
       href: tutorial-url-redirect-cli.md
     - name: Dimensionamento automático e redundância de zona
       href: tutorial-autoscale-ps.md
+    - name: Suplemento de Controlador de Entrada para o AKS (Greenfield)
+      href: tutorial-ingress-controller-add-on-new.md
+    - name: Suplemento de Controlador de Entrada para o AKS (Brownfield)
+      href: tutorial-ingress-controller-add-on-existing.md
 - name: Amostras
   items:
     - name: Azure PowerShell
@@ -136,10 +140,12 @@
               href: application-gateway-configure-ssl-policy-powershell.md
     - name: Entrada para AKS
       items:
-        - name: Configurar com o Gateway de Aplicação existente
+        - name: Entrada para o AKS através do Helm (Brownfield)
           href: ingress-controller-install-existing.md
-        - name: Configurar com o novo Gateway de Aplicação
+        - name: Entrada para o AKS através do Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Desativar e reativar o suplemento de Controlador de Entrada para o AKS
+          href: ingress-controller-disable-addon.md
         - name: Ativar afinidades por cookies
           href: ingress-controller-cookie-affinity.md
         - name: Ativar suporte de múltiplos espaços de nomes

@@ -3,7 +3,7 @@ title: Documentação do Criador de FAQ
 summary: Saiba mais sobre o serviço Criador de FAQ e como as bases de dados de conhecimento deste serviço funcionam com as suas perguntas e respostas.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/18/2019
+  ms.date: 06/08/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 189782ca4e8d9c6a098f6080a62be4da0f2be853
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 09c577368ef6ca9b6bc584601ad018c2a63c7347
+  ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83651153"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84628041"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -66,8 +66,8 @@ landingContent:
     links:
     - text: 'Início Rápido: Com o Postman ou cURL'
       url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - text: 'Início Rápido: Utilizar REST e C#'
-      url: quickstarts/get-answer-from-knowledge-base-csharp.md
+    - text: 'Início Rápido: Utilizar REST e cURL'
+      url: quickstarts/quickstart-rest-curl.md
     - text: 'Início Rápido: Utilizar o SDK'
       url: quickstarts/quickstart-sdk.md
   - linkListType: how-to-guide
@@ -94,8 +94,12 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: 'Portal: Criar um bot de FAQ'
+    - text: 'Portal: Criar um bot de serviço do Azure Bot'
       url: tutorials/create-qna-bot.md
+    - text: 'Power Apps: Criar um bot com tecnologia do Criador de FAQ'
+      url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - text: 'Bot Framework: Emissão entre aplicações LUIS e Criador de FAQ'
+      url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
     - text: Outros exemplos de bot
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Referência

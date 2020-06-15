@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: be9b82b411d8ba76f0b592cb25e7ff70917b934f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c475c17e5d196c0eedf38df83f782309143ad979
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605481"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735579"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
 
@@ -33,7 +33,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * A versão mais recente estável da biblioteca de clientes Text Analytics é `3.0` .
+> * A versão mais recente estável da API text Analytics é `3.0` .
 >    * Certifique-se de que só segue as instruções da versão que está a utilizar.
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo.
 
@@ -44,7 +44,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * A versão mais recente estável da biblioteca de clientes Text Analytics é `3.0` .
+> * A versão mais recente estável da API text Analytics é `3.0` .
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -54,7 +54,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * A versão mais recente estável da biblioteca de clientes Text Analytics é `3.0` .
+> * A versão mais recente estável da API text Analytics é `3.0` .
 >    * Certifique-se de que só segue as instruções da versão que está a utilizar.
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo.
 > * Também pode executar esta versão da biblioteca de clientes Text Analytics [no seu browser.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
@@ -66,7 +66,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * A versão mais recente estável da biblioteca de clientes Text Analytics é `3.0` .
+> * A versão mais recente estável da API text Analytics é `3.0` .
 >    * Certifique-se de que só segue as instruções da versão que está a utilizar.
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo. 
 
@@ -94,7 +94,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore uma solução](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)

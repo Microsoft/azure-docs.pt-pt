@@ -1072,6 +1072,8 @@
               maintainContext: true
         - name: Melhores práticas de RGPD
           href: /azure/databricks/security/privacy/gdpr-delta
+        - name: Lista de acessos ao IP
+          href: /azure/databricks/security/network/ip-access-list
         - name: Encriptar o tráfego entre os nós de trabalho do cluster
           href: /azure/databricks/security/encryption/encrypt-otw
         - name: Ativar chaves geridas pelo cliente para blocos de notas
@@ -1160,10 +1162,13 @@
             - name: Gerir o acesso às funcionalidades do bloco de notas
               href: /azure/databricks/administration-guide/workspace/notebooks
               maintainContext: true
-        - name: Ativar as configurações de cluster
+        - name: Gerir clusters
           items:
-            - name: Descrição geral da configuração de cluster
+            - name: Gerir as opções de configuração do cluster
               href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: Gerir as políticas do cluster
+              href: /azure/databricks/administration-guide/clusters/policies
               maintainContext: true
             - name: Ativar os Serviços de Contentores
               href: /azure/databricks/administration-guide/clusters/container-services
@@ -1191,8 +1196,6 @@
             - name: Definições de rota definidas pelo utilizado
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
-            - name: Endereços IP do MySQL
-              href: mysql-ip-address.md
     - name: Resolução de problemas
       items:
         - name: Perguntas comuns
@@ -1256,6 +1259,18 @@
               maintainContext: true
             - name: IU do Apache Spark mostra menos do que a memória total do nó
               href: /azure/databricks/kb/clusters/spark-shows-less-memory
+              maintainContext: true
+            - name: Limite de núcleos da CPU impede a criação de clusters
+              href: /azure/databricks/kb/clusters/azure-core-limit
+              maintainContext: true
+            - name: Limite de endereços IP impede a criação de clusters
+              href: /azure/databricks/kb/clusters/azure-ip-limit
+              maintainContext: true
+            - name: Iniciação lenta do cluster e nós em falta
+              href: /azure/databricks/kb/clusters/azure-nodes-not-acquired
+              maintainContext: true
+            - name: Configurar um cluster para utilizar um servidor NTP personalizado
+              href: /azure/databricks/kb/clusters/use-internal-ntp
               maintainContext: true
         - name: Gestão de dados
           items:
@@ -1332,6 +1347,9 @@
               maintainContext: true
             - name: Otimizar o desempenho de leitura a partir de origens de dados JDBC
               href: /azure/databricks/kb/data-sources/jdbc-optimize-read
+              maintainContext: true
+            - name: Limitação das escritas do ADLS e WASB
+              href: /azure/databricks/kb/data-sources/azure-storage-throttling
               maintainContext: true
         - name: DBFS
           items:
@@ -1500,6 +1518,9 @@
             - name: Resolução de problemas do comando cancelar
               href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
               maintainContext: true
+            - name: Obter o nome de utilizador atual para o bloco de notas
+              href: /azure/databricks/kb/notebooks/get-notebook-username
+              maintainContext: true
         - name: Segurança e permissões
           items:
             - name: Falha na criação da tabela com exceção de segurança
@@ -1642,28 +1663,31 @@
                     - name: Resolução de problemas dos tokens de acesso do Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                       maintainContext: true
-            - name: Clusters
+            - name: API de Clusters
               href: /azure/databricks/dev-tools/api/latest/clusters
               maintainContext: true
-            - name: DBFS
+            - name: APIs das Políticas do Cluster
+              href: /azure/databricks/dev-tools/api/latest/policies
+              maintainContext: true
+            - name: API do DBFS
               href: /azure/databricks/dev-tools/api/latest/dbfs
               maintainContext: true
-            - name: Grupos
+            - name: API dos Grupos
               href: /azure/databricks/dev-tools/api/latest/groups
               maintainContext: true
             - name: API de Conjuntos de Instâncias
               href: /azure/databricks/dev-tools/api/latest/instance-pools
               maintainContext: true
-            - name: Tarefas
+            - name: API das Tarefas
               href: /azure/databricks/dev-tools/api/latest/jobs
               maintainContext: true
-            - name: Bibliotecas
+            - name: API das Bibliotecas
               href: /azure/databricks/dev-tools/api/latest/libraries
               maintainContext: true
-            - name: MLflow
+            - name: API do MLflow
               href: /azure/databricks/dev-tools/api/latest/mlflow
               maintainContext: true
-            - name: SCIM
+            - name: APIs do SCIM
               items:
                 - name: Descrição geral da API SCIM
                   href: /azure/databricks/dev-tools/api/latest/scim/index
@@ -1674,17 +1698,14 @@
                 - name: API SCIM (Grupos)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
-            - name: Segredos
+            - name: API dos Segredos
               href: /azure/databricks/dev-tools/api/latest/secrets
               maintainContext: true
-            - name: Tokens
+            - name: API dos Tokens
               href: /azure/databricks/dev-tools/api/latest/tokens
               maintainContext: true
-            - name: Área de trabalho
+            - name: API da Área de Trabalho
               href: /azure/databricks/dev-tools/api/latest/workspace
-              maintainContext: true
-            - name: Cadeia de versão de runtime para chamadas à API REST
-              href: /azure/databricks/dev-tools/api/latest/runtime-version-string
               maintainContext: true
         - name: "API\_REST\_1.2"
           href: /azure/databricks/dev-tools/api/1.2/index
@@ -1767,6 +1788,9 @@
           items:
             - name: Notas de versão da plataforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Junho de 2020
+              href: /azure/databricks/release-notes/product/2020/june
               maintainContext: true
             - name: Maio de 2020
               href: /azure/databricks/release-notes/product/2020/may

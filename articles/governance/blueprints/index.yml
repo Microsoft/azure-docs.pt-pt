@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/01/2019
-  ms.openlocfilehash: d80b82b9e8e41e9bfdc7b9ac180ccc8916481acb
-  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.openlocfilehash: 525d09dcd12c19ded3e13b38a56290f7816a26a7
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84116102"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84609068"
 landingContent:
 - title: Acerca do Azure Blueprints
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
       url: ./create-blueprint-portal.md
     - text: Criar um novo esquema (PowerShell)
       url: ./create-blueprint-powershell.md
+    - text: Criar um novo esquema (CLI Azure)
+      url: ./create-blueprint-azurecli.md
     - text: Criar um novo esquema (API REST)
       url: ./create-blueprint-rest-api.md
   - linkListType: tutorial
@@ -82,7 +84,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Perguntas e Respostas da Microsoft para o Azure Blueprints
-      url: /answers/topics/azure-blueprints.html.html
+      url: /answers/topics/azure-blueprints.html
     - text: Canal do YouTube sobre a Governação do Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Pedir funcionalidade do produto

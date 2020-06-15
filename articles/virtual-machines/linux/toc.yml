@@ -657,7 +657,7 @@
               href: update-agent.md
         - name: Mitigar a execução especulativa
           href: mitigate-se.md
-        - name: Monitorizar metadados
+        - name: Azure Instance Metadata Service
           href: instance-metadata-service.md
         - name: Obter métricas de utilização com o REST
           href: metrics-vm-usage-rest.md
