@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/29/2020
 ms.author: banders
-ms.openlocfilehash: 4dab11afb2ddd910a4d6619d088031279ebf3172
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6f571d323a06b64f79c3f97ae8717be7eb8968d3
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238011"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434545"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Âmbitos e contas de faturação no portal do Azure
 
@@ -22,9 +22,9 @@ O portal do Azure suporta os seguintes tipos de conta de faturação:
 
 - **Programa Microsoft Online Services**: uma conta de faturação para um Programa Microsoft Online Services é criada ao inscrever-se no Azure através do site do Azure. Por exemplo, quando se inscreve numa [Conta Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [conta com tarifas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Contrato Enterprise**: uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) para utilizar o Azure.
+- **Contrato Enterprise**: uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) para utilizar o Azure. Pode ter um máximo de 500 subscrições num Contrato Enterprise.
 
-- **Contrato de Cliente da Microsoft**: uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem através do site do Azure numa [conta com tarifas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) ou numa [Conta Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), também podem ter uma conta de faturação para um Contrato de Cliente Microsoft. Para obter mais informações, veja [Introdução à conta de faturação para o Contrato de Cliente da Microsoft](../understand/mca-overview.md).
+- **Contrato de Cliente da Microsoft**: uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem através do site do Azure numa [conta com tarifas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) ou numa [Conta Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), também podem ter uma conta de faturação para um Contrato de Cliente Microsoft. Pode ter um máximo de 20 subscrições num Contrato de Cliente Microsoft. Para obter mais informações, veja [Introdução à conta de faturação para o Contrato de Cliente da Microsoft](../understand/mca-overview.md).
 
 - **Contrato de Parceiro da Microsoft**: é criada uma conta de faturação de um Contrato de Parceiro da Microsoft para os parceiros Fornecedores de Soluções Cloud (CSP) para gestão dos clientes na nova experiência comercial. Os parceiros precisam de ter, pelo menos, um cliente com um [plano do Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) para gerir a conta de faturação no portal do Azure. Para obter mais informações, veja [Introdução à conta de faturação do Contrato de Parceiro da Microsoft](../understand/mpa-overview.md).
 
@@ -35,7 +35,7 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 
 ### <a name="microsoft-online-services-program"></a>Programa Microsoft Online Services
 
- ![Captura de ecrã que mostra a hierarquia do MOSP](./media/view-all-accounts/mosp-hierarchy.png)
+![Captura de ecrã que mostra a hierarquia do MOSP](./media/view-all-accounts/mosp-hierarchy.png)
 
 |Âmbito  |Definição  |
 |---------|---------|

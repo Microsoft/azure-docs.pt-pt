@@ -35,6 +35,8 @@
           href: temporal-tables.md
         - name: Aumentar/reduzir verticalmente
           href: database/scale-resources.md
+        - name: Escalamento Horizontal de Leituras
+          href: database/read-scale-out.md
         - name: Segurança
           items:
             - name: Descrição geral
@@ -282,8 +284,6 @@
           href: database/connectivity-architecture.md
         - name: Definições de conectividade
           href: database/connectivity-settings.md
-        - name: Escalamento Horizontal de Leituras
-          href: database/read-scale-out.md
         - name: Diferenças do T-SQL
           href: database/transact-sql-tsql-differences-sql-server.md
         - name: Automatização do Azure

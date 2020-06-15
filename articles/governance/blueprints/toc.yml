@@ -37,16 +37,8 @@
       displayName: 'list, examples'
       href: ./samples/index.md
     - name: Referência de Segurança do Azure
-      items:
-        - name: Descrição geral
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/index.md
-        - name: Mapeamento de controlo
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, azure, benchmark'
-          href: ./samples/azure-security-benchmark/deploy.md
+      displayName: 'standards, azure, benchmark'
+      href: ./samples/azure-security-benchmark.md
     - name: ISM PROTECTED da Administração Australiana
       items:
         - name: Mapeamento de controlo
@@ -64,16 +56,8 @@
           displayName: 'standards, canada, federal, pbmm'
           href: ./samples/canada-federal-pbmm/deploy.md
     - name: CIS Microsoft Azure Foundations Benchmark
-      items:
-        - name: Descrição geral
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/index.md
-        - name: Mapeamento das recomendações
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, cis'
-          href: ./samples/cis-azure-1.1.0/deploy.md
+      displayName: 'standards, cis'
+      href: ./samples/cis-azure-1-1-0.md
     - name: Impacto DoD Nível 4
       items:
         - name: Descrição geral
@@ -173,17 +157,9 @@
         - name: Passos para implementar
           displayName: 'standards, Media'
           href: ./samples/media/deploy.md
-    - name: NIST SP 800-53 Rev4
-      items:
-        - name: Descrição geral
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/index.md
-        - name: Mapeamento de controlo
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, nist, 800-53, rev 4'
-          href: ./samples/nist-sp-800-53-rev4/deploy.md
+    - name: NIST SP 800-53 R4
+      displayName: 'standards, nist, 800-53, rev 4'
+      href: ./samples/nist-sp-800-53-r4.md
     - name: PCI-DSS v3.2.1
       items:
         - name: Descrição geral
