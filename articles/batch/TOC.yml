@@ -95,6 +95,8 @@
           href: batch-management-dotnet.md
         - name: Análise de custos e orçamentos
           href: budget.md
+        - name: Utilizar pontos finais privados com contas do Batch
+          href: private-connectivity.md
     - name: Autenticar com o Azure AD
       items:
         - name: Azure AD com o serviço Batch

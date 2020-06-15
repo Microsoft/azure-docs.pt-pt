@@ -166,8 +166,12 @@
       href: evaluate-recommender.md
     - name: Classificar Recomendador SVD
       href: score-svd-recommender.md
+    - name: Score Wide and Deep Recommender
+      href: score-wide-and-deep-recommender.md
     - name: Preparar Recomendador SVD
       href: train-svd-recommender.md
+    - name: Train Wide and Deep Recommender
+      href: train-wide-and-deep-recommender.md
 - name: Deteção de Anomalias
   items:
     - name: Deteção de Anomalias Baseada em PCA

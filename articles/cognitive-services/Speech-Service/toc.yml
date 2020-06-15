@@ -12,6 +12,8 @@
       href: language-support.md
     - name: Suporte de região
       href: regions.md
+    - name: Novidades no Docs?
+      href: whats-new.md
 - name: Conversão de voz em texto
   items:
     - name: Documentação da conversão de voz em texto

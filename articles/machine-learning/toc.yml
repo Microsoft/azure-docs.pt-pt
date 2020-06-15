@@ -93,6 +93,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Conceitos
   items:
+    - name: Edições Empresariais vs. Básicas
+      href: concept-editions.md
     - name: Planear e gerir custos
       href: concept-plan-manage-cost.md
     - name: Estruturador (arrastar e largar ML)
@@ -365,6 +367,8 @@
             - name: Funções do Azure
               displayName: functions app
               href: how-to-deploy-functions.md
+            - name: Azure Cognitive Search
+              href: how-to-deploy-model-cognitive-search.md
             - name: Dispositivos Azure IoT Edge
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Inferência de FPGA
