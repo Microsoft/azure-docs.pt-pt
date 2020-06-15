@@ -1,34 +1,34 @@
 ---
-title: Política de aprendizagem - Personalizer
-description: As definições de aprendizagem determinam os *hiperparâmetros* do treino do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizagem acabarão por ser diferentes.
+title: Política de aprendizagem - Personalizar
+description: As definições de aprendizagem determinam os *hiperparímetros* do treino do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizagem acabarão por ser diferentes.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219348"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700737"
 ---
 # <a name="learning-policy-and-settings"></a>Política de aprendizagem e configurações
 
-As definições de aprendizagem determinam os *hiperparâmetros* do treino do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizagem acabarão por ser diferentes.
+As definições de aprendizagem determinam os *hiperparímetros* do treino do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizagem acabarão por ser diferentes.
 
-[A política e definições de aprendizagem estão](how-to-settings.md#configure-rewards-for-the-feedback-loop) definidas no seu recurso Personalizer no portal Azure.
+[A política de aprendizagem e as configurações](how-to-settings.md#configure-rewards-for-the-feedback-loop) estão definidas no seu recurso Personalizer no portal Azure.
 
 ## <a name="import-and-export-learning-policies"></a>Políticas de importação e de aprendizagem das exportações
 
-Pode importar e exportar ficheiros de política de aprendizagem do portal Azure. Utilize este método para salvar as políticas existentes, testá-las, substituí-las e arquivá-las no seu controlo de código fonte como artefactos para futuras referências e auditorias.
+Pode importar e exportar ficheiros de política de aprendizagem a partir do portal Azure. Utilize este método para salvar as políticas existentes, testá-las, substituí-las e arquivá-las no seu controlo de código fonte como artefactos para futuras referências e auditorias.
 
-Aprenda [a](how-to-manage-model.md#import-a-new-learning-policy) importar e exportar uma política de aprendizagem no portal Azure para o seu recurso Personalizer.
+Saiba como importar e [exportar](how-to-manage-model.md#import-a-new-learning-policy) uma política de aprendizagem no portal Azure para o seu recurso Personalizer.
 
-## <a name="understand-learning-policy-settings"></a>Compreender as definições de políticas de aprendizagem
+## <a name="understand-learning-policy-settings"></a>Compreender as definições da política de aprendizagem
 
-As configurações da política de aprendizagem não se destinam a ser alteradas. Alterar as definições apenas se entender como afetam o Personalizer. Sem este conhecimento, pode causar problemas, incluindo a invalidação de modelos Personalizer.
+As definições na política de aprendizagem não se destinam a ser alteradas. Altere as definições apenas se entender como afetam o Personalizar. Sem este conhecimento, poderá causar problemas, incluindo invalidar modelos Personalizer.
 
-Personalizer usa [vowpalwabbit](https://github.com/VowpalWabbit) para treinar e marcar os eventos. Consulte a [documentação da vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre como editar as definições de aprendizagem usando o vowpalwabbit. Assim que tiver os argumentos corretos da linha de comando, guarde o comando para um ficheiro com o seguinte formato (substitua o valor da propriedade dos argumentos pelo comando pretendido) e faça o upload do ficheiro para importar definições de aprendizagem no painel de Definições de **Modelo e Aprendizagem** no portal Azure para o seu recurso Personalizer.
+O personalista usa [vowpalwabbit](https://github.com/VowpalWabbit) para treinar e marcar os eventos. Consulte a [documentação do vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre como editar as definições de aprendizagem usando o vowpalwabbit. Assim que tiver os argumentos corretos da linha de comando, guarde o comando para um ficheiro com o seguinte formato (substitua o valor da propriedade dos argumentos pelo comando pretendido) e faça o upload do ficheiro para importar definições de aprendizagem no painel **de Definições de Modelo e Aprendizagem** no painel Azure para o seu recurso Personalizer.
 
-Segue-se `.json` um exemplo de uma política de aprendizagem.
+`.json`Segue-se um exemplo de uma política de aprendizagem.
 
 ```json
 {
@@ -39,15 +39,15 @@ Segue-se `.json` um exemplo de uma política de aprendizagem.
 
 ## <a name="compare-learning-policies"></a>Comparar políticas de aprendizagem
 
-Pode comparar como diferentes políticas de aprendizagem funcionam com dados passados em registos personalizer, fazendo [avaliações offline](concepts-offline-evaluation.md).
+Pode comparar como diferentes políticas de aprendizagem funcionam com dados anteriores em registos personalizados fazendo [avaliações offline.](concepts-offline-evaluation.md)
 
 [Faça upload das suas próprias políticas de aprendizagem](how-to-manage-model.md) para compará-las com a política de aprendizagem atual.
 
-## <a name="optimize-learning-policies"></a>Otimizar as políticas de aprendizagem
+## <a name="optimize-learning-policies"></a>Otimizar políticas de aprendizagem
 
-O personalizer pode criar uma política de aprendizagem otimizada numa [avaliação offline.](how-to-offline-evaluation.md) Uma política de aprendizagem otimizada que tenha melhores recompensas numa avaliação offline produzirá melhores resultados quando é usada online no Personalizer.
+O personalizador pode criar uma política de aprendizagem otimizada numa [avaliação offline.](how-to-offline-evaluation.md) Uma política de aprendizagem otimizada que tenha melhores recompensas numa avaliação offline produzirá melhores resultados quando for usada online no Personalizer.
 
-Depois de otimizar uma política de aprendizagem, pode aplicá-la diretamente ao Personalizer para que substitua imediatamente a política atual. Ou pode guardar a política otimizada para posterior avaliação e, mais tarde, decidir se descarta, poupa ou aplica.
+Depois de otimizar uma política de aprendizagem, pode aplicá-la diretamente ao Personalizer para que substitua imediatamente a política atual. Ou pode guardar a política otimizada para uma avaliação posterior e, mais tarde, decidir se descarta, salva ou aplica.
 
 ## <a name="next-steps"></a>Passos seguintes
 

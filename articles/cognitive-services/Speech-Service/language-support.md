@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 43476f3e3f125bc338ba25e8cce0e96baa76262b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636109"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730327"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -27,8 +27,6 @@ O suporte linguístico varia de acordo com a funcionalidade do serviço speech. 
 Tanto o Microsoft Speech SDK como o REST API suportam os seguintes idiomas (locais). 
 
 Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload **de Transcrições áudio + etiqueta humana** ou texto **relacionado: frases**. Para saber mais sobre personalização, consulte [Começar com Discurso Personalizado.](how-to-custom-speech.md)
-
-Para obter mais informações sobre como melhorar a pronúncia, consulte [Melhorar um modelo para Discurso Personalizado.](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation)
 
 <!--
 To get the AM and ML bits:
@@ -315,7 +313,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 | Galês                   | `cy`          |
 | Maia-de-iucatec            | `yua`         |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha a subscrição do seu teste de serviço de discurso](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como reconhecer a fala em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
