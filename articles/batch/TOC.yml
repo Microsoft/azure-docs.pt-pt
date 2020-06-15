@@ -97,6 +97,8 @@
           href: budget.md
         - name: Utilizar pontos finais privados com contas do Batch
           href: private-connectivity.md
+        - name: Configurar chaves geridas pelo cliente
+          href: batch-customer-managed-key.md
     - name: Autenticar com o Azure AD
       items:
         - name: Azure AD com o serviço Batch
