@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635174"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780890"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>O que é o serviço de reconhecimento de altifalantes Azure?
 
@@ -56,7 +56,21 @@ Controla-se quanto tempo os dados devem ser retidos. Pode criar, atualizar e apa
 
 Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolvedores que utilizam o serviço de Reconhecimento de Altifalantes devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Deve certificar-se de que recebeu as permissões adequadas dos utilizadores para reconhecimento de altifalantes. Para mais informações, consulte a [página de Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)   no Microsoft Trust Center. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="common-questions-and-solutions"></a>Perguntas e soluções comuns
+
+| Pergunta | Solução |
+|---------|----------|
+| Para que cenários pode ser utilizado o Reconhecimento do Orador? | Verificação do cliente de call center, check-in do paciente baseado em voz, transcrição de reunião, personalização de dispositivos multiutilizadores|
+| Qual é a diferença entre Identificação e Verificação? | A identificação é o processo de deteção de qual membro de um grupo de oradores está a falar. A verificação é o ato de confirmar que um orador corresponde a uma voz conhecida ou **inscrita.**|
+| Qual é a diferença entre a verificação independente de texto e texto? | A verificação dependente de texto requer uma frase-passe específica tanto para a inscrição como para o reconhecimento. A verificação independente de texto requer uma amostra de voz mais longa para a inscrição, mas qualquer coisa pode ser falada, incluindo durante o reconhecimento.|
+| Que línguas são apoiadas? | Inglês, Francês, Espanhol, Chinês, Alemão, Italiano, Japonês e Português |
+| Que regiões de Azure são apoiadas? | O Speaker Recognition é um serviço de pré-visualização, e atualmente apenas disponível na região oeste dos EUA.|
+| Que formatos áudio são suportados? | Mono 16 bit, 16kHz PCM-codificado WAV |
+| **Aceitar** e **Rejeitar** respostas não são precisas, como é que se afina o limiar? | Uma vez que o limiar ideal varia muito com cenários, a API decide se aceita ou "Rejeitar" simplesmente com base num limiar padrão de 0,5. Os utilizadores avançados são aconselhados a anular a decisão por defeito e a afinar o resultado com base no seu próprio cenário. |
+| Pode inscrever um orador várias vezes? | Sim, para verificação dependente de texto, pode inscrever um altifalante até 50 vezes. Para verificação independente de texto ou identificação de altifalantes, pode inscrever-se com até 300 segundos de áudio. |
+| Que dados são armazenados em Azure? | O áudio de inscrição é armazenado no serviço até que o perfil de voz seja [eliminado](speaker-recognition-basics.md#deleting-voice-profile-enrollments). As amostras de áudio de reconhecimento não são retidas ou armazenadas. |
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > * Preencha o artigo básico de reconhecimento de [altifalantes](speaker-recognition-basics.md) para um ensaio de padrões de design comuns que pode usar nas suas aplicações.
