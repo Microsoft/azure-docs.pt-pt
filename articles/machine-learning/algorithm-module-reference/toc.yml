@@ -155,7 +155,7 @@
     - name: Inicializar a Transformação da Imagem
       href: init-image-transformation.md
     - name: Dividir o Diretório da Imagem
-      href: split-to-image-directory.md
+      href: split-image-directory.md
     - name: DenseNet
       href: densenet.md
     - name: ResNet
