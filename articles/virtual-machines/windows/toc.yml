@@ -194,6 +194,8 @@
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Séries Ddv4 e Ddsv4
               href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Séries Dv4 e Dsv4
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Com otimização de computação
           items:
             - name: Descrição geral
@@ -213,6 +215,8 @@
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Séries Edv4 e Edsv4
               href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Séries Ev4 e Esv4
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série M
               href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série Mv2
@@ -277,6 +281,8 @@
         - name: Spot VMs
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: VMs do Azure sem disco temporário
+          href: ../azure-vms-no-temp-disk.md
         - name: Gerações anteriores
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
@@ -371,7 +377,7 @@
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Códigos de erro
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Utilizar C#'
+        - name: Utilizar C#
           href: csharp.md
         - name: Utilizar disco especializado
           items:
@@ -379,7 +385,7 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Utilizar o modelo do Resource Manager com C#'
+        - name: Utilizar o modelo do Resource Manager com C#
           href: csharp-template.md
           displayName: Azure Resource Manager
         - name: Criar VM com Chef
@@ -624,7 +630,7 @@
           href: ../extensions/agent-windows.md
         - name: Mitigar a execução especulativa
           href: mitigate-se.md
-        - name: Azure Instance Metadata Service
+        - name: Monitorizar metadados
           href: instance-metadata-service.md
         - name: Ativar a virtualização aninhada
           href: nested-virtualization.md
@@ -663,7 +669,7 @@
             - name: Descrição geral dos agentes
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: FAQ
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Extensão do Diagnóstico do Azure
               items:
                 - name: Descrição geral
@@ -736,7 +742,7 @@
             - name: FAQ sobre Disponibilidade Geral
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: FAQ
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
             - name: Ativar monitorização
               items:
                 - name: Ativar descrição geral da monitorização

@@ -66,6 +66,8 @@
   items:
     - name: Autenticar
       items:
+        - name: Autenticar para o Key Vault
+          href: authentication.md
         - name: Utilizar uma identidade gerida do Serviço de Aplicações
           href: managed-identity.md
         - name: Utilizar uma política de controlo de acesso
@@ -123,7 +125,7 @@
     - name: Parâmetros e cabeçalhos comuns
       href: common-parameters-and-headers.md
     - name: Azure PowerShell
-      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
