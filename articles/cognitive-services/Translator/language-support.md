@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 7ddf556be584603ce3e7cb4a97eb4cc9ff63ec68
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718449"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888311"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -186,7 +186,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 | Linguagem    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe`Arab` | <--> | Latim`Latn` |
-|Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
+| Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Latim`Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado`Hans`| <--> | Chinês tradicional`Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional`Hant`| <--> | Latim`Latn` |
@@ -198,7 +198,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 | Canarês | `kn` | Canarês`Knda` | --> | Latim`Latn` |
 | Malaiala | `ml` | Malaiala`Mlym` | --> | Latim`Latn` |
 | Marata | `mr` | Devanagari`Deva` | --> | Latim`Latn` |
-| Oriya | `or` | Oriya`Orya` | <--> | Latim`Latn` |
+| Odia | `or` | Oriya`Orya` | <--> | Latim`Latn` |
 | Punjabi | `pa` | Rio Gurmukhi`Guru`  | <--> | Latim`Latn`  |
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico`Cyrl`  | --> | Latim`Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim`Latn` | --> | Cirílico`Cyrl`|

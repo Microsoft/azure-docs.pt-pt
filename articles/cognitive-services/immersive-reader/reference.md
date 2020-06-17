@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267244"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907385"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência Imersivo SDK do leitor
 
@@ -80,7 +80,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="parameters"></a>Parâmetros
 
-| Name | Tipo | Descrição |
+| Name | Tipo | Description |
 | ---- | ---- |------------ |
 | `options` | [Prestações DebutonsOptions](#renderbuttonsoptions) | Opções para configurar certos comportamentos da função renderbuttons. Opcional. |
 
@@ -111,7 +111,7 @@ Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersiv
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Contém a resposta da chamada para `ImmersiveReader.launchAsync` .
+Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Note que uma referência ao `iframe` que contém o Leitor Imersivo pode ser acedida através de `container.firstChild` .
 
 ```typescript
 {
@@ -130,12 +130,12 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="supported-mime-types"></a>Tipos de MIME suportados
 
-| Tipo de MIME | Descrição |
+| Tipo de MIME | Description |
 | --------- | ----------- |
 | texto/planície | Texto simples. |
 | text/html | Conteúdo HTML. [Saiba mais](#html-support)|
 | aplicação/mathml+xml | Linguagem de marcação matemática (MathML). [Saiba mais](./how-to/display-math.md).
-| aplicação/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento de formato Microsoft Word .docx.
+| ument de aplicação/vnd.openxmlformats-officedocument.wordprocessingml.doc | Documento de formato Microsoft Word .docx.
 
 ### <a name="html-support"></a>Suporte HTML
 
@@ -188,7 +188,7 @@ Contém informações sobre o erro.
 
 #### <a name="error-codes"></a>Códigos de erro
 
-| Código | Descrição |
+| Código | Description |
 | ---- | ----------- |
 | BadArgument | O argumento fornecido é inválido, consulte `message` para mais detalhes. |
 | Tempo Limite | O Leitor Imersivo não conseguiu carregar dentro do intervalo especificado. |
