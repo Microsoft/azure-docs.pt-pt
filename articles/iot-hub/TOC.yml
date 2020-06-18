@@ -379,6 +379,8 @@
       items:
         - name: Desligamentos de dispositivos
           href: iot-hub-troubleshoot-connectivity.md
+        - name: Resolver problemas de encaminhamento de mensagens
+          href: troubleshoot-message-routing.md
         - name: Resolução do problema
           items:
             - name: 400027 ConnectionForcefullyClosedOnNewConnection
@@ -416,7 +418,7 @@
     - name: CLI do Azure
       href: /cli/azure/iot
     - name: Azure PowerShell
-      href: '/powershell/module/az.iothub#iot'
+      href: /powershell/module/az.iothub#iot
     - name: .NET (Dispositivo)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Serviço)
@@ -474,12 +476,12 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do Dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Exemplos de IoT do Azure
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'

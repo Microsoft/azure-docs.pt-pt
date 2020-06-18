@@ -10,19 +10,22 @@
   items:
     - name: Executar a sua primeira consulta - portal do Azure
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Executar a sua primeira consulta - CLI do Azure
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Executar a sua primeira consulta - PowerShell
+      href: ./first-query-azurecli.md
+    - name: Executar a sua primeira consulta - Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Executar a sua primeira consulta - Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
     - name: Executar a sua primeira consulta - Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
     - name: Implementar uma consulta partilhada - modelo ARM
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Tutoriais
   items:
     - name: Criar e partilhar uma consulta no portal do Azure

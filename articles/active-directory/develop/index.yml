@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 71f591f04e8762761c449ca4924db5edb4de3f6c
-  ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+  ms.openlocfilehash: d1f3958fd47f6e3e5f3971697de546b4cb738b3d
+  ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83681760"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84886907"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: v2-overview.md
     - text: Evolução da plataforma de identidade da Microsoft
       url: about-microsoft-identity-platform.md
+    - text: Migrar aplicações para o MSAL
+      url: msal-migration.md
     - text: Azure Active Directory para programadores (v1.0)
       url: ../azuread-dev/v1-overview.md
   - linkListType: concept

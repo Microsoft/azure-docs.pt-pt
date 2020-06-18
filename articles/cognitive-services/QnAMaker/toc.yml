@@ -113,7 +113,7 @@
       items:
         - name: Criar uma nova base de dados de conhecimento
           items:
-            - name: 'C#'
+            - name: C#
               href: Quickstarts/create-new-kb-csharp.md
             - name: Ir
               href: Quickstarts/create-new-kb-go.md
@@ -123,19 +123,19 @@
               href: Quickstarts/create-new-kb-python.md
         - name: Publicar uma base de dados de conhecimento
           items:
-            - name: 'C#'
+            - name: C#
               href: Quickstarts/publish-kb-csharp.md
             - name: Ir
               href: Quickstarts/publish-kb-go.md
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
+              href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: Obter resposta
           items:
-            - name: 'C#'
+            - name: C#
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
             - name: Ir
               href: Quickstarts/get-answer-from-knowledge-base-go.md
@@ -183,7 +183,7 @@
           href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDKs
       items:
-        - name: 'C#'
+        - name: C#
           items:
             - name: Documentação de Referência
               href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
@@ -199,12 +199,14 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker'
             - name: Amostras
               href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-go'
-        - name: Node.js
+        - name: JavaScript
           items:
             - name: Documentação de Referência
               href: 'https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
-            - name: NPM
-              href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+            - name: NPM - Criação
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
+            - name: NPM - Runtime de consulta
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker-runtime'
             - name: Amostras
               href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs'
         - name: Python

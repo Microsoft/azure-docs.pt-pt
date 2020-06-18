@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: f99b1adb71e7c20809b18699cb29a46dfca1b755
-  ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+  ms.openlocfilehash: 17798401c9781ab567f50ef141f96cc885083b01
+  ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84884291"
+  ms.locfileid: "84974964"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -55,6 +55,13 @@ productDirectory:
     - ai-machine-learning
     - web
     url: search/index.yml
+  - title: Serviços Cognitivos do Azure
+    summary: Adicione capacidades inteligentes de API para ativar interações contextuais
+    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+    azureCategories:
+    - featured
+    - ai-machine-learning
+    url: cognitive-services/index.yml
   - title: Azure Databricks
     summary: Plataforma de análise baseada no Apache Spark rápida, fácil e colaborativa
     imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
@@ -135,13 +142,6 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
-  - title: Serviços Cognitivos
-    summary: Adicione capacidades inteligentes de API para ativar interações contextuais
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - featured
-    - ai-machine-learning
-    url: cognitive-services/index.yml
   - title: Imagem Digitalizada
     summary: Separe informações acionáveis de imagens
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg

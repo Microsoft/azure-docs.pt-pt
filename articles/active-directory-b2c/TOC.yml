@@ -357,6 +357,20 @@
               href: relyingparty.md
             - name: Resoluções de afirmação
               href: claim-resolver-overview.md
+    - name: Integração de parceiros
+      items:
+        - name: Galeria de parceiros do Azure AD B2C
+          href: partner-gallery.md
+        - name: Arkose Labs
+          href: partner-arkose-labs.md
+        - name: IDology
+          href: partner-idology.md
+        - name: itsme
+          href: partner-itsme.md
+        - name: Trusona
+          href: partner-trusona.md
+        - name: Twilio
+          href: partner-twilio.md
     - name: Utilizar b2clogin.com
       items:
         - name: Descrição geral do b2clogin.com

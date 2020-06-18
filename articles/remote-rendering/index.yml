@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 9f27118bfe3e01ce8d1cfc8c60c46c416b39c846
-  ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
+  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/28/2020
-  ms.locfileid: "84142134"
+  ms.lasthandoff: 06/16/2020
+  ms.locfileid: "84808937"
 landingContent:
 - title: Acerca do Azure Remote Rendering
   linkLists:
@@ -52,6 +52,8 @@ landingContent:
       url: quickstarts/deploy-to-hololens.md
     - text: Implementar exemplo do Unity no Ambiente de Trabalho
       url: quickstarts/deploy-to-desktop.md
+    - text: Implementar exemplo de C++ nativo no HoloLens
+      url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
     - text: Converter um modelo para composição
       url: quickstarts/convert-model.md
 - title: Saiba como criar a sua própria aplicação
