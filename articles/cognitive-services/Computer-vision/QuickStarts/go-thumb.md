@@ -11,23 +11,26 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e9980bfe3065b4ce0df5a2f083f5f4bef366f35
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 606e07e5309cc56ec6d74e3357fd8189a0ecd41a
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681100"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987356"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Quickstart: Gere uma miniatura usando a API DE DESCANSO DE Visão Computacional com Go
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Quickstart: Gere uma miniatura utilizando a API de Visão de Computador com Go
 
-Neste arranque rápido, você gerará uma miniatura a partir de uma imagem usando a API DE DESCANSO DE Visão Computacional. Especifica a altura e a largura, que podem diferir na relação de aspeto da imagem de entrada. A Computer Vision utiliza uma cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de cultura baseadas nessa região.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, gerará uma miniatura a partir de uma imagem utilizando a API de Visão de Computador. Especifica a altura e a largura, que podem diferir na relação de aspeto da imagem de entrada. A Computer Vision utiliza a cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de corte com base nessa região.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter o [Go](https://golang.org/dl/) instalado.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Ir](https://golang.org/dl/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -118,9 +121,9 @@ func main() {
 
 Uma resposta de êxito contém os dados binários da imagem em miniatura. Se o pedido falhar, a resposta contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Explore a API computer Vision para analisar uma imagem, detetar celebridades e marcos históricos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Visão Computacional para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

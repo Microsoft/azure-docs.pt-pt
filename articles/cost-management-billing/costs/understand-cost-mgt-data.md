@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a25a34db99a4c1550ed78b5f084501fb8badfacf
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995654"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791287"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -122,6 +122,7 @@ Se não vir uma etiqueta específica no Cost Management, considere o seguinte:
 - A etiqueta foi aplicada há mais de 24 horas? Veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention)
 - O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização a partir de 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que é suportado.
     - Diretórios do Azure Active Directory B2C
+    - Azure Bastion
     - Azure Firewalls
     - Azure NetApp Files
     - Data Factory

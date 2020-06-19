@@ -11,28 +11,26 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7cf0d2cb27425010e1f6831bb7f75e35a670be24
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 25b60a414278f0bba6358524ec1c4aa1e7d27567
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171723"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986819"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e o JavaScript da Visão de Computador
 
 Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador. Com os métodos [Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina. 
-
-
 
 > [!IMPORTANT]
 > O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
-
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [conta Criar serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão de Computador e obter a sua chave. 
-
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -387,7 +385,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação JavaScript que utiliza a Visão de Computador para realizar o reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens. 
 

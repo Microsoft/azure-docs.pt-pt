@@ -10,25 +10,28 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3cb583502f1ccf3d88cf8307bb62ab5ed261ce03
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e94dc53fa5c0a6f44417324c9a7d7c1496d18f17
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403370"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986628"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: detetar rostos numa imagem com a API REST e JavaScript
 
-Neste arranque rápido, utilizará a API Azure Face REST com JavaScript para detetar rostos humanos numa imagem.
+Neste arranque rápido, você usará a API AZure Face REST com JavaScript para detetar rostos humanos numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave.
-- Um editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* Um editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="initialize-the-html-file"></a>Inicializar o ficheiro HTML
 
-Crie um novo ficheiro HTML, *detecteFaces.html,* e adicione o seguinte código.
+Crie um novo ficheiro HTML, *detectFaces.html*, e adicione o seguinte código.
 
 ```html
 <!DOCTYPE html>
@@ -41,7 +44,7 @@ Crie um novo ficheiro HTML, *detecteFaces.html,* e adicione o seguinte código.
 </html>
 ```
 
-Em seguida, adicione `body` o seguinte código dentro do elemento do documento. Este código configura uma interface básica do utilizador com um campo URL, um botão **de rosto De Análise,** um painel de resposta e um painel de visualização de imagem.
+Em seguida, adicione o seguinte código dentro `body` do elemento do documento. Este código configura uma interface de utilizador básica com um campo DE URL, um botão **de rosto de análise,** um painel de resposta e um painel de visualização de imagem.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +68,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Escreva o script JavaScript
 
-Adicione imediatamente o seguinte `h1` código acima do elemento no seu documento. Este código configura o código JavaScript que chama a API facial.
+Adicione o seguinte código imediatamente acima do `h1` elemento no seu documento. Este código configura o código JavaScript que chama a API face.
 
 ```html
 <script type="text/javascript">
@@ -124,17 +127,17 @@ Adicione imediatamente o seguinte `h1` código acima do elemento no seu document
 </script>
 ```
 
-Terá de atualizar o `subscriptionKey` campo com o valor da sua chave `uriBase` de subscrição e terá de alterar a cadeia de modo a conter a cadeia de ponto final correto. O `returnFaceAttributes` campo especifica quais os atributos faciais a recuperar; pode querer alterar esta cadeia dependendo da sua utilização pretendida.
+Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de subscrição e precisa de alterar a cadeia para que `uriBase` contenha a cadeia de ponto final correta. O `returnFaceAttributes` campo especifica quais os atributos faciais para recuperar; pode pretender alterar esta cadeia dependendo da utilização pretendida.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>Executar o script
 
-Abra *detectfaces.html* no seu navegador. Quando clicar no botão **'Face' Analisar,** a aplicação deve exibir a imagem a partir do URL dado e imprimir uma série de dados faciais JSON.
+Abra *detectFaces.htmi* no seu browser. Quando clicar no botão **de rosto 'Analisar',** a aplicação deve exibir a imagem a partir do URL dado e imprimir uma série de dados faciais JSON.
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-O texto seguinte é um exemplo de uma resposta JSON bem sucedida.
+O texto que se segue é um exemplo de uma resposta bem sucedida do JSON.
 
 ```json
 [
@@ -230,7 +233,7 @@ O texto seguinte é um exemplo de uma resposta JSON bem sucedida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, escreveu um script JavaScript que chama o serviço Azure Face para detetar rostos numa imagem e devolver os seus atributos. Em seguida, explore a documentação de referência da API face para saber mais.
+Neste arranque rápido, escreveu um script JavaScript que chama o serviço Azure Face para detetar rostos numa imagem e devolver os seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

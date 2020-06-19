@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Analise uma imagem remota com a REST API e Node.js'
+title: 'Quickstart: Analise uma imagem remota com a API REST e Node.js'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai analisar uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
@@ -11,24 +11,26 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019
-ms.openlocfilehash: 0fada9129d3b05111b2988a9debb55c88414ae3f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2ed27f92617992e50160d96f25132b1ff9625acc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685127"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986756"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Quickstart: Analise uma imagem remota utilizando a API DE DESCANSO DE Visão Computacional com Node.js
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Quickstart: Analise uma imagem remota utilizando a API de Visão de Computador com Node.js
 
-Neste arranque rápido, irá analisar uma imagem armazenada remotamente para extrair funcionalidades visuais utilizando a API DE DESCANSO DE Visão Computacional com Node.js. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, irá analisar uma imagem remotamente armazenada para extrair funcionalidades visuais utilizando a API de Visão de Computador com Node.js. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
-- Tem de ter o [npm](https://www.npmjs.com/) instalado.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Node.js](https://nodejs.org) 4.x ou mais tarde 
+* [npm](https://www.npmjs.com/) 
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -176,9 +178,9 @@ Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o 
 
 3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, explore as APIs de Visão Computacional usadas para analisar uma imagem, detetar celebridades e marcos históricos, criar uma miniatura e extrair texto impresso e manuscrito.
+Em seguida, explore as APIs de Visão Computacional usadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito.
 
 > [!div class="nextstepaction"]
 > [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

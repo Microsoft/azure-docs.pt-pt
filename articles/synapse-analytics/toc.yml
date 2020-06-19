@@ -426,6 +426,8 @@
               href: data-integration/data-integration-data-lake.md
     - name: Transformar e analisar dados
       items:
+        - name: Analisar matrizes e estruturas aninhadas
+          href: how-to-analyze-complex-schema.md
         - name: Synapse Link
           items:
             - name: Configurar o Synapse Link

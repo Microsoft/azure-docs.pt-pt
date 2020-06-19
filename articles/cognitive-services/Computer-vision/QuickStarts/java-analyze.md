@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Analise uma imagem remota com a REST API e Java'
+title: 'Quickstart: Analise uma imagem remota com a API REST e Java'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá analisar uma imagem através da API de Imagem Digitalizada com o Java.
 services: cognitive-services
@@ -11,23 +11,25 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3f5f273537593f5af4f398e55d72cd3f91a0c2cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5dba7d51765e2597ca18b0ba6bae03e9e8227a8d
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682208"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987341"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Analise uma imagem remota usando a API e Java de Visão Computacional
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Analise uma imagem remota utilizando a API e Java da Visão de Computador
 
-Neste arranque rápido, irá analisar uma imagem armazenada remotamente para extrair funcionalidades visuais utilizando a Java e a API DE DESCANSO DA Visão Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, irá analisar uma imagem remotamente armazenada para extrair funcionalidades visuais utilizando a API java e a API do Computação REST. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter a plataforma [Java&trade;, Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalada.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Rio Java &trade; Plataforma, Kit de Desenvolvimento Standard Edition 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
@@ -119,9 +121,9 @@ public class AnalyzeImage {
 1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`.
 
-Alternadamente, se estiver a executar o programa a partir de uma janela de linha de comando, execute os seguintes comandos. Estes comandos presumem que as suas bibliotecas estão numa pasta chamada `libs` que está na mesma pasta que ; se `Main.java` não, terá de substituir pelo caminho `libs` para as suas bibliotecas.
+Alternadamente, se estiver a executar o programa a partir de uma janela da linha de comando, executa os seguintes comandos. Estes comandos pressupõem que as suas bibliotecas se encontrem numa pasta com o nome `libs` que está na mesma pasta `Main.java` que; se não, terá de substituir `libs` pelo caminho para as suas bibliotecas.
 
-1. Compile o `Main.java` ficheiro.
+1. Compilar o `Main.java` ficheiro.
 
     ```bash
     javac -cp ".;libs/*" Main.java
@@ -194,7 +196,7 @@ REST Response:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação do Java Swing que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

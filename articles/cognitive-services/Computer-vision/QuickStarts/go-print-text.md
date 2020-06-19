@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Extrair texto impresso - REST, Go'
+title: 'Quickstart: Extrato de texto impresso - REST, Go'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Go.
 services: cognitive-services
@@ -11,26 +11,28 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bb9c15883dee4142d486ba64d71ddb76d0b970a6
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a4ad7e7a92f7e23e1b17e3997b62cc55427b1b14
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681083"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987371"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-with-go"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API DE DESCANSO de Visão Computacional com Go
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-with-go"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API de Visão de Computador rest com Go
 
 > [!NOTE]
-> Se estiver a extrair texto em língua inglesa, considere utilizar a nova [operação Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Um [arranque rápido de go](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts-sdk/go-sdk#call-the-read-api) está disponível.
+> Se estiver a extrair texto em inglês, considere utilizar a nova [operação Ler](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Um [quickstart Go](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts-sdk/go-sdk#call-the-read-api) está disponível.
 
-Neste arranque rápido, irá extrair texto impresso com reconhecimento ótico de caracteres (OCR) de uma imagem utilizando a API DE VISÃO Computacional. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Neste arranque rápido, extrairá texto impresso com reconhecimento de caracteres óticos (OCR) a partir de uma imagem utilizando a API de Visão de Computador. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter o [Go](https://golang.org/dl/) instalado.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Ir](https://golang.org/dl/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -215,7 +217,7 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

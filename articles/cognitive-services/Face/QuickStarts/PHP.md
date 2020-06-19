@@ -10,27 +10,30 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f2584892bb349d126b73c3f8df211f745a362bd8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f4d848eae23023d55ad41b7893610f246eddefd9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403354"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987808"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: detetar rostos numa imagem com a API REST e PHP
 
-Neste arranque rápido, você usará a API De REPOUSO Face Azure com PHP para detetar rostos humanos numa imagem.
+Neste arranque rápido, você usará a API AZure Face REST com PHP para detetar rostos humanos numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave.
-- Um editor de código como [Visual Studio Code.](https://code.visualstudio.com/download)
-- O pacote [de HTTP_Request2](https://pear.php.net/package/HTTP_Request2) PHP.
-- Um navegador web ativado por PHP. Se não tiver configurado isto, pode fazê-lo instalando e configurando [o XAMPP](https://www.apachefriends.org/) na sua máquina.
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* Um editor de códigos como [Visual Studio Code](https://code.visualstudio.com/download).
+* O pacote php [HTTP_Request2.](https://pear.php.net/package/HTTP_Request2)
+* Um navegador web ativado por PHP. Se não tiver configurado isto, pode fazê-lo instalando e configurando [xAMPP](https://www.apachefriends.org/) na sua máquina.
 
 ## <a name="initialize-the-html-file"></a>Inicializar o ficheiro HTML
 
-Crie um novo ficheiro HTML, *detecteFaces.html,* e adicione o seguinte código.
+Crie um novo ficheiro HTML, *detectFaces.html*, e adicione o seguinte código.
 
 ```html
 <html>
@@ -43,7 +46,7 @@ Crie um novo ficheiro HTML, *detecteFaces.html,* e adicione o seguinte código.
 
 ## <a name="write-the-php-script"></a>Escreva o script PHP
 
-Adicione o seguinte `body` código dentro do elemento do documento. Este código configura uma interface básica do utilizador com um campo URL, um botão **de rosto De Análise,** um painel de resposta e um painel de visualização de imagem.
+Adicione o seguinte código dentro `body` do elemento do documento. Este código configura uma interface de utilizador básica com um campo DE URL, um botão **de rosto de análise,** um painel de resposta e um painel de visualização de imagem.
 
 ```php
 <?php
@@ -99,13 +102,13 @@ catch (HttpException $ex)
 ?>
 ```
 
-Terá de atualizar o `subscriptionKey` campo com o valor da sua chave `uriBase` de subscrição e terá de alterar a cadeia de modo a conter a cadeia de ponto final correto. O `returnFaceAttributes` campo especifica quais os atributos faciais a recuperar; pode querer alterar esta cadeia dependendo da sua utilização pretendida.
+Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de subscrição e precisa de alterar a cadeia para que `uriBase` contenha a cadeia de ponto final correta. O `returnFaceAttributes` campo especifica quais os atributos faciais para recuperar; pode pretender alterar esta cadeia dependendo da utilização pretendida.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>Executar o script
 
-Abra o ficheiro num navegador web ativado por PHP. Deve obter uma série de dados do Rosto da JSON, como os seguintes.
+Abra o ficheiro num navegador web ativado por PHP. Devias obter uma série de dados do Rosto JSON, como os seguintes.
 
 ```json
 [
@@ -288,7 +291,7 @@ Abra o ficheiro num navegador web ativado por PHP. Deve obter uma série de dado
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore a API facial usada para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos como a idade e o género.
+Explore a API face usada para detetar rostos humanos numa imagem, demarcar os rostos com retângulos, e devolver atributos como a idade e o género.
 
 > [!div class="nextstepaction"]
 > [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
