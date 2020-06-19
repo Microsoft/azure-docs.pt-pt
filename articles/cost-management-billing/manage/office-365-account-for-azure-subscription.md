@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: b42a5b83f5442755614a3cb2ae81cffda09b4b3b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238113"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696767"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscrever-se para uma subscrição do Azure com a sua conta do Office 365
 Se tiver uma subscrição do Office 365, pode usar a sua conta do Office 365 para criar uma subscrição do Azure. Inicie sessão no [portal do Azure](https://portal.azure.com/) com o seu nome de utilizador e palavra-passe do Office 365. Se quiser configurar máquinas virtuais ou usar outros serviços do Azure, tem de se inscrever para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [usar o Controlo de Acesso Baseado em Funções para gerir o acesso à sua subscrição e aos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

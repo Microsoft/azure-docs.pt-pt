@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Biblioteca de clientes Computer Vision para Node.js'
-description: Comece com a biblioteca de clientes Computer Vision para Node.js com este quickstart
+title: 'Quickstart: Biblioteca de clientes da Visão de Computador para Node.js'
+description: Começa com a biblioteca de clientes da Visão De Computador para Node.js com este arranque rápido
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,64 +9,59 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
-ms.openlocfilehash: 234e2402287fd76bdfd96cb6884c3fd20e805d06
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 556e56991d59eb65f789fde4d705706a03a63be9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80136022"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073383"
 ---
 <a name="HOLTop"></a>
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Pacote de código fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | da biblioteca[(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)  |  [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [Node.js](https://nodejs.org/)
+* Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* A versão atual de [Node.js](https://nodejs.org/)
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="create-a-computer-vision-azure-resource"></a>Criar um recurso Computer Vision Azure
-
-Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para a Visão Computacional utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [o Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local. Também pode:
-
-* Obtenha uma chave de [teste](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias de graça. Depois de se inscrever, estará disponível no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
-* Veja o seu recurso no [portal Azure.](https://portal.azure.com/)
-
-Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT` respectivamente.
-
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue para ela.
+Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue até ela.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Executar `npm init` o comando para criar uma `package.json` aplicação de nó com um ficheiro.
+Executar o `npm init` comando para criar uma aplicação de nó com um `package.json` ficheiro.
 
 ```console
 npm init
 ```
 
-### <a name="install-the-client-library"></a>Instale a biblioteca do cliente
+### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
-Instale `ms-rest-azure` `@azure/cognitiveservices-computervision` os pacotes e npm:
+Instale os `ms-rest-azure` pacotes e `@azure/cognitiveservices-computervision` NPM:
 
 ```console
 npm install @azure/cognitiveservices-computervision
 ```
 
-O ficheiro `package.json` da sua aplicação será atualizado com as dependências.
+O ficheiro da sua aplicação `package.json` será atualizado com as dependências.
 
 ### <a name="prepare-the-nodejs-script"></a>Prepare o roteiro Node.js
 
-Crie um novo ficheiro, *index.js,* e abra-o num editor de texto. Adicione as seguintes declarações de importação.
+Crie um novo ficheiro, *index.js, *e abra-o num editor de texto. Adicione as seguintes declarações de importação.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-Em seguida, `computerVision` defina uma função e declare uma série de assinos com função primária e função de chamada. Você adicionará o seu código de arranque `computerVision` rápido na função primária e ligue para a parte inferior do script.
+Em seguida, defina uma `computerVision` função e declare uma série de async com função primária e função de retorno. Irá adicionar o seu código de arranque rápido na função principal e `computerVision` ligará na parte inferior do script.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
@@ -74,16 +69,16 @@ Em seguida, `computerVision` defina uma função e declare uma série de assinos
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision Node.js SDK.
+As seguintes classes e interfaces lidam com algumas das principais características da Visão de Computador Node.js SDK.
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
-| [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Esta aula é necessária para todas as funcionalidades de Visão Computacional. Você instantaneamente com a sua informação de subscrição, e você usa-o para fazer a maioria das operações de imagem.|
-|[Tipos de Características Visuais](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Este enum define os diferentes tipos de análise de imagem que podem ser feitos numa operação padrão da Análise. Especifica um conjunto de valores **VisualFeatureTypes** dependendo das suas necessidades. |
+| [ComputadorVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para fazer a maioria das operações de imagem.|
+|[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Este enum define os diferentes tipos de análise de imagem que podem ser feitos numa operação de Análise padrão. Especifica um conjunto de **valores VisualFeatureTypes** dependendo das suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Computer Vision para Node.js:
+Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes da Visão de Computador para Node.js:
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Analisar uma imagem](#analyze-an-image)
@@ -91,157 +86,157 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Crie variáveis para o ponto final e chave azure do seu recurso. Se criou a variável ambiental depois de lançar a aplicação, terá de fechar e reabrir o editor, IDE, ou a shell executá-la para aceder à variável.
+Crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, o IDE ou a shell que a executa para aceder à variável.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
-Instantifique um cliente com o seu ponto final e chave. Crie um objeto [ApiKeyCredencia](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) com a sua chave e ponto final e use-o para criar um objeto [ComputerVisionClient.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest)
+Instantiar um cliente com o seu ponto final e chave. Crie um objeto [ApiKeyCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) com a sua chave e ponto final e use-o para criar um objeto [ComputerVisionClient.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest)
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
-O código nesta secção analisa imagens remotas para extrair várias características visuais. Pode fazer estas operações como parte do método **de análiseImagem** do objeto cliente, ou pode chamá-las usando métodos individuais. Consulte a [documentação](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) de referência para mais detalhes.
+O código nesta secção analisa imagens remotas para extrair várias funcionalidades visuais. Pode fazer estas operações como parte do método **de análiseImage** do objeto do cliente, ou pode chamá-las usando métodos individuais. Consulte a [documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) para mais detalhes.
 
 > [!NOTE]
-> Também pode analisar uma imagem local. Consulte o código da amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para cenários que envolvam imagens locais.
+> Também pode analisar uma imagem local. Consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para ver cenários que envolvam imagens locais.
 
-### <a name="get-image-description"></a>Obtenha descrição da imagem
+### <a name="get-image-description"></a>Obtenha a descrição da imagem
 
-O código seguinte obtém a lista de legendas geradas para a imagem. Consulte [imagens de descrever](../../concept-describing-images.md) para mais detalhes.
+O seguinte código obtém a lista de legendas geradas para a imagem. Consulte [as imagens](../../concept-describing-images.md) para mais detalhes.
 
 Primeiro, defina o URL de uma imagem para analisar:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_describe_image)]
 
-Em seguida, adicione o seguinte código para obter a descrição da imagem e imprima-o na consola.
+Em seguida, adicione o seguinte código para obter a descrição da imagem e imprimi-la na consola.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_describe)]
 
 ### <a name="get-image-category"></a>Obtenha categoria de imagem
 
-O código seguinte obtém a categoria detetada da imagem. Consulte [as imagens do Categorize](../../concept-categorizing-images.md) para mais detalhes.
+O seguinte código obtém a categoria detetada da imagem. Consulte [as imagens categorize](../../concept-categorizing-images.md) para mais detalhes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories)]
 
-Definir a função `formatCategories`de ajudante:
+Defina a função de `formatCategories` ajudante:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories_format)]
 
 ### <a name="get-image-tags"></a>Obtenha etiquetas de imagem
 
-O código seguinte obtém o conjunto de etiquetas detetadas na imagem. Consulte [as etiquetas de Conteúdo](../../concept-tagging-images.md) para mais detalhes.
+O seguinte código obtém o conjunto de tags detetadas na imagem. Consulte [as etiquetas de conteúdo](../../concept-tagging-images.md) para mais detalhes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tags)]
 
-Definir a função `formatTags`de ajudante:
+Defina a função de `formatTags` ajudante:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tagsformat)]
 
 ### <a name="detect-objects"></a>Detetar objetos
 
-O código seguinte deteta objetos comuns na imagem e imprime-os na consola. Consulte a [deteção de objetos](../../concept-object-detection.md) para obter mais detalhes.
+O código a seguir deteta objetos comuns na imagem e imprime-os na consola. Consulte [a deteção de objetos](../../concept-object-detection.md) para obter mais detalhes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Definir a função `formatRectObjects`de ajudante:
+Defina a função de `formatRectObjects` ajudante:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 
 ### <a name="detect-brands"></a>Detetar marcas
 
-O código seguinte deteta marcas e logótipos corporativos na imagem e imprime-os para a consola. Consulte a [deteção da marca](../../concept-brand-detection.md) para obter mais detalhes.
+O código que se segue deteta marcas e logótipos corporativos na imagem e imprime-os na consola. Consulte [a deteção da marca](../../concept-brand-detection.md) para mais detalhes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Detetar rostos
 
-O código seguinte devolve os rostos detetados na imagem com as suas coordenadas de retângulo e seleciona atributos faciais. Consulte a [deteção do rosto](../../concept-detecting-faces.md) para obter mais detalhes.
+O código seguinte devolve as faces detetadas na imagem com as suas coordenadas de retângulo e seleciona atributos faciais. Consulte [a deteção do rosto](../../concept-detecting-faces.md) para obter mais detalhes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_faces)]
 
-Definir a função `formatRectFaces`de ajudante:
+Defina a função de `formatRectFaces` ajudante:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
 
 ### <a name="detect-adult-racy-or-gory-content"></a>Detetar conteúdo adulto, picante ou sangrento
 
-O código seguinte imprime a presença detetada de conteúdo adulto na imagem. Consulte [conteúdo adulto, picante e sangrento](../../concept-detecting-adult-content.md) para mais detalhes.
+O código que se segue imprime a presença detetada de conteúdo adulto na imagem. Consulte [o conteúdo adulto, picante e sangrento](../../concept-detecting-adult-content.md) para mais detalhes.
 
-Defina o URL da imagem a utilizar:
+Defina o URL da imagem para utilizar:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)]
 
-Em seguida, adicione o seguinte código para detetar conteúdo adulto e imprimir os resultados na consola.
+Em seguida, adicione o seguinte código para detetar o conteúdo adulto e imprimir os resultados na consola.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)]
 
-### <a name="get-image-color-scheme"></a>Obtenha esquema de cor de imagem
+### <a name="get-image-color-scheme"></a>Obtenha esquema de cores de imagem
 
-O código que se segue imprime os atributos de cor detetados na imagem, como as cores dominantes e a cor do sotaque. Consulte [esquemas de cores](../../concept-detecting-color-schemes.md) para mais detalhes.
+O código seguinte imprime os atributos de cor detetados na imagem, como as cores dominantes e a cor do acento. Consulte [os esquemas de cores](../../concept-detecting-color-schemes.md) para obter mais detalhes.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
 
-Defina a `printColorScheme` função auxiliar para imprimir os detalhes do esquema de cores para a consola.
+Defina a função de ajudante `printColorScheme` para imprimir os detalhes do esquema de cores para a consola.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors_print)]
 
-### <a name="get-domain-specific-content"></a>Obtenha conteúdo específico do domínio
+### <a name="get-domain-specific-content"></a>Obtenha conteúdo específico de domínio
 
-A Computer Vision pode usar um modelo especializado para fazer uma análise mais aprofundada das imagens. Consulte [conteúdo específico do Domínio](../../concept-detecting-domain-content.md) para obter mais detalhes.
+A Visão Computacional pode usar um modelo especializado para fazer mais análises nas imagens. Consulte [o conteúdo específico do domínio](../../concept-detecting-domain-content.md) para obter mais detalhes.
 
 Primeiro, defina o URL de uma imagem para analisar:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_domain_image)]
 
-O código que se segue analisa os dados sobre marcos detetados na imagem.
+O código seguinte analisa dados sobre marcos detetados na imagem.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks)]
 
-Defina a `formatRectDomain` função de ajudante para analisar os dados de localização sobre marcos detetados.
+Defina a função de ajudante `formatRectDomain` para analisar os dados de localização sobre marcos detetados.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks_rect)]
 
-### <a name="get-the-image-type"></a>Obter o tipo de imagem
+### <a name="get-the-image-type"></a>Obtenha o tipo de imagem
 
-O código que se segue imprime informações sobre o tipo de imagem,&mdash;quer se trate de clip art ou de desenho de linha.
+O código que se segue imprime informações sobre o tipo de &mdash; imagem, quer se trate de clip art ou desenho de linha.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
 
-Definir a função `describeType`de ajudante:
+Defina a função de `describeType` ajudante:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
-A Visão computorizada pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres.
+A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres.
 
 > [!NOTE]
-> Pode também ler texto a partir de uma imagem local. Consulte o código da amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para cenários que envolvam imagens locais.
+> Também pode ler texto a partir de uma imagem local. Consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para ver cenários que envolvam imagens locais.
 
 ### <a name="set-up-test-images"></a>Configurar imagens de teste
 
-Guarde uma referência do URL das imagens das quais pretende extrair texto.
+Guarde uma referência do URL das imagens de onde pretende extrair texto.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
-### <a name="call-the-recognize-api"></a>Ligue para a API Recognise
+### <a name="call-the-recognize-api"></a>Ligue para a API reconhecendo
 
-Adicione o código abaixo, `recognizeText` que chama a função para as imagens dadas.
+Adicione o código abaixo, que chama a `recognizeText` função para as imagens dadas.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Defina `recognizeText` a função. Isto chama o método **de reconhecimentoTexto** no objeto do cliente, que devolve um ID de operação e inicia um processo assíncrono para ler o conteúdo da imagem. Em seguida, utiliza o ID de operação para verificar a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, devolve os resultados extraídos.
+Defina a `recognizeText` função. Isto chama o método **recogniseText** no objeto do cliente, que devolve um ID de operação e inicia um processo assíncrona para ler o conteúdo da imagem. Em seguida, utiliza o ID de funcionamento para verificar a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, devolve os resultados extraídos.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
-Em seguida, defina `printRecText`a função auxiliar , que imprime os resultados de uma operação Recognise para a consola.
+Em seguida, defina a função de `printRecText` ajudante, que imprime os resultados de uma operação Recognise para a consola.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o `node` pedido com o comando no seu ficheiro de arranque rápido.
+Execute a aplicação com o `node` comando no seu ficheiro quickstart.
 
 ```console
 node index.js
@@ -249,7 +244,7 @@ node index.js
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
+Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -257,7 +252,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Referência da API da Visão Computacional (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
+>[Referência API de visão computacional (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
 * [O que é a Imagem Digitalizada?](../../Home.md)
-* O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
+* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
