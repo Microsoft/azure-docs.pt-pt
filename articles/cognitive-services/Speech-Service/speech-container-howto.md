@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: b76690cfbe0eb4851bdd1e4316235a7a9092c86e
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781213"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974658"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (pré-visualização)
 
@@ -28,10 +28,10 @@ Os recipientes de fala permitem aos clientes construir uma arquitetura de aplica
 
 | Função | Funcionalidades | Últimas |
 |--|--|--|
-| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.2.0 |
-| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.2.0 |
-| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.4.0 |
-| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.4.0 |
+| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.3.1 |
+| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.3.1 |
+| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
+| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -165,7 +165,7 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-2.2.0-amd64-en-us-preview
+2.3.1-amd64-en-us-preview
 ```
 
 Para todos os locais suportados do recipiente **discurso-a-texto,** consulte [as etiquetas de imagem discurso-a-texto](../containers/container-image-tags.md#speech-to-text).
@@ -194,7 +194,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> A `latest` etiqueta puxa o local e a `en-US` `jessarus` voz. Para locais adicionais consulte [locais de texto para falar.](#text-to-speech-locales)
+> A `latest` etiqueta puxa o local e a `en-US` `ariarus` voz. Para locais adicionais consulte [locais de texto para falar.](#text-to-speech-locales)
 
 #### <a name="text-to-speech-locales"></a>Locais de texto para falar
 
@@ -207,13 +207,13 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.5.0-amd64-en-us-ariarus-preview
 ```
 
 Para todos os locais apoiados e vozes correspondentes do recipiente **texto-a-voz,** consulte [as etiquetas de imagem text-to-speech](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Ao construir um HTTP POST *Padrão de Texto a Discurso,* a mensagem de Síntese de [Síntese de Discurso (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é o local e voz correspondentes do contentor, também conhecido como ["nome curto".](language-support.md#standard-voices) Por exemplo, a `latest` etiqueta teria um nome de voz de `en-US-JessaRUS` .
+> Ao construir um HTTP POST *Padrão de Texto a Discurso,* a mensagem de Síntese de [Síntese de Discurso (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é o local e voz correspondentes do contentor, também conhecido como ["nome curto".](language-support.md#standard-voices) Por exemplo, a `latest` etiqueta teria um nome de voz de `en-US-AriaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Texto-a-discurso personalizado](#tab/ctts)
 
