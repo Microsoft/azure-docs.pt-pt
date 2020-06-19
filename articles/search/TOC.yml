@@ -26,7 +26,7 @@
     - name: Modelo ARM
       displayName: Resource Manager
       href: search-get-started-arm.md
-    - name: 'C#'
+    - name: C#
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
@@ -40,7 +40,7 @@
       href: search-get-started-python.md
 - name: Tutoriais
   items:
-    - name: 'Criar uma aplicação C#'
+    - name: Criar uma aplicação C#
       items:
         - name: 1 - Página de pesquisa básica
           href: tutorial-csharp-create-first-app.md
@@ -64,7 +64,7 @@
       href: tutorial-optimize-indexing-push-api.md
     - name: Utilizar IA para criar conteúdo
       items:
-        - name: 'C#'
+        - name: C#
           href: cognitive-search-tutorial-blob-dotnet.md
         - name: REST
           href: cognitive-search-tutorial-blob.md
@@ -76,7 +76,7 @@
       href: search-howto-powerapps.md
 - name: Amostras
   items:
-    - name: 'Amostras em C#'
+    - name: Amostras em C#
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp'
     - name: Exemplos do Java
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java'
@@ -224,8 +224,6 @@
               href: cognitive-search-custom-skill-form.md
             - name: Exemplo - Azure Machine Learning
               href: cognitive-search-tutorial-aml-custom-skill.md
-            - name: Exemplo - Contentores
-              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Sugestões de design
           href: cognitive-search-concept-troubleshooting.md
         - name: Arquivo de dados de conhecimento
@@ -482,7 +480,7 @@
     - name: Fórum de Comentários (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Conformidade e certificações
-      href: 'https://aka.ms/azurecompliance'
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
     - name: Ligações para documentação (extração de conhecimento)
       href: cognitive-search-resources-documentation.md
     - name: Sites de demonstração

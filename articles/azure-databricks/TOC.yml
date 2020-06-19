@@ -11,7 +11,7 @@
       items:
         - name: Portal
           href: quickstart-create-databricks-workspace-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: quickstart-create-databricks-workspace-powershell.md
         - name: Modelo ARM
           displayName: Resource Manager

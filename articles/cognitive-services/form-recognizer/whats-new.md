@@ -9,45 +9,56 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8b6cad548c9fdc5b5157c842d6302c8635e21a15
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996827"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099335"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
-O serviço 'Reconhecimento de Formulários' é atualizado de forma contínua. Utilize este artigo para se manter atualizado com melhorias de funcionalidades, correções e atualizações de documentação.
+O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo para se manter atualizado com melhorias de funcionalidades, correções e atualizações de documentação.
 
 > [!NOTE]
-> Os quickstarts e guias para reconhecimento de formulários usam sempre a versão mais recente da API, salvo especificação.
+> Os quickstarts e guias para o Form Recogniser utilizam sempre a versão mais recente da API, salvo especificação.
+
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="new-features"></a>Novas funcionalidades
+* **CopyModel API adicionado aos SDKs do cliente** Agora pode utilizar os SDKs do cliente para copiar modelos de uma subscrição para outra. Consulte [Os modelos de Back up e recupere para](./disaster-recovery.md) obter informações gerais sobre esta funcionalidade.
+* **Integração do Diretório Ativo Azure** Agora pode utilizar as suas credenciais AAD para autenticar os seus objetos de cliente Do Reconhecimento de Formulários nos SDKs.
+* **Alterações específicas do SDK** Isto inclui adições de recursos menores e alterações de rutura. Consulte os sdk para obter mais informações.
+  * [C# SDK Preview 3 alterlog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Python SDK Preview 3 alterlog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Antevisão 3 de Antevisão de Java SDK](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Pré-visualização javaScript SDK 3 alterlog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ## <a name="april-2020"></a>Abril de 2020
 
 ### <a name="new-features"></a>Novas funcionalidades
-* **Suporte sDK para Reconhecimento de Formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir uma pré-visualização SDK para versão De reconhecimento de formulário v2.0 (pré-visualização). Use os links abaixo para começar com a sua linguagem de eleição: 
+* **Suporte SDK para reconhecimento de formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir um SDK de pré-visualização para o lançamento do Reconhecimento de Formulários v2.0 (pré-visualização). Use os links abaixo para começar com o seu idioma de eleição: 
    * [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
    * [SDK Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
    * [SDK Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
    * [SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
 
-  O novo SDK suporta todas as funcionalidades da V2.0 REST API para reconhecimento de formulários. Por exemplo, pode treinar um modelo com ou sem etiquetas e texto de extração, pares de valor-chave e tabelas dos seus formulários, extrair dados de recibos com o serviço de recibos pré-construídos e extrair texto e tabelas com o serviço de layout dos seus documentos. Pode partilhar o seu feedback sobre os SDKs através do [formulário de feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
+  O novo SDK suporta todas as funcionalidades da API v2.0 REST para o Reconhecimento de Formulários. Por exemplo, pode treinar um modelo com ou sem etiquetas e extrair texto, pares de valor chave e tabelas dos seus formulários, extrair dados de recibos com o serviço de recibos pré-construídos e extrair texto e tabelas com o serviço de layout dos seus documentos. Pode partilhar o seu feedback sobre os SDKs através do [formulário SDK Feedback](https://aka.ms/FR_SDK_v1_feedback).
  
-* **Copiar Modelo Personalizado** Agora pode copiar modelos entre regiões e subscrições utilizando a nova funcionalidade Copy Custom Model. Antes de invocar a API do Modelo Personalizado copy, primeiro deve obter autorização para copiar no recurso-alvo, chamando a operação de Autorização de Cópia contra o ponto final do recurso alvo.
-   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REST API
-   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REST API 
+* **Modelo personalizado de cópia** Agora pode copiar modelos entre regiões e subscrições utilizando a nova funcionalidade Copy Custom Model. Antes de invocar a API do Modelo Personalizado de Cópia, tem primeiro de obter autorização para copiar para o recurso-alvo, chamando a operação de Autorização de Cópia contra o ponto final do recurso-alvo.
+   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REPOUSO API
+   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REPOUSO API 
 
 ### <a name="security-improvements"></a>Melhoramentos de segurança
 
-* As Chaves Geridas pelo Cliente já estão disponíveis para o FormRecogniser. Para mais informações, consulte [a encriptação de Dados em repouso para O Reconhecimento](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)de Formulários .
-* Utilize identidades geridas para acesso aos recursos Azure com Diretório Ativo Azure. Para mais informações, consulte [Autorizar o acesso a identidades geridas](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
+* As Chaves Geridas pelo Cliente estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Utilize identidades geridas para acesso aos recursos Azure com o Azure Ative Directory. Para mais informações, consulte [Autoriza o acesso a identidades geridas.](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities)
 
 ## <a name="march-2020"></a>Março de 2020 
 
 ### <a name="new-features"></a>Novas funcionalidades
 
-* **Tipos de valor para rotulagem** Agora pode especificar os tipos de valores que está a rotular com a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários'. Os seguintes tipos de valor e variações são atualmente suportados:
+* **Tipos de valor para rotulagem** Agora pode especificar os tipos de valores que está a rotular com a ferramenta de rotulagem da amostra do Reconhecimento de Formulários. Os seguintes tipos de valor e variações são atualmente suportados:
   * `string`
     * padrão, `no-whitespaces` ,`alphanumeric`
   * `number`
@@ -57,73 +68,73 @@ O serviço 'Reconhecimento de Formulários' é atualizado de forma contínua. Ut
   * `time`
   * `integer`
 
-  Consulte o guia da [ferramenta de rotulagem sample](./quickstarts/label-tool.md#specify-tag-value-types) para aprender a utilizar esta funcionalidade.
+  Consulte o guia [da ferramenta de rotulagem da amostra](./quickstarts/label-tool.md#specify-tag-value-types) para aprender a utilizar esta função.
 
 
-* **Visualização de mesa** A ferramenta de rotulagem da amostra apresenta agora tabelas que foram reconhecidas no documento. Isto permite-lhe visualizar as tabelas que foram reconhecidas e extraídas do documento, antes da rotulagem e análise. Esta função pode ser realternada utilizando a opção layers.
+* **Visualização de tabelas** A ferramenta de rotulagem da amostra apresenta agora tabelas que foram reconhecidas no documento. Isto permite-lhe ver as tabelas que foram reconhecidas e extraídas do documento, antes da rotulagem e análise. Esta função pode ser alternada entre/desligando utilizando a opção camadas.
 
   Este é um exemplo de como as tabelas são reconhecidas e extraídas:
 
   > [!div class="mx-imgBorder"]
-  > ![Visualização de tabelas utilizando a ferramenta de rotulagem da amostra](./media/whats-new/formre-table-viz.png)
+  > ![Visualização da tabela utilizando a ferramenta de rotulagem da amostra](./media/whats-new/formre-table-viz.png)
 
     As tabelas extraídas estão disponíveis na saída JSON em `"pageResults"` .
 
   > [!IMPORTANT]
-  > As mesas de rotulagem não são suportadas. Se as tabelas não forem reconhecidas e extratadas automaticamente, só pode rotulá-las como pares chave/valor. Ao rotular tabelas como par de chaves/valor, rotule cada célula como um valor único.
+  > As mesas de rotulagem não são suportadas. Se as tabelas não forem reconhecidas e extraídas automaticamente, só pode rotulá-las como pares chave/valor. Ao rotular as tabelas como pares chave/valor, rotular cada célula como um valor único.
 
-### <a name="extraction-enhancements"></a>Melhorias de extração
+### <a name="extraction-enhancements"></a>Melhoramentos de extração
 
 Esta versão inclui melhorias de extração e melhorias de precisão, especificamente, a capacidade de rotular e extrair múltiplos pares de chaves/valor na mesma linha de texto. 
  
-### <a name="sample-labeling-tool-is-now-open-source"></a>A ferramenta de rotulagem de amostras é agora de código aberto
+### <a name="sample-labeling-tool-is-now-open-source"></a>Ferramenta de rotulagem de amostra é agora de código aberto
 
-A ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' está agora disponível como um projeto de código aberto. Pode integrá-lo dentro das suas soluções e fazer alterações específicas para o cliente para atender às suas necessidades.
+A ferramenta de rotulagem da amostra do Form Recogniser está agora disponível como um projeto de código aberto. Pode integrá-lo dentro das suas soluções e fazer alterações específicas do cliente para atender às suas necessidades.
 
-Para obter mais informações sobre a ferramenta de rotulagem da amostra Do Reconhecimento de Formulários, reveja a documentação disponível no [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+Para obter mais informações sobre a ferramenta de rotulagem da amostra do Reconhecimento de Formulários, reveja a documentação disponível no [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### <a name="tls-12-enforcement"></a>Imposição de TLS 1.2
 
-TLS 1.2 é agora aplicado para todos os pedidos http para este serviço. Para mais informações, consulte a [segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
+O TLS 1.2 passa a ser aplicado para todos os pedidos HTTP a este serviço. Para mais informações, consulte [a segurança dos Serviços Cognitivos Azure.](../cognitive-services-security.md)
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
-Esta versão introduz o Reconhecimento de Formulário 2.0 (pré-visualização). Nas secções abaixo, encontrará mais informações sobre novas funcionalidades, melhorias e alterações. 
+Esta versão introduz o Reconhecimento de Formulários 2.0 (pré-visualização). Nas secções abaixo, encontrará mais informações sobre novas funcionalidades, melhorias e alterações. 
 
 ### <a name="new-features"></a>Novas funcionalidades
 
 * **Modelo personalizado**
-  * **Trem com rótulos** Agora pode treinar um modelo personalizado com dados manualmente rotulados. Isto resulta em modelos de melhor desempenho e pode produzir modelos que funcionam com formas ou formas complexas que contenham valores sem teclas.
-  * **API assíncrono** Pode utilizar chamadas API asincronizadas para treinar e analisar grandes conjuntos de dados e ficheiros.
-  * **Suporte de ficheiro sonérs TIFF** Agora pode treinar e extrair dados de documentos TIFF.
-  * **Melhorias na precisão da extração**
+  * **Treine com etiquetas** Agora pode treinar um modelo personalizado com dados etiquetados manualmente. Isto resulta em modelos de melhor desempenho e pode produzir modelos que funcionam com formas ou formas complexas que contêm valores sem chaves.
+  * **API assíncrono** Você pode usar chamadas de API async para treinar e analisar grandes conjuntos de dados e ficheiros.
+  * **Suporte de ficheiros TIFF** Agora pode treinar e extrair dados de documentos do TIFF.
+  * **Melhorias da precisão da extração**
 
 * **Modelo de recibo pré-construído**
-  * **Valores de gorjeta** Agora pode extrair quantidades de ponta e outros valores manuscritos.
-  * **Extração de artigos de linha** Pode extrair valores de itens de linha a partir de recibos.
+  * **Montantes de gorjeta** Agora pode extrair quantidades de ponta e outros valores manuscritos.
+  * **Extração de artigos de linha** Pode extrair valores de artigos de linha a partir de recibos.
   * **Valores de confiança** Pode ver a confiança do modelo por cada valor extraído.
-  * **Melhorias na precisão da extração**
+  * **Melhorias da precisão da extração**
 
-* **Extração de layout** Agora pode utilizar a API de layout para extrair dados de texto e dados de tabela saque a partir dos seus formulários.
+* **Extração de layout** Pode agora utilizar a API do Layout para extrair dados de texto e dados de tabela dos seus formulários.
 
-### <a name="custom-model-api-changes"></a>Mudanças de Modelo personalizado API
+### <a name="custom-model-api-changes"></a>Alterações de API de modelo personalizado
 
-Todas as APIs para treino e utilização de modelos personalizados foram renomeadas, e alguns métodos sincronizados são agora assíncronos. As seguintes alterações são as principais:
+Todas as APIs para treino e utilização de modelos personalizados foram renomeadas, e alguns métodos sincronizados são agora assíncronos. Seguem-se as principais alterações:
 
-* O processo de formação de um modelo é agora assíncrono. Inicia o treino através da chamada **API /costume/modelos.** Esta chamada devolve um ID de operação, que pode passar em **personalizado/modelo/{modelID}** para devolver os resultados do treino.
-* A extração chave/valor é agora iniciada pela chamada **/custom/models/{modelID}/analyze** API. Esta chamada devolve um ID de operação, que pode passar em **personalizado/modelos/{modelID}/analyzeResults/{resultID}** para devolver os resultados de extração.
-* As iDs de operação para a operação do comboio encontram-se agora no cabeçalho de **localização** das respostas HTTP, e não no cabeçalho **Operação-Localização.**
+* O processo de formação de um modelo é agora assíncronos. Inicia o treino através da chamada **API /personalizada/modelo.** Esta chamada devolve um ID de operação, que pode passar para **personalizado/modelo/{modelID}** para devolver os resultados do treino.
+* A extração chave/valor é agora iniciada pela chamada **API /custom/model/{modelID}/análise.** Esta chamada devolve um ID de operação, que pode passar para **personalizado/modelo/{modelID}/análiseResults/{resultID}** para devolver os resultados da extração.
+* As operação IDs para a operação do comboio encontram-se agora no cabeçalho de **localização** das respostas HTTP, e não no **cabeçalho operação-localização.**
 
-### <a name="receipt-api-changes"></a>Alterações da API de recibo
+### <a name="receipt-api-changes"></a>Alterações da API de receção
 
-As APIs para ler recibos de venda foram renomeadas.
+As APIs para a leitura dos recibos de venda foram renomeadas.
 
-* A extração de dados de recibo supõe-se agora na chamada **API /preconstruído/recibo/análise.** Esta chamada devolve um ID de operação, que pode passar para **/pré-construído/recibo/análiseResultados/{resultID}** para devolver os resultados da extração.
+* A extração de dados de receção é agora iniciada pela chamada **API /pré-incorporada/recibo/análise.** Esta chamada devolve um ID de operação, que pode passar para **/pré-incorporado/recibo/análiseResults/{resultID}** para devolver os resultados da extração.
 
 ### <a name="output-format-changes"></a>Alterações no formato de saída
 
-As respostas da JSON para todas as chamadas API têm novos formatos. Algumas teclas e valores foram adicionados, removidos ou renomeados. Consulte os quickstarts, por exemplo, dos formatos JSON atuais.
+As respostas JSON para todas as chamadas da API têm novos formatos. Algumas chaves e valores foram adicionados, removidos ou renomeados. Consulte os quickstarts para exemplos dos formatos JSON atuais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Complete um [início rápido](quickstarts/curl-train-extract.md) para começar com as APIs do Reconhecimento de [Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ca6bff4c1e99bb8e63db212ca57693870afc30e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310602"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080653"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (pré-visualização)
 
@@ -66,7 +66,7 @@ Os **códigos de estado HTTP** indicam erros comuns.
 |        | 400 | A síntese de voz só suporta o ficheiro de texto na codificação UTF-8 com o marcador byte-order. | Certifique-se de que os ficheiros de entrada estão na codificação UTF-8 com o marcador de encomenda. |
 |        | 400 | Apenas entradas SSML válidas são permitidas no pedido de síntese de voz. | Certifique-se de que as expressões SSML de entrada estão corretas. |
 |        | 400 | O nome de voz {voiceName} não se encontra no ficheiro de entrada. | O nome de voz SSML de entrada não está alinhado com o ID do modelo. |
-|        | 400 | O valor do parágrafo no ficheiro de entrada deve ser inferior a 10.000. | Certifique-se de que o parágrafo no ficheiro é inferior a 10.000. |
+|        | 400 | O número de parágrafos no ficheiro de entrada deve ser inferior a 10.000. | Certifique-se de que o número de parágrafos no ficheiro é inferior a 10.000. |
 |        | 400 | O ficheiro de entrada deve ter mais de 400 caracteres. | Certifique-se de que o seu ficheiro de entrada excede 400 caracteres. |
 |        | 404 | O modelo declarado na definição de síntese de voz não pode ser encontrado : {modelID}. | Certifique-se de que o {modelID} está correto. |
 |        | 429 | Ultrapasse o limite de síntese de voz ativa. Por favor, espere até que alguns pedidos terminem. | O servidor é autorizado a executar e fazer fila até 120 pedidos para cada conta Azure. Por favor, aguarde e evite submeter novos pedidos até que alguns pedidos estejam concluídos. |

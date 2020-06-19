@@ -3,12 +3,12 @@ title: Limites - LUIS
 description: Este artigo contém os limites conhecidos da Azure Cognitive Services Language Understanding (LUIS). A LUIS tem várias áreas de limites. O limite de modelo controla as intenções, entidades e características no LUIS. Limites de quota baseados no tipo-chave. A combinação de teclado controla o website da LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449503"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976987"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo e chaves LUIS
 O LUIS tem várias áreas limite. O primeiro é o limite do [modelo](#model-limits), que controla intenções, entidades e características no LUIS. A segunda área são [os limites de quota baseados](#key-limits) no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o website da LUIS. Uma quarta área é a [região mundial de mapeamento](luis-reference-regions.md) entre o site de autoria LUIS e as APIs [do ponto final](luis-glossary.md#endpoint) luis.
@@ -37,7 +37,7 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | [Entidades pré-criadas](./luis-prebuilt-entities.md) | sem limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres no máximo. por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 papéis por aplicação. 10 funções por entidade|
-| [Expressão][utterances] | 500 caracteres<br><br>Se tiver texto mais longo do que este limite de caracteres, tem de segmentar a expressão antes da entrada para o LUIS e fundir as respostas em conformidade. Há pausas óbvias com as qual se pode trabalhar, como marcas de pontuação e longas pausas no discurso.|
+| [Expressão][utterances] | 500 caracteres<br><br>Se tiver texto mais longo do que este limite de caracteres, precisa segmentar a expressão antes da entrada para o LUIS e receberá respostas individuais de intenção por segmento. Há pausas óbvias com as qual se pode trabalhar, como marcas de pontuação e longas pausas no discurso.|
 | [Exemplos de expressão][utterances] | 15.000 por pedido - não há limite para o número de declarações por intenção<br><br>Se precisar de treinar a aplicação com mais exemplos, utilize uma abordagem de modelo [de despacho.](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) Treina aplicações INDIVIDUAIS LUIS (conhecidas como aplicações infantis para a aplicação de despacho dos pais) com uma ou mais intenções e, em seguida, treina uma aplicação de despacho que amostra as expressões de cada app LUIS para direcionar o pedido de previsão para a aplicação correta para crianças. |
 | [Versões](luis-concept-version.md)| 100 versões por aplicação |
 | [Nome da versão][luis-how-to-manage-versions] | 128 caracteres |
@@ -106,7 +106,7 @@ Utilize o _tipo_, `LUIS` quando filtrar recursos no portal Azure. O recurso de p
 
 ## <a name="keyboard-controls"></a>Controlos de teclado
 
-|Entrada de teclado | Descrição |
+|Entrada de teclado | Description |
 |--|--|
 |Controlo+E|muda entre tokens e entidades na lista de expressões|
 
