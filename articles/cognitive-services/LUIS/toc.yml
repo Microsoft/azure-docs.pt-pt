@@ -194,11 +194,7 @@
         - name: Migrar a partir da entidade composta
           href: migrate-from-composite-entity.md
         - name: Migrar para recurso de criação
-          items:
-            - name: Descrição geral
-              href: luis-migration-authoring.md
-            - name: Como Migrar
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Migrar para a API V3
           href: luis-migration-api-v3.md
     - name: Gerir aplicação
@@ -209,11 +205,7 @@
         - name: Definições de aplicações e versão
           href: how-to-application-settings-portal.md
         - name: Migrar para recurso de criação
-          items:
-            - name: Descrição geral
-              href: luis-migration-authoring.md
-            - name: Como Migrar
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Autores e colaboradores
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
