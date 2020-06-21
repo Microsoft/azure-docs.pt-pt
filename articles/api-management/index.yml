@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 2ed84dfdfcabafe7222b8cb64a853ed04e2335a2
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: e0a6ed07aa8805b8506533fa455aab178bba799d
+  ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78944172"
+  ms.lasthandoff: 06/21/2020
+  ms.locfileid: "85125205"
 landingContent:
 - title: Acerca da Gestão de API
   linkLists:
@@ -59,10 +59,12 @@ landingContent:
   linkLists:
   - linkListType: sample
     links:
-    - text: Política
-      url: policy-samples.md
+    - text: Políticas
+      url: ./policies/index.md
     - text: Azure PowerShell
       url: powershell-samples.md
+    - text: Incorporações do Azure Policy
+      url: ./policy-samples.md
 - title: Arquitetura
   linkLists:
   - linkListType: architecture

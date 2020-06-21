@@ -38,9 +38,11 @@
 - name: Amostras
   items:
     - name: Políticas
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Incorporações do Azure Policy
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Terminologia
