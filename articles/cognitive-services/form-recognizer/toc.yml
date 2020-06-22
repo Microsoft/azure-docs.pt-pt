@@ -60,7 +60,7 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Utilizar instâncias de contentor
           href: deploy-form-recognizer-on-container-instances.md
-    - name: Copiar modelos para recuperação após desastre
+    - name: Fazer a cópia de segurança e recuperar modelos
       href: disaster-recovery.md
 - name: Referência
   items:

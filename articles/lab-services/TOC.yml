@@ -26,8 +26,10 @@
       href: capacity-limits.md
     - name: Cenários
       items:
-        - name: Utilizar laboratórios para guiar as aulas
+        - name: Utilizar o Lab Services para lecionar as aulas
           href: classroom-labs-scenarios.md
+        - name: Utilizar o Lab Services para o hackathon
+          href: hackathon-labs.md
         - name: Laboratórios de sala de aula - tipos de aula
           items:
             - name: Descrição geral dos tipos de aula
@@ -56,9 +58,9 @@
   items:
     - name: Guia do administrador
       href: administrator-guide.md
-    - name: Guia acelerado de configuração de conta de laboratório
+    - name: Guia acelerado de configuração da conta de laboratório
       href: account-setup-guide.md
-    - name: Guia acelerado de configuração de laboratório
+    - name: Guia acelerado de configuração do laboratório
       href: setup-guide.md
     - name: Criar e configurar contas de laboratório (proprietário de conta de laboratório)
       items:

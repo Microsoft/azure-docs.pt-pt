@@ -20,8 +20,8 @@
           href: use-gitops-with-helm.md
         - name: Impor o GitOps com o Azure Policy
           href: use-azure-policy.md
-        - name: Azure Monitor para contentores
-          href: deploy-azure-monitor-for-containers.md
+        - name: Monitorizar com o Azure Monitor para contentores
+          href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
         - name: Políticas de controlo de acesso com o Azure Policy
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Implementar cargas de trabalho de IoT
