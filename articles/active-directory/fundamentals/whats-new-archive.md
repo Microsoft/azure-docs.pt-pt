@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8fa352d81a6df70634c00978a3db155d5fb0d7e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d2242dc3a80287b36554298fa1a15afb894c9ac1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217008"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976205"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -958,7 +958,7 @@ Para obter mais informações, consulte a documentação de referência da [API 
 
 Em junho de 2019, adicionámos estas 22 novas aplicações com apoio da Federação à galeria de aplicações:
 
-[Azure AD SAML Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai ()](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial) [ANAQUA,](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial) [Cliente Azure VPN](https://portal.azure.com/), [ExpenseIn,](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial) [Helper Helper,](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial) [Costpoint,](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial) [GlobalOne,](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial) [Mercedes Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [CyberArk SAML Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible Edu,](https://www.scrible.com/sign-in/#/create-account) [PandaDoc,](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial) [Perceptyx,](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML),](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial)Oracle Access Manager for Oracle Retail Merchandising, Oracle Access Manager for Oracle E-Business Suite, Oracle IDCS para E-Business Suite, Oracle IDCS para PeopleSoft, Oracle IDCS para JD Edwards
+[Azure AD SAML Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai (大塚商会)](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial), [ANAQUA](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial), [Cliente Azure VPN](https://portal.azure.com/), [ExpenseIn,](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial) [Helper Helper](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial), [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial), [GlobalOne,](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial) [Mercedes-Benz In-Car Office,](https://me.secure.mercedes-benz.com/) [Skore,](https://app.justskore.it/) [Oracle Cloud Infrastructure Consola](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [Autenticação CYBERArk SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible Edu,](https://www.scrible.com/sign-in/#/create-account) [PandaDoc,](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial) [Perceptyx,](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial), Oracle Access Manager para merchandising oracle retail, Oracle Access Manager para Oracle E-Business Suite, Oracle IDCS para E-Business Suite, Oracle IDCS para PeopleSoft, Oracle IDCS para JD Edwards
 
 Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
 
@@ -2095,8 +2095,6 @@ Para obter mais informações sobre as aplicações, consulte a [integração da
 
 Com a nossa atualização do Protocolo de Concessão de CódigoS OAuth 2.0 da OAuth 2.0 para o nosso protocolo de pré-autenticação, já não tem de fazer qualquer configuração adicional para utilizar o Tableau com o Application Proxy. Esta alteração de protocolo também ajuda a Aplicação Proxy a suportar melhor as aplicações mais modernas, utilizando apenas redirecionamentos HTTP, que são comumente suportados em tags JavaScript e HTML.
 
-Para obter mais informações sobre o nosso suporte nativo para Tableau, consulte [a Azure AD Application Proxy agora com suporte nativo do Tableau](https://blogs.technet.microsoft.com/applicationproxyblog/2018/08/14/azure-ad-application-proxy-now-with-native-tableau-support).
-
 ---
 
 ### <a name="new-support-to-add-google-as-an-identity-provider-for-b2b-guest-users-in-azure-active-directory-preview"></a>Novo suporte para adicionar o Google como fornecedor de identidade para utilizadores convidados B2B em Azure Ative Directory (pré-visualização)
@@ -2527,7 +2525,7 @@ Os registos de atividade azure AD, que inclui logins e registos de auditoria, es
 
 Em maio de 2018, adicionámos estas 18 novas aplicações com apoio da Federação à nossa galeria de aplicações:
 
-[AwardSpring](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial), Infogix Data3Sixty Govern, [Yodeck,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial) [Jamf Pro](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial), [KnowledgeOwl](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial), [Envi MMIS](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial), [LaunchDarkly,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial) [Adobe Captivate Prime](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial), [Montage Online,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial)a.000. [Arc Publishing - SSO,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial) [PlanGrid,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial) [iWellnessNow,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial) [Proxyclick](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial), [Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial), [Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial), [Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial) [まなびポケット](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial)
+[PrêmioSpr,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-awardspring-tutorial)Infogix Data3Sixty Govern, [Yodeck,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-infogix-tutorial) [Jamf Pro,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-jamfprosamlconnector-tutorial) [KnowledgeOwl,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-knowledgeowl-tutorial) [Envi MMIS,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-envimmis-tutorial) [LaunchDarkly,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-launchdarkly-tutorial) [Adobe Captivate Prime,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-adobecaptivateprime-tutorial) [Montage Online,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-montageonline-tutorial)[まなびポケット,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-manabipocket-tutorial)OpenReel, [Arc Publishing - SSO,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-arc-tutorial) [PlanGrid,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-plangrid-tutorial) [iWellnessNow,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-iwellnessnow-tutorial) [Proxyclick,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-proxyclick-tutorial) [Riskware](https://docs.microsoft.com/azure/active-directory/active-directory-saas-riskware-tutorial), [Flock](https://docs.microsoft.com/azure/active-directory/active-directory-saas-flock-tutorial), [Reviewsnap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-reviewsnap-tutorial)
 
 Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial)
 
@@ -2651,7 +2649,7 @@ Para obter mais informações, consulte a [funcionalidade de utilização dos te
 
 ---
 
-### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicas
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Allow or block invitations to B2B users from specific organizations (Permitir ou bloquear convites para utilizadores B2B de organizações específicas)
 
 **Tipo:** Nova **categoria de serviço de recurso:** Capacidade do produto B2B: B2B/B2C **Product capability:**
 
@@ -3032,7 +3030,7 @@ Esta versão tem as seguintes atualizações e alterações:
 
 - Fixo um bug onde os certificados com wildcards SAN falham a verificação pré-req.
 
-- Corrigiu um erro que causa a queda de miiserver.exe durante a exportação do conector AAD.
+- Corrigiu um erro que causa miiserver.exe acidente durante a exportação do conector AAD.
 
 - Corrigiu um bug onde uma má tentativa de senha sessão em DC durante a execução fez com que o assistente de ligação AAD alterasse a configuração
 

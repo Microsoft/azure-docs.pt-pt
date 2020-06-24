@@ -1,6 +1,6 @@
 ---
 title: Processador do feed de alterações no Azure Cosmos DB
-description: Saiba como usar o processador de feed de mudança Azure Cosmos DB para ler o feed de mudança, os componentes do processador de feed de mudança
+description: Saiba como utilizar o processador de alimentação de alteração Azure Cosmos para ler o feed de alteração, os componentes do processador change feed
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
@@ -8,92 +8,92 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655313"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119414"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
-O processador de feed de mudança faz parte do [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica o processo de leitura do feed de mudança e distribui eficazmente o processamento do evento por vários consumidores.
+O processador change feed faz parte do [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica o processo de leitura do feed de alteração e distribui eficazmente o processamento do evento em vários consumidores.
 
-O principal benefício da biblioteca de processadores de feed de mudança é o seu comportamento tolerante a falhas que assegura uma entrega "pelo menos uma vez" de todos os eventos no feed de mudança.
+O principal benefício da biblioteca de processadores de feed change é o seu comportamento tolerante a falhas que garante uma entrega "pelo menos uma vez" de todos os eventos no feed de mudança.
 
-## <a name="components-of-the-change-feed-processor"></a>Componentes do processador de alimentos para alterações
+## <a name="components-of-the-change-feed-processor"></a>Componentes do processador de alimentação de alteração
 
-Existem quatro componentes principais da implementação do processador de alimentação de mudança:
+Existem quatro componentes principais da implementação do processador do feed de alterações:
 
-1. **O recipiente monitorizado:** O recipiente monitorizado tem os dados a partir dos quais o feed de mudança é gerado. Quaisquer inserções e atualizações do recipiente monitorizado refletem-se na alimentação de alterações do recipiente.
+1. **Contentor monitorizado:** o contentor monitorizado possui os dados a partir dos quais o feed de alterações é gerado. Quaisquer inserções e atualizações ao contentor monitorizado serão refletidas no feed de alterações do contentor.
 
-1. **O contentor de aluguer:** O contentor de arrendamento funciona como um armazenamento estatal e coordena o processamento da mudança de alimentos em vários trabalhadores. O contentor de aluguer pode ser armazenado na mesma conta que o recipiente monitorizado ou numa conta separada.
+1. **Contentor de concessão:** o contentor de concessão funciona como um armazenamento de estados e coordena o processamento do feed de alterações entre várias funções de trabalho. Pode armazenar o contentor de concessão na mesma conta que o contentor monitorizado ou numa conta separada.
 
-1. **O hospedeiro:** Um hospedeiro é uma instância de aplicação que utiliza o processador de feed de mudança para ouvir alterações. Várias instâncias com a mesma configuração de locação podem ser executadas em paralelo, mas cada instância deve ter um nome de **instância**diferente .
+1. **Anfitrião:** um anfitrião é uma instância de aplicação que utiliza o processador do feed de alterações para escutar as alterações. Várias instâncias com a mesma configuração de concessão podem ser executadas em paralelo, mas cada instância deve ter um **nome de instância** diferente.
 
-1. **O delegado:** O delegado é o código que define o que você, o desenvolvedor, quer fazer com cada lote de alterações que o processador de feed de mudança lê. 
+1. **Delegado:** o delegado é o código que define o que o programador quer fazer com cada lote de alterações que o processador do feed de alterações lê. 
 
-Para entender ainda como estes quatro elementos do processador de feed de mudança funcionam em conjunto, vamos olhar para um exemplo no diagrama seguinte. O contentor monitorizado armazena documentos e utiliza a 'Cidade' como chave de partição. Vemos que os valores-chave da partilha são distribuídos em gamas que contêm itens. Existem duas instâncias hospedeiras e o processador de feed de mudança está a atribuir diferentes gamas de valores-chave de divisórias a cada instância para maximizar a distribuição do cálculo. Cada gama está a ser lida paralelamente e o seu progresso é mantido separadamente de outras gamas no contentor de aluguer.
+Para entender melhor como estes quatro elementos do processador de feed de mudança funcionam em conjunto, vamos olhar para um exemplo no diagrama seguinte. O contentor monitorizado armazena documentos e utiliza a "Cidade" como chave de partição. Vemos que os valores-chave da partição são distribuídos em gamas que contêm itens. Existem duas instâncias hospedeiras e o processador de feed de alteração está a atribuir diferentes gamas de valores-chave de partição a cada instância para maximizar a distribuição de computação. Cada gama está a ser lida em paralelo e o seu progresso é mantido separadamente de outras gamas no contentor de arrendamento.
 
-![Alterar exemplo de processador de feed](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Alterar exemplo do processador de feed" border="false":::
 
-## <a name="implementing-the-change-feed-processor"></a>Implementação do processador de feed de mudança
+## <a name="implementing-the-change-feed-processor"></a>Implementação do processador de feed de alteração
 
 O ponto de entrada é sempre o recipiente monitorizado, a partir de um `Container` caso a que se `GetChangeFeedProcessorBuilder` chama:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-Onde o primeiro parâmetro é um nome distinto que descreve o objetivo deste processador e o segundo nome é a implementação do delegado que irá lidar com as alterações. 
+Onde o primeiro parâmetro é um nome distinto que descreve o objetivo deste processador e o segundo nome é a implementação do delegado que irá lidar com as mudanças. 
 
 Um exemplo de um delegado seria:
 
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Finalmente, define um nome para esta instância do processador com e qual é o recipiente para manter o estado de `WithInstanceName` arrendamento com `WithLeaseContainer` .
+Por fim, define um nome para este caso de processador com `WithInstanceName` e qual é o recipiente para manter o estado de locação com `WithLeaseContainer` .
 
-A chamada `Build` irá dar-lhe a instância do processador que pode começar por ligar `StartAsync` .
+A chamada `Build` dá-lhe a instância do processador que pode começar por `StartAsync` ligar.
 
-## <a name="processing-life-cycle"></a>Processamento do ciclo de vida
+## <a name="processing-life-cycle"></a>Ciclo de vida de processamento
 
-O ciclo de vida normal de um hospedeiro é:
+O ciclo de vida normal de uma instância do anfitrião é:
 
 1. Leia o feed de mudança.
-1. Se não houver alterações, durma durante um período de tempo predefinido (personalizável `WithPollInterval` no Construtor) e vá para #1.
+1. Se não houver alterações, durma por um período de tempo predefinido (personalizável com `WithPollInterval` o Construtor) e vá para #1.
 1. Se houver alterações, envie-as ao **delegado.**
-1. Quando o delegado terminar de processar as alterações **com sucesso,** atualize a loja de arrendamento com o mais recente ponto processado no tempo e vá para #1.
+1. Quando o delegado terminar o processamento **com sucesso,** atualize a loja de arrendamento com o ponto processado mais recente no tempo e vá para #1.
 
 ## <a name="error-handling"></a>Processamento de erros
 
-O processador de alimentação de alteração é resiliente a erros de código do utilizador. Isto significa que se a implementação do seu delegado tiver uma exceção não tratada (passo #4), o processamento de fios que determinado lote de alterações será interrompido, e um novo fio será criado. A nova linha verificará qual foi o último ponto no tempo que a loja de arrendamento tem para essa gama de valores-chave de divisórias, e reiniciar a partir daí, efetivamente enviando o mesmo lote de alterações ao delegado. Este comportamento continuará até que o seu delegado processe as alterações corretamente e é por isso que o processador de feed de mudança tem uma garantia "pelo menos uma vez", porque se o código delegado lançar uma exceção, irá voltar a tentar esse lote.
+O processador de feed de alteração é resistente a erros de código do utilizador. Isto significa que se a implementação do seu delegado tiver uma exceção não manipulada (passo #4), o processamento de fio que determinado lote de alterações será interrompido, e um novo fio será criado. O novo fio verificará qual foi o ponto mais recente no tempo que a loja de arrendamento tem para essa gama de valores-chave de partição, e reiniciará a partir daí, enviando efetivamente o mesmo lote de alterações ao delegado. Este comportamento continuará até que o seu delegado processe as alterações corretamente e é a razão pela qual o processador de feed de alteração tem uma garantia "pelo menos uma vez", porque se o código dedelegado lançar uma exceção, ele vai voltar a tentar esse lote.
 
-Para evitar que o seu processador de feed de mudança fique "preso" continuamente a tentar o mesmo lote de alterações, deve adicionar lógica no seu código de delegado para escrever documentos, exceto, a uma fila de cartas mortas. Este design garante que pode acompanhar alterações não processadas enquanto ainda pode continuar a processar futuras alterações. A fila de cartas mortas pode ser apenas outro contentor cosmos. A loja de dados exata não importa, simplesmente que as alterações não processadas são perduradas.
+Para evitar que o seu processador de feed de alteração fique "preso" continuamente a tentar o mesmo lote de alterações, deve adicionar lógica no seu código de delegado para escrever documentos, a exceção, a uma fila de letras mortas. Este design garante que pode acompanhar as alterações não processadas, enquanto ainda é capaz de continuar a processar futuras alterações. A fila das cartas mortas pode ser apenas outro contentor cosmos. A loja exata de dados não importa, simplesmente que as alterações não processadas são persistidos.
 
-Além disso, pode utilizar o estimador de alimentação de [alterações](how-to-use-change-feed-estimator.md) para monitorizar o progresso das instâncias do seu processador de feed de mudança à medida que lêem o feed de mudança. Além de monitorizar se o processador de feed de mudança ficar "preso" continuamente a tentar o mesmo lote de alterações, também pode entender se o seu processador de feed de mudança está atrasado devido a recursos disponíveis como CPU, memória e largura de banda da rede.
+Além disso, pode utilizar o [estimador de feed de alteração](how-to-use-change-feed-estimator.md) para monitorizar o progresso das instâncias do seu processador de alteração à medida que lêem o feed de alteração. Além de monitorizar se o processador de feed de alteração fica "preso" continuamente a tentar o mesmo lote de alterações, também pode entender se o seu processador de feed de mudança está atrasado devido aos recursos disponíveis, como CPU, memória e largura de banda de rede.
 
 ## <a name="deployment-unit"></a>Unidade de implantação
 
-Uma única unidade de implementação do processador de feed de mudança consiste em uma ou mais instâncias com a mesma `processorName` configuração de contentor de aluguer. Pode ter muitas unidades de implantação onde cada uma tem um fluxo de negócio diferente para as alterações e cada unidade de implantação composta por um ou mais casos. 
+Uma única unidade de implantação do processador de alimentação de alteração consiste numa ou mais instâncias com a mesma `processorName` configuração do recipiente de aluguer e de aluguer. Pode ter muitas unidades de implantação onde cada uma tem um fluxo de negócio diferente para as alterações e cada unidade de implantação composta por um ou mais casos. 
 
-Por exemplo, pode ter uma unidade de implantação que aciona uma API externa sempre que houver uma alteração no seu recipiente. Outra unidade de implantação pode mover dados, em tempo real, cada vez que há uma mudança. Quando uma mudança ocorrer no seu recipiente monitorizado, todas as suas unidades de implantação serão notificadas.
+Por exemplo, pode ter uma unidade de implantação que desencadeie uma API externa sempre que houver uma alteração no seu recipiente. Outra unidade de implantação pode mover dados, em tempo real, cada vez que há uma mudança. Quando uma mudança acontecer no seu recipiente monitorizado, todas as suas unidades de implantação serão notificadas.
 
 ## <a name="dynamic-scaling"></a>Dimensionamento dinâmico
 
-Como mencionado anteriormente, dentro de uma unidade de implantação pode ter um ou mais casos. Para tirar partido da distribuição de cálculo dentro da unidade de implantação, os únicos requisitos-chave são:
+Como mencionado anteriormente, dentro de uma unidade de implantação pode ter um ou mais casos. Para tirar partido da distribuição do cálculo dentro da unidade de implantação, os únicos requisitos-chave são:
 
-1. Todas as instâncias devem ter a mesma configuração de contentor de aluguer.
-1. Todos os casos devem ter o `processorName` mesmo.
-1. Cada instância precisa de ter um nome de instância diferente `WithInstanceName` ( ).
+1. Todas as instâncias devem ter a mesma configuração do recipiente de arrendamento.
+1. Todas as instâncias devem ter o `processorName` mesmo.
+1. Cada instância precisa de ter um nome de instância diferente (`WithInstanceName`).
 
-Se estas três condições se aplicarem, o processador de feed de mudança irá, usando um algoritmo de distribuição igual, distribuir todos os arrendamentos no contentor de aluguer em todas as instâncias de execução dessa unidade de implantação e paralelizar a computação. Um contrato de arrendamento só pode ser propriedade de um caso num dado momento, pelo que o número máximo de casos equivale ao número de locações.
+Se estas três condições se aplicarem, então o processador de feed de alteração distribuirá, usando um algoritmo de distribuição igual, todos os locados do recipiente de locação em todas as instâncias de execução dessa unidade de implantação e paralizará o cálculo. Um contrato de arrendamento só pode ser propriedade de uma instância de cada vez, pelo que o número máximo de casos equivale ao número de contratos de arrendamento.
 
-O número de casos pode crescer e diminuir, e o processador de feed de mudança irá ajustar dinamicamente a carga redistribuindo em conformidade.
+O número de casos pode crescer e diminuir, e o processador de alimentação de alteração ajustará dinamicamente a carga redistribuindo em conformidade.
 
-Além disso, o processador de alimentos para alterações pode ajustar-se dinamicamente à escala dos contentores devido ao aumento da entrada ou armazenamento. Quando o seu recipiente cresce, o processador de feed de mudança lida de forma transparente com estes cenários aumentando dinamicamente os contratos de arrendamento e distribuindo os novos arrendamentos entre os casos existentes.
+Além disso, o processador de alimentação de alteração pode ajustar-se dinamicamente à escala de contentores devido a aumentos de produção ou armazenamento. Quando o seu recipiente cresce, o processador de feed de mudança lida de forma transparente com estes cenários, aumentando dinamicamente os locados e distribuindo os novos arrendamentos entre as instâncias existentes.
 
-## <a name="change-feed-and-provisioned-throughput"></a>Alterar alimentos e provisão provisionada
+## <a name="change-feed-and-provisioned-throughput"></a>Alterar alimentação e produção a provisionada
 
-É cobrado pelas RUs consumidas, uma vez que o movimento de dados dentro e fora dos contentores da Cosmos consome sempre RUs. É cobrado pelas RUs consumidas pelo contentor de aluguer.
+Você é cobrado por RUs consumidos, uma vez que o movimento de dados dentro e fora dos contentores cosmos consome sempre RUs. Você é cobrado por RUs consumidos pelo recipiente de arrendamento.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -103,10 +103,10 @@ Além disso, o processador de alimentos para alterações pode ajustar-se dinami
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
+Pode agora proceder para saber mais sobre o processador de feed de mudança nos seguintes artigos:
 
 * [Visão geral do feed de mudança](change-feed.md)
 * [Modelo Pull do feed de alterações](change-feed-pull-model.md)
-* [Como migrar da biblioteca de processadores de feed de mudança](how-to-migrate-from-change-feed-library.md)
+* [Como migrar da biblioteca do processador de mudanças](how-to-migrate-from-change-feed-library.md)
 * [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)
 * [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)

@@ -12,6 +12,6 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "72958724"
 ---
 > [!NOTE]
-> As características descritas neste artigo estão agora disponíveis para contas que têm um espaço de nome hierárquico. Para rever as limitações, consulte as questões conhecidas com o artigo [da Azure Data Lake Storage Gen2.](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues)
+> As funcionalidades descritas neste artigo estão agora disponíveis para contas que têm um espaço hierárquico de nomes. Para rever as limitações, consulte os problemas conhecidos com o artigo [da Azure Data Lake Storage Gen2.](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-known-issues)
 
 

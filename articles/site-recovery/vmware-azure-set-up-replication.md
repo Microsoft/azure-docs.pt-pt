@@ -1,6 +1,6 @@
 ---
-title: Criar políticas de replicação para a recuperação de desastres da VMware com a Recuperação do Site Azure Microsoft Docs
-description: Descreve como configurar as definições de replicação para a recuperação de desastres vMware para Azure com a Recuperação do Site Azure.
+title: Configurar políticas de replicação para recuperação de desastres VMware com recuperação do site Azure Microsoft Docs
+description: Descreve como configurar as definições de replicação para a recuperação de desastres VMware para Azure com Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
@@ -8,33 +8,33 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257124"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699605"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configure e gerencie as políticas de replicação para a recuperação de desastres vMware
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurar e gerir políticas de replicação para recuperação de desastres VMware
 
-Este artigo descreve como configurar uma política de replicação quando se replica MMs VMware para Azure, utilizando a Recuperação do [Site Azure](site-recovery-overview.md).
+Este artigo descreve como configurar uma política de replicação quando se replica VMware VMs para Azure, utilizando [a recuperação do site Azure](site-recovery-overview.md).
 
 ## <a name="create-a-policy"></a>Criar uma política
 
-1. Selecione **Gerir** > a infraestrutura de recuperação do**local.**
-2. Em **Para VMware e máquinas físicas,** selecione políticas de **replicação.**
-3. Clique na **política de replicação +,** e especifique o nome da política.
+1. Selecione **Gerir**  >  **a Infraestrutura de Recuperação do Local**.
+2. In **For VMware and Physical machines**, selecione **as políticas de replicação**.
+3. Clique **na política de +replicação**e especifique o nome da política.
 4. No **limiar RPO**, especifique o limite RPO. Os alertas são gerados quando a replicação contínua excede este limite.
-5. Na **retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As máquinas protegidas podem ser recuperadas para qualquer ponto numa janela de retenção. É suportada até 24 horas de retenção para máquinas replicadas para o armazenamento premium. Até 72 horas é suportada para armazenamento padrão.
-6. Na frequência instantânea consistente com **aplicações,** escolha entre a queda da frequência (em horas) pontos de recuperação que contenham instantâneos consistentes com aplicações. Se desejar desligar a geração de pontos de consistência da aplicação, escolha o valor "Off" no dropdown.
+5. Na **retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As máquinas protegidas podem ser recuperadas para qualquer ponto numa janela de retenção. É suportada até 24 horas de retenção para máquinas replicadas para o armazenamento premium. Até 72 horas é suportado para armazenamento padrão.
+6. Na **frequência snapshot consistente da App,** escolha a partir do dropdown quantas vezes (em horas) pontos de recuperação que contenham instantâneos consistentes com aplicações devem ser criados. Se desejar desligar a geração de pontos de consistência da aplicação, escolha o valor "Off" no dropdown.
 7. Clique em **OK**. A política deve ser criada em 30 segundos a 60 segundos.
 
-Quando se cria uma política de replicação, é criada automaticamente uma política de replicação de failback correspondente, com o sufixo "failback". Depois de criar a apólice, pode editá-la selecionando-a > Definições de **Edição**.
+Quando se cria uma política de replicação, é criada automaticamente uma política de replicação de falhas correspondente, com o sufixo "failback". Depois de criar a política, pode editá-la selecionando-a > **Configurações de Edição**.
 
 ## <a name="associate-a-configuration-server"></a>Associar um servidor de configuração
 
-Associe a política de replicação ao seu servidor de configuração no local.
+Associe a política de replicação ao servidor de configuração no local.
 
-1. Clique em **Associado**, e selecione o servidor de configuração.
+1. Clique **em 'Associate'** e selecione o servidor de configuração.
 
     ![Associar servidor de configuração](./media/vmware-azure-set-up-replication/associate1.png)
 2. Clique em **OK**. O servidor de configuração deve ser associado em um ou dois minutos.
@@ -46,20 +46,20 @@ Associe a política de replicação ao seu servidor de configuração no local.
 Pode modificar uma política de replicação depois de a criar.
 
 - As alterações na política são aplicadas a todas as máquinas que utilizam a política.
-- Se pretender associar máquinas replicadas a uma política de replicação diferente, tem de desativar e reativar a proteção das máquinas relevantes.
+- Se pretender associar máquinas replicadas a uma política de replicação diferente, tem de desativar e reencandido proteção para as máquinas relevantes.
 
 Editar uma política da seguinte forma:
-1. Selecione **Gerir** > as políticas de**replicação**da infraestrutura > de recuperação do**local.**
+1. **Selecione Políticas de**  >  replicação**da infraestrutura de recuperação de**  >  **locais**de gestão do local .
 2. Selecione a política de replicação que pretende modificar.
-3. Clique em **definições de Edição**e atualize o limiar/áreas de retenção de pontos de recuperação de RPO/app-consistent para instantâneos, conforme necessário.
-4. Se desejar desligar a geração de pontos de consistência da aplicação, escolha o valor "Off" na queda da frequência instantânea consistente com **aplicações**de campo .
-5. Clique em **Guardar**. A política deve ser atualizada em 30 a 60 segundos.
+3. Clique **em Editar as definições**e atualize as horas de retenção de pontos de rpo/ponto de recuperação/áreas de frequência instantânea consistentes com aplicações, conforme necessário.
+4. Se desejar desligar a geração de pontos de consistência da aplicação, escolha o valor "Off" no dropdown do campo **Frequência instantânea consistente**com a app .
+5. Clique em **Guardar**. A apólice deve ser atualizada dentro de 30 a 60 segundos.
 
 
 
-## <a name="disassociate-or-delete-a-replication-policy"></a>Dissociar ou excluir uma política de replicação
+## <a name="disassociate-or-delete-a-replication-policy"></a>Desassociar ou apagar uma política de replicação
 
 1. Escolha a política de replicação.
-    a. Para dissociar a política do servidor de configuração, certifique-se de que nenhuma máquina replicada está a utilizar a política. Em seguida, clique **em Dissociar.**
-    b. Para eliminar a apólice, certifique-se de que não está associada a um servidor de configuração. Em seguida, clique em **Apagar**. Deve levar 30 a 60 segundos para apagar.
+    a. Para dissociar a política do servidor de configuração, certifique-se de que não há máquinas replicadas a utilizar a política. Em seguida, clique **em Dissociar**.
+    b. Para eliminar a apólice, certifique-se de que não está associada a um servidor de configuração. Em seguida, clique em **Eliminar**. Deve levar 30-60 segundos para apagar.
 2. Clique em **OK**.

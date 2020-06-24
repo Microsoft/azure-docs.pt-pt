@@ -13,19 +13,19 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187010"
 ---
 ## <a name="ropc-flow-notes"></a>Notas de fluxo ROPC
-No Diretório Ativo Azure B2C (Azure AD B2C), são suportadas as seguintes opções:
+No Azure Ative Directory B2C (Azure AD B2C), são suportadas as seguintes opções:
 
-- **Cliente Nativo**: A interação do utilizador durante a autenticação ocorre quando o código é executado num dispositivo do lado do utilizador. O dispositivo pode ser uma aplicação móvel que está a funcionar num sistema operativo nativo, como android e iOS.
-- **Fluxo público do cliente**: Apenas as credenciais de utilizador, recolhidas por uma aplicação, são enviadas na chamada DaPI. As credenciais do pedido não são enviadas.
-- **Adicione novas reclamações**: O conteúdo do token ID pode ser alterado para adicionar novas reclamações.
+- **Cliente Nativo**: A interação do utilizador durante a autenticação ocorre quando o código é executado num dispositivo do lado do utilizador. O dispositivo pode ser uma aplicação móvel que está a ser operada num sistema operativo nativo, como o Android e o iOS.
+- **Fluxo de cliente público**: Apenas as credenciais de utilizador, recolhidas por uma aplicação, são enviadas na chamada da API. As credenciais do pedido não são enviadas.
+- **Adicionar novas reclamações**: O conteúdo do iD token pode ser alterado para adicionar novas reclamações.
 
 Os seguintes fluxos não são suportados:
 
-- **Servidor-a-servidor**: O sistema de proteção de identidade necessita de um endereço IP fiável recolhido do chamador (o cliente nativo) como parte da interação. Numa chamada API do lado do servidor, apenas é utilizado o endereço IP do servidor. Se for ultrapassado um limiar dinâmico de autenticações falhadas, o sistema de proteção de identidade pode identificar um endereço IP repetido como um intruso.
-- **Fluxo confidencial do cliente**: O ID do cliente da aplicação é validado, mas o segredo da aplicação não é validado.
+- **Servidor-a-servidor**: O sistema de proteção de identidade necessita de um endereço IP fiável recolhido do chamador (o cliente nativo) como parte da interação. Numa chamada API do lado do servidor, apenas o endereço IP do servidor é utilizado. Se um limiar dinâmico de autenticações falhadas for ultrapassado, o sistema de proteção de identidade pode identificar um endereço IP repetido como intruso.
+- **Fluxo de cliente confidencial**: O ID do cliente de aplicação é validado, mas o segredo da aplicação não é validado.
 
 Ao utilizar o fluxo ROPC, considere o seguinte:
 
-- O ROPC não funciona quando há qualquer interrupção do fluxo de autenticação que necessita de interação do utilizador. Por exemplo, quando uma palavra-passe expirou ou precisa de ser alterada, é necessária a autenticação de vários fatores, ou quando mais informações precisam de ser recolhidas durante o sessão (por exemplo, consentimento do utilizador).
-- A ROPC apoia apenas as contas locais. Os utilizadores não podem iniciar sessão com fornecedores de identidade federados como microsoft, Google+, Twitter, AD-FS ou Facebook.
-- A Gestão de Sessões, incluindo manter-me inscrito (KMSI), não é aplicável.
+- ROPC não funciona quando há qualquer interrupção no fluxo de autenticação que precisa de interação do utilizador. Por exemplo, quando uma palavra-passe expirou ou precisa de ser alterada, é necessária a autenticação de vários fatores ou quando mais informações precisam de ser recolhidas durante a sinvação (por exemplo, consentimento do utilizador).
+- A ROPC suporta apenas contas locais. Os utilizadores não podem entrar com fornecedores de identidade federados como Microsoft, Google+, Twitter, AD-FS ou Facebook.
+- A Gestão de Sessão, incluindo manter-me assinado (KMSI), não é aplicável.

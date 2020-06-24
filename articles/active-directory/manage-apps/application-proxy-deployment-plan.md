@@ -3,8 +3,8 @@ title: Planeie uma implementação de proxy de aplicação ativa Azure
 description: Um guia de ponta a ponta para o planeamento da implementação do proxy de aplicação dentro da sua organização
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: 040ad734cdf3b2d382baa55006fbda02fdcf457d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: kenwith
+ms.openlocfilehash: a1cf2b57665cad4dd09639579b42b29a288eeca1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169513"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975576"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planeie uma implementação de procuração de aplicativo AD Azure
 
@@ -254,7 +253,7 @@ Leia [o único sinal de acesso às aplicações em Azure AD](what-is-single-sign
 
 ###  <a name="working-with-other-types-of-applications"></a>Trabalhar com outros tipos de aplicações
 
-O Azure AD Application Proxy também pode suportar aplicações que tenham sido desenvolvidas para utilizar a Biblioteca de Autenticação do Microsoft[(MSAL).](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/) Suporta aplicações de clientes nativos consumindo fichas emitidas pela Azure AD recebidas na informação de cabeçalho do pedido do cliente para realizar a pré-autenticação em nome dos utilizadores.
+O Azure AD Application Proxy também pode suportar aplicações que tenham sido desenvolvidas para utilizar a Biblioteca de Autenticação da [Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). Suporta aplicações de clientes nativos consumindo fichas emitidas pela Azure AD recebidas na informação de cabeçalho do pedido do cliente para realizar a pré-autenticação em nome dos utilizadores.
 
 Leia [a publicação de aplicações de clientes nativos e móveis](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) e [aplicações baseadas em sinistros](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) para saber sobre as configurações disponíveis do Application Proxy.
 
