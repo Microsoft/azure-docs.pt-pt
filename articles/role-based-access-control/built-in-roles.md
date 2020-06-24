@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/04/2020
-ms.openlocfilehash: 909485ea3c4e143ce93579d1bfea5e13cf94c575
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/18/2020
+ms.openlocfilehash: 6e570c100a30f18a843f50cb8dc93572bb62d0f7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660042"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080735"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas de Azure
 
@@ -26,7 +26,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 ## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
-> | Papel incorporado | Descrição | ID |
+> | Papel incorporado | Description | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
 > | [Contribuinte](#contributor) | Permite-lhe gerir tudo, exceto conceder acesso aos recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -1168,6 +1168,7 @@ Pode criar e gerir um cluster Avere vFXT. [Saiba mais](../avere-vfxt/avere-vfxt-
 > | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/*/read |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/closeyPlacementGroups/* |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/* |  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/*/read |  |
@@ -1207,6 +1208,7 @@ Pode criar e gerir um cluster Avere vFXT. [Saiba mais](../avere-vfxt/avere-vfxt-
         "Microsoft.Authorization/*/read",
         "Microsoft.Compute/*/read",
         "Microsoft.Compute/availabilitySets/*",
+        "Microsoft.Compute/proximityPlacementGroups/*",
         "Microsoft.Compute/virtualMachines/*",
         "Microsoft.Compute/disks/*",
         "Microsoft.Network/*/read",
@@ -2767,7 +2769,7 @@ Permite-lhe gerir websites (não planos web), mas não acesso aos mesmos.
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/certificados/* | Criar e gerir certificados de website |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/listSitesAssignedToHostName/read | Obtenha nomes de sites designados para nome de anfitrião. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action |  |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action | Junta-se a um Plano de Serviço de Aplicações |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Obtenha as propriedades num Plano de Serviço de Aplicações |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/* | Criar e gerir websites (a criação do site também requer permissões de escrita para o Plano de Serviço de Aplicações associado) |
 > | **NotActions** |  |
@@ -5623,7 +5625,7 @@ Permite-lhe gerir aplicações lógicas, mas não alterar o acesso às suas. [Sa
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Criar e gerir um Gateway de Ligação. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/conexões/* | Criar e gerir uma Ligação. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Cria e gere uma API personalizada. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action |  |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action | Junta-se a um Plano de Serviço de Aplicações |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Obtenha as propriedades num Plano de Serviço de Aplicações |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/funções/listSecrets/action | Listar segredos da função. |
 > | **NotActions** |  |
@@ -6342,7 +6344,7 @@ Ver permissões para o Centro de Segurança. Pode ver recomendações, alertas, 
 
 ### <a name="devtest-labs-user"></a>Utilizador de Laboratórios DevTest
 
-Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus Laboratórios Azure DevTest. [Saiba mais](../lab-services/devtest-lab-add-devtest-user.md)
+Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus Laboratórios Azure DevTest. [Saiba mais](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6446,7 +6448,7 @@ Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus
 
 ### <a name="lab-creator"></a>Criador de Laboratório
 
-Permite criar, gerir, eliminar os seus laboratórios geridos sob as suas contas do Azure Lab. [Saiba mais](../lab-services/classroom-labs/add-lab-creator.md)
+Permite criar, gerir, eliminar os seus laboratórios geridos sob as suas contas do Azure Lab. [Saiba mais](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -8340,7 +8342,7 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 }
 ```
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 
 ### <a name="biztalk-contributor"></a>Colaborador bizTalk
@@ -8487,7 +8489,7 @@ Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a e
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções personalizadas Azure](custom-roles.md)

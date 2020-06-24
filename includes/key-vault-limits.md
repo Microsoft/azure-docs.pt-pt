@@ -4,49 +4,52 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 065365ec2dc429013732725ccb22f73c519b6c0e
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768772"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85200182"
 ---
-### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Principais transações (transações máximas permitidas em 10 segundos, por cofre por região<sup>1</sup>):
+### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Principais transações (transações máximas permitidas em 10 segundos, por abóbada por região<sup>1):</sup>
 
-|Tipo de chave|Chave HSM<br>Chave CRIAR|Chave HSM<br>Todas as outras transações|Chave de software<br>Chave CRIAR|Chave de software<br>Todas as outras transações|
+|Tipo de chave|Chave HSM<br>Criar chave|Chave HSM<br>Todas as outras transações|Chave de software<br>Criar chave|Chave de software<br>Todas as outras transações|
 |:---|---:|---:|---:|---:|
-|RSA 2.048-bit|5|1,000|10|2.000|
-|RSA 3.072-bit|5|250|10|500|
-|RSA 4.096-bit|5|125|10|250|
+|RSA 2,048-bit|5|1,000|10|2.000|
+|RSA 3,072-bit|5|250|10|500|
+|RSA 4,096-bit|5|125|10|250|
 |ECC P-256|5|1,000|10|2.000|
 |ECC P-384|5|1,000|10|2.000|
 |ECC P-521|5|1,000|10|2.000|
 |ECC SECP256K1|5|1,000|10|2.000|
 
 > [!NOTE]
-> Na tabela anterior, vemos que para as chaves de software RSA de 2.048 bits, são permitidas 2.000 transações GET por 10 segundos. Para rsa 2.048 bits HSM-keys, 1.000 transações GET por 10 segundos são permitidas.
+> Na tabela anterior, vemos que para chaves de software RSA de 2.048 bits, são permitidas 2.000 transações GET por 10 segundos. Para as teclas HSM de 2.048 bits, são permitidas 1.000 transações GET por 10 segundos.
 >
-> Os limiares de estrangulamento são ponderados, e a aplicação da lei está na sua soma. Por exemplo, como mostrado na tabela anterior, quando executa operações GET em chaves RSA HSM, é oito vezes mais caro usar teclas de 4.096 bits em comparação com 2.048 bits. Isso é porque 1.000/125 = 8.
+> Os limiares de estrangulamento são ponderados e a aplicação da lei está na sua soma. Por exemplo, como mostrado na tabela anterior, quando executa operações GET em teclas RSA HSM, é oito vezes mais caro usar teclas de 4.096 bits em comparação com teclas de 2.048 bits. Isso é porque 1.000/125 = 8.
 >
-> Num intervalo de 10 segundos, um cliente azure key vault só pode `429` fazer uma *das* seguintes operações antes de encontrar um código de estado HTTP estrangulado:
-> - 2.000 RSA 2.048 bits-chave de software GET transações
-> - 1.000 RSA 2.048 bits HSM-key GET transações
-> - 125 RSA 4.096 bits HSM-key GET transações
-> - 124 RSA 4.096-bits hSM-key GET e 8 rSA 2.048 bits HSM-key GET transações
+> Num intervalo de 10 segundos, um cliente Azure Key Vault pode fazer *apenas uma das* seguintes operações antes de encontrar um código de `429` estado HTTP estrangulador:
+> - 2.000 RSA 2.048 bits de chave de software GET transações
+> - 1.000 RSA 2.048-bit-key GET transações
+> - 125 RSA 4.096-bit-chave HSM-key GET transações
+> - 124 RSA 4.096-bit-chave HSM-key GET transações e 8 RSA 2.048-bit-key GET
 
-### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Segredos, chaves de conta de armazenamento geridas e transações de cofres:
+### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Segredos, chaves de conta de armazenamento geridas e transações de cofre:
 
-| Tipo de transações | Transações máximas permitidas em 10 segundos, por cofre por região<sup>1</sup> |
+| Tipo de transações | Transações máximas permitidas em 10 segundos, por abóbada por região<sup>1</sup> |
 | --- | --- |
 | Todas as transações |2.000 |
 
-Para obter informações sobre como lidar com a estrangulamento quando estes limites são ultrapassados, consulte a orientação de estrangulamento do [Cofre-Chave Azure](../articles/key-vault/key-vault-ovw-throttling.md).
+Para obter informações sobre como lidar com o estrangulamento quando estes limites forem ultrapassados, consulte a orientação de [estrangulamento do Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
 
-<sup>1</sup> Um limite de subscrição para todos os tipos de transações é cinco vezes por limite de cofre chave. Por exemplo, outras transações HSM por subscrição estão limitadas a 5.000 transações em 10 segundos por subscrição.
+<sup>1</sup> Um limite de subscrição para todos os tipos de transações é cinco vezes por limite de cofre de tecla. Por exemplo, as transações HSM-other por subscrição estão limitadas a 5.000 transações em 10 segundos por subscrição.
 
-### <a name="azure-private-link-integration"></a>Integração de Ligações Privadas Azure
+### <a name="azure-private-link-integration"></a>Integração de Azure Private Link
+
+> [!NOTE]
+> O número de cofres-chave com pontos finais privados ativados por subscrição é um limite ajustável. O limite abaixo indicado é o limite de predefinição. Se pretender solicitar um aumento limite para o seu serviço, por favor envie um e-mail para akv-privatelink@microsoft.com . Aprovaremos estes pedidos caso a caso.
 
 | Recurso | Limite |
 | -------- | ----- |
 | Pontos finais privados por cofre chave | 64 |
-| Cofres chave com pontos finais privados por subscrição | 64 |
+| Cofres-chave com pontos finais privados por subscrição | 400 |

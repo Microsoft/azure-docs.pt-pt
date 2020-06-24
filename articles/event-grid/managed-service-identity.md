@@ -5,17 +5,17 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: a13b9339c55d4d70c19ce737e81f34106dd3d6f6
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 69c7c7f361a930ab1dc2e0437365d2f4457b57e2
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168001"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85101080"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
-Este artigo descreve como ativar uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para um tópico ou domínio da Grelha de Eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
+Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
 
 Aqui estão os passos que são abordados em detalhe neste artigo:
 1. Crie um tópico ou domínio com uma identidade atribuída ao sistema, ou atualize um tópico ou domínio existente para permitir a identidade. 
@@ -45,12 +45,15 @@ Na secção anterior, aprendeu a ativar uma identidade gerida pelo sistema enqua
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 1. Vá ao [portal Azure.](https://portal.azure.com)
-2. Procure **tópicos de grelha de eventos** na barra de pesquisa.
+2. Procure **tópicos de grelha de eventos** na barra de pesquisa no topo.
 3. Selecione o **tópico** para o qual deseja ativar a identidade gerida. 
 4. Mude para o **separador Identidade.** 
-5. Ligue o interruptor para ativar a identidade. 
+5. Ligue **on** o interruptor para ativar a identidade. 
+1. **Selecione Guarde** na barra de ferramentas para guardar a definição. 
 
-Pode utilizar passos semelhantes para ativar uma identidade para um domínio de Grade de Eventos.
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Página de identidade para um tópico"::: 
+
+Pode utilizar passos semelhantes para permitir uma identidade para um domínio de grelha de eventos.
 
 ### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 Utilize o `az eventgrid topic update` comando com conjunto para permitir a identidade atribuída ao sistema para um tópico `--identity` `systemassigned` existente. Se quiser desativar a identidade, especifique `noidentity` como o valor. 
@@ -65,7 +68,7 @@ O comando para a atualização de um domínio existente é semelhante `az eventg
 ## <a name="supported-destinations-and-rbac-roles"></a>Destinos apoiados e funções de RBAC
 Depois de ativar a identidade para o tópico ou domínio da grelha de eventos, o Azure cria automaticamente uma identidade no Azure Ative Directory. Adicione esta identidade às funções adequadas de controlo de acesso baseado em funções (RBAC) para que o tópico ou domínio possa encaminhar eventos para destinos apoiados. Por exemplo, adicione a identidade ao papel **de Remetente de dados do Azure Event Hubs** para um espaço de nomes Azure Event Hubs para que o tópico da grelha de eventos possa encaminhar eventos para centros de eventos nesse espaço de nome. 
 
-Atualmente, a Azure Event Grid suporta tópicos ou domínios configurados com uma identidade gerida atribuída ao sistema para encaminhar eventos para os seguintes destinos. Esta tabela também lhe dá os papéis em que a identidade deve estar para que o tópico possa encaminhá-lo os eventos.
+Atualmente, a grelha de eventos Azure suporta tópicos ou domínios configurados com uma identidade gerida atribuída ao sistema para encaminhar eventos para os seguintes destinos. Esta tabela também lhe dá os papéis em que a identidade deve estar para que o tópico possa encaminhá-lo os eventos.
 
 | Destino | Função RBAC | 
 | ----------- | --------- | 
@@ -93,7 +96,7 @@ O exemplo a seguir adiciona uma identidade gerida para um tópico de grelha de e
 Os passos são semelhantes para adicionar uma identidade a outros papéis mencionados na tabela. 
 
 ### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-O exemplo nesta secção mostra-lhe como usar o CLI Azure para adicionar uma identidade a um papel de RBAC. Os comandos da amostra são para tópicos de grelha de eventos. Os comandos para domínios de Grade de Eventos são semelhantes. 
+O exemplo nesta secção mostra-lhe como usar o CLI Azure para adicionar uma identidade a um papel de RBAC. Os comandos da amostra são para tópicos de grelha de eventos. Os comandos para domínios da grelha de eventos são semelhantes. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obtenha a identificação principal para a identidade do sistema do tópico 
 Primeiro, obtenha a identificação principal da identidade gerida pelo sistema do tópico e atribua a identidade a funções apropriadas.
@@ -280,5 +283,5 @@ az eventgrid event-subscription create
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre identidades de serviço geridas, consulte [quais são identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). 

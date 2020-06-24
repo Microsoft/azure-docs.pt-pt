@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 06/07/2020
+ms.subservice: sql-dw
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 2f04e5525610e86f460ab799bedf492381404c9e
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488652"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201638"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Melhores práticas para carregar dados usando piscina Sinapse SQL
 

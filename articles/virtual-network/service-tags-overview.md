@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 42fd1a6c17ddbf06715a9f814bc214db3f34e1ad
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263211"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100173"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -139,6 +139,8 @@ Pode descarregar ficheiros JSON que contenham a lista atual de tags de serviço 
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+Os intervalos de endereço IP nestes ficheiros estão na notação CIDR. 
 
 > [!NOTE]
 >Um subconjunto desta informação foi publicado em ficheiros XML para [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064)e [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). Estes downloads XML serão depreciados até 30 de junho de 2020 e deixarão de estar disponíveis após essa data. Deverá migrar para utilizar os downloads de ficheiros Discovery API ou JSON, conforme descrito nas secções anteriores.

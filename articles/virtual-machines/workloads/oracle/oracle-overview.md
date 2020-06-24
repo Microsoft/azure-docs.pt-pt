@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: borisb
-ms.openlocfilehash: b738d0a04ded3e592f69075d1b113a22905efa11
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7c15c96305cc1220d9ca3cdb9062d7ea7acb4e86
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462724"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85098938"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
 
@@ -55,7 +55,7 @@ Executar aplicações empresariais em Azure em imagens suportadas oracle Linux. 
 
 * Utilize [a Recuperação do Site Azure](../../../site-recovery/site-recovery-overview.md) para orquestrar e gerir a recuperação de desastres para os seus VMs Oracle Linux em Azure e seus servidores físicos. 
 
-* Ativar os Clusters de Aplicações Reais da Oracle (RAC) em Azure utilizando [a Solução Azure VMWare](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) ou [o FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Ativar os Clusters de Aplicações Reais da Oracle (RAC) em Azure utilizando [a Solução VMware Azure](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) ou [o FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Cargas de trabalho do Oráculo de Reserva
 
@@ -93,7 +93,7 @@ Utilize os Serviços de Nuvem oracle Database (Base de Dados Autónoma, RAC, Exa
 
 A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Consulte a [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle-Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [aplicações Azure do WebLogic Server](oracle-weblogic.md) e as integrações de serviços Azure que suportam.
 

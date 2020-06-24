@@ -1,6 +1,6 @@
 ---
-title: ClaimsTransformations - Azure Ative Directory B2C [ Microsoft Docs
-description: Definição do elemento Detransformação de Reclamações no Quadro de Experiência de Identidade Schema do Diretório Ativo Azure B2C.
+title: SinistrosTransformações - Azure Ative Directy B2C / Microsoft Docs
+description: Definição do elemento SinistrosDformações no Esquema-Quadro de Experiência de Identidade do Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529131"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202964"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsTransformations** contém uma lista de funções de transformação de sinistros que podem ser usadas nas viagens dos utilizadores como parte de uma [política personalizada](custom-policy-overview.md). Uma transformação de sinistros converte uma dada reivindicação em outra. Na transformação de sinistros, especifica-se o método de transformação, por exemplo, adicionando um item a uma coleção de cordas ou alterando o caso de uma corda.
+O elemento **ClaimsTransformations** contém uma lista de funções de transformação de sinistros que podem ser usadas em viagens de utilizador como parte de uma [política personalizada.](custom-policy-overview.md) Uma transformação de sinistros converte uma determinada reivindicação em outra. Na transformação de sinistros, especifica-se o método de transformação, por exemplo, adicionar um item a uma coleção de cordas ou alterar o caso de uma cadeia.
 
-Para incluir a lista de funções de transformação de sinistros que podem ser utilizadas nas viagens do utilizador, um elemento ClaimsTransformations XML deve ser declarado no âmbito da secção BuildingBlocks da apólice.
+Para incluir a lista de funções de transformação de sinistros que podem ser utilizadas nas viagens do utilizador, um elemento XML de Sinistros deve ser declarado na secção Blocos de Construção da política.
 
 ```xml
 <ClaimsTransformations>
@@ -33,16 +33,16 @@ Para incluir a lista de funções de transformação de sinistros que podem ser 
 </ClaimsTransformations>
 ```
 
-O elemento **ClaimsTransformation** contém os seguintes atributos:
+O elemento **sinistrosaformação** contém os seguintes atributos:
 
-| Atributo |Necessário | Descrição |
+| Atributo |Obrigatório | Descrição |
 | --------- |-------- | ----------- |
-| Id |Sim | Um identificador que é usado para identificar exclusivamente a transformação da reivindicação. O identificador é referenciado a partir de outros elementos XML na política. |
-| Método de Transformação | Sim | O método de transformação para usar na transformação de sinistros. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
+| Id |Yes | Um identificador que é usado para identificar exclusivamente a transformação da alegação. O identificador é referenciado a partir de outros elementos XML na política. |
+| TransformaçãoMethod | Yes | O método de transformação a ser usado na transformação de sinistros. Cada transformação de reivindicação tem os seus próprios valores. Consulte a [referência de transformação](#claims-transformations-reference) de sinistros para uma lista completa dos valores disponíveis. |
 
-## <a name="claimstransformation"></a>Transformação de Sinistros
+## <a name="claimstransformation"></a>Transferência de Reclamações
 
-O elemento **Destransformação de Reclamações** contém os seguintes elementos:
+O elemento **sinistrosaformação** contém os seguintes elementos:
 
 ```xml
 <ClaimsTransformation Id="<identifier>" TransformationMethod="<method>">
@@ -59,69 +59,69 @@ O elemento **Destransformação de Reclamações** contém os seguintes elemento
 ```
 
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | -------- | ----------- |
-| Créditos de entrada | 0:1 | Uma lista de elementos **de InputClaim** que especificam tipos de reclamação que são tomados como contributo para a transformação de sinistros. Cada um destes elementos contém uma referência a um ClaimType já definido na secção ClaimsSchema na política. |
-| Parâmetros de entrada | 0:1 | Uma lista de elementos **InputParameter** que são fornecidos como entrada para a transformação de sinistros.
-| OutputClaims | 0:1 | Uma lista de elementos **OutputClaim** que especificam os tipos de reclamação que são produzidos após a invocação da Transformação de Reclamações. Cada um destes elementos contém referência a um ClaimType já definido na secção ClaimsSchema. |
+| InputClaims | 0:1 | Uma lista de elementos **InputClaim** que especificam tipos de reclamações que são tomados como entrada para a transformação de sinistros. Cada um destes elementos contém uma referência a um ClaimType já definido na secção ClaimsSchema na apólice. |
+| InputParameters | 0:1 | Uma lista de elementos **InputParameter** que são fornecidos como entrada para a transformação de sinistros.
+| Resultados | 0:1 | Uma lista de elementos **OutputClaim** que especificam tipos de reclamações que são produzidos após a invocação do SinistrosTransformação. Cada um destes elementos contém referência a um ClaimType já definido na secção ClaimsSchema. |
 
-### <a name="inputclaims"></a>Créditos de entrada
+### <a name="inputclaims"></a>InputClaims
 
 O elemento **InputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| Pedido de crédito | 1:n | Um tipo de reclamação de entrada esperado. |
+| InputClaim | 1:n | Um tipo de pedido de entrada esperado. |
 
-#### <a name="inputclaim"></a>Pedido de crédito
+#### <a name="inputclaim"></a>InputClaim
 
 O elemento **InputClaim** contém os seguintes atributos:
 
-| Atributo |Necessário | Descrição |
+| Atributo |Obrigatório | Descrição |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |Sim | Uma referência a um ClaimType já definido na secção ClaimsSchema na política. |
-| Tipo de reclamação de transformação |Sim | Um identificador para referenciar um tipo de pedido de transformação. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
+| ClaimTypeReferenceId |Yes | Uma referência a umTip de Reclamação já definido na secção ClaimsSchema na apólice. |
+| TransformaçãoClaimType |Yes | Um identificador para fazer referência a um tipo de pedido de transformação. Cada transformação de reivindicação tem os seus próprios valores. Consulte a [referência de transformação](#claims-transformations-reference) de sinistros para uma lista completa dos valores disponíveis. |
 
-### <a name="inputparameters"></a>Parâmetros de entrada
+### <a name="inputparameters"></a>InputParameters
 
 O elemento **InputParameters** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| EntradaParametro | 1:n | Um parâmetro de entrada esperado. |
+| InputParameter | 1:n | Um parâmetro de entrada esperado. |
 
-#### <a name="inputparameter"></a>EntradaParametro
+#### <a name="inputparameter"></a>InputParameter
 
-| Atributo | Necessário |Descrição |
+| Atributo | Obrigatório |Descrição |
 | --------- | ----------- |----------- |
-| Id | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de sinistros. Cada método de transformação de reivindicações tem os seus próprios valores. Consulte a tabela de transformação de reclamações para obter uma lista completa dos valores disponíveis. |
-| DataType | Sim | O tipo de dados do parâmetro, tais como String, Boolean, Int ou DateTime de acordo com a enumeração dataType no esquema de política personalizada XML. Este tipo é utilizado para executar operações aritméticas corretamente. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
-| Valor | Sim | Um valor que é passado verbatim para a transformação. Alguns dos valores são arbitrários, alguns deles selecionam do método de transformação de sinistros. |
+| Id | Yes | Um identificador que é uma referência a um parâmetro do método de transformação de sinistros. Cada método de transformação de reivindicações tem os seus próprios valores. Consulte a tabela de transformação de reclamações para obter uma lista completa dos valores disponíveis. |
+| DataType | Yes | O tipo de dados do parâmetro, tais como String, Boolean, Int ou DateTime de acordo com a enumeração dataType no esquema XML da política personalizada. Este tipo é utilizado para efetuar corretamente as operações aritméticas. Cada transformação de reivindicação tem os seus próprios valores. Consulte a [referência de transformação](#claims-transformations-reference) de sinistros para uma lista completa dos valores disponíveis. |
+| Valor | Yes | Um valor que é passado verbatim à transformação. Alguns dos valores são arbitrários, alguns deles selecionam do método de transformação de sinistros. |
 
-### <a name="outputclaims"></a>OutputClaims
+### <a name="outputclaims"></a>Resultados
 
 O elemento **OutputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| Pedido de saída | 0:n | Um tipo de reivindicação de saída esperado. |
+| OutputClaim | 0:n | Um tipo de reivindicação de saída esperada. |
 
-#### <a name="outputclaim"></a>Pedido de saída
+#### <a name="outputclaim"></a>OutputClaim
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo |Necessário | Descrição |
+| Atributo |Obrigatório | Descrição |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | Sim | Uma referência a um ClaimType já definido na secção ClaimsSchema na política.
-| Tipo de reclamação de transformação | Sim | Um identificador para referenciar um tipo de pedido de transformação. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
+| ClaimTypeReferenceId | Yes | Uma referência a umTip de Reclamação já definido na secção ClaimsSchema na apólice.
+| TransformaçãoClaimType | Yes | Um identificador para fazer referência a um tipo de pedido de transformação. Cada transformação de reivindicação tem os seus próprios valores. Consulte a [referência de transformação](#claims-transformations-reference) de sinistros para uma lista completa dos valores disponíveis. |
 
-Se a reclamação de entrada e a alegação de saída forem do mesmo tipo (corda, ou boolean), pode utilizar a mesma alegação de entrada que a alegação de saída. Neste caso, a transformação de sinistros altera a reclamação de entrada com o valor de saída.
+Se a reclamação de entrada e a reclamação de saída forem do mesmo tipo (string, ou boolean), pode utilizar a mesma reivindicação de entrada que a alegação de saída. Neste caso, a transformação de sinistros altera a reclamação de entrada com o valor de saída.
 
 ## <a name="example"></a>Exemplo
 
-Por exemplo, pode armazenar a última versão dos seus termos de serviços que o utilizador aceitou. Ao atualizar os termos dos serviços, pode pedir ao utilizador que aceite a nova versão. No exemplo seguinte, a transformação de sinistros **HasTOSVersionChanged** compara o valor da reclamação **toSVersion** com o valor da alegação **LastTOSAcceptedVersion** e, em seguida, devolve a booleana **TOSVersionChange** claim.
+Por exemplo, pode armazenar a última versão dos seus termos de serviços que o utilizador aceitou. Ao atualizar os termos dos serviços, pode pedir ao utilizador que aceite a nova versão. No exemplo seguinte, a transformação de **sinistros HasTOSVersionChanged** compara o valor da **reclamação TOSVersion** com o valor da **reclamação LastTOSAcceptedVersion** e, em seguida, devolve a **reclamação tosversion alterada.**
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="TOSVersionChanged">
@@ -155,16 +155,16 @@ Por exemplo, pode armazenar a última versão dos seus termos de serviços que o
 </BuildingBlocks>
 ```
 
-## <a name="claims-transformations-reference"></a>Referência de transformações de sinistros
+## <a name="claims-transformations-reference"></a>Referência de transformações de reclamações
 
-Para exemplo sondar as transformações de sinistros, consulte as seguintes páginas de referência:
+Por exemplo, transformações de reclamações, consulte as seguintes páginas de referência:
 
 - [Booleano](boolean-transformations.md)
-- [Date](date-transformations.md)
+- [Data](date-transformations.md)
 - [Número inteiro](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Número de telefone](phone-number-claims-transformations.md)
-- [General](general-transformations.md)
+- [Geral](general-transformations.md)
 - [Conta social](social-transformations.md)
 - [String](string-transformations.md)
 - [StringCollection](stringcollection-transformations.md)

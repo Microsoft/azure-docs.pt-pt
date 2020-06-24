@@ -1,42 +1,46 @@
 ---
 title: Registos de auditoria - Base de Dados Azure para MariaDB
-description: Descreve os registos de auditoria disponíveis na Base de Dados Azure para o MariaDB e os parâmetros disponíveis para permitir os níveis de exploração madeireira.
+description: Descreve os registos de auditoria disponíveis na Base de Dados Azure para MariaDB e os parâmetros disponíveis para permitir níveis de registo.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: 9b577b12250f1a600c91776e64ecaf65be5d8476
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063817"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100885"
 ---
-# <a name="audit-logs-in-azure-database-for-mariadb"></a>Registos de Auditoria na Base de Dados Azure para MariaDB
+# <a name="audit-logs-in-azure-database-for-mariadb"></a>Registos de auditoria na Base de Dados Azure para MariaDB
 
-Na Base de Dados Azure para MariaDB, o registo de auditoria está disponível para os utilizadores. O registo de auditoria pode ser utilizado para rastrear a atividade ao nível da base de dados e é comumente utilizado para o cumprimento.
+Na Base de Dados Azure para MariaDB, o registo de auditoria está disponível para os utilizadores. O registo de auditoria pode ser usado para rastrear a atividade de nível de base de dados e é comumente utilizado para o cumprimento.
 
 > [!IMPORTANT]
 > A funcionalidade de registo de auditoria encontra-se atualmente em pré-visualização.
 
-## <a name="configure-audit-logging"></a>Configure a exploração madeireira de auditoria
+## <a name="configure-audit-logging"></a>Configurar a exploração de auditoria
 
-Por defeito, o registo de auditoria está desativado. Para o ativar, coloque-o `audit_log_enabled` em ON.
+>[!NOTE]
+> Recomenda-se apenas registar os tipos de eventos e utilizadores necessários para os seus fins de auditoria para garantir que o desempenho do seu servidor não seja fortemente impactado.
+
+Por predefinição, o registo de auditoria é desativado. Para a capacitá-lo, desatado `audit_log_enabled` para ON.
 
 Outros parâmetros que pode ajustar incluem:
 
-- `audit_log_events`: controla os eventos a iniciar. Consulte abaixo a tabela para eventos específicos de auditoria.
-- `audit_log_include_users`: Os utilizadores mariaDB a incluir para exploração madeireira. O valor padrão para este parâmetro está vazio, o que incluirá todos os utilizadores para a exploração madeireira. Isto tem uma `audit_log_exclude_users`prioridade maior. O comprimento máximo do parâmetro é de 512 caracteres.
+- `audit_log_events`: controla os eventos a registar. Consulte a tabela abaixo para eventos de auditoria específicos.
+- `audit_log_include_users`: Utilizadores MariaDB a incluir para a exploração madeireira. O valor predefinido para este parâmetro está vazio, o que incluirá todos os utilizadores para registar. Isto tem maior prioridade sobre `audit_log_exclude_users` . O comprimento máximo do parâmetro é de 512 caracteres.
+- `audit_log_exclude_users`: Utilizadores MariaDB excluídos da exploração madeireira. Permite no máximo quatro utilizadores. O comprimento máximo do parâmetro é de 256 caracteres.
+
 > [!Note]
-> `audit_log_include_users`tem maior `audit_log_exclude_users`prioridade sobre . Por exemplo, `audit_log_include_users`  =  `demouser` `audit_log_exclude_users`  =  `demouser`se e , o utilizador será incluído `audit_log_include_users` nos registos de auditoria porque tem maior prioridade.
-- `audit_log_exclude_users`: Os utilizadores mariaDB a serem excluídos da exploração madeireira. Permite, no máximo, quatro utilizadores. O comprimento máximo do parâmetro é de 256 caracteres.
+> `audit_log_include_users`tem maior prioridade sobre `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e , o `audit_log_exclude_users`  =  `demouser` utilizador será incluído nos registos de auditoria porque `audit_log_include_users` tem maior prioridade.
 
 | **Evento** | **Descrição** |
 |---|---|
-| `CONNECTION` | - Iniciação de ligação (bem sucedida ou mal sucedida) <br> - Reautenticação do utilizador com diferentes utilizadores/palavra-passe durante a sessão <br> - Rescisão de ligação |
-| `DML_SELECT`| Consultas selecionadas |
-| `DML_NONSELECT` | INSERIR/ELIMINAR/ATUALIZAR consultas |
+| `CONNECTION` | - Iniciação de ligação (bem sucedida ou mal sucedida) <br> - Reautorse do utilizador com diferentes palavras de utilizador/senha durante a sessão <br> - Rescisão de ligação |
+| `DML_SELECT`| SELECIONE consultas |
+| `DML_NONSELECT` | INSIEM/APAGAR/ATUALIZAR CONSULTAS |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | Consultas como "DROP DATABASE" |
 | `DCL` | Consultas como "GRANT PERMISSION" |
@@ -45,17 +49,17 @@ Outros parâmetros que pode ajustar incluem:
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
 
-Os registos de auditoria estão integrados com registos de diagnóstico do Monitor Azure. Depois de ativar registos de auditoria no seu servidor MariaDB, pode emiti-los para registos do Monitor Azure, Hubs de Eventos ou Armazenamento Azure. Para saber mais sobre como ativar registos de diagnóstico no portal Azure, consulte o artigo do portal de registo de [auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Os registos de auditoria são integrados com registos de diagnóstico do Monitor Azure. Uma vez que tenha ativado os registos de auditoria no seu servidor MariaDB, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre como ativar registos de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="diagnostic-logs-schemas"></a>Schemas de Registos de Diagnóstico
+## <a name="diagnostic-logs-schemas"></a>Esquemas de Registos de Diagnóstico
 
-As seguintes secções descrevem o que é output pelos registos de auditoria da MariaDB com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
+As secções seguintes descrevem o que éprodução por registos de auditoria MariaDB com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
 ### <a name="connection"></a>Ligação
 
 | **Propriedade** | **Descrição** |
 |---|---|
-| `TenantId` | Sua identificação do inquilino |
+| `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
 | `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
@@ -63,26 +67,29 @@ As seguintes secções descrevem o que é output pelos registos de auditoria da 
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
 | `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
-| `ResourceId` | Recurso URI |
+| `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
 | `event_class_s` | `connection_log` |
 | `event_subclass_s` | `CONNECT`, `DISCONNECT` |
-| `connection_id_d` | ID de ligação única gerado pela MariaDB |
+| `connection_id_d` | ID de ligação única gerado por MariaDB |
 | `host_s` | Vazio |
-| `ip_s` | Endereço IP do cliente que liga ao MariaDB |
+| `ip_s` | Endereço IP do cliente que liga a MariaDB |
 | `user_s` | Nome do utilizador que executa a consulta |
-| `db_s` | Nome da base de dados ligado |
-| `\_ResourceId` | Recurso URI |
+| `db_s` | Nome da base de dados ligada a |
+| `\_ResourceId` | URI de recursos |
 
 ### <a name="general"></a>Geral
 
-O schema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN.
+O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN.
+
+> [!NOTE]
+> Para `sql_text` , log será truncado se exceder os caracteres de 2048.
 
 | **Propriedade** | **Descrição** |
 |---|---|
-| `TenantId` | Sua identificação do inquilino |
+| `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
 | `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
@@ -90,27 +97,27 @@ O schema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELEC
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
 | `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
-| `ResourceId` | Recurso URI |
+| `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
-| `event_time` | Consulta inicia segundos no carimbo de tempo UNIX |
-| `error_code_d` | Código de erro se a consulta falhar. `0`significa que nenhum erro |
+| `event_time` | Consulta iniciar segundos em semda do tempo da UNIX |
+| `error_code_d` | Código de erro se a consulta falhar. `0`significa que não há erro |
 | `thread_id_d` | ID de fio que executou a consulta |
 | `host_s` | Vazio |
-| `ip_s` | Endereço IP do cliente que liga ao MariaDB |
+| `ip_s` | Endereço IP do cliente que liga a MariaDB |
 | `user_s` | Nome do utilizador que executa a consulta |
 | `sql_text_s` | Texto de consulta completa |
-| `\_ResourceId` | Recurso URI |
+| `\_ResourceId` | URI de recursos |
 
-## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar registos em registos do Monitor Azure
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar registos em Registos monitores Azure
 
-Uma vez que os registos de auditoria sejam canalizados para registos do Monitor Azure através de Registos de Diagnóstico, pode efetuar uma análise mais aprofundada dos seus eventos auditados. Abaixo estão algumas consultas de amostra para ajudá-lo a começar. Certifique-se de atualizar o abaixo com o nome do servidor.
+Assim que os seus registos de auditoria forem canalizados para Registos do Monitor Azure através de Registos de Diagnóstico, poderá efetuar uma análise mais aprofundada dos seus eventos auditados. Abaixo estão algumas consultas de amostra para ajudá-lo a começar. Certifique-se de atualizar o abaixo com o nome do seu servidor.
 
-- Lista ruma eventos GERAIs num determinado servidor
+- Listar eventos GERAIs num servidor específico
 
     ```kusto
     AzureDiagnostics
@@ -120,7 +127,7 @@ Uma vez que os registos de auditoria sejam canalizados para registos do Monitor 
     | order by TimeGenerated asc nulls last 
     ```
 
-- Lista de eventos de LIGAÇÃO num determinado servidor
+- Liste eventos DE LIGAÇÃO num servidor específico
 
     ```kusto
     AzureDiagnostics
@@ -130,7 +137,7 @@ Uma vez que os registos de auditoria sejam canalizados para registos do Monitor 
     | order by TimeGenerated asc nulls last
     ```
 
-- Resumir eventos auditados num determinado servidor
+- Resumir eventos auditados num servidor em particular
 
     ```kusto
     AzureDiagnostics
@@ -140,7 +147,7 @@ Uma vez que os registos de auditoria sejam canalizados para registos do Monitor 
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
     ```
 
-- Grafe a distribuição do tipo de evento de auditoria num determinado servidor
+- Gráfico da distribuição do tipo de evento de auditoria em um servidor particular
 
     ```kusto
     AzureDiagnostics
@@ -151,7 +158,7 @@ Uma vez que os registos de auditoria sejam canalizados para registos do Monitor 
     | render timechart 
     ```
 
-- Lista de eventos auditados em todos os servidores da MariaDB com Registos de Diagnóstico habilitados para registos de auditoria
+- Liste eventos auditados em todos os servidores MariaDB com Registos de Diagnóstico habilitados para registos de auditoria
 
     ```kusto
     AzureDiagnostics

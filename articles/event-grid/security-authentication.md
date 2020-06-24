@@ -2,18 +2,17 @@
 title: Segurança e autenticação da Grelha de Eventos Azure
 description: Este artigo descreve diferentes formas de autenticar o acesso aos seus recursos de Grade de Eventos (WebHook, subscrições, tópicos personalizados)
 services: event-grid
-author: femila
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: femila
-ms.openlocfilehash: 8335d5a41dc2f322623c163e08f8a4a2c1be8360
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.author: spelluru
+ms.openlocfilehash: d028367b82e8529d5260c086f2e4afa609582b00
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559001"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100222"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Autenticação de acesso aos recursos da Grelha de Eventos Azure
 Este artigo fornece informações sobre os seguintes cenários:  
@@ -85,8 +84,21 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 Todos os eventos ou dados escritos em disco pelo serviço Desempenhado pelo Serviço de Grelha de Eventos são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptada em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados retidos são de 24 horas de adesão à [política de relíndi da Grelha de Eventos.](delivery-and-retry.md) A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o tempo de vida do evento, o que for menor.
 
+## <a name="use-system-assigned-identities-for-event-delivery"></a>Utilizar identidades atribuídas ao sistema para a entrega de eventos
+Você pode ativar uma identidade gerida atribuída ao sistema para um tópico ou domínio e usar a identidade para encaminhar eventos para destinos apoiados, tais como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
+
+Eis os passos: 
+
+1. Crie um tópico ou domínio com uma identidade atribuída ao sistema, ou atualize um tópico ou domínio existente para permitir a identidade. 
+1. Adicione a identidade a um papel apropriado (por exemplo, Service Bus Data Sender) no destino (por exemplo, uma fila de autocarros de serviço).
+1. Ao criar subscrições de eventos, permita o uso da identidade para entregar eventos ao destino. 
+
+Para obter instruções detalhadas passo a passo, consulte [a entrega do Evento com uma identidade gerida](managed-service-identity.md).
+
+
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Autenticar entrega de eventos para pontos finais webhook
 As secções seguintes descrevem como autenticar a entrega do evento nos pontos finais webhook. Tem de utilizar um mecanismo de aperto de mão de validação, independentemente do método utilizado. Consulte a [entrega do evento Webhook](webhook-event-delivery.md) para obter mais detalhes. 
+
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Utilizando o Diretório Ativo Azure (Azure AD)
 Você pode proteger o ponto final webhook que é usado para receber eventos da Grade de Eventos usando Azure AD. Você precisará criar uma aplicação AD Azure, criar uma função e principal de serviço na sua aplicação autorizando a Grade de Eventos, e configurar a subscrição do evento para usar a aplicação AZure AD. Saiba como [configurar o Azure Ative Directory com a Grade de Eventos.](secure-webhook-delivery.md)

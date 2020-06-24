@@ -1,35 +1,35 @@
 ---
 title: Criar fluxos de trabalho de Política como Código
-description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e validar automaticamente os recursos.
+description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e valide automaticamente os recursos.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 04ec27216a3e9d59da21ef80948ef8620234e575
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684266"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194421"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
-À medida que avança na sua jornada com a Cloud Governance, vai querer passar de gerir manualmente cada definição de política no portal Azure ou através dos vários SDKs para algo mais manejável e repetível à escala empresarial. Duas das abordagens predominantes para gerir sistemas em escala na nuvem são:
+À medida que progride na sua jornada com a Cloud Governance, você vai querer passar de gestão manual de cada definição de política no portal Azure ou através dos vários SDKs para algo mais manejável e repetível à escala empresarial. Duas das abordagens predominantes para gerir sistemas em escala na nuvem são:
 
-- Infraestrutura como Código: A prática de tratar o conteúdo que define os seus ambientes, desde modelos de Gestor de Recursos até definições de Política Azure até Plantas Azure, como código fonte.
+- Infraestrutura como Código: A prática de tratar o conteúdo que define os seus ambientes, desde modelos de Gestor de Recursos até definições de Política Azure a Azure Blueprints, como código fonte.
 - DevOps: A união de pessoas, processos e produtos para permitir a entrega contínua de valor aos nossos utilizadores finais.
 
-Política como Código é a combinação destas ideias. Essencialmente, mantenha as definições de política no controlo de fontes e sempre que uma mudança é feita, teste e valide essa alteração. No entanto, não deve ser essa a extensão das políticas de envolvimento com a Infraestrutura como Código ou DevOps.
+A política como Código é a combinação destas ideias. Essencialmente, mantenha as definições de política no controlo de origem e sempre que uma alteração é feita, teste e valide essa mudança. No entanto, esta não deve ser a extensão das políticas de envolvimento com infraestruturas como Código ou DevOps.
 
-O passo de validação deve também ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Exemplos incluem a implantação de um ambiente de aplicação ou infraestrutura virtual. Ao fazer da validação da Política Azure um componente precoce do processo de construção e implementação, as equipas de aplicação e operações descobrem se as suas alterações não são reclamadas, muito antes de ser tarde demais e estão a tentar implementar na produção.
+O passo de validação deve também ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Exemplos incluem a implantação de um ambiente de aplicação ou infraestrutura virtual. Ao fazer da Azure Policy validar um componente precoce do processo de construção e implantação, as equipas de aplicação e operações descobrem se as suas alterações não são compatíveis, muito antes de ser tarde demais e estão a tentar implementar na produção.
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
-O fluxo de trabalho geral recomendado da Política como Código se parece com este diagrama:
+O fluxo de trabalho geral recomendado de Política como Código parece este diagrama:
 
 :::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Política como visão geral do fluxo de trabalho do código" border="false":::
 
-### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições políticas
+### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições de políticas
 
-As definições de política são criadas usando jSON, e armazenadas no controlo de fontes. Cada política tem o seu próprio conjunto de ficheiros, tais como os parâmetros, regras e parâmetros ambientais, que devem ser armazenados na mesma pasta. A estrutura que se segue é uma forma recomendada de manter as definições de política no controlo de fontes.
+As definições de política são criadas usando json, e armazenadas no controlo de fontes. Cada política tem o seu próprio conjunto de ficheiros, tais como os parâmetros, regras e parâmetros ambientais, que devem ser armazenados na mesma pasta. A seguinte estrutura é uma forma recomendada de manter as suas definições políticas no controlo de fontes.
 
 ```text
 .
@@ -53,11 +53,11 @@ As definições de política são criadas usando jSON, e armazenadas no controlo
 |
 ```
 
-Quando uma nova política é adicionada ou uma atualizada existente, o fluxo de trabalho deve atualizar automaticamente a definição de política em Azure. O teste da nova definição de política ou atualizada surge num passo posterior.
+Quando uma nova política é adicionada ou uma existente atualizada, o fluxo de trabalho deve atualizar automaticamente a definição de política em Azure. O teste da nova definição de política nova ou atualizada surge num passo posterior.
 
 ### <a name="create-and-update-initiative-definitions"></a>Criar e atualizar definições de iniciativa
 
-Da mesma forma, as iniciativas têm o seu próprio ficheiro JSON e ficheiros relacionados que devem ser armazenados na mesma pasta. A definição de iniciativa requer que a definição de política já exista, pelo que não pode ser criada ou atualizada até que a fonte da política seja atualizada no controlo de fontes e depois atualizada no Azure. A estrutura seguinte é uma forma recomendada de manter as definições de iniciativa no controlo de origem:
+Da mesma forma, as iniciativas têm o seu próprio ficheiro JSON e ficheiros relacionados que devem ser armazenados na mesma pasta. A definição de iniciativa requer que a definição de política já exista, pelo que não pode ser criada ou atualizada até que a fonte da apólice tenha sido atualizada no controlo de origem e depois atualizada em Azure. A seguinte estrutura é uma forma recomendada de manter as definições de iniciativa no controlo de fontes:
 
 ```text
 .
@@ -81,53 +81,53 @@ Da mesma forma, as iniciativas têm o seu próprio ficheiro JSON e ficheiros rel
 |
 ```
 
-Tal como as definições de políticas, ao adicionar ou atualizar uma iniciativa existente, o fluxo de trabalho deve atualizar automaticamente a definição de iniciativa em Azure. O teste da nova definição de iniciativa ou atualização surge num passo posterior.
+Tal como as definições políticas, ao adicionar ou atualizar uma iniciativa existente, o fluxo de trabalho deve atualizar automaticamente a definição de iniciativa em Azure. O teste da nova definição de iniciativa ou atualizada surge num passo posterior.
 
-### <a name="test-and-validate-the-updated-definition"></a>Testar e validar a definição atualizada
+### <a name="test-and-validate-the-updated-definition"></a>Teste e valida a definição atualizada
 
-Uma vez que a automatização tenha tomado as suas definições de política ou iniciativa recém-criadas ou atualizadas e feito a atualização para o objeto em Azure, é hora de testar as mudanças que foram feitas. Ou a política ou a iniciativa de que faz parte devem então ser atribuídas a recursos no ambiente mais distantes da produção. Este ambiente é tipicamente _Dev_.
+Uma vez que a automatização tomou as suas definições de política ou iniciativa recentemente criadas ou atualizadas e fez a atualização para o objeto em Azure, é hora de testar as alterações que foram feitas. Ou a política ou a iniciativa de que faz parte deve então ser atribuída a recursos no ambiente mais afastados da produção. Este ambiente é tipicamente _Dev._
 
-A atribuição deve utilizar o modo de [execução](./assignment-structure.md#enforcement-mode) dos _deficientes_ para que a criação de recursos e as atualizações não sejam bloqueadas, mas que os recursos existentes ainda são auditados para o cumprimento da definição de política atualizada. Mesmo com o modo de execução, recomenda-se que o âmbito de atribuição seja um grupo de recursos ou uma subscrição especificamente para validação de políticas.
+A atribuição deve utilizar [a aplicação da leiMode](./assignment-structure.md#enforcement-mode) de _deficientes_ para que a criação de recursos e as atualizações não sejam bloqueadas, mas que os recursos existentes ainda sejam auditados para o cumprimento da definição de política atualizada. Mesmo com a aplicação da Lei, recomenda-se que o âmbito de atribuição seja um grupo de recursos ou uma subscrição que seja especificamente para validar políticas.
 
 > [!NOTE]
-> Embora o modo de aplicação seja útil, não é um substituto para testar completamente uma definição de política sob várias condições. A definição de política deve ser testada `PUT` e as chamadas REST `PATCH` API, recursos conformes e não conformes, e casos de borda como um imóvel em falta do recurso.
+> Embora o modo de aplicação seja útil, não é um substituto para testar completamente uma definição de política sob várias condições. A definição de política deve ser testada com `PUT` chamadas de API e `PATCH` REST, recursos conformes e não conformes, e casos de borda como uma propriedade em falta do recurso.
 
-Após a implementação da atribuição, utilize o SDK de Política para [obter dados](../how-to/get-compliance-data.md) de conformidade para a nova atribuição. O ambiente utilizado para testar as políticas e atribuições deve dispor de recursos compatíveis e não conformes. Como um bom teste de unidade para código, você quer testar que os recursos são como esperado e que você também não tem falsos positivos ou falsos negativos. Se testar e validar apenas para o que espera, pode haver um impacto inesperado e não identificado da apólice. Para mais informações, consulte [Avaliar o impacto de uma nova definição de Política Azure](./evaluate-impact.md).
+Após a implementação da atribuição, utilize o Policy SDK para [obter dados de conformidade](../how-to/get-compliance-data.md) para a nova atribuição. O ambiente utilizado para testar as políticas e atribuições deve ter recursos conformes e não conformes. Como um bom teste de unidade para código, você quer testar que os recursos são como esperado e que você também não tem falsos positivos ou falsos negativos. Se testar e validar apenas para o que espera, pode haver um impacto inesperado e não identificado da apólice. Para obter mais informações, consulte [avaliar o impacto de uma nova definição de Política Azure.](./evaluate-impact.md)
 
-### <a name="enable-remediation-tasks"></a>Ativar tarefas de reparação
+### <a name="enable-remediation-tasks"></a>Permitir tarefas de remediação
 
 Se a validação da atribuição corresponde às expectativas, o próximo passo é validar a reparação.
-As políticas que utilizam o [IfNotExist](./effects.md#deployifnotexists) ou [modificam](./effects.md#modify) podem ser transformadas numa tarefa de reparação e corrigir recursos de um estado não conforme.
+As políticas que utilizam [osIfNotExists](./effects.md#deployifnotexists) ou [modificam](./effects.md#modify) podem ser transformadas numa tarefa de remediação e recursos corretos de um estado não conforme.
 
-O primeiro passo para a remediação dos recursos é conceder à atribuição de políticas a atribuição de funções definida na definição de política. Esta atribuição de funções confere à atribuição de políticas direitos de identidade geridos suficientes para fazer as alterações necessárias para tornar o recurso conforme.
+O primeiro passo para a reparação de recursos é conceder à atribuição de políticas a atribuição de funções definida na definição de política. Esta atribuição de funções confere à atribuição de identidade gerida a uma política suficientes para fazer as alterações necessárias para tornar o recurso conforme.
 
-Uma vez que a atribuição de políticas tenha direitos adequados, utilize o SDK de política para desencadear uma tarefa de reparação contra um conjunto de recursos que se sabe não cumprirem. Devem ser efetuados três ensaios contra estas tarefas remediadas antes de prosseguir:
+Uma vez que a atribuição da política tenha os direitos adequados, use o Policy SDK para desencadear uma tarefa de reparação contra um conjunto de recursos que se sabe não conformes. Devem ser efetuados três ensaios contra estas tarefas remediadas antes de prosseguir:
 
-- Validar que a tarefa de reparação concluída com sucesso
-- Executar avaliação política para ver que os resultados da conformidade da política são atualizados como esperado
+- Validar que a tarefa de remediação concluída com sucesso
+- Executar avaliação de política para ver que os resultados da conformidade da política são atualizados como esperado
 - Executar um teste de unidade ambiental contra os recursos diretamente para validar as suas propriedades mudaram
 
-Testar os resultados atualizados da avaliação das políticas e o ambiente fornecem diretamente a confirmação de que as tarefas de reparação alteraram o que se esperava e que a definição de política viu a alteração da conformidade como esperado.
+Testar tanto os resultados atualizados da avaliação de políticas como o ambiente fornecem diretamente a confirmação de que as tarefas de reparação alteraram o que era esperado e que a definição de política viu a mudança de conformidade como esperado.
 
 ### <a name="update-to-enforced-assignments"></a>Atualização para atribuições forçadas
 
-Depois de todos os portões de validação terem sido concluídos, atualize a atribuição para utilizar o modo _de_ **execução** de . É aconselhável fazer esta mudança inicialmente no mesmo ambiente longe da produção. Uma vez validado esse ambiente como esperado, a mudança deve então ser prevista para incluir o ambiente seguinte, e assim por diante, até que a política seja implementada para os recursos produtivos.
+Depois de concluídos todos os portões de validação, atualize a atribuição para utilizar **o enforcementMode** de _habilitado_. Recomenda-se fazer esta mudança inicialmente no mesmo ambiente longe da produção. Uma vez que esse ambiente seja validado como funcionamento como esperado, a mudança deve então ser scopedada para incluir o próximo ambiente, e assim por diante, até que a política seja implementada para os recursos produtivos.
 
-## <a name="process-integrated-evaluations"></a>Avaliações integradas de processo
+## <a name="process-integrated-evaluations"></a>Avaliações integradas do processo
 
-O fluxo geral de trabalho para a política como Código é para desenvolver e implementar políticas e iniciativas para um ambiente em escala. No entanto, a avaliação de políticas deve fazer parte do processo de implantação de qualquer fluxo de trabalho que implemente ou crie recursos no Azure, tais como a implementação de aplicações ou modelos de gestor de recursos de execução para criar infraestruturas.
+O fluxo geral de trabalho para a Política como Código destina-se a desenvolver e implementar políticas e iniciativas para um ambiente em escala. No entanto, a avaliação de políticas deve fazer parte do processo de implementação de qualquer fluxo de trabalho que implemente ou crie recursos em Azure, tais como implementar aplicações ou executar modelos de Gestor de Recursos para criar infraestruturas.
 
-Nestes casos, após a implementação da aplicação ou infraestrutura a um grupo de subscrição ou de recursos de teste, deve ser feita uma avaliação política para que esse âmbito de verificação da validação de todas as políticas e iniciativas existentes. Embora possam ser configurados como **enforcementMode** _desativado_ em tal ambiente, é útil saber cedo se uma aplicação ou implementação de infraestrutura está violando as definições de políticas mais cedo. Esta avaliação política deve, portanto, ser um passo nesses fluxos de trabalho e falhar nas implementações que criam recursos não conformes.
+Nestes casos, após a aplicação ou implantação da infraestrutura a um grupo de subscrição de teste ou de recursos, deve ser feita uma avaliação das políticas para esse âmbito de verificação de todas as políticas e iniciativas existentes. Embora possam ser configurados como **enforcementMode** _desativado_ em tal ambiente, é útil saber cedo se uma aplicação ou implantação de infraestrutura está violando as definições políticas precocemente. Esta avaliação política deve, portanto, ser um passo nesses fluxos de trabalho e falhar nas implementações que criam recursos não conformes.
 
 ## <a name="review"></a>Rever
 
-Este artigo abrange o fluxo geral de trabalho para a política como código e também onde a avaliação das políticas deve fazer parte de outros fluxos de trabalho de implantação. Este fluxo de trabalho pode ser usado em qualquer ambiente que suporte passos scripted e automação com base em gatilhos.
+Este artigo abrange o fluxo de trabalho geral para a Política como Código e também onde a avaliação das políticas deve fazer parte de outros fluxos de trabalho de implantação. Este fluxo de trabalho pode ser usado em qualquer ambiente que suporte passos scripted e automação com base em gatilhos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça a estrutura da definição de [políticas.](./definition-structure.md)
-- Conheça a estrutura de atribuição de [políticas.](./assignment-structure.md)
-- Compreender como [criar políticas programáticas.](../how-to/programmatically-create.md)
-- Saiba como obter dados de [conformidade.](../how-to/get-compliance-data.md)
-- Aprenda a [remediar recursos não conformes](../how-to/remediate-resources.md).
-- Reveja o que é um grupo de gestão com organizar os seus recursos com grupos de [gestão Azure.](../../management-groups/overview.md)
+- Conheça a estrutura de [definição de políticas.](./definition-structure.md)
+- Conheça a [estrutura de atribuição de políticas.](./assignment-structure.md)
+- Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)
+- Saiba como [obter dados de conformidade.](../how-to/get-compliance-data.md)
+- Saiba como [remediar recursos não conformes.](../how-to/remediate-resources.md)
+- Reveja o que é um grupo de gestão com [Organizar os seus recursos com grupos de gestão Azure.](../../management-groups/overview.md)

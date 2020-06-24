@@ -1,14 +1,14 @@
 ---
 title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
-ms.date: 05/22/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1d482eeb8b3da94e8af0a597ade1a1d834ccf6a0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d91804b91b50ee1ba4015456438c9f153ed12ada
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677786"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201723"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -121,6 +121,9 @@ Um exemplo comum é uma tarefa para copiar ficheiros para um nó de computação
 
 Tarefas que só duram um a dois segundos não são ideais. Deve tentar fazer uma quantidade significativa de trabalho numa tarefa individual (mínimo de 10 segundos, indo até horas ou dias). Se cada tarefa estiver executada por um minuto (ou mais), então a sobrecarga de agendamento como uma fração do tempo total de computação é pequena.
 
+### <a name="use-pool-scope-for-short-tasks-on-windows-nodes"></a>Utilize o âmbito da piscina para tarefas curtas nos nos nosmes do Windows
+
+Ao agendar uma tarefa nos nós do Lote, pode escolher se a executou com âmbito de tarefa ou alcance de piscina. Se a tarefa funcionar apenas por um curto período de tempo, o âmbito de tarefa pode ser ineficiente devido aos recursos necessários para criar a conta de utilizador automático para essa tarefa. Para uma maior eficiência, considere definir estas tarefas para o âmbito de agrupamento. Para obter mais informações, consulte [Executar uma tarefa como utilizador automático com âmbito de piscina](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## <a name="nodes"></a>Nós
 

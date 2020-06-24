@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: d8eb4abb600e1164e6de00d3abca190d019be011
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 44b9b060be7ec707444ddf409848be1a16addb83
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560613"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298621"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -56,9 +56,9 @@ public static async Task<IActionResult> Run(
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsno* ficheiro e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -132,9 +132,9 @@ public class Person {
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -181,9 +181,9 @@ module.exports = function(context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra uma ligação do gatilho num ficheiro *function.json* e numa [função Python](functions-reference-python.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação. A função procura um `name` parâmetro na cadeia de consulta ou no corpo do pedido HTTP.
 
-Aqui está o ficheiro *function.json:*
+Aqui está a *function.jsarquivada:*
 
 ```json
 {
@@ -478,9 +478,9 @@ Para um exemplo completo, consulte o exemplo do [gatilho](#example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de encadernação que definiu no ficheiro *function.json* e no `HttpTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `HttpTrigger` atributo.
 
-|function.json propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 | **tipo** | n/a| Necessário - deve ser definido para `httpTrigger` . |
 | **direção** | n/a| Necessário - deve ser definido para `in` . |
@@ -500,7 +500,7 @@ Por predefinição, quando cria uma função para um gatilho HTTP, a função é
 
     http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 
-Pode personalizar esta rota utilizando a propriedade opcional `route` na ligação de entrada do gatilho HTTP. Como exemplo, o seguinte ficheiro *função.json* define uma `route` propriedade para um gatilho HTTP:
+Pode personalizar esta rota utilizando a propriedade opcional `route` na ligação de entrada do gatilho HTTP. Como exemplo, o seguinte *function.jsem* ficheiro define uma propriedade para um `route` gatilho HTTP:
 
 ```json
 {
@@ -635,7 +635,7 @@ public class HttpTriggerJava {
 
 ---
 
-Por predefinição, todas as vias de função são prefixadas com *api*. Também pode personalizar ou remover o prefixo usando a `extensions.http.routePrefix` propriedade no seu ficheiro [host.json.](functions-host-json.md) O exemplo a seguir remove o prefixo da rota *api* utilizando uma corda vazia para o prefixo no ficheiro *host.json.*
+Por predefinição, todas as vias de função são prefixadas com *api*. Também pode personalizar ou remover o prefixo usando a `extensions.http.routePrefix` propriedade na suahost.js[ficheiro.](functions-host-json.md) O exemplo a seguir remove o prefixo da rota *api* utilizando um fio vazio para o prefixo no *host.jsno* ficheiro.
 
 ```json
 {
@@ -752,9 +752,6 @@ O utilizador autenticado está disponível através [de cabeçalhos HTTP](../app
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>Teclas de acesso de função
 
-> [!IMPORTANT]
-> Embora as teclas possam ajudar a obstacular os seus pontos finais HTTP durante o desenvolvimento, não se destinam a proteger um gatilho HTTP na produção. Para saber mais, consulte [Secure a HTTP endpoint na produção.](#secure-an-http-endpoint-in-production)
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Obtenção de chaves
@@ -815,7 +812,7 @@ A autorização webhook é manuseada pelo componente recetor webhook, parte do g
 
 ## <a name="limits"></a>Limites
 
-O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do [ficheiro Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config)do tempo de execução.
+O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o comprimento do URL é limitado a 4 KB (4.096 bytes). Estes limites são especificados pelo `httpRuntime` elemento do ficheiroWeb.config do tempo de [execução](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config).
 
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 

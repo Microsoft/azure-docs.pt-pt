@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2020
+ms.date: 06/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd1b846b77e4b600fc9b7590715a73b0ca8f672
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3557bab44e1a4af5fdcbda5f8643018952e4e54e
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266326"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099541"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
@@ -43,17 +43,20 @@ Os seguintes termos são utilizados ao longo das identidades geridas para o conj
 - **ID principal** - o iD do objeto principal do serviço para a sua identidade gerida que é usado para conceder acesso baseado em funções a um recurso Azure.
 - **Azure Instance Medata Service (IMDS)** - um ponto final REST acessível a todos os IaaS VMs criados através do Azure Resource Manager. O ponto final está disponível num conhecido endereço IP não redireccionável (169.254.169.254) que só pode ser acedido a partir do VM.
 
-## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Como funcionam as identidades geridas para os recursos do Azure?
+## <a name="managed-identity-types"></a>Tipos de identidade geridos
 
 Existem dois tipos de identidades geridas:
 
 - Uma **identidade gerida atribuída pelo sistema**, que é ativada diretamente numa instância de um serviço do Azure. Quando ativada, o Azure cria uma identidade para a instância no inquilino do Azure AD no qual a subscrição da instância confia. Assim que a identidade for criada, as credenciais são aprovisionadas na instância. O ciclo de vida de uma identidade atribuída ao sistema está diretamente ligado à instância de serviço do Azure em que está ativada. Se a instância for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
 - Uma **identidade gerida atribuída pelo utilizador**, que é criada como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida de uma identidade atribuída ao utilizador é gerido separadamente do ciclo de vida das instâncias de serviço Azure às quais é atribuído.
 
-Internamente, as identidades geridas são princípios de serviço de um tipo especial, que só pode ser usado com recursos Azure. Quando a identidade gerida é eliminada, o ressiculante de serviço correspondente é automaticamente removido.
+Internamente, as identidades geridas são princípios de serviço de um tipo especial, que são bloqueados apenas para serem usados com recursos Azure. Quando a identidade gerida é eliminada, o ressiculante de serviço correspondente é automaticamente removido.
 Além disso, quando uma Identidade Atribuída ao Utilizador ou ao Sistema é criada, o Fornecedor de Recursos de Identidade Gerido (MSRP) emite um certificado internamente a essa identidade. 
 
 O seu código pode utilizar uma identidade gerida para pedir tokens de acesso para serviços que suportem a autenticação do Azure AD. O Azure encarrega-se da implementação das credenciais que a instância do serviço utiliza. 
+
+## <a name="credential-rotation"></a>Rotação credencial
+A rotação credencial é controlada pelo fornecedor de recursos que acolhe o recurso Azure. A rotação padrão da credencial ocorre a cada 46 dias. Cabe ao fornecedor de recursos pedir novas credenciais, para que o fornecedor de recursos possa esperar mais de 46 dias.
 
 O diagrama seguinte mostra como é que as identidades de serviço geridas funcionam com as máquinas virtuais (VMs) do Azure:
 
@@ -61,10 +64,10 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 
 |  Propriedade    | Identidade gerida atribuída pelo sistema | Identidade gerida atribuída pelo utilizador |
 |------|----------------------------------|--------------------------------|
-| Criação |  Criado como parte de um recurso Azure (por exemplo, uma máquina virtual Azure ou Serviço de Aplicações Azure). | Criado como um recurso autónomo da Azure. |
+| Criação |  Criado como parte de um recurso Azure (por exemplo, uma máquina virtual Azure ou Serviço de Aplicações Azure) | Criado como um recurso autónomo da Azure |
 | Ciclo de vida | Ciclo de vida partilhado com o recurso Azure com o qual a identidade gerida é criada. <br/> Quando o recurso principal é eliminado, a identidade gerida também é eliminada. | Ciclo de vida independente. <br/> Deve ser explicitamente apagado. |
-| Partilha através dos recursos Azure | Não pode ser partilhado. <br/> Só pode ser associado a um único recurso Azure. | Pode ser partilhado. <br/> A mesma identidade gerida atribuída pelo utilizador pode ser associada a mais de um recurso Azure. |
-| Casos de utilização comuns | Cargas de trabalho contidas num único recurso Azure. <br/> Cargas de trabalho para as quais precisa de identidades independentes. <br/> Por exemplo, uma aplicação que funciona numa única máquina virtual | Cargas de trabalho que funcionam com múltiplos recursos e que podem partilhar uma única identidade. <br/> Cargas de trabalho que necessitam de pré-autorização para um recurso seguro como parte de um fluxo de provisionamento. <br/> Cargas de trabalho onde os recursos são reciclados frequentemente, mas as permissões devem manter-se consistentes. <br/> Por exemplo, uma carga de trabalho onde várias máquinas virtuais precisam de aceder ao mesmo recurso |
+| Partilha através dos recursos Azure | Não pode ser partilhado. <br/> Só pode ser associado a um único recurso Azure. | Pode ser partilhado <br/> A mesma identidade gerida atribuída pelo utilizador pode ser associada a mais de um recurso Azure. |
+| Casos de utilização comuns | Cargas de trabalho contidas num único recurso Azure <br/> Cargas de trabalho para as quais precisa de identidades independentes. <br/> Por exemplo, uma aplicação que funciona numa única máquina virtual | Cargas de trabalho que funcionam com múltiplos recursos e que podem partilhar uma única identidade. <br/> Cargas de trabalho que necessitam de pré-autorização para um recurso seguro como parte de um fluxo de provisionamento. <br/> Cargas de trabalho onde os recursos são reciclados frequentemente, mas as permissões devem manter-se consistentes. <br/> Por exemplo, uma carga de trabalho onde várias máquinas virtuais precisam de aceder ao mesmo recurso |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Como funcionam as identidades geridas atribuídas pelo sistema com uma VM do Azure
 
@@ -104,9 +107,6 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 
 6. É feita uma chamada para o Azure AD a pedir uma token de acesso (conforme especificado no passo 5) através da utilização do ID de cliente e do certificado configurados no passo 3. O Azure AD devolve um token de acesso JSON Web Token (JWT).
 7. O código envia o token de acesso numa chamada para um serviço que suporte a autenticação do Azure AD.
-
-## <a name="credential-rotation"></a>Rotação credencial
-A rotação credencial é controlada pelo fornecedor de recursos que acolhe o recurso Azure. A rotação padrão da credencial ocorre a cada 46 dias. Cabe ao fornecedor de recursos pedir novas credenciais, para que o fornecedor de recursos possa esperar mais de 46 dias.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Como posso utilizar as identidades geridas para os recursos do Azure?
 

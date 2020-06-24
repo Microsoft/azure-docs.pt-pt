@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 86ec7a5745a58546faf6f0ff15d6dc5f452baa88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cda04ad57f1984064692cb1df4accc5a99de0910
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184048"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204035"
 ---
-# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Diretório Ativo Azure B2C
+# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade do protocolo OAuth2. O AAuth2 é o protocolo principal de autorização e autenticação delegada. Para mais informações, consulte o [RFC 6749 O Quadro de Autorização 2.0 da OAuth .](https://tools.ietf.org/html/rfc6749) Com um perfil técnico OAuth2, pode federar-se com um fornecedor de identidade baseado em OAuth2, como o Facebook. Federar com um fornecedor de identidade permite que os utilizadores inscrevam-se com as suas identidades sociais ou empresariais existentes.
+O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade do protocolo OAuth2. OAuth2 é o protocolo principal para autorização e autenticação delegada. Para mais informações, consulte o [RFC 6749 O Plano de Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). Com um perfil técnico OAuth2, pode federar com um fornecedor de identidade baseado em OAuth2, como o Facebook. A federação com um fornecedor de identidade permite que os utilizadores assinem com as suas identidades sociais ou empresariais existentes.
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo** nome do elemento **protocolo** `OAuth2`tem de ser definido para . Por exemplo, o protocolo para o perfil técnico `OAuth2` **Facebook-OAUTH** é:
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `OAuth2` . Por exemplo, o protocolo para o perfil técnico **Facebook-OAUTH** `OAuth2` é:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
@@ -37,31 +37,31 @@ O **atributo** nome do elemento **protocolo** `OAuth2`tem de ser definido para .
 
 ## <a name="input-claims"></a>Reclamações de entrada
 
-Os elementos **InputClaims** e **InputClaimsTransformations** não são necessários. Mas pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. O exemplo seguinte adiciona o parâmetro **de** cadeia `contoso.com` de consulta domain_hint com o valor do pedido de autorização.
+Os **elementos InputClaims** e **InputClaimsTransformations** não são necessários. Mas pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. O exemplo a seguir adiciona o **parâmetro de** cadeia de consulta domain_hint com o valor do pedido de `contoso.com` autorização.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>
 ```
 
-## <a name="output-claims"></a>Reclamações de produção
+## <a name="output-claims"></a>Reclamações de saída
 
-O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo fornecedor de identidade OAuth2. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no fornecedor de identidade. Também pode incluir reclamações que não sejam devolvidas pelo `DefaultValue` fornecedor de identidade desde que derpor o atributo.
+O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo fornecedor de identidade OAuth2. Poderá ser necessário mapear o nome da reclamação definida na sua política para o nome definido no fornecedor de identidade. Também pode incluir reclamações que não são devolvidas pelo fornecedor de identidade desde que desemque o `DefaultValue` atributo.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
 
-O exemplo que se segue mostra as reclamações devolvidas pelo fornecedor de identidade do Facebook:
+O exemplo a seguir mostra as reclamações devolvidas pelo fornecedor de identidade do Facebook:
 
-- A **first_name** reclamação está mapeada para a reclamação **do nome dado.**
-- A **alegação last_name** está mapeada para a alegação de **sobrenome.**
-- A reivindicação do nome do **ecrã** sem mapeamento de nomes.
+- A **first_name** alegação está mapeada para a **reclamação dada pelo Nome.**
+- A **last_name** alegação está mapeada para a alegação do **sobrenome.**
+- A **alegação do nome de exibição** sem mapeamento de nomes.
 - A reclamação **de e-mail** sem mapeamento de nome.
 
-O perfil técnico também devolve reclamações que não são devolvidas pelo fornecedor de identidade:
+O perfil técnico também devolve alegações que não são devolvidas pelo fornecedor de identidade:
 
-- A **alegação do Fornecedor de Identidade** que contém o nome do fornecedor de identidade.
-- A **autenticaçãoSource** reclama com um valor predefinido de **socialIdpAuthentication**.
+- A **identidadeProvider** afirma que contém o nome do fornecedor de identidade.
+- A **autenticaçãoProvação com** um valor predefinido de **SocialIdpAuthentication**.
 
 ```xml
 <OutputClaims>
@@ -77,41 +77,41 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
-| IdTokenAudience | Não | O público do id_token. Se especificado, o Azure AD B2C verifica se o token está numa reclamação devolvida pelo fornecedor de identidade e é igual à especificada. |
-| authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 6749. |
-| AccessTokenEndpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 6749. |
-| Ponto final de reclamações | Sim | O URL do ponto final da informação do utilizador de acordo com o RFC 6749. |
-| AccessTokenResponseFormat | Não | O formato da chamada de ponto final de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta acessa está no formato JSON. |
-| Parâmetros adicionais requestqueryparam | Não | Parâmetros de consulta de pedido adicional. Por exemplo, pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. Pode incluir vários parâmetros usando delimitador vírlimitador de vírvia. |
-| ClaimsEndpointAccessTokenName | Não | O nome do parâmetro de corda de consulta de acesso. Alguns fornecedores de identidade apoiam o pedido GET HTTP. Neste caso, o token portador é enviado usando um parâmetro de corda de consulta em vez do cabeçalho de autorização. |
-| ClaimsEndpointFormatName | Não | O nome do parâmetro de corda de consulta de formato. Por exemplo, pode definir `format` o nome como neste `https://api.linkedin.com/v1/people/~?format=json`ponto final de reclamações do LinkedIn . |
-| ClaimsEndpointFormat | Não | O valor do parâmetro de corda de consulta de formato. Por exemplo, pode definir `json` o valor como neste `https://api.linkedin.com/v1/people/~?format=json`ponto final de reclamações do LinkedIn . |
-| ProviderName | Não | O nome do fornecedor de identidade. |
-| response_mode | Não | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para O Azure AD B2C. Valores `query`possíveis: `form_post` , `fragment`(predefinido) ou . |
-| scope | Não | O âmbito do pedido que é definido de acordo com a especificação do fornecedor de identidade OAuth2. Tais `openid`como, `profile` `email`e . |
-| HttpBinding | Não | O http esperado que se liga ao token de acesso e reclama pontos finais simbólicos. Valores `GET` possíveis: ou `POST`.  |
-| Nome do ErrorErrorErrorParam | Não | O nome do parâmetro que contém a mensagem de erro devolvida em HTTP 200 (Ok). |
-| ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém `openid`um parâmetro extra como , que é um parâmetro obrigatório além do access_token numa cadeia de consulta de pedido **de ReclamaçõesEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírposta '', delimitador. |
-| ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros extra que podem ser devolvidos no pedido **de ClaimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírposta '', delimitador. |
-| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: ou `false`  (padrão). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos da JSON. Valores `true`possíveis: ou `false` (padrão). Utilize estes metadados para ler dados de um elemento JSON aninhado. Num [OutputClaim,](technicalprofiles.md#outputclaims)detete o `PartnerClaimType` elemento de caminho JSON que pretende ser de si. Por exemplo: `firstName.localized` `data.0.to.0.email`ou .|
+| client_id | Yes | O identificador de aplicação do fornecedor de identidade. |
+| IdTokenAudience | No | O público do id_token. Se especificado, a Azure AD B2C verifica se o token está numa reclamação devolvida pelo fornecedor de identidade e é igual à especificada. |
+| authorization_endpoint | Yes | O URL do ponto final de autorização de acordo com o RFC 6749. |
+| AccessTokenEndpoint | Yes | O URL do ponto final simbólico de acordo com o RFC 6749. |
+| ReclamaçõesEndpoint | Yes | O URL do ponto final de informação do utilizador de acordo com RFC 6749. |
+| AccessTokenResponseFormat | No | O formato da chamada de ponto final de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta do token de acesso está no formato JSON. |
+| Outros RequestQueryParameters | No | Parâmetros de consulta de pedido adicionais. Por exemplo, pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. Pode incluir vários parâmetros utilizando o delimiter de vírgula. |
+| ClaimsEndpointAccessTokenName | No | O nome do parâmetro de cadeia de consulta de acesso. As alegações de alguns fornecedores de identidade suportam o pedido GET HTTP. Neste caso, o token do portador é enviado utilizando um parâmetro de cadeia de consulta em vez do cabeçalho de autorização. |
+| ClaimsEndpointFormatName | No | O nome do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o nome como `format` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
+| ClaimsEndpointFormat | No | O valor do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o valor como `json` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
+| ProviderName | No | O nome do fornecedor de identidade. |
+| response_mode | No | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para Azure AD B2C. Valores possíveis: `query` `form_post` (padrão), ou `fragment` . |
+| scope | No | O âmbito do pedido que é definido de acordo com a especificação do fornecedor de identidade OAuth2. Como, `openid` `profile` `email` e. |
+| HttpBinding | No | A ligação HTTP esperada ao token de acesso e reclama pontos finais simbólicos. Valores possíveis: `GET` ou `POST` .  |
+| Nome de RespostaErrorCodeParamName | No | O nome do parâmetro que contém a mensagem de erro devolvida em HTTP 200 (Ok). |
+| ExtraParamsInAccessTokenEndpointResponse | No | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém um parâmetro extra, como `openid` , que é um parâmetro obrigatório para além do access_token numa cadeia de **pedidos claimsEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
+| ExtraParamsInClaimsEndpointRequest | No | Contém os parâmetros adicionais que podem ser devolvidos no pedido **claimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
+| IncluirClaimResolvingInClaimsHandling  | No | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| ResolveJsonPathsInJsonTokens  | No | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade. A chave criptográfica só é **response_types** necessária se os `code`metadados response_types estiverem definidos para . Neste caso, o Azure AD B2C faz outra chamada para trocar o código de autorização por um sinal de acesso. Se os metadados `id_token`estiverem definidos, pode omitir a chave criptográfica. |
+| client_secret | Yes | O segredo do cliente da aplicação do fornecedor de identidade. A chave criptográfica só é necessária se os **metadados response_types** estiver definidos para `code` . Neste caso, a Azure AD B2C faz outra chamada para trocar o código de autorização por um token de acesso. Se os metadados estiverem `id_token` definidos, pode omitir a tecla criptográfica. |
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento
 
-Quando configurar o URL redirecionado do `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`seu fornecedor de identidade, introduza . Certifique-se de substituir o **inquilino** pelo nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e **políticaId** pelo identificador da sua política (por exemplo, b2c_1a_policy). O URI redirecionado tem de estar em todas as minúsculas.
+Quando configurar o URL de redirecionamento do seu fornecedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp` . Certifique-se de substituir **o inquilino** pelo nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e **o policyId** pelo identificador da sua apólice (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de estar em todas as minúsculas.
 
-Se estiver a utilizar o domínio **b2clogin.com** em vez de **login.microsoftonline.com** certifique-se de utilizar b2clogin.com em vez de login.microsoftonline.com.
+Se estiver a utilizar o domínio **b2clogin.com** em vez de **login.microsoftonline.com** Certifique-se de que utiliza b2clogin.com em vez de login.microsoftonline.com.
 
 Exemplos:
 

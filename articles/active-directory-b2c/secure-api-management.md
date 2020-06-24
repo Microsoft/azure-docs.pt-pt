@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b5d1f44b35b89607fecf6875b1e56be97f37d0fa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298878"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203644"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Garantir uma API de Gestão AZURE com Azure AD B2C
 
@@ -171,7 +171,7 @@ Com a chave de subscrição de acesso e apim gravada, está agora pronta para te
 
 1. Selecione o botão **Enviar** no Carteiro para executar o pedido. Se configurar tudo corretamente, deve ser-lhe apresentada uma resposta JSON com uma coleção de oradores de conferências (mostrados aqui truncados):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Agora que fez um pedido bem sucedido, teste o caso de falha para garantir que as
 
 1. Selecione o botão **Enviar** para executar o pedido. Com um token inválido, o resultado esperado é um `401` código de estado não autorizado:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Se vir o `401` código de estado, verificou que apenas os chamadores com um toke
 
 Várias aplicações normalmente interagem com uma única API REST. Para permitir que a sua API aceite fichas destinadas a múltiplas aplicações, adicione os seus IDs de aplicação ao `<audiences>` elemento na política de entrada da APIM.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Várias aplicações normalmente interagem com uma única API REST. Para permiti
 
 Da mesma forma, para apoiar vários emitentes simbólicos, adicione os seus URIs de ponto final ao `<issuers>` elemento na política de entrada da APIM.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Pode seguir este processo geral para realizar uma migração faseada:
 
 O exemplo a seguir da política de entrada da APIM ilustra como aceitar fichas emitidas tanto por b2clogin.com como por login.microsoftonline.com. Além disso, apoia os pedidos da API de duas candidaturas.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
