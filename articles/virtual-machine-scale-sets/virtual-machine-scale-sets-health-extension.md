@@ -1,6 +1,6 @@
 ---
-title: Aplicação Aplicação Extensão de saúde com conjuntos de escala de máquina seleção azul
-description: Saiba como utilizar a extensão de Saúde de Aplicação para monitorizar a saúde das suas aplicações implementadas em conjuntos de escala de máquinas virtuais.
+title: Use extensão de saúde de aplicação com conjuntos de escala de máquina virtual Azure
+description: Saiba como utilizar a extensão De Saúde de Aplicação para monitorizar a saúde das suas aplicações implantadas em conjuntos de escala de máquina virtual.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -9,31 +9,31 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124113"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783049"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilizar a extensão Estado da Aplicação com conjuntos de dimensionamento de máquinas virtuais
-Monitorizar a saúde da sua aplicação é um sinal importante para gerir e melhorar a sua implementação. Os conjuntos de escala de máquinas virtuais Azure fornecem suporte para [atualizações de rolos,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem de OS,](virtual-machine-scale-sets-automatic-upgrade.md)que dependem da monitorização da saúde das instâncias individuais para atualizar a sua implementação. Também pode utilizar uma extensão de saúde para monitorizar a saúde da aplicação de cada instância no seu conjunto de escala e efetuar reparações por exemplo utilizando [reparações automáticas](virtual-machine-scale-sets-automatic-instance-repairs.md)de instâncias .
+Monitorizar a saúde da sua aplicação é um sinal importante para gerir e melhorar a sua implementação. Os conjuntos de escala de máquina virtual Azure fornecem suporte para [upgrades rolantes,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem OS,](virtual-machine-scale-sets-automatic-upgrade.md)que dependem da monitorização de saúde de cada instância para atualizar a sua implementação. Também pode utilizar a extensão de saúde para monitorizar a saúde da aplicação de cada instância no seu conjunto de escalas e realizar reparações de instâncias com [reparações automáticas](virtual-machine-scale-sets-automatic-instance-repairs.md)de instâncias .
 
-Este artigo descreve como pode utilizar a extensão de Saúde de Aplicação para monitorizar a saúde das suas aplicações implementadas em conjuntos de escala de máquinas virtuais.
+Este artigo descreve como pode utilizar a extensão De Saúde da Aplicação para monitorizar a saúde das suas aplicações implantadas em conjuntos de escala de máquina virtual.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo assume que está familiarizado com:
--   [Extensões](../virtual-machines/extensions/overview.md) de máquinas virtuais Azure
--   [Modificação de](virtual-machine-scale-sets-upgrade-scale-set.md) conjuntos de escala de máquinavirtual
+Este artigo pressupõe que está familiarizado com:
+-   [Extensões](../virtual-machines/extensions/overview.md) de máquina virtual Azure
+-   [Modificando conjuntos de](virtual-machine-scale-sets-upgrade-scale-set.md) escala de máquina virtual
 
-## <a name="when-to-use-the-application-health-extension"></a>Quando utilizar a extensão de saúde de aplicação
-A extensão de saúde de aplicação é implantada dentro de uma instância de conjunto de escala de máquina virtual e relatórios sobre a saúde vm de dentro da instância definida de escala. Pode configurar a extensão para sondar um ponto final da aplicação e atualizar o estado da aplicação nessa instância. Este estado de exemplo é verificado pelo Azure para determinar se uma instância é elegível para operações de atualização.
+## <a name="when-to-use-the-application-health-extension"></a>Quando utilizar a extensão de Saúde de Aplicação
+A extensão de Saúde da Aplicação é implantada dentro de uma instância de conjunto de escala de máquina virtual e relatórios sobre a saúde VM de dentro da instância definida em escala. Pode configurar a extensão para sondar um ponto final da aplicação e atualizar o estado da aplicação nesse caso. Este estado de instância é verificado pela Azure para determinar se um caso é elegível para operações de upgrade.
 
-Como a extensão reporta a saúde de dentro de um VM, a extensão pode ser usada em situações em que sondas externas como sondas de saúde de aplicação (que utilizam [sondas personalizadas](../load-balancer/load-balancer-custom-probe-overview.md)do Equilíbrio de Carga Azure) não podem ser usadas.
+Como a extensão informa a saúde de dentro de um VM, a extensão pode ser usada em situações em que sondas externas como Sondas de Saúde de Aplicação (que utilizam sondas de balanço de carga Azure personalizadas) não podem ser [usadas.](../load-balancer/load-balancer-custom-probe-overview.md)
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão da Saúde de Aplicação. A extensão requer, no mínimo, um pedido "tcp", "http" ou "https" com uma via portuária ou de pedido associada, respectivamente.
+O seguinte JSON mostra o esquema para a extensão de Saúde de Aplicação. A extensão requer, no mínimo, um pedido "tcp", "http" ou "https" com uma porta ou um caminho de pedido associado, respectivamente.
 
 ```json
 {
@@ -59,7 +59,7 @@ O seguinte JSON mostra o esquema para a extensão da Saúde de Aplicação. A ex
 
 | Name | Valor / Exemplo | Tipo de Dados
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | data |
+| apiVersion | `2018-10-01` | date |
 | publicador | `Microsoft.ManagedServices` | string |
 | tipo | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Janelas) | string |
 | typeHandlerVersion | `1.0` | int |
@@ -68,16 +68,16 @@ O seguinte JSON mostra o esquema para a extensão da Saúde de Aplicação. A ex
 
 | Name | Valor / Exemplo | Tipo de Dados
 | ---- | ---- | ----
-| protocolo | `http`ou `https` ou ou`tcp` | string |
+| protocolo | `http`ou `https` ou`tcp` | string |
 | porta | Opcional quando o protocolo é `http` `https` ou, obrigatório quando o protocolo é`tcp` | int |
-| requestPath | Obrigatório quando o protocolo é `http` ou , não permitido quando o protocolo `https` é`tcp` | string |
+| requestPath | Obrigatório quando o protocolo é `http` ou , não é permitido quando o protocolo `https` é`tcp` | string |
 
-## <a name="deploy-the-application-health-extension"></a>Implementar a extensão da Saúde de Aplicação
-Existem várias formas de implementar a extensão de Saúde de Aplicação aos seus conjuntos de escala, conforme detalhado nos exemplos abaixo.
+## <a name="deploy-the-application-health-extension"></a>Implementar a extensão de Saúde de Aplicação
+Existem várias formas de implementar a extensão de Saúde da Aplicação para os conjuntos de escala, conforme detalhado nos exemplos abaixo.
 
 ### <a name="rest-api"></a>API REST
 
-O exemplo seguinte adiciona a extensão de saúde da aplicação (com nome myHealthExtension) à extensãoPerfil no modelo de conjunto de escala de um conjunto de escala baseado no Windows.
+O exemplo a seguir adiciona a extensão de Saúde da Aplicação (com o nome myHealthExtension) à extensãoProfile no modelo de escala de um conjunto de escala baseado no Windows.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -103,9 +103,9 @@ Utilize `PATCH` para editar uma extensão já implantada.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Utilize o cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) para adicionar a extensão de saúde da aplicação à definição do modelo de conjunto de escala.
+Utilize o [cmdlet Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) para adicionar a extensão de Saúde da Aplicação à definição do modelo definido em escala.
 
-O exemplo seguinte adiciona a extensão de Saúde da Aplicação ao `extensionProfile` modelo de conjunto de escala de um conjunto de escala baseado no Windows. O exemplo utiliza o novo módulo Az PowerShell.
+O exemplo a seguir adiciona a extensão de Saúde da Aplicação ao `extensionProfile` modelo de escala definida de um conjunto de escala baseado no Windows. O exemplo utiliza o novo módulo Az PowerShell.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -141,9 +141,9 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-Utilize o [conjunto de extensão az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de saúde de aplicação à definição do modelo de conjunto de escala.
+Utilize [o conjunto de extensão az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de Saúde da Aplicação à definição do modelo definido em escala.
 
-O exemplo seguinte adiciona a extensão da Saúde da Aplicação ao modelo de conjunto de escala de um conjunto de escala baseado em Linux.
+O exemplo a seguir adiciona a extensão de Saúde da Aplicação ao modelo de escala de um conjunto de escala à base de Linux.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -154,7 +154,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-O conteúdo do ficheiro extension.json.
+O extension.jsno conteúdo do ficheiro.
 
 ```json
 {
@@ -173,10 +173,11 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 Os registos também captam periodicamente o estado de saúde da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprenda a implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquinas virtuais.
+Saiba como implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquina virtual.

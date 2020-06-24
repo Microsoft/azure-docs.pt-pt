@@ -4,7 +4,7 @@ description: Azure AD iniciar súmito para um Azure VM executando Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abc2dee6b83820169173d965d53381ead9f4d0b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 700e8f2ae29ad41ceaecf58c3ffde4a27725c25c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194024"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252802"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -34,7 +34,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 - Já não têm de gerir as contas de administradores locais.
 - O Azure RBAC permite-lhe conceder o acesso adequado aos VMs com base na necessidade e removê-lo quando já não for necessário.
 - Antes de permitir o acesso a um VM, o Acesso Condicionado Azure AD pode impor requisitos adicionais tais como: 
-   - Autenticação multifator
+   - Multi-factor authentication
    - Verificação de risco de entrada
 - Automatize e dimensione Azure AD junte-se a VMs Azure Windows que fazem parte das suas implementações VDI.
 

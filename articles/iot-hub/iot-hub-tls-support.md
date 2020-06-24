@@ -90,7 +90,7 @@ Para os hubs IoT não configurados para a execução TLS 1.2, o TLS 1.2 ainda fu
 
 Utilize os links abaixo para configurar o TLS 1.2 e permitiu cifras em SDKs cliente IoT Hub.
 
-| Linguagem | Versões que suportam TLS 1.2 | Documentação |
+| Idioma | Versões que suportam TLS 1.2 | Documentação |
 |----------|------------------------------------|---------------|
 | C        | Tag 2019-12-11 ou mais recente            | [Ligação](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Versão 2.0.0 ou mais recente             | [Ligação](https://aka.ms/Tls_Python_SDK_IoT) |

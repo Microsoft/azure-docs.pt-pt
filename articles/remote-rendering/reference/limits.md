@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: c35930a93751cc82c3145d414a2a09b3a1e90c53
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659834"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808551"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -26,9 +26,10 @@ Uma série de funcionalidades têm tamanho, contagem ou outras limitações.
 * Total de objetos admissíveis de um único tipo (Entidade, CutPlaneComponent, etc.): 16.777.215.
 * Total admissível de planos de corte ativo: 8.
 
-## <a name="materials"></a>Materiais
+## <a name="geometry"></a>Geometria
 
 * Total de materiais admissíveis num ativo: 65.535.
+* Dimensão máxima de uma única textura: 16.384 x 16.384. Texturas de origem maiores serão reduzidas pelo processo de conversão.
 
 ## <a name="overall-number-of-polygons"></a>Número total de polígonos
 
@@ -39,6 +40,7 @@ O número admissível de polígonos para todos os modelos carregados depende do 
 |padrão| 20 milhões |
 |premium| sem limite |
 
+Consulte o capítulo [do tamanho de VM](../reference/vm-sizes.md) para obter informações mais detalhadas sobre esta limitação.
 
 ## <a name="platform-limitations"></a>Limitações da plataforma
 

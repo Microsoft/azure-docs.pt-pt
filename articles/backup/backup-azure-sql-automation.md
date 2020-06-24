@@ -4,12 +4,12 @@ description: Faça backup e restaure bases de dados SQL em VMs Azure usando Azur
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 21c8ea5ff50cc78b60ccb3b09c953b184757f3c9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246990"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255148"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer o back up e restaurar as bases de dados SQL em VMs Azure com PowerShell
 
@@ -499,7 +499,7 @@ Se a saída for perdida ou se quiser obter o ID de emprego relevante, [obtenha a
 
 ### <a name="change-policy-for-backup-items"></a>Alterar política para artigos de backup
 
-O utilizador pode modificar a política existente ou alterar a política do item apoiado da Policy1 para a Policy2. Para mudar as políticas para um item de reserva, pegue na política relevante e faça backup do item e utilize o comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) com o item de backup como parâmetro.
+O utilizador pode alterar a política do item com apoio da Policy1 para a Policy2. Para mudar as políticas para um item de reserva, pegue na política relevante e faça backup do item e utilize o comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) com o item de backup como parâmetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -513,6 +513,19 @@ O comando aguarda até que a cópia de segurança de configuração esteja concl
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
+```
+
+### <a name="edit-an-existing-backup-policy"></a>Editar uma política de backup existente
+
+Para editar uma política existente, utilize o comando [Set-AzRecoveryServicesBackupProtectionPolicy.](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0)
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
+```
+Verifique os trabalhos de reserva depois de algum tempo passado para rastrear quaisquer falhas. Se houver, tens de resolver os problemas. Em seguida, reexame o comando de política de edição com o parâmetro **FixForInconsistentItems** para voltar a tentar editar a política em todos os itens de backup para os quais a operação falhou anteriormente.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -FixForInconsistentItems
 ```
 
 ### <a name="re-register-sql-vms"></a>Re-registrar VMs SQL
@@ -597,4 +610,4 @@ Por exemplo, vamos supor que um SQL AG tem dois nós: 'sql-server-0' e 'sql-serv
 
 sql-server-0, sql-server-1 também será listado como "AzureVMAppContainer" quando [os recipientes de backup estiverem listados](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Basta buscar a base de dados SQL relevante para permitir a cópia de [segurança](#configuring-backup) e o [backup on-demand](#on-demand-backup) e [restaurar os cmdlets PS são idênticos.](#restore-sql-dbs)
+Basta buscar a base de dados relevante para permitir a cópia de [segurança](#configuring-backup) e o backup [a pedido](#on-demand-backup) e restaurar os [cmdlets ps são idênticos.](#restore-sql-dbs)

@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,28 +8,30 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67184735"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905872"
 ---
-Pode aceder aos registos de consolas gerados a partir do interior do recipiente. Primeiro, ligue a exploração do contentor executando o seguinte comando na Cloud Shell:
+Para aceder aos registos de consola gerados a partir do seu código de aplicação no Serviço de Aplicações, ligue o registo de diagnósticos executando o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
 ```
 
-Quando o registo do contentor estiver ligado, faça o seguinte comando para ver o fluxo de registo:
+Os valores possíveis `--level` são: `Error` , , e `Warning` `Info` `Verbose` . Cada nível subsequente inclui o nível anterior. Por exemplo: `Error` inclui apenas mensagens de erro e `Verbose` inclui todas as mensagens.
+
+Uma vez ligado o registo de diagnóstico, executar o seguinte comando para ver o fluxo de registo:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
 Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
 > [!NOTE]
-> Também pode inspecionar os ficheiros `https://<app-name>.scm.azurewebsites.net/api/logs/docker`de registo do navegador em .
+> Também pode inspecionar os ficheiros de registo do navegador em `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
 
-Para parar o streaming de `Ctrl` + `C`registo a qualquer momento, escreva .
+Para parar o streaming de registo a qualquer momento, escreva `Ctrl` + `C` .

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: febd5d1e49a87f0846aba2aaa976e170ee31fab8
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: c1801c1b26742661987ea822a3cb1479f40ec059
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432333"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751283"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -40,6 +40,7 @@ O script para automatizar o download e instalação, e para estabelecer a ligaç
 
     >[!NOTE]
     >O Azure Arc para servidores (pré-visualização) suporta apenas as seguintes regiões:
+    >- Rio Eastus
     >- Westus2
     >- Europa Ocidental
     >- Sudeste da Ásia

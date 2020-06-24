@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: a023599cb026a62aee034846dd390cda730d5df4
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660275"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252003"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregue os dados no Azure Synapse Analytics utilizando a Azure Data Factory
 
@@ -42,7 +42,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
 * Subscrição Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Azure Synapse Analytics: O armazém de dados contém os dados que são copiados da base de dados SQL. Se não tiver um Azure Synapse Analytics, consulte as instruções em [Criar um Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Base de Dados Azure SQL: Este tutorial copia dados de uma base de dados Azure SQL com dados de amostras Adventure Works LT. Pode criar uma base de dados SQL seguindo as instruções na [Criação de uma base de dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
+* Base de Dados Azure SQL: Este tutorial copia dados do conjunto de dados da amostra de Adventure Works LT na Base de Dados Azure SQL . Pode criar esta base de dados de amostras na Base de Dados SQL seguindo as instruções na [Criação de uma base de dados de amostras na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * Conta de armazenamento Azure: O Azure Storage é utilizado como bolha de _paragem_ na operação de cópia a granel. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
@@ -152,7 +152,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
     ![Monitorize detalhes da atividade](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o seguinte artigo para saber sobre o suporte Azure Synapse Analytics:
 

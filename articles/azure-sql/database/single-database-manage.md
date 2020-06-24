@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 0f348ea67583d10dae2ebc548a48b7e74b66a958
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343358"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254995"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores e bases de dados individuais na Base de Dados Azure SQL
 
@@ -43,7 +43,7 @@ Para criar uma única Base de Dados Azure SQL utilizando o [portal Azure,](https
 
 ## <a name="manage-an-existing-server"></a>Gerir um servidor existente
 
-Para gerir um servidor existente, navegue para o servidor utilizando uma série de métodos - tais como a partir de uma página específica de base de dados SQL, a página de **servidores SQL** ou a página **de todos os recursos.**
+Para gerir um servidor existente, navegue para o servidor utilizando uma série de métodos - como a partir de uma página de base de dados específica, a página de **servidores SQL** ou a página **de todos os recursos.**
 
 Para gerir uma base de dados existente, navegue na página **de bases de dados SQL** e selecione a base de dados que pretende gerir. A imagem que se segue mostra como começar a configurar uma firewall de nível de servidor para uma base de dados a partir da página **'Vista Geral'** para uma base de dados.
 
@@ -161,7 +161,7 @@ Para criar e gerir os servidores, bases de dados e firewalls, utilize estes pedi
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a migração de uma base de dados do SQL Server para Azure, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

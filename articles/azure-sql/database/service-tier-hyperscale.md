@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 2625e1f55c0b7e7df44da6c1f36e024911577d63
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457274"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255011"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -216,10 +216,10 @@ Regiões Habilitados:
 
 Estas são as limitações atuais para o nível de serviço de Hiperescala a partir de GA.  Estamos a trabalhar ativamente para remover o maior número possível destas limitações.
 
-| Problema | Descrição |
+| Problema | Description |
 | :---- | :--------- |
-| O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala, estas serão filtradas a partir da vista  | A hiperescala tem um método separado para gerir backups, e como tal as definições de retenção de retenção de longo prazo e ponto no tempo não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.|
-| Restauro para um ponto anterior no tempo | Uma base de dados não-Hyperscale não pode ser restaurada como uma base de dados de hiperescala, e uma base de dados de hiperescala não pode ser restaurada como uma base de dados não-Hyperscale. Para uma base de dados não-Hyperscale que tenha sido migrada para Hyperscale alterando o seu nível de serviço, restaure a um ponto no tempo antes da migração e dentro do período de retenção de backup da base de dados é possível [programáticamente](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). A base de dados restaurada não será de Hiperescala. |
+| O painel de backups de gestão para um servidor não mostra bases de dados de hiperescala. Estes serão filtrados da vista.  | A hiperescala tem um método separado para gerir backups, por isso as definições de retenção de backup de longo prazo e pontual não se aplicam. Assim, as bases de dados de hiperescala não aparecem no painel de backup de gestão.|
+| Restauro para um ponto anterior no tempo | Uma base de dados não-Hyperscale não pode ser restaurada como uma base de dados de hiperescala, e uma base de dados de hiperescala não pode ser restaurada como uma base de dados não-Hyperscale. Para uma base de dados não-Hyperscale que tenha sido migrada para Hyperscale alterando o seu nível de serviço, restaure a um ponto no tempo antes da migração e dentro do período de retenção de backup da base de dados é possível [programáticamente](recovery-using-backups.md#programmatic-recovery-using-automated-backups). A base de dados restaurada não será de Hiperescala. |
 | Se uma base de dados tiver um ou mais ficheiros de dados maiores do que 1 TB, a migração falha | Em alguns casos, pode ser possível contornar esta questão reduzindo os grandes ficheiros para menos de 1 TB. Se migrar uma base de dados que está a ser utilizada durante o processo de migração, certifique-se de que nenhum ficheiro fica maior que 1 TB. Utilize a seguinte consulta para determinar o tamanho dos ficheiros de base de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerida do SQL | A azure SQL Managed Instance não é suportado atualmente com bases de dados de hiperescala. |
 | Conjuntos Elásticos |  As Piscinas Elásticas não são suportadas atualmente com a Hyperscale.|
@@ -233,7 +233,7 @@ Estas são as limitações atuais para o nível de serviço de Hiperescala a par
 | Base de Dados de Encolher | DBCC SHRINKDATABASE ou DBCC SHRINKFILE não é suportado atualmente para bases de dados de hiperescala. |
 | Verificação de integridade da base de dados | O DBCC CHECKDB não é suportado atualmente para bases de dados de hiperescala. DBCC CHECKFILEGROUP e DBCC CHECKTABLE podem ser usados como uma solução alternativa. Consulte [a Integridade dos Dados na Base de Dados Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) para obter mais informações sobre a gestão da integridade dos dados na Base de Dados Azure SQL. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma FAQ em Hyperscale, consulte [perguntas frequentes sobre Hiperescala.](service-tier-hyperscale-frequently-asked-questions-faq.md)
 - Para obter informações sobre os níveis de serviço, consulte [os níveis de serviço](purchasing-models.md)

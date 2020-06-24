@@ -4,15 +4,15 @@ description: Este artigo descreve como configurar TLS de ponta a ponta com Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 2b5d2687ce95ca7db139ae06ab83bc3ecee8cf8a
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628805"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808203"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configure fim para acabar com o TLS utilizando o Gateway de Aplicação com PowerShell
 
@@ -38,7 +38,7 @@ Este cenário:
 * Crie duas sub-redes chamadas **appgwsubnet** e **appsubnet**.
 * Crie uma pequena porta de aplicação suportando encriptação TLS de ponta a ponta que limita as versões do protocolo TLS e as suites de cifra.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -357,7 +357,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o endurecimento da segurança das suas aplicações web com firewall de aplicação web através do Gateway de aplicações, consulte a visão geral da firewall da [aplicação Web](application-gateway-webapplicationfirewall-overview.md).
 
