@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 47c504d9359779294c4690059d1958614d863e58
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299703"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260887"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilize o Link Privado Azure para ligar de forma segura as redes ao Azure Monitor
 
@@ -129,7 +129,7 @@ Agora que tem recursos ligados ao seu AMPLS, crie um ponto final privado para li
  
    d.    Deixe a validação passar. 
  
-   e.    Clique **em Criar**. 
+   e.    Clique em **Criar**. 
 
     ![Screenshot de seleção Criar Ponto Final Privado2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -229,6 +229,10 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 |Azure Público     | scadvisor.blob.core.windows.net         | 443 | Saída
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
+
+### <a name="browser-dns-settings"></a>Configurações de DNS do navegador
+
+Se estiver a ligar-se aos recursos do Monitor Azure através de uma Ligação Privada, o tráfego para estes recursos deve passar pelo ponto final privado que está configurado na sua rede. Para ativar o ponto final privado, atualize as definições de DNS como explicado no [Connect para um ponto final privado](#connect-to-a-private-endpoint). Alguns navegadores usam as suas próprias definições de DNS em vez das que define. O navegador pode tentar ligar-se aos pontos finais públicos do Azure Monitor e contornar totalmente o Link Privado. Verifique se as definições dos seus navegadores não se sobrepõem ou cache as definições de DNS antigas. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

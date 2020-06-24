@@ -1,26 +1,24 @@
 ---
-title: Gerir zonas DNS em Azure DNS - Azure CLI / Microsoft Docs
-description: Pode gerir zonas DNS utilizando o Azure CLI. Este artigo mostra como atualizar, eliminar e criar zonas de DNS em DNS Azure.
+title: Gerir zonas de DNS em Azure DNS - Azure CLI Microsoft Docs
+description: Pode gerir zonas DNS utilizando O Azure CLI. Este artigo mostra como atualizar, excluir e criar zonas DNS no Azure DNS.
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
-ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30b0d6ab3ff9fa96e33154907e329c28b7ae7e63
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936931"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709084"
 ---
-# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerir as Zonas DNS em DNS Azure utilizando o Azure CLI
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerir as Zonas DNS em Azure DNS usando o Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
@@ -28,9 +26,9 @@ ms.locfileid: "76936931"
 > * [CLI do Azure](dns-operations-dnszones-cli.md)
 
 
-Este guia mostra como gerir as suas zonas DNS utilizando o Azure CLI cross-platform, que está disponível para Windows, Mac e Linux. Também pode gerir as suas zonas DNS utilizando o [Azure PowerShell](dns-operations-dnszones.md) ou o portal Azure.
+Este guia mostra como gerir as suas zonas DNS utilizando a plataforma transversal Azure CLI, que está disponível para Windows, Mac e Linux. Também pode gerir as suas zonas DNS utilizando [o Azure PowerShell](dns-operations-dnszones.md) ou o portal Azure.
 
-Este guia trata especificamente das zonas públicas de DNS. Para obter informações sobre a utilização do Azure CLI para gerir zonas privadas em DNS Azure, consulte [Iniciar com Zonas Privadas Azure DNS utilizando o Azure CLI](private-dns-getstarted-cli.md).
+Este guia trata especificamente das zonas públicas de DNS. Para obter informações sobre a utilização do Azure CLI para gerir zonas privadas em Azure DNS, consulte [Começar com as Zonas Privadas Azure DNS utilizando O Azure CLI](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -48,7 +46,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [o Login em Azure a partir do Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [Iniciar sessão no Azure a partir do Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -68,8 +66,8 @@ Escolha qual das subscrições do Azure utilizar.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Opcional: Instalar/utilizar a funcionalidade Zonas Privadas Azure DNS
-A funcionalidade Zona Privada Azure DNS está disponível através de uma extensão ao Azure CLI. Instalar a extensão “dns” da CLI do Azure 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Opcional: Instalar/utilizar o recurso Azure DNS Private Zones
+A funcionalidade Azure DNS Private Zone está disponível através de uma extensão ao Azure CLI. Instalar a extensão “dns” da CLI do Azure 
 ```
 az extension add --name dns
 ``` 
@@ -86,7 +84,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obter ajuda
 
-Todos os comandos Azure CLI relativos `az network dns`ao DNS Azure começam com . A ajuda está disponível `--help` para cada `-h`comando utilizando a opção (forma curta).  Por exemplo:
+Todos os comandos Azure CLI relativos ao Azure DNS começam com `az network dns` . A ajuda está disponível para cada comando utilizando a `--help` opção (formulário `-h` curto).  Por exemplo:
 
 ```azurecli
 az network dns --help
@@ -98,25 +96,25 @@ az network dns zone create --help
 
 Uma zona DNS é criada ao utilizar o comando `az network dns zone create`. Para obter ajuda, consulte `az network dns zone create -h`.
 
-O exemplo seguinte cria uma zona DeNs chamada *contoso.com* no grupo de recursos chamado *MyResourceGroup*:
+O exemplo a seguir cria uma zona DENS chamada *contoso.com* no grupo de recursos chamado *MyResourceGroup*:
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
 ```
 
-### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com tags
+### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com etiquetas
 
-O exemplo seguinte mostra como criar uma zona DNS com duas [tags Azure Resource Manager,](dns-zones-records.md#tags)projeto = `-t` *demonstração* e *env = teste,* utilizando o `--tags` parâmetro (forma curta):
+O exemplo a seguir mostra como criar uma zona de DNS com [duas tags Azure Resource Manager](dns-zones-records.md#tags), *project = demo* e *env = teste,* utilizando o `--tags` parâmetro (forma `-t` curta):
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
 ```
 
-## <a name="get-a-dns-zone"></a>Obtenha uma zona DNS
+## <a name="get-a-dns-zone"></a>Obtenha uma zona DE DNS
 
-Para recuperar uma zona `az network dns zone show`DNS, utilize . Para obter ajuda, consulte `az network dns zone show --help`.
+Para recuperar uma zona DE DNS, utilize `az network dns zone show` . Para obter ajuda, consulte `az network dns zone show --help`.
 
-O exemplo seguinte devolve a zona dNS *contoso.com* e os seus dados associados do grupo de recursos *MyResourceGroup*. 
+O exemplo a seguir devolve a zona de DNS *contoso.com* e os seus dados associados do grupo de recursos *MyResourceGroup*. 
 
 ```azurecli
 az network dns zone show --resource-group myresourcegroup --name contoso.com
@@ -167,9 +165,9 @@ az network dns zone list
 
 É possível efetuar alterações a um recurso de zona DNS com `az network dns zone update`. Para obter ajuda, consulte `az network dns zone update --help`.
 
-Este comando não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Como gerir recursos DNS](dns-operations-recordsets-cli.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. Estas propriedades estão atualmente limitadas às ['tags'](dns-zones-records.md#tags) do Gestor de Recursos Azure para o recurso da zona.
+Este comando não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Como gerir recursos DNS](dns-operations-recordsets-cli.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. Estas propriedades estão atualmente limitadas às ['tags' do Azure Resource Manager](dns-zones-records.md#tags) para o recurso de zona.
 
-O exemplo que se segue mostra como atualizar as etiquetas numa zona DNS. As etiquetas existentes são substituídas pelo valor especificado.
+O exemplo a seguir mostra como atualizar as tags numa zona DE DNS. As etiquetas existentes são substituídas pelo valor especificado.
 
 ```azurecli
 az network dns zone update --resource-group myresourcegroup --name contoso.com --set tags.team=support
@@ -186,7 +184,7 @@ As zonas DNS podem ser eliminadas com `az network dns zone delete`. Para obter a
 
 Este comando solicita a confirmação. O `--yes` comutador opcional suprime esta linha de comandos.
 
-O exemplo que se segue mostra como eliminar a zona *contoso.com* do grupo de recursos *MyResourceGroup*.
+O exemplo a seguir mostra como eliminar a zona *contoso.com* do grupo de recursos *MyResourceGroup*.
 
 ```azurecli
 az network dns zone delete --resource-group myresourcegroup --name contoso.com
@@ -194,7 +192,7 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a [gerir recordes e recordes](dns-getstarted-create-recordset-cli.md) na sua zona de DNS.
+Saiba como [gerir recordes e registos](dns-getstarted-create-recordset-cli.md) na sua zona de DNS.
 
-Aprenda a [delegar o seu domínio no Azure DNS.](dns-domain-delegation.md)
+Saiba como [delegar o seu domínio no Azure DNS](dns-domain-delegation.md).
 

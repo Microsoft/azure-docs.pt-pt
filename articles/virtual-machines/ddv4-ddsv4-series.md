@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 5f241847ee25d3e964d101bd43a8384f764b4f36
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 28963f7b8d6b7fd7361d114935a401a00b6683a3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672787"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753676"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 e Ddsv4
 
@@ -38,7 +38,7 @@ Migração ao Vivo: Suportado
 
 Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Largura de banda max NICs/Rede Esperada (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | Largura de banda max NICs/Rede Esperada (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2/1000 |
 | Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2/2000 |
@@ -88,6 +88,6 @@ Atualizações de preservação da memória: Suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -1,18 +1,18 @@
 ---
 title: Descrição geral do encaminhamento de conteúdos baseado em URL do Gateway de Aplicação do Azure
-description: Este artigo fornece uma visão geral do encaminhamento de conteúdo baseado em URL baseado em Url da Aplicação Azure, configuração UrlPathMap e regra pathBasedRouting.
+description: Este artigo fornece uma visão geral do encaminhamento de conteúdo baseado em URL do Azure Application Gateway, configuração urlPathMap e regra pathBasedRouting.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1d393055b0ac62198bd5a7239b2b92b7aeff62e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145356"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987929"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -24,10 +24,10 @@ No exemplo seguinte, o Gateway de Aplicação está a enviar tráfego para conto
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Os pedidos\:para http //contoso.com/video/* são encaminhados\:para VideoServerPool, e http/contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
+Os pedidos de http \: //contoso.com/video/* são encaminhados para VideoServerPool, e http \: //contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
 
 > [!IMPORTANT]
-> Para o V1 SKU, as regras são processadas na ordem em que estão listadas no portal. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta. Para o V2 SKU, os fósforos exatos têm maior precedência. No entanto, é altamente recomendado configurar os ouvintes multi-sites primeiro antes de configurar um ouvinte básico. Desta forma, assegura que o tráfego é encaminhado para o back-end certo.
+> Para o V1 SKU, as regras são processadas na ordem em que estão listadas no portal. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta. Para o V2 SKU, os jogos exatos têm maior precedência. No entanto, é altamente recomendado configurar os ouvintes multi-locais primeiro antes de configurar um ouvinte básico. Desta forma, assegura que o tráfego é encaminhado para o back-end certo.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuração UrlPathMap
 
@@ -62,20 +62,20 @@ O elemento urlPathMap é utilizado para especificar padrões de Caminho para map
 }]
 ```
 
-### <a name="pathpattern"></a>Padrão de caminho
+### <a name="pathpattern"></a>PathPattern
 
-PathPattern é uma lista de padrões de caminho para combinar. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A corda alimentada ao matcher do caminho não inclui qualquer texto após o primeiro? ou #, e esses chars não são permitidos aqui. Caso contrário, quaisquer caracteres permitidos num URL são permitidos no PathPattern.
+PathPattern é uma lista de padrões de caminho a combinar. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A corda alimentada ao path matcher não inclui nenhum texto após o primeiro? ou #, e esses chars não são permitidos aqui. Caso contrário, quaisquer caracteres permitidos num URL são permitidos em PathPattern.
 
-Os padrões suportados dependem se implementa o Application Gateway v1 ou v2:
+Os padrões suportados dependem se implementa o Gateway de Aplicação v1 ou v2:
 
 #### <a name="v1"></a>v1
 
 As regras do caminho são insensíveis.
 
-|padrão de caminho v1  |É apoiado?  |
+|v1 padrão de caminho  |É apoiado?  |
 |---------|---------|
 |`/images/*`     |sim|
-|`/images*`     |não|
+|`/images*`     |sim|
 |`/images/*.jpg`     |não|
 |`/*.jpg`     |não|
 |`/Repos/*/Comments/*`     |não|
@@ -85,7 +85,7 @@ As regras do caminho são insensíveis.
 
 As regras do caminho são insensíveis.
 
-|padrão de caminho v2  |É apoiado?  |
+|v2 padrão de caminho  |É apoiado?  |
 |---------|---------|
 |`/images/*`     |sim|
 |`/images*`     |sim|

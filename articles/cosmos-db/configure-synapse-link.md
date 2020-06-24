@@ -3,15 +3,15 @@ title: Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualizaç
 description: Saiba como permitir a ligação sinapse para as contas do Azure Cosmos, crie um recipiente com loja analítica ativada, ligue a base de dados do Azure Cosmos à sinapse espaço de trabalho e faça consultas.
 author: SriChintala
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: e1e43579782e204dae027b1771b9013a72843489
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456577"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262043"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -40,11 +40,11 @@ Utilize os seguintes passos para executar consultas analíticas com a Ligação 
 
 1. Selecione **Synapse Link** da lista de funcionalidades.
 
-   ![Encontre a funcionalidade de pré-visualização do Synapse Link](./media/configure-synapse-link/find-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Encontre a funcionalidade de pré-visualização do Synapse Link":::
 
 1. Em seguida, solicita-lhe que ative o link sinapse na sua conta. Selecione Ativar.
 
-   ![Ativar a funcionalidade Synapse Link](./media/configure-synapse-link/enable-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Ativar a funcionalidade Synapse Link":::
 
 1. A sua conta está agora habilitada a utilizar o Synapse Link. Em seguida, veja como criar uma loja analítica que permita aos contentores começarem automaticamente a replicar os seus dados operacionais da loja transacional para a loja analítica.
 
@@ -67,7 +67,7 @@ Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipie
 
 1. Selecione **Novo Recipiente** e introduza um nome para a sua base de dados, recipiente, chave de partição e detalhes de saída. Ligue a opção **de loja analítica.** Depois de ativar a loja analítica, cria um recipiente com `AnalyicalTTL` propriedade definida para o valor padrão de -1 (retenção infinita). Esta loja analítica que mantém todas as versões históricas dos registos.
 
-   ![Ligue a loja analítica para o recipiente Azure Cosmos](./media/configure-synapse-link/create-container-analytical-store.png)
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Ligue a loja analítica para o recipiente Azure Cosmos":::
 
 1. Se não tiver ativado o Synapse Link nesta conta, irá pedir-lhe que o faça porque é um pré-requisito para criar um recipiente analítico habilitado para a loja. Se solicitado, selecione **Enable Synapse Link**.
 
@@ -142,7 +142,7 @@ container = client.CreateContainer(db['_self'], container_definition, options)
 
 ### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a>Atualize o tempo de loja analítica para viver
 
-Depois de a loja analítica ser ativada com um determinado valor TTL, pode atualizá-la para um valor válido diferente mais tarde. Pode atualizar o valor utilizando o portal Azure ou SDKs. Para obter informações sobre as várias opções de config Analítico TTL, consulte o artigo [de valores suportados pela TTL analítica.](analytical-store-introduction.md#analytical-ttl)
+Após o arquivo analítico ser ativado com um valor de TTL em particular, pode atualizá-lo posteriormente para um valor válido diferente. Pode atualizar o valor com o portal do Azure ou os SDKs. Para obter informações sobre as várias opções de config Analítico TTL, consulte o artigo [de valores suportados pela TTL analítica.](analytical-store-introduction.md#analytical-ttl)
 
 #### <a name="azure-portal"></a>Portal do Azure
 
@@ -197,7 +197,7 @@ Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos D
 
 Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e Retail.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

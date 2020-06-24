@@ -1,36 +1,36 @@
 ---
-title: Utilize o executor a granel de gráfico .NET biblioteca com API DD DD DD DDD
-description: Aprenda a usar a biblioteca de executor a granel para importar massivamente dados de gráficos num recipiente API Azure Cosmos DB Gremlin.
+title: Utilize o executor a granel de gráficos .NET library com Azure Cosmos DB Gremlin API
+description: Aprenda a usar a biblioteca de executores a granel para importar massivamente dados de gráficos num recipiente Azure Cosmos DB Gremlin API.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86d88787d024029b11d9718f8dbc834ae7217707
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982708"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260649"
 ---
-# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilizando a biblioteca do executor a granel .NET para realizar operações a granel na API Azure Cosmos DB Gremlin
+# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilização do executor a granel de gráficos .NET library para realizar operações a granel em Azure Cosmos DB Gremlin API
 
-Este tutorial fornece instruções sobre a utilização da biblioteca de executor a granel da Azure CosmosDB .NET para importar e atualizar objetos gráficos num recipiente API Azure Cosmos DB Gremlin. Este processo faz uso da classe Graph na biblioteca de [executora](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) a granel para criar objetos Vertex e Edge programaticamente para, em seguida, inserir vários deles por pedido de rede. Este comportamento é configurável através da biblioteca de executora a granel para fazer o melhor uso tanto da base de dados como dos recursos de memória locais.
+Este tutorial fornece instruções sobre a utilização do executor a granel da Azure CosmosDB .NET library para importar e atualizar objetos gráficos num recipiente API Azure Cosmos DB Gremlin. Este processo faz uso da classe Graph na biblioteca de [executores](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) a granel para criar objetos Vertex e Edge programáticamente para, em seguida, inserir vários deles por pedido de rede. Este comportamento é configurável através da biblioteca do executor a granel para fazer o melhor uso da base de dados e dos recursos de memória locais.
 
-Em oposição ao envio de consultas gremlin para uma base de dados, onde o comando é avaliado e executado um de cada vez, usando a biblioteca executor a granel, em vez disso, exigirá criar e validar os objetos localmente. Depois de criar os objetos, a biblioteca permite-lhe enviar objetos de grafo para o serviço de bases de dados sequencialmente. Ao utilizar este método, é possível aumentar as velocidades de ingestão de dados até 100x, o que faz deste um método ideal para migrações de dados iniciais ou operações de movimento de dados periódicas. Saiba mais visitando a página GitHub da aplicação de amostra de amostra de executor a granel do [Azure Cosmos DB Graph](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
+Em oposição ao envio de consultas gremlin para uma base de dados, onde o comando é avaliado e executado um de cada vez, usando a biblioteca de executor a granel exigirá, em vez disso, criar e validar os objetos localmente. Depois de criar os objetos, a biblioteca permite-lhe enviar objetos de grafo para o serviço de bases de dados sequencialmente. Ao utilizar este método, é possível aumentar as velocidades de ingestão de dados até 100x, o que faz deste um método ideal para migrações de dados iniciais ou operações de movimento de dados periódicas. Saiba mais visitando a página GitHub da aplicação de amostra de [execução a granel Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## <a name="bulk-operations-with-graph-data"></a>Operações em massa com dados de grafos
 
-A biblioteca de [executora a granel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) contém um `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` espaço de nome para fornecer funcionalidade para a criação e importação de objetos gráficos. 
+A [biblioteca de executores a granel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) contém um espaço de nome para fornecer `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` funcionalidades para criar e importar objetos gráficos. 
 
 O seguinte processo descreve de que forma é que a migração de dados pode ser utilizada para um contentor de API Gremlin:
 1. Obtenha registos da origem de dados.
 2. Construa os objetos `GremlinVertex` e `GremlinEdge` a partir dos registos obtidos e adicione-os a uma estrutura de dados `IEnumerable`. Nesta parte da aplicação, deve ser implementada a lógica para detetar e adicionar relações, caso a origem de dados não seja uma base de dados de grafo.
 3. Utilize o [método Graph BulkImportAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet) para inserir os objetos de grafo na coleção.
 
-Este mecanismo melhora a eficácia da migração de dados quando comparado com a utilização de um cliente do Gremlin. Esta melhoria acontece porque a inserção de dados com o Gremlin requer que a aplicação envie consultas uma de cada vez, as quais têm de ser validadas, avaliadas e executadas para criar os dados. A biblioteca de executor a granel tratará da validação na aplicação e enviará vários objetos gráficos de cada vez para cada pedido de rede.
+Este mecanismo melhora a eficácia da migração de dados quando comparado com a utilização de um cliente do Gremlin. Esta melhoria acontece porque a inserção de dados com o Gremlin requer que a aplicação envie consultas uma de cada vez, as quais têm de ser validadas, avaliadas e executadas para criar os dados. A biblioteca de executores a granel tratará da validação na aplicação e enviará vários objetos gráficos de cada vez para cada pedido de rede.
 
 ### <a name="creating-vertices-and-edges"></a>Criar Vértices e Arestas
 
@@ -73,7 +73,7 @@ catch (Exception e)
 }
 ```
 
-Para obter mais informações sobre os parâmetros da biblioteca de executora a granel, consulte o [tópico A granelImportData para o tópico D. Cosmos](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
+Para obter mais informações sobre os parâmetros da biblioteca do executor a granel, consulte o [bulkImportData para o tópico DB Azure Cosmos](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 O payload tem de ser instanciado em objetos `GremlinVertex` e `GremlinEdge`. Eis como estes objetos podem ser criados:
 
@@ -109,18 +109,18 @@ e.AddProperty("customProperty", "value");
 ```
 
 > [!NOTE]
-> O utilitário executor a granel não verifica automaticamente se existem Vertices existentes antes de adicionar Edges. A existência de vértices tem de ser validada na aplicação antes de executar as tarefas de BulkImport.
+> O utilitário do executor a granel não verifica automaticamente se existem vértices existentes antes de adicionar Edges. A existência de vértices tem de ser validada na aplicação antes de executar as tarefas de BulkImport.
 
 ## <a name="sample-application"></a>Aplicação de exemplo
 
 ### <a name="prerequisites"></a>Pré-requisitos
-* Estúdio Visual 2019 com a carga de trabalho de desenvolvimento azure. Você pode começar com o [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) gratuitamente.
-* Uma subscrição do Azure. Pode criar uma [conta do Azure gratuita aqui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Em alternativa, pode criar gratuitamente uma conta de base de dados da Cosmos com o [Try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure.
+* Visual Studio 2019 com a carga de trabalho de desenvolvimento Azure. Pode começar com a [Edição Comunitária do Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) gratuitamente.
+* Uma subscrição do Azure. Pode criar uma [conta do Azure gratuita aqui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Em alternativa, pode criar uma conta de base de dados cosmos com [Try Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure.
 * Uma base de dados da API Gremlin do Azure Cosmos DB com uma **coleção ilimitada**. Este guia mostra como começar a utilizar a [API Gremlin do Azure Cosmos DB em .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. Para obter mais informações, veja a página[Git Downloads](https://git-scm.com/downloads) (Transferências do Git).
 
 ### <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
-Neste tutorial, seguiremos os passos para começar usando a amostra de executor a [granel do Azure Cosmos DB Graph](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) hospedada no GitHub. Esta aplicação consiste numa solução .NET que gera, aleatoriamente, objetos de vértices e arestas e, depois, executa inserções em massa na conta da base de dados de grafo. Para obter a aplicação, execute o comando `git clone`, abaixo:
+Neste tutorial, vamos seguir os passos para começar usando a amostra de [executor a granel Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) acolhida no GitHub. Esta aplicação consiste numa solução .NET que gera, aleatoriamente, objetos de vértices e arestas e, depois, executa inserções em massa na conta da base de dados de grafo. Para obter a aplicação, execute o comando `git clone`, abaixo:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git
@@ -128,15 +128,15 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Este repositório contém o exemplo GraphBulkExecutor com os seguintes ficheiros:
 
-Ficheiro|Descrição
+Ficheiro|Description
 ---|---
 `App.config`|É aqui que é especificada a aplicação e os parâmetros específicos da mesma. Este ficheiro deve ser modificado primeiro para ligar à base de dados e às coleções de destino.
-`Program.cs`| Este ficheiro contém a `DocumentClient` lógica por trás da criação da coleção, manuseando as limpezas e enviando os pedidos de executor a granel.
+`Program.cs`| Este ficheiro contém a lógica por trás da criação da `DocumentClient` coleção, manuseamento das limpezas e envio dos pedidos do executor a granel.
 `Util.cs`| Este ficheiro contém uma classe de programa auxiliar que inclui a lógica subjacente à geração de dados de teste e verifica se a base de dados e a coleção existem.
 
 No ficheiro `App.config`, podem ser fornecidos os seguintes valores de configuração:
 
-Definição|Descrição
+Definição|Description
 ---|---
 `EndPointUrl`|Este é o **ponto final do SDK .NET** que está disponível no painel Descrição Geral da sua conta de base de dados da API Gremlin do Azure Cosmos DB. Tem o formato `https://your-graph-database-account.documents.azure.com:443/`.
 `AuthorizationKey`|Esta é a chave Primária ou Secundária que aparece na sua conta do Azure Cosmos DB. Saiba mais sobre a proteção do acesso a dados do Azure Cosmos DB em [Securing Access to Azure Cosmos DB data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys) (Proteger o Acesso a dados do Azure Cosmos DB)
@@ -155,6 +155,6 @@ Definição|Descrição
 3. Consulte a base de dados de grafo para avaliar os resultados. Se a opção `ShouldCleanupOnFinish` estiver definida como verdadeira, a base de dados será eliminada de forma automática.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para saber mais sobre os detalhes do pacote Nuget e divulgar notas da biblioteca do executor a granel .NET, consulte [os detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-dot-net.md). 
-* Consulte as Dicas de [Desempenho](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) para otimizar ainda mais a utilização do executor a granel.
+* Para saber mais sobre os detalhes do pacote Nuget e lançar notas do executor a granel .NET library, consulte [detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-dot-net.md). 
+* Consulte as [Dicas de Desempenho](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) para otimizar ainda mais a utilização do executor a granel.
 * Reveja o artigo [BulkExecutor.Graph Reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) (Referência de BulkExecutor.Graph) para obter mais detalhes sobre as classes e os métodos definidos neste espaço de nomes.

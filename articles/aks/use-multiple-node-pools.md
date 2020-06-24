@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: d6616c3de86e3115e13c60f9d1b484366a368899
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc420f5d453cf7d0bb19dd5db45ca2ae98be2902
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658386"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887735"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
@@ -20,7 +20,7 @@ No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupad
 
 Este artigo mostra-lhe como criar e gerir várias piscinas de nó num cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Precisa da versão Azure CLI 2.2.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
@@ -42,7 +42,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS que suporta
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
 
-Para começar, crie um cluster AKS com uma única piscina de nós. O exemplo a seguir utiliza o [comando do grupo az][az-group-create] para criar um grupo de recursos chamado *myResourceGroup* na região *leste.* Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [az aks create.][az-aks-create] Uma *versão de kubernetes de* *1.15.7* é usada para mostrar como atualizar um conjunto de nós num passo seguinte. Pode especificar qualquer [versão Kubernetes suportada.][supported-versions]
+Para começar, crie um cluster AKS com uma única piscina de nós. O exemplo a seguir utiliza o [comando do grupo az][az-group-create] para criar um grupo de recursos chamado *myResourceGroup* na região *leste.* Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [az aks create.][az-aks-create]
 
 > [!NOTE]
 > O *Balancer de* carga Básico SKU não é **suportado** quando se utilizam várias piscinas de nós. Por padrão, os clusters AKS são criados com o balanceador de carga *Standard* SKU do portal Azure CLI e Azure.
@@ -58,7 +58,6 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -82,8 +81,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3 \
-    --kubernetes-version 1.15.5
+    --node-count 3
 ```
 
 > [!NOTE]
@@ -104,7 +102,7 @@ A saída de exemplo a seguir mostra que *a mynodepool* foi criada com sucesso co
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.5",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -144,7 +142,6 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.15.5
     --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
 ```
 
@@ -153,25 +150,29 @@ az aks nodepool add \
 > [!NOTE]
 > As operações de atualização e escala num cluster ou num agrupamento de nónão não podem ocorrer simultaneamente, se se tentar um erro ser devolvido. Em vez disso, cada tipo de operação deve ser preenchido no recurso-alvo antes do pedido seguinte sobre esse mesmo recurso. Leia mais sobre isso no nosso [guia de resolução de problemas.](https://aka.ms/aks-pending-upgrade)
 
-Quando o seu cluster AKS foi inicialmente criado no primeiro passo, foi especificado um `--kubernetes-version` de *1.15.7.* Isto definiu a versão Kubernetes tanto para o plano de controlo como para o conjunto de nós predefinidos. Os comandos nesta secção explicam como atualizar uma única piscina de nós específico.
-
-A relação entre a atualização da versão Kubernetes do plano de controlo e a piscina de nós são explicadas na [secção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Os comandos nesta secção explicam como atualizar uma única piscina de nós específico. A relação entre a atualização da versão Kubernetes do plano de controlo e a piscina de nós são explicadas na [secção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > A versão de imagem de grupo de nó os está ligada à versão Kubernetes do cluster. Só obterá atualizações de imagem de SO, após uma atualização de cluster.
 
-Uma vez que existem duas piscinas de nó neste exemplo, devemos usar [a atualização az aks nodepool][az-aks-nodepool-upgrade] para atualizar uma piscina de nó. Vamos atualizar o *mynodepool* para Kubernetes *1.15.7*. Utilize o comando [de atualização do nodepool az aks][az-aks-nodepool-upgrade] para atualizar o conjunto de nó, como mostra o seguinte exemplo:
+Uma vez que existem duas piscinas de nó neste exemplo, devemos usar [a atualização az aks nodepool][az-aks-nodepool-upgrade] para atualizar uma piscina de nó. Para ver as atualizações disponíveis use [atualizações az aks][az-aks-get-upgrades]
+
+```azurecli-interactive
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
+```
+
+Vamos atualizar a *mynodepool.* Utilize o comando [de atualização do nodepool az aks][az-aks-nodepool-upgrade] para atualizar o conjunto de nó, como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version KUBERNETES_VERSION \
     --no-wait
 ```
 
-Enuque ao estado das suas piscinas de nó novamente utilizando o comando [da lista de piscinas de nó az aks.][az-aks-nodepool-list] O exemplo a seguir mostra que *a mynodepool* está no estado *de modernização* para *1.15.7*:
+Enuque ao estado das suas piscinas de nó novamente utilizando o comando [da lista de piscinas de nó az aks.][az-aks-nodepool-list] O exemplo a seguir mostra que *a mynodepool* está no estado *de modernização* para *KUBERNETES_VERSION:*
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -184,7 +185,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.7",
+    "orchestratorVersion": "KUBERNETES_VERSION",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -804,7 +805,7 @@ Também pode eliminar o cluster adicional que criou para o cenário de piscinas 
 az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [piscinas de nó de sistema.][use-system-pool]
 
@@ -824,6 +825,7 @@ Para criar e utilizar as piscinas de nó de nó de contentores do Windows Server
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update

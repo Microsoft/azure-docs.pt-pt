@@ -3,7 +3,7 @@ title: 'PowerShell: Ative o TDE de trazer a sua própria chave (BYOK)'
 titleSuffix: Azure SQL Managed Instance
 description: Aprenda a configurar a Azure SQL Managed Instance para começar a usar a encriptação de dados transparente (BYOK) para encriptação em repouso utilizando o PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
-ms.openlocfilehash: 348b69933ae6b3706cf16642a138f1b00247cb5a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: eba53254d58ddfa2577212723b7234bbb5939a6b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219194"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708456"
 ---
 # <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>Encriptação de dados transparente em SQL Caso gerido usando a sua própria chave a partir do Cofre de Chaves Azure
 

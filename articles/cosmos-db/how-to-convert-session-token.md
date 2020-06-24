@@ -1,45 +1,45 @@
 ---
-title: Como converter formatos simbólicos de sessão em .NET SDK - Azure Cosmos DB
-description: Saiba como converter formatos token sessão para garantir compatibilidades entre diferentes versões .NET SDK
+title: Como converter formatos de token de sessão em .NET SDK - Azure Cosmos DB
+description: Saiba como converter formatos de token de sessão para garantir compatibilidades entre diferentes versões .NET SDK
 author: vinhms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
-ms.openlocfilehash: 377d8e3e923d6a8fa3b1722cee6451a696ce2490
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1f5609eae106e04928bc2c49bd84aa651b224611
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796905"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261584"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Converter formatos de token de sessão em .NET SDK
 
 Este artigo explica como converter entre diferentes formatos de token de sessão para garantir a compatibilidade entre as versões SDK.
 
 > [!NOTE]
-> Por predefinição, o SDK acompanha automaticamente a sessão e utilizará o token de sessão mais recente.  Para mais informações, visite [tokens de sessão de utilização](how-to-manage-consistency.md#utilize-session-tokens). As instruções deste artigo aplicam-se apenas com as seguintes condições:
-> * A sua conta Azure Cosmos DB utiliza a consistência da Sessão.
-> * Está a gerir as fichas da sessão manualmente.
+> Por predefinição, o SDK acompanha automaticamente o token da sessão e utilizará o token de sessão mais recente.  Para mais informações, visite [os tokens da sessão da Utilize.](how-to-manage-consistency.md#utilize-session-tokens) As instruções deste artigo aplicam-se apenas com as seguintes condições:
+> * A sua conta DB Azure Cosmos usa a consistência da sessão.
+> * Está a gerir os tokens da sessão manualmente.
 > * Está a utilizar várias versões do SDK ao mesmo tempo.
 
-## <a name="session-token-formats"></a>Formatos simbólicos de sessão
+## <a name="session-token-formats"></a>Formatos de token de sessão
 
 Existem dois formatos simbólicos de sessão: **simples** e **vetor.**  Estes dois formatos não são permutáveis, pelo que o formato deve ser convertido ao passar para a aplicação do cliente com versões diferentes.
-- O formato token de sessão **simples** é utilizado pelo .NET SDK V1 (Microsoft.Azure.DocumentDB -versão 1.x)
-- O formato token da sessão **vetorial** é utilizado pelo .NET SDK V2 (Microsoft.Azure.DocumentDB -versão 2.x)
+- O formato **simples** token da sessão é utilizado pelo .NET SDK V1 (Microsoft.Azure.DocumentDB -versão 1.x)
+- O formato **token de** sessão vetorial é usado pelo .NET SDK V2 (Microsoft.Azure.DocumentDB -versão 2.x)
 
 ### <a name="simple-session-token"></a>Ficha de sessão simples
 
 Um simples token de sessão tem este formato:`{pkrangeid}:{globalLSN}`
 
-### <a name="vector-session-token"></a>Símbolo da sessão de vetor
+### <a name="vector-session-token"></a>Token de sessão de vetor
 
 Um token de sessão vetorial tem o seguinte formato:`{pkrangeid}:{Version}#{GlobalLSN}#{RegionId1}={LocalLsn1}#{RegionId2}={LocalLsn2}....#{RegionIdN}={LocalLsnN}`
 
 ## <a name="convert-to-simple-session-token"></a>Converter para ficha de sessão simples
 
-Para passar uma sessão simbólica ao cliente usando .NET SDK V1, use um formato token de sessão **simples.**  Por exemplo, utilize o seguinte código de amostra para o converter.
+Para passar um token de sessão ao cliente usando .NET SDK V1, utilize um **formato simples** de token de sessão.  Por exemplo, utilize o seguinte código de amostra para convertê-lo.
 
 ```csharp
 private static readonly char[] SegmentSeparator = (new[] { '#' });
@@ -71,9 +71,9 @@ else
 }
 ```
 
-## <a name="convert-to-vector-session-token"></a>Converter em token de sessão de vetor
+## <a name="convert-to-vector-session-token"></a>Converter para token de sessão de vetor
 
-Para passar uma sessão simbólica ao cliente usando .NET SDK V2, use o formato token da sessão **vetorial.**  Por exemplo, utilize o seguinte código de amostra para o converter.
+Para passar um token de sessão ao cliente usando .NET SDK V2, use o formato token de sessão **vetorial.**  Por exemplo, utilize o seguinte código de amostra para convertê-lo.
 
 ```csharp
 
@@ -109,7 +109,7 @@ else
 
 Leia os seguintes artigos:
 
-* [Use tokens de sessão para gerir a consistência em Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-* [Escolha o nível de consistência certo em Azure Cosmos DB](consistency-levels-choosing.md)
-* [Consistência, disponibilidade e trocas de desempenho em Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Trocas de disponibilidade e desempenho para vários níveis de consistência](consistency-levels-tradeoffs.md)
+* [Use fichas de sessão para gerir a consistência em Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
+* [Escolha o nível de consistência certo no Azure Cosmos DB](consistency-levels-choosing.md)
+* [Consistência, disponibilidade e desempenho em Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Disponibilidade e compensações de desempenho para vários níveis de consistência](consistency-levels-tradeoffs.md)

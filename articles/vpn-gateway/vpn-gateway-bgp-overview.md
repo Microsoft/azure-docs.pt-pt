@@ -9,14 +9,14 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
 ms.openlocfilehash: 0b4bb7ed90225fcb52ea170c07be2b57f8afbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279328"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708098"
 ---
-# <a name="about-bgp-with-azure-vpn-gateway"></a>Sobre o BGP com azure VPN Gateway
-Este artigo fornece uma visão geral do suporte do BGP (Border Gateway Protocol) no Azure VPN Gateway.
+# <a name="about-bgp-with-azure-vpn-gateway"></a>Sobre o BGP com a Azure VPN Gateway
+Este artigo fornece uma visão geral do suporte do BGP (Border Gateway Protocol) em Azure VPN Gateway.
 
 O BGP é o protocolo de encaminhamento padrão utilizado normalmente na Internet para trocar informações de encaminhamento e acessibilidade entre duas ou mais redes. Quando utilizado no contexto das Redes Virtuais do Azure,o BGP permite que os Gateways de VPN do Azure e os seus dispositivos VPN no local, conhecidos como elementos de rede ou vizinhos BGP, troquem “rotas” que informarão ambos os gateways da disponibilidade e acessibilidade para esses prefixos percorrerem os gateways ou routers envolvidos. O BGP também pode permitir o encaminhamento de tráfego entre várias redes ao propagar rotas para todos os outros elementos de rede BGP, que um gateway BGP aprende de um elemento de rede BGP. 
 
@@ -28,10 +28,10 @@ O BGP possui várias vantagens e novas capacidades:
 ### <a name="support-automatic-and-flexible-prefix-updates"></a><a name="prefix"></a>Suporte de atualizações de prefixos automáticas e flexíveis
 Com o BGP, só tem de declarar um prefixo mínimo para um elemento de rede BGP específico no túnel VPN S2S de IPsec. Pode ser tão pequeno como um prefixo de anfitrião (/32) do endereço IP do elemento de rede BGP do seu dispositivo VPN no local. Pode controlar que prefixos da rede no local pretende anunciar no Azure, para permitir o acesso da sua Rede Virtual do Azure.
 
-Também pode anunciar prefixos maiores que podem incluir alguns dos seus prefixos de endereço VNet, como um grande espaço de endereçoIP privado (por exemplo, 10.0.0.0.8). Note que os prefixos não podem ser idênticos a qualquer um dos seus prefixos VNet. As rotas idênticas aos prefixos VNet serão rejeitadas.
+Também pode anunciar prefixos maiores que podem incluir alguns dos seus prefixos de endereço VNet, como um grande espaço de endereço IP privado (por exemplo, 10.0.0.0/8). Note que os prefixos não podem ser idênticos a qualquer um dos seus prefixos VNet. As rotas idênticas aos prefixos VNet serão rejeitadas.
 
 ### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a><a name="multitunnel"></a>Suporte de vários túneis entre uma VNet e um site no local, com ativação pós-falha automática baseada no BGP
-Pode estabelecer várias ligações na mesma localização entre a VNet do Azure e os dispositivos VPN no local. Esta capacidade proporciona vários túneis (caminhos) entre as duas redes numa configuração no modo ativo-ativo. Se um dos túneis estiver desligado, as rotas correspondentes serão retiradas via BGP e o tráfego desloca-se automaticamente para os túneis restantes.
+Pode estabelecer várias ligações na mesma localização entre a VNet do Azure e os dispositivos VPN no local. Esta capacidade proporciona vários túneis (caminhos) entre as duas redes numa configuração no modo ativo-ativo. Se um dos túneis for desligado, as vias correspondentes serão retiradas via BGP e o tráfego deslocar-se-á automaticamente para os restantes túneis.
 
 O diagrama seguinte mostra um exemplo simples desta configuração de elevada disponibilidade:
 

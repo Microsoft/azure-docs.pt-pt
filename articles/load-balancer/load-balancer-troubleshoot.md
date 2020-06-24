@@ -8,17 +8,17 @@ manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: b5b2d13c727cd0183bb14341767ee2dee89eb9f8
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2211747d274282429ed24c7b16ce64230a0674ea
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604351"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808458"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -73,7 +73,7 @@ Se todas as causas anteriores parecem ser validadas e resolvidas corretamente, e
 
 **Validação e resolução**
 
-* Utilize **a Psping** de um dos outros VMs dentro do VNet para testar a resposta da porta da sonda (exemplo: .\psping.exe -t 10.0.0.4:3389) e registar resultados. 
+* Utilize **a Psping** de um dos outros VMs dentro do VNet para testar a resposta da porta da sonda (exemplo: .\psping.exe -t 10.0.0.4:3389) e resultados recorde. 
 * Utilize **TCPing** de um dos outros VMs dentro do VNet para testar a resposta da porta da sonda (exemplo: .\tcping.exe 10.0.0.4 3389) e registar resultados. 
 * Se nenhuma resposta for recebida nestes testes de ping, então
     - Executar um rastreio de Netsh simultâneo no suporte do alvo VM e outro VM de teste do mesmo VNet. Agora, fazer um teste de PsPing durante algum tempo, recolher alguns vestígios de rede, e depois parar o teste. 
@@ -151,7 +151,7 @@ Se decidir abrir um caso de apoio, recolhê as seguintes informações para uma 
 - Utilize a PSPing de um dos VMs de backend dentro da VNet para testar a resposta da porta da sonda (exemplo: psping 10.0.0.4:3389) e resultados recorde. 
 - Se não for recebida qualquer resposta nestes testes de ping, faça um rastreio de Netsh simultâneo no VM de backend e no VM de teste VNet enquanto corre PsPing, então pare o rastreio de Netsh. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).
 

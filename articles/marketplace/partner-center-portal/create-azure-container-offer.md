@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 538baee092ea6e11469f7d0331cc1b89eaf9a161
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: cd0c8961cff15385249222986e5fb90ee75e3559
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672719"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887334"
 ---
 # <a name="create-an-azure-container-offer"></a>Criar uma oferta de recipienteS Azure
 
@@ -144,7 +144,7 @@ Uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de compri
 
 Uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -276,20 +276,20 @@ Na caixa de nomes do **Plano,** insira um nome para este plano. Os clientes vêe
 
 Este separador permite-lhe escolher em que nuvens o plano está disponível. As suas respostas neste separador afetam quais os campos apresentados em outros separadores.
 
-#### <a name="cloud-availability"></a>Disponibilidade em nuvem
+#### <a name="azure-regions"></a>Regiões do Azure
 
 Todos os planos para ofertas de contentores Azure são automaticamente disponibilizados na **Azure Global.**  O seu plano pode ser usado por clientes em todas as regiões globais do Azure que utilizam o mercado comercial. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 
-Selecione a opção [**Azure Government Cloud**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) para fazer a sua solução aparecer aqui. Esta é uma nuvem governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais, bem como parceiros elegíveis para servi-los. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA).
+Selecione a opção [**do Governo Azure**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) para fazer a sua solução aparecer aqui. Esta é uma nuvem governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais, bem como parceiros elegíveis para servi-los. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA).
 
 Antes [de publicar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) no Governo Azure, teste e confirme a sua solução nessa área, uma vez que os resultados podem ser diferentes. Para criar e testar a sua solução, solicite uma conta experimental do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Depois de o seu plano ser publicado e disponível numa nuvem específica, não pode remover essa nuvem.
+> Depois de o seu plano ser publicado e disponível numa região específica, não pode remover essa região.
 
-#### <a name="azure-government-cloud-certifications"></a>Certificações Azure Government Cloud
+#### <a name="azure-government-certifications"></a>Certificações do Governo de Azure
 
-Esta opção só pode ser vista se **a Azure Government Cloud** for selecionada sob a disponibilidade da **Cloud**.
+Esta opção só pode ser vista se **o Governo Azure** for selecionado sob **disponibilidade cloud**.
 
 Os serviços do Governo Azure tratam dados que estão sujeitos a certos regulamentos e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 
@@ -331,7 +331,7 @@ Se quiser ocultar a sua oferta publicada para que os clientes não possam pesqui
 
 Este campo é utilizado quando:
 
-- A oferta destina-se a ser utilizada indiretamente quando referenciada por outra aplicação.
+- A oferta destina-se a ser utilizada indiretamente quando referenciada através de outra aplicação.
 - A oferta não deve ser comprada individualmente.
 - O plano foi utilizado para os testes iniciais e já não é relevante.
 - O plano foi utilizado para ofertas temporárias ou sazonais e não deve ser mais oferecido.

@@ -3,22 +3,22 @@ title: Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosm
 description: Utilize funcionalidades como registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas problemas problemas com a Azure Cosmos DB quando utilizar .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c0f40b3c79c16046ef61e89cad72c714346d2674
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b24c0b045bc7d894496a59eda00f0e8835ea6a8d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672634"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887372"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [SDK v4 de Java](troubleshoot-java-sdk-v4-sql.md)
 > * [SDK v2 Java assíncrono](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
@@ -113,9 +113,11 @@ Se recebeu a seguinte mensagem de erro 401: "A assinatura MAC encontrada no pedi
 
 1. A chave foi girada e não seguiu as [melhores práticas.](secure-access-to-data.md#key-rotation) Normalmente, este é o caso. A rotação da chave da conta Do Cosmos DB pode demorar entre alguns segundos e possivelmente dias, dependendo do tamanho da conta Cosmos DB.
    1. A assinatura 401 MAC é vista pouco depois de uma rotação da chave e acaba por parar sem alterações. 
-2. A chave está mal configurada na aplicação para que a chave não corresponda à conta.
+1. A chave está mal configurada na aplicação para que a chave não corresponda à conta.
    1. 401 Emissão de assinatura MAC será consistente e acontece para todas as chamadas
-3. Há uma condição de corrida com criação de contentores. Uma instância de aplicação está a tentar aceder ao contentor antes de a criação do contentor estar completa. O cenário mais comum para isso se a aplicação estiver em execução, e o recipiente for eliminado e recriado com o mesmo nome enquanto a aplicação estiver em execução. O SDK tentará utilizar o novo recipiente, mas a criação do contentor ainda está em curso, pelo que não tem as chaves.
+1. A aplicação está a usar as [chaves apenas de leitura](secure-access-to-data.md#master-keys) para operações de escrita.
+   1. 401 A emissão de assinatura mac só acontecerá quando o pedido estiver a fazer pedidos de escrita, mas os pedidos de leitura serão bem sucedidos.
+1. Há uma condição de corrida com criação de contentores. Uma instância de aplicação está a tentar aceder ao contentor antes de a criação do contentor estar completa. O cenário mais comum para isso se a aplicação estiver em execução, e o recipiente for eliminado e recriado com o mesmo nome enquanto a aplicação estiver em execução. O SDK tentará utilizar o novo recipiente, mas a criação do contentor ainda está em curso, pelo que não tem as chaves.
    1. 401 A emissão de assinatura MAC é vista pouco depois da criação de um contentor, e só ocorrem até que a criação do contentor esteja concluída.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP Erro 400. O tamanho dos cabeçalhos de pedido é muito longo.

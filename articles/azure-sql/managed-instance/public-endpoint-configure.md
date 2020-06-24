@@ -2,7 +2,7 @@
 title: Configure ponto final público - Azure SQL Gestd Instance
 description: Saiba como configurar um ponto final público para Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: a6d4ea22d3b05b14ce0d3e63912ea8bb7a432e57
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310160"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708659"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configure o ponto final público em Azure SQL Gestd Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Intervalos de portas de destino**     |3342         |Porto de destino de âmbito para 3342, que é o ponto final público de instância gerida TDS |
     |**Protocolo**     |TCP         |SQL Managed Instance usa protocolo TCP para TDS |
     |**Ação**     |Permitir         |Permitir que o tráfego de entrada seja gerido através do ponto final público |
-    |**Prioridade**     |1300         |Certifique-se de que esta regra é maior prioridade do que a **regra deny_all_inbound** |
+    |**Priority**     |1300         |Certifique-se de que esta regra é maior prioridade do que a **regra deny_all_inbound** |
 
     ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
 

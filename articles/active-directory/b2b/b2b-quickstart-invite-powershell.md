@@ -13,17 +13,17 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79240927"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690953"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guia de Início Rápido: Adicionar um utilizador convidado com o PowerShell
 
 Existem várias formas de convidar parceiros externos para as aplicações e serviços com a colaboração B2B do Azure Active Directory. No guia de início rápido anterior, viu como adicionar utilizadores convidados diretamente no portal de administrador do Azure Active Directory. Pode também utilizar o PowerShell para adicionar utilizadores convidados, um de cada vez ou em lote. Neste guia de início rápido, irá utilizar o comando New-AzureADMSInvitation para adicionar um utilizador convidado ao seu inquilino do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,7 +75,7 @@ Quando lhe for pedido, introduza as suas credenciais.
 
 ## <a name="send-an-invitation"></a>Enviar um convite
 
-1. Para enviar um convite para a sua conta de e-mail de teste, execute o seguinte comando PowerShell (substitua **"Sanda"** e **sanda\@fabrikam.com** com o nome da sua conta de e-mail de teste e endereço de e-mail): 
+1. Para enviar um convite para a sua conta de e-mail de teste, execute o seguinte comando PowerShell (substitua **"Sanda"** e **Sanda \@ fabrikam.com** pelo nome da sua conta de e-mail de teste e endereço de e-mail): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
@@ -91,7 +91,7 @@ Quando lhe for pedido, introduza as suas credenciais.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Verifique a saída para se certificar de que o utilizador que convidou está listado, com\@um nome principal do utilizador (UPN) no endereço de *e-mail*do formato #EXT#*domínio*. Por exemplo, *\@sanda_fabrikam.com#EXT# contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
+3. Verifique a saída para se certificar de que o utilizador que convidou está listado, com um nome principal do utilizador (UPN) no formato *emailaddress*#EXT# \@ *domínio*. Por exemplo, *sanda_fabrikam.com#EXT# \@ contoso.onmicrosoft.com*, onde contoso.onmicrosoft.com é a organização a partir da qual enviou os convites.
 
    ![Resultado do PowerShell que mostra o utilizador convidado adicionado](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

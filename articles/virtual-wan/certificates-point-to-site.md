@@ -1,22 +1,22 @@
 ---
-title: Gerar e exportar certificados para ligações VPN do utilizador [ Utilizador] Azure Virtual WAN
-description: Crie um certificado raiz auto-assinado, exporte a chave pública e gere certificados de cliente usando powerShell no Windows 10 ou Windows Server 2016.
+title: Gerar e exportar certificados para ligações VPN utilizador Azure Virtual WAN
+description: Crie um certificado de raiz auto-assinado, exporte a chave pública e gere certificados de cliente usando PowerShell no Windows 10 ou Windows Server 2016.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0303bac88f34c895a4a680cd5bff0e9d1513d2e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5361df9e9cfc9f5d299d494ed634dcaaaf2e707
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059940"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753611"
 ---
-# <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Certificados de geração e exportação para ligações VPN do utilizador
+# <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Gerar e exportar certificados para ligações VPN do utilizador
 
-As ligações VPN do utilizador (ponto-a-local) utilizam certificados para autenticar. Este artigo mostra-lhe como criar um certificado de raiz auto-assinado e gerar certificados de cliente usando powerShell no Windows 10 ou Windows Server 2016.
+As ligações VPN do utilizador (ponto a local) utilizam certificados para autenticar. Este artigo mostra-lhe como criar um certificado de raiz auto-assinado e gerar certificados de cliente usando PowerShell no Windows 10 ou Windows Server 2016.
 
 Tem de executar os passos deste artigo num computador que executa o Windows 10 ou o Windows Server 2016. Os cmdlets PowerShell que utiliza para gerar certificados fazem parte do sistema operativo e não funcionam noutras versões do Windows. O computador Windows 10 ou Windows Server 2016 só é necessário para gerar os certificados. Uma vez gerados os certificados, pode carregá-los ou instalá-los em qualquer sistema operativo de cliente suportado.
 
@@ -24,4 +24,4 @@ Tem de executar os passos deste artigo num computador que executa o Windows 10 o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Continue com os [passos virtuais wan para a ligação VPN do utilizador](virtual-wan-about.md)
+Continue com os [passos DE WAN Virtual para a ligação VPN do utilizador](virtual-wan-about.md)

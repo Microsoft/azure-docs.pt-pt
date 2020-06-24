@@ -1,40 +1,40 @@
 ---
-title: Modelos de Gestor de Recursos para API mesa DB Azure Cosmos
-description: Utilize modelos do Gestor de Recursos Azure para criar e configurar a API da tabela Db Do Azure Cosmos.
+title: Modelos de gestor de recursos para Azure Cosmos DB Table API
+description: Utilize modelos de Gestor de Recursos Azure para criar e configurar a API da tabela API da Azure Cosmos.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5e4e514a8d39679e5a1d07b0ea7100cf4837072e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a12b3ad3aba42870f72cda5d4b574b5b88b8d5e4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684759"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262298"
 ---
-# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Gerir os recursos da API da tabela Db da Azure Cosmos utilizando modelos de Gestor de Recursos Azure
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Gerir recursos API de tabela de DB da Azure Cosmos utilizando modelos de Gestor de Recursos Azure
 
-Neste artigo, aprende-se a usar modelos do Gestor de Recursos Azure para ajudar a implementar e gerir as suas contas, bases de dados e contentores Do Azure Cosmos DB.
+Neste artigo, aprende a usar modelos do Azure Resource Manager para ajudar a implementar e gerir as suas contas, bases de dados e contentores Azure Cosmos.
 
-Este artigo tem exemplos apenas para contas De Tabela API, para encontrar exemplos para outras contas do tipo API ver: use modelos de Gestor de Recursos Azure com API do Azure Cosmos DB para [Cassandra,](manage-cassandra-with-resource-manager.md) [Gremlin,](manage-gremlin-with-resource-manager.md) [MongoDB,](manage-mongodb-with-resource-manager.md) [Artigos SQL.](manage-sql-with-resource-manager.md)
+Este artigo tem exemplos apenas para contas de API de tabela, para encontrar exemplos para outras contas tipo API ver: use modelos de Gestor de Recursos Azure com AZure Cosmos DB's API para [Cassandra,](manage-cassandra-with-resource-manager.md) [Gremlin,](manage-gremlin-with-resource-manager.md) [MongoDB,](manage-mongodb-with-resource-manager.md)artigos [SQL.](manage-sql-with-resource-manager.md)
 
 > [!IMPORTANT]
 >
 > * Os nomes das contas estão limitados a 44 caracteres, todos minúsculos.
-> * Para alterar os valores de entrada, recoloque o modelo com RU/s atualizado.
-> * Quando adiciona ou remove localizações a uma conta Azure Cosmos, não pode simultaneamente modificar outras propriedades. Estas operações devem ser feitas separadamente.
+> * Para alterar os valores de produção, reimplante o modelo com RU/s atualizados.
+> * Quando adiciona ou remove localizações a uma conta Azure Cosmos, não pode modificar simultaneamente outras propriedades. Estas operações devem ser efetuadas separadamente.
 
-Para criar qualquer um dos recursos do Azure Cosmos DB abaixo, copie o seguinte modelo de exemplo em um novo ficheiro Json. Pode criar opcionalmente um ficheiro json de parâmetros para utilizar ao implementar várias instâncias do mesmo recurso com diferentes nomes e valores. Existem muitas formas de implementar modelos de Gestor de Recursos Azure, incluindo, [portal Azure,](../azure-resource-manager/templates/deploy-portal.md) [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md) [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [GitHub.](../azure-resource-manager/templates/deploy-to-azure-button.md)
+Para criar qualquer um dos recursos DB do Azure Cosmos abaixo, copie o modelo de exemplo a seguir num novo ficheiro json. Pode criar opcionalmente um ficheiro json de parâmetros para utilizar ao implementar várias instâncias do mesmo recurso com diferentes nomes e valores. Existem muitas formas de implementar modelos de Gestor de Recursos Azure, incluindo, [portal Azure](../azure-resource-manager/templates/deploy-portal.md) [CLI,](../azure-resource-manager/templates/deploy-cli.md) [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [GitHub.](../azure-resource-manager/templates/deploy-to-azure-button.md)
 
 > [!TIP]
-> Para permitir a entrada partilhada ao utilizar a API do quadro, ative a entrada ao nível da conta no portal Azure.
+> Para ativar o rendimento partilhado ao utilizar a Tabela API, ative a produção de nível de conta no portal Azure.
 
 <a id="create-autoscale"></a>
 
-## <a name="azure-cosmos-account-for-table-with-autoscale-throughput"></a>Azure Cosmos conta tabela com entrada em escala automática
+## <a name="azure-cosmos-account-for-table-with-autoscale-throughput"></a>Azure Cosmos conta para tabela com produção de escala automática
 
-Este modelo criará uma conta Azure Cosmos para a Tabela API com uma tabela com entrada em escala automática. Este modelo também está disponível para uma utilização de um clique na Galeria de Modelos De Quickstart Azure.
+Este modelo criará uma conta Azure Cosmos para API de tabela com uma tabela com produção de escala automática. Este modelo também está disponível para uma implementação de um clique a partir da Galeria de Modelos Azure Quickstart.
 
 [![Implementar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table-autoscale%2Fazuredeploy.json)
 
@@ -42,9 +42,9 @@ Este modelo criará uma conta Azure Cosmos para a Tabela API com uma tabela com 
 
 <a id="create-manual"></a>
 
-## <a name="azure-cosmos-account-for-table-with-standard-provisioned-throughput"></a>Azure Cosmos conta tabela com entrada normalizada
+## <a name="azure-cosmos-account-for-table-with-standard-provisioned-throughput"></a>Conta Azure Cosmos para tabela com produção padrão a provisionada
 
-Este modelo criará uma conta Azure Cosmos para a Tabela API com uma tabela com uma entrada padrão. Este modelo também está disponível para uma utilização de um clique na Galeria de Modelos De Quickstart Azure.
+Este modelo criará uma conta Azure Cosmos para API de tabela com uma tabela com produção padrão. Este modelo também está disponível para uma implementação de um clique a partir da Galeria de Modelos Azure Quickstart.
 
 [![Implementar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
 
@@ -55,6 +55,6 @@ Este modelo criará uma conta Azure Cosmos para a Tabela API com uma tabela com 
 Seguem-se alguns recursos adicionais:
 
 * [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/)
-* [Esquema de fornecedor de recursos Da Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
-* [Modelos de Quickstart Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-* [Problemas de resolução de erros comuns de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/common-deployment-errors.md)
+* [Esquema de fornecedor de recursos Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
+* [Modelos de arranque rápido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Resolução de problemas erros comuns de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/common-deployment-errors.md)

@@ -3,16 +3,16 @@ title: Registar e utilizar procedimentos armazenados, gatilhos e funções defin
 description: Saiba como registar e ligar procedimentos armazenados, gatilhos e funções definidas pelo utilizador utilizando os SDKs DB do Azure Cosmos
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: tracking-python
-ms.openlocfilehash: ea34ec3bd601b784afd5bf0286768bbf5f92d040
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 747878a4fa9e6ad43f7eeb507f0cd7a070c6d743
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553038"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262910"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registar e utilizar procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Os exemplos a seguir mostram como registar e chamar um procedimento armazenado u
 O exemplo a seguir mostra como registar um procedimento armazenado utilizando o .NET SDK V2:
 
 ```csharp
-string storedProcedureId = "spCreateToDoItem";
+string storedProcedureId = "spCreateToDoItems";
 StoredProcedure newStoredProcedure = new StoredProcedure
    {
        Id = storedProcedureId,
@@ -46,17 +46,25 @@ StoredProcedure createdStoredProcedure = response.Resource;
 O seguinte código mostra como chamar um procedimento armazenado utilizando o .NET SDK V2:
 
 ```csharp
-dynamic newItem = new
+dynamic[] newItems = new dynamic[]
 {
-    category = "Personal",
-    name = "Groceries",
-    description = "Pick up strawberries",
-    isComplete = false
+    new {
+        category = "Personal",
+        name = "Groceries",
+        description = "Pick up strawberries",
+        isComplete = false
+    },
+    new {
+        category = "Personal",
+        name = "Doctor",
+        description = "Make appointment for check up",
+        isComplete = false
+    }
 };
 
 Uri uri = UriFactory.CreateStoredProcedureUri("myDatabase", "myContainer", "spCreateToDoItem");
 RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("Personal") };
-var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
+var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, new[] { newItems });
 ```
 
 ### <a name="stored-procedures---net-sdk-v3"></a>Procedimentos armazenados - .NET SDK V3
@@ -64,10 +72,11 @@ var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newI
 O exemplo a seguir mostra como registar um procedimento armazenado utilizando o .NET SDK V3:
 
 ```csharp
-StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
+string storedProcedureId = "spCreateToDoItems";
+StoredProcedureResponse storedProcedureResponse = await client.GetContainer("myDatabase", "myContainer").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
 {
-    Id = "spCreateToDoItem",
-    Body = File.ReadAllText(@"..\js\spCreateToDoItem.js")
+    Id = storedProcedureId,
+    Body = File.ReadAllText($@"..\js\{storedProcedureId}.js")
 });
 ```
 
@@ -81,10 +90,16 @@ dynamic[] newItems = new dynamic[]
         name = "Groceries",
         description = "Pick up strawberries",
         isComplete = false
+    },
+    new {
+        category = "Personal",
+        name = "Doctor",
+        description = "Make appointment for check up",
+        isComplete = false
     }
 };
 
-var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItems);
+var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), new[] { newItems });
 ```
 
 ### <a name="stored-procedures---java-sdk"></a>Procedimentos armazenados - Java SDK
@@ -95,8 +110,8 @@ O exemplo a seguir mostra como registar um procedimento armazenado utilizando o 
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
 StoredProcedure newStoredProcedure = new StoredProcedure(
     "{" +
-        "  'id':'spCreateToDoItem'," +
-        "  'body':" + new String(Files.readAllBytes(Paths.get("..\\js\\spCreateToDoItem.js"))) +
+        "  'id':'spCreateToDoItems'," +
+        "  'body':" + new String(Files.readAllBytes(Paths.get("..\\js\\spCreateToDoItems.js"))) +
     "}");
 //toBlocking() blocks the thread until the operation is complete and is used only for demo.  
 StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(containerLink, newStoredProcedure, null)
@@ -107,8 +122,10 @@ O seguinte código mostra como chamar um procedimento armazenado utilizando o Ja
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String sprocLink = String.format("%s/sprocs/%s", containerLink, "spCreateToDoItem");
+String sprocLink = String.format("%s/sprocs/%s", containerLink, "spCreateToDoItems");
 final CountDownLatch successfulCompletionLatch = new CountDownLatch(1);
+
+List<ToDoItem> ToDoItems = new ArrayList<ToDoItem>();
 
 class ToDoItem {
     public String category;
@@ -123,10 +140,19 @@ newItem.name = "Groceries";
 newItem.description = "Pick up strawberries";
 newItem.isComplete = false;
 
+ToDoItems.add(newItem)
+
+newItem.category = "Personal";
+newItem.name = "Doctor";
+newItem.description = "Make appointment for check up";
+newItem.isComplete = false;
+
+ToDoItems.add(newItem)
+
 RequestOptions requestOptions = new RequestOptions();
 requestOptions.setPartitionKey(new PartitionKey("Personal"));
 
-Object[] storedProcedureArgs = new Object[] { newItem };
+Object[] storedProcedureArgs = new Object[] { ToDoItems };
 asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArgs)
     .subscribe(storedProcedureResponse -> {
         String storedProcResultAsString = storedProcedureResponse.getResponseAsString();
@@ -147,7 +173,7 @@ O exemplo a seguir mostra como registar um procedimento armazenado utilizando o 
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const sprocId = "spCreateToDoItem";
+const sprocId = "spCreateToDoItems";
 await container.scripts.storedProcedures.create({
     id: sprocId,
     body: require(`../js/${sprocId}`)
@@ -164,7 +190,7 @@ const newItem = [{
     isComplete: false
 }];
 const container = client.database("myDatabase").container("myContainer");
-const sprocId = "spCreateToDoItem";
+const sprocId = "spCreateToDoItems";
 const {body: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
@@ -173,11 +199,11 @@ const {body: result} = await container.scripts.storedProcedure(sprocId).execute(
 O exemplo a seguir mostra como registar um procedimento armazenado utilizando o Python SDK
 
 ```python
-with open('../js/spCreateToDoItem.js') as file:
+with open('../js/spCreateToDoItems.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 sproc_definition = {
-    'id': 'spCreateToDoItem',
+    'id': 'spCreateToDoItems',
     'serverScript': file_contents,
 }
 sproc = client.CreateStoredProcedure(container_link, sproc_definition)
@@ -186,7 +212,7 @@ sproc = client.CreateStoredProcedure(container_link, sproc_definition)
 O seguinte código mostra como chamar um procedimento armazenado usando o Python SDK
 
 ```python
-sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItem'
+sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItems'
 new_item = [{
     'category':'Personal',
     'name':'Groceries',

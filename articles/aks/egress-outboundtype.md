@@ -4,12 +4,12 @@ description: Saiba como definir uma rota de saída personalizada no Serviço Azu
 services: container-service
 ms.topic: article
 ms.date: 06/05/2020
-ms.openlocfilehash: 03b18a9cb8fa28d54952a77bf8721c63dd56a9ad
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 10555b9c6e9d1d9670ae3bee488a60d782d267bf
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416788"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205820"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota definida pelo utilizador
 
@@ -103,7 +103,7 @@ DEVSUBNET_NAME="${PREFIX}dev"
 
 Em seguida, definir iDs de subscrição.
 
-```azure-cli
+```azurecli
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID
@@ -123,7 +123,7 @@ Fornecendo uma rede virtual com três sub-redes separadas, uma para o cluster, u
 
 Criar um grupo de recursos para deter todos os recursos.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -166,12 +166,12 @@ As regras de entrada e saída do Azure Firewall devem ser configuradas. O princi
 
 Crie um recurso IP público SKU padrão que será usado como o endereço frontal Azure Firewall.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Registe a pré-visualização da extensão cli para criar uma Firewall Azure.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -187,7 +187,7 @@ O endereço IP criado anteriormente pode agora ser atribuído ao frontend de fir
 > 
 > Se os erros forem repetidamente recebidos no comando abaixo, elimine a firewall existente e o IP público existente e disposição do IP público e do Azure Firewall através do portal ao mesmo tempo.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -214,7 +214,7 @@ O Azure liga automaticamente o tráfego entre sub-redes Azure, redes virtuais e 
 
 Crie uma tabela de rotas vazia para ser associada a uma determinada sub-rede. A tabela de rotas definirá o próximo salto como o Azure Firewall criado acima. Cada sub-rede pode ter zero ou uma tabela de rotas associada a si.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
 az network route-table create -g $RG --name $FWROUTE_TABLE_NAME
@@ -267,7 +267,7 @@ Consulte a [documentação do Azure Firewall](https://docs.microsoft.com/azure/f
 
 Para associar o cluster à firewall, a sub-rede dedicada para a sub-rede do cluster deve fazer referência à tabela de rotas criada acima. A associação pode ser feita através da emissão de um comando à rede virtual que mantém o cluster e a firewall para atualizar a tabela de rotas da sub-rede do cluster.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -283,7 +283,7 @@ Agora, um cluster AKS pode ser implantado na rede virtual existente. Para defini
 
 Um diretor de serviço é usado pela AKS para criar recursos de cluster. O principal serviço passado no tempo de criação é usado para criar recursos AKS subjacentes, tais como VMs, Armazenamento e Balanceadores de Carga usados pela AKS. Se for concedidas poucas permissões, não poderá providenciar um cluster AKS.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -291,7 +291,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 Agora substitua o `APPID` e `PASSWORD` abaixo pelo appid principal de serviço e senha principal de serviço autogerida pela saída de comando anterior. Vamos fazer referência ao ID de recursos VNET para conceder as permissões ao principal de serviço para que a AKS possa implantar recursos nele.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -319,7 +319,7 @@ A funcionalidade AKS para [gamas IP autorizadas pelo servidor API](api-server-au
 > [!TIP]
 > Podem ser adicionadas funcionalidades adicionais à implantação do cluster, tais como (Cluster Privado)[]. Ao utilizar gamas IP autorizadas, será necessária uma caixa de salto dentro da rede de cluster para aceder ao servidor API.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKS_NAME -l $LOC \
   --node-count 3 \
   --network-plugin azure --generate-ssh-keys \
@@ -351,7 +351,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
  Use o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para ligar ao seu cluster Kubernetes recém-criado. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
@@ -504,7 +504,7 @@ azure-vote-front   LoadBalancer   192.168.19.183   100.64.2.5    80:32106/TCP   
 kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        4d3h
 ```
 
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
@@ -515,7 +515,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

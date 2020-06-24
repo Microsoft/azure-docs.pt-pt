@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 6bf218f14b0fc783bead5183b22e4abcefe87b5a
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 647d0b13930109b093532ce0b330e9b3eb6d439b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660002"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260955"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
 Este artigo lista as recomendações que pode ver no Centro de Segurança Azure. As recomendações apresentadas no seu ambiente dependem dos recursos que está a proteger e da sua configuração personalizada.
+
+As recomendações do Centro de Segurança baseiam-se nas melhores práticas. Alguns estão alinhados com o **Azure Security Benchmark**, as diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre o Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).
 
 Para saber como responder a estas recomendações, consulte [recomendações do Remediate no Centro de Segurança Azure.](security-center-remediate-recommendations.md)
 
@@ -39,6 +41,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**A Norma de Proteção DDoS deve ser ativada**|Proteja as redes virtuais que contenham aplicações com IPs públicos, permitindo a norma de serviço de proteção DDoS. A proteção DDoS permite a mitigação de ataques volumosos e protocolares da rede.<br>(Política relacionada: A Norma de Proteção DDoS deve ser ativada)|Alta|N|Rede virtual|
 |**A App de função só deve estar acessível através do HTTPS**|Ativar o acesso "apenas HTTPS" para aplicações de função. A utilização do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito contra ataques de escutas de camadas de rede.<br>(Política relacionada: A App de funções só deve ser acessível através do HTTPS)|Médio|**S**|Function app|
 |**Máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança de rede**|Permitir que os Grupos de Segurança da Rede controlem o acesso à rede das suas máquinas virtuais.<br>(Política relacionada: as máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança da rede)|Alto/ Médio|N|Máquina virtual|
+|**Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede**|    Proteja as suas máquinas virtuais não viradas para a Internet contra potenciais ameaças, restringindo-lhes o acesso a grupos de segurança de rede (NSG).<br>Os NSGs contêm listas de controlo de acesso (ACL) e podem ser atribuídos ao NIC ou sub-rede do VM. As regras da ACL permitem ou negam o tráfego de rede ao recurso atribuído.<br>(Política relacionada: as máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede)|Baixa|N|Máquina virtual|
 |**O encaminhamento IP na sua máquina virtual deve ser desativado**|Desativar o encaminhamento IP. Quando o encaminhamento IP é ativado no NIC de uma máquina virtual, a máquina pode receber tráfego endereçado a outros destinos. O reencaminhamento IP raramente é necessário (por exemplo, quando se utiliza o VM como aparelho virtual de rede), pelo que este deve ser revisto pela equipa de segurança da rede.<br>(Política relacionada: [Pré-visualização]: O encaminhamento IP na sua máquina virtual deve ser desativado)|Médio|N|Máquina virtual|
 |**As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time**|Aplique o controlo de acesso da máquina virtual (JIT) just-in-time (VM) para bloquear permanentemente o acesso a portas selecionadas e permitir que os utilizadores autorizados as abram, via JIT, por um período limitado de tempo.<br>(Política relacionada: As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time)|Alta|N|Máquina virtual|
 |**As portas de gestão devem ser fechadas nas suas máquinas virtuais**|Endureça o grupo de segurança de rede das suas máquinas virtuais para restringir o acesso às portas de gestão.<br>(Política relacionada: As portas de gestão devem ser fechadas nas suas máquinas virtuais)|Alta|N|Máquina virtual|
@@ -93,9 +96,10 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub**|Os clientes do Event Hub não devem utilizar uma política de acesso ao nível do namespace que proporcione acesso a todas as filas e tópicos num espaço de nome. Para alinhar com o modelo de segurança de menor privilégio, deve criar políticas de acesso ao nível da entidade para filas e tópicos para fornecer acesso apenas à entidade específica.<br>(Política relacionada: Todas as regras de autorização, exceto rootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub)|Baixa|N|Recursos computacional (centro de eventos)|
 |**As regras de autorização da entidade Do Centro de Eventos devem ser definidas**|Regras de autorização de auditoria sobre a entidade Event Hub para conceder acesso menos privilegiado.<br>(Política relacionada: Devem ser definidas as regras de autorização da entidade Do Hub de Eventos)|Baixa|N|Recursos computacional (centro de eventos)|
 |**Instale o agente de monitorização nas suas máquinas virtuais**|Instale o agente de monitorização para permitir a recolha de dados, atualizações de digitalização, digitalização de linha de base e proteção de pontos finais em cada máquina.<br>(Sem política relacionada)|Alta|**S**|Máquina|
+|**O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**|O Security Center utiliza o [agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) (também conhecido como MMA) para recolher eventos de segurança das suas máquinas Azure Arc.<br>(Política relacionada: [Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc)|Alta|**S**|Máquina de arco azul|
+|**O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**|O Security Center utiliza o [agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) (também conhecido como MMA) para recolher eventos de segurança das suas máquinas Azure Arc.<br>(Política relacionada: [Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Linux Azure Arc)|Alta|**S**|Máquina de arco azul|
 |**A extensão de configuração do hóspede deve ser instalada em máquinas virtuais do Windows (Pré-visualização)**|Instale o agente de configuração do hóspede para permitir a auditoria de configurações dentro de uma máquina como: a configuração do sistema operativo, a configuração ou a presença da aplicação, as definições do ambiente. Uma vez instaladas, as políticas in-guest estarão disponíveis, tais como "Windows Exploit guard deve ser ativada".<br>(Política relacionada: Pré-requisitos de auditoria para permitir políticas de configuração de hóspedes em VMs windows)|Alta|**S**|Máquina|
 |**A Guarda de Exploração do Windows Defender deve ser ativada nas suas máquinas (Pré-visualização)**|O Windows Defender Exploit Guard aproveita o agente de configuração de convidados Azure Policy. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio geralmente usados em ataques de malware, ao mesmo tempo que permite às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas Windows).<br>(Política relacionada: Auditoria VMs do Windows em que o Windows Defender Exploit Guard não está ativado)|Médio|N|Máquina|
-|**Instale o agente de monitorização nas suas máquinas virtuais**|Instale o agente de monitorização para permitir a recolha de dados, atualizações de digitalização, digitalização de linha de base e proteção de pontos finais em cada máquina.<br>(Sem política relacionada)|Alta|**S**|Máquina|
 |**Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas**|Para a proteção total do Centro de Segurança, resolva os problemas do agente de monitorização nas suas máquinas seguindo as instruções do guia de resolução de problemas<br>(Nenhuma política relacionada - dependente de "Instalar o agente de monitorização nas suas máquinas virtuais")|Médio|N|Máquina|
 |**Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais**|Ativar o controlo da aplicação para controlar quais as aplicações que podem ser executadas nos seus VMs localizados em Azure. Isto ajudará a endurecer os seus VMs contra malware. O Security Center utiliza machine learning para analisar as aplicações em execução em cada VM e ajuda-o a aplicar regras usando esta inteligência. Esta capacidade simplifica o processo de configuração e manutenção da aplicação permite regras.<br>(Política relacionada: Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais)|Alta|N|Máquina|
 |**Instale a solução de proteção do ponto final nas suas máquinas**|Instale uma solução de proteção de ponto final nas suas máquinas Windows e Linux, para as proteger de ameaças e vulnerabilidades.<br>(Política relacionada: Monitorizar a falta de proteção do ponto de ponta no Centro de Segurança Azure)|Médio|N|Máquina|
@@ -168,7 +172,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**As contas preprecadas devem ser removidas da sua subscrição**|Remova as contas precotadas das suas subscrições para permitir o acesso apenas aos utilizadores atuais.<br>(Política relacionada: As contas precodadas devem ser removidas da sua subscrição)|Alta|N|Subscrição|
 |**Deve haver mais de um proprietário atribuído à sua subscrição**|Designe mais de um proprietário de subscrição para ter o administrador de acesso a despedimentos.<br>(Política relacionada: Deve haver mais de um proprietário atribuído à sua subscrição)|Alta|N|Subscrição|
 |**Um máximo de 3 proprietários deve ser designado para a sua subscrição**|Designar menos de três proprietários de subscrição para reduzir o potencial de violação por um proprietário comprometido.<br>(Política relacionada: Um máximo de 3 proprietários deve ser designado para a sua subscrição)|Alta|N|Subscrição|
-|**Os registos de diagnóstico no Cofre de Chaves devem ser ativados**|Ativar os registos e retê-los até um ano. Isto permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre de Chaves devem ser ativados)|Baixa|**S**|Cofre de Chaves|
+|**Os registos de diagnóstico no Cofre de Chaves devem ser ativados**|Ativar os registos e retê-los até um ano. Isto permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre de Chaves devem ser ativados)|Baixa|**S**|Key Vault|
 ||||||
 
 
@@ -181,7 +185,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre recomendações, consulte o seguinte:
 
 * [O módulo Microsoft Learn sobre como analisar as recomendações feitas pelo Security Center](https://docs.microsoft.com/learn/modules/identify-threats-with-azure-security-center/)

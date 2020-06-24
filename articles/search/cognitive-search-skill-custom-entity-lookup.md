@@ -1,77 +1,77 @@
 ---
-title: Habilidade de pesquisa cognitiva de pesquisa cognitiva de entidade personalizada
+title: Competência de pesquisa cognitiva de entidade personalizada
 titleSuffix: Azure Cognitive Search
-description: Extraide diferentes entidades personalizadas do texto num pipeline de pesquisa cognitiva Azure Cognitive Search. Esta habilidade está atualmente em pré-visualização pública.
+description: Extrair diferentes entidades personalizadas a partir de texto num pipeline de pesquisa cognitiva Azure Cognitive Search. Esta habilidade está atualmente em visualização pública.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085744"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987477"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (Pré-visualização)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (pré-visualização)
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . Atualmente não existe nenhum suporte de Portal ou .NET SDK.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe porta ou suporte .NET SDK.
 
-A habilidade de procura de **entidade personalizada** procura texto a partir de uma lista personalizada e definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência fuzzy que pode ser aplicado para encontrar fósforos que são semelhantes, mas não exatamente.  
+A habilidade **de Pesquisa de Entidade Personalizada** procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos.  
 
-Esta habilidade não está ligada a uma API de Serviços Cognitivos e pode ser usada gratuitamente durante o período de pré-visualização. No entanto, deve ainda [anexar um recurso dos Serviços Cognitivos](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)para anular o limite de enriquecimento diário. O limite diário aplica-se ao livre acesso aos Serviços Cognitivos quando acedido através da Pesquisa Cognitiva Azure.
+Esta habilidade não está ligada a uma API de Serviços Cognitivos e pode ser utilizada gratuitamente durante o período de pré-visualização. No entanto, deve [ainda anexar um recurso de Serviços Cognitivos](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)para anular o limite diário de enriquecimento. O limite diário aplica-se ao acesso gratuito aos Serviços Cognitivos quando acedido através da Azure Cognitive Search.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.CustomEntityLookupSkill 
+Microsoft.Skills.text.customentityLookupSkill 
 
 ## <a name="data-limits"></a>Limites de dados
-+ O tamanho máximo do recorde de entrada suportado é de 256 MB. Se precisar de separar os seus dados antes de enviá-los para a habilidade de procura de entidades personalizadas, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
-+ A tabela de definição de entidades máximas suportada é de 10 MB se for fornecida utilizando o parâmetro definição de *entidadesDefinitionUri.* 
-+ Se as entidades forem definidas inlineline, utilizando o parâmetro *inlineEntidadesDefinição,* o tamanho máximo suportado é de 10 KB.
++ O tamanho máximo do registo de entrada suportado é de 256 MB. Se precisar de separar os seus dados antes de os enviar para a competência de procura da entidade personalizada, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
++ A tabela de definição de entidades máximas suportada é de 10 MB se for fornecida utilizando o parâmetro *DefinitionUri das entidades.* 
++ Se as entidades forem definidas em linha, utilizando o parâmetro *inlineEntitiesDefinition,* o tamanho máximo suportado é de 10 KB.
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | Description |
 |--------------------|-------------|
-| entidadesDefinitionUri    | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para corresponder. Esta definição de entidade é lida no início de uma execução de indexante; quaisquer atualizações a este ficheiro a meio da execução não serão realizadas até que as execuções subsequentes. Este config deve estar acessível em HTTPS. Consulte o formato de definição de [entidade personalizada"](#custom-entity-definition-format) abaixo para obter o esquema csv ou JSON esperado.|
-|inlineEntidadesDefinição | Definições de entidade sons a ninline JSON. Este parâmetro substitui as entidadesDefinitionUri parâmetro se estiver presente. Não podem ser fornecidos mais de 10 KB de configuração em linha. Consulte a [Definição](#custom-entity-definition-format) de Entidade Personalizada abaixo para obter o esquema esperado da JSON. |
-|código de idioma padrão |    (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. Apoiam-se as seguintes `da, de, en, es, fi, fr, it, ko, pt`línguas: . O padrão é`en`inglês . Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.  |
+| `entitiesDefinitionUri`    | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para combinar. Esta definição de entidade é lida no início de uma execução indexante; quaisquer atualizações a este ficheiro a meio do percurso não serão realizadas até que os subsequentes sejam executados. Este config deve estar acessível em HTTPS. Consulte o formato [de definição de entidade personalizada"](#custom-entity-definition-format) abaixo para o esquema esperado de CSV ou JSON.|
+|`inlineEntitiesDefinition` | Definições de entidades JSON inline. Este parâmetro substitui as entidadesDefinitionUri se estiver presente. Não podem ser fornecidos mais de 10 KB de configuração em linha. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para o esquema esperado do JSON. |
+|`defaultLanguageCode` |    (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. São apoiadas as seguintes línguas: `da, de, en, es, fi, fr, it, ko, pt` . O padrão é inglês `en` ( ). Se passar num formato de código de identificação de idiomas, apenas é utilizada a parte do código de idiomas do formato.  |
 
 
-## <a name="skill-inputs"></a>Inputs de habilidade
+## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Nome de entrada      | Description                   |
 |---------------|-------------------------------|
-| texto          | O texto para analisar.          |
-| languageCode    | Opcional. A predefinição é `"en"`.  |
+| `text`          | O texto para analisar.          |
+| `languageCode`    | Opcional. A predefinição é `"en"`.  |
 
 
-## <a name="skill-outputs"></a>Saídas de habilidades
+## <a name="skill-outputs"></a>Saídas de competências
 
 
-| Nome de saída      | Descrição                   |
+| Nome de saída      | Description                   |
 |---------------|-------------------------------|
-| entidades | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade definida pelo utilizador no "Formato de Definição de Entidade Aduaneira". </li> <li> *tipo:* Tipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Recolha que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes desta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
+| `entities` | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade tal como definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade tal como definida pelo utilizador no "Formato de Definição de Entidade Personalizada". </li> <li> *tipo:* Tipo de entidade tal como definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Coleção que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto em bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a partida foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes esta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
   |
 
-## <a name="custom-entity-definition-format"></a>Formato de Definição de Entidade Personalizada
+## <a name="custom-entity-definition-format"></a>Formato de definição de entidade personalizada
 
-Existem 3 formas diferentes de fornecer a lista de entidades personalizadas à habilidade de Procura de Entidades Personalizadas. Pode fornecer a lista em . Ficheiro CSV, a . Ficheiro JSON ou como uma definição inline como parte da definição de habilidade.  
+Existem 3 maneiras diferentes de fornecer a lista de entidades personalizadas para a habilidade de Procuração de Entidade Personalizada. Pode fornecer a lista em um . Ficheiro CSV, a . Ficheiro JSON ou como definição inline como parte da definição de habilidade.  
 
-Se o ficheiro de definição for a . CSV ou . Arquivo JSON, o caminho do ficheiro precisa de ser fornecido como parte do parâmetro *entidadeSDefinitionUri.* Neste caso, o ficheiro é descarregado uma vez no início de cada execução de indexador. O ficheiro deve estar acessível desde que o indexante se destine a ser executado. Além disso, o ficheiro deve ser codificado UTF-8.
+Se o ficheiro de definição for um . CSV ou . . Ficheiro JSON, o caminho do ficheiro deve ser fornecido como parte do parâmetro *DefinitionUri das entidades.* Neste caso, o ficheiro é descarregado uma vez no início de cada execução do indexante. O ficheiro deve estar acessível enquanto o indexante se destinar a funcionar. Além disso, o ficheiro deve ser codificado UTF-8.
 
-Se a definição for fornecida inline, deve ser fornecida tão inline como o conteúdo do parâmetro de habilidade *inlineEntidadesDefinição.* 
+Se a definição for fornecida em linha, deve ser fornecida como o conteúdo do parâmetro de habilidade *inlineEntitiesDefinition.* 
 
 ### <a name="csv-format"></a>Formato CSV
 
-Pode fornecer a definição das entidades personalizadas a procurar num ficheiro De Valor Separado com ma (CSV), fornecendo o caminho para o ficheiro e definindo-o no parâmetro de *habilidades das entidadesDefinitionUri.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
+Pode fornecer a definição das entidades personalizadas a procurar num ficheiro coma-Separado valor (CSV), fornecendo o caminho para o ficheiro e definindo-o no parâmetro *de habilidades DefinitionUri das entidades.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
 
-O formato CSV é simples. Cada linha representa uma entidade única, como mostrado abaixo:
+O formato CSV é simples. Cada linha representa uma entidade única, como mostra abaixo:
 
 ```
 Bill Gates, BillG, William H. Gates
@@ -79,15 +79,15 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-Neste caso, existem três entidades que podem ser devolvidas como entidades encontradas (Bill Gates, Satya Nadella, Microsoft), mas serão identificadas se algum dos termos na linha (pseudónimos) for em conformidade com o texto. Por exemplo, se a corda "William H. Gates" for encontrada num documento, será devolvida uma correspondência para a entidade "Bill Gates".
+Neste caso, existem três entidades que podem ser devolvidas como entidades encontradas (Bill Gates, Satya Nadella, Microsoft), mas serão identificadas se algum dos termos da linha (pseudónimos) for igualado no texto. Por exemplo, se a corda "William H. Gates" for encontrada num documento, será devolvida uma correspondência para a entidade "Bill Gates".
 
 ### <a name="json-format"></a>Formato JSON
 
-Pode fornecer a definição das entidades personalizadas para procurar num ficheiro JSON também. O formato JSON dá-lhe um pouco mais de flexibilidade, uma vez que permite definir regras de correspondência por período. Por exemplo, pode especificar a distância de correspondência difusa (distância Damerau-Levenshtein) para cada período ou se a correspondência deve ser sensível à caixa ou não. 
+Você pode fornecer a definição das entidades personalizadas para procurar em um arquivo JSON também. O formato JSON dá-lhe um pouco mais de flexibilidade, uma vez que lhe permite definir regras correspondentes por período. Por exemplo, pode especificar a distância de correspondência difusa (distância Damerau-Levenshtein) para cada termo ou se a correspondência deve ser sensível a caso ou não. 
 
- Tal como acontece com os ficheiros CSV, é necessário fornecer o caminho para o ficheiro JSON e defini-lo no parâmetro de *habilidades definiçãoUri das entidades.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
+ Tal como acontece com os ficheiros CSV, é necessário fornecer o caminho para o ficheiro JSON e defini-lo no parâmetro *de habilidades DefinitionUri das entidades.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
 
-A definição de lista de entidades personalizadas mais básicas da JSON pode ser uma lista de entidades que correspondam:
+A definição de lista de entidades personalizadas JSON mais básica pode ser uma lista de entidades a combinar:
 
 ```json
 [ 
@@ -103,7 +103,7 @@ A definição de lista de entidades personalizadas mais básicas da JSON pode se
 ]
 ```
 
-Um exemplo mais complexo de uma definição JSON pode opcionalmente fornecer o id, descrição, tipo e subtipo de cada entidade - bem como outros *pseudónimos*. Se um termo de pseudónimo for igualado, a entidade será devolvida também:
+Um exemplo mais complexo de uma definição JSON pode opcionalmente fornecer o id, descrição, tipo e subtipo de cada entidade - bem como *outros pseudónimos*. Se um termo pseudónimo for igualado, a entidade também será devolvida:
 
 ```json
 [ 
@@ -141,36 +141,36 @@ Um exemplo mais complexo de uma definição JSON pode opcionalmente fornecer o i
 ] 
 ```
 
-As tabelas abaixo descrevem mais detalhes os diferentes parâmetros de configuração que pode definir ao definir as entidades para combinar:
+As tabelas abaixo descrevem em mais detalhes os diferentes parâmetros de configuração que pode definir ao definir as entidades para combinar:
 
-|  Nome do campo  |        Descrição  |
+|  Nome do campo  |        Description  |
 |--------------|----------------------|
-| nome | O descritor de entidade de alto nível. Os fósforos na saída de habilidades serão agrupados por este nome, e deve representar a forma "normalizada" do texto que está a ser encontrado.  |
-| descrição  | (Opcional) Este campo pode ser utilizado como uma passagem para metadados personalizados sobre os textos compatíveis. O valor deste campo aparecerá com cada correspondência da sua entidade na saída de habilidades. |
-| tipo | (Opcional) Este campo pode ser utilizado como uma passagem para metadados personalizados sobre os textos compatíveis. O valor deste campo aparecerá com cada correspondência da sua entidade na saída de habilidades. |
-| subtipo | (Opcional) Este campo pode ser utilizado como uma passagem para metadados personalizados sobre os textos compatíveis. O valor deste campo aparecerá com cada correspondência da sua entidade na saída de habilidades. |
-| ID | (Opcional) Este campo pode ser utilizado como uma passagem para metadados personalizados sobre os textos compatíveis. O valor deste campo aparecerá com cada correspondência da sua entidade na saída de habilidades. |
-| casoSensível | (Opcional) Incumprimentos a falsos. Valor booleano denotando se as comparações com o nome da entidade devem ser sensíveis ao invólucro de caracteres. Correspondências insensíveis de "Microsoft" podem ser: microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | (Opcional) Incumprimentos a 0. Valor máximo de 5. Denota o número aceitável de caracteres divergentes que ainda constituem uma correspondência com o nome da entidade. A menor confusão possível para qualquer partida é devolvida.  Por exemplo, se a distância de edição estiver definida para 3, o "Windows 10" ainda corresponderia a "Windows", "Windows10" e "Windows 7". <br/> Quando a sensibilidade do caso é definida como falsa, as diferenças de caso não contam para a tolerância de fuzziness, mas de outra forma contam. |
-| padrãoCaseSensitive | (Opcional) Altera o valor de sensibilidade do caso padrão para esta entidade. É usado para alterar o valor padrão de todos os pseudónimos casovalores sensíveis. |
-| padrãoFuzzyEditDistance | (Opcional) Altera o valor de distância de edição padrão para esta entidade. Pode ser usado para alterar o valor padrão de todos os pseudónimos valores fuzzyEditDistance. |
-| pseudónimos | (Opcional) Uma variedade de objetos complexos que podem ser usados para especificar ortografias alternativas ou sinónimos ao nome da entidade-raiz. |
+| `name` | O descritor de entidade de alto nível. Os fósforos na saída de habilidades serão agrupados por este nome, e devem representar a forma "normalizada" do texto encontrado.  |
+| `description`  | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
+| `type` | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
+| `subtype` | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
+| `id` | (Opcional) Este campo pode ser utilizado como um passthrough para metadados personalizados sobre os textos combinados. O valor deste campo aparecerá a cada partida da sua entidade na produção de competências. |
+| `caseSensitive` | (Opcional) Incumprimentos a falsos. Valor booleano denotando se as comparações com o nome da entidade devem ser sensíveis ao invólucro do carácter. Caso de amostras partidas insensíveis de "Microsoft" podem ser: microsoft, microSoft, MICROSOFT |
+| `fuzzyEditDistance` | (Opcional) Incumprimentos para 0. Valor máximo de 5. Denota o número aceitável de caracteres divergentes que ainda constituíam uma correspondência com o nome da entidade. A menor confusão possível para qualquer partida é devolvida.  Por exemplo, se a distância de edição for definida para 3, o "Windows 10" ainda corresponderia a "Windows", "Windows10" e "windows 7". <br/> Quando a sensibilidade do caso é definida como falsa, as diferenças de casos NÃO contam para a tolerância à fuzziness, mas de outra forma contam. |
+| `defaultCaseSensitive` | (Opcional) Altera o valor de sensibilidade ao caso padrão para esta entidade. É usado para alterar o valor predefinido de todos os casos de pseudónimos Valoressensíveis. |
+| `defaultFuzzyEditDistance` | (Opcional) Altera o valor de distância de edição padrão para esta entidade. Pode ser usado para alterar o valor padrão de todos os valores de EditDistance. |
+| `aliases` | (Opcional) Uma variedade de objetos complexos que podem ser usados para especificar ortografias ou sinónimos alternativos ao nome da entidade raiz. |
 
-| Propriedades do pseudónimo | Descrição |
+| Propriedades de alias | Description |
 |------------------|-------------|
-| texto  | A ortografia alternativa ou representação de algum nome de entidade-alvo.  |
-| casoSensível | (Opcional) Atua o mesmo que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
-| fuzzyEditDistance | (Opcional) Atua o mesmo que o parâmetro "fuzzyEditDistance" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
+| `text`  | A ortografia ou representação alternativa de algum nome de entidade-alvo.  |
+| `caseSensitive` | (Opcional) Age o mesmo que o parâmetro "caseSensitive" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
+| `fuzzyEditDistance` | (Opcional) Age o mesmo que o parâmetro "fuzzyEditDistance" da entidade raiz acima, mas aplica-se apenas a este pseudónimo. |
 
 
 ### <a name="inline-format"></a>Formato inline
 
-Em alguns casos, pode ser mais conveniente fornecer a lista de entidades personalizadas para combinar diretamente com a definição de habilidade. Nesse caso, pode utilizar um formato JSON semelhante ao acima descrito, mas está inlineado na definição de habilidade.
+Em alguns casos, pode ser mais conveniente fornecer a lista de entidades personalizadas para combinar diretamente com a definição de habilidade. Nesse caso, pode utilizar um formato JSON semelhante ao acima descrito, mas está indicado na definição de habilidade.
 Apenas configurações com menos de 10 KB de tamanho (tamanho serializado) podem ser definidas em linha. 
 
 ##    <a name="sample-definition"></a>Definição de amostra
 
-Uma definição de habilidade de amostra utilizando um formato inline é mostrada abaixo:
+Abaixo é apresentada uma definição de habilidade de amostra utilizando um formato inline:
 
 ```json
   {
@@ -188,7 +188,7 @@ Uma definição de habilidade de amostra utilizando um formato inline é mostrad
       }, 
       { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -208,7 +208,7 @@ Uma definição de habilidade de amostra utilizando um formato inline é mostrad
     ]
   }
 ```
-Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição de entidades, uma definição de habilidade de amostra utilizando o formato entidadesDefinitionUri é mostrada abaixo:
+Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição de entidades, é apresentada abaixo uma definição de habilidade de amostra utilizando o `entitiesDefinitionUri` formato:
 
 ```json
   {
@@ -231,7 +231,7 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
 
 ```
 
-##    <a name="sample-input"></a>Entrada da amostra
+##    <a name="sample-input"></a>Entrada de amostra
 
 ```json
 {
@@ -240,7 +240,7 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
         "recordId": "1",
         "data":
            {
-             "text": "The company microsoft was founded by Bill Gates. Microsoft's gaming console is called Xbox",
+             "text": "The company, Microsoft, was founded by Bill Gates. Microsoft's gaming console is called Xbox",
              "languageCode": "en"
            }
       }
@@ -296,14 +296,14 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
   } 
 ```
 
-## <a name="errors-and-warnings"></a>Erros e advertências
+## <a name="errors-and-warnings"></a>Erros e avisos
 
-### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Aviso: Alcançou a capacidade máxima para os fósforos, saltando todos os outros jogos duplicados.
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Aviso: Atingiu a capacidade máxima para partidas, saltando todos os jogos duplicados.
 
-Este aviso será emitido se o número de fósforos detetados for superior ao máximo permitido. Neste caso, deixaremos de incluir jogos duplicados. Se isso for inaceitável para si, por favor preencha um bilhete de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
+Este aviso será emitido se o número de partidas detetadas for superior ao máximo permitido. Neste caso, deixaremos de incluir correspondências duplicadas. Se isto for inaceitável para si, por favor preencha um [bilhete de apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Competência de Reconhecimento de Entidades (para procurar entidades conhecidas)](cognitive-search-skill-entity-recognition.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Competência de Reconhecimento de Entidades (procurar entidades conhecidas)](cognitive-search-skill-entity-recognition.md)

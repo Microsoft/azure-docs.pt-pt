@@ -4,16 +4,16 @@ description: Saiba como monitorizar o desempenho e disponibilidade do Azure Cosm
 author: bwren
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: a31636e4e56ddeb9f48cd8c955dc4415dacdc178
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0d675bd53eac728918c951b1db0dae0188f75df1
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234930"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262791"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Pode monitorizar os seus dados com métricas do lado do cliente e do servidor. A
 
 A imagem a seguir mostra diferentes opções disponíveis para monitorizar a conta DB do Azure Cosmos através do portal Azure:
 
-![Opções de monitorização disponíveis no portal Azure](media/monitor-cosmos-db/monitoring-options-portal.png)
+:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Opções de monitorização disponíveis no portal Azure" border="false":::
 
 Ao utilizar o Azure Cosmos DB, do lado do cliente pode recolher os dados para a cobrança de pedidos, ID de atividade, informações de exceção/stack de vestígios, código de estado/sub-estado HTTP, cadeia de diagnóstico para depurar qualquer problema que possa ocorrer. Esta informação também é necessária se precisar de contactar a equipa de apoio da Azure Cosmos DB.  
 
@@ -62,7 +62,7 @@ A Azure Cosmos DB recolhe os mesmos tipos de dados de monitorização que outros
 
 A página **geral** no portal Azure para cada base de dados Azure Cosmos inclui uma breve visão da utilização da base de dados, incluindo o seu pedido e o uso da faturação horária. Esta é uma informação útil, mas apenas uma pequena quantidade dos dados de monitorização disponíveis. Alguns destes dados são recolhidos automaticamente e disponíveis para análise assim que criar a base de dados, enquanto pode ativar a recolha adicional de dados com alguma configuração.
 
-![Página geral](media/monitor-cosmos-db/overview-page.png)
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Página geral":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Análise de dados métricos
 
@@ -82,27 +82,27 @@ Pode analisar métricas para Azure Cosmos DB com métricas de outros serviços A
 
 1. Selecione **Monitor** da barra de navegação à esquerda e selecione **Métricas**.
 
-   ![Painel de métricas no Monitor Azure](./media/monitor-cosmos-db/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Painel de métricas no Monitor Azure":::
 
 1. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione contas **DB Azure Cosmos**, escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
 
-   ![Escolha uma conta Cosmos DB para ver métricas](./media/monitor-cosmos-db/select-cosmosdb-account.png)
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Escolha uma conta Cosmos DB para ver métricas":::
 
 1. Em seguida, pode selecionar uma métrica da lista de métricas disponíveis. Pode selecionar métricas específicas para solicitar unidades, armazenamento, latência, disponibilidade, Cassandra, entre outras. Para saber em detalhe sobre todas as métricas disponíveis nesta lista, consulte as [Métricas por](monitor-cosmos-db-reference.md) artigo de categoria. Neste exemplo, vamos selecionar **unidades de Pedido** e **Avg** como o valor de agregação.
 
    Além destes detalhes, também pode selecionar a **gama de tempo** e a **granularidade** do tempo das métricas. No máximo, pode ver métricas nos últimos 30 dias.  Depois de aplicar o filtro, é apresentado um gráfico com base no filtro. Pode ver o número médio de unidades de pedido consumidas por minuto durante o período selecionado.  
 
-   ![Escolha uma métrica do portal Azure](./media/monitor-cosmos-db/metric-types.png)
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Escolha uma métrica do portal Azure":::
 
 ### <a name="add-filters-to-metrics"></a>Adicione filtros às métricas
 
 Também pode filtrar métricas e o gráfico apresentado por um **Nome**de Coleção específico, **DataName,** **OperationType,** **Região**e **StatusCode.** Para filtrar as métricas, **selecione Adicionar filtro** e escolha a propriedade necessária, como o **OperationType,** e selecione um valor como **Consulta.** Em seguida, o gráfico apresenta as unidades de pedido consumidas para a operação de consulta durante o período selecionado. As operações executadas através do procedimento armazenado não são registadas, pelo que não estão disponíveis ao abrigo da métrica OperationType.
 
-![Adicione um filtro para selecionar a granularidade métrica](./media/monitor-cosmos-db/add-metrics-filter.png)
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Adicione um filtro para selecionar a granularidade métrica":::
 
 Pode agrupar métricas utilizando a opção **de divisão De aplicar.** Por exemplo, pode agrupar as unidades de pedido por tipo de operação e ver o gráfico para todas as operações de uma só vez, como mostrado na imagem seguinte:
 
-![Adicione o filtro de divisão de aplicação](./media/monitor-cosmos-db/apply-metrics-splitting.png)
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Adicione o filtro de divisão de aplicação":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Análise de dados de registo
 

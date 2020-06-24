@@ -4,12 +4,12 @@ description: Saiba mais sobre as novidades e novidades recentes no serviço Azur
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: db52c8ce5e1b7e25d4af0c570189597e05b86588
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331870"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052333"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -17,20 +17,22 @@ ms.locfileid: "84331870"
 
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
-Novas versões do aparelho Azure Migrate.
+- Suporte para múltiplas credenciais no aparelho para a descoberta do servidor físico.
+- Suporte para permitir o login do Azure a partir de um aparelho para inquilino onde a restrição do inquilino tenha sido configurada.
+- Novas versões de aparelhoS Azure Migrate, conforme listado abaixo.
 
 ### <a name="azure-public-cloud"></a>Nuvem pública azul
 
-**Cenário*** | **Transferir** | **SHA256**
+**Cenário** | **Transferir** | **SHA256**
 --- | --- | ---
-Hiper-V (8.93 MB) | [Versão mais recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
+Hiper-V (8,93 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8658c950bc319bdbeb931bb93b440577264500091c846a1
 VMware (10,9 GB) | [Versão mais recente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6b6ce7402b79f234bc0fe69663d
 Físico (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac088850567cb57c9906fbc3b85a0
 
 
 ### <a name="azure-government"></a>Azure Government
 
-**Cenário*** | **Transferir** | **SHA256**
+**Cenário** | **Transferir** | **SHA256**
 --- | --- | ---
 Hiper-V (63,1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae4689408e43ab55ff397b77200b92121972e683f9aa3
 VMware (63.1 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d582038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
@@ -97,7 +99,7 @@ Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.
