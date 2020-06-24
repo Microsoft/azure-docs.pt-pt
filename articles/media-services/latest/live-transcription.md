@@ -12,33 +12,69 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 06/12/2019
 ms.author: inhenkel
-ms.openlocfilehash: 9481b4ee2f225c7f76337d73b27630e4c67cc780
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193613"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765017"
 ---
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (pré-visualização)
 
 O Azure Media Service fornece vídeo, áudio e texto em diferentes protocolos. Quando publica o seu live stream utilizando MPEG-DASH ou HLS/CMAF, em seguida, juntamente com vídeo e áudio, o nosso serviço entrega o texto transcrito em TTML compatível com IMSC1.1. A entrega é embalada em fragmentos MPEG-4 Parte 30 (ISO/IEC 14496-30). Se utilizar a entrega via HLS/TS, o texto é entregue como VTT em pedaços.
 
-Este artigo descreve como permitir a transcrição ao vivo ao transmitir um Evento Ao Vivo com a Azure Media Services v3. Antes de continuar, certifique-se de que está familiarizado com a utilização de Media Services v3 REST APIs (consulte [este tutorial](stream-files-tutorial-with-rest.md) para mais detalhes). Você também deve estar familiarizado com o conceito [de streaming ao vivo.](live-streaming-overview.md) Recomenda-se completar o Stream ao vivo com o tutorial [dos Media Services.](stream-live-tutorial-with-api.md)
+Aplicam-se taxas adicionais quando a transcrição ao vivo é ligada. Por favor, reveja as informações sobre os preços na secção vídeo ao vivo da [página de preços dos Serviços de Comunicação](https://azure.microsoft.com/pricing/details/media-services/)Social .
 
-> [!NOTE]
-> Atualmente, a transcrição ao vivo só está disponível como uma funcionalidade de pré-visualização na região oeste dos EUA 2. Apoia a transcrição de palavras faladas em inglês para texto. A referência da API para esta funcionalidade está localizada abaixo — becasuse que está em pré-visualização, os detalhes não estão disponíveis com os nossos documentos REST.
+Este artigo descreve como permitir a transcrição ao vivo ao transmitir um Evento Ao Vivo com a Azure Media Services. Antes de continuar, certifique-se de que está familiarizado com a utilização de Media Services v3 REST APIs (consulte [este tutorial](stream-files-tutorial-with-rest.md) para mais detalhes). Você também deve estar familiarizado com o conceito [de streaming ao vivo.](live-streaming-overview.md) Recomenda-se completar o Stream ao vivo com o tutorial [dos Media Services.](stream-live-tutorial-with-api.md)
 
-## <a name="creating-the-live-event"></a>Criação do Evento Ao Vivo
+## <a name="live-transcription-preview-regions-and-languages"></a>Regiões e línguas de pré-visualização da transcrição ao vivo
 
-Para criar o Live Event, envia a operação PUT para a versão de pré-visualização 2019-05-01, por exemplo:
+A transcrição ao vivo está disponível nas seguintes regiões:
+
+- Ásia Sudeste
+- Europa Ocidental
+- Europa do Norte
+- E.U.A. Leste
+- E.U.A. Central
+- E.U.A. Centro-Sul
+- E.U.A.Oeste 2
+- Sul do Brasil
+
+Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código de idioma na API.
+
+| Linguagem | Código do idioma |
+| -------- | ------------- |
+| Catalão  | ca-ES |
+| Dinamarquês (Dinamarca) | da-DK |
+| Alemão (Alemanha) | de-DE |
+| Inglês (Austrália) | en-AU |
+| Inglês (Canadá) | en-CA |
+| Inglês (Reino Unido) | en-GB |
+| Inglês (Índia) | en-IN |
+| Inglês (Nova Zelândia) | en-NZ |
+| Inglês (Estados Unidos) | pt-PT |
+| Espanhol (Espanha) | es-ES |
+| Espanhol (México) | es-MX |
+| Finlandês (Finlândia) | fi-FI |
+| Francês (Canadá) | fr-CA |
+| Francês (França) | fr-FR |
+| Italiano (Itália) | it-IT |
+| Neerlandês (Países Baixos) | nl-NL |
+| Português (Brasil) | pt-BR |
+| Português (Portugal) | pt-PT |
+| Sueco (Suécia) | sv-SE |
+
+## <a name="create-the-live-event-with-live-transcription"></a>Criar o evento ao vivo com transcrição ao vivo
+
+Para criar um evento ao vivo com a transcrição ligada, envie a operação PUT com a versão API de pré-visualização 2019-05-01, por exemplo:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-A operação tem o seguinte corpo (onde é criado um Evento Ao Vivo com RTMP como protocolo de ingestão). Note a adição de uma propriedade de transcrições. O único valor permitido para a linguagem é en-US.
+A operação tem o seguinte corpo (onde é criado um Evento Ao Vivo com RTMP como protocolo de ingestão). Note a adição de uma propriedade de transcrições.
 
 ```
 {
@@ -88,14 +124,14 @@ A operação tem o seguinte corpo (onde é criado um Evento Ao Vivo com RTMP com
 }
 ```
 
-Faça a sondagem do estado do Live Event até entrar no estado "Running", o que indica que agora pode enviar uma contribuição de feed RTMP. Agora pode seguir os mesmos passos que neste tutorial, como verificar o feed de pré-visualização e criar saídas ao vivo.
+## <a name="start-or-stop-transcription-after-the-live-event-has-started"></a>Iniciar ou parar a transcrição após o evento ao vivo ter começado
 
-## <a name="start-transcription-after-live-event-has-started"></a>Comece a transcrição após evento ao vivo já começou
+Você pode começar e parar a transcrição ao vivo enquanto o evento ao vivo está em funcionamento. Para obter mais informações sobre o início e a paragem de eventos ao vivo, leia a secção de operações de longa duração em [Develop with Media Services v3 APIs](media-services-apis-overview.md#long-running-operations).
 
-A transcrição ao vivo pode ser iniciada depois de um evento ao vivo ter começado. Para ligar transcrições ao vivo, remendo o evento ao vivo para incluir a propriedade "transcrições". Para desligar as transcrições ao vivo, a propriedade "transcrições" será removida do objeto do evento ao vivo.
+Para ligar transcrições ao vivo ou atualizar o idioma de transcrição, remendo o evento ao vivo para incluir uma propriedade de "transcrições". Para desligar as transcrições ao vivo, remova a propriedade "transcrições" do objeto do evento ao vivo.  
 
 > [!NOTE]
-> Ligar ou desligar a transcrição mais de uma vez durante o evento ao vivo não é um cenário apoiado.
+> Ligar ou desligar a transcrição **mais de uma vez** durante o evento ao vivo não é um cenário apoiado.
 
 Esta é a chamada para ligar transcrições ao vivo.
 
@@ -160,10 +196,8 @@ Reveja o artigo de [visão geral](dynamic-packaging-overview.md#to-prepare-your-
 
 Para pré-visualização, são conhecidos os seguintes problemas com transcrição ao vivo:
 
-* A funcionalidade está disponível apenas no West US 2.
-* As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* A única língua suportada é o inglês (en-us).
-* Com a proteção de conteúdos, apenas a encriptação do envelope AES é suportada.
+- As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
+- A proteção da gestão de direitos digitais (DRM) não se aplica à faixa de texto, apenas a encriptação do envelope AES é possível.
 
 ## <a name="next-steps"></a>Passos seguintes
 

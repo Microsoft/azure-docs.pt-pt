@@ -1,6 +1,6 @@
 ---
-title: Configure identidades geridas em Azure VMSS usando REST - Azure AD
-description: Instruções passo a passo para configurar um sistema e identidades geridas atribuídas pelo utilizador num VMSS Azure utilizando o CURL para fazer chamadas REST API.
+title: Configure identidades geridas em conjunto de escala de máquina virtual Azure usando REST - Azure AD
+description: Instruções passo a passo para configurar um sistema e identidades geridas atribuídas pelo utilizador num conjunto de escala de máquina virtual Azure utilizando o CURL para fazer chamadas de API REST.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,52 +15,52 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec0744e4a682bd7ef2c9bb6027392eba2bf2322
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253341"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693707"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em um conjunto de escala de máquina virtual usando chamadas REST API
+# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando chamadas REST API
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Identidades geridas para recursos Azure fornecem serviços Azure com uma identidade de sistema gerida automaticamente no Diretório Ativo Azure. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação DaD Azure, sem ter credenciais no seu código. 
+Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade de sistema gerida automaticamente no Azure Ative Directory. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código. 
 
-Neste artigo, utilizando o CURL para fazer chamadas para o ponto final do Gestor de Recursos Do Azure, aprende-se a executar as seguintes identidades geridas para operações de recursos Azure num conjunto de escala de máquina virtual:
+Neste artigo, utilizando o CURL para fazer chamadas para o ponto final do Azure Resource Manager REST, aprende-se a executar as seguintes identidades geridas para operações de recursos Azure num conjunto de escala de máquina virtual:
 
 - Ativar e desativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual Azure
 - Adicione e remova uma identidade gerida atribuída pelo utilizador num conjunto de escala de máquina virtual Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não está familiarizado com as identidades geridas para os recursos do Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de que revê a [diferença entre uma identidade gerida atribuída](overview.md#how-does-the-managed-identities-for-azure-resources-work)** ao sistema e atribuída ao utilizador.
+- Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar as operações de gestão neste artigo, a sua conta necessita das seguintes atribuições de controlo de acesso baseadas no papel Azure:
+- Para realizar as operações de gestão neste artigo, a sua conta necessita das seguintes atribuições de controlo de acesso baseados em funções Azure:
 
     > [!NOTE]
-    > Não são necessárias atribuições adicionais de diretório da AD.
+    > Não são necessárias atribuições adicionais de diretório ad AD.
 
-    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover o sistema e/ou a identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
-    - [Função de Colaborador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
-    - [Função do Operador de Identidade Gerido](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao utilizador de e para um conjunto de escala de máquina virtual.
-- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilize a [Casca de Nuvem Azure](../../cloud-shell/overview.md) no portal Azure.
-- [Instale a consola local Azure CLI,](/cli/azure/install-azure-cli)se utilizar o [Subsistema Windows para O Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
-- Se estiver a utilizar a consola local Azure `az login` CLI, inscreva-se no Azure utilizando uma conta associada à subscrição Azure que deseja gerir o sistema ou as identidades geridas atribuídas pelo utilizador.
+    - [Contribuinte de máquinas virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
+    - [Papel de Contribuinte de Identidade Gerido](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
+    - [Função de Operador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao utilizador de e para um conjunto de escala de máquina virtual.
+- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilize o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal Azure.
+- [Instale a consola local Azure CLI,](/cli/azure/install-azure-cli)se utilizar o [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+- Se estiver a utilizar a consola local Azure CLI, inscreva-se no Azure utilizando `az login` uma conta associada à subscrição Azure que gostaria de gerir o sistema ou identidades geridas atribuídas pelo utilizador.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
 
-Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída pelo sistema numa escala de máquina virtual utilizando o CURL para fazer chamadas para o ponto final do Gestor de Recursos Azure REST.
+Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual utilizando o CURL para fazer chamadas para o ponto final do Azure Resource Manager REST.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuída pelo sistema durante a criação de um conjunto de escala de máquina virtual
 
-Para criar um conjunto de escala de máquina virtual com identidade gerida atribuída pelo sistema, é necessário criar um conjunto de escala de máquina virtual e recuperar um token de acesso para utilizar o CURL para ligar para o ponto final do Gestor de Recursos com o valor de tipo de identidade gerido atribuído pelo sistema.
+Para criar um conjunto de escala de máquina virtual com identidade gerida atribuída pelo sistema, é necessário criar um conjunto de escala de máquina virtual e recuperar um token de acesso para usar o CURL para ligar para o ponto final do Gestor de Recursos com o valor do tipo de identidade gerido atribuído pelo sistema.
 
-1. Crie um grupo de [recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implantação do seu conjunto de escala de máquina virtual e seus recursos relacionados, utilizando a criação do [grupo Az](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
+1. Crie um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para a contenção e implantação do seu conjunto de escalas de máquinas virtuais e seus recursos relacionados, utilizando a [criação do grupo AZ](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -72,13 +72,13 @@ Para criar um conjunto de escala de máquina virtual com identidade gerida atrib
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+3. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
    ``` 
 
-4. Crie um conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final DO REST do Gestor de Recursos Azure. O exemplo seguinte cria um conjunto de escala de máquina virtual denominado *myVMSS* no *myResourceGroup* com uma `"identity":{"type":"SystemAssigned"}`identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor . Substitua-o `<ACCESS TOKEN>` pelo valor que recebeu no passo anterior quando `<SUBSCRIPTION ID>` solicitou um token de acesso ao Portador e o valor adequado para o seu ambiente.
+4. Crie um conjunto de balança de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST. O exemplo a seguir cria um conjunto de escala de máquina virtual denominado *myVMSS* no *myResourceGroup* com uma identidade gerida atribuída ao sistema, tal como identificado no organismo de pedido pelo valor `"identity":{"type":"SystemAssigned"}` . `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -88,14 +88,14 @@ Para criar um conjunto de escala de máquina virtual com identidade gerida atrib
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -164,16 +164,16 @@ Para criar um conjunto de escala de máquina virtual com identidade gerida atrib
 
 Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual existente, é necessário adquirir um token de acesso e, em seguida, utilizar o CURL para ligar para o ponto final do Gestor de Recursos REST para atualizar o tipo de identidade.
 
-1. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+1. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
    ```
 
-2. Utilize o seguinte comando CURL para ligar para o ponto final DO Gestor de Recursos Azure PARA ativar a `{"identity":{"type":"SystemAssigned"}` identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual identificado no organismo de pedido pelo valor de um conjunto de escala de máquina virtual denominado *myVMSS*.  Substitua-o `<ACCESS TOKEN>` pelo valor que recebeu no passo anterior quando `<SUBSCRIPTION ID>` solicitou um token de acesso ao Portador e o valor adequado para o seu ambiente.
+2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual, tal como identificado no corpo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um conjunto de escala de máquina virtual denominado *myVMSS*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
    
    > [!IMPORTANT]
-   > Para garantir que não apaga quaisquer identidades geridas atribuídas ao utilizador existentes que sejam atribuídas ao conjunto de escala de máquina `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`virtual, é necessário enumerar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: . Se tiver alguma identidade gerida atribuída ao utilizador atribuída à escala de máquina `identity` virtual identificada no valor da resposta, salte para o passo 3 que lhe mostre como reter identidades geridas atribuídas ao utilizador, permitindo a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual.
+   > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuída à escala de máquina virtual identificada como identificada no valor da `identity` resposta, salte para o passo 3 que lhe mostre como reter identidades geridas atribuídas pelo utilizador, permitindo a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual.
 
    ```bash
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -183,14 +183,14 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -200,13 +200,13 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
     }
    ```
 
-3. Para ativar a identidade gerida atribuída pelo sistema numa escala de máquina virtual com identidades `SystemAssigned` geridas `type` atribuídas ao utilizador existentes, precisa de adicionar ao valor.  
+3. Para ativar a identidade gerida atribuída pelo sistema numa escala de máquina virtual definida com identidades geridas atribuídas pelo utilizador, é necessário adicionar `SystemAssigned` ao `type` valor.  
    
-   Por exemplo, se o seu conjunto de escala de `ID1` máquina `ID2` virtual tiver as identidades geridas atribuídas ao utilizador e lhe for atribuída, e quiser adicionar a identidade gerida atribuída pelo sistema ao conjunto de escala de máquina virtual, utilize a seguinte chamada CURL. `<ACCESS TOKEN>` Substitua `<SUBSCRIPTION ID>` e com valores adequados ao seu ambiente.
+   Por exemplo, se o seu conjunto de escala de máquina virtual tiver as identidades geridas atribuídas pelo utilizador `ID1` e `ID2` lhe for atribuído, e pretender adicionar a identidade gerida atribuída ao conjunto de escala de máquina virtual, utilize a seguinte chamada CURL. Substitua `<ACCESS TOKEN>` e `<SUBSCRIPTION ID>` por valores adequados ao seu ambiente.
 
-   A versão `2018-06-01` API armazena identidades `userAssignedIdentities` geridas atribuídas ao utilizador no `identityIds` valor num formato dicionário `2017-12-01`em oposição ao valor num formato de matriz utilizado na versão API .
+   A versão API `2018-06-01` armazena identidades geridas atribuídas pelo utilizador `userAssignedIdentities` no valor num formato dicionário em oposição ao `identityIds` valor num formato de matriz utilizado na versão API `2017-12-01` .
    
-   **API VERSÃO 2018-06-01**
+   **VERSÃO API 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -216,14 +216,14 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` |
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. |
  
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -240,7 +240,7 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
     }
    ```
    
-   **API VERSÃO 2017-12-01**
+   **VERSÃO API 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -250,14 +250,14 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -273,18 +273,18 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
 
 ### <a name="disable-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Desativar a identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual
 
-Para desativar uma identidade atribuída ao sistema num conjunto de escala de máquina virtual existente, é necessário adquirir um token `None`de acesso e, em seguida, utilizar o CURL para ligar para o ponto final do Gestor de Recursos REST para atualizar o tipo de identidade para .
+Para desativar uma identidade atribuída ao sistema num conjunto de escala de máquina virtual existente, é necessário adquirir um token de acesso e, em seguida, utilizar o CURL para ligar para o ponto final do Gestor de Recursos REST para atualizar o tipo de identidade para `None` .
 
-1. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+1. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
    ```
 
-2. Atualize o conjunto de escala de máquina virtual utilizando o CURL para ligar para o ponto final DO REST do Gestor de Recursos Azure para desativar a identidade gerida atribuída pelo sistema.  O exemplo seguinte desativa a identidade gerida atribuída pelo sistema `{"identity":{"type":"None"}}` identificada no organismo de pedido pelo valor de um conjunto de escala de máquina virtual denominado *myVMSS*.  Substitua-o `<ACCESS TOKEN>` pelo valor que recebeu no passo anterior quando `<SUBSCRIPTION ID>` solicitou um token de acesso ao Portador e o valor adequado para o seu ambiente.
+2. Atualize o conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo a seguir desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um conjunto de escala de máquina virtual denominado *myVMSS*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    > [!IMPORTANT]
-   > Para garantir que não apaga quaisquer identidades geridas atribuídas ao utilizador existentes que sejam atribuídas ao conjunto de escala de máquina `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`virtual, é necessário enumerar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: . Se tiver alguma identidade gerida atribuída ao utilizador atribuída ao conjunto de escala de máquina virtual, salte para o passo 3 que lhe mostre como reter as identidades geridas atribuídas pelo utilizador enquanto remove a identidade gerida atribuída pelo sistema do seu conjunto de escala de máquina virtual.
+   > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuído à balança de máquinas virtual, salte para o passo 3 que lhe mostre como reter as identidades geridas atribuídas pelo utilizador, ao mesmo tempo que remove a identidade gerida atribuída pelo sistema do seu conjunto de escala de máquina virtual.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -294,14 +294,14 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -311,15 +311,15 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
     }
    ```
 
-   Para remover a identidade gerida atribuída pelo sistema a partir de um conjunto de `SystemAssigned` escala `{"identity":{"type:" "}}` de máquina `UserAssigned` virtual `userAssignedIdentities` que tenha identidades geridas atribuídas pelo utilizador, remova do valor mantendo o valor e os valores do dicionário se estiver a utilizar a **versão API 2018-06-01**. Se estiver a utilizar a **versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
+   Para remover a identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01**. Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída ao utilizador
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
-Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída pelo utilizador numa escala de máquina virtual utilizando o CURL para fazer chamadas para o ponto final do Gestor de Recursos Azure REST.
+Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída pelo utilizador num conjunto de escala de máquina virtual utilizando o CURL para fazer chamadas para o ponto final do Azure Resource Manager REST.
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Atribuir uma identidade gerida atribuída ao utilizador durante a criação de um conjunto de escala de máquina virtual
 
-1. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+1. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -331,17 +331,17 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+3. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
    ``` 
 
-4. Crie uma identidade gerida atribuída ao utilizador utilizando as instruções aqui encontradas: [Criar uma identidade gerida atribuída](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)ao utilizador .
+4. Criar uma identidade gerida atribuída pelo utilizador utilizando as instruções aqui encontradas: [Criar uma identidade gerida atribuída pelo utilizador](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-5. Crie um conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final DO REST do Gestor de Recursos Azure. O exemplo seguinte cria um conjunto de escala de máquina virtual denominado *myVMSS* no `ID1`grupo de recursos *myResourceGroup* com uma identidade gerida atribuída pelo utilizador, identificada no organismo de pedido pelo valor `"identity":{"type":"UserAssigned"}`. Substitua-o `<ACCESS TOKEN>` pelo valor que recebeu no passo anterior quando `<SUBSCRIPTION ID>` solicitou um token de acesso ao Portador e o valor adequado para o seu ambiente.
+5. Crie um conjunto de balança de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST. O exemplo a seguir cria um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup* com uma identidade gerida atribuída pelo utilizador `ID1` , tal como identificado no organismo de pedido pelo valor `"identity":{"type":"UserAssigned"}` . `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
  
-   **API VERSÃO 2018-06-01**
+   **VERSÃO API 2018-06-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -351,14 +351,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -428,7 +428,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```   
 
-   **API VERSÃO 2017-12-01**
+   **VERSÃO API 2017-12-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -438,14 +438,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` |
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. |
  
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -513,17 +513,17 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```
 
-### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Atribuir uma identidade gerida atribuída ao utilizador a um conjunto de escala de máquina virtual Azure existente
+### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Atribua uma identidade gerida atribuída ao utilizador a um conjunto de escala de máquina virtual Azure existente
 
-1. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+1. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
    ```
 
-2.  Criar uma identidade gerida atribuída ao utilizador utilizando as instruções aqui encontradas, [Criar uma identidade gerida atribuída](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)ao utilizador .
+2.  Criar uma identidade gerida atribuída pelo utilizador utilizando as instruções encontradas aqui, [Crie uma identidade gerida atribuída pelo utilizador](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
-3. Para garantir que não apaga as identidades geridas existentes do utilizador ou do sistema que são atribuídas ao conjunto de escala de máquina virtual, é necessário enumerar os tipos de identidade atribuídos à escala de máquina virtual definida utilizando o seguinte comando CURL. Se tiver gerido identidades atribuídas ao conjunto de escala de `identity` máquina virtual, estão listados no valor.
+3. Para garantir que não elimina as identidades geridas do utilizador ou do sistema que são atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar os tipos de identidade atribuídos à escala de máquina virtual definida utilizando o seguinte comando CURL. Se tiver gerido identidades atribuídas ao conjunto de escala de máquina virtual, estão listadas no `identity` valor.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -533,18 +533,18 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` |   
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. |   
  
 
-4. Se não tiver identidades geridas atribuídas ao utilizador ou ao sistema atribuídas ao seu conjunto de escala de máquina virtual, utilize o seguinte comando CURL para ligar para o ponto final do Gestor de Recursos Azure REST para atribuir a primeira identidade gerida atribuída ao conjunto de escala de máquina virtual.  Se tiver uma identidade(s) gerida atribuída ao utilizador ou ao conjunto de escala de máquina virtual, salte para o passo 5 que lhe mostre como adicionar várias identidades geridas atribuídas ao utilizador a um conjunto de escala de máquina virtual, mantendo também a identidade gerida atribuída pelo sistema.
+4. Se não tiver identidades geridas atribuídas ao utilizador ou sistema atribuído ao seu conjunto de escala de máquina virtual, utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para atribuir a primeira identidade gerida atribuída ao conjunto de escala de máquina virtual.  Se tiver uma identidade gerida atribuída ao utilizador ou ao sistema atribuído à escala de máquina virtual, salte para o passo 5 que lhe mostre como adicionar várias identidades geridas atribuídas ao utilizador a um conjunto de escala de máquina virtual, mantendo também a identidade gerida atribuída pelo sistema.
 
-   O exemplo seguinte atribui uma identidade gerida `ID1` atribuída pelo utilizador, a um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup*.  Substitua-o `<ACCESS TOKEN>` pelo valor que recebeu no passo anterior quando `<SUBSCRIPTION ID>` solicitou um token de acesso ao Portador e o valor adequado para o seu ambiente.
+   O exemplo a seguir atribui uma identidade gerida atribuída ao utilizador a `ID1` um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
-   **API VERSÃO 2018-06-01**
+   **VERSÃO API 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -554,14 +554,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -576,7 +576,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ``` 
     
-   **API VERSÃO 2017-12-01**
+   **VERSÃO API 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -586,14 +586,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -606,13 +606,13 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```  
 
-5. Se tiver uma identidade gerida atribuída ao utilizador ou atribuída ao sistema atribuída ao seu conjunto de escala de máquina virtual:
+5. Se tiver uma identidade gerida atribuída ao utilizador ou ao sistema atribuída ao seu conjunto de escala de máquina virtual:
    
-   **API VERSÃO 2018-06-01**
+   **VERSÃO API 2018-06-01**
 
-   Adicione a identidade gerida atribuída ao `userAssignedIdentities` utilizador ao valor do dicionário.
+   Adicione a identidade gerida atribuída ao valor do `userAssignedIdentities` dicionário.
 
-   Por exemplo, se tiver uma identidade gerida atribuída pelo sistema e `ID1` a identidade gerida atribuída ao utilizador atualmente atribuída à sua `ID2` escala de máquina virtual e quiser adicionar-lhe a identidade gerida atribuída pelo utilizador:
+   Por exemplo, se tiver a identidade gerida atribuída ao sistema e a identidade gerida atribuída ao utilizador `ID1` atualmente atribuída à sua escala de máquina virtual e gostaria de lhe adicionar a identidade gerida atribuída `ID2` pelo utilizador:
 
    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -622,14 +622,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -647,11 +647,11 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```
 
-   **API VERSÃO 2017-12-01**
+   **VERSÃO API 2017-12-01**
 
-   Mantenha as identidades geridas atribuídas ao utilizador `identityIds` que gostaria de manter no valor de matriz, ao mesmo tempo que adiciona a nova identidade gerida atribuída ao utilizador.
+   Mantenha as identidades geridas atribuídas pelo utilizador que pretende manter no valor da `identityIds` matriz, adicionando a nova identidade gerida atribuída pelo utilizador.
 
-   Por exemplo, se tiver identidade atribuída ao sistema e a `ID1` identidade gerida atribuída ao utilizador atualmente atribuída ao seu conjunto de `ID2` máquinas virtuais e quiser adicionar-lhe a identidade gerida atribuída pelo utilizador:
+   Por exemplo, se tiver identidade atribuída ao sistema e a identidade gerida atribuída ao utilizador `ID1` atualmente atribuída ao seu conjunto de escala de máquina virtual e gostaria de lhe adicionar a identidade gerida atribuída `ID2` pelo utilizador:
 
     ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -661,14 +661,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-    **Pedir cabeçalhos**
+    **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -682,15 +682,15 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```
 
-### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Remova uma identidade gerida atribuída ao utilizador de um conjunto de escala de máquina virtual
+### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Remova uma identidade gerida atribuída pelo utilizador de um conjunto de escala de máquina virtual
 
-1. Recupere um token de acesso ao Portador, que utilizará no próximo passo do cabeçalho de Autorização para criar a sua escala de máquina virtual definida com uma identidade gerida atribuída pelo sistema.
+1. Recupere um token de acesso ao Bearer, que utilizará no passo seguinte no cabeçalho de Autorização para criar o conjunto de escala de máquina virtual com uma identidade gerida pelo sistema.
 
    ```azurecli-interactive
    az account get-access-token
    ```
 
-2. Para garantir que não apaga quaisquer identidades geridas atribuídas ao utilizador existentes que deseja manter atribuídas ao conjunto de escala de máquina virtual ou remover a identidade gerida atribuída pelo sistema, é necessário enumerar as identidades geridas utilizando o seguinte comando CURL:
+2. Para garantir que não elimina quaisquer identidades geridas atribuídas pelo utilizador que gostaria de manter atribuídas ao conjunto de escalas de máquina virtual ou remover a identidade gerida atribuída pelo sistema, tem de listar as identidades geridas utilizando o seguinte comando CURL:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
@@ -700,19 +700,19 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` |
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. |
    
-   Se tiver gerido identidades atribuídas ao VM, estão listadas na resposta no `identity` valor. 
+   Se tiver gerido as identidades atribuídas ao VM, estão listadas na resposta no `identity` valor. 
     
-   Por exemplo, se tiver identidades geridas `ID1` `ID2` atribuídas ao utilizador e atribuídas ao seu `ID1` conjunto de escala de máquina virtual, e apenas pretender manter a identidade gerida atribuída ao sistema:
+   Por exemplo, se tiver identidades geridas atribuídas ao utilizador `ID1` e `ID2` atribuídas ao seu conjunto de escala de máquina virtual, e apenas pretender manter a identidade gerida atribuída pelo `ID1` sistema:
 
-   **API VERSÃO 2018-06-01**
+   **VERSÃO API 2018-06-01**
 
-   Adicione `null` à identidade gerida atribuída pelo utilizador que gostaria de remover:
+   Adicione `null` à identidade gerida atribuída ao utilizador que gostaria de remover:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -722,14 +722,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -742,9 +742,9 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```
 
-   **API VERSÃO 2017-12-01**
+   **VERSÃO API 2017-12-01**
 
-   Mantenha apenas a identidade(s) gerida atribuída pelo utilizador `identityIds` que deseja manter na matriz:
+   Reter apenas as identidades geridas atribuídas ao utilizador que pretende manter na `identityIds` matriz:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -754,14 +754,14 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Pedir cabeçalhos**
+   **Pedido de cabeçalhos**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-   **Solicitar corpo**
+   **Corpo de pedido**
 
    ```JSON
     {
@@ -774,7 +774,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
     }
    ```
 
-Se o seu conjunto de escala de máquina virtual tiver identidades geridas atribuídas ao sistema e atribuídas ao utilizador, pode remover todas as identidades geridas atribuídas pelo utilizador, mudando para utilização apenas atribuída pelo sistema utilizando o seguinte comando:
+Se o seu conjunto de escala de máquina virtual tiver identidades geridas atribuídas ao sistema e atribuídas pelo utilizador, pode remover todas as identidades geridas atribuídas pelo utilizador, mudando para utilizar apenas o sistema atribuído através do seguinte comando:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -784,14 +784,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Pedir cabeçalhos**
+**Pedido de cabeçalhos**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-**Solicitar corpo**
+**Corpo de pedido**
 
 ```JSON
 {
@@ -811,14 +811,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Pedir cabeçalhos**
+**Pedido de cabeçalhos**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Desemparado com um sinal de acesso válido. `Bearer` | 
+|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
 
-**Solicitar corpo**
+**Corpo de pedido**
 
 ```JSON
 {
@@ -830,6 +830,6 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre como criar, listar ou eliminar identidades geridas atribuídas pelo utilizador utilizando o REST ver:
+Para obter informações sobre como criar, listar ou eliminar identidades geridas atribuídas pelo utilizador utilizando o REST consulte:
 
-- [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador utilizando chamadas REST API](how-to-manage-ua-identity-rest.md)
+- [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador usando chamadas REST API](how-to-manage-ua-identity-rest.md)

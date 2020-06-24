@@ -1,6 +1,6 @@
 ---
 title: Configure identidades geridas em Azure VM usando Azure CLI - Azure AD
-description: Instruções passo a passo para configurar o sistema e as identidades geridas atribuídas pelo utilizador num Azure VM utilizando o Azure CLI.
+description: Instruções passo a passo para configurar o sistema e identidades geridas atribuídas pelo utilizador num Azure VM utilizando o Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,31 +15,31 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f2efaceefc53b3c0b5dfd899baf9fd30fdf9a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c2a33da3ca2b9f4416b63066b580d46cb82da85
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244150"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693979"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configure identidades geridas para recursos Azure em um Azure VM usando O ClI Azure
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configure identidades geridas para recursos Azure em um Azure VM usando Azure CLI
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Identidades geridas para recursos Azure fornecem serviços Azure com uma identidade gerida automaticamente no Diretório Ativo Azure. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação DaD Azure, sem ter credenciais no seu código. 
+Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código. 
 
-Neste artigo, utilizando o Azure CLI, aprende-se a executar as seguintes identidades geridas para operações de recursos Azure num Azure VM:
+Neste artigo, utilizando o CLI Azure, aprende-se a executar as seguintes identidades geridas para operações de recursos Azure num Azure VM:
 
 - Ativar e desativar a identidade gerida atribuída pelo sistema num VM Azure
 - Adicione e remova uma identidade gerida atribuída pelo utilizador num VM Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não está familiarizado com as identidades geridas para os recursos do Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de que revê a [diferença entre uma identidade gerida atribuída](overview.md#how-does-the-managed-identities-for-azure-resources-work)** ao sistema e atribuída ao utilizador.
+- Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para executar os exemplos do script CLI, tem três opções:
+- Para executar os exemplos de script do CLI, tem três opções:
     - Utilize a Casca de [Nuvem Azure](../../cloud-shell/overview.md) a partir do portal Azure (ver secção seguinte).
-    - Utilize a casca de nuvem azure incorporada através do botão "Try It", localizado no canto superior direito de cada bloco de código.
+    - Utilize o Azure Cloud Shell incorporado através do botão "Try It", localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir utilizar uma consola CLI local. 
       
       > [!NOTE]
@@ -51,9 +51,9 @@ Neste artigo, utilizando o Azure CLI, aprende-se a executar as seguintes identid
 
 Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída pelo sistema num Azure VM utilizando o Azure CLI.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Ativar identidade gerida atribuída pelo sistema durante a criação de um VM Azure
+### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Permitir a identidade gerida atribuída pelo sistema durante a criação de um VM Azure
 
-Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua conta necessita da atribuição de função de Colaborador de [Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretório da AD.
+Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua conta precisa da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
 1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta que esteja associada à subscrição do Azure na qual pretende implementar a VM:
 
@@ -67,23 +67,23 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
    az group create --name myResourceGroup --location westus
    ```
 
-3. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo seguinte cria um VM denominado *myVM* com uma identidade gerida `--assign-identity` atribuída pelo sistema, conforme solicitado pelo parâmetro. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
+3. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo a seguir cria um VM nomeado *myVM* com uma identidade gerida atribuída ao sistema, conforme solicitado pelo `--assign-identity` parâmetro. Os parâmetros `--admin-username` e `--admin-password` especificam o nome e a palavra-passe da conta de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
    ```
 
-### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Ativar a identidade gerida atribuída pelo sistema num VM Azure existente
+### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Permitir a identidade gerida atribuída pelo sistema num VM Azure existente
 
-Para permitir a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função de Colaborador de [Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretório da AD.
+Para ativar a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição Azure que contenha o VM.
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição Azure que contém o VM.
 
    ```azurecli-interactive
    az login
    ```
 
-2. Utilize a [az vm designada](/cli/azure/vm/identity/) com o `identity assign` comando, permitir a identidade atribuída ao sistema a um VM existente:
+2. Utilizar [a identidade az vm atribuir](/cli/azure/vm/identity/) com o comando permitir a identidade atribuída ao sistema a um `identity assign` VM existente:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -91,33 +91,33 @@ Para permitir a identidade gerida atribuída pelo sistema num VM, a sua conta ne
 
 ### <a name="disable-system-assigned-identity-from-an-azure-vm"></a>Desativar a identidade atribuída ao sistema a partir de um VM Azure
 
-Para desativar a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função de Colaborador de [Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretório da AD.
+Para desativar a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-Se tiver uma Máquina Virtual que já não necessite da identidade atribuída ao sistema, mas que ainda necessite de identidades atribuídas ao utilizador, utilize o seguinte comando:
+Se tiver uma Máquina Virtual que já não necessita da identidade atribuída ao sistema, mas que ainda precisa de identidades atribuídas ao utilizador, utilize o seguinte comando:
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
 ```
 
-Se tiver uma máquina virtual que já não necessite de identidade atribuída ao sistema e não possui identidades atribuídas ao utilizador, utilize o seguinte comando:
+Se tiver uma máquina virtual que já não necessita de identidade atribuída ao sistema e não tiver identidades atribuídas ao utilizador, utilize o seguinte comando:
 
 > [!NOTE]
-> O `none` valor é sensível ao caso. Deve ser minúsculo. 
+> O valor `none` é sensível a casos. Deve ser minúsculo. 
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída ao utilizador
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
-Nesta secção, você aprenderá a adicionar e remover uma identidade gerida atribuída pelo utilizador de um Azure VM usando o Azure CLI.
+Nesta secção, você aprenderá a adicionar e remover uma identidade gerida atribuída ao utilizador de um Azure VM usando Azure CLI.
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador durante a criação de um VM Azure
 
-Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua criação, a sua conta necessita das atribuições de funções de Colaborador de [Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de [Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretório da AD.
+Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua criação, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar. Crie um grupo de [recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para contenção e implementação da sua identidade gerida atribuída ao utilizador, utilizando a criação do [grupo Az](/cli/azure/group/#az-group-create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
+1. Pode saltar este passo se já tiver um grupo de recursos que gostaria de utilizar. Crie um [grupo de recursos](~/articles/azure-resource-manager/management/overview.md#terminology) para a contenção e implantação da sua identidade gerida atribuída pelo utilizador, utilizando a [criação do grupo AZ](/cli/azure/group/#az-group-create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -130,7 +130,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua cria
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   A resposta contém detalhes para a identidade gerida atribuída pelo utilizador criada, semelhante à seguinte. O valor de identificação do recurso atribuído à identidade gerida atribuída ao utilizador é utilizado na etapa seguinte.
+   A resposta contém detalhes para a identidade gerida atribuída pelo utilizador criada, semelhante à seguinte. O valor de identificação de recursos atribuído à identidade gerida atribuída pelo utilizador é utilizado no passo seguinte.
 
    ```json
    {
@@ -147,20 +147,20 @@ Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua cria
    }
    ```
 
-3. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo seguinte cria um VM associado à nova identidade atribuída `--assign-identity` ao utilizador, conforme especificado pelo parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores. 
+3. Crie uma VM com [az vm create](/cli/azure/vm/#az-vm-create). O exemplo a seguir cria um VM associado à nova identidade atribuída ao utilizador, conforme especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores. 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
    ```
 
-### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador a um VM Azure existente
+### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador a um Azure VM existente
 
-Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções de Colaborador de [Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de [Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretório da AD.
+Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
-1. Crie uma identidade atribuída ao utilizador com [az identity create](/cli/azure/identity#az-identity-create).  O `-g` parâmetro especifica o grupo de recursos onde a identidade `-n` atribuída ao utilizador é criada, e o parâmetro especifica o seu nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
+1. Crie uma identidade atribuída ao utilizador com [az identity create](/cli/azure/identity#az-identity-create).  O `-g` parâmetro especifica o grupo de recursos onde a identidade atribuída ao utilizador é criada, e o parâmetro especifica o `-n` seu nome. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
     > [!IMPORTANT]
-    > A criação de identidades geridas atribuídas ao utilizador com caracteres especiais (isto é, sublinhado) no nome não é suportada atualmente. Por favor, use caracteres alfanuméricos. Volte mais tarde para obter atualizações.  Para mais informações consulte [faQs e questões conhecidas](known-issues.md)
+    > A criação de identidades geridas atribuídas pelo utilizador com caracteres especiais (ou seja, sublinhar) no nome não é suportada atualmente. Por favor, use caracteres alfanuméricos. Volte mais tarde para obter atualizações.  Para mais informações, consulte [as PERGUNTAS Frequentes e questões conhecidas](known-issues.md)
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
@@ -182,17 +182,17 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    }
    ```
 
-2. Atribuir a identidade atribuída ao utilizador ao seu VM utilizando a atribuição de [identidade Az vM](/cli/azure/vm). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. Trata-se `<USER ASSIGNED IDENTITY NAME>` da propriedade de recursos `name` da identidade gerida atribuída pelo utilizador, tal como criado na etapa anterior:
+2. Atribua a identidade atribuída ao utilizador para o seu VM utilizando [a designação de identidade az vm](/cli/azure/vm). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. A `<USER ASSIGNED IDENTITY NAME>` propriedade de recursos geridos pelo utilizador atribuído ao `name` utilizador, tal como criado no passo anterior:
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
-### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remova uma identidade gerida atribuída ao utilizador de um VM Azure
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover uma identidade gerida atribuída pelo utilizador de um VM Azure
 
-Para remover uma identidade atribuída ao utilizador a um VM, a sua conta necessita da atribuição da função de Colaborador de [Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 
+Para remover uma identidade atribuída ao utilizador para um VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 
 
-Se esta for a única identidade gerida atribuída ao utilizador `UserAssigned` atribuída à máquina virtual, será removida do valor do tipo de identidade.  Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY>` será propriedade da `name` identidade atribuída ao utilizador, que pode ser encontrada na `az vm identity show`secção de identidade da máquina virtual utilizando:
+Se esta for a única identidade gerida atribuída ao utilizador atribuída à máquina virtual, `UserAssigned` será removida do valor do tipo de identidade.  Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. A `<USER ASSIGNED IDENTITY>` propriedade da identidade atribuída ao `name` utilizador, que pode ser encontrada na secção de identidade da máquina virtual `az vm identity show` utilizando:
 
 ```azurecli-interactive
 az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
@@ -201,23 +201,23 @@ az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGN
 Se o seu VM não tiver uma identidade gerida atribuída ao sistema e pretender remover todas as identidades atribuídas ao utilizador, utilize o seguinte comando:
 
 > [!NOTE]
-> O `none` valor é sensível ao caso. Deve ser minúsculo.
+> O valor `none` é sensível a casos. Deve ser minúsculo.
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
-Se o seu VM tiver identidades atribuídas ao sistema e atribuídas ao utilizador, pode remover todas as identidades atribuídas ao utilizador, mudando para utilização apenas atribuída ao sistema. Utilize o seguinte comando:
+Se o seu VM tiver identidades atribuídas ao sistema e atribuídas ao utilizador, pode remover todas as identidades atribuídas pelo utilizador, mudando para utilizar apenas as do sistema atribuídas ao sistema. Utilize o seguinte comando:
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Identidades geridas para a visão geral dos recursos do Azure](overview.md)
-- Para a criação full Azure VM Quickstarts, consulte: 
+- [Identidades geridas para visão geral dos recursos da Azure](overview.md)
+- Para a criação completa de Azure VM Quickstarts, consulte: 
   - [Criar uma máquina virtual Windows com CLI](../../virtual-machines/windows/quick-create-cli.md)  
-  - [Crie uma máquina virtual Linux com CLI](../../virtual-machines/linux/quick-create-cli.md) 
+  - [Criar uma máquina virtual Linux com CLI](../../virtual-machines/linux/quick-create-cli.md) 
 
 
 

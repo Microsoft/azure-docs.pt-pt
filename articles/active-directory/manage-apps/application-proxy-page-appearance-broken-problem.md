@@ -1,43 +1,43 @@
 ---
-title: A página da aplicação não é apresentada corretamente para aplicação Proxy app [ Proxy] Microsoft Docs
-description: Orientação quando a página não está a ser apresentada corretamente numa Aplicação de Procuração de Aplicações que integrou com a AD Azure
+title: Página de aplicações não é apresentada corretamente para app Proxy aplicação Proxy / Microsoft Docs
+description: Orientação quando a página não estiver a ser apresentada corretamente numa Aplicação Proxy de aplicação que integrou com Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 780847494da0ec5cd4eb8ab76f1e46125b8a7f8a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68381422"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764422"
 ---
-# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Página de aplicação não é apresentada corretamente para uma aplicação proxy de aplicação
+# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>A página de aplicação não apresenta corretamente para uma aplicação de Procuração de Aplicação
 
-Este artigo ajuda-o a resolver problemas com aplicações de procuração de aplicação de diretório sinuoso ativo do Azure quando navega para a página, mas algo na página não parece correto.
+Este artigo ajuda-o a resolver problemas com aplicações de Proxy de aplicação de diretório ativo Azure quando navega para a página, mas algo na página não parece correto.
 
 ## <a name="overview"></a>Descrição geral
-Quando publica uma aplicação Proxy de aplicação, apenas as páginas sob a sua raiz são acessíveis ao aceder à aplicação. Se a página não estiver a ser apresentada corretamente, o URL interno da raiz utilizado para a aplicação pode estar a faltar alguns recursos de página. Para resolver, certifique-se de ter publicado *todos os* recursos para a página como parte da sua aplicação.
+Quando publica uma aplicação Application Proxy, apenas as páginas sob a sua raiz estão acessíveis ao aceder à aplicação. Se a página não estiver a ser apresentada corretamente, o URL interno de raiz utilizado para a aplicação pode estar a perder alguns recursos de página. Para resolver, certifique-se de ter publicado *todos os* recursos para a página como parte da sua aplicação.
 
-Pode verificar se os recursos em falta são o problema abrindo o seu localizador de rede (como ferramentas Fiddler, ou F12 no Internet Explorer/Microsoft Edge), carregando a página e procurando 404 erros. Isso indica que as páginas atualmente não podem ser encontradas e que é necessário publicá-las.
+Pode verificar se falta recursos é o problema abrindo o seu localizador de rede (como fiddler, ou ferramentas F12 no Internet Explorer/Microsoft Edge), carregando a página e procurando 404 erros. Isto indica que as páginas atualmente não podem ser encontradas e que é necessário publicá-las.
 
-Como exemplo deste caso, assuma que publicou uma `http://myapps/expenses`aplicação de despesas `http://myapps/style.css`usando o URL interno, mas a aplicação usa a folha de estilos . Neste caso, a folha de estilos não é publicada na sua aplicação, por isso carregar a app de despesas lança um erro de 404 enquanto tenta carregar style.css. Neste exemplo, o problema resolve-se publicando `http://myapp/`a aplicação com um URL interno .
+Como exemplo deste caso, assuma que publicou uma aplicação de despesas usando o URL `http://myapps/expenses` interno, mas a aplicação utiliza a folha de estilo `http://myapps/style.css` . Neste caso, a folha de estilo não é publicada na sua aplicação, pelo que o carregamento da app de despesas lança um erro de 404 enquanto tenta carregar style.css. Neste exemplo, o problema resolve-se publicando a aplicação com um URL `http://myapp/` interno.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problemas com a publicação como uma aplicação
 
-Se não for possível publicar todos os recursos dentro da mesma aplicação, é necessário publicar várias aplicações e ativar ligações entre eles.
+Se não for possível publicar todos os recursos dentro da mesma aplicação, é necessário publicar várias aplicações e ativar ligações entre elas.
 
-Para tal, recomendamos a utilização da solução de [domínios personalizados.](application-proxy-configure-custom-domain.md) No entanto, esta solução requer que possua o certificado para o seu domínio e as suas aplicações utilizam nomes de domínio totalmente qualificados (FQDNs). Para outras opções, consulte a documentação de [links quebrados](application-proxy-page-links-broken-problem.md).
+Para tal, recomendamos a utilização da solução [de domínios personalizados.](application-proxy-configure-custom-domain.md) No entanto, esta solução requer que possua o certificado para o seu domínio e as suas aplicações utilizem nomes de domínio totalmente qualificados (FQDNs). Para outras opções, consulte a [documentação de links quebrados .](application-proxy-page-links-broken-problem.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 [Publicar aplicações com o Proxy da Aplicação do Azure AD](application-proxy-add-on-premises-application.md)

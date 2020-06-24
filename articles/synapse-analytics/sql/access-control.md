@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310262"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765085"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
@@ -169,14 +169,7 @@ Para conceder acesso a um utilizador a uma **única** Base de Dados SQL, siga es
 > *db_datareader* e *db_datawriter* podem trabalhar para permissões de leitura/escrita se a concessão *de db_owner* permissão não for desejada.
 > Para que um utilizador da Spark leia e escreva diretamente a partir da Spark dentro/a partir de uma piscina SQL, é necessária *db_owner* permissão.
 
-Depois de criar os utilizadores, valide que o SQL a pedido pode consultar a conta de armazenamento:
-
-- Executar o seguinte comando direcionando a base de dados **principal** da SQL a pedido:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+Depois de criar os utilizadores, valide que o SQL a pedido pode consultar a conta de armazenamento.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>O controlo de acesso ao gasoduto workspace funciona
 

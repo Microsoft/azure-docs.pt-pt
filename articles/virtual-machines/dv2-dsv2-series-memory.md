@@ -7,20 +7,20 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: fb493154f81eb5ab63ed9593479356fe89552211
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7dbc1f111225ecbe40329594479a8469f8bd8418
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678261"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694713"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Memória otimizada Dv2 e Série Dsv2
 
-Dv2 e série Dsv2, uma continuação da série D original, apresenta um CPU mais poderoso. Os tamanhos da série DSv2 são executados no Intel® Xeon® 8171M 2.1 GHz (Skylake) ou no Intel® Xeon® E5-02673 v4 2.3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell). A série Dv2 tem as mesmas configurações de memória e disco da série D.
+Dv2 e série Dsv2, uma continuação da série D original, apresenta um CPU mais poderoso. Os tamanhos da série DSv2 funcionam em Intel® Xeon® Platinum 8272CL (Lago cascata), Intel® Xeon® 8171M 2.1 GHz (Skylake), ou no Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell). A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
 ## <a name="dv2-series-11-15"></a>Série Dv2 11-15
 
-Os tamanhos da série Dv2 são executados no Intel® Xeon® 8171M 2.1 GHz (Skylake) ou no Intel® Xeon® E5-2 673 v4 2.3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell).
+Os tamanhos da série Dv2 são executados em Intel® Xeon® Platinum 8272CL (Lago cascade), Intel® Xeon® 8171M 2.1 GHz (Skylake), ou no Intel® XeonXeon® E5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell).
 
 ACU: 210 - 250
 
@@ -41,7 +41,7 @@ Caching de armazenamento premium: Não suportado
 
 ## <a name="dsv2-series-11-15"></a>Série DSv2 11-15
 
-Os tamanhos da série DSv2 são executados no Intel® Xeon® 8171M 2.1 GHz (Skylake) ou no Intel® Xeon® E5-02673 v4 2.3 GHz (Broadwell) ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell).
+Os tamanhos da série DSv2 funcionam em Intel® Xeon® Platinum 8272CL (Lago cascata), Intel® Xeon® 8171M 2.1 GHz (Skylake), ou no Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell).
 
 ACU: 210 - 250 <sup>1</sup>
 
@@ -73,6 +73,6 @@ Caching de armazenamento premium: Suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
