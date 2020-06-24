@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 10d54088859332ad986dc642247c6af96b378978
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553896"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753214"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhe os pedidos de entrada com o OpenCensus Python
 
@@ -33,7 +33,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
     )
     ```
 
-3. Certifique-se de que o AzureExporter está corretamente configurado na sua `settings.py` `OPENCENSUS` sub.
+3. Certifique-se de que o AzureExporter está corretamente configurado na sua `settings.py` `OPENCENSUS` sub. Para pedidos de urls que não deseja rastrear, adicione-os a `BLACKLIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -42,20 +42,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. Também pode adicionar urls a `settings.py` `BLACKLIST_PATHS` pedidos que não pretende rastrear.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -87,7 +74,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
     
     ```
 
-2. Pode configurar o `flask` seu middleware diretamente no código. Para pedidos de urls que não deseja rastrear, adicione-os a `BLACKLIST_PATHS` .
+2. Também pode configurar a sua `flask` aplicação através de `app.config` . Para pedidos de urls que não deseja rastrear, adicione-os a `BLACKLIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {

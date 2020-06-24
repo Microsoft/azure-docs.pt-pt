@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 12/27/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: bc312964b9afe5c025b6e13657ccf2725aff3bd8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552404"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816722"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para a aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ O Azure Machine Learning [compute instance (preview)](concept-compute-instance.m
 
 Não há nada para instalar ou configurar para um caso de computação.  Crie um a qualquer momento a partir do seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo Azure VM. Experimente agora com este [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
 
-Saiba mais sobre [casos de computação.](concept-compute-instance.md)
+Para saber mais sobre casos de computação, incluindo como instalar pacotes, consulte [instâncias computacionais](concept-compute-instance.md).
 
 Para parar de incorrer em taxas de cálculo, [pare a instância de cálculo](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
@@ -345,7 +345,7 @@ Experimente:
 
 ## <a name="create-a-workspace-configuration-file"></a><a id="workspace"></a>Criar um ficheiro de configuração do espaço de trabalho
 
-O ficheiro de configuração do espaço de trabalho é um ficheiro JSON que diz ao SDK como comunicar com o seu espaço de trabalho Azure Machine Learning. O ficheiro chama-se *config.json,* e tem o seguinte formato:
+O ficheiro de configuração do espaço de trabalho é um ficheiro JSON que diz ao SDK como comunicar com o seu espaço de trabalho Azure Machine Learning. O ficheiro é nomeado *config.jsem*, e tem o seguinte formato:
 
 ```json
 {
@@ -361,9 +361,9 @@ Para utilizar este ficheiro a partir do seu código, utilize `ws=Workspace.from_
 
 Pode criar o ficheiro de configuração de três formas:
 
-* **Utilize [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** para escrever um ficheiro *config.json.* O ficheiro contém as informações de configuração para o seu espaço de trabalho. Você pode baixar ou copiar o *config.json* para outros ambientes de desenvolvimento.
+* **Utilize [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** para escrever um *config.jsno* ficheiro. O ficheiro contém as informações de configuração para o seu espaço de trabalho. Você pode baixar ou copiar o *config.jsem* outros ambientes de desenvolvimento.
 
-* **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione **Baixar config.json** da secção **Overview** do seu espaço de trabalho.
+* **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
 
      ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 
@@ -384,7 +384,7 @@ Pode criar o ficheiro de configuração de três formas:
         print('Workspace not found')
     ```
 
-    Este código escreve o ficheiro de configuração para o ficheiro *.azureml/config.json.*
+    Este código escreve o ficheiro de configuração para o *ficheiro .azureml/config.js.*
 
 ## <a name="next-steps"></a>Passos seguintes
 

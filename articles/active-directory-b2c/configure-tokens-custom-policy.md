@@ -1,7 +1,7 @@
 ---
-title: Gerir a personalização SSO e simbólica utilizando políticas personalizadas
+title: Gerir a personalização SSO e token usando políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba mais sobre gestão de SSO e personalização simbólica utilizando políticas personalizadas no Azure Ative Directory B2C.
+description: Saiba como gerir a personalização SSO e token usando políticas personalizadas no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0b460d5a3c5535b74e349fa46c6a2ad55fc3a8d8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a60824ecac9d62de74ac00472ca9108789b9b3a8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966574"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202881"
 ---
-# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir a personalização SSO e simbólica utilizando políticas personalizadas no Diretório Ativo Azure B2C
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir a personalização SSO e token utilizando políticas personalizadas no Azure Ative Directory B2C
 
-Este artigo fornece informações sobre como pode gerir as configurações de token, session e single sign-on (SSO) utilizando [políticas personalizadas](custom-policy-overview.md) no Azure Ative Directory B2C (Azure AD B2C).
+Este artigo fornece informações sobre como você pode gerir as suas configurações de token, sessão e único sign-on (SSO) usando [políticas personalizadas](custom-policy-overview.md) em Azure Ative Directory B2C (Azure AD B2C).
 
-## <a name="jtw-token-lifetimes-and-claims-configuration"></a>Configuração de token e reivindicações jTW
+## <a name="jtw-token-lifetimes-and-claims-configuration"></a>JTW token lifes and claims configuração
 
-Para alterar as definições das suas vidas simbólicas, adicione um elemento [Reclamadores](claimsproviders.md) no ficheiro partidário de confiança da política que pretende impactar.  O elemento **ClaimsProviders** é uma criança do elemento [TrustFrameworkPolicy.](trustframeworkpolicy.md)
+Para alterar as definições das suas vidas simbólicas, adicione um elemento [ClaimsProviders](claimsproviders.md) no ficheiro de partidos de suporte da política que pretende impactar.  O elemento **ClaimsProviders** é uma criança do elemento [TrustFrameworkPolicy.](trustframeworkpolicy.md)
 
-Insira o elemento ClaimsProviders entre o elemento BasePolicy e o elemento RelyingParty do ficheiro do partido que depende.
+Insira o elemento ClaimsProviders entre o elemento BasePolicy e o elemento RelyingParty do ficheiro do partido.
 
-Lá dentro, terás de pôr a informação que afeta as tuas vidas simbólicas. O XML parece-se com este exemplo:
+Lá dentro, terás de colocar a informação que afeta as tuas vidas simbólicas. O XML parece este exemplo:
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <DisplayName>Token Issuer</DisplayName>
@@ -52,16 +52,16 @@ Lá dentro, terás de pôr a informação que afeta as tuas vidas simbólicas. O
 
 Os seguintes valores são definidos no exemplo anterior:
 
-- **Acesso a token lifetimes** - O valor de vida token de acesso é definido com **token_lifetime_secs** item de metadados. O valor predefinido é de 3600 segundos (60 minutos).
-- **ID token lifetime** - O valor de vida token id é definido com o **id_token_lifetime_secs** item metadados. O valor predefinido é de 3600 segundos (60 minutos).
-- Refrescar a **vida útil do token** - O valor de vida token de atualização é definido com **o** refresh_token_lifetime_secs item metadados. O valor predefinido é de 1209600 segundos (14 dias).
-- **Refresque** a vida útil da janela deslizante do token - Se quiser definir uma janela deslizante para o seu token de atualização, detete o valor do **rolling_refresh_token_lifetime_secs** item de metadados. O valor predefinido é de 7776000 (90 dias). Se não quiser impor uma vida útil deslizante da `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`janela, substitua o item por .
-- **Reclamação do emitente (iss)** - A alegação do Emitente (iss) é definida com o item de metadados **IssuanceClaimPattern.** Os valores `AuthorityAndTenantGuid` aplicáveis são e `AuthorityWithTfp`.
-- **Definição** de reclamação representando ID de `TFP` política - As `ACR` opções para definir este valor são (política de quadro de confiança) e (referência de contexto de autenticação). `TFP`é o valor recomendado. Definir **AutenticaçãoContextoReferênciaReclamação** com `None`o valor de .
+- **Prazos de vida de acesso -** O valor de vida útil do símbolo de acesso é definido com **token_lifetime_secs** item de metadados. O valor predefinido é de 3600 segundos (60 minutos).
+- **ID token lifetime -** O valor de vida de símbolo de ID é definido com o **item metadados id_token_lifetime_secs.** O valor predefinido é de 3600 segundos (60 minutos).
+- **Atualizar a vida útil -** O valor de vida de token de atualização é definido com o item metadados **refresh_token_lifetime_secs.** O valor predefinido é de 1209600 segundos (14 dias).
+- **Refrescar a vida útil da janela deslizante** - Se quiser definir uma janela deslizá-la para o seu token de atualização, desapedace o valor do **rolling_refresh_token_lifetime_secs** item metadados. O valor predefinido é de 7776000 (90 dias). Se não pretender impor uma janela deslizante, substitua o item por `<Item Key="allow_infinite_rolling_refresh_token">True</Item>` .
+- **Reclamação emitente (iss)** - A alegação do Emitente (iss) é definida com o item metadados **IssuanceClaimPattern.** Os valores aplicáveis são `AuthorityAndTenantGuid` `AuthorityWithTfp` e.
+- **Definição de reclamação que representa o ID da política** - As opções para definir este valor são `TFP` (política de quadro de confiança) e `ACR` (referência de contexto de autenticação). `TFP`é o valor recomendado. Definir **AutenticaçãoContextReferenceClaimPattern** com o valor de `None` .
 
     No elemento **ClaimsSchema,** adicione este elemento:
 
-    ```XML
+    ```xml
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
@@ -70,26 +70,26 @@ Os seguintes valores são definidos no exemplo anterior:
 
     No seu elemento **OutputClaims,** adicione este elemento:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
-    Para a ACR, remova o item de direito de referência de contexto **de autenticação.**
+    Para ACR, **remova o produto AuthenticationContextReferenceClaimPattern.**
 
-- **Reclamação (sub)** - Esta opção não se aplica ao ObjectID, se quiser mudar esta definição para `Not Supported`, substitua esta linha:
+- **Reclamação (sub) assunto** - Esta opção é predefinida para ObjectID, se pretender mudar esta definição para `Not Supported` , substituir esta linha:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
     com esta linha:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a [sessão Azure AD B2C.](session-overview.md)
+- Saiba mais sobre [a sessão Azure AD B2C](session-overview.md).
 - Saiba como configurar o comportamento da [sessão em políticas personalizadas.](session-behavior-custom-policy.md)
 - Referência: [JwtIssuer](jwt-issuer-technical-profile.md).

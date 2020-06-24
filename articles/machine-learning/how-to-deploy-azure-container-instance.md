@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/27/2019
-ms.openlocfilehash: eddbe03225dc4f4e81e90be80e2613f633ea69c9
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/12/2020
+ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433417"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753174"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo para instâncias de contentores Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

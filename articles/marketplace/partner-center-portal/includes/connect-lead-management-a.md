@@ -1,31 +1,30 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 06/01/2020
 ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d868d7d231f6dbe1952756917e5a7965d6cea2e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80286188"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686358"
 ---
-Conecte-se diretamente com os clientes, listando a sua oferta nos mercados e ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM) para que possa receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implementar o seu produto.
+Conecte-se diretamente com os clientes, listando a sua oferta nos mercados e ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM) para que possa receber informações de contacto com o cliente imediatamente após um cliente expressar interesse ou implementar o seu produto.
 
-- **Escolha um destino principal** (menu suspenso): Forneça detalhes de ligação ao sistema CRM onde pretende que enviemos pistas de cliente. 
+- **Escolha um destino de chumbo** (menu suspenso): Forneça detalhes de conexão para o sistema CRM onde gostaria que enviássemos os leads do cliente. 
 
-O Partner Center suporta os seguintes sistemas CRM para gestão de chumbo. Selecione o link para instruções de configuração.
+O Partner Center suporta os seguintes sistemas de CRM para gestão de chumbo. Selecione o link para instruções de configuração.
 
-- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) - Forneça e-mails de contacto, nome do contentor e cadeia de conexão de conta de armazenamento. 
-- [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md) - Forneça o fio de ligação de e-mail de contacto e de armazenamento da conta. 
-- [Dinâmica CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Forneça e-mail de contacto, URL e modo de autenticação (Office 365 ou Azure Ative Directory).
-- [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md) - Forneça email de contacto e URL de ponto final HTTPS. 
-- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) - Forneça e-mail de contacto, id de formulário, ID da conta de Munchkin e ID do servidor.
-- [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) - Forneça email de contacto e ID da organização. 
+- [Tabela Azure](../commercial-marketplace-lead-management-instructions-azure-table.md) - Forneça o fio de ligação de conta de e-mail e armazenamento de contactos. 
+- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Forneça e-mail de contacto, URL e modo de autenticação (Office 365 ou Azure Ative Directory).
+- [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md) - Forneça e-mail de contacto e URL de ponto final HTTPS. 
+- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) - Fornecer e-mail de contacto, identificação de formulário, ID de conta Munchkin e ID do servidor.
+- [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) - Forneça e-mail de contato e iD de organização. 
 

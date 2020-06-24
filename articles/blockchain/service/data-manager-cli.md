@@ -1,54 +1,54 @@
 ---
-title: Configure Blockchain Data Manager usando O Serviço Azure CLI - Azure Blockchain
-description: Crie e gerencie um Gestor de Dados blockchain para o Serviço Azure Blockchain utilizando o Azure CLI
+title: Configure Gestor de Dados blockchain usando Azure CLI - Azure Blockchain Service
+description: Criar e gerir um Gestor de Dados blockchain para o Serviço Azure Blockchain utilizando o Azure CLI
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254415"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200465"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Blockchain Data Manager com a CLI do Azure
 
-Configure O Gestor de Dados blockchain para o Serviço Azure Blockchain para capturar dados blockchain envie-os para um tópico de grelha de eventos Azure.
+Configure Blockchain Data Manager para o Serviço Azure Blockchain para capturar dados blockchain enviá-lo para um tópico de grelha de evento azure.
 
 Para configurar uma instância do Gestor de Dados blockchain, você:
 
-* Criar uma instância de Blockchain Manager
-* Criar uma entrada para um nó de transação do Serviço Blockchain Azure
+* Criar uma instância blockchain Manager
+* Criar uma entrada para um nó de transação do Serviço Azure Blockchain
 * Criar uma saída para um tópico de grelha de eventos Azure
-* Adicione uma aplicação blockchain
-* Iniciar uma instância
+* Adicionar uma aplicação blockchain
+* Inicie um caso
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o mais recente [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e assinou a utilização. `az login`
-* Complete [Quickstart: Use visual studio code para ligar a uma rede](connect-vscode.md)de consórcio azure Blockchain Service . O nível *Padrão* do Serviço Blockchain Azure é recomendado ao utilizar o Gestor de Dados blockchain.
-* Criar um tópico de grelha de [eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
-* Saiba mais sobre [os manipuladores de eventos na Grelha de Eventos Azure](../../event-grid/event-handlers.md)
+* Instale o mais recente [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e assine a utilização `az login` .
+* [Quickstart completo: Utilize o Código do Estúdio Visual para ligar a uma rede de consórcios do Azure Blockchain Service](connect-vscode.md). Recomenda-se o nível *padrão* do serviço Azure Blockchain ao utilizar o Blockchain Data Manager.
+* Criar um [tópico de grelha de evento](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Saiba mais sobre [os manipuladores de eventos em Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/bash](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Se preferir instalar e utilizar o CLI localmente, este quickstart requer a versão Azure CLI 2.0.51 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0.51 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
 ```
 
-## <a name="create-instance"></a>Criar instância
+## <a name="create-instance"></a>Criar exemplo
 
-Uma instância do Gestor de Dados blockchain monitoriza um nó de transações do Serviço Blockchain Azure. Um caso captura todos os dados de transações brutas e blocos brutos do nó de transações. O Blockchain Data Manager publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informação devolvida a partir do web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e obter consultas [de Transações.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
+Uma instância do Gestor de Dados blockchain monitoriza um nó de transação do Serviço Azure Blockchain. Um caso captura todos os dados brutos de blocos brutos e transações brutas do nó de transação. Blockchain Data Manager publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informações devolvidas a partir de web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e obter consultas de [transação.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
 
 ``` azurecli
 az resource create \
@@ -62,14 +62,14 @@ az resource create \
 | Parâmetro | Descrição |
 |-----------|-------------|
 | resource-group | Nome do grupo de recursos onde criar a instância do Gestor de Dados blockchain. |
-| nome | Nome da instância do Gestor de Dados blockchain. |
-| tipo de recurso | O tipo de recurso para uma instância do Blockchain Data Manager é **Microsoft.blockchain/watchers**. |
-| é objeto cheio | Indica que as propriedades contêm opções para o recurso do observador. |
-| propriedades | Cadeia formatada JSON contendo propriedades para o recurso observador. Pode ser passado como uma corda ou um arquivo.  |
+| name | Nome da instância do Gestor de Dados blockchain. |
+| tipo de recurso | O tipo de recurso para uma instância do Gestor de Dados blockchain é **Microsoft.blockchain/Watchers**. |
+| é objeto completo | Indica que as propriedades contêm opções para o recurso do observador. |
+| propriedades | Cadeia formatada por JSON que contém propriedades para o recurso do observador. Pode ser passado como uma corda ou um arquivo.  |
 
-### <a name="create-instance-examples"></a>Criar exemplos de exemplo
+### <a name="create-instance-examples"></a>Criar exemplos de exemplos
 
-Exemplo de configuração jSON para criar uma instância de Blockchain Manager na região **leste dos EUA.**
+Exemplo de configuração JSON para criar uma instância blockchain Manager na região **leste dos EUA.**
 
 ``` json
 {
@@ -79,12 +79,12 @@ Exemplo de configuração jSON para criar uma instância de Blockchain Manager n
 }
 ```
 
-| Elemento | Descrição |
+| Elemento | Description |
 |---------|-------------|
 | localização | Região onde criar o recurso de observador |
-| propriedades | Propriedades a definir ao criar o recurso do observador |
+| propriedades | Propriedades a definir ao criar o recurso observador |
 
-Crie uma instância de Blockchain Data Manager chamada *mywatcher* usando uma corda JSON para configuração.
+Crie uma instância do Blockchain Data Manager chamada *mywatcher* usando uma cadeia JSON para configuração.
 
 ``` azurecli-interactive
 az resource create \
@@ -95,7 +95,7 @@ az resource create \
                      --properties '{"location":"eastus"}'
 ```
 
-Crie uma instância de Blockchain Data Manager chamada *mywatcher* usando um ficheiro de configuração JSON.
+Crie uma instância do Gestor de Dados blockchain chamada *mywatcher* usando um ficheiro de configuração JSON.
 
 ``` azurecli
 az resource create \
@@ -108,7 +108,7 @@ az resource create \
 
 ## <a name="create-input"></a>Criar entrada
 
-Uma entrada liga o Gestor de Dados blockchain a um nó de transações do Serviço Blockchain Azure. Apenas os utilizadores com acesso ao nó de transações podem criar uma ligação.
+Uma entrada liga o Gestor de Dados blockchain a um nó de transação do Serviço Azure Blockchain. Apenas os utilizadores com acesso ao nó de transação podem criar uma ligação.
 
 ``` azurecli
 az resource create \
@@ -124,16 +124,16 @@ az resource create \
 | Parâmetro | Descrição |
 |-----------|-------------|
 | resource-group | Nome do grupo de recursos onde criar o recurso de entrada. |
-| nome | Nome da entrada. |
+| name | O nome da entrada. |
 | espaço de nomes | Utilize o espaço de nome do fornecedor **Microsoft.Blockchain.** |
-| tipo de recurso | O tipo de recurso para uma entrada do Gestor de Dados blockchain são **inputs**. |
-| progenitor | O caminho para o observador ao qual a entrada está associada. Por exemplo, **observadores/mywatcher**. |
-| é objeto cheio | Indica que as propriedades contêm opções para o recurso de entrada. |
-| propriedades | Cadeia formatada JSON contendo propriedades para o recurso de entrada. Pode ser passado como uma corda ou um arquivo. |
+| tipo de recurso | O tipo de recurso para uma entrada do Gestor de Dados blockchain são **entradas.** |
+| pai | O caminho para o observador ao qual a entrada está associada. Por exemplo, **observadores/vigilantes.** |
+| é objeto completo | Indica que as propriedades contêm opções para o recurso de entrada. |
+| propriedades | Cadeia formatada por JSON que contém propriedades para o recurso de entrada. Pode ser passado como uma corda ou um arquivo. |
 
 ### <a name="input-examples"></a>Exemplos de entrada
 
-Configuração JSON exemplo para criar um recurso de entrada \<na\>região leste *dos EUA* que está ligado ao membro blockchain .
+Configurar exemplo JSON para criar um recurso de entrada na região *leste dos EUA* que está ligado a \<Blockchain member\> .
 
 ``` json
 {
@@ -147,13 +147,13 @@ Configuração JSON exemplo para criar um recurso de entrada \<na\>região leste
 }
 ```
 
-| Elemento | Descrição |
+| Elemento | Description |
 |---------|-------------|
 | localização | Região onde criar o recurso de entrada. |
-| inputType | Tipo de livro-razão do membro do Serviço Azure Blockchain. Atualmente, **ethereum** é apoiado. |
-| resourceId | Nó de transação ao qual a entrada está ligada. \<Substitua\>o \<ID\>de \<subscrição, o grupo de recursos e o membro\> blockchain pelos valores do recurso do nó de transação. A entrada liga-se ao nó de transações padrão para o membro do Serviço Azure Blockchain. |
+| tipo de entrada | Tipo ledger do membro do Serviço Azure Blockchain. Atualmente, **ethereum** é apoiado. |
+| resourceId | Nó de transação ao qual a entrada está ligada. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Blockchain member\> valores para o recurso de nó de transação. A entrada liga-se ao nó de transação padrão para o membro do Serviço Azure Blockchain. |
 
-Crie uma entrada chamada *myInput* para *mywatcher* usando uma corda JSON para configuração.
+Crie uma entrada chamada *myInput* para *o mywatcher* usando uma corda JSON para configuração.
 
 ``` azurecli-interactive
 az resource create \
@@ -166,7 +166,7 @@ az resource create \
                    --properties '{"location":"eastus", "properties":{"inputType":"Ethereum","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/BlockchainMembers/<Blockchain member>/transactionNodes/transaction-node"}}}'
 ```
 
-Crie uma entrada chamada *myInput* para *mywatcher* usando um ficheiro de configuração JSON.
+Crie uma entrada chamada *myInput* para *o mywatcher* utilizando um ficheiro de configuração JSON.
 
 ``` azurecli
 az resource create \
@@ -180,7 +180,7 @@ az resource create \
 
 ## <a name="create-output"></a>Criar saída
 
-Uma ligação de saída envia dados blockchain para a Rede de Eventos Azure. Pode enviar dados blockchain para um único destino ou enviar dados blockchain para vários destinos. O Blockchain Data Manager suporta várias ligações de saída do Tópico de Evento para qualquer instância do Gestor de Dados blockchain.
+Uma ligação de saída envia dados blockchain para Azure Event Grid. Pode enviar dados blockchain para um único destino ou enviar dados blockchain para vários destinos. O Blockchain Data Manager suporta várias ligações de saída de Tópicos de Grelha de Evento para qualquer instância do Gestor de Dados blockchain.
 
 ``` azurecli
 az resource create \
@@ -195,17 +195,17 @@ az resource create \
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| resource-group | Nome de grupo de recursos onde criar o recurso de saída. |
-| nome | Nome da saída. |
+| resource-group | Nome do grupo de recursos onde criar o recurso de saída. |
+| name | Nome da saída. |
 | espaço de nomes | Utilize o espaço de nome do fornecedor **Microsoft.Blockchain.** |
-| tipo de recurso | O tipo de recurso para uma saída do Gestor de Dados blockchain são **saídas**. |
-| progenitor | O caminho para o observador ao qual a saída está associada. Por exemplo, **observadores/mywatcher**. |
-| é objeto cheio | Indica que as propriedades contêm opções para o recurso de saída. |
-| propriedades | Cadeia formatada JSON contendo propriedades para o recurso de saída. Pode ser passado como uma corda ou um arquivo. |
+| tipo de recurso | O tipo de recurso para uma saída do Gestor de Dados blockchain são **saídas.** |
+| pai | O caminho para o observador ao qual a saída está associada. Por exemplo, **observadores/vigilantes.** |
+| é objeto completo | Indica que as propriedades contêm opções para o recurso de saída. |
+| propriedades | Cadeia formatada por JSON que contém propriedades para o recurso de saída. Pode ser passado como uma corda ou um arquivo. |
 
 ### <a name="output-examples"></a>Exemplos de saída
 
-Configuração JSON exemplo para criar um recurso de saída na região leste\>dos *EUA* que está ligado a um tópico de grelha de eventos nomeado \<tópico de grelha de eventos .
+Configurar exemplo JSON para criar um recurso de saída na região *leste dos EUA* que está ligado a um tópico de grelha de eventos chamado \<event grid topic\> .
 
 ``` json
 {
@@ -219,13 +219,13 @@ Configuração JSON exemplo para criar um recurso de saída na região leste\>do
 }
 ```
 
-| Elemento | Descrição |
+| Elemento | Description |
 |---------|-------------|
 | localização | Região onde criar o recurso de saída. |
-| outputType | Tipo de saída. Atualmente, **o EventGrid** é apoiado. |
-| resourceId | Recurso ao qual a saída está ligada. Substitua \<\>o \<ID\>de \<subscrição, o grupo de recursos e o membro\> blockchain pelos valores do recurso da grelha de eventos. |
+| tipo de saída | Tipo de saída. Atualmente, **o EventGrid** é apoiado. |
+| resourceId | Recurso ao qual a saída está ligada. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Blockchain member\> valores para o recurso da grelha de eventos. |
 
-Crie uma saída chamada *myoutput* para *mywatcher* que se conecta a um tópico de rede de eventos usando uma cadeia de configuração JSON.
+Crie uma saída chamada *myoutput* para *o mywatcher* que se conecta a um tópico de grelha de evento usando uma cadeia de configuração JSON.
 
 ``` azurecli-interactive
 az resource create \
@@ -238,7 +238,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"outputType":"EventGrid","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"}}}'
 ```
 
-Crie uma saída chamada *myoutput* para *mywatcher* que se conecta a um tópico de grelha de eventousando um ficheiro de configuração JSON.
+Crie uma saída chamada *myoutput* para *o mywatcher* que se conecta a um tópico de grelha de evento usando um ficheiro de configuração JSON.
 
 ``` azurecli
 az resource create \
@@ -253,11 +253,11 @@ az resource create \
 
 ## <a name="add-blockchain-application"></a>Adicionar aplicação blockchain
 
-Se adicionar uma aplicação blockchain, o Blockchain Data Manager descodifica o estado de eventos e propriedades para a aplicação. Caso contrário, apenas são enviados dados relativos a blocos brutos e transações brutas. O Blockchain Data Manager também descobre endereços de contrato quando o contrato é implementado. Pode adicionar várias aplicações blockchain a uma instância do Blockchain Data Manager.
+Se adicionar uma aplicação blockchain, o Blockchain Data Manager descodifica o evento e o estado de propriedade para a aplicação. Caso contrário, apenas são enviados dados de blocos brutos e de transações brutas. O Gestor de Dados blockchain também descobre endereços de contrato quando o contrato é implementado. Pode adicionar várias aplicações blockchain a uma instância do Gestor de Dados blockchain.
 
 
 > [!IMPORTANT]
-> Atualmente, as aplicações blockchain que declaram tipos de [matriz](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) solidez ou tipos de [mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não são totalmente suportadas. As propriedades declaradas como tipos de matriz ou mapeamento não serão descodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg.*
+> Atualmente, aplicações blockchain que declaram [tipos de matrizes](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) solidity ou [tipos de mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não são totalmente suportados. As propriedades declaradas como tipos de matriz ou mapeamento não serão descodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg.*
 
 ``` azurecli
 az resource create \
@@ -272,13 +272,13 @@ az resource create \
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| resource-group | Nome de grupo de recursos onde criar o recurso de aplicação. |
-| nome | Nome da aplicação. |
+| resource-group | Nome do grupo de recursos onde criar o recurso de aplicação. |
+| name | O nome do pedido. |
 | espaço de nomes | Utilize o espaço de nome do fornecedor **Microsoft.Blockchain.** |
 | tipo de recurso | O tipo de recurso para uma aplicação blockchain Data Manager é **artefactos.** |
-| progenitor | O caminho para o observador ao qual a aplicação está associada. Por exemplo, **observadores/mywatcher**. |
-| é objeto cheio | Indica que as propriedades contêm opções para o recurso de aplicação. |
-| propriedades | Cadeia formatada JSON contendo propriedades para o recurso de aplicação. Pode ser passado como uma corda ou um arquivo. |
+| pai | O caminho para o observador ao qual a aplicação está associada. Por exemplo, **observadores/vigilantes.** |
+| é objeto completo | Indica que as propriedades contêm opções para o recurso de aplicação. |
+| propriedades | Cadeia formatada por JSON que contém propriedades para o recurso de aplicação. Pode ser passado como uma corda ou um arquivo. |
 
 ### <a name="blockchain-application-examples"></a>Exemplos de aplicação blockchain
 
@@ -301,15 +301,15 @@ Configuração JSON exemplo para criar um recurso de aplicação na região *les
 }
 ```
 
-| Elemento | Descrição |
+| Elemento | Description |
 |---------|-------------|
 | localização | Região onde criar o recurso de aplicação. |
-| artefactoTipo | Tipo de aplicação. Atualmente, a **EthereumSmartContract** é suportada. |
-| abiFileUrl | URL para contrato inteligente ABI JSON ficheiro. Para obter mais informações sobre a obtenção do contrato ABI e a criação de um URL, consulte [Obter Contrato ABI e bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) e Criar contrato ABI e [bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
-| bytecodeFileUrl | URL para contrato inteligente implementado ficheiro JSON bytecode. Para obter mais informações sobre a obtenção do contrato inteligente implementado bytecode e a criação de um URL, consulte [Obter Contrato ABI e bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) e Criar contrato ABI e [bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Nota: O Gestor de Dados blockchain requer o **código de envio implantado**. |
-| consultaTargetTypes | Tipos de mensagens publicados. Especificar **ContractProperties** publica tipo de mensagem *ContractPropertiesMsg.* Especificar **ContratoSEvents** publica o tipo de mensagem *DecodedContractEventsMsg.* Nota: Os tipos de mensagens *RawBlockAndTransactionMsg* e *RawTransactionContractCreationMsg* são sempre publicados. |
+| artefactoType | Tipo de aplicação. Atualmente, **o EthereumSmartContract** é suportado. |
+| abiFileUrl | URL para contrato inteligente arquivo ABI JSON. Para obter mais informações sobre a obtenção de contrato ABI e a criação de um URL, consulte [Get Contract ABI e bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) e [Crie contrato ABI e BYtecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| bytecodeFileUrl | URL para contrato inteligente implementado por código ficheiro JSON. Para obter mais informações sobre a obtenção do contrato inteligente implementado por código e criação de um URL, consulte [Get Contract ABI e bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Nota: O Gestor de Dados blockchain requer o **código de informação implantado**. |
+| queryTargetTypes | Tipos de mensagens publicados. Especificar **ContratosProperties** publica o tipo de mensagem *ContractPropertiesMsg.* Especificar **ContractEvents** publica o tipo de mensagem *DecodeactEventsMsg.* Nota: São sempre publicados os tipos de mensagens *RawBlockAndTransactionMsg* e *RawTransactionContrActCreationMsg.* |
 
-Crie uma aplicação chamada *myApplication* para *mywatcher* que monitorize um contrato inteligente definido por uma cadeia JSON.
+Crie uma aplicação chamada *myApplication* para *o mywatcher* que monitoriza um contrato inteligente definido por uma cadeia JSON.
 
 ``` azurecli-interactive
 az resource create \
@@ -322,7 +322,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetTypes":["ContractProperties","ContractEvents"]}}}'
 ```
 
-Crie uma aplicação chamada *myApplication* para *mywatcher* que assista a um contrato inteligente definido usando um ficheiro de configuração JSON.
+Crie uma aplicação chamada *myApplication* para *o mywatcher* que assiste a um contrato inteligente definido usando um ficheiro de configuração JSON.
 
 ``` azurecli
 az resource create \
@@ -335,9 +335,9 @@ az resource create \
                    --properties @artifact.json
 ```
 
-## <a name="start-instance"></a>Iniciar instância
+## <a name="start-instance"></a>Início de instância
 
-Ao correr, uma instância do Blockchain Manager monitoriza os eventos blockchain a partir das inputs definidas e envia dados para as saídas definidas.
+Ao correr, uma instância blockchain Manager monitoriza eventos blockchain a partir das entradas definidas e envia dados para as saídas definidas.
 
 ``` azurecli
 az resource invoke-action \
@@ -348,11 +348,11 @@ az resource invoke-action \
 | Parâmetro | Descrição |
 |-----------|-------------|
 | action | Use **começar** a executar o observador. |
-| ids | Identificação do recurso do Observador. \<Substitua\>o \<ID\>de \<Subscrição, o grupo de recursos e o nome\> do Observador pelos valores do recurso observador.|
+| ids | Identificação de recursos de observadores. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Watcher name\> valores para o recurso do observador.|
 
-### <a name="start-instance-example"></a>Iniciar exemplo de exemplo
+### <a name="start-instance-example"></a>Exemplo de exemplo de exemplo de exemplo de início
 
-Inicie uma instância de Blockchain Data Manager chamada *mywatcher*.
+Inicie uma instância do Gestor de Dados blockchain chamada *mywatcher*.
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -360,7 +360,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## <a name="stop-instance"></a>Parar instância
+## <a name="stop-instance"></a>Paragem da instância
 
 Pare uma instância do Gestor de Dados blockchain.
 
@@ -372,12 +372,12 @@ az resource invoke-action \
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| action | Use **stop** parar para parar o observador. |
-| ids | Nome do observador. \<Substitua\>o \<ID\>de \<Subscrição, o grupo de recursos e o nome\> do Observador pelos valores do recurso observador. |
+| action | Use a **paragem** para parar o observador. |
+| ids | O nome do observador. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Watcher name\> valores para o recurso do observador. |
 
 ### <a name="stop-watcher-example"></a>Pare o exemplo do observador
 
-Pare uma instância chamada *mywatcher.*
+Pare um caso chamado *mywatcher*.
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -385,7 +385,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## <a name="delete-instance"></a>Excluir instância
+## <a name="delete-instance"></a>Eliminar instância
 
 Elimine uma instância do Gestor de Dados blockchain.
 
@@ -398,13 +398,13 @@ az resource delete \
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| resource-group | Nome de grupo de recursos do observador para apagar. |
-| nome | Nome do observador para apagar. |
-| tipo de recurso | O tipo de recurso para um observador de dados blockchain é **Microsoft.blockchain/watchers**. |
+| resource-group | Nome do grupo de recursos do observador para apagar. |
+| name | Nome do observador para apagar. |
+| tipo de recurso | O tipo de recurso para um observador do Blockchain Data Manager é **Microsoft.blockchain/Watchers**. |
 
-### <a name="delete-instance-example"></a>Eliminar exemplo de instância
+### <a name="delete-instance-example"></a>Eliminar exemplo de exemplo de instância
 
-Elimine uma instância chamada *mywatcher* no grupo de recursos *myRG.*
+Elimine um *mywatcher* nomeado no grupo de recursos *myRG.*
 
 ``` azurecli-interactive
 az resource delete \

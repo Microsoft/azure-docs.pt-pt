@@ -1,7 +1,7 @@
 ---
-title: Políticas personalizadas de resolução de problemas com Insights de Aplicação
+title: Resolução de problemas de políticas personalizadas com Insights de Aplicação
 titleSuffix: Azure AD B2C
-description: Como configurar insights de aplicação para rastrear a execução das suas políticas personalizadas.
+description: Como configurar a Application Insights para rastrear a execução das suas políticas personalizadas.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc227081af4f306a27b77eb727ea96467f94fa2e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186272"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203117"
 ---
-# <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Colete logs de Diretório Ativo Azure B2C com Insights de Aplicação
+# <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
-Este artigo fornece passos para a recolha de registos do Ative Directory B2C (Azure AD B2C) para que possa diagnosticar problemas com as suas políticas personalizadas. Application Insights fornece uma forma de diagnosticar exceções e visualizar problemas de desempenho da aplicação. O Azure AD B2C inclui uma funcionalidade para o envio de dados para insights de aplicação.
+Este artigo fornece passos para a recolha de registos do Ative Directory B2C (Azure AD B2C) para que possa diagnosticar problemas com as suas políticas personalizadas. O Application Insights fornece uma forma de diagnosticar exceções e visualizar problemas de desempenho da aplicação. O Azure AD B2C inclui uma funcionalidade para o envio de dados para o Application Insights.
 
-Os registos de atividade detalhados aqui descritos só devem ser **ativados** durante o desenvolvimento das suas políticas personalizadas.
+Os registos de atividades detalhados aqui descritos devem ser ativados **apenas** durante o desenvolvimento das suas políticas personalizadas.
 
 > [!WARNING]
-> Não permita o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para fornecedores de identidade. Você como desenvolvedor assume a responsabilidade por quaisquer dados pessoais recolhidos nos registos do Seu Formulário de Aplicação. Estes registos detalhados só são recolhidos quando a apólice é colocada no **MODO DE DESENVOLVIMENTO**.
+> Não ative o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para fornecedores de identidade. O desenvolvedor assume a responsabilidade por quaisquer dados pessoais recolhidos nos registos do Application Insights. Estes registos detalhados só são recolhidos quando a política é colocada em **MODO DEVELOPER**.
 
-## <a name="set-up-application-insights"></a>Configurar insights de aplicação
+## <a name="set-up-application-insights"></a>Configurar Insights de Aplicação
 
-Se ainda não tem um, crie uma instância de Informações de Aplicação na sua subscrição.
+Se ainda não tiver um, crie uma instância de Application Insights na sua subscrição.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
-1. Selecione **Criar um recurso** no menu de navegação à esquerda.
-1. Procure e selecione **Insights de Aplicação,** em seguida, selecione **Criar**.
-1. Complete o formulário, selecione **Rever + criar,** e depois selecione **Criar**.
-1. Uma vez concluída a implantação, selecione **Ir para o recurso**.
-1. No **menu Configure** no menu Insights de Aplicação, selecione **Propriedades**.
-1. Grave a **CHAVE DE INSTRUMENTAÇÃO** para utilização num passo posterior.
+1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
+1. **Selecione Criar um recurso** no menu de navegação à esquerda.
+1. Procure e selecione **Insights de Aplicação**e, em seguida, selecione **Criar**.
+1. Preencha o formulário, **selecione 'Rever + criar'** e, em seguida, selecione **Criar**.
+1. Uma vez concluída a implementação, selecione **Ir para o recurso**.
+1. No menu **Configurar** no menu Application Insights, selecione **Propriedades**.
+1. Grave a **chave de instrumentação** para utilização num passo posterior.
 
 ## <a name="configure-the-custom-policy"></a>Configure a política personalizada
 
-1. Abra o ficheiro da parte de fiação (RP), por *exemplo, SignUpOrSignin.xml*.
-1. Adicione os seguintes `<TrustFrameworkPolicy>` atributos ao elemento:
+1. Abra o ficheiro do partido de base (RP), por *exemplo,SignUpOrSignin.xml*.
+1. Adicione os seguintes atributos ao `<TrustFrameworkPolicy>` elemento:
 
-   ```XML
+   ```xml
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Se já não existir, adicione `<UserJourneyBehaviors>` um nó `<RelyingParty>` infantil ao nó. Deve ser localizado imediatamente `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`após .
-1. Adicione o nó seguinte como `<UserJourneyBehaviors>` uma criança do elemento. Certifique-se `{Your Application Insights Key}` de substituir a chave de instrumentação de insights de **aplicação** que gravou anteriormente.
+1. Se já não existir, adicione um `<UserJourneyBehaviors>` nó de criança ao `<RelyingParty>` nó. Deve ser colocado imediatamente após `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. Adicione o nó seguinte como uma criança do `<UserJourneyBehaviors>` elemento. Certifique-se de que substitui a Chave de `{Your Application Insights Key}` Instrumentação de **Insights de Aplicação** que gravou anteriormente.
 
-    ```XML
+    ```xml
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"`diz ao ApplicationInsights para acelerar a telemetria através do oleoduto de processamento. Bom para o desenvolvimento, mas limitado em volumes elevados.
-    * `ClientEnabled="true"`envia o script do lado do cliente ApplicationInsights para rastrear a visualização da página e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Insights da Aplicação. Ao `ClientEnabled= "true"`definir, adiciona insights de aplicação ao script da sua página e obtém timings de cargas de página e chamadas AJAX, conta, detalhes de exceções ao navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional,** `false` e está definido por padrão.
-    * `ServerEnabled="true"`envia o UserJourneyRecorder JSON existente como um evento personalizado para A Aplicação Insights.
+    * `DeveloperMode="true"`diz à ApplicationInsights para acelerar a telemetria através do gasoduto de processamento. Bom para o desenvolvimento, mas limitado em grandes volumes.
+    * `ClientEnabled="true"`envia o script do lado do cliente ApplicationInsights para visualização da página de rastreio e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Application Insights. Ao `ClientEnabled= "true"` configurar, adicione Application Insights ao seu script de página e obtém os horários das cargas de página e chamadas AJAX, contagens, detalhes das exceções do navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional**, e está definido `false` por padrão.
+    * `ServerEnabled="true"`envia o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights.
 
     Por exemplo:
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
       ...
       TenantId="fabrikamb2c.onmicrosoft.com"
@@ -81,32 +81,32 @@ Se ainda não tem um, crie uma instância de Informações de Aplicação na sua
     </TrustFrameworkPolicy>
     ```
 
-1. Faça upload da apólice.
+1. Faça o upload da apólice.
 
-## <a name="see-the-logs-in-application-insights"></a>Consulte os registos em Insights de Aplicação
+## <a name="see-the-logs-in-application-insights"></a>Ver os registos em Insights de Aplicação
 
-Há um curto atraso, tipicamente menos de cinco minutos, antes de poder ver novos registos em Insights de Aplicação.
+Há um curto atraso, normalmente menos de cinco minutos, antes de poder ver novos registos em Application Insights.
 
-1. Abra o recurso Application Insights que criou no [portal Azure.](https://portal.azure.com)
+1. Abra o recurso Application Insights que criou no [portal Azure](https://portal.azure.com).
 1. No menu **Overview,** selecione **Analytics**.
-1. Abra um novo separador em Insights de Aplicação.
+1. Abra um novo separador em Application Insights.
 
 Aqui está uma lista de consultas que pode usar para ver os registos:
 
-| Consulta | Descrição |
+| Consulta | Description |
 |---------------------|--------------------|
-`traces` | Veja todos os registos gerados pelo Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Veja todos os registos gerados pelo Azure AD B2C para o último dia
+`traces` | Veja todos os registos gerados por Azure AD B2C |
+`traces | where timestamp > ago(1d)` | Veja todos os registos gerados pela Azure AD B2C para o último dia
 
-As entradas podem ser longas. Exportar para cSV para um olhar mais atento.
+As entradas podem ser longas. Exportar para CSV para um olhar mais atento.
 
-Para mais informações sobre consulta, consulte [a visão geral das consultas de registo no Monitor Azure](../azure-monitor/log-query/log-query-overview.md).
+Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A comunidade desenvolveu um espectador de viagens de utilizador para ajudar desenvolvedores de identidade. Lê a partir da sua instância De insights de aplicação e proporciona uma visão bem estruturada dos eventos de viagem do utilizador. Obtém-se o código fonte e implementa-o na sua própria solução.
+A comunidade desenvolveu um espectador de viagem de utilizador para ajudar os desenvolvedores de identidade. Lê a partir da sua instância Application Insights e fornece uma visão bem estruturada dos eventos de viagem do utilizador. Obtém o código fonte e implanta-o na sua própria solução.
 
-O leitor de viagens de utilizador não é suportado pela Microsoft, e está disponível estritamente como está.
+O jogador de viagem de utilizador não é suportado pela Microsoft e é disponibilizado estritamente como está.
 
 Pode encontrar a versão do espectador que lê eventos a partir de Application Insights no GitHub, aqui:
 

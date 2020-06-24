@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 596967a918dc3a94061ce907848e7e502660b97c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c587af529831c4fb8cdb15b50b2a0b16a868efe3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324373"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255386"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Pode criar o grupo de recursos para um servidor antes do tempo ou enquanto cria 
 
 Para criar um servidor (sem base de dados, piscina elástica ou base de dados de armazém de dados) utilizando o [portal Azure,](https://portal.azure.com)navegue para um formulário de servidor SQL em branco (servidor lógico SQL).
 
-### <a name="create-a-blank-or-sample-sql-database-in-azure-sql-database"></a>Criar uma base de dados SQL em branco ou amostra na Base de Dados Azure SQL
+### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Criar uma base de dados em branco ou amostra na Base de Dados Azure SQL
 
 Para criar uma base de dados na Base de Dados SQL utilizando o [portal Azure,](https://portal.azure.com)navegue para um formulário de Base de Dados SQL em branco e forneça as informações solicitadas. Pode criar o grupo de recursos e o servidor antes do tempo ou enquanto cria a própria base de dados. Pode criar uma base de dados em branco ou criar uma base de dados de amostras baseada em Adventure Works LT.
 
@@ -190,7 +190,7 @@ Para criar e gerir servidores, bases de dados e firewalls, utilize estes pedidos
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a migração de uma base de dados do SQL Server para a Base de Dados Azure SQL, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

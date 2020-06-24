@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,24 +15,24 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "82587859"
 ---
-O PowerShell cmdlet **Get-AzPeeringLocation** devolve uma lista de locais `Kind`de observação com o parâmetro obrigatório , que utilizará em etapas posteriores.
+O cmdlet **Get-AzPeeringLocation** powerShell devolve uma lista de locais de observação com o parâmetro obrigatório `Kind` , que utilizará em etapas posteriores.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
-Os locais de intercâmbio de pares contêm os seguintes campos:
-* Nome de câmbio
-* Localização de peering
+Os locais de permuta contêm os seguintes campos:
+* Nome de troca
+* Localização de pares
 * País
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
-* Endereço MicrosoftIPv4
-* Endereço MicrosoftIPv6
+* MicrosoftIPv4Address
+* MicrosoftIPv6Address
 
-Valide que está presente na instalação de peering desejada, referindo-se ao [PeeringDB](https://www.peeringdb.com).
+Valide que está presente na instalação de observação desejada, referindo-se ao [PeeringDB](https://www.peeringdb.com).
 
-Este exemplo mostra como usar Seattle como o local de observação para criar um olhar.
+Este exemplo mostra como usar Seattle como o local de observação para criar um espreitamento.
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

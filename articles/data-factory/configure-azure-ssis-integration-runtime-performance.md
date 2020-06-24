@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 36662a0089fef34a539788cfac667b5086a10c78
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194275"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255539"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução da integração Azure-SSIS para um alto desempenho
 
@@ -150,7 +150,7 @@ Aqui estão as diretrizes para a definição do valor certo para a propriedade *
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** é o nível de preços da base de dados do Catálogo SSIS (SSISDB) numa base de dados Azure SQL. Esta definição afeta o número máximo de trabalhadores na instância de INFRA, a velocidade para fazer fila de uma execução do pacote e a velocidade para carregar o diário de execução.
+**SSISDBPricingTier** é o nível de preços da base de dados do Catálogo SSIS (SSISDB) na Base de Dados Azure SQL. Esta definição afeta o número máximo de trabalhadores na instância de INFRA, a velocidade para fazer fila de uma execução do pacote e a velocidade para carregar o diário de execução.
 
 -   Se não se importar com a velocidade para a execução do pacote de fila e para carregar o registo de execução, pode escolher o nível de preços mais baixo da base de dados. A Azure SQL Database com preços básicos suporta 8 trabalhadores em um caso de integração.
 

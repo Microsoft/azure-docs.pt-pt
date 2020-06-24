@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 70dbe927c3d106e6a853f215f93c51bd7e547150
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658511"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886964"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 
@@ -86,7 +86,6 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.16.9 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -95,8 +94,6 @@ az aks create \
 ```
 
 > [!NOTE]
-> Se não conseguir criar o cluster AKS porque a versão não é suportada nesta região, então pode usar o comando [az aks get-versões --localização eastus] para encontrar a lista de versão suportada para esta região.
->  
 > Se tiver um erro de validação de palavra-passe, tente criar o seu grupo de recursos noutra região.
 > Em seguida, tente criar o cluster com o novo grupo de recursos.
 
@@ -112,8 +109,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --os-type Windows \
     --name npwin \
-    --node-count 1 \
-    --kubernetes-version 1.16.9
+    --node-count 1
 ```
 
 O comando acima cria uma nova piscina de nó chamado *npwin* e adiciona-o ao *myAKSCluster*. Ao criar uma piscina de nó para executar os recipientes do Windows Server, o valor padrão para *o tamanho do nó vm* é *Standard_D2s_v3*. Se optar por definir o parâmetro *de tamanho nó-vm,* verifique a lista de [tamanhos VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também utiliza a sub-rede predefinida na vnet predefinida criada ao executar `az aks create` .
@@ -254,7 +250,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma aplicação de amostra ASP.NET num recipiente do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que acabou de criar.
 

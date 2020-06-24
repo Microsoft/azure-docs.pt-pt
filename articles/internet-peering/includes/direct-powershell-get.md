@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,13 +15,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680762"
 ---
-Para obter a lista de pares, executar o comando **Get-AzPeering.**
+Para obter a lista de espreitadores, faça o comando **Get-AzPeering.**
 
 ```powershell
 $directPeering = Get-AzPeering -ResourceGroupName "PeeringResourceGroup" -Name "SeattleDirectPeering"
 ```
 
-O exemplo seguinte mostra a resposta quando o fornecimento de ponta a ponta foi concluído com êxito.
+O exemplo a seguir mostra a resposta quando o fornecimento de ponta a ponta foi concluído com sucesso.
 
 ```powershell
     Name                 : SeattleDirectPeering

@@ -3,12 +3,12 @@ title: Detete movimento, grave vídeo para a Azure Media Services
 description: Este quickstart mostra como usar o Live Video Analytics no IoT Edge de forma a detetar movimentos num stream de vídeo ao vivo e gravar videoclips para a Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262045"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817322"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Quickstart: Detect motion, gravar vídeo para media services
 
@@ -21,9 +21,9 @@ Este artigo baseia-se no arranque rápido de [Getting Started](get-started-detec
 * Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Código de estúdio visual](https://code.visualstudio.com/) na sua máquina com [extensão Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Se ainda não tiver concluído o [quickstart Getting Started](get-started-detect-motion-emit-events-quickstart.md) anteriormente, então passe pelos seguintes passos:
-    * Configuração completa [dos recursos Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Módulos de implantação](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Código de estúdio visual configurado](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Configurar recursos do Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Implementar módulos](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
+    * [Código de estúdio visual configurar](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 

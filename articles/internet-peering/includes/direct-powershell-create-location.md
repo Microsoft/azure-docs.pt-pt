@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,22 +15,22 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680804"
 ---
-O PowerShell cmdlet **Get-AzPeeringLocation** devolve uma lista de locais `Kind`de observação com o parâmetro obrigatório , que utilizará em etapas posteriores.
+O cmdlet **Get-AzPeeringLocation** powerShell devolve uma lista de locais de observação com o parâmetro obrigatório `Kind` , que utilizará em etapas posteriores.
 
 ```powershell
 Get-AzPeeringLocation -Kind Direct
 ```
 
 Os locais de observação direta contêm os seguintes campos:
-* Localização de peering 
+* Localização de pares 
 * País
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
-* Largura de BandaOferece
+* Ofers de largura de banda
 
 Valide que está presente na instalação de observação desejada, referindo-se ao [PeeringDB](https://wwww.peeringdb.com).
 
-Este exemplo mostra como usar Seattle como o local de observação para criar um olhar direto.
+Este exemplo mostra como usar Seattle como o local de observação para criar um espreitamento direto.
 
 ```powershell
 $peeringLocations = Get-AzPeeringLocation -Kind Direct

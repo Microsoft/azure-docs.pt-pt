@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a393e87963eabf2e3cf41148233c0e350dc6e380
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8a101235f8e7aaeff455732b5c048cbc81c20079
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309673"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079056"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -201,16 +201,37 @@ Quando cria um cluster AKS, um grupo de segurança de rede e uma tabela de rotas
 
 Com kubenet, deve existir uma tabela de rotas na sua sub-rede de clusters. A AKS suporta trazer a sua própria sub-rede existente e tabela de rotas.
 
-Se a sua sub-rede personalizada não contiver uma tabela de rotas, a AKS cria uma para si e adiciona-lhe regras. Se a sua sub-rede personalizada contiver uma tabela de rotas quando cria o seu cluster, a AKS reconhece a tabela de rotas existente durante as operações de cluster e atualiza as regras em conformidade para as operações do fornecedor de nuvem.
+Se a sua sub-rede personalizada não contiver uma tabela de rotas, a AKS cria uma para si e adiciona-lhe regras durante todo o ciclo de vida do cluster. Se a sua sub-rede personalizada contiver uma tabela de rotas quando cria o seu cluster, a AKS reconhece a tabela de rotas existente durante as operações de cluster e adiciona/atualizações regras em conformidade para as operações do fornecedor de nuvem.
+
+> [!WARNING]
+> As regras personalizadas podem ser adicionadas à tabela de rotas personalizada e atualizadas. No entanto, as regras são adicionadas pelo fornecedor de nuvem Kubernetes que não deve ser atualizado ou removido. Regras como 0.0.0.0/0 devem existir sempre numa tabela de rota e mapa para o alvo do seu portal de internet, como um gateway NVA ou outro gateway de saída. Tenha cuidado ao atualizar as regras para que apenas as suas regras personalizadas estejam a ser modificadas.
+
+Saiba mais sobre a configuração de uma [tabela de rotas personalizada.][custom-route-table]
+
+A rede Kubenet requer regras organizadas de tabelas de rotas para encaminhar pedidos com sucesso. Devido a este desenho, as tabelas de rota devem ser cuidadosamente mantidas para cada cluster que depende dele. Vários clusters não podem partilhar uma tabela de rotas porque os CIDRs de vagem de diferentes clusters podem sobrepor-se, o que causa encaminhamento inesperado e quebrado. Ao configurar vários clusters na mesma rede virtual ou dedicar uma rede virtual a cada cluster, certifique-se de que são consideradas as seguintes limitações.
 
 Limitações:
 
 * As permissões devem ser atribuídas antes da criação do cluster, certifique-se de que está a usar um principal de serviço com permissões de escrita para a sua sub-rede personalizada e tabela de rotas personalizada.
 * As identidades geridas não são atualmente suportadas com tabelas de rotas personalizadas em kubenet.
-* Uma tabela de rotas personalizada deve ser associada à sub-rede antes de criar o cluster AKS. Esta tabela de rotas não pode ser atualizada e todas as regras de encaminhamento devem ser adicionadas ou removidas da tabela de rotas iniciais antes de criar o cluster AKS.
-* Todas as sub-redes dentro de uma rede virtual AKS devem ser associadas à mesma tabela de rotas.
-* Todos os clusters AKS devem utilizar uma tabela de rotas única. Não se pode reutilizar uma mesa de rotas com vários aglomerados.
+* Uma tabela de rotas personalizada deve ser associada à sub-rede antes de criar o cluster AKS.
+* O recurso de tabela de rotas associado não pode ser atualizado após a criação do cluster. Embora o recurso da tabela de rotas não possa ser atualizado, as regras personalizadas podem ser modificadas na tabela de rotas.
+* Cada cluster AKS deve utilizar uma tabela de rota única e única para todas as sub-redes associadas ao cluster. Não é possível reutilizar uma tabela de rotas com múltiplos clusters devido ao potencial de sobreposição de CIDRs de cápsulas e regras de encaminhamento conflituosas.
 
+Depois de criar uma tabela de rotas personalizada e associá-la à sua sub-rede na sua rede virtual, pode criar um novo cluster AKS que utiliza a sua tabela de rotas.
+Tem de utilizar o ID da sub-rede para onde planeia implantar o seu cluster AKS. Esta sub-rede também deve estar associada à sua tabela de rotas personalizada.
+
+```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -238,3 +259,4 @@ Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode ag
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table.md

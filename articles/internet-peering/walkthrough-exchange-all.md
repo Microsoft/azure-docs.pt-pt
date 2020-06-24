@@ -5,51 +5,51 @@ description: Instruções de peering do Exchange
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: bb761afa6d8953b441b6c9541c43b73031719494
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec83778d034cfc512582eddf79995412dad405c2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75775176"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710733"
 ---
 # <a name="exchange-peering-walkthrough"></a>Instruções de peering do Exchange
 
-Esta secção explica os passos que precisa de seguir para configurar e gerir um "Exchange peering".
+Esta secção explica os passos que precisa de seguir para configurar e gerir um perscruto de Troca.
 
-## <a name="create-an-exchange-peering"></a>Criar um persparo de troca
+## <a name="create-an-exchange-peering"></a>Criar um perscruta de intercâmbio
 > [!div class="mx-imgBorder"]
-> ![Intercâmbio de fluxos de trabalho e de conexão](./media/exchange-peering.png)
+> ![Troca de trabalho e estados de conexão](./media/exchange-peering.png)
 
-Devem ser seguidos os seguintes passos, a fim de prever um "Exchange peering":
-1. Reveja a política de [peering da](https://peering.azurewebsites.net/peering) Microsoft para compreender os requisitos para o peering de Exchange.
-1. Encontre a microsoft a espreitar a localização e a identificação da facilidade de observação em [PeeringDB](https://www.peeringdb.com/net/694)
-1. Solicitar perspreite para um local de observação utilizando as instruções em [Create e modifique um persping o permuta utilizando](howto-exchange-powershell.md) o artigo PowerShell para mais detalhes.
-1. Depois de submeter um pedido de peering, a Microsoft irá rever o pedido e contactá-lo se necessário.
-1. Uma vez aprovado, ligação do estado altera-se a Aprovado
+Devem ser seguidas as seguintes etapas para prever um persto cambial:
+1. Reveja [a política de observação da](https://peering.azurewebsites.net/peering) Microsoft para compreender os requisitos para o persto de Exchange.
+1. Encontre a localização e o id de instalações de esprevação da Microsoft em [PeeringDB](https://www.peeringdb.com/net/694)
+1. Solicite a Troca de Um local de observação utilizando as instruções em [Criar e modifique um peering exchange usando](howto-exchange-powershell.md) o artigo PowerShell para mais detalhes.
+1. Depois de submeter um pedido de espreitar, a Microsoft irá rever o pedido e contactá-lo se necessário.
+1. Uma vez aprovado, alterações de estado de ligação a Aprovadas
 1. Configure a sessão de BGP no seu final e notifique a Microsoft
-1. Providenciaremos uma sessão de BGP com a política DENY ALL e validaremos o fim-a-dia.
-1. Se for bem sucedido, receberá uma notificação de que o estado de ligação de pares está Ativo.
-1. O tráfego será então permitido através do novo peering.
+1. Providenciaremos a sessão de BGP com a política DENY ALL e validaremos de ponta a ponta.
+1. Se for bem sucedido, receberá uma notificação de que o estado de ligação de espreitar é Ativo.
+1. O tráfego será então permitido através do novo olhar.
 
-Note que os estados de ligação não devem ser confundidos com os estados padrão da sessão [de BGP.](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
+Note que os estados de ligação não devem ser confundidos com estados de sessão [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) padrão.
 
 ## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Converter um peering do Exchange legado para o recurso do Azure
-Devem ser seguidos os seguintes passos para converter um legado De intercâmbio de olhos ao recurso Azure:
-1. Siga as instruções em [Converter um legado Exchange peering para o recurso Azure](howto-legacy-exchange-powershell.md)
+Devem ser seguidos os seguintes passos para converter um legado Exchange peering para recurso Azure:
+1. Siga as instruções em [Converter um legado Trocar olhando para o recurso Azure](howto-legacy-exchange-powershell.md)
 1. Depois de submeter o pedido de conversão, a Microsoft irá rever o pedido e contactá-lo se necessário.
-1. Uma vez aprovado, verá o seu Exchange peering com o estado de conexão como Ativo.
+1. Uma vez aprovado, verá a sua Troca a espreitar com o estado de ligação como Ativo.
 
-## <a name="deprovision-exchange-peering"></a>Deprovisionamento Troca de Pares
-Contacte [a Microsoft](mailto:peering@microsoft.com) a espreitar para desprovisionar o peering exchange.
+## <a name="deprovision-exchange-peering"></a>Deprovision Exchange peering
+Contacte [a Microsoft a espreitar](mailto:peering@microsoft.com) para desprovisionar o peering da Exchange.
 
-Quando um epeering de troca estiver definido para a desprovisionamento, você verá o estado de ligação como **Pendente Remove**
+Quando um perscruto de Troca estiver definido para desprovisionamento, você verá o estado de ligação como **PendenteRemove**
 
 > [!NOTE]
-> Se executar o cmdlet PowerShell para eliminar o peering de Troca quando o estado de ligação for ProvisioningStarted ou ProvisioningCompletea, a operação falhará.
+> Se executar o cmdlet PowerShell para apagar o persto de Troca quando o estado de ligação estiver ProvisioningStarted ou ProvisioningCompleted, a operação falhará.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [os pré-requisitos para configurar o peering com a Microsoft](prerequisites.md).
+* Saiba mais sobre [pré-requisitos para configurar olhando com a Microsoft](prerequisites.md).

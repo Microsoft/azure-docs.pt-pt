@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02d488108474084346d9e37d5cc6ecbe3a8a05c6
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484279"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201281"
 ---
 # <a name="boolean-claims-transformations"></a>Boolean reivindica transformações
 
@@ -36,7 +36,7 @@ Executa um funcionamento de duas entradas booleanAsClaims e define a saídaClaim
 
 A transformação das seguintes alegações demonstra como e dois booleans ClaimTypes: `isEmailNotExist` e `isSocialAccount` . A reclamação de saída `presentEmailSelfAsserted` é definida para se o valor de ambos os `true` pedidos de entrada forem `true` . Em um passo de orquestração, você pode usar uma condição prévia para pré-afinar uma página autoafirmada, apenas se um e-mail de conta social estiver vazio.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -72,7 +72,7 @@ O **AssertBooleanClaimIsEqualToValue** afirma que a transformação é sempre ex
 
 A transformação de alegações a seguir demonstra como verificar o valor de um Boolean ClaimType com um `true` valor. Se o valor do `accountEnabled` ClaimType for falso, é lançada uma mensagem de erro.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -86,7 +86,7 @@ A transformação de alegações a seguir demonstra como verificar o valor de um
 
 O `login-NonInteractive` perfil técnico de validação chama a transformação de `AssertAccountEnabledIsTrue` sinistros.
 
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -97,7 +97,7 @@ O `login-NonInteractive` perfil técnico de validação chama a transformação 
 
 O perfil técnico autoafirmado chama o perfil técnico **de login-NonInteractive de** validação.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -127,7 +127,7 @@ Verifica se o valor booleano de uma reclamação é igual `true` ou , e devolve 
 
 A transformação de alegações a seguir demonstra como verificar o valor de um Boolean ClaimType com um `true` valor. Se o valor do `IsAgeOver21Years` ClaimType for igual `true` a, a transformação de sinistros retorna, `true` caso contrário `false` .
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -161,7 +161,7 @@ Executa um Não funcionamento da entrada booleanaClaim e define a saídaClaim co
 
 Use esta transformação de reivindicação para executar a negação lógica numa reivindicação.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -191,7 +191,7 @@ Calcula um ou de dois inputs booleanOsClaims e define a saídaClaim com o result
 
 A transformação de alegações a seguir demonstra como dois `Or` Boolean ClaimTypes. Na etapa de orquestração, pode utilizar uma condição prévia para pré-desofiar uma página autoafirmada, se o valor de uma das reivindicações for `true` .
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />

@@ -1,23 +1,23 @@
 ---
-title: Dados da Upsert no Azure Cosmos DB Cassandra API da Spark
-description: Este artigo detalha como se preparar para mesas em Azure Cosmos DB Cassandra API da Spark
+title: Upsert dados em Azure Cosmos DB Cassandra API da Spark
+description: Este artigo detalha como se inserir em tabelas em Azure Cosmos DB Cassandra API de Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 7770e7fbe846defc865b3fcc702fcb00bae1b73c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ad2cf5dee43f0345017930377a3ed9d2e4624bf
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60893423"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85257487"
 ---
-# <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Dados da Upsert no Azure Cosmos DB Cassandra API da Spark
+# <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Upsert dados em Azure Cosmos DB Cassandra API da Spark
 
-Este artigo descreve como aumentar os dados no Azure Cosmos DB Cassandra API da Spark.
+Este artigo descreve como aumentar os dados em Azure Cosmos DB Cassandra API da Spark.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -89,8 +89,8 @@ cdbConnector.withSessionDo(session => session.execute("update books_ks.books set
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Dirija-se aos seguintes artigos para efetuar outras operações nos dados armazenados nas tabelas DaPi Da API da Azure Cosmos DB Cassandra:
+Proceder aos seguintes artigos para efetuar outras operações sobre os dados armazenados nas tabelas AZure Cosmos DB Cassandra API:
  
 * [Eliminar operações](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
-* [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
+* [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)

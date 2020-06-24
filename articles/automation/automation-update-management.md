@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/03/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: fcc34f8d5a07354b31880ebfa605012e05ec3a20
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 85b724cacc9c878f39de62e91e18713a1817933d
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342957"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817239"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -29,7 +29,7 @@ Pode ativar a Gestão de Atualização de VMs das seguintes formas:
 Um [modelo de Gestor de Recursos Azure](automation-update-management-deploy-template.md) está disponível para ajudá-lo a implementar a Gestão de Atualização para uma nova conta de Automação ou espaço de trabalho log Analytics na sua subscrição.
 
 > [!NOTE]
-> Não é possível utilizar uma máquina configurada com a Update Management para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft. 
+> Não é possível utilizar uma máquina configurada com a Update Management para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft.
 
 ## <a name="about-update-management"></a>Sobre a Gestão de Atualizações
 
@@ -68,21 +68,22 @@ Ao definir uma implementação, também especifica um calendário para aprovar e
 As atualizações são instaladas por runbooks na Automatização do Azure. Não se pode ver estes livros, e eles não requerem nenhuma configuração. Quando uma atualização é criada, cria um programa que inicia um runbook de atualização principal no tempo especificado para as máquinas incluídas. O diário principal inicia um livro de recortes de crianças em cada agente para instalar as atualizações necessárias.
 
 Na data e hora especificadas na implementação da atualização, as máquinas-alvo executam a implantação em paralelo. Antes da instalação, é executada uma verificação para verificar se as atualizações ainda são necessárias. Para as máquinas de clientes WSUS, se as atualizações não forem aprovadas na WSUS, a implementação da atualização falha.
+
 Não é suportado um sistema de máquinas registada para a Gestão de Atualização em mais de um espaço de trabalho log analytics (também referido como multihoming).
 
 ## <a name="clients"></a>Clientes
 
 ### <a name="supported-client-types"></a>Tipos de clientes suportados
 
-A tabela que se segue lista os sistemas operativos suportados para avaliações de atualização. Remendar requer um Trabalhador de Runbook Híbrido. Para obter informações sobre os requisitos do Trabalhador do Runbook Híbrido Híbrido, consulte [implementar um trabalhador de runbook híbrido do Windows](automation-windows-hrw-install.md) e um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
+A tabela que se segue lista os sistemas operativos suportados para avaliações de atualização e remendos. Remendar requer um Trabalhador de Runbook Híbrido. Para obter informações sobre os requisitos do Trabalhador do Runbook Híbrido Híbrido, consulte [implementar um trabalhador de runbook híbrido do Windows](automation-windows-hrw-install.md) e um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > A avaliação da atualização das máquinas Linux só é suportada em certas regiões conforme listado na tabela de [mapeamentos](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)do espaço de trabalho da Conta Automation e do Log Analytics . 
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização A Gestão só suporta avaliações para este sistema operativo. O patching não é suportado, uma vez que o [Trabalhador de Runbook Híbrido](automation-windows-hrw-install.md) não é suportado para o Windows Server 2008 R2. |
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 ||
+|Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização Gestão suporta avaliações e remendos para este sistema operativo. O [Trabalhador de Runbook Híbrido](automation-windows-hrw-install.md) é suportado para o Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux requerem acesso a um repositório de atualização. O patching baseado na classificação requer `yum` a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [as classificações de Atualização no Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
@@ -103,7 +104,7 @@ A tabela que se segue lista os sistemas operativos não suportados:
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 
-As seguintes informações descrevem os requisitos do cliente específicos do sistema operativo. Para obter orientações adicionais, consulte [o planeamento da rede.](#ports)  Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+As seguintes informações descrevem os requisitos do cliente específicos do sistema operativo. Para obter orientações adicionais, consulte [o planeamento da rede.](#ports) Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="windows"></a>Windows
 
@@ -152,7 +153,7 @@ Se o seu grupo de gestão de Gestor de Operações estiver [ligado a um espaço 
 * Pacote de Gestão de Implementação de Atualização
 
 > [!NOTE]
-> Se tiver um grupo de gestão de Gestor de Operações 1807 ou 2019 ligado a um espaço de trabalho log Analytics com agentes configurados no grupo de gestão para recolher dados de registo, precisa de anular o parâmetro `IsAutoRegistrationEnabled` e defini-lo para True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
+> Se tiver um grupo de gestão 1807 ou 2019 ligado a um espaço de trabalho log Analytics com agentes configurados no grupo de gestão para recolher dados de registo, precisa de anular o parâmetro `IsAutoRegistrationEnabled` e defini-lo para True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
 
 Para obter mais informações sobre atualizações de pacotes de gestão, consulte [os registos do Connect Operations Manager para o Azure Monitor](../azure-monitor/platform/om-agents.md).
 
@@ -187,10 +188,10 @@ São necessários os seguintes endereços especificamente para a Gestão de Atua
 
 |Azure Público  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.azure-automation.us|
+|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+|`*.azure-automation.net` | `*.azure-automation.us`|
 
 Para as máquinas Windows, também deve permitir o tráfego para quaisquer pontos finais exigidos pelo Windows Update. Pode encontrar uma lista atualizada de pontos finais necessários em [Questões relacionadas com HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se tiver um servidor local [de Atualização do Windows,](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)também deve permitir o tráfego para o servidor especificado na sua [tecla WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -252,7 +253,7 @@ Aqui estão as formas de permitir a gestão de atualização e selecionar máqui
 * [De navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
 * [De uma conta de Automação Azure](automation-onboard-solutions.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre o trabalho com a Update Management, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
 

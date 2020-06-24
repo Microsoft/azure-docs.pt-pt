@@ -2,17 +2,17 @@
 title: Criar uma piscina com endereços IP públicos especificados
 description: Saiba como criar uma piscina de Lote que utilize os seus próprios endereços IP públicos.
 ms.topic: how-to
-ms.date: 06/02/2020
-ms.openlocfilehash: dc8657655f67ab2c686897677788e3c5bcb490f7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/16/2020
+ms.openlocfilehash: 9992ae573ea5c9590f15d6cffa11da599026c0a9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300198"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84884976"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Criar uma piscina Azure Batch com endereços IP públicos especificados
 
-Ao criar uma piscina Azure Batch, pode [providenciar a piscina numa rede virtual Azure](batch-virtual-network.md) que especifica. As máquinas virtuais na piscina do Lote são acedidas através de endereços IP públicos que são criados por Batch. Estes endereços IP públicos podem ser alterados ao longo do tempo de vida do pool, o que significa que as definições da sua rede podem ficar desatualizadas se os endereços IP não forem atualizados.
+Quando criar uma piscina Azure Batch, pode [providenciar a piscina numa sub-rede de uma rede virtual Azure](batch-virtual-network.md) (VNet) que especifique. As máquinas virtuais na piscina do Lote são acedidas através de endereços IP públicos que são criados por Batch. Estes endereços IP públicos podem ser alterados ao longo do tempo de vida do pool, o que significa que as definições da sua rede podem ficar desatualizadas se os endereços IP não forem atualizados.
 
 Pode criar uma lista de endereços IP públicos estáticos para usar com as máquinas virtuais na sua piscina. Isto permite-lhe controlar a lista de endereços IP públicos e garantir que não mudarão inesperadamente. Isto pode ser especialmente útil se estiver a trabalhar com qualquer serviço externo, como uma base de dados, que restringe o acesso a determinados endereços IP.
 
@@ -25,7 +25,7 @@ Pode criar uma lista de endereços IP públicos estáticos para usar com as máq
 - **Pelo menos um endereço IP público Azure**. Para criar um ou mais endereços IP públicos, pode utilizar o [portal Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [Interface Azure Command-Line (CLI)](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
 
 > [!NOTE]
-> O lote atribui automaticamente recursos de rede adicionais no grupo de recursos que contém os endereços IP públicos. Por cada 80 nós dedicados, o Batch atribui geralmente um grupo de segurança de rede (NSG) e um equilibrador de carga. Estes recursos são limitados pelas quotas de recursos da subscrição. Ao utilizar piscinas maiores, poderá ter de [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos.
+> O lote atribui automaticamente recursos de rede adicionais no grupo de recursos que contém os endereços IP públicos. Por cada 100 nós dedicados, o Batch atribui geralmente um grupo de segurança de rede (NSG) e um equilibrador de carga. Estes recursos são limitados pelas quotas de recursos da subscrição. Ao utilizar piscinas maiores, poderá ter de [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos.
 
 ## <a name="public-ip-address-requirements"></a>Requisitos de endereço IP públicos
 
@@ -37,7 +37,7 @@ Tenha em mente os seguintes requisitos ao criar os seus endereços IP públicos:
 - Deve ser especificado um nome DNS.
 - Os endereços IP públicos devem ser utilizados apenas para os pools de configuração de máquinas virtuais. Nenhum outro recurso deve utilizar estes endereços IP, ou o pool pode sofrer falhas de alocação.
 - Nenhuma política de segurança ou bloqueios de recursos deve restringir o acesso de um utilizador ao endereço IP público.
-- O número de endereços IP públicos especificados para a piscina deve ser suficientemente grande para acomodar o número de VMs destinados à piscina. Esta deve ser, pelo menos, a soma das propriedades **targetDedicatedNodes**   e **targetLowPriorityNodes**   da piscina. Se não houver endereços IP suficientes, o pool atribui parcialmente os nós de computação e ocorrerá um erro de redimensionar. Atualmente, o Batch utiliza um endereço IP público para cada 80 VMs.
+- O número de endereços IP públicos especificados para a piscina deve ser suficientemente grande para acomodar o número de VMs destinados à piscina. Esta deve ser, pelo menos, a soma das propriedades **targetDedicatedNodes**   e **targetLowPriorityNodes**   da piscina. Se não houver endereços IP suficientes, o pool atribui parcialmente os nós de computação e ocorrerá um erro de redimensionar. Atualmente, o Batch usa um endereço IP público para cada 100 VMs.
 - Tenha sempre um tampão adicional de endereços IP públicos. Recomendamos a adição de pelo menos um endereço IP público adicional, ou aproximadamente 10% do total de endereços IP públicos que adicionar a uma piscina, o que for maior. Este tampão adicional ajudará o Batch com a sua otimização interna ao escalonar, bem como permitir uma escala mais rápida após uma escala infrutífera para cima ou para baixo.
 - Uma vez criada a piscina, não é possível adicionar ou alterar a lista de endereços IP públicos utilizados pela Piscina. Se precisar de modificar a lista, deve apagar a piscina e recriá-la.
 

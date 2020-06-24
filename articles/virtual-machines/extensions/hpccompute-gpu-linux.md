@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 55ca9232252895dd46ad3da3912f808ebd9b9533
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559681"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753549"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor do GPU da NVIDIA para o Linux
 
@@ -146,8 +146,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
-  }'
+  --version 1.3 
 ```
 
 O exemplo a seguir também adiciona duas configurações personalizadas opcionais como exemplo para a instalação não padrão do controlador. Especificamente, atualiza o núcleo de OS para o mais recente e instala um controlador específico de ferramentas CUDA. Mais uma vez, note que as "definições" são opcionais e predefinidos. Note que a atualização do núcleo pode aumentar os tempos de instalação da extensão. Também escolher uma versão específica (mais antiga) do tolkit CUDA pode nem sempre ser compatível com os núcleos mais recentes.

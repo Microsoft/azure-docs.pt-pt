@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -17,14 +17,14 @@ ms.locfileid: "81678578"
 ---
 A partir de um browser, vá ao [portal](https://portal.azure.com/) Azure e inscreva-se na sua conta Azure.
 
-Se tiver várias subscrições e precisar de mudar de subscrição:
+Se tiver várias subscrições e precisar de mudar as subscrições:
 
-1. Selecione o botão de perfil e, em seguida, selecione **'Diretório de Comutação**' .
+1. Selecione o botão de perfil e, em seguida, selecione **o Diretor de Switch**.
 
     > [!div class="mx-imgBorder"]
-    > ![Selecione diretório switch](../media/choose-subscription-2.png)
+    > ![Selecione Diretório switch](../media/choose-subscription-2.png)
 
-1. Escolha uma subscrição que deseja utilizar para espreitar a configuração.
+1. Escolha uma subscrição que pretende utilizar para a configuração de espreitar.
 
     > [!div class="mx-imgBorder"]
     > ![Escolha a subscrição](../media/choose-subscription-3.png)

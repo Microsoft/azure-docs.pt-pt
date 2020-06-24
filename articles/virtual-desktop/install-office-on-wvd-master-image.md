@@ -4,20 +4,20 @@ description: Como instalar e personalizar o Office numa imagem principal do Wind
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2c62fdb41cdd19e34062124564ace9645df1dde6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672702"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200533"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
-Este artigo diz-lhe como instalar o Office 365 ProPlus, OneDrive e outras aplicações comuns numa imagem de disco rígido virtual principal (VHD) para o upload para o Azure. Se os seus utilizadores precisarem de aceder a determinadas aplicações de linha de negócios (LOB), recomendamos que as instale depois de completar as instruções deste artigo.
+Este artigo diz-lhe como instalar aplicações microsoft 365 para empresas, OneDrive, e outras aplicações comuns numa imagem de disco rígido virtual principal (VHD) para upload para Azure. Se os seus utilizadores precisarem de aceder a determinadas aplicações de linha de negócios (LOB), recomendamos que as instale depois de completar as instruções deste artigo.
 
 Este artigo pressupõe que já criou uma máquina virtual (VM). Caso contrário, consulte [Preparar e personalizar uma imagem master VHD](set-up-customize-master-image.md#create-a-vm)
 
@@ -28,29 +28,30 @@ Este artigo também assume que você tem acesso elevado no VM, seja ele provisio
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalar o Office no modo de ativação do computador partilhado
 
-A ativação partilhada do computador permite-lhe implementar o Office 365 ProPlus para um computador da sua organização que é acedido por vários utilizadores. Para obter mais informações sobre a ativação partilhada do computador, consulte [a visão geral da ativação partilhada do computador para o Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
+A ativação partilhada por computador permite-lhe implementar aplicações microsoft 365 para empresa para um computador na sua organização que é acedido por vários utilizadores. Para obter mais informações sobre a ativação partilhada do computador, consulte [a visão geral da ativação partilhada do computador para as Aplicações microsoft 365](/deployoffice/overview-shared-computer-activation).
 
 Utilize a [Ferramenta de Implantação do Office](https://www.microsoft.com/download/details.aspx?id=49117) para instalar o Office. O Windows 10 Enterprise suporta apenas as seguintes versões do Office:
-- Office 365 ProPlus
-- Office 365 Business que vem com uma subscrição de Negócios Microsoft 365
+
+   - Microsoft 365 Apps para empresa
+   - Microsoft 365 Apps para negócios que vem com uma subscrição Microsoft 365 Business Premium
 
 A Ferramenta de Implementação do Office requer um ficheiro XML de configuração. Para personalizar a amostra seguinte, consulte as [Opções de Configuração para a Ferramenta de Implantação do Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 Esta configuração de amostra XML que fornecemos fará as seguintes coisas:
 
-- • Instale o Office a partir do Canal Empresarial Mensal e entregue atualizações do Canal Empresarial Mensal quando forem executados.
-- Use a arquitetura x64.
-- Desative as atualizações automáticas.
-- Remova quaisquer instalações existentes do Office e migrar as suas definições.
-- Ativar a ativação partilhada do computador.
+   - Instale o Office a partir do Canal Empresarial Mensal e entregue atualizações do Canal Empresarial Mensal.
+   - Use a arquitetura x64.
+   - Desative as atualizações automáticas.
+   - Remova quaisquer instalações existentes do Office e migrar as suas definições.
+   - Ativar a ativação partilhada do computador.
 
 >[!NOTE]
 >A funcionalidade de pesquisa de stencil da Visio pode não funcionar como esperado no Windows Virtual Desktop.
 
 Aqui está o que esta configuração de amostra XML não vai fazer:
 
-- Instalar o Skype para negócios
-- Instale o OneDrive no modo por utilizador. Para saber mais, consulte [instalar o OneDrive no modo por máquina](#install-onedrive-in-per-machine-mode).
+   - Instalar o Skype para negócios
+   - Instale o OneDrive no modo por utilizador. Para saber mais, consulte [instalar o OneDrive no modo por máquina](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
 >A ativação partilhada do computador pode ser configurada através de objetos de política de grupo (GPOs) ou definições de registo. O GPO está localizado em **Configurações de Configuração de Computador \\ \\ Modelos Administrativos \\ Microsoft Office 2016 (Máquina) \\ Definições de licenciamento**
@@ -121,7 +122,7 @@ Eis como instalar o OneDrive no modo por máquina:
 2. Faça o download OneDriveSetup.exe para a sua localização encenada com este link:<https://aka.ms/OneDriveWVD-Installer>
 
 3. Se instalou um escritório com o OneDrive omitindo, **\<ExcludeApp ID="OneDrive" /\>** desinstale quaisquer instalações OneDrive por utilizador existentes a partir de um pedido de comando elevado executando o seguinte comando:
-    
+
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
@@ -160,8 +161,8 @@ Eis como instalar o OneDrive no modo por máquina:
 
 O Windows Virtual Desktop não suporta o Skype para o Negócios.
 
-Para obter ajuda na instalação do Microsoft Teams, consulte [utilizar as Equipas da Microsoft no ambiente de trabalho virtual do Windows](teams-on-wvd.md).
+Para obter ajuda na instalação do Microsoft Teams, consulte [utilizar as Equipas da Microsoft no ambiente de trabalho virtual do Windows](teams-on-wvd.md). A otimização dos meios de comunicação para equipas do Microsoft no Windows Virtual Desktop está disponível na pré-visualização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que adicionou o Office à imagem, pode continuar a personalizar a sua imagem principal de VHD. Consulte [Preparar e personalizar uma imagem master VHD](set-up-customize-master-image.md).

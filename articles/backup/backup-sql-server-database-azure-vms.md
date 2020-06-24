@@ -1,15 +1,14 @@
 ---
 title: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 description: Neste artigo, aprenda a fazer backup das bases de dados do SQL Server em máquinas virtuais Azure com Cópia de Segurança Azure.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: faf5ffd65f9b3133c504413201d58aee988af71a
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248112"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817541"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -34,9 +33,10 @@ Neste artigo, aprenderá a:
 Antes de fazer uma versão de base de dados do SQL Server, verifique os seguintes critérios:
 
 1. Identifique ou crie um [cofre de Serviços de Recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região e subscrição que o VM que hospeda a instância do SQL Server.
-2. Verifique se o VM tem [conectividade de rede.](backup-sql-server-database-azure-vms.md#establish-network-connectivity)
-3. Certifique-se de que as bases de dados do SQL Server seguem [as diretrizes de nomeação da base de dados para a Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Verifique se não tem outras soluções de backup ativadas para a base de dados. Desative todas as outras cópias de segurança do SQL Server antes de fazer cópia de segurança na base de dados.
+1. Verifique se o VM tem [conectividade de rede.](backup-sql-server-database-azure-vms.md#establish-network-connectivity)
+1. Certifique-se de que as bases de dados do SQL Server seguem [as diretrizes de nomeação da base de dados para a Azure Backup](#database-naming-guidelines-for-azure-backup).
+1. Certifique-se de que o comprimento combinado do nome VM do SQL Server e o nome do grupo de recursos não excedem 84 caracteres para VMs (ARM) Resource Manager (ou 77 caracteres para VMs clássicos). Esta limitação é porque alguns caracteres são reservados pelo serviço.
+1. Verifique se não tem outras soluções de backup ativadas para a base de dados. Desative todas as outras cópias de segurança do SQL Server antes de fazer cópia de segurança na base de dados.
 
 > [!NOTE]
 > Pode ativar o Azure Backup para um Azure VM e também para uma base de dados SQL Server que esteja a decorrer no VM sem conflitos.
@@ -264,7 +264,7 @@ Para criar uma política de backup:
 
 Pode permitir que a proteção automática faça o back-up automaticamente de todas as bases de dados existentes e futuras para uma instância autónoma do SQL Server ou para um grupo de disponibilidade Always On.
 
-* Não há limite para o número de bases de dados que pode selecionar para proteção automática de uma só vez.
+* Não há limite para o número de bases de dados que pode selecionar para proteção automática de cada vez. A descoberta normalmente corre a cada oito horas. No entanto, pode descobrir e proteger novas bases de dados imediatamente se executar manualmente uma descoberta selecionando a opção **Redescobrir DBs.**
 * Não é possível proteger ou excluir seletivamente bases de dados de proteção, numa instância no momento em que ativa a proteção automática.
 * Se o seu caso já inclui algumas bases de dados protegidas, elas permanecerão protegidas sob as respetivas políticas, mesmo depois de ligar a auto-protecção. Todas as bases de dados desprotegidas adicionadas posteriormente terão apenas uma política que definir no momento de permitir a auto-protecção, listada no âmbito do **Configure Backup**. No entanto, pode alterar a política associada a uma base de dados auto-protegida mais tarde.  
 
