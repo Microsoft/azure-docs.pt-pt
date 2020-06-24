@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 81c14da762e0ff92305456aa89f06949c7039868
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 46b78ca6f385f62d265210b41e634bbbd9a2041c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629281"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262723"
 ---
-# <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Pontuação segura melhorada (pré-visualização) no Azure Security Center
+# <a name="enhanced-secure-score-in-azure-security-center"></a>Pontuação garantida reforçada no Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Introdução para garantir pontuação
 
 O Azure Security Center tem dois objetivos principais: ajudá-lo a compreender a sua situação atual de segurança e ajudá-lo a melhorar de forma eficiente e eficaz a sua segurança. O aspeto central do Centro de Segurança que lhe permite atingir esses objetivos é a pontuação segura.
 
-O Security Center avalia continuamente os seus recursos, subscrições e organização para questões de segurança. Em seguida, agrega todas as conclusões numa única pontuação para que possa dizer, num ápice, a sua situação de segurança atual: quanto maior for a pontuação, menor o nível de risco identificado. Use a pontuação para acompanhar os esforços de segurança e projetos na sua organização. 
+O Security Center avalia continuamente os seus recursos, subscrições e organização para questões de segurança. Em seguida, agrega todas as conclusões numa única pontuação para que possa dizer, num ápice, a sua situação de segurança atual: quanto maior for a pontuação, menor o nível de risco identificado.
 
 A página de pontuação segura do Centro de Segurança inclui:
 
@@ -38,19 +38,32 @@ A página de pontuação segura do Centro de Segurança inclui:
 
     Para ver imediatamente o quão bem a sua organização está a proteger cada superfície de ataque individual, reveja as pontuações para cada controlo de segurança.
 
-    Para obter mais informações, consulte [como a pontuação segura é calculada](secure-score-security-controls.md#how-the-secure-score-is-calculated) abaixo. 
+    Para obter mais informações, consulte [como a sua pontuação segura é calculada](secure-score-security-controls.md#how-your-secure-score-is-calculated) abaixo. 
 
 
 >[!TIP]
 > Versões anteriores do Security Center premiaram pontos ao nível da recomendação: quando remediado uma recomendação para um único recurso, a sua pontuação segura melhorou. Hoje, a sua pontuação só melhora se remediar *todas as* recomendações para um único recurso dentro de um controlo. Portanto, a tua pontuação só melhora quando melhoras a segurança de um recurso.
-> Apesar desta versão melhorada ainda se encontra em pré-visualização, a experiência de pontuação de segurança anterior encontra-se disponível como opção a partir do Portal Azure. 
 
 
-## <a name="locating-your-secure-score"></a>Localizar a sua pontuação segura
+## <a name="accessing-your-secure-score"></a>Aceder à sua pontuação segura
 
-O Centro de Segurança exibe a sua pontuação de forma proeminente: é a primeira coisa mostrada na página de Visão Geral. Se clicar na página de pontuação segura dedicada, verá a pontuação desabatada por subscrição. Clique numa única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição.
+Pode encontrar a sua pontuação total segura, bem como a sua pontuação por subscrição, através do portal Azure ou programaticamente com o AZure Security Center REST API.
 
-## <a name="how-the-secure-score-is-calculated"></a>Como a pontuação segura é calculada 
+### <a name="getting-your-secure-score-from-the-portal"></a>Obter a sua pontuação segura a partir do portal
+
+O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: é a primeira coisa mostrada na página de Visão Geral. Se clicar na página de pontuação segura dedicada, verá a pontuação desabatada por subscrição. Clique numa única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição.
+
+![Pontuação máxima segura, como mostrado no portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
+
+### <a name="getting-your-secure-score-from-the-rest-api"></a>Obter a sua pontuação segura da API REST
+
+Pode aceder à sua pontuação através da [pontuação segura API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
+
+![Recuperação de uma única pontuação segura através da API](media/secure-score-security-controls/single-secure-score-via-api.png)
+
+Por exemplo, ferramentas construídas em cima da pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub.](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score) 
+
+## <a name="how-your-secure-score-is-calculated"></a>Como a sua pontuação segura é calculada 
 
 A contribuição de cada controlo de segurança para a pontuação máxima segura global é claramente indicada na página de recomendações.
 
@@ -71,7 +84,7 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
-|Metric|Fórmula e exemplo|
+|Métrica|Fórmula e exemplo|
 |-|-|
 |**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação atual de um controlo de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -84,6 +97,7 @@ Para melhorar a sua pontuação segura, remedia as recomendações de segurança
 
 >[!IMPORTANT]
 > Só as recomendações incorporadas têm impacto na pontuação segura.
+
 
 ## <a name="security-controls-and-their-recommendations"></a>Controlos de segurança e suas recomendações
 
@@ -110,7 +124,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar atualizações do sistema (pontuação máxima 6)</p></strong>As atualizações do sistema proporcionam às organizações a capacidade de manter a eficiência operacional, reduzir as vulnerabilidades de segurança e proporcionar um ambiente mais estável para os utilizadores finais. Não aplicar atualizações deixa vulnerabilidades não remadas e resulta em ambientes que são suscetíveis a ataques. Estas vulnerabilidades podem ser exploradas e levar à perda de dados, exfiltração de dados, ransomware e abuso de recursos. Para implementar atualizações do sistema, pode utilizar a <a href="https://docs.microsoft.com/azure/automation/automation-update-management">solução 'Gestão de Atualização' para gerir patches e atualizações</a> para as suas máquinas virtuais. A gestão de atualização é o processo de controlo da implementação e manutenção de lançamentos de software.</td>
-    <td class="tg-lboi"; width=55%>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas<br>-O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-A versão OS deve ser atualizada para as suas funções de serviço na nuvem<br>-As atualizações do sistema em conjuntos de escala de máquinas virtuais devem ser instaladas<br>-As atualizações do sistema devem ser instaladas nas suas máquinas<br>-As suas máquinas devem ser reiniciadas para aplicar atualizações do sistema<br>-Os Serviços Kubernetes devem ser atualizados para uma versão não vulnerável de Kubernetes<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais</td>
+    <td class="tg-lboi"; width=55%>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas<br>-O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-A versão OS deve ser atualizada para as suas funções de serviço na nuvem<br>-As atualizações do sistema em conjuntos de escala de máquinas virtuais devem ser instaladas<br>-As atualizações do sistema devem ser instaladas nas suas máquinas<br>-As suas máquinas devem ser reiniciadas para aplicar atualizações do sistema<br>-Os Serviços Kubernetes devem ser atualizados para uma versão não vulnerável de Kubernetes<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Corrigir vulnerabilidades (pontuação máxima 6)</p></strong>Uma vulnerabilidade é uma fraqueza que um ator ameaça pode aproveitar para comprometer a confidencialidade, disponibilidade ou integridade de um recurso. <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt">Gerir vulnerabilidades</a> reduz a exposição organizacional, endurece a área de superfície do ponto final, aumenta a resiliência organizacional e reduz a superfície de ataque dos seus recursos. A Gestão de Ameaças e Vulnerabilidades proporciona visibilidade em software e segurança e fornece recomendações para mitigação.</td>
@@ -130,7 +144,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Remediar configurações de segurança (pontuação máxima 4)</p></strong>Os ativos de TI mal configurados têm um maior risco de serem atacados. As ações básicas de endurecimento são muitas vezes esquecidas quando os ativos estão a ser implantados e os prazos devem ser cumpridos. As configurações erradas de segurança podem estar em qualquer nível na infraestrutura: desde os sistemas operativos e aparelhos de rede, até aos recursos em nuvem.<br>O Azure Security Center compara continuamente a configuração dos seus recursos com requisitos em padrões, regulamentos e referências da indústria. Quando configurar os "pacotes de conformidade" relevantes (padrões e linhas de base) que interessam à sua organização, quaisquer lacunas resultarão em recomendações de segurança que incluam o CCEID e uma explicação do impacto potencial na segurança.<br>Os pacotes comumente utilizados são <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> e <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark versão 1.1.0</a></td>
-    <td class="tg-lboi"; width=55%>-As Políticas de Segurança da Pod devem ser definidas nos Serviços Kubernetes<br>-As vulnerabilidades nas configurações de segurança dos contentores devem ser remediadas<br>-As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas<br>-As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
+    <td class="tg-lboi"; width=55%>-As Políticas de Segurança da Pod devem ser definidas nos Serviços Kubernetes<br>-As vulnerabilidades nas configurações de segurança dos contentores devem ser remediadas<br>-As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas<br>-As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>-O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Restringir o acesso não autorizado à rede (pontuação máxima 4)</p></strong>Os pontos finais dentro de uma organização fornecem uma ligação direta da sua rede virtual aos serviços Azure suportados. Máquinas virtuais numa sub-rede podem comunicar com todos os recursos. Para limitar a comunicação de e para os recursos dentro de uma sub-rede, crie um grupo de segurança de rede e associe-o à sub-rede. As organizações podem limitar e proteger contra o tráfego não autorizado, criando regras de entrada e saída.</td>
@@ -138,7 +152,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar controlo de aplicação adaptativo (pontuação máxima 3)</p></strong>O controlo de aplicações adaptativas (AAC) é uma solução inteligente, automatizada e de ponta a ponta, que permite controlar quais aplicações podem funcionar nas suas máquinas Azure e não-Azure. Também ajuda a endurecer as suas máquinas contra malware.<br>O Security Center usa machine learning para criar uma lista branca de aplicações conhecidas e seguras para um grupo de máquinas.<br>Esta abordagem inovadora da whitelisting de aplicações proporciona os benefícios de segurança sem a complexidade da gestão.<br>O AAC é particularmente relevante para servidores construídos de propósito que precisam executar um conjunto específico de aplicações.</td>
-    <td class="tg-lboi"; width=55%>-Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
+    <td class="tg-lboi"; width=55%>-Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar classificação de dados (pontuação máxima 2)</p></strong>Classificar os dados da sua organização pela sensibilidade e impacto do negócio permite-lhe determinar e atribuir valor aos dados, e fornece a estratégia e base para a governação.<br><a href="https://docs.microsoft.com/azure/information-protection/what-is-information-protection">A Azure Information Protection</a> pode ajudar na classificação de dados. Utiliza políticas de encriptação, identidade e autorização para proteger os dados e restringir o acesso aos dados. Algumas classificações que a Microsoft usa são não-comerciais, públicas, gerais, confidenciais e altamente confidenciais.</td>
@@ -150,7 +164,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Ativar a proteção do ponto final (pontuação máxima 2)</p></strong>Para garantir que os seus pontos finais estão protegidos contra malware, os sensores comportamentais recolhem e processam dados dos sistemas operativos dos seus pontos finais e enviam estes dados para a nuvem privada para análise. A análise de segurança aproveita os big data, machine-learning e outras fontes para recomendar respostas a ameaças. Por exemplo, <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection">o Microsoft Defender ATP</a> utiliza inteligência de ameaça para identificar métodos de ataque e gerar alertas de segurança.<br>O Security Center suporta as seguintes soluções de proteção de ponto final: Windows Defender, System Center Endpoint Protection, Trend Micro, Symantec v12.1.1.1100, McAfee v10 para Windows, McAfee v10 para Linux e Sophos v9 para Linux. Se o Centro de Segurança detetar alguma destas soluções, a recomendação de instalação da proteção do ponto final deixará de aparecer.</td>
-    <td class="tg-lboi"; width=55%>-Falhas de saúde de proteção de ponto final devem ser remediadas em conjuntos de escala de máquina virtual<br>-Problemas de saúde de proteção de ponto final devem ser resolvidos nas suas máquinas<br>-A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquina virtual<br>-Instale a solução de proteção do ponto final em máquinas virtuais<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas<br>-O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-Instale a solução de proteção do ponto final nas suas máquinas</td>
+    <td class="tg-lboi"; width=55%>-Falhas de saúde de proteção de ponto final devem ser remediadas em conjuntos de escala de máquina virtual<br>-Problemas de saúde de proteção de ponto final devem ser resolvidos nas suas máquinas<br>-A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquina virtual<br>-Instale a solução de proteção do ponto final em máquinas virtuais<br>-Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas<br>-O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>-O agente de monitorização deve ser instalado nas suas máquinas<br>-O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>-O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>-Instale a solução de proteção do ponto final nas suas máquinas</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Permitir a auditoria e o registo (pontuação máxima 1)</p></strong>Os dados de registo fornecem informações sobre problemas passados, previnem potenciais, podem melhorar o desempenho da aplicação e fornecem a capacidade de automatizar ações que de outra forma seriam manuais.<br>- <strong>Os registos de controlo e gestão</strong> fornecem informações sobre as operações <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/overview">do Azure Resource Manager.</a><br>- <strong>Os registos de planos de dados</strong> fornecem informações sobre os eventos angariados como parte do uso de recursos Azure.<br>- <strong>Eventos processados</strong> fornecem informações sobre eventos/alertas analisados que foram processados.</td>
@@ -158,7 +172,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementar as melhores práticas de segurança (pontuação máxima 0)</p></strong>As práticas de segurança modernas "assumem a violação" do perímetro da rede. Por essa razão, muitas das melhores práticas neste controlo concentram-se na gestão de identidades.<br>Perder chaves e credenciais é um problema comum. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">O Azure Key Vault</a> protege chaves e segredos encriptando chaves, ficheiros .pfx e palavras-passe.<br>As redes privadas virtuais (VPNs) são uma forma segura de aceder às suas máquinas virtuais. Se as VPNs não estiverem disponíveis, utilize frases-passe complexas e autenticação de dois fatores, tais como <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">autenticação multi-factor Azure</a>. A autenticação de dois fatores evita as fraquezas inerentes à dependência apenas de nomes de utilizador e palavras-passe.<br>A utilização de plataformas de autenticação e autorização fortes é outra das melhores práticas. A utilização de identidades federadas permite que as organizações deleguem a gestão de identidades autorizadas. Isto também é importante quando os trabalhadores são despedidos, e o seu acesso precisa de ser revogado.</td>
-    <td class="tg-lboi"; width=55%>-Um máximo de 3 proprietários deve ser designado para a sua subscrição<br>-As contas externas com permissões de leitura devem ser removidas da sua subscrição<br>-MFA deve ser ativado em contas com permissões de leitura na sua subscrição<br>-O acesso a contas de armazenamento com firewall e configurações de rede virtuais deve ser restringido<br>-Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub<br>-Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL<br>-As regras de autorização relativas à instância do Centro de Eventos devem ser definidas<br>-As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure<br>-Máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager<br>-As definições avançadas de segurança de dados para a Base de Dados SQL devem conter um endereço de e-mail para receber alertas de segurança<br>-A segurança avançada dos dados deve ser ativada nas suas instâncias geridas<br>-Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados da SQL Managed Instance<br>-As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados do servidor SQL<br>-Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL<br>-As subnetas devem ser associadas a um Grupo de Segurança de Rede<br>-Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados da Base de Dados SQL para o seu servidor<br>-[Pré-visualização] A proteção de exploração do Windows deve ser ativada <br>-[Pré-visualização] O agente de configuração do hóspede deve ser instalado</td>
+    <td class="tg-lboi"; width=55%>-Um máximo de 3 proprietários deve ser designado para a sua subscrição<br>-As contas externas com permissões de leitura devem ser removidas da sua subscrição<br>-MFA deve ser ativado em contas com permissões de leitura na sua subscrição<br>-O acesso a contas de armazenamento com firewall e configurações de rede virtuais deve ser restringido<br>-Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub<br>-Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL<br>-As regras de autorização relativas à instância do Centro de Eventos devem ser definidas<br>-As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure<br>-Máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager<br>-As definições avançadas de segurança de dados para a Base de Dados SQL devem conter um endereço de e-mail para receber alertas de segurança<br>-A segurança avançada dos dados deve ser ativada nas suas instâncias geridas<br>-Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados da SQL Managed Instance<br>-As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados do servidor SQL<br>-Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL<br>-As subnetas devem ser associadas a um Grupo de Segurança de Rede<br>-Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados da Base de Dados SQL para o seu servidor<br>-[Pré-visualização] A proteção de exploração do Windows deve ser ativada <br>-[Pré-visualização] O agente de configuração do hóspede deve ser instalado<br>-Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede</td>
   </tr>
 </tbody>
 </table>
@@ -172,13 +186,13 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
 ## <a name="secure-score-faq"></a>Pontuação segura FAQ
 
 ### <a name="why-has-my-secure-score-gone-down"></a>Porque é que a minha pontuação de segurança diminuiu?
-O Centro de Segurança mudou para uma pontuação segura melhorada (atualmente em estado de pré-visualização) que inclui alterações na forma como a pontuação é calculada. Agora, deve resolver todas as recomendações para que um recurso receba pontos. O resultado também mudou para uma escala de 0-10.
+O Centro de Segurança mudou para uma pontuação segura melhorada, que inclui alterações na forma como a pontuação é calculada. Agora, deve resolver todas as recomendações para que um recurso receba pontos. O resultado também mudou para uma escala de 0-10.
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se eu abordar apenas três de quatro recomendações num controlo de segurança, a minha pontuação segura mudará?
 Não. Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
 
 ### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>A experiência anterior da pontuação segura ainda está disponível? 
-Sim. Por um tempo, estarão a correr lado a lado para facilitar a transição. Espere que o modelo anterior seja eliminado gradualmente a tempo. 
+Não. Durante algum tempo correram lado a lado para facilitar a transição. O modelo anterior foi agora depreciado. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim, e eu a desativar na apólice, o meu controlo de segurança será cumprido e a minha pontuação segura atualizada?
 Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
@@ -186,7 +200,7 @@ Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu amb
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

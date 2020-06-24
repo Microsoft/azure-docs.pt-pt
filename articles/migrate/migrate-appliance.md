@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8d385e956aaa2888d72d711571fa8e7cb91da772
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323812"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106565"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -47,8 +47,8 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Implantação suportada** | Implemente como VMware VM utilizando o modelo OVA.<br/><br/> Implemente como VMware VM ou máquina física utilizando o script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 10.000 VMware VMs num servidor vCenter.<br/> Um aparelho pode ligar-se a um único servidor vCenter.
-**Modelo de OVA** | Descarregue a partir do portal ou a partir de https://aka.ms/migrate/appliance/vmware .<br/><br/> O tamanho do download é de 11,2 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
-**Script do PowerShell** | Download [do script](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> 
+**Modelo de OVA** | Descarregue a partir do portal ou a partir de https://aka.ms/migrate/appliance/vmware .<br/><br/> O tamanho do download é de 10,9 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
+**Script do PowerShell** | Consulte este [artigo.](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware)<br/><br/> 
 **Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho num VMware VMware, precisa de recursos suficientes no servidor vCenter para alocar um VM que satisfaça os requisitos.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.
 **Requisitos de VMware** | Se colocar o aparelho como VMware VM, deve ser implantado numa versão de execução do anfitrião ESXi 5.5 ou posterior.<br/><br/> vCenter Server com execução de 5.5, 6.0, 6.5 ou 6.7.
 **VDDK (migração sem agente)** | Se colocar o aparelho como VMware VMware e estiver a executar uma migração sem agentes, o VMware vSphere VDDK deve ser instalado no VM do aparelho.
@@ -68,8 +68,8 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 5000 Hiper-VMs.<br/> Um aparelho pode ligar até 300 anfitriões Hiper-V.
 **Modelo VHD** | Pasta com fecho, incluindo VHD. Descarregue a partir do portal ou a partir de https://aka.ms/migrate/appliance/hyperv .<br/><br/> O tamanho do download é de 10 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
-**Script do PowerShell** | Download [do script](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> 
-**Software/hardware***   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo para o VM do aparelho.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
+**Script do PowerShell** | Consulte este [artigo.](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v)<br/><br/> 
+**Software/hardware***   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo para o VM do aparelho.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
 **Requisitos de hiper-V** | Se colocar o aparelho com o modelo VHD, o aparelho VM fornecido pela Azure Migrate é a versão 5.0 do Hiper-VM.<br/><br/> O anfitrião Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde. 
 **Valor de haxixe VHD** | [Verifique](tutorial-assess-hyper-v.md#verify-security) os valores do hash do modelo VHD.
 **Roteiro hash value-PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
@@ -83,9 +83,9 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Componentes do aparelho** | O aparelho tem os seguintes componentes: <br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de**descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de avaliação**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação suportada** | Implemente como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
-**Limites de descoberta** | Um aparelho pode descobrir até 250 servidores físicos.
-**Script do PowerShell** | Faça o download do script (AzureMigrateInstaller.ps1) numa pasta com fecho de correr a partir do portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Em alternativa, [faça o download diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 59.7 MB.
-**Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.<br/> A execução do aparelho numa máquina com o Windows Server 2019 não é suportada.
+**Limites de descoberta** | Um aparelho pode descobrir até 1000 servidores físicos.
+**Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho de correr a partir do portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Em alternativa, [faça o download diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 63.1 MB.
+**Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.<br/> A execução do aparelho numa máquina com o Windows Server 2019 não é suportada.
 **Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
 
 ## <a name="url-access"></a>Acesso a URL
@@ -139,7 +139,7 @@ download.microsoft.com/download | Permita downloads a partir do download da Micr
 
 O aparelho recolhe metadados, dados de desempenho e dados de análise de dependência (se for utilizada [uma análise de dependência](concepts-dependency-visualization.md) sem agente).
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Metadados
 
 Os metadados descobertos pelo aparelho Azure Migrate ajudam-no a descobrir se as máquinas e aplicações estão prontas para a migração para a Azure, máquinas e aplicações de tamanho certo, planos de custos e analisar as dependências das aplicações. A Microsoft não utiliza estes dados em nenhuma auditoria de conformidade com a licença.
 
@@ -148,18 +148,18 @@ Aqui está a lista completa de metadados VMware VM que o aparelho recolhe e envi
 **DADOS** | **CONTADOR**
 --- | --- 
 **Detalhes da máquina** | 
-ID da VM | vm. Config.InstanceUuid 
-o nome da VM | vm. Config.Name
+ID da VM | vm.Config. InstânciaUida 
+o nome da VM | vm.Config. Nome
 VCenter Server ID | VMwareClient.Instance.Uuid
-Descrição do VM | vm. Resumo.Config.Anotação
+Descrição do VM | vm.Summary.Config. Anotação
 Nome do produto da licença | vm. Cliente.ServiceContent.About.LicenseProductName
 Tipo de sistema operativo | vm. ResumoConfig.GuestFullName
-Tipo de bota | vm. Config.Firmware
-Número de núcleos | vm. Config.Hardware.NumCPU
-Memória (MB) | vm. Config.Hardware.MemoryMB
-Número de discos | vm. Config.hardware.device.toList(). FindAll (x => é VirtualDisk).contagem
-Lista de tamanhos de disco | vm. Config.hardware.device.toList(). FindAll (x => é VirtualDisk)
-Lista de adaptadores de rede | vm. Config.hardware.device.toList(). FindAll (x => é VirtualEthernet).contagem
+Tipo de bota | vm.Config. Firmware
+Número de núcleos | vm.Config. Hardware.NumCPU
+Memória (MB) | vm.Config. Hardware.MemoryMB
+Número de discos | vm.Config. Hardware.Device.ToList(). FindAll(x => é VirtualDisk).contagem
+Lista de tamanhos de disco | vm.Config. Hardware.Device.ToList(). FindAll(x => é VirtualDisk)
+Lista de adaptadores de rede | vm.Config. Hardware.Device.ToList(). FindAll(x => é VirtualEthernet).contagem
 Utilização da CPU | cpu.usage.average
 Utilização da memória |mem.usage.média
 **Por detalhes de disco** | 
@@ -322,7 +322,7 @@ Nome da aplicação | dpkg ou rpm
 
 O aparelho recolhe metadados, dados de desempenho e dados de análise de dependência (se for utilizada [uma análise de dependência](concepts-dependency-visualization.md) sem agente).
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Metadados
 Os metadados descobertos pelo aparelho Azure Migrate ajudam-no a descobrir se as máquinas e aplicações estão prontas para a migração para a Azure, máquinas e aplicações de tamanho certo, planos de custos e analisar as dependências das aplicações. A Microsoft não utiliza estes dados em nenhuma auditoria de conformidade com a licença.
 
 Aqui está a lista completa de metadados Hiper-V VM que o aparelho recolhe e envia para Azure.
@@ -505,8 +505,8 @@ Para verificar no Painel de Controlo:
 
 Se estiver a executar uma versão mais antiga para qualquer um dos componentes, tem de desinstalar o serviço e atualizar manualmente para a versão mais recente.
 
-1. Para verificar as versões mais recentes do serviço de eletrodomésticos, [descarregue](https://aka.ms/latestapplianceservices) o ficheiro Mais Recentecomponents.json.
-2.    Depois de descarregar, abra o ficheiro Mais Recentecomponents.json no Notepad.
+1. Para verificar as versões mais recentes do serviço de aparelhos, [descarregue](https://aka.ms/latestapplianceservices) o LatestComponents.jsno ficheiro.
+2.    Depois de descarregar, abra a LatestComponents.jsno ficheiro no Bloco de Notas.
 3. Encontre a versão de serviço mais recente no ficheiro e o link de descarregamento para o mesmo. Por exemplo:
 
     "Nome": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi " Versão": "6.0.211.2", "Md5Hash": "e00a742acc35e78a6a6a81e75469b84"
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

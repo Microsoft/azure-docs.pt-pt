@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2f62af434a49d11cdc1acfc4a09b5bffbd69140b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 566be788066db54f827bb4d6e46f0d832755ce26
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316706"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115676"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partição em Azure Cosmos DB Cassandra API
 
@@ -53,7 +53,7 @@ CREATE TABLE uprofile.user (
 
 Neste projeto, definimos o `id` campo como a chave primária. A chave primária funciona como o identificador para o registo na tabela e também é usado como a chave de partição em Azure Cosmos DB. Se a chave primária for definida da forma previamente descrita, haverá apenas um único registo em cada partição. Isto resultará numa distribuição perfeitamente horizontal e escalável ao escrever dados para a base de dados, e é ideal para casos de procura de valor-chave. A aplicação deve fornecer a chave primária sempre que ler os dados da tabela, para maximizar o desempenho da leitura. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="divisórias" border="false":::
 
 
 ## <a name="compound-primary-key"></a>Chave primária composta
@@ -83,11 +83,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Quando os dados são devolvidos, é classificado pela chave de agrupamento, como esperado em Apache Cassandra:
 
-![partitions](./media/cassandra-partitioning/select-from-pk.png)
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="divisórias":::
 
 Com os dados modelados desta forma, vários registos podem ser atribuídos a cada partição, agrupados pelo utilizador. Assim, podemos emitir uma consulta que seja encaminhada de forma eficiente pelo `partition key` (neste `user` caso,) para obter todas as mensagens para um determinado utilizador. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="divisórias" border="false":::
 
 
 ## <a name="composite-partition-key"></a>Chave de partição composta

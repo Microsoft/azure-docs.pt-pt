@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763cc0d93e6731bb42bcc55f9d8bf9463e2b0dd
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: eaa78637a2a88c1fceddf5b7ac9cd928ed8a444a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434678"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261482"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Um espaço de trabalho de aprendizagem automática Azure é um recurso Azure. Co
 
 | Função | Nível de acesso |
 | --- | --- |
-| **Leitor** | Ações só de leitura no espaço de trabalho. Os leitores podem listar e visualizar ativos num espaço de trabalho, mas não podem criar ou atualizar estes ativos. |
+| **Leitor** | Ações só de leitura no espaço de trabalho. Os leitores podem listar e visualizar ativos (incluindo credenciais [de datastore)](how-to-access-data.md) num espaço de trabalho, mas não podem criar ou atualizar esses ativos. |
 | **Contribuinte** | Ver, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Por exemplo, os contribuintes podem criar uma experiência, criar ou anexar um cluster de computação, submeter uma execução e implementar um serviço web. |
 | **Proprietário** | Acesso total ao espaço de trabalho, incluindo a capacidade de visualizar, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Além disso, pode alterar atribuições de funções. |
 
@@ -58,6 +58,9 @@ O `user` campo é o endereço de e-mail de um utilizador existente no caso do Az
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
+
+> [!NOTE]
+> O comando "az ml workspace share" não funciona para conta federada pela Azure Ative Directory B2B. Por favor, use o portal Azure UI em vez de comandar.
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 

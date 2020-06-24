@@ -1,42 +1,44 @@
 ---
-title: Restringir o acesso dos utilizadores a operações de dados apenas com o Azure Cosmos DB
-description: Saiba restringir o acesso a operações de dados apenas com o Azure Cosmos DB
+title: Restringir o acesso dos utilizadores a operações de dados apenas com a Azure Cosmos DB
+description: Saiba como restringir o acesso a operações de dados apenas com a Azure Cosmos DB
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 03cad9e4c3752b5f35be785a6280bf18aaa14860
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74980377"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261227"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Restringir o acesso do utilizador apenas às operações de dados
 
-No Azure Cosmos DB, existem duas formas de autenticar as suas interações com o serviço de base de dados:
-- utilizando a sua identidade azure Ative Directory ao interagir com o portal Azure,
-- utilizando [chaves](secure-access-to-data.md#master-keys) db azure cosmos ou [fichas](secure-access-to-data.md#resource-tokens) de recursos ao emitir chamadas de APIs e SDKs.
+Em Azure Cosmos DB, existem duas formas de autenticar as suas interações com o serviço de base de dados:
+- utilizando a sua identidade de Diretório Ativo Azure ao interagir com o portal Azure,
+- usando [chaves](secure-access-to-data.md#master-keys) DB da Azure Cosmos ou [fichas de recursos ao](secure-access-to-data.md#resource-tokens) emitir chamadas de APIs e SDKs.
 
-Cada método de autenticação dá acesso a diferentes ![conjuntos de operações, com alguma sobreposição: Divisão de operações por tipo de autenticação](./media/how-to-restrict-user-data/operations.png)
+Cada método de autenticação dá acesso a diferentes conjuntos de operações, com alguma sobreposição:
 
-Em alguns cenários, poderá querer restringir alguns utilizadores da sua organização a realizar operações de dados (ou seja, pedidos e consultas CRUD) apenas. Este é normalmente o caso dos desenvolvedores que não precisam de criar ou apagar recursos, ou alterar a entrada aprovisionada dos contentores em que estão a trabalhar.
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Divisão de operações por tipo de autenticação" border="false":::
+
+Em alguns cenários, poderá querer restringir alguns utilizadores da sua organização a realizar operações de dados (ou seja, pedidos e consultas da CRUD) apenas. Este é normalmente o caso dos desenvolvedores que não precisam de criar ou apagar recursos, ou alterar a produção a forrável dos contentores em que estão a trabalhar.
 
 Pode restringir o acesso aplicando os seguintes passos:
-1. Criar uma função personalizada de Diretório Ativo Azure para os utilizadores a quem pretende restringir o acesso. O papel personalizado do Diretório Ativo deve ter um nível de acesso fino às operações utilizando [as ações granulares](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)da Azure Cosmos DB.
-1. Autorizar a execução de operações não datadas com chaves. Pode conseguir isso limitando estas operações apenas às chamadas do Gestor de Recursos Azure.
+1. Criar um papel personalizado do Azure Ative Directory para os utilizadores a quem pretende restringir o acesso. O papel personalizado do Ative Directory deve ter um nível de acesso fino às operações utilizando [as ações granulares](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)da Azure Cosmos DB .
+1. Não permitir a execução de operações não-data com chaves. Pode conseguir isso limitando estas operações apenas às chamadas do Azure Resource Manager.
 
 As próximas secções deste artigo mostram como executar estes passos.
 
 > [!NOTE]
-> Para executar os comandos nas secções seguintes, é necessário instalar o Módulo PowerShell Azure 3.0.0 ou mais tarde, bem como o Papel proprietário do [Azure](../role-based-access-control/built-in-roles.md#owner) na subscrição que está a tentar modificar.
+> Para executar os comandos nas próximas secções, é necessário instalar o Módulo Azure PowerShell 3.0.0 ou posterior, bem como a [Função do Proprietário Azure](../role-based-access-control/built-in-roles.md#owner) na subscrição que está a tentar modificar.
 
 Nos scripts PowerShell nas secções seguintes, substitua os seguintes espaços reservados por valores específicos do seu ambiente:
 - `$MySubscriptionId`- O ID de subscrição que contém a conta Azure Cosmos onde pretende limitar as permissões. Por exemplo: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
 - `$MyResourceGroupName`- O grupo de recursos que contém a conta Azure Cosmos. Por exemplo: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName`- O nome da sua conta Azure Cosmos. Por exemplo: `mycosmosdbsaccount`.
-- `$MyUserName`- O login dousername@domainutilizador para quem pretende limitar o acesso. Por exemplo: `cosmosdbuser@contoso.com`.
+- `$MyAzureCosmosDBAccountName`- O nome da sua conta de Azure Cosmos. Por exemplo: `mycosmosdbsaccount`.
+- `$MyUserName`- O login ( username@domain ) do utilizador para quem pretende limitar o acesso. Por exemplo: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>selecione a subscrição do Azure
 
@@ -47,11 +49,11 @@ Login-AzAccount
 Select-AzSubscription $MySubscriptionId
 ```
 
-## <a name="create-the-custom-azure-active-directory-role"></a>Criar o papel personalizado do Diretório Ativo Azure
+## <a name="create-the-custom-azure-active-directory-role"></a>Crie o papel personalizado do Azure Ative Directory
 
-O seguinte guião cria uma atribuição de papel de Diretório Ativo Azure com acesso "Key Only" para contas Azure Cosmos. O papel baseia-se em [papéis personalizados para recursos Azure](../role-based-access-control/custom-roles.md) e [ações granular para O Azure Cosmos DB.](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb) Estas funções e ações `Microsoft.DocumentDB` fazem parte do espaço de nome do Diretório Ativo Azure.
+O seguinte script cria uma atribuição de papel de Azure Ative Directory com acesso "Key Only" para contas Azure Cosmos. O papel baseia-se em [papéis personalizados para recursos Azure](../role-based-access-control/custom-roles.md) e [ações granulares para Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Estes papéis e ações fazem parte do espaço de nome do `Microsoft.DocumentDB` Azure Ative Directory.
 
-1. Em primeiro lugar, crie `AzureCosmosKeyOnlyAccess.json` um documento JSON com o seguinte conteúdo:
+1. Em primeiro lugar, crie um documento JSON nomeado `AzureCosmosKeyOnlyAccess.json` com o seguinte conteúdo:
 
     ```
     {
@@ -73,18 +75,18 @@ O seguinte guião cria uma atribuição de papel de Diretório Ativo Azure com a
     }
     ```
 
-1. Executar os seguintes comandos para criar a atribuição de funções e atribuí-la ao utilizador:
+1. Executar os seguintes comandos para criar a atribuição de Função e atribuí-la ao utilizador:
 
     ```azurepowershell
     New-AzRoleDefinition -InputFile "AzureCosmosKeyOnlyAccess.json"
     New-AzRoleAssignment -SignInName $MyUserName -RoleDefinitionName "Azure Cosmos DB Key Only Access Custom Role" -ResourceGroupName $MyResourceGroupName -ResourceName $MyAzureCosmosDBAccountName -ResourceType "Microsoft.DocumentDb/databaseAccounts"
     ```
 
-## <a name="disallow-the-execution-of-non-data-operations"></a>Proibir a execução de operações não datadas
+## <a name="disallow-the-execution-of-non-data-operations"></a>Não permitir a execução de operações não-data
 
 Os seguintes comandos removem a capacidade de utilizar as teclas para:
 - criar, modificar ou eliminar recursos
-- atualizar as definições do contentor (incluindo políticas de indexação, entrada, etc.).
+- atualizar as definições dos contentores (incluindo políticas de indexação, produção, etc.).
 
 ```azurepowershell
 $cdba = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName $MyResourceGroupName -ResourceName $MyAzureCosmosDBAccountName
@@ -94,5 +96,5 @@ $cdba | Set-AzResource -Force
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [controlo de acesso baseado em papéis da Cosmos DB](role-based-access-control.md)
+- Saiba mais sobre [o controlo de acesso baseado em papéis da Cosmos DB](role-based-access-control.md)
 - Obtenha uma visão geral do [acesso seguro aos dados em Cosmos DB](secure-access-to-data.md)

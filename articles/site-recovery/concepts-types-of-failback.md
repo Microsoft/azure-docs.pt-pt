@@ -1,6 +1,6 @@
 ---
-title: Recuo durante recuperação de desastres com recuperação do site Azure Microsoft Docs
-description: Este artigo fornece uma visão geral de vários tipos de falhas e ressalvas a considerar, ao mesmo tempo que não volta às instalações durante a recuperação de desastres com o serviço de recuperação do local de Azure.
+title: Falha durante recuperação de desastres com recuperação do local de Azure Microsoft Docs
+description: Este artigo fornece uma visão geral de vários tipos de falhas e ressalvas a considerar enquanto não volta aos locais durante a recuperação de desastres com o serviço de recuperação do local de Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,47 +8,47 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281837"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691089"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Reativação pós-falha das VMs VMware após a recuperação após desastre do Azure
 
-Depois de ter falhado com o Azure como parte do seu processo de recuperação de desastres, pode falhar no seu local. Existem dois tipos diferentes de failback que são possíveis com a Recuperação do Site Azure: 
+Depois de ter falhado com a Azure como parte do seu processo de recuperação de desastres, pode voltar ao seu local. Existem dois tipos diferentes de failback que são possíveis com a recuperação do local de Azure: 
 
-- Falhar de volta à localização original 
+- Falhe de volta ao local original 
 - Falhar de volta a um local alternativo
 
-Se falhar com uma máquina virtual VMware, pode falhar na mesma fonte no local, se ainda existir. Neste cenário, apenas as mudanças são replicadas de volta. Este cenário é conhecido como **recuperação original**da localização. Se a máquina virtual no local não existir, o cenário é uma **recuperação alternativa**de localização.
+Se tiver falhado por cima de uma máquina virtual VMware, pode falhar de volta à mesma máquina virtual de origem no local, se ainda existir. Neste cenário, apenas as alterações são replicadas de volta. Este cenário é conhecido como **recuperação original da localização.** Se a máquina virtual no local não existir, o cenário é uma **recuperação alternativa da localização**.
 
 > [!NOTE]
-> Só pode falhar de volta ao vCenter original e ao servidor de Configuração. Não é possível implementar um novo servidor de Configuração e falhar a sua utilização. Além disso, não é possível adicionar um novo vCenter ao servidor de Configuração existente e falhar no novo vCenter.
+> Só pode falhar no servidor original do vCenter e da Configuração. Não é possível implementar um novo servidor de Configuração e falhar na sua utilização. Além disso, não é possível adicionar um novo vCenter ao servidor de configuração existente e falhar no novo vCenter.
 
 ## <a name="original-location-recovery-olr"></a>Recuperação original da localização (OLR)
-Se optar por voltar à máquina virtual original, as seguintes condições devem ser satisfeitas:
+Se optar por voltar a falhar na máquina virtual original, devem ser satisfeitas as seguintes condições:
 
 * Se a máquina virtual for gerida por um servidor vCenter, então o anfitrião ESX do alvo principal deve ter acesso à loja de dados da máquina virtual.
 * Se a máquina virtual estiver num hospedeiro ESX mas não for gerida pelo vCenter, então o disco rígido da máquina virtual deve estar numa loja de dados a que o anfitrião do alvo principal pode aceder.
-* Se a sua máquina virtual estiver num hospedeiro ESX e não utilizar o vCenter, então deve concluir a descoberta do anfitrião ESX do alvo principal antes de se reproteger. Isto aplica-se se também estiver a falhar nos servidores físicos.
-* Pode falhar uma rede de área de armazenamento virtual (vSAN) ou um disco que se baseie no mapeamento de dispositivos brutos (RDM) se os discos já existirem e estiverem ligados à máquina virtual no local.
+* Se a sua máquina virtual estiver num hospedeiro ESX e não utilizar o vCenter, então deve completar a descoberta do anfitrião ESX do alvo principal antes de reprotegir. Isto aplica-se se também estiveres a falhar nos servidores físicos.
+* Pode falhar de volta a uma rede de área de armazenamento virtual (vSAN) ou a um disco baseado no mapeamento de dispositivos brutos (RDM) se os discos já existirem e estiverem ligados à máquina virtual no local.
 
 > [!IMPORTANT]
-> É importante ativar o disco.enableUUID= TRUE para que, durante o relançamento, o serviço de recuperação do site Azure seja capaz de identificar o VMDK original na máquina virtual à qual as alterações pendentes serão escritas. Se este valor não for definido para ser TRUE, então o serviço tenta identificar o VMDK correspondente no local numa base de melhor esforço. Se o VMDK certo não for encontrado, cria um disco extra e os dados são escritos sobre isso.
+> É importante ativar o disco.enableUID= TRUE para que, durante o failback, o serviço de recuperação do local de Azure seja capaz de identificar o VMDK original na máquina virtual para a qual serão escritas as alterações pendentes. Se este valor não for definido como TRUE, então o serviço tenta identificar o VMDK correspondente no local com uma melhor base de esforço. Se o VMDK certo não for encontrado, cria um disco extra e os dados são escritos sobre isso.
 
-## <a name="alternate-location-recovery-alr"></a>Recuperação alternativa de localização (ALR)
-Se a máquina virtual no local não existir antes de reproteger a máquina virtual, o cenário chama-se uma recuperação alternativa de localização. O fluxo de trabalho de reproteção cria novamente a máquina virtual no local. Isto também causará um download completo de dados.
+## <a name="alternate-location-recovery-alr"></a>Recuperação alternativa da localização (ALR)
+Se a máquina virtual no local não existir antes de reprotegir a máquina virtual, o cenário é chamado de recuperação alternativa de localização. O fluxo de trabalho reprotetor cria novamente a máquina virtual no local. Isto também irá causar um download completo de dados.
 
-* Quando falha um local alternativo, a máquina virtual é recuperada para o mesmo hospedeiro ESX no qual o servidor alvo principal é implantado. A loja de dados que é usada para criar o disco será a mesma loja de dados que foi selecionada para reproteger a máquina virtual.
-* Só pode falhar a reprodução num sistema de ficheiros de máquinavirtual (VMFS) ou vSAN. Se tiver um RDM, reproteger e falhar não funcionará.
-* A reproteção envolve uma grande transferência inicial de dados que é seguida pelas alterações. Este processo existe porque a máquina virtual não existe nas instalações. Os dados completos têm de ser replicados de volta. Este reproteção também levará mais tempo do que uma recuperação original da localização.
+* Quando falhas numa localização alternativa, a máquina virtual é recuperada para o mesmo anfitrião ESX no qual o servidor alvo principal é implantado. A loja de dados que é usada para criar o disco será a mesma datastore que foi selecionada ao reprotecer a máquina virtual.
+* Só pode falhar num sistema de ficheiros de máquina virtual (VMFS) ou na loja de dados vSAN. Se tiver um RDM, reprotegir e falhar não funcionará.
+* Reprotectet envolve uma grande transferência inicial de dados que é seguida pelas mudanças. Este processo existe porque a máquina virtual não existe no local. Os dados completos têm de ser replicados. Este reprotetor também levará mais tempo do que uma recuperação original da localização.
 * Não pode falhar nos discos baseados em RDM. Apenas novos discos de máquinas virtuais (VMDKs) podem ser criados numa loja de dados VMFS/vSAN.
 
 > [!NOTE]
-> Uma máquina física, quando falhada no Azure, só pode ser reprovada como uma máquina virtual VMware. Isto segue o mesmo fluxo de trabalho que a recuperação alternativa do local. Certifique-se de que descobre pelo menos um servidor de alvo principal e os anfitriões ESX/ESXi necessários aos quais precisa de voltar afalhar.
+> Uma máquina física, quando falha no Azure, só pode ser falhada como uma máquina virtual VMware. Isto segue o mesmo fluxo de trabalho que a recuperação alternativa da localização. Certifique-se de que descobre pelo menos um servidor-alvo principal e os anfitriões ESX/ESXi necessários aos quais precisa de falhar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Siga os passos para executar a [operação de reprovação](vmware-azure-failback.md).
+Siga os passos para executar a [operação de failback](vmware-azure-failback.md).
 

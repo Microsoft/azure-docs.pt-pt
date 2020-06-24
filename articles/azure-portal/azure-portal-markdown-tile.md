@@ -1,24 +1,24 @@
 ---
-title: Use um azulejo de marcação personalizado nos tabliers Azure
-description: Aprenda a adicionar um azulejo de marcação a um dashboard Azure para exibir conteúdo estático
+title: Use um azulejo de marcação personalizado em dashboards Azure
+description: Saiba como adicionar um azulejo de marcação a um painel Azure para exibir conteúdo estático
 services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 338135561a462fec3b0bfc619a3518cb420908f0
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310718"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763997"
 ---
-# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um azulejo de marcação nos dashboards do Azure para mostrar conteúdo personalizado
+# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um azulejo de marcação nos dashboards Azure para mostrar conteúdo personalizado
 
-Pode adicionar um azulejo de marcação aos seus painéis Azure para exibir conteúdo personalizado e estático. Por exemplo, pode mostrar instruções básicas, uma imagem ou um conjunto de hiperligações num azulejo de marcação.
+Pode adicionar um azulejo de marcação aos seus dashboards Azure para exibir conteúdo estático personalizado. Por exemplo, pode mostrar instruções básicas, uma imagem ou um conjunto de hiperligações num azulejo de marcação.
 
 ## <a name="add-a-markdown-tile-to-your-dashboard"></a>Adicione um azulejo de marcação ao seu painel de instrumentos
 
@@ -26,40 +26,40 @@ Pode adicionar um azulejo de marcação aos seus painéis Azure para exibir cont
 
    ![Screenshot mostrando barra lateral do portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Se criou algum dashboard personalizado, na vista do painel de instrumentos, utilize a queda para selecionar o painel onde deve aparecer o azulejo de marcação personalizado. Selecione o ícone de edição para abrir a **Tile Gallery**.
+1. Se criou painéis personalizados, na vista do painel de instrumentos, utilize o drop-down para selecionar o painel de instrumentos onde deve aparecer o azulejo de marcação personalizado. Selecione o ícone de edição para abrir a **Galeria Tile**.
 
-   ![Screenshot mostrando vista de edição do painel de instrumentos](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Screenshot mostrando a vista de edição do painel de instrumentos](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. Na **Tile Gallery,** localize o azulejo chamado **Markdown** e selecione **Adicionar**. O azulejo é adicionado ao painel de instrumentos e abre o painel **Edit Markdown.**
+1. Na **Galeria Tile,** localize o azulejo chamado **Markdown** e selecione **Add**. O azulejo é adicionado ao painel de instrumentos e o painel **de edição de markdown** abre.
 
-1. Introduza valores para **Título** e **Legenda,** que exibem no azulejo depois de se mudar para outro campo.
+1. Introduza valores para **Título** e **Legenda,** que exibem no azulejo depois de se deslocar para outro campo.
 
-   ![Screenshot mostrando resultados de entrada no título e legenda](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
+   ![Screenshot mostrando os resultados da entrada do título e da legenda](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Selecione uma das opções para incluir o conteúdo de marcação: **Edição inline** ou **inserção de conteúdo utilizando URL**.
+1. Selecione uma das opções para incluir o conteúdo de marcação: **Edição inline ou** **inserir conteúdo usando URL**.
 
-   - Selecione **edição Inline** se quiser introduzir o markdown diretamente.
+   - Selecione **Inline editar** se pretender introduzir o marcador diretamente.
 
-      ![Screenshot mostrando entrar em conteúdo inline](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+      ![Screenshot mostrando o conteúdo inline](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
 
-   - Selecione **inserir conteúdo utilizando URL** se pretender utilizar o conteúdo de marcação existente que está hospedado online.
+   - **Selecione Insira o conteúdo usando URL** se pretender utilizar o conteúdo de marcação existente que está alojado online.
 
-      ![Screenshot mostrando a entrada de URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+      ![Screenshot mostrando URL de entrada](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Para maior segurança, pode criar um ficheiro de marcação e armazená-lo numa conta de [armazenamento Azure onde a encriptação está ativada](../storage/common/storage-service-encryption.md)e, em seguida, apontar para o ficheiro utilizando a opção URL. O conteúdo de marcação é encriptado através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões no ficheiro podem ver o conteúdo de marcação no painel de instrumentos.
+      > Para uma maior segurança, pode criar um ficheiro de marcação e armazená-lo numa [bolha de conta de armazenamento Azure onde a encriptação está ativada,](../storage/common/storage-service-encryption.md)e depois apontar para o ficheiro utilizando a opção URL. O conteúdo de marcação é encriptado através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões para o ficheiro podem ver o conteúdo de marcação no painel de instrumentos.
 
-1. Selecione **Feito** para descartar o painel **de edição markdown.** O seu conteúdo aparece no azulejo Markdown, que pode redimensionar arrastando a pega no canto inferior direito.
+1. Selecione **Feito** para descartar o **painel de ponto de edição.** O seu conteúdo aparece no azulejo markdown, que pode redimensionar arrastando a pega no canto inferior direito.
 
    ![Screenshot mostrando azulejo de marcação personalizado](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
-## <a name="markdown-content-capabilities-and-limitations"></a>Capacidades e limitações de conteúdo de redução
+## <a name="markdown-content-capabilities-and-limitations"></a>Capacidades e limitações de conteúdo de markdown
 
-Pode utilizar qualquer combinação de texto simples, sintaxe de Markdown e conteúdo HTML no azulejo de marcação. O portal Azure utiliza uma biblioteca de código aberto _chamada marcada_ para transformar o seu conteúdo em HTML que é mostrado no azulejo. O HTML produzido por _marca_ é pré-processado pelo portal antes de ser renderizado. Este passo ajuda a garantir que a sua personalização não afetará a segurança ou o layout do portal. Durante esse pré-processamento, qualquer parte do HTML que represente uma ameaça potencial é removida. Os seguintes tipos de conteúdo não são permitidos pelo portal:
+Pode utilizar qualquer combinação de texto simples, sintaxe markdown e conteúdo HTML no azulejo de marcação. O portal Azure utiliza uma biblioteca de código aberto chamada _marcada_ para transformar o seu conteúdo em HTML que é mostrado no azulejo. O HTML produzido por _marcado_ é pré-processado pelo portal antes de ser renderizado. Este passo ajuda a garantir que a sua personalização não afetará a segurança ou disposição do portal. Durante o pré-processamento, qualquer parte do HTML que represente uma ameaça potencial é removida. Os seguintes tipos de conteúdo não são permitidos pelo portal:
 
-* JavaScript `<script>` – etiquetas e avaliações javaScript inline serão removidos.
-* iframes `<iframe>` - as etiquetas serão removidas.
-* Estilo `<style>` - as etiquetas serão removidas. Os atributos de estilo inline em elementos HTML não são suportados oficialmente. Pode descobrir que alguns elementos de estilo inline funcionam para si, mas se interferirem com o layout do portal, podem deixar de trabalhar a qualquer momento. O azulejo Markdown destina-se a conteúdo básico e estático que utiliza os estilos padrão do portal.
+* JavaScript – `<script>` tags e avaliações javaScript inline serão removidas.
+* iframes - `<iframe>` as etiquetas serão removidas.
+* Estilo - `<style>` as etiquetas serão removidas. Os atributos de estilo inline em elementos HTML não são oficialmente suportados. Pode descobrir que alguns elementos de estilo inline funcionam para si, mas se interferirem com o layout do portal, podem deixar de funcionar a qualquer momento. O azulejo markdown destina-se a conteúdo básico e estático que utiliza os estilos padrão do portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 

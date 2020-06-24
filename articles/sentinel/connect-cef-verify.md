@@ -1,5 +1,5 @@
 ---
-title: Validar a conectividade com o Azure Sentinel Microsoft Docs
+title: Validar conectividade ao Azure Sentinel ! Microsoft Docs
 description: Valide a conectividade da sua solução de segurança para garantir que as mensagens CEF estão a ser reencaminhadas para o Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6b91e36ee09aa855c119add2c0eb268cf8b97393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07a6b84569fe0356267440e38b31ac738b2659d6
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731822"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260836"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSO 3: Validar a conectividade
 
-Depois de ter implantado o seu avançado de registo (no Passo 1) e configurado a sua solução de segurança para enviar mensagens CEF (no Passo 2), siga estas instruções para verificar a conectividade entre a sua solução de segurança e o Azure Sentinel. 
+Depois de ter implantado o seu reencaminhador de registo (no Passo 1) e configurado a sua solução de segurança para lhe enviar mensagens CEF (no passo 2), siga estas instruções para verificar a conectividade entre a sua solução de segurança e o Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Deve ter permissões elevadas (sudo) na sua máquina de encaminhamento.
+- Deve ter permissões elevadas (sudo) na sua máquina de reencaminhamento de registo.
 
-- Deve ter python instalado na sua máquina de encaminhador.<br>
-Use `python –version` o comando para verificar.
+- Deve ter python instalado na sua máquina de reencaminhar de bordo.<br>
+Use o `python –version` comando para verificar.
 
 ## <a name="how-to-validate-connectivity"></a>Como validar a conectividade
 
-1. Do menu de navegação Azure Sentinel, open **Logs**. Faça uma consulta utilizando o esquema **CommonSecurityLog** para ver se está a receber registos da sua solução de segurança.<br>
-Esteja ciente de que pode demorar cerca de 20 minutos até que os seus registos comecem a aparecer no **Log Analytics**. 
+1. A partir do menu de navegação Azure Sentinel, abra **registos.** Faça uma consulta utilizando o esquema **CommonSecurityLog** para ver se está a receber registos da sua solução de segurança.<br>
+Tenha em atenção que pode demorar cerca de 20 minutos até que os seus registos comecem a aparecer no **Log Analytics**. 
 
-1. Se não vir quaisquer resultados da consulta, verifique se os eventos estão a ser gerados a partir da sua solução de segurança, ou tente gerar alguns, e verifique se estão a ser encaminhados para a máquina de reencaminhamento Syslog que designou. 
+1. Se não vir nenhum resultado da consulta, verifique se os eventos estão a ser gerados a partir da sua solução de segurança, ou tente gerar alguns, e verifique se estão a ser encaminhados para a máquina de reencaminhamento Syslog que designou. 
 
-1. Execute o seguinte script no carregador de log para verificar a conectividade entre a sua solução de segurança, o avançado de registo e o Azure Sentinel. Este guião verifica se o daemon está a ouvir as portas corretas, que o reencaminhamento está devidamente configurado, e que nada está a bloquear a comunicação entre o daemon e o agente Log Analytics. Também envia mensagens falsas 'TestCommonEventFormat' para verificar a conectividade de ponta a ponta. <br>
+1. Execute o seguinte script no reencaminhador de registo para verificar a conectividade entre a sua solução de segurança, o reencaminhador de registos e o Azure Sentinel. Este script verifica se o daemon está a ouvir nas portas corretas, que o reencaminhamento está devidamente configurado, e que nada está a bloquear a comunicação entre o daemon e o agente Log Analytics. Também envia mensagens falsas 'TestCommonEventFormat' para verificar a conectividade de ponta a ponta. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
-## <a name="validation-script-explained"></a>Script de validação explicado
+## <a name="validation-script-explained"></a>Roteiro de validação explicado
 
 O script de validação executa as seguintes verificações:
 
-# <a name="rsyslog-daemon"></a>[rsyslog daemon](#tab/rsyslog)
+# <a name="rsyslog-daemon"></a>[daemon rsyslog](#tab/rsyslog)
 
 1. Verifica que o ficheiro<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
@@ -70,20 +70,20 @@ O script de validação executa as seguintes verificações:
             type filter_syslog_security
         </filter>
 
-1. Verifica se existem melhorias de segurança na máquina que possam estar a bloquear o tráfego da rede (como uma firewall hospedeira).
+1. Verifique se existem melhorias de segurança na máquina que possam estar a bloquear o tráfego da rede (como uma firewall de hospedeiro).
 
-1. Verifica se o daemon syslog (rsyslog) está devidamente configurado para enviar mensagens que identifica como CEF (utilizando um regex) ao agente Log Analytics na porta TCP 25226:
+1. Verifica se o syslog daemon (rsyslog) está devidamente configurado para enviar mensagens que identifica como CEF (usando um regex) para o agente Log Analytics na porta TCP 25226:
 
     - Ficheiro de configuração:`/etc/rsyslog.d/security-config-omsagent.conf`
 
-            :rawmsg, regex, "CEF\|ASA" ~
+            :rawmsg, regex, "CEF"|"ASA"
             *.* @@127.0.0.1:25226
 
-1. Verifica se o syslog daemon está a receber dados na porta 514
+1. Verifica se o syslog Daemon está a receber dados sobre o porto 514
 
-1. Verifica se as ligações necessárias estão estabelecidas: tCP 514 para receber dados, tCP 25226 para comunicação interna entre o daemon syslog e o agente Log Analytics
+1. Verifica se estão estabelecidas as ligações necessárias: tcp 514 para receção de dados, tcp 25226 para comunicação interna entre o syslog daemon e o agente Log Analytics
 
-1. Envia dados MOCK para a porta 514 no local de acolhimento. Estes dados devem ser observáveis no espaço de trabalho Do Sentinel Ad.
+1. Envia dados MOCK para o porto 514 na localidade local. Estes dados devem ser observáveis no espaço de trabalho Azure Sentinel, executando a seguinte consulta:
 
         CommonSecurityLog
         | where DeviceProduct == "MOCK"
@@ -112,9 +112,9 @@ O script de validação executa as seguintes verificações:
             type filter_syslog_security
         </filter>
 
-1. Verifica se existem melhorias de segurança na máquina que possam estar a bloquear o tráfego da rede (como uma firewall hospedeira).
+1. Verifique se existem melhorias de segurança na máquina que possam estar a bloquear o tráfego da rede (como uma firewall de hospedeiro).
 
-1. Verifica se o syslog daemon (syslog-ng) está devidamente configurado para enviar mensagens que identifica como CEF (utilizando um regex) ao agente Log Analytics na porta TCP 25226:
+1. Verifica se o syslog daemon (syslog-ng) está devidamente configurado para enviar mensagens que identifica como CEF (usando um regex) para o agente Log Analytics na porta TCP 25226:
 
     - Ficheiro de configuração:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
@@ -122,11 +122,11 @@ O script de validação executa as seguintes verificações:
             destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
             log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
 
-1. Verifica se o syslog daemon está a receber dados na porta 514
+1. Verifica se o syslog Daemon está a receber dados sobre o porto 514
 
-1. Verifica se as ligações necessárias estão estabelecidas: tCP 514 para receber dados, tCP 25226 para comunicação interna entre o daemon syslog e o agente Log Analytics
+1. Verifica se estão estabelecidas as ligações necessárias: tcp 514 para receção de dados, tcp 25226 para comunicação interna entre o syslog daemon e o agente Log Analytics
 
-1. Envia dados MOCK para a porta 514 no local de acolhimento. Estes dados devem ser observáveis no espaço de trabalho Do Sentinel Ad.
+1. Envia dados MOCK para o porto 514 na localidade local. Estes dados devem ser observáveis no espaço de trabalho Azure Sentinel, executando a seguinte consulta:
 
         CommonSecurityLog
         | where DeviceProduct == "MOCK"
@@ -134,8 +134,8 @@ O script de validação executa as seguintes verificações:
 ---
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
-- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
+Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- [Utilize livros para](tutorial-monitor-your-data.md) monitorizar os seus dados.
 

@@ -1,5 +1,5 @@
 ---
-title: Parse e validar modelos
+title: Analisar e validar modelos
 titleSuffix: Azure Digital Twins
 description: Aprenda a usar a biblioteca de parser para analisar os modelos DTDL.
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6346c1d2adca697649ebe879b97766672a23ae29
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cc6451d9be6c125d1b01bc5bb33fd553ce789f31
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613069"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263199"
 ---
 # <a name="dtdl-client-side-parser-library"></a>Biblioteca de parser do lado do cliente DTDL
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 [Os modelos](concepts-models.md) em Azure Digital Twins são definidos usando a linguagem de definição de gémeos digitais baseada em JSON (DTDL). Para os casos em que é útil analisar os seus modelos, uma biblioteca de análise DTDL é fornecida em NuGet.org como uma biblioteca do lado do cliente: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
@@ -39,7 +42,7 @@ As capacidades do parser incluem:
 
 ## <a name="use-the-dtdl-validator-sample"></a>Utilize a amostra de validador DTDL
 
-Existe um código de amostra disponível que pode validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca de parser DTDL e é agnóstico linguístico. Encontre-o aqui: [Amostra de Validador DTDL](https://github.com/Azure-Samples/DTDL-Validator).
+Existe um código de amostra disponível que pode validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca de parser DTDL e é agnóstico linguístico. Encontre-o aqui: [Amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 A amostra validador pode ser usada como um utilitário de linha de comando para validar uma árvore de diretório de ficheiros DTDL. Também fornece um modo interativo. O código de origem mostra exemplos de como utilizar a biblioteca de parser.
 
@@ -166,7 +169,7 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que terminar de escrever os seus modelos, veja como os fazer upload (e fazer outras operações de gestão) com as APIs digitalTwinsModels:
 * [Como fazer: Gerir um modelo gémeo](how-to-manage-model.md)

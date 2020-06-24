@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 979f93ef19a2c2aec96c51f81f412468070f7b1d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 88a98c05b09d8e76159199fd5035a15d62bc293b
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217999"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115120"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB Table API
 
@@ -159,7 +159,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
-   ![Ver a informação do fio de ligação no painel de cordas de ligação](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="Ver a informação do fio de ligação no painel de cordas de ligação":::
 
 2. Copie a CADEIA DE LIGAÇÃO PRIMÁRIA com o botão de cópia do lado direito.
 

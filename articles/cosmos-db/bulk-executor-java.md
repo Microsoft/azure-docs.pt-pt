@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: fec11b930be0487a7fbc0968c3c8a8003a2fb911
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559273"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260598"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -133,7 +133,7 @@ O repositório clonado contém duas amostras "bulkimport" e "bulkupdate" relativ
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
-   O importador a granel cria uma nova base de dados e uma coleção com o nome da base de dados, nome de recolha e valores de produção especificados no ficheiro App.config. 
+   O importador a granel cria uma nova base de dados e uma coleção com o nome da base de dados, o nome da recolha e os valores de produção especificados no ficheiro App.config. 
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Dados de atualização em massa em Azure Cosmos DB
 

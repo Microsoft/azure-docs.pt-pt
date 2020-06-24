@@ -1,44 +1,44 @@
 ---
-title: Dados de modelo e partição em Azure Cosmos DB com um exemplo real
-description: Aprenda a modelar e dividir um exemplo do mundo real usando a API Core Core Azure Cosmos
+title: Dados de modelo e partição sobre Azure Cosmos DB com um exemplo no mundo real
+description: Saiba como modelar e dividir um exemplo do mundo real usando a API do Núcleo de Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57bce7840db9786232154acaeaa705a8a0e28943
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75445383"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263815"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 
-Este artigo baseia-se em vários conceitos de Azure Cosmos DB como modelação de [dados,](modeling-data.md) [partição,](partitioning-overview.md)e [aprovisionado para](request-units.md) demonstrar como lidar com um exercício de design de dados no mundo real.
+Este artigo baseia-se em vários conceitos de DB da Azure Cosmos, como [modelação de dados,](modeling-data.md) [partição,](partitioning-overview.md)e [produção antejada](request-units.md) para demonstrar como lidar com um exercício de design de dados no mundo real.
 
-Se normalmente trabalha com bases de dados relacionais, provavelmente construiu hábitos e intuições sobre como desenhar um modelo de dados. Devido aos constrangimentos específicos, mas também aos pontos fortes únicos do Azure Cosmos DB, a maioria destas boas práticas não se traduz bem e pode arrastá-lo para soluções sub-ideais. O objetivo deste artigo é guiá-lo através do processo completo de modelação de um caso de utilização real no Azure Cosmos DB, desde a modelação de itens até à colocalização de entidades e à partilha de contentores.
+Se normalmente trabalha com bases de dados relacionais, provavelmente já construiu hábitos e intuições sobre como desenhar um modelo de dados. Devido aos constrangimentos específicos, mas também aos pontos fortes únicos da Azure Cosmos DB, a maioria destas melhores práticas não se traduz bem e pode arrastá-lo para soluções sub-ideais. O objetivo deste artigo é guiá-lo através do processo completo de modelação de um caso de uso no mundo real em Azure Cosmos DB, desde a modelação de artigos até à colocação de entidades e partição de contentores.
 
 ## <a name="the-scenario"></a>O cenário
 
-Para este exercício, vamos considerar o domínio de uma plataforma de blogs onde *os utilizadores* podem criar *posts.* Os utilizadores também podem *gostar* e adicionar *comentários* a essas publicações.
+Para este exercício, vamos considerar o domínio de uma plataforma de blogs onde *os utilizadores* podem criar *publicações.* Os utilizadores também podem *gostar* e adicionar *comentários* a essas publicações.
 
 > [!TIP]
 > Realçámos algumas palavras em *itálico;* estas palavras identificam o tipo de "coisas" que o nosso modelo terá de manipular.
 
-Adicionando mais requisitos à nossa especificação:
+Adicionar mais requisitos à nossa especificação:
 
 - Uma primeira página exibe um feed de publicações recentemente criadas,
-- Podemos recolher todas as publicações para um utilizador, todos os comentários para uma publicação e todos os gostos para uma publicação,
+- Podemos ir buscar todas as publicações para um utilizador, todos os comentários para uma publicação e todos os gostos para uma publicação,
 - As publicações são devolvidas com o nome de utilizador dos seus autores e uma contagem de quantos comentários e gostos têm,
 - Comentários e gostos também são devolvidos com o nome de utilizador dos utilizadores que os criaram,
-- Quando apresentados como listas, as publicações só têm de apresentar um resumo truncado do seu conteúdo.
+- Quando apresentados como listas, as publicações apenas têm de apresentar um resumo truncado do seu conteúdo.
 
 ## <a name="identify-the-main-access-patterns"></a>Identificar os principais padrões de acesso
 
-Para começar, damos alguma estrutura à nossa especificação inicial identificando os padrões de acesso da nossa solução. Ao conceber um modelo de dados para o Azure Cosmos DB, é importante perceber quais os pedidos que o nosso modelo terá de servir para garantir que o modelo servirá esses pedidos de forma eficiente.
+Para começar, damos alguma estrutura à nossa especificação inicial identificando os padrões de acesso da nossa solução. Ao desenhar um modelo de dados para a Azure Cosmos DB, é importante entender quais os pedidos que o nosso modelo terá de servir para garantir que o modelo irá servir esses pedidos de forma eficiente.
 
-Para facilitar o seguimento do processo global, categorizamos esses diferentes pedidos como comandos ou consultas, pedindo algum vocabulário do [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) onde os comandos são pedidos de escrita (isto é, intenções de atualizar o sistema) e as consultas são apenas pedidos de leitura.
+Para facilitar o processo global, categorizamos esses diferentes pedidos como comandos ou consultas, emprestando algum vocabulário do [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) onde os comandos são pedidos de escrita (isto é, intenções de atualizar o sistema) e consultas são apenas pedidos de leitura.
 
 Aqui está a lista de pedidos que a nossa plataforma terá de expor:
 
@@ -46,35 +46,35 @@ Aqui está a lista de pedidos que a nossa plataforma terá de expor:
 - **[Q1]** Recuperar um utilizador
 - **[C2]** Criar/editar um post
 - **[Q2]** Recuperar um poste
-- **[Q3]** Enumerar as publicações de um utilizador em formato curto
+- **[Q3]** Listar os posts de um utilizador em formato curto
 - **[C3]** Criar um comentário
-- **[Q4]** Enumerar os comentários de uma publicação
+- **[Q4]** Listar os comentários de um post
 - **[C4]** Como um poste
 - **[Q5]** Listar gostos de um post
-- **[Q6]** Enumerar *x* os posts mais recentes criados em formato curto (feed)
+- **[Q6]** Listar os *posts* mais recentes criados em formato curto (feed)
 
-Como esta fase, não pensamos nos detalhes do que cada entidade (utilizador, post etc.) irá conter. Este passo é geralmente um dos primeiros a ser abordado sao projetar contra uma loja relacional, porque temos que descobrir como essas entidades se traduzirão em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos preocupante com uma base de dados de documentos que não impõe qualquer esquema por escrito.
+Como nesta fase, não pensamos nos detalhes do que cada entidade (utilizador, post, etc.) irá conter. Este passo é geralmente um dos primeiros a ser abordado quando se projeta contra uma loja relacional, porque temos que descobrir como essas entidades se vão traduzir em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com uma base de dados de documentos que não impõe qualquer esquema na escrita.
 
-A principal razão pela qual é importante identificar os nossos padrões de acesso desde o início, é porque esta lista de pedidos vai ser a nossa suíte de teste. Sempre que iterratemos sobre o nosso modelo de dados, vamos analisar cada um dos pedidos e verificar o seu desempenho e escalabilidade.
+A principal razão pela qual é importante identificar os nossos padrões de acesso desde o início, é porque esta lista de pedidos vai ser a nossa suíte de teste. Sempre que iteraçãomos sobre o nosso modelo de dados, vamos analisar cada um dos pedidos e verificar o seu desempenho e escalabilidade.
 
 ## <a name="v1-a-first-version"></a>V1: Uma primeira versão
 
-Começamos com dois `users` contentores: e. `posts`
+Começamos com dois contentores: `users` `posts` e.
 
 ### <a name="users-container"></a>Recipiente de utilizadores
 
-Este contentor armazena apenas itens de utilizador:
+Este recipiente armazena apenas itens de utilizador:
 
     {
       "id": "<user-id>",
       "username": "<username>"
     }
 
-Dividimos este `id`recipiente por , o que significa que cada divisória lógica dentro desse recipiente só conterá um item.
+Dividimos este contentor `id` por, o que significa que cada divisória lógica dentro desse contentor conterá apenas um item.
 
 ### <a name="posts-container"></a>Contentor de postes
 
-Este contentor acolhe posts, comentários e gostos:
+Este recipiente acolhe posts, comentários e gostos:
 
     {
       "id": "<post-id>",
@@ -103,26 +103,26 @@ Este contentor acolhe posts, comentários e gostos:
       "creationDate": "<like-creation-date>"
     }
 
-Dividimos este `postId`contentor por , o que significa que cada partição lógica dentro desse contentor conterá um post, todos os comentários para esse post e todos os gostos para esse post.
+Dividimos este contentor `postId` por, o que significa que cada divisória lógica dentro desse contentor conterá um post, todos os comentários para esse post e todos os gostos para esse post.
 
-Note que introduzimos `type` um imóvel nos itens armazenados neste contentor para distinguir entre os três tipos de entidades que este contentor acolhe.
+Note que introduzimos um `type` imóvel nos itens armazenados neste contentor para distinguir entre os três tipos de entidades que este contentor acolhe.
 
-Além disso, optámos por fazer referência a dados relacionados em vez de os incorporar (verifique [esta secção](modeling-data.md) para obter detalhes sobre estes conceitos) porque:
+Além disso, optámos por fazer referência a dados relacionados em vez de os incorporar (consulte [esta secção](modeling-data.md) para obter detalhes sobre estes conceitos) porque:
 
-- não há limite superior para quantas publicações um utilizador pode criar,
-- os cargos podem ser arbitrariamente longos,
-- não há limite superior para quantos comentários e gostos um post pode ter,
-- queremos ser capazes de adicionar um comentário ou um like a um post sem ter que atualizar o post em si.
+- não há limite máximo para quantas publicações um utilizador pode criar,
+- os postos podem ser arbitrariamente longos,
+- não há limite máximo para quantos comentários e gostos um post pode ter,
+- queremos ser capazes de adicionar um comentário ou um like a um post sem ter que atualizar o próprio post.
 
-## <a name="how-well-does-our-model-perform"></a>Até que estado funciona o nosso modelo?
+## <a name="how-well-does-our-model-perform"></a>Qual é o bom desempenho do nosso modelo?
 
-Está na hora de avaliar o desempenho e escalabilidade da nossa primeira versão. Para cada um dos pedidos previamente identificados, medimos a sua latência e quantas unidades de pedido consome. Esta medição é feita contra um conjunto de dados de bonecos contendo 100.000 utilizadores com 5 a 50 posts por utilizador, e até 25 comentários e 100 gostos por post.
+Está na hora de avaliar o desempenho e escalabilidade da nossa primeira versão. Para cada um dos pedidos previamente identificados, medimos a sua latência e quantas unidades de pedido consome. Esta medição é feita contra um conjunto de dados falsos contendo 100.000 utilizadores com 5 a 50 posts por utilizador, e até 25 comentários e 100 gostos por post.
 
 ### <a name="c1-createedit-a-user"></a>[C1] Criar/editar um utilizador
 
-Este pedido é simples de implementar, pois acabamos `users` de criar ou atualizar um item no recipiente. Os pedidos espalhar-se-ão bem por `id` todas as divisórias graças à chave de partição.
+Este pedido é simples de implementar à medida que apenas criamos ou atualizamos um item no `users` recipiente. Os pedidos espalhar-se-ão por todas as divisórias graças à `id` chave de partição.
 
-![Escrever um único item para o recipiente dos utilizadores](./media/how-to-model-partition-example/V1-C1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C1.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -130,9 +130,9 @@ Este pedido é simples de implementar, pois acabamos `users` de criar ou atualiz
 
 ### <a name="q1-retrieve-a-user"></a>[Q1] Recuperar um utilizador
 
-A recuperação de um utilizador é feita `users` lendo o item correspondente do recipiente.
+A recuperação de um utilizador é feita lendo o item correspondente do `users` recipiente.
 
-![Recuperação de um único item do recipiente dos utilizadores](./media/how-to-model-partition-example/V1-Q1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Recuperação de um único item do recipiente dos utilizadores" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -140,9 +140,9 @@ A recuperação de um utilizador é feita `users` lendo o item correspondente do
 
 ### <a name="c2-createedit-a-post"></a>[C2] Criar/editar um post
 
-Da mesma forma que **[C1],** só `posts` temos que escrever para o recipiente.
+Da mesma forma **que [C1],** só temos que escrever para o `posts` recipiente.
 
-![Escrever um único item para o recipiente de postes](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -150,26 +150,26 @@ Da mesma forma que **[C1],** só `posts` temos que escrever para o recipiente.
 
 ### <a name="q2-retrieve-a-post"></a>[Q2] Recuperar um poste
 
-Começamos por recuperar o documento `posts` correspondente do recipiente. Mas isso não é suficiente, de acordo com a nossa especificação, também temos de agregar o nome de utilizador do autor do post e as contagens de quantos comentários e quantos gostos esta publicação tem, o que requer 3 consultas SQL adicionais para serem emitidas.
+Começamos por recuperar o documento correspondente do `posts` contentor. Mas isso não é suficiente, como de acordo com a nossa especificação também temos que agregar o nome de utilizador do autor do post e as contagens de quantos comentários e quantos gostos este post tem, o que requer 3 consultas adicionais de SQL para ser emitida.
 
-![Recuperar um post e agregar dados adicionais](./media/how-to-model-partition-example/V1-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Recuperação de um posto e agregação de dados adicionais" border="false":::
 
-Cada uma das consultas adicionais filtra a chave de partição do respetivo recipiente, que é exatamente o que queremos maximizar o desempenho e a escalabilidade. Mas eventualmente temos que fazer quatro operações para devolver um único posto, então vamos melhorar isso numa próxima iteração.
+Cada uma das consultas adicionais filtra na chave de partição do respetivo recipiente, que é exatamente o que queremos maximizar o desempenho e a escalabilidade. Mas eventualmente temos que fazer quatro operações para devolver um único poste, então vamos melhorar isso em uma próxima iteração.
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
 | 9 ms | 19.54 RU | ⚠ |
 
-### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Enumerar as publicações de um utilizador em formato curto
+### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um utilizador em formato curto
 
-Em primeiro lugar, temos de recuperar as publicações desejadas com uma consulta SQL que rebusca as publicações correspondentes a esse utilizador em particular. Mas também temos de emitir consultas adicionais para agregar o nome de utilizador do autor e as contagens de comentários e gostos.
+Em primeiro lugar, temos de recuperar os posts desejados com uma consulta SQL que vai buscar os posts correspondentes a esse utilizador em particular. Mas também temos de emitir perguntas adicionais para agregar o nome de utilizador do autor e as contagens de comentários e gostos.
 
-![Recuperar todas as publicações para um utilizador e agregar os seus dados adicionais](./media/how-to-model-partition-example/V1-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Recuperação de todos os posts para um utilizador e agregação dos seus dados adicionais" border="false":::
 
 Esta implementação apresenta muitos inconvenientes:
 
-- as consultas que agregam as contagens de comentários e gostos têm de ser emitidas para cada publicação devolvida pela primeira consulta,
-- a consulta principal não filtra a chave `posts` de partição do recipiente, conduzindo a uma saída de ventilação e a uma varredura de divisória através do recipiente.
+- as consultas que agregam as contagens de comentários e gostos têm de ser emitidas para cada posto devolvido pela primeira consulta,
+- a consulta principal não filtra a chave de partição do `posts` recipiente, conduzindo a uma saída de ventilação e a uma digitalização de divisórias através do recipiente.
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -177,21 +177,21 @@ Esta implementação apresenta muitos inconvenientes:
 
 ### <a name="c3-create-a-comment"></a>[C3] Criar um comentário
 
-Um comentário é criado escrevendo o `posts` item correspondente no recipiente.
+Um comentário é criado escrevendo o item correspondente no `posts` recipiente.
 
-![Escrever um único item para o recipiente de postes](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
 | 7 ms | 8.57 RU | ✅ |
 
-### <a name="q4-list-a-posts-comments"></a>[Q4] Enumerar os comentários de uma publicação
+### <a name="q4-list-a-posts-comments"></a>[Q4] Listar os comentários de um post
 
 Começamos com uma consulta que vai buscar todos os comentários para esse post e, mais uma vez, precisamos também de agregar nomes de utilizadores separadamente para cada comentário.
 
-![Recuperando todos os comentários para uma publicação e agregando os seus dados adicionais](./media/how-to-model-partition-example/V1-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Recuperação de todos os comentários para uma publicação e agregação dos seus dados adicionais" border="false":::
 
-Embora a consulta principal seja filtrada na chave de partição do recipiente, aagregação dos nomes de utilizador penaliza separadamente o desempenho geral. Vamos melhorar isso mais tarde.
+Embora a consulta principal filtre na chave de partição do recipiente, agregar os nomes de utilizador penaliza separadamente o desempenho geral. Vamos melhorar mais tarde.
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -199,9 +199,9 @@ Embora a consulta principal seja filtrada na chave de partição do recipiente, 
 
 ### <a name="c4-like-a-post"></a>[C4] Como um poste
 
-Tal como **[C3],** criamos o `posts` item correspondente no recipiente.
+Tal como **[C3],** criamos o item correspondente no `posts` recipiente.
 
-![Escrever um único item para o recipiente de postes](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -209,21 +209,21 @@ Tal como **[C3],** criamos o `posts` item correspondente no recipiente.
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Listar gostos de um post
 
-Tal como **[Q4],** consultamos os gostos por esse post e depois agregamos os seus nomes de utilizador.
+Assim como **[Q4],** consultamos os gostos para esse post e, em seguida, agregamos os seus nomes de utilizador.
 
-![Recuperar todos os gostos para um post e agregar os seus dados adicionais](./media/how-to-model-partition-example/V1-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recuperar todos os gostos para um post e agregar os seus dados adicionais" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
 | 59 ms | 58.92 RU | ⚠ |
 
-### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Enumerar os posts mais recentes criados em formato curto (feed)
+### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Listar os posts mais recentes criados em formato curto (feed)
 
-Pegamos nas publicações mais recentes `posts` consultando o recipiente classificado por data de criação descendente, em seguida, agregamos nomes de utilizadores e contagens de comentários e gostos para cada um dos posts.
+Buscamos as publicações mais recentes consultando o `posts` contentor classificado por data de criação descendente, em seguida, agregamos nomes de utilizadores e contagens de comentários e gostos para cada um dos posts.
 
-![Recuperar publicações mais recentes e agregar os seus dados adicionais](./media/how-to-model-partition-example/V1-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Recuperação de postos mais recentes e agregação dos seus dados adicionais" border="false":::
 
-Mais uma vez, a nossa consulta inicial não `posts` filtra a chave de partição do recipiente, o que despoleta uma saída dispendiosa. Este é ainda pior, uma vez que visamos um `ORDER BY` conjunto de resultados muito maior e classificamos os resultados com uma cláusula, o que o torna mais caro em termos de unidades de pedido.
+Mais uma vez, a nossa consulta inicial não filtra a chave de partição do recipiente, o `posts` que despoleta uma dispendiosa saída de ventilação. Este é ainda pior, uma vez que visamos um conjunto de resultados muito maior e classificamos os resultados com uma cláusula, o `ORDER BY` que o torna mais caro em termos de unidades de pedido.
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -233,16 +233,16 @@ Mais uma vez, a nossa consulta inicial não `posts` filtra a chave de partição
 
 Olhando para os problemas de desempenho que enfrentamos na secção anterior, podemos identificar duas classes principais de problemas:
 
-- alguns pedidos requerem múltiplas consultas para recolher todos os dados que precisamos para devolver,
-- algumas consultas não filtram a chave de partição dos contentores que visam, levando a uma saída de ventilação que impede a nossa escalabilidade.
+- alguns pedidos requerem múltiplas consultas a serem emitidas para recolher todos os dados que precisamos para devolver,
+- algumas consultas não filtram a chave de partição dos recipientes que visam, levando a um fan-out que impede a nossa escalabilidade.
 
 Vamos resolver cada um desses problemas, a começar pelo primeiro.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introdução da desnormalização para otimizar consultas de leitura
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introdução da denormalização para otimizar consultas de leitura
 
-A razão pela qual temos que emitir pedidos adicionais em alguns casos é porque os resultados do pedido inicial não contêm todos os dados que precisamos para devolver. Ao trabalhar com uma loja de dados não relacionais como o Azure Cosmos DB, este tipo de problema é geralmente resolvido desnormalizando dados através do nosso conjunto de dados.
+A razão pela qual temos de emitir pedidos adicionais em alguns casos é porque os resultados do pedido inicial não contêm todos os dados que precisamos para devolver. Ao trabalhar com uma loja de dados não relacional como a Azure Cosmos DB, este tipo de problema é geralmente resolvido desnormalizando dados em todo o nosso conjunto de dados.
 
-No nosso exemplo, modificamos itens de post para adicionar o nome de utilizador do autor da publicação, a contagem de comentários e a contagem de gostos:
+No nosso exemplo, modificamos itens postais para adicionar o nome de utilizador do autor do post, a contagem de comentários e a contagem de gostos:
 
     {
       "id": "<post-id>",
@@ -257,7 +257,7 @@ No nosso exemplo, modificamos itens de post para adicionar o nome de utilizador 
       "creationDate": "<post-creation-date>"
     }
 
-Também modificamos comentários e similares para adicionar o nome de utilizador do utilizador que os criou:
+Também modificamos comentários e itens para adicionar o nome de utilizador do utilizador que os criou:
 
     {
       "id": "<comment-id>",
@@ -278,11 +278,11 @@ Também modificamos comentários e similares para adicionar o nome de utilizador
       "creationDate": "<like-creation-date>"
     }
 
-### <a name="denormalizing-comment-and-like-counts"></a>Desnormalizar comentários e contagens como
+### <a name="denormalizing-comment-and-like-counts"></a>Comentário desnormalizado e como conta
 
-O que queremos alcançar é que cada vez que adicionamos `commentCount` um `likeCount` comentário ou um like, também incrementamos o ou o post correspondente. Como `posts` o nosso recipiente `postId`é dividido por, o novo item (comentário ou gosto) e o seu post correspondente sentam-se na mesma divisória lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para realizar esta operação.
+O que queremos alcançar é que cada vez que adicionamos um comentário ou um like, também incrementamos o `commentCount` ou o no post `likeCount` correspondente. Como o nosso `posts` recipiente é dividido `postId` por, o novo item (comentário ou similar) e o seu posto correspondente sentam-se na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar esta operação.
 
-Agora, ao criar um comentário **([C3]),** em vez `posts` de apenas adicionar um novo item no recipiente, chamamos o seguinte procedimento armazenado nesse recipiente:
+Agora, ao criar um comentário **([C3]**), em vez de apenas adicionar um novo item no `posts` recipiente chamamos o seguinte procedimento armazenado nesse recipiente:
 
 ```javascript
 function createComment(postId, comment) {
@@ -311,24 +311,24 @@ function createComment(postId, comment) {
 }
 ```
 
-Este procedimento armazenado leva a identificação do post e o corpo do novo comentário como parâmetros, então:
+Este procedimento armazenado toma a ID do post e o corpo do novo comentário como parâmetros, em seguida:
 
-- recupera o post
+- recupera o poste
 - incrementa o`commentCount`
-- substitui o cargo
+- substitui o poste
 - adiciona o novo comentário
 
-À medida que os procedimentos armazenados são executados como `commentCount` transações atómicas, é garantido que o valor e o número real de comentários permanecerão sempre sincronizados.
+Como os procedimentos armazenados são executados como transações atómicas, é garantido que o valor `commentCount` e o número real de comentários permanecerão sempre sincronizados.
 
-Obviamente chamamos um procedimento armazenado semelhante ao adicionar `likeCount`novos likes para incrementar o .
+Obviamente chamamos um procedimento armazenado semelhante ao adicionar novos gostos para incrementar o `likeCount` .
 
-### <a name="denormalizing-usernames"></a>Desnormalizando nomes de utilizadores
+### <a name="denormalizing-usernames"></a>Nomes de utilizador desnormalizantes
 
-Os nomes de utilizador requerem uma abordagem diferente, uma vez que os utilizadores não só se sentam em divisórias diferentes, mas num recipiente diferente. Quando tivermos de desnormalizar os dados através de divisórias e contentores, podemos utilizar o feed de [mudança](change-feed.md)do recipiente de origem.
+Os nomes de utilizador requerem uma abordagem diferente, uma vez que os utilizadores não só se sentam em diferentes divisórias, mas num recipiente diferente. Quando temos de desnormalizar os dados através de divisórias e contentores, podemos utilizar a rede de [alteração](change-feed.md)do recipiente de origem.
 
-No nosso exemplo, utilizamos o `users` feed de alteração do recipiente para reagir sempre que os utilizadores atualizarem os seus nomes de utilizador. Quando isso acontece, propagamos a mudança chamando `posts` outro procedimento armazenado no recipiente:
+No nosso exemplo, utilizamos o feed de alteração do `users` recipiente para reagir sempre que os utilizadores atualizarem os seus nomes de utilizador. Quando isso acontece, propagamos a mudança chamando outro procedimento armazenado no `posts` recipiente:
 
-![Desnormalizando os nomes de utilizador no recipiente de posts](./media/how-to-model-partition-example/denormalization-1.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Nomes de utilizador desnormalizados no recipiente dos postes" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -352,33 +352,33 @@ function updateUsernames(userId, username) {
 }
 ```
 
-Este procedimento armazenado leva a identificação do utilizador e o novo nome de utilizador como parâmetros:
+Este procedimento armazenado toma o ID do utilizador e o novo nome de utilizador do utilizador como parâmetros, em seguida:
 
-- requer todos os itens `userId` correspondentes aos (que podem ser posts, comentários ou gostos)
+- adquire todos os itens correspondentes ao `userId` (que podem ser posts, comentários ou gostos)
 - para cada um desses itens
   - substitui o`userUsername`
   - substitui o item
 
 > [!IMPORTANT]
-> Esta operação é dispendiosa porque requer que este procedimento armazenado seja `posts` executado em todas as divisórias do recipiente. Assumimos que a maioria dos utilizadores escolhe um nome de utilizador adequado durante o início de sessão e nunca o altera, pelo que esta atualização será executada muito raramente.
+> Esta operação é dispendiosa porque requer que este procedimento armazenado seja executado em todas as divisões do `posts` recipiente. Assumimos que a maioria dos utilizadores escolhe um nome de utilizador adequado durante a inscrição e nunca o alterará, pelo que esta atualização será executada muito raramente.
 
-## <a name="what-are-the-performance-gains-of-v2"></a>Quais são os ganhos de desempenho do V2?
+## <a name="what-are-the-performance-gains-of-v2"></a>Quais são os ganhos de desempenho da V2?
 
 ### <a name="q2-retrieve-a-post"></a>[Q2] Recuperar um poste
 
 Agora que a nossa desnormalização está em vigor, só temos de ir buscar um único item para tratar desse pedido.
 
-![Recuperando um único item do contentor dos postes](./media/how-to-model-partition-example/V2-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Recuperação de um único item do contentor dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
-### <a name="q4-list-a-posts-comments"></a>[Q4] Enumerar os comentários de uma publicação
+### <a name="q4-list-a-posts-comments"></a>[Q4] Listar os comentários de um post
 
 Aqui novamente, podemos poupar os pedidos extra que buscaram os nomes de utilizador e acabar com uma única consulta que filtra na chave de partição.
 
-![Recuperando todos os comentários para um post](./media/how-to-model-partition-example/V2-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Recuperando todos os comentários para uma publicação" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -386,9 +386,9 @@ Aqui novamente, podemos poupar os pedidos extra que buscaram os nomes de utiliza
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Listar gostos de um post
 
-Exatamente a mesma situação quando listam gostos.
+Exatamente a mesma situação ao listar os gostos.
 
-![Recuperando todos os gostos para um post](./media/how-to-model-partition-example/V2-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Recuperando todos os gostos para um poste" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -396,24 +396,24 @@ Exatamente a mesma situação quando listam gostos.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Certificar-se de que todos os pedidos são escaláveis
 
-Olhando para as nossas melhorias globais de desempenho, ainda há dois pedidos que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. São os pedidos que envolvem consultas que não filtram a chave de partição dos contentores que visam.
+Olhando para as nossas melhorias globais de desempenho, ainda existem dois pedidos que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. São os pedidos que envolvem consultas que não filtram a chave de partição dos contentores que visam.
 
-### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Enumerar as publicações de um utilizador em formato curto
+### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um utilizador em formato curto
 
-Este pedido já beneficia das melhorias introduzidas na V2, que poupa maquetes adicionais.
+Este pedido já beneficia das melhorias introduzidas na V2, que poupam consultas adicionais.
 
-![Recuperação de todas as publicações para um utilizador](./media/how-to-model-partition-example/V2-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Recuperação de todos os posts para um utilizador" border="false":::
 
-Mas a consulta restante ainda não está a `posts` filtrar a chave de partição do recipiente.
+Mas a restante consulta ainda não está a filtrar a chave de partição do `posts` recipiente.
 
 A forma de pensar sobre esta situação é, na verdade, simples:
 
-1. Este pedido *tem* de `userId` filtrar o porque queremos buscar todas as publicações para um determinado utilizador
-1. Não tem um bom desempenho porque é `posts` executado contra o recipiente, que não é dividido por`userId`
+1. Este pedido *tem que* filtrar no `userId` porque queremos buscar todos os posts para um determinado utilizador
+1. Não tem um bom desempenho porque é executado contra o `posts` recipiente, que não é dividido por`userId`
 1. Afirmando o óbvio, resolveríamos o nosso problema de desempenho executando este pedido contra um contentor que *é* dividido por`userId`
-1. Acontece que já temos um recipiente `users` assim: o contentor!
+1. Acontece que já temos tal contentor: o `users` contentor!
 
-Assim, introduzimos um segundo nível de desnormalização `users` duplicando postos inteiros para o contentor. Ao fazê-lo, efetivamente obtemos uma cópia dos nossos posts, apenas divididos `userId`ao longo de diferentes dimensões, tornando-os muito mais eficientes para recuperar em seus .
+Assim, introduzimos um segundo nível de desnormalização duplicando postos inteiros no `users` contentor. Ao fazê-lo, efetivamente obtemos uma cópia dos nossos posts, apenas divididos ao longo de diferentes dimensões, tornando-os muito mais eficientes para recuperar pelos seus `userId` .
 
 O `users` recipiente contém agora 2 tipos de itens:
 
@@ -439,30 +439,30 @@ O `users` recipiente contém agora 2 tipos de itens:
 
 Tenha em atenção que:
 
-- introduzimos um `type` campo no item de utilizador para distinguir os utilizadores de publicações,
-- adicionámos também `userId` um campo no item do utilizador, que é redundante com `id` o campo, mas é necessário, uma vez que o `users` recipiente é agora dividido por `userId` (e não `id` como anteriormente)
+- introduzimos um `type` campo no item do utilizador para distinguir os utilizadores das publicações,
+- também adicionámos um `userId` campo no item do utilizador, que é redundante com o `id` campo, mas que é necessário, uma vez que o recipiente é agora dividido por `users` `userId` (e não `id` como anteriormente)
 
-Para conseguir essa desnormalização, voltamos a usar o feed de mudança. Desta vez, reagimos na mudança `posts` do recipiente para enviar qualquer `users` posto novo ou atualizado para o contentor. E como as publicações de listagem não requerem devolver todo o seu conteúdo, podemos trunca-los no processo.
+Para conseguir essa desnormalização, mais uma vez usamos o feed de mudança. Desta vez, reagimos à alteração do feed do `posts` contentor para enviar qualquer posto novo ou atualizado para o `users` contentor. E como os posts de listagem não requerem devolver todo o seu conteúdo, podemos truncá-los no processo.
 
-![Desnormalizando posts no recipiente dos utilizadores](./media/how-to-model-partition-example/denormalization-2.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Posts desnormalizadores no recipiente dos utilizadores" border="false":::
 
-Podemos agora encaminhar a `users` nossa consulta para o contentor, filtrando a chave de partição do recipiente.
+Agora podemos encaminhar a nossa consulta para o `users` recipiente, filtrando a chave de partição do recipiente.
 
-![Recuperação de todas as publicações para um utilizador](./media/how-to-model-partition-example/V3-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Recuperação de todos os posts para um utilizador" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
 | 4 ms | 6.46 RU | ✅ |
 
-### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Enumerar os posts mais recentes criados em formato curto (feed)
+### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Listar os posts mais recentes criados em formato curto (feed)
 
-Temos de lidar com uma situação semelhante: mesmo depois de pouparmos as consultas adicionais deixadas desnecessárias pela desnormalização introduzida em V2, a consulta restante não filtra a chave de partição do contentor:
+Temos de lidar com uma situação semelhante: mesmo depois de pouparmos as consultas adicionais deixadas desnecessárias pela desnormalização introduzida em V2, a restante consulta não filtra a chave de partição do recipiente:
 
-![Recuperando publicações mais recentes](./media/how-to-model-partition-example/V2-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Recuperação de postos mais recentes" border="false":::
 
-Seguindo a mesma abordagem, maximizar o desempenho e escalabilidade deste pedido requer que apenas atinja uma divisória. Isto é concebível porque só temos de devolver um número limitado de itens; para povoar a página inicial da nossa plataforma de blogging, só precisamos de obter as 100 publicações mais recentes, sem a necessidade de paginar através de todo o conjunto de dados.
+Seguindo a mesma abordagem, maximizar o desempenho e escalabilidade deste pedido requer que atinja apenas uma partição. Isto é concebível porque só temos de devolver um número limitado de itens; para preencher a página inicial da nossa plataforma de blogs, só precisamos de obter as 100 publicações mais recentes, sem necessidade de paginar através de todo o conjunto de dados.
 
-Assim, para otimizar este último pedido, introduzimos um terceiro recipiente ao nosso design, inteiramente dedicado a servir este pedido. Desnormalizamos os nossos `feed` postos para aquele novo contentor:
+Assim, para otimizar este último pedido, introduzimos um terceiro recipiente ao nosso design, inteiramente dedicado a servir este pedido. Desnormalizamos os nossos postos para aquele novo `feed` contentor:
 
     {
       "id": "<post-id>",
@@ -477,13 +477,13 @@ Assim, para otimizar este último pedido, introduzimos um terceiro recipiente ao
       "creationDate": "<post-creation-date>"
     }
 
-Este recipiente é `type`dividido por , `post` que estará sempre nos nossos itens. Ao fazê-lo, todos os itens deste recipiente ficarão na mesma divisória.
+Este recipiente é dividido `type` por, que estará sempre `post` nos nossos itens. Ao fazê-lo, todos os itens deste recipiente ficarão na mesma divisória.
 
-Para conseguir a desnormalização, temos apenas de nos ligar ao gasoduto de alimentação de mudanças que introduzimos anteriormente para enviar os postos para aquele novo contentor. Uma coisa importante a ter em conta é que temos de nos certificar de que apenas armazenamos os 100 posts mais recentes; caso contrário, o conteúdo do recipiente pode crescer para além do tamanho máximo de uma divisória. Isto é feito chamando um [pós-gatilho](stored-procedures-triggers-udfs.md#triggers) cada vez que um documento é adicionado no recipiente:
+Para conseguir a desnormalização, só temos de nos ligar ao gasoduto de alimentação de mudanças que introduzimos anteriormente para despachar os postes para aquele novo contentor. Uma coisa importante a ter em conta é que temos de nos certificar de que só armazenamos os 100 postos mais recentes; caso contrário, o conteúdo do recipiente pode crescer para além do tamanho máximo de uma divisória. Isto é feito chamando um [pós-gatilho](stored-procedures-triggers-udfs.md#triggers) cada vez que um documento é adicionado no recipiente:
 
-![Desnormalizando postos no recipiente de alimentação](./media/how-to-model-partition-example/denormalization-3.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Postes desnormalizadores no recipiente de alimentação" border="false":::
 
-Aqui está o corpo do pós-gatilho que trunca a coleção:
+Aqui está o corpo do pós-gatilho que trunta a coleção:
 
 ```javascript
 function truncateFeed() {
@@ -530,9 +530,9 @@ function truncateFeed() {
 }
 ```
 
-O passo final é redirecionar a `feed` nossa consulta para o nosso novo contentor:
+O passo final é redirecionar a nossa consulta para o nosso novo `feed` contentor:
 
-![Recuperando publicações mais recentes](./media/how-to-model-partition-example/V3-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Recuperação de postos mais recentes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -540,7 +540,7 @@ O passo final é redirecionar a `feed` nossa consulta para o nosso novo contento
 
 ## <a name="conclusion"></a>Conclusão
 
-Vamos ver as melhorias globais do desempenho e da escalabilidade que introduzimos sobre as diferentes versões do nosso design.
+Vamos ver o desempenho geral e melhorias de escalabilidade que introduzimos ao longo das diferentes versões do nosso design.
 
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
@@ -555,24 +555,24 @@ Vamos ver as melhorias globais do desempenho e da escalabilidade que introduzimo
 | **[Q5]** | 59 ms / 58.92 RU | 4 ms / 8.92 RU | 4 ms / 8.92 RU |
 | **[Q6]** | 306 ms / 2063.54 RU | 83 ms / 532.33 RU | 9 ms / 16.97 RU |
 
-### <a name="we-have-optimized-a-read-heavy-scenario"></a>Otimizámos um cenário pesado de leitura
+### <a name="we-have-optimized-a-read-heavy-scenario"></a>Otimizamos um cenário de leitura pesada
 
-Deve ter reparado que concentrámos os nossos esforços para melhorar o desempenho dos pedidos de leitura (consultas) em detrimento dos pedidos de escrita (comandos). Em muitos casos, as operações de escrita desencadeiam agora uma desnormalização subsequente através de feeds de mudança, o que as torna mais computacionalmente caras e mais longas para se materializarem.
+Devem ter reparado que concentrámos os nossos esforços para melhorar o desempenho dos pedidos de leitura (consultas) em detrimento de pedidos de escrita (comandos). Em muitos casos, as operações de escrita agora desencadeiam a subsequente desnormalização através de feeds de mudança, o que os torna mais caros computacionalmente e mais longos para se materializarem.
 
-Isto é justificado pelo facto de uma plataforma de blogues (como a maioria das aplicações sociais) ser lida, o que significa que a quantidade de pedidos de leitura que tem para servir é geralmente encomendas de magnitude superior à quantidade de pedidos de escrita. Por isso, faz sentido tornar os pedidos de escrita mais caros para executar, a fim de permitir que os pedidos de leitura sejam mais baratos e mais bem executados.
+Isto é justificado pelo facto de uma plataforma de blogging (como a maioria das aplicações sociais) ser muito pesada, o que significa que a quantidade de pedidos de leitura que tem de servir é geralmente encomendas de magnitude superior à quantidade de pedidos de escrita. Por isso, faz sentido tornar os pedidos de escrita mais caros para serem executados, a fim de deixar que os pedidos de leitura sejam mais baratos e mais bem executados.
 
-Se olharmos para a otimização mais extrema que fizemos, **[Q6]** passou de 2000+ RUs para apenas 17 RUs; conseguimos isso desnormalizando postos a um custo de cerca de 10 RUs por item. Como serviríamos muito mais pedidos de alimentação do que a criação ou atualizações de postos, o custo desta desnormalização é negligenciável tendo em conta as poupanças globais.
+Se olharmos para a otimização mais extrema que fizemos, **[Q6]** passou de 2000+ RUs para apenas 17 RUs; conseguimos isso desnormalizando postos a um custo de cerca de 10 RUs por item. Como serviríamos muito mais pedidos de alimentação do que a criação ou atualizações de publicações, o custo desta desnormalização é insignificante tendo em conta a poupança global.
 
 ### <a name="denormalization-can-be-applied-incrementally"></a>A desnormalização pode ser aplicada incrementalmente
 
-As melhorias de escalabilidade que exploramos neste artigo envolvem desnormalização e duplicação de dados em todo o conjunto de dados. Note-se que estas otimizações não têm de ser implementadas no dia 1. As consultas que filtram as teclas de partição funcionam melhor à escala, mas as consultas de divisória cruzada podem ser totalmente aceitáveis se forem chamadas raramente ou contra um conjunto de dados limitado. Se estiver apenas a construir um protótipo, ou a lançar um produto com uma base de utilizadores pequena e controlada, provavelmente poderá poupar essas melhorias para mais tarde; o que é importante então é [monitorizar](use-metrics.md) o desempenho do seu modelo para que possa decidir se e quando é a hora de trazê-los.
+As melhorias de escalabilidade que exploramos neste artigo envolvem desnormalização e duplicação de dados em todo o conjunto de dados. Note-se que estas otimizações não têm de ser postas em prática no primeiro dia. As consultas que filtram as teclas de partição têm um melhor desempenho à escala, mas as consultas de partição cruzada podem ser totalmente aceitáveis se forem chamadas raramente ou contra um conjunto de dados limitado. Se estiver apenas a construir um protótipo, ou a lançar um produto com uma base de utilizadores pequena e controlada, provavelmente pode poupar essas melhorias para mais tarde; o que é importante, então, é [monitorizar](use-metrics.md) o desempenho do seu modelo para que possa decidir se e quando é a hora de trazê-los.
 
-O feed de mudança que usamos para distribuir atualizações para outros recipientes armazena todas essas atualizações persistentemente. Isto permite solicitar todas as atualizações desde a criação do recipiente e das vistas desnormalizadas como uma operação única de recuperação, mesmo que o seu sistema já tenha muitos dados.
+O feed de alteração que usamos para distribuir atualizações para outros contentores armazena todas essas atualizações de forma persistente. Isto permite solicitar todas as atualizações desde a criação do contentor e vistas desnormalizadas como uma operação única de recuperação, mesmo que o seu sistema já tenha muitos dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Após esta introdução à modelação prática de dados e à partilha, é possível que queira verificar os seguintes artigos para rever os conceitos que abordámos:
+Após esta introdução à modelação prática de dados e partição, pode querer consultar os seguintes artigos para rever os conceitos que cobrimos:
 
 - [Trabalhar com bases de dados, contentores e itens](databases-containers-items.md)
 - [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
-- [Alterar feed em Azure Cosmos DB](change-feed.md)
+- [Feed de alterações no Azure Cosmos DB](change-feed.md)

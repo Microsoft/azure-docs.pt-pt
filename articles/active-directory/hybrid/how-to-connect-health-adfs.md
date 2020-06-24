@@ -19,14 +19,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261570"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692177"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
-A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sync) com a Azure AD Connect Health, consulte a utilização da Saúde de [Ligação AD Azure para Sincronização](how-to-connect-health-sync.md). Adicionalmente, para obter informações sobre a monitorização dos Serviços de Domínio do Diretório Ativo com a Azure AD Connect Health, consulte a utilização da [Azure AD Connect Health com a AD DS](how-to-connect-health-adds.md).
+A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sync) com Azure AD Connect Health, consulte [utilizar a Azure AD Connect Health para sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Diretório Ativo com a Azure AD Connect Health, consulte [utilizar a Azure AD Connect Health com AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Alertas do AD FS
 A secção Alertas do Azure AD Connect Health apresenta a lista de alertas ativos. Cada alerta inclui informações relevantes, os passos de resolução e ligações para a documentação relacionada.
@@ -108,7 +108,7 @@ O gráfico fornece as seguintes informações:
 
 O relatório disponibiliza as seguintes informações:
 
-| Item de Relatório | Descrição |
+| Item de Relatório | Description |
 | --- | --- |
 | ID de Utilizador |Mostra o ID de utilizador que foi utilizado. Este valor é o que o utilizador escreveu, que, em alguns casos, é o ID errado que está a ser utilizado. |
 | Tentativas Falhadas |Mostra o n.º total de tentativas falhadas para esse ID de utilizador específico. A tabela está ordenada por ordem descendente do maior número de tentativas falhadas. |

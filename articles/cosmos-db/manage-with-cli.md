@@ -3,15 +3,15 @@ title: Gerir os recursos DB da Azure Cosmos utilizando o Azure CLI
 description: Utilize o Azure CLI para gerir a sua conta DB Azure Cosmos, base de dados e contentores.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 86045ee05e4acb15e2268dce4f68387b1527e4b6
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509530"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262417"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerir os recursos da Azure Cosmos utilizando o Azure CLI
 

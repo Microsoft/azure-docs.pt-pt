@@ -3,16 +3,16 @@ title: Defina chaves únicas para um recipiente Azure Cosmos
 description: Aprenda a definir chaves únicas para um recipiente Azure Cosmos usando o portal Azure, PowerShell, .Net, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: tracking-python
-ms.openlocfilehash: bb1fc927b52f9b59c1a71cdc4369bdea428f4586
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561147"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261550"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
 
@@ -34,7 +34,7 @@ Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-ke
 
 1. Se necessário, adicione mais entradas chave únicas clicando em **+ Adicionar chave única**
 
-    ![Screenshot da entrada única de restrição de chave no portal Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Screenshot da entrada única de restrição de chave no portal Azure":::
 
 ## <a name="use-powershell"></a>Use Powershell
 
@@ -119,7 +119,7 @@ client.createCollection(String.format("/dbs/%s", "database"), container, null);
 
 ## <a name="use-the-nodejs-sdk"></a>Use o Node.js SDK
 
-Ao criar um novo recipiente utilizando o [Node.js SDK,](https://www.npmjs.com/package/@azure/cosmos)pode ser utilizado um `UniqueKeyPolicy` objeto para definir restrições únicas de chaves.
+Ao criar um novo recipiente utilizando o [Node.js SDK,](https://www.npmjs.com/package/@azure/cosmos)pode ser utilizado um `UniqueKeyPolicy` objeto para definir restrições únicas.
 
 ```javascript
 client.database('database').containers.create({

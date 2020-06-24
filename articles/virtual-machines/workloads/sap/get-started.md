@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2020
+ms.date: 06/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe61c7e461d6598277aa9b38eafc16194b08bf1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f79eabd960238b52c146d89af8aef050aab427c3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672124"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207180"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -112,6 +112,8 @@ Para obter informações sobre a integração dos serviços Azure em componentes
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 06/22/2020: Adicione etapas de instalação para nova extensão VM para SAP ao [Guia de Implantação](deployment-guide.md)
+- 06/16/2020: Alteração da [conectividade de ponto final público para VMs utilizando O Azure Standard ILB em cenários SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) para adicionar uma ligação à documentação SUSE Public Cloud Infrastructure 101 
 - 06/10/2020: Adicionar novos SKUs HLI em [SKUs disponíveis para hli](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) e [SAP HANA (Grandes Instâncias) arquitetura de armazenamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture)
 - 05/21/2020: Alteração na [configuração do Pacemaker no SLES em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) e [criação de Pacemaker no RHEL em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para adicionar uma ligação à [conectividade de ponto final público para VMs usando Azure Standard ILB em cenários SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Adicione mensagem importante para não utilizar o grupo de volume de raiz ao utilizar o LVM para volumes relacionados com HANA em [configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)

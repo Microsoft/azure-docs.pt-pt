@@ -1,26 +1,26 @@
 ---
-title: Região ou série SKU indisponível - Azure
-description: Algumas séries SKU não estão disponíveis para a subscrição selecionada para esta região, o que pode exigir pedido de apoio de gestão de subscrição.
+title: Série região ou SKU indisponível - Azure
+description: Algumas séries SKU não estão disponíveis para a subscrição selecionada para esta região, o que pode exigir um pedido de suporte de gestão de subscrição.
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835993"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763827"
 ---
 # <a name="region-or-sku-unavailable"></a>Região ou SKU indisponível
 
-Este artigo descreve como resolver a questão de uma subscrição azure não ter acesso a uma região ou a um VM SKU.
+Este artigo descreve como resolver a questão de uma subscrição Azure não ter acesso a uma região ou a um VM SKU.
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao implantar uma máquina virtual, recebe uma das seguintes mensagens de erro:
+Ao utilizar uma máquina virtual, recebe uma das seguintes mensagens de erro:
 
 ```
 Code: SkuNotAvailable
@@ -39,7 +39,7 @@ Code: NotAvailableForSubscription
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-Ao adquirir Instâncias de Máquina Virtual Reservadas, recebe uma das seguintes mensagens de erro:
+Ao adquirir instâncias de máquina virtual reservadas, recebe uma das seguintes mensagens de erro:
 
 ```
 Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
@@ -50,29 +50,29 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-Ao criar um pedido de apoio para aumentar a quota central da computação, uma região ou uma família SKU não está disponível para seleção.
+Ao criar um pedido de apoio para aumentar a quota principal do cálculo, uma região ou uma família SKU não está disponível para seleção.
 
 ## <a name="solution"></a>Solução
 
-Recomendamos primeiro que considere uma região alternativa ou SKU que atenda às suas necessidades de negócio.
+Recomendamos primeiro que considere uma região alternativa ou SKU que atenda às suas necessidades comerciais.
 
-Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) à gestão de **subscrição** seguindo estas etapas:
+Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoio à](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) **gestão de subscrição** seguindo estes passos:
 
-1. No menu do [portal Azure,](https://portal.azure.com) selecione **Ajuda + suporte**. Em seguida, selecione **Novo pedido de suporte**.
+1. A partir do menu [do portal Azure,](https://portal.azure.com) selecione **Help + support**. Em seguida, selecione **Novo pedido de suporte**.
 
-1. No **Básico,** para **tipo de Emissão,** selecione **gestão de subscrição.**
+1. Em **Básicos**, para **tipo de Emissão,** selecione **gestão de subscrição**.
 
 1. Selecione uma **Subscrição** e introduza uma breve descrição em **Resumo**.
 
-   ![Separador básico de novo pedido de suporte](./media/SKU-series-unavailable/support-request-basics.png)
+   ![Separador básico do novo pedido de apoio](./media/SKU-series-unavailable/support-request-basics.png)
 
-1. Para **o tipo de problema,** escolha Selecionar o tipo de **problema**.
+1. Para **o tipo de problema,** escolha **Selecione o tipo de problema**.
 
-1. Para selecionar tipo de **problema,** escolha uma opção, por exemplo, **Incapaz de aceder à minha subscrição ou recurso**O meu problema não está listado acima  >  **.** Selecione **Guardar**.
+1. Para **Selecionar tipo de problema**, escolha uma opção, por exemplo, Não pode aceder à minha **subscrição ou recurso**O meu problema não está listado  >  **acima**. Selecione **Guardar**.
 
    ![Especificar um problema para o pedido](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
-1. Selecione **Seguinte: Soluções** para explorar possíveis soluções. Se necessário, selecione **Next: Detalhes** para continuar.
+1. Selecione **Seguinte: Soluções** para explorar possíveis soluções. Se necessário, selecione **Seguinte: Detalhes** a continuar.
 
 1. Insira qualquer informação adicional que possa fornecer, juntamente com as suas informações de contacto.
 
@@ -80,8 +80,8 @@ Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoi
 
 ## <a name="send-us-your-suggestions"></a>Envie-nos as suas sugestões
 
-Estamos sempre abertos a feedback e sugestões! Envie-nos as suas [sugestões.](https://feedback.azure.com/forums/266794-support-feedback) Além disso, pode envolver-se connosco no [Twitter](https://twitter.com/azuresupport) ou na página de [perguntas do Microsoft Q&A](https://docs.microsoft.com/answers/products/azure).
+Estamos sempre abertos a feedback e sugestões! Envie-nos as suas [sugestões.](https://feedback.azure.com/forums/266794-support-feedback) Além disso, pode envolver-se connosco no [Twitter](https://twitter.com/azuresupport) ou na [página de perguntas do Microsoft Q&A](https://docs.microsoft.com/answers/products/azure).
 
 ## <a name="learn-more"></a>Saiba mais
 
-[FaQ de suporte azure](https://azure.microsoft.com/support/faq)
+[FAQ de suporte Azure](https://azure.microsoft.com/support/faq)

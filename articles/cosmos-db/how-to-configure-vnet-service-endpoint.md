@@ -3,15 +3,15 @@ title: Configurar o acesso à rede virtual para uma conta Azure Cosmos
 description: Este documento descreve os passos necessários para configurar um ponto final de serviço de rede virtual para a Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: 904b976b5e5c811912df9421dc64be1617b30b44
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: a061676714c35b4e8868ce3df9c71be05297ba99
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431727"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261669"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configure o acesso a partir de redes virtuais (VNet)
 
@@ -42,11 +42,11 @@ As secções seguintes descrevem como configurar um ponto final de serviço de r
 
 1. Selecione a **Subscrição** a partir da qual pretende adicionar uma rede virtual Azure. Selecione as **redes Eretivas** Azure Virtual e **Subnets** que pretende fornecer acesso à sua conta DB Azure Cosmos. Em seguida, **selecione Ativar** para ativar redes selecionadas com pontos finais de serviço para "Microsoft.AzureCosmosDB". Quando estiver completo, **selecione Add**.
 
-   ![Selecione rede virtual e sub-rede](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Selecione rede virtual e sub-rede":::
 
 1. Depois de a conta DB Azure Cosmos ter sido ativada para acesso a partir de uma rede virtual, permitirá o tráfego a partir apenas desta sub-rede escolhida. A rede virtual e a sub-rede que adicionou devem aparecer como mostrado na seguinte imagem:
 
-   ![Rede virtual e sub-rede configuradas com sucesso](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Rede virtual e sub-rede configuradas com sucesso":::
 
 > [!NOTE]
 > Para ativar os pontos finais do serviço de rede virtual, precisa das seguintes permissões de subscrição:
@@ -66,7 +66,7 @@ Aqui estão as instruções para registar a subscrição com o fornecedor de rec
 
 1. Forneça os detalhes necessários para criar uma nova rede virtual e, em seguida, selecione **Criar**. A sub-rede será criada com um ponto final de serviço para "Microsoft.AzureCosmosDB" ativado.
 
-   ![Selecione uma rede virtual e sub-rede para uma nova rede virtual](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Selecione uma rede virtual e sub-rede para uma nova rede virtual":::
 
 Se a sua conta DB Azure Cosmos for utilizada por outros serviços Azure, como a Azure Cognitive Search, ou tiver acesso a partir de análises de stream ou Power BI, permite o acesso selecionando **ligações aceitar ligações dentro dos centros de dados globais do Azure.**
 
@@ -80,7 +80,7 @@ Para garantir que tem acesso às métricas DB do Azure Cosmos a partir do portal
 
 1. Para remover uma regra de rede virtual ou sub-rede, selecione... ao lado da rede virtual ou sub-rede, e selecione **Remover**. **...**
 
-   ![Remover uma rede virtual](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Remover uma rede virtual":::
 
 1. Selecione **Guardar** para aplicar as suas alterações.
 

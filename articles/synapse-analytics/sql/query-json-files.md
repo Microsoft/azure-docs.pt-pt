@@ -1,30 +1,30 @@
 ---
-title: Consulta de ficheiros JSON utilizando sQL on-demand (pré-visualização)
-description: Esta secção explica como ler ficheiros JSON utilizando a sql on-demand em Azure Synapse Analytics.
+title: Consulta ficheiros JSON utilizando SQL on demand (pré-visualização)
+description: Esta secção explica como ler ficheiros JSON usando SQL on demand in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7a8c9083ecbadbf63cf0ac65dc1803b478e939fe
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 5d02736e9cb0a612e434dc5a79a73d7a62785728
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873391"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207656"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta De ficheiros JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
+# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros de consulta JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando SQL on-demand (pré-visualização) em Azure Synapse Analytics. O objetivo da consulta é ler ficheiros JSON. Os formatos suportados estão listados no [OPENROWSET](develop-openrowset.md).
+Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (preview) em Azure Synapse Analytics. O objetivo da consulta é ler ficheiros JSON. Os formatos suportados estão listados em [OPENROWSET](develop-openrowset.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O seu primeiro passo é **criar uma base de dados** onde executará as consultas. Em seguida, inicialize os objetos executando o script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
+O seu primeiro passo é **criar uma base de dados** onde executará as consultas. Em seguida, inicialize os objetos executando o [script de configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
 
-## <a name="sample-json-files"></a>Amostra de ficheiros JSON
+## <a name="sample-json-files"></a>Amostra ficheiros JSON
 
 A secção abaixo contém scripts de amostra para ler ficheiros JSON. Os ficheiros são armazenados num recipiente *json,* *livros*de pastas, e contêm uma única entrada de livro com a seguinte estrutura:
 
@@ -46,7 +46,7 @@ A secção abaixo contém scripts de amostra para ler ficheiros JSON. Os ficheir
 
 ## <a name="read-json-files"></a>Ler ficheiros JSON
 
-Para processar ficheiros JSON utilizando JSON_VALUE e [JSON_QUERY,](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)tem de ler o ficheiro JSON a partir do armazenamento como uma única coluna. O seguinte guião lê o ficheiro *book1.json* como uma única coluna:
+Para processar ficheiros JSON utilizando JSON_VALUE e [JSON_QUERY,](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)é necessário ler o ficheiro JSON a partir do armazenamento como uma única coluna. O seguinte guião lê o *book1.jsficheiro* como uma única coluna:
 
 ```sql
 SELECT
@@ -66,11 +66,11 @@ FROM
 ```
 
 > [!NOTE]
-> Está a ler todo o ficheiro JSON como uma única linha ou coluna. Assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estão definidos para 0x0b.
+> Está a ler todo o ficheiro JSON como uma única linha ou coluna. Assim, o FIELDTERMINATOR, o FIELDQUOTE e o ROWTERMINATOR estão definidos para 0x0b.
 
 ## <a name="query-json-files-using-json_value"></a>Consultar ficheiros JSON usando JSON_VALUE
 
-A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados:*
+A consulta abaixo mostra-lhe como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados*:
 
 ```sql
 SELECT
@@ -95,7 +95,7 @@ WHERE
 
 ## <a name="query-json-files-using-json_query"></a>Consultar ficheiros JSON usando JSON_QUERY
 
-A seguinte consulta mostra como usar [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar objetos e matrizes (autores) de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados:*
+A seguinte consulta mostra-lhe como usar [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar objetos e matrizes (autores) de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados*:
 
 ```sql
 SELECT
@@ -117,9 +117,9 @@ WHERE
     JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
-## <a name="query-json-files-using-openjson"></a>Consultar ficheiros JSON usando OPENJSON
+## <a name="query-json-files-using-openjson"></a>Consulta ficheiros JSON usando OPENJSON
 
-A seguinte consulta utiliza [O OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Irá recuperar objetos e propriedades dentro de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados:*
+A seguinte consulta utiliza [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Recuperará objetos e propriedades dentro de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Tópicos Selecionados*:
 
 ```sql
 SELECT
@@ -145,5 +145,5 @@ WHERE
 
 Os próximos artigos desta série demonstrarão como:
 
-- [Consultas de pastas e múltiplos ficheiros](query-folders-multiple-csv-files.md)
+- [Consulta de pastas e vários ficheiros](query-folders-multiple-csv-files.md)
 - [Criar e utilizar vistas](create-use-views.md)

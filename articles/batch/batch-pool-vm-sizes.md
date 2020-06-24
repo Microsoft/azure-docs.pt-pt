@@ -2,14 +2,14 @@
 title: Escolha tamanhos VM para piscinas
 description: Como escolher entre os tamanhos VM disponíveis para nóns computacional em piscinas Azure Batch
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e3bcc51fafe10f4a753bdc79795f9afd00821d7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c1621bbbe6676144176636346f3f5c34db169b7a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323829"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693163"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para nó de computação numa piscina Azure Batch
 
@@ -37,9 +37,11 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | Dv3 | Todos os tamanhos |
 | Dav4<sup>1</sup> | Nenhum - ainda não disponível |
 | Dasv4<sup>1</sup> | Todos os tamanhos, exceto Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Ddv4 |  Nenhum - ainda não disponível |
 | Ev3 | Todos os tamanhos, exceto E64is_v3 e E64i_v3 |
 | Eav4<sup>1</sup> | Todos os tamanhos, exceto Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
 | Easv4<sup>1</sup> | Todos os tamanhos, exceto Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
+| Edv4 |  Nenhum - ainda não disponível |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
@@ -86,7 +88,7 @@ As piscinas de lote na configuração do Serviço de Nuvem suportam todos os [ta
 
 * **Configuração da piscina** - Em geral, tem mais opções de tamanho VM quando cria uma piscina na configuração da Máquina Virtual, em comparação com a configuração do Serviço de Nuvem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 * Para obter informações sobre a utilização de tamanhos de VM intensivos em computação, consulte [utilize casos com capacidade de RDMA ou GPU em piscinas de Lote](batch-pool-compute-intensive-sizes.md).

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 11/19/2019
-ms.openlocfilehash: c3f843de6eaa621ecdd04c5a3418dc0d620f841e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/10/2020
+ms.openlocfilehash: eac5814eb977a01135ad2fcd9551b3475673dbca
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343392"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691769"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -53,13 +53,13 @@ Para tamanhos de armazenamento de recursos de bases de dados individuais, consul
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando os limites de recursos da base de dados são atingidos
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Compute (DTUs e eDTUs / vCores)
+### <a name="compute-cpu"></a>Compute CPU
 
-Quando a utilização do cálculo da base de dados (medida por DTUs e eDTUs, ou vCores) se torna elevada, a latência da consulta aumenta e as consultas podem mesmo esgotar-se. Nestas condições, as consultas podem ser submetidas à fila pelo serviço e são fornecidas recursos para a execução à medida que os recursos se tornam gratuitos.
+Quando a utilização do CPU computacional da base de dados se torna elevada, a latência da consulta aumenta, e as consultas podem mesmo esgotar-se. Nestas condições, as consultas podem ser submetidas à fila pelo serviço e são fornecidas recursos para a execução à medida que os recursos se tornam gratuitos.
 Ao encontrar uma alta utilização computacional, as opções de mitigação incluem:
 
 - Aumentar o tamanho do cálculo da base de dados ou piscina elástica para fornecer à base de dados mais recursos compute. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
-- Otimizar consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, consulte [Consulta Afinação/Sugestões](performance-guidance.md#query-tuning-and-hinting).
+- Otimizar consultas para reduzir a utilização de recursos cpu de cada consulta. Para obter mais informações, consulte [Consulta Afinação/Sugestões](performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Armazenamento
 
@@ -82,7 +82,28 @@ Ao encontrar alta sessão ou utilização do trabalhador, as opções de mitiga�
 - Redução da regulação [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (grau máximo de paralelismo).
 - Otimização da carga de trabalho de consulta para reduzir o número de ocorrências e duração do bloqueio de consultas.
 
-### <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consumo de recursos por cargas de trabalho do utilizador e processos internos
+### <a name="memory"></a>Memória
+
+Ao contrário de outros recursos (CPU, trabalhadores, armazenamento), atingir o limite de memória não tem um impacto negativo no desempenho da consulta, e não causa erros e falhas. Conforme descrito em detalhe no [Guia de Arquitetura de Gestão de Memória,](https://docs.microsoft.com/sql/relational-databases/memory-management-architecture-guide)o motor de base de dados SQL Server utiliza frequentemente toda a memória disponível, por design. A memória é usada principalmente para caching dados, para evitar um acesso de armazenamento mais caro. Assim, uma utilização mais elevada da memória geralmente melhora o desempenho da consulta devido a leituras mais rápidas da memória, em vez de leituras mais lentas do armazenamento.
+
+Após o arranque do motor da base de dados, à medida que a carga de trabalho começa a ler dados do armazenamento, o motor da base de dados caches agressivamente dados na memória. Após este período inicial de arranque, é comum e espera-se ver as `avg_memory_usage_percent` `avg_instance_memory_percent` colunas e colunas em [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) estar perto ou igual a 100%, particularmente para bases de dados que não estão inativas, e não se encaixam totalmente na memória.
+
+Além da cache de dados, a memória é usada noutros componentes do motor da base de dados. Quando há procura de memória e toda a memória disponível foi utilizada pela cache de dados, o motor da base de dados reduzirá dinamicamente o tamanho da cache de dados para disponibilizar a memória a outros componentes, e irá dinamicamente aumentar a cache de dados quando outros componentes libertarem a memória.
+
+Em casos raros, uma carga de trabalho suficientemente exigente pode causar uma condição de memória insuficiente, levando a erros fora da memória. Isto pode acontecer em qualquer nível de utilização da memória entre 0% e 100%. Isto é mais propenso a ocorrer em tamanhos de computação mais pequenos que têm limites de memória proporcionalmente menores, e/ou com cargas de trabalho usando mais memória para processamento de consultas, como em [piscinas elásticas densas](elastic-pool-resource-management.md).
+
+Ao encontrar erros fora da memória, as opções de mitigação incluem:
+- Aumentar o nível de serviço ou o tamanho do cálculo da base de dados ou piscina elástica. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
+- Otimização de consultas e configuração para reduzir a utilização da memória. As soluções comuns são descritas no quadro seguinte.
+
+|Solução|Description|
+| :----- | :----- |
+|Reduzir o tamanho das bolsas de memória|Para obter mais informações sobre subsídios de memória, consulte o post de blog [de concessão de memória Understanding SQL Server.](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) Uma solução comum para evitar subsídios de memória excessivamente grandes é manter [as estatísticas](https://docs.microsoft.com/sql/relational-databases/statistics/statistics) atualizadas. Isto resulta em estimativas mais precisas do consumo de memória pelo motor de consulta, evitando subvenções de memória desnecessariamente grandes.</br></br>Em bases de dados utilizando o nível de compatibilidade 140 e posteriormente, o motor da base de dados pode ajustar automaticamente o tamanho do subsídio de memória utilizando [o feedback do subsídio de memória do modo Lote](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#batch-mode-memory-grant-feedback). Em bases de dados utilizando o nível de compatibilidade 150 e posteriormente, o motor da base de dados utiliza igualmente [o feedback do subsídio de memória do modo Row](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#row-mode-memory-grant-feedback), para consultas de modo de linha mais comuns. Esta funcionalidade incorporada ajuda a evitar erros fora da memória devido a grandes subsídios de memória desnecessariamente grandes.|
+|Reduzir o tamanho da cache do plano de consulta|O motor de base de dados caches planos de consulta na memória, para evitar compilar um plano de consulta para cada execução de consulta. Para evitar o inchaço do cache do plano de consulta causado por planos de cache que só são utilizados uma vez, ative a configuração OTIMIZE_FOR_AD_HOC_WORKLOADS [com âmbito de base de dados](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|
+|Reduzir o tamanho da memória de bloqueio|O motor da base de dados utiliza memória para [fechaduras.](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Lock_Engine) Quando possível, evite grandes transações que possam adquirir um grande número de fechaduras e causar um elevado consumo de memória de bloqueio.|
+
+
+## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consumo de recursos por cargas de trabalho do utilizador e processos internos
 
 O consumo de CPU e de memória por cargas de trabalho dos utilizadores em cada base de dados é relatado nas [vistas sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) e [sys.resource_stats,](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) dentro `avg_cpu_percent` e `avg_memory_usage_percent` colunas. Para piscinas elásticas, o consumo de recursos ao nível da piscina é relatado na vista [sys.elastic_pool_resource_stats.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) O consumo de CPU de carga de trabalho do utilizador também é reportado através da `cpu_percent` métrica Azure Monitor, para [bases de dados únicas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) e [piscinas elásticas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) ao nível da piscina.
 
@@ -153,7 +174,7 @@ Ao encontrar um limite de taxa de registo que esteja a dificultar a escalabilida
 - Se os dados que estão a ser carregados forem transitórios, como os dados de paragem num processo ETL, podem ser carregados em temperatura (que é minimamente registado).
 - Para cenários analíticos, carregue numa mesa coberta de colunas agrupadas. Isto reduz a taxa de registo necessária devido à compressão. Esta técnica aumenta a utilização do CPU e só é aplicável a conjuntos de dados que beneficiam de índices de lojas de colunas agrupados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre os limites gerais do Azure, consulte [os limites de subscrição e serviços, quotas e restrições da Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Para obter informações sobre DTUs e eDTUs, consulte [DTUs e eDTUs](purchasing-models.md#dtu-based-purchasing-model).

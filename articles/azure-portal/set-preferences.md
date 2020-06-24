@@ -6,15 +6,15 @@ keywords: configurações, timeout, linguagem, regional
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: a3f51c356f4476782bb830b2702a8fe87c79235c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308069"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763963"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Definir as preferências do portal do Azure
 

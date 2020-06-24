@@ -1,34 +1,34 @@
 ---
-title: Limites de memória e concurrency
-description: Veja os limites de memória e concurrency atribuídos aos vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.
+title: Limites de memória e concência
+description: Ver os limites de memória e de concordância atribuídos aos vários níveis de desempenho e classes de recursos em Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636398"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210666"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concurrency para Azure Synapse Analytics
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concência para Azure Synapse Analytics
 
-Veja os limites de memória e concurrency atribuídos aos vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.  
+Ver os limites de memória e de concordância atribuídos aos vários níveis de desempenho e classes de recursos em Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Definições de capacidade de armazém de dados
 
-As tabelas a seguir mostram a capacidade máxima para o armazém de dados em diferentes níveis de desempenho. Para alterar o nível de desempenho, consulte [scale compute - portal](quickstart-scale-compute-portal.md).
+As tabelas a seguir mostram a capacidade máxima para o armazém de dados em diferentes níveis de desempenho. Para alterar o nível de desempenho, consulte [Scale compute - portal](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Níveis de Serviço
 
-Os níveis de serviço variam entre DW100c e DW30000c.
+Os níveis de serviço variam de DW100c a DW30000c.
 
 | Nível de desempenho | Nós de computação | Distribuições por nó computacional | Memória por armazém de dados (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
@@ -45,17 +45,17 @@ Os níveis de serviço variam entre DW100c e DW30000c.
 | DW5000c           | 10            | 6                              |  3.000                          |
 | DW6000c           | 12            | 5                              |  3600                          |
 | DW7500c           | 15            | 4                              |  4500                          |
-| DW100000c          | 20            | 3                              |  6000                          |
+| DW10000c          | 20            | 3                              |  6000                          |
 | DW15000c          | 30            | 2                              |  9000                          |
-| DW300000c          | 60            | 1                              | 18000                          |
+| DW30000c          | 60            | 1                              | 18000                          |
 
-O nível máximo de serviço é DW30000c, que tem 60 nós computacionais e uma distribuição por nó computacional. Por exemplo, um armazém de dados de 600 TB em DW30000c processa aproximadamente 10 TB por nó computacional.
+O nível máximo de serviço é DW30000c, que tem 60 nós compute e uma distribuição por nó Compute. Por exemplo, um armazém de dados de 600 TB no DW30000c processa aproximadamente 10 TB por nó compute.
 
-## <a name="concurrency-maximums-for-workload-groups"></a>Máximos de condivisões para grupos de carga de trabalho
+## <a name="concurrency-maximums-for-workload-groups"></a>Máximos de concordância para grupos de trabalho
 
-Com a introdução de grupos de carga de [trabalho,](sql-data-warehouse-workload-isolation.md)o conceito de slots de moeda slot já não se aplica.  Os recursos por pedido são atribuídos numa base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção de faixas de condivisas, existem quantidades mínimas de recursos necessários por consultas com base no nível de serviço.  O quadro abaixo definiu o montante mínimo de recursos necessários por consulta entre os níveis de serviço e a conmoeda associada que pode ser alcançada.
+Com a introdução de grupos de [carga de trabalho,](sql-data-warehouse-workload-isolation.md)o conceito de faixas horárias de concordância já não se aplica.  Os recursos por pedido são atribuídos numa base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção das faixas horárias de condência, existem quantidades mínimas de recursos necessários por consultas com base no nível de serviço.  O quadro abaixo definiu a quantidade mínima de recursos necessários por consulta entre os níveis de serviço e a concordância associada que pode ser alcançada.
 
-|Nível de Serviço|Consultas simultâneas máximas|Min % apoiado para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Nível de Serviço|Consultas concurrentas máximas|Min % apoiado para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12.5%|
@@ -70,20 +70,20 @@ Com a introdução de grupos de carga de [trabalho,](sql-data-warehouse-workload
 |DW5000c|64|1.5%|
 |DW6000c|128|0.75%|
 |DW7500c|128|0.75%|
-|DW100000c|128|0.75%|
+|DW10000c|128|0.75%|
 |DW15000c|128|0.75%|
-|DW300000c|128|0.75%|
+|DW30000c|128|0.75%|
 ||||
 
-## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de condivisões para classes de recursos
+## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de concordância para classes de recursos
 
-Para garantir que cada consulta tem recursos suficientes para executar de forma eficiente, o Synapse SQL rastreia a utilização de recursos atribuindo slots de concurrency a cada consulta. O sistema coloca consultas numa fila baseada na importância e nas faixas de câmbio. As consultas esperam na fila até estarem disponíveis suficientes slots de condivisões. As faixas de [importância](sql-data-warehouse-workload-importance.md) e conmoedação determinam a priorização do CPU. Para mais informações, consulte [Analisar a sua carga de trabalho](analyze-your-workload.md)
+Para garantir que cada consulta tem recursos suficientes para executar de forma eficiente, o Synapse SQL rastreia a utilização dos recursos, atribuindo slots de conuncy a cada consulta. O sistema coloca consultas numa fila baseada em slots de importância e concuência. As consultas esperam na fila até que estejam disponíveis slots de concuência suficientes. [As faixas](sql-data-warehouse-workload-importance.md) horárias de importância e de concordância determinam a priorização da CPU. Para mais informações, consulte [analisar a sua carga de trabalho](analyze-your-workload.md)
 
 **Classes de recursos estáticos**
 
-O quadro seguinte mostra as consultas simultâneas máximas e as ranhuras de condivisões para cada [classe de recursos estáticos](resource-classes-for-workload-management.md).  
+A tabela a seguir mostra as consultas simultâneas máximas e as ranhuras de concordância para cada [classe de recursos estáticos](resource-classes-for-workload-management.md).  
 
-| Nível de Serviço | Consultas simultâneas máximas | Slots de condivisões disponíveis | Slots usados por staticrc10 | Slots usados por staticrc20 | Slots utilizados por staticrc30 | Slots utilizados por staticrc40 | Slots utilizados por staticrc50 | Slots utilizados por staticrc60 | Slots utilizados por staticrc70 | Slots utilizados por staticrc80 |
+| Nível de Serviço | Consultas concurrentas máximas | Vagas de concurrency disponíveis | Slots utilizados por staticrc10 | Slots usados por staticrc20 | Slots usados por staticrc30 | Slots usados por staticrc40 | Slots usados por staticrc50 | Slots usados por staticrc60 | Slots usados por staticrc70 | Slots usados por staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -98,15 +98,15 @@ O quadro seguinte mostra as consultas simultâneas máximas e as ranhuras de con
 | DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW100000c      | 128                        |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW10000c      | 128                        |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW300000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-**Aulas de recursos dinâmicos**
+**Classes dinâmicas de recursos**
 
-O quadro seguinte mostra as consultas simultâneas máximas e as ranhuras de conedição para cada [classe de recursos dinâmicos](resource-classes-for-workload-management.md). As classes dinâmicas de recursos utilizam uma alocação de percentagem de memória 3-10-22-70 para classes de recursos de pequeno-médio-grande-grande-xlarge em todos os níveis de serviço.
+A tabela a seguir mostra as consultas simultâneas máximas e as faixas horárias de conusciência para cada [classe dinâmica de recursos](resource-classes-for-workload-management.md). As classes dinâmicas de recursos utilizam uma alocação percentual de memória 3-10-22-70 para classes de recursos de pequeno-médio-grande-xl-age em todos os níveis de serviço.
 
-| Nível de Serviço | Consultas simultâneas máximas | Slots de condivisões disponíveis | Slots usados por smallrc | Slots utilizados por meiorc | Slots usados por maiores | Slots usados por xbiggerc |
+| Nível de Serviço | Consultas concurrentas máximas | Vagas de concurrency disponíveis | Slots usados por smallrc | Slots utilizados por mediumrc | Slots usados por maiores | Slots usados por xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
@@ -121,15 +121,15 @@ O quadro seguinte mostra as consultas simultâneas máximas e as ranhuras de con
 | DW5000c       | 32                         |  200                        | 6                     | 20                     |  44                   | 140                    |
 | DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
 | DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
-| DW100000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
+| DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
-| DW300000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
+| DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Quando não há suficientes slots de moeda livre para iniciar a execução de consultas, as consultas são executadas em fila e executadas com base na importância.  Se houver uma importância equivalente, as consultas são executadas de primeira e primeira.  À medida que uma consulta termina e o número de consultas e slots ficam abaixo dos limites, o SQL Data Warehouse lança consultas em fila.
+Quando não há slots de concuncy suficientes para iniciar a execução de consultas, as consultas são filas e executadas com base na importância.  Se houver uma importância equivalente, as consultas são executadas numa base de primeira e primeira saída.  À medida que as consultas terminam e o número de consultas e slots ficam abaixo dos limites, o SQL Data Warehouse lança consultas em fila.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como alavancar as classes de recursos para otimizar ainda mais a sua carga de trabalho, consulte os seguintes artigos:
+Para saber mais sobre como aproveitar as classes de recursos para otimizar ainda mais a sua carga de trabalho, reveja os seguintes artigos:
 
-* [Aulas de recursos para gestão da carga de trabalho](resource-classes-for-workload-management.md)
+* [Classes de recursos para gestão da carga de trabalho](resource-classes-for-workload-management.md)
 * [Analisar a sua carga de trabalho](analyze-your-workload.md)

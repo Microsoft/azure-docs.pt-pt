@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 688f04ecf951265b9015b9516d63cf3399adcdc1
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: f41b87f50dfac15c6228398a2c9d1c6ae470903d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655449"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260938"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -28,6 +28,64 @@ A Azure Security está em desenvolvimento ativo e recebe melhorias continuamente
 - Funcionalidade preterida
 
 Esta página é atualizada regularmente, por isso revisite-a com frequência. Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
+
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="secure-score-api-preview"></a>API de pontuação segura (pré-visualização)
+
+Pode agora aceder à sua pontuação através da [pontuação segura API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
+
+Por exemplo, ferramentas externas possibilitadas com a pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Saiba mais sobre [os controlos de pontuação e segurança seguros no Azure Security Center](secure-score-security-controls.md).
+
+
+
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview"></a>Segurança avançada de dados para máquinas SQL (Azul, outras nuvens e on-prem) (pré-visualização)
+
+A segurança avançada de dados do Azure Security Center para máquinas SQL protege agora os SqL Servers alojados em Azure, em outros ambientes de nuvem e até mesmo máquinas no local. Isto alarga as proteções para os seus SqL Servers nativos do Azure para suportar totalmente ambientes híbridos.
+
+A segurança avançada de dados fornece uma avaliação de vulnerabilidade e proteção avançada de ameaças para as suas máquinas SQL onde quer que estejam localizadas.
+
+A configuração envolve dois passos:
+
+1. Implantar o agente Log Analytics na máquina de anfitrião do seu SQL Server para fornecer a ligação à conta Azure.
+
+1. Ativar o pacote opcional na página de preços e definições do Security Center.
+
+Saiba mais sobre [a segurança avançada de dados para máquinas SQL](security-center-iaas-advanced-data.md).
+
+
+
+### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Duas novas recomendações para implantar o agente Log Analytics nas máquinas Azure Arc (pré-visualização)
+
+Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente Desanalização](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) do Log para as suas máquinas Azure Arc e garantir que estão protegidas pelo Azure Security Center:
+
+- **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**
+- **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**
+
+Estas novas recomendações aparecerão nos mesmos quatro controlos de segurança que a recomendação existente (relacionada), o **agente de monitorização deve ser instalado nas suas máquinas**: remediar as configurações de segurança, aplicar o controlo adaptativo da aplicação de aplicações, aplicar atualizações do sistema e permitir a proteção do ponto final.
+
+As recomendações também incluem a capacidade de correção rápida para ajudar a acelerar o processo de implementação. 
+
+Saiba mais sobre estas duas novas recomendações na tabela [de recomendações computacional e de aplicações.](recommendations-reference.md#recs-computeapp)
+
+Saiba mais sobre como o Azure Security Center utiliza o agente em [O que é o agente Log Analytics?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent)
+
+Saiba mais sobre [extensões para máquinas Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+
+
+### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nova recomendação para a utilização de NSGs para proteger máquinas virtuais não-orientadas para a Internet
+
+O controlo de segurança "implementar as melhores práticas de segurança" inclui agora a seguinte nova recomendação:
+
+- **Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede**
+
+Uma recomendação existente, **as máquinas virtuais viradas para a Internet devem ser protegidas com grupos**de segurança de rede, não distinguindo entre VMs virados para a Internet e não virados para a Internet. Para ambos, uma recomendação de alta gravidade foi gerada se um VM não fosse atribuído a um grupo de segurança de rede. Esta nova recomendação separa as máquinas que não se estamos a passar pela Internet para reduzir os falsos positivos e evitar alertas desnecessários de alta gravidade.
+
+Saiba mais na tabela [de recomendações da Rede.](recommendations-reference.md#recs-network)
+
 
 
 ## <a name="may-2020"></a>Maio de 2020
@@ -119,7 +177,7 @@ As duas novas recomendações adicionadas ao controlo são:
 
 Saiba mais sobre o Windows Defender Exploit Guard in [Create e implemente uma política de Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
-Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
+Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização)](secure-score-security-controls.md).
 
 
 
