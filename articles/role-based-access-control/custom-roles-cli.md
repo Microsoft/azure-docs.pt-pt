@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas azure usando O Azure CLI - Azure RBAC
-description: Saiba como listar, criar, atualizar ou eliminar funções personalizadas do Azure utilizando o controlo de acesso baseado em papel Azure CLI e Azure (Azure RBAC).
+title: Criar ou atualizar funções personalizadas Azure usando Azure CLI - Azure RBAC
+description: Saiba como listar, criar, atualizar ou eliminar funções personalizadas Azure usando o controlo de acesso baseado em funções Azure CLI e Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,88 +8,84 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cac0116cf7a068e63cb54698f7273b8c063ff854
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 8fa77f13b99564246c048e7b7a8129f9fc141c47
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734846"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984196"
 ---
-# <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Criar ou atualizar funções personalizadas do Azure utilizando o Azure CLI
+# <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Criar ou atualizar funções personalizadas Azure usando O Azure CLI
 
 > [!IMPORTANT]
-> A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
+> A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure CLI.
+Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure CLI.
 
-Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie uma função personalizada Azure usando o Azure CLI](tutorial-custom-role-cli.md).
+Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie um papel personalizado Azure usando O Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar papéis personalizados, precisa de:
+Para criar funções personalizadas, é necessário:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
-- [Casca de Nuvem Azure](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure/install-azure-cli)
+- [Concha de nuvem Azure](../cloud-shell/overview.md) ou [CLI Azure](/cli/azure/install-azure-cli)
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
-Para listar as funções personalizadas disponíveis para atribuição, utilize a [lista de definição de papéis az](/cli/azure/role/definition#az-role-definition-list). Os seguintes exemplos listam todas as funções personalizadas na subscrição atual.
+Para listar funções personalizadas disponíveis para atribuição, utilize [a lista de definição de funções az](/cli/azure/role/definition#az-role-definition-list). O exemplo a seguir lista todas as funções personalizadas na subscrição atual.
 
 ```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
+az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
 ```
+
+```json
+[
+  {
+    "roleName": "My Management Contributor",
+    "type": "CustomRole"
+  },
+  {
+    "roleName": "My Service Reader Role",
+    "type": "CustomRole"
+  },
+  {
+    "roleName": "Virtual Machine Operator",
+    "type": "CustomRole"
+  }
+]
+```
+
+## <a name="list-a-custom-role-definition"></a>Listar uma definição de função personalizada
+
+Para listar uma definição de função personalizada, utilize [a lista de definição de função az](/cli/azure/role/definition#az-role-definition-list). Este é o mesmo comando que usarias para um papel incorporado.
 
 ```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
+az role definition list --name {roleName}
 ```
 
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "Virtual Machine Operator",
-  "type": "CustomRole"
-}
-
-...
-```
-
-## <a name="list-a-custom-role-definition"></a>Enumerar uma definição de papel personalizada
-
-Para listar uma definição de função personalizada, use a [lista de definição de papéis az](/cli/azure/role/definition#az-role-definition-list). Este é o mesmo comando que usaria para um papel incorporado.
-
-```azurecli
-az role definition list --name <role_name>
-```
-
-O exemplo seguinte enumera a definição de função *de Operador de Máquina Virtual:*
+O exemplo a seguir enumera a definição de função *do Operador de Máquina Virtual:*
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
 ```
 
-```Output
+```json
 [
   {
     "assignableScopes": [
-      "/subscriptions/11111111-1111-1111-1111-111111111111"
+      "/subscriptions/{subscriptionId}"
     ],
     "description": "Can monitor and restart virtual machines.",
-    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
     "name": "00000000-0000-0000-0000-000000000000",
     "permissions": [
       {
@@ -118,39 +114,41 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-O exemplo seguinte enumera apenas as ações da função *de Operador de Máquina Virtual:*
+O exemplo a seguir enumera apenas as ações da função *de Operador de Máquina Virtual:*
 
 ```azurecli
-az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
+az role definition list --name "Virtual Machine Operator" --output json --query '[].permissions[0].actions'
 ```
 
-```Output
+```json
 [
-  "Microsoft.Storage/*/read",
-  "Microsoft.Network/*/read",
-  "Microsoft.Compute/*/read",
-  "Microsoft.Compute/virtualMachines/start/action",
-  "Microsoft.Compute/virtualMachines/restart/action",
-  "Microsoft.Authorization/*/read",
-  "Microsoft.ResourceHealth/availabilityStatuses/read",
-  "Microsoft.Resources/subscriptions/resourceGroups/read",
-  "Microsoft.Insights/alertRules/*",
-  "Microsoft.Insights/diagnosticSettings/*",
-  "Microsoft.Support/*"
+  [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ]
 ]
 ```
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Para criar um papel personalizado, use a definição de [função az criar](/cli/azure/role/definition#az-role-definition-create). A definição de função pode ser uma descrição jSON ou um caminho para um ficheiro que contenha uma descrição JSON.
+Para criar um papel personalizado, utilize [a definição de função az create](/cli/azure/role/definition#az-role-definition-create). A definição de função pode ser uma descrição de JSON ou um caminho para um ficheiro que contenha uma descrição do JSON.
 
 ```azurecli
-az role definition create --role-definition <role_definition>
+az role definition create --role-definition {roleDefinition}
 ```
 
-O exemplo seguinte cria uma função personalizada chamada *Operador de Máquina Virtual*. Esta função personalizada atribui acesso a todas as operações de leitura da *Microsoft.Compute*, *Microsoft.Storage*, e *Microsoft.Network* fornecedores de recursos e atribui acesso para iniciar, reiniciar e monitorizar máquinas virtuais. Esta função personalizada pode ser usada em duas subscrições. Este exemplo utiliza um ficheiro JSON como entrada.
+O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual.* Esta função personalizada atribui acesso a todas as operações de leitura de *microsoft.Compute,* *Microsoft.Storage*e *Microsoft.Network* fornecedores de recursos e atribui acesso a máquinas virtuais de arranque, reinicio e monitorização. Esta função personalizada pode ser usada em duas subscrições. Este exemplo utiliza um ficheiro JSON como entrada.
 
-vmoperator.json
+vmoperator.jsem
 
 ```json
 {
@@ -173,8 +171,8 @@ vmoperator.json
 
   ],
   "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}"
   ]
 }
 ```
@@ -185,15 +183,15 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 
-Para atualizar uma função personalizada, utilize primeiro a lista de definição de [papel az](/cli/azure/role/definition#az-role-definition-list) para recuperar a definição de função. Em segundo lugar, faça as alterações desejadas à definição de função. Finalmente, utilize a atualização da [definição de papel az](/cli/azure/role/definition#az-role-definition-update) para salvar a definição de função atualizada.
+Para atualizar uma função personalizada, utilize primeiro [a lista de definição de funções az](/cli/azure/role/definition#az-role-definition-list) para recuperar a definição de função. Em segundo lugar, faça as alterações desejadas à definição de papel. Finalmente, utilize [a atualização da definição de função az](/cli/azure/role/definition#az-role-definition-update) para salvar a definição de função atualizada.
 
 ```azurecli
-az role definition update --role-definition <role_definition>
+az role definition update --role-definition {roleDefinition}
 ```
 
-O exemplo seguinte adiciona o *Microsoft.Insights/diagnósticoSettings/operação* `Actions` e `AssignableScopes` adiciona um grupo de gestão para a função personalizada *do Operador de Máquina virtual.* A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
+O exemplo a seguir adiciona o *Microsoft.Insights/diagnosticSettings/operação* `Actions` e adiciona um grupo de gestão para o papel personalizado do Operador de Máquina `AssignableScopes` *Virtual.* A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 
-vmoperator.json
+vmoperator.jsem
 
 ```json
 {
@@ -217,8 +215,8 @@ vmoperator.json
 
   ],
   "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333",
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
     "/providers/Microsoft.Management/managementGroups/marketing-group"
   ]
 }
@@ -230,13 +228,13 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-Para eliminar uma função personalizada, utilize a [definição de função az eliminar](/cli/azure/role/definition#az-role-definition-delete). Para especificar a função a eliminar, utilize o nome do papel ou o ID de função. Para determinar o ID de função, utilize a [lista de definição de funções az](/cli/azure/role/definition#az-role-definition-list).
+Para eliminar uma função personalizada, utilize [a definição de função az delete](/cli/azure/role/definition#az-role-definition-delete). Para especificar a função de eliminar, utilize o nome da função ou o ID da função. Para determinar o ID de função, utilize [a lista de definição de funções az](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
-az role definition delete --name <role_name or role_id>
+az role definition delete --name {roleNameOrId}
 ```
 
-O exemplo que se segue elimina a função personalizada *do Operador de Máquina virtual.*
+O exemplo a seguir elimina a função personalizada *do Operador da Máquina Virtual.*
 
 ```azurecli
 az role definition delete --name "Virtual Machine Operator"
@@ -244,6 +242,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma função personalizada azure usando o Azure CLI](tutorial-custom-role-cli.md)
-- [Papéis personalizados do Azure](custom-roles.md)
-- [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)
+- [Tutorial: Criar um papel personalizado Azure usando O Azure CLI](tutorial-custom-role-cli.md)
+- [Funções personalizadas Azure](custom-roles.md)
+- [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

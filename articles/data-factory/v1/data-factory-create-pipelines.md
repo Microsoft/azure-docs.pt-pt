@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1642c90f0a345bdaf5dd69ddb6c0e26c34faba91
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 62da43879b581d6737eee1310cf642e9692051de
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196013"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248450"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Oleodutos e Atividades na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -92,7 +92,7 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 }
 ```
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Description | Necessário |
 | --- | --- | --- |
 | name |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">", \* "%", "&", \\ ""</li></ul> |Yes |
 | descrição | Especifique o texto que descreve para o que é utilizado o pipeline. |Yes |
@@ -130,7 +130,7 @@ A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Ca
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Description | Necessário |
 | --- | --- | --- |
 | name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">","*","%", "&", \\ ""</li></ul> |Yes |
 | descrição | Texto que descreve para o que é utilizada a atividade |Yes |
@@ -145,7 +145,7 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento em tempo de execução de uma atividade, especificamente quando a fatia de uma mesa é processada. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Description |
 | --- | --- | --- | --- |
 | concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um maior valor de concordância acelera o processamento de dados. |
 | executaçãoPriorityOrder |Mais recenteMente Primeiro<br/><br/>O Mais Antigo Primeiro |O Mais Antigo Primeiro |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver duas fatias (uma acontecendo às 16h, e outra às 17h), e ambas estiverem pendentes de execução. Se definir a execuçãoPriorityOrder para newestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como OFIrst mais antigo, então a fatia às 16:00 é processada. |
@@ -156,7 +156,7 @@ As políticas afetam o comportamento em tempo de execução de uma atividade, es
 | LongRetryInterval |TimeSpan |00:00:00 |O atraso entre longas tentativas de relemissão |
 
 ## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
-No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. No exemplo, a [atividade de cópia](data-factory-data-movement-activities.md) copia os dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure.
+No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. Nesta amostra, a atividade de [cópias](data-factory-data-movement-activities.md) copia dados de um armazenamento Azure Blob para Azure SQL Database.
 
 ```json
 {

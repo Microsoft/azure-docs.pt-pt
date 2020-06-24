@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -15,4 +15,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275277"
 ---
-As rotas definidas pelo utilizador com um destino 0.0.0.0/0 e NSGs na GatewaySubnet **não são suportadas**. Gateways criados com esta configuração serão bloqueados da criação. Os gateways requerem acesso aos controladores de gestão para funcionarem corretamente. [A propagação](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol) da rota BGP deve ser definida como "Ativada" na GatewaySubnet para garantir a disponibilidade do gateway. Se isto estiver programado para desativar, o portal não funcionará.
+As rotas definidas pelo utilizador com um destino 0.0.0.0/0 e NSGs no GatewaySubnet **não são suportadas**. Gateways criados com esta configuração serão bloqueados da criação. Gateways requerem acesso aos controladores de gestão para funcionar corretamente. [A propagação da rota BGP](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol) deve ser definida como "Ativada" na GatewaySubnet para garantir a disponibilidade do gateway. Se isto estiver definido para desativar, o gateway não funcionará.

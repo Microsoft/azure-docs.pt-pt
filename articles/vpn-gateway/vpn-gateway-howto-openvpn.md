@@ -1,35 +1,35 @@
 ---
-title: 'Como configurar o OpenVPN no Azure VPN Gateway: PowerShell'
-description: Passos para configurar OpenVPN para Azure VPN Gateway
+title: 'Como configurar o OpenVPN no Gateway Azure VPN: PowerShell'
+description: Passos para configurar a OpenVPN para o Gateway Azure VPN
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7505420cc31fe751ecc0c114a89fea0734cbc6cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de8d03467b5e44df1b9069c6db31d496785ff32e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162412"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983853"
 ---
-# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configure OpenVPN para Azure ponto-a-site VPN Gateway
+# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configure OpenVPN para Azure ponto-a-local VPN Gateway
 
-Este artigo ajuda-o a configurar o **OpenVPN® Protocolo** sobre o Gateway Azure VPN. O artigo assume que já tem um ambiente de trabalho ponto-a-local. Se não o fizer, utilize as instruções no passo 1 para criar uma VPN ponto-a-local.
+Este artigo ajuda-o a configurar **o Protocolo ® OpenVPN** no Gateway Azure VPN. O artigo assume que já tem um ambiente local de trabalho. Caso contrário, utilize as instruções no passo 1 para criar uma VPN ponto a local.
 
 
 
 ## <a name="1-create-a-point-to-site-vpn"></a><a name="vnet"></a>1. Criar uma VPN ponto-a-local
 
-Se ainda não tiver um ambiente de ponto a local funcional, siga as instruções para criar um. Consulte [Criar uma VPN ponto-a-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway VPN ponto-a-site com autenticação de certificado azure nativo. 
+Se ainda não tiver um ambiente local funcional, siga as instruções para criar um. Consulte [Criar uma VPN ponto-a-local](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar uma porta VPN ponto a local com autenticação de certificado Azure nativo. 
 
 > [!IMPORTANT]
-> O SKU Básico não é suportado para o OpenVPN.
+> O SKU Básico não é suportado para a OpenVPN.
 
-## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. Ativar o OpenVPN na porta de entrada
+## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. Ativar a OpenVPN no gateway
 
-Ative o OpenVPN na sua porta de entrada. Certifique-se de que o portal já está configurado para o ponto-a-local (IKEv2 ou SSTP) antes de executar os seguintes comandos:
+Ative o OpenVPN no seu gateway. Certifique-se de que o gateway já está configurado para ponto a local (IKEv2 ou SSTP) antes de executar os seguintes comandos:
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name
@@ -38,6 +38,6 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVP
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para configurar clientes para OpenVPN, consulte [os clientes Configure OpenVPN](vpn-gateway-howto-openvpn-clients.md).
+Para configurar clientes para a OpenVPN, consulte os [clientes Configure OpenVPN.](vpn-gateway-howto-openvpn-clients.md)
 
 **"OpenVPN" é uma marca registada da OpenVPN Inc.**

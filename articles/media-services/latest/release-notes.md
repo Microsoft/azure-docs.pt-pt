@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 0833215449c92a1710dcaf4f2fe13ce9a16685ba
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434056"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983377"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -32,11 +32,11 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="known-issues"></a>Problemas conhecidos
 
 > [!NOTE]
-> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir v3 [Live Events](live-events-outputs-concept.md), ver v3 [Ativos,](assets-concept.md)obter informações sobre o acesso às APIs. Para todas as outras tarefas de gestão (por exemplo, Transformações e Empregos), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+> Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md) e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [OI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
+>
+> Para mais detalhes, consulte: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Para obter mais informações, consulte [as orientações para a migração para passar dos Serviços de Comunicação Social v2 para v3](migrate-from-v2-to-v3.md#known-issues).
-
-## <a name="june-2020"></a>junho de 2020
+## <a name="june-2020"></a>Junho de 2020
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Vídeo ao vivo analítico no lançamento da pré-estreia do IoT Edge
 
@@ -207,7 +207,7 @@ Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de 
 
 ## <a name="march-2019"></a>Março de 2019
 
-A Dynamic Packaging suporta agora o Dolby Atmos. Para obter mais informações, consulte [os codecs audio suportados por embalagens dinâmicas.](dynamic-packaging-overview.md#audio-codecs)
+A Dynamic Packaging suporta agora o Dolby Atmos. Para obter mais informações, consulte [os codecs audio suportados por embalagens dinâmicas.](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)
 
 Agora pode especificar uma lista de filtros de ativos ou de conta, que se aplicaria ao seu Localizador de Streaming. Para obter mais informações, consulte [filtros Associados com Localizador de Streaming.](filters-concept.md#associating-filters-with-streaming-locator)
 
@@ -370,11 +370,15 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao submeter um trabalho, pode especificar para ingerir o seu vídeo de origem utilizando URLs HTTPS, URLs SAS ou caminhos para ficheiros localizados no armazenamento Azure Blob. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
+* Ao submeter um trabalho, pode especificar para ingerir o seu vídeo de origem utilizando URLs HTTPS, URLs SAS ou caminhos para ficheiros localizados no armazenamento Azure Blob. Atualmente, a Media Services v3 não suporta a codificação de transferências em fatias sobre URLs HTTPS.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
+
+## <a name="see-also"></a>Ver também
+
+[Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="next-steps"></a>Passos seguintes
 
