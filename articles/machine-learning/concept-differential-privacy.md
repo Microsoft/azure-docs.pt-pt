@@ -9,18 +9,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 9570724fdff3018c1dbcf76c15a9db8db0d68364
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447833"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982667"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Preservar a privacidade dos dados utilizando a privacidade diferencial e o pacote WhiteNoise
 
 Saiba o que é a privacidade diferencial e como o pacote WhiteNoise pode ajudá-lo a implementar sistemas diferencialmente privados.
 
 À medida que a quantidade de dados que uma organização recolhe e utiliza para análises aumenta, também as preocupações com a privacidade e segurança aumentam. As análises requerem dados. Normalmente, quanto mais dados forem usados para formar modelos, mais precisos são. Quando as informações pessoais são usadas para estas análises, é especialmente importante que os dados se mantenham privados durante todo o seu uso.
+
+> [!NOTE]
+> Por favor, note que estamos renomeando o kit de ferramentas e apresentaremos o novo nome nas próximas semanas. 
 
 ## <a name="how-differential-privacy-works"></a>Como funciona a privacidade diferencial
 
@@ -60,7 +63,7 @@ Embora a preservação da privacidade deva ser o objetivo, há uma compensação
 
 A biblioteca central inclui os seguintes mecanismos de privacidade para a implementação de um sistema diferencialmente privado:
 
-|Componente  |Descrição  |
+|Componente  |Description  |
 |---------|---------|
 |Análise     | Uma descrição de gráfico de cálculos arbitrários. |
 |Validador     | Uma biblioteca Rust que contém um conjunto de ferramentas para verificar e derivar as condições necessárias para que uma análise seja diferenciadamente privada.          |
@@ -71,13 +74,13 @@ A biblioteca central inclui os seguintes mecanismos de privacidade para a implem
 
 A biblioteca do sistema fornece as seguintes ferramentas e serviços para trabalhar com dados tabulares e relacionais:
 
-|Componente  |Descrição  |
+|Componente  |Description  |
 |---------|---------|
 |Acesso a Dados     | Biblioteca que interceta e processa consultas SQL e produz relatórios. Esta biblioteca é implementada em Python e suporta as seguintes fontes de dados ODBC e DBAPI:<ul><li>PostgreSQL</li><li>SQL Server</li><li>Spark</li><li>Rio Preston</li><li>Pandas</li></ul>|
 |Serviço     | Serviço de execução que fornece um ponto final REST para servir pedidos ou consultas contra fontes de dados partilhadas. O serviço foi concebido para permitir a composição de módulos de privacidade diferenciais que operam em pedidos que contenham diferentes valores delta e epsilon, também conhecidos como pedidos heterogéneos. Esta implementação de referência explica o impacto adicional das consultas sobre dados correlacionados. |
 |Avaliador     | Avaliador estocástico que verifica por violações de privacidade, precisão e preconceito. O avaliador suporta os seguintes testes: <ul><li>Teste de Privacidade - Determina se um relatório adere às condições de privacidade diferencial.</li><li>Teste de Precisão - Mede se a fiabilidade dos relatórios se enquadra nos limites superior e inferior, dado um nível de confiança de 95%.</li><li>Teste de Utilidade - Determina se os limites de confiança de um relatório estão suficientemente próximos dos dados, maximizando ainda a privacidade.</li><li>Teste de Enviesamento - Mede a distribuição de relatórios para consultas repetidas para garantir que não são desequilibrados</li></ul> |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Preservar a privacidade dos dados](how-to-differential-privacy.md) no Azure Machine Learning.
 

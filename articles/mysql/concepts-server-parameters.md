@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/5/2020
-ms.openlocfilehash: f78e6969c98545ec0b9b3e0a0822d4b9ae35903a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 198e23065603d58a9b1386b7c16792a1d8140f55
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84562008"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250507"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -123,6 +123,9 @@ Quando as ligações excederem o limite, poderá receber o seguinte erro:
 > Para uma melhor experiência, recomendamos que utilize um pooler de conexão como o ProxySQL para gerir eficientemente as ligações.
 
 Criar novas ligações de clientes ao MySQL leva tempo e uma vez estabelecidos, estas ligações ocupam recursos de base de dados, mesmo quando inativos. A maioria das aplicações solicita muitas ligações de curta duração, o que agrava esta situação. O resultado é menos recursos disponíveis para a sua carga de trabalho real, levando à diminuição do desempenho. Um pooler de ligação que diminui as ligações ociosas e reutiliza as ligações existentes ajudará a evitar isso. Para saber sobre a criação do ProxySQL, visite o nosso [blog post.](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)
+
+>[!Note]
+>ProxySQL é uma ferramenta comunitária de código aberto. É suportado pela Microsoft numa base de melhor esforço. Para obter apoio de produção com orientação autoritária, você pode avaliar e contactar o suporte do [produto ProxySQL](https://proxysql.com/services/support/).
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 

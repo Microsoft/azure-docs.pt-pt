@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 5/4/2020
-ms.openlocfilehash: 9e168387afce4fb623c89bffddb72eeda5a3d80b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 6/10/2020
+ms.openlocfilehash: f7606e2cbe6655801903de62ff9080eba8a0dd53
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606178"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708030"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Azure Database for MariaDB
 
@@ -64,6 +64,9 @@ No entanto, existem limitações a considerar:
    Isto significa que um servidor principal na Índia Ocidental pode criar uma réplica no Sul da Índia. No entanto, um servidor principal no Sul da Índia não pode criar uma réplica na Índia Ocidental. Isto porque a região secundária da Índia Ocidental é a Índia do Sul, mas a região secundária do Sul da Índia não é a Índia Ocidental.
 
 ## <a name="create-a-replica"></a>Criar uma réplica
+
+> [!IMPORTANT]
+> A funcionalidade de réplica de leitura só está disponível para a Base de Dados Azure para servidores MariaDB nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor principal está num destes níveis de preços.
 
 Se um servidor principal não tiver servidores de réplicas existentes, o mestre reiniciará primeiro para se preparar para a replicação.
 
@@ -158,13 +161,13 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 
 Para atualizar um dos parâmetros acima no servidor principal, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 
 - A criação de uma réplica de uma réplica não é suportada.
 - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MariaDB.
 - Certifique-se de que as tabelas do servidor principal têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)

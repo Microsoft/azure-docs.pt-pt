@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre como desativar e reativar o
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 45c30a874b161301e3e9c1dafc33e495bbafb2de
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: fe4da0435731c536a723cb2cb43428166456360b
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670958"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807942"
 ---
 # <a name="disable-and-re-enable-agic-add-on-for-your-aks-cluster"></a>Desative e reative o addon AGIC para o seu cluster AKS
 O Controlador de Entrada de Gateway (AGIC) implantado como um addon AKS permite-lhe ativar e desativar o addon com uma linha em Azure CLI. O ciclo de vida do Gateway de aplicação difere quando desativar o addon AGIC, dependendo se o Gateway de Aplicação foi criado pelo addon AGIC, ou se foi implantado separadamente do addon AGIC. Pode executar o mesmo comando para voltar a ativar o addon AGIC se alguma vez o desativar, ou para ativar o addon AGIC utilizando um cluster AKS existente e Gateway de aplicação.
@@ -40,5 +40,5 @@ appgwId=$(az network application-gateway show -n <application-gateway-name> -g <
 az aks enable-addons -n <AKS-cluster-name> -g <AKS-cluster-resource-group> -a ingress-appgw --appgw-id $appgwId
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais detalhes sobre como permitir o addon AGIC utilizando um cluster de gateway de aplicação e AKS existente, consulte [a implementação do add-on aGIC .](tutorial-ingress-controller-add-on-existing.md)

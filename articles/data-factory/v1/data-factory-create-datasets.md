@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c97c1be81f1aef393f4aa101fc84972e3ae9ac7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193829"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248289"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -38,7 +38,7 @@ Uma atividade pode tomar zero ou mais **conjuntos de dados de**entrada , e produ
 
 Antes de criar um conjunto de dados, crie um **serviço ligado** para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Os conjuntos de dados identificam dados dentro das lojas de dados ligadas, tais como tabelas SQL, ficheiros, pastas e documentos. Por exemplo, um serviço ligado ao Azure Storage liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta que contém as bolhas de entrada a serem processadas.
 
-Aqui está um cenário de amostra. Para copiar dados do armazenamento blob para uma base de dados SQL, cria dois serviços ligados: Azure Storage e Azure SQL Database. Em seguida, crie dois conjuntos de dados: conjunto de dados Azure Blob (que se refere ao serviço ligado ao Armazenamento Azure) e conjunto de dados de tabela Azure SQL (que se refere ao serviço ligado à Base de Dados Azure SQL). Os serviços ligados ao Azure Storage e Azure SQL Database contêm cadeias de ligação que a Data Factory utiliza em tempo de execução para ligar à sua Base de Dados Azure Storage e Azure SQL, respectivamente. O conjunto de dados Azure Blob especifica o recipiente blob e a pasta blob que contém as bolhas de entrada no seu armazenamento Blob. O conjunto de dados da tabela Azure SQL especifica a tabela SQL na sua base de dados SQL para a qual os dados devem ser copiados.
+Aqui está um cenário de amostra. Para copiar dados do armazenamento blob para a Base de Dados SQL, cria dois serviços ligados: Azure Storage e Azure SQL Database. Em seguida, crie dois conjuntos de dados: conjunto de dados Azure Blob (que se refere ao serviço ligado ao Armazenamento Azure) e conjunto de dados de tabela Azure SQL (que se refere ao serviço ligado à Base de Dados Azure SQL). Os serviços ligados ao Azure Storage e Azure SQL Database contêm cadeias de ligação que a Data Factory utiliza em tempo de execução para ligar à sua Base de Dados Azure Storage e Azure SQL, respectivamente. O conjunto de dados Azure Blob especifica o recipiente blob e a pasta blob que contém as bolhas de entrada no seu armazenamento Blob. O conjunto de dados da tabela Azure SQL especifica a tabela SQL na sua base de dados SQL para a qual os dados devem ser copiados.
 
 O diagrama a seguir mostra as relações entre o pipeline, a atividade, o conjunto de dados e o serviço ligado na Data Factory:
 
@@ -278,10 +278,10 @@ O conjunto de dados seguinte é mensal, e é produzido no dia 3 de cada mês às
 A secção **de política** na definição de conjunto de dados define os critérios ou a condição que as fatias de conjunto de dados devem cumprir.
 
 ### <a name="validation-policies"></a>Políticas de validação
-| Nome da política | Descrição | Aplicado a | Necessário | Predefinição |
+| Nome da política | Description | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | tamanho mínimoS |Valida que os dados no **armazenamento Azure Blob** satisfazem os requisitos mínimos de tamanho (em megabytes). |Armazenamento de Blobs do Azure |No |ND |
-| sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
+| sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
 
 #### <a name="examples"></a>Exemplos
 **tamanho mínimoS:**
@@ -314,7 +314,7 @@ Conjuntos de dados externos são os que não são produzidos por um gasoduto em 
 
 A menos que um conjunto de dados seja produzido pela Data Factory, deve ser marcado como **externo**. Esta definição aplica-se geralmente às entradas da primeira atividade num gasoduto, a menos que esteja a ser utilizada atividade ou acorrentamento do gasoduto.
 
-| Name | Descrição | Necessário | Valor predefinido |
+| Name | Description | Necessário | Valor predefinido |
 | --- | --- | --- | --- |
 | dataDelaia |É o momento de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, pode atrasar uma verificação de hora a hora utilizando esta definição.<br/><br/>A regulação aplica-se apenas ao presente momento. Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Note que esta definição não afeta fatias no passado. Fatias com **dados de fim de tempo de**  +  **fatiaDela agora**são  <  **Now** processadas sem demora.<br/><br/>Os tempos superiores às 23:59 horas devem ser especificados utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |No |0 |
 | retryInterval |O tempo de espera entre um fracasso e a próxima tentativa. Esta definição aplica-se ao tempo presente. Se a tentativa anterior falhar, a próxima tentativa é após o período **de retryInterval.** <br/><br/>Se são 13:00 agora, começamos a primeira tentativa. Se a duração para completar a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima repetição é de 1:00 + 1min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há atraso. A repetição acontece imediatamente. |No |00:01:00 (1 minuto) |

@@ -1,24 +1,24 @@
 ---
-title: Descarregue scripts de configuração de dispositivo VPN para ligações VPN S2S
-description: Este artigo acompanha-o através do download de scripts de configuração de dispositivos VPN para ligações S2S VPN com Gateways VPN Azure utilizando o Gestor de Recursos Azure.
+title: Descarregue scripts de configuração de dispositivos VPN para ligações VPN S2S
+description: Este artigo acompanha-o através do download de scripts de configuração de dispositivos VPN para ligações S2S VPN com Gateways Azure VPN usando Azure Resource Manager.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
 manager: rossort
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: f905e27f48a0bf9181625bbba07549a13d9420cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e17d17484ea9caf735fd717b1e58b85e798df87b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162141"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983211"
 ---
-# <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Descarregue scripts de configuração de dispositivo VPN para ligações VPN S2S
+# <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Descarregue scripts de configuração de dispositivos VPN para ligações VPN S2S
 
-Este artigo acompanha-o através do download de scripts de configuração de dispositivos VPN para ligações S2S VPN com Gateways VPN Azure utilizando o Gestor de Recursos Azure. O diagrama seguinte mostra o fluxo de trabalho de alto nível.
+Este artigo acompanha-o através do download de scripts de configuração de dispositivos VPN para ligações S2S VPN com Gateways Azure VPN usando Azure Resource Manager. O diagrama seguinte mostra o fluxo de trabalho de alto nível.
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
@@ -26,57 +26,57 @@ Os seguintes dispositivos têm scripts disponíveis:
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="about-vpn-device-configuration-scripts"></a><a name="about"></a>Sobre scripts de configuração de dispositivo VPN
+## <a name="about-vpn-device-configuration-scripts"></a><a name="about"></a>Sobre scripts de configuração de dispositivos VPN
 
-Uma ligação VPN transversal consiste num gateway Azure VPN, num dispositivo VPN no local e num túnel VPN IPsec S2S que liga os dois. O fluxo de trabalho típico inclui os seguintes passos:
+Uma ligação VPN transversal é constituída por um gateway VPN Azure, um dispositivo VPN no local e um túnel VPN IPsec S2S que liga os dois. O fluxo de trabalho típico inclui os seguintes passos:
 
 1. Criar e configurar um gateway Azure VPN (gateway de rede virtual)
-2. Crie e configure um portal de rede local Azure que represente a sua rede no local e o dispositivo VPN
-3. Criar e configurar uma ligação VPN Azure entre o gateway Azure VPN e o gateway da rede local
-4. Configure o dispositivo VPN no local representado pela porta de entrada da rede local para estabelecer o verdadeiro túnel VpN S2S com o gateway VPN Azure
+2. Crie e configura um gateway de rede local Azure que represente a sua rede no local e dispositivo VPN
+3. Criar e configurar uma ligação Azure VPN entre o gateway Azure VPN e o gateway de rede local
+4. Configure o dispositivo VPN no local representado pela porta de entrada da rede local para estabelecer o túnel VPN S2S real com o gateway Azure VPN
 
-Pode completar os passos 1 a 3 utilizando o [portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)Azure, [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md), ou [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). O último passo passa por configurar os dispositivos VPN no local fora do Azure. Esta funcionalidade permite-lhe descarregar um script de configuração para o seu dispositivo VPN com os valores correspondentes do seu gateway VpN, rede virtual e prefixos de endereçode rede no local, e propriedades de ligação VPN, etc. já preenchidas. Pode utilizar o script como ponto de partida ou aplicar o script diretamente nos seus dispositivos VPN no local através da consola de configuração.
+Pode completar os passos 1 a 3 utilizando o [portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)Azure , [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)ou [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). O último passo consiste em configurar os dispositivos VPN no local fora de Azure. Esta funcionalidade permite-lhe descarregar um script de configuração para o seu dispositivo VPN com os valores correspondentes do seu gateway Azure VPN, rede virtual e prefixos de endereço de rede no local, e propriedades de conexão VPN, etc. já preenchidos. Pode utilizar o script como ponto de partida ou aplicar o script diretamente nos dispositivos VPN no local através da consola de configuração.
 
 > [!IMPORTANT]
-> * A sintaxe para cada script de configuração do dispositivo VPN é diferente, e fortemente dependente dos modelos e versões firmware. Preste especial atenção ao modelo do seu dispositivo e informações de versão contra os modelos disponíveis.
+> * A sintaxe para cada script de configuração de dispositivo VPN é diferente, e depende fortemente dos modelos e versões de firmware. Preste especial atenção ao modelo do dispositivo e às informações da versão contra os modelos disponíveis.
 > * Alguns valores de parâmetros devem ser únicos no dispositivo e não podem ser determinados sem aceder ao dispositivo. Os scripts de configuração gerados pelo Azure preenchem estes valores, mas é necessário garantir que os valores fornecidos são válidos no seu dispositivo. Por exemplo:
 >    * Números de interface
 >    * Números da lista de controlo de acesso
 >    * Nomes de políticas ou números, etc.
-> * Procure a palavra-chave, "**SUBSTITU**", incorporada no script para encontrar os parâmetros que precisa verificar antes de aplicar o script.
+> * Procure a palavra-chave, "**SUBSTITU**", incorporada no script para encontrar os parâmetros que precisa de verificar antes de aplicar o script.
 > * Alguns modelos incluem uma secção "**CLEANUP**" que pode aplicar para remover as configurações. As secções de limpeza são comentadas por defeito.
 
-## <a name="download-the-configuration-script-from-azure-portal"></a>Descarregue o script de configuração do portal Azure
+## <a name="download-the-configuration-script-from-azure-portal"></a>Descarregue o script de configuração a partir do portal Azure
 
-Crie um gateway Azure VPN, gateway de rede local e um recurso de ligação que ligue os dois. A página seguinte guia-o através dos passos:
+Crie um gateway Azure VPN, porta de rede local e um recurso de ligação que ligue os dois. A página que se segue guia-o através dos passos:
 
 * [Criar uma ligação Site a Site no portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 Assim que o recurso de ligação for criado, siga as instruções abaixo para descarregar os scripts de configuração do dispositivo VPN:
 
-1. A partir de um browser, navegue para o [portal Azure](https://portal.azure.com) e, se necessário, inscreva-se na sua conta Azure
-2. Vá ao recurso de ligação que criou. Pode encontrar a lista de todos os recursos de ligação clicando em "Todos os serviços", depois "NETWORKING" e "Connections".
+1. A partir de um navegador, navegue para o [portal Azure](https://portal.azure.com) e, se necessário, inscreva-se na sua conta Azure
+2. Aceda ao recurso de ligação que criou. Pode encontrar a lista de todos os recursos de ligação clicando em "Todos os serviços", em seguida " NETWORKING" e "Conexões".
 
-    ![lista de ligação](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)
+    ![lista de ligações](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)
 
 3. Clique na ligação que pretende configurar.
 
-    ![visão geral da conexão](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
+    ![visão geral de conexão](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
 
-4. Clique no link "Configuração de descarregamento" conforme realçado a vermelho na página de visão geral da Ligação; isto abre a página "Configuração de descarregamento".
+4. Clique no link "Configuração de descarregamento" como realçado a vermelho na página 'Visão geral' 'Ligação'; isto abre a página "Configuração de descarregamento".
 
     ![download-script-1](./media/vpn-gateway-download-vpndevicescript/downloadscript-1.png)
 
-5. Selecione a versão modelo familiar e firmware para o seu dispositivo VPN e, em seguida, clique no botão "Configuração de descarregamento".
+5. Selecione a versão modelo de família e firmware para o seu dispositivo VPN e, em seguida, clique no botão "Descarregar configuração".
 
-    ![download66-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
+    ![download6-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
 
-6. É solicitado que guarde o script descarregado (um ficheiro de texto) do seu navegador.
-7. Assim que descarregar o script de configuração, abra-o com um editor de texto e procure a palavra-chave "SUBSTITU" para identificar e examinar os parâmetros que possam ter de ser substituídos.
+6. É-lhe pedido que guarde o script descarregado (um ficheiro de texto) do seu navegador.
+7. Uma vez descarregado o script de configuração, abra-o com um editor de texto e procure a palavra-chave "REPLACE" para identificar e examinar os parâmetros que podem ter de ser substituídos.
 
     ![editar script](./media/vpn-gateway-download-vpndevicescript/editscript.png)
 
-## <a name="download-the-configuration-script-using-azure-powershell"></a>Descarregue o script de configuração usando o Azure PowerShell
+## <a name="download-the-configuration-script-using-azure-powershell"></a>Descarregue o script de configuração usando Azure PowerShell
 
 
 
@@ -96,8 +96,8 @@ Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -Re
 
 ## <a name="apply-the-configuration-script-to-your-vpn-device"></a>Aplique o script de configuração no seu dispositivo VPN
 
-Depois de ter descarregado e validado o script de configuração, o próximo passo é aplicar o script no seu dispositivo VPN. O procedimento real varia em função das suas faças e modelos do seu dispositivo VPN. Consulte os manuais de funcionamento ou as páginas de instruções dos seus dispositivos VPN.
+Depois de ter descarregado e validado o script de configuração, o próximo passo é aplicar o script no seu dispositivo VPN. O procedimento real varia em com base nas fabricações e modelos do seu dispositivo VPN. Consulte os manuais de funcionamento ou as páginas de instruções para os seus dispositivos VPN.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Continue a configurar a [ligação Site-a-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Continue a configurar a sua [ligação Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

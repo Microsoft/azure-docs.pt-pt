@@ -2,18 +2,18 @@
 title: Utilizar dados do Azure Blockchain Workbench no Microsoft Power BI
 description: Saiba como carregar e ver os dados da BD SQL do Azure Blockchain Workbench no Microsoft Power BI.
 ms.date: 04/22/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 4245603fee5b3d24488426c3dc2d026a3c0d7848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082531"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214235"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Utilizar dados do Azure Blockchain Workbench com o Microsoft Power BI
 
-O Microsoft Power BI fornece a capacidade de gerar facilmente relatórios poderosos a [https://www.powerbi.com](https://www.powerbi.com)partir de bases de dados SQL DB utilizando o Power BI Desktop e, em seguida, publicá-los para .
+O Microsoft Power BI fornece a capacidade de gerar facilmente relatórios poderosos a partir de bases de dados DB SQL utilizando o Power BI Desktop e depois publicá-los para [https://www.powerbi.com](https://www.powerbi.com) .
 
 Este artigo contém instruções passo a passo sobre como ligar à Base de Dados SQL do Azure Blockchain Workbench a partir do Power BI Desktop, criar um relatório e implementá-lo no powerbi.com.
 
@@ -21,7 +21,7 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
 * Baixar [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ligar power BI aos dados na bancada azure blockchain
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ligar o Power BI aos dados na Bancada Azure Blockchain
 
 1.  Abra o Power BI Desktop.
 2.  Selecione **Obter Dados**.
@@ -43,7 +43,7 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
     ![Navegador](./media/data-powerbi/navigator.png)
 
-7.  Selecione as vistas que pretende incluir. Para efeitos de demonstração, incluímos a **vwContractAction,** que fornece detalhes sobre as ações que tiveram lugar num contrato.
+7.  Selecione as vistas que pretende incluir. Para fins de demonstração, incluímos **a VWContractAction,** que fornece detalhes sobre as ações que têm ocorrido num contrato.
 
     ![Selecionar vistas](./media/data-powerbi/select-views.png)
 

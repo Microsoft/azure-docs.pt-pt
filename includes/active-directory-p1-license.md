@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "67184445"
 ---
-A utilização desta funcionalidade requer uma licença Azure AD Premium P1. Para encontrar a licença certa para os seus requisitos, consulte [Comparar as funcionalidades geralmente disponíveis das edições Free, Basic e Premium.](https://azure.microsoft.com/pricing/details/active-directory/)
+A utilização desta funcionalidade requer uma licença Azure AD Premium P1. Para encontrar a licença certa para os seus requisitos, consulte [Comparar funcionalidades geralmente disponíveis das edições Gratuitas, Básicas e Premium.](https://azure.microsoft.com/pricing/details/active-directory/)

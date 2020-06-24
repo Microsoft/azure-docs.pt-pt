@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: e424163a2fc07d92eee110396cf8cce57e686622
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431697"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214507"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender os resultados de machine learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -265,6 +265,9 @@ Um bom modelo normalmente terá uma curva de sino ou erros em torno de zero.
 ## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Interpretação do modelo e importância de característica
 O ML automatizado fornece um painel de interpretação de aprendizagem automática para as suas execuções.
 Para obter mais informações sobre a ativação de funcionalidades de interpretação, consulte o como permitir [a](how-to-machine-learning-interpretability-automl.md) interpretação em experiências automatizadas de ML.
+
+> [!NOTE]
+> O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

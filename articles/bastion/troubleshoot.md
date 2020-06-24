@@ -1,45 +1,45 @@
 ---
-title: Troubleshoot Azure Bastion [ Microsoft Docs
-description: Neste artigo, aprenda a resolver os problemas de Azure Bastion.
+title: Resolução de problemas Azure Bastion / Microsoft Docs
+description: Neste artigo, aprenda a resolver problemas com Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab4cc288f2a505baaa8f3a70db0a1fe76fb20c96
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619174"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744073"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Resolver problemas do Azure Bastion
 
-Este artigo mostra-lhe como resolver o tiroteio de Azure Bastion.
+Este artigo mostra-lhe como resolver problemas com Azure Bastion.
 
-## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>Incapaz de criar um NSG na AzureBastionSubnet
+## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>Incapaz de criar um NSG em AzureBastionSubnet
 
-**Q:** Quando tento criar um NSG na subnet do Bastião Azure, tenho o seguinte erro: *"O <NSG name> grupo de segurança da rede não tem regras necessárias para a Azure Bastion Subnet AzureBastionSubnet".*
+**Q:** Quando tento criar um NSG na sub-rede Azure Bastion, recebo o seguinte erro: *"O grupo de segurança da rede <NSG name> não tem regras necessárias para a Subnet AzureBastionSubnet AzureBastionSubnet"*.
 
-**A:** Se criar e aplicar um NSG à *AzureBastionSubnet,* certifique-se de ter adicionado as seguintes regras no seu NSG. Se não adicionar estas regras, a criação/atualização do NSG falhará.
+**A:** Se criar e aplicar um NSG ao *AzureBastionSubnet,* certifique-se de que adicionou as seguintes regras no seu NSG. Se não adicionar estas regras, a criação/atualização NSG falhará.
 
-1. Controlar a conectividade do avião – Entrada na 443 do GatewayManager
-2. Diagnósticos de registo e outros – Saída em 443 para AzureCloud (As etiquetas regionais dentro desta etiqueta de serviço ainda não são suportadas.)
-3. Target VM – Saída para 3389 e 22 para VirtualNetwork
+1. Conectividade do avião de controlo - Entrada no 443 de GatewayManager
+2. Registo de diagnósticos e outros – Saída em 443 para AzureCloud (as tags regionais dentro desta etiqueta de serviço ainda não são suportadas.)
+3. Target VM - Saída para 3389 e 22 para VirtualNetwork
 
-Um exemplo das regras do NSG está disponível para referência no [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
-Para mais informações, consulte [a orientação da NSG para o Azure Bastion](bastion-nsg.md).
+Um exemplo das regras NSG está disponível para referência no [modelo quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Para mais informações, consulte [a orientação da NSG para O Bastião Azure.](bastion-nsg.md)
 
-## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Incapaz de usar a minha chave SSH com o Bastião Azure
+## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Incapaz de usar a minha chave SSH com Azure Bastion
 
-**Q:** Quando tento navegar no meu ficheiro de teclaSS, tenho o seguinte erro: *'A tecla Privada SSH deve começar com -----BEGIN RSA PRIVATE KEY----- e termina com -----END RSA PRIVATE KEY-----'.*
+**Q:** Quando tento navegar no meu ficheiro de chave SSH, recebo o seguinte erro: *"A chave SSH Private deve começar com -----BEGIN RSA PRIVATE KEY----- e termina com -----END RSA PRIVATE KEY-----'.*
 
-**A:** A Azure Bastion suporta apenas as teclas RSA SSH, neste momento. Certifique-se de que navega num ficheiro chave que é chave privada RSA para SSH, com chave pública aprovisionada no VM alvo. 
+**A:** Azure Bastion suporta apenas as teclas RSA SSH, neste momento. Certifique-se de que navega num ficheiro chave que é a chave privada RSA para SSH, com a chave pública prevista no VM alvo. 
 
-Como exemplo, pode utilizar o seguinte comando para criar uma nova tecla RSA SSH:
+Como exemplo, pode utilizar o seguinte comando para criar uma nova chave RSA SSH:
 
-**ssh-keygen -t rsa -b 4096 -C "email@domain.com**
+**ssh-keygen -t rsa -b 4096 -C email@domain.com "**
 
 Saída:
 
@@ -67,24 +67,24 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-## <a name="unable-to-sign-in-to-my-windows-domain-joined-virtual-machine"></a><a name="domain"></a>Incapaz de iniciar sessão na minha máquina virtual unida pelo domínio do Windows
+## <a name="unable-to-sign-in-to-my-windows-domain-joined-virtual-machine"></a><a name="domain"></a>Incapaz de iniciar sedutil na minha máquina virtual de domínio Windows
 
-**Q:** Não consigo ligar-me à minha máquina virtual do Windows que é unida ao domínio.
+**Q:** Não consigo ligar-me à minha máquina virtual do Windows que está ligada ao domínio.
 
-**A:** O Azure Bastion suporta o sinal de VM filiado no domínio apenas para o sign-in de domínio baseado em nome de utilizador. Ao especificar as credenciais de domínio no portalusername@domainAzure, utilize o formato UPN () em vez do formato *domínio\username* para iniciar sessão. Isto é suportado para máquinas virtuais unidas ao domínio ou híbridas (ambas unidas ao domínio, bem como a azure ad-joined) máquinas virtuais. Não é suportado para máquinas virtuais só com a AD Azure.
+**A:** O Azure Bastion suporta o sismo VM associado ao domínio apenas para o pedido de sismo baseado em password de utilizador. Ao especificar as credenciais de domínio no portal Azure, utilize o formato UPN username@domain () em vez do formato *de nome de utilizador de domínio para* iniciar sing. Isto é suportado para máquinas virtuais unidas ao domínio ou híbridas (ambas unidas ao domínio, bem como a ad-joined AZure). Não é suportado para máquinas virtuais só aderidas a Azure.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemas de transferência de ficheiros
 
-**Q:** A transferência de ficheiros é suportada com o Azure Bastion?
+**Q:** A transferência de ficheiros é suportada com Azure Bastion?
 
-**A:** A transferência de ficheiros não é suportada neste momento. Estamos a trabalhar na adição de apoio.
+**A:** A transferência de ficheiros não é suportada neste momento. Estamos a trabalhar para adicionar apoio.
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Tela preta no portal Azure
 
-**Q:** Quando tento ligar-me usando o Azure Bastion, tenho um ecrã preto no portal Azure.
+**Q:** Quando tento ligar-me usando o Azure Bastion, recebo uma tela preta no portal Azure.
 
-**A:** Isto acontece quando existe um problema de conectividade de rede entre o seu navegador web e o Azure Bastion (a firewall da Internet do seu cliente pode estar a bloquear o tráfego webSockets ou similar), ou entre o Bastião Azure e o seu VM alvo. A maioria dos casos inclui um NSG aplicado quer à AzureBastionSubnet, quer na sua subnet VM alvo que está a bloquear o tráfego RDP/SSH na sua rede virtual. Permita o tráfego de WebSockets na firewall da internet do seu cliente e verifique os NSGs na sua subnet VM alvo.
+**A:** Isto acontece quando existe um problema de conectividade de rede entre o seu navegador web e O Azure Bastion (a firewall da Internet do seu cliente pode estar bloqueando o tráfego de WebSockets ou similares), ou entre o Bastião Azure e o seu VM alvo. A maioria dos casos inclui um NSG aplicado quer à AzureBastionSubnet, quer à sub-rede VM alvo que está a bloquear o tráfego RDP/SSH na sua rede virtual. Permita o tráfego webSockets na firewall da internet do seu cliente e verifique os NSGs na sub-rede VM do seu alvo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte o [Bastião FAQ](bastion-faq.md).
+Para mais informações, consulte as [FAQ do Bastião.](bastion-faq.md)

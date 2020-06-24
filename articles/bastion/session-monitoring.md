@@ -1,53 +1,53 @@
 ---
-title: Monitorização e gestão da sessão azure Bastião Microsoft Docs
-description: Neste artigo, aprenda a selecionar uma sessão em curso e a desconectá-la ou eliminá-la.
+title: Azure Bastion sessão de monitorização e gestão Microsoft Docs
+description: Neste artigo, aprenda a selecionar uma sessão em curso e desconectar ou eliminá-la.
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: charwen
-ms.openlocfilehash: 617ec30fc9b97e89b6ccd0de6255d65da94d7b63
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 5974ebe7960eec1ca3bb8610f66061395fea64d6
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780453"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744107"
 ---
-# <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorização e gestão de sessões para o Bastião Azure
+# <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorização e gestão de sessão para Azure Bastion
 
-Uma vez que o serviço Bastion é aprovisionado e implantado na sua rede virtual, pode usá-lo para ligar perfeitamente a qualquer VM nesta rede virtual. À medida que os utilizadores se ligam às cargas de trabalho, o Azure Bastion pode ser usado para monitorizar as sessões remotas e tomar ações de gestão rápidas. A monitorização da sessão azure Bastion permite-lhe visualizar quais os utilizadores ligados aos quais VMs. Mostra o IP de que o utilizador ligou, quanto tempo estão ligados e quando se conectam. A experiência de gestão da sessão permite selecionar uma sessão em curso e desligar a força ou apagar uma sessão de forma a desligar o utilizador da sessão em curso.
+Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar perfeitamente a qualquer VM nesta rede virtual. À medida que os utilizadores se conectam a cargas de trabalho, o Azure Bastion pode ser usado para monitorizar as sessões remotas e tomar ações de gestão rápida. A monitorização da sessão de Azure Bastion permite-lhe ver a que utilizadores estão ligados aos quais os VMs. Mostra o IP de que o utilizador ligou, quanto tempo esteve ligado e quando se ligou. A experiência de gestão da sessão permite-lhe selecionar uma sessão em curso e desligar a força ou apagar uma sessão de forma a desligar o utilizador da sessão em curso.
 
 ## <a name="monitor-remote-sessions"></a><a name="monitor"></a>Monitorize sessões remotas
 
-1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **Sessions** a partir da página Do Bastião Azure.
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **Sessões** a partir da página Azure Bastion.
 
    ![sessões](./media/session-monitoring/sessions.png)
-2. Na página **Sessions,** pode ver as sessões remotas em curso no lado direito.
+2. Na página **'Sessões',** pode ver as sessões remotas em curso no lado direito.
 
    ![ver sessão](./media/session-monitoring/view-session.png)
-3. Selecione **Refresh** para ver a lista atualizada de sessões remotas. Quando selecionar refresh, o Azure Bastion irá buscar as últimas informações de monitorização e refresca-as no portal.
+3. Selecione **Refresh** para ver a lista atualizada de sessões remotas. Quando selecionar Refresh, Azure Bastion irá buscar as últimas informações de monitorização e a atualizá-la-á no portal.
 
    ![refresh](./media/session-monitoring/refresh.png)
 
 
-## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Eliminar ou desligar a força de uma sessão remota em curso
+## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Excluir ou desligar à força uma sessão remota em curso
 
-Pode selecionar um conjunto de sessões e desconectá-las à força. Os seguintes passos mostram-lhe como eliminar sessões remotas:
+Pode selecionar um conjunto de sessão e desconectá-las à força. Os seguintes passos mostram-lhe como eliminar sessões remotas:
 
-1. Navegue para o seu recurso Azure Bastion e selecione **Sessões** a partir da página Do Bastião Azure.
+1. Navegue para o seu recurso Azure Bastion e selecione **Sessões** na página Azure Bastion.
 
    ![navigate](./media/session-monitoring/navigate.png)
-2. Depois de selecionar As Sessões, consulte uma lista de sessões remotas.
+2. Depois de selecionar Sessões, vê uma lista de sessões remotas.
 
    ![sessões de lista](./media/session-monitoring/list.png)
-3. Selecione uma sessão remota específica e, em seguida, selecione as três elipses na extremidade direita da linha de sessão e, em seguida, **selecione Delete**.
+3. Selecione uma sessão remota específica e, em seguida, selecione as três elipses no lado direito da linha de sessão e, em seguida, selecione **Delete**.
 
    ![delete](./media/session-monitoring/delete.png)
-4. Quando selecionar Apagar, a sessão remota será desligada e o utilizador será mostrado uma mensagem "Foi desligado" na sessão remota.
+4. Quando selecionar Eliminar, a sessão remota será desligada e o utilizador será mostrado como uma mensagem "Foi desligado" na sessão remota.
 
    ![desligar](./media/session-monitoring/disconnect.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia o [Bastião FAQ.](bastion-faq.md)
+Leia as [FAQ do Bastião.](bastion-faq.md)

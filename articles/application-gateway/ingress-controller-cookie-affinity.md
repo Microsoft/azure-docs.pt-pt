@@ -1,21 +1,21 @@
 ---
-title: Ativar a finidade baseada em cookies com o Gateway da Aplicação
-description: Este artigo fornece informações sobre como ativar a afinidade baseada em cookies com um Gateway de Aplicação.
+title: Ativar afinidade baseada em cookies com o Gateway de Aplicação
+description: Este artigo fornece informações sobre como ativar a afinidade baseada em cookies com um Gateway de aplicação.
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: adacd805e736524fd7956c4bbc0ad402980b4cd0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 3af2705fedbb9c19d4f128e8e997d3fa73f8b5a7
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795984"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807958"
 ---
-# <a name="enable-cookie-based-affinity-with-an-application-gateway"></a>Ativar a afinidade baseada em Cookies com um Gateway de Aplicação
-Tal como descrito na Documentação de Gateway de [Aplicação Azure,](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#http-settings)o Application Gateway suporta a finidade baseada em cookies, o que significa que pode direcionar o tráfego subsequente de uma sessão de utilizador para o mesmo servidor para processamento.
+# <a name="enable-cookie-based-affinity-with-an-application-gateway"></a>Ativar afinidade baseada em cookies com um Gateway de aplicação
+Conforme descrito na Documentação do [Gateway de Aplicação Azure,](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#http-settings)o Gateway de Aplicação suporta afinidade baseada em cookies, o que significa que pode direcionar o tráfego subsequente de uma sessão de utilizador para o mesmo servidor para processamento.
 
 ## <a name="example"></a>Exemplo
 ```yaml

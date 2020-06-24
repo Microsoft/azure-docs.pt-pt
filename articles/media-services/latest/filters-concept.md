@@ -76,7 +76,7 @@ As condições de propriedade da faixa de filtro descrevem tipos de faixas, valo
 |---|---|
 |**Bitrate**|Utilize o bitrate da pista para filtrar.<br/><br/>O valor recomendado é uma gama de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora possa utilizar um valor bitrate específico, como 250000 (bits por segundo), esta abordagem não é recomendada, uma vez que os bitrates exatos podem oscilar de um Ativo para outro.|
 |**FourCC**|Utilize o valor FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato codecs, conforme especificado no [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, os seguintes códigos são suportados: <br/>Para Vídeo: "avc1", "hev1", "hvc1"<br/>Para Áudio: "mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas num Ativo, obtenha e examine o ficheiro manifesto.|
-|**Linguagem**|Utilize o idioma da faixa para filtrar.<br/><br/>O valor é a etiqueta de um idioma que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
+|**Idioma**|Utilize o idioma da faixa para filtrar.<br/><br/>O valor é a etiqueta de um idioma que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
 |**Nome**|Utilize o nome da faixa para filtragem.|
 |**Tipo**|Utilize o tipo de faixa para filtragem.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "texto".|
 

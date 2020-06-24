@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/16/2020
 ms.author: daperlov
-ms.openlocfilehash: 1764036413d6e4f634ed156f7cfb441b4a2bb1e6
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604967"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807805"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,14 +32,14 @@ O Modelo Comum de Dados está disponível como um [conjunto de dados inline no](
 
 A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode editar estas propriedades no separador **Opções Fonte.**
 
-| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Description | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser`cdm` | sim | `cdm` | formato |
-| Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.json. | Sim | `'manifest'` ou `'model'` | manifestoType |
+| Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Yes | `'manifest'` ou `'model'` | manifestoType |
 | Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
 | Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
 | Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
-| Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido'  | Não | String | manifestoName |
+| Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido'  | No | String | manifestoName |
 | Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Carimbo de data/hora | modificado Depois <br> modificadoSForo antes | 
 | Serviço ligado a Schema | O serviço ligado onde o corpus está localizado | Sim, se usar manifesto | `'adlsgen2'` ou `'github'` | corpusStore | 
 | Recipiente de referência de entidade | Container corpus está em | Sim, se usar manifesto e corpus na ADLS Gen2 | String | adlsgen2_fileSystem |
@@ -53,35 +53,28 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 
 O CDM só está disponível como conjunto de dados inline e, por padrão, não tem um esquema associado. Para obter metadados de coluna, clique no botão **de esquema de importação** no **separador Projeção.** Isto permitir-lhe-á fazer referência aos nomes das colunas e tipos de dados especificados pelo corpus. Para importar o esquema, uma [sessão de depurar fluxo de dados](concepts-data-flow-debug-mode.md) deve estar ativa.
 
-![Esquema de importação](media/format-common-data-model/import-schema-source.png)
 
-### <a name="cdm-source-example"></a>Exemplo de origem cdm
-
-A imagem abaixo é um exemplo de uma configuração de origem CDM nos fluxos de dados de mapeamento.
-
-![Fonte de CDM](media/format-common-data-model/data-flow-source.png)
-
-O script de fluxo de dados associado é:
+### <a name="cdm-source-data-flow-script-example"></a>Exemplo de script de fluxo de dados de fonte de CDM
 
 ```
 source(output(
-        ServingSizeId as integer,
-        ServingSize as integer,
-        ServingSizeUomId as string,
-        ServingSizeNote as string,
+        ProductSizeId as integer,
+        ProductColor as integer,
+        CustomerId as string,
+        Note as string,
         LastModifiedDate as timestamp
     ),
     allowSchemaDrift: true,
     validateSchema: false,
-    entity: 'ServingSize.cdm.json/ServingSize',
+    entity: 'Product.cdm.json/Product',
     format: 'cdm',
     manifestType: 'manifest',
-    manifestName: 'ServingSizeManifest',
-    entityPath: 'ServingSize',
-    corpusPath: 'ProductAhold_Updated',
+    manifestName: 'ProductManifest',
+    entityPath: 'Product',
+    corpusPath: 'Products',
     corpusStore: 'adlsgen2',
     adlsgen2_fileSystem: 'models',
-    folderPath: 'ServingSizeData',
+    folderPath: 'ProductData',
     fileSystem: 'data') ~> CDMSource
 ```
 
@@ -89,13 +82,13 @@ source(output(
 
 A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode editar estas propriedades no **separador Definições.**
 
-| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Description | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser`cdm` | sim | `cdm` | formato |
 | Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
 | Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
 | Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
-| Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido' | Não | String | manifestoName |
+| Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido' | No | String | manifestoName |
 | Serviço ligado a Schema | O serviço ligado onde o corpus está localizado | sim | `'adlsgen2'` ou `'github'` | corpusStore | 
 | Recipiente de referência de entidade | Container corpus está em | Sim, se corpus na ADLS Gen2 | String | adlsgen2_fileSystem |
 | Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se corpus em GitHub | String | github_repository |
@@ -108,24 +101,20 @@ A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode edi
 | Delimitador de colunas | Se escrever ao DelimitedText, como delimitar colunas | Sim, se escrever ao DelimitedText | String | columnDelimiter |
 | Primeira linha como cabeçalho | Se utilizar o DelimitedText, se os nomes das colunas são adicionados como cabeçalho | não | `true` ou `false` | columnNamesAsHeader |
 
-### <a name="cdm-sink-example"></a>Exemplo de pia cdm
-
-A imagem abaixo é um exemplo de uma configuração de sumidouro de CDM em fluxos de dados de mapeamento.
-
-![Fonte de CDM](media/format-common-data-model/data-flow-sink.png)
+### <a name="cdm-sink-data-flow-script-example"></a>Exemplo de script de fluxo de dados de cdM
 
 O script de fluxo de dados associado é:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
     validateSchema: false,
-    entity: 'ServingSize.cdm.json/ServingSize',
+    entity: 'Product.cdm.json/Product',
     format: 'cdm',
-    entityPath: 'ServingSize',
-    manifestName: 'ServingSizeManifest',
-    corpusPath: 'ProductAhold_Updated',
+    entityPath: 'ProductSize',
+    manifestName: 'ProductSizeManifest',
+    corpusPath: 'Products',
     partitionPath: 'adf',
-    folderPath: 'ServingSizeData',
+    folderPath: 'ProductSizeData',
     fileSystem: 'cdm',
     subformat: 'parquet',
     corpusStore: 'adlsgen2',
@@ -136,6 +125,6 @@ CDMSource sink(allowSchemaDrift: true,
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie uma [transformação de fonte](data-flow-source.md) no fluxo de dados de mapeamento.

@@ -3,7 +3,7 @@ title: Configure a replicação entre instâncias geridas
 titleSuffix: Azure SQL Managed Instance
 description: Este tutorial ensina-o a configurar a replicação transacional entre um editor/distribuidor de Instância Gerida Azure SQL e um assinante da SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 507207c9c8de96d18d11299b9ab5c2566c061150
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219678"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708481"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
 

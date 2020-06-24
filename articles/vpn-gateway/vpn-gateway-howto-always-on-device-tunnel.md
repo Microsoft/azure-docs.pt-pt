@@ -5,15 +5,15 @@ description: Passos para configurar sempre no túnel VPN para VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9036992a354b41cd75735e5ccd895d7287a00e91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371771"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983126"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurar um túnel de dispositivo VPN AlwaysOn
 
@@ -21,7 +21,7 @@ ms.locfileid: "79371771"
 
 ## <a name="configure-the-gateway"></a>Configurar o gateway
 
-Configure o gateway VPN para utilizar o IKEv2 e a autenticação baseada em certificados utilizando o artigo de [ligação VPN Ponto-a-Local.](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+Configure a porta de entrada VPN para utilizar o IKEv2 e a autenticação baseada em certificados utilizando o artigo [de ligação VPN ponto-a-local.](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
 ## <a name="configure-the-device-tunnel"></a>Configure o túnel do dispositivo
 
@@ -29,10 +29,10 @@ Configure o gateway VPN para utilizar o IKEv2 e a autenticação baseada em cert
 
 ## <a name="to-remove-a-profile"></a>Para remover um perfil
 
-Para remover o perfil, execute o seguinte comando:
+Para remover o perfil, executar o seguinte comando:
 
 ![Limpeza](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para resolução de problemas, consulte [os problemas de ligação ponto-a-local](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) do Azure
+Para resolver problemas, consulte [os problemas de ligação ponto-a-local do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

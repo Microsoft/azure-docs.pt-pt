@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 13ca1ed4abef1eb367239a60ee7fe3d40ffee8d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 32543dffa492770d7217fb07652e41baf603ebcc
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195551"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250915"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -295,7 +295,7 @@ Falhe o seu grupo de failover para o servidor secundário e, em seguida, falhe d
 1. Selecione **Failover** do painel de tarefas para falhar sobre o seu grupo de failover contendo a sua piscina elástica.
 1. Selecione **Sim** no aviso que o notifica de que as sessões de TDS serão desligadas.
 
-   ![Falhe sobre o seu grupo de failover contendo a sua base de dados SQL](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Falhe sobre o seu grupo de failover contendo a sua base de dados](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Reveja qual o servidor primário, qual o servidor secundário. Se o fracasso foi bem sucedido, os dois servidores deveriam ter trocado de funções.
 1. Selecione **Failover** novamente para falhar o grupo de failover de volta às definições originais.
