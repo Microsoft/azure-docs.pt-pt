@@ -1,20 +1,20 @@
 ---
-title: 'Gateway Azure VPN: Eliminar uma porta de entrada: PowerShell'
-description: Elimine um portal de rede virtual utilizando o PowerShell no modelo de implementação do Gestor de Recursos.
+title: 'Gateway Azure VPN: Excluir uma porta de entrada: PowerShell'
+description: Elimine um gateway de rede virtual utilizando o PowerShell no modelo de implementação do Gestor de Recursos.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
-ms.topic: conceptual
-ms.openlocfilehash: f351f14796ec736bd5525f139a518c9a0dd3d19f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: c9b6c915fe986e0a953a4e5c503e79f39f3d40ef
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162111"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84988005"
 ---
-# <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminar um portal de rede virtual usando o PowerShell
+# <a name="delete-a-virtual-network-gateway-using-powershell"></a>Excluir um gateway de rede virtual usando o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
@@ -22,19 +22,19 @@ ms.locfileid: "77162111"
 >
 >
 
-Existem algumas abordagens diferentes que pode tomar quando pretende eliminar uma porta de entrada de rede virtual para uma configuração de gateway VPN.
+Existem algumas abordagens diferentes que pode tomar quando pretende eliminar um gateway de rede virtual para uma configuração de gateway VPN.
 
-- Se quiser apagar tudo e recomeçar, como no caso de um ambiente de teste, pode eliminar o grupo de recursos. Ao eliminar um grupo de recursos, elimina todos os recursos dentro do grupo. Este método só é recomendado se não quiser manter nenhum dos recursos no grupo de recursos. Não é possível eliminar seletivamente apenas alguns recursos usando esta abordagem.
+- Se pretender apagar tudo e começar de novo, como no caso de um ambiente de teste, pode eliminar o grupo de recursos. Quando elimina um grupo de recursos, elimina todos os recursos dentro do grupo. Este é o método só é recomendado se não quiser manter nenhum dos recursos no grupo de recursos. Não é possível eliminar seletivamente apenas alguns recursos usando esta abordagem.
 
-- Se quiser manter alguns dos recursos no seu grupo de recursos, apagar um portal de rede virtual torna-se um pouco mais complicado. Antes de poder eliminar o portal de rede virtual, tem primeiro de eliminar quaisquer recursos que dependam do portal. Os passos que segue dependem do tipo de ligações que criou e dos recursos dependentes para cada ligação.
+- Se quiser manter alguns dos recursos no seu grupo de recursos, eliminar um gateway de rede virtual torna-se um pouco mais complicado. Antes de poder apagar o gateway de rede virtual, tem primeiro de eliminar quaisquer recursos que dependam do gateway. Os passos que segue dependem do tipo de ligações que criou e dos recursos dependentes para cada ligação.
 
 ## <a name="before-beginning"></a>Antes de começar
 
 
 
-### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Descarregue os mais recentes cmdlets do Gestor de Recursos Azure PowerShell.
+### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Descarregue os mais recentes cmdlets powerShell do Gestor de Recursos Azure.
 
-Descarregue e instale a versão mais recente dos cmdlets PowerShell do Gestor de Recursos Do Azure. Para mais informações sobre o download e instalação de cmdlets PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Descarregue e instale a versão mais recente do Azure Resource Manager PowerShell cmdlets. Para obter mais informações sobre o download e instalação de cmdlets PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Ligue-se à sua conta Azure.
 
@@ -56,9 +56,9 @@ Se tiver mais de uma subscrição, especifique a subscrição que pretende utili
 Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="delete-a-site-to-site-vpn-gateway"></a><a name="S2S"></a>Eliminar um gateway VPN site-to-site
+## <a name="delete-a-site-to-site-vpn-gateway"></a><a name="S2S"></a>Excluir uma porta VPN site-to-site
 
-Para eliminar um portal de rede virtual para uma configuração S2S, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido a dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para efeitos de demonstração:
+Para eliminar um gateway de rede virtual para uma configuração S2S, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido às dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para fins de demonstração:
 
 Nome VNet: VNet1<br>
 Nome do Grupo de Recursos: RG1<br>
@@ -72,14 +72,14 @@ Os seguintes passos aplicam-se ao modelo de implementação do Gestor de Recurso
 $GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Verifique se o portal de rede virtual tem alguma ligação.
+### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Verifique se o gateway de rede virtual tem alguma ligação.
 
 ```powershell
 get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 $Conns=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
 
-### <a name="3-delete-all-connections"></a>3. Elimine todas as ligações.
+### <a name="3-delete-all-connections"></a>3. Eliminar todas as ligações.
 
 Pode ser solicitado que confirme a eliminação de cada uma das ligações.
 
@@ -87,61 +87,61 @@ Pode ser solicitado que confirme a eliminação de cada uma das ligações.
 $Conns | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="4-delete-the-virtual-network-gateway"></a>4. Apagar o portal da rede virtual.
+### <a name="4-delete-the-virtual-network-gateway"></a>4. Apagar o portal de rede virtual.
 
-Pode ser solicitado que confirme a supressão do portal. Se tiver uma configuração P2S para este VNet para além da sua configuração S2S, eliminar o gateway de rede virtual desligará automaticamente todos os clientes P2S sem aviso prévio.
+Pode ser solicitado para confirmar a eliminação do portal. Se tiver uma configuração P2S para este VNet para além da sua configuração S2S, a eliminação do gateway de rede virtual desligará automaticamente todos os clientes P2S sem aviso prévio.
 
 
 ```powershell
 Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-Neste ponto, o seu portal de rede virtual foi eliminado. Pode utilizar os próximos passos para eliminar quaisquer recursos que já não estejam a ser utilizados.
+Neste momento, o seu portal de rede virtual foi apagado. Pode utilizar os próximos passos para eliminar quaisquer recursos que já não estejam a ser utilizados.
 
-### <a name="5-delete-the-local-network-gateways"></a>5 Elimine os portões da rede local.
+### <a name="5-delete-the-local-network-gateways"></a>5 Apague as portas de rede locais.
 
-Obtenha a lista dos portais de rede locais correspondentes.
+Obtenha a lista dos respetivos gateways de rede locais.
 
 ```powershell
 $LNG=Get-AzLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
 ```
 
-Elimine os portões da rede local. Pode ser solicitado que confirme a eliminação de cada um dos portões da rede local.
+Apague os gateways de rede locais. Pode ser solicitado que confirme a eliminação de cada uma das portas de rede locais.
 
 ```powershell
 $LNG | ForEach-Object {Remove-AzLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="6-delete-the-public-ip-address-resources"></a>6. Eliminar os recursos de endereço IP públicos.
+### <a name="6-delete-the-public-ip-address-resources"></a>6. Eliminar os recursos de endereço IP público.
 
-Obtenha as configurações IP do gateway da rede virtual.
+Obtenha as configurações IP do gateway de rede virtual.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-Obtenha a lista de recursos de endereçoip público utilizados para este gateway de rede virtual. Se o portal de rede virtual estiver ativo, verá dois endereços IP públicos.
+Obtenha a lista de recursos de endereços IP públicos usados para este gateway de rede virtual. Se o gateway de rede virtual estiver ativo, verá dois endereços IP públicos.
 
 ```powershell
 $PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-Eliminar os recursos ip públicos.
+Apagar os recursos ip públicos.
 
 ```powershell
 $PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
-### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Elimine a sub-rede de gateway e desloque a configuração.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Elimine a sub-rede do gateway e desloe a configuração.
 
 ```powershell
 $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete-a-vnet-to-vnet-vpn-gateway"></a><a name="v2v"></a>Eliminar um gateway VNet-to-VNet VPN
+## <a name="delete-a-vnet-to-vnet-vpn-gateway"></a><a name="v2v"></a>Apagar uma porta de VPN VNet-to-VNet
 
-Para eliminar um portal de rede virtual para uma configuração V2V, tem primeiro de eliminar cada recurso que diz respeito ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido a dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para efeitos de demonstração:
+Para eliminar um gateway de rede virtual para uma configuração V2V, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido às dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para fins de demonstração:
 
 Nome VNet: VNet1<br>
 Nome do Grupo de Recursos: RG1<br>
@@ -155,13 +155,13 @@ Os seguintes passos aplicam-se ao modelo de implementação do Gestor de Recurso
 $GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Verifique se o portal de rede virtual tem alguma ligação.
+### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Verifique se o gateway de rede virtual tem alguma ligação.
 
 ```powershell
 get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
-Pode haver outras ligações com o portal de rede virtual que fazem parte de um grupo de recursos diferente. Verifique se há ligações adicionais em cada grupo de recursos adicionais. Neste exemplo, estamos a verificar se há ligações a partir do RG2. Execute isto para cada grupo de recursos que você tem que pode ter uma ligação com o gateway da rede virtual.
+Pode haver outras ligações ao gateway de rede virtual que fazem parte de um grupo de recursos diferente. Verifique se há ligações adicionais em cada grupo de recursos adicionais. Neste exemplo, estamos a verificar as ligações do RG2. Execute isto para cada grupo de recursos que tenha, que pode ter uma ligação com o gateway de rede virtual.
 
 ```powershell
 get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
@@ -169,19 +169,19 @@ get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$
 
 ### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. Obtenha a lista de ligações em ambas as direções.
 
-Como esta é uma configuração VNet-to-VNet, você precisa da lista de ligações em ambas as direções.
+Como esta é uma configuração VNet-vNet, precisa da lista de ligações em ambas as direções.
 
 ```powershell
 $ConnsL=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
-Neste exemplo, estamos a verificar se há ligações a partir do RG2. Execute isto para cada grupo de recursos que você tem que pode ter uma ligação com o gateway da rede virtual.
+Neste exemplo, estamos a verificar as ligações do RG2. Execute isto para cada grupo de recursos que tenha, que pode ter uma ligação com o gateway de rede virtual.
 
 ```powershell
  $ConnsR=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
  ```
 
-### <a name="4-delete-all-connections"></a>4. Apagar todas as ligações.
+### <a name="4-delete-all-connections"></a>4. Eliminar todas as ligações.
 
 Pode ser solicitado que confirme a eliminação de cada uma das ligações.
 
@@ -190,46 +190,46 @@ $ConnsL | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name
 $ConnsR | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="5-delete-the-virtual-network-gateway"></a>5. Apagar o portal da rede virtual.
+### <a name="5-delete-the-virtual-network-gateway"></a>5. Apagar o portal de rede virtual.
 
-Pode ser solicitado que confirme a eliminação do portal da rede virtual. Se tiver configurações P2S para os seus VNets para além da sua configuração V2V, eliminar os gateways de rede virtual desligará automaticamente todos os clientes P2S sem aviso prévio.
+Pode ser solicitado que confirme a eliminação do gateway de rede virtual. Se tiver configurações P2S para os seus VNets para além da sua configuração V2V, a eliminação dos gateways de rede virtuais desligará automaticamente todos os clientes P2S sem aviso prévio.
 
 ```powershell
 Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-Neste ponto, o seu portal de rede virtual foi eliminado. Pode utilizar os próximos passos para eliminar quaisquer recursos que já não estejam a ser utilizados.
+Neste momento, o seu portal de rede virtual foi apagado. Pode utilizar os próximos passos para eliminar quaisquer recursos que já não estejam a ser utilizados.
 
-### <a name="6-delete-the-public-ip-address-resources"></a>6. Eliminar os recursos de endereço IP público
+### <a name="6-delete-the-public-ip-address-resources"></a>6. Eliminar os recursos de endereços IP públicos
 
-Obtenha as configurações IP do gateway da rede virtual.
+Obtenha as configurações IP do gateway de rede virtual.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-Obtenha a lista de recursos de endereçoip público utilizados para este gateway de rede virtual. Se o portal de rede virtual estiver ativo, verá dois endereços IP públicos.
+Obtenha a lista de recursos de endereços IP públicos usados para este gateway de rede virtual. Se o gateway de rede virtual estiver ativo, verá dois endereços IP públicos.
 
 ```powershell
 $PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-Eliminar os recursos ip públicos. Pode ser solicitado que confirme a eliminação do IP Público.
+Apagar os recursos ip públicos. Pode ser solicitado que confirme a supressão do IP Público.
 
 ```powershell
 $PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Elimine a sub-rede de gateway e desloque a configuração.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Elimine a sub-rede do gateway e desloe a configuração.
 
 ```powershell
 $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete-a-point-to-site-vpn-gateway"></a><a name="deletep2s"></a>Eliminar um gateway VPN ponto-a-site
+## <a name="delete-a-point-to-site-vpn-gateway"></a><a name="deletep2s"></a>Apagar uma porta VPN ponto-a-local
 
-Para eliminar um portal de rede virtual para uma configuração P2S, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido a dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para efeitos de demonstração:
+Para eliminar um gateway de rede virtual para uma configuração P2S, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido às dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para fins de demonstração:
 
 Nome VNet: VNet1<br>
 Nome do Grupo de Recursos: RG1<br>
@@ -239,7 +239,7 @@ Os seguintes passos aplicam-se ao modelo de implementação do Gestor de Recurso
 
 
 >[!NOTE]
-> Ao eliminar o gateway VPN, todos os clientes ligados serão desligados do VNet sem aviso prévio.
+> Quando eliminar o gateway VPN, todos os clientes ligados serão desligados do VNet sem aviso prévio.
 >
 >
 
@@ -249,46 +249,46 @@ Os seguintes passos aplicam-se ao modelo de implementação do Gestor de Recurso
 $GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="2-delete-the-virtual-network-gateway"></a>2. Elimine o portal da rede virtual.
+### <a name="2-delete-the-virtual-network-gateway"></a>2. Eliminar o portal de rede virtual.
 
-Pode ser solicitado que confirme a eliminação do portal da rede virtual.
+Pode ser solicitado que confirme a eliminação do gateway de rede virtual.
 
 ```powershell
 Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-Neste ponto, o seu portal de rede virtual foi eliminado. Pode utilizar os próximos passos para eliminar quaisquer recursos que já não estejam a ser utilizados.
+Neste momento, o seu portal de rede virtual foi apagado. Pode utilizar os próximos passos para eliminar quaisquer recursos que já não estejam a ser utilizados.
 
-### <a name="3-delete-the-public-ip-address-resources"></a>3. Eliminar os recursos de endereço IP público
+### <a name="3-delete-the-public-ip-address-resources"></a>3. Eliminar os recursos de endereços IP públicos
 
-Obtenha as configurações IP do gateway da rede virtual.
+Obtenha as configurações IP do gateway de rede virtual.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-Obtenha a lista de endereços IP públicos utilizados para este gateway de rede virtual. Se o portal de rede virtual estiver ativo, verá dois endereços IP públicos.
+Obtenha a lista de endereços IP públicos usados para este gateway de rede virtual. Se o gateway de rede virtual estiver ativo, verá dois endereços IP públicos.
 
 ```powershell
 $PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-Eliminar os IPs públicos. Pode ser solicitado que confirme a eliminação do IP Público.
+Apague os IPs públicos. Pode ser solicitado que confirme a supressão do IP Público.
 
 ```powershell
 $PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Elimine a sub-rede de gateway e desloque a configuração.
+### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Elimine a sub-rede do gateway e desloe a configuração.
 
 ```powershell
 $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Eliminar um gateway VPN eliminando o grupo de recursos
+## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Eliminar uma porta de entrada VPN eliminando o grupo de recursos
 
-Se não está preocupado em manter nenhum dos seus recursos no grupo de recursos e apenas quer recomeçar, pode eliminar todo um grupo de recursos. Esta é uma maneira rápida de remover tudo. Os seguintes passos aplicam-se apenas ao modelo de implementação do Gestor de Recursos.
+Se não está preocupado em manter nenhum dos seus recursos no grupo de recursos e apenas quiser recomeçar, pode eliminar um grupo inteiro de recursos. Esta é uma maneira rápida de remover tudo. Os seguintes passos aplicam-se apenas ao modelo de implementação do Gestor de Recursos.
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Obtenha uma lista de todos os grupos de recursos da sua subscrição.
 
@@ -306,11 +306,11 @@ Find-AzResource -ResourceGroupNameContains RG1
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. Verifique os recursos da lista.
 
-Quando a lista for devolvida, reveja-a para verificar se pretende eliminar todos os recursos do grupo de recursos, bem como o próprio grupo de recursos. Se quiser manter alguns dos recursos no grupo de recursos, utilize os passos nas secções anteriores deste artigo para apagar o seu portal.
+Quando a lista for devolvida, reveja-a para verificar se pretende eliminar todos os recursos do grupo de recursos, bem como o próprio grupo de recursos. Se pretender manter alguns dos recursos no grupo de recursos, utilize os passos nas secções anteriores deste artigo para apagar o seu gateway.
 
 ### <a name="4-delete-the-resource-group-and-resources"></a>4. Eliminar o grupo de recursos e os recursos.
 
-Para eliminar o grupo de recursos e todos os recursos contidos no grupo de recursos, modifique o exemplo e execute.
+Para eliminar o grupo de recursos e todo o recurso contido no grupo de recursos, modifique o exemplo e corra.
 
 ```powershell
 Remove-AzResourceGroup -Name RG1
@@ -324,7 +324,7 @@ Leva algum tempo para o Azure apagar todos os recursos. Pode verificar o estado 
 Get-AzResourceGroup -ResourceGroupName RG1
 ```
 
-O resultado que é devolvido mostra "Sucesso".
+O resultado que é devolvido mostra 'Sucesso'.
 
 ```
 ResourceGroupName : RG1

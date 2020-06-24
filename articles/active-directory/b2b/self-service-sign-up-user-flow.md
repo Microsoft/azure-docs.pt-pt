@@ -4,20 +4,19 @@ description: Federate com o Facebook para permitir que utilizadores externos (co
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aadbe07c5bb22c23ac32e46fdf7f102cdd33989a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9eabee8e287d29f3a3a01b63b0d79da651be9082
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673108"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886480"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Preview)
 |     |
@@ -30,7 +29,7 @@ Pode criar fluxos de utilizadores para apps que são construídas pela sua organ
 > [!NOTE]
 > Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou o Teams.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="add-social-identity-providers-optional"></a>Adicionar fornecedores de identidade social (opcional)
 
@@ -105,9 +104,9 @@ Agora pode associar aplicações ao fluxo do utilizador.
 8. Selecione a inscrição na lista. Ou use a caixa de pesquisa para encontrar a aplicação e, em seguida, selecione-a.
 9. Clique em **Selecionar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione o Google à sua lista de fornecedores de identidade social](google-federation.md)
 - [Adicione o Facebook à sua lista de fornecedores de identidade social](facebook-federation.md)
-<!-- - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md) -->
-<!-- - [Add custom approval to your user flow](self-service-sign-up-add-approvals.md) -->
+- [Utilize conectores API para personalizar e alargar os fluxos do seu utilizador através de APIs web](api-connectors-overview.md)
+- [Adicione fluxo de trabalho de aprovação personalizado ao fluxo do seu utilizador](self-service-sign-up-add-approvals.md)

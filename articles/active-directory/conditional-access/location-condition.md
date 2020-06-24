@@ -4,21 +4,20 @@ description: Saiba como usar a condição de localização para controlar o aces
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 05/28/2020
+ms.topic: conceptual
+ms.date: 06/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: f9f80cf0c42bdc6e45d62cac930c0bce4b20ee60
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605464"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253227"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização numa política de acesso condicional 
 
@@ -142,6 +141,30 @@ Esta opção aplica-se a:
 
 Com esta opção, pode selecionar um ou mais locais nomeados. Para que uma política com esta definição se aplique, um utilizador precisa de se conectar a partir de qualquer um dos locais selecionados. Quando clicar Em **Selecionar** o controlo de seleção de rede nomeado que mostra a lista de redes nomeadas abre.' A lista também mostra se a localização da rede foi marcada como confiável. A localização nomeada chamada **MFA Trusted IPs** é usada para incluir as definições de IP que podem ser configuradas na página de definição de serviço de autenticação multi-factor.
 
+## <a name="ipv6-traffic"></a>Tráfego IPv6
+
+Por predefinição, as políticas de Acesso Condicional aplicar-se-ão a todo o tráfego IPv6. Com a [pré-visualização de localização nomeada,](#preview-features)pode excluir gamas específicas de endereços IPv6 de uma política de Acesso Condicional. Esta opção é útil nos casos em que não quer que a política seja aplicada para gamas específicas do IPv6. Por exemplo, se não pretender impor uma política de utilização na sua rede corporativa, e a sua rede corporativa está hospedada em gamas públicas de IPv6.  
+
+### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Quando é que o meu inquilino vai ter tráfego IPv6?
+
+O Azure Ative Directory (Azure AD) não suporta atualmente ligações diretas de rede que utilizam o IPv6. No entanto, existem alguns casos em que o tráfego de autenticação é proxiitado através de outro serviço. Nestes casos, o endereço IPv6 será utilizado durante a avaliação política.
+
+A maior parte do tráfego IPv6 que é proxiitado ao Azure AD vem do Microsoft Exchange Online. Quando disponível, o Exchange preferirá as ligações IPv6. **Portanto, se tiver alguma política de Acesso Condicional para Troca, que tenha sido configurada para gamas específicas do IPv4, deverá certificar-se de que também adicionou as gamas IPv6 das suas organizações.** Sem incluir as gamas IPv6 causará um comportamento inesperado para os dois casos seguintes:
+
+- Quando um cliente de correio é utilizado para ligar ao Exchange Online com a autenticação antiga, a Azure AD pode receber um endereço IPv6. O pedido inicial de autenticação vai para a Exchange e é então proxiitado ao Azure AD.
+- Quando o Outlook Web Access (OWA) for utilizado no navegador, verificará periodicamente todas as políticas de Acesso Condicional que continuam a ser satisfeitas. Esta verificação é usada para capturar casos em que um utilizador pode ter mudado de um endereço IP permitido para um novo local, como o café ao fundo da rua. Neste caso, se for utilizado um endereço IPv6 e se o endereço IPv6 não estiver num intervalo configurado, o utilizador poderá ter a sua sessão interrompida e ser encaminhado para Azure AD para reauttenticar. 
+
+Estas são as razões mais comuns para configurar as gamas IPv6 nas suas localizações nomeadas. Além disso, se estiver a utilizar VNets Azure, terá tráfego proveniente de um endereço IPv6. Se tiver o tráfego VNet bloqueado por uma política de Acesso Condicional, verifique o seu registo de registo de ad Azure. Uma vez identificado o tráfego, pode obter o endereço IPv6 sendo usado e excluí-lo da sua política. 
+
+> [!NOTE]
+> Se pretender especificar um intervalo IP CIDR para um único endereço, aplique a máscara /32 bits. Se você disser o endereço IPv6 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a e quiser excluir esse único endereço como um intervalo, você usaria 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/33.
+
+### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identificação do tráfego IPv6 nos relatórios de atividades de inscrição da Azure AD
+
+Você pode descobrir o tráfego IPv6 no seu inquilino, indo os [relatórios de atividades de inscrição da AZure AD](../reports-monitoring/concept-sign-ins.md). Depois de ter o relatório de atividade aberto, adicione a coluna "endereço IP". Esta coluna vai dar-lhe para identificar o tráfego IPv6.
+
+Também pode encontrar o IP do cliente clicando numa linha no relatório e, em seguida, indo para o separador "Localização" nos detalhes da atividade de login. 
+
 ## <a name="what-you-should-know"></a>O que deve saber
 
 ### <a name="when-is-a-location-evaluated"></a>Quando é avaliado um local?
@@ -173,7 +196,7 @@ Quando um proxy de nuvem está no lugar, uma política que é usada para exigir 
 
 A API e a PowerShell ainda não estão suportadas para locais nomeados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Construir uma política de acesso condicional](concept-conditional-access-policies.md).
 - Procura uma política de exemplo usando a condição de localização? Ver o artigo, [Acesso Condicional: Bloquear acesso por local](howto-conditional-access-policy-location.md)

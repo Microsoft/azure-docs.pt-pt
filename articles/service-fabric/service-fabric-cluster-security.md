@@ -4,12 +4,12 @@ description: Conheça os cenários de segurança para um cluster de tecidos de s
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 71a5891bf26cbd79ba5cfeff8324e225b3febd73
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324016"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080683"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
 
@@ -41,6 +41,11 @@ Para aprender a configurar a segurança do certificado num cluster para um clust
 
 ### <a name="node-to-node-windows-security"></a>Segurança do Nó-a-nó Windows
 
+> [!NOTE]
+> A autenticação do Windows é baseada em Kerberos. A NTLM não é suportada como um tipo de autenticação.
+>
+> Sempre que possível, utilize a autenticação do certificado X.509 para clusters de Tecido de Serviço.
+
 Para aprender a configurar a segurança do Windows para um cluster autónomo do Windows Server, consulte [Secure a standalone cluster no Windows utilizando a segurança do Windows](service-fabric-windows-cluster-windows-security.md).
 
 ## <a name="client-to-node-security"></a>Segurança cliente-nó
@@ -49,7 +54,7 @@ A segurança entre clientes e nó autentica os clientes e ajuda a garantir a com
 
 ![Diagrama de comunicação cliente-a-nó][Client-to-Node]
 
-Os clusters em execução em Azure e clusters autónomos em execução no Windows podem utilizar a segurança do [certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou [a segurança do Windows.](https://msdn.microsoft.com/library/ff649396.aspx)
+Os clusters em execução em Azure e clusters autónomos em execução no Windows podem utilizar a segurança do [certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou a segurança do [Windows](https://msdn.microsoft.com/library/ff649396.aspx), embora a recomendação seja utilizar a autenticação do certificado X.509 sempre que possível.
 
 ### <a name="client-to-node-certificate-security"></a>Garantia do certificado cliente-nó
 
@@ -136,7 +141,7 @@ Por predefinição, o certificado de cluster tem privilégios de administração
 > [!NOTE]
 > Todas as operações de gestão num cluster de Tecido de Serviço requerem certificados de servidor. Os certificados de cliente não podem ser usados para gestão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie um cluster em Azure usando um modelo de Gestor de Recursos](service-fabric-cluster-creation-via-arm.md)
 * [Utilizar o portal do Azure para criar um cluster](service-fabric-cluster-creation-via-portal.md)

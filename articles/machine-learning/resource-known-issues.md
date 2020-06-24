@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 36279039bbc63173a4c3c06901a0800a0893cebb
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 678a605ce1585b58cfc5f9aaea3423efa8d53ad3
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430869"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296921"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -181,6 +181,20 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
 |Ao rever imagens, imagens recentemente rotuladas não são mostradas.     |   Para carregar todas as imagens etiquetadas, escolha o botão **First.** O botão **First** irá levá-lo de volta para a frente da lista, mas carrega todos os dados rotulados.      |
 |Premir a tecla Esc durante a rotulagem para deteção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. Enviar etiquetas neste estado falha.     |   Elimine a etiqueta clicando na marca transversal ao lado.  |
 
+### <a name="data-drift-monitors"></a>Monitores de deriva de dados
+
+* Se a função SDK `backfill()` não gerar a saída esperada, poderá ser devido a um problema de autenticação.  Quando criar o cálculo para passar para esta função, não utilize `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, utilize [a Concessão de ServiçoPrincipal,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) como a seguinte, para criar o cálculo que passa para essa `backfill()` função: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
+
 ## <a name="azure-machine-learning-designer"></a>Designer de aprendizagem de máquinas Azure
 
 Problemas conhecidos:
@@ -220,8 +234,14 @@ Problemas conhecidos:
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
-* **TensorFlow**: A aprendizagem automática de máquinas não suporta atualmente a versão 1.13 do TensorFlow. A instalação desta versão fará com que as dependências dos pacotes deixem de funcionar. Estamos a trabalhar para resolver esta questão numa futura versão.
-
+* **TensorFlow**: A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos de tensorflow por predefinição. Para instalar o tensorflow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
 * **Gráficos de experiências**: Os gráficos de classificação binária (recolha de precisão, ROC, curva de ganho, etc.) mostrados em iterações automatizadas de experiências ML não estão a renderizar corretamente na interface do utilizador desde 4/12. Os enredos de gráficos estão atualmente a mostrar resultados inversos, onde os modelos de melhor desempenho são apresentados com resultados mais baixos. Uma resolução está sob investigação.
 
 * **Databricks cancelam uma corrida automatizada de aprendizagem automática**de máquinas : Quando utilizar capacidades automatizadas de aprendizagem automática de máquinas em Azure Databricks, para cancelar uma corrida e iniciar uma nova experiência, reinicie o seu cluster Azure Databricks.

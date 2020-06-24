@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 4f7c83df738b72d57719de9b9ef650d119ac5dc4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247670"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255165"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -116,7 +116,7 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 **Origem de Dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados para a cópia de segurança a partir de único volume de VM para a cópia de segurança.
-Base de dados do SQL Server |Tamanho da base de dados SQL única para a cópia de segurança.
+Base de dados do SQL Server |Tamanho do tamanho de uma única base de dados sendo apoiado.
 SharePoint | Soma das bases de dados de conteúdo e de configuração dentro de um farm do SharePoint para a cópia de segurança.
 Troca |Soma de todas as bases de dados do Exchange num servidor Exchange para a cópia de segurança.
 BMR/Estado do sistema |Cada cópia individual da BMR ou estado do sistema do computador cuja cópia de segurança está a ser feita.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196316"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106404"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Questões conhecidas/limitações de migração com migrações on-line para Azure SQL Gestão De Instância
 
@@ -62,6 +62,6 @@ Problemas e limitações conhecidos que estão associados às migrações on-lin
 
 - **Implementações**
 
-    SQL Managed Instance é um serviço PaaS com remendos automáticos e atualizações de versão. Durante a migração do seu SQL Managed Instance, as atualizações não críticas são de ajuda até 36 horas. Posteriormente (e para atualizações críticas), se a migração for interrompida, o processo reinicia para um estado de restauro total.
+    SQL Managed Instance é um serviço PaaS com remendos automáticos e atualizações de versão. Durante a migração da sua SQL Managed Instance, as atualizações não críticas são mantidas por até 36 horas. Posteriormente (e para atualizações críticas), se a migração for interrompida, o processo reinicia para um estado de restauro total.
 
     O corte de migração só pode ser chamado depois de restaurado o backup completo e recuperar todos os backups de registo. Se os cortes de migração da sua produção forem afetados, contacte o [pseudónimo Azure DMS Feedback](mailto:dmsfeedback@microsoft.com).

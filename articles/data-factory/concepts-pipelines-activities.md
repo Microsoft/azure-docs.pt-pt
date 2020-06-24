@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c3af10d2a88e6d18a7317a2e7e4106cf14132a1e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194281"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253768"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -69,7 +69,7 @@ Para obter mais informações, veja o artigo [Data Transformation Activities](tr
 ## <a name="control-flow-activities"></a>Atividades de fluxo de controlo
 São suportadas as atividades de fluxo de controlo abaixo:
 
-Atividade de controlo | Descrição
+Atividade de controlo | Description
 ---------------- | -----------
 [Variável do apêndice](control-flow-append-variable-activity.md) | Adicione um valor a uma variável de matriz existente.
 [Executar Pipeline](control-flow-execute-pipeline-activity.md) | A atividade Executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -106,10 +106,10 @@ Eis como os pipelines são definidos no formato JSON:
 }
 ```
 
-Etiqueta | Descrição | Tipo | Necessário
+Etiqueta | Description | Tipo | Necessário
 --- | ----------- | ---- | --------
-name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" </li></ul> | Cadeia | Yes
-descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | No
+name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" </li></ul> | String | Yes
+descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | No
 atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Yes
 parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | No
 concurrency | O número máximo de execuções simultâneas que o gasoduto pode ter. Por padrão, não há máximo. Se o limite de concordância for atingido, os gasodutos adicionais são preenchidos até que os anteriores estejam completos | Número | No 
@@ -141,7 +141,7 @@ As atividades de execução incluem [atividades de movimento de dados](#data-mov
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-Etiqueta | Descrição | Necessário
+Etiqueta | Description | Necessário
 --- | ----------- | ---------
 name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" | Yes</li></ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Yes
@@ -182,7 +182,7 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 }
 ```
 
-Nome JSON | Descrição | Valores Permitidos | Necessário
+Nome JSON | Description | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
 retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
@@ -206,7 +206,7 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 }
 ```
 
-Etiqueta | Descrição | Necessário
+Etiqueta | Description | Necessário
 --- | ----------- | --------
 name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" | Yes</li><ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Yes
@@ -268,7 +268,7 @@ Por exemplo, se um pipeline tiver a Atividade A -> Atividade B, os diferentes ce
 `"
 
 ## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
 {

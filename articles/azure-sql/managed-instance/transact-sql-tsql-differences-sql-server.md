@@ -2,21 +2,21 @@
 title: Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 description: Este artigo discute as diferenças Transact-SQL (T-SQL) entre uma Instância Gerida Azure SQL e o SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 3a912e636c8bd8f762b401bda9623f23913047cb
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344531"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298452"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 
 ## <a name="availability"></a>Disponibilidade
 
-### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Sempre em Grupos de Disponibilidade
+### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Grupos de Disponibilidade Always On
 
 [A alta disponibilidade](../database/high-availability-sla.md) é incorporada em SQL Managed Instance e não pode ser controlada pelos utilizadores. As seguintes declarações não são apoiadas:
 
@@ -159,7 +159,7 @@ A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedore
     - EXECUTAR COMO UTILIZADOR
     - EXECUTAR COMO LOGIN
 
-- A exportação/importação de base de dados utilizando ficheiros bacpac são suportadas para utilizadores de Azure AD em SQL Managed Instance usando [sSMS V18.4 ou mais tarde](/sql/ssms/download-sql-server-management-studio-ssms), ou [SQLPackage.exe](/sql/tools/sqlpackage-download).
+- A exportação/importação de base de dados utilizando ficheiros bacpac são suportadas para utilizadores de Azure AD em SQL Managed Instance utilizando [sSMS V18.4 ou posteriormente](/sql/ssms/download-sql-server-management-studio-ssms), ou [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - As seguintes configurações são suportadas utilizando o ficheiro bacpac da base de dados: 
     - Exportar/importar uma base de dados entre diferentes instâncias de gestão dentro do mesmo domínio Azure AD.
     - Exporte uma base de dados da SQL Managed Instance e importe para a SQL Database dentro do mesmo domínio AD Azure. 
@@ -432,7 +432,7 @@ Para obter mais informações sobre a configuração da replicação transaciona
   - `FROM URL`(Armazenamento Azure Blob) é a única opção suportada.
   - `FROM DISK`/`TAPE`/dispositivo de reserva não é suportado.
   - Os conjuntos de reserva não são suportados.
-- `WITH`as opções não são suportadas, tais como não `DIFFERENTIAL` ou `STATS` .
+- `WITH`opções não são suportadas. As tentativas de `WITH` `DIFFERENTIAL` restauro, `STATS` incluindo, `REPLACE` etc., falharão.
 - `ASYNC RESTORE`: A restauração continua mesmo que a ligação do cliente se rompa. Se a sua ligação for deixada cair, pode verificar a `sys.dm_operation_status` vista para o estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 As seguintes opções de base de dados são definidas ou ultrapassadas e não podem ser alteradas mais tarde: 
@@ -490,7 +490,7 @@ As seguintes variáveis, funções e vistas retornam diferentes resultados:
 - `@@SERVERNAME`retorna um nome "conectável" DNS completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Ver [ @SERVERNAME @](/sql/t-sql/functions/servername-transact-sql) 
 - `SYS.SERVERS`retorna um nome "conectável" DNS completo, como `myinstance.domain.database.windows.net` para as propriedades "nome" e "data_source". Ver [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME`retorna NU PORQUE o conceito de serviço tal como existe para o SQL Server não se aplica a SQL Managed Instance. Ver [ @SERVICENAME @](/sql/t-sql/functions/servicename-transact-sql)
-- `SUSER_ID`é apoiado. Retorna NU SE o login AZURE AD não estiver em sys.syslogins. Ver [SUSER_ID.](/sql/t-sql/functions/suser-id-transact-sql) 
+- `SUSER_ID`é apoiado. Devolve NUD Se o login AZure AD não estiver em sys.syslogins. Ver [SUSER_ID.](/sql/t-sql/functions/suser-id-transact-sql) 
 - `SUSER_SID`não é apoiado. Os dados errados são devolvidos, o que é uma questão temporária conhecida. Ver [SUSER_SID.](/sql/t-sql/functions/suser-sid-transact-sql) 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>Constrangimentos ambientais
@@ -541,7 +541,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).

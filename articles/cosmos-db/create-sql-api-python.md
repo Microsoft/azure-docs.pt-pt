@@ -13,19 +13,19 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - tracking-python
-ms.openlocfilehash: b140371c42fffd55b271fa0215db89ea9d07da0c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1b3a97a11c8d5782b8b7577d6afccbbdaadea0e7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559837"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116575"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API API API AZure Cosmos DB SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java SDK v4](create-sql-api-java.md)
+> * [SDK v4 de Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -52,7 +52,7 @@ Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma ba
     
     A área **do Recipiente Adicionar** é apresentada na extrema direita, pode ser necessário deslocar-se para a frente para o ver.
 
-    ![O Data Explorer no portal do Azure, painel Adicionar Contentor](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="O Data Explorer no portal do Azure, painel Adicionar Contentor":::
 
 2. Na página **do recipiente Adicionar,** introduza as definições para o novo recipiente.
 
@@ -108,7 +108,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys** a partir da navegação à esquerda. Utilize os botões de cópia no lado direito do ecrã para copiar a **URI** e a **Chave Primária** no ficheiro *cosmos_get_started.py* no passo seguinte.
 
-    ![Obtenha uma chave de acesso e URI nas definições de Chaves no portal Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obtenha uma chave de acesso e URI nas definições de Chaves no portal Azure":::
 
 2. No Código do Estúdio Visual, abra o ficheiro *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-start-start-start.*
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259971"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707740"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilizar o portal do Azure para administrar o Data Box Disk
 
@@ -55,7 +55,7 @@ Execute os seguintes passos para clonar uma encomenda.
 
 O clone é criado em apenas alguns minutos e o portal é atualizado para mostrar a nova encomenda.
 
-[![Ordem de clonagem 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordem clone 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminar encomenda
 
@@ -71,7 +71,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
     ![Eliminar encomenda do Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
 
-3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Apagar**.
+3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Eliminar**.
 
      ![Eliminar encomenda do Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
 
@@ -105,7 +105,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro utilizador poderá ter de ser informado quando a cópia de dados estiver concluída para que possa verificar se os dados estão na conta de armazenamento do Azure antes de os apagar da fonte. Nestes casos, pode editar os detalhes de notificação.
+Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro utilizador poderá ter de ser informado quando a cópia de dados estiver completa para que possam verificar se os dados estão na conta de armazenamento Azure antes de os eliminar da fonte. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 
@@ -119,17 +119,17 @@ Execute os seguintes passos para editar os detalhes de notificação.
 
 ## <a name="view-order-status"></a>Ver o estado da encomenda
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Encomendado     | Fez uma encomenda com êxito. <br> Se os discos não estiverem disponíveis, receberá uma notificação. <br>Se os discos estiverem disponíveis, a Microsoft identifica um disco para envio e prepara o pacote do disco.        |
 |Processado     | O processamento da encomenda está concluído. <br> Durante o processamento da encomenda, ocorrem as ações seguintes:<li>Os discos são encriptados com a encriptação AES-128 BitLocker. </li> <li>O Data Box Disk está bloqueado para impedir qualquer acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante este processo.</li>        |
 |Expedido     | A encomenda foi enviada. Deverá receber a encomenda dentro de 1 a 2 dias.        |
 |Entregue     | A encomenda foi entregue no endereço especificado na encomenda.        |
-|Recolhido     |O envio para devolução foi recolhido. <br> Assim que o envio for recebido no Centro de Dados Do Azure, os dados serão automaticamente enviados para o Azure.         |
+|Recolhido     |O envio para devolução foi recolhido. <br> Uma vez que o envio é recebido no Centro de Dados Azure, os dados serão automaticamente enviados para a Azure.         |
 |Recebido     | Os discos foram recebidos no datacenter do Azure. A cópia dos dados começará em breve.        |
 |Dados copiados     |A cópia dos dados está em curso.<br> Aguarde até que a cópia de dados esteja concluída.         |
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
-|Concluído com erros| A cópia de dados foi concluída, mas foram recebidos erros. <br> Reveja os registos de erro para upload utilizando o caminho fornecido na **visão geral**. Para mais informações, aceda ao [Download registos](data-box-disk-troubleshoot-upload.md#download-logs)de erros de upload .   |
+|Concluído com erros| A cópia de dados foi concluída, mas foram recebidos erros. <br> Reveja os registos de erro para upload utilizando o caminho fornecido na **Visão Geral**. Para mais informações, aceda a [baixar registos de erro de upload](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Cancelado            |A encomenda foi cancelada. <br> Cancelou a encomenda ou foi encontrado um erro e o serviço cancelou a encomenda.     |
 
 

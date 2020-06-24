@@ -1,5 +1,5 @@
 ---
-title: Rotas do evento
+title: Rotas de eventos
 titleSuffix: Azure Digital Twins
 description: Entenda como encaminhar eventos dentro da Azure Digital Twins e para outros Serviços Azure.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4ba931555b8e6fa146b68ff2db0bee9c774d1a1b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: be5709c8ccf8626ac3a48fdf7cad1c61dbfbf628
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613034"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729521"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 As gémeas Azure Digital usam rotas de **eventos** para enviar dados aos consumidores fora do serviço. 
 
@@ -87,7 +90,7 @@ Diferentes tipos de eventos no IoT Hub e no Azure Digital Twins produzem diferen
 
 [!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como configurar e gerir uma rota de eventos:
 * [Como fazer: Gerir pontos finais e rotas](how-to-manage-routes.md)

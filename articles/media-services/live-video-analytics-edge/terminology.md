@@ -1,14 +1,14 @@
 ---
-title: Terminologia - Azure
+title: Vídeo ao vivo analítico na terminologia IoT Edg - Azure
 description: Este artigo fornece uma visão geral do Live Video Analytics na terminologia IoT Edge.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 51fcc962f6546d727dbbc5e7ff62dc9c4e5677af
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261045"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816518"
 ---
 # <a name="terminology"></a>Terminologia
 
@@ -34,7 +34,7 @@ Ao utilizar [gráficos de mídia](#media-graph)para gravar vídeos a um ativo no
 
 No contexto de um sistema de gestão de vídeo para câmaras de segurança, a gravação de vídeo refere-se ao processo de captura de vídeo das câmaras e armazenamento de um ficheiro (ou ficheiros) para posterior visualização através de aplicações móveis e de navegador. A gravação de vídeo pode ser categorizada em [gravação contínua](continuous-video-recording-concept.md) de vídeo e gravação de vídeo baseada [em eventos](event-based-video-recording-concept.md). Estas são explicadas mais detalhadamente na página do conceito [de gravação de Vídeo.](video-recording-concept.md)
 
-## <a name="media-graph"></a>Gráfico de mídia
+## <a name="media-graph"></a>Grafo do suporte de dados
 
 [O gráfico de](media-graph-concept.md) mídia permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Permite-lhe definir um gráfico composto por fontes, processadores e nós de pia e, portanto, fornece a capacidade para você construir aplicações de análise de vídeo ao vivo. O gráfico de mídia é coberto em detalhe na página do conceito de gráfico de mídia.
 

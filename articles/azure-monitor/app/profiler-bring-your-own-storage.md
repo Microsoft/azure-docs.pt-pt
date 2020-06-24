@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: a185ec4938670519029abaf6fa4d23b7bf5c5399
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 2f928ac2f8772942eb748d68a65662938b1405ed
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466532"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84882516"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
 
@@ -32,7 +32,7 @@ Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Certifique-se de criar a sua Conta de Armazenamento no mesmo local que o seu Recurso de Insights de Aplicação. Ex. Se o seu recurso Application Insights estiver no West US 2, a sua Conta de Armazenamento também deve estar no West US 2. 
-* Conceda o papel de "Storage Blob Contributor" à aplicação AAD "Serviços de Diagnóstico Acesso de Armazenamento Fidedignos" na sua conta de armazenamento através do UI do Controlo de Acesso (IAM).
+* Conceda a função "Storage Blob Data Contributor" à aplicação AAD "Serviços de Diagnóstico Acesso de Armazenamento Fidedignos" na sua conta de armazenamento através do UI do Controlo de Acesso (IAM).
 * Se o Private Link estiver ativado, configufique a definição adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. 
 
 ## <a name="how-to-enable-byos"></a>Como ativar o BYOS
@@ -156,7 +156,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Configurar usando o modelo do Gestor de Recursos Azure
 
-1. Crie um ficheiro de modelo do Azure Resource Manager com o seguinte conteúdo (byos.template.json).
+1. Crie um ficheiro de modelo do Azure Resource Manager com o seguinte conteúdo (byos.template.jsligado).
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

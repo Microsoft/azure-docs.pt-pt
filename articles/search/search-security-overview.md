@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: fb79c3546037aabf5ce60905044901f0d5793990
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465631"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081039"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
@@ -107,7 +107,7 @@ A forma como um utilizador acede a um índice e a outros objetos é determinada 
 
 Se necessitar de controlo granular por utilizador sobre os resultados da pesquisa, pode construir filtros de segurança nas suas consultas, devolvendo documentos associados a uma determinada identidade de segurança. Em vez de papéis predefinidos e atribuições de papéis, o controlo de acesso baseado na identidade é implementado como um *filtro* que apara os resultados de pesquisa de documentos e conteúdos baseados em identidades. A tabela seguinte descreve duas abordagens para aparar os resultados da pesquisa de conteúdo não autorizado.
 
-| Abordagem | Descrição |
+| Abordagem | Description |
 |----------|-------------|
 |[Aparar segurança com base em filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para a implementação do controlo de acesso à identidade do utilizador. Cobre a adição de identificadores de segurança a um índice e, em seguida, explica a filtragem contra esse campo para cortar os resultados do conteúdo proibido. |
 |[Aparar segurança com base nas identidades do Azure Ative Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo expande-se sobre o artigo anterior, fornecendo passos para recuperar identidades do Azure Ative Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma cloud Azure. |
@@ -123,9 +123,9 @@ Em contrapartida, os direitos de administração sobre os conteúdos alojados no
 
 ## <a name="certifications-and-compliance"></a>Certificações e conformidade
 
-A Azure Cognitive Search foi certificada em conformidade com vários padrões globais, regionais e específicos da indústria tanto para a nuvem pública como para o Governo de Azure. Para a lista completa, descarregue o papel branco [ **microsoft Azure Compliance Offers** ](https://aka.ms/azurecompliance) da página oficial dos relatórios da Auditoria.
+A Azure Cognitive Search foi certificada em conformidade com vários padrões globais, regionais e específicos da indústria tanto para a nuvem pública como para o Governo de Azure. Para a lista completa, descarregue o papel branco [ **microsoft Azure Compliance Offers** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) da página oficial dos relatórios da Auditoria.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Noções básicas da segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança Azure](https://azure.microsoft.com/overview/security)

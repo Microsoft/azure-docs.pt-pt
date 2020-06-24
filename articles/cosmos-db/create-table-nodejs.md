@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: 83ba361541949b1be8205361d968ec6614b97cc9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: bbb6ac60c28635371760987b7a55ae7344dd73fb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217951"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115047"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guia de Introdução: Criar uma aplicação de API de Tabela com Node.js e Azure Cosmos DB
 
@@ -24,7 +24,7 @@ ms.locfileid: "84217951"
 > * [Python](create-table-python.md)
 > 
 
-Neste quickstart, você cria uma conta API de tabela Azure Cosmos, e usa Data Explorer e uma aplicação Node.js clonada do GitHub para criar tabelas e entidades. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, valor-chave e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
+Neste quickstart, você cria uma conta API de tabela Azure Cosmos, e usa Data Explorer e uma app Node.js clonada do GitHub para criar tabelas e entidades. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, valor-chave e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -138,7 +138,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
-    ![Ver e copiar as informações de cadeia de ligação necessárias no painel de Cadeia de Ligação](./media/create-table-nodejs/connection-string.png)
+    :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Ver e copiar as informações de cadeia de ligação necessárias no painel de Cadeia de Ligação":::
 
 2. Copie a CADEIA DE LIGAÇÃO PRIMÁRIA utilizando o botão de cópia do lado direito.
 
@@ -160,7 +160,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Executar o seguinte comando para instalar os módulos [azul], [nó-uuid], [nconf] e [async] localmente, bem como para guardar uma entrada para eles no ficheiro *package.json.*
+2. Executar o seguinte comando para instalar os módulos [azul], [nó-uuid], [nconf] e [async] localmente, bem como para guardar uma entrada para eles no *package.jsem* arquivo.
 
    ```
    npm install azure-storage node-uuid async nconf --save

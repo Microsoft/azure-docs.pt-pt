@@ -3,22 +3,22 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248809"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262587"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
 
 Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos reforços completos são suportados por dia?
 
-Apoiamos apenas um reforço completo por dia. Não é possível ter cópias de segurança diferenciais e cópias de segurança completas ativadas no mesmo dia.
+Apoiamos apenas um reforço completo por dia. Não podes ter apoio diferencial e cópias de segurança ativadas no mesmo dia.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
@@ -30,7 +30,7 @@ O menu Backup Job só mostrará trabalhos de backup ad-hoc. Para trabalhos progr
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>As bases de dados futuras são adicionadas automaticamente para cópia de segurança?
 
-Não, isto não é apoiado atualmente.
+Não, isto não é apoiado.
 
 ### <a name="if-i-delete-a-database-from-an-instance-what-will-happen-to-the-backups"></a>Se eu apagar uma base de dados de um caso, o que acontecerá com as cópias de segurança?
 
@@ -45,7 +45,7 @@ Uma base de dados renomeada é tratada como uma nova base de dados. Portanto, o 
 
 Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o que o script de pré-registo faz.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
-### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Que permissões devem ser definidas para que o Azure possa fazer o back bases de dados SAP HANA?
+### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Que permissões devem ser definidas para que o Azure possa fazer o back bases de dados SAP HANA?
 
 A execução do script pré-registo define as permissões necessárias para permitir que a Azure faça o back-up das bases de dados SAP HANA. Pode encontrar mais o que o script de pré-registo faz [aqui.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
@@ -56,10 +56,6 @@ Consulte [esta secção](https://docs.microsoft.com/azure/backup/backup-azure-sa
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>O Backup Azure HANA pode ser configurado contra um IP virtual (balanceador de carga) e não uma máquina virtual?
 
 Atualmente não temos a capacidade de configurar a solução apenas contra um IP virtual. Precisamos de uma máquina virtual para executar a solução.
-
-### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Tenho uma replicação do sistema SAP HANA (HSR), como devo configurar o backup para esta configuração?
-
-Os nós primários e secundários do HSR serão tratados como dois VMs individuais e não relacionados. É necessário configurar a cópia de segurança no nó primário e quando o resmundo acontece, é necessário configurar a cópia de segurança no nó secundário (que agora se torna o nó primário). Não existe um "fail-over" automático de cópia de segurança para o outro nó.
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Como posso mover uma cópia de segurança a pedido para o sistema de ficheiros local em vez do cofre do Azure?
 
@@ -72,6 +68,40 @@ Os nós primários e secundários do HSR serão tratados como dois VMs individua
 1. Reverta para as definições anteriores para permitir que as cópias de segurança fluam para o cofre Azure:
     1. Definir enable_auto_log_backup para **sim**
     1. Definir log_backup_using_backint para **verdade**
+
+### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Como posso usar o SAP HANA Backup com a minha configuração de replicação HANA?
+
+Atualmente, o Azure Backup não tem a capacidade de entender uma configuração HSR. Isto significa que os nós primários e secundários do HSR serão tratados como dois VMs individuais e não relacionados. Primeiro terá de configurar o nó primário. Quando uma falha acontece, a cópia de segurança deve ser configurada no nó secundário (que agora se torna o nó primário). Não há falha automática de apoio ao outro nó.
+
+Para fazer o armazenamento de dados do nó ativo (primário) em qualquer ponto do tempo, pode mudar a **proteção** para o nó secundário, que agora se tornou o principal após o ressalimbamento.
+
+Para efetuar esta **proteção do interruptor,** siga estes passos:
+
+- [Parar a proteção](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (com os dados de retenção) nas primárias
+- Executar o [script de pré-registo](https://aka.ms/scriptforpermsonhana) no nó secundário
+- [Descubra as bases de dados](tutorial-backup-sap-hana-db.md#discover-the-databases) no nó secundário e [configuure cópias de segurança neles](tutorial-backup-sap-hana-db.md#configure-backup)
+
+Estes passos devem ser executados manualmente após cada falha. Pode efetuar estes passos através da linha de comando / HTTP REST para além do portal Azure. Para automatizar estes passos, pode utilizar um livro de bordo Azure.
+
+Aqui está um exemplo detalhado de como a **proteção do interruptor** deve ser realizada:
+
+Neste exemplo, tem dois nós - Nó 1 (primário) e Nó 2 (secundário) na configuração do HSR.  As cópias de segurança estão configuradas no nó 1. Como mencionado acima, não tente configurar backups no Nó 2.
+
+Quando a primeira falha acontece, o Nó 2 torna-se o principal. Então,
+
+1. Parar a proteção do Nó 1 (primário anterior) com a opção de retenção de dados.
+1. Executar o script de pré-registo no Nó 2 (que agora é o principal).
+1. Descubra bases de dados no Nó 2, atribua a política de backup e configurar backups.
+
+Em seguida, uma primeira cópia de segurança completa é acionada no Nó 2 e, depois disso, iniciam-se as cópias de segurança.
+
+Quando o próximo fail-over acontece, o Nó 1 torna-se primário novamente e o Nó 2 torna-se secundário. Agora repita o processo:
+
+1. Parar a proteção do Nó 2 com a opção de retenção de dados.
+1. Executar o script de pré-registo no nó 1 (que se tornou novamente o principal)
+1. Em [seguida, retome a cópia de segurança](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) no Nó 1 com a política necessária (uma vez que as cópias de segurança foram paradas mais cedo no Nó 1).
+
+Em seguida, a cópia de segurança completa será novamente ativada no Nó 1 e, depois disso, iniciam-se as cópias de segurança.
 
 ## <a name="restore"></a>Restauro
 
@@ -87,7 +117,7 @@ Certifique-se de que a opção **De Substituição da Força** é selecionada du
 
 Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver que tipos de restauro são suportados atualmente.
 
-### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>Posso usar uma cópia de segurança de uma base de dados em funcionamento no SLES para restaurar um sistema RHEL HANA ou vice-versa?
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>Posso usar uma cópia de segurança de uma base de dados em funcionamento no SLES para restaurar um sistema RHEL HANA ou vice-versa?
 
 Sim, pode utilizar cópias de segurança de streaming ativadas numa base de dados HANA em funcionamento no SLES para restaurar para um sistema RHEL HANA e vice-versa. Ou seja, a restauração do sistema operativo transversal é possível utilizando cópias de segurança de streaming. No entanto, terá de garantir que o sistema HANA a que pretende restaurar, e o sistema HANA utilizado para restauro, são ambos compatíveis para restauro de acordo com o SAP. Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais os tipos de restauro compatíveis.
 

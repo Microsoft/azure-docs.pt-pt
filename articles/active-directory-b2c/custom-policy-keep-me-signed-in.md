@@ -1,6 +1,6 @@
 ---
-title: Mantenha-me assinado no Diretório Ativo Azure B2C
-description: Saiba como configurar Keep Me Signed In (KMSI) no Diretório Ativo Azure B2C.
+title: Keep Me Signed In in Azure Ative Directory B2C
+description: Saiba como configurar Keep Me Signed In (KMSI) em Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3294acecaf98de1f55e1aff8ec97defc1dd13fc7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803165"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202709"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Enable Keep me signed in (KMSI) in Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Pode ativar a funcionalidade Keep Me Signed In (KMSI) para utilizadores da sua web e aplicações nativas que possuam contas locais no seu diretório Azure Ative Directory B2C (Azure AD B2C). Esta funcionalidade permite o acesso aos utilizadores que regressam à sua aplicação sem os pedir para reintroduzirem o seu nome de utilizador e senha. Este acesso é revogado quando um utilizador assina.
+Pode ativar a funcionalidade Keep Me Signed In (KMSI) para utilizadores da sua web e aplicações nativas que tenham contas locais no seu diretório Azure Ative Diretório B2C (Azure AD B2C). Esta funcionalidade permite ao acesso aos utilizadores que regressem à sua aplicação sem que estes voltem a entrar no seu nome de utilizador e senha. Este acesso é revogado quando um utilizador assina.
 
 Os utilizadores não devem ativar esta opção em computadores públicos.
 
@@ -29,18 +29,18 @@ Os utilizadores não devem ativar esta opção em computadores públicos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um inquilino Azure AD B2C que está configurado para permitir o início de sessão de conta local. A KMSI não é apoiada para contas de fornecedores de identidade externa.
-- Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md)
+- Um inquilino Azure AD B2C que está configurado para permitir o acesso à conta local. A KMSI não é suportada para contas externas de fornecedores de identidade.
+- Complete os passos em [Começar com políticas personalizadas.](custom-policy-get-started.md)
 
 ## <a name="configure-the-page-identifier"></a>Configurar o identificador de página
 
-Para ativar o KMSI, delineie `DataUri` o elemento de definição de conteúdo para o [identificador](contentdefinitions.md#datauri) `unifiedssp` de página e a versão da [página](page-layout.md) *1.1.0* ou superior.
+Para ativar o KMSI, desafine o elemento de definição de conteúdo `DataUri` para [o identificador de página](contentdefinitions.md#datauri) e a `unifiedssp` [versão](page-layout.md) *1.1.0* ou superior.
 
-1. Abra o ficheiro de extensão da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>. Este ficheiro de extensão é um dos ficheiros de política incluídos no pacote de arranque de política personalizada, que deveria ter obtido no pré-requisito, [Começar com políticas personalizadas](custom-policy-get-started.md).
-1. Procure o elemento **BuildingBlocks.** Se o elemento não existir, adicione-o.
-1. Adicione o elemento **Definições** de Conteúdo ao elemento **BuildingBlocks** da política.
+1. Abra o ficheiro de extensão da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> . Este ficheiro de extensão é um dos ficheiros de política incluídos no pacote de iniciação de políticas personalizadas, que deveria ter obtido no pré-requisito, [começar com políticas personalizadas](custom-policy-get-started.md).
+1. Procure o elemento **Blocos de Construção.** Se o elemento não existir, adicione-o.
+1. Adicione o elemento **ContentDefinitions** ao elemento Blocos de **Construção** da política.
 
-    A sua política personalizada deve parecer o seguinte código:
+    A sua política personalizada deve parecer o seguinte corte de código:
 
     ```xml
     <BuildingBlocks>
@@ -54,12 +54,12 @@ Para ativar o KMSI, delineie `DataUri` o elemento de definição de conteúdo pa
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Adicione os metadados ao perfil técnico autoafirmado
 
-Para adicionar a caixa de verificação KMSI à página `setting.enableRememberMe` de inscrição e inscrição, delineie os metadados como verdadeiros. Anular os perfis técnicos SelfAD-LocalAccountSignin-Email no ficheiro de extensão.
+Para adicionar a caixa de verificação KMSI à página de inscrição e inscrição, desenverda os `setting.enableRememberMe` metadados como verdadeiros. Substitua os perfis técnicos SelfAsserted-LocalAccountSignin-Email no ficheiro de extensão.
 
 1. Encontre o elemento ClaimsProviders. Se o elemento não existir, adicione-o.
-1. Adicione o seguinte fornecedor de sinistros ao elemento ClaimsProviders:
+1. Adicione o seguinte fornecedor de reclamações ao elemento ClaimsProviders:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -74,15 +74,15 @@ Para adicionar a caixa de verificação KMSI à página `setting.enableRememberM
 
 1. Guarde o ficheiro de extensões.
 
-## <a name="configure-a-relying-party-file"></a>Configure um ficheiro de festa de base
+## <a name="configure-a-relying-party-file"></a>Configurar um ficheiro de partido de confiança
 
-Atualize o ficheiro da parte de fiação (RP) que inicia a viagem de utilizador que criou.
+Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utilizador que criou.
 
-1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml*.
-1. Se já não existir, adicione `<UserJourneyBehaviors>` um nó `<RelyingParty>` infantil ao nó. Deve ser localizado imediatamente `<DefaultUserJourney ReferenceId="User journey Id" />`após, `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`por exemplo: .
-1. Adicione o nó seguinte como `<UserJourneyBehaviors>` uma criança do elemento.
+1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml. *
+1. Se já não existir, adicione um `<UserJourneyBehaviors>` nó de criança ao `<RelyingParty>` nó. Deve ser colocado imediatamente após `<DefaultUserJourney ReferenceId="User journey Id" />` , por exemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .
+1. Adicione o nó seguinte como uma criança do `<UserJourneyBehaviors>` elemento.
 
-    ```XML
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Absolute</SessionExpiryType>
@@ -90,17 +90,17 @@ Atualize o ficheiro da parte de fiação (RP) que inicia a viagem de utilizador 
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** - Indica como a sessão é `SessionExpiryInSeconds` `KeepAliveInDays`prolongada pelo tempo especificado em e . O `Rolling` valor (predefinido) indica que a sessão é prolongada sempre que o utilizador executa a autenticação. O `Absolute` valor indica que o utilizador é obrigado a reautenticar após o período de tempo especificado.
+    - **SessionExpiryType** - Indica como a sessão é prolongada pelo tempo especificado `SessionExpiryInSeconds` em e `KeepAliveInDays` . O `Rolling` valor (predefinido) indica que a sessão é prolongada sempre que o utilizador realiza a autenticação. O `Absolute` valor indica que o utilizador é obrigado a reautenticar após o período de tempo especificado.
 
-    - **SessionExpiryInSeconds** - A vida útil dos cookies de sessão quando *me mantiver inscrito* não está ativada, ou se um utilizador não selecionar *manter-me inscrito em*. A sessão `SessionExpiryInSeconds` expira depois de ter passado, ou o navegador está fechado.
+    - **SessionExpiryInSeconds** - A vida útil dos cookies de sessão quando *me mantêm inscrito* não está ativada, ou se um utilizador não selecionar *mantenha-me inscrito.* A sessão expira depois de `SessionExpiryInSeconds` ter passado, ou o navegador está fechado.
 
-    - **KeepAliveInDays** - A vida útil dos cookies de sessão quando *me mantiver inscrito* está ativada e os selecionados do utilizador *mantêm-me inscrito em*.  O valor `KeepAliveInDays` das preprevaleces sobre o `SessionExpiryInSeconds` valor, e dita o tempo de validade da sessão. Se um utilizador fechar o navegador e o reabrir mais tarde, ainda pode iniciar sessão silenciosamente desde que esteja dentro do período de tempo KeepAliveInDays.
+    - **KeepAliveInDays** - A vida útil dos cookies de sessão quando *me mantêm assinado* está ativada e o utilizador seleciona *manter-me inscrito.*  O valor da `KeepAliveInDays` precedência sobre o `SessionExpiryInSeconds` valor, e dita o prazo de validade da sessão. Se um utilizador fechar o navegador e reabrir mais tarde, ainda pode iniciar s-in silenciosamente desde que esteja dentro do período de tempo KeepAliveInDays.
 
-    Para mais informações, consulte os comportamentos da [viagem do utilizador.](relyingparty.md#userjourneybehaviors)
+    Para mais informações, consulte [os comportamentos de viagem do utilizador.](relyingparty.md#userjourneybehaviors)
 
-Recomendamos que detetete o valor do SessionExpiryInSeconds como um curto período (1200 segundos), enquanto o valor do KeepAliveInDays pode ser definido para um período relativamente longo (30 dias), como mostra o seguinte exemplo:
+Recomendamos que defina o valor do SessionExpiryInSegundos para um período curto (1200 segundos), enquanto o valor do KeepAliveInDays pode ser definido para um período relativamente longo (30 dias), como mostra o seguinte exemplo:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <UserJourneyBehaviors>
@@ -128,11 +128,11 @@ Recomendamos que detetete o valor do SessionExpiryInSeconds como um curto perío
 ## <a name="test-your-policy"></a>Teste a sua política
 
 1. Guarde as suas alterações e, em seguida, faça o upload do ficheiro.
-1. Para testar a política personalizada que carregou, no portal Azure, vá à página de política e, em seguida, selecione **Run agora**.
-1. Digite o seu nome de **utilizador** e **palavra-passe,** selecione **Mantenha-me inscrito e,** em seguida, clique em **iniciar sessão**.
+1. Para testar a política personalizada que carregou, no portal Azure, vá à página de política e, em seguida, selecione **Executar agora**.
+1. Digite o seu **nome de utilizador** e **palavra-passe,** selecione **Mantenha-me assinado**e, em seguida, clique em iniciar **s-in**.
 1. Regresse ao portal do Azure. Vá à página de política e, em seguida, selecione **Copy** para copiar o URL de inscrição.
-1. Na barra de endereços `&prompt=login` do navegador, remova o parâmetro de corda de consulta, o que obriga o utilizador a introduzir as suas credenciais nesse pedido.
-1. No navegador, clique em **Go**. Agora o Azure AD B2C emitirá um sinal de acesso sem o pedir para voltar a assinar. 
+1. Na barra de endereços do navegador, remova o `&prompt=login` parâmetro de cadeia de consulta, o que obriga o utilizador a introduzir as suas credenciais nesse pedido.
+1. No navegador, clique em **Go**. Agora, o Azure AD B2C emitirá um token de acesso sem o levar a iniciar novamente a sua inscrição. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,24 +3,22 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: batch
 documentationcenter: ''
-author: LauraBrenner
+author: JnHs
 manager: evansma
 editor: ''
-ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 04/03/2020
-ms.author: labrenne
+ms.date: 06/16/2020
+ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb35021ad7e4d735a7dd521e39e4fe5fd102ae01
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80657489"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888369"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -49,7 +47,7 @@ Os requisitos adicionais de VNet diferem, consoante o conjunto do Batch está na
 **Recursos de rede adicionais** - o Batch aloca automaticamente recursos de rede adicionais no grupo de recursos que contém a VNet.
 
 > [!IMPORTANT]
->Para cada 50 nós dedicados (ou cada 20 nós de baixa prioridade), o Batch aloca um grupo de segurança de rede (NSG), um endereço IP público e um balanceador de carga. Estes recursos estão limitados pelas [quotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para conjuntos grandes, poderá ter de pedir um aumento de quota para um ou mais destes recursos.
+>Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui: um grupo de segurança de rede (NSG), um endereço IP público e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para conjuntos grandes, poderá ter de pedir um aumento de quota para um ou mais destes recursos.
 
 #### <a name="network-security-groups-batch-default"></a>Grupos de segurança de rede: Predefinição do Batch
 

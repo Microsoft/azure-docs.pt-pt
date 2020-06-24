@@ -1,22 +1,22 @@
 ---
-title: 'Gateway VPN: Modificar as definições de endereço IP do gateway: Azure CLI'
-description: Este artigo acompanha-o através da alteração dos prefixos de endereço IP para o seu portal de rede local utilizando o Azure CLI.
+title: 'Gateway VPN: Modificar as definições do endereço IP do gateway: Azure CLI'
+description: Este artigo acompanha-o através da alteração de prefixos de endereço IP para o seu gateway de rede local utilizando o Azure CLI.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: bc051a7e0a19dc54431266cfa5f37131868bdc07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4809c51a59805ac996bd4c5971ec633ae6c2aed
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75864048"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987072"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as definições de gateway de rede local utilizando o Azure CLI
 
-Por vezes, as definições para o seu gateway de rede local Endereço Prefixo ou alteração de endereço IP gateway. Este artigo mostra-lhe como modificar as definições de gateway da rede local. Também pode modificar estas definições utilizando um método diferente, selecionando uma opção diferente da seguinte lista:
+Por vezes, as definições para a alteração do Prefixo do Endereço de Endereço de Gateway local ou do endereço IP gateway. Este artigo mostra-lhe como modificar as definições de gateway de rede local. Também pode modificar estas definições utilizando um método diferente selecionando uma opção diferente da seguinte lista:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -35,11 +35,11 @@ Instale a versão mais recente dos comandos CLI (2.0 ou mais tarde). Para obter 
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Modificar o endereço IP do gateway
+## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Modificar o endereço IP gateway
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode verificar a ligação do portal. Ver [Verificar uma ligação](vpn-gateway-verify-connection-resource-manager.md)de gateway .
+Pode verificar a sua ligação de gateway. Ver [Verificar uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).
 

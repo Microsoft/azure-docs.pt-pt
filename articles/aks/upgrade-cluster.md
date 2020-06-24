@@ -4,12 +4,12 @@ description: Saiba como atualizar um cluster Azure Kubernetes Service (AKS) para
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 761df8abc60671341fcdd74e7c66111cfeb105ad
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 5f0391c10a99173e7a2d87c1dd08a36852fc0450
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259240"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887983"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
@@ -105,13 +105,14 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 Com uma lista de versões disponíveis para o seu cluster AKS, utilize o comando [de upgrade az aks][az-aks-upgrade] para atualizar. Durante o processo de atualização, a AKS adiciona um novo nó ao cluster que executa a versão especificada de Kubernetes, em seguida, cuidadosamente [cordon e drena][kubernetes-drain] um dos nós antigos para minimizar a perturbação das aplicações de execução. Quando o novo nó é confirmado como cápsulas de aplicação em execução, o nó antigo é eliminado. Este processo repete-se até que todos os nós do cluster tenham sido atualizados.
 
-O exemplo a seguir atualiza um cluster para a versão *1.13.10:*
-
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-Leva alguns minutos para atualizar o cluster, dependendo de quantos nós tem. 
+Leva alguns minutos para atualizar o cluster, dependendo de quantos nós tem.
 
 > [!NOTE]
 > Há um tempo total permitido para um upgrade de cluster para completar. Desta vez é calculado tomando o produto de `10 minutes * total number of nodes in the cluster` . Por exemplo, num cluster de 20 nós, as operações de atualização devem ter sucesso em 200 minutos ou a AKS falhará na operação para evitar um estado de cluster irrecuperável. Para recuperar a falha de atualização, recísse a operação de atualização após o tempo limite ter sido atingido.

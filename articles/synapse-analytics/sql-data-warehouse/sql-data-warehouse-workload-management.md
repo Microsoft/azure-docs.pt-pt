@@ -1,58 +1,58 @@
 ---
 title: Gestão de cargas de trabalho
-description: Orientação para a implementação da gestão da carga de trabalho na Azure Synapse Analytics.
+description: Orientação para a implementação da gestão da carga de trabalho no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 23ede806b627ad0f77e325ab391d37347f4bb29f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e54e0ed1a3292cee400774d02f61514f54370151
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650442"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208540"
 ---
 # <a name="what-is-workload-management"></a>O que é a gestão da carga de trabalho?
 
-A execução de cargas de trabalho mistas pode colocar desafios de recursos em sistemas ocupados.  A Solution Architects procura formas de separar as atividades clássicas de armazenamento de dados (como carregar, transformar e consultar dados) para garantir que existem recursos suficientes para atingir os SLAs.  
+A execução de cargas de trabalho mistas pode colocar desafios de recursos em sistemas ocupados.  A Solution Architects procura formas de separar as atividades clássicas de armazenamento de dados (como carregar, transformar e consultar dados) para garantir que existem recursos suficientes para atingir SLAs.  
 
-O isolamento físico do servidor pode levar a bolsas de infraestruturas que são subutilizadas, sobrelotadas ou num estado em que os caches estão constantemente a ser preparados com o arranque e paragem de hardware.  Um sistema de gestão de carga de trabalho bem sucedido gere eficazmente os recursos, garante uma utilização de recursos altamente eficiente e maximiza o retorno do investimento (ROI).
+O isolamento físico do servidor pode levar a bolsas de infraestrutura que são subutilizadas, sobrelotadas ou num estado em que os caches estão constantemente a ser preparados com o hardware a começar e a parar.  Um sistema de gestão da carga de trabalho bem sucedido gere eficazmente os recursos, garante uma utilização de recursos altamente eficiente e maximiza o retorno do investimento (ROI).
 
-Uma carga de trabalho de armazém de dados refere-se a todas as operações que transpiram em relação a um armazém de dados. A profundidade e amplitude destes componentes dependem do nível de maturidade do armazém de dados.  A carga de trabalho do armazém de dados abrange:
+Uma carga de trabalho do armazém de dados refere-se a todas as operações que transpiram em relação a um armazém de dados. A profundidade e a amplitude destes componentes dependem do nível de maturidade do armazém de dados.  A carga de trabalho do armazém de dados engloba:
 
 - Todo o processo de carregamento de dados no armazém
-- Realização de análises e relatórios de armazéns de dados
+- Realização de análise e reporte de armazéns de dados
 - Gestão de dados no armazém de dados
 - Dados de exportação do armazém de dados
 
-A capacidade de desempenho de um armazém de dados é determinada pelas unidades de armazém de [dados.](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+A capacidade de desempenho de um armazém de dados é determinada pelas unidades de [armazém de dados.](what-is-a-data-warehouse-unit-dwu-cdwu.md)
 
-- Para ver os recursos atribuídos a todos os perfis de desempenho, consulte [os limites de Memória e concurrency](memory-concurrency-limits.md).
+- Para visualizar os recursos atribuídos a todos os perfis de desempenho, consulte os [limites de Memória e conúcência.](memory-concurrency-limits.md)
 - Para ajustar a capacidade, pode [escalar para cima ou para baixo](quickstart-scale-compute-portal.md).
 
 ## <a name="workload-management-concepts"></a>Conceitos de gestão da carga de trabalho
 
-No passado, para a Synapse SQL em Azure Synapse geriste o desempenho da consulta através das classes de [recursos.](resource-classes-for-workload-management.md)  As classes de recursos permitidas para atribuir memória a uma consulta baseada na adesão ao papel.  O principal desafio com as classes de recursos é que, uma vez configurados, não havia governação ou capacidade de controlar a carga de trabalho.  
+No passado, para o Synapse SQL em Azure Synapse geriu o desempenho da consulta através de [classes de recursos.](resource-classes-for-workload-management.md)  As classes de recursos permitiram atribuir memória a uma consulta baseada na adesão ao papel.  O principal desafio com as classes de recursos é que, uma vez configurado, não havia governação ou capacidade de controlar a carga de trabalho.  
 
-Por exemplo, a concessão de uma adesão ao utilizador ad-hoc ao smallrc permitiu que esse utilizador consumisse 100% da memória no sistema.  Com as classes de recursos, não há como reservar e garantir que os recursos estão disponíveis para cargas de trabalho críticas.
+Por exemplo, a concessão de uma adesão a um utilizador ad-hoc ao smallrc permitiu que esse utilizador consumisse 100% da memória no sistema.  Com classes de recursos, não há como reservar e garantir que os recursos estão disponíveis para cargas de trabalho críticas.
 
-A gestão da carga de trabalho do synapse SQL em Azure Synapse consiste em três conceitos de alto nível: Classificação da Carga de [Trabalho,](sql-data-warehouse-workload-classification.md) [Importância da Carga](sql-data-warehouse-workload-importance.md)de Trabalho e Isolamento da Carga de [Trabalho.](sql-data-warehouse-workload-isolation.md)  Estas capacidades dão-lhe mais controlo sobre a forma como a sua carga de trabalho utiliza os recursos do sistema.
+A gestão da carga de trabalho do pool da Synapse em Azure Synapse consiste em três conceitos de alto nível: Classificação da carga de [trabalho,](sql-data-warehouse-workload-classification.md) [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)e isolamento de carga de [trabalho.](sql-data-warehouse-workload-isolation.md)  Estas capacidades dão-lhe mais controlo sobre a forma como a sua carga de trabalho utiliza os recursos do sistema.
 
-A classificação da carga de trabalho é o conceito de atribuir um pedido a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, esta atribuição foi feita através de adesão a [papéis](resource-classes-for-workload-management.md#change-a-users-resource-class)usando sp_addrolemember .  Esta ação pode agora ser feita através do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  A capacidade de classificação fornece um conjunto mais rico de opções, tais como etiqueta, sessão e tempo para classificar pedidos.
+A classificação da carga de trabalho é o conceito de atribuir um pedido a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, esta atribuição foi feita através de membros de funções usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Esta ação pode agora ser feita através do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  A capacidade de classificação fornece um conjunto mais rico de opções, tais como etiqueta, sessão e tempo para classificar pedidos.
 
-A importância da carga de trabalho influencia a ordem em que um pedido tem acesso aos recursos.  Num sistema movimentado, um pedido com maior importância tem primeiro acesso aos recursos.  A importância também pode garantir o acesso ordenado aos cadeados.
+A importância da carga de trabalho influencia a ordem em que um pedido obtém acesso aos recursos.  Num sistema movimentado, um pedido de maior importância tem primeiro acesso aos recursos.  A importância também pode garantir o acesso ordenado aos cadeados.
 
-O isolamento da carga de trabalho reserva recursos para um grupo de carga de trabalho.  Os recursos reservados num grupo de carga de trabalho são mantidos exclusivamente para esse grupo de carga de trabalho para garantir a execução.  Os grupos de carga de trabalho também permitem definir a quantidade de recursos que são atribuídos por pedido, tal como as classes de recursos fazem.  Os grupos de carga de trabalho dão-lhe a capacidade de reservar ou limitar a quantidade de recursos que um conjunto de pedidos pode consumir.  Finalmente, os grupos de carga de trabalho são um mecanismo para aplicar regras, como o tempo de consulta, aos pedidos.  
+O isolamento da carga de trabalho reserva recursos para um grupo de carga de trabalho.  Os recursos reservados num grupo de carga de trabalho são detidos exclusivamente para que esse grupo de carga de trabalho garanta a execução.  Os grupos de carga de trabalho também permitem definir a quantidade de recursos que são atribuídos por pedido, tal como as classes de recursos fazem.  Os grupos de carga de trabalho dão-lhe a capacidade de reservar ou limitar a quantidade de recursos que um conjunto de pedidos pode consumir.  Por último, os grupos de trabalho são um mecanismo para aplicar regras, como o tempo limite de consulta, aos pedidos.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre a classificação da carga de trabalho, consulte [a Classificação da Carga de Trabalho](sql-data-warehouse-workload-classification.md).  
+- Para obter mais informações sobre a classificação da carga de trabalho, consulte [a Classificação da Carga de Trabalho.](sql-data-warehouse-workload-classification.md)  
 - Para obter mais informações sobre o isolamento da carga de trabalho, consulte [o Isolamento da Carga de Trabalho.](sql-data-warehouse-workload-isolation.md)  
-- Para mais informações sobre a importância da carga de trabalho, consulte [a Importância da Carga de Trabalho.](sql-data-warehouse-workload-importance.md)  
-- Para obter mais informações sobre a monitorização da gestão da carga de trabalho, consulte a Monitorização do Portal de [Gestão da Carga de Trabalho.](sql-data-warehouse-workload-management-portal-monitor.md)  
+- Para obter mais informações sobre a importância da carga de trabalho, consulte [a Importância da Carga de Trabalho.](sql-data-warehouse-workload-importance.md)  
+- Para obter mais informações sobre a monitorização da gestão da carga de trabalho, consulte [o Portal de Gestão da Carga de Trabalho Monitoring](sql-data-warehouse-workload-management-portal-monitor.md).  

@@ -34,6 +34,7 @@
         - name: PowerShell
           href: create-data-warehouse-powershell.md
         - name: Modelo ARM
+          displayName: Resource Manager
           href: quickstart-arm-template.md
     - name: Carregar dados
       items:

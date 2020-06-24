@@ -5,20 +5,20 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c9f6a61dfa688980fa6400a2fa93ab8862798750
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235291"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194778"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link (pré-visualização) para funcionalidades suportadas pelo Azure Cosmos DB
 
-Este artigo descreve as funcionalidades que são atualmente suportadas no Azure Synapse Link para Azure Cosmos DB.
+Este artigo descreve as funcionalidades que são atualmente suportadas no Azure Synapse Link para o Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Suporte Azure Synapse
 
@@ -31,7 +31,7 @@ Existem dois tipos de contentores em Azure Cosmos DB:
 
 Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Synapse Link, caso em que só pode ler/escrever na loja transacional. Segue-se uma lista das funcionalidades atualmente suportadas no Synapse Link para Azure Cosmos DB. 
 
-| Categoria              | Descrição |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL sem servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Categoria              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL sem servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Suporte ao tempo de execução** |Suporte para leitura ou escrita por Azure Synapse tempo de execução| ✓ | [Contacte-nos](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Suporte da Azure Cosmos DB API** |Suporte da API como link sinapse| SQL / MongoDB | SQL / MongoDB |
@@ -44,7 +44,7 @@ Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Synapse Link, caso 
 
 ## <a name="supported-code-generated-actions-for-spark"></a>Ações geradas por código para faíscas
 
-| Gesto              | Descrição |OLTP |HTAP  |
+| Gesto              | Description |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Carregar para DataFrame** |Carregue e leia dados num DataFrame de Faísca |X| ✓ |
 | **Criar mesa spark** |Crie uma tabela que aponte para um recipiente DB Azure Cosmos|X| ✓ |
@@ -56,7 +56,7 @@ Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Synapse Link, caso 
 
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Ações geradas por código suportadas para o sql sem servidor
 
-| Gesto              | Descrição |OLTP |HTAP |
+| Gesto              | Description |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Selecione top 100** |Pré-visualização top 100 itens de um recipiente|X| ✓ |
 | **Criar vista** |Crie uma vista para ter acesso diretamente ao BI num contentor através do SQL synapse|X| ✓ |
