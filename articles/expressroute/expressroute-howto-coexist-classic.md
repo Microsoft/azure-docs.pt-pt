@@ -1,19 +1,19 @@
 ---
-title: 'Configure ExpressRoute e S2S VPN coexistindo conexões: clássico'
+title: 'Configure ExpressRoute e ligações coexistindo S2S VPN: clássico'
 description: Este artigo explica-lhe como configurar o ExpressRoute e uma ligação de Rede de VPNs que pode coexistir para o modelo de implementação clássica.
 documentationcenter: na
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: charwen
-ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad762d67825b69bf226de720cbe333043b1b9bf7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272932"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736344"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site (clássico)
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "79272932"
 > 
 > 
 
-Este artigo ajuda-o a configurar ligações VPN ExpressRoute e Site-to-Site que coexistem. A capacidade de configurar o ExpressRoute e a Rede de VPNs tem várias vantagens. Pode configurar o Site-to-Site VPN como um caminho de falha seguro para a ExpressRoute ou utilizar VPNs site-to-site para se conectar a sites que não estão ligados através do ExpressRoute. Abordaremos os passos para configurar ambos os cenários neste artigo. Este artigo aplica-se ao modelo de implementação clássica. Esta configuração não está disponível no portal.
+Este artigo ajuda-o a configurar as ligações ExpressRoute e Site-to-Site VPN que coexistem. A capacidade de configurar o ExpressRoute e a Rede de VPNs tem várias vantagens. Pode configurar a VPN site-to-site como um caminho de falha seguro para ExpressRoute, ou utilizar VPNs site-to-site para ligar a sites que não estão conectados através do ExpressRoute. Abordaremos os passos para configurar ambos os cenários neste artigo. Este artigo aplica-se ao modelo de implementação clássica. Esta configuração não está disponível no portal.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -73,7 +73,7 @@ Existem dois conjuntos diferentes de procedimentos à sua escolha para configura
     Se ainda não tem uma rede virtual, este procedimento irá orientá-lo durante a criação de uma nova rede virtual com o modelo de implementação clássica e de novas ligações de Rede de VPNs e ExpressRoute. Para configurar, siga os passos na secção do artigo [Para criar uma nova rede virtual e ligações coexistentes](#new).
 * Já tenho um modelo de implementação clássica VNet.
   
-    Pode já ter uma rede virtual no local com uma ligação ExpressRoute ou de Rede de VPNs existente. A secção de [artigos Para configurar ligações coexistentes para um VNet já existente](#add) irá acompanhá-lo através da apagamento do gateway e, em seguida, criar novas ligações ExpressRoute e Site-to-Site VPN. Tenha em atenção que, quando criar novas ligações, os passos têm de ser concluídos por uma ordem muito específica. Não utilize as instruções de outros artigos para criar os seus gateways e ligações.
+    Pode já ter uma rede virtual no local com uma ligação ExpressRoute ou de Rede de VPNs existente. A secção de [artigos Para configurar ligações coexistindo para um VNet já existente](#add) irá acompanhá-lo através da eliminação do gateway, e, em seguida, criar novas ligações ExpressRoute e VPN site-to-site. Tenha em atenção que, quando criar novas ligações, os passos têm de ser concluídos por uma ordem muito específica. Não utilize as instruções de outros artigos para criar os seus gateways e ligações.
   
     Neste procedimento, a criação de ligações coexistentes implicará eliminar o seu gateway e, em seguida, configurar os novos gateways. Isto significa que terá período de inatividade para as suas ligações entre locais enquanto elimina e recria o seu gateway e as suas ligações, mas não terá de migrar qualquer uma das suas VMs ou serviços para uma nova rede virtual. As VMs e os serviços continuarão a poder comunicar através do balanceador de carga enquanto configura o seu gateway, se estiverem configurados para tal.
 

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/12/2020
 ms.author: jingwang
-ms.openlocfilehash: c7fd5cb3c6c8a991a8b5ef9b6460e9dce35dd873
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9dc2cee785b28db7446eb8ed8b89e27f4516aba2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298589"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736905"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binário na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -98,7 +98,8 @@ Definições **de leitura binária** suportadas em `formatSettings` :
                 "type": "BinarySource",
                 "storeSettings": {
                     "type": "AzureBlobStorageReadSettings",
-                    "recursive": true
+                    "recursive": true,
+                    "deleteFilesAfterCompletion": true
                 },
                 "formatSettings": {
                     "type": "BinaryReadSettings",

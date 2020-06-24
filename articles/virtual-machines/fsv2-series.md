@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 81cace31b8d9ab27aff749ea496687e01430ce26
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 07e11e3dbd7141ed3f54debfe4bafbda9431486b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675292"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703885"
 ---
 # <a name="fsv2-series"></a>Série Fsv2
 
-A série Fsv2 baseia-se no processador Intel® Xeon® Platinum 8168. Apresenta uma velocidade do relógio Turbo de 3,4 GHz e uma frequência máxima de turbo mono-núcleo de 3,7 GHz. As instruções ® AVX-512 da Intel são novas nos processadores Intel Scalable. Estas instruções fornecem até um aumento de desempenho de 2X para cargas de trabalho de processamento de vetores em operações de ponto flutuante de precisão única e dupla. Por outras palavras, são muito rápidos para qualquer carga de trabalho computacional.
+A série Fsv2 funciona nos processadores Intel® Xeon® Platinum 8272CL (Cascade Lake) e nos processadores Intel® Xeon® Platinum 8168. Apresenta uma velocidade do relógio Turbo de 3,4 GHz e uma frequência máxima de turbo mono-núcleo de 3,7 GHz. As instruções ® AVX-512 da Intel são novas nos processadores Intel Scalable. Estas instruções fornecem até um aumento de desempenho de 2X para cargas de trabalho de processamento de vetores em operações de ponto flutuante de precisão única e dupla. Por outras palavras, são muito rápidos para qualquer carga de trabalho computacional.
 
 Os VMs da série Fsv2 apresentam tecnologia de hiper rosca ® Intel.
 
@@ -66,6 +66,6 @@ Atualizações de preservação da memória: Suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

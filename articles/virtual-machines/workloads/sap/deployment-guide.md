@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: a850f7ceaeb57678738084cb14f383b46c7dfe84
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 828615add9f24b5a2089e240bbf62647f34a25f0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660638"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207418"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
 
@@ -201,7 +201,6 @@ ms.locfileid: "84660638"
 [planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Atualizar domínios)
 [planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Conjuntos de disponibilidade de Azure)
 [planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Conceito de máquinas virtuais Microsoft Azure)
-[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Armazenamento Azure Premium)
 [planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Mover um VM das instalações para Azure com um disco não generalizado)
 [planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Implantação de um VM com uma imagem específica do cliente)
 [planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparação para a deslocação de um VM das instalações para Ozure com um disco não generalizado)
@@ -215,7 +214,6 @@ ms.locfileid: "84660638"
 [planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (VM único com cenário de demonstração/treino SAP NetWeaver)
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Conceitos de implantação apenas em nuvem de instâncias SAP)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solução de monitorização Azure para SAP)
-[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Armazenamento Azure Premium)
 [planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Discos geridos)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -443,7 +441,7 @@ O assistente orienta-o através da definição dos parâmetros necessários para
    * **Localização**: Onde implantar a nova máquina virtual. Se pretender ligar a máquina virtual à sua rede no local, certifique-se de que seleciona a localização da rede virtual que liga o Azure à sua rede no local. Para obter mais informações, consulte [a rede microsoft Azure][planning-guide-microsoft-azure-networking] em [planeamento e implementação de Máquinas Virtuais Azure para SAP NetWeaver][planning-guide].
 1. **Tamanho:**
 
-     Para obter uma lista de tipos de VM suportados, consulte a Nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto se quiser utilizar o Azure Premium Storage. Nem todos os tipos de VM suportam o Armazenamento Premium. Para obter mais informações, consulte [Armazenamento: Microsoft Azure Storage e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Azure Premium Storage][planning-guide-azure-premium-storage] in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+     Para obter uma lista de tipos de VM suportados, consulte a Nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto se quiser utilizar o Azure Premium Storage. Nem todos os tipos de VM suportam o Armazenamento Premium. Para obter mais informações, consulte [Armazenamento: Microsoft Azure Storage e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [armazenamento Azure para cargas de trabalho SAP](./planning-guide-storage.md) em planeamento e implementação de [Máquinas Virtuais Azure para SAP NetWeaver][planning-guide].
 
 1. **Definições:**
    * **Armazenamento**
@@ -583,7 +581,7 @@ O assistente orienta-o através da definição dos parâmetros necessários para
    * **Localização**: Onde implantar a nova máquina virtual. Se pretender ligar a máquina virtual à sua rede no local, certifique-se de que seleciona a localização da rede virtual que liga o Azure à sua rede no local. Para obter mais informações, consulte [a rede microsoft Azure][planning-guide-microsoft-azure-networking] em [planeamento e implementação de Máquinas Virtuais Azure para SAP NetWeaver][planning-guide].
 1. **Tamanho:**
 
-     Para obter uma lista de tipos de VM suportados, consulte a Nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto se quiser utilizar o Azure Premium Storage. Nem todos os tipos de VM suportam o Armazenamento Premium. Para obter mais informações, consulte [Armazenamento: Microsoft Azure Storage e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Azure Premium Storage][planning-guide-azure-premium-storage] in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+     Para obter uma lista de tipos de VM suportados, consulte a Nota SAP [1928533]. Certifique-se de que seleciona o tipo VM correto se quiser utilizar o Azure Premium Storage. Nem todos os tipos de VM suportam o Armazenamento Premium. Para obter mais informações, consulte [Armazenamento: Microsoft Azure Storage e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [armazenamento Azure para cargas de trabalho SAP](./planning-guide-storage.md) em planeamento e implementação de [Máquinas Virtuais Azure para SAP NetWeaver][planning-guide].
 
 1. **Definições:**
    * **Armazenamento**
@@ -1030,6 +1028,11 @@ A nova extensão VM para SAP utiliza uma Identidade Gerida atribuída ao VM para
 
 O processo será automatizado na próxima versão do Azure PowerShell (> 4.2.0). Atualizaremos este artigo assim que a nova versão estiver disponível. Até lá, siga estes passos para instalar a extensão manualmente.
 
+> [!NOTE]
+> Os seguintes passos requerem privilégios do Proprietário sobre o grupo de recursos ou recursos individuais (máquina virtual, discos de dados, etc.)
+
+1. Certifique-se de que utiliza o Agente anfitrião SAP 7.21 PL 47 ou superior.
+1. Certifique-se de desinstalar a versão atual da Extensão VM para SAP. Não é suportado para instalar ambas as versões da Extensão VM para SAP na mesma máquina virtual.
 1. Certifique-se de que instalou a versão mais recente do cmdlet Azure PowerShell. Para obter mais informações, consulte [a implementação de cmdlets Azure PowerShell][deployment-guide-4.1].
 1. Siga os passos na [configuração de identidades geridas para recursos Azure num Azure VM utilizando][qs-configure-powershell-windows-vm] o artigo PowerShell para permitir uma identidade gerida atribuída ao sistema para o VM. As identidades geridas atribuídas pelo utilizador não são suportadas pela extensão VM para SAP. No entanto, pode ativar ambos, uma identidade atribuída ao sistema e uma identidade atribuída ao utilizador.
     
@@ -1067,6 +1070,11 @@ O processo será automatizado na próxima versão do Azure PowerShell (> 4.2.0).
 
 A nova extensão VM para SAP utiliza uma Identidade Gerida atribuída ao VM para aceder aos dados de monitorização e configuração do VM. Para instalar a nova Extensão Azure para SAP utilizando o Azure CLI, primeiro tem de atribuir essa identidade ao VM e conceder esse acesso identitário a todos os recursos que estão a ser utilizados por esse VM, por exemplo discos e interfaces de rede.
 
+> [!NOTE]
+> Os seguintes passos requerem privilégios do Proprietário sobre o grupo de recursos ou recursos individuais (máquina virtual, discos de dados, etc.)
+
+1. Certifique-se de que utiliza o Agente anfitrião SAP 7.21 PL 47 ou superior.
+1. Certifique-se de desinstalar a versão atual da Extensão VM para SAP. Não é suportado para instalar ambas as versões da Extensão VM para SAP na mesma máquina virtual.
 1. Instale o Azure CLI 2.0, conforme descrito na [Instalação Azure CLI 2.0][azure-cli-2].
 
 1. Inscreva-se na sua conta Azure:
@@ -1420,7 +1428,7 @@ A extensão não está instalada. Determine se se trata de um problema de procur
 
 O processo AzureEnhancedMonitoring Windows recolhe métricas de desempenho em Azure. O processo obtém dados de várias fontes. Alguns dados de configuração são recolhidos localmente, e algumas métricas de desempenho são lidas a partir do Azure Monitor.
 
-Se resolver problemas utilizando o SAP Note [1999351,]abra uma mensagem de apoio ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
+Se a resolução de problemas utilizando o SAP Note [1999351] não resolver o problema, abra uma mensagem de apoio ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux. Por favor, anexe a versão C: \\ \\ Pacotes Plugins \\ Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows \\ &lt;>logapp.txt ao \\ incidente.
 
 #### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Os contadores de desempenho do Azure não aparecem
 
@@ -1442,7 +1450,7 @@ As métricas de desempenho em Azure são recolhidas por um daemon, que obtém da
 
 Para obter uma lista completa e atualizada de questões conhecidas, consulte o SAP Note [1999351,]que dispõe de informações adicionais de resolução de problemas para a extensão de Azure para SAP.
 
-Se a resolução de problemas utilizando o SAP Note [1999351] não resolver o problema, instale novamente a extensão, tal como descrito no [Configure the Azure Extension for SAP][deployment-guide-4.5]. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
+Se a resolução de problemas utilizando o SAP Note [1999351] não resolver o problema, instale novamente a extensão, tal como descrito no [Configure the Azure Extension for SAP][deployment-guide-4.5]. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux. Por favor, anexe o ficheiro de registo /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux- &lt; versão>/logapp.txt ao incidente.
 
 ## <a name="azure-extension-error-codes"></a>Códigos de erro de extensão Azure
 

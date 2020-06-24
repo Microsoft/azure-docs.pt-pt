@@ -11,19 +11,21 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 835bcba5e24137377c33c9166b1c3076d19cacc1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d73427db5fd168a31c478f92ef11307df136a775
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552385"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125417"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprenda a ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning. As datas armazenam informações de conexão, como o ID de subscrição e a autorização simbólica no cofre de [chaves](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Para entender onde as datas-tores se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
+Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas armazenam informações de conexão, como o ID de subscrição e a autorização simbólica no cofre de [chaves](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. 
 
-Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). Para soluções de armazenamento não suportadas e para poupar custos de saída de dados durante experiências de machine learning, recomendamos que [mova os seus dados](#move) para soluções de armazenamento suportadas da Azure. 
+**Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma soluções de armazenamento Azure suportadas.  Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). 
+
+Para entender onde as datas-tores se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,12 +97,14 @@ Todos os métodos de registo estão na [`Datastore`](https://docs.microsoft.com/
 
 Pode encontrar a informação necessária para preencher o `register_azure_*()` método no [portal Azure](https://portal.azure.com).
 
+* O nome datastore deve consistir apenas em letras minúsculas, dígitos e sublinhados. 
+
 * Se pretender utilizar uma chave de conta ou um sinal SAS para autenticação, selecione **Contas de Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. 
   * A **página 'Vista Geral'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
       1. Para obter as teclas de conta, aceda às **teclas de acesso** no painel **de definições.** 
       1. Para fichas SAS, aceda a **assinaturas de acesso compartilhadas** no painel **de Definições.**
 
-* Se pretender utilizar um princípio de serviço para a autenticação, vá às **inscrições da** sua App e selecione qual a aplicação que pretende utilizar. 
+* Se planeia utilizar um principal de serviço para autenticação, vá às **inscrições da** sua App e selecione qual a aplicação que pretende utilizar. 
     * A sua página **geral** correspondente conterá informações necessárias, como iD do inquilino e identificação do cliente.
 
 > [!IMPORTANT]
@@ -112,7 +116,7 @@ Para criar datastores para outros serviços de armazenamento e ver parâmetros o
 
 #### <a name="blob-container"></a>Contentor de blobs
 
-Para registar um recipiente de bolhas Azure como uma loja de dados, utilize [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
+Para registar um recipiente de bolhas Azure como uma loja de dados, utilize [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
 
 O código a seguir cria e regista a `blob_datastore_name` datastore para o `ws` espaço de trabalho. Esta loja de dados acede ao `my-container-name` recipiente blob na `my-account-name` conta de armazenamento, utilizando a chave de acesso à conta fornecida.
 
@@ -128,7 +132,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
-Se o seu recipiente de bolhas estiver na rede virtual, inclua o parâmetro `skip_validation=True` no seu [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) método. 
+Se o seu recipiente de bolhas estiver na rede virtual, inclua o parâmetro `skip_validation=True` no seu [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) método. 
 
 #### <a name="file-share"></a>Partilha de ficheiros
 
@@ -256,7 +260,7 @@ O `target_path` parâmetro especifica a localização na partilha de ficheiros (
 
 Também pode fazer o upload de uma lista de ficheiros individuais para a datastore através do `upload_files()` método.
 
-### <a name="download"></a>Download
+### <a name="download"></a>Transferência
 
 Descarregue os dados de uma loja de dados para o seu sistema de ficheiros local:
 

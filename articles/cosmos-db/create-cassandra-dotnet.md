@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: abab57a84a7c630bcce71056b49d73024ae75e9f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 88ec29ef1a0c0766a6c50af218e66f5fec3b9087
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310806"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118428"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET SDK e Azure Cosmos DB
 
@@ -120,31 +120,31 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**.
 
-    Utilize o ![botão Copiar](./media/create-cassandra-dotnet/copy.png) botão à direita do ecrã para copiar o valor do NOME DE UTILIZADOR.
+1. Utilize o ![botão Copiar](./media/create-cassandra-dotnet/copy.png) botão à direita do ecrã para copiar o valor do NOME DE UTILIZADOR.
 
-    ![Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação](./media/create-cassandra-dotnet/keys.png)
+   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação":::
 
-2. No Visual Studio, abra o ficheiro Program.cs. 
+1. No Visual Studio, abra o ficheiro Program.cs. 
 
-3. Cole o valor do NOME DE UTILIZADOR do portal em `<FILLME>` na linha 13.
+1. Cole o valor do NOME DE UTILIZADOR do portal em `<FILLME>` na linha 13.
 
     A Linha 13 do Program.cs deve agora ter um aspeto semelhante a 
 
     `private const string UserName = "cosmos-db-quickstart";`
 
-3. Volte ao portal e copie o valor do NOME DE UTILIZADOR. Cole o valor da PALAVRA-PASSE do portal em `<FILLME>` na linha 14.
+1. Volte ao portal e copie o valor do NOME DE UTILIZADOR. Cole o valor da PALAVRA-PASSE do portal em `<FILLME>` na linha 14.
 
     A Linha 14 do Program.cs deve agora ter um aspeto semelhante a 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-4. Volte ao portal e copie o valor do PONTO DE CONTACTO. Cole o valor do PONTO DE CONTACTO do portal em `<FILLME>` na linha 15.
+1. Volte ao portal e copie o valor do PONTO DE CONTACTO. Cole o valor do PONTO DE CONTACTO do portal em `<FILLME>` na linha 15.
 
     A Linha 15 do Program.cs deve agora ter um aspeto semelhante a 
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
-5. Guarde o ficheiro Program.cs.
+1. Guarde o ficheiro Program.cs.
     
 ## <a name="run-the-net-app"></a>Executar a aplicação .NET
 
@@ -157,13 +157,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     ```
 3. Prima CTRL + F5 para executar a aplicação. A aplicação é apresentada na janela da consola. 
 
-    ![Ver e verificar a saída](./media/create-cassandra-dotnet/output.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Ver e verificar a saída":::
 
     Prima CTRL + C para interromper a execução do programa e feche a janela da consola. 
     
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos.
 
-    ![Ver os dados no Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Ver os dados no Data Explorer":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

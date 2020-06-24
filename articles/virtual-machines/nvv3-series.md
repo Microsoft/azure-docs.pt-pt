@@ -3,17 +3,17 @@ title: Série NVv3 - Azure Virtual Machines
 description: Especificações para os VMs da série NVv3.
 services: virtual-machines
 ms.subservice: sizes
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b309cf5302d72e934e767161719f3d3795c77e8d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9f5d5bd9775507a663a4171faa8b8892357f65b0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674691"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736548"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -54,6 +54,6 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

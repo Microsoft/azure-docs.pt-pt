@@ -1,26 +1,26 @@
 ---
 title: 'Azure ExpressRoute: Reset circuit peering'
-description: Como desativar e ativar os pares do circuito ExpressRoute.
+description: Como desativar e ativar os perspões do circuito ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2018
 ms.author: charwen
-ms.openlocfilehash: 9f32eb439872de9e4687d046745c03bafd86b2fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc4266a92d510ac84118922f7db09c99234045b3
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75941745"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735256"
 ---
-# <a name="reset-expressroute-circuit-peerings"></a>Redefinir os pares do circuito ExpressRoute
+# <a name="reset-expressroute-circuit-peerings"></a>Reset ExpressRoute
 
-Este artigo descreve como desativar e ativar os pares de um circuito ExpressRoute usando powerShell. Quando desativar um olhar, a sessão de BGP tanto na ligação primária como na ligação secundária do circuito ExpressRoute será desligada. Perderá a conectividade através deste olhar para a Microsoft. Quando ativar um olhar, a sessão de BGP tanto na ligação primária como na ligação secundária do circuito ExpressRoute será trazida. Você vai recuperar a conectividade através deste olhar para a Microsoft. Pode ativar e desativar o Microsoft Peering e o Azure Private Peering num circuito ExpressRoute de forma independente. Quando configurar os pares no circuito ExpressRoute, os pares são ativados por padrão.
+Este artigo descreve como desativar e permitir os espreitamentos de um circuito ExpressRoute utilizando o PowerShell. Quando desativar um espreitamento, a sessão de BGP tanto na ligação primária como na ligação secundária do seu circuito ExpressRoute será desligada. Perderá a conectividade através deste olhar para a Microsoft. Quando ativar um espreitamento, a sessão de BGP tanto na ligação primária como na ligação secundária do seu circuito ExpressRoute será apresentada. Você vai recuperar a conectividade através deste olhar para a Microsoft. Pode ativar e desativar o Microsoft Peering e o Azure Private Peering num circuito ExpressRoute de forma independente. Quando configura pela primeira vez os seus pares no seu circuito ExpressRoute, os seus pares são ativados por defeito.
 
-Existem alguns cenários em que poderá achar útil redefinir os seus pares ExpressRoute.
-* Teste o seu design e implementação de recuperação de desastres. Por exemplo, tem dois circuitos ExpressRoute. Pode desativar os pinos de um circuito e forçar o tráfego da rede a falhar no outro circuito.
-* Ative a Deteção de Reencaminhamento Bidirecional (BFD) no Azure Private Peering ou no Microsoft Peering do seu circuito ExpressRoute. O BFD é ativado por padrão no Azure Private Peering se o seu circuito ExpressRoute for criado após 1 de agosto de 2018 e no Microsoft Peering se o seu circuito ExpressRoute for criado após 10 de janeiro de 2020. Se o seu circuito foi criado antes disso, o BFD não estava ativado. Pode ativar o BFD desativando o epeering e reativando-o. 
+Existem alguns cenários em que poderá achar útil repor os seus seus olhos ExpressRoute.
+* Teste o seu design de recuperação de desastres e implementação. Por exemplo, tem dois circuitos ExpressRoute. Pode desativar os olhos de um circuito e forçar o tráfego da rede a falhar no outro circuito.
+* Ativar a Deteção bidirecional de encaminhamento (BFD) no Azure Private Peering ou microsoft Peering do seu circuito ExpressRoute. O BFD é ativado por padrão no Azure Private Peering se o seu circuito ExpressRoute for criado após 1 de agosto de 2018 e no Microsoft Peering se o seu circuito ExpressRoute for criado após janeiro de 2020. Se o seu circuito foi criado antes disso, o BFD não estava habilitado. Pode ativar o BFD desativando o espreitamento e reenando-o. 
 
 ### <a name="working-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
 
@@ -28,9 +28,9 @@ Existem alguns cenários em que poderá achar útil redefinir os seus pares Expr
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="reset-a-peering"></a>Redefinir um olhar
+## <a name="reset-a-peering"></a>Reinicie um olhar
 
-1. Se estiver a executar o PowerShell localmente, abra a consola PowerShell com privilégios elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
+1. Se estiver a executar o PowerShell localmente, abra a sua consola PowerShell com privilégios elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
    ```azurepowershell
    Connect-AzAccount
@@ -45,12 +45,12 @@ Existem alguns cenários em que poderá achar útil redefinir os seus pares Expr
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
-4. Execute os seguintes comandos para recuperar o circuito ExpressRoute.
+4. Executar os seguintes comandos para recuperar o seu circuito ExpressRoute.
 
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. Identifique o epeering que pretende desativar ou ativar. *Olhares* é uma matriz. No exemplo seguinte, Peerings[0] é Azure Private Peering e Peerings[1] Microsoft Peering.
+5. Identifique o espreitamento que pretende desativar ou ativar. *Espreitar* é uma matriz. No exemplo seguinte, Peerings[0] é Azure Private Peering and Peerings[1] Microsoft Peering.
 
    ```azurepowershell-interactive
    Name                             : ExpressRouteARMCircuit
@@ -133,7 +133,7 @@ Existem alguns cenários em que poderá achar útil redefinir os seus pares Expr
    AllowClassicOperations           : False
    GatewayManagerEtag               :
    ```
-6. Executar as seguintes ordens para mudar o estado do peering.
+6. Executar as seguintes ordens para alterar o estado do espreguio.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Disabled"
@@ -142,6 +142,6 @@ Existem alguns cenários em que poderá achar útil redefinir os seus pares Expr
    O olhar deve estar num estado que definiu. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se precisar de ajuda para resolver um problema da ExpressRoute, consulte os seguintes artigos:
+Se precisar de ajuda para resolver um problema expressRoute, confira os seguintes artigos:
 * [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Resolver problemas de desempenho da rede](expressroute-troubleshooting-network-performance.md)

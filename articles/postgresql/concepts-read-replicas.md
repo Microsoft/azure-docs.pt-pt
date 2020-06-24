@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: be9e396a778b81e730906e4a6971505e164dfa43
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 06/11/2020
+ms.openlocfilehash: 48e23aa8cf20dd1225d3d7774d9703b960e0155a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636721"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737891"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -32,6 +32,9 @@ A funcionalidade de réplica de leitura utiliza a replicação assíncronea post
 
 ## <a name="cross-region-replication"></a>Replicação inter-região
 Pode criar uma réplica de leitura numa região diferente do seu servidor principal. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
+
+>[!NOTE]
+> Os servidores de nível básico só suportam a replicação da mesma região.
 
 Pode ter um servidor principal em qualquer [Base de Dados Azure para a região postgreSQL.](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql) Um servidor principal pode ter uma réplica na sua região emparelhada ou nas regiões universais de réplicas. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região principal.
 
@@ -172,6 +175,9 @@ Se tentar atualizar os valores do servidor acima descritos, mas não aderir aos 
 
 As regras de firewall, as regras de rede virtual e as definições de parâmetros não são herdadas do servidor principal para a réplica quando a réplica é criada ou posteriormente.
 
+### <a name="basic-tier"></a>Escalão Basic
+Os servidores de nível básico só suportam a replicação da mesma região.
+
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
 [PostgreSQL exige que](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) o valor do `max_prepared_transactions` parâmetro na réplica de leitura seja maior ou igual ao valor principal; caso contrário, a réplica não arranca. Se queres mudar `max_prepared_transactions` no mestre, muda-o primeiro nas réplicas.
 
@@ -181,6 +187,6 @@ Se parar a replicação entre um servidor principal e uma réplica de leitura, a
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autónomos apagados
 Quando um servidor principal é eliminado, todas as suas réplicas de leitura tornam-se servidores autónomos. As réplicas são reiniciadas para refletir esta mudança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [criar e gerir réplicas de leitura no portal Azure.](howto-read-replicas-portal.md)
 * Saiba como [criar e gerir réplicas de leitura na ALI Azure e NA API REST.](howto-read-replicas-cli.md)

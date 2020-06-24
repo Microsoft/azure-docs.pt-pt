@@ -1,19 +1,19 @@
 ---
-title: 'Azure ExpressRoute: Adicione uma porta de entrada para um VNet: PowerShell'
-description: Este artigo ajuda-o a adicionar porta de entrada VNet a um VNet vNet já criado para o ExpressRoute.
+title: 'Azure ExpressRoute: Adicione uma porta de entrada a um VNet: PowerShell'
+description: Este artigo ajuda-o a adicionar gateway VNet a um VNet de Resource Manager já criado para o ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 6e6d79afa1126acb26cb8856c39ba486cce31a5e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 58d2949a18bfbf2800ae6ab4ac74b02b05b3eb07
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74037418"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736395"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurar um gateway de rede virtual para o ExpressRoute com o PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "74037418"
 > 
 > 
 
-Este artigo ajuda-o a adicionar, redimensionar e remover uma porta de entrada de rede virtual (VNet) para um VNet pré-existente. Os passos para esta configuração aplicam-se aos VNets que foram criados utilizando o modelo de implementação do Gestor de Recursos para uma configuração ExpressRoute. Para mais informações, consulte [sobre os gateways de rede virtuais para o ExpressRoute](expressroute-about-virtual-network-gateways.md).
+Este artigo ajuda-o a adicionar, redimensionar e a remover uma porta de entrada de rede virtual (VNet) para um VNet pré-existente. Os passos para esta configuração aplicam-se aos VNets que foram criados utilizando o modelo de implementação do Gestor de Recursos para uma configuração ExpressRoute. Para mais informações, consulte [sobre as portas de rede virtuais para ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Antes de começar
 
@@ -39,4 +39,4 @@ Este artigo ajuda-o a adicionar, redimensionar e remover uma porta de entrada de
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de ter criado o portal VNet, pode ligar o seu VNet a um circuito ExpressRoute. Consulte [a Ligação de uma Rede Virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
+Depois de ter criado o gateway VNet, pode ligar o seu VNet a um circuito ExpressRoute. Consulte [a Ligação de uma Rede Virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).

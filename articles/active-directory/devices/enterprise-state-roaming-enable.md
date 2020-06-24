@@ -4,7 +4,7 @@ description: Perguntas frequentes sobre as definições de Roaming do Estado da 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ddbb62a758da2f55e05add7f675deec947629af
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194027"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253006"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 

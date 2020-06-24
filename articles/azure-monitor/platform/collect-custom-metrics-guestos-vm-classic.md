@@ -1,65 +1,65 @@
 ---
-title: Envie métricas vM clássicas do Windows para base de dados de métricas do Monitor Azure
-description: Envie métricas de OS do Hóspede para a loja de dados Azure Monitor para uma máquina virtual do Windows (clássica)
+title: Envie métricas clássicas do Windows VM para a base de dados de métricas do Azure Monitor
+description: Envie métricas de Clientes OS para a loja de dados do Azure Monitor para uma máquina virtual Windows (clássica)
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655822"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124550"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas de OS do Hóspede para a base de dados de métricas do Monitor Azure para uma máquina virtual do Windows (clássica)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas de OS para a base de dados de métricas do Azure Monitor para uma máquina virtual do Windows (clássica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A [extensão](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Diagnóstico do Monitor Azure (conhecida como "WAD" ou "Diagnósticos") permite-lhe recolher métricas e registos do sistema operativo convidado (Os convidados) que funciona como parte de uma máquina virtual, serviço em nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+A extensão Azure Monitor [Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conhecida como "WAD" ou "Diagnostics") permite-lhe recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows (clássica) para a base de dados métrica do Monitor Azure. A partir da versão 1.11 do Diagnostics, pode escrever métricas diretamente na loja de métricas Do Monitor Do Azure, onde as métricas padrão da plataforma já são recolhidas. 
+Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows (clássica) para a base de dados métrica do Azure Monitor. A partir da versão 1.11 do Diagnostics, pode escrever métricas diretamente na loja de métricas do Azure Monitor, onde já são recolhidas métricas padrão da plataforma. 
 
-Guardá-los neste local permite-lhe aceder às mesmas ações que tem para métricas de plataforma. As ações incluem alerta em tempo quase real, gráficos, encaminhamento, acesso a partir de uma API REST, e muito mais. No passado, a extensão de Diagnóstico supor ao Armazenamento Azure, mas não à loja de dados Azure Monitor. 
+Guardá-los neste local permite-lhe aceder às mesmas ações que tem para as métricas da plataforma. As ações incluem alerta em tempo real, gráfico, encaminhamento, acesso a partir de uma API REST, e muito mais. No passado, a extensão de Diagnóstico escreveu ao Azure Storage, mas não à loja de dados do Azure Monitor. 
 
 O processo que está delineado neste artigo funciona apenas em máquinas virtuais clássicas que estão a executar o sistema operativo Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Deve ser [administrador de serviçoou coadministrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) na sua subscrição Azure. 
+- Deve ser [administrador de serviço ou coadministrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) na sua assinatura Azure. 
 
-- A sua subscrição deve ser registada na [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- A sua subscrição deve estar registada no [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- É necessário instalar o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview)
+- Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instaladas.
 
 - O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](metrics-custom-overview.md#supported-regions)
 
-## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Crie uma conta clássica de máquina virtual e armazenamento
+## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Crie uma clássica caixa de máquinas virtuais e uma conta de armazenamento
 
 1. Crie um VM clássico utilizando o portal Azure.
-   ![Criar VM clássico](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
+   ![Criar VM Clássico](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
-1. Quando estiver a criar este VM, escolha a opção de criar uma nova conta de armazenamento clássica. Usamos esta conta de armazenamento em etapas posteriores.
+1. Quando estiver a criar este VM, escolha a opção de criar uma nova conta de armazenamento clássico. Usamos esta conta de armazenamento em etapas posteriores.
 
-1. No portal Azure, vá ao recurso das contas de **armazenamento.** Selecione **Keys**e tome nota do nome da conta de armazenamento e da chave da conta de armazenamento. Precisa desta informação em passos posteriores.
+1. No portal Azure, aceda à lâmina de recursos das **contas de Armazenamento.** Selecione **Keys**, e tome nota do nome da conta de armazenamento e da chave da conta de armazenamento. Precisa desta informação em etapas posteriores.
    ![Chaves de acesso ao armazenamento](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Crie um princípio de serviço no seu inquilino de Diretório Ativo Azure utilizando as instruções da [Create a Service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note o seguinte durante este processo: 
+Crie um diretor de serviço no seu inquilino Azure Ative Directory utilizando as instruções da [Create a service principal.](../../active-directory/develop/howto-create-service-principal-portal.md) Note o seguinte durante este processo: 
 - Crie um novo segredo de cliente para esta aplicação.
 - Guarde a chave e o ID do cliente para utilização em etapas posteriores.
 
-Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso contra o que pretende emitir métricas. Pode utilizar um grupo de recursos ou uma subscrição inteira.  
+Dê a esta aplicação permissões "Monitoring Metrics Publisher" ao recurso contra o quais pretende emitir métricas. Pode utilizar um grupo de recursos ou uma subscrição completa.  
 
 > [!NOTE]
-> A extensão de Diagnóstico utiliza o diretor de serviço para autenticar contra o Monitor Azure e emitir métricas para o seu VM clássico.
+> A extensão de Diagnóstico utiliza o principal de serviço para autenticar contra o Azure Monitor e emitir métricas para o seu VM clássico.
 
-## <a name="author-diagnostics-extension-configuration"></a>Configuração de extensão de diagnóstico de autor
+## <a name="author-diagnostics-extension-configuration"></a>Configuração da extensão de Diagnóstico de Autor
 
-1. Prepare o ficheiro de configuração de extensão de Diagnóstico. Este ficheiro dita quais os registos e contadores de desempenho que a extensão de Diagnóstico deve recolher para o seu VM clássico. Segue um exemplo:
+1. Prepare o seu ficheiro de configuração de extensão de Diagnóstico. Este ficheiro dita quais os registos e os contadores de desempenho que a extensão de Diagnóstico deve recolher para o seu VM clássico. Segue um exemplo:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,7 +105,7 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
     <IsEnabled>true</IsEnabled>
     </DiagnosticsConfiguration>
     ```
-1. Na secção "SinksConfig" do seu ficheiro de diagnóstico, defina um novo lavatório Do Monitor Azure, da seguinte forma:
+1. Na secção "SinksConfig" do seu ficheiro de diagnóstico, defina uma nova pia do Azure Monitor, da seguinte forma:
 
     ```xml
     <SinksConfig>
@@ -118,7 +118,7 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
     </SinksConfig>
     ```
 
-1. Na secção do seu ficheiro de configuração onde está listada a lista dos contadores de desempenho a recolher, encaminhe os contadores de desempenho para o lavatório do Monitor Azure "AzMonSink".
+1. Na secção do seu ficheiro de configuração onde está listada a lista de contadores de desempenho a recolher, encaminhe os contadores de desempenho para o lavatório "AzMonSink" do Monitor Azure.
 
     ```xml
     <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
@@ -143,9 +143,9 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
 
 1. Guarde este ficheiro localmente.
 
-## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Implemente a extensão de Diagnósticos ao seu serviço na nuvem
+## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Implemente a extensão de Diagnóstico para o seu serviço na nuvem
 
-1. Lançar PowerShell e iniciar sessão.
+1. Lançar PowerShell e iniciar s.a.
 
     ```powershell
     Login-AzAccount
@@ -157,32 +157,32 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
     $VM = Get-AzureVM -ServiceName <VM’s Service_Name> -Name <VM Name>
     ```
 
-1. Delineie o contexto da conta de armazenamento clássica que foi criada com o VM.
+1. Desajuste o contexto da conta de armazenamento clássica que foi criada com o VM.
 
     ```powershell
     $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
-1.  Desloque o caminho do ficheiro Diagnostics para uma variável utilizando o seguinte comando:
+1.  Desacorda o percurso do ficheiro De diagnóstico para uma variável utilizando o seguinte comando:
 
     ```powershell
     $diagconfig = “<path of the diagnostics configuration file with the Azure Monitor sink configured>”
     ```
 
-1.  Prepare a atualização para o seu VM clássico com o ficheiro de diagnóstico que tem o lavatório Azure Monitor configurado.
+1.  Prepare a atualização para o seu VM clássico com o ficheiro de diagnóstico que tem a pia do Azure Monitor configurada.
 
     ```powershell
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $diagconfig -VM $VM -StorageContext $Storage_Context
     ```
 
-1.  Desloque a atualização para o seu VM executando o seguinte comando:
+1.  Implemente a atualização para o seu VM executando o seguinte comando:
 
     ```powershell
     Update-AzureVM -ServiceName "ClassicVMWAD7216" -Name "ClassicVMWAD" -VM $VM_Update.VM
     ```
 
 > [!NOTE]
-> É ainda obrigatório fornecer uma conta de armazenamento como parte da instalação da extensão de Diagnósticos. Quaisquer registos ou contadores de desempenho especificados no ficheiro De diagnóstico de config serão escritos na conta de armazenamento especificada.
+> É ainda obrigatório fornecer uma conta de armazenamento como parte da instalação da extensão de Diagnóstico. Quaisquer registos ou contadores de desempenho especificados no ficheiro Diagnóstico config serão escritos na conta de armazenamento especificada.
 
 ## <a name="plot-the-metrics-in-the-azure-portal"></a>Traçar as métricas no portal Azure
 
@@ -190,16 +190,16 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
 
 1.  No menu esquerdo, selecione **Monitor.**
 
-1.  Na lâmina **monitora,** selecione **Métricas**.
+1.  Na lâmina **monitor,** selecione **Métricas**.
 
     ![Navegar métricas](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
-1. No menu de drop-down de recursos, selecione o seu VM clássico.
+1. No menu de entrega de recursos, selecione o seu VM clássico.
 
-1. No menu de lançamento dos espaços de nome, **selecione azure.vm.windows.guest**.
+1. No menu drop-down dos espaços de nome, selecione **azure.vm.windows.guest**.
 
-1. No menu de entrega de métricas, selecione **Memory\Committed Bytes in Use**.
-   ![Métricas do enredo](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
+1. No menu suspenso de métricas, selecione **Memory\Committed Bytes in Use**.
+   ![Métricas de enredo](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

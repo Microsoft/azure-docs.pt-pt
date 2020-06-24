@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 5baf9ce63442ee60d212362df92a44d0fa2723fa
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 7d5a7d82aceae6902ad953e314434f1a3736a5e1
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610309"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117544"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -524,7 +524,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | espaços de nome | global | 6-50 | Alfanuméricos e hífens<br><br>Comece e termine com alfanumérico. |
+> | espaços de nome | global | 6-50 | Alfanuméricos e hífens<br><br>Comece com a carta. Termine com alfanumérico. |
 > | espaços de nome / AutorizaçõesRules | espaço de nomes | 1-256 | Alfanuméricos, períodos, hífens e sublinhados.<br><br>Comece alfanumérico. |
 > | espaços de nomes / notificaçõesHubs | espaço de nomes | 1-260 | Alfanuméricos, períodos, hífens e sublinhados.<br><br>Comece alfanumérico. |
 > | espaços de nome / notificaçõesHubs / Autorizações | centro de notificação | 1-256 | Alfanuméricos, períodos, hífens e sublinhados.<br><br>Comece alfanumérico. |
@@ -702,6 +702,6 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!NOTE]
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para recomendações sobre como nomear recursos, consulte [Ready: Convenções recomendadas de nomeação e marcação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

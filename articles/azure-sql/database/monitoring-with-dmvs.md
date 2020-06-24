@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
-ms.openlocfilehash: 68ae42faaf4f3aea851fa1649ba033f60f2b199a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4aaf62af01933b24e666a3a1d626b666869d07e5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193921"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117383"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorização da Base de Dados SQL do Microsoft Azure e desempenho de instância gerida do Azure SQL utilizando vistas de gestão dinâmicas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -364,7 +364,7 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Declarações de alta memória de identidade
+### <a name="identify-high-memory-consuming-statements"></a>Identificar declarações de elevado consumo de memória
 
 Utilize a seguinte consulta para identificar declarações de elevado consumo de memória:
 

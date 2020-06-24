@@ -6,17 +6,17 @@ author: antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b71daf66eea924107af8b052967e807fabfb8edf
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669992"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213283"
 ---
 # <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>REST APIs para armazém de dados Azure Synapse Analytics
 
@@ -97,6 +97,6 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [Manage compute](sql-data-warehouse-manage-compute-overview.md).

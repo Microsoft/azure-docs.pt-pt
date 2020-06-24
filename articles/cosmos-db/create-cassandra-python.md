@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dc8f00e5764cea856e028acb7adb5aebc070c625
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559854"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118278"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Python SDK e Azure Cosmos DB
 
@@ -137,31 +137,31 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
-    Utilize o ![botão Copiar](./media/create-cassandra-python/copy.png) botão à direita do ecrã, para copiar o valor superior, o PONTO DE CONTACTO.
+1. Utilize o ![botão Copiar](./media/create-cassandra-python/copy.png) botão à direita do ecrã, para copiar o valor superior, o PONTO DE CONTACTO.
 
-    ![Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação](./media/create-cassandra-python/keys.png)
+    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
 
-2. Abra o ficheiro *config.py.* 
+1. Abra o ficheiro *config.py.* 
 
-3. Cole o valor do PONTO DE CONTACTO do portal em `<FILLME>` na linha 10.
+1. Cole o valor do PONTO DE CONTACTO do portal em `<FILLME>` na linha 10.
 
     A linha 10 deve ter agora um aspeto semelhante a 
 
     `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
-4. Copie o valor do NOME DE UTILIZADOR no portal e cole-o em `<FILLME>` na linha 6.
+1. Copie o valor do NOME DE UTILIZADOR no portal e cole-o em `<FILLME>` na linha 6.
 
     A linha 6 deve ter agora um aspeto semelhante a 
 
     `'username': 'cosmos-db-quickstart',`
     
-5. Copie o valor da PALAVRA-PASSE no portal e cole-o em `<FILLME>` na linha 8.
+1. Copie o valor da PALAVRA-PASSE no portal e cole-o em `<FILLME>` na linha 8.
 
     A linha 8 deve ter agora um aspeto semelhante a
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
-6. Guarde o ficheiro *config.py.*
+1. Guarde o ficheiro *config.py.*
     
 ## <a name="use-the-x509-certificate"></a>Utilizar o certificado X509
 
@@ -196,11 +196,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     Prima CTRL+C para parar a execução do programa e feche a janela da consola. 
 
-    ![Ver e verificar a saída](./media/create-cassandra-python/output.png)
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Ver e verificar a saída":::
     
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    ![Ver os dados no Data Explorer](./media/create-cassandra-python/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Ver os dados no Data Explorer":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

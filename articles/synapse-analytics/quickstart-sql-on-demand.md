@@ -1,41 +1,41 @@
 ---
-title: Utilize o SQL a pedido (pré-visualização)
-description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando sQL on-demand (pré-visualização).
+title: Utilizar SQL a pedido (pré-visualização)
+description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando SQL on demand (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ebf7086aba3e311bc595c6eafa4b2debdc32e7f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cbc13695610e8fe190793a7dc925a414f5da2e53
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118374"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207435"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Quickstart: Use SQL a pedido
 
-Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Armazenamento Azure. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando sQL on-demand. Os formatos suportados estão listados no [OPENROWSET](sql/develop-openrowset.md).
+Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Azure Storage. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando SQL on demand. Os formatos suportados estão listados em [OPENROWSET](sql/develop-openrowset.md).
 
-Este quickstart mostra consultas: CSV, Apache Parquet e ficheiros JSON.
+Este quickstart mostra consultas: ficheiros CSV, Apache Parquet e JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Escolha um cliente SQL para emitir consultas:
 
-- [O Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta web que pode usar para navegar ficheiros no armazenamento e criar consultas SQL.
-- [O Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que lhe permite executar consultas e cadernos SQL na sua base de dados On-demand.
-- [O SQL Server Management Studio](sql/get-started-ssms.md) é uma ferramenta de cliente que lhe permite executar consultas SQL na sua base de dados On-demand.
+- [O Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta web que pode usar para navegar em ficheiros no armazenamento e criar consultas SQL.
+- [O Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que lhe permite executar consultas e cadernos SQL na sua base de dados On demand.
+- [SQL Server Management Studio](sql/get-started-ssms.md) é uma ferramenta de cliente que lhe permite executar consultas SQL na sua base de dados on-demand.
 
 Parâmetros para este arranque rápido:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço final do serviço sql on-demand    | Usado como nome do servidor                                   |
-| Região de ponto final do serviço sql a pedido     | Usado para determinar que armazenamento usaremos em amostras |
+| Endereço de ponto final de serviço a pedido da SQL    | Usado como nome de servidor                                   |
+| SqL região de ponto final de serviço a pedido     | Usado para determinar que armazenamento vamos usar em amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Usado para aceder ao ponto final                               |
 | A base de dados usada para criar pontos de vista         | Base de dados utilizada como ponto de partida em amostras       |
 
@@ -43,18 +43,18 @@ Parâmetros para este arranque rápido:
 
 Antes de utilizar as amostras:
 
-- Crie base de dados para os seus pontos de vista (caso pretenda utilizar pontos de vista)
-- Criar credenciais a utilizar pela SQL a pedido para aceder a ficheiros no armazenamento
+- Crie base de dados para as suas opiniões (caso pretenda utilizar vistas)
+- Criar credenciais a serem usadas pela SQL a pedido de acesso a ficheiros no armazenamento
 
 ### <a name="create-database"></a>Criar base de dados
 
-Crie a sua própria base de dados para fins de demonstração. Você vai usar esta base de dados para criar as suas opiniões e para as consultas de amostra neste artigo.
+Crie a sua própria base de dados para fins de demonstração. Você usará esta base de dados para criar as suas opiniões e para as consultas de amostra neste artigo.
 
 > [!NOTE]
 > As bases de dados são utilizadas apenas para visualizar metadados, não para dados reais.
->Escreva o nome da base de dados que utilizar para ser utilizado mais tarde no Quickstart.
+>Anote o nome da base de dados que usa para ser usado mais tarde no Quickstart.
 
-Use a seguinte consulta, mudando `mydbname` para um nome à sua escolha:
+Use a seguinte consulta, `mydbname` alterando-se para um nome à sua escolha:
 
 ```sql
 CREATE DATABASE mydbname
@@ -62,8 +62,8 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Criar fonte de dados
 
-Para executar consultas utilizando o SQL a pedido, crie fonte de dados que a SQL a pedido pode usar para aceder a ficheiros no armazenamento.
-Execute o seguinte fragmento de código para criar uma fonte de dados utilizada em amostras nesta secção:
+Para executar consultas usando SQL a pedido, crie uma fonte de dados que o SQL on demand pode usar para aceder a ficheiros no armazenamento.
+Execute o seguinte corte de código para criar fonte de dados utilizada em amostras nesta secção:
 
 ```sql
 -- create master key that will protect the credentials:
@@ -80,13 +80,13 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
 );
 ```
 
-## <a name="query-csv-files"></a>Consultas de ficheiros CSV
+## <a name="query-csv-files"></a>Ficheiros CSV de consulta
 
-A seguinte imagem é uma pré-visualização do ficheiro a ser consultado:
+A imagem a seguir é uma pré-visualização do ficheiro a ser consultado:
 
 ![Primeiras 10 linhas do ficheiro CSV sem cabeçalho, nova linha estilo Windows.](./sql/media/query-single-csv-file/population.png)
 
-A seguinte consulta mostra como ler um ficheiro CSV que não contém uma linha de cabeçalho, com nova linha ao estilo do Windows, e colunas delimitadas de vírem:
+A seguinte consulta mostra como ler um ficheiro CSV que não contém uma linha de cabeçalho, com uma nova linha ao estilo do Windows e colunas delimitadas em vírgula:
 
 ```sql
 SELECT TOP 10 *
@@ -107,15 +107,15 @@ WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```
 
-Pode especificar o esquema no tempo de compilação de consultas.
-Para mais exemplos, veja como consultar o [ficheiro CSV](sql/query-single-csv-file.md).
+Pode especificar o esquema na hora da compilação de consultas.
+Para mais exemplos, consulte como [consultar o ficheiro CSV](sql/query-single-csv-file.md).
 
 ## <a name="query-parquet-files"></a>Consultar ficheiros de Parquet
 
-A amostra que se segue mostra as capacidades automáticas de inferência do esquema para consulta de ficheiros Parquet. Devolve o número de filas em setembro de 2017 sem especificar o esquema.
+A amostra que se segue mostra as capacidades automáticas de inferência de esquema para consulta de ficheiros Parquet. Devolve o número de filas em setembro de 2017 sem especificar o esquema.
 
 > [!NOTE]
-> Não é preciso especificar colunas na `OPENROWSET WITH` cláusula ao ler ficheiros Parquet. Nesse caso, a SQL a pedido utiliza metadados no ficheiro Parquet e liga colunas pelo nome.
+> Não é preciso especificar colunas na `OPENROWSET WITH` cláusula ao ler ficheiros Parquet. Nesse caso, o SQL on-demand utiliza metadados no ficheiro Parquet e liga colunas pelo nome.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -127,13 +127,13 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Encontre mais informações sobre a [consulta de ficheiros de parquet](sql/query-parquet-files.md).
+Saiba mais sobre [a consulta dos ficheiros parquet](sql/query-parquet-files.md).
 
 ## <a name="query-json-files"></a>Consultar ficheiros JSON
 
-### <a name="json-sample-file"></a>Arquivo de amostra JSON
+### <a name="json-sample-file"></a>Ficheiro de amostra JSON
 
-Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm uma única entrada de livro com a seguinte estrutura:
+Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm entrada de livro único com a seguinte estrutura:
 
 ```json
 {  
@@ -153,7 +153,7 @@ Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm
 
 ### <a name="query-json-files"></a>Consultar ficheiros JSON
 
-A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro com o título *Probabilístico e Métodos Estatísticos em Criptologia, Uma Introdução por artigos selecionados:*
+A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados*:
 
 ```sql
 SELECT
@@ -176,19 +176,19 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
+> Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, o FIELDTERMINATOR, o FIELDQUOTE e o ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está agora pronto para continuar com os seguintes artigos:
 
-- [Consulta single CSV arquivo](sql/query-single-csv-file.md)
-- [Questiões e vários ficheiros CSV](sql/query-folders-multiple-csv-files.md)
+- [Consulta único ficheiro CSV](sql/query-single-csv-file.md)
+- [Pastas de consulta e vários ficheiros CSV](sql/query-folders-multiple-csv-files.md)
 - [Consulta de ficheiros específicos](sql/query-specific-files.md)
 - [Consultar ficheiros de Parquet](sql/query-parquet-files.md)
 - [Consultar tipos aninhados de Parquet](sql/query-parquet-nested-types.md)
 - [Consultar ficheiros JSON](sql/query-json-files.md)
-- [Criação e utilização de pontos de vista](sql/create-use-views.md)
-- [Criação e utilização de tabelas externas](sql/create-use-external-tables.md)
-- [Persistir resultado da consulta ao armazenamento do Azure](sql/create-external-table-as-select.md)
-- [Consulta single CSV arquivo](sql/query-single-csv-file.md)
+- [Criar e usar vistas](sql/create-use-views.md)
+- [Criar e utilizar tabelas externas](sql/create-use-external-tables.md)
+- [Persistência resultado da consulta para o armazenamento do Azure](sql/create-external-table-as-select.md)
+- [Consulta único ficheiro CSV](sql/query-single-csv-file.md)

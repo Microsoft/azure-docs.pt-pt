@@ -1,55 +1,66 @@
 ---
-title: Melhorar a excelência operacional das suas subscrições Azure com o Azure Advisor
-description: Use o Advisor para otimizar e amadurecer em excelência operacional para as suas assinaturas Azure
+title: Melhorar a excelência operacional com o Conselheiro
+description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelência operacional para as suas subscrições Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 861b12c2267ffa89985ff11357de92da5a4ac870
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658449"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125400"
 ---
-# <a name="achieve-operational-excellence-with-azure-advisor"></a>Alcançar a excelência operacional com o Azure Advisor
+# <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
 
-As recomendações de excelência operacional do Azure Advisor ajudam o cliente com eficiência de processos e fluxos de trabalho, gestão de recursos e boas práticas de implantação. Pode obter estas recomendações do Advisor no separador **Excelência Operacional** do painel de instrumentos Do Advisor.
+Recomendações de excelência operacional no Azure Advisor podem ajudá-lo com: 
+- Eficiência do processo e do fluxo de trabalho.
+- Gestão de recursos.
+- Implementação de boas práticas. 
 
-## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-issues-affect-you"></a>Crie alertas de Saúde do Serviço Azure para ser notificado quando os problemas do Azure o afetarem
+Pode obter estas recomendações no separador **Excelência Operacional** do painel de instrumentos Do Advisor.
 
-Recomendamos a criação de alertas de Saúde do Serviço Azure para serem notificados quando os problemas de serviço da Azure o afetarem. [O Azure Service Health](https://azure.microsoft.com/features/service-health/) é um serviço gratuito que fornece orientação e suporte personalizados quando é afetado por um problema de serviço Azure. O Advisor identifica subscrições que não têm alertas configurados e recomenda a criação de uma.
+## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-problems-affect-you"></a>Crie alertas de Saúde do Serviço Azure para ser notificado quando os problemas do Azure o afetarem
+
+Recomendamos que crie alertas de Saúde do Serviço Azure para que seja notificado quando os problemas de serviço do Azure o afetarem. [O Azure Service Health](https://azure.microsoft.com/features/service-health/) é um serviço gratuito que fornece orientação e suporte personalizados quando é afetado por um problema de serviço Azure. O Advisor identifica subscrições que não têm alertas configurados e recomenda a sua configuração.
 
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Desenhe as suas contas de armazenamento para evitar atingir o limite máximo de subscrição
+## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Desenhe as suas contas de armazenamento para evitar atingir o limite máximo de subscrição
 
-Uma região de Azure pode suportar um máximo de 250 contas de armazenamento por subscrição. Uma vez atingido o limite, não poderá criar mais contas de armazenamento nessa região/combinação de subscrição. O Advisor verificará as suas subscrições e recomendações de superfície para que possa conceber menos contas de armazenamento para qualquer um que esteja perto de atingir o limite máximo.
+Uma região de Azure pode suportar um máximo de 250 contas de armazenamento por subscrição. Depois de atingir esse limite, não poderá criar contas de armazenamento nessa região/combinação de subscrição. O advisor verifica as suas subscrições e fornece recomendações para que você concene para menos contas de armazenamento para qualquer região/subscrição que esteja perto de atingir o limite.
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Certifique-se de que tem acesso a especialistas em nuvem Azure quando precisar
 
-Ao executar uma carga de trabalho crítica de negócios, é importante ter acesso ao suporte técnico quando necessário. O Advisor identifica potenciais subscrições críticas ao negócio que não têm suporte técnico incluído no seu plano de suporte e recomenda o upgrade para uma opção que inclua suporte técnico.
+Ao executar uma carga de trabalho crítica de negócios, é importante ter acesso a suporte técnico quando você precisa. O Advisor identifica potenciais subscrições críticas ao negócio que não têm suporte técnico incluído no seu plano de suporte. Recomenda o upgrade para uma opção que inclua suporte técnico.
 
-## <a name="delete-and-recreate-your-pool-to-remove-a-deprecated-internal-component"></a>Eliminar e recriar o conjunto para remover um componente interno preterido
+## <a name="delete-and-re-create-your-pool-to-remove-a-deprecated-internal-component"></a>Elimine e re-crie a sua piscina para remover um componente interno precotado
 
-O conjunto está a utilizar um componente interno preterido. Elimine e recrie o conjunto para obter uma fiabilidade e um desempenho melhorados.
+Se a sua piscina estiver a utilizar um componente interno precotado, elimine e reco crie a piscina para uma maior estabilidade e desempenho.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de registo inválido
 
-O Azure Advisor detetará regras de alerta que tenham consultas inválidas especificadas na sua secção de condições. As regras de alerta de registo são criadas no Azure Monitor e são utilizadas para executar consultas de análise em intervalos especificados. Os resultados da consulta determinam se um alerta tem de ser acionado. As consultas de análise podem tornar-se inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O Advisor recomendará que corrija a consulta na regra de alerta para evitar que fique desativada automaticamente e garanta a cobertura de monitorização dos seus recursos em Azure. [Saiba mais sobre regras de alerta de resolução de problemas](https://aka.ms/aa_logalerts_queryrepair)
+O Azure Advisor deteta regras de alerta que têm consultas inválidas especificadas na sua secção de condições. Pode criar regras de alerta de registo no Azure Monitor e usá-las para executar consultas de análise em intervalos especificados. Os resultados da consulta determinam se um alerta tem de ser acionado. As consultas analíticas podem tornar-se inválidas ao longo do tempo devido a alterações nos recursos, tabelas ou comandos referenciados. O Advisor recomenda que corrija a consulta na regra de alerta para evitar que seja automaticamente desativada e garantir a monitorização da cobertura dos seus recursos em Azure. [Saiba mais sobre regras de alerta de resolução de problemas.](https://aka.ms/aa_logalerts_queryrepair)
 
-## <a name="follow-best-practices-using-azure-policy"></a>Siga as melhores práticas usando a Política Azure
+## <a name="use-azure-policy-recommendations"></a>Use recomendações da Política Azure
 
-O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos sobre os recursos. Seguem-se as recomendações da Política Azure para o ajudar a alcançar a excelência operacional: 
-1. Gerir Tags utilizando a Política Azure: Esta política adiciona ou substitui a etiqueta e o valor especificados quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação. Além disso, isto não modifica etiquetas em grupos de recursos.
-2. Impor requisitos de geo-conformidade utilizando a Política Azure: A política permite-lhe restringir as localizações que a sua organização pode especificar ao utilizar recursos. 
-3. Especificar skus de máquina virtual permitida para implementações: Esta política permite especificar um conjunto de SKUs de máquina virtual que a sua organização pode implementar.
-4. Imponha “Auditar VMs que não utilizam discos geridos” com o Azure Policy
-5. Utilizar "Herdar uma etiqueta de grupos de recursos" utilizando a Política Azure: A política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos-mãe quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação.
+A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e gerir políticas. Estas políticas impõem regras e efeitos nos seus recursos. As seguintes recomendações da Política Azure podem ajudá-lo a alcançar a excelência operacional: 
 
-## <a name="next-steps"></a>Próximos passos
+**Gerir etiquetas.** Esta política adiciona ou substitui a etiqueta e o valor especificados quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação. Esta política não modifica etiquetas em grupos de recursos.
+
+**Impor os requisitos de geo-conformidade.** Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos. 
+
+**Especifique as máquinas virtuais permitidas SKUs para implementações.** Esta política permite-lhe especificar um conjunto de SKUs de máquinas virtuais que a organização pode implementar.
+
+**Impor *VMs de auditoria que não utilizem discos geridos*.**
+
+**Ativar *herdar uma etiqueta de grupos de recursos*.** Esta política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos principal quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)
 * [Introdução](advisor-get-started.md)
-* [Recomendações de Custos Do Consultor](advisor-cost-recommendations.md)
-* [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)
-* [Recomendações de Alta Disponibilidade do Conselheiro](advisor-high-availability-recommendations.md)
-* [Recomendações de Segurança do Conselheiro](advisor-security-recommendations.md)
+* [Recomendações de custos do Assistente](advisor-cost-recommendations.md)
+* [Recomendações de desempenho do conselheiro](advisor-performance-recommendations.md)
+* [Recomendações de fiabilidade do consultor](advisor-high-availability-recommendations.md)
+* [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)
+* [Conselheiro REST API](https://docs.microsoft.com/rest/api/advisor/)

@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,4 +15,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678615"
 ---
-Neste momento, a desprovisionamento não é suportada através do portal Azure ou PowerShell. Para desprovisionar, contacte [o peering da Microsoft](mailto:peeringexperience@microsoft.com).
+Neste momento, a desprovisionamento não é suportada através do portal Azure ou powerShell. Para desprovisionar, contacte [a Microsoft a espreitar.](mailto:peeringexperience@microsoft.com)

@@ -1,34 +1,34 @@
 ---
 title: Mecanismos de autenticação com a declaração COPY
-description: Descreve os mecanismos de autenticação para os dados de carga a granel
+description: Delineia os mecanismos de autenticação para os dados de carga em massa
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7f2d77f3b174d8a00df9f7a93b6fef80b9cd29e8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f5f6c6970ad8bb697ceb118b6725b37e93ca80b5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647612"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213062"
 ---
-# <a name="securely-load-data-using-synapse-sql"></a>Carregue de forma segura os dados usando synapse SQL
+# <a name="securely-load-data-using-synapse-sql"></a>Carregar de forma segura dados usando O SQL de Sinapse
 
-Este artigo realça e fornece exemplos sobre os mecanismos de autenticação segura para a [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A declaração COPY é a forma mais flexível e segura de carregar a granel dados em Synapse SQL.
-## <a name="supported-authentication-mechanisms"></a>Mecanismos de autenticação suportados
+Este artigo destaca e dá exemplos sobre os mecanismos de autenticação seguro para a [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A declaração COPY é a forma mais flexível e segura de carregar dados em massa no Synapse SQL.
+## <a name="supported-authentication-mechanisms"></a>Mecanismos de autenticação apoiados
 
-A seguinte matriz descreve os métodos de autenticação suportados para cada tipo de ficheiro e conta de armazenamento. Isto aplica-se ao local de armazenamento de origem e à localização do ficheiro de erro.
+A matriz a seguir descreve os métodos de autenticação suportados para cada tipo de ficheiro e conta de armazenamento. Isto aplica-se ao local de armazenamento de fontes e à localização do ficheiro de erro.
 
 |                      |                CSV                |              Parquet              |                ORC                |
 | :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Armazenamento de blobs do Azure  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
-| Lago de Dados Azure Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
+|  Armazenamento de blobs do Azure  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/CHAVE              |              SAS/CHAVE              |
+| Azure Data Lake Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
 
-## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Chave da conta de armazenamento com LF como o exterminador de linha (nova linha estilo Unix)
+## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Chave de conta de armazenamento com LF como exterminador de linha (nova linha estilo Unix)
 
 
 ```sql
@@ -45,9 +45,9 @@ WITH (
 ```
 > [!IMPORTANT]
 >
-> - Utilize o valor hexadecimal (0x0A) para especificar o caracteres Line Feed/Newline. Note que a declaração copy interpretará a corda '\n' como '\r\n' (novalinha de retorno do transporte).
+> - Utilize o valor hexadecimal (0x0A) para especificar o caractere 'Feed/Newline' da Linha. Note que a declaração COPY interpretará a cadeia '\n' como '\r\n' (newline de retorno de transporte).
 
-## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Assinaturas de Acesso Partilhado (SAS) com CRLF como o exterminador de linha (nova linha estilo Windows)
+## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Assinaturas de acesso compartilhadas (SAS) com CRLF como exterminador de linha (nova linha estilo Windows)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'
@@ -62,7 +62,7 @@ WITH (
 
 > [!IMPORTANT]
 >
-> - Não especifique o ROWTERMINATOR como '\r\n' que será interpretado como '\r\r\n' e pode resultar em questões de análise
+> - Não especifique o ROWTERMINATOR como '\r\n' que será interpretado como '\r\r\n' e pode resultar em problemas de análise
 
 ## <a name="c-managed-identity"></a>C. Identidade Gerida
 
@@ -70,9 +70,9 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale o Azure PowerShell utilizando este [guia](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Se tiver uma conta de armazenamento v1 ou blob de uso geral, tem primeiro de atualizar para v2 de uso geral utilizando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-3. Deve permitir **que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligada no menu de definições de **firewalls e configurações** de redes virtuais da conta Azure. Consulte este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) para mais informações.
+1. Instale a Azure PowerShell utilizando este [guia](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+2. Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de atualizar para v2 de uso [geral.](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+3. Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Consulte este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) para mais informações.
 #### <a name="steps"></a>Passos
 
 1. No PowerShell, **registe o seu servidor SQL** com o Azure Ative Directory (AAD):
@@ -83,17 +83,17 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
 
-2. Crie uma **Conta de Armazenamento v2** de uso geral utilizando este [guia](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+2. Crie uma **conta de armazenamento v2 para fins gerais** utilizando este [guia.](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
    > [!NOTE]
-   > Se tiver uma conta de armazenamento v1 ou blob de uso geral, tem primeiro de **atualizar para v2** utilizando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   > Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de **atualizar para v2** utilizando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Na sua conta de armazenamento, navegue para o Controlo de **Acesso (IAM)** e selecione Adicionar a atribuição de **funções**. Atribuir a função **de Proprietário, Colaborador ou** RBAC do Storage Blob ao seu servidor SQL.
+3. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o **papel de Proprietário de Dados Blob de Armazenamento, Colaborador ou Leitor** RBAC ao seu servidor SQL.
 
    > [!NOTE]
-   > Só os membros com privilégio proprietário podem executar este passo. Para várias funções incorporadas para os recursos Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+   > Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas para recursos Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
    
-4. Pode agora executar a declaração copy especificando "Identidade Gerida":
+4. Pode agora executar a declaração COPY especificando "Identidade Gerida":
 
     ```sql
     COPY INTO dbo.target_table
@@ -106,16 +106,16 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 
 > [!IMPORTANT]
 >
-> - Especifique a função De proprietário de **dados** de **Blob de armazenamento,** colaborador ou rBAC do leitor. Estes papéis são diferentes dos papéis integrados do Azure de Proprietário, Colaborador e Leitor. 
+> - Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticação de Diretório Ativo Azure (AAD)
+## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticação do Diretório Ativo Azure (AAD)
 #### <a name="steps"></a>Passos
 
-1. Na sua conta de armazenamento, navegue para o Controlo de **Acesso (IAM)** e selecione Adicionar a atribuição de **funções**. Atribuir o papel de **Proprietário, Colaborador ou** RBAC do Storage Blob ao seu utilizador AAD. 
+1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário, Colaborador ou Leitor** de Dados de Armazenamento ao utilizador AAD. 
 
-2. Configure a autenticação ad ad azure através da seguinte [documentação](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
+2. Configure a autenticação AD através da [seguinte documentação](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
-3. Ligue-se ao seu pool SQL utilizando o Ative Directory onde pode agora executar a declaração COPY sem especificar quaisquer credenciais:
+3. Conecte-se à sua piscina SQL utilizando o Ative Directory, onde agora pode executar a declaração COPY sem especificar quaisquer credenciais:
 
     ```sql
     COPY INTO dbo.target_table
@@ -127,17 +127,17 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 
 > [!IMPORTANT]
 >
-> - Especifique a função De proprietário de **dados** de **Blob de armazenamento,** colaborador ou rBAC do leitor. Estes papéis são diferentes dos papéis integrados do Azure de Proprietário, Colaborador e Leitor. 
+> - Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
 
 ## <a name="e-service-principal-authentication"></a>E. Autenticação principal do serviço
 #### <a name="steps"></a>Passos
 
-1. [Criar uma aplicação azure Ative Directory (AAD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
-2. [Obter ID de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
+1. [Criar uma aplicação Azure Ative Directory (AAD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+2. [Obtenha iD de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [Obtenha a chave de autenticação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
-4. [Obtenha o V1 OAuth 2.0 ponto final de token](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Atribuir permissões de leitura, escrita e execução para o seu pedido de AAD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na sua conta de armazenamento
-6. Agora pode executar a declaração copy:
+4. [Obtenha o V1 OAuth 2.0 token ponto final](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+5. [Atribua permissões de leitura, escrita e execução à sua aplicação AAD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na sua conta de armazenamento
+6. Pode agora executar a declaração COPY:
 
     ```sql
     COPY INTO dbo.target_table
@@ -152,9 +152,9 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 
 > [!IMPORTANT]
 >
-> - Utilize a versão **V1** do ponto final de 2.0 token OAuth
+> - Utilize a versão **V1** do ponto final simbólico OAuth 2.0
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o artigo de declaração da [CÓPIA](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para a sintaxe detalhada
-- Consulte o artigo sobre [visão geral](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) de dados para carregar as melhores práticas
+- Consulte o artigo [do artigo de declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para obter a sintaxe detalhada
+- Consulte o artigo [geral de carregamento de dados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) para as melhores práticas de carregamento

@@ -1,20 +1,20 @@
 ---
-title: 'Azure ExpressRoute: Configure MACsec'
-description: Este artigo ajuda-o a configurar o MACsec para proteger as ligações entre os routers de borda e os routers de borda da Microsoft.
+title: 'Azure ExpressRoute: Configurar MACsec'
+description: Este artigo ajuda-o a configurar o MACsec para garantir as ligações entre os routers de borda e os routers de borda da Microsoft.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 572147ca43e9a4dea9d9601dfa1dac8ba1c97ed0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458237"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737058"
 ---
-# <a name="configure-macsec-on-expressroute-direct-ports"></a>Configure MACsec nas portas ExpressRoute Direct
+# <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar MACsec em portas diretas ExpressRoute
 
 Este artigo ajuda-o a configurar o MACsec para proteger as ligações entre os routers de borda e os routers de borda da Microsoft utilizando o PowerShell.
 
@@ -22,7 +22,7 @@ Este artigo ajuda-o a configurar o MACsec para proteger as ligações entre os r
 
 Antes de iniciar a configuração, confirme o seguinte:
 
-* Compreende os fluxos de trabalho de [fornecimento direto expressRoute Direct](expressroute-erdirect-about.md).
+* Compreende o [ExpressRoute Direct provisioning fluxos de trabalho](expressroute-erdirect-about.md).
 * Criou um [recurso portuário ExpressRoute Direct.](expressroute-howto-erdirect.md)
 * Se pretender executar o PowerShell localmente, verifique se a versão mais recente do Azure PowerShell está instalada no seu computador.
 
@@ -32,22 +32,22 @@ Antes de iniciar a configuração, confirme o seguinte:
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-### <a name="sign-in-and-select-the-right-subscription"></a>Iniciar sessão e selecionar a subscrição certa
+### <a name="sign-in-and-select-the-right-subscription"></a>Iniciar s.000 e selecionar a subscrição certa
 
-Para iniciar a configuração, inicie o sessão na sua conta Azure e selecione a subscrição que pretende utilizar.
+Para iniciar a configuração, inicie sação na sua conta Azure e selecione a subscrição que pretende utilizar.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. Criar cofre chave Azure, segredos MACsec e identidade do utilizador
+## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. Criar cofre de chaves Azure, segredos MACsec e identidade do utilizador
 
-1. Crie uma instância key vault para armazenar segredos mACsec num novo grupo de recursos.
+1. Crie uma instância Key Vault para armazenar segredos do MACsec num novo grupo de recursos.
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name "your_resource_group" -Location "resource_location"
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Se já tem um cofre chave ou um grupo de recursos, pode reutilizá-los. No entanto, é fundamental que ative a funcionalidade [ **de eliminação suave** ](../key-vault/general/overview-soft-delete.md) no seu cofre chave existente. Se o soft-delete não estiver ativado, pode utilizar os seguintes comandos para o ativar:
+    Se já tiver um cofre-chave ou um grupo de recursos, pode reutilizá-los. No entanto, é fundamental que ative a [função **de eliminação suave** ](../key-vault/general/overview-soft-delete.md) no cofre de teclas existente. Se não estiver ativado o apagamento suave, pode utilizar os seguintes comandos para o ativar:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -59,12 +59,12 @@ Para iniciar a configuração, inicie o sessão na sua conta Azure e selecione a
     $identity = New-AzUserAssignedIdentity  -Name "identity_name" -Location "resource_location" -ResourceGroupName "your_resource_group"
     ```
 
-    Se a Identidade Não For reconhecida como uma cmdlet PowerShell válida, instale o seguinte módulo (no modo Administrador) e reexecutar o comando acima.
+    Se a Nova AzUserAssignedIdin não for reconhecida como um cmdlet PowerShell válido, instale o módulo seguinte (no modo administrador) e reexpede o comando acima.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity
     ```
-3. Crie uma chave de associação de conectividade (CAK) e um nome-chave da associação de conectividade (CKN) e guarde-os no cofre chave.
+3. Crie uma chave de associação de conectividade (CAK) e um nome-chave de associação de conectividade (CKN) e guarde-os no cofre chave.
 
     ```azurepowershell-interactive
     $CAK = ConvertTo-SecureString "your_key" -AsPlainText -Force
@@ -72,26 +72,26 @@ Para iniciar a configuração, inicie o sessão na sua conta Azure e selecione a
     $MACsecCAKSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CAK_name" -SecretValue $CAK
     $MACsecCKNSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CKN_name" -SecretValue $CKN
     ```
-4. Atribuir a permissão GET à identidade do utilizador.
+4. Atribua a permissão GET à identidade do utilizador.
 
     ```azurepowershell-interactive
     Set-AzKeyVaultAccessPolicy -VaultName "your_key_vault_name" -PermissionsToSecrets get -ObjectId $identity.PrincipalId
     ```
 
-   Agora esta identidade pode obter os segredos, por exemplo CAK e CKN, do cofre chave.
-5. Detete esta identidade de utilizador para ser utilizada pela ExpressRoute.
+   Esta identidade pode obter os segredos, por exemplo, CAK e CKN, do cofre das chaves.
+5. Desaprova esta identidade de utilizador para ser utilizada pelo ExpressRoute.
 
     ```azurepowershell-interactive
     $erIdentity = New-AzExpressRoutePortIdentity -UserAssignedIdentityId $identity.Id
     ```
  
-## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. Configure MACsec nas portas diretas expressRoute
+## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. Configurar o MACsec nas portas diretas ExpressRoute
 
 ### <a name="to-enable-macsec"></a>Para ativar o MACsec
 
-Cada instância ExpressRoute Direct tem duas portas físicas. Pode optar por ativar o MACsec em ambas as portas ao mesmo tempo ou ativar o MACsec numa das portas de cada vez. Fazê-lo uma porta de cada vez (mudando o tráfego para uma porta ativa enquanto está a servir a outra porta) pode ajudar a minimizar a interrupção se o seu ExpressRoute Direct já estiver em serviço.
+Cada instância Direct ExpressRoute tem duas portas físicas. Pode optar por ativar o MACsec em ambas as portas ao mesmo tempo ou ativar o MACsec numa porta de cada vez. Fazê-lo uma porta de cada vez (mudando o tráfego para uma porta ativa enquanto faz a manutenção da outra porta) pode ajudar a minimizar a interrupção se o seu ExpressRoute Direct já estiver em serviço.
 
-1. Desconte os segredos da MACsec e cifra e associe a identidade do utilizador à porta para que o código de gestão ExpressRoute possa aceder aos segredos do MACsec, se necessário.
+1. Desconte segredos e cifras MACsec e associe a identidade do utilizador à porta para que o código de gestão ExpressRoute possa aceder aos segredos do MACsec, se necessário.
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
@@ -104,7 +104,7 @@ Cada instância ExpressRoute Direct tem duas portas físicas. Pode optar por ati
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
-2. (Opcional) Se os portos estiverem em Estado de Down Administrativo, pode executar os seguintes comandos para trazer as portas.
+2. (Opcional) Se as portas estiverem no estado administrativo de Down, pode executar os seguintes comandos para trazer as portas.
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
@@ -113,7 +113,7 @@ Cada instância ExpressRoute Direct tem duas portas físicas. Pode optar por ati
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
 
-    Neste ponto, o MACsec está ativado nas portas ExpressRoute Direct do lado da Microsoft. Se ainda não o configurou nos seus dispositivos de borda, pode proceder a configurá-los com os mesmos segredos e cifra sinuosos.
+    Neste ponto, o MACsec está ativado nas portas Direct ExpressRoute do lado da Microsoft. Se ainda não o configurar nos seus dispositivos de borda, pode proceder à sua configuração com os mesmos segredos e cifras do MACsec.
 
 ### <a name="to-disable-macsec"></a>Para desativar o MACsec
 
@@ -132,9 +132,9 @@ Set-AzExpressRoutePort -ExpressRoutePort $erDirect
 Neste ponto, o MACsec é desativado nas portas ExpressRoute Direct do lado da Microsoft.
 
 ### <a name="test-connectivity"></a>Testar conectividade
-Depois de configurar o MACsec (incluindo a atualização da chave MACsec) nas portas ExpressRoute Direct, [verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões de BGP dos circuitos estão a funcionar. Se ainda não tiver nenhum circuito nas portas, por favor crie um primeiro e instale o Azure Private Peering ou o Microsoft Peering do circuito. Se o MACsec estiver mal configurado, incluindo o desfasamento da chave MACsec, entre os dispositivos de rede e os dispositivos de rede da Microsoft, não verá a resolução ARP na camada 2 e o estabelecimento bGP na camada 3. Se tudo estiver configurado corretamente, deverá ver as rotas bGP publicitadas corretamente em ambas as direções e os dados da sua aplicação fluem em conformidade com o ExpressRoute.
+Depois de configurar o MACsec (incluindo a atualização da chave MACsec) nas portas Direct ExpressRoute, [verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões de BGP dos circuitos estão a funcionar. Se ainda não tiver nenhum circuito nas portas, por favor crie um primeiro e instale o Azure Private Peering ou o Microsoft Peering do circuito. Se o MACsec estiver mal configurado, incluindo o desfasamento das chaves MACsec, entre os seus dispositivos de rede e os dispositivos de rede da Microsoft, não verá a resolução ARP na camada 2 e no estabelecimento de BGP na camada 3. Se tudo estiver configurado corretamente, deverá ver as rotas BGP publicitadas corretamente em ambas as direções e o fluxo de dados da sua aplicação em conformidade com o ExpressRoute.
 
 ## <a name="next-steps"></a>Passos seguintes
 1. [Criar um circuito ExpressRoute no ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Ligue um circuito ExpressRoute a uma rede virtual Azure](expressroute-howto-linkvnet-arm.md)
-3. [Verifique a conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+3. [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

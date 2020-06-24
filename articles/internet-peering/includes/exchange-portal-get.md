@@ -1,7 +1,7 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 titleSuffix: Azure
-description: incluir ficheiro
+description: ficheiro de inclusão
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -15,9 +15,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678530"
 ---
-Depois do recurso **Peering** ser implantado com sucesso, pode vê-lo seguindo estes passos.
+Depois de o recurso **Peering** ser implementado com sucesso, pode vê-lo seguindo estes passos.
 
-1. Vá aos **grupos de Recursos**e selecione o grupo de recursos selecionado quando criou o recurso **Peering.** Utilize a caixa **de filtro** se tiver demasiados grupos de recursos.
+1. Vá aos **grupos de Recursos**e selecione o grupo de recursos selecionado quando criou o recurso **Peering.** Utilize a caixa **Filtro** se tiver demasiados grupos de recursos.
 
     > [!div class="mx-imgBorder"]
     > ![Grupos de recursos](../media/setup-direct-get-resourcegroup.png)
@@ -25,26 +25,26 @@ Depois do recurso **Peering** ser implantado com sucesso, pode vê-lo seguindo e
 1. Selecione o recurso **Peering** que criou.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-direct-get-open.png)
+    > ![Vista de recursos de peering](../media/setup-direct-get-open.png)
 
-1. A página **de visão geral** mostra informações de alto nível, como mostrado aqui.
-
-    > [!div class="mx-imgBorder"]
-    > ![Painel de visão geral do recurso de observação](../media/setup-exchange-get-overview.png)
-
-1. À esquerda, selecione **informações ASN** para visualizar as informações submetidas quando criou o PeerAsn.
+1. A **página 'Visão Geral'** mostra informações de alto nível, como mostrado aqui.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering recursos ASN informação](../media/setup-direct-get-asninfo.png)
+    > ![Painel de visão geral do recurso](../media/setup-exchange-get-overview.png)
 
-1. À esquerda, selecione **Ligações**. No topo do ecrã, você vê um resumo de ligações de observação entre a sua ASN e microsoft, em diferentes instalações dentro do metro. Também pode aceder ao resumo das ligações a partir da página **'Visão Geral',** selecionando **Ligações** no painel central, como mostrado.
-
-    > [!div class="mx-imgBorder"]
-    > ![Peering conexões de recursos](../media/setup-exchange-get-connectionssummary.png)
-
-    * O Estado de **Ligação** corresponde ao estado da configuração da ligação de pares. Os estados apresentados neste campo seguem o diagrama estatal mostrado na passagem de [persponamento](../walkthrough-exchange-all.md)da Exchange .
-    * **O IPv4 Session State** e **o IPv6 Session State** correspondem aos estados da sessão iPv4 e IPv6 BGP, respectivamente.  
-    * Quando seleciona uma linha na parte superior do ecrã, a secção **de Ligação** na parte inferior mostra detalhes para cada ligação. Selecione as setas para expandir **configuração,** **endereço IPv4**e **endereço IPv6**.
+1. À esquerda, selecione **informações ASN** para ver as informações submetidas quando criou o PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de observação de recursos](../media/setup-exchange-get-connectionsipv4.png)
+    > ![Informação ASN de recurso de esprevação](../media/setup-direct-get-asninfo.png)
+
+1. À esquerda, selecione **Connections**. No topo do ecrã, vê-se um resumo das ligações entre a ASN e a Microsoft, através de diferentes instalações dentro do metrô. Também pode aceder ao resumo das ligações a partir da página **'Vista Geral',** selecionando **Ligações** no painel central, como mostrado.
+
+    > [!div class="mx-imgBorder"]
+    > ![Conexões de recursos de espreitar](../media/setup-exchange-get-connectionssummary.png)
+
+    * **O Estado de Ligação** corresponde ao estado da configuração da ligação de pares. Os estados apresentados neste campo seguem o diagrama de estado mostrado no [Persigoramento do Perspetivo.](../walkthrough-exchange-all.md)
+    * **O Estado da Sessão do IPv4** e o **Estado da Sessão do IPv6** correspondem aos estados da sessão do IPv4 e do IPv6 BGP, respectivamente.  
+    * Quando seleciona uma linha na parte superior do ecrã, a secção **'Ligação'** na parte inferior mostra detalhes para cada ligação. Selecione as setas para expandir **a configuração,** **o endereço IPv4**e **o endereço IPv6**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Vista de recursos de peering](../media/setup-exchange-get-connectionsipv4.png)

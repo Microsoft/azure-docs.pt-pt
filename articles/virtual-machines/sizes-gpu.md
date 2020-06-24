@@ -1,19 +1,19 @@
 ---
 title: Tamanhos Azure VM - GPU / Microsoft Docs
 description: Lista os diferentes tamanhos otimizados da GPU disponíveis para máquinas virtuais em Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como o armazenamento e largura de banda de rede para tamanhos nesta série.
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 38e94bc461ffa2f8028f5650ea3a55164163f71a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678159"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735919"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquinas virtuais
 
@@ -58,6 +58,6 @@ Para tirar partido das capacidades da GPU dos condutores da série Azure N VMs, 
 - [Com otimização de armazenamento](sizes-storage.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

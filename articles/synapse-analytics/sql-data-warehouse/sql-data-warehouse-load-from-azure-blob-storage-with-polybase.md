@@ -1,46 +1,46 @@
 ---
-title: Carregar dados de retalho da Contoso para um armazém de dados Synapse SQL
+title: Carregue os dados de retalho da Contoso para um armazém de dados Synapse SQL
 description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho Contoso em Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416132"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213317"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de retalho contoso para Synapse SQL 
 
 Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho contoso num armazém de dados Synapse SQL.
 
-Neste tutorial irá:
+Neste tutorial você:
 
-1. Configure PolyBase para carregar a partir do armazenamento de blob Azure
-2. Carregue dados públicos na sua base de dados
-3. Execute otimizações após a carga estar terminada.
+1. Configure a PolyBase para carregar a partir do armazenamento de bolhas Azure
+2. Carregue os dados públicos na sua base de dados
+3. Execute otimizações após o fim da carga.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para executar este tutorial, você precisa de uma conta Azure que já tem um armazém de dados Synapse SQL. Se não tiver um armazém de dados aprovisionado, consulte Criar um armazém de [dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta Azure que já tem um armazém de dados Synapse SQL. Se não tiver um armazém de dados a forrado, consulte [criar um armazém de dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configure a fonte de dados
 
-A PolyBase utiliza objetos externos T-SQL para definir a localização e os atributos dos dados externos. As definições externas de objetos são armazenadas no seu armazém de dados Synapse SQL. Os dados são armazenados externamente.
+A PolyBase utiliza objetos externos T-SQL para definir a localização e atributos dos dados externos. As definições de objetos externos são armazenadas no seu armazém de dados Synapse SQL. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
-**Ignore este passo** se estiver a carregar os dados públicos do Contoso. Não precisa de acesso seguro aos dados públicos, uma vez que já é acessível a ninguém.
+**Salta este passo** se estiveres a carregar os dados públicos do Contoso. Não precisa de acesso seguro aos dados públicos, uma vez que já está acessível a ninguém.
 
-**Não ignore este passo** se estiver a usar este tutorial como modelo para carregar os seus próprios dados. Para aceder aos dados através de uma credencial, utilize o seguinte script para criar uma credencial com um espaço de dados. Em seguida, use-o ao definir a localização da fonte de dados.
+**Não salte este passo** se estiver a usar este tutorial como modelo para carregar os seus próprios dados. Para aceder aos dados através de uma credencial, utilize o seguinte script para criar uma credencial de âmbito de base de dados. Em seguida, utilize-o ao definir a localização da fonte de dados.
 
 ```sql
 -- A: Create a master key.
@@ -77,7 +77,7 @@ WITH (
 
 ## <a name="create-the-external-data-source"></a>Criar a fonte de dados externa
 
-Utilize este comando CRIAR FONTE DE [DADOS EXTERNOs](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para armazenar a localização dos dados e o tipo de dados.
+Utilize este comando [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para armazenar a localização dos dados e o tipo de dados.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -89,11 +89,11 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Se optar por tornar públicos os seus contentores de armazenamento de blob azul, lembre-se que, como proprietário de dados, será cobrado por taxas de egress de dados quando os dados saem do centro de dados.
+> Se optar por tornar públicos os seus recipientes de armazenamento de bolhas de azure, lembre-se que, como titular dos dados, será cobrado por encargos de saída de dados quando os dados saírem do centro de dados.
 
 ## <a name="configure-the-data-format"></a>Configurar o formato de dados
 
-Os dados são armazenados em ficheiros de texto no armazenamento de blob Azure, e cada campo é separado com um delimitador. No SSMS, execute o seguinte comando CREATE EXTERNAL FILE FORMAT para especificar o formato dos dados nos ficheiros de texto. Os dados contoso são descomprimidos e o tubo deslimitado.
+Os dados são armazenados em ficheiros de texto no armazenamento de blob Azure, e cada campo é separado com um delimiter. No SSMS, executar o seguinte comando CREATE EXTERNAL FILE FORMAT para especificar o formato dos dados nos ficheiros de texto. Os dados do Contoso não estão recomprimidos e os tubos delimitados.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat
@@ -107,11 +107,11 @@ WITH
 );
 ```
 
-## <a name="create-the-schema-for-the-external-tables"></a>Crie o esquema para as tabelas externas
+## <a name="create-the-schema-for-the-external-tables"></a>Criar o esquema para as tabelas externas
 
-Agora que especificou a fonte de dados e o formato de ficheiros, está pronto para criar o esquema para as tabelas externas.
+Agora que especificou a fonte de dados e o formato de ficheiro, está pronto para criar o esquema para as tabelas externas.
 
-Para criar um local para armazenar os dados contoso na sua base de dados, crie um esquema.
+Para criar um local para armazenar os dados do Contoso na sua base de dados, crie um esquema.
 
 ```sql
 CREATE SCHEMA [asb]
@@ -120,9 +120,9 @@ GO
 
 ## <a name="create-the-external-tables"></a>Criar as tabelas externas
 
-Executar o seguinte script para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que está a fazer aqui é definir nomes de colunas e tipos de dados, e encadi-los à localização e formato dos ficheiros de armazenamento de blob Azure. A definição está armazenada no armazém de dados e os dados ainda estão no Blob de Armazenamento Azure.
+Execute o seguinte script para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que está a fazer aqui é definir nomes de colunas e tipos de dados, e encaderna-los à localização e formato dos ficheiros de armazenamento de bolhas Azure. A definição é armazenada no armazém de dados e os dados ainda estão na Bolha de Armazenamento Azure.
 
-O parâmetro **LOCATION** é a pasta sob a pasta raiz no Blob de Armazenamento Azure. Cada mesa está numa pasta diferente.
+O parâmetro **LOCALIZAÇÃO** é a pasta sob a pasta raiz na Bolha de Armazenamento Azure. Cada mesa está numa pasta diferente.
 
 ```sql
 --DimProduct
@@ -208,11 +208,11 @@ WITH
 
 ## <a name="load-the-data"></a>Carregar os dados
 
-Existem diferentes formas de aceder a dados externos.  Pode consultar dados diretamente das tabelas externas, carregar os dados em novas tabelas no armazém de dados ou adicionar dados externos às tabelas de depósitos de dados existentes.  
+Existem diferentes formas de aceder a dados externos.  Pode consultar os dados diretamente das tabelas externas, carregar os dados em novas tabelas no armazém de dados ou adicionar dados externos às tabelas de armazém de dados existentes.  
 
 ### <a name="create-a-new-schema"></a>Criar um novo esquema
 
-O CTAS cria uma nova tabela que contém dados.  Primeiro, crie um esquema para os dados contoso.
+O CTAS cria uma nova tabela que contém dados.  Primeiro, crie um esquema para os dados do contoso.
 
 ```sql
 CREATE SCHEMA [cso]
@@ -221,11 +221,11 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Carregue os dados em novas tabelas
 
-Para carregar dados do armazenamento de blob Azure na tabela do armazém de dados, utilize a declaração [CREATE TABLE AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Carregar com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) aproveita as tabelas externas fortemente digitadas que criou. Para carregar os dados em novas tabelas, utilize uma declaração CTAS por tabela.
+Para carregar os dados do armazenamento de bolhas Azure na tabela do armazém de dados, utilize a declaração [CREATE TABLE AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Carregar com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) aproveita as tabelas externas fortemente dactilografadas que criou. Para carregar os dados em novas tabelas, utilize uma declaração CTAS por tabela.
 
 O CTAS cria uma nova tabela e povoa-a com os resultados de uma declaração selecionada. O CTAS define a nova tabela para ter as mesmas colunas e tipos de dados que os resultados da declaração selecionada. Se selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e tipos de dados na tabela externa.
 
-Neste exemplo, criamos tanto a dimensão como a tabela de factos como mesas distribuídas pelo hash.
+Neste exemplo, criamos tanto a dimensão como a tabela de factos como tabelas de haxixe distribuídas.
 
 ```sql
 SELECT GETDATE();
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compressão da loja de colunas
 
-Por padrão, o armazém de dados Synapse SQL armazena a tabela como um índice de loja de colunas agrupado. Após a conclusão de uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há razões diferentes para isto acontecer. Para saber mais, consulte a gestão dos índices da [columnstore.](sql-data-warehouse-tables-index.md)
+Por padrão, o armazém de dados Synapse SQL armazena a tabela como um índice de loja de colunas agrupado. Depois de concluída uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há diferentes razões para isto acontecer. Para saber mais, consulte [gerir os índices de loja de colunas.](sql-data-warehouse-tables-index.md)
 
 Para otimizar o desempenho da consulta e a compressão da loja de colunas após uma carga, reconstrua a tabela para forçar o índice da loja de colunas a comprimir todas as linhas.
 
@@ -286,15 +286,15 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para obter mais informações sobre a manutenção dos índices da columnstore, consulte o artigo de índices de lojas de [gestão.](sql-data-warehouse-tables-index.md)
+Para obter mais informações sobre a manutenção dos índices de loja de colunas, consulte o artigo [índices de loja de colunas.](sql-data-warehouse-tables-index.md)
 
-## <a name="optimize-statistics"></a>Otimizar as estatísticas
+## <a name="optimize-statistics"></a>Otimizar estatísticas
 
-É melhor criar estatísticas de uma coluna única imediatamente após uma carga. Se souberes que certas colunas não vão estar em predicados de consulta, podes ignorar a criação de estatísticas nessas colunas. Se criarestatísticas de coluna única em cada coluna, pode levar muito tempo para reconstruir todas as estatísticas.
+É melhor criar estatísticas de coluna única imediatamente após uma carga. Se sabes que certas colunas não vão estar em pré-doutoramentos, podes saltar a criação de estatísticas nessas colunas. Se criar estatísticas de coluna única em cada coluna, pode levar muito tempo para reconstruir todas as estatísticas.
 
-Se decidir criar estatísticas de coluna única em cada coluna de cada tabela, pode utilizar a amostra `prc_sqldw_create_stats` de código de procedimento armazenada no artigo de [estatística.](sql-data-warehouse-tables-statistics.md)
+Se decidir criar estatísticas de coluna única em todas as colunas de cada tabela, pode utilizar a amostra de código de procedimento armazenada `prc_sqldw_create_stats` no artigo [de estatística.](sql-data-warehouse-tables-statistics.md)
 
-O exemplo que se segue é um bom ponto de partida para a criação de estatísticas. Cria estatísticas de uma coluna única sobre cada coluna na tabela de dimensões e em cada coluna de junção nas tabelas de factos. Pode sempre adicionar estatísticas únicas ou multi-colunas a outras colunas de tabelas de factos mais tarde.
+O exemplo a seguir é um bom ponto de partida para a criação de estatísticas. Cria estatísticas de coluna única em cada coluna na tabela de dimensões, e em cada coluna de junção nas tabelas de factos. Pode sempre adicionar estatísticas únicas ou multi-colunas a outras colunas de tabelas de factos mais tarde.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -340,9 +340,9 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>Realização desbloqueada!
 
-Carregou com sucesso dados públicos no seu armazém de dados. Grande trabalho!
+Você carregou com sucesso dados públicos no seu armazém de dados. Grande trabalho!
 
-Agora pode começar a consultar as tabelas para explorar os seus dados. Execute a seguinte consulta para descobrir o total de vendas por marca:
+Pode agora começar a consultar as tabelas para explorar os seus dados. Executar a seguinte consulta para descobrir o total de vendas por marca:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -354,5 +354,5 @@ GROUP BY p.[BrandName]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para carregar o conjunto completo de dados, execute o exemplo carregue todo o armazém de [dados de retalho Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) do repositório de amostras do Microsoft SQL Server.
-Para obter mais dicas de desenvolvimento, consulte decisões de [design e técnicas de codificação para armazéns](sql-data-warehouse-overview-develop.md)de dados.
+Para carregar o conjunto completo de dados, executar o exemplo [carregue o armazém completo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) de dados de retalho Contoso do repositório de amostras do Microsoft SQL Server.
+Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para armazéns de dados.](sql-data-warehouse-overview-develop.md)

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9131ce9b211a33fe45ef571f3a274b4ddc81739f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/19/2020
+ms.openlocfilehash: f22ef4d1ebd9c4d3c226556c4ef28a873edd80ea
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430392"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119261"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou entidades da Azure:
 
 > [!IMPORTANT]
-> Se não especificar um serviço Azure existente, um deles será criado automaticamente durante a criação do espaço de trabalho. Deve sempre especificar um grupo de recursos.
+> Se não especificar um serviço Azure existente, um deles será criado automaticamente durante a criação do espaço de trabalho. Deve sempre especificar um grupo de recursos. Ao anexar a sua própria conta de armazenamento, certifique-se de que tem as capacidades de Azure Blob e Azure File ativadas e que o Espaço Hierárquico (ADLS Gen 2) está desativado. Pode sempre anexar a sua própria conta de armazenamento mais tarde, após a criação do espaço de trabalho como datastores.
 
 | Serviço | Parâmetro para especificar uma instância existente |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Para mais informações, consulte o [espaço de trabalho az ml partilhar](https:
 
 ## <a name="sync-keys-for-dependent-resources"></a>Chaves sincronizadas para recursos dependentes
 
-Se alterar as teclas de acesso para um dos recursos utilizados pelo seu espaço de trabalho, utilize o seguinte comando para sincronizar as novas teclas com o espaço de trabalho:
+Se alterar as teclas de acesso para um dos recursos utilizados pelo seu espaço de trabalho, leva cerca de uma hora para o espaço de trabalho sincronizar com a nova chave. Para forçar o espaço de trabalho a sincronizar imediatamente as novas teclas, utilize o seguinte comando:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

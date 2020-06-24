@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 18158c867ba7a3307585eab0f950d15a6a12aa7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5323e54a81c7123e3e60f69d05accef9a63c7bc4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342634"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737449"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -105,7 +105,7 @@ A Azure Migrate Server Assessment considera atualmente o custo da licença do si
 
 A Avaliação do Servidor recolhe continuamente os dados de desempenho das máquinas no local e utiliza-os para recomendar o SKU da VM e o SKU do disco no Azure. [Saiba como os](concepts-assessment-calculation.md#calculate-sizing-performance-based) dados baseados no desempenho são recolhidos.
 
-## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combintion-of-reserved-instances-vm-uptime-and-discount-"></a>Porque é que a minha avaliação mostra um aviso de que foi criada com uma combinação inválida de Instâncias Reservadas, Uptime e Discount (%)?
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Porque é que a minha avaliação mostra um aviso de que foi criada com uma combinação inválida de Instâncias Reservadas, Uptime VM e Discount (%)?
 Quando seleciona 'Instâncias Reservadas', o 'Desconto (%)» e as propriedades de 'uptime' VM não são aplicáveis. Como a sua avaliação foi criada com uma combinação inválida destas propriedades, os botões de edição e recalculação são desativados. Por favor, crie uma nova avaliação. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualização da dependência no Governo de Azure
@@ -132,15 +132,14 @@ Para os VMs Linux, certifique-se de que os comandos de instalação para o MMA e
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências para > hora
 
-Embora a Azure Migrate lhe permita voltar a uma data específica no último mês, a duração máxima para a qual pode visualizar as dependências é de uma hora.
+Com uma análise de dependência sem agente, pode visualizar dependências ou exportá-las num mapa por um período máximo de 30 dias.
 
-Por exemplo, pode utilizar a funcionalidade de duração do tempo no mapa de dependência para visualizar as dependências de ontem, mas pode vê-las apenas por um período de uma hora.
-
-No entanto, pode utilizar registos do Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) durante uma duração mais longa.
+Com a análise da dependência baseada em agentes, embora a Azure Migrate permita voltar a uma data específica no último mês, a duração máxima para a qual pode visualizar as dependências é de uma hora. Por exemplo, pode utilizar a funcionalidade de duração do tempo no mapa de dependência para visualizar as dependências de ontem, mas pode vê-las apenas por um período de uma hora. No entanto, pode utilizar registos do Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) durante uma duração mais longa.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Dependências visualizadas para > 10 máquinas
 
-Na Avaliação do Servidor Azure Migrate, pode [visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMs. Para grupos maiores, recomendamos que divida os VMs em grupos mais pequenos para visualizar as dependências.
+Na Avaliação do Servidor Azure Migrate, com análise de dependência baseada em agente, pode [visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMs. Para grupos maiores, recomendamos que divida os VMs em grupos mais pequenos para visualizar as dependências.
+
 
 ## <a name="machines-show-install-agent"></a>Máquinas mostram "Agente de instalação"
 
@@ -151,6 +150,9 @@ Após a migração de máquinas com visualização de dependência ativada para 
 - As máquinas também podem ter um endereço IP diferente, com base no facto de ter mantido ou não o endereço IP no local.
 - Se tanto os endereços MAC como IP forem diferentes dos locais, a Azure Migrate não associa as máquinas no local a quaisquer dados de dependência do Mapa de Serviço. Neste caso, mostrará a opção de instalar o agente em vez de visualizar dependências.
 - Após uma migração de teste para Azure, as máquinas no local permanecem ligadas como esperado. Máquinas equivalentes giradas no Azure adquirem diferentes endereços MAC e podem adquirir diferentes endereços IP. A menos que bloqueie o tráfego de registo do Azure Monitor a partir destas máquinas, a Azure Migrate não associará as máquinas no local a quaisquer dados de dependência do Mapa de Serviço, e assim mostrará a opção de instalar agentes, em vez de ver dependências.
+
+## <a name="dependencies-export-csv-shows-unknown-process"></a>Dependências exportam CSV mostra "processo desconhecido"
+Na análise da dependência sem agentes, os nomes do processo são capturados com o melhor esforço. Em certos cenários, embora os nomes dos servidores de origem e destino e a porta de destino sejam capturados, não é possível determinar os nomes do processo em ambas as extremidades da dependência. Nestes casos, o processo é marcado como "processo desconhecido".
 
 
 ## <a name="capture-network-traffic"></a>Captação de tráfego de rede
@@ -180,6 +182,6 @@ Recolher registos de tráfego de rede da seguinte forma:
 - Para os VMs Hiper-V, os dados do sistema operativo são recolhidos a partir do anfitrião Hyper-V
 - Para servidores físicos, é recolhido do servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar](how-to-create-assessment.md) ou [personalizar](how-to-modify-assessment.md) uma avaliação.

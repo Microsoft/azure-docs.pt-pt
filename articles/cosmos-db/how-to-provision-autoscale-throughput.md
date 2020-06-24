@@ -1,62 +1,62 @@
 ---
 title: Provisão de produção de escala automática em Azure Cosmos DB
-description: Aprenda a fornecer entrada de escala automática ao nível do contentor e da base de dados em Azure Cosmos DB utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
+description: Saiba como providenciar a produção de autoescalação no nível do contentor e da base de dados em Azure Cosmos DB utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664761"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118734"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisão de produção de escala automática na base de dados ou contentor em Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisão de produção automática na base de dados ou contentor em Azure Cosmos DB
 
-Este artigo explica como fornecer entrada de escala automática numa base de dados ou contentor (recolha, gráfico ou tabela) em Azure Cosmos DB. Pode ativar a escala automática num único recipiente, ou fornecer uma entrada de escala automática numa base de dados e partilhá-la entre todos os recipientes da base de dados. 
+Este artigo explica como providenciar a produção de autoescalação numa base de dados ou contentor (recolha, gráfico ou tabela) em Azure Cosmos DB. Pode ativar a autoescala num único contentor ou providenciar a produção de autoescala numa base de dados e partilhá-la entre todos os contentores da base de dados. 
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-### <a name="create-new-database-or-container-with-autoscale"></a>Criar nova base de dados ou contentor com escala automática
-1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [explorador de DB Azure Cosmos.](https://cosmos.azure.com/)
+### <a name="create-new-database-or-container-with-autoscale"></a>Criar nova base de dados ou contentor com autoescala
+1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [explorador DB do Azure Cosmos.](https://cosmos.azure.com/)
 
-1. Navegue para a sua conta Azure Cosmos DB e abra o separador **Data Explorer.**
+1. Navegue na sua conta DB Azure Cosmos e abra o **separador Data Explorer.**
 
-1. Selecione **Novo Recipiente.** Introduza um nome para a sua base de dados, recipiente e uma chave de partição. Em **Versão De supressão,** selecione a opção **de escala automática** e defina a entrada máxima [(RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) a que pretende que a base de dados ou o recipiente se dimensionem.
+1. Selecione **Novo Recipiente.** Insira um nome para a sua base de dados, recipiente e uma chave de partição. No **Âmbito do 'Under Throughput**' ' '' selecione a opção **de autoescala** e desagreda a [potência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) a que pretende que a base de dados ou o recipiente se dimensionem.
 
-   ![Criação de um recipiente e configuração de autoescala de produção aprovisionada](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Criação de um contentor e configuração de produção de autoescala":::
 
 1. Selecione **OK**.
 
-Para fornecer uma escala automática na base de dados de entrada partilhada, selecione a opção de entrada de base de **dados Provision** ao criar uma nova base de dados. 
+Para obter uma escala automática na base de dados de produção partilhada, selecione a opção **de produção de base de dados de provisão de Provisão** ao criar uma nova base de dados. 
 
-### <a name="enable-autoscale-on-existing-database-or-container"></a>Ativar a escala automática na base de dados ou contentor existente
+### <a name="enable-autoscale-on-existing-database-or-container"></a>Permitir a escala automática na base de dados ou no recipiente existente
 
 > [!IMPORTANT]
-> No lançamento atual, o portal Azure é a única forma de migrar entre a escala automática e a produção standard (manual). 
+> Na versão atual, o portal Azure é a única forma de migrar entre a produção de autoescalação e a produção normalizada (manual). 
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [explorador de DB Azure Cosmos.](https://cosmos.azure.com/)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [explorador DB do Azure Cosmos.](https://cosmos.azure.com/)
 
-1. Navegue para a sua conta Azure Cosmos DB e abra o separador **Data Explorer.**
+1. Navegue na sua conta DB Azure Cosmos e abra o **separador Data Explorer.**
 
 1. Selecione **Escala e Definições** para o seu recipiente ou **Escala** para a sua base de dados.
 
-1. Em **Escala,** selecione a opção **De Escala Automática** e **Guarde**.
+1. Em **Escala**, selecione a opção **Autoscale** e **Guarde**.
 
-   ![Habilitar a escala automática num recipiente existente](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Permitir a autoescalação num recipiente existente":::
 
 > [!NOTE]
-> Quando ativa a escala automática numa base de dados ou recipiente existente, o valor inicial do max RU/s é determinado pelo sistema, com base nas definições e armazenamento de entrada manual atual. Após a operação estar concluída, pode alterar o max RU/s se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
+> Quando ativa automaticamente uma base de dados ou um recipiente existente, o valor inicial para max RU/s é determinado pelo sistema, com base nas definições de produção e armazenamento atuais. Após o funcionamento concluído, pode alterar o máximo RU/s, se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB.NET V3 SDK para SQL API
-Utilize [a versão 3.9 ou superior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do Azure Cosmos DB .NET SDK para a SQL API gerir recursos de escala automática. 
+## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB .NET V3 SDK para SQL API
+Utilize a [versão 3.9 ou superior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do Azure Cosmos DB .NET SDK para a SQL API para gerir recursos de autoescala. 
 
 > [!IMPORTANT]
-> Pode utilizar o .NET SDK para criar novos recursos de escala automática. O SDK não suporta a migração entre a escala automática e a produção padrão (manual). O cenário de migração é atualmente suportado apenas no portal Azure. 
+> Pode utilizar o .NET SDK para criar novos recursos de autoescala. O SDK não suporta a migração entre a escala automática e a produção normalizada (manual). O cenário de migração é atualmente suportado apenas no portal Azure. 
 
-### <a name="create-database-with-shared-throughput"></a>Criar base de dados com entrada partilhada
+### <a name="create-database-with-shared-throughput"></a>Criar base de dados com produção partilhada
 ```csharp
 // Create instance of CosmosClient
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
@@ -68,7 +68,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.Create
 database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProperties: autoscaleThroughputProperties);
 ```
 
-### <a name="create-container-with-dedicated-throughput"></a>Criar recipiente com entrada dedicada
+### <a name="create-container-with-dedicated-throughput"></a>Criar recipiente com produção dedicada
 ```csharp
 // Get reference to database that container will be created in
 Database database = await cosmosClient.GetDatabase("DatabaseName");
@@ -81,7 +81,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.Create
 container = await database.CreateContainerAsync(autoscaleContainerProperties, autoscaleThroughputProperties);
 ```
 
-### <a name="read-the-current-throughput-rus"></a>Leia a entrada atual (RU/s)
+### <a name="read-the-current-throughput-rus"></a>Leia a produção atual (RU/s)
 ```csharp
 // Get a reference to the resource
 Container container = cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
@@ -96,19 +96,19 @@ int? autoscaleMaxThroughput = autoscaleContainerThroughput.AutoscaleMaxThroughpu
 int? currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
-### <a name="change-the-autoscale-max-throughput-rus"></a>Alterar a potência máxima de escala automática (RU/s)
+### <a name="change-the-autoscale-max-throughput-rus"></a>Alterar a potência máxima de autoescala (RU/s)
 ```csharp
 // Change the autoscale max throughput (RU/s)
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Azure Cosmos DB Java V4 SDK para SQL API
-Pode utilizar [a versão 4.0 ou superior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) do Azure Cosmos DB Java SDK para a SQL API para gerir recursos de escala automática. 
+## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Azure Cosmos DB Java V4 SDK para API SQL
+Pode utilizar a [versão 4.0 ou superior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) do Azure Cosmos DB Java SDK para a SQL API gerir recursos de autoescala. 
 
 > [!IMPORTANT]
-> Pode utilizar o Java SDK para criar novos recursos de escala automática. O SDK não suporta a migração entre a escala automática e a produção padrão (manual). O cenário de migração é atualmente suportado apenas no portal Azure. 
+> Pode utilizar o SDK Java para criar novos recursos de autoescala. O SDK não suporta a migração entre a escala automática e a produção normalizada (manual). O cenário de migração é atualmente suportado apenas no portal Azure. 
 
-### <a name="create-database-with-shared-throughput"></a>Criar base de dados com entrada partilhada
+### <a name="create-database-with-shared-throughput"></a>Criar base de dados com produção partilhada
 
 #### <a name="async"></a>[Async](#tab/api-async)
 
@@ -146,7 +146,7 @@ CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughpu
 
 --- 
 
-### <a name="create-container-with-dedicated-throughput"></a>Criar recipiente com entrada dedicada
+### <a name="create-container-with-dedicated-throughput"></a>Criar recipiente com produção dedicada
 
 #### <a name="async"></a>[Async](#tab/api-async)
 
@@ -181,7 +181,7 @@ CosmosContainer container = database.createContainer(autoscaleContainerPropertie
 
 --- 
 
-### <a name="read-the-current-throughput-rus"></a>Leia a entrada atual (RU/s)
+### <a name="read-the-current-throughput-rus"></a>Leia a produção atual (RU/s)
 
 #### <a name="async"></a>[Async](#tab/api-async)
 
@@ -217,7 +217,7 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 
 --- 
 
-### <a name="change-the-autoscale-max-throughput-rus"></a>Alterar a potência máxima de escala automática (RU/s)
+### <a name="change-the-autoscale-max-throughput-rus"></a>Alterar a potência máxima de autoescala (RU/s)
 
 #### <a name="async"></a>[Async](#tab/api-async)
 
@@ -236,15 +236,15 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 --- 
 
 ## <a name="cassandra-api"></a>API de Cassandra 
-Consulte este artigo sobre [como utilizar comandos CQL](manage-scale-cassandra.md#use-autoscale) para ativar a escala automática.
+Consulte este artigo sobre [como utilizar comandos CQL](manage-scale-cassandra.md#use-autoscale) para permitir a autoescala.
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB 
-Consulte este artigo sobre como utilizar comandos de [extensão MongoDB](mongodb-custom-commands.md) para ativar a escala automática.
+Consulte este artigo sobre [como utilizar comandos de extensão MongoDB](mongodb-custom-commands.md) para permitir a autoescala.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-Pode utilizar um modelo de Gestor de Recursos para fornecer entrada de escala automática numa base de dados ou recipiente para qualquer API. Veja este [artigo](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) para uma amostra.
+Pode utilizar um modelo de Gestor de Recursos para obter uma produção de escala automática numa base de dados ou num recipiente para qualquer API. Consulte este [artigo](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) para obter uma amostra.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Conheça os [benefícios da produção aprovisionada com escala automática](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Aprenda a escolher entre a [entrada manual e](how-to-choose-offer.md)a entrada automática .
-* Reveja o [FAQ](autoscale-faq.md)de escala automática .
+* Conheça os [benefícios da produção aussitada com autoescala.](provision-throughput-autoscale.md#benefits-of-autoscale)
+* Saiba como escolher entre a [produção manual e autoescala.](how-to-choose-offer.md)
+* Reveja as [FAQ de escala automática.](autoscale-faq.md)

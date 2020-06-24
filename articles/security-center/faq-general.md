@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 3db9dc260cb8546109870834f364c62305aa3fbb
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324526"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783219"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Azure Security Center
 
@@ -81,7 +81,7 @@ O Azure Security Center recolhe, analisa e funde automaticamente dados de regist
 
 
 ## <a name="why-did-secure-score-values-change"></a>Porque é que os valores da Pontuação Segura mudaram? <a name="secure-score-faq"></a>
-A partir de fevereiro de 2019, o Centro de Segurança ajustou a pontuação de algumas recomendações, de forma a adequar-se melhor à sua gravidade. Como resultado deste ajuste, pode haver alterações nos valores globais de Pontuação Segura.  Para obter mais informações sobre a Pontuação Segura, consulte [o cálculo Secure Score](security-center-secure-score.md).
+A partir de fevereiro de 2019, o Centro de Segurança ajustou a pontuação de algumas recomendações, de forma a adequar-se melhor à sua gravidade. Como resultado deste ajuste, pode haver alterações nos valores globais de Pontuação Segura.  Para obter mais informações sobre a pontuação segura, consulte [a pontuação de segurança melhorada no Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual é a diferença entre ameaças detetadas e alertadas pelo Microsoft Security Response Center contra o Azure Security Center?

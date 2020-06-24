@@ -1,57 +1,57 @@
 ---
-title: Conecte o cliente web do Windows Virtual Desktop - Azure
-description: Como ligar ao Windows Virtual Desktop utilizando o cliente web.
+title: Conecte o cliente web virtual do Windows Desktop - Azure
+description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 061805896203615d7673a006059080e9c4246863
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bb3a73566cd2477e493ca8621336fb3a51f3b3b8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657218"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212467"
 ---
 # <a name="connect-with-the-web-client"></a>Ligar com o cliente web
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O cliente web permite-lhe aceder aos seus recursos de Desktop Virtual do Windows a partir de um navegador web sem o longo processo de instalação.
 
 >[!NOTE]
->O cliente web não tem atualmente suporte para os Sistemas operativos móveis.
+>O cliente web não tem atualmente suporte para os SO móvel.
 
 ## <a name="supported-operating-systems-and-browsers"></a>Browsers e sistemas operativos suportados
 
-Embora qualquer navegador com capacidade html5 funcione, suportamos oficialmente os seguintes sistemas operativos e navegadores.
+Embora qualquer navegador com capacidade HTML5 funcione, apoiamos oficialmente os seguintes sistemas operativos e navegadores.
 
-| Browser           | Os Suportado                     | Notas               |
+| Browser           | SoA apoiado                     | Notas               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
-| Mozilla Firefox   | Janelas, macOS, Linux            | Versão 55 ou mais tarde |
+| Mozilla Firefox   | Windows, macOS, Linux            | Versão 55 ou posterior |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 
-## <a name="access-remote-resources-feed"></a>Aceder a recursos remotos feed
+## <a name="access-remote-resources-feed"></a>Aceder a feed de recursos remotos
 
-Num browser, navegue para a versão integrada do Gestor de Recursos Do Web do Windows Virtual Desktop <https://rdweb.wvd.microsoft.com/arm/webclient> e inscreva-se na sua conta de utilizador.
-
->[!NOTE]
->Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem integração do Gestor de Recursos Azure, ligue-se aos seus <https://rdweb.wvd.microsoft.com/webclient> recursos.
+Num browser, navegue para a versão integrada do Azure Resource Manager do cliente web virtual do Windows Desktop <https://rdweb.wvd.microsoft.com/arm/webclient> e inscreva-se na sua conta de utilizador.
 
 >[!NOTE]
->Se já assinou com uma conta de Diretório Ativo Azure diferente daquela que pretende utilizar para o Windows Virtual Desktop, deve assinar ou utilizar uma janela de navegador privada.
+>Se estiver a utilizar o lançamento virtual do Windows Desktop Fall 2019 sem integração do Azure Resource Manager, ligue-se aos seus <https://rdweb.wvd.microsoft.com/webclient> recursos.
 
-Depois de se inscrever, deve agora ver uma lista de recursos. Pode lançar recursos selecionando-os como se fosse uma aplicação normal no separador **All Resources.**
+>[!NOTE]
+>Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Windows Virtual Desktop, deve assinar ou utilizar uma janela de navegador privada.
+
+Depois de iniciar sessão, deve agora ver uma lista de recursos. Pode lançar recursos selecionando-os como se fosse uma aplicação normal no separador **Todos os Recursos.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como usar o cliente web, confira [Get started with the Web client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
+Para saber mais sobre como usar o cliente web, confira [Consulte o cliente web.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client)

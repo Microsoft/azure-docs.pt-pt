@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 11ec9a4294cb1d5895d1bbc4e75c6b1a9b071f65
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613651"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737126"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **A Azure Digital Twins** é uma plataforma IoT que permite a criação de modelos digitais abrangentes de ambientes inteiros. Estes ambientes poderiam ser edifícios, fábricas, fazendas, redes de energia, caminhos de ferro, estádios e muito mais - até cidades inteiras. Estes modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências inovadoras do cliente.
 
@@ -92,7 +95,7 @@ O diagrama que se segue mostra onde a Azure Digital Twins se encontra no context
 
 Para obter uma lista dos limites das Gémeas Digitais Azure durante a pré-visualização pública, consulte [Referência: Limites de serviço de pré-visualização do público](reference-service-limits.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se já trabalhou com o lançamento anterior da Azure Digital Twins, saiba o que mudou:
 * [Visão geral: Diferenças em relação ao lançamento anterior](overview-differences.md)

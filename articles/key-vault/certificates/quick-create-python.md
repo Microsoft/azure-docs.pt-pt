@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 6a25f3393a3c99273f12af0c5ff5047dfe373581
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554905"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126132"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Python
 
@@ -27,7 +27,7 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 - Simplificar e automatizar tarefas para certificados TLS/SSL.
 - Utilize OS HSMs validados FIPS 140-2.
 
-[Documentação de](/python/api/overview/azure/key-vault?view=azure-python)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault/)
+[Documentação de](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,12 +70,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 A forma mais simples de autenticar uma aplicação .NET baseada em nuvem é com uma identidade gerida; ver [Utilizar uma identidade gerida pelo Serviço de Aplicações para aceder ao Cofre da Chave Azure](../general/managed-identity.md) para obter mais detalhes.
 
-No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação para desktop, que requer a utilização de um principal de serviço e de uma política de controlo de acessos. O seu princípio de serviço requer um nome único no formato "http:// &lt; meu nome de princípio de serviço &gt; único".
+No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação para desktop, que requer a utilização de um principal de serviço e de uma política de controlo de acessos. O seu diretor de serviço requer um nome único no formato "http:// &lt; meu nome principal de serviço &gt; único".
 
-Crie um princípio de serviço utilizando o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+Criar um principal de serviço utilizando o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Esta operação devolverá uma série de pares de chaves/valor. 

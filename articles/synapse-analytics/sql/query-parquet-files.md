@@ -1,36 +1,36 @@
 ---
-title: Consultas de ficheiros Parquet utilizando sQL on-demand (pré-visualização)
-description: Neste artigo, você vai aprender a consultar ficheiros Parquet usando SQL on-demand (pré-visualização).
+title: Ficheiros De consulta Parquet utilizando SQL on demand (pré-visualização)
+description: Neste artigo, você aprenderá a consultar ficheiros Parquet usando SQL on demand (pré-visualização).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e9731b869b20c7d8cfc3b1e234711c818a2b7422
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4bab1ef4588a705f0dd6cdb34be8272868f826e9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744241"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207571"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Arquivos De Consulta Parquet usando SQL on-demand (pré-visualização) em Azure Synapse Analytics
+# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros De consulta Parquet utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando SQL on-demand (pré-visualização) que irá ler ficheiros Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (pré-visualização) que irá ler ficheiros Parquet.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O seu primeiro passo é **criar uma base de dados** com uma fonte de dados que refira a conta de armazenamento de táxi amarelo [nyc.](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) Em seguida, inicialize os objetos executando o script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
+O seu primeiro passo é **criar uma base de dados** com uma fonte de dados que refira a conta de armazenamento de Táxi Amarelo [NYC.](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) Em seguida, inicialize os objetos executando o [script de configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Este script de configuração criará as fontes de dados, credenciais de base de dados e formatos de ficheiros externos que são utilizados nestas amostras.
 
 ## <a name="dataset"></a>Conjunto de dados
 
-O conjunto de dados do [Táxi Amarelo de NYC](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) é utilizado nesta amostra. Pode consultar ficheiros Parquet da mesma forma que [lê ficheiros CSV](query-parquet-files.md). A única diferença é que o `FILEFORMAT` parâmetro deve ser definido para `PARQUET` . Exemplos neste artigo mostram as especificidades da leitura dos ficheiros Parquet.
+[O](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) conjunto de dados do Táxi Amarelo nyc é usado nesta amostra. Pode consultar os ficheiros do Parquet da mesma forma que [leu ficheiros CSV.](query-parquet-files.md) A única diferença é que o `FILEFORMAT` parâmetro deve ser definido para `PARQUET` . Exemplos neste artigo mostram as especificidades da leitura dos ficheiros Parquet.
 
-## <a name="query-set-of-parquet-files"></a>Conjunto de consultas de ficheiros parquet
+## <a name="query-set-of-parquet-files"></a>Conjunto de consultas de arquivos de parquet
 
-Só pode especificar as colunas de interesse quando consultar ficheiros Parquet.
+Pode especificar apenas as colunas de interesse quando consultar os ficheiros Parquet.
 
 ```sql
 SELECT
@@ -56,12 +56,12 @@ ORDER BY
 
 ## <a name="automatic-schema-inference"></a>Inferência automática do esquema
 
-Não é necessário utilizar a cláusula OPENROWSET WITH ao ler ficheiros Parquet. Os nomes das colunas e os tipos de dados são lidos automaticamente a partir de ficheiros Parquet.
+Não precisa de utilizar a cláusula OPENROWSET COM A cláusula ao ler ficheiros Parquet. Os nomes das colunas e os tipos de dados são automaticamente lidos a partir de ficheiros Parquet.
 
-A amostra abaixo mostra as capacidades automáticas de inferência do esquema para ficheiros Parquet. Devolve o número de filas em setembro de 2017 sem especificar um esquema.
+A amostra abaixo mostra as capacidades automáticas de inferência de esquema para ficheiros Parquet. Devolve o número de linhas em setembro de 2017 sem especificar um esquema.
 
 > [!NOTE]
-> Não é preciso especificar colunas na cláusula OPENROWSET WITH ao ler ficheiros Parquet. Nesse caso, o serviço De consulta a pedido da SQL utilizará metadados no ficheiro Parquet e ligará as colunas pelo nome.
+> Não é preciso especificar colunas na cláusula OPENROWSET COM A cláusula ao ler ficheiros Parquet. Nesse caso, o serviço de consulta a pedido da SQL utilizará metadados no ficheiro Parquet e ligará colunas pelo nome.
 
 ```sql
 SELECT TOP 10 *
@@ -73,12 +73,12 @@ FROM
     ) AS nyc
 ```
 
-### <a name="query-partitioned-data"></a>Dados separados de consulta
+### <a name="query-partitioned-data"></a>Dados de partição de consultas
 
-O conjunto de dados fornecido nesta amostra é dividido (dividido) em subpastas separadas. Pode direcionar divisórias específicas utilizando a função de pathpath. Este exemplo mostra os valores das tarifas por ano, mês e payment_type para os primeiros três meses de 2017.
+O conjunto de dados fornecido nesta amostra é dividido (dividido) em sub-dobradeiras separadas. Pode direcionar divisórias específicas utilizando a função de filepa. Este exemplo mostra os valores das tarifas por ano, mês e payment_type nos primeiros três meses de 2017.
 
 > [!NOTE]
-> A Consulta a pedido da SQL é compatível com o esquema de partição hive/hadoop.
+> A consulta a pedido do SQL é compatível com o esquema de partição hive/Hadoop.
 
 ```sql
 SELECT
@@ -105,14 +105,14 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Mapeamento de tipo
 
-Os ficheiros Parquet contêm descrições de tipo para cada coluna. A tabela seguinte descreve como os tipos de Parquet são mapeados para tipos nativos SQL.
+Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a seguir descreve como os tipos de Parquet são mapeados para os tipos nativos SQL.
 
 | Tipo parquet | Tipo lógico parquet (anotação) | Tipo de dados SQL |
 | --- | --- | --- |
-| BOOLEAN | | bit |
-| BINARY / BYTE_ARRAY | | varbinary |
+| BOOLEANA | | bit |
+| BINÁRIO / BYTE_ARRAY | | varbinário |
 | DUPLO | | float |
-| BOIA | | real |
+| FLUTUAR | | real |
 | INT32 | | int |
 | INT64 | | bigint |
 | INT96 | |datetime2 |
@@ -122,27 +122,27 @@ Os ficheiros Parquet contêm descrições de tipo para cada coluna. A tabela seg
 | BINÁRIO |ENUM|varchar \* (colagem UTF8) |
 | BINÁRIO |UUID |uniqueidentifier |
 | BINÁRIO |DECIMAL |decimal |
-| BINÁRIO |JSON |varchar (max) \* (colagem UTF8) |
-| BINÁRIO |BSON |varbinary (máx) |
+| BINÁRIO |JSON |varchar(máx) \* (colagem UTF8) |
+| BINÁRIO |Rio BSON |varbinário(máx) |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVALO |varchar(max), serializado em formato padronizado |
+| BYTE_ARRAY |INTERVALO |varchar(máx), serializado em formato padronizado |
 | INT32 |INT(8, verdade) |smallint |
 | INT32 |INT(16, verdade) |smallint |
 | INT32 |INT(32, verdade) |int |
 | INT32 |INT(8, falso) |tinyint |
 | INT32 |INT(16, falso) |int |
 | INT32 |INT(32, falso) |bigint |
-| INT32 |DATA |data |
+| INT32 |DATA |date |
 | INT32 |DECIMAL |decimal |
 | INT32 |TEMPO (MILLIS)|hora |
 | INT64 |INT(64, verdade) |bigint |
 | INT64 |INT(64, falso) |decimal (20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TEMPO (MICROS/ NANOS) |hora |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(max), serializado em JSON |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(max), serializado em JSON |
+| INT64 |TEMPO (MICROS / NANOS) |hora |
+|INT64 |TIMETAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(máx), serializado em JSON |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(máx), serializado em JSON |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avance para o próximo artigo para aprender a [consultar os tipos aninhados do Parquet.](query-parquet-nested-types.md)
+Avance para o próximo artigo para aprender a [questionar os tipos aninhados de Parquet](query-parquet-nested-types.md).

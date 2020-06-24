@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 605d1f550335417a26340b6ee54736321ad69f80
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300763"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130743"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -112,7 +112,7 @@ O número permitido de regras de alerta métrico por subscrição está sujeito 
 Se tiver atingido o limite de quota, os passos seguintes podem ajudar a resolver o problema:
 1. Tente eliminar ou desativar regras de alerta métricas que já não são usadas.
 
-2. Mude para utilizar regras de alerta de métricas que monitorizem vários recursos. Com esta capacidade, uma regra de alerta único pode monitorizar vários recursos usando apenas uma regra de alerta contada contra a quota. Para obter mais informações sobre esta capacidade e os tipos de recursos suportados, consulte [vários](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Mude para utilizar regras de alerta de métricas que monitorizem vários recursos. Com esta capacidade, uma regra de alerta único pode monitorizar vários recursos usando apenas uma regra de alerta contada contra a quota. Para obter mais informações sobre esta capacidade e os tipos de recursos suportados, veja [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Se necessitar de um aumento do limite de quota, abra um pedido de apoio e forneça as seguintes informações:
 
@@ -191,6 +191,33 @@ Para criar uma regra de alerta métrico, terá de ter as seguintes permissões:
 - Leia a permissão sobre o recurso alvo da regra de alerta
 - Escreva a permissão no grupo de recursos em que a regra de alerta é criada (se estiver a criar a regra de alerta a partir do portal Azure, a regra de alerta é criada no mesmo grupo de recursos em que reside o recurso-alvo)
 - Leia a permissão em qualquer grupo de ação associado à regra de alerta (se aplicável)
+
+
+## <a name="naming-restrictions-for-metric-alert-rules"></a>Restrições de nomeação para regras de alerta métrico
+
+Por favor, note as seguintes restrições para nomes de regras de alerta métrico:
+
+- Os nomes das regras de alerta métrico não podem ser alterados (renomeado) uma vez criados
+- Os nomes das regras de alerta métrico devem ser únicos dentro de um grupo de recursos
+- Os nomes das regras de alerta métrico não podem conter os seguintes caracteres: * # & + : < > ? @ % { } \ / 
+- Os nomes das regras de alerta métrico não podem terminar com o seguinte carácter: .
+
+
+## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrições ao utilizar dimensões numa regra de alerta métrico com múltiplas condições
+
+Os alertas métricos alertam para métricas multidimensionais, bem como suporte que defina múltiplas condições (até 5 condições por regra de alerta).
+
+Por favor, note os seguintes constrangimentos ao utilizar dimensões numa regra de alerta que contém múltiplas condições:
+1. Só é possível selecionar um valor por dimensão dentro de cada condição.
+2. Não é possível utilizar a opção para "Selecionar todos os valores atuais e futuros" (Selecione). \*
+3. Quando as métricas configuradas em diferentes condições suportam a mesma dimensão, então um valor de dimensão configurado deve ser explicitamente definido da mesma forma para todas essas métricas (nas condições relevantes).
+Por exemplo:
+    - Considere uma regra de alerta métrico que é definida numa conta de armazenamento e monitoriza duas condições:
+        * Total de **Transações** > 5
+        * **Sucesso MédioE2EAancy** > 250 ms
+    - Eu gostaria de atualizar a primeira condição, e apenas monitorizar transações onde a dimensão **ApiName** é igual *a "GetBlob"*
+    - Como tanto as **métricas de Transações** como **de SucessoE2ELatency** suportam uma dimensão **ApiName,** vou precisar de atualizar ambas as condições, e ter ambas especificar a dimensão **ApiName** com um valor *"GetBlob".*
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

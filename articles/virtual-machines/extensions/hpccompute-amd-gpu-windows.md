@@ -1,28 +1,26 @@
 ---
-title: Extensão do condutor DA GPU da AMD - VMs Do Windows Azure
-description: Extensão Microsoft Azure para instalar controladores GPU AMD em VMs da série NVv4 executando Windows.
+title: Extensão do controlador GPU da AMD - Azure Windows VMs
+description: Extensão do Microsoft Azure para instalar condutores DE GPU AMD em VMs da série NVv4 que executam o Windows.
 services: virtual-machines-windows
 documentationcenter: ''
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 0819eec5275fa9783fff363cabbd8c3ed22b7cd6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119557"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736973"
 ---
-# <a name="amd-gpu-driver-extension-for-windows"></a>Extensão do condutor da GPU da AMD para Windows
+# <a name="amd-gpu-driver-extension-for-windows"></a>Extensão do controlador GPU da AMD para Windows
 
-Este artigo fornece uma visão geral da extensão VM para implementar controladores GPU AMD em VMs da série Windows [NVv4.](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) Quando instala os controladores AMD utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de [Licença de Utilizador Final da AMD](https://amd.com/radeonsoftwarems). Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
+Este artigo fornece uma visão geral da extensão VM para implantar controladores GPU AMD em VMs [da série Windows NVv4.](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) Ao instalar controladores AMD utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de Licença do Utilizador Final da [AMD.](https://amd.com/radeonsoftwarems) Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
 
 As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
 
@@ -30,7 +28,7 @@ As instruções sobre a instalação manual dos controladores e as versões supo
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Esta extensão suporta as seguintes OSs:
+Esta extensão suporta os seguintes OS:
 
 | Distribuição | Versão |
 |---|---|
@@ -41,11 +39,11 @@ Esta extensão suporta as seguintes OSs:
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão do Microsoft Azure para controladores GPU DA AMD requer que o VM alvo esteja ligado à internet e tenha acesso.
+A extensão do Microsoft Azure para os controladores de GPU da AMD requer que o VM alvo esteja ligado à internet e tenha acesso.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão.
+O JSON seguinte mostra o esquema para a extensão.
 
 ```json
 {
@@ -71,7 +69,7 @@ O seguinte JSON mostra o esquema para a extensão.
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | AmdGpuDriverWindows | string |
 | typeHandlerVersion | 1.0 | int |
@@ -81,11 +79,11 @@ O seguinte JSON mostra o esquema para a extensão.
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager 
 
-As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a configuração da implementação do post.
+As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração de implantação de posts.
 
-A configuração JSON para uma extensão virtual da máquina pode ser aninhada dentro do recurso virtual da máquina, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
+A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
 
-O exemplo que se segue pressupõe que a extensão está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso da máquina virtual. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {
@@ -139,7 +137,7 @@ az vm extension set `
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell e o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando.
+Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure, e utilizando a Azure PowerShell e a Azure CLI. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -157,21 +155,21 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 ### <a name="error-codes"></a>Códigos de erro
 
-| Código de Erro | Significado | Ação Possível |
+| Código de Erro | Significado | Possível Ação |
 | :---: | --- | --- |
 | 0 | Operação bem sucedida |
-| 1 | Operação bem sucedida. Reiniciar necessário. |
-| 100 | Operação não suportada ou não pôde ser concluída. | Possíveis causas: Versão PowerShell não suportada, tamanho VM não é um VM da série N, falha de dados de descarregamento. Verifique os ficheiros de registo para determinar a causa do erro. |
-| 240, 840 | Intervalo de funcionamento. | Operação de retry. |
+| 1 | Operação bem sucedida. Reinicialização necessária. |
+| 100 | A operação não foi suportada ou não pôde ser concluída. | Possíveis causas: A versão PowerShell não suportada, o tamanho VM não é um VM da série N, falha em descarregar dados. Verifique os ficheiros de registo para determinar a causa do erro. |
+| 240, 840 | Tempo de operação. | Relemisso operação. |
 | -1 | A exceção ocorreu. | Verifique os ficheiros de registo para determinar a causa da exceção. |
-| -5x | Operação interrompida devido a reinicialização pendente. | Reiniciar VM. A instalação continuará após o reboot. A desinstalação deve ser invocada manualmente. |
+| -5x | Operação interrompida devido ao reinício pendente. | Reinicie o VM. A instalação continuará após o reinício. Desinstalar deve ser invocado manualmente. |
 
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina Virtual para Windows](features-windows.md).
 
-Para obter mais informações sobre VMs da série N, consulte [gpu otimizado tamanhos](../windows/sizes-gpu.md)de máquinavirtual .
+Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../windows/sizes-gpu.md)

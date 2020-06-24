@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 640884168aef13ef3a8d751c211bf16756ff350f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 5b80a0b03959ec3fba90ed21e291c1fd021916c2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417893"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119295"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Azure Cosmos DB aborda a consistência dos dados como um espectro de escolhas em
 
 Com a Azure Cosmos DB, os desenvolvedores podem escolher entre cinco níveis de consistência bem definidos no espectro de consistência. Estes níveis incluem *forte,* *limitado,* *sessão,* *prefixo consistente*e *eventual* consistência. Os níveis são bem definidos e intuitivos e podem ser usados para cenários específicos do mundo real. Cada nível fornece [compensações de disponibilidade e desempenho](consistency-levels-tradeoffs.md) e são apoiados por SLAs. A imagem a seguir mostra os diferentes níveis de consistência como espectro.
 
-![Consistência como espectro](./media/consistency-levels/five-consistency-levels.png)
+:::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistência como espectro" border="false" :::
 
 Os níveis de consistência são agnósticos regiões e são garantidos para todas as operações, independentemente da região a partir da qual são servidas as leituras e as escritas, o número de regiões associadas à sua conta Azure Cosmos, ou se a sua conta está configurada com uma única ou múltiplas regiões de escrita.
 
@@ -43,9 +43,9 @@ A semântica dos cinco níveis de consistência é descrita aqui:
 
   O gráfico que se segue ilustra a forte consistência com notas musicais. Depois de os dados terem sido escritos para a região "West US 2", quando lê os dados de outras regiões, obtém-se o valor mais recente:
 
-  ![vídeo](media/consistency-levels/strong-consistency.gif)
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="vídeo":::
 
-- **Estagnação limitada**: As leituras são garantidas para honrar a garantia consistente-prefixo. As leituras podem ficar atrás de escritos na maioria das versões *"K"* (isto é, "atualizações") de um item ou por intervalo de tempo *"T".* Por outras palavras, quando se escolhe a estagnação limitada, a "estagnação" pode ser configurada de duas maneiras:
+- **Estagnação limitada**: As leituras são garantidas para honrar a garantia consistente-prefixo. As leituras podem ficar atrás de escritos pela maioria das versões *"K"* (isto é, "atualizações") de um item ou por intervalo de tempo *"T",* o que for alcançado primeiro. Por outras palavras, quando se escolhe a estagnação limitada, a "estagnação" pode ser configurada de duas maneiras:
 
 - O número de versões *(K)* do item
 - O intervalo de tempo *(T)* pelo qual as leituras podem ficar atrás das escritas
@@ -61,7 +61,7 @@ Dentro da janela de estagnação, a estagnação limitada fornece as seguintes g
 
   A estagnação limitada é frequentemente escolhida por aplicações distribuídas globalmente que esperam baixas latências de escrita, mas requerem total garantia de ordem global. A estagnação limitada é ótima para aplicações com colaboração e partilha de grupos, ticker de stock, publicação-subscrever/fila, etc. O gráfico a seguir ilustra a consistência deslimícula com notas musicais. Após a escrita dos dados para a região "West US 2", as regiões "Leste DOS EUA 2" e "Austrália Oriental" lêem o valor escrito baseado no tempo de atraso máximo configurado ou nas operações máximas:
 
-  ![vídeo](media/consistency-levels/bounded-staleness-consistency.gif)
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="vídeo":::
 
 - **Sessão**: Dentro de uma única sessão de clientes são garantidas leituras para honrar as consistentes-prefixos, leituras monotónicas, escritas monótonas, leituras-seus-escritos e garantias de leitura de leituras de escrita. Isto pressupõe uma única sessão de "escritor" ou partilhar o símbolo da sessão para vários escritores.
 
@@ -74,7 +74,7 @@ Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
   A consistência da sessão é o nível de consistência mais utilizado tanto para uma região como para aplicações distribuídas globalmente. Fornece latências escritas, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de consistência que se adequam às necessidades das aplicações escritas para operar no contexto de um utilizador. O gráfico que se segue ilustra a consistência da sessão com notas musicais. O "West US 2 writer" e o "West US 2 reader" estão a usar a mesma sessão (Sessão A) para que ambos leiam os mesmos dados ao mesmo tempo. Enquanto a região "Australia East" está a usar a "Sessão B" por isso, recebe dados mais tarde, mas na mesma ordem que os escritos.
 
-  ![vídeo](media/consistency-levels/session-consistency.gif)
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="vídeo":::
 
 - **Prefixo consistente**: As atualizações devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
 
@@ -89,12 +89,12 @@ Abaixo estão as garantias de consistência para Prefix consistente:
 
 O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca vêem fora de ordem escreve:
 
-  ![vídeo](media/consistency-levels/consistent-prefix.gif)
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="vídeo":::
 
 - **Eventual:** Não há garantia de encomenda para leituras. Na ausência de mais escritos, as réplicas eventualmente convergem.  
 A consistência eventual é a forma mais fraca de consistência porque um cliente pode ler os valores que são mais antigos do que os que tinha lido antes. A eventual consistência é ideal quando a aplicação não requer quaisquer garantias de encomenda. Exemplos incluem contagem de retweets, gostos ou comentários não roscados. O gráfico a seguir ilustra a eventual consistência com notas musicais.
 
-  ![vídeo](media/consistency-levels/eventual-consistency.gif)
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="vídeo":::
 
 ## <a name="additional-reading"></a>Leitura adicional
 

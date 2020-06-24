@@ -1,5 +1,5 @@
 ---
-title: Gerir um gémeo digital
+title: Gerir um digital twin
 titleSuffix: Azure Digital Twins
 description: Veja como recuperar, atualizar e eliminar gémeos e relacionamentos individuais.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d5731b16463f1f298f1ad633225fee95aa1a0bd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 9acea128313fc440834626dd3a99b117e4b25a8f
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612908"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735902"
 ---
 # <a name="manage-digital-twins"></a>Gerir gémeos digitais
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 As entidades do seu ambiente são representadas por [gémeos digitais.](concepts-twins-graph.md) Gerir os seus gémeos digitais pode incluir criação, modificação e remoção. Para estas operações, pode utilizar as [**APIs DigitalTwins,**](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md).
 
@@ -341,7 +344,7 @@ Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a 
 
 Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
 * [Como fazer: Gerir um gráfico gémeo com relacionamentos](how-to-manage-graph.md)
