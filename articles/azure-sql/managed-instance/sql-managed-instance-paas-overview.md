@@ -2,8 +2,8 @@
 title: O que é Azure SQL Managed Instance?
 description: Saiba como a Azure SQL Managed Instance fornece quase 100% de compatibilidade com o mais recente motor de base de dados SQL Server (Enterprise Edition)
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 2f7422d01b2058cafed33c9d10118f78d35727df
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: db476d32d3b087e86329f8ed40446caf122c0a00
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337789"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944802"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -165,12 +165,12 @@ O quadro que se segue resume as operações e as durações globais típicas:
 
 ### <a name="instance-availability-during-management-operations"></a>Disponibilidade de instâncias durante operações de gestão
 
-A SQL Managed Instance não está disponível para aplicações de clientes durante operações de implantação e eliminação.
-
-SQL Managed Instance está disponível durante as operações de atualização, exceto um curto tempo de inatividade causado pela falha que ocorre no final da atualização. Normalmente dura até 10 segundos, mesmo em caso de transações interrompidas a longo prazo, graças à [recuperação acelerada](../accelerated-database-recovery.md)da base de dados.
+SQL Managed Instance **está disponível durante as operações de atualização**, exceto um curto tempo de inatividade causado pela falha que ocorre no final da atualização. Normalmente dura até 10 segundos, mesmo em caso de transações interrompidas a longo prazo, graças à [recuperação acelerada](../accelerated-database-recovery.md)da base de dados.
 
 > [!IMPORTANT]
 > Não é recomendado escalar o cálculo ou armazenamento de Azure SQL Managed Instance ou alterar o nível de serviço ao mesmo tempo com as transações de longo prazo (importação de dados, trabalhos de processamento de dados, reconstrução de índices, etc.). A falha na base de dados que será realizada no final da operação irá cancelar todas as transações em curso.
+
+A SQL Managed Instance não está disponível para aplicações de clientes durante operações de implantação e eliminação.
 
 ### <a name="management-operations-cross-impact"></a>Impacto transversal das operações de gestão
 
@@ -332,7 +332,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através da Transact-
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente um caso gerido.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato: `<instanceName>` `<dnsPrefix>` . . database.windows.net, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto é `<dnsPrefix>` autogerido parte do nome que garante a singularidade global do nome DNS ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a criar o seu primeiro exemplo gerido, consulte o [guia Quickstart](instance-create-quickstart.md).
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).

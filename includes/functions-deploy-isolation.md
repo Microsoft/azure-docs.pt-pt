@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
 ms.locfileid: "83648913"
 ---
-O Azure App Service Environment (ASE) proporciona um ambiente de hospedagem dedicado para executar as suas funções. A ASE permite configurar um único portal frontal que pode usar para autenticar todos os pedidos de entrada. Para mais informações, consulte configurar uma firewall de [aplicação web (WAF) para o ambiente](../articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md)do serviço de aplicações .
+O Azure App Service Environment (ASE) proporciona um ambiente de hospedagem dedicado para executar as suas funções. A ASE permite-lhe configurar um único gateway frontal que pode utilizar para autenticar todos os pedidos de entrada. Para obter mais informações, consulte [configurar uma Firewall de Aplicação Web (WAF) para o Ambiente de Serviço de Aplicações.](../articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md)

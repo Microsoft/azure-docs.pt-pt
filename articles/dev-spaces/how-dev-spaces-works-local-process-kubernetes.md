@@ -1,18 +1,18 @@
 ---
-title: Como funciona o Processo Local com Kubernetes
+title: Como funciona o Processo Local com o Kubernetes
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Descreve os processos de utilização do Processo Local com Kubernetes para ligar o seu computador de desenvolvimento ao seu cluster Kubernetes
 keywords: Processo Local com Kubernetes, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 443783eb7f5359318cf8efbec8b6466a80fa1e85
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: dd126fc55a86b1de115239a31e5adb7b1d264846
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316601"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974426"
 ---
-# <a name="how-local-process-with-kubernetes-works"></a>Como funciona o Processo Local com Kubernetes
+# <a name="how-local-process-with-kubernetes-works"></a>Como funciona o Processo Local com o Kubernetes
 
 O Processo Local com Kubernetes permite-lhe executar e depurar código no seu computador de desenvolvimento, ainda ligado ao seu cluster Kubernetes com o resto da sua aplicação ou serviços. Por exemplo, se tiver uma grande arquitetura de microserviços com muitos serviços e bases de dados interdependentes, replicar essas dependências no seu computador de desenvolvimento pode ser difícil. Além disso, a construção e implementação do código para o seu cluster Kubernetes para cada alteração de código durante o desenvolvimento do loop interno pode ser lenta, morosa e difícil de usar com um depurador.
 
@@ -42,6 +42,15 @@ Depois de estabelecer uma ligação ao seu cluster, pode executar e depurar cód
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 
 Ao utilizar o Processo Local com Kubernetes para se ligar ao seu cluster, os registos de diagnóstico do seu cluster são registados no [diretório temporário][azds-tmp-dir]do seu computador de desenvolvimento . Utilizando o Código do Estúdio Visual, também pode utilizar o comando *de informações de diagnóstico do Show* para imprimir as variáveis ambientais atuais e as entradas de DNS do seu cluster.
+
+## <a name="limitations"></a>Limitações
+
+O Processo Local com Kubernetes tem as seguintes limitações:
+
+* O Processo Local com a Kubernetes redireciona o tráfego para um único serviço para o seu computador de desenvolvimento. Não é possível utilizar o Processo Local com kubernetes para redirecionar vários serviços ao mesmo tempo.
+* Um serviço deve ser apoiado por uma única cápsula para se ligar a esse serviço. Não é possível ligar-se a um serviço com várias cápsulas, como um serviço com réplicas.
+* Uma cápsula só pode ter um único recipiente a funcionar nessa cápsula para o Processo Local com kubernetes para se ligar com sucesso. O Processo Local com Kubernetes não pode ligar-se a serviços com cápsulas que têm contentores adicionais, como recipientes de sidecar injetados por malhas de serviço.
+* O Processo Local com Kubernetes necessita de permissões elevadas para ser executado no seu computador de desenvolvimento para editar o ficheiro dos anfitriões.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Utilize definições de diagnóstico para recolher métricas e registos da plataforma e em Azure
+title: Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos
 description: Envie métricas e registos da plataforma Azure Monitor para registos do Monitor Azure, armazenamento Azure ou Hubs de Eventos Azure utilizando uma definição de diagnóstico.
 author: bwren
 ms.author: bwren
@@ -7,21 +7,18 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 46dd7949dde1890035053a7a985f2f1d921e141e
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a037eddb13645036fcbe501ecba33923733b6d03
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266666"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944377"
 ---
-# <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Criar definição de diagnóstico para recolher registos e métricas de recursos em Azure
-
-[Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor.
-
-Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
+# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos
+[Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
 
 > [!IMPORTANT]
-> Antes de criar uma definição de diagnóstico para recolher o registo de Atividade, deve primeiro desativar qualquer configuração antiga. Consulte [o registo de atividade de Azure collect com definições antigas](diagnostic-settings-legacy.md) para mais detalhes.
+> Antes de criar uma definição de diagnóstico para o registo de Atividade, deve primeiro desativar qualquer configuração antiga. Consulte [os métodos de recolha legacy](activity-log.md#legacy-collection-methods) para mais detalhes.
 
 Cada recurso Azure requer a sua própria definição de diagnóstico, que define os seguintes critérios:
 
@@ -31,7 +28,7 @@ Cada recurso Azure requer a sua própria definição de diagnóstico, que define
 Uma única definição de diagnóstico não pode definir mais do que um dos destinos. Se pretender enviar dados para mais de um determinado tipo de destino (por exemplo, dois espaços de trabalho diferentes do Log Analytics), então crie várias configurações. Cada recurso pode ter até 5 configurações de diagnóstico.
 
 > [!NOTE]
-> [As métricas da plataforma](metrics-supported.md) são recolhidas automaticamente para as [Métricas do Monitor Azure.](data-platform-metrics.md) As definições de diagnóstico podem ser usadas para recolher métricas de certos serviços Azure em Registos monitores Azure para análise com outros dados de monitorização usando [consultas de registo](../log-query/log-query-overview.md) com determinadas limitações. 
+> [As métricas da plataforma](metrics-supported.md) são enviadas automaticamente para as [Métricas do Monitor Azure](data-platform-metrics.md). As definições de diagnóstico podem ser usadas para enviar métricas para certos serviços Azure monitor para análise com outros dados de monitorização usando [consultas de registo](../log-query/log-query-overview.md) com determinadas limitações. 
 >  
 >  
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões. *Por exemplo:* A métrica 'IOReadBytes' de um Blockchain pode ser explorada e mapeada a um nível por nó. No entanto, quando exportado através de configurações de diagnóstico, a métrica exportada representa como todos os bytes lidos para todos os nós. Além disso, devido a limitações internas, nem todas as métricas são exportáveis para Registos monitores Azure / Log Analytics. Para mais informações, consulte a [lista de métricas exportáveis.](metrics-supported-export-diagnostic-settings.md) 
@@ -39,17 +36,43 @@ Uma única definição de diagnóstico não pode definir mais do que um dos dest
 >  
 > Para contornar estas limitações para métricas específicas, sugerimos que extraí-las manualmente utilizando as [Métricas REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list) e importá-las em Registos monitores Azure utilizando a [API do coletor de dados do Monitor Azure.](data-collector-api.md)  
 
+
 ## <a name="destinations"></a>Destinos
 
 Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. Siga cada link na tabela seguinte para obter detalhes sobre o envio de dados para esse destino.
 
-| Destino | Descrição |
+| Destino | Description |
 |:---|:---|
-| [Área de trabalho do Log Analytics](resource-logs-collect-workspace.md) | A recolha de registos e métricas num espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, como alertas e visualizações. |
-| [Centros de eventos](resource-logs-stream-event-hubs.md) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. |
-| [Conta de armazenamento Azure](resource-logs-collect-storage.md) | Arquivar registos e métricas para uma conta de armazenamento Azure é útil para auditoria, análise estática ou backup. Em comparação com os Registos do Monitor Azure e um espaço de trabalho log Analytics, o armazenamento do Azure é mais barato e os registos podem ser mantidos lá indefinidamente. |
+| [Área de trabalho do Log Analytics](#log-analytics-workspace) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
+| [Centros de eventos](#event-hub) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. |
+| [Conta de armazenamento Azure](#azure-storage) | Arquivar registos e métricas para uma conta de armazenamento Azure é útil para auditoria, análise estática ou backup. Em comparação com os Registos do Monitor Azure e um espaço de trabalho log Analytics, o armazenamento do Azure é mais barato e os registos podem ser mantidos lá indefinidamente. |
 
-## <a name="create-diagnostic-settings-in-azure-portal"></a>Criar as definições de diagnóstico no portal do Azure
+
+## <a name="prerequisites"></a>Pré-requisitos
+Quaisquer destinos para a definição de diagnóstico devem ser criados com as permissões necessárias. Consulte as secções abaixo para obter os requisitos necessários para cada destino.
+
+### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
+[Crie um novo espaço de trabalho](../learn/quick-create-workspace.md) se ainda não tiver um. O espaço de trabalho não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
+
+### <a name="event-hub"></a>Hub de eventos
+[Crie um centro de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. O espaço de nomes do Event Hubs não tem de estar na mesma subscrição que a subscrição que está a emitir registos, desde que o utilizador que configura a definição tenha acesso adequado ao RBAC a ambas as subscrições e ambas as subscrições estejam no mesmo inquilino da AAD.
+
+A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para Os Centros de Eventos requer permissões de Gestão, Envio e Escuta. Pode criar ou modificar políticas de acesso partilhado no portal Azure no separador Configurar para o seu espaço de nomes Desempaços de Evento. Para atualizar a definição de diagnóstico para incluir o streaming, tem de ter a permissão ListKey nessa regra de autorização do Event Hubs. 
+
+
+### <a name="azure-storage"></a>Storage do Azure
+[Crie uma conta de armazenamento Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
+
+Não deve utilizar uma conta de armazenamento existente que tenha outros dados de não monitorização armazenados nele para que possa controlar melhor o acesso aos dados. No entanto, se estiver a arquivar os registos de Atividade e os registos de recursos em conjunto, poderá optar por utilizar a mesma conta de armazenamento para manter todos os dados de monitorização num local central.
+
+Para enviar os dados para armazenamento imutável, descreva a política imutável para a conta de armazenamento, tal como descrito no [Conjunto e gere as políticas de imutabilidade para o armazenamento blob](../../storage/blobs/storage-blob-immutability-policies-manage.md). Deve seguir todas as etapas deste artigo, incluindo permitir a colocação de bolhas de apêndice protegido.
+
+> [!NOTE]
+> As contas do Azure Data Lake Storage Gen2 não são atualmente suportadas como um destino para as definições de diagnóstico, mesmo que estas possam ser listadas como uma opção válida no portal do Azure.
+
+
+
+## <a name="create-in-azure-portal"></a>Criar no portal do Azure
 
 Pode configurar as definições de diagnóstico no portal Azure, quer a partir do menu Azure Monitor, quer do menu para o recurso.
 
@@ -116,7 +139,7 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
 
 Após alguns momentos, a nova definição aparece na sua lista de definições para este recurso, e os registos são transmitidos para os destinos especificados à medida que novos dados do evento são gerados. Pode levar até 15 minutos entre quando um evento é emitido e quando [aparece num espaço de trabalho log analytics](data-ingestion-time.md).
 
-## <a name="create-diagnostic-settings-using-powershell"></a>Criar as definições de diagnóstico com o PowerShell
+## <a name="create-using-powershell"></a>Criar com o PowerShell
 
 Utilize o [cmdlet Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para criar uma definição de diagnóstico com [a Azure PowerShell](powershell-quickstart-samples.md). Consulte a documentação deste cmdlet para descrições dos seus parâmetros.
 
@@ -129,7 +152,7 @@ Segue-se um exemplo de PowerShell cmdlet para criar uma definição de diagnóst
 Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## <a name="create-diagnostic-settings-using-azure-cli"></a>Criar as definições de diagnóstico com a CLI do Azure
+## <a name="create-using-azure-cli"></a>Criar usando O Azure CLI
 
 Utilize as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando para criar uma definição de diagnóstico com [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). Consulte a documentação deste comando para descrições dos seus parâmetros.
 
@@ -149,13 +172,15 @@ az monitor diagnostic-settings create  \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## <a name="configure-diagnostic-settings-using-rest-api"></a>Configurar definições de diagnóstico usando REST API
+## <a name="create-using-resource-manager-template"></a>Criar usando o modelo de gestor de recursos
+Consulte [as amostras do modelo do Gestor de Recursos para configurações de diagnóstico no Azure Monitor](../samples/resource-manager-diagnostic-settings.md) para criar ou atualizar definições de diagnóstico com um modelo de Gestor de Recursos.
 
+## <a name="create-using-rest-api"></a>Criar com a API REST
 Consulte [Definições de diagnóstico](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) para criar ou atualizar definições de diagnóstico utilizando a [API do Monitor Azure](https://docs.microsoft.com/rest/api/monitor/).
 
-## <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Configurar definições de diagnóstico usando o modelo do Gestor de Recursos
+## <a name="create-using-azure-policy"></a>Criar usando a política de Azure
+Uma vez que é necessário criar uma definição de diagnóstico para cada recurso Azure, a Política Azure pode ser usada para criar automaticamente uma definição de diagnóstico à medida que cada recurso é criado. Consulte [o Monitor Azure em escala utilizando a Política Azure](deploy-scale.md) para obter detalhes.
 
-Consulte [a definição de diagnóstico no Monitor Azure utilizando um modelo de Gestor de Recursos](diagnostic-settings-template.md) para criar ou atualizar definições de diagnóstico com um modelo de Gestor de Recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

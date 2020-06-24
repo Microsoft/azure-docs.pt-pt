@@ -4,16 +4,16 @@ description: Saiba como carregar um VHD para um disco gerido aZure e copiar um d
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
+ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2802907d9e3ddb1c09c2f94074a977d00d191a84
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658803"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945635"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure CLI
 
@@ -47,6 +47,9 @@ Antes de criar um HDD padrão vazio para o upload, vai precisar do tamanho do fi
 Crie um HDD padrão vazio para o upload especificando tanto o parâmetro **-- para carregar** e o parâmetro **--upload-size-bytes** em um [disco criar](/cli/azure/disk#az-disk-create) cmdlet:
 
 `<yourdiskname>` `<yourresourcegroupname>` Substitua, por `<yourregion>` valores à sua escolha. O `--upload-size-bytes` parâmetro contém um valor de exemplo `34359738880` de, substitua-o por um valor apropriado para si.
+
+> [!TIP]
+> Se estiver a criar um disco DE, adicione -- hiper-v geração <yourGeneration> a `az disk create` .
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -101,6 +104,9 @@ O seguinte script fará isso por si, o processo é semelhante aos passos descrit
 
 Substitua o `<sourceResourceGroupHere>` , , , e `<sourceDiskNameHere>` `<targetDiskNameHere>` `<targetResourceGroupHere>` `<yourTargetLocationHere>` (um exemplo de um valor de localização seria uswest2) pelos seus valores, em seguida, executar o seguinte script para copiar um disco gerido.
 
+> [!TIP]
+> Se estiver a criar um disco DE, adicione -- hiper-v geração <yourGeneration> a `az disk create` .
+
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>
 sourceRG = <sourceResourceGroupHere>
@@ -123,7 +129,7 @@ az disk revoke-access -n $sourceDiskName -g $sourceRG
 az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez o upload de um VHD com sucesso para um disco gerido, pode anexar o disco como [disco de dados a um VM existente](add-disk.md) ou [anexar o disco VM a um disco VM como disco de OS,](upload-vhd.md#create-the-vm)para criar um novo VM. 
 

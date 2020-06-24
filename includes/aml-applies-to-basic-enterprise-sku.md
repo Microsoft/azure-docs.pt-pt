@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning
@@ -16,4 +16,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75527064"
 ---
-**Aplica-se a:** ![ sim ](media/aml-applies-to-skus/yes.png) Edição Básica ![ sim edição enterprise (Upgrade para a ](media/aml-applies-to-skus/yes.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [edição Enterprise)](../articles/machine-learning/how-to-manage-workspace.md#upgrade)  
+**APLICA-SE A:** ![ sim ](media/aml-applies-to-skus/yes.png) Edição básica ![ sim ](media/aml-applies-to-skus/yes.png) Edição Enterprise &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [(Upgrade para edição Enterprise)](../articles/machine-learning/how-to-manage-workspace.md#upgrade)  

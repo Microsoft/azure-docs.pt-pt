@@ -21,13 +21,13 @@ ms.locfileid: "80878255"
 }
 ```
 
-As seguintes propriedades `extensionBundle`estão disponíveis em:
+As seguintes propriedades estão disponíveis `extensionBundle` em:
 
 | Propriedade | Descrição |
 | -------- | ----------- |
-| ID | O espaço de nome para os pacotes de extensão das funções Microsoft Azure. |
-| versão | A versão do pacote para instalar. O tempo de funcionamento das Funções escolhe sempre a versão máxima admissível definida pelo intervalo ou intervalo da versão. O valor da versão acima permite todas as versões de bundle de 1.0.0 até, mas não incluindo 2.0.0. Para mais informações, consulte a notação de [intervalo para especificar intervalos](/nuget/reference/package-versioning#version-ranges)de versão . |
+| ID | O espaço de nome para pacotes de extensão Microsoft Azure Functions. |
+| versão | A versão do pacote para instalar. O tempo de execução das Funções escolhe sempre a versão máxima admissível definida pela gama ou intervalo da versão. O valor da versão acima permite todas as versões do pacote de 1.0.0 até, mas não incluindo 2.0.0. Para obter mais informações, consulte a [notação de intervalo para especificar as gamas de versões](/nuget/reference/package-versioning#version-ranges). |
 
-As versões do bundle incrementam à medida que os pacotes na mudança de pacote. As principais alterações de versão ocorrem quando os pacotes no incremento do pacote por uma versão importante. As principais alterações de versão no pacote geralmente coincidem com uma mudança na versão principal do tempo de execução das Funções.  
+As versões de pacote incrementam como pacotes na mudança do pacote. As principais mudanças de versão ocorrem quando os pacotes no incremento do pacote por uma versão principal. As principais mudanças de versão no pacote geralmente coincidem com uma mudança na versão principal do tempo de execução das Funções.  
 
-O conjunto atual de extensões instalados pelo pacote predefinido é enumerado neste [ficheiro extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+O conjunto atual de extensões instaladas pelo pacote predefinido é enumerado neste [extensions.jsem ficheiro](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
