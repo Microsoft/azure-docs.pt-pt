@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
@@ -14,7 +14,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "76279412"
 ---
-Especifica quantas invocações de função são agregadas no cálculo das [métricas para Insights](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)de Aplicação . 
+Especifica quantas invocações de função são agregadas ao [calcular métricas para Insights de Aplicação](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator). 
 
 ```json
 {
@@ -25,9 +25,9 @@ Especifica quantas invocações de função são agregadas no cálculo das [mét
 }
 ```
 
-|Propriedade |Predefinição  | Descrição |
+|Propriedade |Predefinição  | Description |
 |---------|---------|---------| 
-|batchSize|1000|Número máximo de pedidos a agregados.| 
-|flushTimeout|00:00:30|Período máximo de tempo a agregado.| 
+|batchSize|1000|Número máximo de pedidos de agregação.| 
+|flushTimeout|00:00:30|Período máximo de tempo para agregar.| 
 
 As invocações de funções são agregadas quando o primeiro dos dois limites é atingido.

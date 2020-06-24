@@ -136,7 +136,7 @@ Os clientes devem aceitar estes termos antes de poderem experimentar a sua ofert
 
 Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante.
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 Selecione o idioma no qual a sua oferta será listada. Atualmente, **inglês (Estados Unidos)** é a única opção disponível.
 

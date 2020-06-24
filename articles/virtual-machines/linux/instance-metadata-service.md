@@ -1,5 +1,5 @@
 ---
-title: Serviço de Metadados de Caso Azure
+title: Azure Instance Metadata Service
 description: Interface RESTful para obter informações sobre vMs compute, rede e eventos de manutenção futuros.
 services: virtual-machines
 author: KumariSupriya
@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: aa7a076d10bfa28b4ce8dea9776435677c6909d8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: f638b332eae5cd85e1cb6aae9c6bd8eb4ad44848
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634324"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886186"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
@@ -224,7 +224,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 
 O Serviço de Metadados contém várias APIs representando diferentes fontes de dados.
 
-API | Descrição | Versão introduzida
+API | Description | Versão introduzida
 ----|-------------|-----------------------
 /atestado | Ver [Dados Attestados](#attested-data) | 2018-10-01
 /identidade | Ver [Adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -235,7 +235,7 @@ API | Descrição | Versão introduzida
 
 A API de caso expõe os metadados importantes para as instâncias VM, incluindo o VM, a rede e o armazenamento. As seguintes categorias podem ser acedidas através de exemplo/cálculo:
 
-Dados | Descrição | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente azul onde o VM está em execução | 2018-10-01
 customData | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
@@ -426,7 +426,7 @@ A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
 Os metadados de rede fazem parte do caso API. As seguintes categorias de Rede estão disponíveis através do ponto final de instância/rede.
 
-Dados | Descrição | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Endereço IPv4 local do VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público do VM | 2017-04-02
@@ -494,7 +494,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-Dados    | Descrição
+Dados    | Description
 --------|-----------------
 ID      | ID do Recurso
 oferta   | Oferta da plataforma ou imagem de mercado
@@ -504,7 +504,7 @@ versão | Versão da plataforma ou imagem do mercado
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-Dados    | Descrição
+Dados    | Description
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -519,7 +519,7 @@ writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disc
 
 A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados    | Descrição
+Dados    | Description
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -681,7 +681,7 @@ Nonce é uma corda opcional de 10 dígitos. Se não for fornecida, o IMDS devolv
 A bolha de assinatura é uma versão assinada por [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com os detalhes vM, como vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informações do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e vem do Azure.
 O documento contém os seguintes campos:
 
-Dados | Descrição
+Dados | Description
 -----|------------
 nonce | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não for fornecido nenhum nonce, o atual calendário UTC é usado
 plano | O [plano Azure Marketplace Image](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan). Contém o id do plano (nome), imagem ou oferta do produto (produto) e id editor (editor).
@@ -710,7 +710,7 @@ openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
 # Get Public key out of pkc7
 openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
 # Get the intermediate certificate
-wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
+curl -s -o intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
 openssl x509 -inform der -in intermediate.cer -out intermediate.pem
 # Verify the contents
 openssl smime -verify -in sign.pk7 -inform pem -noverify
@@ -796,7 +796,7 @@ O serviço está **geralmente disponível** em todas as Nuvens Azure.
 
 Amostras de serviço de metadados de chamada utilizando diferentes idiomas dentro do VM:
 
-Linguagem      | Exemplo
+Idioma      | Exemplo
 --------------|----------------
 Bash          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
@@ -841,6 +841,50 @@ Erro de serviço 500     | Redando depois de algum tempo
    * Atualmente, as tags para Conjuntos de Escala só mostram ao VM num reboot, reimagem ou alteração de disco para a instância.
 1. Recebo um pedido cronometrado para a minha chamada para o serviço?
    * As chamadas de metadados devem ser efetuadas a partir do endereço IP primário atribuído ao cartão de rede primário do VM. Além disso, no caso de ter alterado as suas rotas, deve haver uma rota para o endereço 169.254.169.254/32 na tabela de encaminhamento local da sua VM.
+   * <details>
+        <summary>Verificação da sua mesa de encaminhamento</summary>
+
+        1. Despeje a sua mesa de encaminhamento local com um comando como `netstat -r` e procure a entrada IMDS (por exemplo):
+            ```console
+            ~$ netstat -r
+            Kernel IP routing table
+            Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+            default         _gateway        0.0.0.0         UG        0 0          0 eth0
+            168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+            169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+            172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+            ```
+        1. Verifique se existe uma rota para `169.254.169.254` , e note a interface de rede correspondente (por `eth0` exemplo).
+        1. Despeje a configuração da interface para a interface correspondente na tabela de encaminhamento (note que o nome exato do ficheiro de configuração pode variar)
+            ```console
+            ~$ cat /etc/netplan/50-cloud-init.yaml
+            network:
+            ethernets:
+                eth0:
+                    dhcp4: true
+                    dhcp4-overrides:
+                        route-metric: 100
+                    dhcp6: false
+                    match:
+                        macaddress: 00:0d:3a:e4:c7:2e
+                    set-name: eth0
+            version: 2
+            ```
+        1. Se estiver a utilizar um IP dinâmico, observe o endereço MAC. Se estiver a utilizar um IP estático, poderá observar os IP(s) listados e/ou o endereço MAC.
+        1. Confirme que a interface corresponde ao NIC primário do VM e ao IP primário. Pode encontrar o NIC/IP primário olhando para a configuração da rede no Portal Azure ou [olhando-o para cima com o Azure CLI](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Observe os IPs públicos e privados (e o endereço MAC se utilizar o cli). Exemplo do PowerShell CLI:
+            ```powershell
+            $ResourceGroup = '<Resource_Group>'
+            $VmName = '<VM_Name>'
+            $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+            foreach($NicName in $NicNames)
+            {
+                $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+                Write-Host $NicName, $Nic.primary, $Nic.macAddress
+            }
+            # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+            ```
+        1. Se não corresponderem, atualize a tabela de encaminhamento de modo a que o NIC/IP primário seja alvo.
+    </details>
 
 ## <a name="support-and-feedback"></a>Suporte e Feedback
 
@@ -856,3 +900,4 @@ Utilize o Tipo de Problema `Management` e selecione `Instance Metadata Service` 
 Saiba mais sobre:
 1. [Adquirir um símbolo de acesso para o VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 1. [Eventos Agendados](scheduled-events.md)
+

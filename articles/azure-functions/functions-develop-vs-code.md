@@ -3,12 +3,12 @@ title: Desenvolver funções de Azure utilizando o Código do Estúdio Visual
 description: Aprenda a desenvolver e testar funções Azure utilizando a extensão de Funções Azure para Código do Estúdio Visual.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 39e62f78f9f0cf1550a01201f753782566aa7c80
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424164"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732480"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções de Azure utilizando o Código do Estúdio Visual
 
@@ -31,7 +31,7 @@ A extensão pode ser utilizada com os seguintes idiomas, que são suportados pel
 
 <sup>*</sup>Requer que [estabeleça o script C# como o seu idioma de projeto predefinido](#c-script-projects).
 
-Neste artigo, os exemplos estão atualmente disponíveis apenas para funções de biblioteca de classe JavaScript (Node.js) e C#.  
+Neste artigo, os exemplos estão atualmente disponíveis apenas para funções de biblioteca de classes JavaScript (Node.js) e C#.  
 
 Este artigo fornece detalhes sobre como usar a extensão de Funções Azure para desenvolver funções e publicá-las para Azure. Antes de ler este artigo, deverá [criar a sua primeira função utilizando o Código de Estúdio Visual](functions-create-first-function-vs-code.md).
 
@@ -83,12 +83,12 @@ A extensão funções permite criar um projeto de aplicação de função, junta
 
 O modelo do projeto cria um projeto no seu idioma escolhido e instala dependências necessárias. Para qualquer língua, o novo projeto tem estes ficheiros:
 
-* **host.json**: Permite-lhe configurar o anfitrião funções. Estas definições aplicam-se quando está a executar funções localmente e quando as executa em Azure. Para mais informações, consulte [a referência host.json](functions-host-json.md).
+* **host.js:** Permite-lhe configurar o anfitrião funções. Estas definições aplicam-se quando está a executar funções localmente e quando as executa em Azure. Para mais informações, consulte [host.jsa referência.](functions-host-json.md)
 
-* **local.settings.json**: Mantém as definições utilizadas quando está a executar funções localmente. Estas definições são utilizadas apenas quando estiver a executar funções localmente. Para obter mais informações, consulte [o ficheiro de definições locais](#local-settings-file).
+* **local.settings.jsem**: Mantém as definições utilizadas quando está a executar funções localmente. Estas definições são utilizadas apenas quando estiver a executar funções localmente. Para obter mais informações, consulte [o ficheiro de definições locais](#local-settings-file).
 
     >[!IMPORTANT]
-    >Como o ficheiro local.settings.json pode conter segredos, precisa excluí-lo do controlo de origem do seu projeto.
+    >Como as local.settings.jsem ficheiro podem conter segredos, tens de o excluir do controlo de fontes do teu projeto.
 
 Dependendo do seu idioma, estes outros ficheiros são criados:
 
@@ -100,11 +100,11 @@ Neste ponto, pode adicionar encadernações de entrada e saída à sua função 
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-* Um ficheiro pacote.json na pasta raiz.
+* Uma package.jsno ficheiro na pasta raiz.
 
-* Uma pasta HttpExample que contém o [ficheiro de definição de funções.json](functions-reference-node.md#folder-structure) e o [ficheiro index.js](functions-reference-node.md#exporting-a-function), um ficheiro Node.js que contém o código de função.
+* Uma pasta HttpExample que contém o [function.jsno ficheiro de definição](functions-reference-node.md#folder-structure) e no ficheiro [index.js](functions-reference-node.md#exporting-a-function), um ficheiro Node.js que contém o código de função.
 
-Neste ponto, pode adicionar ligações de entrada e saída à sua função [modificando o ficheiro function.json](#add-input-and-output-bindings).
+Neste ponto, pode adicionar ligações de entrada e saída à sua função [modificando a function.jsno ficheiro](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -150,7 +150,7 @@ Um novo ficheiro da biblioteca de classes C# (.cs) é adicionado ao seu projeto.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Uma nova pasta é criada no projeto. A pasta contém um novo ficheiro funções.json e o novo ficheiro de código JavaScript.
+Uma nova pasta é criada no projeto. A pasta contém um novo function.jsno ficheiro e o novo ficheiro de código JavaScript.
 
 ---
 
@@ -158,7 +158,7 @@ Uma nova pasta é criada no projeto. A pasta contém um novo ficheiro funções.
 
 Pode expandir a sua função adicionando encadernações de entrada e saída. O processo de adição de encadernações depende da linguagem do seu projeto. Para saber mais sobre encadernações, consulte [a Azure Functions triggers e encaderna os conceitos.](functions-triggers-bindings.md)
 
-Os exemplos a seguir ligam-se a uma fila de armazenamento denominada `outqueue` , onde a cadeia de ligação para a conta de armazenamento é definida na definição de `MyStorageConnection` aplicação em local.settings.json.
+Os exemplos a seguir ligam-se a uma fila de armazenamento denominada `outqueue` , onde o fio de ligação para a conta de armazenamento é definido na definição de `MyStorageConnection` aplicação local.settings.jsligado.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
@@ -180,7 +180,7 @@ Para saber mais, consulte a documentação [de encadernação de saída de armaz
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-O Código do Estúdio Visual permite-lhe adicionar encadernações ao seu ficheiro function.json seguindo um conveniente conjunto de solicitações. Para criar uma ligação, clique à direita (Ctrl+clique no macOS) o ficheiro **função.json** na sua pasta de funções e **selecione Adicionar vinculação**:
+O Visual Studio Code permite-lhe adicionar encadernações à sua function.jsno ficheiro, seguindo um conveniente conjunto de pedidos. Para criar uma ligação, clique à direita (Ctrl+clique no macOS) o **function.jsno** ficheiro na sua pasta de funções e selecione **Adicionar vinculação**:
 
 ![Adicione uma ligação a uma função JavaScript existente ](media/functions-develop-vs-code/function-add-binding.png)
 
@@ -194,7 +194,7 @@ Seguem-se os exemplos de solicitações para definir uma nova ligação de saíd
 | **A fila para a qual a mensagem será enviada** | `outqueue` | O nome da fila a que a ligação escreve. Quando o nome da *fila* não existe, a ligação cria-o na primeira utilização. |
 | **Selecione a definição de "local.settings.json"** | `MyStorageConnection` | O nome de uma definição de aplicação que contém o fio de ligação para a conta de armazenamento. A `AzureWebJobsStorage` definição contém a cadeia de ligação para a conta de armazenamento que criou com a aplicação de função. |
 
-Neste exemplo, é adicionada a seguinte ligação à `bindings` matriz no seu ficheiro function.json:
+Neste exemplo, é adicionada a seguinte ligação à matriz do `bindings` seu function.jsem arquivo:
 
 ```javascript
 {
@@ -206,7 +206,7 @@ Neste exemplo, é adicionada a seguinte ligação à `bindings` matriz no seu fi
 }
 ```
 
-Também pode adicionar a mesma definição de ligação diretamente à sua função.json.
+Também pode adicionar a mesma definição de encadernação diretamente à sua function.js.
 
 No seu código de função, a `msg` ligação é acedida a partir do `context` , como neste exemplo:
 
@@ -269,13 +269,7 @@ Quando configurar [a implementação contínua,](functions-continuous-deployment
 > [!IMPORTANT]
 > A publicação de uma aplicação de funções existente substitui o conteúdo dessa aplicação no Azure.
 
-1. No Código do Estúdio Visual, selecione F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione **Funções Azure: Implementar para funcionar a aplicação**.
-
-1. Se não tiver assinado, é solicitado que entre **em Azure.** Depois de iniciar sins in a partir do navegador, volte ao Código do Estúdio Visual. Se tiver várias subscrições, **selecione uma subscrição** que contenha a sua aplicação de função.
-
-1. Selecione a sua aplicação de função existente em Azure. Quando for avisado sobre a sobreposição de todos os ficheiros na aplicação de função, selecione **Implementar** para reconhecer o aviso e continuar.
-
-O projeto é reconstruído, reembalado e enviado para Azure. O projeto existente é substituído pelo novo pacote, e a aplicação de função reinicia.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Obtenha o URL da função implantada
 
@@ -289,7 +283,7 @@ O URL de função é copiado para a área de transferência, juntamente com as t
 
 ## <a name="run-functions-locally"></a>Executar funções localmente
 
-A extensão Azure Functions permite executar um projeto De funções no seu computador de desenvolvimento local. O tempo de execução local é o mesmo tempo de execução que acolhe a sua aplicação de função em Azure. As definições locais são lidas a partir do [ficheiro local.settings.json](#local-settings-file).
+A extensão Azure Functions permite executar um projeto De funções no seu computador de desenvolvimento local. O tempo de execução local é o mesmo tempo de execução que acolhe a sua aplicação de função em Azure. As definições locais são lidas a partir do [local.settings.jsno ficheiro](#local-settings-file).
 
 ### <a name="additional-requirements-for-running-a-project-locally"></a>Requisitos adicionais para a execução de um projeto local
 
@@ -299,11 +293,11 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Linguagem | Requisito |
+    | Idioma | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
-    | **JavaScript** | [Nó.js](https://nodejs.org/)<sup>*</sup> |  
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
 
     <sup>*</sup>Versões LTS e Manutenção ativas LTS (8.11.1 e 10.14.1 recomendado).
@@ -318,7 +312,7 @@ Para definir o fio de ligação da conta de armazenamento:
 
 1. No Estúdio Visual, abra **o Cloud Explorer,** expanda a **conta de armazenamento**da sua conta de  >  **armazenamento**e, em seguida, selecione **Propriedades** e copie o valor da cadeia **de ligação primária.**
 
-2. No seu projeto, abra o ficheiro local.settings.json e defina o valor da chave **AzureWebJobsStorage** para a cadeia de ligação que copiou.
+2. No seu projeto, abra a local.settings.jsem arquivo e descreva o valor da chave **AzureWebJobsStorage** para a cadeia de ligação que copiou.
 
 3. Repita o passo anterior para adicionar **teclas únicas** à matriz Valores para quaisquer outras ligações necessárias às suas funções.
 
@@ -336,7 +330,7 @@ Para saber mais, consulte [Trabalhar com Azure Functions Core Tools][Azure Funct
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Por padrão, estas definições não são migradas automaticamente quando o projeto é publicado para a Azure. Após a publicação de acabamentos, é-lhe dada a opção de publicar definições de local.settings.json para a sua aplicação de função em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings).
+Por padrão, estas definições não são migradas automaticamente quando o projeto é publicado para a Azure. Após a publicação de acabamentos, é-lhe dada a opção de publicar definições a partir de local.settings.jspara a sua aplicação de função em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings).
 
 Os **valores em ConnectionStrings** nunca são publicados.
 
@@ -349,7 +343,7 @@ Os valores de definição de aplicação de função também podem ser lidos no 
 
 ## <a name="application-settings-in-azure"></a>Definições de aplicação em Azure
 
-As definições no ficheiro local.settings.json no seu projeto devem ser as mesmas que as definições de aplicação na aplicação de função em Azure. Quaisquer definições adicionadas a local.settings.json também devem ser adicionadas à aplicação de função em Azure. Estas definições não são carregadas automaticamente quando publica o projeto. Da mesma forma, quaisquer configurações que crie na sua aplicação de função [no portal](functions-how-to-use-azure-function-app-settings.md#settings) devem ser descarregadas para o seu projeto local.
+As definições no local.settings.jsem ficheiro no seu projeto devem ser as mesmas que as definições de aplicação na aplicação de função em Azure. Quaisquer definições que adicione a local.settings.jstambém devem ser adicionadas à aplicação de função em Azure. Estas definições não são carregadas automaticamente quando publica o projeto. Da mesma forma, quaisquer configurações que crie na sua aplicação de função [no portal](functions-how-to-use-azure-function-app-settings.md#settings) devem ser descarregadas para o seu projeto local.
 
 ### <a name="publish-application-settings"></a>Publicar definições de aplicações
 
@@ -360,7 +354,7 @@ A forma mais fácil de publicar as definições necessárias para a sua aplicaç
 Também pode publicar definições utilizando as **funções Azure: Carregar** o comando De Definição Local na paleta de comando. Pode adicionar definições individuais às definições de aplicação em Azure utilizando as **funções Azure: Adicionar o comando De Nova Definição.**
 
 > [!TIP]
-> Certifique-se de guardar o seu ficheiro local.settings.json antes de publicá-lo.
+> Certifique-se de guardar o seu local.settings.jsarquivado antes de publicá-lo.
 
 Se o ficheiro local for encriptado, é desencriptado, publicado e encriptado novamente. Se houver configurações que tenham valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder.
 
@@ -370,7 +364,7 @@ Ver as definições de aplicações existentes na área **Azure: Funções** exp
 
 ### <a name="download-settings-from-azure"></a>Baixar definições a partir de Azure
 
-Se criou as definições de aplicações no Azure, pode descarregá-las para o seu ficheiro local.settings.json utilizando o comando **Azure Functions: Descarregue** o comando Definições Remotas.
+Se criou as definições de aplicações no Azure, pode descarregá-las para o seu local.settings.jsno ficheiro utilizando o comando **Azure Functions: Descarregue** o comando Definições Remotas.
 
 Tal como no upload, se o ficheiro local for encriptado, é desencriptado, atualizado e encriptado novamente. Se houver configurações que tenham valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder.
 
@@ -409,7 +403,7 @@ Por predefinição, todos os projetos C# são criados como [projetos de bibliote
 
 1. Selecione **C#Script** da **Função Azure: Linguagem do projeto**.
 
-Depois de completar estes passos, as chamadas feitas para as Ferramentas Core subjacentes incluem a `--csx` opção, que gera e publica ficheiros de projeto de script C# (.csx). Quando tiver este idioma predefinido especificado, todos os projetos que cria padrão para projetos de script C#. Não é solicitado a escolher uma linguagem de projeto quando um padrão é definido. Para criar projetos em outros idiomas, tem de alterar esta definição ou removê-la do ficheiro definições do utilizador.json. Depois de remover esta definição, é novamente solicitado a escolher o seu idioma quando criar um projeto.
+Depois de completar estes passos, as chamadas feitas para as Ferramentas Core subjacentes incluem a `--csx` opção, que gera e publica ficheiros de projeto de script C# (.csx). Quando tiver este idioma predefinido especificado, todos os projetos que cria padrão para projetos de script C#. Não é solicitado a escolher uma linguagem de projeto quando um padrão é definido. Para criar projetos em outros idiomas, tem de alterar esta definição ou removê-la do utilizador settings.jsficheiro. Depois de remover esta definição, é novamente solicitado a escolher o seu idioma quando criar um projeto.
 
 ## <a name="command-palette-reference"></a>Referência da paleta de comando
 
@@ -426,16 +420,16 @@ A extensão Azure Functions fornece uma interface gráfica útil na área para i
 | **Eliminar App de função** | Remove uma aplicação de função da sua subscrição em Azure. Quando não há outras aplicações no plano do Serviço de Aplicações, é-lhe dada a opção de apagar isso também. Outros recursos, como contas de armazenamento e grupos de recursos, não são eliminados. Para remover todos os recursos, deve em vez disso [eliminar o grupo de recursos](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). O seu projeto local não foi afetado. |
 |**Eliminar Função**  | Remove uma função existente de uma aplicação de função em Azure. Porque esta eliminação não afeta o seu projeto local, em vez disso considere remover a função localmente e, em seguida, [reeditar o seu projeto.](#republish-project-files) |
 | **Excluir Proxy** | Remove um proxy Azure Functions da sua aplicação de função em Azure. Para saber mais sobre os proxies, consulte [Work with Azure Functions Proxies](functions-proxies.md). |
-| **Excluir Definição** | Elimina uma definição de aplicação de função em Azure. Esta eliminação não afeta as definições no ficheiro local.settings.json. |
+| **Excluir Definição** | Elimina uma definição de aplicação de função em Azure. Esta eliminação não afeta as definições do seu local.settings.jsno ficheiro. |
 | **Desligar do Repo**  | Remove a ligação [de implementação contínua](functions-continuous-deployment.md) entre uma aplicação de função em Azure e um repositório de controlo de fonte. |
-| **Baixar Definições remotas** | Descarrega as definições da aplicação de função escolhida em Azure para o seu ficheiro local.settings.json. Se o ficheiro local estiver encriptado, é desencriptado, atualizado e encriptado novamente. Se houver configurações que tenham valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder. Certifique-se de que guarda alterações no ficheiro local.settings.json antes de executar este comando. |
-| **Editar definições** | Altera o valor de uma definição de aplicação de função existente no Azure. Este comando não afeta as definições no ficheiro local.settings.json.  |
+| **Baixar Definições remotas** | Descarrega as definições da aplicação de função escolhida em Azure para o seu local.settings.jsno ficheiro. Se o ficheiro local estiver encriptado, é desencriptado, atualizado e encriptado novamente. Se houver configurações que tenham valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder. Certifique-se de que guarda alterações no seu local.settings.jsno ficheiro antes de executar este comando. |
+| **Editar definições** | Altera o valor de uma definição de aplicação de função existente no Azure. Este comando não afeta as definições do seu local.settings.jsno ficheiro.  |
 | **Configurações encriptadas** | Encripta itens individuais na `Values` matriz nas [definições locais](#local-settings-file). Neste ficheiro, `IsEncrypted` também é definido para , que especifica que o tempo de `true` execução local irá desencriptar as definições antes de as utilizar. Criptografe as definições locais para reduzir o risco de fuga de informação valiosa. No Azure, as definições de aplicações são sempre armazenadas encriptadas. |
 | **Executar função agora** | Inicia manualmente uma [função de temporizador](functions-bindings-timer.md) em Azure. Este comando é utilizado para testes. Para saber mais sobre o desencadeamento de funções não-HTTP no Azure, consulte [executar manualmente uma função não acionada por HTTP](functions-manually-run-non-http.md). |
 | **Inicializar projeto para uso com código VS** | Adiciona os ficheiros de projetos do Código do Estúdio Visual necessários a um projeto de Funções existente. Utilize este comando para trabalhar com um projeto que criou utilizando Ferramentas Core. |
 | **Instalar ou atualizar funções Azure Funções Ferramentas principais** | Instala ou atualiza [Azure Functions Core Tools], que é utilizado para executar funções localmente. |
 | **Voltar a implementar**  | Permite-lhe recolocar ficheiros de projetos de um repositório de Git ligado a uma implantação específica em Azure. Para republicar as atualizações locais do Código do Estúdio Visual, [reedite o seu projeto.](#republish-project-files) |
-| **Definições de renome** | Altera o nome-chave de uma definição de aplicação de função existente no Azure. Este comando não afeta as definições no ficheiro local.settings.json. Depois de mudar o nome das definições em Azure, deverá [descarregar essas alterações para o projeto local.](#download-settings-from-azure) |
+| **Definições de renome** | Altera o nome-chave de uma definição de aplicação de função existente no Azure. Este comando não afeta as definições do seu local.settings.jsno ficheiro. Depois de mudar o nome das definições em Azure, deverá [descarregar essas alterações para o projeto local.](#download-settings-from-azure) |
 | **Reiniciar** | Reinicia a aplicação de função em Azure. A implementação de atualizações também reinicia a aplicação de função. |
 | **Definir AzureWebJobsStorage**| Define o valor da definição de `AzureWebJobsStorage` aplicação. Esta definição é requerida pelas Funções Azure. É definido quando uma aplicação de função é criada em Azure. |
 | **Iniciar** | Inicia uma aplicação de função parada em Azure. |
@@ -444,7 +438,7 @@ A extensão Azure Functions fornece uma interface gráfica útil na área para i
 | **Parar os registos de streaming** | Para os registos de streaming para a aplicação de função em Azure. |
 | **Alternar como Definição de Ranhura** | Quando ativado, assegura-se de que a definição de aplicação persiste para uma determinada ranhura de implantação. |
 | **Desinstalar as funções principais das funções** | Remove Azure Functions Core Tools, que é exigido pela extensão. |
-| **Faça upload de configurações locais** | Envia as definições do ficheiro local.settings.json para a aplicação de função escolhida em Azure. Se o ficheiro local estiver encriptado, é desencriptado, carregado e encriptado novamente. Se houver configurações que tenham valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder. Certifique-se de que guarda alterações no ficheiro local.settings.json antes de executar este comando. |
+| **Faça upload de configurações locais** | O upload das definições do seu local.settings.jsno ficheiro para a aplicação de função escolhida em Azure. Se o ficheiro local estiver encriptado, é desencriptado, carregado e encriptado novamente. Se houver configurações que tenham valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder. Certifique-se de que guarda alterações no seu local.settings.jsno ficheiro antes de executar este comando. |
 | **Ver Cometer no GitHub** | Mostra-lhe o mais recente compromisso numa implementação específica quando a sua aplicação de função está ligada a um repositório. |
 | **Ver Registos de Implementação** | Mostra-lhe os registos para uma implementação específica para a aplicação de função em Azure. |
 

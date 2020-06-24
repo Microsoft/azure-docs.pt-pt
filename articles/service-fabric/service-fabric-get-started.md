@@ -3,14 +3,14 @@ title: Criar um ambiente de desenvolvimento do Windows
 description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir esta configuração, estará pronto para criar aplicações no Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 8e51b224bdb91d8bce0f83088791cba8cd3b2d45
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449418"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888092"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 
@@ -69,7 +69,7 @@ Se apenas precisa do SDK, pode instalar este pacote:
 As versões atuais são:
 
 * Serviço Fabric SDK e ferramentas 4.1.416
-* Tempo de funcionação do tecido de serviço 7.1.416
+* Tempo de funcionação do tecido de serviço 7.1.417
 
 Para obter uma lista de versões suportadas, consulte as [versões Service Fabric](service-fabric-versions.md)
 
@@ -88,7 +88,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [Service Fabric é um orquestrador de contentores](service-fabric-containers-overview.md) para implantar microserviços através de um conjunto de máquinas. Para executar aplicações de contentores do Windows no seu cluster de desenvolvimento local, tem primeiro de instalar o Docker para o Windows. Obtenha [Docker CE para windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que o ambiente de desenvolvimento está configurado, pode começar a criar e executar aplicações.
 

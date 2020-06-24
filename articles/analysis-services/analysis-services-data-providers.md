@@ -4,15 +4,15 @@ description: Descreve bibliotecas de clientes necessárias para aplicações e f
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c02be378febacc4db0b077a3be69339ff9710a0
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1bdb9c93e5b5a510e6d89f879f0783fe95910c43
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300914"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976596"
 ---
 # <a name="client-libraries-for-connecting-to-analysis-services"></a>Bibliotecas de clientes para ligação aos Serviços de Análise
 
@@ -20,21 +20,23 @@ As bibliotecas de clientes são necessárias para que as aplicações e ferramen
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Descarregue as mais recentes bibliotecas de clientes (Instalador do Windows)  
 
-|Download  |Versão do Produto  | 
+|Transferência  |Versão do Produto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.42.26    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.42.26       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   19.2.0.2    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    19.2.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.44.24    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.44.24       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   19.4.0.2    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    19.4.0.2     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacotes NuGet)
 
-As bibliotecas de serviços de gestão de serviços de análise (AMO) e ADOMD estão disponíveis como pacotes instalados a partir de [NuGet.org](https://www.nuget.org/). Recomenda-se que emigre para referências NuGet em vez de utilizar o Instalador do Windows. 
+As bibliotecas de serviços de gestão de serviços de análise (AMO) e ADOMD estão disponíveis como pacotes instalados a partir de [NuGet.org](https://www.nuget.org/). Recomenda-se que emigre para referências NuGet em vez de utilizar o Instalador do Windows. A partir de junho de 2020, está também disponível um lançamento de pacotes [.NET Core](https://docs.microsoft.com/dotnet/core/about) equivalentes aos pacotes de clientes AMO e ADOMD. Esta pré-visualização do Núcleo .NET suporta apenas servidores baseados em nuvem.
 
 |Pacote  | Versão do Produto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    19.2.0.2     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   19.2.0.2      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    19.4.0.2     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   19.4.0.2      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.NetCore.retail.amd64/19.4.0.2-Preview/)    |    19.4.0.2 (Pré-visualização)    | 
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.NetCore.retail.amd64/19.4.0.2-Preview/)     |   19.4.0.2 (Pré-visualização)      | 
 
 Conjuntos de pacotes NuGet Assemblagem Siga a versão semântica: MAJOR. MENOR. PATCH. As referências nuGet carregam a versão esperada mesmo que exista uma versão diferente no GAC (resultante da instalação do MSI). PATCH é incrementado para cada libertação. As versões AMO e ADOMD são mantidas em sincronização.
 
@@ -74,7 +76,7 @@ As bibliotecas de clientes para ligações ao cliente são diferentes dos fornec
   
 1.  Aceda a `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. Se tiver mais de uma pasta, escolha o número mais alto.
   
-2.  Clique à direita **msolap.dll**  >  **Detalhes de propriedades**  >  **Details**. Se o nome de ficheiro for msolap140.dll, é mais antigo que a versão mais recente e deve ser atualizado.
+2.  Clique à direita **msolap.dll**  >  **detalhes de propriedades.**  >  **Details** Se o nome de ficheiro for msolap140.dll, é mais antigo que a versão mais recente e deve ser atualizado.
     
     ![Detalhes da biblioteca do cliente](media/analysis-services-data-providers/aas-msolap-details.png)
     

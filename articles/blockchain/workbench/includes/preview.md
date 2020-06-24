@@ -13,5 +13,5 @@ ms.locfileid: "70844034"
 ---
 > [!IMPORTANT]
 > O Azure Blockchain Workbench encontra-se atualmente em pré-visualização pública.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
-> O Azure Blockchain Workbench é fornecido sem contrato de nível de serviço. Utilize o [fórum Azure Blockchain](https://aka.ms/workbenchforum) para apoio.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O Azure Blockchain Workbench é fornecido sem contrato de nível de serviço. Utilize o [fórum Azure Blockchain](https://aka.ms/workbenchforum) para obter apoio.

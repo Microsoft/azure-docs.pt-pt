@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f8a6e0b9f5cc63f79dcd57765f30c527382d51ca
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193357"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296326"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Paralelização de consulta de alavancagem em Azure Stream Analytics
 Este artigo mostra-lhe como aproveitar a paralelização no Azure Stream Analytics. Aprende-se a escalar os trabalhos do Stream Analytics configurando divisórias de entrada e ajustando a definição de consulta analítica.
@@ -281,7 +281,7 @@ A solução [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 
 [O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) suporta a escrita em paralelo, chamada Partição Herdada, mas não é ativada por defeito. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter posições mais elevadas. Os produção de escrita SQL dependem significativamente da configuração da sua base de dados e do esquema de tabela. O artigo [SQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar o seu rendimento de escrita. Como indicado na saída Azure Stream Analytics para o artigo [base de dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode necessitar de repartição antes da saída SQL (ver [INTO).](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) Os SKUs premium são necessários para manter altas taxas de IO, juntamente com a sobrecarga de backups de registos que acontecem a cada poucos minutos.
 
-#### <a name="cosmos-db"></a>BD do Cosmos
+#### <a name="cosmos-db"></a>Cosmos DB
 |Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de Saída  |
 |-------|-------|---------|
 |  Mil   |  3    | 20K RU  |
@@ -290,7 +290,7 @@ A solução [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 
 A produção [de CosS da](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) Stream Analytics foi atualizada para utilizar a integração nativa no [nível de compatibilidade 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). O nível de compatibilidade 1.2 permite uma produção significativamente mais elevada e reduz o consumo de RU em comparação com 1.1, que é o nível de compatibilidade padrão para novos postos de trabalho. A solução utiliza recipientes CosmosDB divididos em /deviceId e o resto da solução está configurado de forma idêntica.
 
-Todas as [amostras de streaming em scale azure](https://github.com/Azure-Samples/streaming-at-scale) usam um Event Hub alimentado por clientes de teste simuladores de carga como entrada. Cada evento de entrada é um documento JSON de 1KB, que traduz taxas de ingestão configuradas para taxas de produção (1MB/s, 5MB/s e 10MB/s) facilmente. Os eventos simulam um dispositivo IoT enviando os seguintes dados JSON (de forma encurtada) para dispositivos até 1K:
+Todas as [amostras de streaming na Scale Azure](https://github.com/Azure-Samples/streaming-at-scale) usam um Event Hub como entrada que é alimentada por clientes de teste simuladores de carga. Cada evento de entrada é um documento JSON de 1KB, que traduz taxas de ingestão configuradas para taxas de produção (1MB/s, 5MB/s e 10MB/s) facilmente. Os eventos simulam um dispositivo IoT enviando os seguintes dados JSON (de forma encurtada) para dispositivos até 1K:
 
 ```
 {

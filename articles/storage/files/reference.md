@@ -1,5 +1,5 @@
 ---
-title: Referência de armazenamento de azure File Shares
+title: Referência de armazenamento das Partilhas de Ficheiros do Azure
 description: Encontre referência API de armazenamento Azure, readme ficheiros e pacotes de biblioteca de clientes.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 06/02/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d995e66c2bf3bc1cb1bd0cd93dfc2a0739ab692b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346025"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976528"
 ---
-# <a name="azure-file-shares-storage-reference"></a>Referência de armazenamento de azure File Shares
+# <a name="azure-file-shares-storage-reference"></a>Referência de armazenamento das Partilhas de Ficheiros do Azure
 
 Encontre a azure File Shares armazenamento referência API, pacotes de biblioteca, ler ficheiros e começar artigos.
 
@@ -66,8 +66,8 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure File Shares biblioteca de clientes v12 para Python](/python/api/overview/azure/storage-file-share-readme) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exemplos](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [azure-storage-file](/python/api/azure-storage-file/?view=azure-python-previous) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Programar para os Ficheiros do Azure com Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 12.x | [Bibliotecas de clientes Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exemplos](/python/api/overview/azure/storage-file-share-readme#examples) |
+| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Programar para os Ficheiros do Azure com Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 
