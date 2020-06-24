@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: acf329092d082b9e9cece451e90e96fc0e24fa5c
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 17cbf4f7b0ae31b0523a0fbea0c1cae8f83b234b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447820"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982599"
 ---
 # <a name="responsible-machine-learning-ml"></a>Aprendizagem Automática Responsável (ML)
 
@@ -60,6 +60,9 @@ Quando os dados são usados para análise, é importante que os dados permanecem
 Nos cenários tradicionais, os dados brutos são armazenados em ficheiros e bases de dados. Quando os utilizadores analisam os dados, normalmente utilizam os dados brutos. Isto é uma preocupação porque pode violar a privacidade de um indivíduo. A privacidade diferencial tenta lidar com este problema adicionando "ruído" ou aleatoriedade aos dados para que os utilizadores não possam identificar quaisquer pontos de dados individuais.
 
 É difícil implementar sistemas privados diferencialmente. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) é um projeto de código aberto que contém diferentes componentes para a construção de sistemas privados diferenciais globais. Para saber mais sobre privacidade diferencial e o projeto WhiteNoise, consulte a privacidade dos [dados preservando utilizando privacidade diferencial e artigo whiteNoise.](./concept-differential-privacy.md)
+
+> [!NOTE]
+> Por favor, note que estamos renomeando o kit de ferramentas e apresentaremos o novo nome nas próximas semanas. 
 
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documente o ciclo de vida de aprendizagem automática com folhas de dados
 

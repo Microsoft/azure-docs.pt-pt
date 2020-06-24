@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Premium Workflow formatos e codecs / Microsoft Docs
-description: Este tópico dá uma visão geral dos formatos e códigos de fluxo de trabalho do Media Encoder Premium
+title: Media Encoder Premium Workflow formatos e codecs Microsoft Docs
+description: Este tópico dá uma visão geral dos formatos e codecs de formatos e codecs de fluxo de trabalho premium media Encoder
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,46 +15,46 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269760"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705105"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formatos e codecs
 
 > [!NOTE]
-> O processador de mídia Media Encoder Premium Workflow, discutido neste tópico, não está disponível na China. 
+> O processador de mídia Media Encoder Premium Workflow discutido neste tópico não está disponível na China. 
 
-Este documento contém uma lista de formatos e códigos de ficheirode entrada e saída que são suportados pela versão de pré-visualização pública do **codificador de trabalho Media Encoder Premium Workflow.**
+Este documento contém uma lista de formatos e códigos de ficheiros de entrada e saída que são suportados pela versão de pré-visualização pública do codificador **de fluxo de trabalho Media Encoder Premium.**
 
-[Media Encoder Premium Workflow Input Formatos e Codecs](#input_formats)
+[Formatos e Codecs de entrada de fluxo de trabalho premium media Encoder Premium](#input_formats)
 
-Media Encoder Premium Workflow Output Formatos e Codecs
+Formatos e Codecs de saída de fluxo de trabalho premium de media Encoder Premium
 
-**Media Encoder Premium Workflow** suporta legendagem fechada descrita [nesta](#closed_captioning) secção. 
+**O Fluxo de Trabalho Premium Media Encoder** suporta legendas fechadas descritas [nesta](#closed_captioning) secção. 
 
-## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Media Encoder Premium Workflow Input Formatos e Codecs
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Formatos e Codecs de entrada de fluxo de trabalho premium media Encoder Premium
 
-A secção seguinte lista os códigos e formatos de ficheiros que este processador de mídia suporta como entrada.
+A secção seguinte lista os formatos de códigos e ficheiros que este processador de mídia suporta como entrada.
 
 ### <a name="input-containerfile-formats"></a>Contentor de Entrada/Formatos de Ficheiro
 
 * Adobe® Flash® F4V
-* MXF/SMPTE 377m
+* MXF/SMPTE 377M
 * GXF
 * Fluxos de transporte MPEG-2
-* Fluxos de programas MPEG-2
+* Streams de Programas MPEG-2
 * MPEG-4/MP4
 * Windows Media/ASF
-* AVI (Não comprimido 8bit/10bit)
+* AVI (8bit/10bit descomprimido)
 
 ### <a name="input-video-codecs"></a>Codecs de Vídeo de Entrada
 
 * AVC 8-bits/10-bits, até 4:2:2, incluindo AVCIntra
 * Avid DNxHD (no MXF)
 * DVCPro/DVCProHD (no MXF)
-* Hevc/H.265, Perfil Principal e Principal 10
+* PERFIL HEVC/H.265, Principal e Principal 10
 * JPEG2000
 * MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
@@ -71,11 +71,11 @@ A secção seguinte lista os códigos e formatos de ficheiros que este processad
 * Áudio de Suporte de Dados do Windows
 * WAV/PCM
 
-## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Media Encoder Premium Workflow Output Formatos e Codecs
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Formatos e Codecs de saída de fluxo de trabalho premium de media Encoder Premium
 
-A secção seguinte lista os códigos e formatos de ficheiros que são suportados como saída deste processador de mídia.
+A secção seguinte lista os formatos de códigos e ficheiros suportados como saída deste processador de mídia.
 
-### <a name="output-containerfile-formats"></a>Recipiente de saída/formatos de ficheiro
+### <a name="output-containerfile-formats"></a>Formatos de contentores/ficheiros de saída
 
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM e AS02)
@@ -83,23 +83,23 @@ A secção seguinte lista os códigos e formatos de ficheiros que são suportado
 * GXF
 * MPEG-4/MP4
 * Windows Media/ASF
-* AVI (Não comprimido 8bit/10bit)
+* AVI (8bit/10bit descomprimido)
 * Formato de ficheiro de streaming suave (PIFF 1.3)
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Códigos de vídeo de saída
 
-* AVC (H.264; 8 bits; até High Profile, Nível 5.2; 4K Ultra HD; AVC Intra)
+* AVC (H.264; 8-bit; até High Profile, Nível 5.2; 4K Ultra HD; AVC Intra)
 * Avid DNxHD (no MXF)
 * DVCPro/DVCProHD (no MXF)
 * MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
 * Windows Media Video/VC-1
-* Criação de miniaturas JPEG
-* HEVC (H.265; 8 bits e 10 bits, Main and Main 10 Profile)
+* Criação de miniatura JPEG
+* HEVC (H.265; 8 bit e 10 bits, Perfil Principal e Principal 10)
 
 
-### <a name="output-audio-codecs"></a>Códigos áudio de saída
+### <a name="output-audio-codecs"></a>Codecs de áudio de saída
 
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® Digital (AC3)
@@ -110,28 +110,28 @@ A secção seguinte lista os códigos e formatos de ficheiros que são suportado
 * Áudio de Suporte de Dados do Windows
 
 >[!NOTE]
->Se codificar o Dolby® Digital (AC3), a saída só pode ser escrita num ficheiro ISO MP4.
+>Se codificar para Dolby® Digital (AC3), a saída só pode ser escrita num ficheiro MP4 ISO.
 
-## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>Suporte para Legendagem Fechada
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>Apoio à legenda fechada
 
-Na ingestão, suportes de trabalho premium media **encoder:**
+No que diz sobre ingestão, **o fluxo de trabalho premium da Media Encoder** suporta:
 
 1. Ficheiros SCC
 2. Ficheiros SMPTE-TT
-3. CEA-608/CEA-708 – transportados como dados de utilizador (mensagens SEI de streams elementares H.264, ATSC/53, SCTE20) ou transportados como dados auxiliares nos ficheiros MXF/GXF
+3. CEA-608/CEA-708 – transportado como dados de utilizador (mensagens SEI de streams elementares H.264, ATSC/53, SCTE20) ou transportados como dados auxiliares em ficheiros MXF/GXF
 4. Ficheiros de legendas STL
 
 Na saída, estão disponíveis as seguintes opções:
 
-1. CEA-608 para tradução CEA-708
-2. CeA-608/CEA-708 passa (incorporado em mensagens SEI de correntes elementares H.264, ou transportados como dados auxiliares em ficheiros MXF)
+1. Tradução CEA-608 para CEA-708
+2. Passe CEA-608/CEA-708 (incorporado em mensagens SEI de fluxos elementares H.264, ou transportado como dados auxiliares em ficheiros MXF)
 3. SCC
-4. Texto Cronometrado SMPTE (a partir da fonte CEA-608 por SMPTE RP2052; incluindo a criação de ficheiros DFXP)
-5. Ficheiro de subtítulo SRT
-6. Fluxos de legendas DVB
+4. Texto Cronometrado SMPTE (a partir da fonte CEA-608 por SMPTE RP2052; incluindo criação de ficheiros DFXP)
+5. Ficheiro de legendagem SRT
+6. Streams de legendas DVB
 
 > [!NOTE]
-> Nem todos os formatos de saída acima são suportados para entrega através do streaming nos Serviços De Mídia Azure.
+> Nem todos os formatos de saída acima são suportados para entrega através do streaming nos Azure Media Services.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -139,7 +139,7 @@ Se o seu vídeo de entrada não contiver legendas fechadas, o Ativo de saída ai
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um bilhete de apoio navegando para [novo pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) de apoio
+Você pode abrir um bilhete de apoio navegando para [novo pedido de apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

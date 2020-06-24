@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: aff2eca677bbacf16cf6de638547dd52b6985e02
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5ecf8ca6e6790b218216aed9a6ff82c8a7ac9dd2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170217"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250150"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -125,7 +125,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para a Suíte G em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**. Os utilizadores terão de iniciar sessão para portal.azure.com e não poderão utilizar aad.portal.azure.com
 
     ![Lâmina de aplicações da empresa](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
 
@@ -167,79 +167,79 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|
    |---|---|
-   |correio primárioEmail|Cadeia|
-   |relações. [tipo eq "manager"].value|Cadeia|
-   |nome.famíliaName|Cadeia|
-   |nome.dado Nome|Cadeia|
-   |suspenso|Cadeia|
-   |externalids. [tipo eq "custom"].valor|Cadeia|
-   |externalids. [tipo eq "organização"].valor|Cadeia|
-   |endereços. [tipo eq "work"].país|Cadeia|
-   |endereços. [tipo eq "work"].streetAddress|Cadeia|
-   |endereços. [tipo eq "work"].região|Cadeia|
-   |endereços. [tipo eq "work"].localidade|Cadeia|
-   |endereços. [tipo eq "work"].postalCode|Cadeia|
-   |e-mails. [tipo eq "work"].endereço|Cadeia|
-   |organizações. [tipo eq "work"].departamento|Cadeia|
-   |organizações. [tipo eq "work"].title|Cadeia|
-   |números de telefone. [tipo eq "work"].value|Cadeia|
-   |números de telefone. [tipo eq "mobile"].valor|Cadeia|
-   |números de telefone. [tipo eq "work_fax"].valor|Cadeia|
-   |e-mails. [tipo eq "work"].endereço|Cadeia|
-   |organizações. [tipo eq "work"].departamento|Cadeia|
-   |organizações. [tipo eq "work"].title|Cadeia|
-   |números de telefone. [tipo eq "work"].value|Cadeia|
-   |números de telefone. [tipo eq "mobile"].valor|Cadeia|
-   |números de telefone. [tipo eq "work_fax"].valor|Cadeia|
-   |endereços. [tipo eq "casa"].país|Cadeia|
-   |endereços. [tipo eq "home"].formatada|Cadeia|
-   |endereços. [tipo eq "casa"].localidade|Cadeia|
-   |endereços. [tipo eq "home"].postalCode|Cadeia|
-   |endereços. [tipo eq "casa"].região|Cadeia|
-   |endereços. [tipo eq "home"].streetAddress|Cadeia|
-   |endereços. [tipo eq "outro"].país|Cadeia|
-   |endereços. [tipo eq "outro"].formatado|Cadeia|
-   |endereços. [tipo eq "outro"].localidade|Cadeia|
-   |endereços. [tipo eq "outro"].postalCode|Cadeia|
-   |endereços. [tipo eq "outro"].região|Cadeia|
-   |endereços. [tipo eq "outro"].streetAddress|Cadeia|
-   |endereços. [tipo eq "work"].formatada|Cadeia|
-   |changePasswordAtNextLogin|Cadeia|
-   |e-mails. [tipo eq "home"].endereço|Cadeia|
-   |e-mails. [tipo eq "outro"].endereço|Cadeia|
-   |externalids. [tipo eq "conta"].valor|Cadeia|
-   |externalids. [tipo eq "custom"].customType|Cadeia|
-   |externalids. [tipo eq "cliente"].valor|Cadeia|
-   |externalids. [tipo eq "login_id"].value|Cadeia|
-   |externalids. [tipo eq "rede"].valor|Cadeia|
-   |género.tipo|Cadeia|
-   |GeradoImmutableId|Cadeia|
-   |Identificador|Cadeia|
-   |Ims. [tipo eq "casa"].protocolo|Cadeia|
-   |Ims. [tipo eq "outro"].protocolo|Cadeia|
-   |Ims. [tipo eq "work"].protocolo|Cadeia|
-   |incluemInGlobalAddressList|Cadeia|
-   |ipWhitelisted|Cadeia|
-   |organizações. [tipo eq "escola"].costCenter|Cadeia|
-   |organizações. [tipo eq "escola"].departamento|Cadeia|
-   |organizações. [tipo eq "escola"].domínio|Cadeia|
-   |organizações. [tipo eq "escola"].FullTimeEquivalente|Cadeia|
-   |organizações. [tipo eq "escola"].localização|Cadeia|
-   |organizações. [tipo eq "escola"].nome|Cadeia|
-   |organizações. [tipo eq "escola"].símbolo|Cadeia|
-   |organizações. [tipo eq "escola"].título|Cadeia|
-   |organizações. [tipo eq "work"].costCenter|Cadeia|
-   |organizações. [tipo eq "work"].domínio|Cadeia|
-   |organizações. [tipo eq "work"].FullTimeEquivallent|Cadeia|
-   |organizações. [tipo eq "work"].localização|Cadeia|
-   |organizações. [tipo eq "work"].name|Cadeia|
-   |organizações. [tipo eq "work"].símbolo|Cadeia|
-   |OrgUnitPath|Cadeia|
-   |números de telefone. [tipo eq "casa"].valor|Cadeia|
-   |números de telefone. [tipo eq "outro"].valor|Cadeia|
-   |sites. [tipo eq "casa"].valor|Cadeia|
-   |sites. [tipo eq "outro"].valor|Cadeia|
-   |sites. [tipo eq "work"].value|Cadeia|
+   |correio primárioEmail|String|
+   |relações. [tipo eq "manager"].value|String|
+   |nome.famíliaName|String|
+   |nome.dado Nome|String|
+   |suspenso|String|
+   |externalids. [tipo eq "custom"].valor|String|
+   |externalids. [tipo eq "organização"].valor|String|
+   |endereços. [tipo eq "work"].país|String|
+   |endereços. [tipo eq "work"].streetAddress|String|
+   |endereços. [tipo eq "work"].região|String|
+   |endereços. [tipo eq "work"].localidade|String|
+   |endereços. [tipo eq "work"].postalCode|String|
+   |e-mails. [tipo eq "work"].endereço|String|
+   |organizações. [tipo eq "work"].departamento|String|
+   |organizações. [tipo eq "work"].title|String|
+   |números de telefone. [tipo eq "work"].value|String|
+   |números de telefone. [tipo eq "mobile"].valor|String|
+   |números de telefone. [tipo eq "work_fax"].valor|String|
+   |e-mails. [tipo eq "work"].endereço|String|
+   |organizações. [tipo eq "work"].departamento|String|
+   |organizações. [tipo eq "work"].title|String|
+   |números de telefone. [tipo eq "work"].value|String|
+   |números de telefone. [tipo eq "mobile"].valor|String|
+   |números de telefone. [tipo eq "work_fax"].valor|String|
+   |endereços. [tipo eq "casa"].país|String|
+   |endereços. [tipo eq "home"].formatada|String|
+   |endereços. [tipo eq "casa"].localidade|String|
+   |endereços. [tipo eq "home"].postalCode|String|
+   |endereços. [tipo eq "casa"].região|String|
+   |endereços. [tipo eq "home"].streetAddress|String|
+   |endereços. [tipo eq "outro"].país|String|
+   |endereços. [tipo eq "outro"].formatado|String|
+   |endereços. [tipo eq "outro"].localidade|String|
+   |endereços. [tipo eq "outro"].postalCode|String|
+   |endereços. [tipo eq "outro"].região|String|
+   |endereços. [tipo eq "outro"].streetAddress|String|
+   |endereços. [tipo eq "work"].formatada|String|
+   |changePasswordAtNextLogin|String|
+   |e-mails. [tipo eq "home"].endereço|String|
+   |e-mails. [tipo eq "outro"].endereço|String|
+   |externalids. [tipo eq "conta"].valor|String|
+   |externalids. [tipo eq "custom"].customType|String|
+   |externalids. [tipo eq "cliente"].valor|String|
+   |externalids. [tipo eq "login_id"].value|String|
+   |externalids. [tipo eq "rede"].valor|String|
+   |género.tipo|String|
+   |GeradoImmutableId|String|
+   |Identificador|String|
+   |Ims. [tipo eq "casa"].protocolo|String|
+   |Ims. [tipo eq "outro"].protocolo|String|
+   |Ims. [tipo eq "work"].protocolo|String|
+   |incluemInGlobalAddressList|String|
+   |ipWhitelisted|String|
+   |organizações. [tipo eq "escola"].costCenter|String|
+   |organizações. [tipo eq "escola"].departamento|String|
+   |organizações. [tipo eq "escola"].domínio|String|
+   |organizações. [tipo eq "escola"].FullTimeEquivalente|String|
+   |organizações. [tipo eq "escola"].localização|String|
+   |organizações. [tipo eq "escola"].nome|String|
+   |organizações. [tipo eq "escola"].símbolo|String|
+   |organizações. [tipo eq "escola"].título|String|
+   |organizações. [tipo eq "work"].costCenter|String|
+   |organizações. [tipo eq "work"].domínio|String|
+   |organizações. [tipo eq "work"].FullTimeEquivallent|String|
+   |organizações. [tipo eq "work"].localização|String|
+   |organizações. [tipo eq "work"].name|String|
+   |organizações. [tipo eq "work"].símbolo|String|
+   |OrgUnitPath|String|
+   |números de telefone. [tipo eq "casa"].valor|String|
+   |números de telefone. [tipo eq "outro"].valor|String|
+   |sites. [tipo eq "casa"].valor|String|
+   |sites. [tipo eq "outro"].valor|String|
+   |sites. [tipo eq "work"].value|String|
    
 
 10. Na secção **Mappings,** selecione **Provision Azure Ative Directory Groups**.
@@ -248,10 +248,10 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       |Atributo|Tipo|
       |---|---|
-      |e-mail|Cadeia|
-      |Membros|Cadeia|
-      |name|Cadeia|
-      |descrição|Cadeia|
+      |e-mail|String|
+      |Membros|String|
+      |name|String|
+      |descrição|String|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -284,6 +284,6 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

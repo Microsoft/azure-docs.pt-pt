@@ -12,7 +12,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "77279696"
 ---
-Esta tabela mostra as encadernações que são suportadas nas principais versões do tempo de funcionamento das Funções Azure:
+Esta tabela mostra as encadernações suportadas nas principais versões do tempo de funcionamento das Funções Azure:
 
 
 | Tipo | 1.x | 2.x e superior<sup>1</sup> | Acionador | Input | Saída |
@@ -22,20 +22,20 @@ Esta tabela mostra as encadernações que são suportadas nas principais versõe
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Hubs de Eventos](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP & webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
-| [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
-| [Tabelas<br/>do Microsoft Graph Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
-| [Ficheiros<br/>Microsoft Graph OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
-| [E-mail do Microsoft Graph<br/>Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Eventos<br/>do Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
-| [Fichas<br/>do Microsoft Graph Auth](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
-| [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
+| [Hub IoT](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
+| [Tabelas Microsoft Graph <br/> Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
+| [Ficheiros Microsoft Graph <br/> OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
+| [E-mail do Microsoft Graph <br/> Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
+| [Eventos microsoft Graph <br/>](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Fichas microsoft graph <br/> Auth](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
+| [Aplicações Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Armazenamento de fila](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|
-| [Sinaleiro](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|
+| [SinalR](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|
 | [Armazenamento de mesa](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|
 | [Temporizador](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> A partir do tempo de execução da versão 2.x, todas as encadernações, exceto HTTP e Temporizador, devem ser registadas. Ver [Registar extensões de encadernação](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> A partir da versão 2.x, todas as ligações, exceto HTTP e Timer, devem ser registadas. Consulte [as extensões de ligação do Registo](../articles/azure-functions/functions-bindings-register.md).
